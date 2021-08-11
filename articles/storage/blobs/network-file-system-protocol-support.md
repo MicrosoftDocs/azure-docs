@@ -54,7 +54,7 @@ For step-by-step guidance, see [Mount Blob storage by using the Network File Sys
 
 ## Network security
 
-Your storage account must be contained within a VNet. A VNet enables clients to securely connect to your storage account. The only way to secure the data in your account is by using a VNet and other network security settings. Any other tool used to secure data including account key authorization, Azure Active Directory (AD) security, and access control lists (ACLs) are not yet supported in accounts that have the NFS 3.0 protocol support enabled on them. 
+Traffic must originate from a VNet. A VNet enables clients to securely connect to your storage account. The only way to secure the data in your account is by using a VNet and other network security settings. Any other tool used to secure data including account key authorization, Azure Active Directory (AD) security, and access control lists (ACLs) are not yet supported in accounts that have the NFS 3.0 protocol support enabled on them. 
 
 To learn more, see [Network security recommendations for Blob storage](security-recommendations.md#networking).
 
@@ -89,7 +89,7 @@ See the [Known issues](network-file-system-protocol-known-issues.md) article for
 
 ## Pricing
 
-See the [Azure Blob Storage pricing](/pricing/details/storage/blobs/) page for data storage and transaction costs. 
+See the [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page for data storage and transaction costs. 
 
 ## See also
 

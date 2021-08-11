@@ -3,7 +3,7 @@ title: Quickstart - Add calling to an Windows app using Azure Communication Serv
 description: In this quickstart, you learn how to use the Azure Communication Services Calling SDK for Windows.
 author: tophpalmer
 ms.author: mikben
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ---
@@ -154,14 +154,14 @@ The following code should be added after handling the exception from the previou
 
 ```csharp
 client.CreateCallAgent(creds, callAgentOptions).Completed +=
-(IAsyncOperation<CallAgent> asyncInfo, AsyncStatus asyncStatus) =>
+async (IAsyncOperation<CallAgent> asyncInfo, AsyncStatus asyncStatus) =>
 {
     agent_ = asyncInfo.GetResults();
 
-    string[] calling = { "<CALLEE>" };
+    CommunicationUserIdentifier target = new CommunicationUserIdentifier("<CALLEE>");
 
-    StartCallOptions startCallOptions = new StartCallOptions(); ;
-    call_ = agent_.Call(calling, startCallOptions);
+    StartCallOptions startCallOptions = new StartCallOptions();
+    call_ = await agent_.StartCallAsync(new List<ICommunicationIdentifier>() { target }, startCallOptions);
 };
 ```
 
@@ -176,8 +176,8 @@ An instance of `HangupOptions` should also be used to inform if the call must be
 The following code should be added inside `HangupHandler`.
 
 ```csharp
-HangupOptions hangupOptions = new HangupOptions();
-call_.HangupAsync(hangupOptions).Completed +=
+HangUpOptions hangupOptions = new HangUpOptions();
+call_.HangUpAsync(hangupOptions).Completed +=
 (IAsyncAction asyncInfo, AsyncStatus asyncStatus) =>
 {
 };

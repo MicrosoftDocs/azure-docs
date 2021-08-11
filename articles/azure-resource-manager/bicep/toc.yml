@@ -1,10 +1,11 @@
 - name: Bicep documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: What is Bicep?
     href: overview.md
-    displayName: benefits,faq
+    displayName: benefits,faq,playground
   - name: Compare JSON and Bicep
     href: compare-template-syntax.md
 - name: Install
@@ -21,13 +22,17 @@
   - name: Microsoft Learn - Bicep
     href: learn-bicep.md
 - name: How to
+  expanded: true
   items:
   - name: Author
+    expanded: true
     items:
     - name: Resources
+      expanded: true
       items:
       - name: Resource declaration
         href: resource-declaration.md
+        displayName: existing
       - name: Conditional deployment
         href: conditional-resource-deployment.md
         displayName: runtime
@@ -44,13 +49,14 @@
       displayName: configuration
     - name: Outputs
       href: outputs.md
+      displayName: dynamic number of outputs,modules
     - name: Modules
       href: modules.md
       displayName: scopes,consume
     - name: Loops
       items:
       - name: Resources
-        displayName: iteration,copy,multiple
+        displayName: iteration,copy,multiple,batches,child,condition,filter
         href: loop-resources.md
       - name: Properties
         displayName: iteration,copy,multiple
@@ -65,12 +71,18 @@
       items:
       - name: Resource group
         href: deploy-to-resource-group.md
+        displayName: deployment commands,multiple resource groups
       - name: Subscription
         href: deploy-to-subscription.md
+        displayName: Azure policy,policy,access control
       - name: Management group
         href: deploy-to-management-group.md
+        displayName: policy,Azure policy
       - name: Tenant
         href: deploy-to-tenant.md
+        displayName: assign role
+    - name: Linter
+      href: linter.md
     - name: Best practices
       href: best-practices.md
   - name: Deploy
@@ -79,6 +91,7 @@
       items:
       - name: What-if deployment
         href: deploy-what-if.md
+        displayName: whatif, what if
     - name: Deployment commands
       items:
       - name: Deploy - CLI
@@ -92,7 +105,7 @@
       - name: Create parameter file
         href: parameter-files.md
       - name: Pass sensitive values
-        displayname: key vault
+        displayName: key vault
         href: key-vault-parameter.md
     - name: CI/CD
       items:
@@ -104,6 +117,7 @@
     items:
     - name: Decompile
       href: decompile.md
+      displayName: conversion issues,export,convert,playground
 - name: Reference
   items:
   - name: Bicep file structure
@@ -111,6 +125,7 @@
     href: file.md
   - name: Data types
     href: data-types.md
+    displayName: supported types,arrays,booleans,integers,objects,strings,secure,
   - name: Functions
     items:
     - name: All functions
@@ -139,6 +154,8 @@
     items:
     - name: All operators
       href: operators.md
+    - name: Accessor operators
+      href: operators-access.md
     - name: Comparison operators
       href: operators-comparison.md
     - name: Logical operators
@@ -147,6 +164,7 @@
       href: operators-numeric.md
   - name: Bicep CLI
     href: bicep-cli.md
+    displayName: build,decompile,install,list-versions,list versions,upgrade,version
   - name: Template reference
     href: /azure/templates/
   - name: Azure PowerShell

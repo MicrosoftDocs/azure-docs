@@ -44,4 +44,4 @@ To show the chat, choose **Show Chat** in the **Help** panel:
 Now that you've learned how to toggle live chat in Azure IoT Central, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Add tiles to your dashboard](howto-add-tiles-to-your-dashboard.md)
+> [Add tiles to your dashboard](howto-manage-dashboards.md)

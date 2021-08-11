@@ -12,9 +12,6 @@ This article explains how to disable a function in Azure Functions. To *disable*
 
 The recommended way to disable a function is with an app setting in the format `AzureWebJobs.<FUNCTION_NAME>.Disabled` set to `true`. You can create and modify this application setting in a number of ways, including by using the [Azure CLI](/cli/azure/) and from your function's **Overview** tab in the [Azure portal](https://portal.azure.com). 
 
-> [!NOTE]  
-> When you disable an HTTP triggered function by using the methods described in this article, the endpoint may still by accessible when running on your local computer.  
-
 ## Disable a function
 
 # [Portal](#tab/portal)
@@ -169,6 +166,13 @@ In the second example, the function is disabled when there is an app setting tha
 >[!IMPORTANT]  
 >The portal uses application settings to disable v1.x functions. When an application setting conflicts with the function.json file, an error can occur. You should remove the `disabled` property from the function.json file to prevent errors. 
 
+## Considerations
+
+Keep the following considerations in mind when you disable functions:
+
++ When you disable an HTTP triggered function by using the methods described in this article, the endpoint may still by accessible when running on your local computer.  
+
++ At this time, function names that contain a hyphen (`-`) can't be disabled when running on Linux in a Dedicated (App Service) plan. If you need to disable your functions when running on Linux in a Dedicated plan, don't use hyphens in your function names.
 
 ## Next steps
 

@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/22/2021
+ms.date: 06/30/2021
 ms.author: cherylmc
 
 ---
@@ -31,28 +31,34 @@ Metrics in Azure Monitor are numerical values that describe some aspect of a sys
 
 The following metrics are available for Azure site-to-site VPN gateways:
 
-* **Gateway Bandwidth** – Average site-to-site aggregate bandwidth of a gateway in bytes per second.
-* **Tunnel Bandwidth** – Average bandwidth of a tunnel in bytes per second.
-* **Tunnel Egress Bytes** – Outgoing bytes of a tunnel. 
-* **Tunnel Egress Packets** – Outgoing packet count of a tunnel. 
-* **Tunnel Egress TS Mismatch Packet Drop** – Outgoing packet drop count from traffic selector mismatch of a tunnel. 
-* **Tunnel Ingress Bytes** – Incoming bytes of a tunnel. 
-* **Tunnel Ingress Packet** – Incoming packet count of a tunnel. 
-* **Tunnel Ingress TS Mismatch Packet Drop** – Incoming packet drop count from traffic selector mismatch of a tunnel. 
+| Metric | Description|
+| --- | --- |
+| **Gateway Bandwidth** | Average site-to-site aggregate bandwidth of a gateway in bytes per second.|
+| **Tunnel Bandwidth** | Average bandwidth of a tunnel in bytes per second.|
+| **Tunnel Egress Bytes** | Outgoing bytes of a tunnel. |
+| **Tunnel Egress Packets** | Outgoing packet count of a tunnel. |
+| **Tunnel Egress TS Mismatch Packet Drop** | Outgoing packet drop count from traffic selector mismatch of a tunnel.|
+| **Tunnel Ingress Bytes** | Incoming bytes of a tunnel.|
+| **Tunnel Ingress Packet** | Incoming packet count of a tunnel.|
+| **Tunnel Ingress TS Mismatch Packet Drop** | Incoming packet drop count from traffic selector mismatch of a tunnel.|
 
 ### Point-to-site VPN gateways
 
 The following metrics are available for Azure point-to-site VPN gateways:
 
-* **Gateway P2S Bandwidth** – Average point-to-site aggregate bandwidth of a gateway in bytes per second.
-* **P2S Connection Count** – point-to-site connection count of a gateway.
+| Metric | Description|
+| --- | --- |
+| **Gateway P2S Bandwidth** | Average point-to-site aggregate bandwidth of a gateway in bytes per second. |
+| **P2S Connection Count** |Point-to-site connection count of a gateway. Point-to-site connection count of a gateway. To ensure you are viewing accurate Metrics in Azure Monitor, please select the **Aggregation Type** for **P2S Connection Count** as **Sum**. You may also select **Max** if you also Split By **Instance**. |
 
 ### Azure ExpressRoute gateways
 
 The following metrics are available for Azure ExpressRoute gateways:
 
-* **BitsInPerSecond** – Bits ingressing Azure per second.
-* **BitsOutPerSecond** – Bits egressing Azure per second.
+| Metric | Description|
+| --- | --- |
+| **BitsInPerSecond** | Bits ingressing Azure per second.|
+| **BitsOutPerSecond** | Bits egressing Azure per second. |
 
 ### <a name="metrics-steps"></a>View gateway metrics
 
@@ -76,18 +82,22 @@ The following steps help you locate and view metrics:
 
 The following diagnostics are available for Azure site-to-site VPN gateways:
 
-* **Gateway Diagnostic Logs** – Gateway-specific diagnostics such as health, configuration, service updates, as well as additional diagnostics.
-* **Tunnel Diagnostic Logs** – These are IPsec tunnel-related logs such as connect and disconnect events for a site-to-site IPsec tunnel, negotiated SAs, disconnect reasons, as well as additional diagnostics.
-* **Route Diagnostic Logs** – These are logs related to events for static routes, BGP, route updates, as well as additional diagnostics.
-* **IKE Diagnostic Logs** – IKE-specific diagnostics for IPsec connections.
+| Metric | Description|
+| --- | --- |
+| **Gateway Diagnostic Logs** | Gateway-specific diagnostics such as health, configuration, service updates, as well as additional diagnostics.|
+| **Tunnel Diagnostic Logs** | These are IPsec tunnel-related logs such as connect and disconnect events for a site-to-site IPsec tunnel, negotiated SAs, disconnect reasons, as well as additional diagnostics.|
+| **Route Diagnostic Logs** | These are logs related to events for static routes, BGP, route updates, as well as additional diagnostics. |
+| **IKE Diagnostic Logs** | IKE-specific diagnostics for IPsec connections. |
 
 ### Point-to-site VPN gateways
 
 The following diagnostics are available for Azure point-to-site VPN gateways:
 
-* **Gateway Diagnostic Logs** – Gateway-specific diagnostics such as health, configuration, service updates, as well as other diagnostics.
-* **IKE Diagnostic Logs** – IKE-specific diagnostics for IPsec connections.
-* **P2S Diagnostic Logs** – These are User VPN (Point-to-site) P2S configuration and client events. They include client connect/disconnect, VPN client address allocation, as well as other diagnostics.
+| Metric | Description|
+| --- | --- |
+| **Gateway Diagnostic Logs** | Gateway-specific diagnostics such as health, configuration, service updates, as well as other diagnostics. |
+| **IKE Diagnostic Logs** | IKE-specific diagnostics for IPsec connections.|
+| **P2S Diagnostic Logs** | These are User VPN (Point-to-site) P2S configuration and client events. They include client connect/disconnect, VPN client address allocation, as well as other diagnostics.|
 
 ### <a name="diagnostic-steps"></a>View diagnostic logs
 
@@ -97,7 +107,7 @@ The following steps help you locate and view diagnostics:
 
    :::image type="content" source="./media/monitor-virtual-wan/3.png" alt-text="Screenshot that shows the 'Overview' section with an arrow pointing to the 'Copy' button.":::
 
-2. In the Monitoring section, navigate to the resource group. Select **Diagnostic settings**, then input the resource information. This is the resource information that you copied in Step 2 from the [View gateway metrics](#metrics-steps) section, earlier in this article.
+2. Navigate to **Monitor** from the search bar and in the Settings section, select **Diagnostic settings**, then input the resource group, resource type and resource information. This is the resource group information that you copied in Step 2 from the [View gateway metrics](#metrics-steps) section, earlier in this article.
 
    :::image type="content" source="./media/monitor-virtual-wan/4.png" alt-text="Screenshot that shows the 'Monitoring' section with an arrow pointing to the 'Resource' drop-down.":::
 

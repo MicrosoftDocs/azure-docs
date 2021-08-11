@@ -2,15 +2,15 @@
 title: Use tenant restrictions to manage access to SaaS apps - Azure AD
 description: How to use tenant restrictions to manage which users can access apps based on their Azure AD tenant.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 6/2/2021
-ms.author: mtillman
-ms.reviewer: hpsin
+ms.date: 7/30/2021
+ms.author: davidmu
+ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
 ---
 
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 Large organizations that emphasize security want to move to cloud services like Microsoft 365, but need to know that their users only can access approved resources. Traditionally, companies restrict domain names or IP addresses when they want to manage access. This approach fails in a world where software as a service (or SaaS) apps are hosted in a public cloud, running on shared domain names like [outlook.office.com](https://outlook.office.com/) and [login.microsoftonline.com](https://login.microsoftonline.com/). Blocking these addresses would keep users from accessing Outlook on the web entirely, instead of merely restricting them to approved identities and resources.
 
-The Azure Active Directory (Azure AD) solution to this challenge is a feature called tenant restrictions. With tenant restrictions, organizations can control access to SaaS cloud applications, based on the Azure AD tenant the applications use for single sign-on. For example, you may want to allow access to your organization's Microsoft 365 applications, while preventing access to other organizations' instances of these same applications.  
+The Azure Active Directory (Azure AD) solution to this challenge is a feature called tenant restrictions. With tenant restrictions, organizations can control access to SaaS cloud applications, based on the Azure AD tenant the applications use for single sign-on. For example, you may want to allow access to your organization's Microsoft 365 applications, while preventing access to other organizations' instances of these same applications.  
 
 With tenant restrictions, organizations can specify the list of tenants that their users are permitted to access. Azure AD then only grants access to these permitted tenants.
 
@@ -48,7 +48,7 @@ There are two steps to get started with tenant restrictions. First, make sure th
 
 ### URLs and IP addresses
 
-To use tenant restrictions, your clients must be able to connect to the following Azure AD URLs to authenticate: [login.microsoftonline.com](https://login.microsoftonline.com/), [login.microsoft.com](https://login.microsoft.com/), and [login.windows.net](https://login.windows.net/). Additionally, to access Office 365, your clients must also be able to connect to the fully qualified domain names (FQDNs), URLs, and IP addresses defined in [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2). 
+To use tenant restrictions, your clients must be able to connect to the following Azure AD URLs to authenticate: [login.microsoftonline.com](https://login.microsoftonline.com/), [login.microsoft.com](https://login.microsoft.com/), and [login.windows.net](https://login.windows.net/). Additionally, to access Office 365, your clients must also be able to connect to the fully qualified domain names (FQDNs), URLs, and IP addresses defined in [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
 ### Proxy configuration and requirements
 
@@ -71,14 +71,14 @@ For each outgoing request to login.microsoftonline.com, login.microsoft.com, and
 
 The headers should include the following elements:
 
-- For *Restrict-Access-To-Tenants*, use a value of \<permitted tenant list\>, which is a comma-separated list of tenants you want to allow users to access. Any domain that is registered with a tenant can be used to identify the tenant in this list, as well as the directory ID itself. For an example of all three ways of describing a tenant, the name/value pair to allow Contoso, Fabrikam, and Microsoft looks like: `Restrict-Access-To-Tenants: contoso.com,fabrikam.onmicrosoft.com,72f988bf-86f1-41af-91ab-2d7cd011db47`
+- For *Restrict-Access-To-Tenants*, use a value of \<permitted tenant list\>, which is a comma-separated list of tenants you want to allow users to access. Any domain that is registered with a tenant can be used to identify the tenant in this list, as well as the directory ID itself. For an example of all three ways of describing a tenant, the name/value pair to allow Contoso, Fabrikam, and Microsoft looks like: `Restrict-Access-To-Tenants: contoso.com,fabrikam.onmicrosoft.com,72f988bf-86f1-41af-91ab-2d7cd011db47`
 
-- For *Restrict-Access-Context*, use a value of a single directory ID, declaring which tenant is setting the tenant restrictions. For example, to declare Contoso as the tenant that set the tenant restrictions policy, the name/value pair looks like: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`.  You **must** use your own directory ID in this spot in order to get logs for these authentications.
+- For *Restrict-Access-Context*, use a value of a single directory ID, declaring which tenant is setting the tenant restrictions. For example, to declare Contoso as the tenant that set the tenant restrictions policy, the name/value pair looks like: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`.  You **must** use your own directory ID in this spot in order to get logs for these authentications.
 
 > [!TIP]
-> You can find your directory ID in the [Azure Active Directory portal](https://aad.portal.azure.com/). Sign in as an administrator, select **Azure Active Directory**, then select **Properties**. 
+> You can find your directory ID in the [Azure Active Directory portal](https://aad.portal.azure.com/). Sign in as an administrator, select **Azure Active Directory**, then select **Properties**.
 >
-> To validate that a directory ID or domain name refer to the same tenant, use that ID or domain in place of <tenant> in this URL: `https://login.microsoftonline.com/<tenant>/v2.0/.well-known/openid-configuration`.  If the results with the domain and the ID are the same, they refer to the same tenant. 
+> To validate that a directory ID or domain name refer to the same tenant, use that ID or domain in place of <tenant> in this URL: `https://login.microsoftonline.com/<tenant>/v2.0/.well-known/openid-configuration`.  If the results with the domain and the ID are the same, they refer to the same tenant.
 
 To prevent users from inserting their own HTTP header with non-approved tenants, the proxy needs to replace the *Restrict-Access-To-Tenants* header if it is already present in the incoming request.
 
@@ -106,11 +106,11 @@ While configuration of tenant restrictions is done on the corporate proxy infras
 
 The admin for the tenant specified as the Restricted-Access-Context tenant can use this report to see sign-ins blocked because of the tenant restrictions policy, including the identity used and the target directory ID. Sign-ins are included if the tenant setting the restriction is either the user tenant or resource tenant for the sign-in.
 
-The report may contain limited information, such as target directory ID, when a user who is in a tenant other than the Restricted-Access-Context tenant signs in. In this case, user identifiable information, such as name and user principal name, is masked to protect user data in other tenants ("{PII Removed}@domain.com" or 00000000-0000-0000-0000-000000000000 in place of usernames and object IDs as appropriate). 
+The report may contain limited information, such as target directory ID, when a user who is in a tenant other than the Restricted-Access-Context tenant signs in. In this case, user identifiable information, such as name and user principal name, is masked to protect user data in other tenants ("{PII Removed}@domain.com" or 00000000-0000-0000-0000-000000000000 in place of usernames and object IDs as appropriate).
 
 Like other reports in the Azure portal, you can use filters to specify the scope of your report. You can filter on a specific time interval, user, application, client, or status. If you select the **Columns** button, you can choose to display data with any combination of the following fields:
 
-- **User** - this field can have personal data removed, where it will be set to `00000000-0000-0000-0000-000000000000`. 
+- **User** - this field can have personal data removed, where it will be set to `00000000-0000-0000-0000-000000000000`.
 - **Application**
 - **Status**
 - **Date**
@@ -128,7 +128,7 @@ Microsoft 365 applications must meet two criteria to fully support tenant restri
 1. The client used supports modern authentication.
 2. Modern authentication is enabled as the default authentication protocol for the cloud service.
 
-Refer to [Updated Office 365 modern authentication](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/) for the latest information on which Office clients currently support modern authentication. That page also includes links to instructions for enabling modern authentication on specific Exchange Online and Skype for Business Online tenants. SharePoint Online already enables Modern authentication by default.
+Refer to [Updated Office 365 modern authentication](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/) for the latest information on which Office clients currently support modern authentication. That page also includes links to instructions for enabling modern authentication on specific Exchange Online and Skype for Business Online tenants. SharePoint Online already enables Modern authentication by default. Teams only supports modern auth, and does not support legacy auth, so this bypass concern does not apply to Teams. 
 
 Microsoft 365 browser-based applications (the Office Portal, Yammer, SharePoint sites, Outlook on the Web, and more) currently support tenant restrictions. Thick clients (Outlook, Skype for Business, Word, Excel, PowerPoint, and more) can enforce tenant restrictions only when using modern authentication.  
 
@@ -152,7 +152,7 @@ Fiddler is a free web debugging proxy that can be used to capture and modify HTT
 
    1. In the Fiddler Web Debugger tool, select the **Rules** menu and select **Customize Rules…** to open the CustomRules file.
 
-   2. Add the following lines at the beginning of the `OnBeforeRequest` function. Replace \<List of tenant identifiers\> with a domain registered with your tenant (for example, `contoso.onmicrosoft.com`). Replace \<directory ID\> with your tenant's Azure AD GUID identifier.  You **must** include the correct GUID identifier in order for the logs to appear in your tenant. 
+   2. Add the following lines at the beginning of the `OnBeforeRequest` function. Replace \<List of tenant identifiers\> with a domain registered with your tenant (for example, `contoso.onmicrosoft.com`). Replace \<directory ID\> with your tenant's Azure AD GUID identifier.  You **must** include the correct GUID identifier in order for the logs to appear in your tenant.
 
    ```JScript.NET
     // Allows access to the listed tenants.

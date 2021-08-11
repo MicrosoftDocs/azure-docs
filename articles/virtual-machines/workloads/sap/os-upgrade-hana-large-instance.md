@@ -1,6 +1,6 @@
 ---
 title: Operating system upgrade for the SAP HANA on Azure (Large Instances)| Microsoft Docs
-description: Learn to perform an operating system upgrade for SAP HANA on Azure (Large Instances).
+description: Learn to do an operating system upgrade for SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter:
 author: Ajayan1008
@@ -11,45 +11,41 @@ ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/23/2021
+ms.date: 06/24/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
 
 ---
 # Operating System Upgrade
-This article describes the details of operating system (OS) upgrades on HANA Large Instances, otherwise known as BareMetal Infrastructure.
+This article describes the details of operating system (OS) upgrades on HANA Large Instances (HLI), otherwise known as BareMetal Infrastructure.
 
 >[!NOTE]
->The OS upgrade is customer's responsibility, Microsoft operations support can guide you to the key areas to watch out during the upgrade. You should consult your operating system vendor as well before you plan for an upgrade.
+>Upgrading the OS is your responsibility. Microsoft operations support can guide you in key areas of the upgrade, but consult your operating system vendor as well when planning an upgrade.
 
-During HLI unit provisioning, the Microsoft operations team installs the operating system.
-Over the time, you are required to maintain the operating system (Example: Patching, tuning, upgrading etc.) on the HLI unit.
-
-Before you do major changes to the operating system (for example, Upgrade SP1 to SP2), you shall contact Microsoft Operations team by opening a support ticket to consult.
+During HLI provisioning, the Microsoft operations team installs the operating system.
+You're required to maintain the operating system. For example, you need to do the patching, tuning, upgrading, and so on, on the HLI. Before you make major changes to the operating system, for example, upgrade SP1 to SP2, contact the Microsoft Operations team by opening a support ticket. Then they can consult with you. We recommend opening this ticket at least one week before the upgrade. 
 
 Include in your ticket:
 
 * Your HLI subscription ID.
 * Your server name.
-* The patch level you are planning to apply.
-* The date you are planning this change. 
-
-We would recommend you open this ticket at least one week prior to the desirable upgrade, which will let opration team know about the desired firmware version.
+* The patch level you're planning to apply.
+* The date you're planning this change. 
 
 For the support matrix of the different SAP HANA versions with the different Linux versions, see [SAP Note #2235581](https://launchpad.support.sap.com/#/notes/2235581).
 
 ## Known issues
 
-The following are the few common known issues during the upgrade:
-- On SKU Type II class SKU, the software foundation software (SFS) is removed after the OS upgrade. You need to reinstall the compatible SFS after the OS upgrade.
-- Ethernet card drivers (ENIC and FNIC) rolled back to older version. You need to reinstall the compatible version of the drivers after the upgrade.
+There are a couple of known issues with the upgrade:
+- On SKU Type II class SKU, the software foundation software (SFS) is removed during the OS upgrade. You'll need to reinstall the compatible SFS after the OS upgrade is complete.
+- Ethernet card drivers (ENIC and FNIC) are rolled back to an older version. You'll need to reinstall the compatible version of the drivers after the upgrade.
 
 ## SAP HANA Large Instance (Type I) recommended configuration
 
-Operating system configuration can drift from the recommended settings over time due to patching, system upgrades, and changes made by customers. Additionally, Microsoft identifies updates needed for existing systems to ensure they are optimally configured for the best performance and resiliency. Following instructions outline recommendations that address network performance, system stability, and optimal HANA performance.
+The OS configuration can drift from the recommended settings over time. This drift can occur because of patching, system upgrades, and other changes you may make. Microsoft identifies updates needed to ensure HANA Large Instances are optimally configured for the best performance and resiliency. The following instructions outline recommendations that address network performance, system stability, and optimal HANA performance.
 
 ### Compatible eNIC/fNIC driver versions
-  In order to have proper network performance and system stability, it is advised to ensure the OS-specific appropriate version of eNIC and fNIC drivers are installed as depicted in following compatibility table. Servers are delivered to customers with compatible versions. In some cases, during OS/Kernel patching, drivers can get rolled back to the default driver versions. Ensure appropriate driver version is running post OS/Kernel patching operations.
+  To have proper network performance and system stability, ensure the appropriate OS-specific version of eNIC and fNIC drivers are installed per the following compatibility table. Servers are delivered to customers with compatible versions. However, drivers can get rolled back to default versions during OS/kernel patching. Ensure the appropriate driver version is running post OS/kernel patching operations.
        
       
   |  OS Vendor    |  OS Package Version     |  Firmware Version  |  eNIC Driver	|  fNIC Driver | 
@@ -78,18 +74,18 @@ rpm -qa | grep enic/fnic
 ```
 rpm -e <old-rpm-package>
 ```
-#### Install the recommended eNIC/fNIC driver packages
+#### Install recommended eNIC/fNIC driver packages
 ```
 rpm -ivh <enic/fnic.rpm> 
 ```
 
-#### Commands to confirm the installation
+#### Commands to confirm installation
 ```
 modinfo enic
 modinfo fnic
 ```
 
-#### Steps for eNIC/fNIC drivers installation during OS Upgrade
+#### Steps for eNIC/fNIC drivers installation during OS upgrade
 
 * Upgrade OS version
 * Remove old rpm packages
@@ -99,35 +95,37 @@ modinfo fnic
 
 
 ### SuSE HLIs GRUB update failure
-SAP on Azure HANA Large Instances (Type I) can be in a non-bootable state after upgrade. The below procedure fixes this issue.
+SAP on Azure HANA Large Instances (Type I) can be in a non-bootable state after upgrade. The following procedure fixes this issue.
+
 #### Execution Steps
 
+-	Execute the `multipath -ll` command.
+-	Get the logical unit number (LUN) ID or use the command: `fdisk -l | grep mapper`
+-	Update the `/etc/default/grub_installdevice` file with line `/dev/mapper/<LUN ID>`. Example: /dev/mapper/3600a09803830372f483f495242534a56
 
-*	Execute `multipath -ll` command.
-*	Get the LUN ID whose size is approximately 50G or use the command: `fdisk -l | grep mapper`
-*	Update `/etc/default/grub_installdevice` file with line `/dev/mapper/<LUN ID>`. Example: /dev/mapper/3600a09803830372f483f495242534a56
 >[!NOTE]
->LUN ID varies from server to server.
+>The LUN ID varies from server to server.
 
 
-### Disable EDAC 
-   The Error Detection And Correction (EDAC) module helps in detecting and correcting memory errors. However, the underlying hardware for SAP HANA on Azure Large Instances (Type I) is already performing the same function. Having the same feature enabled at the hardware and operating system (OS) levels can cause conflicts and can lead to occasional, unplanned shutdowns of the server. Therefore, it is recommended to disable the module from the OS.
+### Disable Error Detection And Correction 
+   Error Detection And Correction (EDAC) modules help detect and correct memory errors. However, the underlying HLI Type I hardware already detects and corrects memory errors. Enabling the same feature at the hardware and OS levels can cause conflicts and lead to unplanned shutdowns of the server. We recommend disabling the EDAC modules from the OS.
 
 #### Execution Steps
 
-* Check if EDAC module is enabled. If an output is returned in below command, that means the module is enabled. 
+- Check whether the EDAC modules are enabled. If an output is returned from the following command, the modules are enabled.
+
 ```
 lsmod | grep -i edac 
 ```
-* Disable the modules by appending the following lines to the file `/etc/modprobe.d/blacklist.conf`
+- Disable the modules by appending the following lines to the file `/etc/modprobe.d/blacklist.conf`
 ```
 blacklist sb_edac
 blacklist edac_core
 ```
-A reboot is required to take changes in place. Execute `lsmod` command and verify the module is not present there in output.
+A reboot is required for the changes to take place. After reboot, execute the `lsmod` command again and verify the modules aren't enabled.
 
 ### Kernel parameters
-   Make sure the correct setting for `transparent_hugepage`, `numa_balancing`, `processor.max_cstate`, `ignore_ce` and `intel_idle.max_cstate` are applied.
+Make sure the correct settings for `transparent_hugepage`, `numa_balancing`, `processor.max_cstate`, `ignore_ce`, and `intel_idle.max_cstate` are applied.
 
 * intel_idle.max_cstate=1
 * processor.max_cstate=1
@@ -137,17 +135,20 @@ A reboot is required to take changes in place. Execute `lsmod` command and verif
 
 #### Execution Steps
 
-* Add these parameters to the `GRB_CMDLINE_LINUX` line in the file `/etc/default/grub`
+- Add these parameters to the `GRB_CMDLINE_LINUX` line in the file `/etc/default/grub`:
+
 ```
 intel_idle.max_cstate=1 processor.max_cstate=1 transparent_hugepage=never numa_balancing=disable mce=ignore_ce
 ```
-* Create a new grub file.
+- Create a new grub file.
 ```
 grub2-mkconfig -o /boot/grub2/grub.cfg
 ```
-* Reboot system.
-
+- Reboot your system.
 
 ## Next steps
-- Refer [Backup and restore](hana-overview-high-availability-disaster-recovery.md) for OS backup Type I SKU class.
-- Refer [OS Backup](./large-instance-os-backup.md) for HLI.
+
+Learn to set up an SMT server for SUSE Linux.
+
+> [!div class="nextstepaction"]
+> [Set up SMT server for SUSE Linux](hana-setup-smt.md)

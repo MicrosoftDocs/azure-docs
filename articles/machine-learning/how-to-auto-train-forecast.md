@@ -110,7 +110,7 @@ automl_config = AutoMLConfig(task='forecasting',
                              **time_series_settings)
 ```
 
-Learn more about how AutoML applies cross validation to [prevent over-fitting models](concept-manage-ml-pitfalls.md#prevent-over-fitting).
+Learn more about how AutoML applies cross validation to [prevent over-fitting models](concept-manage-ml-pitfalls.md#prevent-overfitting).
 
 ## Configure experiment
 
@@ -414,5 +414,4 @@ See the [forecasting sample notebooks](https://github.com/Azure/MachineLearningN
 
 * Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
 * Learn about [Interpretability: model explanations in automated machine learning (preview)](how-to-machine-learning-interpretability-automl.md). 
-* Learn how to train multiple models with AutoML in the [Many Models Solution Accelerator](https://aka.ms/many-models).
 * Follow the [Tutorial: Train regression models](tutorial-auto-train-models.md) for an end to end example for creating experiments with automated machine learning.

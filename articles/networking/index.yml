@@ -13,7 +13,7 @@ metadata:
   author: KumudD
   ms.author: kumud
   manager: mtillman
-  ms.date: 06/21/2021
+  ms.date: 07/06/2021
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
@@ -58,9 +58,9 @@ additionalContent:
         - title: Connect on-premises to Azure - VPN encryption
           links:
             - text: What is Azure VPN Gateway?
-              url: ../vpn-gateway/tutorial-site-to-site-portal.md
+              url: ../vpn-gateway/vpn-gateway-about-vpngateways.md
             - text: Site-to-site-connections
-              url: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md
+              url: ../vpn-gateway/tutorial-site-to-site-portal.md
             - text: See more
               url: ../vpn-gateway/index.yml   
         # Card
@@ -87,7 +87,7 @@ additionalContent:
         - title: DNS
           links:
             - text: What is Azure DNS?
-              url: ../private-link/private-endpoint-overview.md
+              url: ../dns/dns-overview.md
             - text: Host your domain and subdomain
               url: ../dns/dns-delegate-domain-azure-dns.md
             - text: See more
@@ -119,7 +119,7 @@ additionalContent:
         - title: Web application load balancer
           links:
             - text: What is Azure Application Gateway?
-              url: ../expressroute/expressroute-introduction.md
+              url: ../application-gateway/overview.md
             - text: Direct web traffic using the portal
               url: ../application-gateway/quick-create-portal.md
             - text: See more
@@ -129,7 +129,7 @@ additionalContent:
         - title: DNS-based load balancer 
           links:
             - text: What is Azure Traffic Manager?
-              url: ../vpn-gateway/tutorial-site-to-site-portal.md
+              url: ../traffic-manager/traffic-manager-overview.md
             - text: Route traffic for low latency
               url: ../traffic-manager/traffic-manager-routing-methods.md
             - text: See more

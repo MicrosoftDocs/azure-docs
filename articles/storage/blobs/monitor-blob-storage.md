@@ -62,7 +62,7 @@ To collect resource logs, you must create a diagnostic setting. When you create 
 
 ## Creating a diagnostic setting
 
-You can create a diagnostic setting by using the Azure portal, PowerShell, the Azure CLI, or an Azure Resource Manager template. 
+You can create a diagnostic setting by using the Azure portal, PowerShell, the Azure CLI, an Azure Resource Manager template, or Azure Policy. 
 
 For general guidance, see [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
@@ -154,7 +154,7 @@ Enable logs by using the [Set-AzDiagnosticSetting](/powershell/module/az.monitor
 Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operations-to-log>
 ```
 
-Replace the `<storage-service-resource--id>` placeholder in this snippet with the resource ID of the blob service. You can find the resource ID in the Azure portal by opening the **Properties** page of your storage account.
+Replace the `<storage-service-resource--id>` placeholder in this snippet with the resource ID of the blob service. You can find the resource ID in the Azure portal by opening the **Endpoints** page of your storage account.
 
 You can use `StorageRead`, `StorageWrite`, and `StorageDelete` for the value of the **Category** parameter.
 
@@ -218,7 +218,7 @@ Enable logs by using the [az monitor diagnostic-settings create](/cli/azure/moni
 az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true }]'
 ```
 
-Replace the `<storage-service-resource--id>` placeholder in this snippet with the resource ID Blob storage service. You can find the resource ID in the Azure portal by opening the **Properties** page of your storage account.
+Replace the `<storage-service-resource--id>` placeholder in this snippet with the resource ID Blob storage service. You can find the resource ID in the Azure portal by opening the **Endpoints** page of your storage account.
 
 You can use `StorageRead`, `StorageWrite`, and `StorageDelete` for the value of the **category** parameter.
 
@@ -264,6 +264,10 @@ Here's an example:
 
 To view an Azure Resource Manager template that creates a diagnostic setting, see [Diagnostic setting for Azure Storage](../../azure-monitor/essentials/resource-manager-diagnostic-settings.md#diagnostic-setting-for-azure-storage).
 
+### [Azure Policy](#tab/policy)
+
+You can create a diagnostic setting by using a policy definition. That way, you can make sure that a diagnostic setting is created for every account that is created or updated. See [Azure Policy built-in definitions for Azure Storage](../common/policy-reference.md).
+
 ---
 
 ## Analyzing metrics
@@ -297,7 +301,7 @@ For a list of all Azure Monitor support metrics, which includes Azure Blob Stora
 
 Azure Monitor provides the [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) to read metric definition and values. The [sample code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) shows how to use the SDK with different parameters. You need to use `0.18.0-preview` or a later version for storage metrics.
  
-In these examples, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the Blob storage service. You can find these resource IDs on the **Properties** pages of your storage account in the Azure portal.
+In these examples, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the Blob storage service. You can find these resource IDs on the **Endpoints** pages of your storage account in the Azure portal.
 
 Replace the `<subscription-ID>` variable with the ID of your subscription. For guidance on how to obtain values for `<tenant-ID>`, `<application-ID>`, and `<AccessKey>`, see [Use the portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md). 
 
@@ -439,7 +443,7 @@ The following example shows how to read metric data on the metric supporting mul
 
 You can list the metric definition of your storage account or the Blob storage service. Use the [Get-AzMetricDefinition](/powershell/module/az.monitor/get-azmetricdefinition) cmdlet.
 
-In this example, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the resource ID of the Blob storage service.  You can find these resource IDs on the **Properties** pages of your storage account in the Azure portal.
+In this example, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the resource ID of the Blob storage service.  You can find these resource IDs on the **Endpoints** pages of your storage account in the Azure portal.
 
 ```powershell
    $resourceId = "<resource-ID>"
@@ -461,7 +465,7 @@ You can read account-level metric values of your storage account or the Blob sto
 
 You can list the metric definition of your storage account or the Blob storage service. Use the [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az_monitor_metrics_list_definitions) command.
  
-In this example, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the resource ID of the Blob storage service. You can find these resource IDs on the **Properties** pages of your storage account in the Azure portal.
+In this example, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the resource ID of the Blob storage service. You can find these resource IDs on the **Endpoints** pages of your storage account in the Azure portal.
 
 ```azurecli-interactive
    az monitor metrics list-definitions --resource <resource-ID>
@@ -475,6 +479,10 @@ You can read the metric values of your storage account or the Blob storage servi
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
 ```
 ### [Template](#tab/template)
+
+N/A.
+
+### [Azure Policy](#tab/policy)
 
 N/A.
 
@@ -605,3 +613,4 @@ No. Azure Compute supports the metrics on disks. For more information, see [Per 
 - For a reference of the logs and metrics created by Azure Blob Storage, see [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md).
 - For details on monitoring Azure resources, see [Monitor Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md).
 - For more information on metrics migration, see [Azure Storage metrics migration](../common/storage-metrics-migration.md).
+- For commons scenarios and best practices, see [Best practices for monitoring Azure Blob Storage](blob-storage-monitoring-scenarios.md).

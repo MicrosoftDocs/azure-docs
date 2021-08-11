@@ -28,14 +28,14 @@ Be sure to complete the steps in the [Quickstart: Create an Android app](quick-a
 You can set a map style in the layout file for your activity class when adding the map control. The following code sets the center location, zoom level, and map style.
 
 ```XML
-<com.microsoft.azure.maps.mapcontrol.MapControl
+<com.azure.android.maps.control.MapControl
     android:id="@+id/mapcontrol"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:mapcontrol_centerLat="47.602806"
-    app:mapcontrol_centerLng="-122.329330"
-    app:mapcontrol_zoom="12"
-    app:mapcontrol_style="grayscale_dark"
+    app:azure_maps_centerLat="47.602806"
+    app:azure_maps_centerLng="-122.329330"
+    app:azure_maps_zoom="12"
+    app:azure_maps_style="grayscale_dark"
     />
 ```
 
@@ -199,6 +199,47 @@ map.setCamera(
 ::: zone-end
 
 The aspect ratio of a bounding box may not be the same as the aspect ratio of the map, as such the map will often show the full bounding box area, but will often only be tight vertically or horizontally.
+
+### Animate map view
+
+When setting the camera options of the map, animation options can also be used to create a transition between the current map view and the next. These options specify the type of animation and duration it should take to move the camera.
+
+| Option | Description |
+|--------|-------------|
+| `animationDuration(Integer durationMs)` | Specifies how long the camera will animate between the views in milliseconds (ms). |
+| `animationType(AnimationType animationType)` | Specifies the type of animation transition to perform.<br/><br/> - `JUMP` - an immediate change.<br/> - `EASE` - gradual change of the camera's settings.<br/> - `FLY` - gradual change of the camera's settings following an arc resembling flight. |
+
+The following code shows how to animate the map view using a `FLY` animation over a duration of three seconds.
+
+::: zone pivot="programming-language-java-android"
+
+``` java
+map.setCamera(
+    center(Point.fromLngLat(-122.33, 47.6)),
+    zoom(12),
+    animationType(AnimationType.FLY), 
+    animationDuration(3000)
+);
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+map.setCamera(
+    center(Point.fromLngLat(-122.33, 47.6)),
+    zoom(12.0),
+    AnimationOptions.animationType(AnimationType.FLY),
+    AnimationOptions.animationDuration(3000)
+)
+```
+
+::: zone-end
+
+The following demonstrates the above code animating the map view from New York to Seattle.
+
+![Map animating the camera from New York to Seattle](media/set-android-map-styles/android-animate-camera.gif)
 
 ## Next steps
 

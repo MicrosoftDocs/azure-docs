@@ -2,11 +2,10 @@
 title: Configure cache and incremental enrichment (preview) 
 titleSuffix: Azure Cognitive Search
 description: Enable caching and preserve state of enriched content for controlled processing in a cognitive skillset. This feature is currently in public preview.
-author: vkurpad 
-manager: eladz
-ms.author: vikurpad
+
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
-ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 01/06/2020
 ---

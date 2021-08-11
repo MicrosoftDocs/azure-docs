@@ -17,7 +17,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 ## Prerequisites
 
-The latest version of the [Java Development Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support) (JDK)
+The latest version of the [Java Development Kit](/azure/developer/java/fundamentals/java-support-on-azure) (JDK)
 
 Install the Bing Image Search client library dependencies by using Maven, Gradle, or another dependency management system. The Maven POM file requires the following declaration:
 

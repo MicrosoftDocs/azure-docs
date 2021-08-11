@@ -29,9 +29,9 @@ This section lists all the automatically collected platform metrics for ExpressR
 > Using *GlobalGlobalReachBitsInPerSecond* and *GlobalGlobalReachBitsOutPerSecond* will only be visible if at least one Global Reach connection is established.
 >
 
-## Metric Dimensions
+## Metric dimensions
 
-For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
+For more information on what metric dimensions are, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
 ExpressRoute has the following dimensions associated with its metrics.
 
@@ -96,7 +96,7 @@ When reviewing any metrics through Log Analytics, the output will contain the fo
 |Average|real|Equal to (Minimum + Maximum)/2|
 |Total|real|Sum of the two metric values from both MSEEs (the main value to focus on for the metric queried)|
 
-## See Also
+## See also
 
 - See [Monitoring Azure ExpressRoute](monitor-expressroute.md) for a description of monitoring Azure ExpressRoute.
 - See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

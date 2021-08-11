@@ -3,7 +3,7 @@ title: Quickstart - Add joining a teams meeting to an Android app using Azure Co
 description: In this quickstart, you learn how to use the Azure Communication Services Teams Embed library for Android.
 author: palatter
 ms.author: palatter
-ms.date: 01/25/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ---
@@ -271,13 +271,9 @@ The following classes and interfaces handle some of the major features of the Az
 | MeetingUIClientJoinOptions              | MeetingUIClientJoinOptions are used for configurable options such as display name.                                                                                |
 | MeetingUIClientTeamsMeetingLinkLocator  | MeetingUIClientTeamsMeetingLinkLocator is used to set the meeting URL for joining a meeting.                                                                      |
 | MeetingUIClientGroupCallLocator         | MeetingUIClientGroupCallLocator is used for setting the group ID to join.                                                                                         |
-| MeetingUIClientInCallScreenProvider     | MeetingUIClientInCallScreenProvider is used to provide customizations on main call screen in the UI.                                                              |
-| MeetingUIClientStagingScreenProvider    | MeetingUIClientStagingScreenProvider is used to provide customizations on staging call screen in the UI.                                                          |
-| MeetingUIClientConnectingScreenProvider | MeetingUIClientConnectingScreenProvider is used to provide customizations on connecting call screen in the UI.                                                    |
 | MeetingUIClientIconType                 | MeetingUIClientIconType is used to specify which icons could be replaced with app-specific icon.                                                                  |
 | MeetingUIClientCall                     | MeetingUIClientCall describes the call and provides APIs to control it.                                                                                           |
 | MeetingUIClientCallState                | The MeetingUIClientCallState is used to for reporting call state changes. The options are as follows: `CONNECTING`, `WAITING_IN_LOBBY`, `CONNECTED`, and `ENDED`. |
-| MeetingUIClientUserRole                 | MeetingUIClientUserRole is used for setting the user roles in group call.                                                                                         |
 | MeetingUIClientAudioRoute               | MeetingUIClientAudioRoute is used for local audio routes like `Earpiece` or `SpeakerOn`.                                                                          |
 | MeetingUIClientLayoutMode               | MeetingUIClientLayoutMode is used for allowing to select different in call UI modes.                                                                              |
 | MeetingUIClientAvatarSize               | MeetingUIClientAvatarSize is an enum to denote different avatar sizes that can be requested by MeetingUIClientCallIdentityProvider                                |

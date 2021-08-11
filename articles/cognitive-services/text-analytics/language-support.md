@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/17/2021
+ms.date: 07/06/2021
 ms.author: aahi
 ---
 # Text Analytics API v3 language support 
@@ -36,7 +36,7 @@ ms.author: aahi
 | Spanish               |     `es`      |     ✓      |         2019-10-01         |                    |
 | Turkish               |     `tr`      |     ✓       |         2020-04-01        |                    |
 
-### Opinion mining (v3.1-preview only)
+### Opinion mining (v3.1 only)
 
 | Language              | Language code | Starting with v3 model version: |              Notes |
 |:----------------------|:-------------:|:------------------------------------:|-------------------:|
@@ -281,6 +281,21 @@ If you have content expressed in a less frequently used language, you can try La
 |Yucatec Maya| `yua` | ✓| |
 |Zulu|`zu`|✓|2021-01-05|
 
+
+#### [Text summarization](#tab/summarization)
+
+| Language | Language code |  v3 support | Starting with v3 model version: | Notes |
+|:---------|:-------------:|:----------:|:-----------------------------------------:|:-----:|
+| Chinese-Simplified     |   `zh-hans`   |     ✓      |               2021-08-01        | `zh` also accepted |
+| English  |     `en`      |     ✓      |                2021-08-01                 |       |
+| French                 |     `fr`      |     ✓      |               2021-08-01        |                    |
+| German                 |     `de`      |     ✓      |               2021-08-01        |                    |
+| Italian               |     `it`      |     ✓       |               2021-08-01        |                    |
+| Japanese              |     `ja`      |     ✓       |               2021-08-01        |                    |
+| Korean                |     `ko`      |     ✓       |               2021-08-01        |                    |
+| Spanish               |     `es`      |     ✓       |               2021-08-01        |                    |
+| Portuguese (Brazil)   |    `pt-BR`    |     ✓       |               2021-08-01        |                    |
+| Portuguese (Portugal) |    `pt-PT`    |     ✓       |               2021-08-01        | `pt` also accepted |
 
 ---
 

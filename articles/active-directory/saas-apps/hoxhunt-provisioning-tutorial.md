@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Hoxhunt for automatic user provisioning with Azure A
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Hoxhunt.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 24fbe0a4-ab2d-4e10-93a6-c87d634ffbcf
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Hoxhunt for automatic user provisioning

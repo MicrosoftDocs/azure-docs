@@ -4,7 +4,7 @@ description: Learn how to configure role-based access control with Azure Active 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/15/2021
+ms.date: 07/21/2021
 ms.author: thweiss
 ---
 
@@ -40,7 +40,7 @@ The Azure Cosmos DB data plane RBAC is built on concepts that are commonly found
 > - [Azure PowerShell scripts](manage-with-powershell.md),
 > - [Azure CLI scripts](manage-with-cli.md),
 > - Azure management libraries available in
->   - [.NET](https://www.nuget.org/packages/Azure.ResourceManager.CosmosDB)
+>   - [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.CosmosDB/)
 >   - [Java](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-cosmos)
 >   - [Python](https://pypi.org/project/azure-mgmt-cosmosdb/)
 
@@ -344,7 +344,7 @@ The examples below use a service principal with a `ClientSecretCredential` insta
 
 ### In .NET
 
-The Azure Cosmos DB RBAC is currently supported in the `preview` version of the [.NET SDK V3](sql-api-sdk-dotnet-standard.md).
+The Azure Cosmos DB RBAC is currently supported in the [.NET SDK V3](sql-api-sdk-dotnet-standard.md).
 
 ```csharp
 TokenCredential servicePrincipal = new ClientSecretCredential(
@@ -388,7 +388,7 @@ const client = new CosmosClient({
 
 ## Authenticate requests on the REST API
 
-The Azure Cosmos DB RBAC is currently supported with the `2021-03-15` version of REST API. When constructing the [authorization header](/rest/api/cosmos-db/access-control-on-cosmosdb-resources), set the **type** parameter to **aad** and the hash signature **(sig)** to the **oauth token** as shown in the following example:
+When constructing the [REST API authorization header](/rest/api/cosmos-db/access-control-on-cosmosdb-resources), set the **type** parameter to **aad** and the hash signature **(sig)** to the **oauth token** as shown in the following example:
 
 `type=aad&ver=1.0&sig=<token-from-oauth>`
 

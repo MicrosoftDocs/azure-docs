@@ -58,7 +58,7 @@ ENV['WEBSITE_SITE_NAME']
 
 ## Customize deployment
 
-When you deploy a [Git repository](deploy-local-git.md), or a [Zip package](deploy-zip.md) with build processes switched on, the deployment engine (Kudu) automatically runs the following post-deployment steps by default:
+When you deploy a [Git repository](deploy-local-git.md), or a [Zip package](deploy-zip.md) [with build automation enabled](deploy-zip.md#enable-build-automation), the deployment engine (Kudu) automatically runs the following post-deployment steps by default:
 
 1. Check if a *Gemfile* exists.
 1. Run `bundle clean`. 
@@ -144,10 +144,8 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 [!INCLUDE [robots933456](../../includes/app-service-web-configure-robots933456.md)]
 
-## Next steps
+## More resources
 
-> [!div class="nextstepaction"]
-> [Tutorial: Rails app with PostgreSQL](tutorial-ruby-postgres-app.md)
-
-> [!div class="nextstepaction"]
-> [App Service Linux FAQ](faq-app-service-linux.yml)
+- [Tutorial: Rails app with PostgreSQL](tutorial-ruby-postgres-app.md)
+- [App Service Linux FAQ](faq-app-service-linux.yml)
+- [Environment variables and app settings reference](reference-app-settings.md)

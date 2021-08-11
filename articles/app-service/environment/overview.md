@@ -4,13 +4,13 @@ description: Overview on the App Service Environment
 author: ccompy
 ms.assetid: 3d37f007-d6f2-4e47-8e26-b844e47ee919
 ms.topic: article
-ms.date: 06/21/2021
+ms.date: 07/05/2021
 ms.author: ccompy
-ms.custom: seodec18
+ms.custom: references_regions
 ---
 # App Service Environment overview 
 > [!NOTE]
-> This article is about the App Service Environment v3 (preview)
+> This article is about the App Service Environment v3 which is used with Isolated v2 App Service plans
 > 
 
 The Azure App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. This capability can host your:
@@ -76,15 +76,45 @@ There are a few features that are not available in ASEv3 that were available in 
 - use remote debug with your apps
 - upgrade yet from ASEv2
 - monitor your traffic with Network Watcher or NSG Flow
-- configure IP-based SSL with your apps
+- configure a IP-based TLS/SSL binding with your apps
 
 ## Pricing 
 
 With ASEv3, there is a different pricing model depending on the type of ASE deployment you have. The three pricing models are: 
 
-- ASEv3: If ASE is empty, there is a charge as if you had one ASP with one instance of Windows I1v2. The one instance charge is not an additive charge but is only applied if the ASE is totally empty.
-- Availability Zone ASEv3: There is a minimum 9 Windows I1v2 instance charge. There is no added charge for availability zone support if you have 9 or more App Service plan instances. 
-- Dedicated host ASEv3: With a dedicated host deployment, you are charged for two dedicated hosts per our pricing at ASEv3 creation then a small percentage of the Isolated V2 rate per core charge as you scale.
+- **ASEv3**: If ASE is empty, there is a charge as if you had one ASP with one instance of Windows I1v2. The one instance charge is not an additive charge but is only applied if the ASE is totally empty.
+- **Availability Zone ASEv3**: There is a minimum 9 Windows I1v2 instance charge. There is no added charge for availability zone support if you have 9 or more App Service plan instances. 
+- **Dedicated host ASEv3**: With a dedicated host deployment, you are charged for two dedicated hosts per our pricing at ASEv3 creation then a small percentage of the Isolated V2 rate per core charge as you scale.
 
 Reserved Instance pricing for Isolated v2 will be available after GA.  
 
+## Regions
+
+The ASEv3 is available in the following regions.
+
+|Normal and dedicated host ASEv3 regions|	AZ ASEv3 regions|
+|---------------------------------------|------------------|
+|Australia East|	Australia East|
+|Australia Southeast|Brazil South|
+|Brazil South	|Canada Central|
+|Canada Central|Central US|
+|Central India	|East US|
+|Central US	|East US 2|
+|East Asia	| France Central|
+|East US	| Germany West Central|
+|East US 2|	North Europe|
+|France Central	| South Central US|
+|Germany West Central	|	Southeast Asia|
+|Korea Central	| UK South|
+|North Europe	| West Europe|
+|Norway East	| West US 2	|
+|South Africa North| |	
+|South Central US	| |
+|Southeast Asia| |
+|Switzerland North	| |	
+|UK South| |	
+|UK West| |
+|West Central US	| |	
+|West Europe	| |
+|West US	| |	
+|West US 2| |

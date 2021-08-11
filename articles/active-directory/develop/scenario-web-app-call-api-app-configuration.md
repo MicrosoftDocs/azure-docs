@@ -384,7 +384,7 @@ The use of client assertions is an advanced scenario, detailed in [Client assert
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-The ASP.NET core tutorial uses dependency injection to let you decide the token cache implementation in the Startup.cs file for your application. Microsoft.Identity.Web comes with pre-built token-cache serializers described in [Token cache serialization](msal-net-token-cache-serialization.md#token-cache-for-a-web-app-confidential-client-application). An interesting possibility is to choose ASP.NET Core [distributed memory caches](/aspnet/core/performance/caching/distributed#distributed-memory-cache):
+The ASP.NET core tutorial uses dependency injection to let you decide the token cache implementation in the Startup.cs file for your application. Microsoft.Identity.Web comes with pre-built token-cache serializers described in [Token cache serialization](msal-net-token-cache-serialization.md). An interesting possibility is to choose ASP.NET Core [distributed memory caches](/aspnet/core/performance/caching/distributed#distributed-memory-cache):
 
 ```csharp
 // Use a distributed token cache by adding:
@@ -466,7 +466,7 @@ Instead of `clientapp.AddInMemoryTokenCache()`, you can also use more advanced c
   });
 ```
 
-For details see [Token cache serialization for MSAL.NET](https://aka.ms/ms-id-web/token-cache-serialization-msal).
+For details see [Token cache serialization for MSAL.NET](./msal-net-token-cache-serialization.md).
 
 # [Java](#tab/java)
 

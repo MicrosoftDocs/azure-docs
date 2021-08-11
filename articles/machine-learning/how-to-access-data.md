@@ -1,5 +1,5 @@
 ---
-title: Connect to  storage services on Azure
+title: Connect to storage services on Azure
 titleSuffix: Azure Machine Learning
 description: Learn how to use datastores to securely connect to Azure storage services during training with Azure Machine Learning
 services: machine-learning
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
-ms.date: 11/03/2020
+ms.date: 07/06/2021
 ms.custom: contperf-fy21q1, devx-track-python, data4ml
 
 
@@ -96,7 +96,7 @@ To ensure you securely connect to your Azure storage service, Azure Machine Lear
 
 Azure Machine Learning requires additional configuration steps to communicate with a storage account that is behind a firewall or within a virtual network. If your storage account is behind a firewall, you can [allow list the IP address via the Azure portal](../storage/common/storage-network-security.md#managing-ip-network-rules).
 
-Azure Machine Learning can receive requests from clients outside of the virtual network. To ensure that the entity requesting data from the service is safe, [set up Azure Private Link for your workspace](how-to-configure-private-link.md).
+Azure Machine Learning can receive requests from clients outside of the virtual network. To ensure that the entity requesting data from the service is safe, [use a private endpoint with your workspace](how-to-configure-private-link.md).
 
 **For Python SDK users**, to access your data via your training script on a compute target, the compute target needs to be inside the same virtual network and subnet of the storage. 
 

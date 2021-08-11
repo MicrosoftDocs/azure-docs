@@ -15,6 +15,8 @@ ms.custom: devx-track-azurepowershell
 # Control updates with Maintenance Control and Azure PowerShell
 
 Maintenance control lets you decide when to apply platform updates to the host infrastructure of your isolated VMs and Azure dedicated hosts. This topic covers the Azure PowerShell options for Maintenance control. For more about benefits of using Maintenance control, its limitations, and other management options, see [Managing platform updates with Maintenance Control](maintenance-control.md).
+
+If you are looking for information about Maintenance Control for scale sets, see [Maintenance Control for virtual machine scale sets](virtual-machine-scale-sets-maintenance-control.md).
  
 ## Enable the PowerShell module
 

@@ -57,7 +57,7 @@ DateTimeMp2-DateTimeMp1 <= @timespan
 ## Using IN and NOT IN
 
 ```csharp
-StoreId IN('Store1', 'Store2', 'Store3')"
+StoreId IN('Store1', 'Store2', 'Store3')
 
 sys.To IN ('Store5','Store6','Store7') OR StoreId = 'Store8'
 

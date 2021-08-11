@@ -131,6 +131,8 @@ az ml model deploy -n triton-webservice -m triton_model:1 --dc deploymentconfig.
 
 See [this documentation for more details on deploying models](how-to-deploy-and-where.md).
 
+[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
+
 ### Call into your deployed model
 
 First, get your scoring URI and bearer tokens.

@@ -32,7 +32,7 @@ The following instructions use bash syntax.
 
 Service principal credential rotation has two methods:
  - [Automated service principal credential rotation](#Automated-Service-Principal-Credential-Rotation)
- - [User provided secret-id and client-secret service principal credential rotation](#User-Provided-secret-id-and-client-secret-Service-Principal-Credential-Rotation)
+ - [User provided client-id and client-secret service principal credential rotation](#User-Provided-client-id-and-client-secret-Service-Principal-Credential-Rotation)
 
 ### Automated service principal credential rotation <a id="Automated-Service-Principal-Credential-Rotation"></a>
 >[!IMPORTANT]
@@ -47,12 +47,12 @@ Automatically rotate service principal credentials with the following command:
 az aro update --refresh-credentials --name MyManagedCluster --resource-group MyResourceGroup
 ```
 
-### User provided secret-id and client-secret service principal credential rotation <a id="User-Provided-secret-id-and-client-secret-Service-Principal-Credential-Rotation"></a>
+### User provided client-id and client-secret service principal credential rotation <a id="User-Provided-client-id-and-client-secret-Service-Principal-Credential-Rotation"></a>
 
 
-Manually rotate service principal credentials with user provided secret-id and client-secret with the following instructions:
+Manually rotate service principal credentials with user provided client-id and client-secret with the following instructions:
 
-Retrieve the service principal clientId (`--secret-id`) and set it as `SP_ID` environment variable.
+Retrieve the service principal clientId (`--client-id`) and set it as `SP_ID` environment variable.
 ```azurecli-interactive
 # Retrieve the service principal clientId
 SP_ID=$(az aro show --name MyManagedCluster --resource-group MyResourceGroup \
@@ -66,7 +66,7 @@ SP_SECRET=$(az ad sp credential reset --name $SP_ID --query password -o tsv)
 Rotate service principal credentials using the above environment variables.
 ```azurecli-interactive
 # Rotate service principal credentials
-az aro update --secret-id $SP_ID --client-secret $SP_SECRET \
+az aro update --client-id $SP_ID --client-secret $SP_SECRET \
     --name MyManagedCluster --resource-group MyResourceGroup
 ```
 
@@ -101,7 +101,7 @@ Cluster AAD application contains a client secret with an empty description.
 Please either manually remove the existing client secret and run `az aro update --refresh-credentials`,
 or manually create a new client secret and run `az aro update --client-secret <ClientSecret>`.
 ```
-The cluster has not been created using Azure CLI 2.24.0 or greater. Use the [user provided secret-id and client-secret service principal credential rotation](#User-Provided-secret-id-and-client-secret-Service-Principal-Credential-Rotation) method instead.
+The cluster has not been created using Azure CLI 2.24.0 or greater. Use the [user provided client-id and client-secret service principal credential rotation](#User-Provided-client-id-and-client-secret-Service-Principal-Credential-Rotation) method instead.
 
 ### Azure CLI ARO update help
 For more details please see the Azure CLI ARO update help command:

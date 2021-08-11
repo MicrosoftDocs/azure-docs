@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Your first Java query"
 description: In this quickstart, you follow the steps to enable the Resource Graph Maven packages for Java and run your first query.
-ms.date: 03/30/2021
+ms.date: 07/09/2021
 ms.topic: quickstart
 ms.custom: devx-track-java
 ---
@@ -27,7 +27,7 @@ your first Resource Graph query.
   > the following examples. For information about other options, see
   > [Azure Identity client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity).
 
-- The [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version
+- The [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure), version
   8.
 
 - [Apache Maven](https://maven.apache.org/), version 3.6 or above.
@@ -56,7 +56,7 @@ install the required Maven packages.
     <dependency>
         <groupId>com.azure.resourcemanager</groupId>
         <artifactId>azure-resourcemanager-resourcegraph</artifactId>
-        <version>1.0.0-beta.1</version>
+        <version>1.0.0</version>
     </dependency>
    ```
 

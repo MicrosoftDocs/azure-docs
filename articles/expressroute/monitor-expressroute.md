@@ -43,11 +43,11 @@ The metrics and logs you can collect are discussed in the following sections.
 
 ## Analyzing metrics
 
-You can analyze metrics for *Azure ExpressRoute* with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](/azure/azure-monitor/platform/metrics-getting-started) for details on using this tool. 
+You can analyze metrics for *Azure ExpressRoute* with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool. 
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/metrics-page.png" alt-text="Screenshot of the metrics dashboard for ExpressRoute.":::
 
-For reference, you can see a list of [all resource metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
+For reference, you can see a list of [all resource metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
 * To view **ExpressRoute** metrics, filter by Resource Type *ExpressRoute circuits*. 
 * To view **Global Reach** metrics, filter by Resource Type *ExpressRoute circuits* and select an ExpressRoute circuit resource that has Global Reach enabled. 
@@ -55,7 +55,7 @@ For reference, you can see a list of [all resource metrics supported in Azure Mo
 
 Once a metric is selected, the default aggregation will be applied. Optionally, you can apply splitting, which will show the metric with different dimensions.
 
-### Aggregation Types:
+### Aggregation types
 
 Metrics explorer supports SUM, MAX, MIN, AVG, and COUNT as [aggregation types](../azure-monitor/essentials/metrics-charts.md#aggregation). Use the recommended Aggregation type when reviewing the insights for each ExpressRoute metric.
 
@@ -79,7 +79,7 @@ You can view metrics across all peerings on a given ExpressRoute circuit.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg" alt-text="circuit metrics":::
 
-#### Bits In and Out - Metrics per peering
+#### Bits in and out - metrics per peering
 
 Aggregation type: *Avg*
 
@@ -87,7 +87,7 @@ You can view metrics for private, public, and Microsoft peering in bits/second.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erpeeringmetrics.jpg" alt-text="metrics per peering":::
 
-#### BGP Availability - Split by Peer  
+#### BGP availability - split by peer  
 
 Aggregation type: *Avg*
 
@@ -95,7 +95,7 @@ You can view near to real-time availability of BGP (Layer-3 connectivity) across
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erBgpAvailabilityMetrics.jpg" alt-text="BGP availability per peer":::
 
-### ARP Availability - Split by Peering  
+### ARP availability - split by peering  
 
 Aggregation type: *Avg*
 
@@ -103,7 +103,7 @@ You can view near to real-time availability of [ARP](./expressroute-troubleshoot
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg" alt-text="ARP availability per peer":::
 
-### ExpressRoute Direct Metrics
+### ExpressRoute Direct metrics
 
 #### Admin State - Split by link
 
@@ -113,7 +113,7 @@ You can view the Admin state for each link of the ExpressRoute Direct port pair.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/adminstate-per-link.jpg" alt-text="ER Direct admin state":::
 
-#### Bits In Per Second - Split by link
+#### Bits in per second - split by link
 
 Aggregation type: *Avg*
 
@@ -121,7 +121,7 @@ You can view the bits in per second across both links of the ExpressRoute Direct
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/bits-in-per-second-per-link.jpg" alt-text="ER Direct bits in per second":::
 
-#### Bits Out Per Second - Split by link
+#### Bits out per second - split by link
 
 Aggregation type: *Avg*
 
@@ -129,7 +129,7 @@ You can also view the bits out per second across both links of the ExpressRoute 
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/bits-out-per-second-per-link.jpg" alt-text="ER Direct bits out per second":::
 
-#### Line Protocol - Split by link
+#### Line protocol - split by link
 
 Aggregation type: *Avg*
 
@@ -137,7 +137,7 @@ You can view the line protocol across each link of the ExpressRoute Direct port 
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/line-protocol-per-link.jpg" alt-text="ER Direct line protocol":::
 
-#### Rx Light Level - Split by link
+#### Rx light level - split by link
 
 Aggregation type: *Avg*
 
@@ -145,7 +145,7 @@ You can view the Rx light level (the light level that the ExpressRoute Direct po
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/rxlight-level-per-link.jpg" alt-text="ER Direct line Rx Light Level":::
 
-#### Tx Light Level - Split by link
+#### Tx light level - Split by link
 
 Aggregation type: *Avg*
 
@@ -153,7 +153,7 @@ You can view the Tx light level (the light level that the ExpressRoute Direct po
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/txlight-level-per-link.jpg" alt-text="ER Direct line Tx Light Level":::
 
-### ExpressRoute Virtual Network Gateway Metrics
+### ExpressRoute virtual network gateway metrics
 
 Aggregation type: *Avg*
 
@@ -168,7 +168,7 @@ When you deploy an ExpressRoute gateway, Azure manages the compute and functions
 
 It's highly recommended you set alerts for each of these metrics so that you're aware of when your gateway could be seeing performance issues.
 
-#### CPU Utilization - Split Instance
+#### CPU utilization - split instance
 
 Aggregation type: *Avg*
 
@@ -176,7 +176,7 @@ You can view the CPU utilization of each gateway instance. The CPU utilization m
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/cpu-split.jpg" alt-text="Screenshot of CPU utilization - split metrics.":::
 
-#### Packets Per Second - Split by Instance
+#### Packets per second - split by instance
 
 Aggregation type: *Avg*
 
@@ -184,7 +184,7 @@ This metric captures the number of inbound packets traversing the ExpressRoute g
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/pps-split.jpg" alt-text="Screenshot of packets per second - split metrics.":::
 
-#### Count of Routes Advertised to Peer - Split by Instance
+#### Count of routes advertised to peer - split by instance
 
 Aggregation type: *Count*
 
@@ -192,7 +192,7 @@ This metric is the count for the number of routes the ExpressRoute gateway is ad
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/count-of-routes-advertised-to-peer.png" alt-text="Screenshot of count of routes advertised to peer.":::
 
-#### Count of Routes Learned from Peer - Split by Instance
+#### Count of routes learned from peer - split by instance
 
 Aggregation type: *Max*
 
@@ -200,7 +200,7 @@ This metric shows the number of routes the ExpressRoute gateway is learning from
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/count-of-routes-learned-from-peer.png" alt-text="Screenshot of count of routes learned from peer.":::
 
-#### Frequency of Routes change - Split by Instance
+#### Frequency of routes change - split by instance
 
 Aggregation type: *Sum*
 
@@ -208,7 +208,7 @@ This metric shows the frequency of routes being learned from or advertised to re
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/frequency-of-routes-changed.png" alt-text="Screenshot of frequency of routes changed metric.":::
 
-#### Number of VMs in the Virtual Network
+#### Number of VMs in the virtual network
 
 Aggregation type: *Max*
 
@@ -251,7 +251,7 @@ Here are some queries that you can enter into the Log search bar to help you mon
     AzureDiagnostics
     | where TimeGenerated > ago(12h)
     | where ResourceType == "EXPRESSROUTECIRCUITS"
-    | project TimeGenerated, ResourceType , network s, path s, OperationName
+    | project TimeGenerated, ResourceType , network_s, path_s, OperationName
     ```
 
 * To query for BGP informational messages by level, resource type, and network.
@@ -260,7 +260,7 @@ Here are some queries that you can enter into the Log search bar to help you mon
     AzureDiagnostics
     | where Level == "Informational"
     | where ResourceType == "EXPRESSROUTECIRCUITS"
-    | project TimeGenerated, ResourceId , Level, ResourceType , network s, path s
+    | project TimeGenerated, ResourceId , Level, ResourceType , network_s, path_s
     ```
 
 * To query for Traffic graph BitInPerSeconds in the last one hour.
@@ -301,7 +301,7 @@ Here are some queries that you can enter into the Log search bar to help you mon
 
 ## Alerts
 
-Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](/azure/azure-monitor/platform/alerts-metric-overview), [logs](/azure/azure-monitor/platform/alerts-unified-log), and the [activity log](/azure/azure-monitor/platform/activity-log-alerts). Different types of alerts have benefits and drawbacks.
+Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../azure-monitor/alerts/alerts-metric-overview.md), [logs](../azure-monitor/alerts/alerts-unified-log.md), and the [activity log](../azure-monitor/alerts/activity-log-alerts.md). Different types of alerts have benefits and drawbacks.
 
 The following table lists common and recommended alert rules for ExpressRoute.
 

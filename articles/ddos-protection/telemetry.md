@@ -26,6 +26,12 @@ In this tutorial, you'll learn how to:
 
 ### Metrics
 
+The metric names present different packet types, and bytes vs. packets, with a basic construct of tag names on each metric as follows:
+
+- **Dropped tag name** (for example, **Inbound Packets Dropped DDoS**): The number of packets dropped/scrubbed by the DDoS protection system.
+- **Forwarded tag name** (for example **Inbound Packets Forwarded DDoS**): The number of packets forwarded by the DDoS system to the destination VIP – traffic that was not filtered.
+- **No tag name** (for example **Inbound Packets DDoS**): The total number of packets that came into the scrubbing system – representing the sum of the packets dropped and forwarded.
+
 > [!NOTE]
 > While multiple options for **Aggregation** are displayed on Azure portal, only the aggregation types listed in the table below are supported for each metric. We apologize for this confusion and we are working to resolve it.
 
@@ -65,26 +71,35 @@ The following [metrics](../azure-monitor/essentials/metrics-supported.md#microso
 
 ## View DDoS protection telemetry
 
-Telemetry for an attack is provided through Azure Monitor in real time. Telemetry is available only when a public IP address has been under mitigation. 
+Telemetry for an attack is provided through Azure Monitor in real time. While [mitigation triggers](#view-ddos-mitigation-policies) for TCP SYN, TCP & UDP are available during peace-time, other telemetry is available only when a public IP address has been under mitigation. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) and browse to your DDoS Protection Plan.
+You can view DDoS telemetry for a protected public IP address through three different resource types: DDoS protection plan, virtual network, and public IP address.
+
+### DDoS protection plan
+1. Sign in to the [Azure portal](https://portal.azure.com/) and browse to your DDoS protection plan.
+2. Under **Monitoring**, select **Metrics**.
+3. Select **Scope**. Select the **Subscription** that contains the public IP address you want to log, select **Public IP Address** for **Resource type**, then select the specific public IP address you want to log metrics for, and then select **Apply**.
+4. Select the **Aggregation** type as **Max**. 
+
+### Virtual network
+1. Sign in to the [Azure portal](https://portal.azure.com/) and browse to your virtual network that has DDoS protection enabled.
 2. Under **Monitoring**, select **Metrics**.
 3. Select **Scope**. Select the **Subscription** that contains the public IP address you want to log, select **Public IP Address** for **Resource type**, then select the specific public IP address you want to log metrics for, and then select **Apply**.
 4. Select the **Aggregation** type as **Max**.
+5. Select **Add filter**. Under **Property**, select **Protected IP Address**, and the operator should be set to **=**. Under **Values**, you will see a dropdown of public IP addresses, associated with the the virtual network, that are protected by DDoS protection enabled. 
 
-The metric names present different packet types, and bytes vs. packets, with a basic construct of tag names on each metric as follows:
+![DDoS Diagnostic Settings](./media/ddos-attack-telemetry/vnet-ddos-metrics.png)
 
-- **Dropped tag name** (for example, **Inbound Packets Dropped DDoS**): The number of packets dropped/scrubbed by the DDoS protection system.
-- **Forwarded tag name** (for example **Inbound Packets Forwarded DDoS**): The number of packets forwarded by the DDoS system to the destination VIP – traffic that was not filtered.
-- **No tag name** (for example **Inbound Packets DDoS**): The total number of packets that came into the scrubbing system – representing the sum of the packets dropped and forwarded.
+### Public IP address
+1. Sign in to the [Azure portal](https://portal.azure.com/) and browse to your public IP address.
+2. Under **Monitoring**, select **Metrics**.
+3. Select the **Aggregation** type as **Max**.
 
 ## View DDoS mitigation policies
 
-DDoS Protection Standard applies three auto-tuned mitigation policies (TCP SYN, TCP & UDP) for each public IP address of the protected resource, in the virtual network that has DDoS enabled. You can view the policy thresholds by selecting the  **Inbound TCP packets to trigger DDoS mitigation** and **Inbound UDP packets to trigger DDoS mitigation** metrics with **aggregation** type as 'Max', as shown in the following picture:
+DDoS Protection Standard applies three auto-tuned mitigation policies (TCP SYN, TCP & UDP) for each public IP address of the protected resource, in the virtual network that has DDoS protection enabled. You can view the policy thresholds by selecting the  **Inbound TCP packets to trigger DDoS mitigation** and **Inbound UDP packets to trigger DDoS mitigation** metrics with **aggregation** type as 'Max', as shown in the following picture:
 
 ![View mitigation policies](./media/manage-ddos-protection/view-mitigation-policies.png)
-
-Policy thresholds are auto-configured via Azure machine learning-based network traffic profiling. Only when the policy threshold is breached does DDoS mitigation occur for the IP address under attack.
 
 ## Validate and test
 

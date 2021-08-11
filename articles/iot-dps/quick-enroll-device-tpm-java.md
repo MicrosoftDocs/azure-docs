@@ -22,7 +22,7 @@ In this quickstart, you programmatically create an individual enrollment for a s
 - Completion of [Set up the IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 - Completion of [Read cryptographic keys from the TPM device](quick-create-simulated-device.md#simulatetpm).
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support). This quickstart installs the [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/master/service/) below. It works on both Windows and Linux. This quickstart uses Windows.
+- [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-support-on-azure). This quickstart installs the [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/master/service/) below. It works on both Windows and Linux. This quickstart uses Windows.
 - [Maven 3](https://maven.apache.org/download.cgi).
 - [Git](https://git-scm.com/download/).
 
@@ -30,7 +30,7 @@ In this quickstart, you programmatically create an individual enrollment for a s
 
 ## Prepare the development environment 
 
-1. Make sure you have [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) installed on your machine. 
+1. Make sure you have [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-support-on-azure) installed on your machine. 
 
 2. Set up environment variables for your Java installation. The `PATH` variable should include the full path to *jdk1.8.x\bin* directory. If this is your machine's first Java installation, then create a new environment variable named `JAVA_HOME` and point it to the full path to the *jdk1.8.x* directory. On Windows machine, this directory is found in the *C:\\Program Files\\Java\\* folder, and you can create or edit environment variables by searching for **Edit the system environment variables** on the **Control panel** of your Windows machine. 
 

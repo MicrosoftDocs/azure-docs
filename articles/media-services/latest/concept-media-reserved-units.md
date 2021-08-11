@@ -39,7 +39,7 @@ The following table helps you make a decision when choosing between different en
 
 ## Considerations
 
-* For Audio Analysis and Video Analysis jobs that are triggered by Media Services v3 or Video Indexer, provisioning the account with ten S3 units is highly recommended. If you need more than 10 S3 MRUs, open a support ticket using the [Azure portal](https://portal.azure.com/).
+* For Audio Analysis and Video Analysis jobs that are triggered by Media Services v3 or Azure Video Analyzer for Media, provisioning the account with ten S3 units is highly recommended. If you need more than 10 S3 MRUs, open a support ticket using the [Azure portal](https://portal.azure.com/).
 * For encoding tasks that don't have MRUs, there is no upper bound to the time your tasks can spend in queued state, and at most only one task will be running at a time.
 
 ## Billing

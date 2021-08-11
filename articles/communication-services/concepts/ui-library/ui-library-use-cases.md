@@ -7,7 +7,7 @@ manager: chrispalm
 services: azure-communication-services
 
 ms.author: dademath
-ms.date: 05/11/2021
+ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---

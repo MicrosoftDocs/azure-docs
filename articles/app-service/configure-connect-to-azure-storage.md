@@ -125,7 +125,7 @@ az webapp config storage-account list --resource-group <resource-group> --name <
 
 # [Azure portal](#tab/portal)
 
-1. In the [Azure portal](https://porta.azure.com), navigate to the app.
+1. In the [Azure portal](https://portal.azure.com), navigate to the app.
 1. From the left navigation, click **Configuration** > **Path Mappings** > **New Azure Storage Mount**. 
 1. Configure the storage mount according to the following table. When finished, click **OK**.
 

@@ -8,7 +8,7 @@ author: vladvino
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
 ms.service: api-management
 ms.topic: include
-ms.date: 06/09/2021
+ms.date: 07/07/2021
 ms.author: vlvinogr
 ms.custom: include file
 ---
@@ -28,6 +28,7 @@ ms.custom: include file
 | Maximum number of APIs per service instance<sup>8</sup> | 50 |
 | Maximum number of API management operations per service instance<sup>8</sup> | 1,000 |
 | Maximum total request duration<sup>8</sup> | 30 seconds |
+| Maximum request payload size<sup>8</sup> | 1 GiB |
 | Maximum buffered payload size<sup>8</sup> | 2 MiB |
 | Maximum request URL size<sup>9</sup> | 4096 bytes |
 | Maximum length of URL path segment<sup>10</sup> | 260 characters |
@@ -45,4 +46,4 @@ ms.custom: include file
 <sup>8</sup>This limit applies to the Consumption tier only. There are no limits in these categories for other tiers.<br/>
 <sup>9</sup>Applies to the Consumption tier only. Includes an up to 2048 bytes long query string.<br/>
 <sup>10</sup> To increase this limit, please contact [support](https://azure.microsoft.com/support/options/).<br/>
-<sup>11</sup>Self-hosted gateways are supported in the Developer and Premium tiers only. The limit applies to the number of [self-hosted gateway resources](/rest/api/apimanagement/2019-12-01/gateway). To raise this limit please contact [support](https://azure.microsoft.com/support/options/). Note, that the number of nodes (or replicas) associated with a self-hosted gateway resource is unlimited in the Premium tier and capped at a single node in the Developer tier.
+<sup>11</sup>Self-hosted gateways are supported in the Developer and Premium tiers only. The limit applies to the number of [self-hosted gateway resources](/rest/api/apimanagement/2020-06-01-preview/gateway). To raise this limit please contact [support](https://azure.microsoft.com/support/options/). Note, that the number of nodes (or replicas) associated with a self-hosted gateway resource is unlimited in the Premium tier and capped at a single node in the Developer tier.

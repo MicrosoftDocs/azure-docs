@@ -71,7 +71,7 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 
 ## Customize build automation
 
-If you deploy your app using Git or zip packages with build automation turned on, the App Service build automation steps through the following sequence:
+If you deploy your app using Git, or zip packages [with build automation enabled](deploy-zip.md#enable-build-automation), the App Service build automation steps through the following sequence:
 
 1. Run custom script if specified by `PRE_BUILD_SCRIPT_PATH`.
 1. Run `dotnet restore` to restore NuGet dependencies.
@@ -133,7 +133,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ## Deploy multi-project solutions
 
-When a Visual Studio solution includes multiple projects, the Visual Studio publish process already includes selecting the project to deploy. When you deploy to the App Service deployment engine, such as with Git or with ZIP deploy, with build automation turned on, the App Service deployment engine picks the first Web Site or Web Application Project it finds as the App Service app. You can specify which project App Service should use by specifying the `PROJECT` app setting. For example, run the following in the [Cloud Shell](https://shell.azure.com):
+When a Visual Studio solution includes multiple projects, the Visual Studio publish process already includes selecting the project to deploy. When you deploy to the App Service deployment engine, such as with Git, or with ZIP deploy [with build automation enabled](deploy-zip.md#enable-build-automation), the App Service deployment engine picks the first Web Site or Web Application Project it finds as the App Service app. You can specify which project App Service should use by specifying the `PROJECT` app setting. For example, run the following in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings PROJECT="<project-name>/<project-name>.csproj"
@@ -172,7 +172,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ## Detect HTTPS session
 
-In App Service, [SSL termination](https://wikipedia.org/wiki/TLS_termination_proxy) happens at the network load balancers, so all HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to know if the user requests are encrypted or not, configure the Forwarded Headers Middleware in *Startup.cs*:
+In App Service, [TLS/SSL termination](https://wikipedia.org/wiki/TLS_termination_proxy) happens at the network load balancers, so all HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to know if the user requests are encrypted or not, configure the Forwarded Headers Middleware in *Startup.cs*:
 
 - Configure the middleware with [ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) to forward the `X-Forwarded-For` and `X-Forwarded-Proto` headers in `Startup.ConfigureServices`.
 - Add private IP address ranges to the known networks, so that the middleware can trust the App Service load balancer.
@@ -229,3 +229,7 @@ For more information, see [Configure ASP.NET Core to work with proxy servers and
 > [App Service Linux FAQ](faq-app-service-linux.yml)
 
 ::: zone-end
+
+Or, see additional resources:
+
+[Environment variables and app settings reference](reference-app-settings.md)

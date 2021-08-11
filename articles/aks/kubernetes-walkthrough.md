@@ -28,6 +28,7 @@ To learn more about creating a Windows Server node pool, see [Create an AKS clus
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.64 or greater of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+- The identity you are using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](concepts-identity.md).
 
 > [!NOTE]
 > Run the commands as administrator if you plan to run the commands in this quickstart locally instead of in Azure Cloud Shell.
@@ -157,7 +158,7 @@ Two [Kubernetes Services][kubernetes-service] are also created:
             app: azure-vote-back
         spec:
           nodeSelector:
-            "beta.kubernetes.io/os": linux
+            "kubernetes.io/os": linux
           containers:
           - name: azure-vote-back
             image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
@@ -200,7 +201,7 @@ Two [Kubernetes Services][kubernetes-service] are also created:
             app: azure-vote-front
         spec:
           nodeSelector:
-            "beta.kubernetes.io/os": linux
+            "kubernetes.io/os": linux
           containers:
           - name: azure-vote-front
             image: mcr.microsoft.com/azuredocs/azure-vote-front:v1

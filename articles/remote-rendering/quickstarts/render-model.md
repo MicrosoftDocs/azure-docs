@@ -44,7 +44,7 @@ Run the following commands:
 mkdir ARR
 cd ARR
 git clone https://github.com/Azure/azure-remote-rendering
-powershell azure-remote-rendering\Scripts\DownloadUnityPackages.ps1
+powershell -ExecutionPolicy RemoteSigned -File azure-remote-rendering\Scripts\DownloadUnityPackages.ps1
 ```
 
 The last command creates a subdirectory in the ARR directory containing the various sample projects for Azure Remote Rendering.
