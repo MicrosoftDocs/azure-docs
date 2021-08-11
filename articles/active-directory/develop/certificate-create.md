@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/05/2021
+ms.date: 08/10/2021
 ms.author: ombongifaith
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: scenarios:getting-started
@@ -40,7 +40,8 @@ This article uses the `New-SelfSignedCertificate` PowerShell cmdlet to create th
 + The certificate is valid for only one year.
 + The certificate is supported for use for both client and server authentication.
 
->**NOTE:** To customize the start and expiry date as well as other properties of the certificate, see the [`New-SelfSignedCertificate` reference](/powershell/module/pki/new-selfsignedcertificate?view=windowsserver2019-ps).
+> [!NOTE]
+> To customize the start and expiry date as well as other properties of the certificate, see the [`New-SelfSignedCertificate` reference](/powershell/module/pki/new-selfsignedcertificate?view=windowsserver2019-ps&preserve-view=true).
 
 
 ## Option 1:  Create and export your public certificate without a private key
@@ -124,10 +125,10 @@ Remove-Item -Path Cert:\CurrentUser\My\{pasteTheCertificateThumbprintHere} -Dele
 
 ```
 
-## Next steps
-
-Now that you have your certificate in one of the formats supported by Azure AD, use it to authenticate your application.
-
 ### Know your certificate expiry date
 
 The self-signed certificate you created following the steps above has a limited lifetime before it expires. On the **App registrations** section of the Azure portal, the **Certificates & secrets** screen displays the expiration date of the certificate. If you're using Azure Automation, the **Certificates** screen on the Automation account displays the expiration date of the certificate. Follow the previous steps to create a new self-signed certificate.
+
+## Next steps
+
+[Manage certificates for federated single sign-on in Azure Active Directory](../manage-apps/manage-certificates-for-federated-single-sign-on.md)
