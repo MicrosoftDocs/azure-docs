@@ -40,7 +40,7 @@ To create a cache, follow these steps:
     :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Replica count.":::
     
     > [!NOTE]
-    > Multiple replicas (more than one) don't support AOF persistence or work with Geo-replication currently.
+    > Currently, you can't use Append-only File (AOF) persistence or geo-replication with multiple replicas (more than one replica).
     >
 
 1. Leave other options in their default settings. 
