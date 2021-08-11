@@ -519,6 +519,8 @@
       href: howto-authenticate-service-principal-powershell.md
     - name: Create a service principal using the Azure portal
       href: howto-create-service-principal-portal.md
+    - name: Create a self-signed certificate to authenticate your app
+      href: howto-create-self-signed-certificate.md
   - name: Accept sign-ins from multiple tenants
     items:
     - name: Modify accounts supported by an app

@@ -17,7 +17,7 @@ ms.custom: scenarios:getting-started
 #Customer intent: As an application developer, I want to understand the basic concepts of authentication and authorization in the Microsoft identity platform.
 ---
 
-# Create a self-signed public certificate to authenticate your application
+# How to: Create a self-signed public certificate to authenticate your application
 
 Azure Active Directory (Azure AD) supports two types of authentication for service principals: **password-based authentication** (app secret) and **certificate-based authentication**. While app secrets are easily be created in the Azure portal, it's recommended that your application uses a certificate.
 
