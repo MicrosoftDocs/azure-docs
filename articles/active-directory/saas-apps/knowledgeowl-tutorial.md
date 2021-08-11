@@ -188,7 +188,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	j. Click **Save** at the bottom of the page.
 
-	![Screenshot shows the Save button for S A M L Attribute Map settings.](./media/knowledgeowl-tutorial/knowledgeowl-direct-attributes-save.png)
+	  ![Screenshot shows the Save button for S A M L Attribute Map settings.](./media/knowledgeowl-tutorial/knowledgeowl-direct-attributes-save.png)
 
 ### Create KnowledgeOwl test user
 
@@ -201,17 +201,17 @@ In this section, a user called B.Simon is created in KnowledgeOwl. KnowledgeOwl 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-#### SP initiated:
+#### SP initiated
 
 * Click on **Test this application** in Azure portal. This will redirect to KnowledgeOwl Sign on URL where you can initiate the login flow.  
 
 * Go to the KnowledgeOwl sign-on URL directly and initiate the login flow from there.
 
-#### IDP initiated:
+#### IDP initiated
 
 * Click on **Test this application** in the Azure portal and you should be automatically signed in to the KnowledgeOwl application for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the KnowledgeOwl tile in My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the KnowledgeOwl application for which you set up the SSO. For more information about My Apps, see [Introduction to My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use the Microsoft My Apps portal to test the application in any mode. When you click the KnowledgeOwl tile in the My Apps portal, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the KnowledgeOwl application for which you set up the SSO. For more information about the My Apps portal, see [Introduction to My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
