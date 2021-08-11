@@ -26,7 +26,7 @@ Some rules for creating a skillset include:
 + A skillset must contain at least one skill.
 + Within a skillset, you can repeat skills for the same type (for example, variants of an image analysis skill).
 
-## Planning and design
+## Skillset design
 
 An initial step is to decide which data to extract from your raw data and how you want to use that data in a search solution.
 
@@ -74,7 +74,8 @@ The following example shows the main sections:
 }
 ```
 
-Providing a description makes the skillset self-documenting (comments aren't allowed in JSON itself).
+> [!TIP]
+> Providing a description makes the skillset self-documenting (comments aren't allowed in JSON itself).
 
 ### Example of a skills array
 
@@ -140,7 +141,7 @@ The skills property specifies the skills used in the skillset. This example show
 ]
 ```
 
-## Add skills
+## Skills array
 
 The next piece in the skillset is an array of skills. You can think of each skill as a primitive of enrichment. Each skill performs a small task in this enrichment pipeline. Each one takes an input (or a set of inputs), and returns some outputs. The next few sections focus on how to specify built-in and custom skills, chaining skills together through input and output references. Inputs can come from source data or from another skill. Outputs can be mapped to a field in a search index or used as an input to a downstream skill.
 
@@ -244,9 +245,9 @@ Notice that the "context" field is set to ```"/document/orgs/*"``` with an aster
 
 Output, in this case a company description, is generated for each organization identified. When referring to the description in a downstream step (for example, in key phrase extraction), you would use the path ```"/document/orgs/*/description"``` to do so. 
 
-## Skill output
+## Skills output
 
-The skillset generates enriched documents, where you will find the output of each enrichment step. Consider the following example of unstructured text:
+The skillset generates enriched documents that collect the output of each enrichment step. Consider the following example of unstructured text:
 
 *"In its fourth quarter, Microsoft logged $1.1 billion in revenue from LinkedIn, the social networking company it bought last year. The acquisition enables Microsoft to combine LinkedIn capabilities with its CRM and Office capabilities. Stockholders are excited with the progress so far."*
 
@@ -254,40 +255,19 @@ Using the sentiment analyzer and entity recognition, a likely outcome would be a
 
 ![Sample output structure](media/cognitive-search-defining-skillset/enriched-doc.png "Sample output structure")
 
-Until now, enriched documents have been internal-only, memory-only, and used only in Azure Cognitive Search indexes. The addition of a knowledge store gives you a way to save shaped enrichments for use outside of search.
+Enriched documents exist in the enrichment pipeline as temporary data structures. To export the enrichments for consumption outside of the pipeline, follow one or more these approaches:
 
-## Saving enrichment to a knowledge store
++ Map skill outputs to [fields in a search index](cognitive-search-output-field-mapping.md)
++ Map skill outputs to [data shapes](knowledge-store-projection-shape.md) for subsequent [projection into a knowledge store](knowledge-store-projections-examples.md)
++ Send whole, enriched documents to blob storage via knowledge store
 
-[Knowledge store](knowledge-store-concept-intro.md) is a feature in Azure Cognitive Search for saving your enriched document. A knowledge store that you create, backed by an Azure storage account, is the repository where your enriched data lands. 
-
-A knowledge store definition is added to a skillset. For a  walkthrough of the entire process, see [Create a knowledge store in REST](knowledge-store-create-rest.md).
-
-```json
-"knowledgeStore": {
-  "storageConnectionString": "<an Azure storage connection string>",
-  "projections" : [
-    {
-      "tables": [ ]
-    },
-    {
-      "objects": [
-        {
-          "storageContainer": "containername",
-          "source": "/document/EnrichedShape/",
-          "key": "/document/Id"
-        }
-      ]
-    }
-  ]
-}
-```
-
-You can choose to save the enriched documents as tables with hierarchical relationships preserved or as JSON documents in blob storage. Output from any of the skills in the skillset can be sourced as the input for the projection. If you are looking to project the data into a specific shape, the updated [shaper skill](cognitive-search-skill-shaper.md) can now model complex types for you to use. 
+You can also [cache enrichments](cognitive-search-incremental-indexing-conceptual.md), but the storage and format is not intended to be human-readable.
 
 <a name="next-step"></a>
 
 ## Next steps
 
-After a skillset is defined, you can attach it to an [indexer](search-indexer-overview.md) to run it.
+Context and inputs are paths to nodes in an enrichment tree. As a next step, learn more about path syntax.
 
-<!-- Now that you are familiar with the enrichment pipeline and skillsets, continue with [How to reference annotations in a skillset](cognitive-search-concept-annotations-syntax.md) or [How to map outputs to fields in an index](cognitive-search-output-field-mapping.md). -->
+> [!div class="nextstepaction"]
+> [Referencing annotations in a skillset](cognitive-search-concept-annotations-syntax.md).

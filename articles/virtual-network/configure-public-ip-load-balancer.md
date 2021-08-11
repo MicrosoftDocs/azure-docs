@@ -118,7 +118,7 @@ Multiple IPs avoid SNAT port exhaustion. Each Frontend IP provides 64,000 epheme
 In this section, you'll change the frontend configuration used for outbound connections to use a public IP prefix.
 
 > [!IMPORTANT]
-> To complete this section, you must have a load balancer with an outbound frontend configuration and outbound rules deployed. For more information on creating a load balancer outbound configuration, see **[Create outbound rule configuration](../load-balancer/quickstart-load-balancer-standard-public-portal.md?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration)**.
+> To complete this section, you must have a load balancer with an outbound frontend configuration and outbound rules deployed.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
