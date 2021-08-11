@@ -270,7 +270,7 @@ To update and run the provisioning sample with your device information:
     ```
     \azure-iot-sdk-c\cmake\azure_iot_sdks.sln
     ```
-
+    
     >[!TIP]If the file was not generated in your cmake  directory, make sure you used a recent version of the CMake build system.
 
 4. In Visual Studio's *Solution Explorer* window, go to the **Provision\_Samples** folder. Expand the sample project named **prov\_dev\_client\_sample**. Expand **Source Files**, and open **prov\_dev\_client\_sample.c**.
