@@ -312,12 +312,12 @@ Managed clusters do not enable IPv6 by default. This feature will enable full du
 ```
 
 2) Deploy the ARM Template
-Edit the [provided IPv6 sample template](url to sample json) as needed or build your own using the details above for cluster deployment
+Use the [provided IPv6 sample template](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/fixme/AzureDeploy.json) as needed or build your own using the details above for cluster deployment
 
 In the following example, we'll create a resource group called `MyResourceGroup` in `westus` and deploy a cluster with this feature enabled.
 ```powershell
     New-AzResourceGroup -Name MyResourceGroup -Location westus
-    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName MyResourceGroup -TemplateFile sfmc-ipv6.json
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName MyResourceGroup -TemplateFile AzureDeploy.json
 ```
 After deployment, your clusters virtual network will be dual-stack and also include IPv6 config on the Load Balancer frontend, associated subnet with unique IPv6 NSG, and IPv6 addresses on the VMs. 
 
@@ -404,7 +404,7 @@ Or the role assignment can be defined and created via the resources section of a
 > [!NOTE]
 > vnetRoleAssignmentID should be a valid GUID. If you deploy again the same template including this role assignment, make sure the GUID is the same as the one originally used or remove this resource as it just needs to be created once.
 
-Here is a full sample [role assignment ARM Template](urltofile) you can use for this step.
+Here is a full sample [role assignment ARM Template](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/fixme/SFMC-VNet-RoleAssign.json) you can use for this step.
 
 3) Configure the `subnetId` property for the cluster deployment after the role is setup as shown below:
 
@@ -420,14 +420,14 @@ Here is a full sample [role assignment ARM Template](urltofile) you can use for 
             ...
             }
 ```
-See the [bring your own load balancer cluster sample template](urltofile) for an example you can use or customize your own.
+See the [bring your own load balancer cluster sample template](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/fixme/AzureDeploy.json) for an example you can use or customize your own.
 
 4) Deploy the configured managed cluster ARM Template
 
 In the following example, we'll create a resource group called `MyResourceGroup` in `westus` and deploy a cluster with this feature enabled.
 ```powershell
     New-AzResourceGroup -Name MyResourceGroup -Location westus
-    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName MyResourceGroup -TemplateFile sfmc-byovnet.json
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName MyResourceGroup -TemplateFile AzureDeploy.json
 ```
 
 When you bring your own VNet the public endpoint is still created and managed by the resource provider. The feature does not allow you to specify the public ip/re-use static ip on the Azure Load Balancer. You can [bring your own Azure Load Balancer](#byolb) in concert with this feature or by itself if you require those or other load balancer scenarios that aren't natively supported.
@@ -512,14 +512,14 @@ New-AzRoleAssignment -PrincipalId 00000000-0000-0000-0000-000000000000 -RoleD
 
 4) Optionally configure NSG rules to allow any required traffic that you've configured on the Azure Load Balancer
 
-See the [bring your own load balancer sample template](url to sample json) for an example or customize your own.
+See the [bring your own load balancer sample template](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/fixme/AzureDeploy.json) for an example or customize your own.
 
 5) Deploy the ARM Template
 
 In the following example, we'll create a resource group called `MyResourceGroup` in `westus` and deploy a cluster with this feature enabled.
 ```powershell
     New-AzResourceGroup -Name MyResourceGroup -Location westus
-    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName MyResourceGroup -TemplateFile sfmc-byolb.json
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName MyResourceGroup -TemplateFile AzureDeploy.json
 ```
 
 After deployment, you can see that the secondary node type is configured to use the specified load balancer for inbound and outbound traffic. The Service Fabric client connection endpoint and [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) endpoint point will not change and will still point to the public DNS FQDN of the managed cluster primary node type static IP address.
