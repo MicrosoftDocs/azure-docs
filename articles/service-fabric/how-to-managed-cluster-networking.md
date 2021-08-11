@@ -349,9 +349,7 @@ Subnets:[
 }]
 ```
 
-2) Add a role assignment to the Service Fabric Resource Provider application. This is a one time action. You add the role by running the following PowerShell commands or ARM Template. 
-
-First, get the service `principal Id` for Service Fabric Resource Provider application:
+2) Get the service `Id` from your subscription for Service Fabric Resource Provider application:
 
 ```powershell
 Login-AzAccount
@@ -376,7 +374,9 @@ Next, use the **Id** of the previous output as **principalId** and the role defi
 |----|-------------------------------------|
 |Network Contributor|4d97b98b-1d4f-4787-a291-c67834d212e7|
 
-Add the role assignment via PowerShell using the principal ID, role definition name, and assignment scope url using the id property returned in step 1:
+3) Add a role assignment to the Service Fabric Resource Provider application. This is a one time action. You add the role by running the following PowerShell commands or ARM Template. 
+
+You'll use the subnet `Id` property returned in step 1 for `Scope` value along with the `principalId` and role definition name from step 2.
 
 ```powershell
 New-AzRoleAssignment -PrincipalId 00000000-0000-0000-0000-000000000000 -RoleDefinitionName "Network Contributor" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
