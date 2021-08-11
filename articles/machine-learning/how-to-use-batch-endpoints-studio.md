@@ -41,13 +41,19 @@ In this article, you learn about:
 
 There are two ways to create Batch Endpoints in Azure Machine Learning studio:
 
-- From the **Endpoints page**, select **Batch Endpoints** and then select **+ Create**. 
+# [Endpoint page](#tab/endpoint-page)
+
+* From the **Endpoints** page, select **Batch Endpoints** and then select **+ Create**. 
 
     :::image type="content" source="media/how-to-use-batch-endpoints-studio/create-batch-endpoints.png" alt-text="Create a batch endpoint and deployment from Endpoints page":::
 
-- From the **Models page**, select the model you want to deploy and then select **Deploy to batch endpoint (preview)**.
+# [Models page](#tab/models-page)
+
+* From the **Models** page, select the model you want to deploy and then select **Deploy to batch endpoint (preview)**.
 
     :::image type="content" source="media/how-to-use-batch-endpoints-studio/models-page-deployment.png" alt-text="Create a batch endpoint and deployment from Models page":::
+
+---
 
 > [!TIP]
 > If you're using an MLflow model, you can use no-code batch endpoint creation. That is, you don't need to prepare a scoring script and environment, both can be auto generated. For more, see [Train and track ML models with MLflow and Azure Machine Learning (preview)](how-to-use-mlflow.md).
@@ -60,7 +66,7 @@ Complete all the steps in wizard to create a batch endpoint and deployment.
 
 ## Check batch endpoint details
 
-After a batch endpoint is created, select it from the **Endpoints page** to view the details.
+After a batch endpoint is created, select it from the **Endpoints** page to view the details.
 
 :::image type="content" source="media/how-to-use-batch-endpoints-studio/batch-endpoint-details.png" alt-text="Check batch endpoints and deployment details":::
 
@@ -86,6 +92,7 @@ Some settings can be overwritten when you start a batch scoring job to make best
 
 You have two options to specify the data inputs in Azure machine learning studio:
 
+# [Registered dataset](#tab/dataset)
 * Use a **registered dataset**:
 
     > [!NOTE]
@@ -93,11 +100,13 @@ You have two options to specify the data inputs in Azure machine learning studio
 
     :::image type="content" source="media/how-to-use-batch-endpoints-studio/select-dataset-for-job.png" alt-text="Select registered dataset as an input option":::
 
+# [Datastore](#tab/datastore)
 * Use a **datastore**:
 
     You can specify AML registered datastore or if your data is publicly available, specify the public path.
 
     :::image type="content" source="media/how-to-use-batch-endpoints-studio/select-datastore-job.png" alt-text="Select datastore as an input option":::
+---
 
 ### Configure the output location
 
@@ -108,59 +117,49 @@ By default, the batch scoring results are stored in the default blob store for t
 
 :::image type="content" source="media/how-to-use-batch-endpoints-studio/configure-output-location.png" alt-text="Optionally configure output location":::
 
+### Summary of all submitted jobs
+
+To see a summary of all the submitted jobs for an endpoint, select the endpoint and then select the **Runs** tab.
+
+:::image type="content" source="media/how-to-use-batch-endpoints-studio/summary-jobs.png" alt-text="Summary of jobs submitted to a batch endpoint":::
 ## Check batch scoring results
 
 To learn how to view the scoring results, see [Use batch endpoints](how-to-use-batch-endpoint.md#check-batch-scoring-results).
 
-## Overview of batch endpoint features in Azure machine learning studio
+## Add a deployment to an existing batch endpoint
 
-In Azure machine learning studio, you can also perform following tasks:
+In Azure machine learning studio, there are two ways to add a deployment to an existing batch endpoint:
 
-### Add new deployment to an existing batch endpoint
+# [Endpoints page](#tab/models-page)
 
-In Azure machine learning studio there are two ways for users to add a deployment to an existing batch endpoint.
+* From the **Endpoints** page, select the batch endpoint to add a new deployment to. Select **+ Add deployment**, and complete the wizard to add a new deployment.
 
-1. Models page:
+    :::image type="content" source="media/how-to-use-batch-endpoints-studio/add-deployment-option.png" alt-text="Select add new deployment option":::
 
-* Select the model you want to deploy.
-* Click on Deploy to batch endpoint (preview) option from the drop-down.
-* In the wizard, on the endpoint screen, select **Existing** option.
-* Complete the wizard to add a new deployment successfully.
+# [Models page](#tab/models-page)
 
-:::image type="content" source="media/how-to-use-batch-endpoints-studio/add-deployment-models-page.png" alt-text="Select an existing batch endpoint to add new deployment":::
+* From the **Models** page, select the model you want to deploy. Then select **Deploy to batch endpoint (preview)** option from the drop-down. In the wizard, on the **Endpoint** screen, select **Existing**. Complete the wizard to add the new deployment.
 
-2. Endpoints page:
+    :::image type="content" source="media/how-to-use-batch-endpoints-studio/add-deployment-models-page.png" alt-text="Select an existing batch endpoint to add new deployment":::
 
-* Select the batch endpoint from the list you want add a new deployment.
-* Click on **+ Add deployment** option
-* Complete the wizard to add a new deployment successfully.
+---
 
-:::image type="content" source="media/how-to-use-batch-endpoints-studio/add-deployment-option.png" alt-text="Select add new deployment option":::
+## Update the default deployment
 
-### Update default deployment
+If an endpoint has multiple deployments, one of the deployments is the *default*. The default deployment receives 100% of the traffic to the endpoint. To change the default deployment, use the following steps:
 
-* Users can update their default deployment to send 100% traffic.
+1. Select the endpoint from the **Endpoints** page.
+1. Select **Update default deployment**. From the **Details** tab, select the deployment you want to set as default and then select **Update**.
+    :::image type="content" source="media/how-to-use-batch-endpoints-studio/update-default-deployment.png" alt-text="Update default deployment":::
 
-:::image type="content" source="media/how-to-use-batch-endpoints-studio/update-default-deployment.png" alt-text="Update default deployment":::
+## Delete batch endpoint and deployments
 
-### Delete batch endpoint and deployments
+To delete an **endpoint**, select the endpoint from the **Endpoints** page and then select delete.
 
-From Azure machine learning studio, users can delete an individual deployment or an entire endpoint which also deletes associated deployments.
+> [!WARNING]
+> Deleting an endpoint also deletes all deployments to that endpoint.
 
-### Summary of all submitted jobs
-
-:::image type="content" source="media/how-to-use-batch-endpoints-studio/summary-jobs.png" alt-text="Summary of jobs submitted to a batch endpoint":::
-
-## Clean up resources
-
-If you don't plan to use the resources you created, delete them, so you don't incur any charges:
-
-1. In the Azure portal, in the left menu, select **Resource groups**.
-1. In the list of resource groups, select the resource group you created.
-1. Select **Delete resource group**.
-1. Enter the resource group name. Then, select **Delete**.
-
-You can also keep the resource group but delete a single workspace. Display the workspace properties, and then select **Delete**.
+To delete a **deployment**, select the endpoint from the **Endpoints** page, select the deployment, and then select delete.
 
 ## Next steps
 
