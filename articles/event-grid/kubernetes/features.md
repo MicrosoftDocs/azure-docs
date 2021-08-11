@@ -9,7 +9,7 @@ ms.topic: conceptual
 ---
 
 # Event Grid on Kubernetes with Azure Arc features
-Event Grid on Kubernetes offers a rich set of features that help you integrate your Kubernetes workloads and realize hybrid architectures. It shares the same [rest API](/rest/api/eventgrid/version2020-10-15-preview/topics) (starting with version 2020-10-15-preview), [Event Grid CLI](/cli/azure/eventgrid), Azure portal experience, [management SDKs](../sdk-overview.md#management-sdks), and [data plane SDKs](../sdk-overview.md#data-plane-sdks) with Azure Event Grid, the other edition of the same service. When you're ready to publish events, you can use the [data plane SDK examples provided in different languages](https://devblogs.microsoft.com/azure-sdk/event-grid-ga/) that work for both editions of Event Grid.
+Event Grid on Kubernetes offers a rich set of features that help you integrate your Kubernetes workloads and realize hybrid architectures. It shares the same [rest API](/rest/api/eventgrid/version2021-06-01-preview/topics) (starting with version 2020-10-15-preview), [Event Grid CLI](/cli/azure/eventgrid), Azure portal experience, [management SDKs](../sdk-overview.md#management-sdks), and [data plane SDKs](../sdk-overview.md#data-plane-sdks) with Azure Event Grid, the other edition of the same service. When you're ready to publish events, you can use the [data plane SDK examples provided in different languages](https://devblogs.microsoft.com/azure-sdk/event-grid-ga/) that work for both editions of Event Grid.
 
 Although Event Grid on Kubernetes and Azure Event Grid share many features and the goal is to provide the same user experience, there are some differences given the unique requirements they seek to meet and the stage in which they are on their software lifecycle. For example, the only type of topic available in Event Grid on Kubernetes are Event Grid Topics that sometimes are also referred as custom topics. Other types of topics (see below) are either not applicable or support for them is not yet available. The main differences between the two editions of Event Grid are presented in the table below.
 
@@ -20,7 +20,7 @@ Although Event Grid on Kubernetes and Azure Event Grid share many features and t
 
 | Feature | Event Grid on Kubernetes | Azure Event Grid |
 |:--|:-:|:-:|
-| [Event Grid Topics](/rest/api/eventgrid/version2020-10-15-preview/topics) | ✔ | ✔ |
+| [Event Grid Topics](/rest/api/eventgrid/version2021-06-01-preview/topics) | ✔ | ✔ |
 | [CNCF Cloud Events schema](https://github.com/cloudevents/spec/blob/master/spec.md) | ✔ | ✔ |
 | Event Grid and custom schemas | ✘* | ✔ |
 | Reliable delivery | ✔ | ✔ |
