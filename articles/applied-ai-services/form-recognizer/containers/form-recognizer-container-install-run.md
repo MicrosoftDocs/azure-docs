@@ -22,7 +22,7 @@ keywords: on-premises, Docker, container, identify
 
 Azure Form Recognizer is an Azure Applied AI Service that lets you build automated data processing software using machine learning technology. Form Recognizer enables you to identify and extract text, key/value pairs, selection marks, table data, and more from your form documents and output structured data that includes the relationships in the original file.
 
-In this article you'll learn how to download, install, and run Form Recognizer containers. Containers enable you to run the Form Recognizer service in your own environment. Containers are great for specific security and data governance requirements. Form Recognizer features are supported by six Form Recognizer feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, and **Custom** (for Receipt, Business Card and ID Document containers you will also need the **Read** OCR container). 
+In this article you'll learn how to download, install, and run Form Recognizer containers. Containers enable you to run the Form Recognizer service in your own environment. Containers are great for specific security and data governance requirements. Form Recognizer features are supported by six Form Recognizer feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, and **Custom** (for Receipt, Business Card and ID Document containers you will also need the **Read** OCR container).
 
 ## Prerequisites
 
@@ -83,7 +83,7 @@ The following table lists the additional supporting container(s) for each Form R
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
 | Read 3.2 | 8 cores, 16-GB memory | 8 cores, 24-GB memory|
-| Layout 2.1-preview | 8 cores, 16-GB memory | 4 core, 8-GB memory |
+| Layout 2.1-preview | 8 cores, 16-GB memory | 8 core, 24-GB memory |
 | Business Card 2.1-preview | 2 cores, 4-GB memory | 4 cores, 4-GB memory |
 | ID Document 2.1-preview | 1 core, 2-GB memory |2 cores, 2-GB memory |
 | Invoice 2.1-preview | 4 cores, 8-GB memory | 8 cores, 8-GB memory |
@@ -289,7 +289,7 @@ version: "3.9"
 services:
   azure-cognitive-service-receipt:
     container_name: azure-cognitive-service-receipt
-    image: cognitiveservicespreview.azurecr.io/microsoft/cognitive-services-form-recognizer-receipt:2.1
+    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/receipt
     environment:
       - EULA=accept
       - billing={FORM_RECOGNIZER_ENDPOINT_URI}
@@ -367,36 +367,53 @@ In addition to the [prerequisites](#prerequisites) mentioned above, you will nee
 ```text
 worker_processes 1;
 
-events {
-  worker_connections 1024;
-}
+events { worker_connections 1024; }
 
 http {
 
-  sendfile on;
+    sendfile on;
 
-  upstream docker - api {
-      server azure - cognitive - service - custom - api: 5000;
-  }
+    upstream docker-api {
+        server azure-cognitive-service-custom-api:5000;
+    }
 
-  upstream docker - layout {
-      server azure - cognitive - service - layout: 5000;
-  }
+    upstream docker-layout {
+        server  azure-cognitive-service-layout:5000;
+    }
 
-  server {
-      listen 5000;
+    server {
+        listen 5000;
 
-      location / formrecognizer / v2 .1 / custom / {
-          proxy_pass http: //docker-api/formrecognizer/v2.1/custom/;
+        location = / {
+            proxy_pass         http://docker-api/;
 
-      }
+        }
 
-      location / formrecognizer / v2 .1 / layout / {
-          proxy_pass http: //docker-layout/formrecognizer/v2.1/layout/;
+        location /status {
+            proxy_pass         http://docker-api/status;
 
-      }
+        }
 
-  }
+        location /ready {
+            proxy_pass         http://docker-api/ready;
+
+        }
+
+        location /swagger {
+            proxy_pass         http://docker-api/swagger;
+
+        }
+
+        location /formrecognizer/v2.1/custom/ {
+            proxy_pass         http://docker-api/formrecognizer/v2.1/custom/;
+
+        }
+
+        location /formrecognizer/v2.1/layout/ {
+            proxy_pass         http://docker-layout/formrecognizer/v2.1/layout/;
+
+        }
+    }
 }
 ```
 

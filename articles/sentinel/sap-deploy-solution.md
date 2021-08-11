@@ -255,7 +255,7 @@ Add SAP-related watchlists to your Azure Sentinel workspace manually.
 
     To display the newly deployed content, go to:
 
-    - **Threat Management** > **Workbooks**, to find the [SAP - System Applications and Products - Preview](sap-solution-security-content.md#sap---system-applications-and-products-workbook) workbook.
+    - **Threat Management** > **Workbooks** > **My workbooks**, to find the [built-in SAP workbooks](sap-solution-security-content.md#built-in-workbooks).
     - **Configuration** > **Analytics** to find a series of [SAP-related analytics rules](sap-solution-security-content.md#built-in-analytics-rules).
 
 1. Add SAP-related watchlists to use in your search, detection rules, threat hunting, and response playbooks. These watchlists provide the configuration for the Azure Sentinel SAP Continuous Threat Monitoring solution.

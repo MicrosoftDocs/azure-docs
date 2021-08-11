@@ -1,11 +1,12 @@
 ---
-title: Azure Function Activity in Azure Data Factory 
+title: Azure Function Activity
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to use the Azure Function activity to run an Azure Function in a Data Factory pipeline
+description: Learn how to use the Azure Function activity to run an Azure Function in an Azure Data Factory or Azure Synapse Analytics pipeline
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 07/30/2021
@@ -13,7 +14,7 @@ ms.date: 07/30/2021
 
 # Azure Function activity in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
-The Azure Function activity allows you to run [Azure Functions](../azure-functions/functions-overview.md) in a Data Factory pipeline. To run an Azure Function, you need to create a linked service connection and an activity that specifies the Azure Function that you plan to execute.
+The Azure Function activity allows you to run [Azure Functions](../azure-functions/functions-overview.md) in an Azure Data Factory or Synapse pipeline. To run an Azure Function, you need to create a linked service connection and an activity that specifies the Azure Function that you plan to execute.
 
 For an eight-minute introduction and demonstration of this feature, watch the following video:
 
@@ -64,8 +65,8 @@ Learn more about Durable Functions in [this article](../azure-functions/durable/
 
 ## Sample
 
-You can find a sample of a Data Factory that uses an Azure Function to extract the content of a tar file [here](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction).
+You can find a sample that uses an Azure Function to extract the content of a tar file [here](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction).
 
 ## Next steps
 
-Learn more about activities in Data Factory in [Pipelines and activities in Azure Data Factory](concepts-pipelines-activities.md).
+Learn more about supported activities in [Pipelines and activities](concepts-pipelines-activities.md).

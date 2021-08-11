@@ -1,20 +1,21 @@
 ---
-title: Lookup activity in Azure Data Factory 
+title: Lookup activity
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to use Lookup activity to look up a value from an external source. This output can be further referenced by succeeding activities. 
+description: Learn how to use the Lookup Activity in Azure Data Factory and Azure Synapse Analytics to look up a value from an external source. This output can be further referenced by succeeding activities. 
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
+ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 02/25/2021
 ---
 
-# Lookup activity in Azure Data Factory
+# Lookup activity in Azure Data Factory and Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Lookup activity can retrieve a dataset from any of the Azure Data Factory-supported data sources. you can use it to dynamically determine which objects to operate on in a subsequent activity, instead of hard coding the object name. Some object examples are files and tables.
+Lookup activity can retrieve a dataset from any of the data sources supported by data factory and Synapse pipelines. You can use it to dynamically determine which objects to operate on in a subsequent activity, instead of hard coding the object name. Some object examples are files and tables.
 
 Lookup activity reads and returns the content of a configuration file or table. It also returns the result of executing a query or stored procedure. The output can be a singleton value or an array of attributes, which can be consumed in a subsequent copy, transformation, or control flow activities like ForEach activity.
 
@@ -105,7 +106,7 @@ The lookup result is returned in the `output` section of the activity run result
 
 In this example, the pipeline contains two activities: **Lookup** and **Copy**. The Copy Activity copies data from a SQL table in your Azure SQL Database instance to Azure Blob storage. The name of the SQL table is stored in a JSON file in Blob storage. The Lookup activity looks up the table name at runtime. JSON is modified dynamically by using this approach. You don't need to redeploy pipelines or datasets. 
 
-This example demonstrates lookup for the first row only. For lookup for all rows and to chain the results with ForEach activity, see the samples in [Copy multiple tables in bulk by using Azure Data Factory](tutorial-bulk-copy.md).
+This example demonstrates lookup for the first row only. For lookup for all rows and to chain the results with ForEach activity, see the samples in [Copy multiple tables in bulk](tutorial-bulk-copy.md).
 
 
 ### Pipeline
@@ -386,7 +387,7 @@ Here are some limitations of the Lookup activity and suggested workarounds.
 | | |
 
 ## Next steps
-See other control flow activities supported by Data Factory: 
+See other control flow activities supported by Azure Data Factory and Synapse pipelines: 
 
 - [Execute Pipeline activity](control-flow-execute-pipeline-activity.md)
 - [ForEach activity](control-flow-for-each-activity.md)

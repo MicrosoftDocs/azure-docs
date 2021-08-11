@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 01/14/2021
+ms.date: 07/30/2021
 ---
 
 # Introduction to listing options

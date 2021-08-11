@@ -127,11 +127,13 @@ sections:
 
       - question: Why can't I create an App Configuration store with the same name as one that I just deleted?
         answer: |
-          When a standard tier App Configuration store is deleted the name is reserved for three days after deletion. It is possible to recreate a store with the same name before the reservation period has elapsed but it must be in the same subscription, resource group, and region as the original store. If the resource group that contained the store was deleted it will need to be recreated in the same subscription first before recreating the store inside of it.
+          When a standard tier App Configuration store is deleted the name is reserved for seven days after deletion. It is possible to recreate a store with the same name before the reservation period has elapsed but it must be in the same subscription, resource group, and region as the original store. If the resource group that contained the store was deleted it will need to be recreated in the same subscription first before recreating the store inside of it.
+
+          The App Configuration store cannot be created in a different subscription/resource group until the retention period has elapsed. However, the resource can be recreated in the original subscription/resource group and then moved to a new subscription/resource group by following [these instructions](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/move-resource-group-and-subscription#use-the-portal).
 
       - question: How can I restore an App Configuration store that I deleted mistakenly?
         answer: |
-          Standard tier App Configuration stores can be recovered within three days of being deleted. To recover a mistakenly deleted App Configuration store contact Microsoft Support.
+          Standard tier App Configuration stores can be recovered within seven days of being deleted. To recover a mistakenly deleted App Configuration store contact Microsoft Support.
 
       - question: How can I receive announcements on new releases and other information related to App Configuration?
         answer: |

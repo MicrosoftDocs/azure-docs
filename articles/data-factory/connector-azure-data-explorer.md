@@ -2,9 +2,10 @@
 title: Copy data to or from Azure Data Explorer
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data to or from Azure Data Explorer by using a copy activity in an Azure Data Factory pipeline.
-ms.author: orspodek
-author: jianleishen
+ms.author: susabat
+author: ssabat
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 07/19/2020

@@ -4,6 +4,7 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot security and access control issues in Azure Data Factory. 
 author: lrtoyou1223
 ms.service: data-factory
+ms.subservice: integration-runtime
 ms.custom: synapse
 ms.topic: troubleshooting
 ms.date: 07/28/2021
@@ -205,7 +206,7 @@ You  can reassign access to data factory following permissions: **Get, Unwrap Ke
  
 * Customer deleted Key Vault / CMK before deleting ADF. 
  CMK in ADF should have "Soft Delete" enabled and "Purge Protect" enabled which has default retention policy of 90 days. You can restore the deleted key.  
-Please review [Recover deleted Key](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates ) and [Deleted Key Value](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault)
+Please review [Recover deleted Key](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates) and [Deleted Key Value](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault)
 
 * User Assigned Managed Identity (UA-MI) was deleted before ADF. 
 You can recover from this by using REST API calls, you can do this in an http client of your choice in any programming language. If you have not anything already set up for REST API calls with Azure authentication, the easiest way to do this would be by using POSTMAN/Fiddler. Please follow following steps.

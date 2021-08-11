@@ -65,7 +65,7 @@ productDirectory:
     - title: Azure Immersive Reader
       imageSrc: ./media/immersive-reader.svg
       summary: Help users read and comprehend text
-      url: ../cognitive-services/immersive-reader/index.yml
+      url: ./immersive-reader/index.yml
 
 additionalContent:
   sections:
@@ -87,7 +87,7 @@ additionalContent:
           - text: Azure Metrics Advisor
             url: ./metrics-advisor/quickstarts/web-portal.md
           - text: Azure Immersive Reader
-            url: ../cognitive-services/immersive-reader/quickstarts/client-libraries.md
+            url: ./immersive-reader/quickstarts/client-libraries.md
           - text: Azure Cognitive Search
             url: ../search/search-get-started-portal.md
           - text: Azure Video Analyzer
