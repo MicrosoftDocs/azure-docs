@@ -44,6 +44,12 @@ config.set_property(speechsdk.PropertyId.Speech_LogFilename, "LogfilePathAndName
 [config setPropertyTo:@"LogfilePathAndName" byId:SPXSpeechLogFilename];
 ```
 
+```go
+import ("github.com/Microsoft/cognitive-services-speech-sdk-go/common")
+
+config.SetProperty(common.SpeechLogFilename, "LogfilePathAndName")
+```
+
 You can create a recognizer from the config object. This will enable logging for all recognizers.
 
 > [!NOTE]
@@ -149,16 +155,19 @@ This also means that the lifetime of the object that configured logging is not t
 
 To reduce potential confusion when configuring logging for multiple instances, it may be useful to abstract control of logging from objects doing real work. An example pair of helper routines:
 
-```csharp
-public static void EnableSpeechSdkFileLogging(string path)
+```cpp
+void EnableSpeechSdkLogging(const char* relativePath)
 {
-    var configForLogging = SpeechConfig.FromSubscription("unused_key", "unused_region");
-    configForLogging.SetProperty("SPEECH-LogFilename", path);
-    using (var momentaryRecognizerForLoggingConfiguration = new SpeechRecognizer(configForLogging))
-    {
-    }
+	auto configForLogging = SpeechConfig::FromSubscription("unused_key", "unused_region");
+	configForLogging->SetProperty(PropertyId::Speech_LogFilename, relativePath);
+	auto emptyAudioConfig = AudioConfig::FromStreamInput(AudioInputStream::CreatePushStream());
+	auto temporaryRecognizer = SpeechRecognizer::FromConfig(configForLogging, emptyAudioConfig);
 }
-public static void DisableSpeechSdkFileLogging() => EnableSpeechSdkFileLogging(string.Empty);
+
+void DisableSpeechSdkLogging()
+{
+	EnableSpeechSdkLogging("");
+}
 ```
 
 ## Next steps

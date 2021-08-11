@@ -539,10 +539,16 @@
     href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
   - name: Azure CLI
     href: /cli/azure/backup
+  - name: Azure Dataprotection - CLI
+    href: /cli/azure/dataprotection?view=azure-cli-latest&preserve-view=true
   - name: Azure PowerShell
     href: /powershell/module/az.recoveryservices
+  - name: Azure Dataprotection - PowerShell
+    href: /powershell/module/az.dataprotection/?view=azps-6.1.0&preserve-view=true
   - name: PowerShell – Azure Backup agent
     href: /powershell/module/msonlinebackup/?view=msonlinebackup-ps
+  - name: REST - Azure Dataprotection
+    href: /rest/api/dataprotection/
   - name: REST - Backup
     href: /rest/api/backup/
   - name: REST - Recovery Services vault

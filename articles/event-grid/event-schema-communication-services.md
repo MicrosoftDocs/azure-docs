@@ -45,6 +45,7 @@ Azure Communication Services emits the following event types:
 | Microsoft.Communication.ChatThreadPropertiesUpdated| Published when a chat thread's properties like topic are updated.|    
 | Microsoft.Communication.ChatMessageEditedInThread | Published when a message is edited in a chat thread |  
 | Microsoft.Communication.ChatMessageDeletedInThread | Published when a message is deleted in  a chat thread  |  
+| Microsoft.Communication.RecordingFileStatusUpdated | Published when recording file is available |
 
 You can use the Azure portal or Azure CLI to subscribe to events emitted by your Communication Services resource. Get started with handling events by looking at [How to handle SMS Events in Communication Services](../communication-services/quickstarts/telephony-sms/handle-sms-events.md)
 
