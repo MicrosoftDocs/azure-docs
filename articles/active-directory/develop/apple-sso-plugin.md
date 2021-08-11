@@ -166,29 +166,39 @@ Applications enabled for the SSO by using this setup need to be added to both `A
 
 Try this configuration only for applications that have unexpected sign-in failures. 
 
-#### Summarizing the flags and Usage:
-| Flag      | Comments |
-| ----------- | ----------- |
-| Enable_SSO_On_All_ManagedApps| Integer :  1-> if enabled for all managed apps, 0 ->if not enabled for all managed apps|
-| AppAllowList| String: Comma-delimited list of application bundle IDs for the applications that are allowed to participate in SSO|
-| AppBlockList| String: Comma-delimited list of application bundle IDs for the applications that are not allowed to participate in SSO|
-|AppPrefixAllowList| String : Comma-delimited list of application bundle ID prefixes for the applications that are allowed to participate in SSO |
-|AppCookieSSOAllowList| String : Comma-delimited list of application bundle ID prefixes for the applications that are allowed to participate in the SSO. Used when SSO doesnt work due to special network settings for some apps. Applications enabled for the SSO by using this setup need to be added to both AppCookieSSOAllowList and AppPrefixAllowList|
+#### Summary of keys
 
-Usage:
-  - If the MDM admin wants to enable SSO on all managed apps *except* for a specific app or set of apps.
-    - Set Enable_SSO_On_All_ManagedApps : 1
-    - Add apps that should have SSO disabled to AppBlockList
-  - If MDM admin wants to disable default SSO on safari, but SSO on all managed apps:
-    - Add the Safari bundle IDs in AppBlockList.
-      - iOS : com.apple.mobilesafari, com.apple.SafariViewService 
-      - macOS : com.apple.Safari 
-    - Set Enable_SSO_On_All_ManagedApps : 1
-  - If the MDM admin wants to enable SSO on all managed apps and a few unmanaged apps, but also block SSO for others:
-    - Set Enable_SSO_On_All_ManagedApps : 1
-    - Add unmanaged apps that require SSO to AppAllowList
-    - Add any app that needs SSO disabled to AppBlockList
+| Key | Type | Value |
+|--|--|--|
+| `Enable_SSO_On_All_ManagedApps` | Integer | `1` to enable SSO for all managed apps, `0` to disable SSO for all managed apps. |
+| `AppAllowList` | String<br/>*(comma-delimited  list)* | Bundle IDs of applications allowed to participate in SSO. |
+| `AppBlockList` | String<br/>*(comma-delimited  list)* | Bundle IDs of applications not allowed to participate in SSO. |
+| `AppPrefixAllowList` | String<br/>*(comma-delimited  list)* | Bundle ID prefixes of applications allowed to participate in SSO. |
+| `AppCookieSSOAllowList` | String<br/>*(comma-delimited  list)* | Bundle ID prefixes of applications allowed to participate in SSO but that use special network settings and have trouble with SSO using the other settings. Apps you add to `AppCookieSSOAllowList` must also be added to `AppPrefixAllowList`. |
 
+#### Settings for common scenarios
+
+- *Scenario*: I want to enable SSO for most managed applications, but not for all of them.
+
+    | Key | Value |
+    | -------- | ----------------- |
+    | `Enable_SSO_On_All_ManagedApps` | `1` |
+    | `AppBlockList` | The bundle IDs (comma-delimited list) of the apps you want to prevent from participating in SSO. |
+
+- *Scenario* I want to disable SSO for Safari, which is enabled by default, but enable SSO for all managed apps.
+
+    | Key | Value |
+    | -------- | ----------------- |
+    | `Enable_SSO_On_All_ManagedApps` | `1` |
+    | `AppBlockList` | The bundle IDs (comma-delimited list) of the Safari apps you want to prevent from participating in SSO.<br/><li>For iOS: `com.apple.mobilesafari`, `com.apple.SafariViewService`<br/><li>For macOS: `com.apple.Safari` |
+
+- *Scenario*: I want to enable SSO on all managed apps and few unmanaged apps, but disable SSO for a few other apps.
+
+    | Key | Value |
+    | -------- | ----------------- |
+    | `Enable_SSO_On_All_ManagedApps` | `1` |
+    | `AppAllowList` | The bundle IDs (comma-delimited list) of the apps you want to enable for participation in for SSO. |
+    | `AppBlockList` | The bundle IDs (comma-delimited list) of the apps you want to prevent from participating in SSO. |
 
 
 ##### Find app bundle identifiers on iOS devices
