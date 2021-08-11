@@ -247,6 +247,8 @@ If you do not specify a buildTimeoutInMinutes value, or set it to 0, this will u
 
 If you find you need more time for customizations to complete, set this to what you think you need, with a little overhead. But, do not set it too high because you might have to wait for it to timeout before seeing an error. 
 
+> [!NOTE]
+> If you do not set the value to 0, the minimum supported value is 6 minutes.  Values between 1 and 5 inclusive will fail.
 
 ## Properties: customize
 
