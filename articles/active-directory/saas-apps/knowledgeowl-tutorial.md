@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/11/2021
+ms.date: 08/11/2021
 ms.author: jeedes
 ---
 
@@ -151,13 +151,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In a different web browser window, sign into your KnowledgeOwl company site as an administrator.
 
-1. Click on **Settings** and then select **Security**.
+1. Click on **Settings** and then select **SSO**.
 
-	![Screenshot shows Security selected from the Settings menu.](./media/knowledgeowl-tutorial/configure-1.png)
+	![Screenshot shows SSO selected from the Settings menu.](./media/knowledgeowl-tutorial/settings-sso-dropdown.png)
 
-1. Scroll to **SAML SSO Integration** and perform the following steps:
+1. In the Scroll to **SAML Settings** tab, perform the following steps:
 
-	![Screenshot shows SAML S S O Integration where you can make the changes described here.](./media/knowledgeowl-tutorial/configure-2.png)
+	![Screenshot shows SAML S S O Integration where you can make the changes described here.](./media/knowledgeowl-tutorial/sso-settings-required-fields.png)
 
 	a. Select **Enable SAML SSO**.
 
@@ -171,21 +171,24 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	f. In the **IdP Logout URL** textbox, paste the **Logout URL** value, which you have copied from the Azure portal.
 
-	g. Upload the downloaded certificate form the Azure portal by clicking the **Upload IdP Certificate**.
+	g. Upload the downloaded certificate form the Azure portal by clicking the **Upload** link beneath **IdP Certificate**.
 
-	h. Click on **Map SAML Attributes** to map attributes and perform the following steps:
+	h. Click **Save** at the bottom of the page.
 
-	![Screenshot shows Map SAML Attributes where you can make the changes described here.](./media/knowledgeowl-tutorial/configure-3.png)
+	![Screenshot shows the Save button.](./media/knowledgeowl-tutorial/sso-settings-saml-save.png)
+
+	i. Open the **SAML Attribute Map** tab to map attributes and perform the following steps:
+
+	![Screenshot shows Map SAML Attributes where you can make the changes described here.](./media/knowledgeowl-tutorial/sso-settings-direct-attribute-fields.png)
 
 	* Enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ssoid` into the **SSO ID** textbox
 	* Enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` into the **Username/Email** textbox.
 	* Enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` into the **First Name** textbox.
 	* Enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` into the **Last Name** textbox.
-	* Click **Save**.
 
-	i. Click **Save** at the bottom of the page.
+	j. Click **Save** at the bottom of the page.
 
-	![Screenshot shows the Save button.](./media/knowledgeowl-tutorial/configure-4.png)
+	![Screenshot shows the Save button.](./media/knowledgeowl-tutorial/sso-settings-direct-attribute-save.png)
 
 ### Create KnowledgeOwl test user
 
