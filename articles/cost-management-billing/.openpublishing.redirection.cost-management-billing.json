@@ -1052,7 +1052,7 @@
         },
         {
             "source_path_from_root": "/articles/cost-management-billing/understand/mca-faq.md",
-            "redirect_url": "/azure/cost-management-billing/microsoft-customer-agreement-faq",
+            "redirect_url": "/azure/cost-management-billing/microsoft-customer-agreement/microsoft-customer-agreement-faq",
             "redirect_document_id": true
         },
         {
