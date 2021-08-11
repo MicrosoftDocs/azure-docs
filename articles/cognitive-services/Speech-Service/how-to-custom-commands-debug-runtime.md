@@ -12,7 +12,7 @@ ms.date: 06/18/2020
 ms.author: xiaojul
 ---
 
-# Troubleshooting guide for a Custom Commands application at runtime
+# Troubleshoot a Custom Commands application at runtime
 
 This article describes how to debug when you see errors while running Custom Commands application. 
 
