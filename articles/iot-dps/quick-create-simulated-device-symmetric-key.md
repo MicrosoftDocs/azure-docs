@@ -67,11 +67,12 @@ If you're unfamiliar with the process of provisioning, review the [provisioning]
 
 * Install the latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
 
+
 <a id="setupdevbox"></a>
 
-::: zone pivot="programming-language-ansi-c"
+## Prepare your development environment
 
-## Prepare an Azure IoT C SDK development environment
+::: zone pivot="programming-language-ansi-c"
 
 In this section, you'll prepare a development environment that's used to build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
 
@@ -134,8 +135,6 @@ The SDK includes the provisioning sample code for devices. This code attempt pro
 
 ::: zone pivot="programming-language-csharp"
 
-## Prepare the Azure IoT C# SDK environment
-
 1. Open a Git CMD or Git Bash command line environment.
 
 2. Clone the [Azure IoT Samples for C#](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository using the following command:
@@ -148,8 +147,6 @@ The SDK includes the provisioning sample code for devices. This code attempt pro
 
 ::: zone pivot="programming-language-nodejs"
 
-## Prepare the Azure IoT Node.js SDK environment
-
 1. Open a Git CMD or Git Bash command line environment.
 
 2. Clone the [Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node.git) GitHub repository using the following command:
@@ -161,8 +158,6 @@ The SDK includes the provisioning sample code for devices. This code attempt pro
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-
-## Prepare the Azure IoT Python SDK environment
 
 1. Open a Git CMD or Git Bash command line environment.
 
@@ -186,10 +181,7 @@ The SDK includes the provisioning sample code for devices. This code attempt pro
 
 ::: zone-end
 
-
 ::: zone pivot="programming-language-java"
-
-## Prepare the Azure IoT Java SDK environment
 
 1. Open a Git CMD or Git Bash command line environment.
 
