@@ -62,70 +62,6 @@ Review the [Azure Purview Private Link frequently asked questions (FAQ)](./catal
 
 1. On the **Configuration** tab, select the virtual network and private DNS zone. Go to the summary page, and select **Create** to create the portal private endpoint.
 
-## Private DNS zone requirements for private endpoints
-
-When you create a private endpoint, the DNS CNAME resource record for Azure Purview is updated to an alias in a subdomain with the prefix `privatelink`. By default, we also create a [private DNS zone](../dns/private-dns-overview.md) that corresponds to the `privatelink` subdomain, with the DNS A resource records for the private endpoints.
-
-When you resolve the Azure Purview endpoint URL from outside the virtual network with the private endpoint, it resolves to the public endpoint of Azure Purview. When resolved from the virtual network hosting the private endpoint, the Azure Purview endpoint URL resolves to the private endpoint's IP address.
-
-As an example, if an Azure Purview account name is 'PurviewA', when it's resolved from outside the virtual network that hosts the private endpoint, it will be:
-
-| Name | Type | Value |
-| ---------- | -------- | --------------- |
-| `PurviewA.purview.azure.com` | CNAME | `PurviewA.privatelink.purview.azure.com` |
-| `PurviewA.privatelink.purview.azure.com` | CNAME | \<Purview public endpoint\> |
-| \<Purview public endpoint\> | A | \<Purview public IP address\> |
-| `Web.purview.azure.com` | CNAME | \<Purview public endpoint\> |
-
-The DNS resource records for PurviewA, when resolved in the virtual network hosting the private endpoint, will be:
-
-| Name | Type | Value |
-| ---------- | -------- | --------------- |
-| `PurviewA.purview.azure.com` | CNAME | `PurviewA.privatelink.purview.azure.com` |
-| `PurviewA.privatelink.purview.azure.com` | A | \<private endpoint IP address\> |
-| `Web.purview.azure.com` | CNAME | \<private endpoint IP address\> |
-
-<br>
-
- > [!Important]
- > If you don't use DNS forwarders and instead you manage A records directly in your on-premises DNS servers to resolve the endpoints through their private IP addresses, you might need to create additional A records in your DNS servers.
-
-| Name | Type | Value |
-| ---------- | -------- | --------------- |
-| `PurviewA.Purview.azure.com` | A | \<account private endpoint IP address of Azure Purview> |
-| `PurviewA.scan.Purview.azure.com` | A | \<account private endpoint IP address of Azure Purview> |
-| `PurviewA.catalog.Purview.azure.com` | A | \<account private endpoint IP address of Azure Purview\> |
-| `PurviewA.proxy.purview.azure.com` | A | \<account private endpoint IP address of Azure Purview\> |
-| `PurviewA.guardian.purview.azure.com` | A | \<account private endpoint IP address of Azure Purview\> |
-| `PurviewA.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
-| `PurviewA.manifest.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
-| `PurviewA.cdn.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
-| `PurviewA.hub.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
-| `PurviewA.catalog.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
-| `PurviewA.cseo.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
-| `PurviewA.datascan.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
-| `PurviewA.datashare.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
-| `PurviewA.datasource.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
-| `PurviewA.policy.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
-| `PurviewA.sensitivity.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
-
-<br> 
-
-The following example shows Azure Purview DNS name resolution from outside the virtual network or when an Azure private endpoint isn't configured.
-
-   :::image type="content" source="media/catalog-private-link/purview-name-resolution-external.png" alt-text="Screenshot that shows Azure Purview name resolution from outside CorpNet.":::
-
-The following example shows Azure Purview DNS name resolution from inside the virtual network.
-
-   :::image type="content" source="media/catalog-private-link/purview-name-resolution-private-link.png" alt-text="Screenshot that shows Purview name resolution from inside CorpNet.":::
-
-It's important to correctly configure your DNS settings to resolve the private endpoint IP address to the fully qualified domain name (FQDN) of the connection string.
-
-If you're using a custom DNS server on your network, clients must be able to resolve the FQDN for the Azure Purview endpoint to the private endpoint IP address. Configure your DNS server to delegate your Private Link subdomain to the private DNS zone for the virtual network. Or, configure the A records for `PurviewA.privatelink.purview.azure.com` with the private endpoint IP address.
-
-   :::image type="content" source="media/catalog-private-link/purview-name-resolution-diagram.png" alt-text="Diagram that shows Azure Purview name resolution.":::
-
-For more information, see [Azure private endpoint DNS configuration](../private-link/private-endpoint-dns.md).
 
 ## Enable access to Azure Active Directory
 
@@ -211,7 +147,7 @@ There are two ways you can add Azure Purview private endpoints after you create 
 
 1. For **Resource**, select the Azure Purview account, and for **Target sub-resource**, select **account**.
 
-1. On the **Configuration** tab, select the virtual network and private DNS zone. Go to the summary page, and select **Create** to create the account private endpoint.
+1. On the **Configuration** tab, select the virtual network and private DNS zone. Go to the summary page, and select **Create** to create the portal private endpoint.
 
 > [!NOTE]
 > Follow the same steps when you select **portal** for **Target sub-resource**.
