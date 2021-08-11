@@ -17,17 +17,7 @@
       displayName: Resource Manager
       href: quick-setup-auto-provision-rm.md
   - name: Provision a symmetric key device
-    items:
-      - name: C
-        href: quick-create-simulated-device-symm-key.md
-      - name: Java
-        href: quick-create-simulated-device-symmetric-key-java.md
-      - name: C#
-        href: quick-create-device-symmetric-key-csharp.md
-      - name: Node.js
-        href: quick-create-device-symmetric-key-node.md
-      - name: Python
-        href: quick-create-device-symmetric-key-python.md
+    href: quick-create-simulated-device-symmetric-key.md
   - name: Provision a X.509 certificate device
     items:
       - name: C
