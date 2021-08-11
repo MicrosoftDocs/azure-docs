@@ -2,7 +2,7 @@
 title: Overview of features - Azure Event Hubs | Microsoft Docs
 description: This article provides details about features and terminology of Azure Event Hubs. 
 ms.topic: overview
-ms.date: 03/15/2021
+ms.date: 08/03/2021
 ---
 
 # Features and terminology in Azure Event Hubs
@@ -20,7 +20,9 @@ This article builds on the information in the [overview article](./event-hubs-ab
 
 
 ## Namespace
-An Event Hubs namespace provides DNS integrated network endpoints and a range of access control and network integration management features such as [IP filtering](event-hubs-ip-filtering.md), [virtual network service endpoint](event-hubs-service-endpoints.md), and [Private Link](private-link-service.md) and is the management container for one of multiple Event Hub instances (or topics, in Kafka parlance).
+An Event Hubs namespace is a management container for event hubs (or topics, in Kafka parlance). It provides DNS integrated network endpoints and a range of access control and network integration management features such as [IP filtering](event-hubs-ip-filtering.md), [virtual network service endpoint](event-hubs-service-endpoints.md), and [Private Link](private-link-service.md) and 
+
+:::image type="content" source="./media/event-hubs-features/namespace.png" alt-text="Image showing an Event Hubs namespace":::
 
 ## Event publishers
 
@@ -96,6 +98,12 @@ You don't have to create publisher names ahead of time, but they must match the 
 ## Capture
 
 [Event Hubs Capture](event-hubs-capture-overview.md) enables you to automatically capture the streaming data in Event Hubs and save it to your choice of either a Blob storage account, or an Azure Data Lake Service account. You can enable Capture from the Azure portal, and specify a minimum size and time window to perform the capture. Using Event Hubs Capture, you specify your own Azure Blob Storage account and container, or Azure Data Lake Service account, one of which is used to store the captured data. Captured data is written in the Apache Avro format.
+
+:::image type="content" source="./media/event-hubs-features/capture.png" alt-text="Image showing capturing of Event Hubs data into Azure Storage or Azure Data Lake Storage":::
+
+The files produced by Event Hubs Capture have the following Avro schema:
+
+:::image type="content" source="./media/event-hubs-capture-overview/event-hubs-capture3.png" alt-text="Image showing the structure of captured data":::
 
 ## Partitions
 [!INCLUDE [event-hubs-partitions](./includes/event-hubs-partitions.md)]

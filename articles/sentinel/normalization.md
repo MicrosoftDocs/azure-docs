@@ -43,7 +43,7 @@ The Azure Sentinel Information Model includes the following components:
 
 |Component  |Description  |
 |---------|---------|
-|**Normalized schemas**     |   Cover standard sets of predictable event types that you can use when building unified capabilities. <br><br>Each schema defines the fields that represent an event, a normalized column naming convention, and a standard format for the field values. <br><br> ASIM currently defines the following schemas:<br> - [Network Session](normalization-schema.md)<br> - [DNS Activity](dns-normalization-schema.md)<br> - [Process Event](process-events-normalization-schema.md)<br> - [Authentication Event](authentication-normalization-schema.md)<br> - [Registry Event](registry-event-normalization-schema.md) |
+|**Normalized schemas**     |   Cover standard sets of predictable event types that you can use when building unified capabilities. <br><br>Each schema defines the fields that represent an event, a normalized column naming convention, and a standard format for the field values. <br><br> ASIM currently defines the following schemas:<br> - [Network Session](normalization-schema.md)<br> - [DNS Activity](dns-normalization-schema.md)<br> - [Process Event](process-events-normalization-schema.md)<br> - [Authentication Event](authentication-normalization-schema.md)<br> - [Registry Event](registry-event-normalization-schema.md)<br> - [File Activity](file-event-normalization-schema.md) |
 |**Parsers**     |  Map existing data to the normalized schemas using [KQL functions](/azure/data-explorer/kusto/query/functions/user-defined-functions). <br><br>Deploy the Microsoft-developed normalizing parsers from the [Azure Sentinel GitHub Parsers folder](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers). Normalized parsers are located in subfolders starting with **ASim**.       |
 |**Content for each normalized schema**     |    Includes analytics rules, workbooks, hunting queries, and more. Content for each normalized schema works on any normalized data without the need to create source-specific content.     |
 
@@ -542,5 +542,6 @@ For more information, see:
 
 - [Azure Sentinel Network normalization schema reference](normalization-schema.md)
 - [Azure Sentinel DNS normalization schema reference](dns-normalization-schema.md)
+- [Azure Sentinel File Event normalization schema reference (Public preview)](file-event-normalization-schema.md)
 - [Azure Sentinel Process Event normalization schema reference](process-events-normalization-schema.md)
 - [Azure Sentinel Authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)

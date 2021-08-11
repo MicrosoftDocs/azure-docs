@@ -66,7 +66,7 @@ Use the `Environment.get` method to select one of the curated environments:
 from azureml.core import Workspace, Environment
 
 ws = Workspace.from_config()
-env = Environment.get(workspace=ws, name="AzureML-Minimal")
+env = Environment.get(workspace=ws, name="AzureML-sklearn-0.24-ubuntu18.04-py37-cpu")
 ```
 
 You can list the curated environments and their packages by using the following code:
@@ -85,7 +85,7 @@ for env in envs:
 
 To customize a curated environment, clone and rename the environment. 
 ```python 
-env = Environment.get(workspace=ws, name="AzureML-Minimal")
+env = Environment.get(workspace=ws, name="AzureML-sklearn-0.24-ubuntu18.04-py37-cpu")
 curated_clone = env.clone("customize_curated")
 ```
 
@@ -142,7 +142,7 @@ Please note that Python is an implicit dependency in Azure Machine Learning so a
 ```python
 # Specify docker steps as a string. 
 dockerfile = r"""
-FROM mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04
+FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04
 RUN echo "Hello from custom container!"
 """
 
@@ -343,7 +343,7 @@ build = env.build_local(workspace=ws, useDocker=True, pushImageToWorkspaceAcr=Tr
 
 ### Utilize adminless Azure Container Registry (ACR) with VNet
 
-It is no longer required for users to have admin mode enabled on their workspace attached ACR in VNet scenarios. Ensure that the derived image build time on the compute is less than 1 hour to enable successful build. Once the image is pushed to the workspace ACR, this image can now only be accessed with a compute identity. For more information on set up, please see [here](https://docs.microsoft.com/azure/machine-learning/how-to-use-managed-identities).
+It is no longer required for users to have admin mode enabled on their workspace attached ACR in VNet scenarios. Ensure that the derived image build time on the compute is less than 1 hour to enable successful build. Once the image is pushed to the workspace ACR, this image can now only be accessed with a compute identity. For more information on set up, see [How to use managed identities with Azure Machine Learning](./how-to-use-managed-identities.md).
 
 ## Use environments for training
 

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: azla
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 08/04/2021
 ---
 
 # Connect to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)
@@ -150,12 +150,12 @@ If you don't permit access for these dependencies, your ISE deployment fails and
 * User-defined routes
 
   To prevent asymmetric routing, you must define a route for each and every IP address that's listed below with **Internet** as the next hop.
-  
-  * [App Service Environment management addresses](../app-service/environment/management-addresses.md)
+
+  * [Logic Apps inbound and outbound addresses for the ISE region](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)  
   * [Azure IP addresses for connectors in the ISE region, available in this download file](https://www.microsoft.com/download/details.aspx?id=56519)
+  * [App Service Environment management addresses](../app-service/environment/management-addresses.md)  
   * [Azure Traffic Manager management addresses](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json)
-  * [Logic Apps inbound and outbound addresses for the ISE region](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)
-  * [Azure IP addresses for connectors in the ISE region, which are in this download file](https://www.microsoft.com/download/details.aspx?id=56519)
+  * [Azure API Management Control Plane IP addresses](../api-management/api-management-using-with-vnet.md#control-plane-ips)
 
 * Service endpoints
 
