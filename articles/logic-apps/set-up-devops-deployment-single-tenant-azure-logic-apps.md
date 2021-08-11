@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 08/11/2021
 
 # As a developer, I want to automate deployment for workflows hosted in single-tenant Azure Logic Apps by using DevOps tools and processes.
 ---
@@ -214,10 +214,17 @@ If you use other deployment tools, you can deploy your single-tenant based logic
 
 ##### Install Azure Logic Apps (Standard) extension for Azure CLI
 
-Install the *preview* single-tenant Azure Logic Apps (Standard) extension for Azure CLI by running the command, `az extension add`, with the following required parameters:
+Currently, only the *preview* version for this extension is available. If you haven't previously installed this extension, run the command, `az extension add`, with the following required parameters:
 
 ```azurecli-interactive
 az extension add --yes --source "https://aka.ms/logicapp-latest-py2.py3-none-any.whl"
+```
+
+To get the latest extension, which is version 0.1.1, run these commands to remove the existng extension and then install the latest version from the source:
+
+```azurecli-interactive
+az extension remove --name logicapp
+az extension add --source "https://aka.ms/logicapp-latest-py2.py3-none-any.whl"
 ```
 
 <a name="create-resource-group"></a>
