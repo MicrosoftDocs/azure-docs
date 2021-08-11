@@ -58,17 +58,11 @@ In order to enable telemetry collection with Application Insights, only the Appl
 
 ### Application settings definitions
 
-# [Windows](#tab/windows)
 |App setting name |  Definition | Value |
 |-----------------|:------------|-------------:|
-|ApplicationInsightsAgent_EXTENSION_VERSION | Main extension, which controls runtime monitoring. | `~2` |
-|XDT_MicrosoftApplicationInsights_NodeJS |  Flag to control if node.js Agent is included. | 0 or 1. |
+|ApplicationInsightsAgent_EXTENSION_VERSION | Main extension, which controls runtime monitoring. | `~2` in Windows or `~3` in Linux |
+|XDT_MicrosoftApplicationInsights_NodeJS |  Flag to control if node.js Agent is included. | 0 or 1 only applicable in Windows. |
 
-# [Linux](#tab/linux)
-|App setting name |  Definition | Value |
-|-----------------|:------------|-------------:|
-|ApplicationInsightsAgent_EXTENSION_VERSION | Main extension, which controls runtime monitoring. | `~3` |
----
 
 [!INCLUDE [azure-web-apps-arm-automation](./includes/azure-web-apps-arm-automation.md)]
 
