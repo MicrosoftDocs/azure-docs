@@ -27,10 +27,10 @@ This article explains how to set up VNET connectivity for your API Management in
 
 ## Prerequisites
 
-Some prerequisites differ depending on the version (v1 or v2) of the [hosting platform](hosting-platform.md) for your API Management instance. 
+Some prerequisites differ depending on the version (v1 or v2) of the [hosting platform](hosting-infrastructure.md) for your API Management instance. 
 
 > [!TIP]
-> When you use the portal to create or update your API Management instance, the instance is hosted on v2 platform.
+> When you use the portal to create or update your API Management instance, the instance is hosted on the v2 platform.
 
 ### [v1](#tab/v1)
 

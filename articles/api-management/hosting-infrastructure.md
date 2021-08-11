@@ -48,3 +48,4 @@ Create an API Management instance, or update an existing instance, using:
 
 * Learn more about using a [virtual network](virtual-network-concepts.md) with API Management.
 * Learn more about [zone redundancy](zone-redundancy.md).
+* Learn about the [capacity](api-management-capacity.md) of an API Management instance.

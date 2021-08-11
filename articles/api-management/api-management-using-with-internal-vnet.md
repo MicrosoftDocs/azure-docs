@@ -169,9 +169,7 @@ The following virtual IP addresses are configured for an API Management instance
 | **Private virtual IP address** | A load balanced IP address from within the API Management instance's subnet range (DIP), over which you can access the API gateway, developer portal, management, and Git endpoints.<br/><br/>Register this address with the DNS servers used by the VNET.     |  
 | **Public virtual IP address** | Used *only* for control plane traffic to the management endpoint over port 3443. Can be locked down to the [ApiManagement][ServiceTags] service tag. | 
 
-
-* DIP addresses will be assigned to each virtual machine in the service and used to access resources *within* the VNET. A VIP address will be used to access resources *outside* the VNET. If IP restriction lists secure resources within the VNET, you must specify the entire subnet range where the API Management service is deployed to grant or restrict access from the service.
-* The load-balanced public and private IP addresses can be found on the **Overview** blade in the Azure portal.
+The load-balanced public and private IP addresses can be found on the **Overview** blade in the Azure portal.
 
 > [!NOTE]
 > The VIP address(es) of the API Management instance will change when:
@@ -180,6 +178,16 @@ The following virtual IP addresses are configured for an API Management instance
 > * [Zone redundancy](zone-redundancy.md) settings are enabled, updated, or disabled in a location for your instance (Premium SKU only).
 >
 > You may need to update DNS registrations, routing rules, and IP restriction lists within the VNET.
+
+### VIP and DIB addresses
+
+DIP addresses will be assigned to each underlying virtual machine in the service and used to access resources *within* the VNET. A VIP address will be used to access resources *outside* the VNET. If IP restriction lists secure resources within the VNET, you must specify the entire subnet range where the API Management service is deployed to grant or restrict access from the service.
+
+#### Example
+
+if you deploy 1 [capacity unit](api-management-capacity.md) of API Management in an internal VNET, 3 IP addresses will be used: 1 for the private VIP and one each for the DIPs for two VMs. If you scale out to 4 units, more IPs will be consumed for additional DIPs from the subnet.  
+
+If the destination endpoint has allow-listed only a fixed set of DIPs, connection failures will result if you add new units in the future. For you reason and since the subnet is entirely in yout control, we recommend allow-listing the entire subnet in the backend.
 
 ## Next steps
 
