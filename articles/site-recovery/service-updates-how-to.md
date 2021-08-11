@@ -7,7 +7,6 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: sharrai
 ms.date: 08/11/2021
-
 ---
 # Service updates in Site Recovery
 
