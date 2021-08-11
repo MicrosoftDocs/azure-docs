@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/06/2021
+ms.date: 08/11/2021
 ms.author: jeedes
 ---
 
@@ -117,7 +117,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure C3M Cloud Control SSO
 
- To configure SSO for C3M Cloud Control, please do follow the [documentation](https://c3m.C3M Cloud Control.com/support/solutions/articles/44001946272-configuring-sso-using-saml-azure).
+ To configure SSO for C3M Cloud Control, please do follow the [documentation](https://c3m.freshdesk.com/support/solutions/articles/44001946272-configuring-sso-using-saml-azure).
 
 ### Create C3M Cloud Control test user
 
