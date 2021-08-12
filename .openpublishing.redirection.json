@@ -56250,7 +56250,6 @@
       "redirect_document_id": false
     },
     {
-<<<<<<< HEAD
       "source_path_from_root": "/articles/load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal.md",
       "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-portal",
       "redirect_document_id": false
@@ -56259,8 +56258,8 @@
       "source_path_from_root": "/articles/load-balancer/egress-only.md",
       "redirect_url": "/azure/virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal",
       "redirect_document_id": false
-    }
-=======
+    },
+    {
       "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/sip-interface-infrastructure.md",
       "redirect_url": "/azure/communication-services/concepts/telephony-sms/direct-routing-infrastructure",
       "redirect_document_id": false
@@ -56270,6 +56269,5 @@
       "redirect_url": "/azure/cognitive-services/translator/translator-overview",
       "redirect_document_id": false
    }
->>>>>>> 4c140ae7fc22dd632e5b3a2dfbed2d3aab369891
   ]
 }
