@@ -267,6 +267,62 @@ private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
 }
 ```
 
+## Secure your logout redirect
+
+After logout, the user is redirected to the URI specified in the `post_logout_redirect_uri` parameter, regardless of the reply URLs that have been specified for the application. However, if a valid `id_token_hint` is passed and the [Require ID Token in logout requests](#session-behavior#secure-your-logout-redirect) is turned on, Azure AD B2C verifies that the value of `post_logout_redirect_uri` matches one of the application's configured redirect URIs before performing the redirect. If no matching reply URL was configured for the application, an error message is displayed and the user is not redirected.
+
+To support a secured logout redirect in your application, first follow the steps in the [Account controller](enable-authentication-web-application-options.md#add-the-account-controller) section and the [Support advanced scenarios](#support-advanced-scenarios) sections.
+
+In the **MyAccountController**, add a SignOut action using the following code snippet:
+
+```csharp
+[HttpGet("{scheme?}")]
+public async Task<IActionResult> SignOutAsync([FromRoute] string scheme)
+{
+    scheme ??= OpenIdConnectDefaults.AuthenticationScheme;
+    var redirectUrl = Url.Content("~/");
+    //obtain the id_token
+    var idToken = await HttpContext.GetTokenAsync("id_token");
+    
+    var properties = new AuthenticationProperties { RedirectUri = redirectUrl };
+    properties.Items["policy"] = "b2c_1a_susi";
+    
+    //send the id_token value to the authentication middleware
+    properties.Items["id_token_hint"] = idToken;            
+    return SignOut(properties,CookieAuthenticationDefaults.AuthenticationScheme,scheme);
+}
+```
+
+In the **Startup.cs** class, parse the `id_token_hint` value and append the value to the authentication request. The following code snippet demonstrates how to pass the `id_token_hint` value to the authentication request:
+
+```csharp
+private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
+{
+    var id_token_hint = context.Properties.Items.FirstOrDefault(x => x.Key == "id_token_hint").Value;
+    if (id_token_hint != null)
+    {
+        context.ProtocolMessage.SetParameter("id_token_hint", id_token_hint);
+    }
+
+    await Task.CompletedTask.ConfigureAwait(false);
+}
+```
+
+In the **appsettings.json** configuration file, add the logout redirect uri path to **SignedOutCallbackPath**.
+
+```json
+"AzureAdB2C": {
+  "Instance": "https://<your-tenant-name>.b2clogin.com",
+  "ClientId": "<web-app-application-id>",
+  "Domain": "<your-b2c-domain>",
+  "SignedOutCallbackPath": "/signout/<your-sign-up-in-policy>",
+  "SignUpSignInPolicyId": "<your-sign-up-in-policy>",
+  "SignedOutCallbackPath": "/signout",
+}
+```
+
+In the above example, the **post_logout_redirect_uri** will be **https://<hostname>/signout/<your-sign-up-in-policy>**. This URL must be added to the Application Registration's reply URL's.
+
 ## Role-based access control
 
 With [authorization in ASP.NET Core](/aspnet/core/security/authorization/introduction) you can use [role-based authorization](/aspnet/core/security/authorization/roles), [claims-based authorization](/aspnet/core/security/authorization/claims), or [policy-based authorization](/aspnet/core/security/authorization/policies) to check if the user is authorized to access a protected resource.
