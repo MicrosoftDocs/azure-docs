@@ -6,7 +6,7 @@ services: load-balancer
 author: asudbring 
 ms.service: load-balancer
 ms.topic: quickstart
-ms.date: 07/30/2020
+ms.date: 08/09/2021
 ms.author: allensu
 ms.custom: mvc
 # Customer intent: I want to create a internal load balancer so that I can load balance internal traffic to VMs.
@@ -222,9 +222,11 @@ In this section, you'll create three VMs (**myVM1**, **myVM2** and **myVM3**) in
 
 These VMs are added to the backend pool of the load balancer that was created earlier.
 
-1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Virtual machine**. 
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
+
+2. In **Virtual machines**, select **+ Create** > **Virtual machine**.
    
-2. In **Create a virtual machine**, type or select the values in the **Basics** tab:
+3. In **Create a virtual machine**, enter or select the values in the **Basics** tab:
 
     | Setting | Value                                          |
     |-----------------------|----------------------------------|
@@ -246,9 +248,9 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | **Inbound port rules** |  |
     | Public inbound ports | Select **None** |
 
-3. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
+4. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
   
-4. In the Networking tab, select or enter:
+5. In the Networking tab, select or enter:
 
     | Setting | Value |
     |-|-|
@@ -265,11 +267,11 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Select a load balancer | Select **myLoadBalancer**  |
     | Select a backend pool | Select **myBackendPool** |
    
-5. Select **Review + create**. 
+6. Select **Review + create**. 
   
-6. Review the settings, and then select **Create**.
+7. Review the settings, and then select **Create**.
 
-7. Follow the steps 1 to 6 to create two more VMs with the following values and all the other settings the same as **myVM1**:
+8. Follow the steps 1 through 7 to create two more VMs with the following values and all the other settings the same as **myVM1**:
 
     | Setting | VM 2| VM 3|
     | ------- | ----- |---|
@@ -292,7 +294,7 @@ In this section, you'll create a virtual network and subnet.
 
 2. In **Virtual networks**, select **+ Create**.
 
-2. In **Create virtual network**, enter or select this information in the **Basics** tab:
+3. In **Create virtual network**, enter or select this information in the **Basics** tab:
 
     | **Setting**          | **Value**                                                           |
     |------------------|-----------------------------------------------------------------|
@@ -303,28 +305,28 @@ In this section, you'll create a virtual network and subnet.
     | Name             | Enter **myVNet**                                    |
     | Region           | Select **(Europe) West Europe** |
 
-3. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
+4. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
 
-4. In the **IP Addresses** tab, enter this information:
+5. In the **IP Addresses** tab, enter this information:
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
     | IPv4 address space | Enter **10.1.0.0/16** |
 
-5. Under **Subnet name**, select the word **default**.
+6. Under **Subnet name**, select the word **default**.
 
-6. In **Edit subnet**, enter this information:
+7. In **Edit subnet**, enter this information:
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
     | Subnet name | Enter **myBackendSubnet** |
     | Subnet address range | Enter **10.1.0.0/27** |
 
-7. Select **Save**.
+8. Select **Save**.
 
-8. Select the **Security** tab.
+9. Select the **Security** tab.
 
-9. Under **BastionHost**, select **Enable**. Enter this information:
+10. Under **BastionHost**, select **Enable**. Enter this information:
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
@@ -332,9 +334,9 @@ In this section, you'll create a virtual network and subnet.
     | AzureBastionSubnet address space | Enter **10.1.1.0/24** |
     | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
 
-10. Select the **Review + create** tab or select the **Review + create** button.
+11. Select the **Review + create** tab or select the **Review + create** button.
 
-11. Select **Create**.
+12. Select **Create**.
 
 ## Create load balancer
 
@@ -425,9 +427,11 @@ In this section, you'll create three VMs (**myVM1**, **myVM2**, and **myVM3**).
 
 The three VMs will be added to an availability set named **myAvailabilitySet**.
 
-1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Virtual machine**. 
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
+
+2. In **Virtual machines**, select **+ Create** > **Virtual machine**.
    
-2. In **Create a virtual machine**, type or select the values in the **Basics** tab:
+3. In **Create a virtual machine**, type or select the values in the **Basics** tab:
 
     | Setting | Value                                          |
     |-----------------------|----------------------------------|
@@ -449,9 +453,9 @@ The three VMs will be added to an availability set named **myAvailabilitySet**.
     | **Inbound port rules** |   |
     | Public inbound ports | Select **None**. |
 
-3. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
+4. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
   
-4. In the Networking tab, select or enter:
+5. In the Networking tab, select or enter:
 
     | Setting | Value |
     |-|-|
@@ -468,11 +472,11 @@ The three VMs will be added to an availability set named **myAvailabilitySet**.
     | Select a load balancer | Select **myLoadBalancer**>. |
     | Select a backend pool | Select **myBackendPool**. |
  
-5. Select **Review + create**. 
+6. Select **Review + create**. 
   
-6. Review the settings, and then select **Create**.
+7. Review the settings, and then select **Create**.
 
-7. Follow the steps 1 to 8 to create two more VMs with the following values and all the other settings the same as **myVM1**:
+8. Follow the steps 1 through 7 to create two more VMs with the following values and all the other settings the same as **myVM1**:
 
     | Setting | VM 2 | VM 3 |
     | ------- | ----- |---|
@@ -487,7 +491,9 @@ The three VMs will be added to an availability set named **myAvailabilitySet**.
 
 In this section, you'll create a VM named **myTestVM**.  This VM will be used to test the load balancer configuration.
 
-1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Virtual machine**. 
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
+
+2. In **Virtual machines**, select **+ Create** > **Virtual machine**.
    
 2. In **Create a virtual machine**, type or select the values in the **Basics** tab:
 
@@ -529,19 +535,21 @@ In this section, you'll create a VM named **myTestVM**.  This VM will be used to
 
 ## Install IIS
 
-1. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myVM1** that is located in the **CreateIntLBQS-rg** resource group.
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-2. On the **Overview** page, select **Connect**, then **Bastion**.
+2. Select **myVM1**.
 
-3. Select **Use Bastion**. 
+3. In the **Overview** page, select **Connect**, then **Bastion**.
 
-4. Enter the username and password entered during VM creation.
+4. Select **Use Bastion**. 
 
-5. Select **Connect**.
+5. Enter the username and password entered during VM creation.
 
-6. On the server desktop, navigate to **Windows Administrative Tools** > **Windows PowerShell**.
+6. Select **Connect**.
 
-7. In the PowerShell Window, run the following commands to:
+7. On the server desktop, navigate to **Windows Administrative Tools** > **Windows PowerShell** > **Windows PowerShell**.
+
+8. In the PowerShell Window, execute the following commands to:
 
     * Install the IIS server.
     * Remove the default iisstart.htm file.
@@ -559,27 +567,33 @@ In this section, you'll create a VM named **myTestVM**.  This VM will be used to
     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
    ```
 
-8. Close the Bastion session with **myVM1**.
+9. Close the Bastion session with **myVM1**.
 
-9. Repeat steps 1 to 6 to install IIS and the updated iisstart.htm file on **myVM2** and **myVM3**.
+10. Repeat steps 1 through 9 to install IIS and the updated iisstart.htm file on **myVM2** and **myVM3**.
 
 ## Test the load balancer
 
-1. Find the private IP address for the load balancer on the **Overview** screen. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer**.
+In this section, you'll test the load balancer by connecting to the **myTestVM** and verifying the webpage.
 
-2. Make note or copy the address next to **Private IP Address** in the **Overview** of **myLoadBalancer**.
+1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
 
-3. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myTestVM** that is located in the **CreateIntLBQS-rg** resource group.
+2. Select **myLoadBalancer**.
 
-4. On the **Overview** page, select **Connect**, then **Bastion**.
+3. Make note or copy the address next to **Private IP Address** in the **Overview** of **myLoadBalancer**.
 
-5. Select **Use Bastion**.
+4. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-6. Enter the username and password entered during VM creation.
+5. Select **myTestVM**.
 
-7. Open **Internet Explorer** on **myTestVM**.
+6. In the **Overview** page, select **Connect**, then **Bastion**.
 
-8. Enter the IP address from the previous step into the address bar of the browser. The custom page displaying one of the backend server names is displayed on the browser.
+7. Select **Use Bastion**.
+
+8. Enter the username and password entered during VM creation.
+
+9. Open **Internet Explorer** on **myTestVM**.
+
+10. Enter the IP address from the previous step into the address bar of the browser. The custom page displaying one of the backend server names is displayed on the browser.
 
     :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Screenshot shows a browser window displaying the customized page, as expected." border="true":::
    

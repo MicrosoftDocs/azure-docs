@@ -52,6 +52,30 @@ Please follow this link to read more about [auto upgrade](how-to-connect-install
 >
 >For version history information on retired versions, see [Azure AD Connect version release history archive](reference-connect-version-history-archive.md)
 
+## 2.0.8.0
+>[!NOTE] 
+>This is a security update release of Azure AD Connect. This release requires Windows Server 2016 or newer. If you are using an older version of Windows Server, please use [version 1.6.11.3](#16113).
+>This release addresses a vulnerability as documented in [this CVE](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-36949). For more information about this vulnerability please refer to the CVE.
+>You can download this release using [this link](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+
+### Release status
+8/10/2021: Released for download only, not available for auto upgrade. 
+
+### Functional changes
+There are no functional changes in this release
+
+## 1.6.11.3 
+>[!NOTE] 
+>This is security update release of Azure AD Connect. This version is intended to be used by customers are running an older version of Windows Server and cannot upgrade their server to Windows Server 2016 or newer as this time. You cannot use this version to update an Azure AD Connect V2.0 server.
+>This release addresses a vulnerability as documented in [this CVE](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-36949). For more information about this vulnerability please refer to the CVE.
+>You can download this release using [this link](https://www.microsoft.com/download/details.aspx?id=103336)
+
+### Release status
+8/10/2021: Released for download only, not available for auto upgrade.
+
+### Functional changes
+There are no functional changes in this release
+
 ## 2.0.3.0
 >[!NOTE] 
 >This is a major release of Azure AD Connect. Please refer to the [Azure Active Directory V2.0 article](whatis-azure-ad-connect-v2.md) for more details.
