@@ -9,7 +9,7 @@ ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/8/2020
+ms.date: 08/12/2021
 ms.author: allensu
 ---
 
@@ -19,7 +19,8 @@ As you create Azure Load Balancer, information in this article will help you lea
 
 ## Create load balancer
 
-Azure Load Balancer is a network load balancer that distributes traffic across VM instances in the backend pool. To create a load balancer in the portal, at the top of the page select the search box. Enter **Load balancer**. Select **Load balancers** in the search results. Select **+ Create** in the **Load balancers** page.
+Azure Load Balancer is a network load balancer that distributes traffic across VM instances in the backend pool. 
+To create a load balancer in the portal, at the top of the page select the search box. Enter **Load balancer**. Select **Load balancers** in the search results. Select **+ Create** in the **Load balancers** page.
 
 ### Basics
 
@@ -41,6 +42,8 @@ In the **Basics** tab of the create load balancer portal page, you'll see the fo
 ### Frontend IP configuration
 
 In the **Frontend IP configuration** tab of the create load balancer portal page, you'll see the following information:
+
+### Public
 
 If you select **Public** as your type, you'll see the following information:
 #### **+ Add a frontend IP**
@@ -84,12 +87,19 @@ If you select **Internal** as your type in the **Basics** tab, you'll see the fo
 | IP address assignment | Your options are **Static** or **Dynamic**. </br> Static ensures the IP doesn't change. A dynamic IP could change. |
 | Availability zone | Your options are: </br> **Zone redundant** </br> **Zone 1** </br> **Zone 2** </br> **Zone 3** </br> To create a load balancer that is highly available and resilient to availability zone failures, select a **zone-redundant** IP. |
 
-:::image type="content" source="./media/manage/create-internal-load-balancer-basics.png" alt-text="Create load balancer internal." border="true":::
+### Internal
+
+If you select **Internal** as your type, you'll see the following information:
 
 #### **+ Add a frontend IP**
 
 Select to open the **Add frontend IP address** creation page:
 
+| Setting | Details |
+| ------- | ------- |
+| Name | The name of the frontend that will be added to the load balancer. |
+| Virtual network | The virtual network where the frontend IP address will be created. |
+| IP type | **IP address** </br> **IP prefix** </br> Load balancer supports an IP address or an IP prefix for the frontend IP address. For more information, see [Azure Public IP address prefix](./virtual-network/public-ip-address-prefix.md). |
 
 ## Frontend IP configuration
 
