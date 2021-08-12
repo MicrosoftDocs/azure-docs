@@ -188,7 +188,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	j. Click **Save** at the bottom of the page.
 
-	![Screenshot shows the Save button.](./media/knowledgeowl-tutorial/sso-settings-direct-attribute-save.png)
+	![Screenshot shows the Save button1.](./media/knowledgeowl-tutorial/sso-settings-direct-attribute-save.png)
 
 ### Create KnowledgeOwl test user
 
