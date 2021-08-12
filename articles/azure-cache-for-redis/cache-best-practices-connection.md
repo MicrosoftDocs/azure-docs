@@ -13,11 +13,11 @@ ms.author: shpathak
 
 ### Retry commands
 
-Configure your client connections to retry commands with exponential backoff. For more information, see [retry guidelines](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific#azure-cache-for-redis) 
+Configure your client connections to retry commands with exponential backoff. For more information, see [retry guidelines](/azure/architecture/best-practices/retry-service-specific#azure-cache-for-redis).
 
 ### Test resiliency
 
-Test your system's resiliency to connection breaks using a [reboot]( https://docs.microsoft.com/azure/azure-cache-for-redis/cache-administration#reboot) to simulate a patch. See [Resilience and Performance testing][Link to “Resilience and Performance testing” section from below] 
+Test your system's resiliency to connection breaks using a [reboot]( https://docs.microsoft.com/azure/azure-cache-for-redis/cache-administration#reboot) to simulate a patch. See [Resilience and Performance Testing](cache-best-practices-performance.md#resilience-and-performance-testing).
 
 ### Configure appropriate timeouts
 
@@ -30,19 +30,19 @@ Configure your client library to use Connect Timeout of 10 to 15 seconds and a C
 
 ### Conscious connection recreation
 
-In case of transient connection blips, ensure that you client library is not creating new connections for every retry and that there are no connection leaks in case your application recreates connections as Azure Cache For Redis limits number of client connections per cache SKU. Apart from reaching the client connections limit, it will also result in high server load and cause lot of other important operations to fail. If using StackExchange.Redis client library, set `abortConnect` to `false` in your connection string and we recommend letting the ConnectionMultiplexer handle reconnection. 
+In case of transient connection blips, ensure that you client library is not creating new connections for every retry and that there are no connection leaks in case your application recreates connections as Azure Cache For Redis limits number of client connections per cache SKU. Apart from reaching the client connections limit, it will also result in high server load and cause lot of other important operations to fail. If using StackExchange.Redis client library, set `abortConnect` to `false` in your connection string and we recommend letting the ConnectionMultiplexer handle reconnection.
 
 ### Advance maintenance notification
 
-Use notifications to learn of upcoming maintenance. For more information, see [notified]( https://docs.microsoft.com/azure/azure-cache-for-redis/cache-failover#can-i-be-notified-in-advance-of-a-planned-maintenance).
+Use notifications to learn of upcoming maintenance. For more information, see [notified](/cache-failover#can-i-be-notified-in-advance-of-a-planned-maintenance).
 
 ### Schedule maintenance window
 
-[Schedule updates]( https://docs.microsoft.com/azure/azure-cache-for-redis/cache-administration#schedule-updates) for a maintenance window to reduce impact on your system.
+[Schedule updates](/azure-cache-for-redis/cache-administration#schedule-updates) for a maintenance window to reduce impact on your system.
 
 ### More design patterns for resilience
 
-Apply [recommended design patterns]( https://docs.microsoft.com/azure/azure-cache-for-redis/cache-failover#how-do-i-make-my-application-resilient) for resiliency.
+Apply [recommended design patterns](/cache-failover#how-do-i-make-my-application-resilient) for resiliency.
 
 ### Idle Timeout
 
@@ -52,6 +52,6 @@ Azure Cache for Redis currently has 10-minute idle timeout for connections, so y
 
 
 ### Client specific best practices
-See [client specific best practices](Link to client specific best practices section).
+See [client specific best practices].
 <!-- Why is this not in development? -->
   

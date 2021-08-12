@@ -12,7 +12,7 @@ ms.author: cadaco
 
 By following these best practices, you can help maximize the performance and cost-effective use of your Azure Cache for Redis instance.
 
-- [Connection resilience](cache-best-practices-connection-reslilience.md)
+- [Connection resilience](cache-best-practices-connection.md)
 - [Server load management](cache-best-practices-server-load.md)
 - [Memory Management](cache-best-practices-memory-management.md)
 - [Development](cache-best-practices-development.md)
@@ -34,17 +34,14 @@ By following these best practices, you can help maximize the performance and cos
 
 - **Use TLS encryption** - Azure Cache for Redis requires TLS encrypted communications by default.  TLS versions 1.0, 1.1 and 1.2 are currently supported.  However, TLS 1.0 and 1.1 are on a path to deprecation industry-wide, so use TLS 1.2 if at all possible.  If your client library or tool doesn't support TLS, then enabling unencrypted connections can be done [through the Azure portal](cache-configure.md#access-ports) or [management APIs](/rest/api/redis/redis/update).  In such cases where encrypted connections aren't possible, placing your cache and client application into a virtual network would be recommended.  For more information about which ports are used in the virtual network cache scenario, see this [table](cache-how-to-premium-vnet.md#outbound-port-requirements).
 
-## Memory management
-
-There are several things related to memory usage within your Redis server instance that you may want to consider.  Here are a few:
 
 ## When is it safe to retry?
 
 Unfortunately, there's no easy answer.  Each application needs to decide what operations can be retried and which can't.  Each operation has different requirements and inter-key dependencies.  Here are some things you might consider:
 
 - You can get client-side errors even though Redis successfully ran the command you asked it to run.  For example:
-  - Timeouts are a client-side concept.  If the operation reached the server, the server will run the command even if the client gives up waiting.  
-  - When an error occurs on the socket connection, it's not possible to know  if the operation actually ran on the server.  For example, the connection error can happen after the server processed the request but before the client receives the response.
+  - Timeouts are a client-side concept. If the operation reached the server, the server will run the command even if the client gives up waiting.  
+  - When an error occurs on the socket connection, it's not possible to know if the operation actually ran on the server.  For example, the connection error can happen after the server processed the request but before the client receives the response.
 - How does my application react if I accidentally run the same operation twice?  For instance, what if I increment an integer twice instead of once?  Is my application writing to the same key from multiple places?  What if my retry logic overwrites a value set by some other part of my app?
 
 If you would like to test how your code works under error conditions, consider using the [Reboot feature](cache-administration.md#reboot). Rebooting allows you to see how connection blips affect your application.
