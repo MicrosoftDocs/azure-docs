@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Tribeloo for automatic user provisioning with Azure 
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Tribeloo.
 services: active-directory
 documentationcenter: ''
-author: thwimmer
-writer: thwimmer
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: d1063ef2-5d39-4480-a1e2-f58ebe7f98c3
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2021
-ms.author: thwimmer
+ms.author: twimmers
 ---
 
 # Tutorial: Configure Tribeloo for automatic user provisioning
@@ -121,7 +121,7 @@ This section guides you through the steps to configure the Azure AD provisioning
    |name.givenName|String|
    |name.familyName|String|
    |addresses[type eq "work"].formatted|String|
-   
+
 1. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 1. To enable the Azure AD provisioning service for Tribeloo, change the **Provisioning Status** to **On** in the **Settings** section.
