@@ -378,7 +378,7 @@ After the [Load Balancer is created](#step-4-create-a-load-balancer) and its Sta
 
 1.	In the **Create endpoint service** page, clear the selection for the **Require acceptance for endpoint** option.
 
-<!-->    - **Enable private DNS name**<-->
+<!--    - **Enable private DNS name**-->
 
 1.	At the bottom of the page, select **Create Service** > **Close**.
 
