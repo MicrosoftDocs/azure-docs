@@ -81,11 +81,18 @@ If DRS rule conflicts are detected when you create a VM-VM policy, it results in
 
 
 
-## Create a policy
+## Create a placement policy
 
 Make sure to review the requirements for the [policy type](#placement-policy-types).
 
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Placement policies** > **+ Create**.
+
+   >[!TIP]
+   >You may also select the Cluster from the Placement Policy overview pane and then select **Create**.
+   >
+   >:::image type="content" source="media/placement-policies/create-placement-policy-cluster.png" alt-text="Screenshot showing an alternative option for creating a placement policy.":::
+
+
 
    :::image type="content" source="media/placement-policies/create-placement-policy.png" alt-text="Screenshot showing how to start the process to create a VM-VM placement policy." lightbox="media/placement-policies/create-placement-policy.png":::
 
@@ -97,7 +104,7 @@ Make sure to review the requirements for the [policy type](#placement-policy-typ
 
    :::image type="content" source="media/placement-policies/create-placement-policy-vm-vm-affinity-1.png" alt-text="Screenshot showing the placement policy options." lightbox="media/placement-policies/create-placement-policy-vm-vm-affinity-1.png":::   
 
-1. If you selected VM-Host affinity or VM-Host anti-affinity as the type, then your policy type requires a host to be selected. Select **+ Add host** and select the hosts to include in the policy. You can select multiple hosts.
+1. If you selected **VM-Host affinity** or **VM-Host anti-affinity** as the type, then your policy type requires a host to be selected. Select **+ Add host** and select the hosts to include in the policy. You can select multiple hosts.
 
    :::image type="content" source="media/placement-policies/create-placement-policy-vm-host-affinity-2.png" alt-text="Screenshot showing the list of hosts to select.":::
 
@@ -119,25 +126,28 @@ After the placement policy gets created, you’ll see it in the list and that it
 
 
 
-## Edit a policy
+## Edit a placement policy
 
 You can change the state of a policy, add a new resource, or unassign an existing resource.
 
 ### Change the policy state
 
-You can change the state of a policy to enabled or disabled. 
+You can change the state of a policy to **Enabled** or **Disabled**. 
 
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Placement policies**.
 
 1. For the policy you want to edit, select **More** (...) and then select **Edit**.
 
    >[!TIP]
-   >You can disable a policy from the Placement policy overview by selecting **Disable** from the Settings drop-down. 
+   >You can disable a policy from the Placement policy overview by selecting **Disable** from the Settings drop-down. You can't enable a policy from the Settings drop-down.
 
-1. Clear the **Enable** checkbox to disable the policy and then select **Review + update**. If you want to make changes, select **Back : Basics**.
+   :::image type="content" source="media/placement-policies/edit-placement-policy.png" alt-text="Screenshot showing how to edit a placement policy." lightbox="media/placement-policies/edit-placement-policy.png":::
 
-1. Review the changes and select **Update**.  
+1.	If the policy is enabled but you want to disable it, clear the **Enable** checkbox. Otherwise, clear the **Disabled** checkbox to enable the policy.
 
+1.	Select **Review + update**. 
+ 
+1.	Review the changes and select **Update policy**. If you want to make changes, select **Back: Basics**.
 
 
 ### Update the resources in a policy
@@ -146,15 +156,19 @@ You can add new resources, such as a VM or a host, to a policy or remove existin
 
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Placement policies**.
 
-1. For the policy you want to edit, select **More** (...) and then select **Edit**.
+1. For the policy you want to edit, select **More** (...) and then **Edit**.
 
-   - To remove an existing resource, select the checkbox next to the resource and then select **Unassign**.  You can remove multiple resources.
+   :::image type="content" source="media/placement-policies/edit-placement-policy.png" alt-text="Screenshot showing how to edit the resources in a placement policy." lightbox="media/placement-policies/edit-placement-policy.png":::
+
+   - To remove an existing resource, select the resource or resources you want to remove. Select **Unassign**, which removes the resource or resources from the list.
+
+      :::image type="content" source="media/placement-policies/edit-placement-policy-unassign.png" alt-text="Screenshot showing how to edit the resources in a placement policy.":::
 
    - To add a new resource, select **Edit virtual machine** or **Edit host**, select the resource you'd like to add, and then select **Save**. 
 
-1. Select **Next : Review and update**. If you want to make changes, select **Back : Basics**.
+1. Select **Next : Review and update**. 
 
-1. Review the changes and select **Update**.  
+1. Review the changes and select **Update policy**.  If you want to make changes, select **Back : Basics**.
 
 
 
@@ -165,6 +179,8 @@ You can delete a placement policy and its corresponding DRS rule.
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Placement policies**.
 
 1. For the policy you want to edit, select **More** (...) and then select **Delete**.
+
+   :::image type="content" source="media/placement-policies/delete-placement-policy.png" alt-text="Screenshot showing how to delete a placement policy." lightbox="media/placement-policies/delete-placement-policy.png":::
 
 1. Select **Delete** on the confirmation message.
 
