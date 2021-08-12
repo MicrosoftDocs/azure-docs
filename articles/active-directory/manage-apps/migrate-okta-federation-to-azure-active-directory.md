@@ -28,17 +28,17 @@ Azure AD.
 
 ## High-level migration tasks
 
-- [Configure Azure AD Connect for authentication](#step-1---configure-azure-ad-connect-for-authentication)
+1. [Configure Azure AD Connect for authentication](#step-1---configure-azure-ad-connect-for-authentication)
 
-- [Configure staged rollout features](#step-2---configure-staged-rollout-features)
+2. [Configure staged rollout features](#step-2---configure-staged-rollout-features)
 
-- [Create Okta app in Azure AD](#step-3---create-okta-app-in-azure-ad)
+3. [Create Okta app in Azure AD](#step-3---create-okta-app-in-azure-ad)
 
-- [Test Okta app access on pilot members](#step-4---test-okta-app-access-on-pilot-members)
+4. [Test Okta app access on pilot members](#step-4---test-okta-app-access-on-pilot-members)
 
-- [Test managed Authentication on pilot members](#step-5---test-managed-authentication-on-pilot-members)
+5. [Test managed Authentication on pilot members](#step-5---test-managed-authentication-on-pilot-members)
 
-- [Remove federation for Office 365 domains](#step-6---remove-federation-for-office-365-domains)
+6. [Remove federation for Office 365 domains](#step-6---remove-federation-for-office-365-domains)
 
 ### Step 1 - Configure Azure AD Connect for authentication
 
