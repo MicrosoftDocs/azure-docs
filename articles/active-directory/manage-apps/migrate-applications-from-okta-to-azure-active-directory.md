@@ -162,7 +162,7 @@ Settings** > **New from Metadata File**
 Salesforce has now been successfully configured to Azure AD for
 SSO. Steps to clean up the Okta portal will be included later in this document.
 
-### Migrate an OIDC/OAuth 2.0 application to Azure AD
+## Migrate an OIDC/OAuth 2.0 application to Azure AD
 
 First configure the application in your Azure AD tenant for application access. In this example, we'll be converting a custom OIDC app.
 
@@ -221,7 +221,7 @@ If necessary, under **Advanced** settings in the Authentication menu, flip **All
 
 13. Return to your OIDC configured application, and import the application ID, and client secret into your application before testing. Configure your application  to use the above configuration such as clientID, secret, and scopes.
 
-### Migrate a custom authorization server to Azure AD
+## Migrate a custom authorization server to Azure AD
 
 Okta authorization servers map one-to-one to application registrations that [expose an API](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-expose-web-apis#add-a-scope).
 
