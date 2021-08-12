@@ -603,6 +603,52 @@ In the data set is valid, and the workaround cannot help, report a support ticke
 
 Azure team will investigate the content of the `delta_log` file and provide more info about the possible errors and the workarounds.
 
+## Security
+
+### AAD service principal login failures when SPI is creating a role assignment
+If you want to create role assignment for Service Principal Identifier/AAD app using another SPI, or have already created one and it fails to login, you're probably receiving following error:
+```
+Login error: Login failed for user '<token-identified principal>'.
+```
+For service principals login should be created with Application ID as SID (not with Object ID). There is a known limitation for service principals which is preventing them to use Application ID as a SID when creating role assignment for another SPI/app.  
+
+#### Mitigation #1
+Navigate to Azure Portal > Synapse Studio > Manage > Access control and manually add Synapse Administrator or Synapse SQL Administrator for desired Service Principal.
+
+#### Mitigation #2
+You need to manually create a proper login through SQL code:
+```sql
+use master
+go
+CREATE LOGIN [<service_principal_name>] FROM EXTERNAL PROVIDER;
+go
+ALTER SERVER ROLE sysadmin ADD MEMBER [<service_principal_name>];
+go
+```
+
+#### Mitigation #3
+You can also setup service principal Synapse Admin using Powershell. You need to have [Az.Synapse module](https://docs.microsoft.com/powershell/module/az.synapse/?view=azps-6.3.0) installed.
+The mitigation is to use cmdlet New-AzSynapseRoleAssignment with `-ObjectId "parameter"` - and in that parameter field to provide Application ID (instead of Object ID) using workspace admin Azure service principal credentials. Powershell script:
+```azurepowershell
+$spAppId = "<app_id_which_is_already_an_admin_on_the_workspace>"
+$SPPassword = "<application_secret>"
+$tenantId = "<tenant_id>"
+$secpasswd = ConvertTo-SecureString -String $SPPassword -AsPlainText -Force
+$cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $spAppId, $secpasswd
+
+Connect-AzAccount -ServicePrincipal -Credential $cred -Tenant $tenantId
+
+New-AzSynapseRoleAssignment -WorkspaceName "<workspaceName>" -RoleDefinitionName "Synapse Administrator" -ObjectId "<app_id_to_add_as_admin>" [-Debug]
+```
+
+#### Validation
+Connect to serverless SQL endpoint and verify that the external login with SID `app_id_to_add_as_admin` is created:
+```sql
+select name, convert(uniqueidentifier, sid) as sid, create_date
+from sys.server_principals where type in ('E', 'X')
+```
+or just try to login on serverless SQL endpoint using the just set admin app.
+
 ## Constraints
 
 There are some general system constraints that may affect your workload:
