@@ -86,7 +86,8 @@ landingContent:
             url: /powershell/module/az.rediscache
           - text: Azure CLI
             url: /cli/azure/redis
-      - linkListType: reference
+      - linkListType: learn
+      - title: Best practices
         links:
          - text: Connection Resilience
            url: cache-best-practices-connection.md
