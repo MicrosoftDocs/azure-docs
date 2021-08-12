@@ -168,7 +168,7 @@ An ISE provides access to resources that are protected by an Azure virtual netwo
 
 1. Get the IP addresses for the SAP application, message and gateway servers that you plan to use for connecting from your logic app workflow. Network name resolution is not available for SAP connections in an ISE.
 
-1. You need the port numbers of the SAP application, message and gateway services you will use for connection with Logic App. Service name resolution is not available for SAP connector in ISE.
+1. Get the port numbers for the SAP application, message and gateway services that you plan you will use for connection with Logic App. Service name resolution is not available for SAP connector in ISE.
 
 ### SAP client library prerequisites
 
