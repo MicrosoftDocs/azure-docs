@@ -43,7 +43,7 @@ This article explains how you can access your SAP resources from Logic Apps usin
 
 * If you want to use the **When a message is received from SAP** trigger, you must also do the following:
 
-    * Set up your SAP gateway security permissions or Access Control List (ACL), in the `secinfo` and `reginfo` files, visible in Gateway Monitor dialog, T-Code SMGW "Goto -> Expert Functions -> External Security -> Maintenance of ACL Files". The following permission setting is required:
+    * Set up your SAP gateway security permissions or Access Control List (ACL). In the **secinfo** and **reginfo** files, which are visible in the Gateway Monitor dialog box, T-Code SMGW **Goto > Expert Functions > External Security -> Maintenance of ACL Files**. The following permission setting is required:
 
     `P TP=LOGICAPP HOST=<on-premises-gateway-server-IP-address> ACCESS=*`
 
