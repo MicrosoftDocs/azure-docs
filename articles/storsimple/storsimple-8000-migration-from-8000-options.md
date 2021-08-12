@@ -14,7 +14,7 @@ ms.author: alkohli
 
 > [!IMPORTANT]
 > On December 31, 2022 the StorSimple 8000 series will reach end of support (EOS) status. EOS implies that Microsoft will no longer support hardware and software of these devices, and the service itself will be discontinued.</br></br>
-> We recommend that StorSimple 8000 series customers migrate to one of the alternatives described in this document.
+> We recommend that StorSimple 8000 series customers migrate to one of the alternatives described his document.
 
 StorSimple 8000 series is reaching [end of Support](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series) in December 2022. The customers who are running StorSimple 8000 series can upgrade to other Azure first party hybrid services. This article describes the Azure hybrid options available to migrate data.
 
