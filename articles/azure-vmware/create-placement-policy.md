@@ -90,7 +90,7 @@ Make sure to review the requirements for the [policy type](#placement-policy-typ
    :::image type="content" source="media/placement-policies/create-placement-policy.png" alt-text="Screenshot showing how to start the process to create a placement policy." lightbox="media/placement-policies/create-placement-policy.png":::
 
 
-1. Provide a descriptive name, select the policy type, and then select the cluster where the policy is being created. Then select **Enable**
+1. Provide a descriptive name, select the policy type, and then select the cluster where the policy is being created. Then select **Enable**.
 
    >[!WARNING]
    >If you disable the policy, then the policy and underlying DRS rule are created, but the policy actions are ignored until you enable the policy. 
@@ -99,7 +99,9 @@ Make sure to review the requirements for the [policy type](#placement-policy-typ
 
 1. Select **Add virtual machine** and then select the VMs to include in the policy. You can select multiple VMs.
 
-1. Once you're finished adding the VMs you want, select **Add virtual machine**. 
+   :::image type="content" source="media/placement-policies/create-placement-policy-vm-vm-affinity-2.png" alt-text="Screenshot showing the list of VMs to select.":::
+
+1. Once you've finished adding the VMs you want, select **Add virtual machine**. 
 
    >[!NOTE]
    >If you see the **Add host** option, your policy type requires a host to be selected.  Select **Add host** and select the host to include in the policy. You can select multiple hosts.
@@ -108,7 +110,7 @@ Make sure to review the requirements for the [policy type](#placement-policy-typ
 
 1. Select **Create policy**. If you want to make changes, select **Back : Basics**.
 
-
+   :::image type="content" source="media/placement-policies/create-placement-policy-vm-vm-affinity-3.png" alt-text="Screenshot showing the placement policy options.":::
 
 
 ## Edit a policy
