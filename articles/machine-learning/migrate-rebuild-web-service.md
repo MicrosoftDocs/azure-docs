@@ -13,19 +13,19 @@ ms.date: 03/08/2021
 
 # Rebuild a Studio (classic) web service in Azure Machine Learning
 
-In this article, you learn how to rebuild a Studio (classic) web service as an **endpoint** in [Azure Machine Learning](../index.yml).
+In this article, you learn how to rebuild an ML Studio (classic) web service as an **endpoint** in Azure Machine Learning.
 
 Use Azure Machine Learning pipeline endpoints to make predictions, retrain models, or run any generic pipeline. The REST endpoint lets you run pipelines from any platform. 
 
 This article is part of the Studio (classic) to Azure Machine Learning migration series. For more information on migrating to Azure Machine Learning, see the [migration overview article](migrate-overview.md).
 
 > [!NOTE]
-> This migration series focuses on the drag-and-drop designer. For more information on deploying models programmatically, see [Deploy machine learning models in Azure](../how-to-deploy-and-where.md).
+> This migration series focuses on the drag-and-drop designer. For more information on deploying models programmatically, see [Deploy machine learning models in Azure](how-to-deploy-and-where.md).
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An Azure Machine Learning workspace. [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md#create-a-workspace).
+- An Azure Machine Learning workspace. [Create an Azure Machine Learning workspace](how-to-manage-workspace.md#create-a-workspace).
 - An Azure Machine Learning training pipeline. For more information, see [Rebuild a Studio (classic) experiment in Azure Machine Learning](migrate-rebuild-experiment.md).
 
 ## Real-time endpoint vs pipeline endpoint
@@ -48,11 +48,11 @@ There are multiple ways to deploy a model in Azure Machine Learning. One of the 
 1. Run your completed training pipeline at least once.
 1. After the run completes, at the top of the canvas, select **Create inference pipeline** > **Real-time inference pipeline**.
 
-    ![create realtime inference pipeline](./media/migrate-rebuild-web-service/create-inference-pipeline.png)
+    ![Create realtime inference pipeline](./media/migrate-rebuild-web-service/create-inference-pipeline.png)
         
     The designer converts the training pipeline into a real-time inference pipeline. A similar conversion also occurs in Studio (classic).
 
-    In the designer, the conversion step also [registers the trained model to your Azure Machine Learning workspace](../how-to-deploy-and-where.md#registermodel).
+    In the designer, the conversion step also [registers the trained model to your Azure Machine Learning workspace](how-to-deploy-and-where.md#registermodel).
 
 1. Select **Submit** to run the real-time inference pipeline, and verify that it runs successfully.
 
@@ -64,8 +64,8 @@ There are multiple ways to deploy a model in Azure Machine Learning. One of the 
 
     | Compute target | Used for | Description | Creation |
     | ----- |  ----- | ----- | -----  |
-    |[Azure Kubernetes Service (AKS)](../how-to-deploy-azure-kubernetes-service.md) |Real-time inference|Large-scale, production deployments. Fast response time and service autoscaling.| User-created. For more information, see [Create compute targets](../how-to-create-attach-compute-studio.md#inference-clusters). |
-    |[Azure Container Instances ](../how-to-deploy-azure-container-instance.md)|Testing or development | Small-scale, CPU-based workloads that require less than 48 GB of RAM.| Automatically created by Azure Machine Learning.
+    |[Azure Kubernetes Service (AKS)](how-to-deploy-azure-kubernetes-service.md) |Real-time inference|Large-scale, production deployments. Fast response time and service autoscaling.| User-created. For more information, see [Create compute targets](how-to-create-attach-compute-studio.md#inference-clusters). |
+    |[Azure Container Instances](how-to-deploy-azure-container-instance.md)|Testing or development | Small-scale, CPU-based workloads that require less than 48 GB of RAM.| Automatically created by Azure Machine Learning.
 
 ### Test the real-time endpoint
 
@@ -97,7 +97,7 @@ Use the following steps to publish a pipeline endpoint for batch prediction:
         
     The designer converts the training pipeline into a batch inference pipeline. A similar conversion also occurs in Studio (classic).
 
-    In the designer, this step also [registers the trained model to your Azure Machine Learning workspace](../how-to-deploy-and-where.md#registermodel).
+    In the designer, this step also [registers the trained model to your Azure Machine Learning workspace](how-to-deploy-and-where.md#registermodel).
 
 1. Select **Submit** to run the batch inference pipeline and verify that it successfully completes.
 

@@ -42,9 +42,9 @@ highlightedContent:
       itemType: get-started
       url: tutorial-1st-experiment-hello-world.md 
     # Card
-    - title: "Responsible machine learning"
-      itemType: concept
-      url: concept-responsible-ml.md      
+    - title: "Migrate from ML Studio (classic)"
+      itemType: how-to-guide
+      url: migrate-overview.md      
 
 conceptualContent:
 # Supports up to 3 sections

@@ -13,7 +13,7 @@ ms.date: 02/04/2021
 
 # Migrate a Studio (classic) dataset to Azure Machine Learning
 
-In this article, you learn how to migrate a Studio (classic) dataset to [Azure Machine Learning](../index.yml). For more information on migrating from Studio (classic), see [the migration overview article](migrate-overview.md).
+In this article, you learn how to migrate a Studio (classic) dataset to Azure Machine Learning. For more information on migrating from Studio (classic), see [the migration overview article](migrate-overview.md).
 
 You have three options to migrate a dataset to Azure Machine Learning. Read each section to determine which option is best for your scenario.
 
@@ -24,12 +24,12 @@ You have three options to migrate a dataset to Azure Machine Learning. Read each
 |Cloud storage     | Option 2: [Register a dataset from a cloud source](#import-data-from-cloud-sources). <br><br>  Option 3: [Use the Import Data module to get data from a cloud source](#import-data-from-cloud-sources).        |
 
 > [!NOTE]
-> Azure Machine Learning also supports [code-first workflows](../how-to-create-register-datasets.md) for creating and managing datasets. 
+> Azure Machine Learning also supports [code-first workflows](how-to-create-register-datasets.md) for creating and managing datasets. 
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An Azure Machine Learning workspace. [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md#create-a-workspace).
+- An Azure Machine Learning workspace. [Create an Azure Machine Learning workspace](how-to-manage-workspace.md#create-a-workspace).
 - A Studio (classic) dataset to migrate.
 
 
@@ -89,7 +89,7 @@ After you download the data file, you can register the dataset in Azure Machine 
 
 1. **For Datastore and file selection**, select the datastore you want to upload your dataset file to.
 
-    By default, Azure Machine Learning stores the dataset to the default workspace blobstore. For more information on datastores, see [Connect to storage services](../how-to-access-data.md).
+    By default, Azure Machine Learning stores the dataset to the default workspace blobstore. For more information on datastores, see [Connect to storage services](how-to-access-data.md).
 
 1. Set the data parsing settings and schema for your dataset. Then, confirm your settings.
 
@@ -116,9 +116,9 @@ If your data is already in a cloud storage service, and you want to keep your da
 
 Use the following steps to register a dataset to Azure Machine Learning from a cloud service: 
 
-1. [Create a datastore](../how-to-connect-data-ui.md#create-datastores), which links the cloud storage service to your Azure Machine Learning workspace. 
+1. [Create a datastore](how-to-connect-data-ui.md#create-datastores), which links the cloud storage service to your Azure Machine Learning workspace. 
 
-1. [Register a dataset](../how-to-connect-data-ui.md#create-datasets). If you are migrating a Studio (classic) dataset, select the **Tabular** dataset setting.
+1. [Register a dataset](how-to-connect-data-ui.md#create-datasets). If you are migrating a Studio (classic) dataset, select the **Tabular** dataset setting.
 
 After you register a dataset in Azure Machine Learning, you can use it in designer:
  
@@ -130,9 +130,9 @@ After you register a dataset in Azure Machine Learning, you can use it in design
 
 Use the following steps to import data directly to your designer pipeline:
 
-1. [Create a datastore](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/machine-learning/how-to-connect-data-ui.md#create-datastores), which links the cloud storage service to your Azure Machine Learning workspace. 
+1. [Create a datastore](how-to-connect-data-ui.md#create-datastores), which links the cloud storage service to your Azure Machine Learning workspace. 
 
-After you create the datastore, you can use the [**Import Data**](../algorithm-module-reference/import-data.md) module in the designer to ingest data from it:
+After you create the datastore, you can use the [**Import Data**](algorithm-module-reference/import-data.md) module in the designer to ingest data from it:
 
 1. Create a new designer pipeline draft.
 1. In the module palette to the left, find the **Import Data** module and drag it to the canvas.

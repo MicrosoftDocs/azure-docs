@@ -2259,6 +2259,36 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/machine-learning/classic/migrate-overview.md",
+      "redirect_url": "/azure/machine-learning/migrate-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/classic/migrate-register-dataset.md",
+      "redirect_url": "/azure/machine-learning/migrate-register-dataset",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/classic/migrate-rebuild-experiment.md",
+      "redirect_url": "/azure/machine-learning/migrate-rebuild-experiment",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/classic/migrate-rebuild-web-service.md",
+      "redirect_url": "/azure/machine-learning/migrate-rebuild-web-service",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/classic/migrate-rebuild-integrate-with-client-app.md",
+      "redirect_url": "/azure/machine-learning/migrate-rebuild-integrate-with-client-app",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/classic/migrate-execute-r-script.md",
+      "redirect_url": "/azure/machine-learning/migrate-execute-r-script",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/machine-learning/resource-known-issues.md",
       "redirect_url": "/azure/machine-learning/how-to-configure-auto-train#troubleshooting",
       "redirect_document_id": false

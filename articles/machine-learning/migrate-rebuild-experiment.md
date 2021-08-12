@@ -13,17 +13,17 @@ ms.date: 03/08/2021
 
 # Rebuild a Studio (classic) experiment in Azure Machine Learning
 
-In this article, you learn how to rebuild a Studio (classic) experiment in [Azure Machine Learning](../index.yml). For more information on migrating from Studio (classic), see [the migration overview article](migrate-overview.md).
+In this article, you learn how to rebuild an ML Studio (classic) experiment in Azure Machine Learning. For more information on migrating from Studio (classic), see [the migration overview article](migrate-overview.md).
 
 Studio (classic) **experiments** are similar to **pipelines** in Azure Machine Learning. However, in Azure Machine Learning pipelines are built on the same back-end that powers the SDK. This means that you have two options for machine learning development: the drag-and-drop designer or code-first SDKs.
 
-For more information on building pipelines with the SDK, see [What are Azure Machine Learning pipelines](../concept-ml-pipelines.md#building-pipelines-with-the-python-sdk).
+For more information on building pipelines with the SDK, see [What are Azure Machine Learning pipelines](concept-ml-pipelines.md#building-pipelines-with-the-python-sdk).
 
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An Azure Machine Learning workspace. [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md#create-a-workspace).
+- An Azure Machine Learning workspace. [Create an Azure Machine Learning workspace](how-to-manage-workspace.md#create-a-workspace).
 - A Studio (classic) experiment to migrate.
 - [Upload your dataset](migrate-register-dataset.md) to Azure Machine Learning.
 
@@ -35,7 +35,7 @@ In Azure Machine Learning, the visual graph is called a **pipeline draft**. In t
 
 1. Go to Azure Machine Learning studio ([ml.azure.com](https://ml.azure.com))
 1. In the left navigation pane, select **Designer** > **Easy-to-use prebuilt modules**
-    ![Screenshot showing how to create a new pipeline draft.](../media/tutorial-designer-automobile-price-train-score/launch-designer.png)
+    ![Screenshot showing how to create a new pipeline draft.](./media/tutorial-designer-automobile-price-train-score/launch-designer.png)
 
 1. Manually rebuild your experiment with designer modules.
     
@@ -46,7 +46,7 @@ In Azure Machine Learning, the visual graph is called a **pipeline draft**. In t
 
 1. Adjust parameters.
     
-    Select each module and adjust the parameters in the module settings panel to the right. Use the parameters to recreate the functionality of your Studio (classic) experiment. For more information on each module, see the [module reference](../algorithm-module-reference/module-reference.md).
+    Select each module and adjust the parameters in the module settings panel to the right. Use the parameters to recreate the functionality of your Studio (classic) experiment. For more information on each module, see the [module reference](/algorithm-module-reference/module-reference.md).
 
 ## Submit a run and check results
 
@@ -57,7 +57,7 @@ A pipeline run executes on a **compute target** attached to your workspace. You 
 Once you submit a run from a pipeline draft, it turns into a **pipeline run**. Each pipeline run is recorded and logged in Azure Machine Learning.
 
 To set a default compute target for the entire pipeline:
-1. Select the **Gear icon** ![Gear icon in the designer](../media/tutorial-designer-automobile-price-train-score/gear-icon.png) next to the pipeline name.
+1. Select the **Gear icon** ![Gear icon in the designer](./media/tutorial-designer-automobile-price-train-score/gear-icon.png) next to the pipeline name.
 1. Select **Select compute target**.
 1. Select an existing compute, or create a new compute by following the on-screen instructions.
 
