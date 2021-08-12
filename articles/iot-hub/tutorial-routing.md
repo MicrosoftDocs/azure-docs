@@ -139,7 +139,7 @@ Now set up the routing for the storage account. You go to the Message Routing pa
 
 5. Enter a name for the endpoint. This tutorial uses **ContosoStorageEndpoint**.
 
-   ![Select the container](./media/tutorial-routing/00002-add-a-storage-endpoint.png)
+   ![Name the endpoint.](./media/tutorial-routing/00002-add-a-storage-endpoint.png)
 
 ** THESE INSTRUCTIONS ARE REALLY MESSED UP. **
 
