@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 07/23/2021
 ms.custom: template-concept
 ms.author: cchiedo
-ms.reviewer: john.garland, maggie.marxen, ian.bennett, marsma
+ms.reviewer: johngarland, mamarxen, ianbe, marsma
 
 #Customer intent: As an application developer, I want to understand the basic concepts of authorization in the Microsoft identity platform.
 ---
@@ -30,10 +30,7 @@ Authorization can include specifying what functionality (or resources) an entity
 
 ## Authorization approaches
 
-There are several common approaches to handle authorization.
-
-> [!NOTE]
-> Even though we discuss several approaches in this article, [role-based access control](./custom-rbac-for-developers.md) is currently the most common approach using Microsoft identity platform.
+There are several common approaches to handle authorization. [Role-based access control](./custom-rbac-for-developers.md) is currently the most common approach using Microsoft identity platform.
 
 
 ### Authentication as authorization 

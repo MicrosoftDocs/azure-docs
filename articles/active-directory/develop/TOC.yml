@@ -120,9 +120,11 @@
 - name: Concepts
   expanded: true
   items:
-  - name: Authentication basics
-    displayName: Auth basics
+  - name: Authentication and authorization basics
+    displayName: AuthN and AuthZ basics
     items:
+    - name: Authorization basics
+      href: authorization-basics.md
     - name: Authentication vs. authorization
       href: authentication-vs-authorization.md
     - name: Security tokens
@@ -137,11 +139,9 @@
     - name: Microsoft Identity Web library
       href: microsoft-identity-web.md
       displayName: auth, library, .NET Core, msal
-  - name: Authorization basics
-    displayName: AuthZ basics
+  - name: Role-based access control
+    displayName: RBAC basics
     items:
-    - name: Authorization basics
-      href: authorization-basics.md
     - name: RBAC for app developers
       href: custom-rbac-for-developers.md
     - name: Permissions and consent
