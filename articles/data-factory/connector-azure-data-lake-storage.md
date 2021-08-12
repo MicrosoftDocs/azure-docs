@@ -46,7 +46,7 @@ For Copy activity, with this connector you can:
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-## Create a REST linked service using UI
+## Create an Azure Data Lake Storge Gen2 linked service using UI
 
 Use the following steps to create an Azure Data Lake Storage Gen2 linked service in the Data Factory UI.
 
@@ -68,7 +68,7 @@ Use the following steps to create an Azure Data Lake Storage Gen2 linked service
 
 1. Configure the service details, test the connection, and create the new linked service.
 
-    :::image type="content" source="media/connector-azure-data-lake-storage/configure-data-lake-storage-linked-service.png" alt-text="Configure REST linked service.":::
+    :::image type="content" source="media/connector-azure-data-lake-storage/configure-data-lake-storage-linked-service.png" alt-text="Configure Azure Data Lake Storage Gen2 linked service.":::
 
 ## Connector configuration details
 

@@ -46,9 +46,9 @@ For the Copy activity, this Blob storage connector supports:
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-## Create a REST linked service using UI
+## Create an Azure Blob Storage linked service using UI
 
-Use the following steps to create a REST linked service in the Data Factory UI.
+Use the following steps to create an Azure Blob Storage linked service in the Data Factory UI.
 
 1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
 
