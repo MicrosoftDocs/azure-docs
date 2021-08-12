@@ -12,7 +12,7 @@ ms.author: esarroyo
 
 # Troubleshoot issues with advanced diagnostics queries for the SQL (Core) API
 
-[!INCLUDE[appliesto-all-apis-except-table](includes/appliesto-all-apis-except-table.md)]sdf
+[!INCLUDE[appliesto-all-apis-except-table](includes/appliesto-all-apis-except-table.md)]
 
 > [!div class="op_single_selector"]
 > * [SQL (Core) API](cosmos-db-advanced-queries.md)
