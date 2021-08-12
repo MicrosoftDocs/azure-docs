@@ -48,7 +48,7 @@ No. Customers can leverage Azure services to architect a resilient service witho
 | Australia |Australia East |Australia Southeast |
 | Australia |Australia Central |Australia Central 2* |
 | Brazil |Brazil South |South Central US |
-| Brazil |Brazil Southeast* |Brazil South |
+| Brazil |Brazil South |Brazil Southeast* |
 | Canada |Canada Central |Canada East |
 | China |China North |China East|
 | China |China North 2 |China East 2|
