@@ -192,9 +192,9 @@ items:
     - name: Erwin lineage
       href: how-to-lineage-erwin.md
     - name: Looker lineage
+      href: how-to-lineage-looker.md
     - name: Google BigQuery lineage
       href: how-to-lineage-google-bigquery.md
-      href: how-to-lineage-looker.md
     - name: Oracle lineage
       href: how-to-lineage-oracle.md
     - name: Power BI lineage
