@@ -144,13 +144,13 @@ az storage blob set-tier /
 
 ## Check the status of a rehydration operation
 
-While the blob is rehydrating, you can check its status and rehydration priority using the Azure portal, PowerShell, or Azure CLI.
+While the blob is rehydrating, you can check its status and rehydration priority using the Azure portal, PowerShell, or Azure CLI. The status property may return *rehydrate-pending-to-hot* or *rehydrate-pending-to-cool*, depending on the target tier for the rehydration operation. The rehydration priority property returns either *Standard* or *High*.
 
 Keep in mind that rehydration of an archived blob may take up to 15 hours, and repeatedly polling the blob's status to determine whether rehydration is complete is inefficient. Using Azure Event Grid to capture the event that fires when rehydration is complete offers better performance and cost optimization. To learn how to run an Azure Function when an event fires on blob rehydration, see [Run an Azure Function in response to a blob rehydration event](archive-rehydrate-handle-event.md).
 
 ### [Azure portal](#tab/portal)
 
-To check the status and priority of a pending rehydration operation in the Azure portal, display the **Change tier** dialog for the blob again:
+To check the status and priority of a pending rehydration operation in the Azure portal, display the **Change tier** dialog for the blob:
 
 :::image type="content" source="media/archive-rehydrate-to-online-tier/rehydration-status-portal.png" alt-text="Screenshot showing the rehydration status for a blob in the Azure portal":::
 

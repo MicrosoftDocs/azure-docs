@@ -35,9 +35,7 @@ When you rehydrate a blob, you can set the priority for the rehydration operatio
 
 To check the rehydration priority while the rehydration operation is underway, call [Get Blob Properties](/rest/api/storageservices/get-blob-properties) to return the value of the `x-ms-rehydrate-priority` header. The rehydration priority property returns either *Standard* or *High*.
 
-Standard priority is the default rehydration option. A high-priority rehydration is faster, but also costs more than a standard-priority rehydration. Microsoft recommends reserving high-priority rehydration for use in emergency data restoration situations.
-
-A high-priority rehydration may take longer than one hour, depending on blob size and current demand. High-priority requests are prioritized over standard-priority requests.
+Standard priority is the default rehydration option. A high-priority rehydration is faster, but also costs more than a standard-priority rehydration. A high-priority rehydration may take longer than one hour, depending on blob size and current demand. Microsoft recommends reserving high-priority rehydration for use in emergency data restoration situations.
 
 For more information on pricing differences between standard-priority and high-priority rehydration requests, see [Azure Storage Blobs Pricing](/pricing/details/storage/blobs/).
 
@@ -53,6 +51,8 @@ Microsoft recommends performing a copy operation in most scenarios where you nee
 - If there is a lifecycle management policy in effect for the storage account, then rehydrating a blob with [Set Blob Tier](/rest/api/storageservices/set-blob-tier) can result in a scenario where the lifecycle policy moves the blob back to the archive tier after rehydration because the last modified time is beyond the threshold set for the policy. A copy operation leaves the source blob in the archive tier and creates a new blob with a different name and a new last modified time, so there is no risk that the rehydrated blob will be moved back to the archive tier by the lifecycle policy.
 
 Copying a blob from the archive tier can take hours to complete depending on the rehydration priority selected. Behind the scenes, a blob copy operation reads your archived source blob to create a new online blob in the selected destination tier. The new blob may be visible when you list the blobs in the parent container before the rehydration operation is complete, but its tier will be set to archive, The data is not available until the read operation from the source blob in the archive tier is complete and the blob's contents have been written to the new destination blob in an online tier. The new blob is an independent copy, so modifying or deleting it does not affect the source blob in the archive tier.
+
+To learn how to rehydrate a blob by copying it to an online tier, see [Rehydrate a blob with a copy operation](archive-rehydrate-to-online-tier.md#rehydrate-a-blob-with-a-copy-operation).
 
 > [!IMPORTANT]
 > Do not delete the the source blob until the rehydration has completed successfully. If the source blob is deleted, then the destination blob may not finish copying. You can handle the event that is raised when the copy operation completes to know when it is safe to delete the source blob. For more information, see [Handle an event on blob rehydration](#handle-an-event-on-blob-rehydration).
@@ -73,25 +73,27 @@ The second option for rehydrating a blob from the archive tier to an online tier
 
 Once a [Set Blob Tier](/rest/api/storageservices/set-blob-tier) request is initiated, it cannot be canceled. During the rehydration operation, the blob's access tier setting continues to show as archived until the rehydration process is complete. When the rehydration operation is complete, the blob's access tier property updates to reflect the new tier.
 
-To check the status of the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation, call [Get Blob Properties](/rest/api/storageservices/get-blob-properties) to get the value of the `x-ms-archive-status` header. The archive status property may return *rehydrate-pending-to-hot* or *rehydrate-pending-to-cool*, depending on the target tier for the rehydration operation.
-
-To learn how to configure Azure Event Grid to fire an event when the rehydration is complete and then handle the event with an Azure Function, see [Handle an event on blob rehydration](#handle-an-event-on-blob-rehydration).
+To learn how to rehydrate a blob by changing its tier to an online tier, see [Rehydrate a blob by changing its tier](archive-rehydrate-to-online-tier.md#rehydrate-a-blob-by-changing-its-tier).
 
 > [!CAUTION]
 > Changing a blob's tier doesn't affect its last modified time. If there is a [lifecycle management](storage-lifecycle-management-concepts.md) policy in effect for the storage account, then rehydrating a blob with **Set Blob Tier** can result in a scenario where the lifecycle policy moves the blob back to the archive tier after rehydration because the last modified time is beyond the threshold set for the policy.
 >
 > To avoid this scenario, rehydrate the archived blob by copying it instead, as described in the [Copy an archived blob to an online tier](#copy-an-archived-blob-to-an-online-tier) section. Performing a copy operation creates a new instance of the blob with an updated last modified time, so it won't trigger the lifecycle management policy.
 
+## Check the status of a blob rehydration operation
+
+During the blob rehydration operation, you can call the [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation to check its status. To learn how to check the status of a rehydration operation, see [Check the status of a rehydration operation](archive-rehydrate-to-online-tier.md#check-the-status-of-a-rehydration-operation).
+
 ## Handle an event on blob rehydration
 
-During the blob rehydration operation, you can call the [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation to check its status. However, rehydration of an archived blob may take up to 15 hours, and repeatedly polling **Get Blob Properties** to determine whether rehydration is complete is inefficient. Using [Azure Event Grid](../../event-grid/overview.md) to capture the event that fires when rehydration is complete offers better performance and cost optimization.
+Rehydration of an archived blob may take up to 15 hours, and repeatedly polling **Get Blob Properties** to determine whether rehydration is complete is inefficient. Using [Azure Event Grid](../../event-grid/overview.md) to capture the event that fires when rehydration is complete offers better performance and cost optimization.
 
-Azure Event Grid raises one of the following two events are raised on blob rehydration, depending on which operation was used to perform the rehydration:
+Azure Event Grid raises one of the following two events on blob rehydration, depending on which operation was used to rehydrate the blob:
 
 - The **Microsoft.Storage.BlobCreated** event fires when a blob is created. In the context of blob rehydration, this event fires when a [Copy Blob](/rest/api/storageservices/copy-blob) or [Copy Blob from URL](/rest/api/storageservices/copy-blob-from-url) operation creates a new destination blob in either the hot or cool tier and the blob's data is fully rehydrated from the archive tier.
 - The **Microsoft.Storage.BlobTierChanged** event fires when a blob's tier is changed. In the context of blob rehydration, this event fires when a [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation successfully changes an archived blob's tier to the hot or cool tier.
 
-To learn how to capture an event on rehydration and send it to an Azure Function event handler, see [Handle an event on blob rehydration](archive-rehydrate-handle-event.md).
+To learn how to capture an event on rehydration and send it to an Azure Function event handler, see [Run an Azure Function in response to a blob rehydration event](archive-rehydrate-handle-event.md).
 
 For more information on handling events in Blob Storage, see [Reacting to Azure Blob storage events](storage-blob-event-overview.md) and [Azure Blob Storage as Event Grid source](../../event-grid/event-schema-blob-storage.md).
 
@@ -108,5 +110,6 @@ For more information about pricing for block blobs and data rehydration, see [Az
 ## See also
 
 - [Azure Blob Storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md).
-- [Handle an event on blob rehydration](archive-rehydrate-handle-event.md)
+- [Rehydrate an archived blob to an online tier](archive-rehydrate-to-online-tier.md)
+- [Run an Azure Function in response to a blob rehydration event](archive-rehydrate-handle-event.md)
 - [Reacting to Blob storage events](storage-blob-event-overview.md)
