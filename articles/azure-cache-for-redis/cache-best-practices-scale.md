@@ -27,4 +27,4 @@ Start scaling before the server load or memory gets too high. If it is too high,
 
 Some cache sizes are hosted on VMs with four or more cores. Distribute the TLS encryption/decryption and TLS connection/disconnection workloads across multiple cores to bring down overall CPU usage on the cache VMs. See here for details around VM sizes and cores.
 
-For more guidance on when to scale, see [When to scale](cache-how-to-scale#when-to-scale).
+For more guidance on when to scale, see [When to scale](cache-how-to-scale.md#when-to-scale).
