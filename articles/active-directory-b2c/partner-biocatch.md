@@ -137,7 +137,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
           </ClaimType> 
 
-    <ClaimsSchema> 
+    </ClaimsSchema> 
     ```
 
 5. Configure self-asserted claims provider for the client session ID field.
