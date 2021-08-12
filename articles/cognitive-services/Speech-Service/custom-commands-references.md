@@ -61,7 +61,7 @@ Custom Commands supports the following parameter types:
 * Temperature
 * Url
 
-The availability of a parameter type varies with locales, with the exception of the "String" parameter type which universally supported. Custom Commands internally leverages LUIS's prebuilt entity resolution, so the availability of a parameter type in a locale depends on LUIS's prebuilt entity support in that locale. You can find [more details on LUIS's prebuilt entity support per locale](/azure/cognitive-services/luis/luis-reference-prebuilt-entities).
+Every locale supports the "String" parameter type, but availability of all other types differs by locale. Custom Commands uses LUIS's prebuilt entity resolution, so the availability of a parameter type in a locale depends on LUIS's prebuilt entity support in that locale. You can find [more details on LUIS's prebuilt entity support per locale](/azure/cognitive-services/luis/luis-reference-prebuilt-entities).
 
 Some parameter types like Number, String and DateTime support default value configuration, which you can configure from the portal.
 
