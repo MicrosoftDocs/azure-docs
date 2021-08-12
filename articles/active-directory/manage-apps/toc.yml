@@ -81,6 +81,8 @@
         href: certificate-signing-options.md
       - name: Manage certificates
         href: manage-certificates-for-federated-single-sign-on.md
+      - name: Protect against application-based consent phishing
+        href: protect-against-oauth-consent-phishing.md
       - name: Tenant restrictions
         href: tenant-restrictions.md
       - name: Configure SAML token encryption
