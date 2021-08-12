@@ -115,8 +115,8 @@ Here are the key highlights of the architecture:
  - **Extensible query framework** - SQL queries to collect telemetry data are written in [JSON](https://github.com/Azure/AzureMonitorForSAPSolutions/blob/master/sapmon/content/SapHana.json). More SQL queries to collect more telemetry data can be easily added. You can request specific telemetry data to be added to Azure Monitor for SAP Solutions by leaving feedback using the link at the end of this article. You can also leave feedback by contacting your account team.
 
 ## Pricing
-Azure Monitor for SAP Solutions is a free product (no license fee). You're responsible for paying the cost of the underlying components in the managed resource group and consumption costs associated with data ingestion and data retention. Pleasee see standard Azure pricing documents for more information [Azure VM pricing] (https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/), [Azure Key vault pricing] (https://azure.microsoft.com/en-us/pricing/details/key-vault/), 
-[Azure storage account pricing] (https://azure.microsoft.com/en-us/pricing/details/storage/queues/), [Azure Log Analytics and alerts pricing] (https://azure.microsoft.com/en-us/pricing/details/monitor/)
+Azure Monitor for SAP Solutions is a free product (no license fee). You're responsible for paying the cost of the underlying components in the managed resource group and consumption costs associated with data ingestion and data retention. Please see standard Azure pricing documents for more information [Azure VM pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/), [Azure Key vault pricing](https://azure.microsoft.com/pricing/details/key-vault/), 
+[Azure storage account pricing](https://azure.microsoft.com/pricing/details/storage/queues/), [Azure Log Analytics and alerts pricing](https://azure.microsoft.com/pricing/details/monitor/)
 
 ## Next steps
 
