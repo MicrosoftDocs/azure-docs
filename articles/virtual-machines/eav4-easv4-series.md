@@ -22,7 +22,7 @@ The Eav4-series and Easv4-series utilize AMD's 2.35Ghz EPYC<sup>TM</sup> 7452 pr
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generations 1 and 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <sup>1</sup> <br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 <br>
 
@@ -30,7 +30,7 @@ Eav4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor 
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max NICs | Expected network bandwidth (Mbps) |
 | -----|-----|-----|-----|-----|-----|-----|-----|
-| Standard\_E2a\_v4|2|16|50|4|3000 / 46 / 23|2 | 800 |
+| Standard\_E2a\_v4<sup>1</sup>|2|16|50|4|3000 / 46 / 23|2 | 800 |
 | Standard\_E4a\_v4|4|32|100|8|6000 / 93 / 46|2 | 1600 |
 | Standard\_E8a\_v4|8|64|200|16|12000 / 187 / 93|4 | 3200 |
 | Standard\_E16a\_v4|16|128|400|32|24000 / 375 / 187|8 | 6400 |
@@ -40,7 +40,8 @@ Eav4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor 
 | Standard\_E64a\_v4|64|512|1600|32|96000 / 1000 (500)|8 | 25600 |
 | Standard\_E96a\_v4|96|672|2400|32|96000 / 1000 (500)|8 | 32000 |
 
-<sup>1</sup> Virtual Machines with 2 vCPU can enable accelerated networking on only a single NIC. <br>
+<sup>1</sup> Accelerated networking can only be applied to a single NIC. 
+
 
 ## Easv4-series
 
@@ -50,7 +51,7 @@ Eav4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor 
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generations 1 and 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<sup>3</sup> <br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 <br>
 
@@ -58,7 +59,7 @@ Easv4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Expected network bandwidth (Mbps) |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-| Standard_E2as_v4|2|16|32|4|4000 / 32 (50)|3200 / 48| 4000/200 |2 | 800 |
+| Standard_E2as_v4<sup>3</sup>|2|16|32|4|4000 / 32 (50)|3200 / 48| 4000/200 |2 | 800 |
 | Standard_E4as_v4 <sup>2</sup>|4|32|64|8|8000 / 64 (100)|6400 / 96| 8000/200 |2 | 1600 |
 | Standard_E8as_v4 <sup>2</sup>|8|64|128|16|16000 / 128 (200)|12800 / 192| 16000/400 |4 | 3200 |
 | Standard_E16as_v4 <sup>2</sup>|16|128|256|32|32000 / 255 (400)|25600 / 384| 32000/800 |8 | 6400 |
@@ -70,7 +71,8 @@ Easv4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor
 
 <sup>1</sup>  Easv4-series VMs can [burst](./disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time. <br>
 <sup>2</sup> [Constrained core sizes available](./constrained-vcpu.md). <br>
-<sup>3</sup> Virtual Machines with 2 vCPU can enable accelerated networking on only a single NIC. 
+<sup>3</sup> Accelerated networking can only be applied to a single NIC. 
+
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
