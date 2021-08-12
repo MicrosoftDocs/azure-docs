@@ -122,7 +122,7 @@ This table describes the ports that your ISE requires to be accessible and the p
 | Purpose | Source service tag or IP addresses | Source ports | Destination service tag or IP addresses | Destination ports | Notes |
 |---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
 | Intersubnet communication within virtual network | Address space for the virtual network with ISE subnets | * | Address space for the virtual network with ISE subnets | * | Required for traffic to flow *between* the subnets in your virtual network. <p><p>**Important**: For traffic to flow between the *components* in each subnet, make sure that you open all the ports within each subnet. |
-| Communication from your logic app | **VirtualNetwork** | * | Internet | 443, 80 | This rule is necessary for Secure Socket Layer (SSL) certificate verification.  |
+| Communication from your logic app | **VirtualNetwork** | * | Internet | 443, 80 | This rule is required for Secure Socket Layer (SSL) certificate verification. This check is for various internal and external sites, which is the reason that the Internet is required as the destination. |
 | Communication from your logic app | **VirtualNetwork** | * | Varies based on destination | Varies based on destination | Destination ports vary based on the endpoints for the external services with which your logic app needs to communicate. <p><p>For example, the destination port is port 25 for an SMTP service, port 22 for an SFTP service, and so on. |
 | Azure Active Directory | **VirtualNetwork** | * | **AzureActiveDirectory** | 80, 443 ||
 | Azure Storage dependency | **VirtualNetwork** | * | **Storage** | 80, 443, 445 ||
