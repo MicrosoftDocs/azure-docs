@@ -52,7 +52,7 @@ Add your KQL functions to the `imRegistry` source-agnostic parsers to ensure tha
 
 ## Normalized content
 
-Azure Sentinel provides the **Persisting Via IFEO Registry Key** hunting query. This query works on any registry activity data normalized using the Azure Sentinel Information Model.
+Azure Sentinel provides the [Persisting Via IFEO Registry Key](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/PersistViaIFEORegistryKey.yaml) hunting query. This query works on any registry activity data normalized using the Azure Sentinel Information Model.
 
 For more information, see [Hunt for threats with Azure Sentinel](hunting.md).
 

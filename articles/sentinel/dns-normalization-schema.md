@@ -64,23 +64,24 @@ The parsers can be deployed from the [Azure Sentinel GitHub repository](https://
 
 ## Normalized content
 
+Support for the DNS ASIM schema also includes support for the following built-in analytics rules with normalized authentication parsers. The linked below point to the Azure Sentinel GitHub as a reference. However, analytic rules are available in the Analytics rule gallery, while hunting queries need to be copied from the linked GitHub page.
+
 The following built-in analytic rules now work with normalized DNS parsers:
-- Added: 
-  - Excessive NXDOMAIN DNS Queries (Normalized DNS)
-  - DNS events related to mining pools (Normalized DNS)
-  - DNS events related to ToR proxies (Normalized DNS)
-- Updated to include normalized DNS: 
-  - Known Barium domains
-  - Known Barium IP addresses  
-  - Exchange Server Vulnerabilities Disclosed March 2021 IoC Match
-  - Known GALLIUM domains and hashes
-  - Known IRIDIUM IP
-  - NOBELIUM - Domain and IP IOCs - March 2021
-  - Known Phosphorus group domains/IP
-  - Known STRONTIUM group domains - July 2019
-  - Solorigate Network Beacon
-  - THALLIUM domains included in DCU takedown
-  - Known ZINC Comebacker and Klackring malware hashes
+ - [Excessive NXDOMAIN DNS Queries (Normalized DNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDns_ExcessiveNXDOMAINDNSQueries.yaml)
+ - [DNS events related to mining pools (Normalized DNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDNS_Miners.yaml)
+ - [DNS events related to ToR proxies (Normalized DNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDNS_TorProxies.yaml)
+ - [Known Barium domains](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/BariumDomainIOC112020.yaml)
+ - [Known Barium IP addresses](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/BariumIPIOC112020.yaml) 
+ - [Exchange Server Vulnerabilities Disclosed March 2021 IoC Match](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ExchangeServerVulnerabilitiesMarch2021IoCs.yaml)
+ - [Known GALLIUM domains and hashes](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/GalliumIOCs.yaml)
+ - [Known IRIDIUM IP](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/IridiumIOCs.yaml)
+ - [NOBELIUM - Domain and IP IOCs - March 2021](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NOBELIUM_DomainIOCsMarch2021.yaml)
+ - [Known Phosphorus group domains/IP](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/PHOSPHORUSMarch2019IOCs.yaml)
+ - [Known STRONTIUM group domains - July 2019](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/STRONTIUMJuly2019IOCs.yaml)
+ - [Solorigate Network Beacon](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/Solorigate-Network-Beacon.yaml)
+ - [THALLIUM domains included in DCU takedown](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ThalliumIOCs.yaml)
+ - [Known ZINC Comebacker and Klackring malware hashes](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ZincJan272021IOCs.yaml)
+
 
 
 ## Schema details

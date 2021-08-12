@@ -54,7 +54,7 @@ ASIM includes  two levels of parsers: **source-agnostic** and **source-specific*
 
     The source-specific parsers can also be used independently. For example, in an Infoblox-specific workbook, use the `vimDnsInfobloxNIOS` parser.
 
-## Writing parsers
+## Writing source-specific parsers
 
 A parser is a KQL query saved as a workspace function. Once saved, it can be used like built-in tables. The parser query includes the following parts:
 
@@ -156,7 +156,7 @@ The following KQL operators are used to prepare fields:
 
 <br>
 
-## Handle parsing variants
+### Handle parsing variants
 
 In many cases, events in an event stream include variants that require different parsing logic. 
 
@@ -171,6 +171,23 @@ When handling variants, use the following guidelines:
 |If `union` is unavoidable     |  When using `union` is unavoidable, make sure to use the following guidelines:<br><br>-	Pre-filter using built-in fields in each one of the subqueries. <br>-	Ensure that the filters are mutually exclusive. <br>-	Consider not parsing less critical information, reducing the number of subqueries.       |
 
 <br>
+
+<a name="include"></a>## Add your parser to the schema source-agnostic parser
+
+Normalization allows you to use your own content and built-in content with your custom data.
+
+For example, if you have a custom connector that receives DNS query activity log, you can ensure that the DNS query activity logs take advantage of any normalized DNS content by:
+
+To do that, modify the relevant source agnostic parser to include the source-specific parser you crated. For example, modify the `imDns` source-agnostic parser to also include your parser by adding your parser to the list of parsers in the `union` statement:
+
+    ```kusto
+    union isfuzzy=true 
+    vimDnsEmpty, 
+    vimDnsCiscoUmbrella, 
+    vimDnsInfobloxNIOS, 
+    vimDnsMicrosoftOMS,
+    vimDnsYyyXxx
+    ```
 
 ## Deploy parsers
 

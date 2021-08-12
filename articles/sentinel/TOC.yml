@@ -46,7 +46,15 @@
   - name: Data collection and analysis
     items:
     - name: Normalization and the Azure Sentinel Information Model (ASIM)
-      href: normalization.md
+      items:
+      - name: ASIM overview  
+        href: normalization.md
+      - name: ASIM schemas
+        href: normalization-about-schemas.md
+      - name: ASIM parsers
+        href: normalization-about-parsers.md
+      - name: ASIM content
+        href: normalization-content.md  
     - name: Classifying data with entities
       href: entities-in-azure-sentinel.md
   - name: Azure Sentinel solutions

@@ -52,11 +52,13 @@ Deploy the [source-agnostic and source-specific parsers](normalization.md#parser
 
 ## Normalized content
 
-Support for the Authentication normalization schema also includes support for the following built-in analytics rules with normalized authentication parsers:
+Support for the Authentication ASIM schema also includes support for the following built-in analytics rules with normalized authentication parsers. The linked below point to the Azure Sentinel GitHub as a reference. However, analytic rules are available in the Analytics rule gallery, while hunting queries need to be copied from the linked GitHub page.
 
-- User Login from Different Countries within 3 hours (Uses Authentication Normalization)
-- Potential Password Spray Attack (Uses Authentication Normalization)
-- Brute force attack against user credentials (Uses Authentication Normalization)
+- [Potential Password Spray Attack (Uses Authentication Normalization)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimAuthentication/imAuthPasswordSpray.yaml)
+ - [Brute force attack against user credentials (Uses Authentication Normalization)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimAuthentication/imAuthBruteForce.yaml)
+ - [User login from different countries within 3 hours (Uses Authentication Normalization)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimAuthentication/imAuthSigninsMultipleCountries.yaml)
+ - [Sign-ins from IPs that attempt sign-ins to disabled accounts (Uses Authentication Normalization)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimAuthentication/imSigninAttemptsByIPviaDisabledAccounts.yaml)
+
 
 Normalized authentication analytic rules are unique as they detect attacks across sources. So, for example, if a user logged in to different, unrelated systems, from different countries, Azure Sentinel will now detect this threat.
 

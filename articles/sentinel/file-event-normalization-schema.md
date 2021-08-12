@@ -52,13 +52,15 @@ Add your KQL function to the `imFileEvent` source-agnostic parser to ensure that
 
 ## Normalized content for process activity data
 
-The following Azure Sentinel **Analytics rules** works with any file activity that's normalized using the Azure Sentinel Information Model:
+Support for the File Activity ASIM schema also includes support for the following built-in analytics rules with normalized authentication parsers. The linked below point to the Azure Sentinel GitHub as a reference. However, analytic rules are available in the Analytics rule gallery, while hunting queries need to be copied from the linked GitHub page.
 
-- SUNBURST and SUPERNOVA backdoor hashes (Normalized File Events)
-- Exchange Server Vulnerabilities Disclosed March 2021 IoC Match
-- HAFNIUM UM Service writing suspicious file
-- NOBELIUM - Domain, Hash and IP IOCs - May 2021
-- SUNSPOT log file creation 
+
+- [SUNBURST and SUPERNOVA backdoor hashes (Normalized File Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimFileEvent/imFileESolarWindsSunburstSupernova.yaml)
+- [Exchange Server Vulnerabilities Disclosed March 2021 IoC Match](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ExchangeServerVulnerabilitiesMarch2021IoCs.yaml)
+- [HAFNIUM UM Service writing suspicious file](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/HAFNIUMUmServiceSuspiciousFile.yaml)
+- [NOBELIUM - Domain, Hash and IP IOCs - May 2021](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NOBELIUM_IOCsMay2021.yaml)
+- [SUNSPOT log file creation ](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/SUNSPOTLogFile.yaml)
+- [Known ZINC Comebacker and Klackring malware hashes](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ZincJan272021IOCs.yaml)
 
 For more information, see [Create custom analytics rules to detect threats](tutorial-detect-threats-custom.md).
 

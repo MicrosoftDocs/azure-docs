@@ -72,13 +72,13 @@ The Azure Sentinel Information Model uses the following terms:
 ### Deploying ASIM
 
  - To start using ASIM, deploy the ASIM parsers from the folders starting with `ASim` in the [Azure Sentinel HitHub parsers folder] on GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers).
- - Next activate analytic rules templates that use ASIM. Search for “normalized” in the template gallery to find templates that exclusively use ASIM. To find multi-source templates that use ASIM, refer to the schema documentation.
+ - Next activate analytic rules templates that use ASIM. Refer to the [Azure Sentinel Information Model (ASIM) content list](normalized-content.md#builtin) for a list of analytic rules that support ASIM.
 
 ### Using ASIM
- - Use the ASIM hunting queries from GitHub
+ - Use the ASIM hunting queries from GitHub. Refer to the [Azure Sentinel Information Model (ASIM) content list](normalized-content.md#builtin) for a list of analytic rules that support ASIM.
  - Use ASIM queries when using KQL in the log screen. 
- - Write your own analytic rules using ASIM or convert existing ones.
- - Write parsers for your custom sources to make them ASIM compatible and take part in built-in analytics
+ - Write your own analytic rules using ASIM or [convert existing ones](normalized-content.md#builtin).
+ - [Write parsers](normalization-about-parsers.md) for your custom sources and [add](normalization-about-parsers.md#include) them to the relevant source agnostic parser to enable your customer data to take part of built-in analytics
 
 
 ## Next steps
