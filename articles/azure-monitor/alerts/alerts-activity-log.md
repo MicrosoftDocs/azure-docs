@@ -50,7 +50,7 @@ The following procedure describes how to create a metric alert rule in Azure por
 > [!NOTE]
 > As a target, you can select an entire subscription, a resource group, or a specific resource. If you chose a subscription or a resource group as a target, and also selected a resource type, the rule will apply to all resources of that type within the selected subscription or a reosurce group. If you chose a specific target resource, the rule will apply only to that resource. You can't explicitly select multiple subscriptions, resource groups, or resources using the target selector. 
 
-4. If the selected resource has activity log operations you can create alerts on, **Available signals** on the bottom right will include Activity Log. You can view the full list of resource types supported for activity log alerts in this [article](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations).
+4. If the selected resource has activity log operations you can create alerts on, **Available signals** on the bottom right will include Activity Log. You can view the full list of resource types supported for activity log alerts in this [article](../../role-based-access-control/resource-provider-operations.md).
 
 ![Select-target](media/alerts-activity-log/select-target-new.png)
 
