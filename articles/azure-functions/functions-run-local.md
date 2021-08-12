@@ -3,7 +3,7 @@ title: Work with Azure Functions Core Tools
 description: Learn how to code and test Azure Functions from the command prompt or terminal on your local computer before you run them on Azure Functions.
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 07/27/2021
 ms.custom: "devx-track-csharp, 80e4ff38-5174-43"
 ---
 
