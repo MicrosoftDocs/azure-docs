@@ -8,21 +8,27 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 08/03/2021
+ms.date: 08/12/2021
 ---
 
 # Distributed GPU training guide
 
 Learn more about how to use distributed GPU training code in Azure Machine Learning (ML). This article will not teach you about distributed training.  It will help you run your existing distributed training code on Azure Machine Learning. It offers tips and examples for you to follow for each framework:
 
-* [MPI](#mpi)
-    * [Horovod](#horovod)
-    * [DeepSpeed](#deepspeed)
-* [Pytorch](#pytorch)
-    * [Pytorch Lightning](#pytorch-lightning)
-    * [Hugging Face Transformers](#hugging-face-transformers)
-* [Tensorflow](#tensorflow)
-* Accelerate GPU training with [InfiniBand](#infiniband)
+* Message Passing Interface (MPI)
+    * Horovod
+    * DeepSpeed
+    * Environment variables from Open MPI
+* PyTorch
+    * Process group initialization
+    * Launch options
+    * DistributedDataParallel (per-process-launch)
+    * Using `torch.distributed.launch` (per-node-launch)
+    * PyTorch Lightning
+    * Hugging Face Transformers
+* TensorFlow
+    * Environment variables for TensorFlow (TF_CONFIG)
+* Accelerate GPU training with InfiniBand
 
 ## Prerequisites
 
