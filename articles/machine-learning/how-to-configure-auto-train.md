@@ -42,7 +42,7 @@ For this article you need,
 
     * [Install the `automl` package yourself](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
 
-    [!INCLUDE [automl-sdk-version]](../../includes/machine-learning-automl-sdk-version.md)]
+    [!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
     
     > [!WARNING]
     > Python 3.8 is not compatible with `automl`. 
