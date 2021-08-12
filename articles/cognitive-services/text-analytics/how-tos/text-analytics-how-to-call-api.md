@@ -49,13 +49,13 @@ You can also create a new Text Analytics resource with the Standard (S) pricing 
 
 ## Using the API synchronously
 
-You can call Text Analytics synchronously (for low latency scenarios). You have to call each API (feature) separately when using synchronous API. If you need to call multiple features then check out below section on how to call Text Analytics asynchronously. 
+You can call Text Analytics synchronously (for low latency scenarios). You have to call each API (feature) separately when using synchronous API. If you need to call multiple features then check out below section on how to call Text Analytics asynchronously. You can send up to 5,120 characters per document.
 
 ## Using the API asynchronously
 
 The Text Analytics v3.1 API provides two asynchronous endpoints: 
 
-* The `/analyze` endpoint for Text Analytics allows you to analyze the same set of text documents with multiple text analytics features in one API call. Previously, to use multiple features you would need to make separate API calls for each operation. Consider this capability when you need to analyze large sets of documents with more than one Text Analytics feature.
+* The `/analyze` endpoint for Text Analytics allows you to analyze the same set of text documents with multiple text analytics features in one API call. Previously, to use multiple features you would need to make separate API calls for each operation. Consider this capability when you need to analyze large sets of documents with more than one Text Analytics feature. You can send up to 125,000 characters per document.
 
 * The `/health` endpoint for Text Analytics for health, which can extract and label relevant medical information from clinical documents.  
 
