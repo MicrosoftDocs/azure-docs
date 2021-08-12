@@ -66,7 +66,7 @@ When the offer is ready for your sign off, we’ll send you an email to request 
 
 The following screenshot shows the **Offer overview** page for a SaaS offer, with two preview links under the **Go live** button. The validation steps you’ll see on this page vary depending on the selections you made when you created the offer.
 
-![Illustrates the Offer overview page for an offer in Partner Center. The Go live button and preview links are shown. The View validation report link is also shown under Automated validation.](./media/review-publish-offer/publish-status-saas.png)
+:::image type="content" source="./media/review-publish-offer/publish-status-saas.png" alt-text="Illustrates the Publish status for an offer in Partner Center. The Go live button is shown. The View validation report link is also shown under Automated validation.":::
 
 Use the following steps to preview your offer.
 
