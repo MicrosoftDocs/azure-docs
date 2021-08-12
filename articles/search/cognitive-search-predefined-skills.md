@@ -30,23 +30,23 @@ The following table enumerates and describes the built-in skills.
 | [Microsoft.Skills.Text.PIIDetectionSkill](cognitive-search-skill-pii-detection.md)  | This skill uses a pretrained model to extract personal information from a given text. The skill also gives various options for masking the detected personal information entities in the text.  | Cognitive Services ([pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)) | 
 | [Microsoft.Skills.Text.V3.SentimentSkill](cognitive-search-skill-sentiment-v3.md)  | This skill uses a pretrained model to assign sentiment labels (such as "negative", "neutral" and "positive") based on the highest confidence score found by the service at a sentence and document-level on a record by record basis. | Cognitive Services ([pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)) | 
 | [Microsoft.Skills.Text.SplitSkill](cognitive-search-skill-textsplit.md) | Splits text into pages so that you can enrich or augment content incrementally. | Not applicable |
-| [Microsoft.Skills.Text.TranslationSkill](cognitive-search-skill-text-translation.md) | This skill uses a pretrained model to translate the input text into a variety of languages for normalization or localization use cases. | Cognitive Services ([pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)) | Cognitive Services ([pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)) | 
+| [Microsoft.Skills.Text.TranslationSkill](cognitive-search-skill-text-translation.md) | This skill uses a pretrained model to translate the input text into a variety of languages for normalization or localization use cases. | Cognitive Services ([pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)) | 
 | [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md) | This skill uses an image detection algorithm to identify the content of an image and generate a text description. | Cognitive Services ([pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)) | 
-| [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md) | Optical character recognition. |
-| [Microsoft.Skills.Util.ConditionalSkill](cognitive-search-skill-conditional.md) | Allows filtering, assigning a default value, and merging data based on a condition. | Cognitive Services ([pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)) |  Not applicable |
+| [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md) | Optical character recognition. | Cognitive Services ([pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)) |
+| [Microsoft.Skills.Util.ConditionalSkill](cognitive-search-skill-conditional.md) | Allows filtering, assigning a default value, and merging data based on a condition. | Not applicable |
 | [Microsoft.Skills.Util.DocumentExtractionSkill](cognitive-search-skill-document-extraction.md) | Extracts content from a file within the enrichment pipeline. | Azure Cognitive Search ([pricing](https://azure.microsoft.com/pricing/details/search/))
 | [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md) | Maps output to a complex type (a multi-part data type, which might be used for a full name, a multi-line address, or a combination of last name and a personal identifier.) | Not applicable |
 
 ## Custom skills
 
-Custom skills are modules that you design, develop, and deploy to the web. You can then call the module from within a skillset by creating a custom skill that wraps that call to your code.
+[Custom skills](cognitive-search-custom-skill-web-api.md) are modules that you design, develop, and deploy to the web. You can then call the module from within a skillset as a custom skill.
 
 | Type  | Description | Metered by |
 |-------|-------------|-------------|
 | [Microsoft.Skills.Custom.WebApiSkill](cognitive-search-custom-skill-web-api.md) | Allows extensibility of an AI enrichment pipeline by making an HTTP call into a custom Web API | None unless your solution uses a metered Azure service |
 | [Microsoft.Skills.Custom.AmlSkill](cognitive-search-aml-skill.md) | Allows extensibility of an AI enrichment pipeline with an Azure Machine Learning model | None unless your solution uses a metered Azure service |
 
-For guidance on creating a [custom skill](cognitive-search-custom-skill-web-api.md), see [How to define a custom interface](cognitive-search-custom-skill-interface.md) and [Example: Creating a custom skill for AI enrichment](cognitive-search-create-custom-skill-example.md).
+For guidance on creating a custom skill, see [Define a custom interface](cognitive-search-custom-skill-interface.md) and [Example: Creating a custom skill for AI enrichment](cognitive-search-create-custom-skill-example.md).
 
 ## See also
 
