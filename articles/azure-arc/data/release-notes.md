@@ -73,7 +73,6 @@ Use the following tools:
 #### Azure Arc-enabled SQL Managed Instance
 
 - Automated backup and point-in-time restore is in preview.
-
 - Supports point-in-time restore from an existing database in an Azure Arc-enabled SQL managed instance to a new database within the same instance.
 - If the current datetime is given as point-in-time in UTC format, it resolves to the latest valid restore time and restores the given database until last valid transaction.
 - A database can be restored to any point-in-time where the transactions took place.
@@ -155,7 +154,8 @@ Use the following tools:
 
 ##### Other limitations
 - Transaction replication is currently not supported.
--  Log shipping is currently blocked
+- Log shipping is currently blocked.
+- Only SQL Server Authentication is supported.
 
 ## June 2021
 
