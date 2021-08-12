@@ -149,7 +149,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure KnowledgeOwl SSO
 
-1. In a different web browser window, sign into your KnowledgeOwl company site as an administrator.
+1. In a different web browser window, sign in to your KnowledgeOwl company site as an administrator.
 
 1. Click on **Settings** and then select **SSO**.
 
@@ -181,7 +181,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Screenshot shows Map SAML Attributes where you can make the changes described here.](./media/knowledgeowl-tutorial/sso-settings-direct-attribute-fields.png)
 
-	* Enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ssoid` into the **SSO ID** textbox
+	* Enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ssoid` into the **SSO ID** textbox.
 	* Enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` into the **Username/Email** textbox.
 	* Enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` into the **First Name** textbox.
 	* Enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` into the **Last Name** textbox.
@@ -201,18 +201,18 @@ In this section, a user called B.Simon is created in KnowledgeOwl. KnowledgeOwl 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-#### SP initiated:
+#### SP initiated
 
 * Click on **Test this application** in Azure portal. This will redirect to KnowledgeOwl Sign on URL where you can initiate the login flow.  
 
-* Go to KnowledgeOwl Sign-on URL directly and initiate the login flow from there.
+* Go to the KnowledgeOwl sign-on URL directly and initiate the login flow from there.
 
-#### IDP initiated:
+#### IDP initiated
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the KnowledgeOwl for which you set up the SSO. 
+* Click on **Test this application** in the Azure portal and you should be automatically signed in to the KnowledgeOwl application for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the KnowledgeOwl tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the KnowledgeOwl for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use the Microsoft My Apps portal to test the application in any mode. When you click the KnowledgeOwl tile in the My Apps portal, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the KnowledgeOwl application for which you set up the SSO. For more information about the My Apps portal, see [Introduction to My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
-Once you configure KnowledgeOwl you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure KnowledgeOwl, you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
