@@ -41,7 +41,7 @@ A properly designed materialized view provides the following benefits:
 
 - Reduce the execution time for complex queries with JOINs and aggregate functions. The more complex the query, the higher the potential for execution-time saving. The most benefit is gained when a query's computation cost is high and the resulting data set is small.  
 - The optimizer in dedicated SQL pool can automatically use deployed materialized views to improve query execution plans.  This process is transparent to users providing faster query performance and doesn't require queries to make direct reference to the materialized views.
-- Require low maintenance on the views.  All incremental data changes from the base tables are automatically added to the materialized views in a synchronous manner.  This design allows querying materialized views to return the same data as directly querying the base tables.
+- Require low maintenance on the views.  All incremental data changes from the base tables are automatically added to the materialized views in a synchronous manner, meaning both the base tables and the materialized views are updated in the same transaction.  This design allows querying materialized views to return the same data as directly querying the base tables.  
 - The data in a materialized view can be distributed differently from the base tables.  
 - Data in materialized views gets the same high availability and resiliency benefits as data in regular tables.  
 
