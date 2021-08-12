@@ -18,7 +18,7 @@ ms.subservice: app-mgmt
 
 # Tutorial: Migrate Okta sync provisioning to Azure Active Directory Connect based synchronization
 
-This document will guide organizations who currently use User provisioning from Okta to Azure Active Directory (Azure AD), migrate either User sync, or Universal sync to Azure AD Connect. This will enable further provisioning into Azure AD and Office 365.
+This article will guide organizations who currently use User provisioning from Okta to Azure Active Directory (Azure AD), migrate either User sync, or Universal sync to Azure AD Connect. This will enable further provisioning into Azure AD and Office 365.
 
 Migrating synchronization platforms isn't a small change. Each step of the process mentioned in this article should be validated against your own environment before you remove the Azure AD Connect from staging mode or enable the Azure AD cloud provisioning agent.
 
@@ -66,7 +66,7 @@ installing Azure AD Connect or Azure AD cloud provisioning. Refer to [this artic
 ImmutableID is the core attribute used to tie synchronized objects to their on-premises counterparts. Okta takes the Active Directory objectGUID of an on-premises object and converts it to a Base64 encoded string. Then, by default stamps that string to the ImmutableID field in Azure AD.
 
 You can connect to Azure AD PowerShell and examine the current ImmutableID value. If you've never used the Azure AD PowerShell module, run an
-Install-Module AzureAD in an administrative PowerShell session before you run the following commands.
+`Install-Module AzureAD` in an administrative PowerShell session before you run the following commands.
 
 ```Powershell
 Import-module AzureAD
@@ -137,13 +137,13 @@ likely chosen another attribute to determine ImmutableIDs. Before moving onto th
 
 Once you've prepared your list of source and destination targets, its time to install Azure AD Connect server. If you've opted to use Azure AD Connect cloud provisioning, skip this section.
 
-1. Continue with downloading and installing Azure AD Connect to your chosen server. Follow [this guide](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-custom).
+1. Continue with [downloading and installing Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-custom) to your chosen server. 
 
 2. On the **Identifying Users** page, under the **select how users should be identified with Azure AD** select the radial for **Choose a specific attribute**. Then, select **mS-DS-ConsistencyGUID** if you haven't modified the Okta defaults.
 
 >[!WARNING]
 >This is the most critical step before selecting **next**
-on this page. Ensure that the attribute you're selecting for source anchor is what **currently** populates your existing Azure AD users. If you select the wrong attribute, you must uninstall and reinstall AD Connect to reselect this option.
+on this page. Ensure that the attribute you're selecting for source anchor is what **currently** populates your existing Azure AD users. If you select the wrong attribute, you must uninstall and reinstall Azure AD Connect to reselect this option.
 
 ![image shows consistency guid](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/consistency-guid.png)
 
@@ -175,7 +175,7 @@ Before exiting the staging mode, it's important to verify that the ImmutableID's
 
 ![image shows deleted matching records](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/delete-matching-records.png)
 
-6. Next, uncheck **Delete**, and select **Add and Modify**, followed by a search. You should see update functions for all users currently being synchronized to Azure AD via Okta. Add any new objects that Okta isn't currently syncing, but exist in the Organizational unit (OU) structure that was selected during the Azure AD Connect install.
+6. Next, uncheck **Delete**, and select **Add and Modify**, followed by a search. You should see update functions for all users currently being synchronized to Azure AD via Okta. Add any new objects that Okta isn't currently syncing, but exist in the Organizational Unit (OU) structure that was selected during the Azure AD Connect install.
 
 ![image shows add new object](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/add-new-object.png)
 
@@ -183,7 +183,7 @@ Before exiting the staging mode, it's important to verify that the ImmutableID's
 
 8. If there are any Add functions for a user who already exists in Azure AD, their on-premises account isn't matching to their cloud account and AD Connect has determined it will create a new object, record any new adds that are unexpected. Make sure to correct the ImmutableID value in Azure AD before exiting staging mode.
 
-In this example, Okta had been stamping the Mail attribute to the user's account, even though the on-premises value wasn't properly filled in. When Azure AD connect takes over John Smith's account, the Mail attribute is deleted from his object.
+In this example, Okta had been stamping the Mail attribute to the user's account, even though the on-premises value wasn't properly filled in. When Azure AD Connect takes over John Smith's account, the Mail attribute is deleted from his object.
 
 Verify that your updates still include all attributes expected in Azure AD. If multiple attributes are being deleted, you may need to manually populate these on-premises AD values before removing staging mode.
 
@@ -193,9 +193,7 @@ Verify that your updates still include all attributes expected in Azure AD. If m
 
 ### Step 4 - Install Azure AD cloud sync agents
 
-Once you've prepared your list of source and destination targets, its time to install Azure AD cloud sync agents. If you've opted to use Azure AD Connect server, skip this section.
-
-Follow [this tutorial](https://docs.microsoft.com/azure/active-directory/cloud-sync/tutorial-single-forest) to install and configure Azure AD Connect cloud sync.
+Once you've prepared your list of source and destination targets, its time to [install and configure Azure AD cloud sync agents](https://docs.microsoft.com/azure/active-directory/cloud-sync/tutorial-single-forest). If you've opted to use Azure AD Connect server, skip this section.
 
 ### Step 5 - Disable Okta provisioning to Azure AD
 
@@ -245,9 +243,9 @@ After disabling Okta Provisioning, the Azure AD cloud sync agent is ready to beg
 
 2. After enabling, return to the provisioning menu and select **Logs**.
 
-3. Evaluate that the provisioning connector has properly updated in place objects. The Cloud sync agents are non-destructive. They'll fail their updates if a match didn't occur properly.
+3. Evaluate that the provisioning connector has properly updated in place objects. The cloud sync agents are non-destructive. They'll fail their updates if a match didn't occur properly.
 
-4. If a user is mismatched, make the necessary updates to bind the immutableID's, then restart the Cloud provisioning sync.
+4. If a user is mismatched, make the necessary updates to bind the immutableID's, then restart the cloud provisioning sync.
 
 ## Next steps 
 
