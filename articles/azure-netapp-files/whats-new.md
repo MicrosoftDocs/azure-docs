@@ -25,7 +25,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Snapshot policy](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies) now generally available (GA)  
 
-    The Snapshot policy feature is now generally available. You no longer need to register the feature before using it.
+    The snapshot policy feature is now generally available. You no longer need to register the feature before using it.
 
 * [NFS `Chown Mode` export policy and UNIX export permissions](configure-unix-permissions-change-ownership-mode.md) (Preview)   
 
