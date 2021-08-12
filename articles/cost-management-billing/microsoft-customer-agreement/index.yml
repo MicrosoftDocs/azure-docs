@@ -47,6 +47,8 @@ landingContent:
         url: /power-bi/connect-data/desktop-connect-azure-cost-management?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
       - text: Export Cost Management data
         url: ../costs/tutorial-export-acm-data.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+      - text: Microsoft Customer Agreement FAQ
+        url: microsoft-customer-agreement-faq.yml?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
 
 
   # Card (optional)
