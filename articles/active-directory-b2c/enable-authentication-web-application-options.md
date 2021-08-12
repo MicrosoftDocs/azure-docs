@@ -60,6 +60,7 @@ services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
 {
     Configuration.Bind("AzureAdB2C", options);
     options.Events ??= new OpenIdConnectEvents();
+    options.SaveTokens = true;
     options.Events.OnRedirectToIdentityProvider += OnRedirectToIdentityProviderFunc;
 });
 ```
