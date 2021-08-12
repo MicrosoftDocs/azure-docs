@@ -21,7 +21,7 @@ Setting up customer-managed keys for your disks will require you to create resou
     > [!IMPORTANT]
     > Your Azure key vault, disk encryption set, VM, disks, and snapshots must all be in the same region and subscription for deployment to succeed.
 
-1. Select **+Add** to create a new Key Vault.
+1. Select **+Create** to create a new Key Vault.
 1. Create a new resource group.
 1. Enter a key vault name, select a region, and select a pricing tier.
 
@@ -53,7 +53,7 @@ Now that you've created the Azure key vault and a key, you must add an Azure RBA
 ## Set up your disk encryption set
 
 1. Search for **Disk Encryption Sets** and select it.
-1. On the **Disk Encryption Sets** pane select **+Add**.
+1. On the **Disk Encryption Sets** pane select **+Create**.
 
     ![Screenshot of the disk encryption portal main screen. Highlighting the Add button](./media/virtual-machines-disk-encryption-portal/sever-side-encryption-create-disk-encryption-set.png)
 
