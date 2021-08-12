@@ -38,7 +38,7 @@ A number of things can prevent your app from reaching a specific host and port. 
 If those items don't answer your problems, look first for things like:
 
 **Regional VNet Integration**
-* Is your destination a non-RFC1918 address and you don't have WEBSITE_VNET_ROUTE_ALL set to 1?
+* Is your destination a non-RFC1918 address and you don't have Route All enabled?
 * Is there an NSG blocking egress from your integration subnet?
 * If you're going across Azure ExpressRoute or a VPN, is your on-premises gateway configured to route traffic back up to Azure? If you can reach endpoints in your virtual network but not on-premises, check your routes.
 * Do you have enough permissions to set delegation on the integration subnet? During regional VNet Integration configuration, your integration subnet is delegated to Microsoft.Web/serverFarms. The VNet Integration UI delegates the subnet to Microsoft.Web/serverFarms automatically. If your account doesn't have sufficient networking permissions to set delegation, you'll need someone who can set attributes on your integration subnet to delegate the subnet. To manually delegate the integration subnet, go to the Azure Virtual Network subnet UI and set the delegation for Microsoft.Web/serverFarms.

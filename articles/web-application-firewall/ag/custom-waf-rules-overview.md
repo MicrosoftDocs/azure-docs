@@ -103,7 +103,7 @@ Currently, must be **MatchRule**.
 
 Must be one of the variables:
 
-- RemoteAddr – IP Address/hostname of the remote computer connection
+- RemoteAddr – IP Address/Range of the remote computer connection
 - RequestMethod – HTTP Request method (GET, POST, PUT, DELETE, and so on.)
 - QueryString – Variable in the URI
 - PostArgs – Arguments sent in the POST body. Custom Rules using this match variable are only applied if the 'Content-Type' header is set to 'application/x-www-form-urlencoded' and 'multipart/form-data'.

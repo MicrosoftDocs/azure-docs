@@ -205,6 +205,8 @@
         href: logic-apps-enterprise-integration-as2.md
       - name: AS2 message settings
         href: logic-apps-enterprise-integration-as2-message-settings.md
+      - name: AS2 MDN acknowledgments
+        href: logic-apps-enterprise-integration-as2-mdn-acknowledgment.md
     - name: EDIFACT messaging
       items:
       - name: Exchange EDIFACT messages
@@ -215,6 +217,8 @@
         href: logic-apps-enterprise-integration-edifact-decode.md
       - name: Handle EDIFACT files with UNH2.5 segment
         href: logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md
+      - name: EDIFACT CONTRL acknowledgments and error codes
+        href: logic-apps-enterprise-integration-edifact-contrl-acknowledgment.md
     - name: RosettaNet messaging
       items:
       - name: Exchange RosettaNet messages
