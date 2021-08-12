@@ -22,7 +22,7 @@ The document shows you how to do the migration from ADLA to Azure Synapse Analyt
 
 ### Step 1: Assess readiness
 
-1. Look at  Apache Spark on Azure Synapse Analytics , and understand key differences of ADLA and Spark on Azure Synapse Analytics. 
+1. Look at  [Apache Spark on Azure Synapse Analytics](./synapse-analytics/spark/apache-spark-overview.md), and understand key differences of ADLA and Spark on Azure Synapse Analytics. 
 
 | | ADLA | Spark on Synapse |
 | --- | --- |--- |
@@ -31,7 +31,7 @@ The document shows you how to do the migration from ADLA to Azure Synapse Analyt
 |Default Programing Language 	|U-SQL	 |T-SQL, Python, Scala, Spark SQL and .Net
 |Data Sources 	|Azure Data Lake Storage	|Azure Blob Storage, Azure Data Lake Storage
 
-2. Review the migration assessment questionnaires and list those possible risks for considering. 
+2. Review the <a href="#questionnaire">Questionnaire for Migration Assessment</a> and list those possible risks for considering. 
 
 ### Step 2: Prepare to migrate
 
@@ -45,24 +45,25 @@ The document shows you how to do the migration from ADLA to Azure Synapse Analyt
 
 ### Step 3: Migrate data and application workload
 
-1.	Migrate your data from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2.
-    Azure Data Lake Storage Gen1 retirement will be in February 2024 and we’d suggest migrating the data to Gen2 in the first place. See Understand Apache Spark data formats for Azure Data Lake Analytics U-SQL developers and move both the file and the data stored in U-SQL tables to make them accessible to Azure Synapse Analytics.  More details of the migration guide can be found here. 
+1.	Migrate your data from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2. <br></br>
+    Azure Data Lake Storage Gen1 retirement will be in February 2024, see the [official announcement](https://azure.microsoft.com/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/). We’d suggest migrating the data to Gen2 in the first place. See [Understand Apache Spark data formats for Azure Data Lake Analytics U-SQL developers](understand-spark-data-formats.md) and move both the file and the data stored in U-SQL tables to make them accessible to Azure Synapse Analytics.  More details of the migration guide can be found [here](./storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md). 
 
 2.	Transform your U-SQL scripts to Spark. 
-    Refer to   Understand Apache Spark code concepts for Azure Data Lake Analytics U-SQL developers   to transform your U-SQL scripts to Spark. 
+    Refer to [Understand Apache Spark code concepts for Azure Data Lake Analytics U-SQL developers](understand-spark-code-concepts.md) to transform your U-SQL scripts to Spark. 
 
-3.	Transform or re-create  your job orchestration pipelines to new Spark program.
+3.	Transform or re-create your job orchestration pipelines to new Spark program.
 
 ### Step 4: Cutover from ADLA to new Azure Analytics Services
 
 After you're confident that your applications and workloads are stable, you can begin using Azure Synapse Analytics to satisfy your business scenarios. Turn off any remaining pipelines that are running on ADLA and decommission your ADLA accounts.
 
+<a name="questionnaire"></a>
 ## Questionnaire for Migration Assessment 
 
 |Category	|Questions 	|Reference|
 | --- | --- |--- |
 |Evaluate the size of the Migration	|How many ADLA accounts do you have? How many pipelines are in use? How many U-SQL scripts are in use?| The more data and scripts to be migrated, the more UDO/UDF are used in scripts, the more difficult it is to migrate. The time and resources required for migration need to be well planned according to the scale of the project.|
-|Data source |What’s the size of the data source? What kinds of data format for processing?	|Understand Apache Spark data formats for Azure Data Lake Analytics U-SQL developers.|
+|Data source |What’s the size of the data source? What kinds of data format for processing?	|[Understand Apache Spark data formats for Azure Data Lake Analytics U-SQL developers](understand-spark-data-formats.md)|
 |Data output |Will you keep the output data for later use? If the output data is saved in U-SQL tables, how to handle it? | If the output data will be used often and saved in U-SQL tables, you need change the scripts and change the output data to Spark supported data format.|
-|Data migration	|Have you made the storage migration plan? |Migrate Azure Data Lake Storage from Gen1 to Gen2 |
-|U-SQL scripts transform|Do you use UDO/UDF (.Net, python, etc.)?If above answer is yes, which language do you use in your UDO/UDF and any problems for the transform during the transform?Is the federated query being used in U-SQL?|Understand Apache Spark code concepts for Azure Data Lake Analytics U-SQL developers|
+|Data migration	|Have you made the storage migration plan? |[Migrate Azure Data Lake Storage from Gen1 to Gen2](./storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md) |
+|U-SQL scripts transform|Do you use UDO/UDF (.Net, python, etc.)?If above answer is yes, which language do you use in your UDO/UDF and any problems for the transform during the transform?Is the federated query being used in U-SQL?|[Understand Apache Spark code concepts for Azure Data Lake Analytics U-SQL developers](understand-spark-code-concepts.md)|
