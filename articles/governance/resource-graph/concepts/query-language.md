@@ -1,7 +1,7 @@
 ---
 title: Understand the query language
 description: Describes Resource Graph tables and the available Kusto data types, operators, and functions usable with Azure Resource Graph.
-ms.date: 08/05/2021
+ms.date: 08/11/2021
 ms.topic: conceptual
 ---
 # Understanding the Azure Resource Graph query language
@@ -183,23 +183,17 @@ To support the "Open Query" portal experience, Azure Resource Graph Explorer has
 
 ## Query scope
 
-The scope of the subscriptions from which resources are returned by a query depend on the method of
-accessing Resource Graph. Azure CLI and Azure PowerShell populate the list of subscriptions to
-include in the request based on the context of the authorized user. The list of subscriptions can be
-manually defined for each with the **subscriptions** and **Subscription** parameters, respectively.
-In REST API and all other SDKs, the list of subscriptions to include resources from must be
-explicitly defined as part of the request.
+The scope of the subscriptions or [management groups](../../management-groups/overview.md) from
+which resources are returned by a query defaults to a list of subscriptions based on the context of
+the authorized user. If a management group or a subscription list isn't defined, the query scope is
+all resources, which includes [Azure Lighthouse](../../../lighthouse/overview.md) delegated
+resources.
 
-As a **preview**, REST API version `2020-04-01-preview` adds a property to scope the query to a
-[management group](../../management-groups/overview.md). This preview API also makes the
-subscription property optional. If a management group or a subscription list isn't defined, the
-query scope is all resources, which includes
-[Azure Lighthouse](../../../lighthouse/overview.md) delegated
-resources, that the authenticated user can access. The new `managementGroupId` property takes the
-management group ID, which is different from the name of the management group. When
-`managementGroupId` is specified, resources from the first 5,000 subscriptions in or under the
-specified management group hierarchy are included. `managementGroupId` can't be used at the same
-time as `subscriptions`.
+The list of subscriptions or management groups to query can be manually defined to change the scope
+of the results. For example, the REST API `managementGroups` property takes the management group ID,
+which is different from the name of the management group. When `managementGroups` is specified,
+resources from the first 5,000 subscriptions in or under the specified management group hierarchy
+are included. `managementGroups` can't be used at the same time as `subscriptions`.
 
 Example: Query all resources within the hierarchy of the management group named 'My Management
 Group' with ID 'myMG'.
@@ -207,7 +201,7 @@ Group' with ID 'myMG'.
 - REST API URI
 
   ```http
-  POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2020-04-01-preview
+  POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2021-03-01
   ```
 
 - Request Body
@@ -215,7 +209,7 @@ Group' with ID 'myMG'.
   ```json
   {
       "query": "Resources | summarize count()",
-      "managementGroupId": "myMG"
+      "managementGroups": ["myMG"]
   }
   ```
 

@@ -122,9 +122,10 @@ Below are sample requests to help outline what the sync engine currently sends v
     ],
     "Operations": [
         {
-            "op": "replace",
-            "path": "active",
-            "value": false
+            "op": "add",
+            "value": {
+                "nickName": "Babs"
+            }
         }
     ]
 }

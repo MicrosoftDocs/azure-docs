@@ -14,7 +14,7 @@ ms.custom: github-actions-azure
 
 Get started with the [GitHub Actions](https://docs.github.com/en/actions/learn-github-actions) by creating a workflow to build and scan a container image.
 
-With GitHub Actions, you can speed up your CI/CD process by building, scanning, and pushing images to a public or private [Container Registry](https://azure.microsoft.com/en-in/services/container-registry/) from your workflows.
+With GitHub Actions, you can speed up your CI/CD process by building, scanning, and pushing images to a public or private [Container Registry](https://azure.microsoft.com/services/container-registry/) from your workflows.
 
 In this article, we'll make use of the [Container image scan](https://github.com/marketplace/actions/container-image-scan) from the [GitHub Marketplace](https://github.com/marketplace).
 
