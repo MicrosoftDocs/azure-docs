@@ -820,7 +820,7 @@ items:
       - name: Azure Data Lake Storage Gen1
         href: ../data-factory/connector-azure-data-lake-store.md?context=/azure/synapse-analytics/context/context
       - name: Azure Data Lake Storage Gen2
-        href: ../data-factory/connector-azure-data-lake-storage.md?context=/azure/synapse-analytics/context/context
+        href: ../data-factory/connector-azure-data-lake-storage.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Azure Database for MariaDB
         href: ../data-factory/connector-azure-database-for-mariadb.md?context=/azure/synapse-analytics/context/context
       - name: Azure Database for MySQL
@@ -832,11 +832,11 @@ items:
       - name: Azure File Storage
         href: ../data-factory/connector-azure-file-storage.md?context=/azure/synapse-analytics/context/context
       - name: Azure SQL Database
-        href: ../data-factory/connector-azure-sql-database.md?context=/azure/synapse-analytics/context/context
+        href: ../data-factory/connector-azure-sql-database.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Azure SQL Managed Instance
         href: ../data-factory/connector-azure-sql-managed-instance.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json
       - name: Azure Synapse Analytics
-        href: ../data-factory/connector-azure-sql-data-warehouse.md?context=/azure/synapse-analytics/context/context
+        href: ../data-factory/connector-azure-sql-data-warehouse.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Azure Table Storage
         href: ../data-factory/connector-azure-table-storage.md?context=/azure/synapse-analytics/context/context
       - name: Binary format
@@ -866,7 +866,7 @@ items:
       - name: Excel format
         href: ../data-factory/format-excel.md?context=/azure/synapse-analytics/context/context
       - name: File System
-        href: ../data-factory/connector-file-system.md?context=/azure/synapse-analytics/context/context
+        href: ../data-factory/connector-file-system.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: FTP
         href: ../data-factory/connector-ftp.md?context=/azure/synapse-analytics/context/context
       - name: GitHub
@@ -923,7 +923,7 @@ items:
       - name: Office 365
         href: ../data-factory/connector-office-365.md?context=/azure/synapse-analytics/context/context
       - name: Oracle
-        href: ../data-factory/connector-oracle.md?context=/azure/synapse-analytics/context/context
+        href: ../data-factory/connector-oracle.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Oracle Cloud Storage
         href: ../data-factory/connector-oracle-cloud-storage.md?context=/azure/synapse-analytics/context/context
       - name: Oracle Eloqua
@@ -972,9 +972,9 @@ items:
       - name: ServiceNow
         href: ../data-factory/connector-servicenow.md?context=/azure/synapse-analytics/context/context
       - name: SFTP
-        href: ../data-factory/connector-sftp.md?context=/azure/synapse-analytics/context/context
+        href: ../data-factory/connector-sftp.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: SharePoint Online List
-        href: ../data-factory/connector-sharepoint-online-list.md?context=/azure/synapse-analytics/context/context
+        href: ../data-factory/connector-sharepoint-online-list.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Shopify
         href: ../data-factory/connector-shopify.md?context=/azure/synapse-analytics/context/context
       - name: Snowflake
@@ -982,7 +982,7 @@ items:
       - name: Spark
         href: ../data-factory/connector-spark.md?context=/azure/synapse-analytics/context/context
       - name: SQL Server
-        href: ../data-factory/connector-sql-server.md?context=/azure/synapse-analytics/context/context
+        href: ../data-factory/connector-sql-server.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Square
         href: ../data-factory/connector-square.md?context=/azure/synapse-analytics/context/context
       - name: Sybase
