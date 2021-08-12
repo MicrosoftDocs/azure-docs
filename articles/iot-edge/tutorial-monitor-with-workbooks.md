@@ -134,7 +134,13 @@ Use the following steps to explore the workbook visualizations:
 
 1. Select the **IoT Edge fleet view** workbook.
 
-1. You should see your device that's running the metrics collector module. The device is listed as either **healthy** or **unhealthy**. Select the device name to open the **IoT Edge health snapshot** and view specific details about the device health.
+1. You should see your device that's running the metrics collector module. The device is listed as either **healthy** or **unhealthy**.
+
+1. Select the device name to open the **IoT Edge health snapshot** and view specific details about the device health.
+
+1. On any of the time charts, use the arrow icons under the X-axis or click on the chart and drag your cursor to change the time range.
+
+   :::image type="content" source="./media/tutorial-monitor-with-workbooks/health-snapshot-custom-time-range.png" alt-text="Click and drag or use the arrow icons on any chart to change the time range.":::
 
 1. Close the health snapshot workbook. Select **Workbooks** from the fleet view workbook to return to the workbooks gallery.
 
@@ -142,13 +148,17 @@ Use the following steps to explore the workbook visualizations:
 
 1. From the workbooks gallery, select the **IoT Edge device details** workbook.
 
-1. The first page you see in the device details workbook is the **messaging** view. A table displays the routes on the device, organized by endpoint. For our device, we see that the **upstream** endpoint, which is the special term used for routing to IoT Hub, is receiving messages from the **temperatureOutput** output of the simulated temperature sensor module.
+1. The first page you see in the device details workbook is the **messaging** view with the **routing** tab selected. 
+
+   On the left, a table displays the routes on the device, organized by endpoint. For our device, we see that the **upstream** endpoint, which is the special term used for routing to IoT Hub, is receiving messages from the **temperatureOutput** output of the simulated temperature sensor module.
+
+   On the right, a graph keeps track of the number of connected clients over time. You can click and drag the graph to change the time range.
 
    :::image type="content" source="./media/tutorial-monitor-with-workbooks/device-details-messaging-routing.png" alt-text="Select the messaging view to see the status of communications on the device.":::
 
 1. Select the **graph** tab to see a different visualization of the routes. On the graph page, you can drag and drop the different endpoints to rearrange the graph. This feature is helpful when you have many routes to visualize.
 
-   :::image type="content" source="./media/tutorial-monitor-with-workbooks/workbooks-gallery.png" alt-text="Select the graph view to see an interactive graph of the device routes.":::
+   :::image type="content" source="./media/tutorial-monitor-with-workbooks/device-details-messaging-graph.png" alt-text="Select the graph view to see an interactive graph of the device routes.":::
 
 1. The **health** tab reports any issues with messaging, like dropped messages or disconnected clients.
 
@@ -157,6 +167,22 @@ Use the following steps to explore the workbook visualizations:
    :::image type="content" source="./media/tutorial-monitor-with-workbooks/device-details-modules-availability.png" alt-text="Select the modules view to see the status of each module deployed to the device.":::
 
 1. Select the **host** view to see information about the host device, including it's operating system, the IoT Edge daemon version, and resource use.
+
+## View module logs
+
+After viewing the metrics for a device, you might want to dive in further and inspect the individual modules. IoT Edge provides troubleshooting support in the Azure portal with a live module log feature.
+
+1. From the device details workbook, select **Troubleshoot live**.
+
+   :::image type="content" source="./media/tutorial-monitor-with-workbooks/device-details-troubleshoot-live.png" alt-text="Select the troubleshoot live button from the top-right of the device details workbook.":::
+
+1. The troubleshooting page opens to the **edgeAgent** logs from your IoT Edge device. If you selected a specific time range in the device details workbook, that setting is passed through to the troubleshooting page.
+
+1. Use the dropdown menu to switch to the logs of other modules running on the device. Use the **Restart** button to restart a module.
+
+   :::image type="content" source="./media/tutorial-monitor-with-workbooks/troubleshoot-device.png" alt-text="Use the dropdown menu to view the logs of different modules and use the restart button to restart modules.":::
+
+The troubleshoot page can also be accessed from an IoT Edge device's details page. For more information, see [Troubleshoot IoT Edge devices from the Azure portal](troubleshoot-in-portal.md).
 
 ## Next steps
 
