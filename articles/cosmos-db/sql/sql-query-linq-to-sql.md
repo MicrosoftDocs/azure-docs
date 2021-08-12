@@ -10,7 +10,7 @@ ms.author: tisande
 
 ---
 # LINQ to SQL translation
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 The Azure Cosmos DB query provider performs a best effort mapping from a LINQ query into a Cosmos DB SQL query. If you want to get the SQL query that is translated from LINQ, use the `ToString()` method on the generated `IQueryable`object. The following description assumes a basic familiarity with [LINQ](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries). In addition to LINQ, Azure Cosmos DB also supports [Entity Framework Core](/ef/core/providers/cosmos/?tabs=dotnet-core-cli) which works with SQL API.
 

@@ -10,7 +10,7 @@ ms.author: tisande
 ms.custom: query-reference
 ---
 # TicksToDateTime (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 Converts the specified ticks value to a DateTime.
   
@@ -68,4 +68,4 @@ SELECT TicksToDateTime(15943368134575530) AS DateTime
 
 - [Date and time functions Azure Cosmos DB](sql-query-date-time-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](introduction.md)
+- [Introduction to Azure Cosmos DB](../introduction.md)

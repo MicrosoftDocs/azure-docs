@@ -9,7 +9,7 @@ ms.date: 07/29/2020
 ms.author: tisande
 ---
 # Parameterized queries in Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB supports queries with parameters expressed by the familiar @ notation. Parameterized SQL provides robust handling and escaping of user input, and prevents accidental exposure of data through SQL injection.
 

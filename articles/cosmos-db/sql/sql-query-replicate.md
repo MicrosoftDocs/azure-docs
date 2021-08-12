@@ -10,7 +10,7 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # REPLICATE (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
  Repeats a string value a specified number of times.
   
@@ -54,4 +54,4 @@ SELECT REPLICATE("a", 3) AS replicate
 
 - [String functions Azure Cosmos DB](sql-query-string-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](introduction.md)
+- [Introduction to Azure Cosmos DB](../introduction.md)

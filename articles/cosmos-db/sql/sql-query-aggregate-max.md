@@ -10,7 +10,7 @@ ms.author: tisande
 ms.custom: query-reference
 ---
 # MAX (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 This aggregate function returns the maximum of the values in the expression.
   
@@ -40,7 +40,7 @@ FROM c
 
 ## Remarks
 
-This system function will benefit from a [range index](index-policy.md#includeexclude-strategy). The arguments in `MAX` can be number, string, boolean, or null. Any undefined values will be ignored.
+This system function will benefit from a [range index](../index-policy.md#includeexclude-strategy). The arguments in `MAX` can be number, string, boolean, or null. Any undefined values will be ignored.
 
 When comparing different types data, the following priority order is used (in descending order):
 

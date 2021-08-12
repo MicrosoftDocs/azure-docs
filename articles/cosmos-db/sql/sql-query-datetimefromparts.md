@@ -10,7 +10,7 @@ ms.author: tisande
 ms.custom: query-reference
 ---
 # DateTimeFromParts (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 Returns a string DateTime value constructed from input values.
   
@@ -115,4 +115,4 @@ SELECT DateTimeFromParts(2020, 9, 4, 10, 52, 12, 3456789) AS DateTime
 
 - [Date and time functions Azure Cosmos DB](sql-query-date-time-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](introduction.md)
+- [Introduction to Azure Cosmos DB](../introduction.md)

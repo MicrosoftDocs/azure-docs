@@ -10,7 +10,7 @@ ms.author: tisande
 
 ---
 # ORDER BY clause in Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 The optional `ORDER BY` clause specifies the sorting order for results returned by the query.
 
@@ -46,7 +46,7 @@ ORDER BY <sort_specification>
   
 ## Remarks  
   
-   The `ORDER BY` clause requires that the indexing policy include an index for the fields being sorted. The Azure Cosmos DB query runtime supports sorting against a property name and not against computed properties. Azure Cosmos DB supports multiple `ORDER BY` properties. In order to run a query with multiple ORDER BY properties, you should define a [composite index](index-policy.md#composite-indexes) on the fields being sorted.
+   The `ORDER BY` clause requires that the indexing policy include an index for the fields being sorted. The Azure Cosmos DB query runtime supports sorting against a property name and not against computed properties. Azure Cosmos DB supports multiple `ORDER BY` properties. In order to run a query with multiple ORDER BY properties, you should define a [composite index](../index-policy.md#composite-indexes) on the fields being sorted.
 
 > [!Note]
 > If the properties being sorted might be undefined for some documents and you want to retrieve them in an ORDER BY query, you must explicitly include this path in the index. The default indexing policy won't allow for the retrieval of the documents where the sort property is undefined. [Review example queries on documents with some missing fields](#documents-with-missing-fields).
@@ -99,7 +99,7 @@ The results are:
     ]
 ```
 
-Additionally, you can order by multiple properties. A query that orders by multiple properties requires a [composite index](index-policy.md#composite-indexes). Consider the following query:
+Additionally, you can order by multiple properties. A query that orders by multiple properties requires a [composite index](../index-policy.md#composite-indexes). Consider the following query:
 
 ```sql
     SELECT f.id, f.creationDate
@@ -149,7 +149,7 @@ The results only include the document that has a defined `lastName`:
     ]
 ```
 
-If we update the container's indexing policy to explicitly include a path for `lastName`, we will include documents with an undefined sort property in the query results. You must explicitly define the path to lead to this scalar value (and not beyond it). You should use the `?` character in your path definition in the indexing policy to ensure that you explicitly index the property `lastName` and no additional nested paths beyond it. If your `Order By` query uses a [composite index](index-policy.md#composite-indexes), the results will always include documents with an undefined sort property in the query results.
+If we update the container's indexing policy to explicitly include a path for `lastName`, we will include documents with an undefined sort property in the query results. You must explicitly define the path to lead to this scalar value (and not beyond it). You should use the `?` character in your path definition in the indexing policy to ensure that you explicitly index the property `lastName` and no additional nested paths beyond it. If your `Order By` query uses a [composite index](../index-policy.md#composite-indexes), the results will always include documents with an undefined sort property in the query results.
 
 Here is a sample indexing policy which allows you to have documents with an undefined `lastName` appear in the query results:
 
@@ -221,5 +221,5 @@ You can't control the order that different types appear in the results. In the a
 ## Next steps
 
 - [Getting started](sql-query-getting-started.md)
-- [Indexing policies in Azure Cosmos DB](index-policy.md)
+- [Indexing policies in Azure Cosmos DB](../index-policy.md)
 - [OFFSET LIMIT clause](sql-query-offset-limit.md)

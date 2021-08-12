@@ -10,7 +10,7 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # ST_ISVALID (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
  Returns a Boolean value indicating whether the specified GeoJSON Point, Polygon, MultiPolygon, or LineString expression is valid.  
   
@@ -51,4 +51,4 @@ SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] }) AS b
 
 - [Spatial functions Azure Cosmos DB](sql-query-spatial-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](introduction.md)
+- [Introduction to Azure Cosmos DB](../introduction.md)

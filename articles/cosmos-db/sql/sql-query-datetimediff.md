@@ -10,7 +10,7 @@ ms.author: tisande
 ms.custom: query-reference
 ---
 # DateTimeDiff (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 Returns the count (as a signed integer value) of the specified DateTimePart boundaries crossed between the specified *StartDate* and *EndDate*.
   
 ## Syntax
@@ -117,4 +117,4 @@ SELECT DateTimeDiff("hh", "2020-01-01T01:00:00.1234527Z", "2020-01-01T01:59:59.1
 
 - [Date and time functions Azure Cosmos DB](sql-query-date-time-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](introduction.md)
+- [Introduction to Azure Cosmos DB](../introduction.md)

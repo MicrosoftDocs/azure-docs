@@ -10,7 +10,7 @@ ms.author: tisande
 ms.custom: query-reference
 ---
 # DateTimePart (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 Returns the value of the specified DateTimePart between the specified DateTime.
   
@@ -87,4 +87,4 @@ SELECT DateTimePart("mcs", "2020-01-02T03:04:05.6789123Z") AS MicrosecondsValue
 
 - [Date and time functions Azure Cosmos DB](sql-query-date-time-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](introduction.md)
+- [Introduction to Azure Cosmos DB](../introduction.md)

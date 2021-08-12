@@ -10,7 +10,7 @@ ms.author: tisande
 ms.custom: query-reference
 ---
 # Type checking functions (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 The type-checking functions let you check the type of an expression within a SQL query. You can use type-checking functions to determine the types of properties within items on the fly, when they're variable or unknown. 
 
@@ -32,6 +32,6 @@ The following functions support type checking against input values, and each ret
 ## Next steps
 
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](introduction.md)
+- [Introduction to Azure Cosmos DB](../introduction.md)
 - [User Defined Functions](sql-query-udfs.md)
 - [Aggregates](sql-query-aggregate-functions.md)

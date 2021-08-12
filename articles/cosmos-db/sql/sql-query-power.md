@@ -10,7 +10,7 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # POWER (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
  Returns the value of the specified expression to the specified power.  
   
@@ -50,4 +50,4 @@ SELECT POWER(2, 3) AS pow1, POWER(2.5, 3) AS pow2
 
 - [Mathematical functions Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](introduction.md)
+- [Introduction to Azure Cosmos DB](../introduction.md)

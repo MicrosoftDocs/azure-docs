@@ -10,7 +10,7 @@ ms.author: tisande
 
 ---
 # Working with arrays and objects in Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 A key feature of the Azure Cosmos DB SQL API is array and object creation. This document uses examples that can be recreated using the [Family dataset](sql-query-getting-started.md#upload-sample-data).
 

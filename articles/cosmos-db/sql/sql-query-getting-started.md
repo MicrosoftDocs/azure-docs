@@ -10,7 +10,7 @@ ms.author: tisande
 
 ---
 # Getting started with SQL queries
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 In Azure Cosmos DB SQL API accounts, there are two ways to read data:
 
@@ -186,6 +186,6 @@ The preceding examples show several aspects of the Cosmos DB query language:
 
 ## Next steps
 
-- [Introduction to Azure Cosmos DB](introduction.md)
+- [Introduction to Azure Cosmos DB](../introduction.md)
 - [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [SELECT clause](sql-query-select.md)

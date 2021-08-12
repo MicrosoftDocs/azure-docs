@@ -10,7 +10,7 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # PI (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
  Returns the constant value of PI.  
   
@@ -42,4 +42,4 @@ SELECT PI() AS pi
 
 - [Mathematical functions Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](introduction.md)
+- [Introduction to Azure Cosmos DB](../introduction.md)

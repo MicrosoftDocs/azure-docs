@@ -10,7 +10,7 @@ ms.author: tisande
 ms.custom: query-reference
 ---
 # COUNT (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 This system function returns the count of the values in the expression.
   
@@ -46,7 +46,7 @@ FROM c
 
 ## Remarks
 
-This system function will benefit from a [range index](index-policy.md#includeexclude-strategy) for any properties in the query's filter.
+This system function will benefit from a [range index](../index-policy.md#includeexclude-strategy) for any properties in the query's filter.
 
 ## Next steps
 

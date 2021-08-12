@@ -10,7 +10,7 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # Mathematical functions (Azure Cosmos DB)  
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 The mathematical functions each perform a calculation, based on input values that are provided as arguments, and return a numeric value.
 
@@ -59,6 +59,6 @@ The following supported built-in mathematical functions perform a calculation, u
 ## Next steps
 
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](introduction.md)
+- [Introduction to Azure Cosmos DB](../introduction.md)
 - [User Defined Functions](sql-query-udfs.md)
 - [Aggregates](sql-query-aggregate-functions.md)

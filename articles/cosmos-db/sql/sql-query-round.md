@@ -10,7 +10,7 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # ROUND (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
  Returns a numeric value, rounded to the closest integer value.  
   
@@ -31,7 +31,7 @@ ROUND(<numeric_expr>)
   
 ## Remarks
   
-The rounding operation performed follows midpoint rounding away from zero. If the input is a numeric expression which falls exactly between two integers then the result will be the closest integer value away from zero. This system function will benefit from a [range index](index-policy.md#includeexclude-strategy).
+The rounding operation performed follows midpoint rounding away from zero. If the input is a numeric expression which falls exactly between two integers then the result will be the closest integer value away from zero. This system function will benefit from a [range index](../index-policy.md#includeexclude-strategy).
   
 |<numeric_expr>|Rounded|
 |-|-|
@@ -58,4 +58,4 @@ Here is the result set.
 
 - [Mathematical functions Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](introduction.md)
+- [Introduction to Azure Cosmos DB](../introduction.md)

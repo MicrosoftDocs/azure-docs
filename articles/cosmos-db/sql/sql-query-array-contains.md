@@ -10,7 +10,7 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # ARRAY_CONTAINS (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 Returns a Boolean indicating whether the array contains the specified value. You can check for a partial or full match of an object by using a boolean expression within the command. 
 
@@ -72,10 +72,10 @@ SELECT
 
 ## Remarks
 
-This system function will benefit from a [range index](index-policy.md#includeexclude-strategy).
+This system function will benefit from a [range index](../index-policy.md#includeexclude-strategy).
 
 ## Next steps
 
 - [Array functions Azure Cosmos DB](sql-query-array-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](introduction.md)
+- [Introduction to Azure Cosmos DB](../introduction.md)

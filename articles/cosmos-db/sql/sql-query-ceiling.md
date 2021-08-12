@@ -10,7 +10,7 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # CEILING (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
  Returns the smallest integer value greater than, or equal to, the specified numeric expression.  
   
@@ -45,10 +45,10 @@ SELECT CEILING(123.45) AS c1, CEILING(-123.45) AS c2, CEILING(0.0) AS c3
 
 ## Remarks
 
-This system function will benefit from a [range index](index-policy.md#includeexclude-strategy).
+This system function will benefit from a [range index](../index-policy.md#includeexclude-strategy).
 
 ## Next steps
 
 - [Mathematical functions Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](introduction.md)
+- [Introduction to Azure Cosmos DB](../introduction.md)

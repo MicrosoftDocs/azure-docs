@@ -10,7 +10,7 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # System functions (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
  Cosmos DB provides many built-in SQL functions. The categories of built-in functions are listed below.  
   
@@ -33,7 +33,7 @@ The main difference between Cosmos DB functions and ANSI SQL functions is that C
 
 ## Next steps
 
-- [Introduction to Azure Cosmos DB](introduction.md)
+- [Introduction to Azure Cosmos DB](../introduction.md)
 - [Array functions](sql-query-array-functions.md)
 - [Date and time functions](sql-query-date-time-functions.md)
 - [Mathematical functions](sql-query-mathematical-functions.md)

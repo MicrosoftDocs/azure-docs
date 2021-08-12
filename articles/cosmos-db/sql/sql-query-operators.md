@@ -10,7 +10,7 @@ ms.author: tisande
 
 ---
 # Operators in Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 This article details the various operators supported by Azure Cosmos DB.
 

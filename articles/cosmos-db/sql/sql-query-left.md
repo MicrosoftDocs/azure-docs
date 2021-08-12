@@ -10,7 +10,7 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # LEFT (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
  Returns the left part of a string with the specified number of characters.  
   
@@ -48,10 +48,10 @@ SELECT LEFT("abc", 1) AS l1, LEFT("abc", 2) AS l2
 
 ## Remarks
 
-This system function will benefit from a [range index](index-policy.md#includeexclude-strategy).
+This system function will benefit from a [range index](../index-policy.md#includeexclude-strategy).
 
 ## Next steps
 
 - [String functions Azure Cosmos DB](sql-query-string-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](introduction.md)
+- [Introduction to Azure Cosmos DB](../introduction.md)

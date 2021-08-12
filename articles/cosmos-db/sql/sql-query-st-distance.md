@@ -10,7 +10,7 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # ST_DISTANCE (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
  Returns the distance between the two GeoJSON Point, Polygon, MultiPolygon or LineString expressions. To learn more, see the [Geospatial and GeoJSON location data](sql-query-geospatial-intro.md) article.
   
@@ -49,10 +49,10 @@ WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 3
 
 ## Remarks
 
-This system function will benefit from a [geospatial index](index-policy.md#spatial-indexes) except in queries with aggregates.
+This system function will benefit from a [geospatial index](../index-policy.md#spatial-indexes) except in queries with aggregates.
 
 ## Next steps
 
 - [Spatial functions Azure Cosmos DB](sql-query-spatial-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](introduction.md)
+- [Introduction to Azure Cosmos DB](../introduction.md)

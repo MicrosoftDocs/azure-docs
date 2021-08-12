@@ -10,7 +10,7 @@ ms.author: tisande
 
 ---
 # GROUP BY clause in Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 The GROUP BY clause divides the query's results according to the values of one or more specified properties.
 

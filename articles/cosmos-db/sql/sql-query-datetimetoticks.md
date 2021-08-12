@@ -10,7 +10,7 @@ ms.author: tisande
 ms.custom: query-reference
 ---
 # DateTimeToTicks (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 Converts the specified DateTime to ticks. A single tick represents one hundred nanoseconds or one ten-millionth of a second. 
 
@@ -69,4 +69,4 @@ SELECT DateTimeToTicks("2020-01-02T03:04:05Z") AS Ticks
 
 - [Date and time functions Azure Cosmos DB](sql-query-date-time-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](introduction.md)
+- [Introduction to Azure Cosmos DB](../introduction.md)

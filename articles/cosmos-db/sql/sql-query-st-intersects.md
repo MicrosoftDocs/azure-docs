@@ -10,7 +10,7 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # ST_INTERSECTS (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
  Returns a Boolean expression indicating whether the GeoJSON object (Point, Polygon, MultiPolygon, or LineString) specified in the first argument intersects the GeoJSON (Point, Polygon, MultiPolygon, or LineString) in the second argument.  
   
@@ -50,10 +50,10 @@ WHERE ST_INTERSECTS(a.location, {
 
 ## Remarks
 
-This system function will benefit from a [geospatial index](index-policy.md#spatial-indexes) except in queries with aggregates.
+This system function will benefit from a [geospatial index](../index-policy.md#spatial-indexes) except in queries with aggregates.
 
 ## Next steps
 
 - [Spatial functions Azure Cosmos DB](sql-query-spatial-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](introduction.md)
+- [Introduction to Azure Cosmos DB](../introduction.md)

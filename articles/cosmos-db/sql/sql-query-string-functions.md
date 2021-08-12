@@ -10,7 +10,7 @@ ms.author: tisande
 ms.custom: query-reference
 ---
 # String functions (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 The string functions let you perform operations on strings in Azure Cosmos DB.
 
@@ -46,6 +46,6 @@ Learn about about [index usage](index-overview.md#index-usage) in Azure Cosmos D
 ## Next steps
 
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](introduction.md)
+- [Introduction to Azure Cosmos DB](../introduction.md)
 - [User Defined Functions](sql-query-udfs.md)
 - [Aggregates](sql-query-aggregate-functions.md)

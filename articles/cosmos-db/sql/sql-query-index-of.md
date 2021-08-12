@@ -10,7 +10,7 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # INDEX_OF (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
  Returns the starting position of the first occurrence of the second string expression within the first specified string expression, or -1 if the string is not found.  
   
@@ -53,4 +53,4 @@ SELECT INDEX_OF("abc", "ab") AS i1, INDEX_OF("abc", "b") AS i2, INDEX_OF("abc", 
 
 - [String functions Azure Cosmos DB](sql-query-string-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](introduction.md)
+- [Introduction to Azure Cosmos DB](../introduction.md)

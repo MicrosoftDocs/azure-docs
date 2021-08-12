@@ -10,7 +10,7 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # IS_DEFINED (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
  Returns a Boolean indicating if the property has been assigned a value.  
   
@@ -45,10 +45,10 @@ SELECT IS_DEFINED({ "a" : 5 }.a) AS isDefined1, IS_DEFINED({ "a" : 5 }.b) AS isD
 
 ## Remarks
 
-This system function will benefit from a [range index](index-policy.md#includeexclude-strategy).
+This system function will benefit from a [range index](../index-policy.md#includeexclude-strategy).
 
 ## Next steps
 
 - [Type checking functions Azure Cosmos DB](sql-query-type-checking-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](introduction.md)
+- [Introduction to Azure Cosmos DB](../introduction.md)

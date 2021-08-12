@@ -10,7 +10,7 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # LOG (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
  Returns the natural logarithm of the specified numeric expression.  
   
@@ -72,4 +72,4 @@ SELECT EXP(LOG(10)) AS expLog
 
 - [Mathematical functions Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](introduction.md)
+- [Introduction to Azure Cosmos DB](../introduction.md)

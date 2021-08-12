@@ -10,7 +10,7 @@ ms.author: tisande
 
 ---
 # Keywords in Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 This article details keywords which may be used in Azure Cosmos DB SQL queries.
 
@@ -108,7 +108,7 @@ SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 Returns a Boolean value depending on whether a specific character string matches a specified pattern. A pattern can include regular characters and wildcard characters. You can write logically equivalent queries using either the `LIKE` keyword or the [RegexMatch](sql-query-regexmatch.md) system function. You’ll observe the same index utilization regardless of which one you choose. Therefore, you should use `LIKE` if you prefer its syntax more than regular expressions.
 
 > [!NOTE]
-> Because `LIKE` can utilize an index, you should [create a range index](./index-policy.md) for properties you are comparing using `LIKE`.
+> Because `LIKE` can utilize an index, you should [create a range index](./../index-policy.md) for properties you are comparing using `LIKE`.
 
 You can use the following wildcard characters with LIKE:
 

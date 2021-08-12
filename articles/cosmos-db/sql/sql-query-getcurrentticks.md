@@ -10,7 +10,7 @@ ms.author: tisande
 ms.custom: query-reference
 ---
 # GetCurrentTicks (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 Returns the number of 100-nanosecond ticks that have elapsed since 00:00:00 Thursday, 1 January 1970.
   
@@ -51,4 +51,4 @@ SELECT GetCurrentTicks() AS CurrentTimeInTicks
 
 - [Date and time functions Azure Cosmos DB](sql-query-date-time-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](introduction.md)
+- [Introduction to Azure Cosmos DB](../introduction.md)

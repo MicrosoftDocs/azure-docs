@@ -10,7 +10,7 @@ ms.date: 03/15/2021
 ---
 
 # Pagination in Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 In Azure Cosmos DB, queries may have multiple pages of results. This document explains criteria that Azure Cosmos DB's query engine uses to decide whether to split query results into multiple pages. You can optionally use continuation tokens to manage query results that span multiple pages.
 
@@ -68,6 +68,6 @@ ORDER BY c.name
 
 ## Next steps
 
-- [Introduction to Azure Cosmos DB](introduction.md)
+- [Introduction to Azure Cosmos DB](../introduction.md)
 - [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [ORDER BY clause](sql-query-order-by.md)

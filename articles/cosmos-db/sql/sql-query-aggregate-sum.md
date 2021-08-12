@@ -10,7 +10,7 @@ ms.author: tisande
 ms.custom: query-reference
 ---
 # SUM (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 This aggregate function returns the sum of the values in the expression.
   
@@ -40,7 +40,7 @@ FROM c
 
 ## Remarks
 
-This system function will benefit from a [range index](index-policy.md#includeexclude-strategy). If any arguments in `SUM` are string, boolean, or null, the entire aggregate system function will return `undefined`. If any argument has an `undefined` value, it will be not impact the `SUM` calculation.
+This system function will benefit from a [range index](../index-policy.md#includeexclude-strategy). If any arguments in `SUM` are string, boolean, or null, the entire aggregate system function will return `undefined`. If any argument has an `undefined` value, it will be not impact the `SUM` calculation.
 
 ## Next steps
 

@@ -10,7 +10,7 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # IS_STRING (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
  Returns a Boolean value indicating if the type of the specified expression is a string.  
   
@@ -52,10 +52,10 @@ SELECT
 
 ## Remarks
 
-This system function will benefit from a [range index](index-policy.md#includeexclude-strategy).
+This system function will benefit from a [range index](../index-policy.md#includeexclude-strategy).
 
 ## Next steps
 
 - [Type checking functions Azure Cosmos DB](sql-query-type-checking-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](introduction.md)
+- [Introduction to Azure Cosmos DB](../introduction.md)

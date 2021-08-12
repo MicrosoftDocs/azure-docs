@@ -10,7 +10,7 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # LENGTH (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
  Returns the number of characters of the specified string expression.  
   
@@ -51,4 +51,4 @@ This system function will not utilize the index.
 
 - [String functions Azure Cosmos DB](sql-query-string-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](introduction.md)
+- [Introduction to Azure Cosmos DB](../introduction.md)

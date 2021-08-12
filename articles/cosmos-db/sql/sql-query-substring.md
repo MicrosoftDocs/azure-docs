@@ -10,7 +10,7 @@ ms.author: girobins
 ms.custom: query-reference
 ---
 # SUBSTRING (Azure Cosmos DB)
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
  Returns part of a string expression starting at the specified character zero-based position and continues to the specified length, or to the end of the string.  
   
@@ -51,10 +51,10 @@ SELECT SUBSTRING("abc", 1, 1) AS substring
 
 ## Remarks
 
-This system function will benefit from a [range index](index-policy.md#includeexclude-strategy) if the starting position is `0`.
+This system function will benefit from a [range index](../index-policy.md#includeexclude-strategy) if the starting position is `0`.
 
 ## Next steps
 
 - [String functions Azure Cosmos DB](sql-query-string-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduction to Azure Cosmos DB](introduction.md)
+- [Introduction to Azure Cosmos DB](../introduction.md)
