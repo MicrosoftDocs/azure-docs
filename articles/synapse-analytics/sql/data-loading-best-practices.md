@@ -101,7 +101,7 @@ If you have thousands or more single inserts throughout the day, batch the inser
 
 ## Create statistics after the load
 
-To improve query performance, it's important to create statistics on all columns of all tables after the first load, or major changes occur in the data. Create statistics can be done manually or you can enable [auto-create statistics](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+To improve query performance, it's important to create statistics on all columns of all tables after the first load, or major changes occur in the data. Create statistics can be done manually or you can enable [auto-create statistics](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?context=/azure/synapse-analytics/context/context).
 
 For a detailed explanation of statistics, see [Statistics](develop-tables-statistics.md). The following example shows how to manually create statistics on five columns of the Customer_Speed table.
 
@@ -139,6 +139,6 @@ No other changes to underlying external data sources are needed.
 
 ## Next steps
 
-- To learn more about PolyBase and designing an Extract, Load, and Transform (ELT) process, see [Design ELT for Azure Synapse Analytics](../sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+- To learn more about PolyBase and designing an Extract, Load, and Transform (ELT) process, see [Design ELT for Azure Synapse Analytics](../sql-data-warehouse/design-elt-data-loading.md?context=/azure/synapse-analytics/context/context).
 - For a loading tutorial, [Use PolyBase to load data from Azure blob storage to Azure Synapse Analytics](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
-- To monitor data loads, see [Monitor your workload using DMVs](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+- To monitor data loads, see [Monitor your workload using DMVs](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?context=/azure/synapse-analytics/context/context).

@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Database migration tool for Azure Cosmos DB'
 description: 'Tutorial: Learn how to use the open-source Azure Cosmos DB data migration tools to import data to Azure Cosmos DB from various sources including MongoDB, SQL Server, Table storage, Amazon DynamoDB, CSV, and JSON files. CSV to JSON conversion.'
-author: deborahc
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: tutorial
@@ -63,10 +63,17 @@ While the import tool includes a graphical user interface (dtui.exe), it can als
 
 ## <a id="Install"></a>Installation
 
-The migration tool source code is available on GitHub in [this repository](https://github.com/azure/azure-documentdb-datamigrationtool). You can download and compile the solution locally then run either:
+### Download executable package
 
-* **Dtui.exe**: Graphical interface version of the tool
-* **Dt.exe**: Command-line version of the tool
+  * Download a zip of the latest signed **dt.exe** and **dtui.exe** Windows binaries [here](https://github.com/Azure/azure-documentdb-datamigrationtool/releases/tag/1.8.3)
+  * Unzip into any directory on your computer and open the extracted directory to find the binaries
+
+### Build from source
+
+  The migration tool source code is available on GitHub in [this repository](https://github.com/azure/azure-documentdb-datamigrationtool). You can download and compile the solution locally then run either:
+
+  * **Dtui.exe**: Graphical interface version of the tool
+  * **Dt.exe**: Command-line version of the tool
 
 ## Select data source
 
