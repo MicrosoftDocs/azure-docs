@@ -48,6 +48,32 @@ For Copy activity, this Azure Synapse Analytics connector supports these functio
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
+## Create an Azure Synapse Analytics linked service using UI
+
+Use the following steps to create an Azure Synapse Analytics linked service in the Data Factory UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+
+    # [Synapse Analytics](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+
+---
+
+2. Search for Synapse and select the Azure Synapse Analytics connector.
+
+    :::image type="content" source="media/connector-azure-sql-data-warehouse/azure-sql-data-warehouse-connector.png" alt-text="Select the Azure Synapse Analytics connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-azure-sql-data-warehouse/configure-azure-sql-data-warehouse-linked-service.png" alt-text="Configure an Azure Synapse Analytics linked service.":::
+
+## Connector configuration details
+
 The following sections provide details about properties that define Data Factory and Synapse pipeline entities specific to an Azure Synapse Analytics connector.
 
 ## Linked service properties
