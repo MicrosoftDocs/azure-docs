@@ -894,7 +894,10 @@ To send IDocs from SAP to your logic app, you need the following minimum configu
 
 1. Save your changes.
 
-1. Register your new **Program ID** with Azure Logic Apps by creating a logic app with an SAP connector trigger When a message is received from SAP. When the logic app is saved, it will register the **Program ID** on the SAP Gateway. Check the registration outcome in the logic app trigger history, the On-Premises Data Gateway SAP adapter logs, and the SAP Gateway trace logs. The SAP Gateway monitor dialog (T-Code SMGW) should list the new registration as **Registered Server** under **Logged-On Clients**.
+1. Register your new **Program ID** with Azure Logic Apps by creating a logic app workflow that starts with the SAP trigger named **When a message is received from SAP**. That way, when you save your workflow, Azure Logic Apps registers the **Program ID** on the SAP Gateway.
+
+1. In your workflow's trigger history, the on-premises data gateway SAP adapter logs, and the SAP Gateway trace logs, check the registration status. In the SAP Gateway monitor dialog box (T-Code SMGW), under **Logged-On Clients**, the new registration should appear as **Registered Server**.
+
 
 1. To test your connection, in the SAP interface, under your new **RFC Destination**, select **Connection Test**.
 
