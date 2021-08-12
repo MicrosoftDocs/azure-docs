@@ -25,8 +25,8 @@ The following procedure creates a private DNS zone for an application in the pri
 
 3. Fill out the form on the **Create Private DNS zone** page. Enter **<span>private.azuremicroservices.io</span>** as the **Name** of the zone.
 
->[!NOTE]
-> If you are using Azure China, please replace `private.azuremicroservices.io` with `private.microservices.azure.cn` for the whole documentation, [learn more](/azure/china/resources-developer-guide#check-endpoints-in-azure).
+    >[!NOTE]
+    > If you are using Azure China, please replace `private.azuremicroservices.io` with `private.microservices.azure.cn` for the whole documentation, [learn more](/azure/china/resources-developer-guide#check-endpoints-in-azure).
 
 4. Select **Review + Create**.
 
@@ -38,7 +38,7 @@ It may take a few minutes to create the zone.
 
 To link the private DNS zone to the virtual network, you need to create a virtual network link.
 
-1. Select the private DNS zone resource created above: **<span>private.azuremicroservices.io</span>** 
+1. Select the private DNS zone resource created above: **<span>private.azuremicroservices.io</span>**
 
 2. On the left pane, select **Virtual network links**.
 

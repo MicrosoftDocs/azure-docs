@@ -72,24 +72,24 @@
   - name: REST API
     href: /rest/api/compute/virtual-machines?context=/azure/virtual-machines/context/context
   - name: Python
-    items: 
+    items:
     - name: Python SDK
       href: https://github.com/Azure/azure-sdk-for-python
     - name: Samples
       href: /samples/azure-samples/virtual-machines-python-manage/azure-virtual-machines-management-samples---python/?context=/azure/virtual-machines/context/context
-  - name: .NET 
+  - name: .NET
     items:
     - name: .NET SDK
       href: https://github.com/Azure/azure-sdk-for-net
     - name: Reference
       href: /dotnet/api/overview/azure/virtualmachines?view=azure-dotnet?context=/azure/virtual-machines/context/context
-  - name: Java 
+  - name: Java
     items:
     - name: Java SDK
       href: https://github.com/Azure/azure-sdk-for-java
     - name: Reference
       href: /java/api/com.azure.resourcemanager.compute?view=azure-java-stable?context=/azure/virtual-machines/context/context
-  - name: Go 
+  - name: Go
     items:
     - name: Go SDK
       href: https://github.com/Azure/azure-sdk-for-go
@@ -167,7 +167,7 @@
         displayName: General purpose, sizes, size, vm size
         href: sizes-general.md
       - name: Av1-series retirement
-        href: av1-series-retirement.md    
+        href: av1-series-retirement.md
       - name: Av2-series
         href: av2-series.md
       - name: B-series burstable
@@ -1454,7 +1454,7 @@
       displayName: Resource Manager
       href: ../ddos-protection/manage-ddos-protection-template.md?context=/azure/virtual-machines/context/context
   - name: Open ports to a VM
-    items: 
+    items:
     - name: CLI
       displayName: port nsg network security group
       href: ./linux/nsg-quickstart.md
@@ -1619,13 +1619,13 @@
       - name: Overview
         displayName: Maintenance control for OS image upgrade, OS, image, upgrade
         href: virtual-machine-scale-sets-maintenance-control.md
-      - name: PowerShell 
+      - name: PowerShell
         displayName: Maintenance control for OS image upgrade, OS, image, upgrade
         href: virtual-machine-scale-sets-maintenance-control-powershell.md
-      - name: CLI 
+      - name: CLI
         displayName: Maintenance control for OS image upgrade, OS, image, upgrade
         href: virtual-machine-scale-sets-maintenance-control-cli.md
-      - name: Portal 
+      - name: Portal
         displayName: Maintenance control for OS image upgrade, OS, image, upgrade
         href: virtual-machine-scale-sets-maintenance-control-portal.md
   - name: Automatic VM guest patching (Preview)
@@ -1636,7 +1636,7 @@
     - name: Hotpatch
       displayName: patching, patch, update
       href: ../automanage/automanage-hotpatch.md?context=/azure/virtual-machines/context/context
-  - name: Automatic extension upgrade (Preview)
+  - name: Automatic extension upgrade
     href: automatic-extension-upgrade.md
   - name: Update Management in Azure Automation
     href: ../automation/update-management/overview.md?context=/azure/virtual-machines/context/context

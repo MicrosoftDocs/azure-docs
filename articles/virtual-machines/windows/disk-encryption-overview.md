@@ -42,7 +42,8 @@ Azure Disk Encryption is not available on [Basic, A-series VMs](https://azure.mi
 ### Supported operating systems
 
 - Windows client: Windows 8 and later.
-- Windows Server: Windows Server 2008 R2 and later.  
+- Windows Server: Windows Server 2008 R2 and later.
+- Windows 10 Enterprise multi-session.  
  
 > [!NOTE]
 > Windows Server 2008 R2 requires the .NET Framework 4.5 to be installed for encryption; install it from Windows Update with the optional update Microsoft .NET Framework 4.5.2 for Windows Server 2008 R2 x64-based systems ([KB2901983](https://www.catalog.update.microsoft.com/Search.aspx?q=KB2901983)).  

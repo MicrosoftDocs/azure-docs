@@ -227,7 +227,7 @@ You can start by using one of the following Quickstart templates for JBoss EAP o
 
 * <a href="https://azure.microsoft.com/resources/templates/jboss-eap-clustered-multivm-rhel/"> JBoss EAP on RHEL (clustered, multiple VMs)</a>. This will deploy a web application called eap-session-replication on a JBoss EAP 7.2 or 7.3 cluster running on *n* number of RHEL 7.7 or 8.0 VMs. The user decides the *n* value. All the VMs are added to the back-end pool of a load balancer.
 
-* <a href="https://azure.microsoft.com/en-us/resources/templates/jboss-eap-clustered-vmss-rhel/"> JBoss EAP on RHEL (clustered, virtual machine scale set)</a>. This will deploy a web application called eap-session-replication on a JBoss EAP 7.2 or 7.3 cluster running on RHEL 7.7 or 8.0 virtual machine scale sets.
+* <a href="https://azure.microsoft.com/resources/templates/jboss-eap-clustered-vmss-rhel/"> JBoss EAP on RHEL (clustered, virtual machine scale set)</a>. This will deploy a web application called eap-session-replication on a JBoss EAP 7.2 or 7.3 cluster running on RHEL 7.7 or 8.0 virtual machine scale sets.
 
 ## Resource links
 

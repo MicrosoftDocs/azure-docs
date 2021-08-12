@@ -16,14 +16,14 @@ ms.custom: devx-track-java
 The Azure Spring Cloud UI delivers information about the status of running applications.  There is an **Apps** option for each resource group in a subscription that displays general status of application types.  For each application type, there is display of **Application instances**.
 
 ## Apps status
+
 To view general status of an application type, select **Apps** in the left navigation pane of a resource group. The result displays the status of the deployed app:
 
 * **Provisioning Status** shows the deployment’s provisioning state
 * **Running instance** shows how many app instances are running/how many app instances are desired. If the app should be stopped, this column shows *stopped*.
 * **Registered Instance** shows how many app instances are registered to eureka/how many app instance are desired. If the app should be stopped, this column shows *stopped*.
 
-
- ![Apps status](media/spring-cloud-concept-app-status/apps-ui-status.png)
+![Apps status](media/spring-cloud-concept-app-status/apps-ui-status.png)
 
 **The deployment status is reported as one of the following values:**
 
@@ -45,10 +45,11 @@ To view general status of an application type, select **Apps** in the left navig
 ## App instances status
 
 To view the status of a specific instance of a deployed app, click the **Name** of the app in the **Apps** UI. The results will display:
+
 * **Status**: Whether the instance is running or its state
 * **DiscoveryStatus**: The registered status of the app instance in Eureka server
 
- ![App instances status](media/spring-cloud-concept-app-status/apps-ui-instance-status.png)
+![App instances status](media/spring-cloud-concept-app-status/apps-ui-instance-status.png)
 
 **The instance status is reported as one of the following values:**
 
@@ -67,6 +68,6 @@ To view the status of a specific instance of a deployed app, click the **Name** 
 | OUT_OF_SERVICE | The app instance is registered to Eureka and able to receive traffic. but shuts down for traffic intentionally. |
 | DOWN | The app instance is not registered to Eureka or is registered but not able to receive traffic. |
 
-
 ## See also
+
 * [Prepare a Spring or Steeltoe application for deployment in Azure Spring Cloud](how-to-prepare-app-deployment.md)
