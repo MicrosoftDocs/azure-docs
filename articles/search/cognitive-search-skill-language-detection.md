@@ -19,11 +19,8 @@ This capability is especially useful when you need to provide the language of th
 Language detection leverages Bing's natural language processing libraries, which exceeds the number of [supported languages and regions](../cognitive-services/text-analytics/language-support.md) listed for Text Analytics. The exact list of languages is not published, but includes all widely-spoken languages, plus variants, dialects, and some regional and cultural languages. If you have content expressed in a less frequently used language, you can [try the Language Detection API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) to see if it returns a code. The response for languages that cannot be detected is `(Unknown)`.
 
 > [!NOTE]
-> This skill is bound to Cognitive Services and requires that you [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
-> 
-> Image extraction is an extra charge metered by Azure Cognitive Search, as described on the [pricing page](https://azure.microsoft.com/pricing/details/search/). Text extraction is free.
+> This skill is bound to Cognitive Services and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
 >
-
 
 ## @odata.type  
 Microsoft.Skills.Text.LanguageDetectionSkill

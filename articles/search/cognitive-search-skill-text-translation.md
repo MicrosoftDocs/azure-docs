@@ -20,9 +20,7 @@ This capability is useful if you expect that your documents may not all be in on
 The [Translator Text API v3.0](../cognitive-services/translator/reference/v3-0-reference.md) is a non-regional Cognitive Service, meaning that your data is not guaranteed to stay in the same region as your Azure Cognitive Search or attached Cognitive Services resource.
 
 > [!NOTE]
-> This skill is bound to Cognitive Services and requires that you [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
-> 
-> Image extraction is an extra charge metered by Azure Cognitive Search, as described on the [pricing page](https://azure.microsoft.com/pricing/details/search/). Text extraction is free.
+> This skill is bound to Cognitive Services and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
 >
 
 ## @odata.type  

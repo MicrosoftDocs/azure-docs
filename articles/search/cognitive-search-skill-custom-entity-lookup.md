@@ -14,18 +14,8 @@ ms.date: 08/12/2021
 
 The **Custom Entity Lookup** skill looks for text from a custom, user-defined list of words and phrases. Using this list, it labels all documents with any matching entities. The skill also supports a degree of fuzzy matching that can be applied to find matches that are similar but not quite exact.  
 
-This skill is not bound to a Cognitive Services API but it is metered by Cognitive Search. See the [pricing page](https://azure.microsoft.com/pricing/details/search/#pricing) for details.
-
-## Pricing details
-
-Text Records correspond to the number of 1,000-character units within a document that is provided as input to the skill.
-
-|  Pricing tier  |        Price  |
-|--------------|----------------------|
-| 0-500,000 text records | $1 per 1,000 text records |
-| 0.5M-2.5M text records | $0.75 per 1,000 text records |
-| 2.5M-10.0M text records | $0.30 per 1,000 text records |
-| 10M+ text records | $0.25 per 1,000 text records |
+> [!NOTE]
+> This skill is not bound to a Cognitive Services API but requires a Cognitive Services key to allow more than 20 transactions. This skill is [metered by Cognitive Search](https://azure.microsoft.com/pricing/details/search/#pricing).
 
 ## @odata.type  
 Microsoft.Skills.Text.CustomEntityLookupSkill 

@@ -17,8 +17,8 @@ The **Named Entity Recognition** skill extracts named entities from text. Availa
 > [!IMPORTANT]
 > Named entity recognition skill is now discontinued replaced by [Microsoft.Skills.Text.V3.EntityRecognitionSkill](cognitive-search-skill-entity-recognition-v3.md). Follow the recommendations in [Deprecated cognitive search skills](cognitive-search-skill-deprecated.md) to migrate to a supported skill.
 
-> [!NOTE]
-> This skill is bound to Cognitive Services and requires that you [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
+ > [!NOTE]
+-> As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Cognitive Search. There are no charges for text extraction from documents. Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
 > 
 > Image extraction is an extra charge metered by Azure Cognitive Search, as described on the [pricing page](https://azure.microsoft.com/pricing/details/search/). Text extraction is free.
 >

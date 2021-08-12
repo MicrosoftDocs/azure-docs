@@ -20,9 +20,9 @@ The **Image Analysis** skill extracts a rich set of visual features based on the
 + The dimensions of the image must be greater than 50 x 50 pixels
 
 > [!NOTE]
-> This skill is bound to Cognitive Services and requires that you [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
+> This skill is bound to Cognitive Services and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
 > 
-> Image extraction is an extra charge metered by Azure Cognitive Search, as described on the [pricing page](https://azure.microsoft.com/pricing/details/search/). Text extraction is free.
+> In addition, image extraction is [billable by Azure Cognitive Search](https://azure.microsoft.com/pricing/details/search/).
 >
 
 ## @odata.type 

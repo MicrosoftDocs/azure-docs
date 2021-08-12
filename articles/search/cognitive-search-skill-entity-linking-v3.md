@@ -16,9 +16,7 @@ ms.date: 08/12/2021
 The **Entity Linking** skill extracts linked entities from text. This skill uses the machine learning models provided by [Text Analytics](../cognitive-services/text-analytics/overview.md) in Cognitive Services.
 
 > [!NOTE]
-> This skill is bound to Cognitive Services and requires that you [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
->
-> Image extraction is an extra charge metered by Azure Cognitive Search, as described on the [pricing page](https://azure.microsoft.com/pricing/details/search/). Text extraction is free.
+> This skill is bound to Cognitive Services and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
 >
 
 ## @odata.type  
