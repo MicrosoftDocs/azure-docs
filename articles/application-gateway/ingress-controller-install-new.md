@@ -233,10 +233,6 @@ Kubernetes. We will leverage it to install the `application-gateway-kubernetes-i
     # Specify if the cluster is Kubernetes RBAC enabled or not
     rbac:
         enabled: false # true/false
-    
-    # Specify aks cluster related information. THIS IS BEING DEPRECATED.
-    aksClusterConfiguration:
-        apiServerAddress: <aks-api-server-address>
     ```
 
 1. Edit the newly downloaded helm-config.yaml and fill out the sections `appgw` and `armAuth`.
