@@ -18,7 +18,7 @@ The string functions let you perform operations on strings in Azure Cosmos DB.
 
 The below scalar functions perform an operation on a string input value and return a string, numeric, or Boolean value. The **index usage** column assumes, where applicable, that you're comparing the string system function to another value with an equality filter.
 
-| System function                                 | Index usage        | [Index usage in queries with scalar aggregate functions](index-overview.md#index-utilization-for-scalar-aggregate-functions) | Remarks                                                      |
+| System function                                 | Index usage        | [Index usage in queries with scalar aggregate functions](../index-overview.md#index-utilization-for-scalar-aggregate-functions) | Remarks                                                      |
 | ----------------------------------------------- | ------------------ | ------------------------------------------------------ | ------------------------------------------------------------ |
 | [CONCAT](sql-query-concat.md)                   | Full scan          | Full scan                                              |                                                              |
 | [CONTAINS](sql-query-contains.md)               | Full index scan    | Full scan                                              |                                                              |
@@ -41,7 +41,7 @@ The below scalar functions perform an operation on a string input value and retu
 | [StringToNull](sql-query-stringtonull.md)       | Full scan          | Full scan                                              |                                                              |
 | [StringToNumber](sql-query-stringtonumber.md)   | Full scan          | Full scan                                              |                                                              |
 
-Learn about about [index usage](index-overview.md#index-usage) in Azure Cosmos DB.
+Learn about about [index usage](../index-overview.md#index-usage) in Azure Cosmos DB.
 
 ## Next steps
 

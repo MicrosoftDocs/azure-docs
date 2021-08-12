@@ -345,4 +345,4 @@ A nested query applies the inner query to each element of the outer container. O
 ## Next steps
 
 - [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [Model document data](modeling-data.md)
+- [Model document data](../modeling-data.md)

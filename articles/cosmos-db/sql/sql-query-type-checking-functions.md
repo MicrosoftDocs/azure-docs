@@ -18,7 +18,7 @@ The type-checking functions let you check the type of an expression within a SQL
 
 The following functions support type checking against input values, and each return a Boolean value. The **index usage** column assumes, where applicable, that you're comparing the type checking functions to another value with an equality filter.
 
-| System function                           | Index usage | [Index usage in queries with scalar aggregate functions](index-overview.md#index-utilization-for-scalar-aggregate-functions) | Remarks |
+| System function                           | Index usage | [Index usage in queries with scalar aggregate functions](../index-overview.md#index-utilization-for-scalar-aggregate-functions) | Remarks |
 | ----------------------------------------- | ----------- | ------------------------------------------------------------ | ------- |
 | [IS_ARRAY](sql-query-is-array.md)         | Full scan   | Full scan                                                    |         |
 | [IS_BOOL](sql-query-is-bool.md)           | Index seek  | Index seek                                                   |         |

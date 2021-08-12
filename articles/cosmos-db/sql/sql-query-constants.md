@@ -117,4 +117,4 @@ ms.author: tisande
 ## Next steps
 
 - [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [Model document data](modeling-data.md)
+- [Model document data](../modeling-data.md)

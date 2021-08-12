@@ -15,7 +15,7 @@ ms.author: tisande
 In a relational database, joins across tables are the logical corollary to designing normalized schemas. In contrast, the SQL API uses the denormalized data model of schema-free items, which is the logical equivalent of a *self-join*.
 
 > [!NOTE]
-> In Azure Cosmos DB, joins are scoped to a single item. Cross-item and cross-container joins are not supported. In NoSQL databases like Azure Cosmos DB, good [data modeling](modeling-data.md) can help avoid the need for cross-item and cross-container joins.
+> In Azure Cosmos DB, joins are scoped to a single item. Cross-item and cross-container joins are not supported. In NoSQL databases like Azure Cosmos DB, good [data modeling](../modeling-data.md) can help avoid the need for cross-item and cross-container joins.
 
 Joins result in a complete cross product of the sets participating in the join. The result of an N-way join is a set of N-element tuples, where each value in the tuple is associated with the aliased set participating in the join and can be accessed by referencing that alias in other clauses.
 

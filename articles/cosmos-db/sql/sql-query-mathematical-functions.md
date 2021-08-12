@@ -30,7 +30,7 @@ The result is:
 
 The following supported built-in mathematical functions perform a calculation, usually based on input arguments, and return a numeric expression. The **index usage** column assumes, where applicable, that you're comparing the mathematical system function to another value with an equality filter.
  
-| System function                 | Index usage | [Index usage in queries with scalar aggregate functions](index-overview.md#index-utilization-for-scalar-aggregate-functions) | Remarks                                                      |
+| System function                 | Index usage | [Index usage in queries with scalar aggregate functions](../index-overview.md#index-utilization-for-scalar-aggregate-functions) | Remarks                                                      |
 | ------------------------------- | ----------- | ------------------------------------------------------ | ------------------------------------------------------------ |
 | [ABS](sql-query-abs.md)         | Index seek  | Index seek                                             |                                                              |
 | [ACOS](sql-query-acos.md)       | Full scan   | Full scan                                              |                                                              |

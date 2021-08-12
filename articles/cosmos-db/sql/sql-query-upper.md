@@ -47,7 +47,7 @@ SELECT UPPER("Abc") AS upper
 
 ## Remarks
 
-This system function will not [use indexes](index-overview.md#index-usage).
+This system function will not [use indexes](../index-overview.md#index-usage).
 
 ## Next steps
 

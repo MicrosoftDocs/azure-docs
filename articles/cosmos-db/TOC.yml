@@ -407,7 +407,7 @@
                       href: sql/sql-query-floor.md
                     - name: LOG
                       displayName: LOG, logarithm, built-in functions
-                      href: sql/sql/sql-query-log.md
+                      href: sql/sql-query-log.md
                     - name: LOG10
                       displayName: LOG10, log base 10, built-in functions
                       href: sql/sql-query-log10.md

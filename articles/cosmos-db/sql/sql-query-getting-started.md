@@ -14,7 +14,7 @@ ms.author: tisande
 
 In Azure Cosmos DB SQL API accounts, there are two ways to read data:
 
-**Point reads** - You can do a key/value lookup on a single *item ID* and partition key. The *item ID* and partition key combination is the key and the item itself is the value. For a 1 KB document, point reads typically cost 1 [request unit](request-units.md) with a latency under 10 ms. Point reads return a single item.
+**Point reads** - You can do a key/value lookup on a single *item ID* and partition key. The *item ID* and partition key combination is the key and the item itself is the value. For a 1 KB document, point reads typically cost 1 [request unit](../request-units.md) with a latency under 10 ms. Point reads return a single item.
 
 Here are some examples of how to do **Point reads** with each SDK:
 
@@ -25,20 +25,20 @@ Here are some examples of how to do **Point reads** with each SDK:
 
 **SQL queries** - You can query data by writing queries using the Structured Query Language (SQL) as a JSON query language. Queries always cost at least 2.3 request units and, in general, will have a higher and more variable latency than point reads. Queries can return many items.
 
-Most read-heavy workloads on Azure Cosmos DB use a combination of both point reads and SQL queries. If you just need to read a single item, point reads are cheaper and faster than queries. Point reads don't need to use the query engine to access data and can read the data directly. Of course, it's not possible for all workloads to exclusively read data using point reads, so support of SQL as a query language and [schema-agnostic indexing](index-overview.md) provide a more flexible way to access your data.
+Most read-heavy workloads on Azure Cosmos DB use a combination of both point reads and SQL queries. If you just need to read a single item, point reads are cheaper and faster than queries. Point reads don't need to use the query engine to access data and can read the data directly. Of course, it's not possible for all workloads to exclusively read data using point reads, so support of SQL as a query language and [schema-agnostic indexing](../index-overview.md) provide a more flexible way to access your data.
 
 Here are some examples of how to do **SQL queries** with each SDK:
 
-- [.NET SDK](./sql-api-dotnet-v3sdk-samples.md#query-examples)
-- [Java SDK](./sql-api-java-sdk-samples.md#query-examples)
-- [Node.js SDK](./sql-api-nodejs-samples.md#item-examples)
-- [Python SDK](./sql-api-python-samples.md#item-examples)
+- [.NET SDK](../sql-api-dotnet-v3sdk-samples.md#query-examples)
+- [Java SDK](../sql-api-java-sdk-samples.md#query-examples)
+- [Node.js SDK](../sql-api-nodejs-samples.md#item-examples)
+- [Python SDK](../sql-api-python-samples.md#item-examples)
 
 The remainder of this doc shows how to get started writing SQL queries in Azure Cosmos DB. SQL queries can be run through either the SDK or Azure portal.
 
 ## Upload sample data
 
-In your SQL API Cosmos DB account, open the [Data Explorer](./data-explorer.md) to create a container called `Families`. After the container is created, use the data structures browser, to find and open it. In your `Families` container, you will see the `Items` option right below the name of the container. Open this option and you'll see a button, in the menu bar in center of the screen, to create a 'New Item'. You will use this feature to create the JSON items below.
+In your SQL API Cosmos DB account, open the [Data Explorer](../data-explorer.md) to create a container called `Families`. After the container is created, use the data structures browser, to find and open it. In your `Families` container, you will see the `Items` option right below the name of the container. Open this option and you'll see a button, in the menu bar in center of the screen, to create a 'New Item'. You will use this feature to create the JSON items below.
 
 ### Create JSON items
 

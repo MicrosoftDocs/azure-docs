@@ -98,7 +98,7 @@ The following JSON snippet shows an indexing policy with spatial indexing enable
 > [!NOTE]
 > If the location GeoJSON value within the document is malformed or invalid, then it will not get indexed for spatial querying. You can validate location values using ST_ISVALID and ST_ISVALIDDETAILED.
 
-You can also [modify indexing policy](how-to-manage-indexing-policy.md) using the Azure CLI, PowerShell, or any SDK.
+You can also [modify indexing policy](../how-to-manage-indexing-policy.md) using the Azure CLI, PowerShell, or any SDK.
 
 ## Geometry data indexing examples
 
