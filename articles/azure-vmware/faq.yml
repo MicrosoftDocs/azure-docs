@@ -80,6 +80,10 @@ sections:
         answer: | 
           No.    
 
+ 
+
+
+
 
 
   - name: Customer communication
@@ -88,8 +92,7 @@ sections:
         answer: |
           [!INCLUDE [customer-communications](includes/customer-communications.md)]
 
-
-
+ 
 
 
   - name: Configuration and setup
@@ -165,18 +168,19 @@ sections:
         answer: No. VMware does not officially support nested virtualization. 
 
 
-  - name: Third-party backup and recovery
+  - name: Backup 
     questions:         
-
-      - question: Are the cloudadmin extension privileges supported by Azure VMware Solution?
-        answer: No. We currently don't support cloudadmin extension privileges, and we don't plan to support it in the foreseeable future.       
-        
+    
       - question:  What independent software vendors (ISVs) backup solutions work with Azure VMware Solution?
         answer: Commvault, Veritas, and Veeam have extended their backup solutions to work with Azure VMware Solution.  However, any backup solution that uses VMware vStorage API for Data Protection (VADP) with the HotAdd transport mode works out of the box on Azure VMware Solution. For more information, see [Backup solutions for Azure VMware Solution VMs](ecosystem-back-up-vms.md).
 
       - question: What about support for ISV backup solutions?
         answer: As these backup solutions are installed and managed by customers, they can reach out to the respective ISV for support. 
    
+
+
+
+
 
   - name: Networking and interconnectivity
     questions:        
@@ -283,6 +287,11 @@ sections:
       - question: What is the RAID configuration of the disk groups?
         answer: The disk groups are not RAID configured. Instead, they are just a bunch of disks (JBOD) and are [directly controlled by vSAN](https://core.vmware.com/vsan-learn-and-evaluate).
 
+
+
+
+
+
   - name: Hosts, clusters, and private clouds
     questions:
 
@@ -311,6 +320,10 @@ sections:
         answer: Trial clusters are limited to three hosts used for one-month evaluations of Azure VMware Solution private clouds.
 
 
+
+
+
+
   - name: Identity management
     questions:
       - question: What accounts and privileges will I get with my new Azure VMware Solution private cloud?
@@ -334,6 +347,9 @@ sections:
 
       - question: Are the cloudadmin extension privileges supported by Azure VMware Solution?
         answer: No. We currently don't support cloudadmin extension privileges and have no plans to support it.   
+
+
+
 
   - name: CSP and multi-tenancy
     questions:
