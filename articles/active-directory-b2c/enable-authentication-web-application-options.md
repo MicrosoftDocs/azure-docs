@@ -274,7 +274,7 @@ private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
 
 ## Secure your logout redirect
 
-After logout, the user is redirected to the URI specified in the `post_logout_redirect_uri` parameter, regardless of the reply URLs that have been specified for the application. However, if a valid `id_token_hint` is passed and the [Require ID Token in logout requests](#session-behavior#secure-your-logout-redirect) is turned on, Azure AD B2C verifies that the value of `post_logout_redirect_uri` matches one of the application's configured redirect URIs before performing the redirect. If no matching reply URL was configured for the application, an error message is displayed and the user is not redirected.
+After logout, the user is redirected to the URI specified in the `post_logout_redirect_uri` parameter, regardless of the reply URLs that have been specified for the application. However, if a valid `id_token_hint` is passed and the [Require ID Token in logout requests](session-behavior.md#secure-your-logout-redirect) is turned on, Azure AD B2C verifies that the value of `post_logout_redirect_uri` matches one of the application's configured redirect URIs before performing the redirect. If no matching reply URL was configured for the application, an error message is displayed and the user is not redirected.
 
 To support a secured logout redirect in your application, first follow the steps in the [Account controller](enable-authentication-web-application-options.md#add-the-account-controller) section and the [Support advanced scenarios](#support-advanced-scenarios) sections.
 
@@ -323,7 +323,7 @@ In the **appsettings.json** configuration file, add the logout redirect uri path
 }
 ```
 
-In the above example, the **post_logout_redirect_uri** will be **https://<hostname>/signout/<your-sign-up-in-policy>**. This URL must be added to the Application Registration's reply URL's.
+In the above example, the **post_logout_redirect_uri** will be in the format: `https://your-app.com/signout/<your-sign-up-in-policy>`. This URL must be added to the Application Registration's reply URL's.
 
 ## Role-based access control
 
