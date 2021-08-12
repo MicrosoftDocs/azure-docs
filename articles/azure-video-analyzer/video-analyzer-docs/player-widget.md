@@ -54,7 +54,7 @@ In this section, you create a JSON Web Token (JWT) that you will use later in th
    ```
 
    > [!NOTE] 
-   > You can find the Video Analyzer endpoint in the overview section of the Video Analyzer resource in the Azure portal. This value is referenced as `clientApiEndpointUrl` in [List video resources](#list-video-analyzer-video-resources), later in this article.
+   > You can find the Video Analyzer endpoint in the overview section of the Video Analyzer resource in the Azure portal. This value is referenced as `clientApiEndpointUrl` in [List video resources](#list-video-resources), later in this article.
 
    :::image type="content" source="media/player-widget/client-api-url.png" alt-text="Screenshot that shows the player widget endpoint.":::
     
