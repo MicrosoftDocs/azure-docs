@@ -97,18 +97,18 @@ Make sure to review the requirements for the [policy type](#placement-policy-typ
    :::image type="content" source="media/placement-policies/create-placement-policy.png" alt-text="Screenshot showing how to start the process to create a VM-VM placement policy." lightbox="media/placement-policies/create-placement-policy.png":::
 
 
-1. Provide a descriptive name, select the policy type, and then select the cluster where the policy is being created. Then select **Enable**.
+1. Provide a descriptive name, select the policy type, and select the cluster where the policy is created. Then select **Enable**.
 
    >[!WARNING]
-   >If you disable the policy, then the policy and underlying DRS rule are created, but the policy actions are ignored until you enable the policy. 
+   >If you disable the policy, then the policy and the underlying DRS rule are created, but the policy actions are ignored until you enable the policy. 
 
    :::image type="content" source="media/placement-policies/create-placement-policy-vm-vm-affinity-1.png" alt-text="Screenshot showing the placement policy options." lightbox="media/placement-policies/create-placement-policy-vm-vm-affinity-1.png":::   
 
-1. If you selected **VM-Host affinity** or **VM-Host anti-affinity** as the type, then your policy type requires a host to be selected. Select **+ Add host** and select the hosts to include in the policy. You can select multiple hosts.
+1. If you selected **VM-Host affinity** or **VM-Host anti-affinity** as the type, your policy requires a host to be selected. Select **+ Add host** and the hosts to include in the policy. You can select multiple hosts.
 
    :::image type="content" source="media/placement-policies/create-placement-policy-vm-host-affinity-2.png" alt-text="Screenshot showing the list of hosts to select.":::
 
-1. Select **+ Add virtual machine** and then select the VMs to include in the policy. You can select multiple VMs.
+1. Select **+ Add virtual machine** and the VMs to include in the policy. You can select multiple VMs.
 
    :::image type="content" source="media/placement-policies/create-placement-policy-vm-vm-affinity-2.png" alt-text="Screenshot showing the list of VMs to select.":::
 
@@ -143,7 +143,7 @@ You can change the state of a policy to **Enabled** or **Disabled**.
 
    :::image type="content" source="media/placement-policies/edit-placement-policy.png" alt-text="Screenshot showing how to edit a placement policy." lightbox="media/placement-policies/edit-placement-policy.png":::
 
-1.	If the policy is enabled but you want to disable it, clear the **Enable** checkbox. Otherwise, clear the **Disabled** checkbox to enable the policy.
+1.	If the policy is enabled but you want to disable it, select **Disabled** and then select **Disabled** on the confirmation message. Otherwise, if the policy is disabled and you want to enable it, select **Enable**.
 
 1.	Select **Review + update**. 
  
@@ -162,7 +162,7 @@ You can add new resources, such as a VM or a host, to a policy or remove existin
 
    - To remove an existing resource, select the resource or resources you want to remove. Select **Unassign**, which removes the resource or resources from the list.
 
-      :::image type="content" source="media/placement-policies/edit-placement-policy-unassign.png" alt-text="Screenshot showing how to edit the resources in a placement policy.":::
+      :::image type="content" source="media/placement-policies/edit-placement-policy-unassign.png" alt-text="Screenshot showing how to remove an existing resource from a placement policy.":::
 
    - To add a new resource, select **Edit virtual machine** or **Edit host**, select the resource you'd like to add, and then select **Save**. 
 
