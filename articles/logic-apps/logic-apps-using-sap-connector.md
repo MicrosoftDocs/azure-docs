@@ -43,12 +43,16 @@ This article explains how you can access your SAP resources from Logic Apps usin
 
 * If you want to use the **When a message is received from SAP** trigger, you must also do the following:
 
-    * Set up your SAP gateway security permissions (ACLs, `secinfo` and `reginfo` files, visible in Gateway Monitor dialog, T-Code SMGW "Goto -> Expert Functions -> External Security -> Maintenance of ACL Files") with this setting: 
+    * Set up your SAP gateway security permissions (ACLs, `secinfo` and `reginfo` files, visible in Gateway Monitor dialog, T-Code SMGW "Goto -> Expert Functions -> External Security -> Maintenance of ACL Files") with this setting:
+
     `P TP=LOGICAPP HOST=<on-premises-gateway-server-IP-address> ACCESS=*`
+
     The format of this line is
-    P TP=<Trading partner identifier (program name) or * for all partners> HOST=<comma separated list of external host IP or network name that can register the program> ACCESS=<* for all permissions or comma separated list of permissions>
+
+    `P TP=<Trading partner identifier (program name) or * for all partners> HOST=<comma separated list of external host IP or network name that can register the program> ACCESS=<* for all permissions or comma separated list of permissions>`
    
     If you do not configure the SAP gateway security permissions, you might receive this error:
+
     `Registration of tp Microsoft.PowerBI.EnterpriseGateway from host <host-name> not allowed`
 
     * Set up your SAP gateway security logging to help find Access Control List (ACL). For more information, see the [SAP help topic for setting up gateway logging](https://help.sap.com/erp_hcm_ias2_2015_02/helpdata/en/48/b2a710ca1c3079e10000000a42189b/frameset.htm) and [1850230 - GW: "Registration of tp <program ID> not allowed"](https://userapps.support.sap.com/sap/support/knowledge/en/1850230).
@@ -109,7 +113,7 @@ The managed SAP connector integrates with SAP systems through your [on-premises 
 
 * [Download and install the latest SAP client library](#sap-client-library-prerequisites) on the same local computer as your on-premises data gateway.
    
-* Configure the network host names and service names resolution for the host machine where you installed the on-premises data gateway. Each of the SAP application server, message server and gateway server and their services must be configured for name resolution if you intend to use them for connection from Logic Apps. The network host name resolution is configured in `%windir%\System32\drivers\etc\hosts` or in the DNS server available to your on-premises data gateway host machine. The service name resolution is configured in `%windir%\System32\drivers\etc\services`. If you do not intend to use network host names or service names for connection, you may instead use host IP adresses and service port numbers.
+* Configure the network host names and service names resolution for the host machine where you installed the on-premises data gateway. If you intend to use host names or service names for connection from Logic Apps, each of the SAP application server, message server and gateway server and their services must be configured for name resolution. The network host name resolution is configured in `%windir%\System32\drivers\etc\hosts` or in the DNS server available to your on-premises data gateway host machine. The service name resolution is configured in `%windir%\System32\drivers\etc\services`. If you do not intend to use network host names or service names for connection, you may instead use host IP addresses and service port numbers.
    
    A sample entry for the hosts file if you do not have a DNS entry for your SAP system is:
    
@@ -375,7 +379,7 @@ Next, create an action to send your IDoc message to SAP when your [HTTP request 
 
         ![Create SAP message server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
    
-      In SAP, the Logon Group is maintained in dialog **CCMS: Maintain Logon Groups** (T-code SMLG). For more information consult [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://service.sap.com/sap/support/notes/26317)
+      In SAP, the Logon Group is maintained in dialog **CCMS: Maintain Logon Groups** (T-code SMLG). For more information consult [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://service.sap.com/sap/support/notes/26317).
 
       By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. Learn more about the [Safe Typing option](#safe-typing).
 
