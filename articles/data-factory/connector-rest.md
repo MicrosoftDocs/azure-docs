@@ -46,7 +46,7 @@ Specifically, this generic REST connector supports:
 
 ## Create a REST linked service using UI
 
-Use the following steps to create a REST linked service in the Data Factory UI.
+Use the following steps to create a REST linked service in the Azure portal UI.
 
 1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
 

@@ -40,7 +40,6 @@ For Copy activity, this Azure Synapse Analytics connector supports these functio
 > [!IMPORTANT]
 > If you copy data by using an Azure Integration Runtime, configure a [server-level firewall rule](../azure-sql/database/firewall-configure.md) so that Azure services can access the [logical SQL server](../azure-sql/database/logical-servers.md).
 > If you copy data by using a self-hosted integration runtime, configure the firewall to allow the appropriate IP range. This range includes the machine's IP that is used to connect to Azure Synapse Analytics.
-
 ## Get started
 
 > [!TIP]
@@ -50,7 +49,7 @@ For Copy activity, this Azure Synapse Analytics connector supports these functio
 
 ## Create an Azure Synapse Analytics linked service using UI
 
-Use the following steps to create an Azure Synapse Analytics linked service in the Data Factory UI.
+Use the following steps to create an Azure Synapse Analytics linked service in the Azure Portal UI.
 
 1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
 

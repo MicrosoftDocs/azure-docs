@@ -48,7 +48,7 @@ For the Copy activity, this Blob storage connector supports:
 
 ## Create an Azure Blob Storage linked service using UI
 
-Use the following steps to create an Azure Blob Storage linked service in the Data Factory UI.
+Use the following steps to create an Azure Blob Storage linked service in the Azure portal UI.
 
 1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
 
