@@ -181,7 +181,7 @@ To create and manage private link scopes, use the [REST API](/rest/api/monitor/p
 
 To manage the network access flag on your workspace or component, use the flags `[--ingestion-access {Disabled, Enabled}]` and `[--query-access {Disabled, Enabled}]`on [Log Analytics workspaces](/cli/azure/monitor/log-analytics/workspace) or [Application Insights components](/cli/azure/ext/application-insights/monitor/app-insights/component).
 
-### Example Azure Resource Manager (ARM) template
+### Example Azure Resource Manager template (ARM template)
 The below Azure Resource Manager template creates:
 * A private link scope (AMPLS) named "my-scope"
 * A Log Analytics workspace named "my-workspace"
