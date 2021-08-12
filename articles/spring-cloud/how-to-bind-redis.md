@@ -9,7 +9,7 @@ ms.author: karler
 ms.custom: devx-track-java
 ---
 
-# Bind Azure Cache for Redis to your Azure Spring Cloud application 
+# Bind Azure Cache for Redis to your Azure Spring Cloud application
 
 **This article applies to:** ✔️ Java
 

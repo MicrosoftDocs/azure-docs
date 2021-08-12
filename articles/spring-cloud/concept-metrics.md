@@ -11,7 +11,7 @@ ms.custom: devx-track-java
 
 # Metrics for Azure Spring Cloud
 
-Azure Metrics explorer is a component of the Microsoft Azure portal that allows plotting charts, visually correlating trends, and investigating spikes and dips in metrics. Use the metrics explorer to investigate the health and utilization of your resources. 
+Azure Metrics explorer is a component of the Microsoft Azure portal that allows plotting charts, visually correlating trends, and investigating spikes and dips in metrics. Use the metrics explorer to investigate the health and utilization of your resources.
 
 In Azure Spring Cloud, there are two viewpoints for metrics.
 * Charts in each application overview page
@@ -23,11 +23,11 @@ Charts in the application **Overview** provide quick status checks for each appl
 
 ## Application overview page
 
-Select an app in **Apps** to find charts in the overview page.  
+Select an app in **Apps** to find charts in the overview page.
 
 ![Application Metrics Management](media/metrics/metrics-2.png)
 
-Each application's **Application Overview** page presents a metrics chart that allows you to perform a quick status check of your application.  
+Each application's **Application Overview** page presents a metrics chart that allows you to perform a quick status check of your application.
 
 ![Application Metrics Overview](media/metrics/metrics-3.png)
 
@@ -65,7 +65,7 @@ The time range can also be adjusted from last 30 minutes to last 30 days or a cu
 
 ![Metric Modification](media/metrics/metrics-6.png)
 
-The default view includes all of an Azure Spring Cloud service's application's metrics together. Metrics of one app or instance can be filtered in the display.  Click **Add filter**, set the property to **App**, and select the target application you want to monitor in the **Values** text box. 
+The default view includes all of an Azure Spring Cloud service's application's metrics together. Metrics of one app or instance can be filtered in the display.  Click **Add filter**, set the property to **App**, and select the target application you want to monitor in the **Values** text box.
 
 You can use two kinds of filters (properties):
 

@@ -19,7 +19,7 @@ Spring Cloud Config provides server and client-side support for an externalized 
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * An already provisioned and running Azure Spring Cloud service. To set up and launch an Azure Spring Cloud service, see [Quickstart: Launch a Java Spring application by using the Azure CLI](./quickstart.md).
 
 ## Restriction
@@ -145,7 +145,7 @@ Now that your configuration files are saved in a repository, you need to connect
 
 7. Updating the configuration can take a few minutes.
 
-    ![Updating config server](media/spring-cloud-quickstart-launch-app-portal/updating-config.png) 
+    ![Updating config server](media/spring-cloud-quickstart-launch-app-portal/updating-config.png)
 
 8. You should get a notification when the configuration is complete.
 
@@ -153,7 +153,7 @@ Now that your configuration files are saved in a repository, you need to connect
 
 #### Default repository
 
-* **Public repository**: In the **Default repository** section, in the **Uri** box, paste the repository URI.  Set the **Label** to **config**. Ensure that the **Authentication** setting is **Public**, and then select **Apply** to finish. 
+* **Public repository**: In the **Default repository** section, in the **Uri** box, paste the repository URI.  Set the **Label** to **config**. Ensure that the **Authentication** setting is **Public**, and then select **Apply** to finish.
 
 * **Private repository**: Azure Spring Cloud supports basic password/token-based authentication and SSH.
 
@@ -170,7 +170,7 @@ Now that your configuration files are saved in a repository, you need to connect
 
 #### Pattern repository
 
-If you want to use an optional **Pattern repository** to configure your service, specify the **URI** and **Authentication** the same way as the **Default repository**. Be sure to include a **Name** for your pattern, and then select **Apply** to attach it to your instance. 
+If you want to use an optional **Pattern repository** to configure your service, specify the **URI** and **Authentication** the same way as the **Default repository**. Be sure to include a **Name** for your pattern, and then select **Apply** to attach it to your instance.
 
 ### Enter repository information into a YAML file
 
@@ -192,7 +192,7 @@ Select the **Import settings** button, and then select the YAML file from your p
 
 ![The Config Server Notifications pane](media/spring-cloud-tutorial-config-server/local-yml-success.png)
 
-The information from your YAML file should be displayed in the Azure portal. Select **Apply** to finish. 
+The information from your YAML file should be displayed in the Azure portal. Select **Apply** to finish.
 
 ## Using Azure Repos for Azure Spring Cloud Configuration
 
@@ -274,7 +274,7 @@ By default auto-refresh is set to false and refresh-interval is set to 60 second
   @RefreshScope
   public class HelloController {
       @Value("${timeout:4000}")
-      private String connectTimeout;    
+      private String connectTimeout;
   }
   ```
 

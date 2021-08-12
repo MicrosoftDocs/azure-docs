@@ -38,7 +38,7 @@ It may take a few minutes to create the zone.
 
 To link the private DNS zone to the virtual network, you need to create a virtual network link.
 
-1. Select the private DNS zone resource created above: **<span>private.azuremicroservices.io</span>** 
+1. Select the private DNS zone resource created above: **<span>private.azuremicroservices.io</span>**
 
 2. On the left pane, select **Virtual network links**.
 

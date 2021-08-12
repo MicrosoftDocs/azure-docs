@@ -34,7 +34,7 @@ If you have Azure Spring Cloud applications in multiple regions, use Azure Traff
 ## Create Azure Traffic Manager for Azure Spring Cloud
 
 1. Create Azure Spring Cloud in two different regions.
-You will need two service instances of Azure Spring Cloud deployed in two different regions (East US and West Europe). Launch an existing Azure Spring Cloud application using the Azure portal to create two service instances. Each will serve as primary and fail-over endpoint for Traffic. 
+You will need two service instances of Azure Spring Cloud deployed in two different regions (East US and West Europe). Launch an existing Azure Spring Cloud application using the Azure portal to create two service instances. Each will serve as primary and fail-over endpoint for Traffic.
 
 **Two service instances info:**
 
@@ -50,14 +50,14 @@ Follow [Custom Domain Document](./tutorial-custom-domain.md) to set up custom do
 
 Here is the traffic manager profile:
 * Traffic Manager DNS Name: `http://asc-bcdr.trafficmanager.net`
-* Endpoint Profiles: 
+* Endpoint Profiles:
 
 | Profile | Type | Target | Priority | Custom Header Settings |
 |--|--|--|--|--|
 | Endpoint A Profile | External Endpoint | service-sample-a.asc-test.net | 1 | host: bcdr-test.contoso.com |
 | Endpoint B Profile | External Endpoint | service-sample-b.asc-test.net | 2 | host: bcdr-test.contoso.com |
 
-4. Create a CNAME record in DNS Zone: bcdr-test.contoso.com CNAME asc-bcdr.trafficmanager.net. 
+4. Create a CNAME record in DNS Zone: bcdr-test.contoso.com CNAME asc-bcdr.trafficmanager.net.
 
 5. Now, the environment is completely set up. Customers should be able to access the app via: bcdr-test.contoso.com
 

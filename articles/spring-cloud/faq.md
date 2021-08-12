@@ -71,7 +71,7 @@ Azure Spring Cloud supports Java 8 and 11. See [Java runtime and OS versions](#j
 We've identified an issue with Spring Boot 2.4 and are currently working with the Spring community to resolve it. In the meantime, please include these two dependencies to enable TLS authentication between your apps and Eureka.
 
 ```xml
-<dependency> 
+<dependency>
     <groupId>com.sun.jersey</groupId>
     <artifactId>jersey-client</artifactId>
     <version>1.19.4</version>
@@ -111,7 +111,7 @@ Yes.
 
 ### How many outbound public IP addresses does an Azure Spring Cloud instance have?
 
-The number of outbound public IP addresses may vary according to the tiers and other factors. 
+The number of outbound public IP addresses may vary according to the tiers and other factors.
 
 | Azure Spring Cloud instance type | Default number of outbound public IP addresses |
 | -------------------------------- | ---------------------------------------------- |

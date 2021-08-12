@@ -1,5 +1,5 @@
 ---
-title: Authenticate Azure Spring Cloud with Key Vault in GitHub Actions 
+title: Authenticate Azure Spring Cloud with Key Vault in GitHub Actions
 description: How to use key vault with CI/CD workflow for Azure Spring Cloud with GitHub Actions
 author: karlerickson
 ms.author: karler

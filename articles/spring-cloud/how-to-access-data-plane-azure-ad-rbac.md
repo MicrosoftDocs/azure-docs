@@ -34,7 +34,7 @@ After the Azure Spring Cloud Data Reader role is assigned, customers can access 
 2. Compose the endpoint. We support default endpoints of the Spring Cloud Config Server and Spring Cloud Service Registry managed by Azure Spring Cloud. For more information, see [Production ready endpoints](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints). Customers can also get a full list of supported endpoints of the Spring Cloud Config Server and Spring Cloud Service Registry managed by Azure Spring Cloud by accessing endpoints:
 
     * *'https://SERVICE_NAME.svc.azuremicroservices.io/eureka/actuator/'*
-    * *'https://SERVICE_NAME.svc.azuremicroservices.io/config/actuator/'* 
+    * *'https://SERVICE_NAME.svc.azuremicroservices.io/config/actuator/'*
 
 >[!NOTE]
 > If you are using Azure China, please replace `*.azuremicroservices.io` with `*.microservices.azure.cn`, [learn more](/azure/china/resources-developer-guide#check-endpoints-in-azure).

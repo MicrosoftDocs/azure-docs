@@ -9,7 +9,7 @@ ms.author: karler
 ms.custom: devx-track-java
 ---
 
-# Bind an Azure Database for MySQL instance to your Azure Spring Cloud application 
+# Bind an Azure Database for MySQL instance to your Azure Spring Cloud application
 
 **This article applies to:** ✔️ Java
 
@@ -41,13 +41,13 @@ If you don't have a deployed Azure Spring Cloud instance, follow the instruction
 ## Bind your app to the Azure Database for MySQL instance
 
 #### [Service Binding](#tab/Service-Binding)
-1. Note the admin username and password of your Azure Database for MySQL account. 
+1. Note the admin username and password of your Azure Database for MySQL account.
 
 1. Connect to the server, create a database named **testdb** from a MySQL client, and then create a new non-admin account.
 
-1. In the Azure portal, on your **Azure Spring Cloud** service page, look for the **Application Dashboard**, and then select the application to bind to your Azure Database for MySQL instance.  This is the same application that you updated or deployed in the previous step. 
+1. In the Azure portal, on your **Azure Spring Cloud** service page, look for the **Application Dashboard**, and then select the application to bind to your Azure Database for MySQL instance.  This is the same application that you updated or deployed in the previous step.
 
-1. Select **Service binding**, and then select the **Create service binding** button. 
+1. Select **Service binding**, and then select the **Create service binding** button.
 
 1. Fill out the form, selecting **Azure MySQL** as the **Binding type**, using the same database name you used earlier, and using the same username and password you noted in the first step.
 

@@ -1,5 +1,5 @@
 ---
-title: How to use Application Insights Java In-Process Agent in Azure Spring Cloud 
+title: How to use Application Insights Java In-Process Agent in Azure Spring Cloud
 description: How to monitor apps and microservices using Application Insights Java In-Process Agent in Azure Spring Cloud.
 author: karlerickson
 ms.author: karler
@@ -57,7 +57,7 @@ Enable Java In-Process Agent preview feature using the following procedure.
 
 When the **Application Insights** feature is enabled, you can:
 
-In the left navigation pane, click **Application Insights** to jump to the **Overview** page of Application Insights. 
+In the left navigation pane, click **Application Insights** to jump to the **Overview** page of Application Insights.
 
 * Click **Application Map** to see the status of calls between applications.
 
@@ -176,7 +176,7 @@ The name `App Instance` from Azure Spring Cloud will be changed or generated in 
 * You deploy a JAR file or source code to an existing application.
 * You initiate a blue/green deployment.
 * You restart the application.
-* You stop the deployment of an application, and then restart it. 
+* You stop the deployment of an application, and then restart it.
 
 When data is stored in Application Insights, it contains the history of Azure Spring Cloud app instances created or deployed since the Java agent was enabled. This means that, in the Application Insights portal, you can see application data created yesterday, but then deleted within a specific time range, like the last 24 hours. The following scenarios show how this works:
 
