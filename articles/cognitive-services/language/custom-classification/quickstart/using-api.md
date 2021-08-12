@@ -26,8 +26,6 @@ In this article, you will use the authoring and analyze APIs to demonstrate key 
 
 * A labeled `.txt` available in your container.
 
-See the [service requirements](../concepts/service-requirements.md#data-preparation) for more information.
-
 ### Get your resource keys and endpoint
 
 * Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home)
@@ -78,8 +76,7 @@ Use this [**POST**] request to create your project: `{YOUR-ENDPOINT}/language/te
 
 This request will return an error if:
 
-* The resource selected doesn't have proper permission for the storage account. You can learn more about needed permission [here](../concepts/service-requirements.md#set-permissions).
-
+* The resource selected doesn't have proper permission for the storage account. 
 * The labels file location is not valid.
 
 ## Train your model
