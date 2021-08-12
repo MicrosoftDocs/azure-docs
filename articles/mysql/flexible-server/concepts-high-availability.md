@@ -18,9 +18,9 @@ ms.date: 08/10/2021
 ## High Availability Options
 Azure Database for MySQL Flexible Server (Preview), allows configuring high availability with automatic failover. When high availability is configured, flexible server automatically provisions and manages a standby replica using two different options
 
-1 - Zone Redundant High Availability: this option is preferred for complete isolation and redundancy of infrastructure across multiple availability zones. It provides highest level of availability but it requires you to configure application redundancy across zones. Zone redundant HA is preferred when you want to achieve highest level of availability against any infrastructure failure in the availability zone and where latency across the availability zone is acceptable. Zone redundant HA is available in [subset of Azure regions](https://docs.microsoft.com/azure/mysql/flexible-server/overview#azure-regions) where the region supports multiple availability zones and Zone redundant HA is available.
+* **Zone Redundant High Availability**: this option is preferred for complete isolation and redundancy of infrastructure across multiple availability zones. It provides highest level of availability but it requires you to configure application redundancy across zones. Zone redundant HA is preferred when you want to achieve highest level of availability against any infrastructure failure in the availability zone and where latency across the availability zone is acceptable. Zone redundant HA is available in [subset of Azure regions](https://docs.microsoft.com/azure/mysql/flexible-server/overview#azure-regions) where the region supports multiple availability zones and Zone redundant HA is available.
 
-2 - Same-Zone High Availability: this option is preferred for infrastructure redundancy with lower network latency as both primary and standby server will be in the same availability zone. It provides highest level of availability without configuring application redundancy across zones. Same-Zone HA is preferred when you want to achieve highest level of availability within a single availability zone with the lowest network latency. Same-Zone HA is available in all [Azure regions which Flexible server is available in](https://docs.microsoft.com/azure/mysql/flexible-server/overview#azure-regions).  
+* **Same-Zone High Availability**: this option is preferred for infrastructure redundancy with lower network latency as both primary and standby server will be in the same availability zone. It provides highest level of availability without configuring application redundancy across zones. Same-Zone HA is preferred when you want to achieve highest level of availability within a single availability zone with the lowest network latency. Same-Zone HA is available in all [Azure regions which Flexible server is available in](https://docs.microsoft.com/azure/mysql/flexible-server/overview#azure-regions).  
 
 ## Zone Redundant High Availability
 
@@ -31,11 +31,11 @@ When the flexible server is created with zone redundant high availability enable
 
 :::image type="content" source="./media/concepts-high-availability/1-flexible-server-overview-zone-redundant-ha.png" alt-text="view of zone redundant high availability":::
 
-## Zone Redundancy Architecture
+### Zone Redundancy Architecture
 
 The primary server is deployed in the region and a specific availability zone. When the high availability is chosen, a standby replica server with the same configuration as that of the primary server is automatically deployed in the "specified availability zone", including compute tier, compute size, storage size, and network configuration. The log data is synchronously replicated to the standby replica to ensure zero data loss in any failure situation. Automatic backups, both snapshots and log backups, are performed from the primary database server.
 
-## Standby Zone Selection
+### Standby Zone Selection
 In zone redundant high availability scenario you may choose the standby server zone location of your choice. Co-locating the standby database servers and standby applications in the same zone reduces latencies and allows users to better prepare for disaster recovery situations and “zone down” scenarios.
 
 ## Same-Zone High Availability
@@ -43,6 +43,8 @@ In zone redundant high availability scenario you may choose the standby server z
 When the flexible server is created with same-zone high availability enabled, the data and log files are hosted in a [Locally redundant storage (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy#locally-redundant-storage). Using storage level replication available with LRS, the data and log files are synchronously replicated to the standby server to ensure zero data loss. The standby server offers infrastructure redundancy with a separate virtual machine (compute) which reduces the failover time and network latency between the user application and the database server due to colocation. The failover is fully transparent from the client application and doesn't require any user actions. The recovery of the standby server to come online during failover is dependent on the binary log application on the standby. It is therefore advised to use primary keys on all the tables to reduce failover time. The standby server is not available for any read or write operations but is a passive standby to enable fast failover. The failover times typically ranges from 60-120 seconds.
 
 Same-Zone high availability enable users to place a standby server in the same zone as the primary server, which reduces the replication lag between primary and standby. This also provides for lower latencies between the application server and database server if placed within the same Azure availability zone.
+
+:::image type="content" source="./media/concepts-high-availability/flexible-server-overview-same-zone-ha.png" alt-text="view of zone redundant high availability":::
 
 ## High Availability Monitoring
 The health of the HA is continuously monitored and reported on the overview page. The various replication statuses are listed below:
