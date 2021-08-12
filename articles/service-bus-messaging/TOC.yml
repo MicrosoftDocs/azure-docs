@@ -64,6 +64,8 @@
       href: service-bus-to-event-grid-integration-example.md      
     - name: Azure Functions
       href: service-bus-to-event-grid-integration-function.md
+  - name: Build message-driven business applications with NServiceBus
+    href: build-message-driven-apps-nservicebus.md
 - name: Samples
   items:
   - name: Service Bus samples
@@ -216,8 +218,6 @@
     items:
     - name: End-to-end tracing and diagnostics
       href: service-bus-end-to-end-tracing.md
-    - name: Diagnostic logs
-      href: service-bus-diagnostic-logs.md
     - name: Monitoring Azure Service Bus
       href: monitor-service-bus.md
   - name: Integrate

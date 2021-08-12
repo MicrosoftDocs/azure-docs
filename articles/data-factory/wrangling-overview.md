@@ -4,8 +4,9 @@ description: An overview of Data Wrangling in Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 01/19/2021
+ms.date: 07/29/2021
 ---
 
 # What is data wrangling?
@@ -55,9 +56,9 @@ When you create a Power Query activity, all source datasets become dataset queri
 
 Currently not all Power Query M functions are supported for data wrangling despite being available during authoring. While building your Power Query activities, you'll be prompted with the following error message if a function isn't supported:
 
-`The wrangling data flow is invalid. Expression.Error: The transformation logic isn't supported. Please try a simpler expression`
+`The Power Query Spark Runtime does not support the function`
 
-For more information on supported transformations, see [data wrangling functions](wrangling-functions.md).
+For more information on supported transformations, see [Power Query data wrangling functions](wrangling-functions.md).
 
 ## Next steps
 

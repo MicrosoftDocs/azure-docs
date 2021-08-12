@@ -13,25 +13,25 @@
     href: quickstart-onboard.md
 - name: Tutorials
   items:
-  - name: Investigate incidents
-    href: tutorial-investigate-cases.md
+  - name: Investigate with UEBA
+    href: investigate-with-ueba.md
   - name: Use automation to respond to threats
     href: tutorial-respond-threats-playbook.md
-  - name: Integrate with Microsoft 365 Defender
-    href: microsoft-365-defender-sentinel-integration.md
   - name: Create KQL queries for Azure Sentinel (Learn module)
     href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
   - name: Create a Power BI report from Azure Sentinel
     href: powerbi.md
 - name: Concepts
   items:
+  - name: Azure Sentinel prerequisites
+    href: prerequisites.md
   - name: Best practices
     items:
-    - name: Pre-deployment best practices
-      href: prerequisites.md
-    - name: General best practices
+    - name: Overview
       href: best-practices.md
-    - name: Data collection best practices
+    - name: Workspace architecture
+      href: best-practices-workspace-architecture.md
+    - name: Data collection
       href: best-practices-data.md
   - name: Architecture
     items:
@@ -39,6 +39,8 @@
       href: roles.md
     - name: Costs and billing
       href: azure-sentinel-billing.md
+    - name: Extend Azure Sentinel across workspaces and tenants
+      href: extend-sentinel-across-workspaces-tenants.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=%2fazure%2fsentinel%2fTOC.json
   - name: Data collection and analysis
@@ -79,8 +81,20 @@
       href: automate-responses-with-playbooks.md
     - name: Bring your own machine learning
       href: bring-your-own-ml.md
+  - name: Microsoft 365 Defender integration
+    href: microsoft-365-defender-sentinel-integration.md
 - name: How-tos
   items:
+  - name: Design your workspace architecture
+    items:
+    - name: Overview
+      href: design-your-workspace-architecture.md
+    - name: Sample workspace designs
+      href: sample-workspace-designs.md
+    - name: Plan and manage costs
+      href: azure-sentinel-billing.md
+    - name: Manage workspace access
+      href: resource-context-rbac.md
   - name: Migrate to Azure Sentinel
     href: migration.md
   - name: Collect data
@@ -285,28 +299,28 @@
       href: store-logs-in-azure-data-explorer.md
   - name: Discover and deploy solutions
     href: sentinel-solutions-deploy.md
-  - name: Connect threat intelligence
+  - name: Use threat intelligence
     items:
     - name: Connect threat intelligence platforms
       href: connect-threat-intelligence-tip.md
     - name: Connect to STIX/TAXII feeds
       href: connect-threat-intelligence-taxii.md
-  - name: Work with threat indicators
-    href: work-with-threat-indicators.md
+    - name: Work with threat indicators
+      href: work-with-threat-indicators.md
   - name: Monitor and visualize data
     items:
     - name: Visualize collected data
-      href: quickstart-get-visibility.md
+      href: get-visibility.md
     - name: Use Azure Monitor workbooks
       href: tutorial-monitor-your-data.md
   - name: Detect threats and analyze data
     items:
     - name: Use built-in rules
-      href: tutorial-detect-threats-built-in.md
+      href: detect-threats-built-in.md
     - name: Create custom rules
       items:
       - name: Create a rule
-        href: tutorial-detect-threats-custom.md
+        href: detect-threats-custom.md
       - name: Map data fields to entities
         href: map-data-fields-to-entities.md
       - name: Surface custom details in alerts
@@ -337,10 +351,10 @@
       href: livestream.md
   - name: Investigate and respond
     items:
+    - name: Investigate incidents
+      href: investigate-cases.md
     - name: Create custom entity activities
       href: customize-entity-activities.md
-    - name: Common UEBA investigation methods
-      href: investigate-with-ueba.md
     - name: Collaborate in Microsoft Teams
       href: collaborate-in-microsoft-teams.md
     - name: Authenticate playbooks to Azure Sentinel
@@ -349,10 +363,6 @@
       href: playbook-triggers-actions.md
   - name: Manage Azure Sentinel
     items:
-    - name: Manage workspace access
-      href: resource-context-rbac.md
-    - name: Extend Azure Sentinel across workspaces and tenants
-      href: extend-sentinel-across-workspaces-tenants.md
     - name: Azure Sentinel for MSSPs
       items:
       - name: Manage multiple tenants (MSSP)
@@ -381,6 +391,8 @@
       href: sap-solution-security-content.md
     - name: Expert configuration options
       href: sap-solution-deploy-alternate.md
+    - name: Troubleshooting your SAP solution deployment
+      href: sap-deploy-troubleshoot.md
 - name: Reference
   items:
   - name: Azure Sentinel REST-API
@@ -411,6 +423,8 @@
         href: authentication-normalization-schema.md
       - name: DNS normalization schema
         href: dns-normalization-schema.md
+      - name: File event normalization schema
+        href: file-event-normalization-schema.md
       - name: Network normalization schema
         href: normalization-schema.md
       - name: Process event normalization schema
@@ -425,6 +439,8 @@
       href: entities-reference.md
     - name: UEBA enrichments
       href: ueba-enrichments.md
+    - name: Watchlist template schemas
+      href: watchlist-schemas.md
     - name: Kusto Query Language
       items:
       - name: Kusto query overview
@@ -447,6 +463,8 @@
   items:
   - name: Useful resources
     href: resources.md
+  - name: Sample workspace architecture
+    href: sample-workspace-designs.md
   - name: Azure Sentinel blog
     href: https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog
   - name: Regional availability

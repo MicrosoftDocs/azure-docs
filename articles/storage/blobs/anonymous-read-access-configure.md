@@ -75,7 +75,7 @@ $location = "<location>"
 
 # Create a storage account with AllowBlobPublicAccess set to true (or null).
 New-AzStorageAccount -ResourceGroupName $rgName `
-    -AccountName $accountName `
+    -Name $accountName `
     -Location $location `
     -SkuName Standard_GRS
     -AllowBlobPublicAccess $false
@@ -85,7 +85,7 @@ New-AzStorageAccount -ResourceGroupName $rgName `
 
 # Set AllowBlobPublicAccess set to false
 Set-AzStorageAccount -ResourceGroupName $rgName `
-    -AccountName $accountName `
+    -Name $accountName `
     -AllowBlobPublicAccess $false
 
 # Read the AllowBlobPublicAccess property.
