@@ -147,7 +147,7 @@ If you no longer need the Azure Route Server, use the first command to remove th
 Remove-AzRouteServerPeer -PeerName "nva_name" -RouteServerName myRouteServer -ResourceGroupName RouteServerRG 
 ```
 
-2. Remove Azure Route Server with this command:
+2. Remove the Azure Route Server with this command:
 
 ```azurepowershell-interactive 
 Remove-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName RouteServerRG
