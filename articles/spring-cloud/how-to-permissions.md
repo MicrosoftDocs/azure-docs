@@ -14,26 +14,31 @@ This article shows you how to create custom roles that delegate permissions to A
 
 We'll implement the following custom roles.
 
-* **Developer role**: 
+* **Developer role**:
+
     * Deploy
     * Test
     * Restart apps
     * Apply and make changes to app configurations in the Git repository
     * Get log streams
+
 * **DevOps Engineer role**:
+
     * Create, read, update, and delete everything in Azure Spring Cloud
-* **Ops - Site Reliability Engineering role**: 
+* **Ops - Site Reliability Engineering role**:
+
     * Restart apps
     * Get log streams
     * Can't make changes to apps or configurations
+
 * **Azure Pipelines / Jenkins / GitHub Actions role**:
+
     * Perform create, read, update, and delete operations
     * Use Terraform or ARM templates to create and configure everything in Azure Spring Cloud and apps within a service instance: Azure Pipelines, Jenkins, and GitHub Actions
 
 ## Define the Developer role
 
 The Developer role includes permissions to restart apps and see their log streams. This role can't make changes to apps or configurations.
-
 
 #### [Portal](#tab/Azure-portal)
 1. In the Azure portal, open the subscription where you want to assign the custom role.
@@ -146,6 +151,7 @@ The Developer role includes permissions to restart apps and see their log stream
      }
    }
    ```
+
    ![Screenshot that shows the JSON for the Developer role.](media/spring-cloud-permissions/create-custom-role-json.png)
 
 9. Select **Save**.
@@ -153,11 +159,11 @@ The Developer role includes permissions to restart apps and see their log stream
 10. Review the permissions.
 
 11. Select **Review and create**.
+
 ---
 
-
-
 ## Define the DevOps Engineer role
+
 This procedure defines a role that has permissions to deploy, test, and restart Azure Spring Cloud apps.
 
 #### [Portal](#tab/Azure-portal)
@@ -220,7 +226,7 @@ This procedure defines a role that has permissions to deploy, test, and restart 
 
 #### [JSON](#tab/JSON)
 
-1. Repeat steps 1 through 4 from the procedure for adding the Developer role. 
+1. Repeat steps 1 through 4 from the procedure for adding the Developer role.
 2. Select **Next**.
 
 3. Select the **JSON** tab.
