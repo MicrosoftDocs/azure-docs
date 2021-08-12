@@ -310,7 +310,7 @@ private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
 }
 ```
 
-In the **appsettings.json** configuration file, add the logout redirect uri path to **SignedOutCallbackPath**.
+In the **appsettings.json** configuration file, add the logout redirect uri path to `SignedOutCallbackPath` key.
 
 ```json
 "AzureAdB2C": {
@@ -318,8 +318,7 @@ In the **appsettings.json** configuration file, add the logout redirect uri path
   "ClientId": "<web-app-application-id>",
   "Domain": "<your-b2c-domain>",
   "SignedOutCallbackPath": "/signout/<your-sign-up-in-policy>",
-  "SignUpSignInPolicyId": "<your-sign-up-in-policy>",
-  "SignedOutCallbackPath": "/signout",
+  "SignUpSignInPolicyId": "<your-sign-up-in-policy>"
 }
 ```
 
