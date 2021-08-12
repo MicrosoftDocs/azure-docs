@@ -351,7 +351,7 @@ If you want only daemon apps to call your web API, add the condition that the to
 ```csharp
 string oid = ClaimsPrincipal.Current.FindFirst("oid")?.Value;
 string sub = ClaimsPrincipal.Current.FindFirst("sub")?.Value;
-var isAppOnly = oid != null && sub != null && oid == sub;
+bool isAppOnly = oid != null && sub != null && oid == sub;
 ```
 
 Checking the inverse condition allows only apps that sign in a user to call your API.
