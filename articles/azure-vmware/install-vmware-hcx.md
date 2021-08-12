@@ -108,7 +108,7 @@ After deploying the VMware HCX Connector OVA on-premises and starting the applia
    >[!TIP]
    >The vCenter server is where you deployed the VMware HCX Connector in your datacenter.
 
-1. 8.	In **Configure SSO/PSC**, provide your Platform Services Controller's FQDN or IP address, and select **Continue**.
+1. In **Configure SSO/PSC**, provide your Platform Services Controller's FQDN or IP address, and select **Continue**.
 
    >[!NOTE]
    >Typically, it's the same as your vCenter FQDN or IP address.
@@ -136,7 +136,7 @@ You can uninstall HCX Advanced through the portal, which removes the existing pa
 
 1. For workloads using MON, ensure that you’ve removed the default gateways. Otherwise, it may result in workloads not being able to communicate or function.  
 
-1.  In your Azure VMware Solution private cloud, select **Manage** > **Add-ons**.
+1. In your Azure VMware Solution private cloud, select **Manage** > **Add-ons**.
 
 1. Select **Get started** for **HCX Workload Mobility**, then select **Uninstall**.
 
