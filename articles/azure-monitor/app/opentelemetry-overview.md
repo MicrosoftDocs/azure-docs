@@ -4,7 +4,7 @@ description: Provides an overview of how to use OpenTelemetry with Azure Monitor
 ms.topic: conceptual
 ms.date: 08/12/2021
 author: mattmccleary
-ms.author: mattmccleary
+ms.author: mmcc
 ---
 
 # OpenTelemetry Overview
