@@ -45,6 +45,32 @@ Specifically, this file system connector supports:
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
+## Create a file system linked service using UI
+
+Use the following steps to create a file system linked service in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+
+    # [Synapse Analytics](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+
+---
+
+2. Search for file and select the File System connector.
+
+    :::image type="content" source="media/connector-file-system/file-system-connector.png" alt-text="Select the File System connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-file-system/configure-file-system-linked-service.png" alt-text="Configure a File System linked service.":::
+
+## Connector configuration details
+
 The following sections provide details about properties that are used to define Data Factory and Synapse pipeline entities specific to file system.
 
 ## Linked service properties
