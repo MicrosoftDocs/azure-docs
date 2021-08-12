@@ -9,8 +9,6 @@ ms.subservice: flexible-scale-sets
 ms.date: 08/05/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
-
-#May be dropping this since you can't create with PS at this moment... TBD.
 ---
 
 # Preview: Create virtual machines in a Flexible scale set using PowerShell

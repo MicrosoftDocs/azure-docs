@@ -85,6 +85,167 @@ Before you can deploy virtual machine scale sets in Flexible orchestration mode,
 
 See [Add multiple VMs into a Virtual Machine Scale Set](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-vmss-flexible-orchestration-mode) for a full example.
 
+### ARM template
+
+```armasm
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.4.451.19169",
+      "templateHash": "8572588880309981021"
+    }
+  },
+  "parameters": {
+    "vmssname": {
+      "type": "string",
+      "defaultValue": "myVmssFlex"
+    },
+    "region": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    },
+    "zones": {
+      "type": "array",
+      "defaultValue": []
+    },
+    "vmSize": {
+      "type": "string",
+      "defaultValue": "Standard_DS1_v2"
+    },
+    "platformFaultDomainCount": {
+      "type": "int",
+      "defaultValue": 1,
+      "allowedValues": [
+        1,
+        2,
+        3,
+        5
+      ]
+    },
+    "vmCount": {
+      "type": "int",
+      "defaultValue": 3,
+      "maxValue": 500
+    },
+    "subnetId": {
+      "type": "string"
+    },
+    "adminUsername": {
+      "type": "string",
+      "defaultValue": "azureuser"
+    },
+    "authenticationType": {
+      "type": "string",
+      "defaultValue": "password",
+      "allowedValues": [
+        "password",
+        "sshPublicKey"
+      ]
+    },
+    "adminPasswordOrKey": {
+      "type": "secureString",
+      "defaultValue": "[newGuid()]"
+    }
+  },
+  "functions": [],
+  "variables": {
+    "networkApiVersion": "2020-11-01",
+    "linuxConfiguration": {
+      "disablePasswordAuthentication": true,
+      "provisionVMAgent": true,
+      "ssh": {
+        "publicKeys": [
+          {
+            "path": "[format('/home/{0}/.ssh/authorized_keys', parameters('adminUsername'))]",
+            "keyData": "[parameters('adminPasswordOrKey')]"
+          }
+        ]
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Compute/virtualMachineScaleSets",
+      "apiVersion": "2021-03-01",
+      "name": "[parameters('vmssname')]",
+      "location": "[parameters('region')]",
+      "zones": "[parameters('zones')]",
+      "sku": {
+        "name": "[parameters('vmSize')]",
+        "tier": "Standard",
+        "capacity": "[parameters('vmCount')]"
+      },
+      "properties": {
+        "orchestrationMode": "Flexible",
+        "singlePlacementGroup": false,
+        "platformFaultDomainCount": "[parameters('platformFaultDomainCount')]",
+        "virtualMachineProfile": {
+          "osProfile": {
+            "computerNamePrefix": "myVm",
+            "adminUsername": "[parameters('adminUsername')]",
+            "adminPassword": "[parameters('adminPasswordOrKey')]",
+            "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), null(), variables('linuxConfiguration'))]"
+          },
+          "networkProfile": {
+            "networkApiVersion": "[variables('networkApiVersion')]",
+            "networkInterfaceConfigurations": [
+              {
+                "name": "[format('{0}NicConfig01', parameters('vmssname'))]",
+                "properties": {
+                  "primary": true,
+                  "enableAcceleratedNetworking": false,
+                  "ipConfigurations": [
+                    {
+                      "name": "[format('{0}IpConfig', parameters('vmssname'))]",
+                      "properties": {
+                        "privateIPAddressVersion": "IPv4",
+                        "subnet": {
+                          "id": "[parameters('subnetId')]"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "diagnosticsProfile": {
+            "bootDiagnostics": {
+              "enabled": true
+            }
+          },
+          "storageProfile": {
+            "osDisk": {
+              "osType": "Linux",
+              "createOption": "FromImage",
+              "caching": "ReadWrite",
+              "diskSizeGB": 256,
+              "managedDisk": {
+                "storageAccountType": "Premium_LRS"
+              }
+            },
+            "imageReference": {
+              "publisher": "Canonical",
+              "offer": "UbuntuServer",
+              "sku": "18.04-LTS",
+              "version": "latest"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "outputs": {
+    "vmssid": {
+      "type": "string",
+      "value": "[resourceId('Microsoft.Compute/virtualMachineScaleSets', parameters('vmssname'))]"
+    }
+  }
+}
+```
 
 ## Next steps
 > [!div class="nextstepaction"]

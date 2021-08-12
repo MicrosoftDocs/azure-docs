@@ -56,13 +56,13 @@ az feature show --namespace Microsoft.Compute --name VMOrchestratorMultiFD
 Use the `group create`, `vmss create`, and `vm create` CLI commands to create a virtual machine scale set in flexible orchestration mode with Azure CLI. The following example shows the creation of a Flexible scale set where the fault domain count is set to 3, a virtual machine is created and then added to the Flexible scale set.
 
 ```azurecli-interactive
-vmssflexname="my-vmss-vmssflex"
+vmoname="my-vmss-vmo"
 vmname="myVM"
 rg="my-resource-group"
 
 az group create -n "$rg" -l $location
-az vmss create -n "$vmssflexname" -g "$rg" -l $location --orchestration-mode flexible --platform-fault-domain-count 3
-az vm create -n "$vmname" -g "$rg" -l $location --vmss $vmssflexname --image UbuntuLTS
+az vmss create -n "$vmoname" -g "$rg" -l $location --orchestration-mode vm --platform-fault-domain-count 3
+az vm create -n "$vmname" -g "$rg" -l $location --vmss $vmoname --image UbuntuLTS
 ``` 
 
 

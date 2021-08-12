@@ -53,7 +53,7 @@ Before you can deploy virtual machine scale sets in Flexible orchestration mode,
 1. Go to your **Subscriptions**.
 1. Navigate to the details page for the subscription you would like to create a scale set in Flexible orchestration mode by selecting the name of the subscription.
 1. In the menu under **Settings**, select **Preview features**.
-1. Select the two orchestrator features to enable: *VMOrchestratorSingleFD*, *VMOrchestratorMultiFD*, *VMScaleSetFlexPreview*, and *SkipPublicIpWriteRBACCheckForVMNetworkInterfaceConfigurationsPublicPreview*.
+1. Select the four orchestrator features to enable: *VMOrchestratorSingleFD*, *VMOrchestratorMultiFD*, *VMScaleSetFlexPreview*, and *SkipPublicIpWriteRBACCheckForVMNetworkInterfaceConfigurationsPublicPreview*.
 1. Select **Register**.
 
 Once the features have been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider. 
@@ -129,7 +129,7 @@ Common scenarios that will require explicit outbound connectivity include:
 - Windows VM activation will require that you have defined outbound connectivity from the VM instance to the Windows Activation Key Management Service (KMS). See [Troubleshoot Windows VM activation problems](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems) for more information.  
 - Access to storage accounts or Key Vault. Connectivity to Azure services can also be established via [Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview). 
 
-See [Source Network Address Translation (SNAT) for outbound connections](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) for more details on defining secure outbound connections.
+See [Default outbound access in Azure](https://aka.ms/defaultoutboundaccess) for more details on defining secure outbound connections.
 
 
 ## Specify a scale set when creating a VM
