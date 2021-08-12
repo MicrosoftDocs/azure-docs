@@ -126,7 +126,10 @@ If needed, you can [create the required network security group and rules using A
 
 ### Outbound rule
 
-For Outbound connectivity, you can either keep **AllowVnetOutbound** and **AllowInternetOutBound** or restrict outbound traffic by using ServiceTags listed in the following table.
+For Outbound connectivity, you can either keep **AllowVnetOutbound** and **AllowInternetOutBound** or restrict Outbound traffic by using ServiceTags listed in the following table. The ServiceTag for AzureUpdateDelivery must be added via PowerShell.
+
+Filtered outbound traffic is not supported on Classic deployments.
+
 
 | Outbound port number | Protocol | Source | Destination   | Action | Required | Purpose |
 |----------------------|----------|--------|---------------|--------|----------|---------|
