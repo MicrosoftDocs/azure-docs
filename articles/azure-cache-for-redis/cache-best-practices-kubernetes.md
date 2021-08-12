@@ -1,5 +1,5 @@
 ---
-title: Best practices for hosting a Kubernetes client applications
+title: Best practices for hosting a Kubernetes client application
 description: Learn how to host a Kubernetes client application that uses Azure Cache for Redis.
 author: shpathak-msft
 ms.service: cache
@@ -8,12 +8,17 @@ ms.date: 09/01/2021
 ms.author: shpathak
 ---
 
-# Kubernetes-hosted client applications 
+# Kubernetes-hosted client application 
 
-When you have multiple pods connecting to a Redis server, ensure that the new connections from the pods are created in a staggered manner. If multiple pods start up in a short duration of time, it would cause a sudden spike in the number of client connections created, which in turn leads to high server load on redis server and timeouts.
+## Multiple pods
+When you have multiple pods connecting to a Redis server, ensure that the new connections from the pods are created in a staggered manner. If multiple pods start up in a short duration of time, it would cause a sudden spike in the number of client connections created. The high number of connections leads to high server load on the Redis server and might cause timeouts.
 
-The same scenario should be avoided when shutting down multiple pods at the same time. This would cause a steep dip in the number of connections which leads to CPU pressure.
+Avoid the same scenario when shutting down multiple pods at the same time. Failing to stagger shutdown might cause a steep dip in the number of connections that leads to CPU pressure.
 
-Ensure that the Kubernetes node that is going to host the pod that connects to Redis has sufficient memory, CPU and network bandwidth.  
+## Sufficient resources
 
-Beware of the noisy neighbor problem. Your pod running Redis client can be affected by other pods running on the same node and throttle Redis connections or IO operations.
+Ensure that the Kubernetes node that hosts the pod and connects to Redis server has sufficient memory, CPU, and network bandwidth.  
+
+## Noisy neighbor problem
+
+Beware of the noisy neighbor problem. The pod running Redis client can be affected by other pods running on the same node and throttle Redis connections or IO operations.
