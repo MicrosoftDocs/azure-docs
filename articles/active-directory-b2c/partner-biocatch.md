@@ -171,7 +171,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
               <OutputClaims> 
 
-                <OutputClaim ClaimTypeReferenceId="clientSessionId" Required="false" DefaultValue="100"/> 
+                <OutputClaim ClaimTypeReferenceId="clientSessionId" Required="false" DefaultValue="100"/> 
 
               </OutputClaims> 
 
