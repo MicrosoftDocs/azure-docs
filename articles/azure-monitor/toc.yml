@@ -786,6 +786,8 @@
           href: app/java-on-premises.md
     - name: OpenTelemetry
       items: 
+      - name: Overview
+        href: /app/opentelemetry-overview.md
       - name: FAQ
         href: /azure/azure-monitor/faq#opentelemetry
     - name: Create a resource (classic)
