@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 08/05/2021
+ms.date: 08/12/2021
 tags: connectors
 ---
 
@@ -44,10 +44,12 @@ This article explains how you can access your SAP resources from Logic Apps usin
 * If you want to use the **When a message is received from SAP** trigger, you must also do the following:
 
     * Set up your SAP gateway security permissions with this setting: 
-    `"TP=Microsoft.PowerBI.EnterpriseGateway HOST=<gateway-server-IP-address> ACCESS=*"`
+    `P TP=Microsoft.PowerBI.EnterpriseGateway HOST=<on-premises-gateway-server-IP-address> ACCESS=*`
 
-    * Set up your SAP gateway security logging to help find Access Control List (ACL). For more information, see the [SAP help topic for setting up gateway logging](https://help.sap.com/erp_hcm_ias2_2015_02/helpdata/en/48/b2a710ca1c3079e10000000a42189b/frameset.htm). Otherwise, you might receive this error:
-    `"Registration of tp Microsoft.PowerBI.EnterpriseGateway from host <host-name> not allowed"`
+    * Set up your SAP gateway security logging to help find Access Control List (ACL). For more information, see the [SAP help topic for setting up gateway logging](https://help.sap.com/erp_hcm_ias2_2015_02/helpdata/en/48/b2a710ca1c3079e10000000a42189b/frameset.htm) and [1850230 - GW: "Registration of tp <program ID> not allowed"](https://userapps.support.sap.com/sap/support/knowledge/en/1850230). Otherwise, you might receive this error:
+    `"
+   
+   ration of tp Microsoft.PowerBI.EnterpriseGateway from host <host-name> not allowed"`
 
     > [!NOTE]
     > This trigger uses the same URI location to both renew and unsubscribe from a webhook subscription. The renewal operation uses the HTTP `PATCH` method, while the unsubscribe operation uses the HTTP `DELETE` method. This behavior might make a renewal operation appear as an unsubscribe operation in your trigger's history, but the operation is still a renewal because the trigger uses `PATCH` as the HTTP method, not `DELETE`.
@@ -861,7 +863,7 @@ To send IDocs from SAP to your logic app, you need the following minimum configu
 
 1. Save your changes.
 
-1. Register your new **Program ID** with Azure Logic Apps.
+1. Register your new **Program ID** with Azure Logic Apps by creating a logic app with a SAP connector trigger When a message is received from SAP. When the logic app is saved, it will register the **Program ID** on the SAP Gateway. Check the registration outcome in the logic app trigger history, the On-Premises Data Gateway SAP adapter logs and the SAP Gateway trace logs. The SAP Gateway monitor dialog (T-Code SMGW) should list the new registration as **Registered Server** under **Logged-On Clients**.
 
 1. To test your connection, in the SAP interface, under your new **RFC Destination**, select **Connection Test**.
 
