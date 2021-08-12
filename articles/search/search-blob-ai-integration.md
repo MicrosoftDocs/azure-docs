@@ -58,7 +58,7 @@ AI enrichment is an add-on to an indexing pipeline, and in Azure Cognitive Searc
 
 Blobs in Azure Storage are indexed using the [blob indexer](search-howto-indexing-azure-blob-storage.md). You can invoke this indexer by using the **Import data** wizard, a REST API, or an SDK. A blob indexer is invoked when the data source used by the indexer is an Azure Blob container. You can index a subset of your blobs by creating a virtual directory, which you can then pass as a parameter, or by filtering on a file type extension.
 
-An indexer does the "document cracking", opening a blob to inspect content. After connecting to the data source, it's the first step in the pipeline. For blob data, this is where PDF, office docs, image, and other content types are detected. Document cracking with text extraction is no charge. Document cracking with image extraction is charged at rates you can find on the [pricing page](https://azure.microsoft.com/pricing/details/search/).
+An indexer ["cracks a document"](search-indexer-overview.md#document-cracking), opening a blob to inspect content. After connecting to the data source, it's the first step in the pipeline. For blob data, this is where PDF, office docs, image, and other content types are detected. Document cracking with text extraction is no charge. Document cracking with image extraction is charged at rates you can find on the [pricing page](https://azure.microsoft.com/pricing/details/search/).
 
 Although all documents will be cracked, enrichment only occurs if you explicitly provide the skills to do so. For example, if your pipeline consists exclusively of image analysis, text in your container or documents is ignored.
 
@@ -78,7 +78,7 @@ A *skillset* is the collection of skills used in a pipeline, and it's invoked af
 
 Custom skills might sound complex but can be simple and straightforward in terms of implementation. If you have existing packages that provide pattern matching or classification models, the content you extract from blobs could be passed to these models for processing. Since AI enrichment is Azure-based, your model should be on Azure also. Some common hosting methodologies include using [Azure Functions](cognitive-search-create-custom-skill-example.md) or [Containers](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
 
-Built-in skills backed by Cognitive Services require an [attached Cognitive Services](cognitive-search-attach-cognitive-services.md) all-in-one subscription key that gives you access to the resource. An all-in-one key gives you image analysis, language detection, text translation, and text analytics. Other built-in skills are features of Azure Cognitive Search and require no additional service or key. Text shaper, splitter, and merger are examples of helper skills that are sometimes necessary when designing the pipeline.
+Built-in skills backed by Cognitive Services require an [attached Cognitive Services](cognitive-search-attach-cognitive-services.md) all-in-one subscription key that gives you access to the resource. An all-in-one key gives you image analysis, language detection, text translation, and text analytics. Other built-in skills are features of Azure Cognitive Search and require no additional service or key. Shaper, splitter, and merger are examples of helper skills that are sometimes necessary when designing the pipeline.
 
 If you use only custom skills and built-in utility skills, there is no dependency or costs related to Cognitive Services.
 

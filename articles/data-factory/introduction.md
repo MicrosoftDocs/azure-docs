@@ -4,6 +4,7 @@ description: Learn about Azure Data Factory, a cloud data integration service th
 author: dcstwh
 ms.author: weetok
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: overview
 ms.date: 06/08/2021
 ---
@@ -32,11 +33,11 @@ Additionally, you can publish your transformed data to data stores such as Azure
 
 Data Factory contains a series of interconnected systems that provide a complete end-to-end platform for data engineers.
 
-This visual guide provides a high level overview of of the Data Factory architecture:
+This visual guide provides a high-level overview of the Data Factory architecture:
 
 :::image type="content" source="media\introduction\data-factory-visual-guide-small.png" alt-text="A detailed visual guide to the complete system architecture for Azure Data Factory, presented in a single high resolution image." lightbox="media\introduction\data-factory-visual-guide.png":::
 
-To see more detail, click the preceding image to zoom in, or browse to the [high resolution image](/azure/data-factory/media/introduction/data-factory-visual-guide.png#lightbox). 
+To see more detail, click the preceding image to zoom in, or browse to the [high resolution image](/azure/data-factory/media/introduction/data-factory-visual-guide.png). 
 
 ### Connect and collect
 

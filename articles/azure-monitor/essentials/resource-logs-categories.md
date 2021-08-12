@@ -2,7 +2,7 @@
 title: Azure Monitor Resource Logs supported services and categories
 description: Reference of Azure Monitor Understand the supported services and event schema for Azure resource logs.
 ms.topic: reference
-ms.date: 07/06/2021
+ms.date: 07/19/2021
 ---
 
 # Supported categories for Azure Resource Logs
@@ -18,9 +18,9 @@ A combination of the resource type (available in the `resourceId` property) and 
 
 ## Costs
 
-There are costs associated with sending and storing any data into into Log Analytics, Azure Storage and/or Event hub. You may pay for the cost to get the data into these locations and for keeping it there.  Resource logs are one type of data you can send to these locations. 
+[Azure Monitor Log Analytics](https://azure.microsoft.com/pricing/details/monitor/), [Azure Storage](https://azure.microsoft.com/en-us/product-categories/storage/), [Event hub](https://azure.microsoft.com/en-us/pricing/details/event-hubs/), and partners who integrate directly with Azure Monitor ([for example Datadog](../../partner-solutions/datadog/overview.md)) have costs associated with ingesting data and storing data. Check the previous links to pricing pages for these services to understand those costs. Resource logs are just one type of data you can send to these locations. 
 
-There is an additional cost to export some categories of resource logs into these locations. Those logs with export costs are listed in the table below. For more information on this pricing, see the Platform Logs section in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
+In addition, there may be costs to export some categories of resource logs to those locations. Those logs with possible export costs are listed in the table below. For more information on export pricing, see the *Platform Logs* section in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## Supported log categories per resource type
 
@@ -118,15 +118,6 @@ If you think there is something is missing, you can open a GitHub comment at the
 |ServiceLog|Service Logs|No|
 
 
-## Microsoft.BatchAI/workspaces
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|BaiClusterEvent|BaiClusterEvent|No|
-|BaiClusterNodeEvent|BaiClusterNodeEvent|No|
-|BaiJobEvent|BaiJobEvent|No|
-
-
 ## Microsoft.Blockchain/blockchainMembers
 
 |Category|Category Display Name|Costs To Export|
@@ -196,6 +187,8 @@ If you think there is something is missing, you can open a GitHub comment at the
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |AuthOperational|Operational Authentication Logs|Yes|
+|CallDiagnosticsPRIVATEPREVIEW|Call Diagnostics Logs - PRIVATE PREVIEW|Yes|
+|CallSummaryPRIVATEPREVIEW|Call Summary Logs - PRIVATE PREVIEW|Yes|
 |ChatOperational|Operational Chat Logs|No|
 |SMSOperational|Operational SMS Logs|No|
 |Usage|Usage Records|No|
@@ -267,6 +260,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 |ssh|Databricks SSH|No|
 |workspace|Databricks Workspace|No|
 
+
 ## Microsoft.DataCollaboration/workspaces
 
 |Category|Category Display Name|Costs To Export|
@@ -276,6 +270,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 |Pipelines|Pipelines|No|
 |Proposals|Proposals|No|
 |Scripts|Scripts|No|
+
 
 ## Microsoft.DataFactory/factories
 
@@ -772,7 +767,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Audit|Audit Logs|No|
+|Audit|Audit|No|
 
 
 ## Microsoft.PowerBI/tenants
@@ -877,7 +872,6 @@ If you think there is something is missing, you can open a GitHub comment at the
 |QueryStoreWaitStatistics|Query Store Wait Statistics|No|
 |SQLInsights|SQL Insights|No|
 
-
 ## Microsoft.Sql/servers/databases
 
 |Category|Category Display Name|Costs To Export|
@@ -962,20 +956,6 @@ If you think there is something is missing, you can open a GitHub comment at the
 |---|---|---|
 |BigDataPoolAppsEnded|Big Data Pool Applications Ended|No|
 
-
-## Microsoft.Synapse/workspaces/kustoPools
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|Command|Command|No|
-|FailedIngestion|Failed ingest operations|No|
-|IngestionBatching|Ingestion batching|No|
-|Query|Query|No|
-|SucceededIngestion|Successful ingest operations|No|
-|TableDetails|Table details|No|
-|TableUsageStatistics|Table usage statistics|No|
-
-
 ## Microsoft.Synapse/workspaces/sqlPools
 
 |Category|Category Display Name|Costs To Export|
@@ -1041,11 +1021,9 @@ If you think there is something is missing, you can open a GitHub comment at the
 |AppServicePlatformLogs|App Service Platform logs|No|
 |FunctionAppLogs|Function Application Logs|No|
 
-
 ## Next Steps
 
 * [Learn more about resource logs](../essentials/platform-logs-overview.md)
 * [Stream resource resource logs to **Event Hubs**](./resource-logs.md#send-to-azure-event-hubs)
 * [Change resource log diagnostic settings using the Azure Monitor REST API](/rest/api/monitor/diagnosticsettings)
 * [Analyze logs from Azure storage with Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)
-

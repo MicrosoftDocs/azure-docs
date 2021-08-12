@@ -5,6 +5,7 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 03/08/2020
 ---
@@ -20,7 +21,7 @@ In this document, we will primarily focus on learning fundamental concepts with 
 
 ## Azure data factory UI and parameters
 
-If you are new to Azure data factory parameter usage in ADF user interface, please review [Data factory UI for linked services with parameters](./parameterize-linked-services.md#data-factory-ui)  and [Data factory UI for metadata driven pipeline with parameters](./how-to-use-trigger-parameterization.md#data-factory-ui) for visual explanation.
+If you are new to Azure data factory parameter usage in ADF user interface, please review [Data factory UI for linked services with parameters](./parameterize-linked-services.md#ui-experience)  and [Data factory UI for metadata driven pipeline with parameters](./how-to-use-trigger-parameterization.md#data-factory-ui) for visual explanation.
 
 ## Parameter and expression concepts 
 

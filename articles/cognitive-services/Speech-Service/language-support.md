@@ -3,13 +3,13 @@ title: Language support - Speech service
 titleSuffix: Azure Cognitive Services
 description: The Speech service supports numerous languages for speech-to-text and text-to-speech conversion, along with speech translation. This article provides a comprehensive list of language support by service feature.
 services: cognitive-services
-author: trevorbye
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.author: trbye
+ms.author: nitinme
 ms.custom: references_regions
 ---
 
@@ -473,6 +473,7 @@ Custom Voice is available in the neural tier (a.k.a, Custom Neural Voice). Based
 | Korean (Korea) | `ko-KR` | Yes | Yes |
 | Norwegian (Bokmål, Norway) | `nb-NO` | Yes | No |
 | Portuguese (Brazil) | `pt-BR` | Yes | Yes |
+| Russian (Russia) | `ru-RU` | Yes | Yes |
 | Spanish (Mexico) | `es-MX` | Yes | Yes |
 | Spanish (Spain) | `es-ES` | Yes | Yes |
 

@@ -362,19 +362,28 @@ best_run, fitted_model = local_run.get_output()
 
 Use the best model iteration to forecast values for the test data set.
 
-The `forecast()` function allows specifications of when predictions should start, unlike the `predict()`, which is typically used for classification and regression tasks.
+The [forecast_quantiles()](/python/api/azureml-train-automl-client/azureml.train.automl.model_proxy.modelproxy#forecast-quantiles-x-values--typing-any--y-values--typing-union-typing-any--nonetype----none--forecast-destination--typing-union-typing-any--nonetype----none--ignore-data-errors--bool---false-----azureml-data-abstract-dataset-abstractdataset) function allows specifications of when predictions should start, unlike the `predict()` method, which is typically used for classification and regression tasks. The forecast_quantiles() method by default generates a point forecast or a mean/median forecast which doesn't have a cone of uncertainity around it. 
 
-In the following example, you first replace all values in `y_pred` with `NaN`. The forecast origin will be at the end of training data in this case. However, if you replaced only the second half of `y_pred` with `NaN`, the function would leave the numerical values in the first half unmodified, but forecast the `NaN` values in the second half. The function returns both the forecasted values and the aligned features.
+In the following example, you first replace all values in `y_pred` with `NaN`. The forecast origin is at the end of training data in this case. However, if you replaced only the second half of `y_pred` with `NaN`, the function would leave the numerical values in the first half unmodified, but forecast the `NaN` values in the second half. The function returns both the forecasted values and the aligned features.
 
-You can also use the `forecast_destination` parameter in the `forecast()` function to forecast values up until a specified date.
+You can also use the `forecast_destination` parameter in the `forecast_quantiles()` function to forecast values up to a specified date.
 
 ```python
 label_query = test_labels.copy().astype(np.float)
 label_query.fill(np.nan)
-label_fcst, data_trans = fitted_model.forecast(
+label_fcst, data_trans = fitted_model.forecast_quantiles(
     test_data, label_query, forecast_destination=pd.Timestamp(2019, 1, 8))
 ```
 
+Often customers want to understand the predictions at a specific quantile of the distribution. For example, when the forecast is used to control inventory like grocery items or virtual machines for a cloud service. In such cases, the control point is usually something like "we want the item to be in stock and not run out 99% of the time". The following demonstrates how to specify which quantiles you'd like to see for your predictions, such as 50th or 95th percentile. If you don't specify a quantile, like in the aforementioned code example, then only the 50th percentile predictions are generated. 
+
+```python
+# specify which quantiles you would like 
+fitted_model.quantiles = [0.05,0.5, 0.9]
+fitted_model.forecast_quantiles(
+    test_data, label_query, forecast_destination=pd.Timestamp(2019, 1, 8))
+```
+ 
 Calculate root mean squared error (RMSE) between the `actual_labels` actual values, and the forecasted values in `predict_labels`.
 
 ```python
@@ -384,7 +393,8 @@ from math import sqrt
 rmse = sqrt(mean_squared_error(actual_labels, predict_labels))
 rmse
 ```
-
+ 
+ 
 Now that the overall model accuracy has been determined, the most realistic next step is to use the model to forecast unknown future values. 
 
 Supply a data set in the same format as the test set `test_data` but with future datetimes, and the resulting prediction set is the forecasted values for each time-series step. Assume the last time-series records in the data set were for 12/31/2018. To forecast demand for the next day (or as many periods as you need to forecast, <= `forecast_horizon`), create a single time series record for each store for 01/01/2019.
@@ -395,13 +405,13 @@ day_datetime,store,week_of_year
 01/01/2019,A,1
 ```
 
-Repeat the necessary steps to load this future data to a dataframe and then run `best_run.forecast(test_data)` to predict future values.
+Repeat the necessary steps to load this future data to a dataframe and then run `best_run.forecast_quantiles(test_data)` to predict future values.
 
 > [!NOTE]
 > In-sample predictions are not supported for forecasting with automated ML when `target_lags` and/or `target_rolling_window_size` are enabled.
 
-
 ## Example notebooks
+
 See the [forecasting sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) for detailed code examples of advanced forecasting configuration including:
 
 * [holiday detection and featurization](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb)
@@ -414,5 +424,4 @@ See the [forecasting sample notebooks](https://github.com/Azure/MachineLearningN
 
 * Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
 * Learn about [Interpretability: model explanations in automated machine learning (preview)](how-to-machine-learning-interpretability-automl.md). 
-* Learn how to train multiple models with AutoML in the [Many Models Solution Accelerator](https://aka.ms/many-models).
 * Follow the [Tutorial: Train regression models](tutorial-auto-train-models.md) for an end to end example for creating experiments with automated machine learning.

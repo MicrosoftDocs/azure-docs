@@ -50,7 +50,7 @@ landingContent:
           - text: Available sizes
             url: available-sizes.md
           - text: Frequently asked questions
-            url: faq.md
+            url: faq.yml
           - text: Guest OS release news
             url: ../cloud-services/cloud-services-guestos-update-matrix.md?toc=/azure/cloud-services-extended-support/toc.json&bc=/azure/cloud-services-extended-support/breadcrumb/toc.json
 

@@ -3,15 +3,20 @@ title: Request host quota for Azure VMware Solution
 description: Learn how to request host quota/capacity for Azure VMware Solution. You can also request more hosts in an existing Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.custom: contperf-fy21q3
-ms.date: 05/13/2021
+ms.date: 08/06/2021
+
+#Customer intent: As an Azure service admin, I want to request hosts for either a new private cloud deployment or I want to have more hosts allocated in an existing private cloud.
+
 ---
 
 # Request host quota for Azure VMware Solution
 
-In this how-to, you'll request host quota/capacity for [Azure VMware Solution](introduction.md). You'll submit a support ticket to have your hosts allocated. If you have an existing Azure VMware Solution private cloud and want more hosts allocated, you'll follow the same process.
+In this how-to, you'll request host quota/capacity for [Azure VMware Solution](introduction.md). You'll submit a support ticket to have your hosts allocated whether it's for a new deployment or an existing one. 
+
+If you have an existing Azure VMware Solution private cloud and want more hosts allocated, you'll follow the same process.
 
 >[!IMPORTANT]
->It can take a few days to allocate the hosts, depending on the number requested.  So request what is needed for provisioning, so you don't need to request a quota increase as often.
+>It can take up to five business days to allocate the hosts, depending on the number requested.  So request what is needed for provisioning, so you don't need to request a quota increase as often.
 
 ## Eligibility criteria
 
@@ -19,6 +24,7 @@ You'll need an Azure account in an Azure subscription. The Azure subscription mu
 
 - A subscription under an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
 - A Cloud Solution Provider (CSP) managed subscription under an existing CSP Azure offers contract or an Azure plan.
+- A [Modern Commerce Agreement](../cost-management-billing/understand/mca-overview.md) with Microsoft.
 
 ## Request host quota for EA customers
 
@@ -57,11 +63,11 @@ Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from P
 
    1. In **Partner Center**, select **CSP** to access the **Customers** area.
    
-      :::image type="content" source="media/enable-azure-vmware-solution/csp-customers-screen.png" alt-text="Screenshot showing the Microsoft Partner Center customer area." lightbox="media/enable-azure-vmware-solution/csp-customers-screen.png":::
+      :::image type="content" source="media/pre-deployment/csp-customers-screen.png" alt-text="Screenshot showing the Microsoft Partner Center customer area." lightbox="media/pre-deployment/csp-customers-screen.png":::
    
    1. Select your customer and then select **Add products**.
    
-      :::image type="content" source="media/enable-azure-vmware-solution/csp-partner-center.png" alt-text="Screenshot showing Azure plan selected in the Microsoft Partner Center." lightbox="media/enable-azure-vmware-solution/csp-partner-center.png":::
+      :::image type="content" source="media/pre-deployment/csp-partner-center.png" alt-text="Screenshot showing Azure plan selected in the Microsoft Partner Center." lightbox="media/pre-deployment/csp-partner-center.png":::
    
    1. Select **Azure plan** and then select **Add to cart**. 
    
@@ -100,5 +106,4 @@ Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from P
 
 ## Next steps
 
-Before you can deploy Azure VMware Solution, you must first [register the resource provider](deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider) with your subscription to enable the service.   
-
+Before you can deploy Azure VMware Solution, you must first [register the resource provider](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider) with your subscription to enable the service.   

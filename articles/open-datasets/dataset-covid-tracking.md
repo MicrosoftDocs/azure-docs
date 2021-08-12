@@ -127,8 +127,6 @@ https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_parquet.h
 
 https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html
 
-https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_json.html (use lines=True for json lines)
-
 ```python
 import pandas as pd
 import numpy as np

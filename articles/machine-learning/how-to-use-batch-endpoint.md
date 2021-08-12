@@ -9,8 +9,8 @@ ms.topic: conceptual
 author: tracych
 ms.author: tracych
 ms.reviewer: laobri
-ms.date: 5/25/2021
-ms.custom: how-to
+ms.date: 8/11/2021
+ms.custom: how-to, devplatv2
 
 # Customer intent: As an ML engineer or data scientist, I want to create an endpoint to host my models for batch scoring, so that I can use the same endpoint continuously for different large datasets on-demand or on-schedule.
 ---
@@ -75,7 +75,7 @@ Batch scoring runs only on cloud computing resources, not locally. The cloud com
 Run the following code to create a general purpose [`AmlCompute`](/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py&preserve-view=true) target. For more information about compute targets, see [What are compute targets in Azure Machine Learning?](./concept-compute-target.md).
 
 ```azurecli
-az ml compute create --name cpu-cluster --type AmlCompute --min-instances 0 --max-instances 5
+az ml compute create --name cpu-cluster --type amlcompute --min-instances 0 --max-instances 5
 ```
 
 ## Create a batch endpoint
@@ -191,12 +191,9 @@ You can also check job details along with status using the Azure CLI.
 
 Get the job name from the invoke response.
 
-```azurecli
-job_name=$(az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/nytaxi/taxi-tip-data.csv --query name -o tsv)
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="start_batch_scoring_job" :::
 
 Use `job show` to check details and status of a batch scoring job.
-
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="check_job_status" :::
 
@@ -228,9 +225,7 @@ One batch endpoint can have multiple deployments. Each deployment hosts one mode
 
 Use the following command to add a new deployment to an existing batch endpoint.
 
-```azurecli
-az ml endpoint update --name mybatchedp --type batch --deployment-file cli/endpoints/batch/add-deployment.yml
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" range="65" :::
 
 This sample uses a non-MLflow model. When using non-MLflow, you'll need to specify the environment and a scoring script in the YAML file:
 
@@ -260,9 +255,7 @@ If you re-examine the details of your deployment, you will see your changes:
 
 Now you can invoke a batch scoring job with this new deployment:
 
-```azurecli
-az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/mnist --mini-batch-size 10 --instance-count 2
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="start_batch_scoring_job_with_new_settings" :::
 
 ## Start a batch scoring job using REST
 
@@ -279,16 +272,7 @@ Batch endpoints have scoring URIs for REST access. REST lets you use any HTTP li
 
 3. Use the `scoring_uri`, the access token, and JSON data to POST a request and start a batch scoring job:
 
-```bash
-curl --location --request POST "$scoring_uri" --header "Authorization: Bearer $auth_token" --header 'Content-Type: application/json' --data-raw '{
-"properties": {
-  "dataset": {
-    "dataInputType": "DataUrl",
-    "Path": "https://pipelinedata.blob.core.windows.net/sampledata/mnist"
-    }
-  }
-}'
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="start_batch_scoring_job_rest":::
 
 
 ## Clean up resources

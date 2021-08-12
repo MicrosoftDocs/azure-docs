@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/19/2020
+ms.date: 07/18/2021
 ms.author: memildin
 
 ---
@@ -33,35 +33,15 @@ If you're using any programmatic methods to consume the alerts, you'll need the 
 ## The schemas 
 
 
-### [Workflow automation and continuous export to Event Hub](#tab/schema-continuousexport)
+### [Azure Sentinel](#tab/schema-sentinel)
 
-### Sample JSON for alerts sent to Logic Apps, Event Hub, and third-party SIEMs
-
-Below you'll find the schema of the alert events passed to:
-
-- Azure Logic App instances that were configured in Security Center's workflow automation
-- Azure Event Hub using Security Center's continuous export feature
-
-For more information about the workflow automation feature, see [Automate responses to Security Center triggers](workflow-automation.md).
-
-For more information about continuous export, see [Continuously export Security Center data](continuous-export.md).
-
-[!INCLUDE [Workflow schema](../../includes/security-center-alerts-schema-workflow-automation.md)]
-
-
-
-
-### [Azure Sentinel and Log Analytics workspaces](#tab/schema-sentinel)
-
-The Sentinel Connector gets alerts from Azure Security Center and sends them to the Log Analytics Workspace for Azure Sentinel. 
+The Sentinel Connector gets alerts from Azure Security Center and sends them to the Log Analytics Workspace for Azure Sentinel.
 
 To create a Sentinel case or incident using Security Center alerts, you'll need the schema for those alerts shown below. 
 
 For more information about Azure Sentinel, see [the documentation](../sentinel/index.yml).
 
 [!INCLUDE [Sentinel and workspace schema](../../includes/security-center-alerts-schema-log-analytics-workspace.md)]
-
-
 
 
 ### [Azure Activity Log](#tab/schema-activitylog)
@@ -161,6 +141,18 @@ You can view the security alerts events in Activity Log by searching for the Act
 |**relatedEvents**|Constant - empty array|
 |||
 
+
+### [Workflow automation](#tab/schema-workflow-automation)
+
+For the alerts schema when using workflow automation, see the [connectors documentation](/connectors/ascalert/).
+
+
+### [Continuous export](#tab/schema-continuousexport)
+
+Security Center's continuous export feature passes alert data to:
+
+- Azure Event Hub using the same schema as [the alerts API](/rest/api/securitycenter/alerts).
+- Log Analytics workspaces according to the [SecurityAlert schema](/azure/azure-monitor/reference/tables/SecurityAlert) in the Azure Monitor data reference documentation.
 
 
 

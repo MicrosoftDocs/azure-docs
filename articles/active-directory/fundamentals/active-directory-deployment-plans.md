@@ -39,11 +39,11 @@ From any of the plan pages, use your browser's Print to PDF capability to create
 | [Devices](../devices/plan-device-deployment.md) | This article helps you evaluate the methods to integrate your device with Azure AD, choose the implementation plan, and provides key links to supported device management tools. |
 
 
-## Deploy hybrid scenarios
+## Deploy hybrid scenarios  
 
 | Capability | Description|
 | -| -|
-| [AD FS to cloud user authentication](/hybrid/migrate-from-federation-to-cloud-authentication.md)| Learn to migrate your user authentication from federation to cloud authentication with either pass through authentication or password hash sync.
+| [AD FS to cloud user authentication](../hybrid/migrate-from-federation-to-cloud-authentication.md)| Learn to migrate your user authentication from federation to cloud authentication with either pass through authentication or password hash sync.
 | [Azure AD Application Proxy](../app-proxy/application-proxy-deployment-plan.md) |Employees today want to be productive at any place, at any time, and from any device. They need to access SaaS apps in the cloud and corporate apps on-premises. Azure AD Application proxy enables this robust access without costly and complex virtual private networks (VPNs) or demilitarized zones (DMZs). |
 | [Seamless SSO](../hybrid/how-to-connect-sso-quick-start.md)| Azure Active Directory Seamless Single Sign-On (Azure AD Seamless SSO) automatically signs users in when they are on their corporate devices connected to your corporate network. With this feature, users won't need to type in their passwords to sign in to Azure AD and usually won't need to enter their usernames. This feature provides authorized users with easy access to your cloud-based applications without needing any extra on-premises components. |
 

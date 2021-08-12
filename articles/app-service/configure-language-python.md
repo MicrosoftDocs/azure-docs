@@ -291,7 +291,7 @@ App Service ignores any errors that occur when processing a custom startup comma
 
     For more information, see [Gunicorn logging](https://docs.gunicorn.org/en/stable/settings.html#logging) (docs.gunicorn.org).
     
-- **Custom Flask main module**: by default, App Service assumes that a Flask app's main module is *application.py* or *app.py*. If your main module uses a different name, then you must customize the startup command. For example, yf you have a Flask app whose main module is *hello.py* and the Flask app object in that file is named `myapp`, then the command is as follows:
+- **Custom Flask main module**: by default, App Service assumes that a Flask app's main module is *application.py* or *app.py*. If your main module uses a different name, then you must customize the startup command. For example, if you have a Flask app whose main module is *hello.py* and the Flask app object in that file is named `myapp`, then the command is as follows:
 
     ```bash
     gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
@@ -426,13 +426,9 @@ If you're encountering this error with the sample in [Tutorial: Deploy a Django 
 
 - **You see the message, "Fatal SSL Connection is Required"**: Check any usernames and passwords used to access resources (such as databases) from within the app.
 
-## Next steps
+## More resources:
 
-> [!div class="nextstepaction"]
-> [Tutorial: Python app with PostgreSQL](tutorial-python-postgresql-app.md)
-
-> [!div class="nextstepaction"]
-> [Tutorial: Deploy from private container repository](tutorial-custom-container.md?pivots=container-linux)
-
-> [!div class="nextstepaction"]
-> [App Service Linux FAQ](faq-app-service-linux.yml)
+- [Tutorial: Python app with PostgreSQL](tutorial-python-postgresql-app.md)
+- [Tutorial: Deploy from private container repository](tutorial-custom-container.md?pivots=container-linux)
+- [App Service Linux FAQ](faq-app-service-linux.yml)
+- [Environment variables and app settings reference](reference-app-settings.md)

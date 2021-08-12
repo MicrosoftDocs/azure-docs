@@ -40,4 +40,4 @@ To manage this, here are some recommendations for working with limits.
 ## Next steps
 
 Learn more about the current release of Azure Digital Twins in the service overview:
-* [Overview: What is Azure Digital Twins?](overview.md)
+* [What is Azure Digital Twins?](overview.md)
