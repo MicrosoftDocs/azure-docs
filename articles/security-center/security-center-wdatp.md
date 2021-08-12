@@ -72,12 +72,10 @@ Confirm that your machine meets the necessary requirements for Defender for Endp
 1. Ensure the machine is connected to Azure and the internet as required:
 
     - **Azure virtual machines (Windows or Linux)**:
-        - Confirm that your target machines have the Log Analytics agent. Use the Security Center recommendation to deploy the Log Analytics agent where necessary: [Log Analytics agent should be installed on your virtual machine](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/d1db3318-01ff-16de-29eb-28b344515626).
         - Configure the network settings described in configure device proxy and internet connectivity settings: [Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet) or [Linux](/microsoft-365/security/defender-endpoint/linux-static-proxy-configuration)
 
     - **On-premises machines**:
-        1. Connect your target machines to Azure Arc as explained in [Connect hybrid machines with Azure Arc enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
-        1. Use the relevant Security Center recommendation to deploy the Log Analytics agent:<br>[Log Analytics agent should be installed on your **Linux-based** Azure Arc machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/720a3e77-0b9a-4fa9-98b6-ddf0fd7e32c1)<br>[Log Analytics agent should be installed on your **Windows-based** Azure Arc machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/27ac71b1-75c5-41c2-adc2-858f5db45b08)
+        - Connect your target machines to Azure Arc as explained in [Connect hybrid machines with Azure Arc enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 
 1. Enable **Azure Defender for servers**. See [Quickstart: Enable Azure Defender](enable-azure-defender.md).
 
