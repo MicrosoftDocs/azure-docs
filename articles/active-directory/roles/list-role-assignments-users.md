@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # List Azure AD role assignments for a user
 
-A role can be assigned to a user directly or transitively via a group. This article describes how to list the Azure AD roles assigned to a user. See this to learn about role assignment via groups - [Use Azure AD groups to manage role assignments](groups-concept.md).
+A role can be assigned to a user directly or transitively via a group. This article describes how to list the Azure AD roles assigned to a user. For information about assigning roles to groups, see [Use Azure AD groups to manage role assignments](groups-concept.md).
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ Follow these steps to list Azure AD roles for a user using the Azure portal. You
     
     ![list of roles assigned to a user in Azure portal](./media/list-role-assignments-users/list-role-definition.png)
 
-    If you are Premium P2 license customer, you will see PIM UX which has eligible, active, and expired role assignment details
+    If you have a Premium P2 license, you will see the PIM experience, which has eligible, active, and expired role assignment details.
 
     ![list of roles assigned to a user in PIM](./media/list-role-assignments-users/list-role-definition-pim.png)
 

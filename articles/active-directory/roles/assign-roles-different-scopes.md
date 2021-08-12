@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Assign Azure AD roles at different scopes
 
-This article describes how to assign Azure AD roles at different scopes. To understanding scoping in Azure AD, refer to this doc - [Overview of RBAC in Azure AD](custom-overview.md). In general, you must be within the scope which you want the role assignment to be limited to. For example, if you want to assign Helpdesk Administrator role scoped over an [administrative unit](administrative-units.md), then you should go to **Azure AD > Administrative Units > {administrative unit} > Roles and administrators** and then do the role assignment. This will create a role assignment scoped to the administrative unit, not the entire tenant.
+This article describes how to assign Azure AD roles at different scopes. To understanding scoping in Azure AD, refer to this doc - [Overview of RBAC in Azure AD](custom-overview.md). In general, you must be within the scope that you want the role assignment to be limited to. For example, if you want to assign Helpdesk Administrator role scoped over an [administrative unit](administrative-units.md), then you should go to **Azure AD > Administrative Units > {administrative unit} > Roles and administrators** and then do the role assignment. This will create a role assignment scoped to the administrative unit, not the entire tenant.
 
 ## Prerequisites
 
@@ -200,7 +200,7 @@ Follow these instructions to assign a role at administrative unit scope using th
     GET https://graph.microsoft.com/beta/rolemanagement/directory/roleDefinitions?$filter=displayName eq 'User Administrator'
     ```
     
-1. Use the [List AdministrativeUnits](/graph/api/administrativeunit-list) API to get the administrative unit you want the role assignment to be scoped to.
+1. Use the [List administrativeUnits](/graph/api/administrativeunit-list) API to get the administrative unit you want the role assignment to be scoped to.
 
     ```HTTP
     GET https://graph.microsoft.com/beta/administrativeUnits?$filter=displayName eq 'Seattle Admin Unit'
