@@ -134,11 +134,11 @@ You can uninstall HCX Advanced through the portal, which removes the existing pa
 
 1. Ensure that L2 extensions are no longer needed or the networks have been "unstretched" to the destination. 
 
-1. 3.	For workloads using MON, ensure that you’ve removed the default gateways. Otherwise, it may result in workloads not being able to communicate or function.  
+1. For workloads using MON, ensure that you’ve removed the default gateways. Otherwise, it may result in workloads not being able to communicate or function.  
 
 1.  In your Azure VMware Solution private cloud, select **Manage** > **Add-ons**.
 
-2. Select **Get started** for **HCX Workload Mobility** then select to "uninstall".
+1. Select **Get started** for **HCX Workload Mobility**, then select **Uninstall**.
 
    
 1. Enter **yes** to confirm the uninstall.
