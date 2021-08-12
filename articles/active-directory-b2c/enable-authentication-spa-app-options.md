@@ -122,32 +122,32 @@ After logout, the user is redirected to the URI specified in the `post_logout_re
 
 To support a secured logout redirect URI, follow the steps below:
 
-    1. Create a globally accessible variable to store the `id_token`.
-        ```javascript
-        let id_token = "";
-        ```
-    1. In the MSAL `handleResponse` function, parse the `id_token` from the `authenticationResult` object into the `id_token` variable.
-        ```javascript
-        function handleResponse(response) {
-            if (response !== null) {
-                setAccount(response.account);
-                id_token = response.idToken;
-            } else {
-                selectAccount();
-            }
+1. Create a globally accessible variable to store the `id_token`.
+    ```javascript
+    let id_token = "";
+    ```
+1. In the MSAL `handleResponse` function, parse the `id_token` from the `authenticationResult` object into the `id_token` variable.
+    ```javascript
+    function handleResponse(response) {
+        if (response !== null) {
+            setAccount(response.account);
+            id_token = response.idToken;
+        } else {
+            selectAccount();
         }
-        ```
-    1. In the `signOut` function, add the `id_token_hint` parameter to the logout request object.
-        ```javascript
-        function signOut() {
-            const logoutRequest = {
-                postLogoutRedirectUri: msalConfig.auth.redirectUri,
-                idTokenHint : id_token,
-                mainWindowRedirectUri: msalConfig.auth.redirectUri
-            };
-            myMSALObj.logoutPopup(logoutRequest);
-        }
-        ```
+    }
+    ```
+1. In the `signOut` function, add the `id_token_hint` parameter to the logout request object.
+    ```javascript
+    function signOut() {
+        const logoutRequest = {
+            postLogoutRedirectUri: msalConfig.auth.redirectUri,
+            idTokenHint : id_token,
+            mainWindowRedirectUri: msalConfig.auth.redirectUri
+        };
+        myMSALObj.logoutPopup(logoutRequest);
+    }
+    ```
 
 In the above example, the **post_logout_redirect_uri** will be in the format: `https://your-app.com/`. This URL must be added to the Application Registration's reply URL's.
 
