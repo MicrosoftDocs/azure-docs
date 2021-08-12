@@ -17,8 +17,15 @@ ms.custom: mvc
 
 - At-scale discovery and assessment of ASP.NET web apps running on IIS servers in your VMware environment, is now in preview. [Learn More](concepts-azure-sql-assessment-calculation.md) Refer to the [Discovery](tutorial-discover-vmware.md) and [assessment](tutorial-assess-sql.md) tutorials to get started.
 - Support for Azure [ultra disks](https://docs.microsoft.com/azure/virtual-machines/disks-types#ultra-disk) in Azure VM assessment recommendation.
+- General Availability of at-scale, software inventory and agentless dependency analysis for VMware virtual machines.
+- Azure Migrate appliance updates:
+    - ‘Diagnose and solve’ on appliance to help users identify and self-assess any issues with the appliance.
+    - Unified installer script- common script where users need to select from the scenario, cloud, and connectivity options to deploy an appliance with the desired configuration.
+    - Support to add a user account with ‘sudo’ access on appliance configuration manager to perform discovery of Linux servers (as an alternative to providing root account or enabling setcap permissions).
+    - Support to edit the SQL Server connection properties on the appliance configuration manager
 
 ## Update (July 2021)
+
 - Azure Migrate: App Containerization tool now lets you package applications running on servers into a container image and deploy the containerized application to Azure App Service containers, in addition to Azure Kubernetes Service. You can also automatically integrate application monitoring for Java apps with Azure Application Insights and use Azure Key Vault to manage application secrets such as certificates and parameterized configurations. For more information, see [ASP.NET app containerization and migration to Azure App Service](tutorial-app-containerization-aspnet-app-service.md) and [Java web app containerization and migration to Azure App Service](tutorial-app-containerization-java-app-service.md) tutorials to get started.
 
 ## Update (June 2021)
