@@ -89,7 +89,7 @@
   items:
   - name: Trusted Internet Connections with Azure
     href: compliance/compliance-tic.md
-  - name: Azure services by audit scope
+  - name: Cloud services by audit scope
     href: compliance/azure-services-in-fedramp-auditscope.md
   - name: Accelerate your path to ATO with Azure
     href: compliance/documentation-accelerate-compliance.md

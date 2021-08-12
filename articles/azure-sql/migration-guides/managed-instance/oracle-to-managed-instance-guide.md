@@ -15,7 +15,7 @@ ms.date: 11/06/2020
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
 
-In this guide, you learn how to migrate your Oracle schemas to Azure SQL Managed Instance by using SQL Server Migration Assistant for Oracle (SSMA for Oracle).
+ This guide teaches you to migrate your Oracle schemas to Azure SQL Managed Instance by using SQL Server Migration Assistant for Oracle.
 
 For other migration guides, see [Azure Database Migration Guides](/data-migration).
 
@@ -52,7 +52,7 @@ To create an assessment:
 
    ![Screenshot that shows selecting Oracle schema.](./media/oracle-to-managed-instance-guide/select-schema.png)
 
-1. In **Oracle Metadata Explorer**, right-click the Oracle schema you want to migrate and then select **Create Report** to generate an HTML report. Alternatively, you can select a database and then select the **Create Report** tab.
+1. In **Oracle Metadata Explorer**, right-click the Oracle schema you want to migrate and then select **Create Report** to generate an HTML report. Instead, you can select a database and then select the **Create Report** tab.
 
    ![Screenshot that shows Create Report.](./media/oracle-to-managed-instance-guide/create-report.png)
 
@@ -85,7 +85,7 @@ To convert the schema:
 
     ![Screenshot that shows Connect to Azure SQL Managed Instance.](./media/oracle-to-managed-instance-guide/connect-to-sql-managed-instance.png)
 
-1. In **Oracle Metadata Explorer**, right-click the Oracle schema and then select **Convert Schema**. Alternatively, you can select your schema and then select the **Convert Schema** tab.
+1. In **Oracle Metadata Explorer**, right-click the Oracle schema and then select **Convert Schema**. Or, you can select your schema and then select the **Convert Schema** tab.
 
    ![Screenshot that shows Convert Schema.](./media/oracle-to-managed-instance-guide/convert-schema.png)
 
@@ -105,6 +105,7 @@ To convert the schema:
 After you've completed assessing your databases and addressing any discrepancies, the next step is to run the migration process. Migration involves two steps: publishing the schema and migrating the data.
 
 To publish your schema and migrate your data:
+
 1. Publish the schema by right-clicking the database from the **Databases** node in **Azure SQL Managed Instance Metadata Explorer** and selecting **Synchronize with Database**.
 
    ![Screenshot that shows Synchronize with Database.](./media/oracle-to-managed-instance-guide/synchronize-with-database.png)
@@ -114,7 +115,7 @@ To publish your schema and migrate your data:
 
    ![Screenshot that shows Synchronize with the Database review.](./media/oracle-to-managed-instance-guide/synchronize-with-database-review.png)
 
-1. Migrate the data by right-clicking the schema or object you want to migrate in **Oracle Metadata Explorer** and selecting **Migrate Data**. Alternatively, you can select the **Migrate Data** tab. To migrate data for an entire database, select the check box next to the database name. To migrate data from individual tables, expand the database, expand **Tables**, and then select the check boxes next to the tables. To omit data from individual tables, clear the check boxes.
+1. Migrate the data by right-clicking the schema or object you want to migrate in **Oracle Metadata Explorer** and selecting **Migrate Data**. Or, you can select the **Migrate Data** tab. To migrate data for an entire database, select the check box next to the database name. To migrate data from individual tables, expand the database, expand **Tables**, and then select the checkboxes next to the tables. To omit data from individual tables, clear the checkboxes.
 
    ![Screenshot that shows Migrate Data.](./media/oracle-to-managed-instance-guide/migrate-data.png)
 
@@ -127,7 +128,7 @@ To publish your schema and migrate your data:
 
    ![Screenshot that shows validation in SSMA for Oracle.](./media/oracle-to-managed-instance-guide/validate-data.png)
 
-Alternatively, you can also use SQL Server Integration Services to perform the migration. To learn more, see:
+Or, you can also use SQL Server Integration Services to perform the migration. To learn more, see:
 
 - [Getting started with SQL Server Integration Services](/sql/integration-services/sql-server-integration-services)
 - [SQL Server Integration Services for Azure and Hybrid Data Movement](https://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/SSIS%20Hybrid%20and%20Azure.docx)
@@ -150,6 +151,96 @@ The test approach to database migration consists of the following activities:
 2. **Set up a test environment**: The test environment should contain a copy of the source database and the target database. Be sure to isolate the test environment.
 3. **Run validation tests**: Run validation tests against the source and the target, and then analyze the results.
 4. **Run performance tests**: Run performance tests against the source and the target, and then analyze and compare the results.
+
+### Validate migrated objects
+
+Microsoft SQL Server Migration Assistant for Oracle Tester (SSMA Tester) allows you to test migrated database objects. The SSMA Tester is used to verify that converted objects behave in the same way.
+
+#### Create test case
+
+1. Open SSMA for Oracle, select **Tester** followed by **New Test Case**.
+
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/ssma-tester-new.png" alt-text="Screenshot that shows new test case.":::
+
+1. On the Test Case wizard, provide the following information:
+
+   **Name:** Enter the name to identify the test case.
+
+   **Creation date:** Today's current date, defined automatically.
+
+   **Last Modified date:** Filled in automatically, should not be changed.
+
+   **Description:** Enter any additional information to identify the purpose of the test case.
+
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-init-test-case.png" alt-text="Screenshot that shows step to initialize a test case.":::
+
+1. Select the objects that are part of the test case from the Oracle object tree located in the left side.
+
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-select-configure-objects.png" alt-text="Screenshot that shows step to  select and configure object.":::
+
+   In this example, stored procedure `ADD_REGION` and table `REGION` is selected.
+
+   To learn more, see  [Selecting and configuring objects to test.](/sql/ssma/oracle/selecting-and-configuring-objects-to-test-oracletosql)
+
+1. Next, select the tables, foreign keys and other dependent objects from the Oracle object tree in the left window.
+
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-select-configure-affected.png" alt-text="Screenshot that shows step to select and configure affected object.":::
+
+    To learn more, see [Selecting and configuring affected objects.](/sql/ssma/oracle/selecting-and-configuring-affected-objects-oracletosql)
+
+1. Review the evaluation sequence of objects. Change the order by clicking the buttons in the grid.
+
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/test-call-ordering.png" alt-text="Screenshot that shows step to sequence test object execution.":::
+
+1. Finalize  the test case by reviewing the information provided in the previous steps.Configure the test execution options based on the test scenario.
+
+   :::image type="content" source="./media//oracle-to-managed-instance-guide/tester-finalize-case.png" alt-text="Screenshot that shows step to  finalize object.":::
+
+   For more information on test case settings,[Finishing test case preparation](/sql/ssma/oracle/finishing-test-case-preparation-oracletosql)
+
+1. Click on finish to create the test case.
+
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-test-repo.png" alt-text="Screenshot that shows step to test repo.":::
+
+#### Run test case
+
+When SSMA Tester runs a test case, the test engine executes the objects selected for testing and generates a verification  report.
+
+1. Select the test case from test repository and then click run.
+
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-repo-run.png" alt-text="Screenshot that shows to review  test repo.":::
+
+1. Review the launch test case  and click run.
+
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-run-test-case.png" alt-text="Screenshot that shows step to launch  test case.":::
+
+1. Next, provide  Oracle  source credentials. Click connect after entering the credentials.
+
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-oracle-connect.png" alt-text="Screenshot that shows step to connect to  oracle source.":::
+
+1. Provide target SQL Server credentials and click connect.
+
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-sqlmi-connect.png" alt-text="Screenshot that shows step to connect to  sql target.":::
+
+   On success, the test case moves to initialization stage.
+
+1. A real-time progress bar shows the execution status of the test run.
+
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-run-status.png" alt-text="Screenshot that shows  tester test progress.":::
+
+1. Review the report after the test is completed. The report provides the statistics, any errors during the test run and a detail report.
+
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-test-result.png" alt-text="Screenshot that shows a sample tester test report":::
+
+1. Click details to get more information.
+
+   Example of positive data validation.
+
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-test-success.png" alt-text="Screenshot that shows a sample  tester success report.":::
+
+   Example of failed data validation.
+
+   :::image type="content" source="./media/oracle-to-managed-instance-guide/tester-test-failed.png" alt-text="Screenshot that shows tester failure report.":::
 
 ### Optimize
 

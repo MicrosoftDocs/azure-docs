@@ -1,16 +1,17 @@
 ---
 title: Copy and transform data in Azure Blob storage
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data to and from Blob storage, and transform data in Blob storage by using Data Factory.
+description: Learn how to copy data to and from Blob storage, and transform data in Blob storage using Azure Data Factory or Azure Synapse Analytics.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 07/19/2021
 ---
 
-# Copy and transform data in Azure Blob storage by using Azure Data Factory
+# Copy and transform data in Azure Blob storage by using Azure Data Factory or Azure Synapse Analytics
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
 > - [Version 1](v1/data-factory-azure-blob-connector.md)
@@ -18,10 +19,10 @@ ms.date: 07/19/2021
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the Copy activity in Azure Data Factory to copy data from and to Azure Blob storage. It also describes how to use the Data Flow activity to transform data in Azure Blob storage. To learn about Azure Data Factory, read the [introductory article](introduction.md).
+This article outlines how to use the Copy activity in Azure Data Factory and Azure Synapse pipelines to copy data from and to Azure Blob storage. It also describes how to use the Data Flow activity to transform data in Azure Blob storage. To learn more read the [Azure Data Factory](introduction.md) and the [Azure Synapse Analytics](..\synapse-analytics\overview-what-is.md) introduction articles.
 
 >[!TIP]
->To learn about a migration scenario for a data lake or a data warehouse, see [Use Azure Data Factory to migrate data from your data lake or data warehouse to Azure](data-migration-guidance-overview.md).
+>To learn about a migration scenario for a data lake or a data warehouse, see the article [Migrate data from your data lake or data warehouse to Azure](data-migration-guidance-overview.md).
 
 ## Supported capabilities
 
@@ -45,7 +46,7 @@ For the Copy activity, this Blob storage connector supports:
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties that are used to define Data Factory entities specific to Blob storage.
+The following sections provide details about properties that are used to define Data Factory and Synapse pipeline entities specific to Blob storage.
 
 ## Linked service properties
 
@@ -59,14 +60,14 @@ This Blob storage connector supports the following authentication types. See the
 
 >[!NOTE]
 >- If want to use the public Azure integration runtime to connect to your Blob storage by leveraging the **Allow trusted Microsoft services to access this storage account** option enabled on Azure Storage firewall, you must use [managed identity authentication](#managed-identity).
->- When you use PolyBase or COPY statement to load data into Azure Synapse Analytics, if your source or staging Blob storage is configured with an Azure Virtual Network endpoint, you must use managed identity authentication as required by Synapse. See the [Managed identity authentication](#managed-identity) section for more configuration prerequisites.
+>- When you use PolyBase or COPY statement to load data into Azure Synapse Analytics, if your source or staging Blob storage is configured with an Azure Virtual Network endpoint, you must use managed identity authentication as required by Azure Synapse. See the [Managed identity authentication](#managed-identity) section for more configuration prerequisites.
 
 >[!NOTE]
 >Azure HDInsight and Azure Machine Learning activities only support authentication that uses Azure Blob storage account keys.
 
 ### Account key authentication
 
-Data Factory supports the following properties for storage account key authentication:
+The following properties are supported for storage account key authentication in Azure Data Factory or Synapse pipelines:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -133,15 +134,15 @@ You don't have to share your account access keys. The shared access signature is
 For more information about shared access signatures, see [Shared access signatures: Understand the shared access signature model](../storage/common/storage-sas-overview.md).
 
 > [!NOTE]
->- Data Factory now supports both *service shared access signatures* and *account shared access signatures*. For more information about shared access signatures, see [Grant limited access to Azure Storage resources using shared access signatures](../storage/common/storage-sas-overview.md).
+>- The service now supports both *service shared access signatures* and *account shared access signatures*. For more information about shared access signatures, see [Grant limited access to Azure Storage resources using shared access signatures](../storage/common/storage-sas-overview.md).
 >- In later dataset configurations, the folder path is the absolute path starting from the container level. You need to configure one aligned with the path in your SAS URI.
 
-Data Factory supports the following properties for using shared access signature authentication:
+The following properties are supported for using shared access signature authentication:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The `type` property must be set to `AzureBlobStorage` (suggested) or `AzureStorage` (see the following note). | Yes |
-| sasUri | Specify the shared access signature URI to the Storage resources such as blob or container. <br/>Mark this field as `SecureString` to store it securely in Data Factory. You can also put the SAS token in Azure Key Vault to use auto-rotation and remove the token portion. For more information, see the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| sasUri | Specify the shared access signature URI to the Storage resources such as blob or container. <br/>Mark this field as `SecureString` to store it securely. You can also put the SAS token in Azure Key Vault to use auto-rotation and remove the token portion. For more information, see the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. | No |
 
 >[!NOTE]
@@ -199,13 +200,13 @@ Data Factory supports the following properties for using shared access signature
 
 When you create a shared access signature URI, consider the following points:
 
-- Set appropriate read/write permissions on objects based on how the linked service (read, write, read/write) is used in your data factory.
+- Set appropriate read/write permissions on objects based on how the linked service (read, write, read/write) is used.
 - Set **Expiry time** appropriately. Make sure that the access to Storage objects doesn't expire within the active period of the pipeline.
-- The URI should be created at the right container or blob based on the need. A shared access signature URI to a blob allows Data Factory to access that particular blob. A shared access signature URI to a Blob storage container allows Data Factory to iterate through blobs in that container. To provide access to more or fewer objects later, or to update the shared access signature URI, remember to update the linked service with the new URI.
+- The URI should be created at the right container or blob based on the need. A shared access signature URI to a blob allows the data factory or Synapse pipeline to access that particular blob. A shared access signature URI to a Blob storage container allows the data factory or Synapse pipeline to iterate through blobs in that container. To provide access to more or fewer objects later, or to update the shared access signature URI, remember to update the linked service with the new URI.
 
 ### Service principal authentication
 
-For general information about Azure Storage service principal authentication, see [Authenticate access to Azure Storage using Azure Active Directory](../storage/common/storage-auth-aad.md).
+For general information about Azure Storage service principal authentication, see [Authenticate access to Azure Storage using Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md).
 
 To use service principal authentication, follow these steps:
 
@@ -228,15 +229,15 @@ These properties are supported for an Azure Blob storage linked service:
 | serviceEndpoint | Specify the Azure Blob storage service endpoint with the pattern of `https://<accountName>.blob.core.windows.net/`. | Yes |
 | accountKind | Specify the kind of your storage account. Allowed values are: **Storage** (general purpose v1), **StorageV2** (general purpose v2), **BlobStorage**, or **BlockBlobStorage**. <br/><br/>When using Azure Blob linked service in data flow, managed identity or service principal authentication is not supported when account kind as empty or "Storage". Specify the proper account kind, choose a different authentication, or upgrade your storage account to general purpose v2. | No |
 | servicePrincipalId | Specify the application's client ID. | Yes |
-| servicePrincipalKey | Specify the application's key. Mark this field as **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| servicePrincipalKey | Specify the application's key. Mark this field as **SecureString** to store it securelyFactory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering over the upper-right corner of the Azure portal. | Yes |
-| azureCloudType | For service principal authentication, specify the type of Azure cloud environment, to which your Azure Active Directory application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory's cloud environment is used. | No |
+| azureCloudType | For service principal authentication, specify the type of Azure cloud environment, to which your Azure Active Directory application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory or Synapse pipeline's cloud environment is used. | No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. | No |
 
 >[!NOTE]
 >
 >- If your blob account enables [soft delete](../storage/blobs/soft-delete-blob-overview.md), service principal authentication is not supported in Data Flow.
->- If you access the blob storage through private endpoint using Data Flow, note when service principal authentication is used Data Flow connects to the ADLS Gen2 endpoint instead of Blob endpoint. Make sure you create the corresponding private endpoint in ADF to enable access.
+>- If you access the blob storage through private endpoint using Data Flow, note when service principal authentication is used Data Flow connects to the ADLS Gen2 endpoint instead of Blob endpoint. Make sure you create the corresponding private endpoint in your data factory or Synapse workspace to enable access.
 
 >[!NOTE]
 >Service principal authentication is supported only by the "AzureBlobStorage" type linked service, not the previous "AzureStorage" type linked service.
@@ -268,11 +269,11 @@ These properties are supported for an Azure Blob storage linked service:
 
 ### <a name="managed-identity"></a> System-assigned managed identity authentication
 
-A data factory can be associated with a [system-assigned managed identity for Azure resources](data-factory-service-identity.md#system-assigned-managed-identity), which represents this specific data factory. You can directly use this system-assigned managed identity for Blob storage authentication, which is similar to using your own service principal. It allows this designated factory to access and copy data from or to Blob storage. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
+A data factory or Synapse pipeline can be associated with a [system-assigned managed identity for Azure resources](data-factory-service-identity.md#system-assigned-managed-identity), which represents that resource for authentication to other Azure services. You can directly use this system-assigned managed identity for Blob storage authentication, which is similar to using your own service principal. It allows this designated resource to access and copy data from or to Blob storage. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
 
-For general information about Azure Storage authentication, see [Authenticate access to Azure Storage using Azure Active Directory](../storage/common/storage-auth-aad.md). To use managed identities for Azure resource authentication, follow these steps:
+For general information about Azure Storage authentication, see [Authenticate access to Azure Storage using Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md). To use managed identities for Azure resource authentication, follow these steps:
 
-1. [Retrieve Data Factory system-assigned managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the system-assigned managed identity object ID generated along with your factory.
+1. [Retrieve system-assigned managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the system-assigned managed identity object ID generated along with your factory or Synapse workspace.
 
 2. Grant the managed identity permission in Azure Blob storage. For more information on the roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../storage/blobs/assign-azure-role-data-access.md).
 
@@ -310,9 +311,9 @@ These properties are supported for an Azure Blob storage linked service:
 ### User-assigned managed identity authentication
 A data factory can be assigned with one or multiple [user-assigned managed identities](data-factory-service-identity.md#user-assigned-managed-identity). You can use this user-assigned managed identity for Blob storage authentication, which allows to access and copy data from or to Blob storage. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
 
-For general information about Azure storage authentication, see [Authenticate access to Azure Storage using Azure Active Directory](../storage/common/storage-auth-aad.md). To use user-assigned managed identity authentication, follow these steps:
+For general information about Azure storage authentication, see [Authenticate access to Azure Storage using Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md). To use user-assigned managed identity authentication, follow these steps:
 
-1. [Create one or multiple user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and grant permission in Azure Blob storage. For more information on the roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../storage/common/storage-auth-aad-rbac-portal.md).
+1. [Create one or multiple user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and grant permission in Azure Blob storage. For more information on the roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../storage/blobs/assign-azure-role-data-access.md).
 
     - **As source**, in **Access control (IAM)**, grant at least the **Storage Blob Data Reader** role.
     - **As sink**, in **Access control (IAM)**, grant at least the **Storage Blob Data Contributor** role.
@@ -354,7 +355,7 @@ These properties are supported for an Azure Blob storage linked service:
 ```
 
 >[!IMPORTANT]
->If you use PolyBase or COPY statement to load data from Blob storage (as a source or as staging) into Azure Synapse Analytics, when you use managed identity authentication for Blob storage, make sure you also follow steps 1 to 3 in [this guidance](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage). Those steps will register your server with Azure AD and assign the Storage Blob Data Contributor role to your server. Data Factory handles the rest. If you configure Blob storage with an Azure Virtual Network endpoint, you also need to have **Allow trusted Microsoft services to access this storage account** turned on under Azure Storage account **Firewalls and Virtual networks** settings menu as required by Synapse.
+>If you use PolyBase or COPY statement to load data from Blob storage (as a source or as staging) into Azure Synapse Analytics, when you use managed identity authentication for Blob storage, make sure you also follow steps 1 to 3 in [this guidance](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage). Those steps will register your server with Azure AD and assign the Storage Blob Data Contributor role to your server. Data Factory handles the rest. If you configure Blob storage with an Azure Virtual Network endpoint, you also need to have **Allow trusted Microsoft services to access this storage account** turned on under Azure Storage account **Firewalls and Virtual networks** settings menu as required by Azure Synapse.
 
 > [!NOTE]
 >
@@ -435,7 +436,7 @@ The following properties are supported for Azure Blob storage under `storeSettin
 | maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No                                            |
 
 > [!NOTE]
-> For Parquet/delimited text format, the **BlobSource** type for the Copy activity source mentioned in the next section is still supported as is for backward compatibility. We suggest that you use the new model until the Data Factory authoring UI has switched to generating these new types.
+> For Parquet/delimited text format, the **BlobSource** type for the Copy activity source mentioned in the next section is still supported as is for backward compatibility. We suggest that you use the new model until the authoring UI has switched to generating these new types.
 
 **Example:**
 
@@ -479,7 +480,7 @@ The following properties are supported for Azure Blob storage under `storeSettin
 ```
 
 > [!NOTE]
-> The `$logs` container, which is automatically created when Storage Analytics is enabled for a storage account, isn't shown when a container listing operation is performed via the Data Factory UI. The file path must be provided directly for Data Factory to consume files from the `$logs` container.
+> The `$logs` container, which is automatically created when Storage Analytics is enabled for a storage account, isn't shown when a container listing operation is performed via the UI. The file path must be provided directly for your data factory or Synapse pipeline to consume files from the `$logs` container.
 
 ### Blob storage as a sink type
 
@@ -491,7 +492,7 @@ The following properties are supported for Azure Blob storage under `storeSettin
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | The `type` property under `storeSettings` must be set to `AzureBlobStorageWriteSettings`. | Yes      |
 | copyBehavior             | Defines the copy behavior when the source is files from a file-based data store.<br/><br/>Allowed values are:<br/><b>- PreserveHierarchy (default)</b>: Preserves the file hierarchy in the target folder. The relative path of the source file to the source folder is identical to the relative path of the target file to the target folder.<br/><b>- FlattenHierarchy</b>: All files from the source folder are in the first level of the target folder. The target files have autogenerated names. <br/><b>- MergeFiles</b>: Merges all files from the source folder to one file. If the file or blob name is specified, the merged file name is the specified name. Otherwise, it's an autogenerated file name. | No       |
-| blockSizeInMB | Specify the block size, in megabytes, used to write data to block blobs. Learn more [about Block Blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs). <br/>Allowed value is *between 4 MB and 100 MB*. <br/>By default, Data Factory automatically determines the block size based on your source store type and data. For nonbinary copy into Blob storage, the default block size is 100 MB so it can fit in (at most) 4.95 TB of data. It might be not optimal when your data is not large, especially when you use the self-hosted integration runtime with poor network connections that result in operation timeout or performance issues. You can explicitly specify a block size, while ensuring that `blockSizeInMB*50000` is big enough to store the data. Otherwise, the Copy activity run will fail. | No |
+| blockSizeInMB | Specify the block size, in megabytes, used to write data to block blobs. Learn more [about Block Blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs). <br/>Allowed value is *between 4 MB and 100 MB*. <br/>By default, the service automatically determines the block size based on your source store type and data. For nonbinary copy into Blob storage, the default block size is 100 MB so it can fit in (at most) 4.95 TB of data. It might be not optimal when your data is not large, especially when you use the self-hosted integration runtime with poor network connections that result in operation timeout or performance issues. You can explicitly specify a block size, while ensuring that `blockSizeInMB*50000` is big enough to store the data. Otherwise, the Copy activity run will fail. | No |
 | maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No       |
 | metadata |Set custom metadata when copy to sink. Each object under the `metadata` array represents an extra column. The `name` defines the metadata key name, and the `value` indicates the data value of that key. If [preserve attributes feature](./copy-activity-preserve-metadata.md#preserve-metadata) is used, the specified metadata will union/overwrite with the source file metadata.<br/><br/>Allowed data values are:<br/>- `$$LASTMODIFIED`: a reserved variable indicates to store the source files' last modified time. Apply to file-based source with binary format only.<br/><b>- Expression<b><br/>- <b>Static value<b>| No       |
 
@@ -561,7 +562,7 @@ This section describes the resulting behavior of using a file list path in the C
 
 Assume that you have the following source folder structure and want to copy the files in bold:
 
-| Sample source structure                                      | Content in FileListToCopy.txt                             | Data Factory configuration                                            |
+| Sample source structure                                      | Content in FileListToCopy.txt                             | Configuration 
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
 | container<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadata<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **In dataset:**<br>- Container: `container`<br>- Folder path: `FolderA`<br><br>**In Copy activity source:**<br>- File list path: `container/Metadata/FileListToCopy.txt` <br><br>The file list path points to a text file in the same data store that includes a list of files you want to copy, one file per line, with the relative path to the path configured in the dataset. |
 
@@ -601,7 +602,7 @@ In source transformation, you can read from a container, folder, or individual f
 
 ![Source options](media/data-flow/sourceOptions1.png "Source options")
 
-**Wildcard paths:** Using a wildcard pattern will instruct Data Factory to loop through each matching folder and file in a single source transformation. This is an effective way to process multiple files within a single flow. Add multiple wildcard matching patterns with the plus sign that appears when you hover over your existing wildcard pattern.
+**Wildcard paths:** Using a wildcard pattern will instruct the service to loop through each matching folder and file in a single source transformation. This is an effective way to process multiple files within a single flow. Add multiple wildcard matching patterns with the plus sign that appears when you hover over your existing wildcard pattern.
 
 From your source container, choose a series of files that match a pattern. Only a container can be specified in the dataset. Your wildcard path must therefore also include your folder path from the root folder.
 
@@ -623,7 +624,7 @@ First, set a wildcard to include all paths that are the partitioned folders plus
 
 ![Partition source file settings](media/data-flow/partfile2.png "Partition file setting")
 
-Use the **Partition root path** setting to define what the top level of the folder structure is. When you view the contents of your data via a data preview, you'll see that Data Factory will add the resolved partitions found in each of your folder levels.
+Use the **Partition root path** setting to define what the top level of the folder structure is. When you view the contents of your data via a data preview, you'll see that the service will add the resolved partitions found in each of your folder levels.
 
 ![Partition root path](media/data-flow/partfile1.png "Partition root path preview")
 
@@ -686,7 +687,7 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 ## Legacy models
 
 >[!NOTE]
->The following models are still supported as is for backward compatibility. We suggest that you use the new model mentioned earlier. The Data Factory authoring UI has switched to generating the new model.
+>The following models are still supported as is for backward compatibility. We suggest that you use the new model mentioned earlier. The authoring UI has switched to generating the new model.
 
 ### Legacy dataset model
 
@@ -815,4 +816,4 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 
 ## Next steps
 
-For a list of data stores that the Copy activity in Data Factory supports as sources and sinks, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores that the Copy activity supports as sources and sinks, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

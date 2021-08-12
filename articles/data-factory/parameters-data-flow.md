@@ -1,11 +1,12 @@
 ---
 title: Parameterizing mapping data flows
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to parameterize a mapping data flow from data factory pipelines
+description: Learn how to parameterize a mapping data flow from Azure Data Factory and Azure Synapse Analytics pipelines
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 04/19/2021
@@ -15,7 +16,7 @@ ms.date: 04/19/2021
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)] 
 
-Mapping data flows in Azure Data Factory and Azure Synapse Analytics support the use of parameters. Define parameters inside of your data flow definition and use them throughout your expressions. The parameter values are set by the calling pipeline via the Execute Data Flow activity. You have three options for setting the values in the data flow activity expressions:
+Mapping data flows in Azure Data Factory and Synapse pipelines support the use of parameters. Define parameters inside of your data flow definition and use them throughout your expressions. The parameter values are set by the calling pipeline via the Execute Data Flow activity. You have three options for setting the values in the data flow activity expressions:
 
 * Use the pipeline control flow expression language to set a dynamic value
 * Use the data flow expression language to set a dynamic value
