@@ -19,7 +19,6 @@ ms.subservice: blobs
 To read a blob that is in the archive tier, you must first rehydrate the blob to the hot or cool tier. You can rehydrate a blob in one of two ways:
 
 - By copying it to a new blob in the hot or cool tier with the [Copy Blob](/rest/api/storageservices/copy-blob) or [Copy Blob from URL](/rest/api/storageservices/copy-blob-from-url) operation. Microsoft recommends this option for most scenarios.
-
 - By changing its tier from archive to hot or cool with the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation.
 
 A rehydration operation may take up to 15 hours to complete. You can configure Azure Event Grid to fire an event when rehydration is complete and run application code in response. To learn how to handle an event that runs an Azure Function when the blob rehydration operation is complete, see [Run an Azure Function in response to a blob rehydration event](archive-rehydrate-handle-event.md).
