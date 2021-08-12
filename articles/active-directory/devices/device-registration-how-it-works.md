@@ -20,7 +20,8 @@ ms.collection: M365-identity-device-management
 Device Registration is a prerequisite to managing devices in Azure Active Directory (Azure AD). Device registration occurs regardless of a cloud, hybrid, or on-premises deployments. For cloud and hybrid deployments, devices register with Azure AD. For on-premises deployments, devices registered with the enterprise device registration service hosted by Active Directory Federation Services (AD FS) or Azure AD Connect.
 
 ## Azure AD joined in Managed environments
-![Azure AD joined in Managed environments](./media/device-registration-how-it-works/devreg-aadj-managed.png)
+
+:::image type="content" source="media/device-registration-how-it-works/device-registration-azure-ad-managed.png" alt-text="Azure AD joined  device flow in a managed environment" lightbox="media/device-registration-how-it-works/device-registration-azure-ad-managed.png":::
 
 | Phase | Description |
 | :----: | :----------- |
@@ -33,9 +34,9 @@ Device Registration is a prerequisite to managing devices in Azure Active Direct
 | G | The application sends a device registration request to Azure DRS that includes the ID token, certificate request, tkpub, and attestation data. Azure DRS validates the ID token, creates a device ID, and creates a certificate based on the included certificate request. Azure DRS then writes a device object in Azure AD and sends the device ID and the device certificate to the client. |
 | H | Device registration completes by receiving the device ID and the device certificate from Azure DRS. The device ID is saved for future reference (viewable from `dsregcmd.exe /status`), and the device certificate is installed in the Personal store of the computer. With device registration complete, the process continues with MDM enrollment. |
 
-[Return to top](#windows-hello-for-business-and-device-registration)
 ## Azure AD joined in Federated environments
-![Azure AD joined in Managed environments](./media/device-registration-how-it-works/devreg-aadj-federated.png)
+
+:::image type="content" source="media/device-registration-how-it-works/device-registration-azure-ad-federated.png" alt-text="Azure AD joined  device flow in a federated environment" lightbox="media/device-registration-how-it-works/device-registration-azure-ad-federated.png":::
 
 | Phase | Description |
 | :----: | :----------- |
@@ -49,9 +50,9 @@ Device Registration is a prerequisite to managing devices in Azure Active Direct
 | H | The application sends a device registration request to Azure DRS that includes the ID token, certificate request, tkpub, and attestation data. Azure DRS validates the ID token, creates a device ID, and creates a certificate based on the included certificate request. Azure DRS then writes a device object in Azure AD and sends the device ID and the device certificate to the client. |
 | I | Device registration completes by receiving the device ID and the device certificate from Azure DRS. The device ID is saved for future reference (viewable from `dsregcmd.exe /status`), and the device certificate is installed in the Personal store of the computer. With device registration complete, the process continues with MDM enrollment. |
 
-[Return to top](#windows-hello-for-business-and-device-registration)
 ## Hybrid Azure AD joined in Managed environments
-![Hybrid Azure AD joined in Managed environments](./media/device-registration-how-it-works/devreg-hybrid-haadj-managed.png)
+
+:::image type="content" source="media/device-registration-how-it-works/device-registration-hybrid-azure-ad-managed.png" alt-text="Hybrid Azure AD joined device flow in a managed environement" lightbox="media/device-registration-how-it-works/device-registration-hybrid-azure-ad-managed.png":::
 
 | Phase | Description |
 | :----: | ----------- |
@@ -64,9 +65,9 @@ Device Registration is a prerequisite to managing devices in Azure Active Direct
 | G | The task sends a device registration request to Azure DRS that includes the ID token, certificate request, tkpub, and attestation data. Azure DRS validates the ID token, creates a device ID, and creates a certificate based on the included certificate request. Azure DRS then updates the device object in Azure AD and sends the device ID and the device certificate to the client. |
 | H | Device registration completes by receiving the device ID and the device certificate from Azure DRS. The device ID is saved for future reference (viewable from `dsregcmd.exe /status`), and the device certificate is installed in the Personal store of the computer. With device registration complete, the task exits. |
 
-[Return to top](#windows-hello-for-business-and-device-registration)
 ## Hybrid Azure AD joined in Federated environments
-![Hybrid Azure AD joined in Managed environments](./media/device-registration-how-it-works/devreg-hybrid-haadj-federated.png)
+
+:::image type="content" source="media/device-registration-how-it-works/device-registration-hybrid-azure-ad-federated.png" alt-text="Hybrid Azure AD joined device flow in a managed environment" lightbox="media/device-registration-how-it-works/device-registration-hybrid-azure-ad-federated.png":::
 
 | Phase | Description |
 | :----: | :----------- |
@@ -77,8 +78,6 @@ Device Registration is a prerequisite to managing devices in Azure Active Direct
 | E | To provide SSO for on-premises federated application, the task requests an enterprise PRT from the on-premises STS. Windows Server 2016 running the Active Directory Federation Services role validate the request and return it the running task. |
 | F | The task sends a device registration request to Azure DRS that includes the ID token, certificate request, tkpub, and attestation data. Azure DRS validates the ID token, creates a device ID, and creates a certificate based on the included certificate request. Azure DRS then writes a device object in Azure AD and sends the device ID and the device certificate to the client. Device registration completes by receiving the device ID and the device certificate from Azure DRS. The device ID is saved for future reference (viewable from `dsregcmd.exe /status`), and the device certificate is installed in the Personal store of the computer. With device registration complete, the task exits. |
 | G | If Azure AD Connect device write-back is enabled, Azure AD Connect requests updates from Azure AD at its next synchronization cycle (device write-back is required for hybrid deployment using certificate trust). Azure AD correlates the device object with a matching synchronized computer object. Azure AD Connect receives the device object that includes the object GUID and computer SID and writes the device object to Active Directory. |
-
-[Return to top](#windows-hello-for-business-and-device-registration)
 
 ## Next steps
 
