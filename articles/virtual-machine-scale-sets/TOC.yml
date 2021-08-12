@@ -177,7 +177,7 @@
     - name: Overview
       href: ../virtual-machines/maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
       maintainContext: true
-    - name: Automatic extension upgrade (preview) 
+    - name: Automatic extension upgrade 
       href: ../virtual-machines/automatic-extension-upgrade.md
       maintainContext: true
   - name: Disk storage

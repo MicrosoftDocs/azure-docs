@@ -353,6 +353,8 @@
         href: checkpoint-infinity-portal-tutorial.md
       - name: Check Point Remote Access VPN
         href: check-point-remote-access-vpn-tutorial.md
+      - name: CheckProof
+        href: checkproof-tutorial.md  
       - name: Cherwell
         href: cherwell-tutorial.md
       - name: Chromeriver
@@ -483,6 +485,8 @@
         href: coralogix-tutorial.md
       - name: Cornerstone Single Sign-On
         href: cornerstone-ondemand-tutorial.md
+      - name: CorporateExperience
+        href: corporateexperience-tutorial.md  
       - name: CorpTax
         href: corptax-tutorial.md
       - name: Costpoint
@@ -2050,6 +2054,8 @@
         href: tulip-tutorial.md
       - name: TurboRater
         href: turborater-tutorial.md
+      - name: TutorOcean
+        href: tutorocean-tutorial.md  
       - name: Uberflip
         href: uberflip-tutorial.md
       - name: UltiPro

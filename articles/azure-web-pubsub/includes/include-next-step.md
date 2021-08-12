@@ -17,7 +17,7 @@ Follow the quickstarts listed below to start building your own application.
 > [Quick start: Create a simple chatroom with Azure Web PubSub](https://azure.github.io/azure-webpubsub/getting-started/create-a-chat-app/js-handle-events)
 
 > [!div class="nextstepaction"]
-> [Quickstart: Build serverless chat with Azure Functions and Web PubSub](./../quickstart-serverless.md)
+> [Quick start: Build serverless chat with Azure Functions and Web PubSub](./../quickstart-serverless.md)
 
 > [!div class="nextstepaction"]
 > [Explore more Azure Web PubSub samples](https://aka.ms/awps/samples)

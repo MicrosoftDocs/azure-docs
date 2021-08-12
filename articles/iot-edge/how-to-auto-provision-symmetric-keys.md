@@ -2,7 +2,7 @@
 title: Provision device using symmetric key attestation - Azure IoT Edge
 description: Use symmetric key attestation to test automatic device provisioning for Azure IoT Edge with Device Provisioning Service
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.reviewer: mrohera
 ms.date: 07/21/2021
