@@ -54,7 +54,7 @@ This article explores common ways to troubleshoot problems with Azure Data Facto
 
 - **Message**: `Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
 
-- **Cause**: You have multiple concurrent copy activities runs or applications writing to the same file.
+- **Cause**: You have multiple concurrent copy activity runs or applications writing to the same file.
 
 ### Error code: AzureAppendBlobConcurrentWriteConflict
 
@@ -1230,9 +1230,9 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Message**: `An error occurred when invoking Java Native Interface.`
 
-- **Cause**: If the error message contains "Cannot create JVM: JNI return code [-6][JNI call failed: Invalid arguments.]", the probable cause is that JVM can't be created because some illegal (global) arguments are set.
+- **Cause**: If the error message contains "Cannot create JVM: JNI return code [-6][JNI call failed: Invalid arguments.]", the possible cause is that JVM can't be created because some illegal (global) arguments are set.
 
-- **Recommendation**: Log in to the machine that host *each node* of your self-hosted IR. Check to ensure that the system variable is set correctly, as follows: `_JAVA_OPTIONS "-Xms256m -Xmx16g" with memory bigger than 8G`. Restart all the IR nodes, and then rerun the pipeline.
+- **Recommendation**: Log in to the machine that hosts *each node* of your self-hosted integration runtime. Check to ensure that the system variable is set correctly, as follows: `_JAVA_OPTIONS "-Xms256m -Xmx16g" with memory bigger than 8G`. Restart all the integration runtime nodes, and then rerun the pipeline.
 
 ### Error code: GetOAuth2AccessTokenErrorResponse
 
@@ -1270,7 +1270,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Message**: `Managed identity credential is not supported in this version ('%version;') of Self Hosted Integration Runtime.`
 
-- **Recommendation**: Check the supported version and upgrade the Integration Runtime (IR) to a higher version.
+- **Recommendation**: Check the supported version and upgrade the integration runtime to a higher version.
 
 ### Error code: QueryMissingFormatSettingsInDataset
 
@@ -1314,49 +1314,49 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Message**: `'validateDataConsistency' is not supported in this version ('%version;') of Self Hosted Integration Runtime.`
 
-- **Recommendation**: Check the supported Integration Runtime version and upgrade it to a higher version, or remove the 'validateDataConsistency' property from copy activities.
+- **Recommendation**: Check the supported integration runtime version and upgrade it to a higher version, or remove the 'validateDataConsistency' property from copy activities.
 
 ### Error code: SkipMissingFileNotSupportedForNonDirectBinaryCopy
 
 - **Message**: `Skip missing file is not supported in current copy activity settings, it's only supported with direct binary copy with folder.`
 
-- **Recommendation**: Remove fileMissing of the skipErrorFile setting in the copy activity payload.
+- **Recommendation**: Remove 'fileMissing' of the skipErrorFile setting in the copy activity payload.
 
 ### Error code: SkipInconsistencyDataNotSupportedForNonDirectBinaryCopy
 
 - **Message**: `Skip inconsistency is not supported in current copy activity settings, it's only supported with direct binary copy when validateDataConsistency is true.`
 
-- **Recommendation**: Remove dataInconsistency of the skipErrorFile setting in the copy activity payload.
+- **Recommendation**: Remove 'dataInconsistency' of the skipErrorFile setting in the copy activity payload.
 
 ### Error code: SkipForbiddenFileNotSupportedForNonDirectBinaryCopy
 
 - **Message**: `Skip forbidden file is not supported in current copy activity settings, it's only supported with direct binary copy with folder.`
 
-- **Recommendation**: Remove fileForbidden of the skipErrorFile setting in the copy activity payload.
+- **Recommendation**: Remove 'fileForbidden' of the skipErrorFile setting in the copy activity payload.
 
 ### Error code: SkipForbiddenFileNotSupportedForThisConnector
 
 - **Message**: `Skip forbidden file is not supported for this connector: ('%connectorName;').`
 
-- **Recommendation**: Remove fileForbidden of the skipErrorFile setting in the copy activity payload.
+- **Recommendation**: Remove 'fileForbidden' of the skipErrorFile setting in the copy activity payload.
 
 ### Error code: SkipInvalidFileNameNotSupportedForNonDirectBinaryCopy
 
 - **Message**: `Skip invalid file name is not supported in current copy activity settings, it's only supported with direct binary copy with folder.`
 
-- **Recommendation**: Remove invalidFileName of the skipErrorFile setting in the copy activity payload.
+- **Recommendation**: Remove 'invalidFileName' of the skipErrorFile setting in the copy activity payload.
 
 ### Error code: SkipInvalidFileNameNotSupportedForSource
 
 - **Message**: `Skip invalid file name is not supported for '%connectorName;' source.`
 
-- **Recommendation**: Remove invalidFileName of the skipErrorFile setting in the copy activity payload.
+- **Recommendation**: Remove 'invalidFileName' of the skipErrorFile setting in the copy activity payload.
 
 ### Error code: SkipInvalidFileNameNotSupportedForSink
 
 - **Message**: `Skip invalid file name is not supported for '%connectorName;' sink.`
 
-- **Recommendation**: Remove invalidFileName of the skipErrorFile setting in the copy activity payload.
+- **Recommendation**: Remove 'invalidFileName' of the skipErrorFile setting in the copy activity payload.
 
 ### Error code: SkipAllErrorFileNotSupportedForNonBinaryCopy
 
@@ -1368,7 +1368,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Message**: `'deleteFilesAfterCompletion' is not support in current copy activity settings, it's only supported with direct binary copy.`
 
-- **Recommendation**: Remove the 'deleteFilesAfterCompletion' setting or use the direct binary copy.
+- **Recommendation**: Remove the 'deleteFilesAfterCompletion' setting or use direct binary copy.
 
 ### Error code: DeleteFilesAfterCompletionNotSupportedForThisConnector
 
