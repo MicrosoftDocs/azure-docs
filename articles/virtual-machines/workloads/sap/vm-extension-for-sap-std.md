@@ -137,7 +137,7 @@ To install the Azure VM Extension for SAP by using Azure CLI:
    az vm aem set -g <resource-group-name> -n <vm name> 
    ```
 
-1. Verify that the Azure Extension for SAP is active on the Azure Linux VM. Check whether the file \\var\\lib\\AzureEnhancedMonitor\\PerfCounters exists. If it exists, at a command prompt, run this command to display information collected by the Azure Extension for SAP:
+1. Verify that the Azure Extension for SAP is active on the Azure Linux VM. Check whether the file /var/lib/AzureEnhancedMonitor/PerfCounters exists. If it exists, at a command prompt, run this command to display information collected by the Azure Extension for SAP:
 
    ```console
    cat /var/lib/AzureEnhancedMonitor/PerfCounters
