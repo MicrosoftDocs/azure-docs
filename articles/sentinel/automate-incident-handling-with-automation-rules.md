@@ -37,7 +37,7 @@ Automation rules are made up of several components:
 
 Automation rules are triggered by the creation of an incident. 
 
-To review – incidents are created from alerts by analytics rules, of which there are several types, as explained in the tutorial [Detect threats with built-in analytics rules in Azure Sentinel](tutorial-detect-threats-built-in.md).
+To review – incidents are created from alerts by analytics rules, of which there are several types, as explained in the tutorial [Detect threats with built-in analytics rules in Azure Sentinel](detect-threats-built-in.md).
 
 ### Conditions
 
@@ -49,7 +49,7 @@ Actions can be defined to run when the conditions (see above) are met. You can d
 
 - Changing the status of an incident, keeping your workflow up to date.
 
-  - When changing to “closed,” specifying the [closing reason](tutorial-investigate-cases.md#closing-an-incident) and adding a comment. This helps you keep track of your performance and effectiveness, and fine-tune to reduce [false positives](false-positives.md).
+  - When changing to “closed,” specifying the [closing reason](investigate-cases.md#closing-an-incident) and adding a comment. This helps you keep track of your performance and effectiveness, and fine-tune to reduce [false positives](false-positives.md).
 
 - Changing the severity of an incident – you can reevaluate and reprioritize based on the presence, absence, values, or attributes of entities involved in the incident.
 
@@ -117,7 +117,14 @@ You can automatically add free-text tags to incidents to group or classify them 
 
 Automation rules are run sequentially, according to the order you determine. Each automation rule is executed after the previous one has finished its run. Within an automation rule, all actions are run sequentially in the order in which they are defined.
 
-For playbook actions, there is a two-minute delay between the beginning of the playbook action and the next action on the list.
+Playbook actions within an automation rule may be treated differently under some circumstances, according to the following criteria:
+
+| Playbook run time | Automation rule advances to the next action... |
+| ----------------- | --------------------------------------------------- |
+| Less than a second | Immediately after playbook is completed |
+| Less than two minutes | Up to two minutes after playbook began running,<br>but no more than 10 seconds after the playbook is completed |
+| More than two minutes | Two minutes after playbook began running,<br>regardless of whether or not it was completed |
+|
 
 ### Permissions for automation rules to run playbooks
 

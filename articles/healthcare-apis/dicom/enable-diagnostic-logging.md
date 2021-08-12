@@ -11,6 +11,9 @@ ms.author: aersoy
 
 # Enable Diagnostic Logging in the DICOM service
 
+> [!IMPORTANT]
+> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 In this article, you will learn how to enable diagnostic logging in DICOM service and be able to review some sample queries for these logs. Access to diagnostic logs is essential for any healthcare service where compliance with regulatory requirements is a must. The feature in DICOM service enables diagnostic logs is the [Diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md) in the Azure portal. 
 
 ## Enable audit logs

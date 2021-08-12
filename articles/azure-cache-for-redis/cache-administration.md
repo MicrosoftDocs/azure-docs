@@ -19,15 +19,15 @@ This article describes how to do administration tasks such as [rebooting](#reboo
 
 On the left, **Reboot** allows you to reboot one or more nodes of your cache. This reboot capability enables you to test your application for resiliency if there's a failure of a cache node.
 
-![Screenshot that highlights the Reboot menu option.](./media/cache-administration/redis-cache-administration-reboot.png)
+:::image type="content" source="media/cache-administration/cache-administration-reboot-2.png" alt-text="Screenshot that highlights the Reboot menu option":::
 
 Select the nodes to reboot and select **Reboot**.
 
-![Screenshot that shows which nodes you can reboot.](./media/cache-administration/redis-cache-reboot.png)
+:::image type="content" source="media/cache-administration/redis-cache-reboot-2.png" alt-text="Screenshot that shows which nodes you can reboot":::
 
 If you have a premium cache with clustering enabled, you can select which shards of the cache to reboot.
 
-![Reboot](./media/cache-administration/redis-cache-reboot-cluster.png)
+:::image type="content" source="media/cache-administration/redis-cache-reboot-cluster-2.png" alt-text="screenshot of shard options":::
 
 To reboot one or more nodes of your cache, select the nodes and select **Reboot**. If you have a premium cache with clustering enabled, select the shards to reboot and then select **Reboot**. After a few minutes, the selected nodes reboot, and are back online a few minutes later.
 
@@ -78,7 +78,7 @@ On the left, **Schedule updates** allows you to choose a maintenance window for 
 > Currently, no option is available to configure a reboot or scheduled updates for an Enterprise tier cache.
 >
 
-![Schedule updates](./media/cache-administration/redis-schedule-updates.png)
+:::image type="content" source="media/cache-administration/redis-schedule-updates-2.png" alt-text="Screenshot showing schedule updates":::
 
 To specify a maintenance window, check the days you want and specify the maintenance window start hour for each day. Then, select **OK**. The maintenance window time is in UTC.
 

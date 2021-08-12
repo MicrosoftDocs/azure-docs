@@ -5,8 +5,9 @@ author: julieMSFT
 ms.author: jrasnick
 ms.service: synapse-analytics
 ms.reviewer: wiassaf
+ms.subservice: sql
 ms.topic: how-to 
-ms.date: 08/03/2021
+ms.date: 08/12/2021
 ms.custom: template-how-to 
 ---
 
@@ -18,21 +19,21 @@ The following steps will guide you through setting up automated pause and resume
 
 1. Create a pipeline.
 1. Set up parameters in your pipeline.
-1. Identify the list of dedicated SQL pools in your Synapse workspace.
+1. Identify the list of dedicated SQL pools in your Azure Synapse workspace.
 1. Filter any dedicated SQL pools that you don't want to pause or resume from the list. 
 1. Loop over each dedicated SQL pool and:
     1. Check the state of the dedicated SQL pool.
     1. Evaluate the state of the dedicated SQL pool.
     1. Pause or resume the dedicated SQL pool.
 
-These steps are laid out in a simple pipeline in Synapse:
+These steps are laid out in a simple pipeline in Azure Synapse:
 
 ![Simple Synapse pipeline](./media/how-to-pause-resume-pipelines/simple-pipeline.png)
 
 
 Depending upon the nature of your environment, the whole process described here may not apply, and you may just want to choose the appropriate steps. The process described here can be used to pause or resume all instances in a development, test, or PoC environment. For a production environment, you're more likely to schedule pause or resume on an instance by instance basis so will only need Steps 5a through 5c.
 
-The steps above use the REST APIs for Synapse and Azure SQL:
+The steps above use the REST APIs for Azure Synapse and Azure SQL:
 
 - [Dedicated SQL pool operations](/rest/api/synapse/sqlpools)
  
