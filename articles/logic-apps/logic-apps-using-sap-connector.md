@@ -381,7 +381,7 @@ Next, create an action to send your IDoc message to SAP when your [HTTP request 
 
         ![Create SAP message server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
    
-      In SAP, the Logon Group is maintained in dialog **CCMS: Maintain Logon Groups** (T-code SMLG). For more information, see [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://service.sap.com/sap/support/notes/26317).
+      In SAP, the Logon Group is maintained by opening the **CCMS: Maintain Logon Groups** (T-code SMLG) dialog box. For more information, see [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://service.sap.com/sap/support/notes/26317).
 
       By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. Learn more about the [Safe Typing option](#safe-typing).
 
