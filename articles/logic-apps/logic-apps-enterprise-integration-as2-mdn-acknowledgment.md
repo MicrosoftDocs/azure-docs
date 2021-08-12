@@ -53,7 +53,7 @@ To correlate an MDN to the AS2 message as the response, the `AS2-From` header, `
 | Headers | Description |
 |---------|-------------|
 | HTTP and AS2 | For more information, review [AS2 message settings](logic-apps-enterprise-integration-as2-message-settings.md).
-| Transfer layer | This header includes the `Content-Type` header that includes the signed multipart message, the algorithm for the MIC, the signature formatting protocol, and the outermost multipart boundary sub-headers. |
+| Transfer layer | This header includes the `Content-Type` header that includes the signed multipart message, the algorithm for the MIC, the signature formatting protocol, and the outermost multipart boundary subheaders. |
 | First part | The first part of the signed multipart message is the embedded MDN. This part is human readable. |
 | Second part | The second part of the signed multipart message contains the digital signature, a reference to the original message, the disposition type and status, and the MIC value. This part is machine readable. |
 |||
