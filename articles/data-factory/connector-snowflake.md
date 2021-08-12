@@ -35,6 +35,32 @@ For the Copy activity, this Snowflake connector supports the following functions
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
+## Create a linked service to Snowflake using UI
+
+Use the following steps to create a linked service to Snowflake in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+
+    # [Synapse Analytics](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+
+---
+
+2. Search for Snowflake and select the Snowflake connector.
+
+    :::image type="content" source="media/connector-snowflake/snowflake-connector.png" alt-text="Select the Snowflake connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-snowflake/configure-snowflake-linked-service.png" alt-text="Configure a linked service to Snowflake.":::
+
+## Connector configuration details
+
 The following sections provide details about properties that define entities specific to a Snowflake connector.
 
 ## Linked service properties
