@@ -54,8 +54,10 @@ This article explains how you can access your SAP resources from Logic Apps usin
     If you do not configure the SAP gateway security permissions, you might receive this error:
 
     `Registration of tp Microsoft.PowerBI.EnterpriseGateway from host <host-name> not allowed`
+    
+    For more information, see the [SAP Note 1850230 - GW: "Registration of tp &lt;program ID&gt; not allowed"](https://userapps.support.sap.com/sap/support/knowledge/en/1850230).
 
-    * Set up your SAP gateway security logging to help find Access Control List (ACL). For more information, see the [SAP help topic for setting up gateway logging](https://help.sap.com/erp_hcm_ias2_2015_02/helpdata/en/48/b2a710ca1c3079e10000000a42189b/frameset.htm) and [1850230 - GW: "Registration of tp &lt;program ID&gt; not allowed"](https://userapps.support.sap.com/sap/support/knowledge/en/1850230).
+    * Set up your SAP gateway security logging to help find Access Control List (ACL) issues. For more information, see the [SAP help topic for setting up gateway logging](https://help.sap.com/erp_hcm_ias2_2015_02/helpdata/en/48/b2a710ca1c3079e10000000a42189b/frameset.htm).
 
     > [!NOTE]
     > This trigger uses the same URI location to both renew and unsubscribe from a webhook subscription. The renewal operation uses the HTTP `PATCH` method, while the unsubscribe operation uses the HTTP `DELETE` method. This behavior might make a renewal operation appear as an unsubscribe operation in your trigger's history, but the operation is still a renewal because the trigger uses `PATCH` as the HTTP method, not `DELETE`.
