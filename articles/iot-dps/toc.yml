@@ -17,7 +17,7 @@
       displayName: Resource Manager
       href: quick-setup-auto-provision-rm.md
   - name: Provision a symmetric key device
-    href: quick-create-simulated-device-symmetric-key.md
+    href: quick-create-simulated-device-symm-key.md
   - name: Provision a X.509 certificate device
     items:
       - name: C

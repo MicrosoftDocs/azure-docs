@@ -97,4 +97,4 @@ To clean up resources in the Azure portal:
 Provision a simulated device with IoT hub and the Device Provisioning Service:
 
 > [!div class="nextstepaction"]
-> [Quickstart to create a simulated device](./quick-create-simulated-device-symm-key.md)
+> [Quickstart: Provision a symmetric key device](./quick-create-simulated-device-symm-key.md)

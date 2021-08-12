@@ -43,10 +43,8 @@ landingContent:
             url: quick-setup-auto-provision.md
       - linkListType: sample
         links:
-          - text: Provision a simulated symmetric key device using C
+          - text: Provision a symmetric key device
             url: quick-create-simulated-device-symm-key.md
-          - text: Provision a simulated symmetric key device using Java
-            url: quick-create-simulated-device-symmetric-key-java.md
       - linkListType: how-to-guide
         links:
           - text: How to provision for multitenancy
