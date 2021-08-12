@@ -132,7 +132,7 @@ Filtered Outbound traffic is not supported on Classic deployments.
 
 
 | Outbound port number | Protocol | Source | Destination   | Action | Required | Purpose |
-|----------------------|----------|--------|---------------|--------|----------|---------|
+|:--------------------:|:--------:|:------:|:-------------:|:------:|:--------:|:-------:|
 | 443 | TCP	  | Any    | AzureActiveDirectoryDomainServices| Allow  | Yes      | Communication with the Azure AD Domain Services management service. |
 | 443 | TCP   | Any    | AzureMonitor                      | Allow  | Yes      | Monitoring of the virtual machines. |
 | 443 | TCP	  | Any	   | Storage                           | Allow  | Yes      | Communication with Azure Storage.   | 
