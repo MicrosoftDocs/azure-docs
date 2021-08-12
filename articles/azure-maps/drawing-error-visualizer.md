@@ -7,7 +7,7 @@ ms.date: 05/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ---
 
 # Using the Azure Maps Drawing Error Visualizer with Creator

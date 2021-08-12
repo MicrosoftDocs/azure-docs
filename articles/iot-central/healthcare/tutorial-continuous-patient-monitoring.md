@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Create a continuous patient monitoring app with Azure IoT Central | Microsoft Docs
 description: In this tutorial, you learn to build a continuous patient monitoring application using Azure IoT Central application templates.
-author: philmea
-ms.author: philmea
+author: dominicbetts 
+ms.author: dobett 
 ms.date: 09/24/2019
 ms.topic: tutorial
 ms.service: iot-central

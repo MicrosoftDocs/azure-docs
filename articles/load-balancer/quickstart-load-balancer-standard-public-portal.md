@@ -2,12 +2,10 @@
 title: "Quickstart: Create a public load balancer - Azure portal"
 titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a load balancer by using the Azure portal.
-services: load-balancer
 author: asudbring 
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/05/2021
+ms.date: 08/09/2021
 ms.author: allensu
 ms.custom: mvc
 # Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
@@ -236,9 +234,11 @@ In this section, you'll create three VMs (**myVM1**, **myVM2** and **myVM3**) in
 
 These VMs are added to the backend pool of the load balancer that was created earlier.
 
-1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Virtual machine**. 
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
+
+2. In **Virtual machines**, select **+ Create** > **Virtual machine**.
    
-2. In **Create a virtual machine**, type or select the values in the **Basics** tab:
+3. In **Create a virtual machine**, type or select the values in the **Basics** tab:
 
     | Setting | Value                                          |
     |-----------------------|----------------------------------|
@@ -260,9 +260,9 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | **Inbound port rules** |  |
     | Public inbound ports | Select **None** |
 
-3. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
+4. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
   
-4. In the Networking tab, select or enter:
+5. In the Networking tab, select or enter:
 
     | Setting | Value |
     |-|-|
@@ -279,11 +279,11 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Select a load balancer | Select **myLoadBalancer**  |
     | Select a backend pool | Select **myBackendPool** |
    
-7. Select **Review + create**. 
+6. Select **Review + create**. 
   
-8. Review the settings, and then select **Create**.
+7. Review the settings, and then select **Create**.
 
-9. Follow the steps 1 to 8 to create two more VMs with the following values and all the other settings the same as **myVM1**:
+8. Follow the steps 1 through 7 to create two more VMs with the following values and all the other settings the same as **myVM1**:
 
     | Setting | VM 2| VM 3|
     | ------- | ----- |---|
@@ -357,9 +357,11 @@ In this section, you'll create three VMs (**myVM1**, **myVM2**, and **myVM3**).
 
 The three VMs will be added to an availability set named **myAvailabilitySet**.
 
-1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Virtual machine**. 
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
+
+2. In **Virtual machines**, select **+ Create** > **Virtual machine**.
    
-2. In **Create a virtual machine**, type or select the values in the **Basics** tab:
+3. In **Create a virtual machine**, type or select the values in the **Basics** tab:
 
     | Setting | Value                                          |
     |-----------------------|----------------------------------|
@@ -381,9 +383,9 @@ The three VMs will be added to an availability set named **myAvailabilitySet**.
     | **Inbound port rules** |   |
     | Public inbound ports | Select **None**. |
 
-3. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
+4. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
   
-4. In the Networking tab, select or enter:
+5. In the Networking tab, select or enter:
 
     | Setting | Value |
     |-|-|
@@ -396,20 +398,20 @@ The three VMs will be added to an availability set named **myAvailabilitySet**.
     | **Load balancing**  |
     | Place this virtual machine behind an existing load-balancing solution? | Leave the default of unselected. |
  
-5. Select the **Management** tab, or select **Next** > **Management**.
+6. Select the **Management** tab, or select **Next** > **Management**.
 
-6. In the **Management** tab, select or enter:
+7. In the **Management** tab, select or enter:
     
     | Setting | Value |
     |---|---|
     | **Monitoring** | |
     | Boot diagnostics | Select **Off** |
 
-7. Select **Review + create**. 
+8. Select **Review + create**. 
   
-8. Review the settings, and then select **Create**.
+9. Review the settings, and then select **Create**.
 
-9. Follow the steps 1 to 8 to create two more VMs with the following values and all the other settings the same as **myVM1**:
+10. Follow the steps 1 through 9 to create two more VMs with the following values and all the other settings the same as **myVM1**:
 
     | Setting | VM 2 | VM 3 |
     | ------- | ----- |---|
@@ -516,7 +518,9 @@ During the creation of the load balancer, you'll configure:
 
 ## Install IIS
 
-1. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myVM1** that is located in the **CreatePubLBQS-rg** resource group.
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
+
+2. Select **myVM1**.
 
 2. On the **Overview** page, select **Connect**, then **Bastion**.
 
