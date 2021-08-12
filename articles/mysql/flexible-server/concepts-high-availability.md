@@ -29,7 +29,7 @@ When the flexible server is created with zone redundant high availability enable
 > [!Note]
 > Zone redundant HA might cause 5-10% drop in latency if the application connecting to the database server across availability zones where network latency is relatively higher in the order of 2-4ms. 
 
-:::image type="content" source="./media/concepts-high-availability/1-flexible-server-overview-zone-redundant-ha.png" alt-text="view of zone redundant high availability":::
+:::image type="content" source="./media/concepts-high-availability/1-flexible-server-overview-zone-redundant-ha.png" alt-text="zone redundant ha":::
 
 ### Zone Redundancy Architecture
 
@@ -44,7 +44,7 @@ When the flexible server is created with same-zone high availability enabled, th
 
 Same-Zone high availability enable users to place a standby server in the same zone as the primary server, which reduces the replication lag between primary and standby. This also provides for lower latencies between the application server and database server if placed within the same Azure availability zone.
 
-:::image type="content" source="./media/concepts-high-availability/flexible-server-overview-same-zone-ha.png" alt-text="view of zone redundant high availability":::
+:::image type="content" source="./media/concepts-high-availability/flexible-server-overview-same-zone-ha.png" alt-text="same redundant high availability":::
 
 ## High Availability Monitoring
 The health of the HA is continuously monitored and reported on the overview page. The various replication statuses are listed below:
