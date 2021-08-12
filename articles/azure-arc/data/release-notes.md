@@ -150,6 +150,8 @@ Use the following tools:
 -  System database `model` is not backed up in order to prevent interference with creation/deletion of database. The DB gets locked when admin operations are performed. 
 -  Currently only `master` and `msdb` system databases are backed up. Only full backups are performed every 12 hours.
 -  Only `ONLINE` user databases are backup up.
+-  Default recovery point objective (RPO): 5 minutes. Can not be modified in current release.
+-  Backups are retained indefinitely. To recover space, manually delete backups.
 
 ##### Other limitations
 - Transaction replication is currently not supported.
