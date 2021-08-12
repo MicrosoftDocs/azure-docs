@@ -850,7 +850,7 @@ items:
       - name: Couchbase
         href: ../data-factory/connector-couchbase.md?context=/azure/synapse-analytics/context/context
       - name: Dataverse
-        href: ../data-factory/connector-dynamics-crm-office-365.md?context=/azure/synapse-analytics/context/context
+        href: ../data-factory/connector-dynamics-crm-office-365.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: DB2
         href: ../data-factory/connector-db2.md?context=/azure/synapse-analytics/context/context
       - name: Delimited text format
