@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Create a Collection in Azure Purview
+title: Create a Collection in Azure Purview
 description: This article describes how to create a collection and add permissions and sources in Azure Purview
 author: viseshag
 ms.author: viseshag
