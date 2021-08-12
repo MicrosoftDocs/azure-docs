@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Tribeloo for automatic user provisioning with Azure 
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Tribeloo.
 services: active-directory
 documentationcenter: ''
-author: thwimmer
-writer: thwimmer
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: d1063ef2-5d39-4480-a1e2-f58ebe7f98c3
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2021
-ms.author: twimmer
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Tribeloo for automatic user provisioning
