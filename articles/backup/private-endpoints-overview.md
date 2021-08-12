@@ -53,11 +53,11 @@ When the workload extension or MARS agent is installed for Recovery Services vau
 
 | Service | Domain names |
 | ------- | ------------ |
-| Azure Backup  | *. privatelink.<geo>.backup.windowsazure.com |
+| Azure Backup  | `*. privatelink.<geo>.backup.windowsazure.com` |
 | Azure Storage | *.blob.core.windows.net <br> *.queue.core.windows.net <br> *.blob.storage.azure.net |
 
 >[!Note]
->In the above text, **<geo>** refers to the region code (for example, eus and ne for East US and North Europe respectively). Refer to the following lists for regions codes:
+>In the above text, `<geo>` refers to the region code (for example, eus and ne for East US and North Europe respectively). Refer to the following lists for regions codes:
 >- [All public clouds](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
 >- [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
 >- [Germany](/azure/germany/germany-developer-guide#endpoint-mapping)
@@ -80,18 +80,18 @@ For more information, see [Creating and using private endpoints](private-endpoin
 
 The private endpoint for recovery services is associated with a network interface (NIC) that has a private IP. For private endpoint connections to work (routing all the traffic to the service via Azure backbone and restricting service access to clients within your VNET), it’s required that all the communication traffic for the service is redirected to that network interface. This can be achieved by using DNS linked to the VNET or host file entries on the machine where extension/agent is running.
 
-The workload backup extension and MARS agent run on Azure VM in a VNET or on-premises VM peered with VNET. When registered to a Recovery Services vault with a private endpoint joined with this VNET, the service URL of the Azure Backup cloud services for the extension and agent change from **\<azure_backup_svc >.<geo>.backup.windowsazure.com**  to **\<vault_id>.<azure_backup_svc>.privatelink.<geo>.backup.windowsazure.com**.
+The workload backup extension and MARS agent run on Azure VM in a VNET or on-premises VM peered with VNET. When registered to a Recovery Services vault with a private endpoint joined with this VNET, the service URL of the Azure Backup cloud services for the extension and agent change from `<azure_backup_svc >.<geo>.backup.windowsazure.com` to `<vault_id>.<azure_backup_svc>.privatelink.<geo>.backup`.windowsazure.com**.
 
 >[!Note]
->In the above text, **<geo>** refers to the region code (for example, eus and ne for East US and North Europe respectively). Refer to the following lists for regions codes:
+>In the above text, `<geo>` refers to the region code (for example, eus and ne for East US and North Europe respectively). Refer to the following lists for regions codes:
 >- [All public clouds](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
 >- [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
 >- [Germany](/azure/germany/germany-developer-guide#endpoint-mapping)
 >- [US Gov](/azure/azure-government/documentation-government-developer-guide)
 
-The modified URLs are specific for a vault.  See **\<vault_id>** in the URL name. Only extensions and agents registered to this vault can communicate with Azure Backup via these endpoints. This restricts the access to the clients within this VNET. The extension/agent will communicate via **\*. privatelink.<geo>.backup.windowsazure.com** that need to resolve to corresponding private IP in the NIC.
+The modified URLs are specific for a vault.  See `<vault_id>` in the URL name. Only extensions and agents registered to this vault can communicate with Azure Backup via these endpoints. This restricts the access to the clients within this VNET. The extension/agent will communicate via `*. privatelink.<geo>.backup.windowsazure.com` that need to resolve to corresponding private IP in the NIC.
 
-When the private endpoint for Recovery Services vaults is created via Azure portal with the **integrate with private DNS zone** option, the required DNS entries for private IP addresses for Azure Backup services (*.privatelink.<geo>backup.windowsazure.com) are created automatically whenever the resource is allocated. Otherwise, you need to create the DNS entries manually for these FQDNs in the custom DNS or in the host files.
+When the private endpoint for Recovery Services vaults is created via Azure portal with the **integrate with private DNS zone** option, the required DNS entries for private IP addresses for Azure Backup services (`*.privatelink.<geo>backup.windowsazure.com`) are created automatically whenever the resource is allocated. Otherwise, you need to create the DNS entries manually for these FQDNs in the custom DNS or in the host files.
 
 For the manual management of DNS records after the VM discovery for communication channel - blob/queue, see [DNS records for blobs and queues (only for custom DNS servers/host files) after the first registration](/azure/backup/private-endpoints#dns-records-for-blobs-and-queues-only-for-custom-dns-servershost-files-after-the-first-registration). For the manual management of DNS records after the first backup for backup storage account blob, see [DNS records for blobs (only for custom DNS servers/host files) after the first backup](/azure/backup/private-endpoints#dns-records-for-blobs-only-for-custom-dns-servershost-files-after-the-first-backup).
 

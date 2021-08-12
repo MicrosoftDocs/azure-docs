@@ -527,7 +527,7 @@ To configure a proxy server for Azure VM or on-premises machine, follow these st
    | Azure Storage | *.blob.core.windows.net <br><br> *.queue.core.windows.net <br><br> *.blob.storage.azure.net | 443 |
    | Azure active directory <br><br> Updated domain URLs mentioned under sections 56 and 59 in [Microsoft 365 Common and Office Online](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). | *.msftidentity.com, *.msidentity.com, account.activedirectory.windowsazure.com, accounts.accesscontrol.windows.net, adminwebservice.microsoftonline.com, api.passwordreset.microsoftonline.com, autologon.microsoftazuread-sso.com, becws.microsoftonline.com, clientconfig.microsoftonline-p.net, companymanager.microsoftonline.com, device.login.microsoftonline.com, graph.microsoft.com, graph.windows.net, login.microsoft.com, login.microsoftonline.com, login.microsoftonline-p.com, login.windows.net, logincert.microsoftonline.com, loginex.microsoftonline.com, login-us.microsoftonline.com, nexus.microsoftonline-p.com, passwordreset.microsoftonline.com, provisioningapi.microsoftonline.com <br><br> 20.190.128.0/18, 40.126.0.0/18, 2603:1006:2000::/48, 2603:1007:200::/48, 2603:1016:1400::/48, 2603:1017::/48, 2603:1026:3000::/48, 2603:1027:1::/48, 2603:1036:3000::/48, 2603:1037:1::/48, 2603:1046:2000::/48, 2603:1047:1::/48, 2603:1056:2000::/48, 2603:1057:2::/48 <br><br> *.hip.live.com, *.microsoftonline.com, *.microsoftonline-p.com, *.msauth.net, *.msauthimages.net, *.msecnd.net, *.msftauth.net, *.msftauthimages.net, *.phonefactor.net, enterpriseregistration.windows.net, management.azure.com, policykeyservice.dc.ad.msft.net | As applicable. |
 
-1. Allow access to these domains in the proxy server and link private DNS zone ( *.privatelink.<geo>.backup.windowsazure.com, *.privatelink.blob.core.windows.net, *.privatelink.queue.core.windows.net) with the VNET where proxy server is created or use a custom DNS server with the respective DNS entries. <br><br> The VNET where proxy server is running and the VNET where private endpoint NIC is created should be peered, which would allow the proxy server to redirect the requests to private IP. 
+1. Allow access to these domains in the proxy server and link private DNS zone ( `*.privatelink.<geo>.backup.windowsazure.com`, `*.privatelink.blob.core.windows.net`, `*.privatelink.queue.core.windows.net`) with the VNET where proxy server is created or uses a custom DNS server with the respective DNS entries. <br><br> The VNET where proxy server is running and the VNET where private endpoint NIC is created should be peered, which would allow the proxy server to redirect the requests to private IP. 
 
 The following diagram shows a setup with a proxy server whose VNet is linked to a private DNS zone with required DNS entries. Proxy server can also have its own custom DNS server, and the above domains can be conditionally forwarded to 169.63.129.16.
 
@@ -595,12 +595,12 @@ Create DNS entries corresponding to the ones above. Based on the type of DNS you
 To correctly set  up private endpoint for RSV through this workaround, you need to:
 
 1. Create a private endpoint for vault (as described earlier in the article).
-1. Trigger discovery. The discovery for SQL/HANA will fail with UserErrorVMInternetConnectivityIssue assince DNS entries are absent for communication storage account.
+1. Trigger discovery. The discovery for SQL/HANA will fail with _UserErrorVMInternetConnectivityIssue_ because DNS entries are absent for communication storage account.
 1. Run the scripts to get DNS entries and create corresponding DNS entries for communication storage account mentioned earlier in this section.
-1. Re-trigger discovery., tThis time, discovery should succeed.
-1. Trigger backup. Backup for SQL/HANA and MARS could fail assince DNS entries are absent for back-end storage accounts as mentioned earlier in this section.
+1. Re-trigger discovery. This time, discovery should succeed.
+1. Trigger backup. Backup for SQL/HANA and MARS could fail because DNS entries are absent for back-end storage accounts as mentioned earlier in this section.
 1. Run the scripts to create DNS entries for back-end storage account.
-1. Re-trigger backup. This time backups should succeed.
+1. Re-trigger backup. This time, backups should succeed.
 
 ## Frequently asked questions
 
