@@ -15,7 +15,6 @@ ms.date: 08/10/2021
 > [!IMPORTANT] 
 > Azure Database for MySQL - Flexible Server is currently in public preview.
 
-## High Availability Options
 Azure Database for MySQL Flexible Server (Preview), allows configuring high availability with automatic failover. When high availability is configured, flexible server automatically provisions and manages a standby replica using two different options
 
 * **Zone Redundant High Availability**: this option is preferred for complete isolation and redundancy of infrastructure across multiple availability zones. It provides highest level of availability but it requires you to configure application redundancy across zones. Zone redundant HA is preferred when you want to achieve highest level of availability against any infrastructure failure in the availability zone and where latency across the availability zone is acceptable. Zone redundant HA is available in [subset of Azure regions](https://docs.microsoft.com/azure/mysql/flexible-server/overview#azure-regions) where the region supports multiple availability zones and Zone redundant HA is available.
@@ -68,7 +67,6 @@ Here are some advantages for using zone redundancy HA feature:
 - Clients always connect to the primary database server.
 - If there is a database crash or node failure, the flexible server VM is restarted on the same node. At the same time, an automatic failover is triggered. If flexible server VM restart is successful before the failover finishes, the failover operation will be canceled.
 - Ability to restart the server to pick up any static server parameter changes.
-- 
 
 ## Steady-state Operations
 
