@@ -1,17 +1,17 @@
 ---
-title: Microsoft Azure Stack Edge Pro with GPU regions | Microsoft Docs
-description: Explains Azure regions in which Azure Stack Edge Pro with GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices are available.
+title: Choosing a region for Microsoft Azure Stack Edge Pro with GPU | Microsoft Docs
+description: Explains region choices for Azure Stack Edge service, data storage, and devices for Azure Stack Edge Pro with GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R.
 services: databox
 author: v-dalc
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/11/2021
+ms.date: 08/12/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to choose optimal region(s) to meet my performance needs, requirements, and data location preferences for my Azure Stack Edge devices and storage.
 ---
-# Available regions for your Azure Stack Edge
+# Choosing a region for Azure Stack Edge
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
@@ -21,11 +21,11 @@ The Azure datacenters operate in multiple geographic regions around the world to
 
 Choosing an Azure region is very important, and the choice of region is influenced by factors such as data residency and sovereignty, service availability, performance, cost, and redundancy. For more information on how to choose a region, go to [Which Azure region is right for me?](https://azure.microsoft.com/overview/datacenters/how-to-choose/).
 
-For an Azure Stack Edge device, the choice of region is specifically determined by the following factors:
+For an Azure Stack Edge Pro GPU device, the choice of region is determined by the following factors:
 
 - Regions where the Azure Stack Edge service is available.
-- The countries/regions that the Azure Stack Edge device can be shipped to.
 - The regions where the storage accounts that store Azure Stack Edge data should be located for the best performance.
+- The countries/regions that the Azure Stack Edge device can be shipped to.
 
 This article describes the region availability for the Azure Stack Edge service and for Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices.
 
@@ -49,7 +49,7 @@ Azure Stack Edge data is physically stored in Azure storage accounts, and these 
 
 A storage account is assigned when you [create a share on your device](azure-stack-edge-gpu-deploy-add-shares.md#add-a-share). Your Azure Stack Edge service and Azure storage can be in two separate locations.
 
-In general, choose the nearest region to your service for your storage account. However, the nearest Microsoft Azure region might not actually be the region with the lowest latency. The latency dictates network service performance and hence the performance of the device. So if you're choosing a storage account in a different region, it's important to know what the latencies are between your service and the region associated with your storage account.
+*SHIJO: Does this apply to Azure Stack Edge? Is proximity of the service to storage still key?* In general, choose the nearest region to your service for your storage account. However, the nearest Microsoft Azure region might not actually be the region with the lowest latency. The latency dictates network service performance and hence the performance of the device. So if you're choosing a storage account in a different region, it's important to know what the latencies are between your service and the region associated with your storage account.
 
 ## Availability of device
 

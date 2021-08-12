@@ -344,7 +344,7 @@
   items:
   - name: Shared concepts
     items:
-    - name: Available regions for Azure Stack Edge
+    - name: Understand region selection
       href: azure-stack-edge-gpu-regions.md
     - name: What is GPU sharing?
       href: azure-stack-edge-gpu-sharing.md 
