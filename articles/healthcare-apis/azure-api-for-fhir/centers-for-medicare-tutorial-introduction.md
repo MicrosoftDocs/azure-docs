@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Centers for Medicare and Medicaid Services (CMS) introduction - FHIR service
-description: Introduces a series of tutorials that pertains to the Center for Medicare and Medicaid Services (CMS) Interoperability and Patient Access rule.  
+title: Tutorial - Centers for Medicare and Medicaid Services (CMS) introduction - Azure API for FHIR
+description: This overview introduces a series of tutorials that pertains to the Center for Medicare and Medicaid Services (CMS) Interoperability and Patient Access rule.  
 services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -8,15 +8,12 @@ ms.topic: tutorial
 ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
-ms.date: 08/03/2021
+ms.date: 08/05/2021
 ---
 
-# Introduction: Centers for Medicare and Medicaid Services (CMS) Interoperability and Patient Access rule
+# Centers for Medicare and Medicaid Services (CMS) Interoperability and Patient Access rule introduction
 
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-In this series of tutorials, we'll cover a high-level summary of the Center for Medicare and Medicaid Services (CMS) Interoperability and Patient Access rule, and the technical requirements outlined in this rule. We'll walk through the various implementation guides referenced for this rule. We'll also provide details on how to configure the FHIR service in the Azure Healthcare APIs (hear by called the FHIR service) to support these implementation guides.
+In this series of tutorials, we'll cover a high-level summary of the Center for Medicare and Medicaid Services (CMS) Interoperability and Patient Access rule, and the technical requirements outlined in this rule. We'll walk through the various implementation guides referenced for this rule. We'll also provide details on how to configure the Azure API for FHIR to support these implementation guides.
 
 
 ## Rule overview
@@ -37,12 +34,12 @@ There are three main pieces to the Interoperability and Patient Access ruling:
 
 As mentioned above, FHIR R4 is required to meet this mandate. In addition, there have been several implementation guides developed that provide guidance for the rule. [Implementation guides](https://www.hl7.org/fhir/implementationguide.html) provide extra context on top of the base FHIR specification. This includes defining additional search parameters, profiles, extensions, operations, value sets, and code systems.
 
-The FHIR service has the following capabilities to help you configure your database for the various implementation guides:
+The Azure API for FHIR has the following capabilities to help you configure your database for the various implementation guides:
 
 * [Support for RESTful interactions](fhir-features-supported.md)
 * [Storing and validating profiles](validation-against-profiles.md)
 * [Defining and indexing custom search parameters](how-to-do-custom-search.md)
-* [Converting data](../data-transformation/convert-data.md)
+* [Converting data](convert-data.md)
 
 ## Patient Access API Implementation Guides
 
@@ -62,11 +59,11 @@ The Provider Directory API describes adherence to one implementation guide:
 
 ## Touchstone
 
-To test adherence to the various implementation guides, [Touchstone](https://touchstone.aegis.net/touchstone/) is a great resource. Throughout the upcoming tutorials, we'll focus on ensuring that the FHIR service is configured to successfully pass various Touchstone tests. The Touchstone site has a lot of great documentation to help you get up and running.
+To test adherence to the various implementation guides, [Touchstone](https://touchstone.aegis.net/touchstone/) is a great resource. Throughout the upcoming tutorials, we'll focus on ensuring that the Azure API for FHIR is configured to successfully pass various Touchstone tests. The Touchstone site has a lot of great documentation to help you get up and running.
 
 ## Next steps
 
-Now that you have a basic understanding of the Interoperability and Patient Access rule, implementation guides, and available testing tool (Touchstone), we’ll walk through setting up the FHIR service for the CARIN IG for Blue Button. 
+Now that you have a basic understanding of the Interoperability and Patient Access rule, implementation guides, and available testing tool (Touchstone), we’ll walk through setting up the Azure API for FHIR for the CARIN IG for Blue Button. 
 
 >[!div class="nextstepaction"]
->[CARIN Implementation Guide for Blue Button](carin-implementation-guide-blue-button-tutorial.md)  
+>[CARIN Implementation Guide for Blue Button](../fhir/carin-implementation-guide-blue-button-tutorial.md)  
