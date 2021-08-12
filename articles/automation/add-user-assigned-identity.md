@@ -3,7 +3,7 @@ title: Using a user-assigned managed identity for an Azure Automation account (p
 description: This article describes how to set up a user-assigned managed identity for Azure Automation accounts.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/09/2021
+ms.date: 08/12/2021
 ms.topic: conceptual 
 ---
 
@@ -297,6 +297,8 @@ Perform the following steps.
 An Automation account can use its user-assigned managed identity to obtain tokens to access other resources protected by Azure AD, such as Azure Key Vault. These tokens don't represent any specific user of the application. Instead, they represent the application that is accessing the resource. In this case, for example, the token represents an Automation account.
 
 Before you can use your user-assigned managed identity for authentication, set up access for that identity on the Azure resource where you plan to use the identity. To complete this task, assign the appropriate role to that identity on the target Azure resource.
+
+Follow the principal of least privilege and assign the minimum permissions required to execute your runbooks. For example, if the Automation account is only required to start or stop a VM, then the permissions assigned to the managed identity should be only for starting or stopping a VM. Similarly, if a runbook is reading from blob storage, then only assign read permissions to the managed identity, and so on.
 
 This example uses Azure PowerShell to show how to assign the Contributor role in the subscription to the target Azure resource. The Contributor role is used as an example and may or may not be required in your case. Alternatively, you can use portal also to assign the role to the target Azure resource.
 
