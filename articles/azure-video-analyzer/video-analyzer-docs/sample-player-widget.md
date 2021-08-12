@@ -21,20 +21,58 @@ After following the README instructions and the app is running on http://localho
 
 ## Video Player
 The Video Player page presents the typical player, as seen in the Portal
-<TODO: include screenshot>
+![Screenshot of video player.](./media/sample-widget-player/widget-video-player.png)
 
 ## Zone Drawer
-The Zone Drawer allows you to create zones by drawing polygons and drawing lines on your video. You can also save these zones and lines to receive the coordinates of your respective zones and lines. Copying these coordinates can be done using the *Copy to clipboard* button
-(Example: {})
+The Zone Drawer allows you to create zones by drawing polygons and drawing lines on your video. You can also save these zones and lines to receive the coordinates of your respective zones and lines. Copying these coordinates can be done using the *Copy to clipboard* button  
+  
+Example:
+```json
+  {
+    "@type": "#Microsoft.VideoAnalyzer.NamedLineString",
+    "name": "Line 1",
+    "line": [
+      {
+        "x": 0.6987951807228916,
+        "y": 0.4430992736077482
+      },
+      {
+        "x": 0.6987951807228916,
+        "y": 0.7046004842615012
+      }
+    ]
+  }{
+    "@type": "#Microsoft.VideoAnalyzer.NamedPolygonString",
+    "name": "Zone 2",
+    "polygon": [
+      {
+        "x": 0.10575635876840696,
+        "y": 0.7481840193704601
+      },
+      {
+        "x": 0.16599732262382866,
+        "y": 0.7796610169491526
+      },
+      {
+        "x": 0.07764390896921017,
+        "y": 0.9007263922518159
+      },
+      {
+        "x": 0.024096385542168676,
+        "y": 0.8547215496368039
+      }
+    ]
+  }
+```
 Zones and lines can be renamed and deleted.
-<TODO: include screenshot>
+![Screenshot of zone drawer.](./media/sample-widget-player/widget-zone-drawer.png)
 
 ## Video Clips
 Video Clips allows you to select a start date and time along with an end date and time. You can generate the video clip by using the *Add* button.
 You can select any of your generated clips from drop-down list, where each clip is titled as the start and end dates and times.
 (Example: Format)
 Your video clip can then be viewed in the typical video player format.
-<TODO: include screenshot>
+![Screenshot of video clips.](./media/sample-widget-player/widget-video-clips.png)
 
 This sample app shows what is capable with the Video Analyzer player widget.
 
