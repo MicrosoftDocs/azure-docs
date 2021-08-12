@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 08/11/2021
+ms.date: 08/12/2021
 ms.author: alkohli
 ---
 
@@ -23,6 +23,8 @@ The most common reasons for being unable to connect to a share on your device ar
 - [a permissions issue](#check-for-permissions-issues)
 
 ## Check for a domain issue
+
+*MAYA: What are they actually checking for? Is this actually a domain issue?* 
 
 To find out whether a domain issue is preventing a share connection:
 
@@ -41,9 +43,9 @@ To find out whether a domain issue is preventing a share connection:
 
 ## Account locked out of share
 
-If you see the following error when you try to connect to an SMB share on your device, the share user account has been locked after multiple attempts to connect with an incorrect password.
+If you see the following error when you try to connect to an SMB share on your device, the share user account has been locked after multiple attempts to connect with an incorrect password:
 
-`The referenced account is currently locked out and may not be logged on to.`
+"The referenced account is currently locked out and may not be logged on to."
 
 After five attempts to connect to a share with an incorrect share password, the share will be locked, and you won't be able to connect to the share for 15 minutes. The failed connection attempts may include background processes, such as retries, which you may not be aware of.
 
