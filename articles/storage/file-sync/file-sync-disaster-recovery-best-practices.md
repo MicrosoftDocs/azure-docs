@@ -27,7 +27,7 @@ Due to its hybrid nature, some traditional server backup and disaster recovery s
 - Restoring files from on-premises backup if cloud tiering is enabled
 
 
-### High-availability
+## High-availability
 
 There are two different strategies you may use to achieve high availability for your server. You can either: configure a failover cluster, or configure a standby server. The main difference between both configurations is how much you're willing to invest in your system and if minimizing the length of time your system is down in the case of a disaster is worth that additional cost.
 
@@ -35,11 +35,11 @@ For a failover cluster, you don't need to take any special steps to use Azure Fi
 
 Have a secondary server with different server endpoints that sync to the same sync group as your primary server but don't enable end user access to the server. This will allow all files to sync from the primary server to the standby server. You can consider enabling namespace-only tiering so that only the namespace is downloaded initially. If your primary server fails, you can use DFS-N to quickly reconfigure end-user access to your standby server.
 
-### Data protection/backup
+## Data protection/backup
 
 Protecting your actual data is key in a disaster recovery solution. There are two main ways to do this with your Azure file shares, you can either backup your data in the cloud, or locally. We highly recommend you backup your data in the cloud because your cloud endpoint will contain a full copy of your data, while server endpoints may only contain a subset of your data.
 
-#### Backing up your data in the cloud
+### Back up your data in the cloud
 
 You should use [Azure Backup](../../backup/azure-file-share-backup-overview.md) as your cloud backup solution. Azure Backup will handle backup scheduling, retention, and restores, amongst other things. If you prefer, you could manually take [share snapshots](../files/storage-snapshots-files.md) and configure your own scheduling and solution but, this isn't ideal. Alternatively, you can use third party solutions to directly backup your Azure file shares.
 
@@ -49,7 +49,7 @@ Snapshots are stored directly in your Azure file share, whether you take them ma
 
 For more information, see [About Azure file share backup](../../backup/azure-file-share-backup-overview.md), or contact your backup provider to see if they support backing up Azure file shares.
 
-#### Backing your data up locally
+### Back up your data locally
 
 If you enable cloud tiering, don't implement an on-premises backup solution. This is because, with cloud tiering enabled, only a subset of your data will be stored locally on your server, with the remainder being stored in your cloud endpoint. Depending on what backup solution you use for a local backup, tiered files will either be skipped and not backed up (due to their FILE_ATTRIBUTE_RECALL_ONDATA_ACCESS attribute) they will backup only as a tiered file and may not be accessible upon restore due to changes in the live share, or they will be recalled to your disk which will result in high egress charges.
 
@@ -57,8 +57,7 @@ If you decide to use an on-premises backup solution, backups should be performed
 
 In Azure File Sync agent version 9 and above, [Volume Shadow Copy Service (VSS) snapshots](file-sync-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service) (including the Previous Versions tab) are supported on volumes with cloud tiering enabled. This allows you to perform self-service restores instead of relying on an admin to perform restores for you. However, you must enable previous version compatibility through PowerShell, which will increase your snapshot storage costs. VSS snapshots don't protect against disasters on the server endpoint itself, so they should only be used with cloud-side backups. For details, see [Self Service restore through Previous Versions and VSS](file-sync-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service).
 
-
-### Geo-redundancy
+## Geo-redundancy
 
 GRS intro here, 5 TiB size limitation.
 
