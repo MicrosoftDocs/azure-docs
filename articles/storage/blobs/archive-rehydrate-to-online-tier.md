@@ -25,7 +25,11 @@ A rehydration operation may take up to 15 hours to complete. You can configure A
 
 ## Rehydrate a blob with a copy operation
 
-To rehydrate a blob from the archive tier by copying it to an online tier, use PowerShell, Azure CLI, or one of the Azure Storage client libraries. The following examples show how to copy an archived blob with PowerShell or Azure CLI.
+To rehydrate a blob from the archive tier by copying it to an online tier, use PowerShell, Azure CLI, or one of the Azure Storage client libraries. Keep in mind that when you copy an archived blob to an online tier, the source and destination blobs must have different names.
+
+After the copy operation is complete, the destination blob appears in the archive tier. The destination blob is then rehydrated to the online tier that you specified in the copy operation. When the destination blob is fully rehydrated, it becomes available in the new online tier.
+
+The following examples show how to copy an archived blob with PowerShell or Azure CLI.
 
 ### [Azure portal](#tab/portal)
 
@@ -76,16 +80,6 @@ az storage blob copy start \
 ```
 
 ---
-
-Keep in mind that when you copy an archived blob to an online tier, the source and destination blobs must have different names.
-
-After the copy operation is complete, the destination blob appears in the archive tier, as shown in the following image.
-
-:::image type="content" source="media/archive-rehydrate-to-online-tier/copy-blob-archive-tier.png" alt-text="Screenshot showing the newly copied destination blob in the archive tier in the Azure portal":::
-
-The destination blob is subsequently rehydrated to the online tier that you specified in the copy operation. In the Azure portal, you'll see that the fully rehydrated destination blob now appears in the targeted online tier.
-
-:::image type="content" source="media/archive-rehydrate-to-online-tier/copy-blob-archive-tier-rehydrated.png" alt-text="Screenshot showing the original blob in the archive tier, the rehydrated blob in the hot tier, and the log blob written by the event handler":::
 
 ## Rehydrate a blob by changing its tier
 
