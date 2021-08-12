@@ -184,6 +184,11 @@
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
+- name: Migration
+  items:
+  - name: Migrate to Spark on Azure Syanpse Analytics
+    href: migrate-adla-to-synapse.md
+   
 - name: Resources
   items:
   - name: Azure Data Lake Blog
