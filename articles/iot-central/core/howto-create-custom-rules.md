@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: "mvc, devx-track-csharp"
-manager: philmea
+
 
 # Solution developer
 ---

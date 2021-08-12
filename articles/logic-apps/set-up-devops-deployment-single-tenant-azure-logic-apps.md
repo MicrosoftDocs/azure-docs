@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 08/11/2021
 
 # As a developer, I want to automate deployment for workflows hosted in single-tenant Azure Logic Apps by using DevOps tools and processes.
 ---
@@ -28,7 +28,7 @@ This article shows how to deploy a single-tenant based logic app project from Vi
 
 ## Deploy infrastructure resources
 
-If you don't already have a logic app project or infrastructure set up, you can use the following sample projects to deploy an example app and infrastructure, based on the source and deployment options you prefer to use:
+If you haven't already set up a logic app project or infrastructure, you can use the following sample projects to deploy an example app and infrastructure, based on the source and deployment options you prefer to use:
 
 - [GitHub sample for single-tenant Azure Logic Apps](https://github.com/Azure/logicapps/tree/master/github-sample)
 
@@ -44,7 +44,7 @@ Both samples include the following resources that a logic app uses to run.
 |---------------|----------|-------------|
 | Logic App (Standard) | Yes | This Azure resource contains the workflows that run in single-tenant Azure Logic Apps. |
 | Functions Premium or App Service hosting plan | Yes | This Azure resource specifies the hosting resources to use for running your logic app, such as compute, processing, storage, networking, and so on. <p><p>**Important**: In the current experience, the **Logic App (Standard)** resource requires the [**Workflow Standard** hosting plan](logic-apps-pricing.md#standard-pricing), which is based on the Functions Premium hosting plan. |
-| Azure storage account | Yes, for stateless workflows | This Azure resource stores the metadata, state, inputs, outputs, run history, and other information about your workflows. |
+| Azure storage account | Yes, for both stateful and stateless workflows | This Azure resource stores the metadata, keys for access control, state, inputs, outputs, run history, and other information about your workflows. |
 | Application Insights | Optional | This Azure resource provides monitoring capabilities for your workflows. |
 | API connections | Optional, if none exist | These Azure resources define any managed API connections that your workflows use to run managed connector operations, such as Office 365, SharePoint, and so on. <p><p>**Important**: In your logic app project, the **connections.json** file contains metadata, endpoints, and keys for any managed API connections and Azure functions that your workflows use. To use different connections and functions in each environment, make sure that you parameterize the **connections.json** file and update the endpoints. <p><p>For more information, review [API connection resources and access policies](#api-connection-resources). |
 | Azure Resource Manager (ARM) template | Optional | This Azure resource defines a baseline infrastructure deployment that you can reuse or [export](../azure-resource-manager/templates/template-tutorial-export-template.md). The template also includes the required access policies, for example, to use managed API connections. <p><p>**Important**: Exporting the ARM template won't include all the related parameters for any API connection resources that your workflows use. For more information, review [Find API connection parameters](#find-api-connection-parameters). |
@@ -78,7 +78,7 @@ If your workflows use managed API connections, using the export template capabil
 
 To find the values that you need to use in the `properties` object for completing the connection resource definition, you can use the following API for a specific connector:
 
-`PUT https://management.azure.com/subscriptions/{subscription-ID}/providers/Microsoft.Web/locations/{location}/managedApis/{connector-name}?api-version=2018–07–01-preview`
+`GET https://management.azure.com/subscriptions/{subscription-ID}/providers/Microsoft.Web/locations/{location}/managedApis/{connector-name}?api-version=2016-06-01`
 
 In the response, find the `connectionParameters` object, which contains all the information necessary for you to complete resource definition for that specific connector. The following example shows an example resource definition for a SQL managed connection:
 
@@ -214,9 +214,16 @@ If you use other deployment tools, you can deploy your single-tenant based logic
 
 ##### Install Azure Logic Apps (Standard) extension for Azure CLI
 
-Install the *preview* single-tenant Azure Logic Apps (Standard) extension for Azure CLI by running the command, `az extension add`, with the following required parameters:
+Currently, only the *preview* version for this extension is available. If you haven't previously installed this extension, run the command, `az extension add`, with the following required parameters:
 
 ```azurecli-interactive
+az extension add --yes --source "https://aka.ms/logicapp-latest-py2.py3-none-any.whl"
+```
+
+To get the latest extension, which is version 0.1.1, run these commands to remove the existing extension and then install the latest version from the source:
+
+```azurecli-interactive
+az extension remove --name logicapp
 az extension add --yes --source "https://aka.ms/logicapp-latest-py2.py3-none-any.whl"
 ```
 
