@@ -1,8 +1,8 @@
 ---
 title: Overview of zone redundant high availability with Azure Database for MySQL Flexible Server
 description: Learn about the concepts of zone redundant high availability with Azure Database for MySQL Flexible Server
-author: Bashar-MSFT
-ms.author: bahusse
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/10/2021
