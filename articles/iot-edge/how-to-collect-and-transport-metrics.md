@@ -72,7 +72,7 @@ All configuration for the metrics-collector is done using environment variables.
 | `MetricsEndpointsCSV` | Comma-separated list of endpoints to collect Prometheus metrics from. All module endpoints to collect metrics from must appear in this list.<br><br>  Example: *http://edgeAgent:9600/metrics, http://edgeHub:9600/metrics, http://MetricsSpewer:9417/metrics* <br><br>  **Not required** <br><br> Default value: *http://edgeHub:9600/metrics, http://edgeAgent:9600/metrics* |
 | `AllowedMetrics` | List of metrics to collect, all other metrics will be ignored. Set to an empty string to disable. For more information, see [allow and disallow lists](#allow-and-disallow-lists). <br><br>Example: *metricToScrape{quantile=0.99}[endpoint=http://MetricsSpewer:9417/metrics]*<br><br>  **Not required** <br><br> Default value: *empty* |
 | `BlockedMetrics` | List of metrics to ignore. Overrides *AllowedMetrics*, so a metric won't be reported if it's included in both lists. For more information, see [allow and disallow lists](#allow-and-disallow-lists). <br><br>   Example: *metricToIgnore{quantile=0.5}[endpoint=http://VeryNoisyModule:9001/metrics], docker_container_disk_write_bytes*<br><br>  **Not required**  <br><br>Default value: *empty* |
-| `CompressForUpload` | Controls is compression should be used when uploading metrics. Applies to all upload targets.<br><br>  Example: *true* <br><br>    **Not required** <br><br>  Default value: *true* |
+| `CompressForUpload` | Controls if compression should be used when uploading metrics. Applies to all upload targets.<br><br>  Example: *true* <br><br>    **Not required** <br><br>  Default value: *true* |
 | `AzureDomain` | Specifies the top-level Azure domain to use when ingesting metrics directly to Log Analytics. <br><br>  Example: *azure.us* <br><br>    **Not required** <br><br>  Default value: *azure.com* |
 
 # [IoT Central](#tab/iotcentral)
@@ -87,7 +87,7 @@ All configuration for the metrics-collector is done using environment variables.
 | `MetricsEndpointsCSV` | Comma-separated list of endpoints to collect Prometheus metrics from. All module endpoints to collect metrics from must appear in this list.<br><br>  Example: *http://edgeAgent:9600/metrics, http://edgeHub:9600/metrics, http://MetricsSpewer:9417/metrics* <br><br>  **Not required** <br><br> Default value: *http://edgeHub:9600/metrics, http://edgeAgent:9600/metrics* |
 | `AllowedMetrics` | List of metrics to collect, all other metrics will be ignored. Set to an empty string to disable. For more information, see [allow and disallow lists](#allow-and-disallow-lists). <br><br>Example: *metricToScrape{quantile=0.99}[endpoint=http://MetricsSpewer:9417/metrics]*<br><br>  **Not required** <br><br> Default value: *empty* |
 | `BlockedMetrics` | List of metrics to ignore. Overrides *AllowedMetrics*, so a metric won't be reported if it's included in both lists. For more information, see [allow and disallow lists](#allow-and-disallow-lists). <br><br>   Example: *metricToIgnore{quantile=0.5}[endpoint=http://VeryNoisyModule:9001/metrics], docker_container_disk_write_bytes*<br><br>  **Not required**  <br><br>Default value: *empty* |
-| `CompressForUpload` | Controls is compression should be used when uploading metrics. Applies to all upload targets.<br><br>  Example: *true* <br><br>    **Not required** <br><br>  Default value: *true* |
+| `CompressForUpload` | Controls if compression should be used when uploading metrics. Applies to all upload targets.<br><br>  Example: *true* <br><br>    **Not required** <br><br>  Default value: *true* |
 | `AzureDomain` | Specifies the top-level Azure domain to use when ingesting metrics directly to Log Analytics. <br><br>  Example: *azure.us* <br><br>    **Not required** <br><br>  Default value: *azure.com* |
 
 To learn more about IoT Edge and IoT Central, see [Connect Azure IoT Edge devices to an Azure IoT Central application](../iot-central/core/concepts-iot-edge.md).
@@ -113,7 +113,7 @@ You can find the resource ID in the **Properties** page of the IoT hub in the Az
 Or, you retrieve the ID with the [az resource show](/cli/azure/resource#az_resource_show) command:
 
 ```azurecli-interactive
-az resource show -g \<group> -n \<name> --resource-type "Microsoft.Devices/IoTHubs"`
+az resource show -g <resource group> -n <hub name> --resource-type "Microsoft.Devices/IoTHubs"
 ```
 
 # [IoT Central](#tab/iotcentral)
@@ -133,7 +133,7 @@ You can find the resource ID in the **Properties** page of the IoT Central appli
 Or, you retrieve the ID with the [az resource show](/cli/azure/resource#az_resource_show) command:
 
 ```azurecli-interactive
-az resource show -g <resource group> -n <application name> --resource-type "Microsoft.IoTCentral/IoTApps"`
+az resource show -g <resource group> -n <application name> --resource-type "Microsoft.IoTCentral/IoTApps"
 ```
 
 ---
@@ -376,10 +376,18 @@ The following example deployment manifest shows the configuration:
 >[!TIP]
 >Remember to add an edgeHub route to deliver metrics messages from the collector module to IoT Central. It looks like `FROM /messages/modules/replace-with-collector-module-name/* INTO $upstream`.
 
-This option does require extra setup to deliver metrics messages arriving at IoT Central to the Log Analytics workspace. Without this set up, the other portions of the integration such as [curated visualizations](how-to-explore-curated-visualizations.md) won't work.
+To view the metrics from your IoT Edge device in your IoT Central application:
+
+* Add the **IoT Edge Metrics standard interface** as an inherited interface to your [device template](../iot-central/core/concepts-device-templates.md):
+
+    :::image type="content" source="media/how-to-collect-and-transport-metrics/add-metrics-interface.png" alt-text="Add the IoT Edge Metrics standard interface.":::
+
+* Use the telemetry values defined in the interface to build any [dashboards](../iot-central/core/howto-manage-dashboards.md) you need to monitor your IoT Edge devices:
+
+    :::image type="content" source="media/how-to-collect-and-transport-metrics/iot-edge-metrics-telemetry.png" alt-text="IoT Edge metrics available as telemetry.":::
 
 >[!NOTE]
->Be aware of additional costs with this option. Metrics messages will count against your IoT Central message quota. You will also be charged for Log Analytics ingestion and cloud workflow resources.
+>Be aware of additional costs with this option. Metrics messages will count against your IoT Central message quota.
 
 ---
 
