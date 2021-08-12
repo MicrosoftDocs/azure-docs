@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/06/2021
+ms.date: 08/12/2021
 ms.author: justinha
 
 ---
@@ -100,9 +100,9 @@ A managed domain creates some networking resources during deployment. These reso
 
 ## Network security groups and required ports
 
-A [network security group (NSG)](../virtual-network/network-security-groups-overview.md) contains a list of rules that allow or deny network traffic to traffic in an Azure virtual network. A network security group is created when you deploy a managed domain that contains a set of rules that let the service provide authentication and management functions. This default network security group is associated with the virtual network subnet your managed domain is deployed into.
+A [network security group (NSG)](../virtual-network/network-security-groups-overview.md) contains a list of rules that allow or deny network traffic to traffic in an Azure virtual network. When you deploy a managed domain, a network security group is created with a set of rules that let the service provide authentication and management functions. This default network security group is associated with the virtual network subnet your managed domain is deployed into.
 
-The following network security group rules are required for the managed domain to provide authentication and management services. Don't edit or delete these network security group rules for the virtual network subnet your managed domain is deployed into.
+The following network security group inbound rules are required for the managed domain to provide authentication and management services. Don't edit or delete these network security group rules for the virtual network subnet your managed domain is deployed into.
 
 | Port number | Protocol | Source                             | Destination | Action | Required | Purpose |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
@@ -118,9 +118,7 @@ If needed, you can [create the required network security group and rules using A
 >
 > If you use secure LDAP, you can add the required TCP port 636 rule to allow external traffic if needed. Adding this rule doesn't place your network security group rules in an unsupported state. For more information, see [Lock down secure LDAP access over the internet](tutorial-configure-ldaps.md#lock-down-secure-ldap-access-over-the-internet)
 >
-> Default rules for *AllowVnetInBound*, *AllowAzureLoadBalancerInBound*, *DenyAllInBound*, *AllowVnetOutBound*, *AllowInternetOutBound*, and *DenyAllOutBound* also exist for the network security group. Don't edit or delete these default rules.
->
-> The Azure SLA doesn't apply to deployments where an improperly configured network security group and/or user defined route tables have been applied that blocks Azure AD DS from updating and managing your domain.
+> The Azure SLA doesn't apply to deployments that are blocked from updates or management by an improperly configured network security group or user defined route table. A broken network configuration can also prevent security patches from being applied.
 
 ### Port 5986 - management using PowerShell remoting
 
