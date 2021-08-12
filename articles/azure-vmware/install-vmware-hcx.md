@@ -2,7 +2,7 @@
 title: Install VMware HCX in Azure VMware Solution
 description: Install VMware HCX in your Azure VMware Solution private cloud.
 ms.topic: how-to
-ms.date: 07/30/2021
+ms.date: 08/12/2021
 ---
 
 # Install and activate VMware HCX in Azure VMware Solution
@@ -83,9 +83,11 @@ In this step, you'll download the VMware HCX Connector OVA file, and then you'll
 
 After deploying the VMware HCX Connector OVA on-premises and starting the appliance, you're ready to activate it. First, you'll need to get a license key from the Azure VMware Solution portal, and then you'll activate it in VMware HCX Manager. Finally, you’ll need a key for each on-premises HCX connector deployed.
 
-1. In the Azure VMware Solution portal, go to **Manage** > **Connectivity**, select the **HCX** tab, and select **Add**.
+1. In your Azure VMware Solution private cloud, select **Manage** > **Add-ons** > **Migration using HCX**. Then copy the **Activation key**.
 
-1. Use the **admin** credentials to sign in to the on-premises VMware HCX Manager at `https://HCXManagerIP:9443`.  Make sure to include the `9443` port number with the VMware HCX Manager IP address.
+   :::image type="content" source="media/tutorial-vmware-hcx/hcx-activation-key.png" alt-text="Screenshot showing the activation key.":::   
+
+1. Sign in to the on-premises VMware HCX Manager at `https://HCXManagerIP:9443` with the **admin** credentials.  Make sure to include the `9443` port number with the VMware HCX Manager IP address.
 
    >[!TIP]
    >You defined the **admin** user password during the VMware HCX Manager OVA file deployment.
@@ -106,7 +108,7 @@ After deploying the VMware HCX Connector OVA on-premises and starting the applia
    >[!TIP]
    >The vCenter server is where you deployed the VMware HCX Connector in your datacenter.
 
-1. 8.	In **Configure SSO/PSC**, provide your Platform Services Controller's FQDN or IP address, and select **Continue**.
+1. In **Configure SSO/PSC**, provide your Platform Services Controller's FQDN or IP address, and select **Continue**.
 
    >[!NOTE]
    >Typically, it's the same as your vCenter FQDN or IP address.
@@ -132,9 +134,11 @@ You can uninstall HCX Advanced through the portal, which removes the existing pa
 
 1. Ensure that L2 extensions are no longer needed or the networks have been "unstretched" to the destination. 
 
-1. 3.	For workloads using MON, ensure that you’ve removed the default gateways. Otherwise, it may result in workloads not being able to communicate or function.  
+1. For workloads using MON, ensure that you’ve removed the default gateways. Otherwise, it may result in workloads not being able to communicate or function.  
 
-1. In your Azure VMware Solution private cloud, select **Manage** > **Add-ons** > **Uninstall**.
+1. In your Azure VMware Solution private cloud, select **Manage** > **Add-ons**.
+
+1. Select **Get started** for **HCX Workload Mobility**, then select **Uninstall**.
 
    
 1. Enter **yes** to confirm the uninstall.
