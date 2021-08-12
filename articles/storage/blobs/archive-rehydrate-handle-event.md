@@ -21,7 +21,7 @@ When an event occurs, Event Grid sends the event to an event handler via an endp
 
 This article shows how to create and test an Azure Function with .NET from Visual Studio. You can build Azure Functions from a variety of local development environments and using a variety of different programming languages. For more information about supported languages for Azure Functions, see [Supported languages in Azure Functions](../../azure-functions/supported-languages.md). For more information about development options for Azure Functions, see [Code and test Azure Functions locally](../../azure-functions/functions-develop-local.md).
 
-For more information about rehydrating blobs from the archive tier, see [Rehydrate blob data from the archive tier](archive-rehydrate-overview.md).
+For more information about rehydrating blobs from the archive tier, see [Overview of blob rehydration from the archive tier](archive-rehydrate-overview.md).
 
 ## Prerequisites
 
@@ -288,7 +288,7 @@ After the rehydration is complete, the log blob is written to the same container
 
 :::image type="content" source="media/archive-rehydrate-handle-event/copy-blob-archive-tier-rehydrated-with-log-blob.png" alt-text="Screenshot showing the original blob in the archive tier, the rehydrated blob in the hot tier, and the log blob written by the event handler":::
 
-Keep in mind that rehydrating a blob can take up to 15 hours, depending on the rehydration priority setting. If you set the rehydration priority to **High**, rehydration may complete in under one hour for blobs that are less than 10 GB in size. However, a high-priority rehydration incurs a greater cost. For more information, see [Rehydrate blob data from the archive tier](archive-rehydrate-overview.md).
+Keep in mind that rehydrating a blob can take up to 15 hours, depending on the rehydration priority setting. If you set the rehydration priority to **High**, rehydration may complete in under one hour for blobs that are less than 10 GB in size. However, a high-priority rehydration incurs a greater cost. For more information, see [Overview of blob rehydration from the archive tier](archive-rehydrate-overview.md).
 
 > [!TIP]
 > Although the goal of this how-to is to handle these events in the context of blob rehydration, for testing purposes it may also be helpful to observe these events in response to uploading a blob or changing an online blob's tier (*i.e.*, from hot to cool), because the event fires immediately.
@@ -298,5 +298,6 @@ For more information on how to filter events by type, see [How to filter events 
 ## See also
 
 - [Access tiers for Azure Blob Storage - hot, cool, and archive](storage-blob-storage-tiers.md)
-- [Rehydrate blob data from the archive tier](archive-rehydrate-overview.md)
+- [Overview of blob rehydration from the archive tier](archive-rehydrate-overview.md)
+- [Rehydrate an archived blob to an online tier](archive-rehydrate-to-online-tier.md)
 - [Reacting to Blob storage events](storage-blob-event-overview.md)

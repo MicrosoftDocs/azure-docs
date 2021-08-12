@@ -1,6 +1,6 @@
 ---
-title: Rehydrate blob data from the archive tier
-description: Rehydrate your blobs from archive storage so you can access the blob data. Copy an archived blob to an online tier.
+title: Overview of blob rehydration from the archive tier
+description: While a blob is in the archive access tier, it's considered to be offline and can't be read or modified. In order to read or modify data in an archived blob, you must first rehydrate the blob to an online tier, either the hot or cool tier.
 services: storage
 author: tamram
 
@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.reviewer: fryu
 ---
 
-# Rehydrate blob data from the archive tier
+# Overview of blob rehydration from the archive tier
 
 While a blob is in the archive access tier, it's considered to be offline and can't be read or modified. In order to read or modify data in an archived blob, you must first rehydrate the blob to an online tier, either the hot or cool tier. There are two options for rehydrating a blob that is stored in the archive tier:
 

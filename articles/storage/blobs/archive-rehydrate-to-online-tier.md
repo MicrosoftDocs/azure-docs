@@ -186,6 +186,7 @@ az storage blob show \
 
 ## See also
 
-- [Rehydrate blob data from the archive tier](archive-rehydrate-overview.md)
-- [Run an Azure Function in response to a blob rehydration event](archive-rehydrate-to-online-tier.md)
+- [Azure Blob Storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md).
+- [Overview of blob rehydration from the archive tier](archive-rehydrate-overview.md)
+- [Run an Azure Function in response to a blob rehydration event](archive-rehydrate-handle-event.md)
 - [Reacting to Blob storage events](storage-blob-event-overview.md)

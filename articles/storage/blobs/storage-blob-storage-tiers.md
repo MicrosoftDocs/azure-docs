@@ -71,7 +71,7 @@ The cool access tier has lower storage costs and higher access costs compared to
 
 ## Archive access tier
 
-The archive access tier has the lowest storage cost but higher data retrieval costs compared to hot and cool tiers. Data must remain in the archive tier for at least 180 days or be subject to an early deletion charge. Data in the archive tier can take several hours to retrieve depending on the specified rehydration priority. For small objects, a high priority rehydrate may retrieve the object from archive in under an hour. See [Rehydrate blob data from the archive tier](archive-rehydrate-overview.md) to learn more.
+The archive access tier has the lowest storage cost but higher data retrieval costs compared to hot and cool tiers. Data must remain in the archive tier for at least 180 days or be subject to an early deletion charge. Data in the archive tier can take several hours to retrieve depending on the specified rehydration priority. For small objects, a high priority rehydrate may retrieve the object from archive in under an hour. See [Overview of blob rehydration from the archive tier](archive-rehydrate-overview.md) to learn more.
 
 While a blob is in archive storage, the blob data is offline and can't be read or modified. To read or download a blob in archive, you must first rehydrate it to an online tier. You can't take snapshots of a blob in archive storage. However, the blob metadata remains online and available, allowing you to list the blob, its properties, metadata, and blob index tags. Setting or modifying the blob metadata while in archive isn't allowed. However, you can set and modify the blob index tags. For blobs in archive, the only valid operations are [Get Blob Properties](/rest/api/storageservices/get-blob-properties), [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata), [Set Blob Tags](/rest/api/storageservices/set-blob-tags), [Get Blob Tags](/rest/api/storageservices/get-blob-tags), [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags), [List Blobs](/rest/api/storageservices/list-blobs), [Set Blob Tier](/rest/api/storageservices/set-blob-tier), [Copy Blob](/rest/api/storageservices/copy-blob), and [Delete Blob](/rest/api/storageservices/delete-blob).
 
@@ -151,7 +151,7 @@ The following table shows a comparison of premium performance block blob storage
 
 <sup>1</sup> Objects in the cool tier on GPv2 accounts have a minimum retention duration of 30 days. Blob Storage accounts don't have a minimum retention duration for the cool tier.
 
-<sup>2</sup> Archive Storage currently supports two rehydration priorities, high and standard, offering different retrieval latencies and costs. For more information, see [Rehydrate blob data from the archive tier](archive-rehydrate-overview.md).
+<sup>2</sup> Archive Storage currently supports two rehydration priorities, high and standard, offering different retrieval latencies and costs. For more information, see [Overview of blob rehydration from the archive tier](archive-rehydrate-overview.md).
 
 > [!NOTE]
 > Blob Storage accounts support the same performance and scalability targets as general-purpose v2 storage accounts. For more information, see [Scalability and performance targets for Blob Storage](scalability-targets.md).
