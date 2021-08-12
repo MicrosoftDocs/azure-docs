@@ -10,6 +10,7 @@ services: iot-dps
 manager: lizross
 ms.custom: mvc
 zone_pivot_groups: iot-dps-set1
+
 #Customer intent: As a new IoT developer, I want to connect a device to an IoT Hub using the SDK, to learn how secure provisioning works with symmetric keys.
 ---
 

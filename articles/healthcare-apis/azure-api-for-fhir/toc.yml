@@ -23,14 +23,14 @@ items:
       href: fhir-paas-cli-quickstart.md
     - name: Using ARM template
       displayName: Resource Manager
-      href: fhir-paas-arm-template-quickstart.md
+      href: azure-api-fhir-resource-manager-template.md
   - name: Deploy Azure IoT Connector for FHIR (preview)
     expanded: false
     items:
     - name: Using Portal
       href: iot-fhir-portal-quickstart.md
     - name: Using ARM template
-      href: iot-fhir-arm-template-quickstart.md 
+      href: iot-azure-resource-manager-template-quickstart.md 
 - name: Tutorials
   expanded: false
   items:
@@ -58,7 +58,7 @@ items:
     expanded: false
     items:
     - name: CMS Interoperability and Patient Access rule introduction
-      href: cms-tutorial-introduction.md
+      href: centers-for-medicare-tutorial-introduction.md
     - name: CARIN Implementation Guide for Blue Button
       href: ../fhir/carin-implementation-guide-blue-button-tutorial.md
     - name: Da Vinci Drug Formulary
@@ -157,9 +157,9 @@ items:
   expanded: false
   items:
   - name: Azure AD and Azure API for FHIR Overview
-    href: azure-ad-hcapi.md
+    href: azure-active-directory-identity-configuration.md
   - name: Access token validation
-    href: azure-ad-hcapi-token-validation.md
+    href: azure-api-fhir-access-token-validation.md
   - name: Use Custom HTTP headers to add data to Audit Logs
     href: use-custom-headers.md
   - name: Azure IoT Connector for FHIR (preview) workings
