@@ -25,7 +25,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Translator?
-            url: translator-info-overview.md
+            url: translator-overview.md
           - text: Language support
             url:  language-support.md  
           - text: Document Translation

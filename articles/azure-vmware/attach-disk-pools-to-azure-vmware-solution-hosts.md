@@ -109,7 +109,7 @@ You'll attach to a disk pool surfaced through an iSCSI target as the VMware data
 
 3. Create and attach an iSCSI datastore in the Azure VMware Solution private cloud cluster using `Microsoft.StoragePool` provided iSCSI target:
 
-   ```azurecli
+   ```bash
    az vmware datastore disk-pool-volume create --name iSCSIDatastore1 --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud --target-id /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/ResourceGroup1/providers/Microsoft.StoragePool/diskPools/mpio-diskpool/iscsiTargets/mpio-iscsi-target --lun-name lun0
    ```
 
