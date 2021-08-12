@@ -43,7 +43,7 @@ landingContent:
             url: quick-setup-auto-provision.md
       - linkListType: sample
         links:
-          - text: Provision a symmetric key device
+          - text: Provision a simulated symmetric key device
             url: quick-create-simulated-device-symm-key.md
       - linkListType: how-to-guide
         links:

@@ -12,7 +12,7 @@ services: iot-dps
 
 # How to provision for multitenancy 
 
-This article demonstrates how to securely provision multiple symmetric key devices to a group of IoT Hubs using an [allocation policy](concepts-service.md#allocation-policy). Allocation policies defined by the provisioning service support a variety of allocation scenarios. Two common scenarios are:
+This article demonstrates how to securely provision multiple simulated symmetric key devices to a group of IoT Hubs using an [allocation policy](concepts-service.md#allocation-policy). Allocation policies defined by the provisioning service support a variety of allocation scenarios. Two common scenarios are:
 
 * **Geolocation / GeoLatency**: As a device moves between locations, network latency is improved by having the device provisioned to the IoT hub closest to each location. In this scenario, a group of IoT hubs, which span across regions, are selected for enrollments. The **Lowest latency** allocation policy is selected for these enrollments. This policy causes the Device Provisioning Service to evaluate device latency and determine the closet IoT hub out of the group of IoT hubs. 
 

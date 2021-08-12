@@ -12,7 +12,7 @@ manager: lizross
 
 # How to provision devices using symmetric key enrollment groups
 
-This article demonstrates how to securely provision multiple symmetric key devices to a single IoT Hub using an enrollment group.
+This article demonstrates how to securely provision multiple simulated symmetric key devices to a single IoT Hub using an enrollment group.
 
 Some devices may not have a certificate, TPM, or any other security feature that can be used to securely identify the device. The Device Provisioning Service includes [symmetric key attestation](concepts-symmetric-key-attestation.md). Symmetric key attestation can be used to identify a device based off unique information like the MAC address or a serial number.
 
@@ -41,7 +41,7 @@ A unique registration ID will be defined for each device based on information th
 
 An enrollment group that uses [symmetric key attestation](concepts-symmetric-key-attestation.md) will be created with the Device Provisioning Service. The enrollment group will include a group master key. That master key will be used to hash each unique registration ID to produce a unique device key for each device. The device will use that derived device key with its unique registration ID to attest with the Device Provisioning Service and be assigned to an IoT hub.
 
-The device code demonstrated in this article will follow the same pattern as the [Quickstart: Provision a symmetric key device](quick-create-simulated-device-symm-key.md). The code will simulate a device using a sample from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). The simulated device will attest with an enrollment group instead of an individual enrollment as demonstrated in the quickstart.
+The device code demonstrated in this article will follow the same pattern as the [Quickstart: Provision a simulated symmetric key device](quick-create-simulated-device-symm-key.md). The code will simulate a device using a sample from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). The simulated device will attest with an enrollment group instead of an individual enrollment as demonstrated in the quickstart.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -302,7 +302,7 @@ Be aware that this leaves the derived device key included as part of the image f
 > [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md)
 
 > [!div class="nextstepaction"]
-> [Quickstart: Provision a symmetric key device](quick-create-simulated-device-symm-key.md)
+> [Quickstart: Provision a simulated symmetric key device](quick-create-simulated-device-symm-key.md)
 
 * To learn more about Deprovisioning, see
 

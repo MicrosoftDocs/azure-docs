@@ -112,7 +112,6 @@ You will use sample code from the [X509Sample](https://github.com/Azure-Samples/
    On successful enrollment, your X.509 enrollment entry appears as **iothubx509device1** under the *Registration ID* column in the *Individual Enrollments* tab. 
 
 
-
 ## Provision the device
 
 1. From the **Overview** blade for your provisioning service, note the **_ID Scope_** value.

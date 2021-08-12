@@ -48,7 +48,7 @@ In this quickstart, you programmatically create an individual device enrollment 
  
     # [Symmetric Key](#tab/symmetrickey)
     
-    For symmetric key device enrollments, you need a primary and secondary key for your device. If you don't have a valid symmetric key, you can use the following example keys for this example:
+    For simulated symmetric key device enrollments, you need a primary and secondary key for your device. If you don't have a valid symmetric key, you can use the following example keys for this example:
 
     *Primary Symmetric key*
 

@@ -166,4 +166,4 @@ You can also delete resource groups and individual resources using the Azure por
 In this quickstart, you've deployed an IoT hub and a Device Provisioning Service instance, and linked the two resources. To learn how to use this setup to provision a device, continue to the quickstart for creating a device.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Provision a symmetric key device](./quick-create-simulated-device-symm-key.md)
+> [Quickstart: Provision a simulated symmetric key device](./quick-create-simulated-device-symm-key.md)

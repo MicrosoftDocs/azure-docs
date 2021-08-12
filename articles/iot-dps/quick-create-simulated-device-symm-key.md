@@ -1,29 +1,33 @@
 ---
-title: Quickstart - Provision a symmetric key device
+title: Quickstart - Provision a simulated symmetric key device
 description: Learn how to provision a device that authenticates with a symmetric key in the Azure IoT Hub Device Provisioning Service (DPS)
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 08/11/2021
+ms.date: 08/12/2021
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
 manager: lizross
 ms.custom: mvc
 zone_pivot_groups: iot-dps-set1
-#Customer intent: As a new IoT developer, I want to connect a device to an IoT Hub using the C SDK so that I can learn how secure provisioning works with symmetric keys.
+#Customer intent: As a new IoT developer, I want to connect a device to an IoT Hub using the SDK, to learn how secure provisioning works with symmetric keys.
 ---
 
-# Quickstart: Provision a symmetric key device
+# Quickstart: Provision a simulated symmetric key device
 
-In this quickstart, you'll learn how to provision a Windows development machine as a device to an IoT hub. The device will use a symmetric key and an individual enrollment to authenticate with a Device Provisioning Service (DPS) instance. Once authenticated, it will then be assigned to an IoT hub.
-
->[!IMPORTANT]
->This quickstart demonstrates a solution for a Windows-based workstation. However, you can also perform the procedures on Linux. For a Linux example, see [How to provision for multitenancy](how-to-provision-multitenant.md).
+In this quickstart, you'll create a simulated device on your Windows machine. The simulated device will be configured to use the [symmetric key attestation](concepts-symmetric-key-attestation.md) mechanism for authentication. After you've configured your device, you'll then provision it to your IoT hub using the Azure IoT Hub Device Provisioning service.
 
 If you're unfamiliar with the process of provisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview.
 
->[!TIP]
->Although this article demonstrates provisioning with an individual enrollment, you can also choose to use enrollment groups. There are a few differences when using enrollment groups. For example, you must use a derived device key with a unique registration ID for the device. Although symmetric key enrollment groups are not limited to legacy devices, [How to provision legacy devices using Symmetric key attestation](how-to-legacy-device-symm-key.md) provides an enrollment group example. For more information, see [Group Enrollments for Symmetric Key Attestation](concepts-symmetric-key-attestation.md#group-enrollments).
+This quickstart demonstrates a solution for a Windows-based workstation. However, you can also perform the procedures on Linux. For a Linux example, see [How to provision for multitenancy](how-to-provision-multitenant.md).
+
+>[!NOTE]
+>The Azure IoT Device Provisioning Service supports two types of enrollments:
+>
+>* [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
+>* [Individual Enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
+>
+>This quickstart demonstrates individual enrollments.
 
 ## Prerequisites
 
@@ -39,7 +43,11 @@ If you're unfamiliar with the process of provisioning, review the [provisioning]
 
 ::: zone pivot="programming-language-csharp"
 
-* Install [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download) or later on your Windows-based machine.
+* Install [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
+
+    ```bash
+    dotnet --info
+    ```
 
 ::: zone-end
 
@@ -72,9 +80,7 @@ If you're unfamiliar with the process of provisioning, review the [provisioning]
 
 ::: zone pivot="programming-language-ansi-c"
 
-In this section, you'll prepare a development environment that's used to build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
-
-The SDK includes the provisioning sample code for devices. This code attempt provisioning during the device's boot sequence.
+In this section, you'll prepare a development environment that's used to build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). The sample code attempts to provision the device, during the device's boot sequence.
 
 1. Download the latest [CMake build system](https://cmake.org/download/).
 
@@ -104,7 +110,7 @@ The SDK includes the provisioning sample code for devices. This code attempt pro
     cd cmake
     ```
 
-7. Next, to build a version of the SDK specific to your development client platform, run the following command:
+7. The code sample uses a symmetric key to provide attestation. Run the following command to build a version of the SDK specific to your development client platform that includes the device provisioning client:
 
     ```cmd
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
@@ -230,7 +236,7 @@ The SDK includes the provisioning sample code for devices. This code attempt pro
 
 7. Select **Save**. A **Primary Key** and **Secondary Key** are generated and added to the enrollment entry, and you are taken back to the **Manage enrollments** page.
 
-8. To view your symmetric key device enrollment, select the **Individual Enrollments** tab.
+8. To view your simulated symmetric key device enrollment, select the **Individual Enrollments** tab.
 
 9. Select your device (*symm-key-device-007*).
 
@@ -242,10 +248,9 @@ The SDK includes the provisioning sample code for devices. This code attempt pro
 
 ## Prepare and run the device provisioning code
 
-In this section, you'll update the device sample code to send the device's boot sequence to your Device Provisioning service instance. This boot sequence will cause the device to be recognized, authenticated, and assigned to an IoT hub linked to the Device Provisioning service instance.
-
-
 ::: zone pivot="programming-language-ansi-c"
+
+In this section, you'll update the device sample code to send the device's boot sequence to your Device Provisioning service instance. This boot sequence will cause the device to be recognized, authenticated, and assigned to an IoT hub linked to the Device Provisioning service instance.
 
 The sample provisioning code accomplishes the following tasks, in order:
 
@@ -327,23 +332,11 @@ To update and run the provisioning sample with your device information:
     Press enter key to exit:
     ```
 
-11. Go to the [Azure portal](https://portal.azure.com).
-
-12. On the left-hand menu or on the portal page, select **All resources**.
-
-13. Select the IoT hub to which your device was assigned.
-
-14. In the **Explorers** menu, select **IoT Devices**.
-
-15. If your device was provisioned successfully, the device ID should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh** at the top of the page.
-
-    ![Device is registered with the IoT hub](./media/quick-create-simulated-device-symm-key/hub-registration.png)
-
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 
-The sample provisioning code accomplishes the following tasks, in order:
+The sample provisioning code accomplishes the following tasks:
 
 1. Authenticates your device with your Device Provisioning resource using the following three parameters:
 
@@ -380,7 +373,7 @@ To update and run the provisioning sample with your device information:
     | `--g` or `--GlobalDeviceEndpoint` | False    | The global endpoint for devices to connect to. Defaults to `global.azure-devices-provisioning.net` |
     | `--t` or `--TransportType`        | False    | The transport to use to communicate with the device provisioning instance. Defaults to `Mqtt`. Possible values include `Mqtt`, `Mqtt_WebSocket_Only`, `Mqtt_Tcp_Only`, `Amqp`, `Amqp_WebSocket_Only`, `Amqp_Tcp_only`, and `Http1`.|
 
-5. In the *SymmetricKeySample* folder, open *ProvisioningDeviceClientSample.cs* in a text editor. This file shows how the [SecurityProviderSymmetricKey](/dotnet/api/microsoft.azure.devices.shared.securityprovidersymmetrickey?view=azure-dotnet&preserve-view=true) class is used along with the [ProvisioningDeviceClient](/dotnet/api/microsoft.azure.devices.provisioning.client.provisioningdeviceclient?view=azure-dotnet&preserve-view=true) class to provision your symmetric key device. Review the code in this file.  No changes are needed.
+5. In the *SymmetricKeySample* folder, open *ProvisioningDeviceClientSample.cs* in a text editor. This file shows how the [SecurityProviderSymmetricKey](/dotnet/api/microsoft.azure.devices.shared.securityprovidersymmetrickey?view=azure-dotnet&preserve-view=true) class is used along with the [ProvisioningDeviceClient](/dotnet/api/microsoft.azure.devices.provisioning.client.provisioningdeviceclient?view=azure-dotnet&preserve-view=true) class to provision your simulated symmetric key device. Review the code in this file.  No changes are needed.
 
 6. Build and run the sample code using the following command after replacing the three example parameters (replace `<id-scope>` with the ID Scope of your Device Provisioning service ID Scope, `<registration-id>` with the registration id of your device, and `<primarykey>` with the primary key of your device).
 
@@ -404,18 +397,6 @@ To update and run the provisioning sample with your device information:
     Finished.
     Enter any key to exit.
     ```
-
-8. Go to the [Azure portal](https://portal.azure.com).
-
-9. On the left-hand menu or on the portal page, select **All resources**.
-
-10. Select the IoT hub to which your device was assigned.
-
-11. In the **Explorers** menu, select **IoT Devices**.
-
-12. If your device was provisioned successfully, the device ID should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh** at the top of the page.
-
-    ![Device is registered with the IoT hub](./media/quick-create-simulated-device-symm-key/hub-registration.png)
 
 ::: zone-end
 
@@ -503,18 +484,6 @@ To update and run the provisioning sample with your device information:
     Finished.
     Enter any key to exit.
     ```
-
-8. Go to the [Azure portal](https://portal.azure.com).
-
-9. On the left-hand menu or on the portal page, select **All resources**.
-
-10. Select the IoT hub to which your device was assigned.
-
-11. In the **Explorers** menu, select **IoT Devices**.
-
-12. If your device was provisioned successfully, the device ID should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh** at the top of the page.
-
-    ![Device is registered with the IoT hub](./media/quick-create-simulated-device-symm-key/hub-registration.png)
 
 ::: zone-end
 
@@ -604,18 +573,6 @@ To update and run the provisioning sample with your device information:
     done sending message #5
     ```
 
-7. Go to the [Azure portal](https://portal.azure.com).
-
-8. On the left-hand menu or on the portal page, select **All resources**.
-
-9. Select the IoT hub to which your device was assigned.
-
-10. In the **Explorers** menu, select **IoT Devices**.
-
-11. If your device was provisioned successfully, the device ID should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh** at the top of the page.
-
-    ![Device is registered with the IoT hub](./media/quick-create-simulated-device-symm-key/hub-registration.png)
-
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
@@ -681,20 +638,21 @@ To update and run the provisioning sample with your device information:
       Message received! Response status: OK_EMPTY
     ```
 
-8. Go to the [Azure portal](https://portal.azure.com).
-
-9. On the left-hand menu or on the portal page, select **All resources**.
-
-10. Select the IoT hub to which your device was assigned.
-
-12. In the **Explorers** menu, select **IoT Devices**.
-
-13. If your device was provisioned successfully, the device ID should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh** at the top of the page.
-
-    ![Device is registered with the IoT hub](./media/quick-create-simulated-device-symm-key/hub-registration.png)
-
 ::: zone-end
 
+## Confirm your device provisioning registration
+
+1. Go to the [Azure portal](https://portal.azure.com).
+
+2. On the left-hand menu or on the portal page, select **All resources**.
+
+3. Select the IoT hub to which your device was assigned.
+
+4. In the **Explorers** menu, select **IoT Devices**.
+
+5. If your device was provisioned successfully, the device ID should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh** at the top of the page.
+
+    :::image type="content" source="./media/quick-create-simulated-device-symm-key/hub-registration.png" alt-text="[Device is registered with the IoT hub":::
 
 > [!NOTE]
 > If you changed the *initial device twin state* from the default value in the enrollment entry for your device, it can pull the desired twin state from the hub and act accordingly. For more information, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
