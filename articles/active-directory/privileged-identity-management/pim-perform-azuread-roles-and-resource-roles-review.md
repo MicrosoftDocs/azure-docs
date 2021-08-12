@@ -43,7 +43,11 @@ If you don't have the Privileged Identity Management service pinned to your dash
 
 ## Approve or deny access
 
-You can approve or deny access based on whether you still use this role or not. Choose **Approve** if you want to stay in the role, or **Deny** if you don't need the access anymore. Your status changes only after the reviewer applies the results.
+You can approve or deny access based on whether you still use this role or not. Choose **Approve** if you want to stay in the role, or **Deny** if you don't need the access anymore. Your status changes only after the reviewer applies the results. Common scenarios in which certain denied users cannot have results applied to them may include the following:
+
+- **Reviewing members of a synced on-premises Windows AD group**: If the group is synced from an on-premises Windows AD, the group cannot be managed in Azure AD and therefore membership cannot be changed.
+- **Reviewing a resource (role, group, application) with nested groups assigned**: For users who have membership through a nested group, the access review will not remove their membership to the nested group and therefore they will retain access to the resource being reviewed.
+- **User not found or other errors**: These may also result if an apply result is not being supported.
 
 Follow these steps to find and complete the access review:
 
@@ -61,6 +65,7 @@ Follow these steps to find and complete the access review:
      <kbd>![Screenshot of Privileged Identity Management application, with the selected Access Review for Azure AD roles](media/pim-perform-azuread-roles-and-resource-roles-review/rbac-access-review-azure-ad-completed.png)</kbd>
 
      <kbd>![Screenshot of Privileged Identity Management application, with the selected Access Review for Azure resource roles](media/pim-perform-azuread-roles-and-resource-roles-review/rbac-access-review-azure-resource-completed.png)</kbd>
+
 
 
 ## Next steps
