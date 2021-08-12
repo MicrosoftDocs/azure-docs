@@ -102,9 +102,13 @@ A managed domain creates some networking resources during deployment. These reso
 
 A [network security group (NSG)](../virtual-network/network-security-groups-overview.md) contains a list of rules that allow or deny network traffic to traffic in an Azure virtual network. When you deploy a managed domain, a network security group is created with a set of rules that let the service provide authentication and management functions. This default network security group is associated with the virtual network subnet your managed domain is deployed into.
 
+The following sections cover network security groups and inbound and outbound port requirements.
+
+### Inbound rule
+
 The following network security group inbound rules are required for the managed domain to provide authentication and management services. Don't edit or delete these network security group rules for the virtual network subnet your managed domain is deployed into.
 
-| Port number | Protocol | Source                             | Destination | Action | Required | Purpose |
+| Inbound port number | Protocol | Source                             | Destination | Action | Required | Purpose |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
 | 5986        | TCP      | AzureActiveDirectoryDomainServices | Any         | Allow  | Yes      | Management of your domain. |
 | 3389        | TCP      | CorpNetSaw                         | Any         | Allow  | Optional      | Debugging for support. |
@@ -114,11 +118,26 @@ An Azure standard load balancer is created that requires these rules to be place
 If needed, you can [create the required network security group and rules using Azure PowerShell](powershell-create-instance.md#create-a-network-security-group).
 
 > [!WARNING]
-> Don't manually edit these network resources and configurations. When you associate a misconfigured network security group or a user defined route table with the subnet in which the managed domain is deployed, you may disrupt Microsoft's ability to service and manage the domain. Synchronization between your Azure AD tenant and your managed domain is also disrupted.
+> When you associate a misconfigured network security group or a user defined route table with the subnet in which the managed domain is deployed, you may disrupt Microsoft's ability to service and manage the domain. Synchronization between your Azure AD tenant and your managed domain is also disrupted. Follow all listed requirements to avoid an unsupported configuration that could break sync, patching, or management.
 >
 > If you use secure LDAP, you can add the required TCP port 636 rule to allow external traffic if needed. Adding this rule doesn't place your network security group rules in an unsupported state. For more information, see [Lock down secure LDAP access over the internet](tutorial-configure-ldaps.md#lock-down-secure-ldap-access-over-the-internet)
 >
 > The Azure SLA doesn't apply to deployments that are blocked from updates or management by an improperly configured network security group or user defined route table. A broken network configuration can also prevent security patches from being applied.
+
+### Outbound rule
+
+For Outbound connectivity, you can either keep **AllowVnetOutbound** and **AllowInternetOutBound** or restrict outbound traffic by using ServiceTags listed in the following table.
+
+| Outbound port number | Protocol | Source | Destination   | Action | Required | Purpose |
+|----------------------|----------|--------|---------------|--------|----------|---------|
+| 443 | TCP	  | Any    | AzureActiveDirectoryDomainServices| Allow  | Yes      | Communication with the Azure AD Domain Services management service. |
+| 443 | TCP   | Any    | AzureMonitor                      | Allow  | Yes      | Monitoring of the virtual machines. |
+| 443 | TCP	  | Any	   | Storage                           | Allow  | Yes      | Communication with Azure Storage.   | 
+| 443 | TCP	  | Any	   | AzureActiveDirectory              | Allow  | Yes      | Communication with Azure Active Directory.  |
+| 443 | TCP	  | Any	   | AzureUpdateDelivery               | Allow  | Yes      | Communication with Windows Update.  | 
+| 80  | TCP	  | Any	   | AzureFrontDoor.FirstParty         | Allow  | Yes      | Download of patches from Windows Update.    |
+| 443 | TCP	  | Any	   | GuestAndHybridManagement          | Allow  | Yes      | Automated management of security patches.   |
+
 
 ### Port 5986 - management using PowerShell remoting
 
