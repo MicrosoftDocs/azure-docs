@@ -426,13 +426,16 @@ After the [Load Balancer is created](#step-4-create-a-load-balancer) and its Sta
 1.	Back in the Endpoint Services page:
 
     1. Select the new Endpoint Service you created.
-    1. In the **Whitelisted principals** tab at the bottom, select **Add principals to whitelist**.
+    1. In the **Allowlisted principals** tab at the bottom, select **Add principals to allowlist**.
     1. In the **Identities to add > ARN** field, enter `arn:aws:iam::181328463391:root`.
-    1. Select **Add to whitelisted principals**.
+    1. Select **Add to allowlisted principals**.
 
     For example:
 
-    :::image type="content" source="media/register-scan-amazon-rds/add-principals-to-whitelist.png" alt-text="Screenshot of adding principals to whitelist in AWS.":::
+    :::image type="content" source="media/register-scan-amazon-rds/add-principals-to-allowlist.png" alt-text="Screenshot of adding principals to allowlist in AWS.":::
+
+    > [!NOTE]
+    > When adding an identity, use an asterisk (*****) to add permissions for all principals. This enables all principals, in all AWS accounts to create an endpoint to your endpoint service. For more information, see the [AWS documentation](https://docs.aws.amazon.com/vpc/latest/privatelink/add-endpoint-service-permissions.html).
 
 > [!TIP]
 > To perform this step via CLI, use the following commands:
@@ -459,6 +462,43 @@ Locate the **Service name** on the **Details** tab for your selected endpoint se
 >
 > For more information, see [describe-vpc-endpoint-services — AWS CLI 2.2.7 Command Reference (amazonaws.com)](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-vpc-endpoint-services.html).
 >
+
+## Troubleshoot your VPC connection
+
+This sections describes common errors that may occur when configuring your VPC connection with Azure Purview, and how to troubleshoot and resolve them.
+
+### Invalid VPC service name
+
+If an error of `Invalid VPC service name` or `Invalid endpoint service` appears in Azure Purview, use the following steps to troubleshoot:
+
+1. Make sure that your VPC service name is correct. For example:
+
+    :::image type="content" source="media/register-scan-amazon-rds/locate-service-name.png" alt-text="Screenshot of the VPC service name in AWS.":::
+
+1. Make sure that the Microsoft ARN is listed in the allowed principals: `arn:aws:iam::181328463391:root`
+
+    For more information, see [Step 5: Create an endpoint service](#step-5-create-an-endpoint-service).
+
+1. Make sure that your RDS database is listed in one of the supported regions. For more information, see [Purview scope for Amazon RDS](#purview-scope-for-amazon-rds).
+
+### Invalid availability zone
+
+If an error of `Invalid Availability Zone` appears in Azure Purview, make sure that your RDS is defined for at least one of the following three regions:
+
+- **us-east-1a**
+- **us-east-1b**
+- **us-east-1c**
+ 
+For more information, see the [AWS documentation](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-getting-started.html).
+
+### RDS errors
+
+The following errors may appear in Azure Purview:
+
+- `Unknown database`
+- `Failed to login to the Sql data source. The given auth credential does not have permission on the target database.`
+
+MISSING TROUBLESHOOTING STEPS
 ## Next steps
 
 Learn more about Azure Purview Insight reports:
