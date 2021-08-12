@@ -47,7 +47,7 @@ This article explains how you can access your SAP resources from Logic Apps usin
 
     `P TP=LOGICAPP HOST=<on-premises-gateway-server-IP-address> ACCESS=*`
 
-    The format of this line is
+    This line has the following format:
 
     `P TP=<Trading partner identifier (program name) or * for all partners> HOST=<comma separated list of external host IP or network name that can register the program> ACCESS=<* for all permissions or comma separated list of permissions>`
    
