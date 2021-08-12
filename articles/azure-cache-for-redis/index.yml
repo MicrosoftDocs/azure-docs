@@ -86,8 +86,21 @@ landingContent:
             url: /powershell/module/az.rediscache
           - text: Azure CLI
             url: /cli/azure/redis
+  - title: Troubleshoot
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Troubleshoot client-side issues
+            url: cache-troubleshoot-client.md
+          - text: Troubleshoot server-side issues
+            url: cache-troubleshoot-server.md
+          - text: Troubleshoot timeouts
+            url: cache-troubleshoot-timeouts.md
+          - text: Troubleshoot data loss issues
+            url: cache-troubleshoot-data-loss.md
+  - title: Best Practice
+    linkLists:
       - linkListType: learn
-      - title: Best practices
         links:
          - text: Connection Resilience
            url: cache-best-practices-connection.md
@@ -103,15 +116,3 @@ landingContent:
            url: cache-best-practices-kubernetes.md
          - text: Resilience and performance testing
            url: cache-best-practices-performance.md
-  - title: Troubleshoot
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Troubleshoot client-side issues
-            url: cache-troubleshoot-client.md
-          - text: Troubleshoot server-side issues
-            url: cache-troubleshoot-server.md
-          - text: Troubleshoot timeouts
-            url: cache-troubleshoot-timeouts.md
-          - text: Troubleshoot data loss issues
-            url: cache-troubleshoot-data-loss.md
