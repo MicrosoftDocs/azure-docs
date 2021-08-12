@@ -18,7 +18,7 @@
       href: quick-setup-auto-provision-rm.md
   - name: Provision a simulated symmetric key device
     href: quick-create-simulated-device-symm-key.md
-  - name: Provision a X.509 certificate device
+  - name: Provision a simulated X.509 certificate device
     items:
       - name: C
         href: quick-create-simulated-device-x509.md
