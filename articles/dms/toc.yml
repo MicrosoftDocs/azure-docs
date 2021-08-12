@@ -106,7 +106,7 @@
 - name: Resources
   items: 
   - name: Frequently asked questions
-    href: faq.md
+    href: faq.yml
   - name: Feedback
     href: https://feedback.azure.com/forums/906100-azure-database-migration-service
   - name: Pricing
