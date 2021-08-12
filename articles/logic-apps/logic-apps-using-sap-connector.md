@@ -43,7 +43,7 @@ This article explains how you can access your SAP resources from Logic Apps usin
 
 * If you want to use the **When a message is received from SAP** trigger, you must also do the following:
 
-    * Set up your SAP gateway security permissions (ACLs, `secinfo` and `reginfo` files, visible in Gateway Monitor dialog, T-Code SMGW "Goto -> Expert Functions -> External Security -> Maintenance of ACL Files") with this setting:
+    * Set up your SAP gateway security permissions or Access Control List (ACL), in the `secinfo` and `reginfo` files, visible in Gateway Monitor dialog, T-Code SMGW "Goto -> Expert Functions -> External Security -> Maintenance of ACL Files". The following permission setting is required:
 
     `P TP=LOGICAPP HOST=<on-premises-gateway-server-IP-address> ACCESS=*`
 
@@ -379,7 +379,7 @@ Next, create an action to send your IDoc message to SAP when your [HTTP request 
 
         ![Create SAP message server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
    
-      In SAP, the Logon Group is maintained in dialog **CCMS: Maintain Logon Groups** (T-code SMLG). For more information consult [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://service.sap.com/sap/support/notes/26317).
+      In SAP, the Logon Group is maintained in dialog **CCMS: Maintain Logon Groups** (T-code SMLG). For more information, see [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://service.sap.com/sap/support/notes/26317).
 
       By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. Learn more about the [Safe Typing option](#safe-typing).
 
@@ -892,7 +892,7 @@ To send IDocs from SAP to your logic app, you need the following minimum configu
 
 1. Save your changes.
 
-1. Register your new **Program ID** with Azure Logic Apps by creating a logic app with an SAP connector trigger When a message is received from SAP. When the logic app is saved, it will register the **Program ID** on the SAP Gateway. Check the registration outcome in the logic app trigger history, the On-Premises Data Gateway SAP adapter logs and the SAP Gateway trace logs. The SAP Gateway monitor dialog (T-Code SMGW) should list the new registration as **Registered Server** under **Logged-On Clients**.
+1. Register your new **Program ID** with Azure Logic Apps by creating a logic app with an SAP connector trigger When a message is received from SAP. When the logic app is saved, it will register the **Program ID** on the SAP Gateway. Check the registration outcome in the logic app trigger history, the On-Premises Data Gateway SAP adapter logs, and the SAP Gateway trace logs. The SAP Gateway monitor dialog (T-Code SMGW) should list the new registration as **Registered Server** under **Logged-On Clients**.
 
 1. To test your connection, in the SAP interface, under your new **RFC Destination**, select **Connection Test**.
 
