@@ -53,40 +53,34 @@ All of the tasks that you do on resources using the Azure Resource Manager must 
 ### Create an Azure Active Directory application
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Using the subscription that contains your API Management service instance, navigate to the **App registrations** tab in **Azure Active Directory** (Azure Active Directory > Manage/App registrations).
-
+1. Using the subscription that contains your API Management service instance, navigate to the [Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) to register an app in Active Directory.
     > [!NOTE]
     > If the Azure Active Directory default directory isn't visible to your account, contact the administrator of the Azure subscription to grant the required permissions to your account.
-
-3. Click **New application registration**.
-
-    The **Create** window appears on the right. That's where you enter the AAD app relevant information.
-
-4. Enter a name for the application.
-5. For the application type, select **Native**.
-6. Enter a placeholder URL such as `http://resources` for the **Redirect URI**, as it's a required field, but the value isn't used later. Click the check box to save the application.
-7. Click **Create**.
+1. Select **+ New registration**. O
+1. On the **Register an application** page, set the values as follows:
+    
+    * Set **Name** to a meaningful name. e
+    * Set **Supported account types** to **Accounts in this organizational directory only**. 
+    * In **Redirect URI** enter a placeholder URL such as `https://resources`. It's a required field, but the value isn't used later. 
+    * Select **Register**.
 
 ### Add an application
 
-1. Once the application is created, click **API permissions**.
-2. Click **+ Add a permission**.
-4. Press **Select Microsoft APIs**.
-5. Choose **Azure Service Management**.
-6. Press **Select**.
+1. Once the application is created, select **API permissions** > **+ Add a permission**.
+1. Select **Microsoft APIs**.
+1. Select **Azure Service Management**.
 
     :::image type="content" source="./media/api-management-howto-disaster-recovery-backup-restore/add-app-permission.png" alt-text="Screenshot that shows how to add app permissions."::: 
 
-7. Click **Delegated Permissions** beside the newly added application, check the box for **Access Azure Service Management (preview)**.
+1. Click **Delegated Permissions** beside the newly added application, and check the box for **Access Azure Service Management as organization users (preview)**.
 
     :::image type="content" source="./media/api-management-howto-disaster-recovery-backup-restore/delegated-app-permission.png" alt-text="Screenshot that shows adding delegated app permissions.":::
 
-8. Press **Select**.
-9. Click **Add Permissions**.
+1. Select **Add permissions**.
 
-### Configuring your app
+### Configure your app
 
-Before calling the APIs that generate the backup and restore it, you need to get a token. The following example uses the [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package to retrieve the token.
+Before calling the APIs that generate the backup and restore, you need to get a token. The following example uses the [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package to retrieve the token.
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -132,6 +126,9 @@ Replace `{tenant id}`, `{application id}`, and `{redirect uri}` using the follow
 ## Calling the backup and restore operations
 
 The REST APIs are [Api Management Service - Backup](/rest/api/apimanagement/2020-12-01/api-management-service/backup) and [Api Management Service - Restore](/rest/api/apimanagement/2020-12-01/api-management-service/restore).
+
+> [!NOTE]
+> Backup and restore operations can also be performed with PowerShell [_Backup-AzApiManagement_](/powershell/module/az.apimanagement/backup-azapimanagement) and [_Restore-AzApiManagement_](/powershell/module/az.apimanagement/restore-azapimanagement) commands respectively.
 
 Before calling the "backup and restore" operations described in the following sections, set the authorization request header for your REST call.
 
@@ -204,10 +201,7 @@ Restore is a long running operation that may take up to 30 or more minutes to co
 >
 > **Changes** made to the service configuration (for example, APIs, policies, developer portal appearance) while restore operation is in progress **could be overwritten**.
 
-<!-- Dummy comment added to suppress markdown lint warning -->
-
-> [!NOTE]
-> Backup and restore operations can also be performed with PowerShell [_Backup-AzApiManagement_](/powershell/module/az.apimanagement/backup-azapimanagement) and [_Restore-AzApiManagement_](/powershell/module/az.apimanagement/restore-azapimanagement) commands respectively.
+<!-- Dummy comment added to suppress markdown lint warning -->$
 
 ## Constraints when making backup or restore request
 
