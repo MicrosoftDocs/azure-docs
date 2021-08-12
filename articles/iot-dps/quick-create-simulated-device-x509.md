@@ -16,7 +16,7 @@ zone_pivot_groups: iot-dps-set1
 
 # Quickstart: Provision an X.509 certificate device
 
-In this quickstart, you'll create a simulated device on your Windows machine. The simulated device will be configured to use the [X.509 certificate attestation](concepts-x509-attestation.md) mechanism for authentication. After you've configured your device, you'll then provision it to your IoT hub using the Azure IoT Hub Device Provisioning service.
+In this quickstart, you'll create a simulated device on your Windows machine. The simulated device will be configured to use the [X.509 certificate attestation](concepts-x509-attestation.md) mechanism for authentication. After you've configured your device, you'll then provision it to your IoT hub using the Azure IoT Hub Device Provisioning Service.
 
 If you're unfamiliar with the process of provisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview.
 
@@ -202,7 +202,7 @@ To create the X.509 certificate:
 
 2. On the left-hand menu or on the portal page, select **All resources**.
 
-3. Select your Device Provisioning service.
+3. Select your Device Provisioning Service.
 
 4. In the **Settings** menu, select **Manage enrollments**.
 
@@ -245,7 +245,7 @@ To create the X.509 certificate:
 
 In this section, update the sample code to send the device's boot sequence to your Device Provisioning Service instance. This boot sequence will cause the device to be recognized and assigned to an IoT hub linked to the Device Provisioning Service instance.
 
-1. In the Azure portal, select the **Overview** tab for your Device Provisioning service and note the **_ID Scope_** value.
+1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service and note the **_ID Scope_** value.
 
     ![Extract Device Provisioning Service endpoint information from the portal blade](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
@@ -357,7 +357,7 @@ If you plan to continue working on and exploring the device client sample, don't
 
 2. From the left-hand menu in the Azure portal, select **All resources**.
 
-3. Select your Device Provisioning service.
+3. Select your Device Provisioning Service.
 
 4. In the **Settings** menu, select **Manage enrollments**.
 

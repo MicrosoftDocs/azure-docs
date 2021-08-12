@@ -16,7 +16,7 @@ zone_pivot_groups: iot-dps-set1
 
 # Quickstart: Provision a simulated symmetric key device
 
-In this quickstart, you'll create a simulated device on your Windows machine. The simulated device will be configured to use the [symmetric key attestation](concepts-symmetric-key-attestation.md) mechanism for authentication. After you've configured your device, you'll then provision it to your IoT hub using the Azure IoT Hub Device Provisioning service.
+In this quickstart, you'll create a simulated device on your Windows machine. The simulated device will be configured to use the [symmetric key attestation](concepts-symmetric-key-attestation.md) mechanism for authentication. After you've configured your device, you'll then provision it to your IoT hub using the Azure IoT Hub Device Provisioning Service.
 
 If you're unfamiliar with the process of provisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview.
 
@@ -217,7 +217,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 2. On the left-hand menu or on the portal page, select **All resources**.
 
-3. Select your Device Provisioning service.
+3. Select your Device Provisioning Service.
 
 4. In the **Settings** menu, select **Manage enrollments**.
 
@@ -251,21 +251,21 @@ In this section, you'll prepare a development environment that's used to build t
 
 ::: zone pivot="programming-language-ansi-c"
 
-In this section, you'll update the device sample code to send the device's boot sequence to your Device Provisioning service instance. This boot sequence will cause the device to be recognized, authenticated, and assigned to an IoT hub linked to the Device Provisioning service instance.
+In this section, you'll update the device sample code to send the device's boot sequence to your Device Provisioning Service instance. This boot sequence will cause the device to be recognized, authenticated, and assigned to an IoT hub linked to the Device Provisioning Service instance.
 
 The sample provisioning code accomplishes the following tasks, in order:
 
 1. Authenticates your device with your Device Provisioning resource using the following three parameters:
 
-    * The ID Scope of your Device Provisioning service
+    * The ID Scope of your Device Provisioning Service
     * The registration ID for your device enrollment.
     * The primary symmetric key for your device enrollment.
 
-2. Assigns the device to the IoT hub already linked to your Device Provisioning service instance.
+2. Assigns the device to the IoT hub already linked to your Device Provisioning Service instance.
 
 To update and run the provisioning sample with your device information:
 
-1. In the main menu of your Device Provisioning service, select **Overview**.
+1. In the main menu of your Device Provisioning Service, select **Overview**.
 
 2. Copy the **ID Scope** value.
 
@@ -341,17 +341,17 @@ The sample provisioning code accomplishes the following tasks:
 
 1. Authenticates your device with your Device Provisioning resource using the following three parameters:
 
-    * The ID Scope of your Device Provisioning service
+    * The ID Scope of your Device Provisioning Service
     * The registration ID for your device enrollment.
     * The primary symmetric key for your device enrollment.
 
-2. Assigns the device to the IoT hub already linked to your Device Provisioning service instance.
+2. Assigns the device to the IoT hub already linked to your Device Provisioning Service instance.
 
 3. Sends a test telemetry message to the IoT hub.
 
 To update and run the provisioning sample with your device information:
 
-1. In the main menu of your Device Provisioning service, select **Overview**.
+1. In the main menu of your Device Provisioning Service, select **Overview**.
 
 2. Copy the **ID Scope** value.
 
@@ -376,7 +376,7 @@ To update and run the provisioning sample with your device information:
 
 5. In the *SymmetricKeySample* folder, open *ProvisioningDeviceClientSample.cs* in a text editor. This file shows how the [SecurityProviderSymmetricKey](/dotnet/api/microsoft.azure.devices.shared.securityprovidersymmetrickey?view=azure-dotnet&preserve-view=true) class is used along with the [ProvisioningDeviceClient](/dotnet/api/microsoft.azure.devices.provisioning.client.provisioningdeviceclient?view=azure-dotnet&preserve-view=true) class to provision your simulated symmetric key device. Review the code in this file.  No changes are needed.
 
-6. Build and run the sample code using the following command after replacing the three example parameters (replace `<id-scope>` with the ID Scope of your Device Provisioning service ID Scope, `<registration-id>` with the registration id of your device, and `<primarykey>` with the primary key of your device).
+6. Build and run the sample code using the following command after replacing the three example parameters (replace `<id-scope>` with the ID Scope of your Device Provisioning Service ID Scope, `<registration-id>` with the registration id of your device, and `<primarykey>` with the primary key of your device).
 
     ```console
     dotnet run --s <id-scope> --i <registration-id> --p <primarykey>
@@ -411,13 +411,13 @@ The sample provisioning code accomplishes the following tasks, in order:
     * `PROVISIONING_REGISTRATION_ID`
     * `PROVISIONING_SYMMETRIC_KEY`
 
-2. Assigns the device to the IoT hub already linked to your Device Provisioning service instance.
+2. Assigns the device to the IoT hub already linked to your Device Provisioning Service instance.
 
 3. Sends a test telemetry message to the IoT hub.
 
 To update and run the provisioning sample with your device information:
 
-1. In the main menu of your Device Provisioning service, select **Overview**.
+1. In the main menu of your Device Provisioning Service, select **Overview**.
 
 2. Copy the **ID Scope** and **Service Endpoint** values.
 
@@ -441,7 +441,7 @@ To update and run the provisioning sample with your device information:
 
     No further changes are needed.
 
-5. In your command prompt, you'll now set the following environment variables (replace `<id-scope>` with the ID Scope of your Device Provisioning service ID Scope, `<registration-id>` with the registration id of your device, `<primarykey>` with the primary key of your device, `<provisioning-host>` with the service endpoint URl of your Device Provisioning service):
+5. In your command prompt, you'll now set the following environment variables (replace `<id-scope>` with the ID Scope of your Device Provisioning Service ID Scope, `<registration-id>` with the registration id of your device, `<primarykey>` with the primary key of your device, `<provisioning-host>` with the service endpoint URl of your Device Provisioning Service):
 
     ```console
     set PROVISIONING_HOST=<provisioning-host>
@@ -499,19 +499,19 @@ The sample provisioning code accomplishes the following tasks, in order:
     * `PROVISIONING_REGISTRATION_ID`
     * `PROVISIONING_SYMMETRIC_KEY`
 
-2. Assigns the device to the IoT hub already linked to your Device Provisioning service instance.
+2. Assigns the device to the IoT hub already linked to your Device Provisioning Service instance.
 
 3. Sends a test telemetry message to the IoT hub.
 
 To update and run the provisioning sample with your device information:
 
-1. In the main menu of your Device Provisioning service, select **Overview**.
+1. In the main menu of your Device Provisioning Service, select **Overview**.
 
 2. Copy the **ID Scope** and **Service Endpoint** values.
 
     :::image type="content" source="./media/quick-create-simulated-device-symm-key/extract-dps-endpoints-host.png" alt-text="Extract Device Provisioning Service endpoint information":::
 
-3. In your command prompt, you'll now set the following environment variables (replace `<id-scope>` with the ID Scope of your Device Provisioning service ID Scope, `<registration-id>` with the registration id of your device, `<primarykey>` with the primary key of your device, `<provisioning-host>` with the service endpoint URl of your Device Provisioning service):
+3. In your command prompt, you'll now set the following environment variables (replace `<id-scope>` with the ID Scope of your Device Provisioning Service ID Scope, `<registration-id>` with the registration id of your device, `<primarykey>` with the primary key of your device, `<provisioning-host>` with the service endpoint URl of your Device Provisioning Service):
 
     ```console
     set PROVISIONING_HOST=<provisioning-host>
@@ -587,13 +587,13 @@ The sample provisioning code accomplishes the following tasks, in order:
     * `REGISTRATION_ID`
     * `SYMMETRIC_KEY`
 
-2. Assigns the device to the IoT hub already linked to your Device Provisioning service instance.
+2. Assigns the device to the IoT hub already linked to your Device Provisioning Service instance.
 
 3. Sends a test telemetry message to the IoT hub.
 
 To update and run the provisioning sample with your device information:
 
-1. In the main menu of your Device Provisioning service, select **Overview**.
+1. In the main menu of your Device Provisioning Service, select **Overview**.
 
 2. Copy the **ID Scope** and **Service Endpoint** values. These are your `SCOPE_ID` and `GLOBAL_ENDPOINT` respectively.
 
@@ -603,7 +603,7 @@ To update and run the provisioning sample with your device information:
 
     `azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-symmetrickey-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningSymmetricKeySampleSample.java`
 
-4. Replace the vallue of the following variables for your DPS and device enrollement(replace `<id-scope>` with the ID Scope of your Device Provisioning service ID Scope, `<registration-id>` with the registration id of your device, `<primarykey>` with the primary key of your device, `<provisioning-host>` with the service endpoint URl of your Device Provisioning service):
+4. Replace the vallue of the following variables for your DPS and device enrollement(replace `<id-scope>` with the ID Scope of your Device Provisioning Service ID Scope, `<registration-id>` with the registration id of your device, `<primarykey>` with the primary key of your device, `<provisioning-host>` with the service endpoint URl of your Device Provisioning Service):
 
     ```java
     private static final String SCOPE_ID = "<id-scope>";
@@ -669,7 +669,7 @@ If you plan to continue working on and exploring the device client sample, don't
 
 2. From the left-hand menu in the Azure portal, select **All resources**.
 
-3. Select your Device Provisioning service.
+3. Select your Device Provisioning Service.
 
 4. In the **Settings** menu, select **Manage enrollments**.
 
