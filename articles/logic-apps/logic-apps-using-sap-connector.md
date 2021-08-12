@@ -353,7 +353,7 @@ Follow these examples to create a logic app  workflow that sends an IDoc message
 
 1. [Create a remote function call (RFC) request-response pattern, if you're using an RFC to receive replies from SAP ABAP.](#create-rfc-request-response)
 
-1. [Test your logic app.](#test-logic-app)
+1. [Test your logic app.](#test-your-logic-app-workflow)
 
 ### Create HTTP request trigger
 
@@ -599,7 +599,7 @@ Now add a response action to your logic app's workflow and include the output fr
 
 1. Click inside the **Body** box so that the dynamic content list appears. From that list, under **Send message to SAP**, select the **Body** field.
 
-   ![Screenshot that shows completing the SAP action.](./media/logic-apps-using-sap-connector/select-sap-body-for-response-action.png)
+   ![Screenshot that shows finishing the SAP action.](./media/logic-apps-using-sap-connector/select-sap-body-for-response-action.png)
 
 1. Save your logic app workflow.
 
