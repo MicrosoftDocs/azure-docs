@@ -166,7 +166,7 @@ An ISE provides access to resources that are protected by an Azure virtual netwo
 
 1. If your SAP instance and ISE are in different virtual networks, you also need to [peer those networks](../virtual-network/tutorial-connect-virtual-networks-portal.md) so they are connected. Also see the [SNC prerequisites for the ISE connector](#snc-prerequisites-ise).
 
-1. You need the IP addresses of the SAP application, message and gateway servers you will use for connection with Logic App. Network name resolution is not available for SAP connector in ISE.
+1. Get the IP addresses for the SAP application, message and gateway servers that you plan to use for connecting from your logic app workflow. Network name resolution is not available for SAP connections in an ISE.
 
 1. You need the port numbers of the SAP application, message and gateway services you will use for connection with Logic App. Service name resolution is not available for SAP connector in ISE.
 
