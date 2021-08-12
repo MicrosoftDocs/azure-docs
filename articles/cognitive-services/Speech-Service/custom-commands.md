@@ -18,7 +18,7 @@ Applications such as [Voice assistants](voice-assistants.md) listen to users and
 
 **Custom Commands** makes it easy to build rich voice commanding apps optimized for voice-first interaction experiences. It provides a unified authoring experience, an automatic hosting model, and relatively lower complexity, helping you focus on building the best solution for your voice commanding scenarios.
 
-Custom Commands is best suited for task completion or command-and-control scenarios, well matched for Internet of Things (IoT) devices, ambient and headless devices. Examples include solutions for Hospitality, Retail and Automotive industries, allowing you to build the best in-room voice-controlled experiences for your guests, manage inventory in your store and control in-car functionality while on the move.
+Custom Commands is best suited for task completion or command-and-control scenarios, and well matched for Internet of Things (IoT) devices, ambient and headless devices. Examples include solutions for Hospitality, Retail and Automotive industries, where you want voice-controlled experiences for your guests, in-store inventory management or in-car functionality.
 
 If you're interested in building complex conversational apps, you're encouraged to try the Bot Framework using the [Virtual Assistant Solution](/azure/bot-service/bot-builder-enterprise-template-overview). You can add voice to any bot framework bot using Direct Line Speech.
 
