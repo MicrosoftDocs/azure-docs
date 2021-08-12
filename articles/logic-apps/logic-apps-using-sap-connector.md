@@ -43,13 +43,15 @@ This article explains how you can access your SAP resources from Logic Apps usin
 
 * If you want to use the **When a message is received from SAP** trigger, you must also do the following:
 
-    * Set up your SAP gateway security permissions with this setting: 
-    `P TP=Microsoft.PowerBI.EnterpriseGateway HOST=<on-premises-gateway-server-IP-address> ACCESS=*`
-
-    * Set up your SAP gateway security logging to help find Access Control List (ACL). For more information, see the [SAP help topic for setting up gateway logging](https://help.sap.com/erp_hcm_ias2_2015_02/helpdata/en/48/b2a710ca1c3079e10000000a42189b/frameset.htm) and [1850230 - GW: "Registration of tp <program ID> not allowed"](https://userapps.support.sap.com/sap/support/knowledge/en/1850230). Otherwise, you might receive this error:
-    `"
+    * Set up your SAP gateway security permissions (ACLs, `secinfo` and `reginfo` files, visible in Gateway Monitor dialog, T-Code SMGW "Goto -> Expert Functions -> External Security -> Maintenance of ACL Files") with this setting: 
+    `P TP=LOGICAPP HOST=<on-premises-gateway-server-IP-address> ACCESS=*`
+    The format of this line is
+    P TP=<Trading partner identifier (program name) or * for all partners> HOST=<comma separated list of external host IP or network name that can register the program> ACCESS=<* for all permissions or comma separated list of permissions>
    
-   ration of tp Microsoft.PowerBI.EnterpriseGateway from host <host-name> not allowed"`
+    If you do not configure the SAP gateway security permissions, you might receive this error:
+    `Registration of tp Microsoft.PowerBI.EnterpriseGateway from host <host-name> not allowed`
+
+    * Set up your SAP gateway security logging to help find Access Control List (ACL). For more information, see the [SAP help topic for setting up gateway logging](https://help.sap.com/erp_hcm_ias2_2015_02/helpdata/en/48/b2a710ca1c3079e10000000a42189b/frameset.htm) and [1850230 - GW: "Registration of tp <program ID> not allowed"](https://userapps.support.sap.com/sap/support/knowledge/en/1850230).
 
     > [!NOTE]
     > This trigger uses the same URI location to both renew and unsubscribe from a webhook subscription. The renewal operation uses the HTTP `PATCH` method, while the unsubscribe operation uses the HTTP `DELETE` method. This behavior might make a renewal operation appear as an unsubscribe operation in your trigger's history, but the operation is still a renewal because the trigger uses `PATCH` as the HTTP method, not `DELETE`.
@@ -106,10 +108,27 @@ The managed SAP connector integrates with SAP systems through your [on-premises 
   > which might include updates to resolve your problem.
 
 * [Download and install the latest SAP client library](#sap-client-library-prerequisites) on the same local computer as your on-premises data gateway.
+   
+* Configure the network host names and service names resolution for the host machine where you installed the on-premises data gateway. Each of the SAP application server, message server and gateway server and their services must be configured for name resolution if you intend to use them for connection from Logic Apps. The network host name resolution is configured in `%windir%\System32\drivers\etc\hosts` or in the DNS server available to your on-premises data gateway host machine. The service name resolution is configured in `%windir%\System32\drivers\etc\services`. If you do not intend to use network host names or service names for connection, you may instead use host IP adresses and service port numbers.
+   
+   A sample entry for the hosts file if you do not have a DNS entry for your SAP system is:
+   
+   ```text
+   10.0.1.9           sapserver                   # SAP single-instance system host IP by simple computer name
+   10.0.1.9           sapserver.contoso.com       # SAP single-instance system host IP by fully qualified DNS name
+   ```
+   
+   A sample set of entries for the services files is:
+   
+   ```text
+   sapdp00            3200/tcp              # SAP system instance 00 dialog (application) service port
+   sapgw00            3300/tcp              # SAP system instance 00 gateway service port
+   sapmsDV6           3601/tcp              # SAP system ID DV6 message service port
+   ```
 
 ### ISE prerequisites
 
-These prerequisites apply if you're running your logic app in a Premium-level ISE. However, they don't apply to logic apps running in a Developer-level ISE. An ISE provides access to resources that are protected by an Azure virtual network and offers other ISE-native connectors that let logic apps directly access on-premises resources without using on-premises data gateway.
+An ISE provides access to resources that are protected by an Azure virtual network and offers other ISE-native connectors that let logic apps directly access on-premises resources without using on-premises data gateway.
 
 1. If you don't already have an Azure Storage account with a blob container, create a container using either the [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
 
@@ -140,6 +159,10 @@ These prerequisites apply if you're running your logic app in a Premium-level IS
    1. Select **Create** to finish creating your ISE connector.
 
 1. If your SAP instance and ISE are in different virtual networks, you also need to [peer those networks](../virtual-network/tutorial-connect-virtual-networks-portal.md) so they are connected. Also see the [SNC prerequisites for the ISE connector](#snc-prerequisites-ise).
+
+1. You need the IP addresses of the SAP application, message and gateway servers you will use for connection with Logic App. Network name resolution is not available for SAP connector in ISE.
+
+1. You need the port numbers of the SAP application, message and gateway services you will use for connection with Logic App. Service name resolution is not available for SAP connector in ISE.
 
 ### SAP client library prerequisites
 
@@ -350,7 +373,9 @@ Next, create an action to send your IDoc message to SAP when your [HTTP request 
 
       * For **Group**, these properties, which usually appear optional, are required:
 
-        ![Create SAP message server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)  
+        ![Create SAP message server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
+   
+      In SAP, the Logon Group is maintained in dialog **CCMS: Maintain Logon Groups** (T-code SMLG). For more information consult [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://service.sap.com/sap/support/notes/26317)
 
       By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. Learn more about the [Safe Typing option](#safe-typing).
 
