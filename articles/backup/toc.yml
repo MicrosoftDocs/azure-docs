@@ -491,7 +491,11 @@
     - name: Security for hybrid backups
       href: backup-azure-security-feature.md
     - name: Private Endpoints
-      href: private-endpoints.md
+      items:
+      - name: Overview
+        href: private-endpoints-overview.md
+      - name: Create and use
+        href: private-endpoints.md
     - name: Encryption in Azure Backup
       href: backup-encryption.md
     - name: Encryption using customer-managed keys
