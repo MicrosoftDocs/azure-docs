@@ -1,6 +1,6 @@
 ---
 title:  Stream Azure Spring Cloud app logs in real-time
-description: How to use log streaming to view application logs instantly 
+description: How to use log streaming to view application logs instantly
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
@@ -49,7 +49,7 @@ This will return logs:
 ```
 
 ### Tail log for app with multiple instances
-If multiple instances exist for the app named `auth-service`, you can view the instance log by using the `-i/--instance` option. 
+If multiple instances exist for the app named `auth-service`, you can view the instance log by using the `-i/--instance` option.
 
 First, you can get the app instance names with following command.
 
@@ -64,7 +64,8 @@ Name                                         Status    DiscoveryStatus
 auth-service-default-12-75cc4577fc-pw7hb  Running   UP
 auth-service-default-12-75cc4577fc-8nt4m  Running   UP
 auth-service-default-12-75cc4577fc-n25mh  Running   UP
-``` 
+```
+
 Then, you can stream logs of an app instance with the option `-i/--instance` option:
 
 ```azurecli
@@ -74,14 +75,16 @@ az spring-cloud app logs -n auth-service -i auth-service-default-12-75cc4577fc-p
 You can also get details of app instances from the Azure portal.  After selecting **Apps** in the left navigation pane of your Azure Spring Cloud service, select **App Instances**.
 
 ### Continuously stream new logs
-By default, `az spring-cloud app logs` prints only existing logs streamed to the app console and then exits. If you want to stream new logs, add -f (--follow):  
+By default, `az spring-cloud app logs` prints only existing logs streamed to the app console and then exits. If you want to stream new logs, add -f (--follow):
 
 ```azurecli
 az spring-cloud app logs -n auth-service -f
-``` 
+```
+
 To check all the logging options supported:
+
 ```azurecli
-az spring-cloud app logs -h 
+az spring-cloud app logs -h
 ```
 
 ### Format JSON structured logs

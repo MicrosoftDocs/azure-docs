@@ -14,7 +14,7 @@ ms.author: jeffpatt
 
 This article provides a comparison of Azure Files and Azure NetApp Files. 
 
-Most workloads that require cloud file storage work well on either Azure Files or Azure NetApp Files. To help determine the best fit for your workload, review the information provided in this article. For more information, see the [Azure Files](./index.yml) and [Azure NetApp Files](../../azure-netapp-files/index.yml) documentation.
+Most workloads that require cloud file storage work well on either Azure Files or Azure NetApp Files. To help determine the best fit for your workload, review the information provided in this article. For more information, see the [Azure Files](./index.yml) and [Azure NetApp Files](../../azure-netapp-files/index.yml) documentation and the [Shared storage for all enterprise file-workloads](https://www.youtube.com/watch?v=MJEbmITLwwU&t=4s) session which covers choosing betweeen Azure Files and Azure NetApp Files.
 
 ## Features
 
@@ -52,3 +52,4 @@ For more information on scalability and performance targets, see [Azure Files](.
 ## Next Steps
 * [Azure Files documentation](./index.yml)
 * [Azure NetApp Files documentation](../../azure-netapp-files/index.yml)
+* [Shared storage for all enterprise file-workloads session](https://www.youtube.com/watch?v=MJEbmITLwwU&t=4s)

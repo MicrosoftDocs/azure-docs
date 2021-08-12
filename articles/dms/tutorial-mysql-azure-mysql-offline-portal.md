@@ -21,8 +21,6 @@ You can use Azure Database Migration Service to perform a one-time full database
 > [!IMPORTANT]
 > For online migrations, you can use open-source tools such as [MyDumper/MyLoader](https://centminmod.com/mydumper.html) with [data-in replication](../mysql/concepts-data-in-replication.md). 
 
-[!INCLUDE [preview features callout](../../includes/dms-boilerplate-preview.md)]
-
 > [!NOTE]
 > For a PowerShell-based scriptable version of this migration experience, see [scriptable offline migration to Azure Database for MySQL](./migrate-mysql-to-azure-mysql-powershell.md).
 
@@ -171,7 +169,7 @@ After the service is created, locate it within the Azure portal, open it, and th
     
     ![Create a new migration project](media/tutorial-mysql-to-azure-mysql-offline-portal/08-02-dms-portal-new-project.png)
 
-3. On the **New migration project** screen, specify a name for the project, in the **Source server type** selection box, select **MySQL**, in the **Target server type** selection box, select **Azure Database For MySQL** and in the **Migration activity type** selection box, select **Data migration \[preview\]**. Select **Create and run activity**.
+3. On the **New migration project** screen, specify a name for the project, in the **Source server type** selection box, select **MySQL**, in the **Target server type** selection box, select **Azure Database For MySQL** and in the **Migration activity type** selection box, select **Data migration**. Select **Create and run activity**.
 
     ![Create Database Migration Service Project](media/tutorial-mysql-to-azure-mysql-offline-portal/09-dms-portal-project-mysql-create.png)
 

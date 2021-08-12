@@ -53,7 +53,7 @@ In your POM file, reference the `azure-communication-chat` package with the Chat
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-chat</artifactId>
-    <version>1.0.0</version>
+    <version><!-- Please refer to https://search.maven.org/artifact/com.azure/azure-communication-chat for the latest version --></version>
 </dependency>
 ```
 
@@ -63,7 +63,7 @@ For authentication, your client needs to reference the `azure-communication-comm
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-common</artifactId>
-    <version>1.0.0</version>
+    <version><!-- Please refer to https://search.maven.org/artifact/com.azure/azure-communication-common for the latest version --></version>
 </dependency>
 ```
 
@@ -181,14 +181,20 @@ Use the `sendMessage` method to send a message to the thread you just created, i
 - Use `content` to provide the chat message content.
 - Use `type` to specify the chat message content type, TEXT or HTML.
 - Use `senderDisplayName` to specify the display name of the sender.
+- Use `metadata` optionally to include any additional data you want to send along with the message. This field provides a mechanism for developers to extend chat message functionality and add custom information for your use case. For example, when sharing a file link in the message, you might want to add 'hasAttachment:true' in metadata so that recipient's application can parse that and display accordingly.
 
 The response `sendChatMessageResult` contains an `id`, which is the unique ID of the message.
 
 ```Java
+Map<String, String> metadata = new HashMap<String, String>();
+metadata.put("hasAttachment", "true");
+metadata.put("attachmentUrl", "https://contoso.com/files/attachment.docx");
+
 SendChatMessageOptions sendChatMessageOptions = new SendChatMessageOptions()
-    .setContent("Message content")
+    .setContent("Please take a look at the attachment")
     .setType(ChatMessageType.TEXT)
-    .setSenderDisplayName("Sender Display Name");
+    .setSenderDisplayName("Sender Display Name")
+    .setMetadata(metadata);
 
 SendChatMessageResult sendChatMessageResult = chatThreadClient.sendMessage(sendChatMessageOptions);
 String chatMessageId = sendChatMessageResult.getId();
