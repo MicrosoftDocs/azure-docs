@@ -2,7 +2,7 @@
 title: Quickstart create an Azure IoT Edge device on Linux | Microsoft Docs 
 description: In this quickstart, learn how to create an IoT Edge device on Linux and then deploy prebuilt code remotely from the Azure portal. 
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 04/07/2021
 ms.topic: quickstart
