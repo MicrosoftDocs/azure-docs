@@ -311,7 +311,7 @@
               href: api-management-configuration-repository-git.md
             - name: Use role-based access control
               href: api-management-role-based-access-control.md
-            - name: Migrate API Management instances
+            - name: Move instances between regions
               href: api-management-howto-migrate.md
             - name: Use managed identities for Azure resources
               href: api-management-howto-use-managed-service-identity.md
