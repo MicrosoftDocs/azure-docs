@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 07/30/2021
+ms.date: 08/11/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -36,6 +36,31 @@ This article explores common ways to troubleshoot problems with Azure Data Facto
 
 - **Resolution**: Edit the dataset or pipeline JSON definition to make the types consistent, and then rerun the deployment.
 
+### Error code: FIPSModeIsNotSupport
+
+- **Message**: `Fail to read data form Azure Blob Storage for Azure Blob connector needs MD5 algorithm which can't co-work with FIPS mode. Please change diawp.exe.config in self-hosted integration runtime install directory to disable FIPS policy following https://docs.microsoft.com/en-us/dotnet/framework/configure-apps/file-schema/runtime/enforcefipspolicy-element.`
+
+- **Cause**: Then FIPS policy is enabled on the VM where the self-hosted integration runtime was installed.
+
+- **Recommendation**: Disable the FIPS mode on the VM where the self-hosted integration runtime was installed. Windows doesn't recommend the FIPS mode.
+
+### Error code: AzureBlobInvalidBlockSize
+
+- **Message**: `Block size should between %minSize; MB and 100 MB.`
+
+- **Cause**: The block size is over the blob limitation.
+
+### Error code: AzureStorageOperationFailedConcurrentWrite
+
+- **Message**: `Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
+
+- **Cause**: You have multiple concurrent copy activities runs or applications writing to the same file.
+
+### Error code: AzureAppendBlobConcurrentWriteConflict
+
+- **Message**: `Detected concurrent write to the same append blob file, it's possible because you have multiple concurrent copy activities runs or applications writing to the same file '%name;'. Please check your ADF configuration and retry.`
+
+- **Cause**: Multiple concurrent writing requests occur, which causes conflicts on file content.
 
 ## Azure Cosmos DB
 
@@ -193,7 +218,21 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
         }
         ```
 
-		​	      
+		​
+## Azure Database for PostgreSQL
+
+### Error code: AzurePostgreSqlNpgsqlDataTypeNotSupported
+
+- **Message**: `The data type of the chosen Partition Column, '%partitionColumn;', is '%dataType;' and this data type is not supported for partitioning.`
+
+- **Recommendation**: Pick a partition column with int, bigint, smallint, serial, bigserial, smallserial, timestamp with or without time zone, time without time zone or date data type.
+
+### Error code: AzurePostgreSqlNpgsqlPartitionColumnNameNotProvided
+
+- **Message**: `Partition column name must be specified.`
+
+- **Cause**: No partition column name is provided, and it couldn't be decided automatically.
+        	      
 ## Azure Files storage
 
 ### Error code: AzureFileOperationFailed
@@ -959,6 +998,12 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Recommendation**: Check the HTTP status code or the request URL or the response payload in the error message and fix the remote server issue.
 
+### Error code: RestSinkUNSupportedCompressionType
+
+- **Message**: `User Configured CompressionType is Not Supported By Azure Data Factory：%message;`
+
+- **Recommendation**: Check the supported compression types for the REST sink.
+
 ### Unexpected network response from the REST connector
 
 - **Symptoms**: The endpoint sometimes receives an unexpected response (400, 401, 403, 500) from the REST connector.
@@ -1181,6 +1226,163 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
     3. Save the file, and then restart the Self-hosted IR machine.
 
+### Error code: JniException
+
+- **Message**: `An error occurred when invoking Java Native Interface.`
+
+- **Cause**: If the error message contains "Cannot create JVM: JNI return code [-6][JNI call failed: Invalid arguments.]", the probable cause is that JVM can't be created because some illegal (global) arguments are set.
+
+- **Recommendation**: Log in to the machine that host *each node* of your self-hosted IR. Check to ensure that the system variable is set correctly, as follows: `_JAVA_OPTIONS "-Xms256m -Xmx16g" with memory bigger than 8G`. Restart all the IR nodes, and then rerun the pipeline.
+
+### Error code: GetOAuth2AccessTokenErrorResponse
+
+- **Message**: `Failed to get access token from your token endpoint. Error returned from your authorization server: %errorResponse;.`
+
+- **Cause**: Your client ID or client secret is invalid, and the authentication failed in your authorization server.
+
+- **Recommendation**: Correct all OAuth2 client credential flow settings of your authorization server.
+
+### Error code: FailedToGetOAuth2AccessToken
+
+- **Message**: `Failed to get access token from your token endpoint. Error message: %errorMessage;.`
+
+- **Cause**: OAuth2 client credential flow settings are invalid.
+
+- **Recommendation**: Correct all OAuth2 client credential flow settings of your authorization server.
+
+### Error code: OAuth2AccessTokenTypeNotSupported
+
+- **Message**: `The toke type '%tokenType;' from your authorization server is not supported, supported types: '%tokenTypes;'.`
+
+- **Cause**: Your authorization server is not supported.
+
+- **Recommendation**: Use an authorization server that can return tokens with supported token types.
+
+### Error code: OAuth2ClientIdColonNotAllowed
+
+- **Message**: `The character colon(:) is not allowed in clientId for OAuth2ClientCredential authentication.`
+
+- **Cause**: Your client ID includes the invalid character colon (`:`).
+
+- **Recommendation**: Use a valid client ID.
+
+### Error code: ManagedIdentityCredentialObjectNotSupported
+
+- **Message**: `Managed identity credential is not supported in this version ('%version;') of Self Hosted Integration Runtime.`
+
+- **Recommendation**: Check the supported version and upgrade the Integration Runtime (IR) to a higher version.
+
+### Error code: QueryMissingFormatSettingsInDataset
+
+- **Message**: `The format settings are missing in dataset %dataSetName;.`
+
+- **Cause**: The dataset type is Binary, which is not supported.
+
+- **Recommendation**: Use the DelimitedText, Json, Avro, Orc, or Parquet dataset instead.
+
+- **Cause**: For the file storage, the format settings are missing in the dataset.
+
+- **Recommendation**: Deselect the "Binary copy" in the dataset, and set correct format settings.
+
+### Error code: QueryUnsupportedCommandBehavior
+
+- **Message**: `The command behavior "%behavior;" is not supported.`
+
+- **Recommendation**: Don't add the command behavior as a parameter for preview or GetSchema API request URL.
+
+### Error code: DataConsistencyFailedToGetSourceFileMetadata
+
+- **Message**: `Failed to retrieve source file ('%name;') metadata to validate data consistency.`
+
+- **Cause**: There is a transient issue on the sink data store, or retrieving metadata from the sink data store is not allowed.
+
+### Error code: DataConsistencyFailedToGetSinkFileMetadata
+
+- **Message**: `Failed to retrieve sink file ('%name;') metadata to validate data consistency.`
+
+- **Cause**: There is a transient issue on the sink data store, or retrieving metadata from the sink data store is not allowed.
+
+### Error code: DataConsistencyValidationNotSupportedForNonDirectBinaryCopy
+
+- **Message**: `Data consistency validation is not supported in current copy activity settings.`
+
+- **Cause**: The data consistency validation is only supported in the direct binary copy scenario.
+
+- **Recommendation**: Remove the 'validateDataConsistency' property in the copy activity payload.
+
+### Error code: DataConsistencyValidationNotSupportedForLowVersionSelfHostedIntegrationRuntime
+
+- **Message**: `'validateDataConsistency' is not supported in this version ('%version;') of Self Hosted Integration Runtime.`
+
+- **Recommendation**: Check the supported Integration Runtime version and upgrade it to a higher version, or remove the 'validateDataConsistency' property from copy activities.
+
+### Error code: SkipMissingFileNotSupportedForNonDirectBinaryCopy
+
+- **Message**: `Skip missing file is not supported in current copy activity settings, it's only supported with direct binary copy with folder.`
+
+- **Recommendation**: Remove fileMissing of the skipErrorFile setting in the copy activity payload.
+
+### Error code: SkipInconsistencyDataNotSupportedForNonDirectBinaryCopy
+
+- **Message**: `Skip inconsistency is not supported in current copy activity settings, it's only supported with direct binary copy when validateDataConsistency is true.`
+
+- **Recommendation**: Remove dataInconsistency of the skipErrorFile setting in the copy activity payload.
+
+### Error code: SkipForbiddenFileNotSupportedForNonDirectBinaryCopy
+
+- **Message**: `Skip forbidden file is not supported in current copy activity settings, it's only supported with direct binary copy with folder.`
+
+- **Recommendation**: Remove fileForbidden of the skipErrorFile setting in the copy activity payload.
+
+### Error code: SkipForbiddenFileNotSupportedForThisConnector
+
+- **Message**: `Skip forbidden file is not supported for this connector: ('%connectorName;').`
+
+- **Recommendation**: Remove fileForbidden of the skipErrorFile setting in the copy activity payload.
+
+### Error code: SkipInvalidFileNameNotSupportedForNonDirectBinaryCopy
+
+- **Message**: `Skip invalid file name is not supported in current copy activity settings, it's only supported with direct binary copy with folder.`
+
+- **Recommendation**: Remove invalidFileName of the skipErrorFile setting in the copy activity payload.
+
+### Error code: SkipInvalidFileNameNotSupportedForSource
+
+- **Message**: `Skip invalid file name is not supported for '%connectorName;' source.`
+
+- **Recommendation**: Remove invalidFileName of the skipErrorFile setting in the copy activity payload.
+
+### Error code: SkipInvalidFileNameNotSupportedForSink
+
+- **Message**: `Skip invalid file name is not supported for '%connectorName;' sink.`
+
+- **Recommendation**: Remove invalidFileName of the skipErrorFile setting in the copy activity payload.
+
+### Error code: SkipAllErrorFileNotSupportedForNonBinaryCopy
+
+- **Message**: `Skip all error file is not supported in current copy activity settings, it's only supported with binary copy with folder.`
+
+- **Recommendation**: Remove 'allErrorFile' in the skipErrorFile setting in the copy activity payload.
+
+### Error code: DeleteFilesAfterCompletionNotSupportedForNonDirectBinaryCopy
+
+- **Message**: `'deleteFilesAfterCompletion' is not support in current copy activity settings, it's only supported with direct binary copy.`
+
+- **Recommendation**: Remove the 'deleteFilesAfterCompletion' setting or use the direct binary copy.
+
+### Error code: DeleteFilesAfterCompletionNotSupportedForThisConnector
+
+- **Message**: `'deleteFilesAfterCompletion' is not supported for this connector: ('%connectorName;').`
+
+- **Recommendation**: Remove the 'deleteFilesAfterCompletion' setting in the copy activity payload.
+
+### Error code: FailedToDownloadCustomPlugins
+
+- **Message**: `Failed to download custom plugins.`
+
+- **Cause**: Invalid download links or transient connectivity issues.
+
+- **Recommendation**: Retry if the message shows that it's a transient issue. If the problem persists, contact the support team.
 
 ## Next steps
 
