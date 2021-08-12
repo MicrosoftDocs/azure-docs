@@ -1,6 +1,6 @@
 ---
-title: Install Event Grid on Azure Arc-enabled Kubernetes cluster
-description: This article provides steps to install Event Grid on Azure Arc-enabled Kubernetes cluster. 
+title: Install Event Grid on Azure Arc enabled Kubernetes cluster
+description: This article provides steps to install Event Grid on Azure Arc enabled Kubernetes cluster. 
 author: jfggdl
 ms.author: jafernan
 ms.subservice: kubernetes
@@ -8,7 +8,7 @@ ms.date: 05/26/2021
 ms.topic: how-to
 ---
 
-# Install Event Grid extension on Azure Arc-enabled Kubernetes cluster
+# Install Event Grid extension on Azure Arc enabled Kubernetes cluster
 This article guides you through the steps to install Event Grid on an [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md) cluster.
 
 For brevity, this article refers to "Event Grid on Kubernetes extension" as "Event Grid on Kubernetes" or just "Event Grid".
@@ -22,11 +22,10 @@ Following are the supported Kubernetes distributions to which Event Grid can be 
 1. Azure AKS [supported Kubernetes distributions](../../aks/supported-kubernetes-versions.md).
 1. RedHat [OpenShift Container Platform](https://www.openshift.com/products/container-platform).
 
-More distributions will be onboarded according to [user's feedback](https://feedback.azure.com/forums/909934-azure-event-grid) and its [support by Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/validation-program.md).
+More distributions will be onboarded according to [user's feedback](https://feedback.azure.com/forums/909934-azure-event-grid) and its [support by Azure Arc enabled Kubernetes](../../azure-arc/kubernetes/validation-program.md).
 
 ## Event Grid Extension
-
-The operation that installs an Event Grid service instance on a Kubernetes cluster is the creation of an Azure Arc cluster extension, which deploys both an **Event Grid broker** and an **Event Grid operator**. For more information on the function of the broker and operator, see [Event Grid on Kubernetes components](concepts.md#event-grid-on-kubernetes-components). [Azure Arc cluster extension](../../azure-arc/kubernetes/conceptual-extensions.md) feature provides lifecycle management using Azure Resource Manager (ARM) control plane operations to Event Grid deployed to Azure Arc-enabled Kubernetes clusters.
+The operation that installs an Event Grid service instance on a Kubernetes cluster is the creation of an Azure Arc cluster extension, which deploys both an **Event Grid broker** and an **Event Grid operator**. For more information on the function of the broker and operator, see [Event Grid on Kubernetes components](concepts.md#event-grid-on-kubernetes-components). [Azure Arc cluster extension](../../azure-arc/kubernetes/conceptual-extensions.md) feature provides lifecycle management using Azure Resource Manager (ARM) control plane operations to Event Grid deployed to Azure Arc enabled Kubernetes clusters.
 
 > [!NOTE]
 > The preview version of the service only supports a single instance of the Event Grid extension on a Kubernetes cluster as the Event Grid extension is currently defined as a cluster-scoped extension. There is no support for namespace-scoped deployments for Event Grid yet that would allow for multiple instances to be deployed to a cluster.  For more information on extension scopes, see [Create extension instance](../../azure-arc/kubernetes/extensions.md#create-extensions-instance) and search for ``scope``.
@@ -35,7 +34,7 @@ The operation that installs an Event Grid service instance on a Kubernetes clust
 Before proceeding with the installation of Event Grid, make sure the following prerequisites are met. 
 
 1. A cluster running on one of the [supported Kubernetes distributions](#supported-kubernetes-distributions).
-1. An [Azure subscription](https://azure.microsoft.com/free/).
+1. [An Azure subscription](https://azure.microsoft.com/en-us/free/).
 1. [PKI Certificates](#pki-certificate-requirements) to be used for establishing an HTTPS connection with the Event Grid broker.
 1. [Connect your cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md).
 
@@ -88,7 +87,7 @@ To establish a secure HTTPS communication with the Event Grid broker and Event G
     :::image type="content" source="./media/install-k8s-extension/select-create-extension.png" alt-text="Select Create Kubernetes extension":::            
 1. The **Basics** tab of the **Install Event Grid** page, follow these steps. 
     1. The **Project Details** section shows read-only subscription and resource group values because Azure Arc extensions are deployed under the same Azure subscription and resource group of the connected cluster on which they're installed.
-    1. Provide a name in the **Event Grid extension name** field. This name should be unique among other Azure Arc extensions deployed to the same Azure Arc-connected cluster.
+    1. Provide a name in the **Event Grid extension name** field. This name should be unique among other Azure Arc extensions deployed to the same Azure Arc connected cluster.
     1. For **Release namespace**, you may want to provide the name of a Kubernetes namespace where Event Grid components will be deployed into. For example, you might want to have a single namespace for all Azure Arc-enabled services deployed to your cluster. The default is **eventgrid-system**. If the namespace provided doesn't exist, it's created for you.
     1. On the **Event Grid broker** details section, the service type is shown. The Event Grid broker, which is the component that exposes the topic endpoints to which events are sent, is exposed as a Kubernetes service type **ClusterIP**. Hence, the IPs assigned to all topics use the private IP space configured for the cluster.
     1. Provide the **storage class name** that you want to use for the broker and that's supported by your Kubernetes distribution. For example, if you're using AKS, you could use `azurefile`, which uses Azure Standard storage. For more information on predefined storage classes supported by AKS, see [Storage Classes in AKS](../../aks/concepts-storage.md#storage-classes). If you're using other Kubernetes distributions, see your Kubernetes distribution documentation for predefined storage classes supported or the way you can provide your own.
@@ -217,7 +216,7 @@ To establish a secure HTTPS communication with the Event Grid broker and Event G
 
 **Problem**: When navigating to **Azure Arc** and clicking **Kubernetes cluster** on the left-hand side menu, the page displayed doesn't show the Kubernetes cluster where I intent to install Event Grid.
 
-**Resolution**: Your Kubernetes cluster isn't registered with Azure. Follow the steps in article [Connect an existing Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md). If you have a problem during this step, file a [support request](#getting-support) with the Azure Arc-enabled Kubernetes team.
+**Resolution**: Your Kubernetes cluster isn't registered with Azure. Follow the steps in article [Connect an existing Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md). If you have a problem during this step, file a [support request](#getting-support) with the Azure Arc enabled Kubernetes team.
 
 ### Event Grid extension issues
 
