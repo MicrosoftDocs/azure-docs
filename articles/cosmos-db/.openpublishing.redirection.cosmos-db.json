@@ -2582,7 +2582,7 @@
   },
   {
     "source_path_from_root": "/articles/cosmos-db/sql-query-object-array.md",
-    "redirect_url": "/azure/cosmos-db/sql/sql-query-object-array.md ",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-object-array",
     "redirect_document_id": true
   },
   {
