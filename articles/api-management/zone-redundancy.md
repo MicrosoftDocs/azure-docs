@@ -45,7 +45,7 @@ Configuring API Management for zone redundancy is currently supported in the fol
 * West US 3
 
 > [!IMPORTANT]
-> The regions with * against them require special whitelisting in Subscription to enable Availability Zone support. Please work with your Microsoft sales or customer representative
+> The regions with * against them have restrictive access in an Azure Subscription to enable Availability Zone support. Please work with your Microsoft sales or customer representative
 
 ## Prerequisites
 
