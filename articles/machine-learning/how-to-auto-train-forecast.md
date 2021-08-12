@@ -27,6 +27,7 @@ For a low code experience, see the [Tutorial: Forecast demand with automated mac
 
 Unlike classical time series methods, in automated ML, past time-series values are "pivoted" to become additional dimensions for the regressor together with other predictors. This approach incorporates multiple contextual variables and their relationship to one another during training. Since multiple factors can influence a forecast, this method aligns itself well with real world forecasting scenarios. For example, when forecasting sales, interactions of historical trends, exchange rate, and price all jointly drive the sales outcome. 
 
+
 ## Prerequisites
 
 For this article you need, 
@@ -35,6 +36,7 @@ For this article you need,
 
 * This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [tutorial](tutorial-auto-train-models.md) or [how-to](how-to-configure-auto-train.md) to see the main automated machine learning experiment design patterns.
 
+    [!INCLUDE [automl-sdk-version]](../../includes/machine-learning-automl-sdk-version.md)]
 ## Preparing data
 
 The most important difference between a forecasting regression task type and regression task type within automated ML is including a feature in your data that represents a valid time series. A regular time series has a well-defined and consistent frequency and has a value at every sample point in a continuous time span. 
