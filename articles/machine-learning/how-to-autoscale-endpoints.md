@@ -52,7 +52,7 @@ az monitor autoscale create \
 {>> snippets? <<}
 
 > [!NOTE]
-For more, see the [reference page for autoscale](/cli/azure/monitor/autoscale?view=azure-cli-latest&preserve-view=true)
+> For more, see the [reference page for autoscale](/cli/azure/monitor/autoscale?view=azure-cli-latest&preserve-view=true)
 
 ## Create a rule to scale out
 
