@@ -134,7 +134,7 @@ The managed SAP connector integrates with SAP systems through your [on-premises 
 
 ### ISE prerequisites
 
-An ISE provides access to resources that are protected by an Azure virtual network and offers other ISE-native connectors that let logic apps directly access on-premises resources without using on-premises data gateway.
+An ISE provides access to resources that are protected by an Azure virtual network and offers other ISE-native connectors that let logic app workflows directly access on-premises resources without using the on-premises data gateway.
 
 1. If you don't already have an Azure Storage account with a blob container, create a container using either the [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
 
