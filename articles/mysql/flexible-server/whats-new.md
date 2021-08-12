@@ -52,8 +52,8 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **Known issue**
 
-  - Right after HA failover, clients fail to connect to the server if using ssl with ssl_mode VERIFY_IDENTITY. This issue can be mitigated by using ssl_mode as VERIFY_CA.
-  - Unable to create Same-zone High availability server in the following regions Central India, East Asia, Korea Central, South Africa North, Switzerland North.
+  - Right after Zone-Redundant high availability server failover, clients fail to connect to the server if using ssl with ssl_mode VERIFY_IDENTITY. This issue can be mitigated by using ssl_mode as VERIFY_CA.
+  - Unable to create Same-Zone High availability server in the following regions Central India, East Asia, Korea Central, South Africa North, Switzerland North.
   - In a rare scenario and after HA failover, the primary server will be in read_only mode. Resolve the issue by updating “read_only” value from the server parameters blade to OFF.
   - After successfully scaling Compute in the Compute+Storage blade, IOPS is reset to the SKU default. Customers can work around the issue by re-scaling IOPs in the Compute+Storage blade to desired value (previously set) post the compute deployment and consequent IOPS reset.
 
