@@ -66,7 +66,7 @@ The following Azure Sentinel content works with any process activity that's norm
     - NOBELIUM - suspicious rundll32.exe execution of vbscript (Normalized Process Events)
     - SUNBURST suspicious SolarWinds child processes (Normalized Process Events)
 
-    For more information, see [Create custom analytics rules to detect threats](tutorial-detect-threats-custom.md).
+    For more information, see [Create custom analytics rules to detect threats](detect-threats-custom.md).
 
 -	**Hunting queries**:
     - Cscript script daily summary breakdown (Normalized Process Events)
