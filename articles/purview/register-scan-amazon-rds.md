@@ -351,7 +351,9 @@ To ensure that your RDS connection will be allowed from the load balancer you cr
 
 ### Step 4: Create a load balancer
 
-To create a network load balancer to forward traffic to the RDS IP address:
+You can either create a new network load balancer to forward traffic to the RDS IP address, or add a new listener to an existing load balancer.
+
+**To create a network load balancer to forward traffic to the RDS IP address**:
 
 1.	Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/
 
@@ -397,7 +399,23 @@ To create a network load balancer to forward traffic to the RDS IP address:
 >    For more information, see [create-listener — AWS CLI 2.2.7 Command Reference (amazonaws.com)](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/elbv2/create-listener.html).
 >
 
- 
+**To add a listener to an existing load balancer**.
+
+1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/. 
+
+1. In the navigation pane, select **Load Balancing** > **Load Balancers**, and select your load balancer.
+
+1. Select **Listeners** > **Add listener**.
+
+1. On the **Listeners** tab, in the **Protocol : port** area, select **TCP** and enter a new port for your listener.
+
+
+> [!TIP]
+> To perform this step via CLI, use the following command: `aws elbv2  create-listener --load-balancer-arn <value> --protocol <value>  --port <value> --default-actions Type=forward,TargetGroupArn=<target_group_arn>`
+>
+> For more information, see the [AWS documentation](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-listener.html).
+>
+
 ### Step 5: Create an endpoint service
 
 After the [Load Balancer is created](#step-4-create-a-load-balancer) and its State is **Active** you can create the endpoint service.
@@ -462,6 +480,7 @@ Locate the **Service name** on the **Details** tab for your selected endpoint se
 >
 > For more information, see [describe-vpc-endpoint-services — AWS CLI 2.2.7 Command Reference (amazonaws.com)](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-vpc-endpoint-services.html).
 >
+
 
 ## Troubleshoot your VPC connection
 
