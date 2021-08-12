@@ -46,7 +46,7 @@ Use the following procedure to access the agent:
        --env NEW_RELIC_APP_NAME=appName NEW_RELIC_LICENSE_KEY=newRelicLicenseKey
     ```
 
-  Azure Spring Cloud pre-installs the **New Relic** Java agent to the following path. Customers can leverage the agent from applications' **Jvm Options**, as well as configure the agent using the [New Relic Java agent environment variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
+  Azure Spring Cloud pre-installs the **New Relic** Java agent to the following path. Customers can leverage the agent from applications' **JVM Options**, as well as configure the agent using the [New Relic Java agent environment variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
 
   ```shell
   /opt/agents/newrelic/java/newrelic-agent.jar
@@ -54,7 +54,7 @@ Use the following procedure to access the agent:
 
 ## Portal
 
-You can also leverage this agent from portal with the following procedure. 
+You can also leverage this agent from portal with the following procedure.
 
 1. Find the app from **Settings**/**Apps** in the navigation pane.
 
@@ -77,20 +77,20 @@ You can also leverage this agent from portal with the following procedure.
    [ ![App summary page](media/new-relic-monitoring/app-summary-page.png) ](media/new-relic-monitoring/app-summary-page.png)
 
 6. View the application customers-service **Summary** page from **New Relic** dashboard.
- 
-   [ ![Customers-service page](media/new-relic-monitoring/customers-service.png) ](media/new-relic-monitoring/customers-service.png)  
 
-7. View the **Service Map** page from **New Relic** dashboard.  
+   [ ![Customers-service page](media/new-relic-monitoring/customers-service.png) ](media/new-relic-monitoring/customers-service.png)
 
-   [ ![Service map page](media/new-relic-monitoring/service-map.png) ](media/new-relic-monitoring/service-map.png) 
+7. View the **Service Map** page from **New Relic** dashboard.
+
+   [ ![Service map page](media/new-relic-monitoring/service-map.png) ](media/new-relic-monitoring/service-map.png)
 
 8. View **JVMs** of the application from **New Relic** dashboard.
 
-   [ ![JVM page](media/new-relic-monitoring/jvm-page.png) ](media/new-relic-monitoring/jvm-page.png) 
+   [ ![JVM page](media/new-relic-monitoring/jvm-page.png) ](media/new-relic-monitoring/jvm-page.png)
 
 9. View the application profile from **New Relic** dashboard.
 
-   [ ![Application profile](media/new-relic-monitoring/profile-app.png) ](media/new-relic-monitoring/profile-app.png) 
+   [ ![Application profile](media/new-relic-monitoring/profile-app.png) ](media/new-relic-monitoring/profile-app.png)
 
 ## New Relic Java Agent Logging
 
