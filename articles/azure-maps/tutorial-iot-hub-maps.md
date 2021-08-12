@@ -7,7 +7,7 @@ ms.date: 06/21/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ms.custom: mvc
 
 #Customer intent: As a customer, I want to build an IoT system so that I can use Azure Maps APIs for spatial analytics on the device data.
