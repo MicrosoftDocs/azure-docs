@@ -277,6 +277,11 @@ New-AzCosmosDBSqlRoleAssignment -AccountName $accountName `
     -PrincipalId $principalId
 ```
 
+When the role assignment step completes you can see results like the ones below
+
+results-role-assignment.png
+
+:::image type="content" source="media/how-to-manage-identities-vm-cosmos/results-role-assignment.png" alt-text="This shows the results of the role assignment":::
 
 ### [Azure CLI](#tab/azure-cli)
 
