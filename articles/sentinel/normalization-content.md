@@ -4,7 +4,7 @@ description: This article outlines the Azure Sentinel content that utilized Azur
 services: sentinel
 cloud: na
 documentationcenter: na
-author: ofshezaf
+author: oshezaf
 manager: rkarlin
 
 ms.assetid:
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2021
-ms.author: oshezaf
+ms.author: ofshezaf
 
 --- 
 

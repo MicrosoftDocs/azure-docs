@@ -46,13 +46,13 @@ To use the source-agnostic parsers that unify all of listed parsers and ensure t
 - **imProcessTerminate** for queries that require process termination information.
 - **imProcessEvents** for queries that require both process creation and termination information. In such cases, the `EventType` field enables you to distinguish between the events, and is set to `ProcessCreate` or `ProcessTerminate`, respectively. Process termination events generally include a lot less information than process creation events.
 
-Deploy the [source-agnostic and source-specific parsers](normalization.md#parsers) from the [Azure Sentinel GitHub repository](https://aka.ms/AzSentinelProcessEvents).
+Deploy the [source-agnostic and source-specific parsers](normalization-about-parsers.md) from the [Azure Sentinel GitHub repository](https://aka.ms/AzSentinelProcessEvents).
 
 ## Add your own normalized parsers
 
-When implementing custom parsers for the [Process Event](normalization.md#the-process-entity) information model, name your KQL functions using the following syntax: `imProcess<Type><vendor><Product>`, where `Type` is either `Create`, `Terminate`, or `Event` if the parser implements both creation and termination events.
+When implementing custom parsers for the [Process Event](normalization-about-schemas.md#the-process-entity) information model, name your KQL functions using the following syntax: `imProcess<Type><vendor><Product>`, where `Type` is either `Create`, `Terminate`, or `Event` if the parser implements both creation and termination events.
 
-Add your KQL function to the `imProcess<Type>` and `imProcess` source-agnostic parsers to ensure that any content using the [Process Event](normalization.md#the-process-entity) model also uses your new parser.
+Add your KQL function to the `imProcess<Type>` and `imProcess` source-agnostic parsers to ensure that any content using the [Process Event](normalization-about-schemas.md#the-process-entity) model also uses your new parser.
 
 ## Normalized content for process activity data
 
@@ -156,9 +156,9 @@ The process event schema references the following entities, which are central to
 | **CommandLine**    | Alias        |            |     Alias to [TargetProcessCommandLine](#targetprocesscommandline)  |
 | **Hash**           | Alias        |            |       Alias to the best available hash. |
 | <a name="actorusername"></a>**ActorUsername**  | Mandatory    | String     | The user name of the user who initiated the event. <br><br>Example: `CONTOSO\WIN-GG82ULGC9GO$`     |
-| **ActorUsernameType**              | Mandatory    | Enumerated |   Specifies the type of the user name stored in the [ActorUsername](#actorusername) field. For more information, see [The User entity](normalization.md#the-user-entity). <br><br>Example: `Windows`       |
-| <a name="actoruserid"></a>**ActorUserId**    | Recommended  | String     |   A unique ID of the Actor. The specific ID depends on the system generating the event. For more information, see [The User entity](normalization.md#the-user-entity).  <br><br>Example: `S-1-5-18`    |
-| **ActorUserIdType**| Recommended  | String     |  The type of the ID stored in the [ActorUserId](#actoruserid) field. For more information, see [The User entity](normalization.md#the-user-entity). <br><br>Example: `SID`         |
+| **ActorUsernameType**              | Mandatory    | Enumerated |   Specifies the type of the user name stored in the [ActorUsername](#actorusername) field. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity). <br><br>Example: `Windows`       |
+| <a name="actoruserid"></a>**ActorUserId**    | Recommended  | String     |   A unique ID of the Actor. The specific ID depends on the system generating the event. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).  <br><br>Example: `S-1-5-18`    |
+| **ActorUserIdType**| Recommended  | String     |  The type of the ID stored in the [ActorUserId](#actoruserid) field. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity). <br><br>Example: `SID`         |
 | **ActorSessionId** | Optional     | String     |   The unique ID of the login session of the Actor.  <br><br>Example: `999`<br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows this value must be numeric. <br><br>If you are using a Windows machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.   |
 | **ActingProcessCommandLine**       | Optional     | String     |   The command line used to run the acting process. <br><br>Example: `"choco.exe" -v`    |
 | **ActingProcessName**              | Optional     | string     |   The name of the acting process. This name is commonly derived from the image or executable file that's used to define the initial code and data that's mapped into the process' virtual address space.<br><br>Example: `C:\Windows\explorer.exe`  |
@@ -199,9 +199,9 @@ The process event schema references the following entities, which are central to
 | **ParentProcessTokenElevation**    | Optional     | String     |A token indicating the presence or absence of User Access Control (UAC) privilege elevation applied to the parent process.     <br><br>  Example: `None` |
 | **ParentProcessCreationTime**      | Optional    | DateTime   |    The date and time when the parent process was started. |
 | <a name="targetusername"></a>**TargetUsername** | Mandatory for process create events. | String     | The username of the target user.  <br><br>Example:   `CONTOSO\WIN-GG82ULGC9GO$`      |
-| **TargetUsernameType**             | Mandatory for process create events.   | Enumerated | Specifies the type of the username stored in the [TargetUsername](#targetusername) field. For more information, see [The User entity](normalization.md#the-user-entity).          <br><br>  Example:  `Windows`        |
-|<a name="targetuserid"></a> **TargetUserId**   | Recommended | String     | A unique ID of the target user. The specific ID depends on the system generating the event. For more information, see [The User entity](normalization.md#the-user-entity).            <br><br> Example: `S-1-5-18`    |
-| **TargetUserIdType**               | Recommended | String     | The type of the user ID stored in the [TargetUserId](#targetuserid) field. For more information, see [The User entity](normalization.md#the-user-entity).            <br><br> Example:  `SID`  |
+| **TargetUsernameType**             | Mandatory for process create events.   | Enumerated | Specifies the type of the username stored in the [TargetUsername](#targetusername) field. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).          <br><br>  Example:  `Windows`        |
+|<a name="targetuserid"></a> **TargetUserId**   | Recommended | String     | A unique ID of the target user. The specific ID depends on the system generating the event. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).            <br><br> Example: `S-1-5-18`    |
+| **TargetUserIdType**               | Recommended | String     | The type of the user ID stored in the [TargetUserId](#targetuserid) field. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).            <br><br> Example:  `SID`  |
 | **TargetUserSessionId**            | Optional     | String     |The unique ID of the target user's login session. <br><br>Example: `999`          <br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows this value must be numeric. <br><br>If you are using a Windows or Linux machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.     |
 | <a name="targetprocessname"></a>**TargetProcessName**              | Mandatory    | string     |The name of the target process. This name is commonly derived from the image or executable file that's used to define the initial code and data that's mapped into the process' virtual address space.   <br><br>     Example:  `C:\Windows\explorer.exe`     |
 | **TargetProcessFileCompany**       | Optional     | String     |The name of the company that created the target process image file.   <br><br>   Example:  `Microsoft` |

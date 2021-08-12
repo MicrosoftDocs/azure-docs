@@ -41,7 +41,7 @@ Azure Sentinel provides the following built-in, product-specific file event pars
 
 To use the source-agnostic parser that unifies all of the built-in parsers, and ensure that your analysis runs across all the configured sources, use imFileEvent as the table name in your query.
 
-Deploy the [source-agnostic and source-specific parsers](normalization.md#parsers) from the [Azure Sentinel GitHub repository](https://aka.ms/AzSentinelFileEvent).
+Deploy the [source-agnostic and source-specific parsers](normalization-about-parsers.md) from the [Azure Sentinel GitHub repository](https://aka.ms/AzSentinelFileEvent).
 
 ## Add your own normalized parsers
 
@@ -137,10 +137,10 @@ For example: `JohnDoe` (**Actor**) uses `Windows File Explorer` (**Acting proces
 | **ActingProcessId**| Mandatory    | Integer        | The process ID (PID) of the acting process.<br><br>Example:  `48610176`           <br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows and Linux this value must be numeric. <br><br>If you are using a Windows or Linux machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.    |
 | <a name="actingprocessname"></a>**ActingProcessName**              | Optional     | String     |   The name of the acting process. This name is commonly derived from the image or executable file that's used to define the initial code and data that's mapped into the process' virtual address space.<br><br>Example: `C:\Windows\explorer.exe`  |
 |**Process**| Alias| | Alias to [ActingProcessName](#actingprocessname)|
-| <a name="actoruserid"></a>**ActorUserId**    | Recommended  | String     |   A unique ID of the **Actor**. The specific ID depends on the system generating the event. For more information, see [The User entity](normalization.md#the-user-entity).  <br><br>Example: `S-1-5-18`    |
-| **ActorUserIdType**| Recommended  | String     |  The type of the ID stored in the [ActorUserId](#actoruserid) field. For more information, see [The User entity](normalization.md#the-user-entity). <br><br>Example: `SID`         |
+| <a name="actoruserid"></a>**ActorUserId**    | Recommended  | String     |   A unique ID of the **Actor**. The specific ID depends on the system generating the event. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).  <br><br>Example: `S-1-5-18`    |
+| **ActorUserIdType**| Recommended  | String     |  The type of the ID stored in the [ActorUserId](#actoruserid) field. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity). <br><br>Example: `SID`         |
 | <a name="actorusername"></a>**ActorUsername**  | Mandatory    | String     | The user name of the user who initiated the event. <br><br>Example: `CONTOSO\WIN-GG82ULGC9GO$`     |
-| **ActorUsernameType**              | Mandatory    | Enumerated |   Specifies the type of the user name stored in the [ActorUsername](#actorusername) field. For more information, see [The User entity](normalization.md#the-user-entity). <br><br>Example: `Windows`       |
+| **ActorUsernameType**              | Mandatory    | Enumerated |   Specifies the type of the user name stored in the [ActorUsername](#actorusername) field. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity). <br><br>Example: `Windows`       |
 |**User** | Alias| | Alias to the [ActorUsername](#actorusername) field. <br><br>Example: `CONTOSO\dadmin`|
 | **ActorUserType**|Optional | Enumerated| The type of **Actor**. Supported values include: <br><br>- `Regular`<br>- `Machine`<br>- `Admin`<br>- `System`<br>- `Application`<br>- `Service Principal`<br>- `Other` <br><br>**Note**: The source may provide only a value for the [ActorOriginalUserType](#actororiginalusertype) field, which must be analyzed to get the **ActorUserType** value.|
 |<a name="actororiginalusertype"></a>**ActorOriginalUserType** |Optional |String | The **Actor** user type, as provided by the reporting device. |

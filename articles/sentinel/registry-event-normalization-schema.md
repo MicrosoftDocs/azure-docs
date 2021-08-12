@@ -42,7 +42,7 @@ Azure Sentinel provides the following built-in, product-specific registry event 
 
 To use the source-agnostic parser that unifies all of the built-in parsers, and ensure that your analysis runs across all the configured sources, use **imRegistry** as the table name in your query.
 
-Deploy the [source-agnostic and source-specific parsers](normalization.md#parsers) from the [Azure Sentinel GitHub repository](https://aka.ms/AzSentinelRegistry).
+Deploy the [source-agnostic and source-specific parsers](normalization-about-parsers.md) from the [Azure Sentinel GitHub repository](https://aka.ms/AzSentinelRegistry).
 
 ### Add your own normalized parsers
 
@@ -123,9 +123,9 @@ For more information, see [Structure of the Registry](/windows/win32/sysinfo/str
 |**User** | Alias | |Alias to the [ActorUsername](#actorusername) field. <br><br>Example: `CONTOSO\ dadmin` |
 |**Process**     |  Alias       |         |  Alias to the [ActingProcessName](#actingprocessname) field.<br><br>Example: `C:\Windows\System32\rundll32.exe`       |
 | <a name="actorusername"></a>**ActorUsername**  | Mandatory    | String     | The user name of the user who initiated the event. <br><br>Example: `CONTOSO\WIN-GG82ULGC9GO$`     |
-| **ActorUsernameType**              | Mandatory    | Enumerated |   Specifies the type of the user name stored in the [ActorUsername](#actorusername) field. For more information, see [The User entity](normalization.md#the-user-entity). <br><br>Example: `Windows`       |
-| <a name="actoruserid"></a>**ActorUserId**    | Recommended  | String     |   A unique ID of the Actor. The specific ID depends on the system generating the event. For more information, see [The User entity](normalization.md#the-user-entity).  <br><br>Example: `S-1-5-18`    |
-| **ActorUserIdType**| Recommended  | String     |  The type of the ID stored in the [ActorUserId](#actoruserid) field. For more information, see [The User entity](normalization.md#the-user-entity). <br><br>Example: `SID`         |
+| **ActorUsernameType**              | Mandatory    | Enumerated |   Specifies the type of the user name stored in the [ActorUsername](#actorusername) field. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity). <br><br>Example: `Windows`       |
+| <a name="actoruserid"></a>**ActorUserId**    | Recommended  | String     |   A unique ID of the Actor. The specific ID depends on the system generating the event. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).  <br><br>Example: `S-1-5-18`    |
+| **ActorUserIdType**| Recommended  | String     |  The type of the ID stored in the [ActorUserId](#actoruserid) field. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity). <br><br>Example: `SID`         |
 | **ActorSessionId** | Optional     | String     |   The unique ID of the login session of the Actor.  <br><br>Example: `999`<br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows this value must be numeric. If you are using a Windows machine and the source sends a different type, make sure to convert the value. For example, if source sends a hexadecimal value, convert it to a decimal value.   |
 | <a name="actingprocessname"></a>**ActingProcessName**              | Optional     | String     |   The file name of the acting process image file. This is usually considered the process name.  <br><br>Example: `C:\Windows\explorer.exe`  |
 | **ActingProcessId**| Mandatory    | Integer        | The process ID (PID) of the acting process.<br><br>Example:  `48610176`           <br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows and Linux this value must be numeric. <br><br>If you are using a Windows or Linux machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.    |

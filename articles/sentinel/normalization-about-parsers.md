@@ -4,7 +4,7 @@ description: This article explains how to use KQL functions as query timem parse
 services: sentinel
 cloud: na
 documentationcenter: na
-author: ofshezaf
+author: oshezaf
 manager: rkarlin
 
 ms.assetid:
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2021
-ms.author: oshezaf
+ms.author: ofshezaf
 
 --- 
 
@@ -182,11 +182,11 @@ To do that, modify the relevant source agnostic parser to include the source-spe
 
     ```kusto
     union isfuzzy=true 
-    vimDnsEmpty, 
-    vimDnsCiscoUmbrella, 
-    vimDnsInfobloxNIOS, 
-    vimDnsMicrosoftOMS,
-    vimDnsYyyXxx
+        vimDnsEmpty, 
+        vimDnsCiscoUmbrella, 
+        vimDnsInfobloxNIOS, 
+        vimDnsMicrosoftOMS,
+        vimDnsYyyXxx
     ```
 
 ## Deploy parsers
