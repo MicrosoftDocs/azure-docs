@@ -12,16 +12,15 @@ ms.custom: template-concept
 
 # Elastic data map in Azure Purview
 
-Azure Purview Data Map provides the foundation for data discovery and effective data governance. It captures metadata about enterprise data present in analytics, software-as-a-service (SaaS) and operation systems on-premises, hybrid, multi-cloud and environments. Purview Data Map is automatically kept up to date with built-in automated scanning and classification system. With an intuitive UI, developers can further programmatically interact with the Data Map using open-source Apache Atlas APIs.
+Azure Purview Data Map provides the foundation for data discovery and effective data governance. It captures metadata about enterprise data present in analytics, software-as-a-service (SaaS), operation systems on-premises, hybrid, and multi-cloud environments. Purview Data Map is automatically kept up to date with built-in automated scanning and classification system. With an intuitive UI, developers can further programmatically interact with the Data Map using open-source Apache Atlas APIs.
 
 ## Elastic data map
 
-All Azure Purview accounts will have a Data Map that can elastically grow starting at 1 capacity unit and scale up and down based on request load within the elasticity window ([check current limits](how-to-manage-quotas.md)). However, you can request an increase in quota with a larger capacity of elasticity window by completing the [survey here](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR1ezopMJ4J9AoI1kdqClthtUMzhWVloxSlc3MEk2QTU0SlBTRFhTMFZSMC4u).
-<!-- 3. I need the non-aka.ms link for the form above.-->
+All Azure Purview accounts have a Data Map that can elastically grow starting at one capacity unit. They scale up and down based on request load within the elasticity window ([check current limits](how-to-manage-quotas.md)). You can request an increase in quota with a larger capacity of elasticity window by completing the [survey here](https://aka.ms/PurviewProdSurvey).
 
 ## Data map capacity unit
 
-Elastic Data Map comes with an operation throughput component and storage component that are combinedly represented as Capacity Unit (CU). All Azure Purview accounts, by default, come with 1 capacity unit and elastically grow based on usage. Each Data Map capacity unit includes a throughput of 25 operations/sec and 2 GB of metadata storage limit.  
+Elastic Data Map comes with an operation throughput component and storage component that are represented as Capacity Unit (CU). All Azure Purview accounts, by default, come with one capacity unit and elastically grow based on usage. Each Data Map capacity unit includes a throughput of 25 operations/sec and 2GB of metadata storage limit.  
 
 ### Operations
 
@@ -29,18 +28,18 @@ Operation is the throughput measure of the Purview Data Map and it includes the 
 
 - Create an asset in Data Map
 - Add a relationship to an asset such as owner, steward, parent, lineage, etc.
-- Edit an asset to add business metadata such as description, glossary term etc.
+- Edit an asset to add business metadata such as description, glossary term, etc.
 - Keyword search returning results to search result page.
 
 ### Storage
 
-Storage is the second component of DataMap that includes technical, business, and semantic metadata. The technical metadata includes schema, data type, columns and so on that are automatically discovered from Purview scanning and classification infrastructure. The business metadata includes automated (e.g. promoted  from Power BI datasets, descriptions from SQL tables) and manual tagging of descriptions, glossary terms and so on.  
+Storage is the second component of DataMap that includes technical, business, and semantic metadata. The technical metadata includes schema, data type, columns, and so on that are automatically discovered from Purview scanning and classification. The business metadata includes automated (for example, promoted  from Power BI datasets, descriptions from SQL tables) and manual tagging of descriptions, glossary terms and so on.  
 
 ## Data map billing
 
-Customers are at minimum billed for 1 capacity unit (25 ops/sec and 2 GB) and additional billing is based on the consumption of each additional capacity unit rolled to an hourly granularity. The DataMap operations scale in the increments of 25 operations/sec and metadata storage scales in the increments of 2 GB size. Purview Data Map can automatically scale up and down within the elasticity window ([check current limits](how-to-manage-quotas.md)). However, to get the next level of elasticity window, support ticket needs to be created.
+Customers are at minimum billed for one capacity unit (25 ops/sec and 2GB) and extra billing is based on the consumption of each extra capacity unit rolled up to the hour. The DataMap operations scale in the increments of 25 operations/sec and metadata storage scales in the increments of 2GB size. Purview Data Map can automatically scale up and down within the elasticity window ([check current limits](how-to-manage-quotas.md)). However, to get the next level of elasticity window, support ticket needs to be created.
 
-Data Map Capacity unit comes with a cap on operations throughput and storage. If storage exceeds the current capacity unit, customers are charged for the next capacity unit even if the operations throughput is not consumed or vice-versa. Below table shows the Data Map capacity unit ranges. Please contact support if the Data Map capacity unit goes beyond 100 capacity unit.
+Data Map Capacity unit comes with a cap on operations throughput and storage. If storage exceeds the current capacity unit, customers are charged for the next capacity unit even if the operations throughput isn't used. The below table shows the Data Map capacity unit ranges. Contact support if the Data Map capacity unit goes beyond 100 capacity unit.
 
 |Data Map Capacity Unit  |Operations/Sec throughput   |Storage capacity in GB|
 |----------|-----------|------------|
@@ -59,23 +58,23 @@ Data Map Capacity unit comes with a cap on operations throughput and storage. If
 
 ### Billing examples
 
-- Purview Data Map’s operation throughput for the given hour is less than or equal to 25 Ops/Sec and storage size is 1 GB. Customers are billed for 1 capacity unit.
+- Purview Data Map’s operation throughput for the given hour is less than or equal to 25 Ops/Sec and storage size is 1GB. Customers are billed for one capacity unit.
 
-- Purview Data Map’s operation throughput for the given hour is less than or equal to 25 Ops/Sec and storage size is 3 GB. Customers are billed for 2 capacity unit.
+- Purview Data Map’s operation throughput for the given hour is less than or equal to 25 Ops/Sec and storage size is 3GB. Customers are billed for two capacity unit.
 
-- Purview Data Map’s operation throughput for the given hour is 50 Ops/Sec and storage size is 1 GB. Customers are billed for 2 capacity unit.
+- Purview Data Map’s operation throughput for the given hour is 50 Ops/Sec and storage size is 1GB. Customers are billed for two capacity unit.
 
-- Purview Data Map’s operation throughput for the given hour is 50 Ops/Sec and storage size is 5 GB. Customers are billed for 3 capacity unit.
+- Purview Data Map’s operation throughput for the given hour is 50 Ops/Sec and storage size is 5GB. Customers are billed for three capacity unit.
 
-- Purview Data Map’s operation throughput for the given hour is 250 Ops/Sec and storage size is 5 GB. Customers are billed for 10 capacity unit.
+- Purview Data Map’s operation throughput for the given hour is 250 Ops/Sec and storage size is 5GB. Customers are billed for 10 capacity unit.
 
 ## Working with elastic data map
 
-- **Elastic Data Map with auto-scale** – you’ll be able to start with a Data Map as low as 1 capacity unit that can auto-scale based on load. For most organizations, this feature will lead to increased savings and a lower price point for starting with data governance projects. This feature will impact pricing.
+- **Elastic Data Map with auto-scale** – you will start with a Data Map as low as one capacity unit that can autoscale based on load. For most organizations, this feature will lead to increased savings and a lower price point for starting with data governance projects. This feature will impact pricing.
 
-- **Enhanced scanning & ingestion** – you’ll be able to track and control the population of the data assets, and classification and lineage across both the scanning and ingestion processes. This feature will impact pricing.
+- **Enhanced scanning & ingestion** – you can track and control the population of the data assets, and classification and lineage across both the scanning and ingestion processes. This feature will impact pricing.
 
-- **Advanced resource set** – you will be able to reduce the size of the Data Map by processing partitioned files in a data lake such that it’s treated as a single data asset called as [resource set](concept-resource-sets.md). This is an optional feature that will impact pricing.
+- **Advanced resource set** – you can reduce the size of the Data Map by processing partitioned files in a data lake such that it’s treated as a single data asset called as [resource set](concept-resource-sets.md). This is an optional feature that will impact pricing.
 
 ## Scenario
 
