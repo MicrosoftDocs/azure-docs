@@ -56,15 +56,15 @@ All of the tasks that you do on resources using the Azure Resource Manager must 
 1. Using the subscription that contains your API Management service instance, navigate to the [Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) to register an app in Active Directory.
     > [!NOTE]
     > If the Azure Active Directory default directory isn't visible to your account, contact the administrator of the Azure subscription to grant the required permissions to your account.
-1. Select **+ New registration**. O
+1. Select **+ New registration**.
 1. On the **Register an application** page, set the values as follows:
     
-    * Set **Name** to a meaningful name. e
+    * Set **Name** to a meaningful name.
     * Set **Supported account types** to **Accounts in this organizational directory only**. 
     * In **Redirect URI** enter a placeholder URL such as `https://resources`. It's a required field, but the value isn't used later. 
     * Select **Register**.
 
-### Add an application
+### Add permissions
 
 1. Once the application is created, select **API permissions** > **+ Add a permission**.
 1. Select **Microsoft APIs**.

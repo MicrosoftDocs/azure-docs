@@ -45,7 +45,7 @@ To move API Management instances from one Azure region to another, use the servi
 ### Option 1: Use a different API Management instance name
 
 1. In the target region, create a new API Management instance with the same pricing tier as the source API Management instance. The new instance should have a different name.
-1. [Back up](api-management-howto-disaster-recovery-backup-restore#-back-up-an-api-management-service) the existing API Management instance to the storage account. 
+1. [Back up](api-management-howto-disaster-recovery-backup-restore.md#-back-up-an-api-management-service) the existing API Management instance to the storage account. 
 1. [Restore](api-management-howto-disaster-recovery-backup-restore.md#-restore-an-api-management-service) the source instance's backup to the new API Management instance.
 1. If you have a custom domain pointing to the source region API Management instance, update the custom domain CNAME to point to the new API Management instance. 
 
@@ -54,7 +54,7 @@ To move API Management instances from one Azure region to another, use the servi
 > [!WARNING]
 > This option deletes the original API Management instance and results in downtime during the migration. Ensure that you have a valid backup before proceeding.
 
-1. [Back up](api-management-howto-disaster-recovery-backup-restore#-back-up-an-api-management-service) the existing API Management instance to the storage account. 
+1. [Back up](api-management-howto-disaster-recovery-backup-restore.md#-back-up-an-api-management-service) the existing API Management instance to the storage account. 
 1. Delete the API Management instance in the source region. 
 1. Create a new API Management instance in the target region with the same name as the one in the source region.
 1. [Restore](api-management-howto-disaster-recovery-backup-restore.md#-restore-an-api-management-service) the source instance's backup to the new API Management instance in the target region.  
@@ -62,7 +62,7 @@ To move API Management instances from one Azure region to another, use the servi
 ## Verify
 
 1. Ensure that the restore operation completes successfully before accessing your API Management instance in the target region.
-1. Configure settings that are not automatically configured during the restore operation. Examples: virtual network configuration, managed identities, developer portal content, and custom domain and custom CA certificates.
+1. Configure settings that are not automatically moved during the restore operation. Examples: virtual network configuration, managed identities, developer portal content, and custom domain and custom CA certificates.
 1. Access your API Management endpoints in the target region. For example, test your APIs, or access the developer portal.
 
 ## Clean up source resources
