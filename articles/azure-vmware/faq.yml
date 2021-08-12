@@ -36,7 +36,7 @@ sections:
         answer: With the new Azure VMware Solution, Microsoft and VMware have a direct cloud provider partnership. The new solution is designed, built, and supported by Microsoft and endorsed by VMware. Architecturally, the solutions are consistent, with the VMware technology stack running on a dedicated Azure infrastructure.
 
 
-  - name: Billing and support
+  - name: Billing 
     questions:
 
       - question: How will I be billed during Preview?
@@ -48,18 +48,9 @@ sections:
       - question: How will pricing be structured for Azure VMware Solution?
         answer: For general questions on pricing, see the Azure VMware Solution [pricing](https://azure.microsoft.com/pricing/details/azure-vmware) page. 
           
-      - question: What accounts do I need to create an Azure VMware Solution private cloud?
-        answer: You'll need an Azure account in an Azure subscription.
-
-      - question: Are Red Hat solutions supported on Azure VMware Solution?
-        answer: Microsoft and Red Hat share an integrated, co-located support team that provides a unified contact point for Red Hat ecosystems running on the Azure platform.  Like other Azure platform services that work with Red Hat Enterprise Linux, Azure VMware Solution falls under the Cloud Access and intergrated support umbrella. Red Hat Enterprise Linux supports running on top of Azure VMware Solution within Azure.
-
       - question: Is VMware HCX Enterprise available, and if so, how much does it cost?
         answer: VMware HCX Enterprise is available with Azure VMware Solution as a *Preview* function/service. While VMware HCX Enterprise for Azure VMware Solution is in Preview, it's a free function/service subject to Preview service terms and conditions. Once the VMware HCX Enterprise service goes GA, you'll get a 30-day notice that billing switches over. After that, you can switch it off or opt out of the service.
-
-      - question: How do I request a host quota increase for Azure VMware Solution?
-        answer: Whether you want more hosts for an existing private cloud or you're creating a new private cloud, you'll need to submit a support ticket to have your hosts allocated.  For more information, see [Request host quota for Azure VMware Solution](request-host-quota-azure-vmware-solution.md).
-          
+      
       - question: Will traffic between on-premises and Azure VMware Solution over ExpressRoute incur any outbound data transfer charge in the metered data plan?
         answer: |
           Traffic in the Azure VMware Solution ExpressRoute circuit isn't metered in any way. Traffic from your ExpressRoute circuit connecting to your on-premises to Azure is charged according to ExpressRoute pricing plans.
@@ -67,12 +58,28 @@ sections:
           - Azure VMware Solution to vNet is through an internal ExpressRoute circuit and is free of cost within the same region as Azure VMware Solution. However, if the internal ExpressRoute circuit is connected cross-region, data transfer charges apply.
           - Azure VMware Solution to on-premises is done through vNet or ExpressRoute Global Reach (between the internal ExpressRoute and external ExpressRoute). It's still free provided the connection to vNet (mentioned above) or using ExpressRoute Global Reach is within the region where Azure VMware Solution is deployed. Naturally, the Azure egress cost through external ExpressRoute is applicable. 
 
-      - question:  Is it necessary to procure licenses and resources other than the AV36 instance when migrating from the on-premise VM environment with L2 extension?  
-        answer: | 
-          No.        
-
       - question: When does metering begin and end for trial Azure VMware Solution clusters?
         answer: Trial clusters are limited to three hosts used for 30-day evaluations of Azure VMware Solution private clouds. After 30 days, clusters are automatically metered per their respective rates. If the trial clusters are deleted before the 30-day end date, the Azure VMware Solution trial will end at the time of deletion.
+
+
+
+
+  - name: Support
+    questions:
+
+      - question: How do I request a host quota increase for Azure VMware Solution?
+        answer: Whether you want more hosts for an existing private cloud or you're creating a new private cloud, you'll need to submit a support ticket to have your hosts allocated.  For more information, see [Request host quota for Azure VMware Solution](request-host-quota-azure-vmware-solution.md).
+
+      - question: What accounts do I need to create an Azure VMware Solution private cloud?
+        answer: You'll need an Azure account in an Azure subscription.
+
+      - question: Are Red Hat solutions supported on Azure VMware Solution?
+        answer: Microsoft and Red Hat share an integrated, co-located support team that provides a unified contact point for Red Hat ecosystems running on the Azure platform.  Like other Azure platform services that work with Red Hat Enterprise Linux, Azure VMware Solution falls under the Cloud Access and intergrated support umbrella. Red Hat Enterprise Linux supports running on top of Azure VMware Solution within Azure.
+
+      - question:  Is it necessary to procure licenses and resources other than the AV36 instance when migrating from the on-premise VM environment with L2 extension?  
+        answer: | 
+          No.    
+
 
 
   - name: Customer communication
@@ -80,6 +87,9 @@ sections:
       - question: How can I receive an alert when Azure sends service health notifications to my Azure subscription?
         answer: |
           [!INCLUDE [customer-communications](includes/customer-communications.md)]
+
+
+
 
 
   - name: Configuration and setup
