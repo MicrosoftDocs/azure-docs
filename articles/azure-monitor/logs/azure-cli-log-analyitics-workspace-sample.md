@@ -77,7 +77,7 @@ az monitor log-analytics workspace data-export delete --resource-group ContosoRG
    --workspace-name ContosoWorkspace --name DataExport --yes
 ```
 
-For more information about data export, see [Log Analytics workspace data export in Azure Monitor](/azure/azure-monitor/logs/logs-data-export)
+For more information about data export, see [Log Analytics workspace data export in Azure Monitor](/azure/azure-monitor/logs/logs-data-export).
 
 ### Manage a linked service
 
