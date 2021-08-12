@@ -6,14 +6,7 @@ ms.topic: include
 ms.date: 08/08/2021
 ---
 
-## Try the instance with a simple demo
-
-With this live demo, you could join or leave a group and send messages to the group members easily:
-
-> [!div class="nextstepaction"]
-> [Open the demo](https://azure.github.io/azure-webpubsub/demos/clientpubsub.html)
-
-### How to get client URL with a temp access token
+## Get the client URL with a temp access token
 
 Azure portal provides a simple client URL Generator to generate a temp URL for quick test/validation purpose. Let's use this tool to get a temp Client Access URL and connect to the instance.
 
@@ -23,6 +16,13 @@ Azure portal provides a simple client URL Generator to generate a temp URL for q
 - Generate and copy the `Client Access URL`. 
 
 :::image type="content" source="../media/quickstart-live-demo/generate-client-url.png" alt-text="Screenshot of generating client URL.":::
+
+## Try the instance with an online demo
+
+With this live demo, you could join or leave a group and send messages to the group members easily:
+
+> [!div class="nextstepaction"]
+> [Open the demo](https://azure.github.io/azure-webpubsub/demos/clientpubsub.html)
 
 > [!NOTE]
 >  **Client Access URL** is a convenience tool provided in the portal to simplify your getting-started experience, you can also use this Client Access URL to do some quick connect test. To write your own application, we provide SDKs in 4 languages to help you generate the URL. 

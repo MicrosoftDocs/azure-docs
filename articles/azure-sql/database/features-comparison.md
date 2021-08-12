@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: bonova, mathoma, danil
-ms.date: 07/13/2021
+ms.date: 08/12/2021
 ---
 
 # Features comparison: Azure SQL Database and Azure SQL Managed Instance
@@ -88,7 +88,7 @@ The following table lists the major features of SQL Server and provides informat
 | [Operators](/sql/t-sql/language-elements/operators-transact-sql) | Most - see individual operators |Yes - see [T-SQL differences](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
 | [Polybase](/sql/relational-databases/polybase/polybase-guide) | No. You can query data in the files placed on Azure Blob Storage using `OPENROWSET` function or use [an external table that references a serverless SQL pool in Synapse Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/). | No. You can query data in the files placed on Azure Blob Storage using `OPENROWSET` function, [a linked server that references a serverless SQL pool in Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/), or an external table (in public preview) that references [a serverless SQL pool in Synapse Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) or SQL Server. |
 | [Query Notifications](/sql/relational-databases/native-client/features/working-with-query-notifications) | No | Yes |
-| [Machine Learning Services](/sql/advanced-analytics/what-is-sql-server-machine-learning)(_Formerly R Services_)| Yes, in [public preview](/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | No |
+| [Machine Learning Services](/sql/advanced-analytics/what-is-sql-server-machine-learning) (_Formerly R Services_)| Yes, in [public preview](/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services) | Yes. See [Machine Learning Services in Azure SQL Managed Instance](../managed-instance/machine-learning-services-overview.md) |
 | [Recovery models](/sql/relational-databases/backup-restore/recovery-models-sql-server) | Only Full Recovery that guarantees high availability is supported. Simple and Bulk Logged recovery models are not available. | Only Full Recovery that guarantees high availability is supported. Simple and Bulk Logged recovery models are not available. |
 | [Resource governor](/sql/relational-databases/resource-governor/resource-governor) | No | Yes |
 | [RESTORE statements](/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | No | Yes, with mandatory `FROM URL` options for the backups files placed on Azure Blob Storage. See [Restore differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#restore-statement) |
