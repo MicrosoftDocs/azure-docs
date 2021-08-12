@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 08/16/2021
 ms.custom: template-how-to
 ---
 
@@ -45,7 +45,7 @@ In order to create and manage collections in Purview, you will need to be a **Co
 You will need to be a collection admin in order to create a collection. If you are not sure, follow the [guide above](#check-permissions) to check permissions.
  
 1. Select Data Map > Collections from the left pane to open collection management page.
-:::image type="content" source="./media/how-to-create-and-manage-collections/find-collections.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the Collections tab selected." border="true":::
+:::image type="content" source="./media/how-to-create-and-manage-collections/find-collections.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the Collections tab selected and open." border="true":::
 1. Select “+ Add a collection”. Again, note that only [collection admins](#check-permissions) can manage collections.
 1. In the right panel, enter the collection name and description. If needed you can also add users as collection admins to the new collection.
 :::image type="content" source="./media/how-to-create-and-manage-collections/create-collection.png" alt-text="Screenshot of Purview studio window, showing the new collection window, with a display name and collection admins selected, and the create button highlighted." border="true":::
@@ -108,7 +108,7 @@ Collections permissions are inherited automatically from the parent collection. 
 :::image type="content" source="./media/how-to-create-and-manage-collections/restrict-access-inheritance.png" alt-text="Screenshot of Purview studio collection window, with the role assignments tab selected, and the restrict inherited permissions slide button highlighted." border="true":::
 1. After restriction, inherited members are removed from the roles expect for collection admin.
 1. Click the “Restrict inherited permissions” toggle button to revert.
-:::image type="content" source="./media/how-to-create-and-manage-collections/remove-restriction.png" alt-text="Screenshot of Purview studio collection window, with the role assignments tab selected, and the restrict inherited permissions slide button highlighted." border="true":::
+:::image type="content" source="./media/how-to-create-and-manage-collections/remove-restriction.png" alt-text="Screenshot of Purview studio collection window, with the role assignments tab selected, and the unrestrict inherited permissions slide button highlighted." border="true":::
 
 ## Adding assets to collections
 
@@ -140,7 +140,7 @@ Collections permissions are inherited automatically from the parent collection. 
 1. You can list all the assets in the same collection in the collection management page.
 :::image type="content" source="./media/how-to-create-and-manage-collections/list-assets.png" alt-text="Screenshot of Purview studio collection window with the overview tab selected and the assets count box highlighted." border="true":::
 1. Click the “Assets” card to see all the assets that belong to this collection.
-:::image type="content" source="./media/how-to-create-and-manage-collections/assets-card.png" alt-text="Screenshot of Purview studio collection window with the overview tab selected and the assets count box highlighted." border="true":::
+:::image type="content" source="./media/how-to-create-and-manage-collections/assets-card.png" alt-text="Screenshot of Purview studio collection window with the overview tab selected and the assets card highlighted." border="true":::
 1. Choose the assets that you want to move by check the check box in the first column of the table. The “Move” button in the command bar will be enabled if you selected at least one collection. Click the “Move” button to move the assets you selected to another collection.
 
 ## Search and browse by collections
@@ -175,7 +175,7 @@ The search results page shows a list of assets that match the keywords provided 
 1. On the next page, the search results of the assets under selected collection will be show up. You can narrow the results by selecting the facet filters. Or you can see the assets under other collections by clicking on the sub/related collection names  
 :::image type="content" source="./media/how-to-create-and-manage-collections/search-results-by-collection.png" alt-text="Screenshot of the catalog Purview studio window with the by collection tab selected."border="true":::
 1. To view the details of an asset, click the asset name in the search result. Or you can check the assets and bulk edit them.
-:::image type="content" source="./media/how-to-create-and-manage-collections/view-asset-details.png" alt-text="Screenshot of the catalog Purview studio window with the by collection tab selected."border="true":::
+:::image type="content" source="./media/how-to-create-and-manage-collections/view-asset-details.png" alt-text="Screenshot of the catalog Purview studio window with the by collection tab selected and asset check boxes highlighted."border="true":::
 
 ## Register source to a collection
 
@@ -184,7 +184,7 @@ The search results page shows a list of assets that match the keywords provided 
 1. Fill in the data source name, and other source information.  It lists all the collections which you have scan permission on the bottom of the form. You can select one collection. All assets under this source will belong to the collection you select.
 :::image type="content" source="./media/how-to-create-and-manage-collections/register-source.png" alt-text="Screenshot of the source registration window."border="true":::
 1. The created data source will be put under the selected collection. Click “View details” to see the data source.
-:::image type="content" source="./media/how-to-create-and-manage-collections/see-registered-source.png" alt-text="Screenshot of the data map Purview studio window with the newly added source card highlighted in the map."border="true":::
+:::image type="content" source="./media/how-to-create-and-manage-collections/see-registered-source.png" alt-text="Screenshot of the data map Purview studio window with the newly added source card highlighted."border="true":::
 1. Select “New scan” to create scan under the data source.
 :::image type="content" source="./media/how-to-create-and-manage-collections/new-scan.png" alt-text="Screenshot of a source Purview studio window with the new scan button highlighted."border="true":::
 1. Similarly, at the bottom of the form, you can select a collection, and all assets scanned will be included in the collection. 
@@ -207,7 +207,7 @@ Legacy collections only organize sources in the data map, and do not manage perm
 1. Select “+ New collection”.
 :::image type="content" source="./media/how-to-create-and-manage-collections/legacy-collection-create.png" alt-text="Screenshot of Purview studio window, opened to the Data Map with + New collection highlighted." border="true":::
 1. Name your collection and select a parent or 'None'. Select “Create”. The collection information will reflect on the data map.
-:::image type="content" source="./media/how-to-create-and-manage-collections/legacy-collection-name.png" alt-text="Screenshot of Purview studio window, showing the newly created collection window." border="true":::
+:::image type="content" source="./media/how-to-create-and-manage-collections/legacy-collection-name.png" alt-text="Screenshot of Purview studio window, showing the new collection window." border="true":::
 
 ## Next steps
 Now that you have a collection, you can follow these guides below to add resources, scan, and manage your collections.
