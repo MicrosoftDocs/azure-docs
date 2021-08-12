@@ -1,6 +1,6 @@
 ---
 title: Use managed identities from a virtual machine to access Cosmos DB  | Microsoft Docs 
-description: Learn how to use managed identities with Windows VMs using the Azure Portal, CLI, PowerShell, Azure resource manager template  
+description: Learn how to use managed identities with Windows VMs using the Azure portal, CLI, PowerShell, Azure Resource Manager template  
 services: active-directory
 documentationcenter: ''
 author: barclayn
@@ -18,7 +18,7 @@ ms.custom: ep-msia
 
 ---
 
-# How to use managed identities to connect to Cosmos DB from a Azure virtual machine
+# How to use managed identities to connect to Cosmos DB from an Azure virtual machine
 
 
 This article shows you how to use managed identities from a virtual machine to connect to Cosmos. [Azure Cosmos DB](../../cosmos-db/introduction.md) is a fully managed NoSQL database for modern app development. [Managed identities](overview.md) for Azure resources allow your applications to authenticate when accessing resources while using an automatically managed identity. 
@@ -34,10 +34,10 @@ This article shows you how to use managed identities from a virtual machine to c
 
 ## Create a virtual machine with a managed identity
 
-Before we proceed we need a virtual machine with a managed identity. You have a few options: 
+Before we proceed, we need a virtual machine with a managed identity. You have a few options: 
 - You may choose to create a virtual machine with a system assigned managed identity enabled.
-- You may enable system assigned managed identities on an existing virtual machines.
-- You could create a virtual machine with a user-assigned managed identities enabled.
+- You may enable system assigned managed identities on an existing virtual machine.
+- You could create a virtual machine with a user-assigned managed identity enabled.
 - You can assign a user-assigned managed identity to an existing VM.
 
 In addition, to the options listed above you may also choose between Linux and Windows for your virtual machine's operating system.
@@ -50,7 +50,7 @@ To create an Azure VM with the system-assigned managed identity enabled, your ac
 
 - From the **Azure portal** search for **virtual machines**.
 - Choose **Create**
-- In the **Basics** tab provide the required information.
+- In the Basics tab, provide the required information.
 - Choose **Next: Disks >**
 - Continue filling out information as needed and in the **Management** tab find the **Identity** section and check the box next to **System assigned managed identity**
 
@@ -213,7 +213,7 @@ To assign a user-assigned identity to a VM, your account needs the [Virtual Mach
 Create a user-assigned managed identity using the [New-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/new-azuserassignedidentity) cmdlet.  Write down the `Id` in the output because you will need this information in the next step.
 
 > [!IMPORTANT]
-> Creating user-assigned managed identities only supports alphanumeric, underscore and hyphen (0-9 or a-z or A-Z, \_ or -) characters. Additionally, name should be limited from 3 to 128 character length for the assignment to VM/VMSS to work properly. For more information see [FAQs](managed-identities-faq.md) and [known issues](known-issues.md)
+> Creating user-assigned managed identities only supports alphanumeric, underscore and hyphen (0-9 or a-z or A-Z, \_ or -) characters. Additionally, name should be limited from 3 to 128 character length for the assignment to VM/VMSS to work properly. For more information, see [FAQs](managed-identities-faq.md) and [known issues](known-issues.md)
 
 ```azurepowershell-interactive
 New-AzUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGNED IDENTITY NAME>
@@ -252,7 +252,42 @@ Now that you have a virtual machine configured with a managed identity we need t
 
 ### Grant access to a managed identity
 
-Cosmos DB uses RBAC roles to grant access to either data plan or management plane operations. Management plane operations are managed using [Azure RBAC roles](../../cosmos-db/role-based-access-control.md). Data plane access control is managed using Azure Cosmos DB [data plane RBAC](../../cosmos-db/how-to-setup-rbac.md) helps you configure access to data plane operations. From the perspective of rights assignment a managed identity is granted access the same way that you would grant access to any other identity.
+Cosmos DB uses RBAC roles to grant access to either data plane or management plane operations. Access to management plane operations is controlled using [Azure RBAC roles](../../cosmos-db/role-based-access-control.md). Data plane access control is managed using Azure Cosmos DB [data plane RBAC](../../cosmos-db/how-to-setup-rbac.md) helps you manage access to data plane operations. In this example we will grant reader access to the vm's managed identity.
+
+1. Azure Cosmos DB exposes two built-in role definitions. We will use the **Cosmos DB Built-in Data Reader** role. To grant access, you need to associate the role definition with the identity. In our case, the managed identity associated with our virtual machine.
+
+
+
+### [Portal](#tab/azure-portal)
+
+**Purposely left empty**
+
+
+### [PowerShell](#tab/azure-powershell)
+
+```powershell
+$resourceGroupName = "<myResourceGroup>"
+$accountName = "<myCosmosAccount>" 
+$readOnlyRoleDefinitionId = "00000000-0000-0000-0000-000000000001" # This is the ID of the Cosmos DB Built-in Data Reader role definition
+$principalId = "1111111-1111-11111-1111-11111111" # This is the object ID of the managed identity.
+New-AzCosmosDBSqlRoleAssignment -AccountName $accountName `
+    -ResourceGroupName $resourceGroupName `
+    -RoleDefinitionId $readOnlyRoleDefinitionId `
+    -Scope "/" `
+    -PrincipalId $principalId
+```
+
+
+### [Azure CLI](#tab/azure-cli)
+
+
+
+### [Resource Manager Template](#tab/azure-resource-manager)
+
+TBD what we would show here
+
+
+
 
 
 ### Test access (?????)
