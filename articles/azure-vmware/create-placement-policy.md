@@ -120,7 +120,7 @@ Make sure to review the requirements for the [policy type](#placement-policy-typ
 
    :::image type="content" source="media/placement-policies/create-placement-policy-vm-vm-affinity-3.png" alt-text="Screenshot showing the placement policy settings before it's created.":::
 
-After the placement policy gets created, you’ll see it in the list and that it’s **Enabled**.
+1. After the placement policy gets created, select **Refresh** to see it in the list.
 
    :::image type="content" source="media/placement-policies/create-placement-policy-8.png" alt-text="Screenshot showing the placement policy as Enabled after it's created." lightbox="media/placement-policies/create-placement-policy-8.png":::
 
