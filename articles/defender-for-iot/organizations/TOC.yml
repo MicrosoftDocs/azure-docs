@@ -1,4 +1,5 @@
 - name: Azure Defender for IoT for end-user organizations
+  href: index.yml
   items:
 - name: Overview
   displayName: IoT, OT, getting started
