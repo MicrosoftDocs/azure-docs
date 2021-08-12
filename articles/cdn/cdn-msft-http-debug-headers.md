@@ -29,5 +29,6 @@ X-Cache: TCP_REMOTE_HIT | This header is returned when the content is served fro
 X-Cache: TCP_MISS | This header is returned when there is a cache miss, and the content is served from the Origin.
 X-Cache: PRIVATE_NOSTORE | This header is returned when the request cannot be cached as Cache-Control response header is set to either private or no-store.
 X-Cache: CONFIG_NOCACHE | This header is returned when the request is configured not to cache in the CDN profile.
+X-Cache: N/A | This header is returned when the request that was denied by Signed URL and Rules Set.
 
 For additional information on HTTP headers supported in Azure CDN, see [Front Door to backend](../frontdoor/front-door-http-headers-protocol.md#front-door-to-backend).
