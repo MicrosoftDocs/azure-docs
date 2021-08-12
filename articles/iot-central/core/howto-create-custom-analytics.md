@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: philmea
+
 
 # Solution developer
 ---
