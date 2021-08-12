@@ -7,7 +7,7 @@ ms.date: 05/18/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ---
 
 # Manage Azure Maps Creator
