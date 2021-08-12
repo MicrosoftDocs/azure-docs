@@ -19,7 +19,7 @@ Learn about definitions used in the custom text classification feature of Langua
 ## Project
 
 A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and other people who have contributor access to the Azure resource you are using.
-As a prerequisite to creating a Custom entity extraction project, you have to [connect your resource to a storage account](concepts/service-requirements.md#set-storage-account).
+As a prerequisite to creating a Custom entity extraction project, you have to [connect your resource to a storage account](concepts/development-lifecycle.md).
 As part of the project creation flow, you need connect it to a blob container where you have uploaded your dataset. Your project automatically includes all the `.txt` files available in your container. See the [limits](data-limits.md) article for more information.
 
 Within your project you can do the following operations:

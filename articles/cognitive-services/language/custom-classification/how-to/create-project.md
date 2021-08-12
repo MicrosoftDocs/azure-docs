@@ -26,7 +26,7 @@ Custom text classification supports two types of projects:
 
 ## Prerequisites
 
-* A Language Services resource in **West US 2** or **West Europe** with the Standard (S) pricing tier. You will also need to configure permissions for a storage account. See [Service requirements](../concepts/service-requirements.md) for more information.
+* A Language Services resource in **West US 2** or **West Europe** with the Standard (S) pricing tier. You will also need to configure permissions for a storage account.
 
 ## Create new project
 
@@ -45,7 +45,7 @@ Sign in to the [Language studio portal](https://language.azure.com/) and select 
 > * This process is irreversible, if you connect a storage account to your resource you cannot disconnect it later.
 > * You can only connect your resource to one storage account.
 
-1. Select your storage account from the drop-down menu. If you cannot find your storage account, see [required permissions](../concepts/service-requirements.md#set-permissions).
+1. Select your storage account from the drop-down menu.
 
     :::image type="content" source="../media/connect-storage.png" alt-text="Connect storage account" lightbox="../media/connect-storage.png":::
 
@@ -84,8 +84,8 @@ Sign in to the [Language studio portal](https://language.azure.com/) and select 
 
 Before you continue, make sure that:
 
-* Your resource and storage account are [connected](../concepts/service-requirements.md#set-storage-account) successfully.
-* Your resource has the **Storage blob data owner** or **Storage blob data contributor** [role on the storage account](../concepts/service-requirements.md#set-permissions).
+* Your resource and storage account are connected successfully.
+* Your resource has the **Storage blob data owner** or **Storage blob data contributor** role on the storage account.
 
 ### Get your resource keys endpoint
 
@@ -141,7 +141,7 @@ Replace `{YOUR-ENDPOINT}` with the endpoint you got from the previous step.
 
 This request will return an error if:
 
-* The resource selected doesn't have proper [permissions](../concepts/service-requirements.md#set-permissions) for the storage account.
+* The resource selected doesn't have proper permissions for the storage account.
 * The labels file location is not valid.
 
 ---
