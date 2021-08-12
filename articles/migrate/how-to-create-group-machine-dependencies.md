@@ -59,10 +59,12 @@ On each server you want to analyze, install the agents.
 > [!NOTE]
 > For servers monitored by System Center Operations Manager 2012 R2 or later, you don't need to install the MMA agent. Service Map integrates with Operations Manager. [Follow](../azure-monitor/vm/service-map-scom.md#prerequisites) integration guidance.
 
-1. In **Azure Migrate: Discovery and assessment**, click **Discovered servers**.
+1. In **Azure Migrate: Discovery and assessment**, click **Groups** (if you have not created a Group, click Asses, create an assessment and group that includes servers).
 2. For each server you want to analyze with dependency visualization, in the **Dependencies** column, click **Requires agent installation**.
-3. In the **Dependencies** page, download the MMA and Dependency agent for Windows or Linux.
-4. Under **Configure MMA agent**, copy the workspace ID and key. You need these when you install the MMA agent.
+    ![Install the agents](./media/how-to-create-group-machine-dependencies/dependencies-column.png)
+
+4. In the **Dependencies** page, download the MMA and Dependency agent for Windows or Linux.
+5. Under **Configure MMA agent**, copy the workspace ID and key. You need these when you install the MMA agent.
 
     ![Install the agents](./media/how-to-create-group-machine-dependencies/dependencies-install.png)
 
