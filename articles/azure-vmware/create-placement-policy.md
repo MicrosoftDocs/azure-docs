@@ -99,17 +99,14 @@ Make sure to review the requirements for the [policy type](#placement-policy-typ
 
 1. Select **Add virtual machine** and then select the VMs to include in the policy. You can select multiple VMs.
 
-   >[!TIP]
-   >If you want to add a VM what doesn't exist in the list, then select **Add virtual machine** at the top.
-
-1. If you see the **Add host** option, your policy type requires a host to be selected.  Select **Add host** and select the host to include in the policy. You can select multiple hosts.
+1. Once you're finished adding the VMs you want, select **Add virtual machine**. 
 
    >[!NOTE]
-   >Associated policies & virtual machines blurb next to host - explain 
+   >If you see the **Add host** option, your policy type requires a host to be selected.  Select **Add host** and select the host to include in the policy. You can select multiple hosts.
 
-1. Select **Next: Review and create** to review your policy. If you want to make changes, select **Back : Basics**.
+1. Select **Next: Review and create** to review your policy. 
 
-1. Select **Create policy**. 
+1. Select **Create policy**. If you want to make changes, select **Back : Basics**.
 
 
 
