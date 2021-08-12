@@ -315,7 +315,7 @@ Once you have configured signature validation, use the following GPG command to 
 gpg --clear-sign <runbook name>
 ```
 
-The signed runbook is called **<runbook name>.asc**.
+The signed runbook is called **\<runbook name>.asc**.
 
 You can now upload the signed runbook to Azure Automation and execute it like a regular runbook.
 
