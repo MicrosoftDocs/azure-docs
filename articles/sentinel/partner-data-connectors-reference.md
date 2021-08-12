@@ -192,6 +192,17 @@ For more information about connecting to Azure Sentinel, see [Connect Aruba Clea
 | **Supported by:** | [ESET](https://support.eset.com/en) |
 |
 
+## Fortinet
+
+The Fortinet firewall connector connects Fortinet logs to Azure Sentinel. For more information, go to the [Fortinet Document Library](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary), choose your version, and use the *Handbook* and *Log Message Reference* PDFs.
+
+For more information about connecting to Azure Sentinel, see [Connect Fortinet to Azure Sentinel](connect-fortinet.md).
+
+**Data ingestion method:** [CEF](connect-common-event-format.md) over Syslog.
+
+**Supported by:** [Fortinet](https://support.fortinet.com/)
+
+
 ## Google Workspace (G-Suite) (Preview)
 
 | Connector | Google Workspace (G-Suite) |
