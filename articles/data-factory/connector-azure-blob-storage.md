@@ -62,13 +62,13 @@ Use the following steps to create a REST linked service in the Data Factory UI.
 
 ---
 
-2. Search for REST and select the REST connector.
+2. Search for blob and select the Azure Blob Storage connector.
 
-    :::image type="content" source="media/connector-azure-blob-storage/azure-blob-storage-connector.png" alt-text="Select REST connector.":::    
+    :::image type="content" source="media/connector-azure-blob-storage/azure-blob-storage-connector.png" alt-text="Select Azure Blob Storage connector.":::    
 
 1. Configure the service details, test the connection, and create the new linked service.
 
-    :::image type="content" source="media/connector-azure-blob-storage/configure-azure-blob-storage-linked-service.png" alt-text="Configure REST linked service.":::
+    :::image type="content" source="media/connector-azure-blob-storage/configure-azure-blob-storage-linked-service.png" alt-text="Configure Azure Blob Storage linked service.":::
 
 ## Connector configuration details
 
