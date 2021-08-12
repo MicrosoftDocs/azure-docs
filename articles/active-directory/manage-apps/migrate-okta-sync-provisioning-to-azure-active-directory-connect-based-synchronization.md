@@ -189,7 +189,8 @@ Verify that your updates still include all attributes expected in Azure AD. If m
 
 ![image shows populate on-premises ad values](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/on-premises-ad-values.png)
 
->[!NOTE] Before you continue to the next step, ensure all user attributes are syncing properly and are showing in the **Pending Export** tab as expected. If they're deleted, make sure their ImmutableID's match and the User is in one of the selected OUs for synchronization.
+>[!NOTE]
+>Before you continue to the next step, ensure all user attributes are syncing properly and are showing in the **Pending Export** tab as expected. If they're deleted, make sure their ImmutableID's match and the User is in one of the selected OUs for synchronization.
 
 ### Step 4 - Install Azure AD cloud sync agents
 
