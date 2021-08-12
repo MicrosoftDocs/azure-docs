@@ -47,15 +47,15 @@ Then save the results to GitHub **secrets** as described in [Set up your GitHub 
 
 The credential you created above can get only general information about the Key Vault, not the contents it stores.  To get secrets stored in the Key Vault, you need set access policies for the credential.
 
-Go to the **Key Vault** dashboard in Azure portal, click the **Access control** menu, then open the **Role assignments** tab. Select **Apps** for **Type** and `This resource` for **scope**.  You should see the credential you created in previous step:
+Go to the **Key Vault** dashboard in Azure portal, select the **Access control** menu, then open the **Role assignments** tab. Select **Apps** for **Type** and `This resource` for **scope**.  You should see the credential you created in previous step:
 
 ![Set access policy](./media/github-actions/key-vault1.png)
 
-Copy the credential name, for example, `azure-cli-2020-01-19-04-39-02`. Open the **Access policies** menu, click **+Add Access Policy** link.  Select `Secret Management` for **Template**, then select **Principal**. Paste the credential name in **Principal**/**Select** input box:
+Copy the credential name, for example, `azure-cli-2020-01-19-04-39-02`. Open the **Access policies** menu, then select the **Add Access Policy** link.  Select `Secret Management` for **Template**, then select **Principal**. Paste the credential name in **Principal**/**Select** input box:
 
 ![Select](./media/github-actions/key-vault2.png)
 
-Click the **Add** button in the **Add access policy** dialog, then click **Save**.
+Select the **Add** button in the **Add access policy** dialog, then select **Save**.
 
 ## Generate full-scope Azure Credential
 
@@ -81,7 +81,7 @@ Again, results:
 }
 ```
 
-Copy the entire JSON string.  Bo back to **Key Vault** dashboard. Open the **Secrets** menu, then click the **Generate/Import** button. Input the secret name, such as `AZURE-CREDENTIALS-FOR-SPRING`. Paste the JSON credential string to the **Value** input box. You may notice the value input box is a one-line text field, rather than a multi-line text area.  You can paste the complete JSON string there.
+Copy the entire JSON string.  Bo back to **Key Vault** dashboard. Open the **Secrets** menu, then select the **Generate/Import** button. Input the secret name, such as `AZURE-CREDENTIALS-FOR-SPRING`. Paste the JSON credential string to the **Value** input box. You may notice the value input box is a one-line text field, rather than a multi-line text area.  You can paste the complete JSON string there.
 
 ![Full scope credential](./media/github-actions/key-vault3.png)
 

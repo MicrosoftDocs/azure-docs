@@ -14,6 +14,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 **This article applies to:** ✔️ Java
 
 Spring [Cloud Netflix Turbine](https://github.com/Netflix/Turbine) is widely used to aggregate multiple [Hystrix](https://github.com/Netflix/Hystrix) metrics streams so that streams can be monitored in a single view using Hystrix dashboard. This tutorial demonstrates how to use them on Azure Spring Cloud.
+
 > [!NOTE]
 > Netflix Hystrix is widely used in many existing Spring Cloud apps but it is no longer in active development. If you are developing new project, use instead Spring Cloud Circuit Breaker implementations like [resilience4j](https://github.com/resilience4j/resilience4j). Different from Turbine shown in this tutorial, the new Spring Cloud Circuit Breaker framework unifies all implementations of its metrics data pipeline into Micrometer, which is also supported by Azure Spring Cloud. [Learn More](./how-to-circuit-breaker-metrics.md).
 
@@ -76,7 +77,7 @@ Access hystrix-turbine with the path `https://<SERVICE-NAME>-hystrix-turbine.azu
 
 ![Hystrix dashboard](media/spring-cloud-circuit-breaker/hystrix-dashboard.png)
 
-Copy the Turbine stream url `https://<SERVICE-NAME>-hystrix-turbine.azuremicroservices.io/turbine.stream?cluster=default` into the text box, and click **Monitor Stream**.  This will display the dashboard. If nothing shows in the viewer, hit the `user-service` endpoints to generate streams.
+Copy the Turbine stream url `https://<SERVICE-NAME>-hystrix-turbine.azuremicroservices.io/turbine.stream?cluster=default` into the text box, and select **Monitor Stream**.  This will display the dashboard. If nothing shows in the viewer, hit the `user-service` endpoints to generate streams.
 
 ![Hystrix stream](media/spring-cloud-circuit-breaker/hystrix-stream.png)
 Now you can experiment with the Circuit Breaker Dashboard.
