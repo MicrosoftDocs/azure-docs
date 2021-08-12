@@ -33,6 +33,7 @@ If you don't have a deployed Azure Spring Cloud instance, follow the instruction
         <artifactId>spring-boot-starter-data-jpa</artifactId>
     </dependency>
     ```
+
 1. In the *application.properties* file, remove any `spring.datasource.*` properties.
 
 1. Update the current app by running `az spring-cloud app deploy`, or create a new deployment for this change by running `az spring-cloud app deployment create`.
@@ -53,7 +54,8 @@ If you don't have a deployed Azure Spring Cloud instance, follow the instruction
 1. Restart the app, and this binding should now work.
 
 1. To ensure that the service binding is correct, select the binding name, and then verify its detail. The `property` field should look like this:
-    ```
+
+    ```properties
     spring.datasource.url=jdbc:mysql://some-server.mysql.database.azure.com:3306/testdb?useSSL=true&requireSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
     spring.datasource.username=admin@some-server
     spring.datasource.password=abc******
@@ -165,6 +167,7 @@ resource "azurerm_spring_cloud_active_deployment" "example" {
   deployment_name     = azurerm_spring_cloud_java_deployment.example.name
 }
 ```
+
 ---
 
 ## Next steps

@@ -22,13 +22,14 @@ In Azure Spring Cloud, there are two viewpoints for metrics.
 Charts in the application **Overview** provide quick status checks for each application. The common **Metrics** page contains all metrics available for reference. You can build your own charts in the common metrics page and pin them in Dashboard.
 
 ## Application overview page
+
 Select an app in **Apps** to find charts in the overview page.  
 
- ![Application Metrics Management](media/metrics/metrics-2.png)
+![Application Metrics Management](media/metrics/metrics-2.png)
 
 Each application's **Application Overview** page presents a metrics chart that allows you to perform a quick status check of your application.  
 
- ![Application Metrics Overview](media/metrics/metrics-3.png)
+![Application Metrics Overview](media/metrics/metrics-3.png)
 
 Azure Spring Cloud provides these five charts with metrics that are updated every minute:
 
@@ -55,6 +56,7 @@ Next, select aggregation type for each metric:
 ![Metric Aggregation](media/metrics/metrics-5.png)
 
 The aggregation type indicates how to aggregate metric points in the chart by time. There is one raw metric point every minute, and the pre-aggregation type within a minute is pre-defined by metrics type.
+
 * Sum: Sum all values as target output.
 * Average: Use the Average value in the period as target output.
 * Max/Min: Use the Max/Min value in the period as target output.
@@ -66,6 +68,7 @@ The time range can also be adjusted from last 30 minutes to last 30 days or a cu
 The default view includes all of an Azure Spring Cloud service's application's metrics together. Metrics of one app or instance can be filtered in the display.  Click **Add filter**, set the property to **App**, and select the target application you want to monitor in the **Values** text box. 
 
 You can use two kinds of filters (properties):
+
 * App: filter by app name
 * Instance: filter by app instance
 
@@ -83,12 +86,14 @@ You can also use the **Apply splitting** option, which will draw multiple lines 
 The following tables show the available metrics and details.
 
 ### Error
+
 >[!div class="mx-tdCol2BreakAll"]
 >| Name | Spring Actuator Metric Name | Unit | Details |
 >|----|----|----|------------|
 >| tomcat.global.error | tomcat.global.error | Count | Number of errors that occurred in processed requests |
 
 ### Performance
+
 >[!div class="mx-tdCol2BreakAll"]
 >| Name | Spring Actuator Metric Name | Unit | Details |
 >|----|----|----|------------|
@@ -133,6 +138,7 @@ The following tables show the available metrics and details.
 For more information, see [dotnet counters](/dotnet/core/diagnostics/dotnet-counters).
 
 ### Request
+
 >[!div class="mx-tdCol2BreakAll"]
 >| Name | Spring Actuator Metric Name | Unit | Details |
 >|----|----|----|------------|
@@ -154,6 +160,7 @@ For more information, see [dotnet counters](/dotnet/core/diagnostics/dotnet-coun
 For more information, see [dotnet counters](/dotnet/core/diagnostics/dotnet-counters).
 
 ### Session
+
 >[!div class="mx-tdCol2BreakAll"]
 >| Name | Spring Actuator Metric Name | Unit | Details |
 >|----|----|----|------------|
@@ -164,16 +171,10 @@ For more information, see [dotnet counters](/dotnet/core/diagnostics/dotnet-coun
 >| tomcat.sessions.rejected | tomcat.sessions.rejected | Count | Number of sessions that were not created because the maximum number of active sessions reached. |
 >| tomcat.sessions.active.current | tomcat.sessions.active.current | Count | Tomcat Session Active Count |
 
-## See also
-
-* [Quickstart: Monitoring Azure Spring Cloud apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md)
-
-* [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md)
-
-* [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md)
-
 ## Next steps
 
+* [Quickstart: Monitoring Azure Spring Cloud apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md)
+* [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md)
+* [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md)
 * [Tutorial: Monitor Spring Cloud resources using alerts and action groups](./tutorial-alerts-action-groups.md)
-
 * [Quotas and Service Plans for Azure Spring Cloud](./quotas.md)

@@ -21,9 +21,9 @@ Azure Spring Cloud applications run in a specific region.  Azure operates in mul
 
 Ensuring high availability and protection from disasters requires that you deploy your Spring Cloud applications to multiple regions.  Azure provides a list of [paired regions](../best-practices-availability-paired-regions.md) so that you can plan your Spring Cloud deployments to regional pairs.  We recommend that you consider three key factors when designing your micro-service architecture:  region availability, Azure paired regions, and service availability.
 
-*  Region availability:  Choose a geographic area close to your users to minimize network lag and transmission time.
-*  Azure paired regions:  Choose paired regions within your chosen geographic area to ensure coordinated platform updates and prioritized recovery efforts if needed.
-*  Service availability:   Decide whether your paired regions should run hot/hot, hot/warm, or hot/cold.
+* Region availability:  Choose a geographic area close to your users to minimize network lag and transmission time.
+* Azure paired regions:  Choose paired regions within your chosen geographic area to ensure coordinated platform updates and prioritized recovery efforts if needed.
+* Service availability:   Decide whether your paired regions should run hot/hot, hot/warm, or hot/cold.
 
 ## Use Azure Traffic Manager to route traffic
 
