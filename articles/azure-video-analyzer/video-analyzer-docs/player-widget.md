@@ -9,7 +9,7 @@ ms.date: 06/01/2021
 
 # Use the Azure Video Analyzer player widget
 
-In this tutorial, you learn how to use a player widget within your application. This code is an easy-to-embed widget that allows your users to play video and navigate through the portions of a segmented video file. To do this, you'll be generating a static HTML page with the widget embedded, and all the pieces to make it work.
+In this tutorial, you learn how to use a player widget within your application. This code is an easy-to-embed widget that allows your users to play video and browse through the portions of a segmented video file. To do this, you'll be generating a static HTML page with the widget embedded, and all the pieces to make it work.
 
 In this tutorial you will:
 
@@ -47,19 +47,19 @@ In this section, you create a JSON Web Token (JWT) that you will use later in th
 
 2. Open Visual Studio Code, and then go to the folder where you downloaded the *JWTTokenIssuer* application. This folder should contain the *\*.csproj* file.
 3. In the explorer pane, go to the *program.cs* file.
-4. On line 77, change the audience to your Video Analyzer endpoint, followed by /videos/\*. It should look like the following:
+4. On line 77, change the audience to your Azure Video Analyzer endpoint, followed by /videos/\*. It should look like the following:
 
    ```
    https://{Azure Video Analyzer Account ID}.api.{Azure Long Region Code}.videoanalyzer.azure.net/videos/*
    ```
 
    > [!NOTE] 
-   > You can find the Video Analyzer endpoint in the overview section of the Video Analyzer resource in the Azure portal. This value is referenced as `clientApiEndpointUrl` in [List Video Analyzer video resources](#list-video-analyzer-video-resources), later in this article.
+   > You can find the Video Analyzer endpoint in the overview section of the Video Analyzer resource in the Azure portal. This value is referenced as `clientApiEndpointUrl` in [List video resources](#list-video-analyzer-video-resources), later in this article.
 
    :::image type="content" source="media/player-widget/client-api-url.png" alt-text="Screenshot that shows the player widget endpoint.":::
     
 5. On line 78, change the issuer to the issuer value of your certificate (for example, `https://contoso.com`).
-6. Save the file. You might be prompted with the message `Required assets to build and debug are missing from 'jwt token issuer'. Add them?` Select `Yes`.
+6. Save the file. You might be prompted with the message **Required assets to build and debug are missing from 'jwt token issuer'. Add them?** Select **Yes**.
    
    :::image type="content" source="media/player-widget/visual-studio-code-required-assets.png" alt-text="Screenshot that shows the required asset prompt in Visual Studio Code.":::
    
@@ -69,7 +69,7 @@ The application builds and runs. After it builds, it creates a self-signed certi
 
 - `JwtTokenIssuer [--audience=<audience>] [--issuer=<issuer>] [--expiration=<expiration>] [--certificatePath=<filepath> --certificatePassword=<password>]`
 
-*JWTTokenIssuer* creates the JWT token and the following required components:
+*JWTTokenIssuer* creates the JWT and the following required components:
 
 - `Issuer`, `Audience`, `Key Type`, `Algorithm`, `Key Id`, `RSA Key Modulus`, `RSA Key Exponent`, `Token`
 
@@ -89,9 +89,9 @@ Access policies define the permissions and duration of access to a particular vi
 
    - Access policy name: You can choose any name.
 
-   - Issuer: This balue must match the JWT issuer. 
+   - Issuer: This value must match the JWT issuer. 
 
-   - Audience: The audience for the JWT Token. `${System.Runtime.BaseResourceUrlPattern}` is the default. To learn more about audience and `${System.Runtime.BaseResourceUrlPattern}`, see [Access policies](./access-policies.md).
+   - Audience: The audience for the JWT. `${System.Runtime.BaseResourceUrlPattern}` is the default. To learn more about audience and `${System.Runtime.BaseResourceUrlPattern}`, see [Access policies](./access-policies.md).
 
    - Key Type: RSA 
 
@@ -112,7 +112,7 @@ Access policies define the permissions and duration of access to a particular vi
 
 ## List video resources
 
-Next, generate a list of video resources. You make a REST call to the account endpoint you used above, and you authenticate with the token you generated.
+Next, generate a list of video resources. You make a REST call to the account endpoint you used earlier, and you authenticate with the token you generated.
 
 There are many ways to send a GET request to a REST API, but for this you're going to use a JavaScript function. The following code uses [XMLHttpRequest](https://www.w3schools.com/xml/ajax_xmlhttprequest_create.asp), coupled with values you're storing in the `clientApiEndpointUrl` and `token` fields on the page to send a synchronous `GET` request. It then takes the resulting list of videos and stores them in the `videoList` text area you have set up on the page.
 
