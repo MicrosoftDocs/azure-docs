@@ -115,4 +115,4 @@ The following diagram shows how the name resolution works for storage accounts u
 
 ## Next steps
 
-[Creating and using private endpoints](private-endpoints.md)
+- [Create and use private endpoints](private-endpoints.md)
