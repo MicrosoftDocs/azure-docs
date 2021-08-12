@@ -33,7 +33,7 @@ The flow of secured communications over trusts determines the elasticity of a tr
 
 The flow of communication over trusts is determined by the direction of the trust. Trusts can be one-way or two-way, and can be transitive or non-transitive.
 
-The following diagram shows that all domains in *Tree 1* and *Tree 2* have transitive trust relationships by default. As a result, users in *Tree 1* can access resources in domains in *Tree 2* and users in *Tree 1* can access resources in *Tree 2*, when the proper permissions are assigned at the resource.
+The following diagram shows that all domains in *Tree 1* and *Tree 2* have transitive trust relationships by default. As a result, users in *Tree 1* can access resources in domains in *Tree 2* and users in *Tree 2* can access resources in *Tree 1*, when the proper permissions are assigned at the resource.
 
 ![Diagram of trust relationships between two forests](./media/concepts-forest-trust/trust-relationships.png)
 

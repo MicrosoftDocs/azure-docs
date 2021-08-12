@@ -7,7 +7,7 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
 ms.author: zxue
-ms.date: 05/10/2021
+ms.date: 08/05/2021
 ---
 
 # Quickstart: Use an ARM template to deploy Azure API for FHIR
@@ -76,7 +76,7 @@ On the **Deploy Azure API for FHIR** page:
 
 4. Enter a new **Service Name** and choose the **Location** of the Azure API for FHIR. The location can be the same as or different from the region of the resource group.
 
-    :::image type="content" source="./media/fhir-paas-arm-template-quickstart/deploy-azure-api-fhir.png" alt-text="Deploy the Azure API for FHIR using the ARM template in the Azure portal.":::
+   [ ![Deploy Azure API for FHIR using the ARM template in the Azure portal.](media/fhir-resource-manager-template/deploy-azure-api-fhir.png) ](media/fhir-resource-manager-template/deploy-azure-api-fhir.png#lightbox)
 
 5. Select **Review + create**.
 
