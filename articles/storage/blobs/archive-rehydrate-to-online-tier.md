@@ -88,7 +88,7 @@ The destination blob is subsequently rehydrated to the online tier that you spec
 
 :::image type="content" source="media/archive-rehydrate-to-online-tier/copy-blob-archive-tier-rehydrated.png" alt-text="Screenshot showing the original blob in the archive tier, the rehydrated blob in the hot tier, and the log blob written by the event handler":::
 
-## Rehydrate a blob with Set Blob Tier
+## Rehydrate a blob by changing its tier
 
 To rehydrate a blob by changing its tier from archive to hot or cool operation, use the Azure portal, PowerShell, or Azure CLI.
 
