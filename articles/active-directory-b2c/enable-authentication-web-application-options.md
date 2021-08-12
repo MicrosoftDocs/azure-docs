@@ -259,9 +259,14 @@ Complete the [Support advanced scenarios](#support-advanced-scenarios) procedure
 private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
 {
     // Read the custom parameter
-    var campaign_id = (context.Properties.Items.ContainsKey("campaign_id"))
-    
+    var campaign_id = context.Properties.Items.FirstOrDefault(x => x.Key == "campaign_id").Value;
+
     // Add your custom code here
+    if (campaign_id != null)
+    {
+        // Send parameter to authentication request
+        context.ProtocolMessage.SetParameter("campaign_id", campaign_id);
+    }
     
     await Task.CompletedTask.ConfigureAwait(false);
 }
@@ -273,20 +278,16 @@ After logout, the user is redirected to the URI specified in the `post_logout_re
 
 To support a secured logout redirect in your application, first follow the steps in the [Account controller](enable-authentication-web-application-options.md#add-the-account-controller) section and the [Support advanced scenarios](#support-advanced-scenarios) sections.
 
-In the **MyAccountController**, add a SignOut action using the following code snippet:
+In the `MyAccountController`, add a **SignOut** action using the following code snippet:
 
 ```csharp
 [HttpGet("{scheme?}")]
 public async Task<IActionResult> SignOutAsync([FromRoute] string scheme)
 {
     scheme ??= OpenIdConnectDefaults.AuthenticationScheme;
-    var redirectUrl = Url.Content("~/");
+
     //obtain the id_token
     var idToken = await HttpContext.GetTokenAsync("id_token");
-    
-    var properties = new AuthenticationProperties { RedirectUri = redirectUrl };
-    properties.Items["policy"] = "b2c_1a_susi";
-    
     //send the id_token value to the authentication middleware
     properties.Items["id_token_hint"] = idToken;            
     return SignOut(properties,CookieAuthenticationDefaults.AuthenticationScheme,scheme);
@@ -301,9 +302,10 @@ private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
     var id_token_hint = context.Properties.Items.FirstOrDefault(x => x.Key == "id_token_hint").Value;
     if (id_token_hint != null)
     {
+        // Send parameter to authentication request
         context.ProtocolMessage.SetParameter("id_token_hint", id_token_hint);
     }
-
+    
     await Task.CompletedTask.ConfigureAwait(false);
 }
 ```
