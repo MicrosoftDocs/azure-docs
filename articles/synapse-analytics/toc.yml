@@ -949,7 +949,7 @@ items:
       - name: REST
         href: ../data-factory/connector-rest.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&tabs=synapse-analytics
       - name: Salesforce
-        href: ../data-factory/connector-salesforce.md?context=/azure/synapse-analytics/context/context
+        href: ../data-factory/connector-salesforce.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Salesforce Service Cloud
         href: ../data-factory/connector-salesforce-service-cloud.md?context=/azure/synapse-analytics/context/context
       - name: Salesforce Marketing Cloud
