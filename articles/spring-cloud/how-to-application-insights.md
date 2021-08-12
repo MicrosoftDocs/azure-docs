@@ -150,7 +150,7 @@ The Java agent will be updated/upgraded regularly with the JDK, which may impact
 
 * Existing applications that use the Java agent before updating/upgrading will not be affected.
 * Applications created after updating/upgrading will leverage the new version of the Java agent.
-* Existing applications that did not previsously use the Java agent will require restart or redeployment to leverage the new version of the Java agent.
+* Existing applications that did not previously use the Java agent will require restart or redeployment to leverage the new version of the Java agent.
 
 ## Java agent configuration hot-loading
 

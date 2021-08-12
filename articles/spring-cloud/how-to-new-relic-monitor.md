@@ -46,7 +46,7 @@ Use the following procedure to access the agent:
        --env NEW_RELIC_APP_NAME=appName NEW_RELIC_LICENSE_KEY=newRelicLicenseKey
     ```
 
-  Azure Spring Cloud pre-installs the **New Relic** Java agent to the following path. Customers can leverage the agent from applications' **Jvm Options**, as well as configure the agent using the [New Relic Java agent environment variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
+  Azure Spring Cloud pre-installs the **New Relic** Java agent to the following path. Customers can leverage the agent from applications' **JVM Options**, as well as configure the agent using the [New Relic Java agent environment variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
 
   ```shell
   /opt/agents/newrelic/java/newrelic-agent.jar
