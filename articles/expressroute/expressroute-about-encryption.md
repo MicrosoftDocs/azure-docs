@@ -32,6 +32,7 @@ We support the following [standard ciphers](https://1.ieee802.org/security/802-1
 * GCM-AES-256
 * GCM-AES-XPN-128
 * GCM-AES-XPN-256
+
 Also, you must disable [Secure Channel Identifier (SCI)](https://en.wikipedia.org/wiki/IEEE_802.1AE) in the MACsec configuration on your device.
 
 ## End-to-end encryption by IPsec FAQ
