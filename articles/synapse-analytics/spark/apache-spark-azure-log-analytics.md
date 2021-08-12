@@ -237,7 +237,7 @@ when you want to enabled this feature, you need to create managed private endpoi
 
 You can follow below steps to create a managed private endpoint connection to Azure Monitor private link scopes (AMPLS):
 
-1. If there is no existing AMPLS, create one.
+1. If there is no existing AMPLS, please follow [Azure Monitor Private Link connection setup](https://docs.microsoft.com/azure/azure-monitor/logs/private-link-security#private-link-connection-setup) to create one.
 2. Navigate to your AMPLS in Azure portal, on the **Azure Monitor Resources** page, click **Add** to add connection to your Azure Log Analytics workspace.
 3. Navigate to **Synapse Studio > Manage > Managed private endpoints**, click **New** button, select **Azure Monitor Private Link Scopes** and **continue**.
    > [!div class="mx-imgBorder"]
