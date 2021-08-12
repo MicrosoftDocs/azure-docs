@@ -39,7 +39,7 @@ You can add Document Translation to your applications using the REST API or a cl
 
 * The [**REST API**](reference/rest-api-guide.md). is a language agnostic interface that enables you to create HTTP requests and authorization headers to translate documents.
 
-* The [**client-library SDKs**](client-sdks.md) are language-specific classes, objects, methods, and code that you can quickly use by adding a reference in your project. Currently Document Translation has programming language support for [**C#/.NET**](/dotnet/api/azure.ai.translation.document) and [**Python**](/python/azure-ai-translation-document/latest/azure.ai.translation.document.html)
+* The [**client-library SDKs**](client-sdks.md) are language-specific classes, objects, methods, and code that you can quickly use by adding a reference in your project. Currently Document Translation has programming language support for [**C#/.NET**](/dotnet/api/azure.ai.translation.document) and [**Python**](/python/azure-ai-translation-document/latest/azure.ai.translation.document.html).
 
 ## Get started
 
