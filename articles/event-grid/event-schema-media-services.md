@@ -281,8 +281,6 @@ The data object has the following properties:
 
 ### JobOutputStateChange
 
-# [Event Grid event schema](#tab/event-grid-event-schema)
-
 The following example shows the schema of the **JobOutputStateChange** event:
 
 ```json
