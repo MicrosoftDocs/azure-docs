@@ -7,7 +7,7 @@ ms.reviewer: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 08/05/2021
 ms.author: cavoeg
 ---
 # Azure API for FHIR access token validation
