@@ -15,8 +15,9 @@ Azure Monitor Logs Dedicated Clusters are a deployment option that enables advan
 The capabilities that require dedicated clusters are:
 
 - **[Customer-managed Keys](../logs/customer-managed-keys.md)** - Encrypt the cluster data using keys that are provided and controlled by the customer.
-- **[Lockbox](../logs/customer-managed-keys.md#customer-lockbox-preview)** - Customers can control Microsoft support engineers access requests for data.
+- **[Lockbox](../logs/customer-managed-keys.md#customer-lockbox-preview)** - Control Microsoft support engineers access requests to your data.
 - **[Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)** protects against a scenario where one of the encryption algorithms or keys may be compromised. In this case, the additional layer of encryption continues to protect your data.
+- **[Availability Zone](../../availability-zones/az-overview.md)** - Protect your data from datacenter failures with Availability Zone on dedicated cluster -- limited to East US 2 and West US 2 regions initially. A cluster created with Availability Zone is indicated with `isAvailabilityZonesEnabled`: `true` and your data is stored protected in ZRS storage type. Availability Zone is defined in the cluster at creation time and this setting can’t be modified. To have a cluster in Availability Zone, you need to create a new cluster in supported regions.
 - **[Multi-workspace](../logs/cross-workspace-query.md)** - If a customer is using more than one workspace for production it might make sense to use dedicated cluster. Cross-workspace queries will run faster if all workspaces are on the same cluster. It might also be more cost effective to use dedicated cluster as the assigned commitment tier takes into account all cluster ingestion and applies to all its workspaces, even if some of them are small and not eligible for commitment tier discount.
 
 Dedicated clusters require customers to commit using a capacity of at least 1 TB of data ingestion per day. Migration to a dedicated cluster is simple. There is no data loss or service interruption. 

@@ -46,7 +46,7 @@ To install additional R packages, use the `install.packages()` method. Packages 
 
 > [!NOTE]
 > It's **NOT** recommended to install R package from the script bundle. It's recommended to install packages directly in the script editor.
-> Specify the CRAN repository when you're installing packages, such as `install.packages("zoo",repos = "http://cran.us.r-project.org")`.
+> Specify the CRAN repository when you're installing packages, such as `install.packages("zoo",repos = "https://cloud.r-project.org")`.
 
 > [!WARNING]
 > Excute R Script component does not support installing packages that require native compilation, like `qdap` package which requires JAVA and `drc` package which requires C++. This is because this component is executed in a pre-installed environment with non-admin permission.
@@ -71,7 +71,7 @@ This sample shows how to install Zoo:
 azureml_main <- function(dataframe1, dataframe2){
   print("R script run.")
   
-  if(!require(zoo)) install.packages("zoo",repos = "http://cran.us.r-project.org")
+  if(!require(zoo)) install.packages("zoo",repos = "https://cloud.r-project.org")
   library(zoo)
   # Return datasets as a Named List
   return(list(dataset1=dataframe1, dataset2=dataframe2))
@@ -117,7 +117,7 @@ Datasets stored in the designer are automatically converted to an R data frame w
 1. In the **R script** text box, type or paste valid R script.
 
     > [!NOTE]
-    > Be careful when writing your script. Make sure there are no syntax errors, such as using undeclared variables or unimported components or functions. Pay extra attention to the preinstalled package list at the end of this article. To use packages that aren't listed, install them in your script. An example is `install.packages("zoo",repos = "http://cran.us.r-project.org")`.
+    > Be careful when writing your script. Make sure there are no syntax errors, such as using undeclared variables or unimported components or functions. Pay extra attention to the preinstalled package list at the end of this article. To use packages that aren't listed, install them in your script. An example is `install.packages("zoo",repos = "https://cloud.r-project.org")`.
     
     To help you get started, the **R Script** text box is prepopulated with sample code, which you can edit or replace.
     
