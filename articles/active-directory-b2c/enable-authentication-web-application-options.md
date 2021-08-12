@@ -60,7 +60,6 @@ services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
 {
     Configuration.Bind("AzureAdB2C", options);
     options.Events ??= new OpenIdConnectEvents();
-    options.SaveTokens = true;
     options.Events.OnRedirectToIdentityProvider += OnRedirectToIdentityProviderFunc;
 });
 ```
@@ -277,9 +276,9 @@ private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
 
 After logout, the user is redirected to the URI specified in the `post_logout_redirect_uri` parameter, regardless of the reply URLs that have been specified for the application. However, if a valid `id_token_hint` is passed and the [Require ID Token in logout requests](session-behavior.md#secure-your-logout-redirect) is turned on, Azure AD B2C verifies that the value of `post_logout_redirect_uri` matches one of the application's configured redirect URIs before performing the redirect. If no matching reply URL was configured for the application, an error message is displayed and the user is not redirected.
 
-To support a secured logout redirect in your application, first follow the steps in the [Account controller](enable-authentication-web-application-options.md#add-the-account-controller) section and the [Support advanced scenarios](#support-advanced-scenarios) sections.
+To support a secured logout redirect in your application, first follow the steps in the [Account controller](enable-authentication-web-application-options.md#add-the-account-controller) section and the [Support advanced scenarios](#support-advanced-scenarios) sections. The follow the steps below:
 
-In the `MyAccountController`, add a **SignOut** action using the following code snippet:
+1. In `MyAccountController.cs` controller, add a **SignOut** action using the following code snippet:
 
 ```csharp
 [HttpGet("{scheme?}")]
@@ -295,7 +294,7 @@ public async Task<IActionResult> SignOutAsync([FromRoute] string scheme)
 }
 ```
 
-In the **Startup.cs** class, parse the `id_token_hint` value and append the value to the authentication request. The following code snippet demonstrates how to pass the `id_token_hint` value to the authentication request:
+1. In the **Startup.cs** class, parse the `id_token_hint` value and append the value to the authentication request. The following code snippet demonstrates how to pass the `id_token_hint` value to the authentication request:
 
 ```csharp
 private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
@@ -311,7 +310,20 @@ private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
 }
 ```
 
-In the **appsettings.json** configuration file, add the logout redirect uri path to `SignedOutCallbackPath` key.
+1. In the `ConfigureServices` function, add the `SaveTokens` option such that the Controllers have access to the `id_token` value: 
+
+```csharp
+services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+    .AddMicrosoftIdentityWebApp(options =>
+    {
+        Configuration.Bind("AzureAdB2C", options);
+        options.Events ??= new OpenIdConnectEvents();        
+        options.Events.OnRedirectToIdentityProvider += OnRedirectToIdentityProviderFunc;
+        options.SaveTokens = true;
+    });
+```
+
+1. In the **appsettings.json** configuration file, add the logout redirect uri path to `SignedOutCallbackPath` key.
 
 ```json
 "AzureAdB2C": {
