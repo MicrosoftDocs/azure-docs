@@ -12,7 +12,7 @@
     displayName: deployment, where to deploy
     href: architecture.md
 - name: Quickstarts
-  expanded: false
+  expanded: true
   items:
   - name: System prerequisites
     displayName: firewall, proxy, open ports
