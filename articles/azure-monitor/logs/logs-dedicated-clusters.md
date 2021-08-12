@@ -15,8 +15,9 @@ Azure Monitor Logs Dedicated Clusters are a deployment option that enables advan
 The capabilities that require dedicated clusters are:
 
 - **[Customer-managed Keys](../logs/customer-managed-keys.md)** - Encrypt the cluster data using keys that are provided and controlled by the customer.
-- **[Lockbox](../logs/customer-managed-keys.md#customer-lockbox-preview)** - Customers can control Microsoft support engineers access requests for data.
+- **[Lockbox](../logs/customer-managed-keys.md#customer-lockbox-preview)** - Control Microsoft support engineers access requests to your data.
 - **[Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)** protects against a scenario where one of the encryption algorithms or keys may be compromised. In this case, the additional layer of encryption continues to protect your data.
+- **[Availability Zone](../../availability-zones/az-overview.md)** - Protect your data from datacenter failures with Availability Zone on dedicated cluster -- limited to East US 2 and West US 2 regions initially. A cluster created with Availability Zone is indicated with `isAvailabilityZonesEnabled`: `true` and your data is stored protected in ZRS storage type. Availability Zone is defined in the cluster at creation time and this setting can’t be modified. To have a cluster in Availability Zone, you need to create a new cluster in supported regions.
 - **[Multi-workspace](../logs/cross-workspace-query.md)** - If a customer is using more than one workspace for production it might make sense to use dedicated cluster. Cross-workspace queries will run faster if all workspaces are on the same cluster. It might also be more cost effective to use dedicated cluster as the assigned commitment tier takes into account all cluster ingestion and applies to all its workspaces, even if some of them are small and not eligible for commitment tier discount.
 
 Dedicated clusters require customers to commit using a capacity of at least 1 TB of data ingestion per day. Migration to a dedicated cluster is simple. There is no data loss or service interruption. 
@@ -53,13 +54,13 @@ Complete details are billing for Log Analytics dedicated clusters are available 
 Some of the configuration steps run asynchronously because they can't be completed quickly. The status in response contains can be one of the followings: 'InProgress', 'Updating', 'Deleting', 'Succeeded or 'Failed' including the error code. When using REST, the response initially returns an HTTP status code 202 (Accepted) and header with Azure-AsyncOperation property:
 
 ```JSON
-"Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
+"Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2021-06-01"
 ```
 
 You can check the status of the asynchronous operation by sending a GET request to the Azure-AsyncOperation header value:
 
 ```rst
-GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-08-01
+GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2021-06-01
 Authorization: Bearer <token>
 ```
 
@@ -98,7 +99,7 @@ Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
 
 *Call* 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -111,9 +112,9 @@ Content-type: application/json
     "Capacity": 500
     },
   "properties": {
-    "billingType": "cluster",
+    "billingType": "Cluster",
     },
-  "location": "<region-name>",
+  "location": "<region>",
 }
 ```
 
@@ -134,38 +135,45 @@ The provisioning of the Log Analytics cluster takes a while to complete. You can
 
 - Send a GET request on the *Cluster* resource and look at the *provisioningState* value. The value is *ProvisioningAccount* while provisioning and *Succeeded* when completed.
 
-   ```rst
-   GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
-   Authorization: Bearer <token>
-   ```
+  ```rst
+  GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
+  Authorization: Bearer <token>
+  ```
 
-   **Response**
+  **Response**
 
-   ```json
-   {
-     "identity": {
-       "type": "SystemAssigned",
-       "tenantId": "tenant-id",
-       "principalId": "principal-id"
-       },
-     "sku": {
-       "name": "capacityReservation",
-       "capacity": 500,
-       "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
-       },
-     "properties": {
-       "provisioningState": "ProvisioningAccount",
-       "billingType": "cluster",
-       "clusterId": "cluster-id"
-       },
-     "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",
-     "name": "cluster-name",
-     "type": "Microsoft.OperationalInsights/clusters",
-     "location": "region-name"
-   }
-   ```
+  ```json
+  {
+    "identity": {
+      "type": "SystemAssigned",
+      "tenantId": "tenant-id",
+      "principalId": "principal-id"
+    },
+    "sku": {
+      "name": "capacityreservation",
+      "capacity": 500
+    },
+    "properties": {
+      "provisioningState": "ProvisioningAccount",
+      "clusterId": "cluster-id",
+      "billingType": "Cluster",
+      "lastModifiedDate": "last-modified-date",
+      "createdDate": "created-date",
+      "isDoubleEncryptionEnabled": false,
+      "isAvailabilityZonesEnabled": false,
+      "capacityReservationProperties": {
+        "lastSkuUpdate": "last-sku-modified-date",
+        "minCapacity": 500
+      }
+    },
+    "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",
+    "name": "cluster-name",
+    "type": "Microsoft.OperationalInsights/clusters",
+    "location": "cluster-region"
+  }
+  ```
 
-The *principalId* GUID is generated by the managed identity service for the *Cluster* resource.
+The *principalId* GUID is generated by the managed identity service at *Cluster* creation.
 
 ## Link a workspace to cluster
 
@@ -210,7 +218,7 @@ Use the following REST call to link to a cluster:
 *Send*
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-08-01 
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2021-06-01 
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -227,9 +235,7 @@ Content-type: application/json
 
 ### Check workspace link status
   
-If you use customer-managed keys, ingested data is stored encrypted with your managed key after the association operation, which can take up to 90 minutes to complete. 
-
-You can check the workspace association state in two ways:
+When cluster is configured with customer-managed keys, data ingested to the workspaces after the link operation completion is stored encrypted with your managed key. The workspace link operation can take up to 90 minutes to complete and you can check the state in two ways:
 
 - Copy the Azure-AsyncOperation URL value from the response and follow the asynchronous operations status check.
 
@@ -238,7 +244,7 @@ You can check the workspace association state in two ways:
 **CLI**
 
 ```azurecli
-az monitor log-analytics cluster show --resource-group "resource-group-name" --name "cluster-name"
+az monitor log-analytics workspace show --resource-group "resource-group-name" --workspace-name "workspace-name"
 ```
 
 **PowerShell**
@@ -252,7 +258,7 @@ Get-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Nam
 *Call*
 
 ```rest
-GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>?api-version=2020-08-01
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>?api-version=2021-06-01
 Authorization: Bearer <token>
 ```
 
@@ -284,7 +290,7 @@ Authorization: Bearer <token>
   "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.operationalinsights/workspaces/workspace-name",
   "name": "workspace-name",
   "type": "Microsoft.OperationalInsights/workspaces",
-  "location": "region-name"
+  "location": "region"
 }
 ```
 
@@ -322,45 +328,47 @@ Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name"
 
 *Call*
 
-  ```rst
-  GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
-  Authorization: Bearer <token>
-  ```
+```rst
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2021-06-01
+Authorization: Bearer <token>
+```
 
 *Response*
   
-  ```json
-  {
-    "value": [
-      {
-        "identity": {
-          "type": "SystemAssigned",
-          "tenantId": "tenant-id",
-          "principalId": "principal-Id"
-        },
-        "sku": {
-          "name": "capacityReservation",
-          "capacity": 500,
-          "lastSkuUpdate": "Sun, 22 Mar 2020 15:39:29 GMT"
-          },
-        "properties": {
-           "keyVaultProperties": {
-              "keyVaultUri": "https://key-vault-name.vault.azure.net",
-              "keyName": "key-name",
-              "keyVersion": "current-version"
-              },
-          "provisioningState": "Succeeded",
-          "billingType": "cluster",
-          "clusterId": "cluster-id"
-        },
-        "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.operationalinsights/workspaces/workspace-name",
-        "name": "cluster-name",
-        "type": "Microsoft.OperationalInsights/clusters",
-        "location": "region-name"
-      }
-    ]
-  }
-  ```
+```json
+{
+  "value": [
+    {
+      "identity": {
+        "type": "SystemAssigned",
+        "tenantId": "tenant-id",
+        "principalId": "principal-id"
+      },
+      "sku": {
+        "name": "capacityreservation",
+        "capacity": 500
+      },
+      "properties": {
+        "provisioningState": "Succeeded",
+        "clusterId": "cluster-id",
+        "billingType": "Cluster",
+        "lastModifiedDate": "last-modified-date",
+        "createdDate": "created-date",
+        "isDoubleEncryptionEnabled": false,
+        "isAvailabilityZonesEnabled": false,
+        "capacityReservationProperties": {
+          "lastSkuUpdate": "last-sku-modified-date",
+          "minCapacity": 500
+        }
+      },
+      "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",
+      "name": "cluster-name",
+      "type": "Microsoft.OperationalInsights/clusters",
+      "location": "cluster-region"
+    }
+  ]
+}
+```
 
 ### Get all clusters in subscription
 
@@ -381,15 +389,13 @@ Get-AzOperationalInsightsCluster
 *Call*
 
 ```rst
-GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
+GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2021-06-01
 Authorization: Bearer <token>
 ```
     
 *Response*
     
 The same as for 'clusters in a resource group', but in subscription scope.
-
-
 
 ### Update commitment tier in cluster
 
@@ -411,40 +417,40 @@ Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Cl
 
 *Call*
 
-  ```rst
-  PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
-  Authorization: Bearer <token>
-  Content-type: application/json
+```rst
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
+Authorization: Bearer <token>
+Content-type: application/json
 
-  {
-    "sku": {
-      "name": "capacityReservation",
-      "Capacity": 2000
-    }
+{
+  "sku": {
+    "name": "capacityReservation",
+    "Capacity": 2000
   }
-  ```
+}
+```
 
 ### Update billingType in cluster
 
 The *billingType* property determines the billing attribution for the cluster and its data:
-- *cluster* (default) -- The billing is attributed to the subscription hosting your Cluster resource
-- *workspaces* -- The billing is attributed to the subscriptions hosting your workspaces proportionally
+- *Cluster* (default) -- The billing is attributed to the Cluster resource
+- *Workspaces* -- The billing is attributed to linked workspaces proportionally. When data volume from all workspaces is below the Commitment Tier level, the remaining volume is attributed to the cluster
 
 **REST**
 
 *Call*
 
-  ```rst
-  PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
-  Authorization: Bearer <token>
-  Content-type: application/json
+```rst
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
+Authorization: Bearer <token>
+Content-type: application/json
 
-  {
-    "properties": {
-      "billingType": "cluster",
-      }  
-  }
-  ```
+{
+  "properties": {
+    "billingType": "Workspaces",
+    }  
+}
+```
 
 ### Unlink a workspace from cluster
 
@@ -457,7 +463,7 @@ Old data of the unlinked workspace might be left on the cluster. If this data is
 **CLI**
 
 ```azurecli
-az monitor log-analytics workspace linked-service delete --resource-group "resource-group-name" --workspace-name "MyWorkspace" --name cluster
+az monitor log-analytics workspace linked-service delete --resource-group "resource-group-name" --workspace-name "workspace-name" --name cluster
 ```
 
 **PowerShell**
@@ -486,18 +492,18 @@ Within the 14 days after deletion, the cluster resource name is reserved and can
 
 Use the following PowerShell command to delete a cluster:
 
-  ```powershell
-  Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
-  ```
+```powershell
+Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
+```
 
 **REST**
 
 Use the following REST call to delete a cluster:
 
-  ```rst
-  DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
-  Authorization: Bearer <token>
-  ```
+```rst
+DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
+Authorization: Bearer <token>
+```
 
   **Response**
 
@@ -520,7 +526,7 @@ Use the following REST call to delete a cluster:
 - Lockbox isn't available in China currently. 
 
 - [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) is configured automatically for clusters created from October 2020 in supported regions. You can verify if your cluster is configured for double encryption by sending a GET request on the cluster and observing that the `isDoubleEncryptionEnabled` value is `true` for clusters with Double encryption enabled. 
-  - If you create a cluster and get an error "<region-name> doesn’t support Double Encryption for clusters.", you can still create the cluster without Double encryption by adding `"properties": {"isDoubleEncryptionEnabled": false}` in the REST request body.
+  - If you create a cluster and get an error "region-name doesn’t support Double Encryption for clusters.", you can still create the cluster without Double encryption by adding `"properties": {"isDoubleEncryptionEnabled": false}` in the REST request body.
   - Double encryption setting can not be changed after the cluster has been created.
 
 ## Troubleshooting

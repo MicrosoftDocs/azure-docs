@@ -27,7 +27,7 @@ This article describes how to:
 
    [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
 
-- Create the [Azure Arc Data Controller](create-data-controller-using-azdata.md)
+- Create the [Azure Arc Data Controller](./create-data-controller-indirect-cli.md)
 - Launch Azure Data Studio
 
 ## Connect to the Azure Arc Data Controller

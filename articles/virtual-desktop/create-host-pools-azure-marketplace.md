@@ -4,7 +4,7 @@ description: How to create an Azure Virtual Desktop host pool by using the Azure
 author: Heidilohr
 ms.topic: tutorial
 ms.custom: references_regions
-ms.date: 07/20/2021
+ms.date: 08/06/2021
 ms.author: helohr
 manager: femila
 ---
@@ -44,7 +44,7 @@ If you're an app developer who's using remote app streaming for Azure Virtual De
 
 - If you plan on serving your organization's app to end-users, make sure you actually have that app ready. For more information, see [How to host custom apps with Azure Virtual Desktop](./remote-app-streaming/custom-apps.md).
 - If existing Azure Gallery image options don't meet your needs, you'll also need to create your own custom image for your session host VMs. To learn more about how to create VM images, see [Prepare a Windows VHD or VHDX to upload to Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) and [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md).
-- Your domain join credentials. If you don't already have an identity management system compatible with Azure Virtual Desktop, you'll need to set up identity management for your host pool.
+- Your domain join credentials. If you don't already have an identity management system compatible with Azure Virtual Desktop, you'll need to set up identity management for your host pool. To learn more, see [Set up managed identities](./remote-app-streaming/identities.md).
 
 ### Final requirements
 
