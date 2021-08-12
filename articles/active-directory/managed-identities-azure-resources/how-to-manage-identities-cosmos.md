@@ -287,7 +287,7 @@ New-AzCosmosDBSqlRoleAssignment -AccountName $accountName `
 TBD what we would show here
 
 
-
+---
 
 
 ### Test access (?????)
@@ -326,6 +326,8 @@ az resource delete \
 ### [Resource Manager Template](#tab/azure-resource-manager)
 
 TBD what we would show here
+
+---
 
 ## Next steps
 
