@@ -85,7 +85,7 @@ After deploying the VMware HCX Connector OVA on-premises and starting the applia
 
 1. In your Azure VMware Solution private cloud, select **Manage** > **Add-ons** > **Migration using HCX**. Then copy the **Activation key**.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/hcx-activation-key.png" alt-text="Screenshot of the boxes for customizing a template.":::   
+   :::image type="content" source="media/tutorial-vmware-hcx/hcx-activation-key.png" alt-text="Screenshot showing the activation key.":::   
 
 1. Sign in to the on-premises VMware HCX Manager at `https://HCXManagerIP:9443` with the **admin** credentials.  Make sure to include the `9443` port number with the VMware HCX Manager IP address.
 
