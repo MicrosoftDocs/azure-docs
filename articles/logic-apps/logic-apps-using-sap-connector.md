@@ -113,7 +113,7 @@ The managed SAP connector integrates with SAP systems through your [on-premises 
 
 * [Download and install the latest SAP client library](#sap-client-library-prerequisites) on the same local computer as your on-premises data gateway.
    
-* Configure the network host names and service names resolution for the host machine where you installed the on-premises data gateway. If you intend to use host names or service names for connection from Logic Apps, each of the SAP application server, message server and gateway server and their services must be configured for name resolution. The network host name resolution is configured in `%windir%\System32\drivers\etc\hosts` or in the DNS server available to your on-premises data gateway host machine. The service name resolution is configured in `%windir%\System32\drivers\etc\services`. If you do not intend to use network host names or service names for connection, you may instead use host IP addresses and service port numbers.
+* Configure the network host names and service names resolution for the host machine where you installed the on-premises data gateway. If you intend to use host names or service names for connection from Logic Apps, each of the SAP application, message, and gateway servers and their services must be configured for name resolution. The network host name resolution is configured in `%windir%\System32\drivers\etc\hosts` or in the DNS server available to your on-premises data gateway host machine. The service name resolution is configured in `%windir%\System32\drivers\etc\services`. If you do not intend to use network host names or service names for connection, you may instead use host IP addresses and service port numbers.
    
    A sample entry for the hosts file if you do not have a DNS entry for your SAP system is:
    
@@ -892,7 +892,7 @@ To send IDocs from SAP to your logic app, you need the following minimum configu
 
 1. Save your changes.
 
-1. Register your new **Program ID** with Azure Logic Apps by creating a logic app with a SAP connector trigger When a message is received from SAP. When the logic app is saved, it will register the **Program ID** on the SAP Gateway. Check the registration outcome in the logic app trigger history, the On-Premises Data Gateway SAP adapter logs and the SAP Gateway trace logs. The SAP Gateway monitor dialog (T-Code SMGW) should list the new registration as **Registered Server** under **Logged-On Clients**.
+1. Register your new **Program ID** with Azure Logic Apps by creating a logic app with an SAP connector trigger When a message is received from SAP. When the logic app is saved, it will register the **Program ID** on the SAP Gateway. Check the registration outcome in the logic app trigger history, the On-Premises Data Gateway SAP adapter logs and the SAP Gateway trace logs. The SAP Gateway monitor dialog (T-Code SMGW) should list the new registration as **Registered Server** under **Logged-On Clients**.
 
 1. To test your connection, in the SAP interface, under your new **RFC Destination**, select **Connection Test**.
 
