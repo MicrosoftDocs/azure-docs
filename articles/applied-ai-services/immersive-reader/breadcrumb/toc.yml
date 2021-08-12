@@ -9,3 +9,6 @@
     - name: Immersive Reader
       tocHref: /azure/applied-ai-services/
       topicHref: /azure/applied-ai-services/immersive-reader/index
+    - name: Immersive Reader
+      tocHref: /azure/cognitive-services/
+      topicHref: /azure/applied-ai-services/immersive-reader/index
