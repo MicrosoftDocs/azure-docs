@@ -138,7 +138,7 @@ Settings** > **New from Metadata File**
 ![image to shows add test user](media/migrate-applications-from-okta-to-azure-active-directory/add-test-user.png)
 
 13. To test, sign in as one of the test users and navigate to
-<http://aka.ms/myapps> and select the **Salesforce** tile.
+<https://aka.ms/myapps> and select the **Salesforce** tile.
 
 ![image to shows sign-in as test user](media/migrate-applications-from-okta-to-azure-active-directory/test-user-sign-in.png)
 
