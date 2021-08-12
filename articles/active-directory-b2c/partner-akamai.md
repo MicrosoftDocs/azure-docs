@@ -44,15 +44,15 @@ Akamai WAF integration includes the following components:
 
 - **Azure AD B2C Tenant** – The authorization server, responsible for verifying the user’s credentials using the custom policies defined in the tenant.  It's also known as the identity provider.
 
-- [**Azure Front Door**](https://docs.microsoft.com/azure/frontdoor/front-door-overview) – Responsible for enabling custom domains for Azure B2C tenant. All traffic from Cloudflare WAF will be routed to Azure Front Door before arriving at Azure AD B2C tenant.
+- [**Azure Front Door**](../frontdoor/front-door-overview.md) – Responsible for enabling custom domains for Azure B2C tenant. All traffic from Cloudflare WAF will be routed to Azure Front Door before arriving at Azure AD B2C tenant.
 
 - [**Akamai WAF**](https://www.akamai.com/us/en/resources/waf.jsp) – The web application firewall, which manages all traffic that is sent to the authorization server.
 
 ## Integrate with Azure AD B2C
 
-1. To use custom domains in Azure AD B2C, it's required to use custom domain feature provided by Azure Front Door. Learn how to [enable Azure AD B2C custom domains](https://docs.microsoft.com/azure/active-directory-b2c/custom-domain?pivots=b2c-user-flow).  
+1. To use custom domains in Azure AD B2C, it's required to use custom domain feature provided by Azure Front Door. Learn how to [enable Azure AD B2C custom domains](./custom-domain.md?pivots=b2c-user-flow).  
 
-2. After custom domain for Azure AD B2C is successfully configured using Azure Front Door, [test the custom domain](https://docs.microsoft.com/azure/active-directory-b2c/custom-domain?pivots=b2c-custom-policy#test-your-custom-domain) before proceeding further.  
+2. After custom domain for Azure AD B2C is successfully configured using Azure Front Door, [test the custom domain](./custom-domain.md?pivots=b2c-custom-policy#test-your-custom-domain) before proceeding further.  
 
 ## Onboard with Akamai
 
@@ -102,6 +102,6 @@ Check the following to ensure all traffic to Azure AD B2C is now going through t
 
 ## Next steps
 
-- [Configure a custom domain in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-domain?pivots=b2c-user-flow)
+- [Configure a custom domain in Azure AD B2C](./custom-domain.md?pivots=b2c-user-flow)
 
-- [Get started with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Get started with custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy&tabs=applications)
