@@ -294,7 +294,7 @@ Service Fabric managed clusters automatically creates load balancer probes for f
 
 <a id="ipv6"></a>
 ## Enable IPv6
-Managed clusters do not enable IPv6 by default. This feature will enable full dual stack IPv4/IPv6 capability from the Load Balancer frontend to the backend resources. Any changes you make to the managed cluster load balancing rules will take effect for the IPv4 and IPv6 addresses.
+Managed clusters do not enable IPv6 by default. This feature will enable full dual stack IPv4/IPv6 capability from the Load Balancer frontend to the backend resources. Any changes you make to the managed cluster load balancer config or NSG rules will effect both the IPv4 and IPv6 routing.
 
 > [!NOTE]
 > This setting is not available in portal and cannot be changed once the cluster is created
@@ -316,7 +316,7 @@ In the following example, we'll create a resource group called `MyResourceGroup`
     New-AzResourceGroup -Name MyResourceGroup -Location westus
     New-AzResourceGroupDeployment -Name deployment -ResourceGroupName MyResourceGroup -TemplateFile AzureDeploy.json
 ```
-After deployment, your clusters virtual network and resources will be dual-stack. This means the Load Balancer frontend will have an IPv6 address, a unique dns address created e.g. `mycluster-ipv6.southcentralus.cloudapp.azure.com` and associated to the IPv6 address, and IPv6 addresses on the VMs. 
+After deployment, your clusters virtual network and resources will be dual-stack. As a result, the clusters frontend load balancer will have a unique dns address created e.g. `mycluster-ipv6.southcentralus.cloudapp.azure.com` that is associated to a public IPv6 address and private IPv6 addresses on the VMs. 
 
 
 <a id="byovnet"></a>
