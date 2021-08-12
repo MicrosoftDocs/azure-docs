@@ -1,6 +1,7 @@
 ---
 title: Quickstart - Publish messages using the service SDK for the Azure Web PubSub instance
 description: Quickstart showing how to use the service SDK
+author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: quickstart
@@ -9,7 +10,7 @@ ms.date: 08/06/2021
 
 # Quickstart: Publish messages using the service SDK for the Azure Web PubSub instance
 
-This quickstart shows you how to connect to the Azure Web PubSub using the WebSocket APIs. It also shows you the ability to publish messages to these clients using service SDK.
+This quickstart shows you how to publish messages to the clients using service SDK.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -25,6 +26,12 @@ This quickstart shows you how to connect to the Azure Web PubSub using the WebSo
 
 [!INCLUDE [Create a Web PubSub instance](includes/cli-awps-creation.md)]
 
+## Get the ConnectionString for future use
+
+[!INCLUDE [Get the connection string](includes/cli-awps-connstr.md)]
+
+Copy the fetched **ConnectionString** and it will be used later when using service SDK as the value of `<connection_string>`.
+
 ## Connect to the instance
 
 [!INCLUDE [az webpubsub client](includes/cli-awps-client-connect.md)]
@@ -37,15 +44,15 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
 
 # [C#](#tab/csharp)
 
-1. [.NET Core 2.1 or above](https://dotnet.microsoft.com/download)
+* [.NET Core 2.1 or above](https://dotnet.microsoft.com/download)
 
 # [JavaScript](#tab/javascript)
 
-1. [Node.js](https://nodejs.org)
+* [Node.js 12.x or above](https://nodejs.org)
 
 ---
 
-### Using the service SDK
+### Set up the project to publish messages
 
 # [C#](#tab/csharp)
 
@@ -62,13 +69,14 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
 
     ```csharp
     using System;
+    using System.Threading.Tasks;
     using Azure.Messaging.WebPubSub;
-    
+
     namespace publisher
     {
         class Program
         {
-            static void Main(string[] args)
+            static async Task Main(string[] args)
             {
                 if (args.Length != 3) {
                     Console.WriteLine("Usage: publisher <connectionString> <hub> <message>");
@@ -77,22 +85,23 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
                 var connectionString = args[0];
                 var hub = args[1];
                 var message = args[2];
-                
-                // Either generate the token or fetch it from server or fetch a temp one from the portal
+
                 var serviceClient = new WebPubSubServiceClient(connectionString, hub);
-                serviceClient.SendToAll(message);
+                
+                // Send messages to all the connected clients
+                // You can also try SendToConnectionAsync to send messages to the specific connection
+                await serviceClient.SendToAllAsync(message);
             }
         }
     }
-    
     ```
 
-    The `sendToAll()` call simply sends a message to all connected clients in a hub. Save the code above and run `dotnet run "<connection-string>" <hub-name> <message>` with the same connection string and hub name you used in subscriber, you'll see the message printed out in the subscriber.
+    The `SendToAllAsync()` call simply sends a message to all connected clients in the hub.
 
-3. Run the project and input any messages to send to the clients.
+3. Run the below command, replacing `<connection_string>` with the **ConnectionString** fetched in [previous step](#get-the-connectionstring-for-future-use):
 
     ```bash
-    dotnet run "<connection_string>" hub1 "Hello World"
+    dotnet run "<connection_string>" "myHub1" "Hello World"
     ```
 
 4. You can see that the previous CLI client received the message.
@@ -103,40 +112,43 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
 
 # [JavaScript](#tab/javascript)
 
-1. First install required dependencies:
+1. First let's create a new folder for this project and install required dependencies:
 
     ```bash
+    mkdir publisher
+    cd publisher
     npm init -y
     npm install --save ws
     npm install --save @azure/web-pubsub
 
     ```
-2. Now let's use Azure Web PubSub SDK to publish a message to the service:
+2. Now let's use Azure Web PubSub SDK to publish a message to the service. Create a `publish.js` file with the below code:
 
-```javascript
-const { WebPubSubServiceClient } = require('@azure/web-pubsub');
+    ```javascript
+    const { WebPubSubServiceClient } = require('@azure/web-pubsub');
 
-if (process.argv.length !== 5) {
-  console.log('Usage: node publish <connection-string> <hub-name> <message>');
-  return 1;
-}
+    if (process.argv.length !== 5) {
+    console.log('Usage: node publish <connection-string> <hub-name> <message>');
+    return 1;
+    }
 
-let serviceClient = new WebPubSubServiceClient(process.argv[2], process.argv[3]);
+    let serviceClient = new WebPubSubServiceClient(process.argv[2], process.argv[3]);
 
-// by default it uses `application/json`, specify contentType as `text/plain` if you want plain-text
-serviceClient.sendToAll(process.argv[4], { contentType: "text/plain" });
-```
+    // by default it uses `application/json`, specify contentType as `text/plain` if you want plain-text
+    serviceClient.sendToAll(process.argv[4], { contentType: "text/plain" });
+    ```
 
-The `sendToAll()` call simply sends a message to all connected clients in a hub. Save the code above as `publish.js`.
+    The `sendToAll()` call simply sends a message to all connected clients in a hub.
 
-3. Run the project and input any messages to send to the clients.
+3. Run the below command, replacing `<connection_string>` with the **ConnectionString** fetched in [previous step](#get-the-connectionstring-for-future-use):
+
     ```bash
-    node publish "<connection_string>" hub1 "Hello World"
+    node publish "<connection_string>" "myHub1" "Hello World"
     ```
 
 4. You can see that the previous CLI client received the message.
    
-    ```json    
+    ```json
     {"type":"message","from":"server","dataType":"text","data":"Hello World"}
     ```
 

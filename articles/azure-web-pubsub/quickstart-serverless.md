@@ -4,7 +4,7 @@ description: A quickstart for using Azure Web PubSub service and Azure Functions
 author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
-ms.topic: overview 
+ms.topic: quickstart 
 ms.date: 03/11/2021
 ---
 
@@ -60,7 +60,7 @@ While the service is deploying, let's switch to working with code. Clone the [sa
 
   Open the */samples/functions/js/simplechat* folder in the cloned repository. Edit *local.settings.json* to add service connection string.
   In *local.settings.json*, you need to make these changes and then save the file.
-    - Replace the place holder *<connection-string>* to the real one copied from **Azure portal** for **`WebPubSubConnectionString`** setting. 
+    - Replace the place holder `<connection-string>` to the real one copied from **Azure portal** for **`WebPubSubConnectionString`** setting. 
     - **`AzureWebJobsStorage`** setting is required due to [Azure Functions requires an Azure Storage account](../azure-functions/storage-considerations.md).
         - If you have [Azure Storage Emulator](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) run in local, keep the original settings of "UseDevelopmentStorage=true".
         - If you have an Azure storage connection string, replace the value with it.
@@ -85,7 +85,7 @@ While the service is deploying, let's switch to working with code. Clone the [sa
 
   Open the */samples/functions/csharp/simplechat* folder in the cloned repository. Edit *local.settings.json* to add service connection string.
   In *local.settings.json*, you need to make these changes and then save the file.
-    - Replace the place holder *<connection-string>* to the real one copied from **Azure portal** for **`WebPubSubConnectionString`** setting. 
+    - Replace the place holder `<connection-string>` to the real one copied from **Azure portal** for **`WebPubSubConnectionString`** setting. 
     - **`AzureWebJobsStorage`** setting is required because of [Azure Functions requires an Azure Storage account](../azure-functions/storage-considerations.md).
         - If you have [Azure Storage Emulator](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) run in local, keep the original settings of "UseDevelopmentStorage=true".
         - If you have an Azure storage connection string, replace the value with it.
