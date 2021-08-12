@@ -11,7 +11,7 @@ ms.subservice: files
 
 # Best practices for disaster recovery with Azure File Sync
 
-For Azure File Sync, there are three main areas to consider for disaster recovery: high-availability, data protection/backup, and geo-redundancy. This article covers each area and helps you decide what configuration to use for your own disaster recovery solution.
+For Azure File Sync, there are three main areas to consider for disaster recovery: high availability, data protection/backup, and geo-redundancy. This article covers each area and helps you decide what configuration to use for your own disaster recovery solution.
 
 In an Azure File Sync deployment, the cloud endpoint always contains a full copy of your data, while the on-premises server can be viewed as a disposable cache of your data. In the event of a server-side disaster, you can recover by provisioning a new server, installing the Azure File Sync agent on it, and setting it up as a new server endpoint.
 
