@@ -45,9 +45,7 @@ Azure AD Connect server should be chosen if your organization needs to take adva
 >All pre-requisites should be taken into consideration when
 installing Azure AD Connect or Azure AD cloud provisioning. Refer to [this article to learn more](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites) before installation.  
 
-## Migration steps
-
-Following are the high-level migration tasks:
+## High-level migration tasks
 
 1. [Confirm ImmutableID attribute synchronized by Okta](#step-1---confirm-immutableid-attribute-synchronized-by-okta)
 
