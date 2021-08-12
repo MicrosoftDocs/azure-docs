@@ -4,7 +4,7 @@ description: This article describes how to use Azure role-based access control (
 keywords: automation rbac, role based access control, azure rbac
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 06/15/2021
+ms.date: 08/12/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -22,6 +22,7 @@ In Azure Automation, access is granted by assigning the appropriate Azure role t
 | Owner |The Owner role allows access to all resources and actions within an Automation account including providing access to other users, groups, and applications to manage the Automation account. |
 | Contributor |The Contributor role allows you to manage everything except modifying other user’s access permissions to an Automation account. |
 | Reader |The Reader role allows you to view all the resources in an Automation account but can't make any changes. |
+| Automation Contributor | The Automation Contributor role allows you to manage all resources in the Automation account, except modifying other user's access permissions to an Automation account. |
 | Automation Operator |The Automation Operator role allows you to view runbook name and properties and to create and manage jobs for all runbooks in an Automation account. This role is helpful if you want to protect your Automation account resources like credentials assets and runbooks from being viewed or modified but still allow members of your organization to execute these runbooks. |
 |Automation Job Operator|The Automation Job Operator role allows you to create and manage jobs for all runbooks in an Automation account.|
 |Automation Runbook Operator|The Automation Runbook Operator role allows you to view a runbook’s name and properties.|
@@ -62,6 +63,22 @@ A Reader can view all the resources in an Automation account but can't make any 
 |**Actions**  |**Description**  |
 |---------|---------|
 |Microsoft.Automation/automationAccounts/read|View all resources in an Automation account. |
+
+### Automation Contributor
+
+An Automation Contributor can manage all resources in the Automation account except access. The following table shows the permissions granted for the role:
+
+|**Actions**  |**Description**  |
+|---------|---------|
+|Microsoft.Automation/automationAccounts/*|Create and manage resources of all types under Automation account.|
+|Microsoft.Authorization/*/read|Read roles and role assignments.|
+|Microsoft.Resources/deployments/*|Create and manage resource group deployments.|
+|Microsoft.Resources/subscriptions/resourceGroups/read|Read resource group deployments.|
+|Microsoft.Support/*|Create and manage support tickets.|
+
+> [!NOTE]
+> -	Automation Contributor can be used to access any resource via the managed identity (if the appropriate permissions are setup at the target resource) or Run As account (since Automation account Run As accounts are by default configured with Contributor rights on the subscription). Follow the principal of least privilege & carefully assign permissions only required to execute your runbook operation. For example, if the Automation account is only required to start or stop a VM, then the permissions assigned to the Run As account or managed identity needs to be only for starting or stopping a VM. Similarly, if an operation is reading from blob storage, then assign read only permissions, and so on. 
+> -	For assigning permissions, it is recommended to use RBAC assigned to Managed Identities that allow centralized management & governance of identities through Azure AD and track any violations or malicious access attempts by a bad actor.
 
 ### Automation Operator
 
