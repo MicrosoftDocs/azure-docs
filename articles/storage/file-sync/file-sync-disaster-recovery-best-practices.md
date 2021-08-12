@@ -59,7 +59,7 @@ In Azure File Sync agent version 9 and above, [Volume Shadow Copy Service (VSS) 
 
 ## Geo-redundancy
 
-GRS intro here, 5-TiB size limitation.
+[Geo-redundant storage (GRS)](../common/storage-redundancy.md#geo-redundant-storage) copies your data synchronously three times within a single physical location in the primary region using LRS. It then copies your data asynchronously to a single physical location in a secondary region that is hundreds of miles away from the primary region. GRS provides more redundancy and safety for your data but will incur additional cost and aren't compatible with file shares with large file shares enabled.
 
 If you enable GRS on the storage account containing your cloud endpoint, you need to enable it on your Storage Sync Service as well. This ensures all information about your Azure File Sync topology and the data contained in your cloud endpoint is asynchronously copied to the paired secondary region in the event of a disaster.
 
