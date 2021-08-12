@@ -69,7 +69,7 @@ To help you estimate more accurate consumption costs, review these tips:
 In single-tenant Azure Logic Apps, a logic app and its workflows follow the [**Standard** plan](https://azure.microsoft.com/pricing/details/logic-apps/) for pricing and billing. You create such logic apps in various ways, for example, when you choose the **Logic App (Standard)** resource type or use the **Azure Logic Apps (Standard)** extension in Visual Studio Code. This pricing model requires that logic apps use a hosting plan and a pricing tier, which differs from the Consumption plan in that you're billed for reserved capacity and dedicated resources whether or not you use them.
 
 > [!IMPORTANT]
-> When you create or deploy new logic apps based on the **Logic App (Standard)** resource type, you can use the Workflow Standard hosting plan for all Azure regions 
+> When you create or deploy new logic apps based on the **Logic App (Standard)** resource type, you can use the Workflow Standard hosting plan in all Azure regions, 
 > or you can use the App Service hosting plan but only when you select App Service Environment v3 region in the "Basics" tab.
 
 > Although preview versions had let you use the App Service plan, Functions Premium plan, App Service Environment V1, and App Service Environment V2, these options are no longer available or supported for the public release of Logic App (Standard) resource type.
