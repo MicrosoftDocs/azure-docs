@@ -1,7 +1,7 @@
 ---
-title: Use Scale-Down-Mode for your Azure Kubernetes Service (AKS) cluster (preview)
+title: Use ScaleDownMode for your Azure Kubernetes Service (AKS) cluster (preview)
 titleSuffix: Azure Kubernetes Service
-description: Learn how to use Scale-Down-Mode in Azure Kubernetes Service (AKS).
+description: Learn how to use ScaleDownMode in Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
 ms.date: 07/28/2021
