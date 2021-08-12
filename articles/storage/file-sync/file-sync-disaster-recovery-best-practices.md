@@ -68,6 +68,6 @@ The Azure File Sync service will automatically failover to the paired region in 
 Although you can manually request a failover of your Storage Sync Service to your GRS paired region, we don't recommend doing this outside of large-scale regional outages since the process isn't seamless and may incur extra cost. To initiate the process, open a support ticket and request that both your Azure storage accounts that contain your Azure file share and your Storage Sync Service be failed over.
 
 > [!WARNING]
-> You must contact support to request your Storage Sync Service be failed over if you are initiating this process manually. If you attempt to create a new Storage Sync Service using the same server endpoings in the secondary region may result in extra data staying in your storage account since the previous installation of Azure File Sync won't be cleaned up.
+> You must contact support to request your Storage Sync Service be failed over if you are initiating this process manually. If you attempt to create a new Storage Sync Service using the same server endpoints in the secondary region may result in extra data staying in your storage account since the previous installation of Azure File Sync won't be cleaned up.
 
 Once a failover occurs, server endpoints will switch over to sync with the cloud endpoint in the secondary region automatically. However, the server endpoints must reconcile with the cloud endpoints. This may result in file conflicts as the data in the secondary region may not be caught up to the primary.
