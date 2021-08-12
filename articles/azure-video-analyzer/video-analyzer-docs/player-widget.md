@@ -233,7 +233,8 @@ npm install @azure/video-analyzer/widgets
 Or you can import it within your application code using this for TypeScript:
 
 ```typescript
-import { Player } from '@video-analyzer/widgets';
+import { Player } from '@azure/video-analyzer-widgets';
+import { ZoneDrawer } from '@azure/video-analyzer-widgets';
 ```
 
 Or this for JavaScript if you want to create a player widget dynamically:
@@ -241,22 +242,27 @@ Or this for JavaScript if you want to create a player widget dynamically:
 <script async type="module" src="https://unpkg.com/@azure/video-analyzer-widgets@latest/dist/global.min.js"></script>
 ```
 
-If you use this method to import, you will need to programatically create the player object after the import is complete.  In the preceding example, you added the module to the page using the `ava-player` HTML tag.  To create a player object through code, you can do the following in either JavaScript:
+If you use this method to import, you will need to programatically create the zone drawer and player objects after the import is complete.  In the preceding example, you added the module to the page using the `ava-player` HTML tag. To create a zone drawer object and a player object through code, you can do the following in either JavaScript:
 
 ```javascript
-const avaPlayer = new ava.widgets.player();
+const zoneDrawer = new window.ava.widgets.zoneDrawer();
+document.firstElementChild.appendChild(zoneDrawer);
+const playerWidget = new window.ava.widgets.player();
+zoneDrawer.appendChild(playerWidget);
 ```
 
 Or in TypeScript:
 
 ```typescript
 const avaPlayer = new Player();
+const zoneDrawer = new ZoneDrawer();
 ```
 
 Then you must add it to the HTML:
 
 ```javascript
-document.firstElementChild.appendChild(avaPlayer);
+document.firstElementChild.appendChild(zoneDrawer);
+zoneDrawer.appendChild(playerWidget);
 ```
 
 ## Next steps
