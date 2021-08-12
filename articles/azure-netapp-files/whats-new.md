@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/06/2021
+ms.date: 08/12/2021
 ms.author: b-juche
 ---
 
@@ -26,6 +26,11 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     
 ## August 2021
+
+* [Snapshot policy](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies) now generally available (GA)  
+
+    The snapshot policy feature is now generally available. You no longer need to register the feature before using it.
+
 * [NFS `Chown Mode` export policy and UNIX export permissions](configure-unix-permissions-change-ownership-mode.md) (Preview)   
 
     You can now set the Unix permissions and the change ownership mode (`Chown Mode`) options on Azure NetApp Files NFS volumes or dual-protocol volumes with the Unix security style. You can specify these settings during volume creation or after volume creation.   
