@@ -136,7 +136,7 @@ In this section, you'll use sample code from the Azure IoT SDK to create a self-
 >
 >* Self-signed certificates are for testing only, and should not be used in production.
 >* The default expiration date for a self-signed certificate is one year.
-::: zone pivot="programming-language-csharp"
+>::: zone pivot="programming-language-csharp"
 >* The device ID of the IoT device will be the subject common name on the certificate. Make sure to use a subject name that complies with the [Device ID string requirements](../iot-hub/iot-hub-devguide-identity-registry.md#device-identity-properties).
 ::: zone-end
 
@@ -158,7 +158,7 @@ To create the X.509 certificate:
 
 ::: zone-end
 
-::: zone pivot="programming-language-ansi-c"
+::: zone pivot="programming-language-csharp"
 
 1. In a PowerShell prompt, change directories to the project directory for the X.509 device provisioning sample.
 
@@ -224,14 +224,15 @@ To create the X.509 certificate:
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
-    * Leave **Device ID** blank. Your device will be provisioned with its device ID set to the common name (CN) in the X.509 certificate, **iothubx509device1**. This common name will also be the name used for the registration ID for the individual enrollment entry. 
 
-    * Optionally, you can provide the following information:
+* Leave **Device ID** blank. Your device will be provisioned with its device ID set to the common name (CN) in the X.509 certificate, **iothubx509device1**. This common name will also be the name used for the registration ID for the individual enrollment entry. 
 
-       - Select an IoT hub linked with your provisioning service.
-       - Update the **Initial device twin state** with the desired initial configuration for the device.
-   
-     [![Add individual enrollment for X.509 attestation in the portal](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png#lightbox)
+* Optionally, you can provide the following information:
+
+    * Select an IoT hub linked with your provisioning service.
+    * Update the **Initial device twin state** with the desired initial configuration for the device.
+
+    [![Add individual enrollment for X.509 attestation in the portal](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png#lightbox)
 
    On successful enrollment, your X.509 enrollment entry appears as **iothubx509device1** under the *Registration ID* column in the *Individual Enrollments* tab.
 ::: zone-end
