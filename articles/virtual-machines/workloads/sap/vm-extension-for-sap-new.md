@@ -256,7 +256,7 @@ Performance metrics in Azure are collected by a daemon. If the daemon is not run
 
 #### The installation directory of the Azure Extension for SAP is empty
 ##### Issue
-The directory \\var\\lib\\waagent\\ does not have a subdirectory for the Azure Extension for SAP.
+The directory /var/lib/waagent/ does not have a subdirectory for the Azure Extension for SAP.
 ##### Solution
 The extension is not installed. Determine whether this is a proxy issue (as described earlier). You might need to restart the machine and/or install the VM extension again.
  
