@@ -73,6 +73,9 @@
     - name: Monitor delegation changes
       displayName: activity log
       href: ./how-to/monitor-delegation-changes.md
+    - name: Onboard subscriptions in a management group
+      displayName: mg, policy, logic app
+      href: ./how-to/onboard-management-group.md
   - name: View and manage customers 
     displayName: my customers
     href: ./how-to/view-manage-customers.md
