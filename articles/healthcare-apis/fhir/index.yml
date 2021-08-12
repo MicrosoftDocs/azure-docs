@@ -30,16 +30,16 @@ landingContent:
           - text: Deploy FHIR service using portal
             url: fhir-portal-quickstart.md
           - text: Deploy FHIR service using ARM template
-            url: fhir-arm-template-quickstart.md
+            url: fhir-service-resource-manager-template.md
 
   - title: Accessing FHIR service
     linkLists:
       - linkListType: concept
         links:
           - text: Azure AD for FHIR service
-            url: azure-ad-hcapi.md
+            url: azure-active-directory-identity-configuration.md
           - text: Access token validation
-            url: azure-ad-hcapi-token-validation.md
+            url: fhir-service-access-token-validation.md
       - linkListType: learn
         links:
           - text: Access FHIR service using Postman
@@ -66,7 +66,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: CMS Interoperability and Patient Access rule introduction
-            url: cms-tutorial-introduction.md
+            url: centers-for-medicare-tutorial-introduction.md
           - text: CARIN Implementation Guide for Blue Button
             url: carin-implementation-guide-blue-button-tutorial.md
           - text: Da Vinci Drug Formulary
