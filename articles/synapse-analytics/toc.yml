@@ -828,7 +828,7 @@ items:
       - name: Azure Database for PostgreSQL
         href: ../data-factory/connector-azure-database-for-postgresql.md?context=/azure/synapse-analytics/context/context
       - name: Azure Databricks Delta Lake
-        href: ../data-factory/connector-azure-databricks-delta-lake.md?context=/azure/synapse-analytics/context/context
+        href: ../data-factory/connector-azure-databricks-delta-lake.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Azure File Storage
         href: ../data-factory/connector-azure-file-storage.md?context=/azure/synapse-analytics/context/context
       - name: Azure SQL Database
