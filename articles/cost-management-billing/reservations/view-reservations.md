@@ -85,7 +85,7 @@ Users that have owner access for reservations orders, users with elevated access
 
 ## Assign the owner role for all reservations
 
-Use the following Azure PowerShell script to give a user Azure RBAC access to all reservations in their Azure AD tenant (directory).
+Use the following Azure PowerShell script to give a user Azure RBAC access to all reservations orders in their Azure AD tenant (directory).
 
 ```azurepowershell
 
@@ -131,6 +131,8 @@ foreach ($reservation in $reservationObjects)
 - Default value: None
 - Accept pipeline input: False
 - Accept wildcard characters: False
+
+[User Access Administrators](../../role-based-access-control/built-in-roles.md#user-access-administrator) can add the users to Reservation Administrator and Reservation Reader roles.
 
 ## Add a Reservation Administrator or Reservation Reader in Azure AD
 
