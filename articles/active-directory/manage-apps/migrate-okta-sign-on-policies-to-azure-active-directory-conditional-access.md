@@ -131,7 +131,7 @@ tenant settings for your organization.
 
 ![image shows legacy Azure AD mfa portal](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/legacy-azure-ad-portal.png)
 
-Instead, you can use **<http://aka.ms/mfaportal>**.
+Instead, you can use **<https://aka.ms/mfaportal>**.
 
 4. From the **Legacy Azure MFA** menu, change the status menu through **enabled** and **enforced** to confirm you have no users enabled for Legacy MFA. If your tenant has users in the below views, you must disable them in the legacy menu. Only then CA policies will take effect on their account.
 
@@ -146,7 +146,7 @@ Instead, you can use **<http://aka.ms/mfaportal>**.
 6. Ensure the **Skip multi-factor authentication for requests from federated users on my intranet** and **Allow users to remember multi-factor authentication on devices they trust (between one to 365 days)** boxes are unchecked and then select **Save**.
 
 >[!NOTE\]
->See [best practices for configuring MFA prompt settings](http://aka.ms/mfaprompts).
+>See [best practices for configuring MFA prompt settings](https://aka.ms/mfaprompts).
 
 ![image shows uncheck fields in legacy Azure AD mfa portal](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/uncheck-fields-legacy-azure-ad-portal.png)
 
@@ -180,7 +180,7 @@ Once the CA policies have been configured, users will
 need to register for Azure MFA methods. Users can be required to register through several different methods.
 
 1. For individual registration, you can direct users to
-<http://aka.ms/mfasetup> to manually enter the registration information.
+<https://aka.ms/mfasetup> to manually enter the registration information.
 
 2. User can go to <http://aka.ms/mysecurityinfo> to
 enter information or manage form of MFA registration.
@@ -223,7 +223,8 @@ The final migration step to CA can be done in a staged or cut-over fashion.
 
 1. Navigate to the Okta admin console, select **Security**, followed by **Authentication**, and then navigate to the **Sign On Policy**.
 
->[!NOTE] Global policies should be set to inactive only if all applications from Okta are protected by their own application sign on policies.
+>[!NOTE]
+>Global policies should be set to inactive only if all applications from Okta are protected by their own application sign on policies.
 
 2. Set the Enforce MFA policy to **Inactive** or assign the policy to a new group that doesn't include our Azure AD users.
 
