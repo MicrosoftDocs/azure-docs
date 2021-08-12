@@ -16,7 +16,7 @@ ms.author: aahi
 
 To create a custom text classification [project](../definitions.md#project), you need to connect it to a blob container where you already uploaded your data. Within your project you can view your files, tag data, train, evaluate, improve, and deploy your model.
 
-You can have up to 500 projects per resource, and up to 10 [models](../definitions.md#model) per project. However, you can only have one deployed model per project. See the [data limits](../data-limits.md) article for more information.
+You can have up to 500 projects per resource, and up to 10 [models](../definitions.md#model) per project. However, you can only have one deployed model per project. See the [data limits](../concepts/data-limits.md) article for more information.
 
 Custom text classification supports two types of projects:
 
