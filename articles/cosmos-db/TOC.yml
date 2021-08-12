@@ -195,6 +195,8 @@
               href: import-data.md
             - name: Using .NET bulk support
               href: tutorial-sql-api-dotnet-bulk-import.md
+            - name: Convert vcores to RU/s
+              href: tutorial-vcore-pricing.md
         - name: 3 - Query data
           href: tutorial-query-sql-api.md
         - name: 4 - Create a notebook
