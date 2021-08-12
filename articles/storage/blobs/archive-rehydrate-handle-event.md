@@ -10,13 +10,12 @@ ms.topic: how-to
 ms.date: 08/11/2021
 ms.author: tamram
 ms.reviewer: fryu
-ms.custom: devx-track-azurepowershell
 ms.subservice: blobs
 ---
 
 # Run an Azure Function in response to a blob rehydration event
 
-To read a blob that is in the archive tier, you must first rehydrate the blob to the hot or cool tier. The rehydration process can take several hours to complete. You can configure [Azure Event Grid](../../event-grid/overview.md) to fire an event when the blob rehydration operation is complete and handle this event in your application.
+To read a blob that is in the archive tier, you must first rehydrate the blob to the hot or cool tier. The rehydration process can take several hours to complete. Instead of repeatedly polling the status of the rehydration operation, you can configure [Azure Event Grid](../../event-grid/overview.md) to fire an event when the blob rehydration operation is complete and handle this event in your application.
 
 When an event occurs, Event Grid sends the event to an event handler via an endpoint. A number of Azure services can serve as event handlers, including [Azure Functions](../../azure-functions/functions-overview.md). An Azure Function is a block of code that can execute in response to an event. This how-to walks you through the process of developing an Azure Function and then configuring Event Grid to run the function in response to an event that occurs when a blob is rehydrated.
 
@@ -275,98 +274,26 @@ To learn more about event subscriptions, see [Azure Event Grid concepts](../../e
 
 ## Test the Azure Function event handler
 
-To test the Azure Function, you can trigger an event in the storage account that contains the event subscription. The event subscription is filtering on two events, **Microsoft.Storage.BlobCreated** and **Microsoft.Storage.BlobTierChanged**. For more information on how to filter events by type, see [How to filter events for Azure Event Grid](../../event-grid/how-to-filter-events.md).
+To test the Azure Function, you can trigger an event in the storage account that contains the event subscription. The event subscription that you created earlier is filtering on two events, **Microsoft.Storage.BlobCreated** and **Microsoft.Storage.BlobTierChanged**. The Azure Function that you created earlier writes to a log blob in two scenarios:
 
-> [!TIP]
-> Although the goal of this how-to is to handle these events in the context of blob rehydration, for testing purposes it may helpful to observe these events in response to uploading a blob or changing an online blob's tier, because the event fires immediately.
+- When the event is **Microsoft.Storage.BlobCreated** and the API operation is **Copy Blob**.
+- When the event is **Microsoft.Storage.BlobTierChanged** and the API operation is **Set Blob Tier**.
 
-Rehydrating a blob can take up to 15 hours, depending on the rehydration priority setting. If you set the rehydration priority to **High**, rehydration may complete in under one hour for blobs that are less than 10 GB in size. However, a high-priority rehydration incurs a greater cost. For more information, see [Change a blob's access tier to an online tier](archive-rehydrate-overview.md#change-a-blobs-access-tier-to-an-online-tier).
+To learn how to test the function by rehydrating a blob, see one of these two procedures:  
 
-### Rehydrate a blob with a copy operation
+- [Rehydrate a blob with a copy operation](archive-rehydrate-to-online-tier.md#rehydrate-a-blob-with-a-copy-operation)
+- [Rehydrate a blob with Set Blob Tier](archive-rehydrate-to-online-tier.md#rehydrate-a-blob-with-set-blob-tier)
 
-To rehydrate a blob from the archive tier by copying it to an online tier, use PowerShell, Azure CLI, or one of the Azure Storage client libraries. The following examples show how to copy an archived blob with PowerShell or Azure CLI.
-
-#### [PowerShell](#tab/powershell)
-
-To copy an archived blob to an online tier with PowerShell, call the [Start-AzStorageBlobCopy](/powershell/module/az.storage/start-azstorageblobcopy) command and specify the target tier and the rehydration priority. Remember to replace placeholders in angle brackets with your own values:
-
-```powershell
-# Initialize these variables with your values.
-$rgName = "<resource-group>"
-$accountName = "<storage-account>"
-$srcContainerName = "<source-container>"
-$destContainerName = "<dest-container>"
-$srcBlobName = "<source-blob>"
-$destBlobName = "<dest-blob>"
-
-# Get the storage account context
-$ctx = (Get-AzStorageAccount `
-        -ResourceGroupName $rgName `
-        -Name $accountName).Context
-
-# Copy the source blob to a new destination blob in hot tier with standard priority.
-Start-AzStorageBlobCopy -SrcContainer $srcContainerName `
-    -SrcBlob $srcBlobName `
-    -DestContainer $destContainerName `
-    -DestBlob $destBlobName `
-    -StandardBlobTier Hot `
-    -RehydratePriority Standard `
-    -Context $ctx
-```
-
-#### [Azure CLI](#tab/azure-cli)
-
-To copy an archived blob to an online tier with Azure CLI, call the [az storage blob copy start](/cli/azure/storage/blob/copy#az_storage_blob_copy_start) command and specify the target tier and the rehydration priority. Remember to replace placeholders in angle brackets with your own values:
-
-```azurecli
-az storage blob copy start \
-    --source-container <source-container> \
-    --source-blob <source-blob> \
-    --destination-container <dest-container> \
-    --destination-blob <dest-blob> \
-    --account-name <storage-account> \
-    --tier hot \
-    --rehydrate-priority standard \
-    --auth-mode login
-```
-
----
-
-Keep in mind that when you copy an archived blob to an online tier, the source and destination blobs must have different names.
-
-After the copy operation is complete, the destination blob appears in the archive tier, as shown in the following image.
-
-:::image type="content" source="media/archive-rehydrate-handle-event/copy-blob-archive-tier.png" alt-text="Screenshot showing the newly copied destination blob in the archive tier in the Azure portal":::
-
-The destination blob is subsequently rehydrated to the online tier that you specified in the copy operation. When the rehydration is complete and the destination blob is created in the online tier, the **Microsoft.Storage.BlobCreated** event fires and Event Grid sends the event to your Azure Function, which runs in response.
-
-In the Azure portal, you'll see that the fully rehydrated destination blob now appears in the targeted online tier, and the log blob that was created by the Azure Function also appears in the list.
+After the rehydration is complete, the log blob is written to the same container as the blob that you rehydrated. For example, after you rehydrate a blob with a copy operation, you can see in the Azure portal that the original source blob remains in the archive tier, the fully rehydrated destination blob appears in the targeted online tier, and the log blob that was created by the Azure Function also appears in the list.
 
 :::image type="content" source="media/archive-rehydrate-handle-event/copy-blob-archive-tier-rehydrated.png" alt-text="Screenshot showing the original blob in the archive tier, the rehydrated blob in the hot tier, and the log blob written by the event handler":::
 
-### Rehydrate a blob with Set Blob Tier
+Keep in mind that rehydrating a blob can take up to 15 hours, depending on the rehydration priority setting. If you set the rehydration priority to **High**, rehydration may complete in under one hour for blobs that are less than 10 GB in size. However, a high-priority rehydration incurs a greater cost. For more information, see [Change a blob's access tier to an online tier](archive-rehydrate-overview.md#change-a-blobs-access-tier-to-an-online-tier).
 
-To rehydrate a blob by changing its tier from archive to hot or cool with a **Set Blob Tier** operation, follow these steps:
+> [!TIP]
+> Although the goal of this how-to is to handle these events in the context of blob rehydration, for testing purposes it may also be helpful to observe these events in response to uploading a blob or changing an online blob's tier (*i.e.*, from hot to cool), because the event fires immediately.
 
-1. Locate the blob to rehydrate in the Azure portal.
-1. Select the **More** button on the right side of the page.
-1. Select **Change tier**.
-1. Select the target access tier from the **Access tier** dropdown.
-1. From the **Rehydrate priority** dropdown, select the desired rehydration priority. Keep in mind that setting the rehydration priority to *High* typically results in a faster rehydration, but also incurs a greater cost.
-
-    :::image type="content" source="media/archive-rehydrate-handle-event/rehydrate-change-tier-portal.png" alt-text="Screenshot showing how to rehydrate a blob from the archive tier in the Azure portal ":::
-
-1. Select the **Save** button.
-
-While the blob is rehydrating, you can check its status in the Azure portal by displaying the **Change tier** dialog again:
-
-:::image type="content" source="media/archive-rehydrate-handle-event/rehydration-status-portal.png" alt-text="Screenshot showing the rehydration status for a blob in the Azure portal":::
-
-When the rehydration is complete, the **Microsoft.Storage.BlobTierChanged** event fires and Event Grid sends the event to your Azure Function, which runs in response.
-
-In the Azure portal, you'll see that the fully rehydrated blob now appears in the targeted online tier, and the log blob that was created by the Azure Function also appears in the list.
-
-:::image type="content" source="media/archive-rehydrate-handle-event/set-blob-tier-rehydrated.png" alt-text="Screenshot showing the rehydrated blob in the cool tier and the log blob written by the event handler":::
+For more information on how to filter events by type, see [How to filter events for Azure Event Grid](../../event-grid/how-to-filter-events.md).
 
 ## See also
 
