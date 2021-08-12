@@ -27,19 +27,27 @@ This quickstart shows you how to connect to the Azure Web PubSub using the WebSo
 
 ## Connect to the instance
 
-[!INCLUDE [az webpubsub client](cli-awps-client-connect.md)]
+[!INCLUDE [az webpubsub client](includes/cli-awps-client-connect.md)]
 
 ## Publish messages using service SDK
 
 Now let's use Azure Web PubSub SDK to publish a message to the connected client.
 
-# [C#](#tab/csharp)
+### Prerequisites
 
-## Prerequisites
+# [C#](#tab/csharp)
 
 1. [.NET Core 2.1 or above](https://dotnet.microsoft.com/download)
 
-## Setup the project
+# [JavaScript](#tab/javascript)
+
+1. [Node.js](https://nodejs.org)
+
+---
+
+### Using the service SDK
+
+# [C#](#tab/csharp)
 
 1. Add a new project `publisher` and add the SDK package `package Azure.Messaging.WebPubSub`.
 
@@ -94,12 +102,6 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
     ```
 
 # [JavaScript](#tab/javascript)
-
-## Prerequisites
-
-1. [Node.js](https://nodejs.org)
-
-## Setup the project
 
 1. First install required dependencies:
 
