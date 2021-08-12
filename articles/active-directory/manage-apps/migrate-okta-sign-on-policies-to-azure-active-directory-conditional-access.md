@@ -182,12 +182,12 @@ need to register for Azure MFA methods. Users can be required to register throug
 1. For individual registration, you can direct users to
 <https://aka.ms/mfasetup> to manually enter the registration information.
 
-2. User can go to <http://aka.ms/mysecurityinfo> to
+2. User can go to <https://aka.ms/mysecurityinfo> to
 enter information or manage form of MFA registration.
 
 See [this guide](https://docs.microsoft.com/azure/active-directory/authentication/howto-registration-mfa-sspr-combined) to fully understand the MFA registration process.  
 
-Navigate to <http://aka.ms/mfasetup> after signing in with Okta MFA, you're instructed to register for MFA with Azure AD.
+Navigate to <https://aka.ms/mfasetup> after signing in with Okta MFA, you're instructed to register for MFA with Azure AD.
 
 >[!NOTE]
 >If registration already happened in the past for that user,
