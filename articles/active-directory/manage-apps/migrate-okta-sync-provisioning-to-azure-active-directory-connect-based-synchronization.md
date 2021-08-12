@@ -253,6 +253,6 @@ After disabling Okta Provisioning, the Azure AD cloud sync agent is ready to beg
 
 - [Migrate applications from Okta to Azure AD](migrate-applications-from-okta-to-azure-active-directory.md)
 
-- [Migrate Okta federation to Azure AD](migrate-okta-federation-to-azure-active-directory.md)
+- [Migrate Okta federation to Azure AD managed authentication](migrate-okta-federation-to-azure-active-directory.md)
 
-- [Migrate Okta sign on policies to Azure AD Conditional Access](migrate-okta-sign-on-policies-to-azure-ad-conditional-access.md)
+- [Migrate Okta sign on policies to Azure AD Conditional Access](migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access.md)
