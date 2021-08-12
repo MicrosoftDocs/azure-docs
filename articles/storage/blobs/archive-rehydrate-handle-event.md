@@ -274,7 +274,9 @@ To learn more about event subscriptions, see [Azure Event Grid concepts](../../e
 
 ## Test the Azure Function event handler
 
-To test the Azure Function, you can trigger an event in the storage account that contains the event subscription. The event subscription that you created earlier is filtering on two events, **Microsoft.Storage.BlobCreated** and **Microsoft.Storage.BlobTierChanged**. The Azure Function that you created earlier writes to a log blob in two scenarios:
+To test the Azure Function, you can trigger an event in the storage account that contains the event subscription. The event subscription that you created previously is filtering on two events, **Microsoft.Storage.BlobCreated** and **Microsoft.Storage.BlobTierChanged**. When either of these events fires, it will trigger your Azure Function.
+
+The Azure Function shown in this article writes to a log blob in two scenarios:
 
 - When the event is **Microsoft.Storage.BlobCreated** and the API operation is **Copy Blob**.
 - When the event is **Microsoft.Storage.BlobTierChanged** and the API operation is **Set Blob Tier**.
@@ -293,7 +295,7 @@ Keep in mind that rehydrating a blob can take up to 15 hours, depending on the r
 > [!TIP]
 > Although the goal of this how-to is to handle these events in the context of blob rehydration, for testing purposes it may also be helpful to observe these events in response to uploading a blob or changing an online blob's tier (*i.e.*, from hot to cool), because the event fires immediately.
 
-For more information on how to filter events by type, see [How to filter events for Azure Event Grid](../../event-grid/how-to-filter-events.md).
+For more information on how to filter events in Event Grid, see [How to filter events for Azure Event Grid](../../event-grid/how-to-filter-events.md).
 
 ## See also
 
