@@ -1,13 +1,9 @@
 ---
 title: Azure Load Balancer portal settings
 description: Get started learning about Azure Load Balancer portal settings
-services: load-balancer
-documentationcenter: na
 author: asudbring
 ms.service: load-balancer
-ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/12/2021
 ms.author: allensu
@@ -37,7 +33,6 @@ In the **Basics** tab of the create load balancer portal page, you'll see the fo
 | Tier | Load balancer has two tiers: </br> **Regional** </br> **Global** </br> A regional load balancer is constrained to load balancing within a region. Global refers to a cross-region load balancer that load-balances across regions. </br> For more information on the **Global** tier, see [Cross-region load balancer (preview)](cross-region-overview.md)
 
 :::image type="content" source="./media/manage/create-public-load-balancer-basics.png" alt-text="Create load balancer public." border="true":::
-
 
 ### Frontend IP configuration
 
