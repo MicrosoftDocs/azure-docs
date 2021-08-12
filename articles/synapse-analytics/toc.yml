@@ -978,7 +978,7 @@ items:
       - name: Shopify
         href: ../data-factory/connector-shopify.md?context=/azure/synapse-analytics/context/context
       - name: Snowflake
-        href: ../data-factory/connector-snowflake.md?context=/azure/synapse-analytics/context/context
+        href: ../data-factory/connector-snowflake.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Spark
         href: ../data-factory/connector-spark.md?context=/azure/synapse-analytics/context/context
       - name: SQL Server
