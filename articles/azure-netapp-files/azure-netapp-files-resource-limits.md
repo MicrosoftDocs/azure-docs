@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/28/2021
+ms.date: 08/15/2021
 ms.author: b-juche
 ---
 # Resource limits for Azure NetApp Files
