@@ -14,10 +14,10 @@ ms.author: mialdrid
 
 # Working remotely using Azure Bastion
 
-Azure Bastion plays a pivotal role in supporting remote work scenarios by allowing users with internet connectivity to access Azure virtual machines. In particular, it enables IT administrators to manage their applications running on Azure at any time and from anywhere around the globe.
+Azure Bastion plays a pivotal role in supporting remote work scenarios by allowing users with Internet connectivity to access Azure virtual machines. In particular, it enables IT administrators to manage their applications running on Azure at any time and from anywhere around the globe.
 
 >[!NOTE]
->This article describes how you can leverage Azure Bastion, Azure, Microsoft network, and the Azure partner ecosystem to work remotely and  mitigate network issues that you are facing because of COVID-19 crisis.
+>This article describes how you can leverage Azure Bastion, Azure, the Microsoft network, and the Azure partner ecosystem to work remotely and  mitigate network issues that you are facing because of the COVID-19 crisis.
 >
 
 ## Securely access virtual machines
