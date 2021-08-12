@@ -510,7 +510,7 @@
         href: flexible-server/how-to-manage-server-cli.md
       - name: Connect and query guide
         href: flexible-server/how-to-connect-query-guide.md
-   - name: Database deployment
+    - name: Database deployment
       items:
       - name: GitHub actions
         href: how-to-deploy-github-action.md
