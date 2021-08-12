@@ -48,7 +48,7 @@ az extension add --name spring-cloud
 
 ## Provision a service instance using the Azure CLI
 
-Login to the Azure CLI and choose your active subscription. 
+Login to the Azure CLI and choose your active subscription.
 
 ```azurecli
 az login
@@ -141,7 +141,7 @@ az spring-cloud app show-deploy-log -n <app-name> [-d <deployment-name>]
 
 1. Open the **Application Dashboard** page.
 2. Select the `gateway` application to show the **Application Details** page.
-3. Select **Assign endpoint** to assign a public endpoint to gateway. This can take a few minutes. 
+3. Select **Assign endpoint** to assign a public endpoint to gateway. This can take a few minutes.
 4. Enter the assigned public IP into your browser to view your running application.
 
 > [!div class="nextstepaction"]
