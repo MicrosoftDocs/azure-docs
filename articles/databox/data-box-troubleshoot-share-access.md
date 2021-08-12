@@ -59,17 +59,33 @@ System error 1909 has occurred.
 The referenced account is currently locked out and may not be logged on to.
 ```
 
+In the local web UI, you'll see the following notification on the **Connect and copy** pane when the user account for a share is locked.
+
+![Screenshot of the Connect and Copy pane in the local Web UI for a Data Box. A locked share account notification is highlighted.](media/data-box-troubleshoot-share-access/share-lock-01.png)
+
+After 15 minutes, the lock will clear, and you'll be able to provide the user account credentials to access the share on the **Copy data** pane. 
+
+![Screenshot of the Copy Data pane in the local Web UI for a Data Box. A notification that the share user account has been unlocked is highlighted.](media/data-box-troubleshoot-share-access/share-lock-02.png)
+
+
 To connect to an SMB share after a share account lockout, do these steps:
 
 1. Verify the SMB credentials for the share. In the local web UI of your device, go to **Connect and copy**, and select **SMB** for the share. You'll see the following dialog box.
 
-    ![Screenshot of the Access Share And Copy Data screen for an SMB share on a Data Box. Copy icons for the account, username, and password are highlighted.](media/data-box-troubleshoot-share-access/get-share-credentials-01.png)
+    ![Screenshot of Access Share And Copy Data screen for an SMB share on a Data Box. Copy icons for the account, username, and password are highlighted.](media/data-box-troubleshoot-share-access/get-share-credentials-01.png)
 
-1. After 15 minutes, connect to the share using the following command:  
+1. After 15 minutes, the lock will clear. You can connect to the share using either of the following methods:
 
-    `net use \\<IP address of the device>\<share name> /u:<IP address of the device>\<user name for the share>`
+   - To connect to the share via SMB from your host computer, run the following command:  
+  
+     `net use \\<IP address of the device>\<share name> /u:<IP address of the device>\<user name for the share>`
 
-    For a procedure, see [Copy data to Data Box via SMB](data-box-deploy-copy-data.md#connect-to-data-box).
+     For a procedure, see [Copy data to Data Box via SMB](data-box-deploy-copy-data.md#connect-to-data-box).
+
+   - To connect to a share using the data copy service, open the **Copy data** pane in the local web UI. A notification will indicate the user account has been unlocked. You can [copy data to the Data Box](data-box-deploy-copy-data-via-copy-service.md#copy-data-to-data-box), providing the needed share credentials.
+
+    ![Screenshot of the Copy Data pane in the local Web UI for a Data Box. A notification that the share user account has been unlocked is highlighted.](media/data-box-troubleshoot-share-access/share-lock-02.png)
+
 
 ## Check for a blocking group policy
 
