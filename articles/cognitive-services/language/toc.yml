@@ -40,12 +40,16 @@ items:
       href: custom-classification/how-to/view-model-evaluation.md
   - name: Concepts
     items:
+    - name: Development lifecycle
+      href: custom-classification/concepts/development-lifecycle.md
     - name: Recommended practices
       href: custom-classification/concepts/recommended-practices.md
     - name: Definitions
       href: custom-classification/definitions.md
     - name: Evaluation metrics
       href: custom-classification/concepts/evaluation.md
+    - name: Data limits
+      href: custom-classification/concepts/data-limits.md
 - name: Entity linking
   items:
   - name: Overview
