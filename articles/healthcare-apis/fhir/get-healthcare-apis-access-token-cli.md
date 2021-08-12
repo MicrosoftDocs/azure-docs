@@ -6,7 +6,7 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 08/03/2019
+ms.date: 08/12/2021
 ms.author: zxue
 ---
 
