@@ -73,6 +73,8 @@
       href: enterprise-state-roaming-faqs.yml
 - name: Reference
   items:
+  - name: Device registration flows
+    href: device-registration-how-it-works.md
   - name: Enforce TLS 1.2
     href: reference-device-registration-tls-1-2.md
   - name: Enterprise state roaming GPO settings
