@@ -511,11 +511,11 @@
       - name: Connect and query guide
         href: flexible-server/how-to-connect-query-guide.md
    - name: Database deployment
-     items:
+      items:
       - name: GitHub actions
         href: how-to-deploy-github-action.md
       - name: Azure pipelines
-        href: azure-pipelines-deploy-database-task.md
+        href: flexible-server/azure-pipelines-deploy-database-task.md
     - name: Scheduled maintenance
       items:
       - name: Azure portal
