@@ -74,7 +74,27 @@ chat_client = ChatClient(
 ```
 ---
 
-## Access your call ID
+## Access your server call ID
+When troubleshooting issues with the Call Automation SDK, like call recording and call management problems, you will need to collect the Server Call ID. This ID can be collected using the ```getServerCallId``` method.
+
+# [JavaScript]
+```
+callAgent.on('callsUpdated', (e: { added: Call[]; removed: Call[] }): void => {
+    e.added.forEach((addedCall) => {
+        addedCall.on('stateChanged', (): void => {
+            if (addedCall.state === 'Connected') {
+                addedCall.info.getServerCallId().then(result => {
+                    dispatch(setServerCallId(result));
+                }).catch(err => {
+                    console.log(err);
+                });
+            }
+        });
+    });
+});
+```
+
+## Access your client call ID
 
 When troubleshooting voice or video calls, you may be asked to provide a `call ID`. This can be accessed via the `id` property of the `call` object:
 
