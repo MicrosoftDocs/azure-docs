@@ -1,5 +1,5 @@
 ---
-title: Enable Azure pipelines using Azure Database for MySQL Flexible Server CLI 
+title: Azure pipelines task for Azure Database for MySQL Flexible Server 
 description: Enable  Azure Database for MySQL Flexible Server CLI  task for using with Azure Pipelines
 ms.topic: how-to
 ms.service: mysql
@@ -9,7 +9,7 @@ author: mksuni
 ms.date: 08/09/2021
 ---
 
-# Enable Azure pipelines using Azure Database for MySQL Flexible Server CLI 
+# Azure pipelines for Azure Database for MySQL Flexible Server
 
 You can automatically deploy your database updates to Azure Database for MySQL Flexible Server after every successful build with **Azure Pipelines**.  You can use Azure CLI task to update the database either with a SQL file or an inline SQL script against the database. This task  can be run on cross-platform agents running on Linux, macOS, or Windows operating systems.
 
