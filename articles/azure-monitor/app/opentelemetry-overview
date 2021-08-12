@@ -3,8 +3,6 @@ title: OpenTelemetry Overview | Microsoft Docs
 description: Provides an overview of how to use OpenTelemetry with Azure Monitor
 ms.topic: conceptual
 ms.date: 08/12/2021
-ms.reviewer: lagayhar
-ms.custom: devx-track-opentelemetry
 author: mmcc
 ms.author: mmcc
 ---
