@@ -1,15 +1,10 @@
 ---
 title: Data Factory Use Case - Product Recommendations
 description: Learn about an use case implemented by using Azure Data Factory along with other services.
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
-ms.reviewer: maghan
-ms.assetid: 6f1523c7-46c3-4b8d-9ed6-b847ae5ec4ae
+author: dcstwh
+ms.author: weetok
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ---
@@ -36,7 +31,7 @@ Finally, retailers need to measure the effectiveness of their approach by tracki
 ## Solution Overview
 This example use case has been solved and implemented by real Azure users by using Azure Data Factory and other Cortana Intelligence component services, including [HDInsight](https://azure.microsoft.com/services/hdinsight/) and [Power BI](https://powerbi.microsoft.com/).
 
-The online retailer uses an Azure Blob store, an on-premises SQL server, Azure SQL DB, and a relational data mart as their data storage options throughout the workflow.  The blob store contains customer information, customer behavior data, and product information data. The product information data includes product brand information and a product catalog stored on-premises in a SQL data warehouse. 
+The online retailer uses an Azure Blob store, an on-premises SQL Server, Azure SQL Database, and a relational data mart as their data storage options throughout the workflow.  The blob store contains customer information, customer behavior data, and product information data. The product information data includes product brand information and a product catalog stored on-premises in a Azure Synapse Analytics. 
 
 All the data is combined and fed into a product recommendation system to deliver personalized recommendations based on customer interests and actions, while the user browses products in the catalog on the website. The customers also see products that are related to the product they are looking at based on overall website usage patterns that are not related to any one user.
 

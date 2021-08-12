@@ -1,20 +1,20 @@
-﻿---
-title: CLI example import BACPAC file Azure SQL database 
-description: Azure CLI example script to import a BACPAC file into a SQL database
+---
+title: "Azure CLI: Import BACPAC file to database in Azure SQL Database" 
+description: Azure CLI example script to import a BACPAC file into a database in Azure SQL Database 
 services: sql-database
 ms.service: sql-database
-ms.subservice: data-movement
-ms.custom: load & move data
+ms.subservice: backup-restore
+ms.custom: load & move data, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: stevestein
-ms.author: sstein
-ms.reviewer: carlrab
+author: SQLSourabh
+ms.author: sourabha
+ms.reviewer: mathoma
 ms.date: 05/24/2019
 ---
-# Use CLI to import a BACPAC file into an Azure SQL database
+# Use CLI to import a BACPAC file into a database in SQL Database
 
-This Azure CLI script example imports a database from a *.bacpac* file into an Azure SQL database.  
+This Azure CLI script example imports a database from a *.bacpac* file into a database in SQL Database.  
 
 If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
@@ -40,13 +40,13 @@ az group delete --name $resource
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
-| | |
+| Command | Description |
 |---|---|
 | [az sql server](/cli/azure/sql/server) | Server commands. |
-| [az sql db import](/cli/azure/sql/db#az-sql-db-import) | Database import command. |
+| [az sql db import](/cli/azure/sql/db#az_sql_db_import) | Database import command. |
 
 ## Next steps
 
 For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
-Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](../sql-database-cli-samples.md).
+Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](../../azure-sql/database/az-cli-script-samples-content-guide.md).

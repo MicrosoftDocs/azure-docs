@@ -1,17 +1,14 @@
 ---
 title: Copy data from QuickBooks Online using Azure Data Factory (Preview) 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from QuickBooks Online to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-services: data-factory
-documentationcenter: ''
-author: linda33wj
-ms.author: jingwang
-manager: shwang
-ms.reviewer: douglasl
+author: jianleishen
+ms.author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 08/01/2019
+ms.custom: synapse
+ms.date: 01/15/2021
 ---
 
 # Copy data from QuickBooks Online using Azure Data Factory (Preview)
@@ -31,13 +28,11 @@ This QuickBooks connector is supported for the following activities:
 
 You can copy data from QuickBooks Online to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Azure Data Factory provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
-
-Currently this connector only support 1.0a, which means you need to have a developer account with apps created before July 17, 2017.
+This connector supports QuickBooks OAuth 2.0 authentication.
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to QuickBooks connector.
 
@@ -48,12 +43,13 @@ The following properties are supported for QuickBooks linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **QuickBooks** | Yes |
+| connectionProperties | A group of properties that defines how to connect to QuickBooks. | Yes |
+| ***Under `connectionProperties`:*** | | |
 | endpoint | The endpoint of the QuickBooks Online server. (that is, quickbooks.api.intuit.com)  | Yes |
-| companyId | The company ID of the QuickBooks company to authorize. For info about how to find the company ID, see [How do I find my Company ID?](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551). | Yes |
-| consumerKey | The consumer key for OAuth 1.0 authentication. | Yes |
-| consumerSecret | The consumer secret for OAuth 1.0 authentication. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-| accessToken | The access token for OAuth 1.0 authentication. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-| accessTokenSecret | The access token secret for OAuth 1.0 authentication. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| companyId | The company ID of the QuickBooks company to authorize. For info about how to find the company ID, see [How do I find my Company ID](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551). | Yes |
+| consumerKey | The client ID of your QuickBooks Online application for OAuth 2.0 authentication. Learn more from [here](https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0#obtain-oauth2-credentials-for-your-app). | Yes |
+| consumerSecret | The client secret of your QuickBooks Online application for OAuth 2.0 authentication. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| refreshToken | The OAuth 2.0 refresh token associated with the QuickBooks application. Learn more from [here](https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0#obtain-oauth2-credentials-for-your-app). Note refresh token will be expired after 180 days. Customer need to regularly update the refresh token. <br/>Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md).| Yes |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
 
 **Example:**
@@ -64,22 +60,20 @@ The following properties are supported for QuickBooks linked service:
     "properties": {
         "type": "QuickBooks",
         "typeProperties": {
-            "endpoint" : "quickbooks.api.intuit.com",
-            "companyId" : "<companyId>",
-            "consumerKey": "<consumerKey>",
-            "consumerSecret": {
-                "type": "SecureString",
-                "value": "<consumerSecret>"
-            },
-            "accessToken": {
-                 "type": "SecureString",
-                 "value": "<accessToken>"
-            },
-            "accessTokenSecret": {
-                 "type": "SecureString",
-                 "value": "<accessTokenSecret>"
-            },
-            "useEncryptedEndpoints" : true
+            "connectionProperties": {
+                "endpoint": "quickbooks.api.intuit.com",
+                "companyId": "<company id>",
+                "consumerKey": "<consumer key>", 
+                "consumerSecret": {
+                     "type": "SecureString",
+                     "value": "<clientSecret>"
+            	},
+                "refreshToken": {
+                     "type": "SecureString",
+                     "value": "<refresh token>"
+            	},
+                "useEncryptedEndpoints": true
+            }
         }
     }
 }

@@ -4,9 +4,10 @@ description: This article describes how to configure end-to-end TLS with Azure A
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 4/8/2019
-ms.author: victorh
+ms.topic: how-to
+ms.date: 06/09/2020
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure end to end TLS by using Application Gateway with PowerShell
@@ -162,14 +163,16 @@ All configuration items are set before creating the application gateway. The fol
    > [!NOTE]
    > The default probe gets the public key from the *default* TLS binding on the back-end's IP address and compares the public key value it receives to the public key value you provide here. 
    > 
-   > If you are using host headers and Server Name Indication (SNI) on the back end, the retrieved public key might not be the intended site to which traffic flows. If you're in doubt, visit https://127.0.0.1/ on the back-end servers to confirm which certificate is used for the *default* TLS binding. Use the public key from that request in this section. If you are using host-headers and SNI on HTTPS bindings and you do not receive a response and certificate from a manual browser request to https://127.0.0.1/ on the back-end servers, you must set up a default TLS binding on the them. If you do not do so, probes fail and the back end is not whitelisted.
+   > If you are using host headers and Server Name Indication (SNI) on the back end, the retrieved public key might not be the intended site to which traffic flows. If you're in doubt, visit https://127.0.0.1/ on the back-end servers to confirm which certificate is used for the *default* TLS binding. Use the public key from that request in this section. If you are using host-headers and SNI on HTTPS bindings and you do not receive a response and certificate from a manual browser request to https://127.0.0.1/ on the back-end servers, you must set up a default TLS binding on the them. If you do not do so, probes fail and the back end is not allowed.
+   
+   For more information about SNI in Application Gateway, see [Overview of TLS termination and end to end TLS with Application Gateway](ssl-overview.md).
 
    ```powershell
    $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'allowlistcert1' -CertificateFile C:\cert.cer
    ```
 
    > [!NOTE]
-   > The certificate provided in the previous step should be the public key of the .pfx certificate present on the back end. Export the certificate (not the root certificate) installed on the back-end server in Claim, Evidence, and Reasoning (CER) format and use it in this step. This step whitelists the back end with the application gateway.
+   > The certificate provided in the previous step should be the public key of the .pfx certificate present on the back end. Export the certificate (not the root certificate) installed on the back-end server in Claim, Evidence, and Reasoning (CER) format and use it in this step. This step allows the back end with the application gateway.
 
    If you are using the Application Gateway v2 SKU, then create a trusted root certificate instead of an authentication certificate. For more information, see [Overview of end to end TLS with Application Gateway](ssl-overview.md#end-to-end-tls-with-the-v2-sku):
 
@@ -352,6 +355,6 @@ DnsSettings              : {
 
 ## Next steps
 
-For more information about hardening the security of your web applications with Web Application Firewall through Application Gateway, see the [Web application firewall overview](application-gateway-webapplicationfirewall-overview.md).
+For more information about hardening the security of your web applications with Web Application Firewall through Application Gateway, see the [Web application firewall overview](../web-application-firewall/ag/ag-overview.md).
 
 [scenario]: ./media/application-gateway-end-to-end-SSL-powershell/scenario.png

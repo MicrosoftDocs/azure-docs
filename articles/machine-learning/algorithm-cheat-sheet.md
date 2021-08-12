@@ -1,5 +1,5 @@
 ---
-title: Machine Learning Algorithm Cheat Sheet - designer
+title: Machine Learning Algorithm Cheat Sheet - designer 
 titleSuffix: Azure Machine Learning
 description: A printable Machine Learning Algorithm Cheat Sheet helps you choose the right algorithm for your predictive model in Azure Machine Learning designer.
 services: machine-learning
@@ -9,7 +9,8 @@ ms.topic: conceptual
 
 author: FrancescaLazzeri
 ms.author: lazzeri
-ms.date: 03/05/2020
+ms.date: 07/20/2021
+adobe-target: true
 ---
 # Machine Learning Algorithm Cheat Sheet for Azure Machine Learning designer
 
@@ -17,13 +18,13 @@ The **Azure Machine Learning Algorithm Cheat Sheet** helps you choose the right 
 
 Azure Machine Learning has a large library of algorithms from the ***classification***, ***recommender systems***, ***clustering***, ***anomaly detection***, ***regression***, and ***text analytics*** families. Each is designed to address a different type of machine learning problem.
 
-For additional guidance, see [How to select algorithms](how-to-select-algorithms.md)
+For more information, see [How to select algorithms](how-to-select-algorithms.md).
 
 ## Download: Machine Learning Algorithm Cheat Sheet
 
 **Download the cheat sheet here: [Machine Learning Algorithm Cheat Sheet (11x17 in.)](https://download.microsoft.com/download/3/5/b/35bb997f-a8c7-485d-8c56-19444dafd757/azure-machine-learning-algorithm-cheat-sheet-nov2019.pdf?WT.mc_id=docs-article-lazzeri)**
 
-![Machine Learning Algorithm Cheat Sheet: Learn how to choose a Machine Learning algorithm.](./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet.svg)
+![Machine Learning Algorithm Cheat Sheet: Learn how to choose a Machine Learning algorithm.](./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet.png)
 
 Download and print the Machine Learning Algorithm Cheat Sheet in tabloid size to keep it handy and get help choosing an algorithm.
 
@@ -31,7 +32,7 @@ Download and print the Machine Learning Algorithm Cheat Sheet in tabloid size to
 
 The suggestions offered in this algorithm cheat sheet are approximate rules-of-thumb. Some can be bent, and some can be flagrantly violated. This cheat sheet is intended to suggest a starting point. Don’t be afraid to run a head-to-head competition between several algorithms on your data. There is simply no substitute for understanding the principles of each algorithm and the system that generated your data.
 
-Every machine learning algorithm has its own style or inductive bias. For a specific problem, several algorithms may be appropriate, and one algorithm may be a better fit than others. But it's not always possible to know beforehand which is the best fit. In cases like these, several algorithms are listed together in the cheat sheet. An appropriate strategy would be to try one algorithm, and if the results are not yet satisfactory, try the others. 
+Every machine learning algorithm has its own style or inductive bias. For a specific problem, several algorithms may be appropriate, and one algorithm may be a better fit than others. But it's not always possible to know beforehand, which is the best fit. In cases like these, several algorithms are listed together in the cheat sheet. An appropriate strategy would be to try one algorithm, and if the results are not yet satisfactory, try the others. 
 
 To learn more about the algorithms in Azure Machine Learning designer, go to the [Algorithm and module reference](algorithm-module-reference/module-reference.md).
 
@@ -53,9 +54,9 @@ In reinforcement learning, the algorithm gets to choose an action in response to
 
 ## Next steps
 
-* See additional guidance on [How to select algorithms](how-to-select-algorithms.md)
+* See more information on [How to select algorithms](how-to-select-algorithms.md)
 
-* [Learn about studio in Azure Machine Learning and the Azure portal](overview-what-is-azure-ml.md).
+* [Learn about studio in Azure Machine Learning and the Azure portal](overview-what-is-azure-machine-learning.md).
 
 * [Tutorial: Build a prediction model in Azure Machine Learning designer](tutorial-designer-automobile-price-train-score.md).
 

@@ -1,21 +1,12 @@
 ---
 title: Move data from ODBC data stores 
 description: Learn about how to move data from ODBC data stores using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-
-
-ms.assetid: ad70a598-c031-4339-a883-c6125403cb76
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.author: jingwang
-
+ms.author: jingwang 
+ms.custom: devx-track-azurepowershell
 robots: noindex
 ---
 # Move data From ODBC data stores using Azure Data Factory
@@ -93,7 +84,7 @@ The following table provides description for JSON elements specific to ODBC link
 }
 ```
 ### Using Basic authentication with encrypted credentials
-You can encrypt the credentials using the [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) (1.0 version of Azure PowerShell) cmdlet or [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (0.9 or earlier version of the Azure PowerShell).
+You can encrypt the credentials using the [New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) (1.0 version of Azure PowerShell) cmdlet or [New-AzureDataFactoryEncryptValue](/previous-versions/azure/dn834940(v=azure.100)) (0.9 or earlier version of the Azure PowerShell).
 
 ```json
 {
@@ -203,9 +194,9 @@ This example uses the Basic authentication. See [ODBC linked service](#linked-se
 
 **ODBC input dataset**
 
-The sample assumes you have created a table “MyTable” in an ODBC database and it contains a column called “timestampcolumn” for time series data.
+The sample assumes you have created a table "MyTable" in an ODBC database and it contains a column called "timestampcolumn" for time series data.
 
-Setting “external”: ”true” informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
+Setting "external": "true" informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
 
 ```json
 {
@@ -346,7 +337,7 @@ As mentioned in the [data movement activities](data-factory-data-movement-activi
 1. Convert from native source types to .NET type
 2. Convert from .NET type to native sink type
 
-When moving data from ODBC data stores, ODBC data types are mapped to .NET types as mentioned in the [ODBC Data Type Mappings](https://msdn.microsoft.com/library/cc668763.aspx) topic.
+When moving data from ODBC data stores, ODBC data types are mapped to .NET types as mentioned in the [ODBC Data Type Mappings](/dotnet/framework/data/adonet/odbc-data-type-mappings) topic.
 
 ## Map source to sink columns
 To learn about mapping columns in source dataset to columns in sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).

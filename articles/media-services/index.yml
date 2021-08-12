@@ -1,13 +1,13 @@
 ### YamlMime:Hub
 
 title: Azure Media Services documentation # < 60 chars
-summary: Azure Media Services is a cloud-based media workflow platform that enables you to build solutions that require encoding, packaging, content-protection, and live event broadcasting.  
+summary: Azure Media Services is a collection of cloud and edge media workflow services that enable you to build solutions that require live and batch video analytics, transcoding, multi-device delivery services, content-protection, and live event broadcasting at scale. 
 # brand: aspnet | azure | dotnet | dynamics | m365 | ms-graph | office | power-platform | sql | sql-server | vs | visual-studio | windows | xamarin
 brand: azure
 
 metadata:
   title: Azure Media Services documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Media Services is a cloud-based media workflow platfo/lrm that enables you to build solutions that require encoding, packaging, content-protection, and live event broadcasting. 
+  description: Azure Media Services is a collection of cloud and edge media workflow services that enable you to build solutions that require live and batch video analytics, transcoding, multi-device delivery services, content-protection, and live event broadcasting at scale. 
   services: media-services
   ms.service: media-services #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: 
@@ -30,21 +30,18 @@ highlightedContent:
     - title: Azure Media Services v3 concepts 
       itemType: concept
       url: ./latest/concepts-overview.md
-    - title: About Azure Media Services Video Indexer
+    - title: Live Video Analytics on IoT Edge (preview)
       itemType: overview
-      url: ./video-indexer/video-indexer-overview.md    
-    - title: Compare Media Services v3 presets and Video Indexer
-      itemType: concept
-      url: ./video-indexer/compare-video-indexer-with-media-services-presets.md    
+      url: ./live-video-analytics-edge/overview.md
+    - title: Azure Media Player
+      itemType: overview
+      url: ./azure-media-player/azure-media-player-overview.md
     - title: About Azure Media Services v2 (legacy)
       itemType: overview
       url: ./previous/media-services-overview.md  
     - title: Migrate Media Services v2 to v3
       itemType: concept
-      url: ./latest/migrate-from-v2-to-v3.md      
-    - title: Azure Media Services specifications
-      itemType: concept
-      url: media-services-specifications-live-timed-metadata.md
+      url: ./latest/migrate-v-2-v-3-migration-introduction.md      
 
 conceptualContent: 
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -54,16 +51,18 @@ conceptualContent:
           - url: ./latest/media-services-apis-overview.md
             itemType: concept
             text: Develop with Media Services v3
-          - url: https://docs.microsoft.com/samples/browse/?products=azure-media-services
+          - url: /samples/browse/?products=azure-media-services
             itemType: sample
             text: Code samples
-            
+          - url: ./latest/release-notes.md
+            itemType: concept
+            text: Find out what's new in Media Services v3
     - title: Stream live 
       links: 
-        - url: ./latest/live-streaming-overview.md 
+        - url: ./latest/stream-live-streaming-concept.md 
           itemType: concept
           text: Live streaming 
-        - url: ./latest/recommended-on-premises-live-encoders.md
+        - url: ./latest/encode-recommended-on-premises-live-encoders.md
           itemType: concept
           text: Recommended live streaming encoders
         - url: ./latest/stream-live-tutorial-with-api.md
@@ -75,7 +74,7 @@ conceptualContent:
         - url: ./latest/assets-concept.md 
           itemType: concept
           text: Uploading
-        - url: ./latest/encoding-concept.md 
+        - url: ./latest/encode-concept.md 
           itemType: concept
           text: Encoding   
         - url: ./latest/stream-files-tutorial-with-rest.md
@@ -87,37 +86,58 @@ conceptualContent:
 
     - title: Encrypt content
       links:
-          - url: ./latest/content-protection-overview.md 
+          - url: ./latest/drm-content-protection-concept.md 
             itemType: concept
             text: Protection
-          - url: ./latest/protect-with-aes128.md
+          - url: ./latest/drm-playready-license-template-concept.md
             itemType: tutorial
             text: Encrypt dynamically with AES-128        
-          - url: ./latest/protect-with-drm.md
+          - url: ./latest/drm-protect-with-drm-tutorial.md
             itemType: tutorial
             text: Encrypt dynamically with DRM
             
     - title: Analyze content
       links:
-          - url: ./latest/analyzing-video-audio-files-concept.md
+          - url: ./latest/analyze-video-audio-files-concept.md
             itemType: concept
             text: Media analytics
-          - url: ./latest/analyze-videos-tutorial-with-api.md
+          - url: ./latest/analyze-videos-tutorial.md
             itemType: tutorial
-            text: Analyze videos            
-                     
+            text: Analyze videos     
+          - url: ./latest/analyze-face-redaction-concept.md
+            itemType: concept
+            text: Face Detect and Redaction       
+
+    - title: Learn about Media Services specifications
+      links:
+          - url: media-services-specifications-live-timed-metadata.md
+            itemType: concept
+            text: Timed Metadata in Live Streaming (RTMP & Smooth Streaming)
+          - url: media-services-specifications-ms-sstr-amendment-hevc.md
+            itemType: concept
+            text: Smooth Streaming protocol (MS-SSTR) amendment for HEVC
+          - url: media-services-fmp4-live-ingest-overview.md
+            itemType: concept
+            text:  Smooth Streaming ingest protocol   
+            
+    - title: Live Video Analytics on IoT Edge (preview)         
+      links:
+          - url: ./live-video-analytics-edge/overview.md
+            itemType: overview
+            text: Overview
+          - url: ./live-video-analytics-edge/use-your-model-quickstart.md
+            itemType: quickstart
+            text: Run Live Video Analytics with your own model  
+
 additionalContent:
   sections:
     - items:      
       - title: Azure Storage
         summary: Learn about block blobs and containers
-        url: https://docs.microsoft.com/azure/storage/        
+        url: ../storage/index.yml
       - title: CDN
         summary: Use the power of the Azure CDN to stream content at scale with services from Akamai and Verizon or load balance across multiple content delivery networks
-        url: https://docs.microsoft.com/azure/cdn         
+        url: ../cdn/index.yml
       - title: Event Grid
         summary: Learn how to use Azure Event Grid to react to relevant events     
-        url: https://docs.microsoft.com/azure/event-grid/
-        
-
-  
+        url: ../event-grid/index.yml

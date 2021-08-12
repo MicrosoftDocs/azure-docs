@@ -1,21 +1,9 @@
 ---
 title: Troubleshooting guide for Azure Service Bus | Microsoft Docs
-description: This article provides a list of Azure Service Bus messaging exceptions and suggested actions to taken when the exception occurs.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.assetid: 3d8526fe-6e47-4119-9f3e-c56d916a98f9
-ms.service: service-bus-messaging
-ms.devlang: na
+description: Learn about troubleshooting tips and recommendations for a few issues that you may see when using Azure Service Bus.
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/07/2020
-ms.author: aschhab
-
+ms.date: 03/03/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshooting guide for Azure Service Bus
@@ -24,7 +12,7 @@ This article provides troubleshooting tips and recommendations for a few issues 
 ## Connectivity, certificate, or timeout issues
 The following steps may help you with troubleshooting connectivity/certificate/timeout issues for all services under *.servicebus.windows.net. 
 
-- Browse to or [wget](https://www.gnu.org/software/wget/) `https://<yournamespace>.servicebus.windows.net/`. It helps with checking whether you have IP filtering or virtual network or certificate chain issues (most common when using java SDK).
+- Browse to or [wget](https://www.gnu.org/software/wget/) `https://<yournamespace>.servicebus.windows.net/`. It helps with checking whether you have IP filtering or virtual network or certificate chain issues, which are common when using java SDK.
 
     An example of successful message:
     
@@ -34,7 +22,7 @@ The following steps may help you with troubleshooting connectivity/certificate/t
     
     An example of failure error message:
 
-    ```json
+    ```xml
     <Error>
         <Code>400</Code>
         <Detail>
@@ -60,31 +48,74 @@ The following steps may help you with troubleshooting connectivity/certificate/t
     ```
     You can use equivalent commands if you're using other tools such as `tnc`, `ping`, and so on. 
 - Obtain a network trace if the previous steps don't help and analyze it using tools such as [Wireshark](https://www.wireshark.org/). Contact [Microsoft Support](https://support.microsoft.com/) if needed. 
+- To find the right IP addresses to add to allowlist for your connections, see [What IP addresses do I need to add to allowlist](service-bus-faq.yml#what-ip-addresses-do-i-need-to-add-to-allow-list-). 
+
 
 ## Issues that may occur with service upgrades/restarts
-Backend service upgrades and restarts may cause the following impact to your applications:
 
+### Symptoms
 - Requests may be momentarily throttled.
 - There may be a drop in incoming messages/requests.
 - The log file may contain error messages.
 - The applications may be disconnected from the service for a few seconds.
 
-If the application code utilizes SDK, the retry policy is already built in and active. The application will reconnect without significant impact to the application/workflow.
+### Cause
+Backend service upgrades and restarts may cause these issues in your applications.
+
+### Resolution
+If the application code uses SDK, the retry policy is already built in and active. The application will reconnect without significant impact to the application/workflow.
 
 ## Unauthorized access: Send claims are required
+
+### Symptoms 
 You may see this error when attempting to access a Service Bus topic from Visual Studio on an on-premises computer using a user-assigned managed identity with send permissions.
 
 ```bash
 Service Bus Error: Unauthorized access. 'Send' claim\(s\) are required to perform this operation.
 ```
 
-To resolve this error, install the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) library.  For more information, see [Local development authentication](..\key-vault\service-to-service-authentication.md#local-development-authentication). 
+### Cause
+The identity doesn't have permissions to access the Service Bus topic. 
+
+### Resolution
+To resolve this error, install the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) library.  For more information, see [Local development authentication](/dotnet/api/overview/azure/service-to-service-authentication#local-development-authentication). 
 
 To learn how to assign permissions to roles, see [Authenticate a managed identity with Azure Active Directory to access Azure Service Bus resources](service-bus-managed-service-identity.md).
+
+## Service Bus Exception: Put token failed
+
+### Symptoms
+When you try to send more than 1000 messages using the same Service Bus connection, you'll receive the following error message: 
+
+`Microsoft.Azure.ServiceBus.ServiceBusException: Put token failed. status-code: 403, status-description: The maximum number of '1000' tokens per connection has been reached.` 
+
+### Cause
+There's a limit on number of tokens that are used to send and receive messages using a single connection to a Service Bus namespace. It's 1000. 
+
+### Resolution
+Open a new connection to the Service Bus namespace to send more messages.
+
+## Adding virtual network rule using PowerShell fails
+
+### Symptoms
+You have configured two subnets from a single virtual network in a virtual network rule. When you try to remove one subnet using the [Remove-AzServiceBusVirtualNetworkRule](/powershell/module/az.servicebus/remove-azservicebusvirtualnetworkrule) cmdlet, it doesn't remove the subnet from the virtual network rule. 
+
+```azurepowershell-interactive
+Remove-AzServiceBusVirtualNetworkRule -ResourceGroupName $resourceGroupName -Namespace $serviceBusName -SubnetId $subnetId
+```
+
+### Cause
+The Azure Resource Manager ID that you specified for the subnet may be invalid. This may happen when the virtual network is in a different resource group from the one that has the Service Bus namespace. If you don't explicitly specify the resource group of the virtual network, the CLI command constructs the Azure Resource Manager ID by using the resource group of the Service Bus namespace. So, it fails to remove the subnet from the network rule. 
+
+### Resolution
+Specify the full Azure Resource Manager ID of the subnet that includes the name of the resource group that has the virtual network. For example:
+
+```azurepowershell-interactive
+Remove-AzServiceBusVirtualNetworkRule -ResourceGroupName myRG -Namespace myNamespace -SubnetId "/subscriptions/SubscriptionId/resourcegroups/ResourceGroup/myOtherRG/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/mySubnet"
+```
 
 ## Next steps
 See the following articles: 
 
 - [Azure Resource Manager exceptions](service-bus-resource-manager-exceptions.md). It list exceptions generated when interacting with Azure Service Bus using Azure Resource Manager (via templates or direct calls).
-- [Messaging exceptions](service-bus-messaging-exceptions.md). It provides a list of exceptions generated by .NET Framework for Azure Service Bus. 
-
+- [Messaging exceptions](service-bus-messaging-exceptions.md). It provides a list of exceptions generated by .NET Framework for Azure Service Bus.

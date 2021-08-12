@@ -1,21 +1,22 @@
 ---
 title: Query data from HDFS-compatible Azure storage - Azure HDInsight
 description: Learn how to query data from Azure storage and Azure Data Lake Storage to store results of your analysis.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.date: 02/28/2020
+ms.topic: how-to
+ms.custom: seoapr2020
+ms.date: 04/21/2020
 ---
 
 # Use Azure storage with Azure HDInsight clusters
 
-To analyze data in HDInsight cluster, you can store the data either in [Azure Storage](../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md)/[Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md), or a combination. These storage options enable you to safely delete HDInsight clusters that are used for computation without losing user data.
+You can store data in [Azure Blob storage](../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md), or [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md). Or a combination of these options. These storage options enable you to safely delete HDInsight clusters that are used for computation without losing user data.
 
-Apache Hadoop supports a notion of the default file system. The default file system implies a default scheme and authority. It can also be used to resolve relative paths. During the HDInsight cluster creation process, you can specify a blob container in Azure Storage as the default file system, or with HDInsight 3.6, you can select either Azure Storage or Azure Data Lake Storage Gen 1/ Azure Data Lake Storage Gen 2  as the default files system with a few exceptions. For the supportability of using Data Lake Storage Gen 1 as both the default and linked storage, see [Availability for HDInsight cluster](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
+Apache Hadoop supports a notion of the default file system. The default file system implies a default scheme and authority. It can also be used to resolve relative paths. During the HDInsight cluster creation process, you can specify a blob container in Azure Storage as the default file system. Or with HDInsight 3.6, you can select either Azure Blob storage or Azure Data Lake Storage Gen1/ Azure Data Lake Storage Gen2 as the default files system with a few exceptions. For the supportability of using Data Lake Storage Gen1 as both the default and linked storage, see [Availability for HDInsight cluster](./hdinsight-hadoop-use-data-lake-storage-gen1.md#availability-for-hdinsight-clusters).
 
-In this article, you learn how Azure Storage works with HDInsight clusters. To learn how Data Lake Storage Gen 1 works with HDInsight clusters, see [Use Azure Data Lake Storage with Azure HDInsight clusters](hdinsight-hadoop-use-data-lake-store.md). For more information about creating an HDInsight cluster, see [Create Apache Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+In this article, you learn how Azure Storage works with HDInsight clusters. 
+* To learn how Data Lake Storage Gen1 works with HDInsight clusters, see [Use Azure Data Lake Storage Gen1 with Azure HDInsight clusters](./hdinsight-hadoop-use-data-lake-storage-gen1.md).
+* to learn how Data Lake Storage Gen2 works with HDInsight clusters, see [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](./hdinsight-hadoop-use-data-lake-storage-gen2.md).
+* For more information about creating an HDInsight cluster, see [Create Apache Hadoop clusters in HDInsight](./hdinsight-hadoop-provision-linux-clusters.md).
 
 > [!IMPORTANT]  
 > Storage account kind **BlobStorage** can only be used as secondary storage for HDInsight clusters.
@@ -63,7 +64,7 @@ Examples are based on an [ssh connection](./hdinsight-hadoop-linux-use-ssh-unix.
 
 #### A few hdfs commands
 
-1. Create a simple file on local storage.
+1. Create a file on local storage.
 
     ```bash
     touch testFile.txt
@@ -142,31 +143,30 @@ To obtain the path using Ambari REST API, see [Get the default storage](./hdinsi
 
 ## Blob containers
 
-To use blobs, you first create an [Azure Storage account](../storage/common/storage-create-storage-account.md). As part of this, you specify an Azure region where the storage account is created. The cluster and the storage account must be hosted in the same region. The Hive metastore SQL Server database and Apache Oozie metastore SQL Server database must also be located in the same region.
+To use blobs, you first create an [Azure Storage account](../storage/common/storage-account-create.md). As part of this step, you specify an Azure region where the storage account is created. The cluster and the storage account must be hosted in the same region. The Hive metastore SQL Server database and Apache Oozie metastore SQL Server database must be located in the same region.
 
-Wherever it lives, each blob you create belongs to a container in your Azure Storage account. This container may be an existing blob that was created outside of HDInsight, or it may be a container that is created for an HDInsight cluster.
+Wherever it lives, each blob you create belongs to a container in your Azure Storage account. This container may be an existing blob created outside of HDInsight. Or it may be a container that is created for an HDInsight cluster.
 
-The default Blob container stores cluster-specific information such as job history and logs. Don't share a default Blob container with multiple HDInsight clusters. This might corrupt job history. It's recommended to use a different container for each cluster and put shared data on a linked storage account specified in deployment of all relevant clusters rather than the default storage account. For more information on configuring linked storage accounts, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). However you can reuse a default storage container after the original HDInsight cluster has been deleted. For HBase clusters, you can actually keep the HBase table schema and data by creating a new HBase cluster using the default blob container that is used by an HBase cluster that has been deleted.
+The default Blob container stores cluster-specific information such as job history and logs. Don't share a default Blob container with multiple HDInsight clusters. This action  might corrupt job history. It's recommended to use a different container for each cluster. Put shared data on a linked storage account specified for all relevant clusters rather than the default storage account. For more information on configuring linked storage accounts, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). However you can reuse a default storage container after the original HDInsight cluster has been deleted. For HBase clusters, you can actually keep the HBase table schema and data by creating a new HBase cluster using the default blob container that is used by a deleted HBase cluster
 
-[!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
+[!INCLUDE [secure-transfer-enabled-storage-account](includes/hdinsight-secure-transfer.md)]
 
 ## Use additional storage accounts
 
-While creating an HDInsight cluster, you specify the Azure Storage account you want to associate with it. In addition to this storage account, you can add additional storage accounts from the same Azure subscription or different Azure subscriptions during the creation process or after a cluster has been created. For instructions about adding additional storage accounts, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
+While creating an HDInsight cluster, you specify the Azure Storage account you want to associate with it. Also, you can add additional storage accounts from the same Azure subscription or different Azure subscriptions during the creation process or after a cluster has been created. For instructions about adding additional storage accounts, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
 
 > [!WARNING]  
 > Using an additional storage account in a different location than the HDInsight cluster is not supported.
 
 ## Next steps
 
-In this article, you learned how to use HDFS-compatible Azure storage with HDInsight. This allows you to build scalable, long-term, archiving data acquisition solutions and use HDInsight to unlock the information inside the stored structured and unstructured data.
+In this article, you learned how to use HDFS-compatible Azure storage with HDInsight. This storage allows you to build adaptable, long-term, archiving data acquisition solutions and use HDInsight to unlock the information inside the stored structured and unstructured data.
 
 For more information, see:
 
-* [Get started with Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
-* [Get started with Azure Data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md)
-* [Upload data to HDInsight](hdinsight-upload-data.md)
-* [Use Apache Hive with HDInsight](hadoop/hdinsight-use-hive.md)
-* [Use Azure Storage Shared Access Signatures to restrict access to data with HDInsight](hdinsight-storage-sharedaccesssignature-permissions.md)
+* [Quickstart: Create Apache Hadoop cluster](hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md)
+* [Tutorial: Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
 * [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](hdinsight-hadoop-use-data-lake-storage-gen2.md)
+* [Upload data to HDInsight](hdinsight-upload-data.md)
 * [Tutorial: Extract, transform, and load data using Interactive Query in Azure HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)
+* [Use Azure Storage Shared Access Signatures to restrict access to data with HDInsight](hdinsight-storage-sharedaccesssignature-permissions.md)

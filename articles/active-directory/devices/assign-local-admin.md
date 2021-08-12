@@ -5,7 +5,7 @@ description: Learn how to assign Azure roles to the local administrators group o
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/28/2019
 
 ms.author: joflore
@@ -21,24 +21,23 @@ ms.collection: M365-identity-device-management
 
 To manage a Windows device, you need to be a member of the local administrators group. As part of the Azure Active Directory (Azure AD) join process, Azure AD updates the membership of this group on a device. You can customize the membership update to satisfy your business requirements. A membership update is, for example, helpful if you want to enable your helpdesk staff to do tasks requiring administrator rights on a device.
 
-This article explains how the membership update works and how you can customize it during an Azure AD Join. The content of this article doesn't apply to a **hybrid** Azure AD join.
+This article explains how the local administrators membership update works and how you can customize it during an Azure AD Join. The content of this article doesn't apply to a **hybrid Azure AD joined** devices.
 
 ## How it works
 
-When you connect a Windows device with Azure AD using an Azure AD join, Azure AD adds the following security principles to the local administrators group on the device:
+When you connect a Windows device with Azure AD using an Azure AD join, Azure AD adds the following security principals to the local administrators group on the device:
 
 - The Azure AD global administrator role
-- The Azure AD device administrator role 
+- The Azure AD joined device local administrator role 
 - The user performing the Azure AD join   
 
-By adding Azure AD roles to the local administrators group, you can update the users that can manage a device anytime in Azure AD without modifying anything on the device. Currently, you cannot assign groups to an administrator role.
-Azure AD also adds the Azure AD device administrator role to the local administrators group to support the principle of least privilege (PoLP). In addition to the global administrators, you can also enable users that have been *only* assigned the device administrator role to manage a device. 
+By adding Azure AD roles to the local administrators group, you can update the users that can manage a device anytime in Azure AD without modifying anything on the device. Azure AD also adds the Azure AD joined device local administrator role to the local administrators group to support the principle of least privilege (PoLP). In addition to the global administrators, you can also enable users that have been *only* assigned the device administrator role to manage a device. 
 
 ## Manage the global administrators role
 
 To view and update the membership of the global administrator role, see:
 
-- [View all members of an administrator role in Azure Active Directory](../users-groups-roles/directory-manage-roles-portal.md)
+- [View all members of an administrator role in Azure Active Directory](../roles/manage-roles-portal.md)
 - [Assign a user to administrator roles in Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md)
 
 
@@ -55,13 +54,40 @@ To modify the device administrator role, configure **Additional local administra
 
 ![Additional local administrators](./media/assign-local-admin/10.png)
 
->[!NOTE]
+> [!NOTE]
 > This option requires an Azure AD Premium tenant. 
 
-Device administrators are assigned to all Azure AD joined devices. You cannot scope device administrators to a specific set of devices. Updating the device administrator role doesn't necessarily have an immediate impact on the affected users. On devices where a user is already signed into, the privilege update takes place when *both* the below actions happen:
+Device administrators are assigned to all Azure AD joined devices. You cannot scope device administrators to a specific set of devices. Updating the device administrator role doesn't necessarily have an immediate impact on the affected users. On devices where a user is already signed into, the privilege elevation takes place when *both* the below actions happen:
 
-- 4 hours have passed for Azure AD to issue a new Primary Refresh Token with the appropriate privileges. 
+- Upto 4 hours have passed for Azure AD to issue a new Primary Refresh Token with the appropriate privileges. 
 - User signs out and signs back in, not lock/unlock, to refresh their profile.
+
+> [!NOTE]
+> The above actions are not applicable to users who have not signed in to the relevant device previously. In this case, the administrator privileges are applied immediately after their first sign-in to the device. 
+
+## Manage administrator privileges using Azure AD groups (preview)
+
+Starting with Windows 10 version 2004, you can use Azure AD groups to manage administrator privileges on Azure AD joined devices with the [Restricted Groups](/windows/client-management/mdm/policy-csp-restrictedgroups) MDM policy. This policy allows you to assign individual users or Azure AD groups to the local administrators group on an Azure AD joined device, providing you the granularity to configure distinct administrators for different groups of devices. 
+
+> [!NOTE]
+> Starting in the Windows 10 20H2 update, we recommend using [Local Users and Groups](/windows/client-management/mdm/policy-csp-localusersandgroups) policy instead of the Restricted Groups policy.
+
+Currently, there's no UI in Intune to manage these policies and they need to be configured using [Custom OMA-URI Settings](/mem/intune/configuration/custom-settings-windows-10). A few considerations for using either of these policies: 
+
+- Adding Azure AD groups through the policy requires the group's SID that can be obtained by executing the [Microsoft Graph API for Groups](/graph/api/resources/group). The SID is defined by the property `securityIdentifier` in the API response.
+
+- When Restricted Groups policy is enforced, any current member of the group that is not on the Members list is removed. So enforcing this policy with new members or groups will remove the existing administrators namely user who joined the device, the Device administrator role and Global administrator role from the device. To avoid removing existing members, you need to configure them as part of the Members list in the Restricted Groups policy. This limitation is addressed if you use the Local Users and Groups policy that allows incremental updates to group membership
+
+- Administrator privileges using both policies are evaluated only for the following well-known groups on a Windows 10 device - Administrators, Users, Guests, Power Users, Remote Desktop Users and Remote Management Users. 
+
+- Managing local administrators using Azure AD groups is not applicable to Hybrid Azure AD joined or Azure AD Registered devices.
+
+- While the Restricted Groups policy existed prior to Windows 10 version 2004, it did not support Azure AD groups as members of a device's local administrators group. 
+- Azure AD groups deployed to a device with either of the two policies do not apply to remote desktop connections. To control remote desktop permissions for Azure AD joined devices, you need to add the individual user's SID to the appropriate group. 
+
+> [!IMPORTANT]
+> Windows sign-in with Azure AD supports evaluation of up to 20 groups for administrator rights. We recommend having no more than 20 Azure AD groups on each device to ensure that administrator rights are correctly assigned. This limitation also applies to nested groups. 
+
 
 ## Manage regular users
 
@@ -88,7 +114,7 @@ You cannot assign groups to the device administrator role, only individual users
 
 Device administrators are assigned to all Azure AD Joined devices. They can't be scoped to a specific set of devices.
 
-When you remove users from the device administrator role, they still have the local administrator privilege on a device as long as they are signed in to it. The privilege is revoked during the next sign-in, or after 4 hours when a new primary refresh token is issued.
+When you remove users from the device administrator role, they still have the local administrator privilege on a device as long as they are signed in to it. The privilege is revoked during their next sign-in when a new primary refresh token is issued. This revocation, similar to the privilege elevation, could take upto 4 hours.
 
 ## Next steps
 

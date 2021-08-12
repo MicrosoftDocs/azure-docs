@@ -1,23 +1,27 @@
 ---
-title: Creating and configuring a key vault for Azure Disk Encryption
-description: This article provides steps for creating and configuring a key vault for use with Azure Disk Encryption
+title: Creating and configuring a key vault for Azure Disk Encryption on a Windows VM
+description: This article provides steps for creating and configuring a key vault for use with Azure Disk Encryption on a Windows VM.
 ms.service: virtual-machines
-ms.topic: article
+ms.subservice: disks
+ms.collection: windows
+ms.topic: how-to
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
-
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 ---
 
-# Creating and configuring a key vault for Azure Disk Encryption
+# Create and configure a key vault for Azure Disk Encryption on a Windows VM
 
-Azure Disk Encryption uses Azure Key Vault to control and manage disk encryption keys and secrets.  For more information about key vaults, see [Get started with Azure Key Vault](../../key-vault/key-vault-get-started.md) and [Secure your key vault](../../key-vault/general/secure-your-key-vault.md). 
+Azure Disk Encryption uses Azure Key Vault to control and manage disk encryption keys and secrets.  For more information about key vaults, see [Get started with Azure Key Vault](../../key-vault/general/overview.md) and [Secure your key vault](../../key-vault/general/security-features.md). 
 
 > [!WARNING]
 > - If you have previously used Azure Disk Encryption with Azure AD to encrypt a VM, you must continue use this option to encrypt your VM. See [Creating and configuring a key vault for Azure Disk Encryption with Azure AD (previous release)](disk-encryption-key-vault-aad.md) for details.
 
 Creating and configuring a key vault for use with Azure Disk Encryption involves three steps:
+
+> [!Note]
+> You must select the option in the Azure Key Vault access policy settings to enable access to Azure Disk Encryption for volume encryption. If you have enabled the firewall on the key vault, you must go to the Networking tab on the key vault and enable access to Microsoft Trusted Services. 
 
 1. Creating a resource group, if needed.
 2. Creating a key vault. 
@@ -26,7 +30,7 @@ Creating and configuring a key vault for use with Azure Disk Encryption involves
 These steps are illustrated in the following quickstarts:
 
 - [Create and encrypt a Windows VM with Azure CLI](disk-encryption-cli-quickstart.md)
-- [Create and encrypt a Windows VM with Azure PowerShell](disk-encryption-cli-quickstart.md)
+- [Create and encrypt a Windows VM with Azure PowerShell](disk-encryption-powershell-quickstart.md)
 
 You may also, if you wish, generate or import a key encryption key (KEK).
 
@@ -35,13 +39,13 @@ You may also, if you wish, generate or import a key encryption key (KEK).
 
 ## Install tools and connect to Azure
 
-The steps in this article can be completed with the [Azure CLI](/cli/azure/), the [Azure PowerShell Az module](/powershell/azure/overview), or the [Azure portal](https://portal.azure.com).
+The steps in this article can be completed with the [Azure CLI](/cli/azure/), the [Azure PowerShell Az module](/powershell/azure/), or the [Azure portal](https://portal.azure.com).
 
 While the portal is accessible through your browser, Azure CLI and Azure PowerShell require local installation; see [Azure Disk Encryption for Windows: Install tools](disk-encryption-windows.md#install-tools-and-connect-to-azure) for details.
 
 ### Connect to your Azure account
 
-Before using the Azure CLI or Azure PowerShell, you must first connect to your Azure subscription. You do so by [Signing in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest), [Signing in with Azure Powershell](/powershell/azure/authenticate-azureps?view=azps-2.5.0), or supplying your credentials to the Azure portal when prompted.
+Before using the Azure CLI or Azure PowerShell, you must first connect to your Azure subscription. You do so by [Signing in with Azure CLI](/cli/azure/authenticate-azure-cli), [Signing in with Azure Powershell](/powershell/azure/authenticate-azureps), or supplying your credentials to the Azure portal when prompted.
 
 ```azurecli-interactive
 az login

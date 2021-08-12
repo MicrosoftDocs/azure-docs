@@ -1,36 +1,36 @@
 ---
-title: Filtering and preprocessing in the Azure Application Insights SDK | Microsoft Docs
-description: Write Telemetry Processors and Telemetry Initializers for the SDK to filter or add properties to the data before the telemetry is sent to the Application Insights portal.
+title: Filtering and preprocessing in the Application Insights SDK | Microsoft Docs
+description: Write telemetry processors and telemetry initializers for the SDK to filter or add properties to the data before the telemetry is sent to the Application Insights portal.
 ms.topic: conceptual
 ms.date: 11/23/2016
-
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
-# Filtering and preprocessing telemetry in the Application Insights SDK
+# Filter and preprocess telemetry in the Application Insights SDK
 
 You can write and configure plug-ins for the Application Insights SDK to customize how telemetry can be enriched and processed before it's sent to the Application Insights service.
 
-* [Sampling](sampling.md) reduces the volume of telemetry without affecting your statistics. It keeps together related data points so that you can navigate between them when diagnosing a problem. In the portal, the total counts are multiplied to compensate for the sampling.
-* Filtering with Telemetry Processors lets you filter out telemetry in the SDK before it is sent to the server. For example, you could reduce the volume of telemetry by excluding requests from robots. Filtering is a more basic approach to reducing traffic than sampling. It allows you more control over what is transmitted, but you have to be aware that it affects your statistics - for example, if you filter out all successful requests.
-* [Telemetry Initializers add or modify properties](#add-properties) to any telemetry sent from your app, including telemetry from the standard modules. For example, you could add calculated values; or version numbers by which to filter the data in the portal.
-* [The SDK API](../../azure-monitor/app/api-custom-events-metrics.md) is used to send custom events and metrics.
+* [Sampling](sampling.md) reduces the volume of telemetry without affecting your statistics. It keeps together related data points so that you can navigate between them when you diagnose a problem. In the portal, the total counts are multiplied to compensate for the sampling.
+* Filtering with telemetry processors lets you filter out telemetry in the SDK before it's sent to the server. For example, you could reduce the volume of telemetry by excluding requests from robots. Filtering is a more basic approach to reducing traffic than sampling. It allows you more control over what's transmitted, but it affects your statistics. For example, you might filter out all successful requests.
+* [Telemetry initializers add or modify properties](#add-properties) to any telemetry sent from your app, which includes telemetry from the standard modules. For example, you could add calculated values or version numbers by which to filter the data in the portal.
+* [The SDK API](./api-custom-events-metrics.md) is used to send custom events and metrics.
 
 Before you start:
 
-* Install the appropriate SDK for your application: [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [Non HTTP/Worker for .NET/.NET Core](worker-service.md), or [JavaScript](javascript.md)
+* Install the appropriate SDK for your application: [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [Non HTTP/Worker for .NET/.NET Core](worker-service.md), or [JavaScript](javascript.md).
 
 <a name="filtering"></a>
 
 ## Filtering
 
-This technique gives you direct control over what is included or excluded from the telemetry stream. Filtering can be used to drop telemetry items from being sent to Application Insights. You can use it in conjunction with Sampling, or separately.
+This technique gives you direct control over what's included or excluded from the telemetry stream. Filtering can be used to drop telemetry items from being sent to Application Insights. You can use filtering in conjunction with sampling, or separately.
 
-To filter telemetry, you write a telemetry processor and register it with the `TelemetryConfiguration`. All telemetry goes through your processor, and you can choose to drop it from the stream or give it to the next processor in the chain. This includes telemetry from the standard modules such as the HTTP request collector and the dependency collector, and telemetry you have tracked yourself. You can, for example, filter out telemetry about requests from robots, or successful dependency calls.
+To filter telemetry, you write a telemetry processor and register it with `TelemetryConfiguration`. All telemetry goes through your processor. You can choose to drop it from the stream or give it to the next processor in the chain. Telemetry from the standard modules, such as the HTTP request collector and the dependency collector, and telemetry you tracked yourself is included. For example, you can filter out telemetry about requests from robots or successful dependency calls.
 
 > [!WARNING]
-> Filtering the telemetry sent from the SDK using processors can skew the statistics that you see in the portal, and make it difficult to follow related items.
+> Filtering the telemetry sent from the SDK by using processors can skew the statistics that you see in the portal and make it difficult to follow related items.
 >
-> Instead, consider using [sampling](../../azure-monitor/app/sampling.md).
+> Instead, consider using [sampling](./sampling.md).
 >
 >
 
@@ -38,7 +38,7 @@ To filter telemetry, you write a telemetry processor and register it with the `T
 
 1. To create a filter, implement `ITelemetryProcessor`.
 
-    Notice that Telemetry Processors construct a chain of processing. When you instantiate a telemetry processor, you are given a reference to the next processor in the chain. When a telemetry data point is passed to the Process method, it does its work and then calls (or not calls) the next Telemetry Processor in the chain.
+    Telemetry processors construct a chain of processing. When you instantiate a telemetry processor, you're given a reference to the next processor in the chain. When a telemetry data point is passed to the process method, it does its work and then calls (or doesn't call) the next telemetry processor in the chain.
 
     ```csharp
     using Microsoft.ApplicationInsights.Channel;
@@ -75,7 +75,8 @@ To filter telemetry, you write a telemetry processor and register it with the `T
 
 2. Add your processor.
 
-**ASP.NET apps**
+ASP.NET **apps**
+
 Insert this snippet in ApplicationInsights.config:
 
 ```xml
@@ -90,10 +91,10 @@ Insert this snippet in ApplicationInsights.config:
 You can pass string values from the .config file by providing public named properties in your class.
 
 > [!WARNING]
-> Take care to match the type name and any property names in the .config file to the class and property names in the code. If the .config file references a non-existent type or property, the SDK may silently fail to send any telemetry.
+> Take care to match the type name and any property names in the .config file to the class and property names in the code. If the .config file references a nonexistent type or property, the SDK may silently fail to send any telemetry.
 >
 
-**Alternatively,** you can initialize the filter in code. In a suitable initialization class - for example AppStart in `Global.asax.cs` - insert your processor into the chain:
+Alternatively, you can initialize the filter in code. In a suitable initialization class, for example, AppStart in `Global.asax.cs`, insert your processor into the chain:
 
 ```csharp
 var builder = TelemetryConfiguration.Active.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
@@ -105,14 +106,14 @@ builder.Use((next) => new AnotherProcessor(next));
 builder.Build();
 ```
 
-TelemetryClients created after this point will use your processors.
+Telemetry clients created after this point will use your processors.
 
-**ASP.NET Core/ Worker Service apps**
+ASP.NET **Core/Worker service apps**
 
 > [!NOTE]
-> Adding processor using `ApplicationInsights.config` or using `TelemetryConfiguration.Active` is not valid for ASP.NET Core applications or if you are using Microsoft.ApplicationInsights.WorkerService SDK.
+> Adding a processor by using `ApplicationInsights.config` or `TelemetryConfiguration.Active` isn't valid for ASP.NET Core applications or if you're using the Microsoft.ApplicationInsights.WorkerService SDK.
 
-For apps written using [ASP.NET Core](asp-net-core.md#adding-telemetry-processors) or [WorkerService](worker-service.md#adding-telemetry-processors), adding a new `TelemetryProcessor` is done by using `AddApplicationInsightsTelemetryProcessor` extension method on `IServiceCollection`, as shown below. This method is called in `ConfigureServices` method of your `Startup.cs` class.
+For apps written by using [ASP.NET Core](asp-net-core.md#adding-telemetry-processors) or [WorkerService](worker-service.md#adding-telemetry-processors), adding a new telemetry processor is done by using the `AddApplicationInsightsTelemetryProcessor` extension method on `IServiceCollection`, as shown. This method is called in the `ConfigureServices` method of your `Startup.cs` class.
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -165,10 +166,10 @@ public void Process(ITelemetry item)
 
 #### Filter out fast remote dependency calls
 
-If you only want to diagnose calls that are slow, filter out the fast ones.
+If you want to diagnose only calls that are slow, filter out the fast ones.
 
 > [!NOTE]
-> This will skew the statistics you see on the portal.
+> This filtering will skew the statistics you see on the portal.
 >
 >
 
@@ -191,11 +192,11 @@ public void Process(ITelemetry item)
 
 <a name="add-properties"></a>
 
-### JavaScript Web applications
+### JavaScript web applications
 
-**Filtering using ITelemetryInitializer**
+**Filter by using ITelemetryInitializer**
 
-1. Create a telemetry initializer callback function. The callback function takes `ITelemetryItem` as a parameter, which is the event that is being processed. Returning `false` from this callback results in the telemetry item to be filtered out.  
+1. Create a telemetry initializer callback function. The callback function takes `ITelemetryItem` as a parameter, which is the event that's being processed. Returning `false` from this callback results in the telemetry item to be filtered out.
 
    ```JS
    var filteringFunction = (envelope) => {
@@ -215,12 +216,11 @@ public void Process(ITelemetry item)
 
 ## Add/modify properties: ITelemetryInitializer
 
+Use telemetry initializers to enrich telemetry with additional information or to override telemetry properties set by the standard telemetry modules.
 
-Use telemetry initializers to enrich telemetry with additional information and/or to override telemetry properties set by the standard telemetry modules.
+For example, Application Insights for a web package collects telemetry about HTTP requests. By default, it flags as failed any request with a response code >=400. But if you want to treat 400 as a success, you can provide a telemetry initializer that sets the success property.
 
-For example, the Application Insights for Web package collect telemetry about HTTP requests. By default, it flags as failed any request with a response code >= 400. But if you want to treat 400 as a success, you can provide a telemetry initializer that sets the Success property.
-
-If you provide a telemetry initializer, it is called whenever any of the Track*() methods are called. This includes `Track()` methods called by the standard telemetry modules. By convention, these modules do not set any property that has already been set by an initializer. Telemetry initializers are called before calling telemetry processors. So any enrichments done by initializers are visible to processors.
+If you provide a telemetry initializer, it's called whenever any of the Track*() methods are called. This includes `Track()` methods called by the standard telemetry modules. By convention, these modules don't set any property that was already set by an initializer. Telemetry initializers are called before calling telemetry processors. So any enrichments done by initializers are visible to processors.
 
 **Define your initializer**
 
@@ -263,7 +263,7 @@ namespace MvcWebRole.Telemetry
 }
 ```
 
-**ASP.NET apps: Load your initializer**
+ASP.NET **apps: Load your initializer**
 
 In ApplicationInsights.config:
 
@@ -277,7 +277,7 @@ In ApplicationInsights.config:
 </ApplicationInsights>
 ```
 
-*Alternatively,* you can instantiate the initializer in code, for example in Global.aspx.cs:
+Alternatively, you can instantiate the initializer in code, for example, in Global.aspx.cs:
 
 ```csharp
 protected void Application_Start()
@@ -287,14 +287,14 @@ protected void Application_Start()
 }
 ```
 
-[See more of this sample.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
+See more of [this sample](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole).
 
-**ASP.NET Core/ Worker Service apps: Load your initializer**
+ASP.NET **Core/Worker service apps: Load your initializer**
 
 > [!NOTE]
-> Adding initializer using `ApplicationInsights.config` or using `TelemetryConfiguration.Active` is not valid for ASP.NET Core applications or if you are using Microsoft.ApplicationInsights.WorkerService SDK.
+> Adding an initializer by using `ApplicationInsights.config` or `TelemetryConfiguration.Active` isn't valid for ASP.NET Core applications or if you're using the Microsoft.ApplicationInsights.WorkerService SDK.
 
-For apps written using [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) or [WorkerService](worker-service.md#adding-telemetryinitializers), adding a new `TelemetryInitializer` is done by adding it to the Dependency Injection container, as shown below. This is done in `Startup.ConfigureServices` method.
+For apps written by using [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) or [WorkerService](worker-service.md#adding-telemetryinitializers), adding a new telemetry initializer is done by adding it to the Dependency Injection container, as shown. This is done in the `Startup.ConfigureServices` method.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -322,24 +322,22 @@ Insert a telemetry initializer immediately after the initialization code that yo
     // This is called whenever a new telemetry item
     // is created.
 
-    appInsights.queue.push(function () {
-        appInsights.context.addTelemetryInitializer(function (envelope) {
-            var telemetryItem = envelope.data.baseData;
+    appInsights.addTelemetryInitializer(function (envelope) {
+        var telemetryItem = envelope.data.baseData;
 
-            // To check the telemetry items type - for example PageView:
-            if (envelope.name == Microsoft.ApplicationInsights.Telemetry.PageView.envelopeType) {
-                // this statement removes url from all page view documents
-                telemetryItem.url = "URL CENSORED";
-            }
+        // To check the telemetry items type - for example PageView:
+        if (envelope.name == Microsoft.ApplicationInsights.Telemetry.PageView.envelopeType) {
+            // this statement removes url from all page view documents
+            telemetryItem.url = "URL CENSORED";
+        }
 
-            // To set custom properties:
-            telemetryItem.properties = telemetryItem.properties || {};
-            telemetryItem.properties["globalProperty"] = "boo";
-
-            // To set custom metrics:
-            telemetryItem.measurements = telemetryItem.measurements || {};
-            telemetryItem.measurements["globalMetric"] = 100;
-        });
+        // To set custom properties:
+        telemetryItem.properties = telemetryItem.properties || {};
+        telemetryItem.properties["globalProperty"] = "boo";
+        
+        // To set cloud role name / instance
+        envelope.tags["ai.cloud.role"] = "your role name";
+        envelope.tags["ai.cloud.roleInstance"] = "your role instance";
     });
 
     // End of inserted code.
@@ -348,20 +346,20 @@ Insert a telemetry initializer immediately after the initialization code that yo
 </script>
 ```
 
-For a summary of the non-custom properties available on the telemetryItem, see [Application Insights Export Data Model](../../azure-monitor/app/export-data-model.md).
+For a summary of the noncustom properties available on the telemetry item, see [Application Insights Export Data Model](./export-data-model.md).
 
-You can add as many initializers as you like, and they are called in the order they are added.
+You can add as many initializers as you like. They're called in the order that they're added.
 
 ### OpenCensus Python telemetry processors
 
-Telemetry processors in OpenCensus Python are simply callback functions called to process telemetry before they are exported. The callback function must accept an [envelope](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py#L86) data type as its parameter. To filter out telemetry from being exported,make sure the callback function returns `False`. You can see the schema for Azure Monitor data types in the envelopes [here](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py).
+Telemetry processors in OpenCensus Python are simply callback functions called to process telemetry before they're exported. The callback function must accept an [envelope](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py#L86) data type as its parameter. To filter out telemetry from being exported, make sure the callback function returns `False`. You can see the schema for Azure Monitor data types in the envelopes [on GitHub](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py).
 
 > [!NOTE]
-> You can modify the `cloud_RoleName` by changing the `ai.cloud.role` attribute in the `tags` field.
+> You can modify `cloud_RoleName` by changing the `ai.cloud.role` attribute in the `tags` field.
 
 ```python
 def callback_function(envelope):
-    envelope.tags['ai.cloud.role'] = 'new_role_name.py'
+    envelope.tags['ai.cloud.role'] = 'new_role_name'
 ```
 
 ```python
@@ -459,11 +457,11 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-You can add as many processors as you like, and they are called in the order they are added. If one processor should throw an exception, it does not impact the following processors.
+You can add as many processors as you like. They're called in the order that they're added. If one processor throws an exception, it doesn't impact the following processors.
 
 ### Example TelemetryInitializers
 
-#### Add custom property
+#### Add a custom property
 
 The following sample initializer adds a custom property to every tracked telemetry.
 
@@ -478,9 +476,9 @@ public void Initialize(ITelemetry item)
 }
 ```
 
-#### Add cloud role name
+#### Add a cloud role name
 
-The following sample initializer sets cloud role name to every tracked telemetry.
+The following sample initializer sets the cloud role name to every tracked telemetry.
 
 ```csharp
 public void Initialize(ITelemetry telemetry)
@@ -494,7 +492,7 @@ public void Initialize(ITelemetry telemetry)
 
 #### Add information from HttpContext
 
-The following sample initializer reads data from the [`HttpContext`](https://docs.microsoft.com/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) and appends it to a `RequestTelemetry` instance. The `IHttpContextAccessor` is automatically provided through constructor dependency injection.
+The following sample initializer reads data from [`HttpContext`](/aspnet/core/fundamentals/http-context) and appends it to a `RequestTelemetry` instance. The `IHttpContextAccessor` is automatically provided through constructor dependency injection.
 
 ```csharp
 public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
@@ -524,30 +522,31 @@ public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
 
 What's the difference between telemetry processors and telemetry initializers?
 
-* There are some overlaps in what you can do with them: both can be used to add or modify properties of telemetry, though it is recommended to use initializers for that purpose.
-* TelemetryInitializers always run before TelemetryProcessors.
-* TelemetryInitializers may be called more than once. By convention, they do not set any property that has already been set.
-* TelemetryProcessors allow you to completely replace or discard a telemetry item.
-* All registered TelemetryInitializers are guaranteed to be called for every telemetry item. For Telemetry processors, SDK guarantees calling the very first telemetry processor. Whether the rest of the processors are called or not, is decided by the preceding telemetry processors.
-* Use TelemetryInitializers to enrich telemetry with additional properties, or override existing one. Use TelemetryProcessor to filter out telemetry.
+* There are some overlaps in what you can do with them. Both can be used to add or modify properties of telemetry, although we recommend that you use initializers for that purpose.
+* Telemetry initializers always run before telemetry processors.
+* Telemetry initializers may be called more than once. By convention, they don't set any property that was already set.
+* Telemetry processors allow you to completely replace or discard a telemetry item.
+* All registered telemetry initializers are guaranteed to be called for every telemetry item. For telemetry processors, SDK guarantees calling the first telemetry processor. Whether the rest of the processors are called or not is decided by the preceding telemetry processors.
+* Use telemetry initializers to enrich telemetry with additional properties or override an existing one. Use a telemetry processor to filter out telemetry.
 
-## Troubleshooting ApplicationInsights.config
+## Troubleshoot ApplicationInsights.config
 
 * Confirm that the fully qualified type name and assembly name are correct.
 * Confirm that the applicationinsights.config file is in your output directory and contains any recent changes.
 
 ## Reference docs
 
-* [API Overview](../../azure-monitor/app/api-custom-events-metrics.md)
-* [ASP.NET reference](https://msdn.microsoft.com/library/dn817570.aspx)
+* [API overview](./api-custom-events-metrics.md)
+* [ASP.NET reference](/previous-versions/azure/dn817570(v=azure.100))
 
-## SDK Code
+## SDK code
 
 * [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
 * [ASP.NET SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 
 ## <a name="next"></a>Next steps
-* [Search events and logs](../../azure-monitor/app/diagnostic-search.md)
-* [Sampling](../../azure-monitor/app/sampling.md)
-* [Troubleshooting](../../azure-monitor/app/troubleshoot-faq.md)
+* [Search events and logs](./diagnostic-search.md)
+* [sampling](./sampling.md)
+* [Troubleshooting](../faq.yml)
+

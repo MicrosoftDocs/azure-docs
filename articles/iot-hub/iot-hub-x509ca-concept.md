@@ -1,6 +1,6 @@
 ---
 title: Concepts of Azure IoT Hub X.509 security | Microsoft Docs
-description: Concept - understanding the value X.509 certificate authority certificates in IoT device manufacturing, and authentication . 
+description: Concept - understanding the value X.509 certificate authority certificates in IoT device manufacturing, and authentication. 
 author: eustacea
 manager: arjmands
 ms.service: iot-hub
@@ -23,6 +23,8 @@ This article describes:
 
 * How devices signed with X.509 CA connect to IoT Hub
 
+[!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
+
 ## Overview
 
 X.509 Certificate Authority (CA) authentication is an approach for authenticating devices to IoT Hub using a method that dramatically simplifies device identity creation and life-cycle management in the supply chain.
@@ -32,6 +34,8 @@ A distinguishing attribute of the X.509 CA authentication is a one-to-many relat
 Another important attribute of the X.509 CA authentication is simplification of supply chain logistics. Secure authentication of devices requires that each device holds a unique secret like a key as basis for trust. In certificates-based authentication, this secret is a private key. A typical device manufacturing flow involves multiple steps and custodians. Securely managing device private keys across multiple custodians and maintaining trust is difficult and expensive. Using certificate authorities solves this problem by signing each custodian into a cryptographic chain of trust rather than entrusting them with device private keys. Each custodian in turn signs devices at their respective process step of the manufacturing flow. The overall result is an optimal supply chain with built-in accountability through use of the cryptographic chain of trust. It is worth noting that this process yields the most security when devices protect their unique private keys. To this end, we urge the use of Hardware Secure Modules (HSM) capable of internally generating private keys that will never see the light of day.
 
 This article offers an end-to-end view of using the X.509 CA authentication, from supply chain setup to device connection, while making use of a real world example to solidify understanding.
+
+You can also use enrollment groups with the Azure IoT Hub Device Provisioning Service (DPS) to handle provisioning of devices to hubs. For more information on using DPS to provision X.509 certificate devices, see [Tutorial: Provision multiple X.509 devices using enrollment groups](../iot-dps/tutorial-custom-hsm-enrollment-group-x509.md).
 
 ## Introduction
 
@@ -57,17 +61,17 @@ Details on how to accomplish these steps differ with various service providers.
 
 ### Purchasing an X.509 CA certificate
 
-Purchasing a CA certificate has the benefit of having a well-known root CA act as a trusted third party to vouch for the legitimacy of IoT devices when the devices connect. Company-X would choose this option if they intend Smart-X-Widget to interact with third party products or services after initial connection to IoT Hub.
+Purchasing a CA certificate has the benefit of having a well-known root CA act as a trusted third party to vouch for the legitimacy of IoT devices when the devices connect. Company-X would choose this option if they intend Smart-X-Widget to interact with third-party products or services after initial connection to IoT Hub.
 
 To purchase an X.509 CA certificate, Company-X would choose a root certificates services provider. An internet search for the phrase 'Root CA' will yield good leads. The root CA will guide Company-X on how to create the public/private key pair and how to generate a Certificate Signing Request (CSR) for their services. A CSR is the formal process of applying for a certificate from a certificate authority. The outcome of this purchase is a certificate for use as an authority certificate. Given the ubiquity of X.509 certificates, the certificate is likely to have been properly formatted to IETF's RFC 5280 standard.
 
 ### Creating a Self-Signed X.509 CA certificate
 
-The process to create a Self-Signed X.509 CA certificate is similar to purchasing with the exception of involving a third party signer like the root certificate authority. In our example, Company-X will sign its authority certificate instead of a root certificate authority. Company-X may choose this option for testing until they're ready to purchase an authority certificate. Company-X may also use a self-signed X.509 CA certificate in production, if Smart-X-Widget is not intended to connect to any third party services outside of the IoT Hub.
+The process to create a Self-Signed X.509 CA certificate is similar to purchasing with the exception of involving a third-party signer like the root certificate authority. In our example, Company-X will sign its authority certificate instead of a root certificate authority. Company-X may choose this option for testing until they're ready to purchase an authority certificate. Company-X may also use a self-signed X.509 CA certificate in production, if Smart-X-Widget is not intended to connect to any third-party services outside of the IoT Hub.
 
 ## Register the X.509 certificate to IoT Hub
 
-Company-X needs to register the X.509 CA to IoT Hub where it will serve to authenticate Smart-X-Widgets as they connect. This is a one-time process that enables the ability to authenticate and manage any number of Smart-X-Widget devices. This process is one-time because of a one-to-many relationship between authority certificate and devices and also constitutes one of the main advantages of using the X.509 CA authentication method. The alternative is to upload individual certificate thumbprints for each and every Smart-X-Widget device thereby adding to operational costs.
+Company-X needs to register the X.509 CA to IoT Hub where it will serve to authenticate Smart-X-Widgets as they connect. This is a one-time process that enables the ability to authenticate and manage any number of Smart-X-Widget devices. This is a one-time process because of a one-to-many relationship between CA certificate and device certificates that are signed by the CA certificate or an intermediate certificate. This relationship constitutes one of the main advantages of using the X.509 CA authentication method. The alternative is to upload individual certificate thumbprints for each and every Smart-X-Widget device thereby adding to operational costs.
 
 Registering the X.509 CA certificate is a two-step process, the certificate upload and certificate proof-of-possession.
 
@@ -79,7 +83,7 @@ The X.509 CA certificate upload process is just that, upload the CA certificate 
 
 ### Proof-of-Possession of the Certificate
 
-The X.509 CA certificate, just like any digital certificate, is public information that is susceptible to eavesdropping. As such, an eavesdropper may intercept a certificate and try to upload it as their own. In our example, IoT Hub would like to make sure that the CA certificate Company-X is uploading really belongs to Company-X. It does so by challenging Company-X to proof that they in fact possess the certificate through a [proof-of-possession (PoP) flow](https://tools.ietf.org/html/rfc5280#section-3.1). The proof-of-possession flow entails IoT Hub generating a random number to be signed by Company-X using its private key. If Company-X followed PKI best practices and protected their private key then only they would be in position to correctly respond to the proof-of-possession challenge. IoT Hub proceeds to register the X.509 CA certificate upon a successful response of the proof-of-possession challenge.
+The X.509 CA certificate, just like any digital certificate, is public information that is susceptible to eavesdropping. As such, an eavesdropper may intercept a certificate and try to upload it as their own. In our example, IoT Hub would like to make sure that the CA certificate Company-X is uploading really belongs to Company-X. It does so by challenging Company-X to prove that they in fact possess the certificate through a [proof-of-possession (PoP) flow](https://tools.ietf.org/html/rfc5280#section-3.1). The proof-of-possession flow entails IoT Hub generating a random number to be signed by Company-X using its private key. If Company-X followed PKI best practices and protected their private key then only they would be in position to correctly respond to the proof-of-possession challenge. IoT Hub proceeds to register the X.509 CA certificate upon a successful response of the proof-of-possession challenge.
 
 A successful response to the proof-of-possession challenge from IoT Hub completes the X.509 CA registration.
 

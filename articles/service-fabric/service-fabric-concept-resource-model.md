@@ -2,13 +2,13 @@
 title: Azure Service Fabric application resource model  
 description: This article provides an overview of managing an Azure Service Fabric application by using Azure Resource Manager.
 ms.topic: conceptual 
-ms.date: 10/21/2019
-ms.custom: sfrev
+ms.date: 10/21/2019 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Service Fabric application resource model
 
-You have multiple options for deploying Azure Service Fabric applications on your Service Fabric cluster. We recommend using Azure Resource Manager. If you use Resource Manager, you can describe applications and services in JSON, and then deploy them in the same Resource Manager template as your cluster. Unlike using PowerShell or Azure CLI to deploy and manage applications, if you use Resource Manager, you don't have to wait for the cluster to be ready; application registration, provisioning, and deployment can all happen in one step. Using Resource Manager is the best way to manage the application life cycle in your cluster. For more information, see [Best practices: Infrastructure as code](service-fabric-best-practices-infrastructure-as-code.md#azure-service-fabric-resources).
+You have multiple options for deploying Azure Service Fabric applications on your Service Fabric cluster. We recommend using Azure Resource Manager. If you use Resource Manager, you can describe applications and services in JSON, and then deploy them in the same Resource Manager template as your cluster. Unlike using PowerShell or Azure CLI to deploy and manage applications, if you use Resource Manager, you don't have to wait for the cluster to be ready; application registration, provisioning, and deployment can all happen in one step. Using Resource Manager is the best way to manage the application life cycle in your cluster. For more information, see [Best practices: Infrastructure as code](service-fabric-best-practices-infrastructure-as-code.md#service-fabric-resources).
 
 Managing your applications as resources in Resource Manager can help you gain improvements in these areas:
 
@@ -50,8 +50,8 @@ After the storage account is created, you create a blob container where the appl
 Resources in your cluster can be secured by setting the public access level to **private**. You can grant access in multiple ways:
 
 * Authorize access to blobs and queues by using [Azure Active Directory](../storage/common/storage-auth-aad-app.md).
-* Grant access to Azure blob and queue data by using [RBAC in the Azure portal](../storage/common/storage-auth-aad-rbac-portal.md).
-* Delegate access by using a [shared access signature](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature).
+* Grant access to Azure blob and queue data by using [Azure RBAC in the Azure portal](../storage/blobs/assign-azure-role-data-access.md).
+* Delegate access by using a [shared access signature](/rest/api/storageservices/delegate-access-with-shared-access-signature).
 
 The example in the following screenshot uses anonymous read access for blobs.
 
@@ -85,6 +85,7 @@ The sample application contains [Azure Resource Manager templates](https://githu
 > The *UserApp.Parameters.json* file must be updated with the name of your cluster.
 >
 >
+
 
 | Parameter              | Description                                 | Example                                                      | Comments                                                     |
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -133,6 +134,11 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
 
 ## Upgrade the Service Fabric application by using Resource Manager
 
+
+> [!IMPORTANT]
+> Any service being deployed via ARM JSON definition must be removed from the DefaultServices section of the corresponding ApplicationManifest.xml file.
+
+
 You might upgrade an application that's already deployed to a Service Fabric cluster for one of these reasons:
 
 * A new service is added to the application. A service definition must be added to *service-manifest.xml* and *application-manifest.xml* files when a service is added to the application. To reflect a new version of an application, you also must change the application type version from 1.0.0 to 1.0.1 in [UserApp.Parameters.json](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/blob/master/ARM/UserApp.Parameters.json):
@@ -161,13 +167,13 @@ You might upgrade an application that's already deployed to a Service Fabric clu
 
 To delete an application that was deployed by using the application resource model in Resource Manager:
 
-1. Use the [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource?view=azps-2.5.0) cmdlet to get the resource ID for the application:
+1. Use the [Get-AzResource](/powershell/module/az.resources/get-azresource) cmdlet to get the resource ID for the application:
 
     ```powershell
     Get-AzResource  -Name <String> | f1
     ```
 
-1. Use the [Remove-AzResource](https://docs.microsoft.com/powershell/module/az.resources/remove-azresource?view=azps-2.5.0) cmdlet to delete the application resources:
+1. Use the [Remove-AzResource](/powershell/module/az.resources/remove-azresource) cmdlet to delete the application resources:
 
     ```powershell
     Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]
@@ -179,7 +185,7 @@ Get information about the application resource model:
 
 * [Model an application in Service Fabric](service-fabric-application-model.md)
 * [Service Fabric application and service manifests](service-fabric-application-and-service-manifests.md)
-* [Best practices: Infrastructure as code](service-fabric-best-practices-infrastructure-as-code.md#azure-service-fabric-resources)
+* [Best practices: Infrastructure as code](service-fabric-best-practices-infrastructure-as-code.md#service-fabric-resources)
 * [Manage applications and services as Azure resources](service-fabric-best-practices-infrastructure-as-code.md)
 
 

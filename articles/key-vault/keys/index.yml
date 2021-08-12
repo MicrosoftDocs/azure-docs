@@ -26,6 +26,8 @@ landingContent:
         links:
           - text: What are Key Vault keys?
             url: about-keys.md
+          - text: Important news about soft-delete 
+            url: ../general/soft-delete-change.md
 
   # Card
   - title: Get started
@@ -38,18 +40,39 @@ landingContent:
             url: quick-create-powershell.md
           - text: Portal
             url: quick-create-portal.md
+          - text: .NET
+            url: quick-create-net.md
           - text: Python
             url: quick-create-python.md
+          - text: Node.js
+            url: quick-create-node.md
+          - text: Java
+            url: quick-create-java.md
+          - text: Template
+            url: quick-create-template.md
 
   # Card
   - title: Tutorials
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Import HSM-protected keys to Key Vault
+          - text: Import HSM-protected keys (overview)
             url: hsm-protected-keys.md
-          - text: Import vendor-agnostic HSM-protected keys
-            url: hsm-protected-keys-vendor-agnostic-byok.md
+
+# Card
+  - title: Client libraries for Key Vault keys
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: .NET client library
+            url: /dotnet/api/azure.security.keyvault.keys
+          - text: Python client library
+            url: /python/api/overview/azure/keyvault-keys-readme
+          - text: Java client library
+            url: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html
+          - text: Node.js client library
+            url: /javascript/api/@azure/keyvault-keys/
+
 
   # Card
   - title: More about Key Vault
@@ -60,10 +83,11 @@ landingContent:
             url: ../general/overview.md
           - text: Basic concepts
             url: ../general/basic-concepts.md
+          - text: Security features
+            url: ../general/security-features.md
           - text: Soft-delete overview
-            url: ../general/overview-soft-delete.md
-          - text: Security overview
-            url: ../general/overview-security.md
+            url: ../general/soft-delete-overview.md
+
 
   # Card
   - title: Microsoft Learn

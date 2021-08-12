@@ -4,12 +4,12 @@ description: Learn how Azure web application firewall on Azure CDN service prote
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.topic: overview
-ms.date: 03/18/2020
+ms.topic: conceptual
+ms.date: 08/31/2020
 ms.author: victorh
 ---
 
-# Azure Web Application Firewall on Azure Content Delivery Network
+# Azure Web Application Firewall on Azure Content Delivery Network from Microsoft
 
 Azure Web Application Firewall (WAF) on Azure Content Delivery Network (CDN) from Microsoft provides centralized protection for your web content. WAF defends your web services against common exploits and vulnerabilities. It keeps your service highly available for your users and helps you meet compliance requirements.
 
@@ -40,7 +40,7 @@ A web application hosted on Azure CDN can have only one WAF policy associated wi
 
 WAF policy can be configured to run in the following two modes:
 
-- *Detection mode*: When run in detection mode, WAF doesn't take any other actions other than monitors and logs the request and its matched WAF rule to WAF logs. You can turn on logging diagnostics for Front Door. When you use the portal, go to the **Diagnostics** section.
+- *Detection mode*: When run in detection mode, WAF doesn't take any other actions other than monitors and logs the request and its matched WAF rule to WAF logs. You can turn on logging diagnostics for CDN. When you use the portal, go to the **Diagnostics** section.
 
 - *Prevention mode*: In prevention mode, WAF takes the specified action if a request matches a rule. If a match is found, no further rules with a lower priority are evaluated. Any matched requests are also logged in the WAF logs.
 

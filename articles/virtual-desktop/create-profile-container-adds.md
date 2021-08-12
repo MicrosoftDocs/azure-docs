@@ -1,17 +1,14 @@
 ---
 title: Create FSLogix profile container Azure Files Active Directory Domain Services - Azure
 description: This article describes how to create an FSLogix profile container with Azure Files and Azure Active Directory Domain Services.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
-ms.topic: conceptual
-ms.date: 04/10/2020
+ms.topic: how-to
+ms.date: 04/09/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 
-# Create an FSLogix profile container with Azure Files
+# Create a profile container with Azure Files and Azure AD DS
 
 This article will show you how to create an FSLogix profile container with Azure Files and Azure Active Directory Domain Services (AD DS).
 
@@ -37,7 +34,7 @@ To add an admin:
 
 ## Set up an Azure Storage account
 
-Now it's time to enable Azure AD DS authentication over Server Message Block (SMB). 
+Now it's time to enable Azure AD DS authentication over Server Message Block (SMB).
 
 To enable authentication:
 
@@ -89,14 +86,15 @@ To get the Storage Account access key:
 
     This will download an RDP file that will let you sign in to the VM with its own credentials.
 
-    ![A screenshot of the RDP tab of the Connect to virtual machine window.](media/rdp-tab.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the RDP tab of the Connect to virtual machine window.](media/rdp-tab.png)
 
 6. When you've signed in to the VM, run a command prompt as an administrator.
 
 7. Run the following command:
 
      ```cmd
-     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
+     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /user:Azure\<storage-account-name> <storage-account-key>
      ```
 
     - Replace `<desired-drive-letter>` with a drive letter of your choice (for example, `y:`).
@@ -104,25 +102,31 @@ To get the Storage Account access key:
     - Replace `<share-name>` with the name of the share you created earlier.
     - Replace `<storage-account-key>` with the storage account key from Azure.
 
-    For example:  
-  
-     ```cmd
-     net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
-     ```
-
-8. Run the following command to grant the user full access to the Azure Files share.
+    For example:
 
      ```cmd
-     icacls <mounted-drive-letter>: /grant <user-email>:(f)
+     net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile
      ```
 
-    - Replace `<mounted-drive-letter>` with the letter of the drive you want the user to use.
-    - Replace `<user-email>` with the UPN of the user who will use this profile to access the session host VMs.
+8. Run the following commands to allow your Azure Virtual Desktop users to create their own profile container while blocking access to the profile containers from other users.
+
+     ```cmd
+     icacls <mounted-drive-letter>: /grant <user-email>:(M)
+     icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)
+     icacls <mounted-drive-letter>: /remove "Authenticated Users"
+     icacls <mounted-drive-letter>: /remove "Builtin\Users"
+     ```
+
+    - Replace `<mounted-drive-letter>` with the letter of the drive you used to map the drive.
+    - Replace `<user-email>` with the UPN of the user or Active Directory group that contains the users that will require access to the share.
 
     For example:
-     
+
      ```cmd
-     icacls y: /grant john.doe@contoso.com:(f)
+     icacls <mounted-drive-letter>: /grant john.doe@contoso.com:(M)
+     icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)
+     icacls <mounted-drive-letter>: /remove "Authenticated Users"
+     icacls <mounted-drive-letter>: /remove "Builtin\Users"
      ```
 
 ## Create a profile container
@@ -152,11 +156,13 @@ To configure a FSLogix profile container:
 
 9.  Right-click on **Profiles**, select **New**, and then select **DWORD (32-bit) Value.** Name the value **Enabled** and set the **Data** value to **1**.
 
-    ![A screenshot of the Profiles key. The REG_DWORD file is highlighted and its Data value is set to 1.](media/dword-value.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the Profiles key. The REG_DWORD file is highlighted and its Data value is set to 1.](media/dword-value.png)
 
 10. Right-click on **Profiles**, select **New**, and then select **Multi-String Value**. Name the value **VHDLocations** and set enter the URI for the Azure Files share `\\fsprofile.file.core.windows.net\share` as the Data value.
 
-    ![A screenshot of the Profiles key showing the VHDLocations file. Its Data value shows the URI for the Azure Files share.](media/multi-string-value.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the Profiles key showing the VHDLocations file. Its Data value shows the URI for the Azure Files share.](media/multi-string-value.png)
 
 ## Assign users to a session host
 
@@ -164,7 +170,7 @@ Now you'll need to assign users to your session host.
 
 To assign users:
 
-1. Run Windows PowerShell as an administrator, then run the following cmdlet to sign in to Windows Virtual Desktop with PowerShell:
+1. Run Windows PowerShell as an administrator, then run the following cmdlet to sign in to Azure Virtual Desktop with PowerShell:
 
    ```powershell
    Import-Module Microsoft.RdInfra.RdPowershell
@@ -177,7 +183,7 @@ To assign users:
    Add-RdsAccount -DeploymentUrl $brokerurl
    ```
 
-   When prompted for credentials, enter the same user that was granted the TenantCreator, RDS Owner, or RDS Contributor role on the Windows Virtual Desktop tenant.
+   When prompted for credentials, enter the same user that was granted the TenantCreator, RDS Owner, or RDS Contributor role on the Azure Virtual Desktop tenant.
 
 2. Run the following cmdlets to assign the user to the remote desktop group:
 
@@ -199,13 +205,13 @@ To assign users:
 
      ```powershell
      $pool1 = "contoso"
-     
+
      $tenant = "contoso"
-     
+
      $appgroup = "Desktop Application Group"
-     
+
      $user1 = "jane.doe@contoso.com"
-     
+
      Add-RdsAppGroupUser $tenant $pool1 $appgroup $user1
      ```
 
@@ -215,7 +221,7 @@ Now all you have to do is make sure the profile you created exists and works as 
 
 To verify your profile:
 
-1. Open a browser and go to [the Windows Virtual Desktop web client](https://rdweb.wvd.microsoft.com/webclient/index.html).
+1. Open a browser and go to [the Azure Virtual Desktop web client](https://rdweb.wvd.microsoft.com/arm/webclient).
 
 2. Sign in with the user account assigned to the Remote Desktop group.
 

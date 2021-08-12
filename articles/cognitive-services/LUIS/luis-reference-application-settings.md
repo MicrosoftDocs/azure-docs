@@ -1,30 +1,27 @@
 ---
 title: Application settings - LUIS
 description: Applications settings for Azure Cognitive Services language understanding apps are stored in the app and portal.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 04/14/2020
+ms.date: 05/04/2020
 ---
 
-# Application settings
+# App and version settings
 
-These application settings are stored in the [exported](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) app and [updated](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) with the REST APIs. Changing your app version settings resets your app training status to untrained.
+These settings are stored in the [exported](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) app and updated with the REST APIs or LUIS portal.
 
-Learn [concepts](luis-concept-utterance.md#utterance-normalization-for-diacritics-and-punctuation) of diacritics and punctuation.
+Changing your app version settings resets your app training status to untrained.
 
-|Setting|Default value|Notes|
-|--|--|--|
-|NormalizePunctuation|True|Removes punctuation.|
-|NormalizeDiacritics|True|Removes diacritics.|
+[!INCLUDE [App and version settings](includes/app-version-settings.md)]
+
+
+Text reference and examples include:
+
+* [Punctuation](#punctuation-normalization)
+* [Diacritics](#diacritics-normalization)
 
 ## Diacritics normalization
-
-Turn on utterance normalization for diacritics to your LUIS JSON app file in the `settings` parameter.
-
-```JSON
-"settings": [
-    {"name": "NormalizeDiacritics", "value": "true"}
-]
-```
 
 The following utterances show how diacritics normalization impacts utterances:
 
@@ -128,16 +125,7 @@ This includes both spanish and canadian mexican.
 |`ü`|`u`|
 |`ñ`|`u`|
 
-
 ## Punctuation normalization
-
-Turn on utterance normalization for punctuation to your LUIS JSON app file in the `settings` parameter.
-
-```JSON
-"settings": [
-    {"name": "NormalizePunctuation", "value": "true"}
-]
-```
 
 The following utterances show how punctuation impacts utterances:
 

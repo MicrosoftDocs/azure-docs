@@ -10,8 +10,8 @@ metadata:
   ms.service: site-recovery
   ms.topic: landing-page
   ms.collection: collection
-  author: rayne-wiselman
-  ms.author: raynew
+  author: JYOTHIRMAISURI
+  ms.author: v-jysur
   ms.date: 11/19/2019
 
 landingContent:
@@ -48,6 +48,8 @@ landingContent:
             url: ./azure-to-azure-move-overview.md
       - linkListType: how-to-guide
         links:
+          - text: Zone to zone disaster recovery
+            url: ./azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md
           - text: Networking for Azure VM disaster recovery
             url: ./azure-to-azure-about-networking.md
           - text: Disaster recovery after migration to Azure
@@ -105,8 +107,8 @@ landingContent:
         links:
           - text: Request a service feature
             url: https://feedback.azure.com/forums/256299-site-recovery
-          - text: Ask a forum question
-            url: https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr
+          - text: Ask a Microsoft Q&A question
+            url: /answers/topics/azure-site-recovery.html
           - text: Azure Tech Community
             url: https://techcommunity.microsoft.com/t5/Azure/ct-p/Azure
 

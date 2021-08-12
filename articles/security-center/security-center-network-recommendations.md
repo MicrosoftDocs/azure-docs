@@ -1,16 +1,10 @@
 ---
 title: Protecting your network resources in Azure Security Center
 description: This document addresses recommendations in Azure Security Center that help you protect your Azure network resources and stay in compliance with security policies.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 96c55a02-afd6-478b-9c1f-039528f3dea0
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
 
@@ -18,32 +12,34 @@ ms.author: memildin
 # Protect your network resources
 Azure Security Center continuously analyzes the security state of your Azure resources for network security best practices. When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls to harden and protect your resources.
 
-This article explains the **Networking** page of the resource security section of Security Center.
-
-For a full list of the recommendations for Networking, see [Networking recommendations](recommendations-reference.md#recs-network).
+For a full list of the recommendations for Networking, see [Networking recommendations](recommendations-reference.md#recs-networking).
 
 This article addresses recommendations that apply to your Azure resources from a network security perspective. Networking recommendations center around next generation firewalls, Network Security Groups, JIT VM access, overly permissive inbound traffic rules, and more. For a list of networking recommendations and remediation actions, see [Managing security recommendations in Azure Security Center](security-center-recommendations.md).
 
-> [!NOTE]
-> The **Networking** page lets you deep dive into your Azure resource health from a network perspective. The Network map and Adaptive Network Controls are available for the Azure Security Center standard tier only. [If you use the free tier, you can click the button to **View legacy networking** and receive networking resource recommendations](#legacy-networking).
->
+The **Networking** features of Security Center include: 
 
-The **Networking** page provides an overview of the sections you can deep dive into, to get more information about the health of your network resources:
-
-- Network map (Azure Security Center Standard tier only)
-- Adaptive Network Hardening
-- Networking security recommendations.
-- Legacy **Networking** blade (the previous networking blade) 
+- Network map (requires Azure Defender)
+- [Adaptive network hardening](security-center-adaptive-network-hardening.md) (requires Azure Defender)
+- Networking security recommendations
  
-[![Networking pane](./media/security-center-network-recommendations/networking-pane.png)](./media/security-center-network-recommendations/networking-pane.png#lightbox)
+## View your networking resources and their recommendations
+
+From the [asset inventory page](asset-inventory.md), use the resource type filter to select the networking resources that you want to investigate:
+
+:::image type="content" source="./media/security-center-network-recommendations/network-filters-inventory.png" alt-text="Asset inventory network resource types." lightbox="./media/security-center-network-recommendations/network-filters-inventory.png":::
+
 
 ## Network map
+
 The interactive network map provides a graphical view with security overlays giving you recommendations and insights for hardening your network resources. Using the map you can see the network topology of your Azure workloads, connections between your virtual machines and subnets, and the capability to drill down from the map into specific resources and the recommendations for those resources.
 
 To open the Network map:
 
-1. In Security Center, under Resource Security Hygiene, select **Networking**.
-2. Under **Network map** click **See topology**.
+1. From Security Center's menu, open the Azure Defender dashboard and select **Network map**.
+
+    :::image type="content" source="./media/security-center-network-recommendations/opening-network-map.png" alt-text="Opening the network map from the Azure Defender dashboard." lightbox="./media/security-center-network-recommendations/opening-network-map.png":::
+
+1. Select the **Layers** menu choose **Topology**.
  
 The default view of the topology map displays:
 
@@ -54,11 +50,11 @@ The default view of the topology map displays:
 - Internet facing resources
 - The map is optimized for the subscriptions you selected in Azure. If you modify your selection, the map is recalculated and re-optimized based on your new settings.  
 
-[![Networking topology map](./media/security-center-network-recommendations/network-map-info.png)](./media/security-center-network-recommendations/network-map-info.png#lightbox)
+[![Networking topology map.](./media/security-center-network-recommendations/network-map-info.png)](./media/security-center-network-recommendations/network-map-info.png#lightbox)
 
-## Understanding the Network map
+## Understanding the network map
 
-The Network map can show you your Azure resources in a **Topology** view and a **Traffic** view. 
+The network map can show you your Azure resources in a **Topology** view and a **Traffic** view. 
 
 ### The topology view
 
@@ -106,34 +102,11 @@ To drill down into a resource:
 
 **This data is based on analysis of the Network Security Groups as well as advanced machine learning algorithms that analyze multiple rules to understand their crossovers and interactions.** 
 
-[![Networking traffic map](./media/security-center-network-recommendations/network-map-traffic.png)](./media/security-center-network-recommendations/network-map-traffic.png#lightbox)
+[![Networking traffic map.](./media/security-center-network-recommendations/network-map-traffic.png)](./media/security-center-network-recommendations/network-map-traffic.png#lightbox)
 
-
-## Legacy networking <a name ="legacy-networking"></a>
-
-If you don't have Security Center Standard tier, this section explains how to view free Networking recommendations.
-
-To access this information, in the Networking blade, click **View legacy networking**. 
-
-[![Legacy Networking](./media/security-center-network-recommendations/legacy-networking.png)](./media/security-center-network-recommendations/legacy-networking.png#lightbox)
-
-### Internet facing endpoints section
-In the **Internet facing endpoints** section, you can see the virtual machines that are currently configured with an Internet facing endpoint and its status.
-
-This table has the endpoint name, the Internet facing IP address, and the current severity status of the network security group and the NGFW recommendations. The table is sorted by severity.
-
-### Networking topology section
-The **Networking topology** section has a hierarchical view of the resources.
-
-This table is sorted (virtual machines and subnets) by severity.
-
-In this topology view, the first level displays Vnets. The second displays subnets, and the third level displays the virtual machines that belong to those subnets. The right column shows the current status of the network security group recommendations for those resources.
-
-The third level displays virtual machines, which is similar to what is described previously. You can click any resource to learn more or apply the required security control or configuration.
 
 ## Next steps
 
 To learn more about recommendations that apply to other Azure resource types, see the following:
 
-* [Protecting your machines and applications in Azure Security Center](security-center-virtual-machine-protection.md)
-* [Protecting your Azure SQL service in Azure Security Center](security-center-sql-service-recommendations.md)
+- [Protecting your machines and applications in Azure Security Center](./asset-inventory.md)

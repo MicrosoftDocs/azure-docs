@@ -5,10 +5,10 @@ description: This article shows how to deploy an IPv6 dual stack application in 
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
@@ -75,8 +75,8 @@ Template section to add:
               "protocol": "Tcp",
               "sourcePortRange": "33819-33829",
               "destinationPortRange": "5000-6000",
-              "sourceAddressPrefix": "ace:cab:deca:deed::/64",
-              "destinationAddressPrefix": "cab:ace:deca:deed::/64",
+              "sourceAddressPrefix": "fd00:db8:deca:deed::/64",
+              "destinationAddressPrefix": "fd00:db8:deca:deed::/64",
               "access": "Allow",
               "priority": 1003,
               "direction": "Inbound"
@@ -98,9 +98,9 @@ If you're using a network virtual appliance, add IPv6 routes in the Route Table.
           {
             "name": "v6route",
             "properties": {
-              "addressPrefix": "ace:cab:deca:deed::/64",
+              "addressPrefix": "fd00:db8:deca:deed::/64",
               "nextHopType": "VirtualAppliance",
-              "nextHopIpAddress": "deca:cab:ace:f00d::1"
+              "nextHopIpAddress": "fd00:db8:ace:f00d::1"
             }
 ```
 

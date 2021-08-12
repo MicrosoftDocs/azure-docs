@@ -2,12 +2,12 @@
 title: Data migration options from StorSimple 8000 series devices
 description: Provides an overview of the options to migrate data from StorSimple 8000 series.
 services: storsimple
-author: priestlg
+author: alkohli
 
 ms.service: storsimple
-ms.topic: article
-ms.date: 03/25/2020 
-ms.author: v-grpr
+ms.topic: how-to
+ms.date: 07/14/2021 
+ms.author: alkohli
 
 ---
 # Options to migrate data from StorSimple 8000 series
@@ -27,17 +27,31 @@ The customers using StorSimple 8000 series have Azure or third-party options.
 
 This brand new migration option enables customers to store their organization's file shares in the Azure Files. These files shares are then centralized for on-premises access using Azure File Sync (AFS). AFS can be deployed on a Windows Server host. The actual data migration is then performed as a host copy or using the migration tool.
 
-For more information on how to migrate data to Azure File Sync, go to [StorSimple 8100 and 8600 migration to Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-files-migration-storsimple-8000).
+For more information on how to migrate data to Azure File Sync, go to [StorSimple 8100 and 8600 migration to Azure File Sync](../storage/files/storage-files-migration-storsimple-8000.md).
 
-<!-- 03/25/2020 v-grpr (priestlg) - As per request, commenting out this section because the information that will go into this section is forthcoming
 ### Third-party options
 
 #### Migrate to Panzura Freedom NAS
 
-StorSimple 5000-7000 customers can choose to migrate to Panzura Freedom NAS to keep their data in Azure. Panzura Freedom solution provides a NAS solution that spans datacenters, offices, public and private clouds. The solution enables local, hybrid, and in-cloud data workflows for NFS, SMB, and mobile clients. 
+StorSimple 5000-7000 series and StorSimple 8000 series customers can choose to migrate to Panzura Freedom NAS to keep their data in Azure. The Panzura Freedom solution provides a NAS solution that spans datacenters, offices, public and private clouds. The solution enables local, hybrid, and in-cloud data workflows for NFS, SMB, and mobile clients.
 
-This migration is supported by Panzura and customers can get started by requesting migration support from the [Panzura website](https://panzura.com/storsimple-migration/).
+This migration is supported by Panzura and customers can get started by requesting migration support from the [Panzura website](https://panzura.com/migrate-storsimple-panzura/).
 
+#### Migrate to Nasuni
+
+Moving your entire StorSimple environment to a stable, secure, high performance file services platform is easy with Nasuni. Nasuni offers the security and performance of on-premises file storage while combining it with the scalability and durability of Azure. As a leading Azure independent software vendor (ISV), Nasuni brings all the tools necessary to move your StorSimple data to a modern platform that lets you share and collaborate with your files across multiple locations.
+
+Get started today: [Nasuni website](https://info.nasuni.com/storsimple8000-webinar).
+
+#### Migrate to NetApp
+
+StorSimple 8000 Series customers can migrate to Azure NetApp Files (ANF) paired with NetApp Global File Cache (GFC) to continue storing critical data in Azure while maintaining content at remote sites. Customers can streamline and simplify IT storage and infrastructure by centralizing unstructured data in Microsoft Azure using Azure NetApp Files to provide fast local and geographically distributed access with NetApp Global File Cache.
+
+For an overview of capabilities, deployment methodologies, and migration, see [Reference Architecture: Globally Distributed
+Enterprise File Sharing with Azure NetApp Files and NetApp Global File Cache](https://f.hubspotusercontent20.net/hubfs/525875/r3_NA-581-0521-Ref-Arch-ANF-GFC-StorSimple%20(1)%20(1)%20(2).pdf), from NetApp.<!--Not included: 1) Partnership with MS; 2) How to initiate migration with NetApp (other providers point people to their site).-->
+
+
+<!-- 04/09/2020 v-grpr (priestlg) - As per request, commenting out this section because the information that will go into this section is forthcoming
 #### Migrate to Cohesity
 
 Cohesity enables you to migrate data from your current StorSimple 5000–7000 to the Cohesity Data Platform on Azure. The Cohesity Data Platform is a software-defined web-scale solution that consolidates files, backups, objects, and VMs onto a single cloud-native solution. After migration to the Data Platform, you can manage, protect, and provision data and apps from cloud to core through a single pane of glass. With Cohesity, start with as few as three nodes. 
@@ -101,4 +115,4 @@ A. The time to migrate data depends on the amount of the data and the upgrade op
 
 ## Next steps
 
-* [Migrate data from a StorSimple 8000 series to Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-files-migration-storsimple-8000)
+* [Migrate data from a StorSimple 8000 series to Azure File Sync](../storage/files/storage-files-migration-storsimple-8000.md)

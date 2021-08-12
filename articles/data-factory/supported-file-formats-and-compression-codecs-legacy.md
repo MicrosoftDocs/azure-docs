@@ -1,16 +1,14 @@
 ---
 title: Supported file formats in Azure Data Factory (legacy)
+titleSuffix: Azure Data Factory & Azure Synapse
 description: 'This topic describes the file formats and compression codes that are supported by file-based connectors in Azure Data Factory.'
-author: linda33wj
-manager: shwang
-ms.reviewer: craigg
-
+author: jianleishen
+ms.author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.author: jingwang
-
 ---
 
 # Supported file formats and compression codecs in Azure Data Factory (legacy)
@@ -36,7 +34,7 @@ If you want to read from a text file or write to a text file, set the `type` pro
 | escapeChar |The special character used to escape a column delimiter in the content of input file. <br/><br/>You cannot specify both escapeChar and quoteChar for a table. |Only one character is allowed. No default value. <br/><br/>Example: if you have comma (',') as the column delimiter but you want to have the comma character in the text (example: "Hello, world"), you can define '$' as the escape character and use string "Hello$, world" in the source. |No |
 | quoteChar |The character used to quote a string value. The column and row delimiters inside the quote characters would be treated as part of the string value. This property is applicable to both input and output datasets.<br/><br/>You cannot specify both escapeChar and quoteChar for a table. |Only one character is allowed. No default value. <br/><br/>For example, if you have comma (',') as the column delimiter but you want to have comma character in the text (example: <Hello, world>), you can define " (double quote) as the quote character and use the string "Hello, world" in the source. |No |
 | nullValue |One or more characters used to represent a null value. |One or more characters. The **default** values are **"\N" and "NULL"** on read and **"\N"** on write. |No |
-| encodingName |Specify the encoding name. |A valid encoding name. see [Encoding.EncodingName Property](https://msdn.microsoft.com/library/system.text.encoding.aspx). Example: windows-1250 or shift_jis. The **default** value is **UTF-8**. |No |
+| encodingName |Specify the encoding name. |A valid encoding name. see [Encoding.EncodingName Property](/dotnet/api/system.text.encoding). Example: windows-1250 or shift_jis. The **default** value is **UTF-8**. |No |
 | firstRowAsHeader |Specifies whether to consider the first row as a header. For an input dataset, Data Factory reads first row as a header. For an output dataset, Data Factory writes first row as a header. <br/><br/>See [Scenarios for using `firstRowAsHeader` and `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) for sample scenarios. |True<br/><b>False (default)</b> |No |
 | skipLineCount |Indicates the number of **non-empty** rows to skip when reading data from input files. If both skipLineCount and firstRowAsHeader are specified, the lines are skipped first and then the header information is read from the input file. <br/><br/>See [Scenarios for using `firstRowAsHeader` and `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) for sample scenarios. |Integer |No |
 | treatEmptyAsNull |Specifies whether to treat null or empty string as a null value when reading data from an input file. |**True (default)**<br/>False |No |
@@ -90,7 +88,7 @@ If you want to parse the JSON files or write the data in JSON format, set the `t
 | filePattern |Indicate the pattern of data stored in each JSON file. Allowed values are: **setOfObjects** and **arrayOfObjects**. The **default** value is **setOfObjects**. See [JSON file patterns](#json-file-patterns) section for details about these patterns. |No |
 | jsonNodeReference | If you want to iterate and extract data from the objects inside an array field with the same pattern, specify the JSON path of that array. This property is supported only when copying data **from** JSON files. | No |
 | jsonPathDefinition | Specify the JSON path expression for each column mapping with a customized column name (start with lowercase). This property is supported only when copying data **from** JSON files, and you can extract data from object or array. <br/><br/> For fields under root object, start with root $; for fields inside the array chosen by `jsonNodeReference` property, start from the array element. See [JsonFormat example](#jsonformat-example) section on how to configure. | No |
-| encodingName |Specify the encoding name. For the list of valid encoding names, see: [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) Property. For example: windows-1250 or shift_jis. The **default** value is: **UTF-8**. |No |
+| encodingName |Specify the encoding name. For the list of valid encoding names, see: [Encoding.EncodingName](/dotnet/api/system.text.encoding) Property. For example: windows-1250 or shift_jis. The **default** value is: **UTF-8**. |No |
 | nestingSeparator |Character that is used to separate nesting levels. The default value is '.' (dot). |No |
 
 >[!NOTE]
@@ -539,7 +537,7 @@ Note the following points:
 
 Azure Data Factory supports compress/decompress data during copy. When you specify `compression` property in an input dataset, the copy activity read the compressed data from the source and decompress it; and when you specify the property in an output dataset, the copy activity compress then write data to the sink. Here are a few sample scenarios:
 
-* Read GZIP compressed data from an Azure blob, decompress it, and write result data to an Azure SQL database. You define the input Azure Blob dataset with the `compression` `type` property as GZIP.
+* Read GZIP compressed data from an Azure blob, decompress it, and write result data to Azure SQL Database. You define the input Azure Blob dataset with the `compression` `type` property as GZIP.
 * Read data from a plain-text file from on-premises File System, compress it using GZip format, and write the compressed data to an Azure blob. You define an output Azure Blob dataset with the `compression` `type` property as GZip.
 * Read .zip file from FTP server, decompress it to get the files inside, and land those files in Azure Data Lake Store. You define an input FTP dataset with the `compression` `type` property as ZipDeflate.
 * Read a GZIP-compressed data from an Azure blob, decompress it, compress it using BZIP2, and write result data to an Azure blob. You define the input Azure Blob dataset with `compression` `type` set to GZIP and the output dataset with `compression` `type` set to BZIP2.
@@ -578,7 +576,7 @@ The **compression** section has two properties:
   * **Fastest:** The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed.
   * **Optimal**: The compression operation should be optimally compressed, even if the operation takes a longer time to complete.
 
-    For more information, see [Compression Level](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) topic.
+    For more information, see [Compression Level](/dotnet/api/system.io.compression.compressionlevel) topic.
 
 > [!NOTE]
 > Compression settings are not supported for data in the **AvroFormat**, **OrcFormat**, or **ParquetFormat**. When reading files in these formats, Data Factory detects and uses the compression codec in the metadata. When writing to files in these formats, Data Factory chooses the default compression codec for that format. For example, ZLIB for OrcFormat and SNAPPY for ParquetFormat.
@@ -588,9 +586,9 @@ The **compression** section has two properties:
 You can use the extensibility features of Azure Data Factory to transform files that aren't supported.
 Two options include Azure Functions and custom tasks by using Azure Batch.
 
-You can see a sample that uses an Azure function to [extract the contents of a tar file](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction). For more information, see [Azure Functions activity](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity).
+You can see a sample that uses an Azure function to [extract the contents of a tar file](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction). For more information, see [Azure Functions activity](./control-flow-azure-function-activity.md).
 
-You can also build this functionality using a custom dotnet activity. Further information is available [here](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity)
+You can also build this functionality using a custom dotnet activity. Further information is available [here](./transform-data-using-dotnet-custom-activity.md)
 
 ## Next steps
 

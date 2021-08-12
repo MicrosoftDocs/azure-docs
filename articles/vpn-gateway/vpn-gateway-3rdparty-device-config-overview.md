@@ -1,13 +1,14 @@
-﻿---
+---
 title: 'Partner VPN device configurations for connecting to Azure VPN gateways'
-description: This article provides an overview of partner VPN device configurations for connecting to Azure VPN gateways.
+description: Learn about partner VPN device configurations for connecting to Azure VPN gateways.
 services: vpn-gateway
 author: yushwang
 
 ms.service: vpn-gateway
-ms.topic: article
-ms.date: 06/20/2017
-ms.author: yushwang
+ms.topic: how-to
+ms.date: 09/02/2020
+ms.author: yushwang 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Overview of partner VPN device configurations
@@ -23,7 +24,7 @@ The first configuration in the sample consists of a single S2S VPN tunnel betwee
 
 ![Diagram of a single S2S VPN tunnel](./media/vpn-gateway-3rdparty-device-config-overview/singletunnel.png)
 
-For step-by-step instructions to set up a single VPN tunnel, see [Configure a site-to-site connection](vpn-gateway-howto-site-to-site-resource-manager-portal.md). The following sections specify the connection parameters for the sample configuration and provide a PowerShell script to help you get started.
+For step-by-step instructions to set up a single VPN tunnel, see [Configure a site-to-site connection](./tutorial-site-to-site-portal.md). The following sections specify the connection parameters for the sample configuration and provide a PowerShell script to help you get started.
 
 ### Connection parameters
 This section lists the parameters for the examples that are described in the previous sections.
@@ -146,4 +147,3 @@ When you create the S2S VPN connection, you can optionally use [BGP for the VPN 
 
 ## Next steps
 For step-by-step instructions to set up active-active VPN gateways, see [Configuring active-active VPN gateways for cross-premises and VNet-to-VNet connections](vpn-gateway-activeactive-rm-powershell.md).
-

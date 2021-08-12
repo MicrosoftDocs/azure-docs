@@ -20,6 +20,8 @@
     href: walkthrough-exchange-all.md
   - name: Peering Service partner walkthrough
     href: walkthrough-peering-service-all.md
+  - name: Communications Services partner walkthrough
+    href: walkthrough-communications-services-partner.md
   - name: Associate peer ASN to Azure subscription
     items:
     - name: Portal
@@ -56,24 +58,28 @@
       href: howto-legacy-exchange-portal.md
     - name: Azure PowerShell
       href: howto-legacy-exchange-powershell.md
+  - name: Create or modify an Exchange peering with route server
+    items:
+    - name: Portal
+      href: how-to-exchange-route-server-portal.md
 - name: Reference
   items:
   - name: Azure CLI
-    href: https://docs.microsoft.com/cli/azure/network
+    href: /cli/azure/network
   - name: Azure PowerShell
-    href: https://docs.microsoft.com/powershell/module/az.network
+    href: /powershell/module/az.network
   - name: Java
-    href: https://docs.microsoft.com/java/api/
+    href: /java/api/
   - name: Node.js
-    href: https://docs.microsoft.com/javascript/azure#azure-sdk
+    href: /javascript/azure#azure-sdk
   - name: Python
     href: https://azure.microsoft.com/develop/python/
   - name: Resource Manager template
-    href: https://docs.microsoft.com/azure/templates/microsoft.network/allversions
+    href: /azure/templates/microsoft.network/allversions
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
-    href: https://docs.microsoft.com/learn/browse/
+    href: /learn/browse/
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Networking blog
@@ -83,4 +89,4 @@
   - name: Internet peering FAQs
     href: faqs.md
   - name: Peering Service FAQs
-    href: service-faqs.md
+    href: service-faqs.yml

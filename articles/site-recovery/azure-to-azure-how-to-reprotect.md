@@ -2,12 +2,12 @@
 title: Reprotect Azure VMs to the primary region with Azure Site Recovery | Microsoft Docs
 description: Describes how to reprotect Azure VMs after failover, the secondary to primary region, using Azure Site Recovery.
 services: site-recovery
-author: rajani-janaki-ram
-manager: gauravd
+author: Rajeswari-Mamilla
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
-ms.author: rajanaki
+ms.author: ramamill
 ---
 
 # Reprotect failed over Azure VMs to the primary region
@@ -26,7 +26,7 @@ When you [fail over](site-recovery-failover.md) Azure VMs from one region to ano
 
 1. In **Vault** > **Replicated items**, right-click the failed over VM, and select **Re-Protect**. The reprotection direction should show from secondary to primary.
 
-   ![Reprotect](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
+   ![Screenshot shows a virtual machine with a contextual menu with Re-protect selected.](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
 1. Review the resource group, network, storage, and availability sets. Then click **OK**. If there are any resources marked as new, they're created as part of the reprotection process.
 1. The reprotection job seeds the target site with the latest data. After the job finishes, delta replication takes place. Then, you can fail over back to the primary site. You can select the storage account or the network you want to use during reprotect, using the customize option.
@@ -82,8 +82,12 @@ The following conditions determine how much data is replicated:
 
 |Example situation | Time taken to reprotect |
 |---|---|
-|Source region has 1 VM with 1 TB standard disk.<br/>Only 127 GB data is used, and the rest of the disk is empty.<br/>Disk type is standard with 60 MiB/S throughput.<br/>No data change after failover.| Approximate time: 45 minutes – 1.5 hours.<br/>During reprotection, Site Recovery will populate the checksum of all data that will take 127 GB/ 45 MBs, approximately 45 minutes.<br/>Some overhead time is required for Site Recovery to auto scale, approximately 20-30 minutes.<br/>No Egress charges. |
-|Source region has 1 VM with 1 TB standard disk.<br/>Only 127 GB data is used and rest of the disk is empty.<br/>Disk type is standard with 60 MiB/S throughput.<br/>45 GB data changes after failover.| Approximate time: 1 hour – 2 hours.<br/>During reprotection, Site Recovery will populate the checksum of all data that will take 127 GB/ 45 MBs, approximately 45 minutes.<br/>Transfer time to apply changes of 45 GB that is 45 GB/ 45 MBps, approximately 17 minutes.<br/>Egress charges would be for 45 GB data changes, not for the checksum. |
+|Source region has 1 VM with 1 TB standard disk.<br/>Only 127 GB data is used, and the rest of the disk is empty.<br/>Disk type is standard with 60 MBps throughput.<br/>No data change after failover.| Approximate time: 60-90 minutes.<br/> During reprotection, Site Recovery will populate the checksum of all data. This operates at 45MBps, so the total time that it will take is 127 GB/45 MBps, approximately 45 minutes.<br/>Some overhead time is required for Site Recovery to auto scale, approximately 20-30 minutes. |
+|Source region has 1 VM with 1 TB standard disk.<br/>Only 127 GB data is used and rest of the disk is empty.<br/>Disk type is standard with 60 MBps throughput.<br/>45 GB data changes after failover.| Approximate time: 2.5-3 hours.<br/> During reprotection, Site Recovery will populate the checksum of all data. This operates at 45MBps, so the total time that it will take is 127 GB/45 MBps, approximately 45 minutes.<br/>Transfer speed is approximately 16% of throughput, or 9.6MBps. Therefore, transfer time to apply changes of 45 GB that is 45 GB/9.6 MBps, approximately 80 minutes.<br/>Some overhead time is required for Site Recovery to auto scale, approximately 20-30 minutes. |
+|Source region has 1 VM with 1 TB standard disk.<br/>Only 20 GB data is used and rest of the disk is empty.<br/>Disk type is standard with 60 MBps throughput.<br/>The initial data on the disk immediately after failover was 15 GB. There was 5 GB data change after failover. Total populated data is therefore 20 GB.| Approximate time: 1-1.5 hours.<br/>Since the data populated in the disk is less than 10% of the size of the disk, we perform a complete initial replication.<br/> Transfer speed is approximately 16% of throughput, or 9.6MBps. Therefore, transfer time to apply changes of 20 GB that is 20 GB/9.6 MBps, approximately 36 minutes.<br/>Some overhead time is required for Site Recovery to auto scale, approximately 20-30 minutes. |
+|Source region has 1 VM with 1 TB premium disk.<br/>Only 127 GB data is used, and the rest of the disk is empty.<br/>Disk type is premium with 200 MBps throughput.<br/>No data change after failover.| Approximate time: 2 hours.<br/>During reprotection, Site Recovery will populate the checksum of all data. This operates at 25MBps (up to 16% of disk throughput), so the total time that it will take is 127 GB/25 MBps, approximately 87 minutes.<br/>Some overhead time is required for Site Recovery to auto scale, approximately 20-30 minutes. |
+|Source region has 1 VM with 1 TB premium disk.<br/>Only 127 GB data is used and rest of the disk is empty.<br/>Disk type is premium with 200 MBps throughput.<br/>45 GB data changes after failover.| Approximate time: 2.5-3 hours.<br/>During reprotection, Site Recovery will populate the checksum of all data. This operates at 25MBps (up to 16% of disk throughput), so the total time that it will take is 127 GB/25 MBps, approximately 87 minutes.</br>Transfer speed is approximately 16% of throughput, or 32MBps. Therefore, transfer time to apply changes of 45 GB that is 45 GB/32 MBps, approximately 24 minutes.<br/>Some overhead time is required for Site Recovery to auto scale, approximately 20-30 minutes. |
+|Source region has 1 VM with 1 TB premium disk.<br/>Only 20 GB data is used and rest of the disk is empty.<br/>Disk type is premium with 200 MBps throughput.<br/>The initial data on the disk immediately after failover was 15 GB. There was 5 GB data change after failover. Total populated data is therefore 20 GB| Approximate time: 30-45 minutes.<br/>Since the data populated in the disk is less than 10% of the size of the disk, we perform a complete initial replication.<br/>Transfer speed is approximately 16% of throughput, or 32MBps. Therefore, transfer time to apply changes of 20 GB that is 20 GB/32 MBps, approximately 11 minutes.<br/>Some overhead time is required for Site Recovery to auto scale, approximately 20-30 minutes |
 
 When the VM is re-protected after failing back to the primary region (i.e., if the VM is re-protected from primary region to DR region), the target VM and associated NIC(s) are deleted.
 

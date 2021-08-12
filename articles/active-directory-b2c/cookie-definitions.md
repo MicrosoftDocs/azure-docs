@@ -8,7 +8,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 01/23/2020
 ms.author: mimart
 ms.subservice: B2C
@@ -40,7 +40,7 @@ The following table lists the cookies used in Azure AD B2C.
 | `x-ms-cpim-admin` | main.b2cadmin.ext.azure.com | End of [browser session](session-behavior.md) | Holds user membership data across tenants. The tenants a user is a member of and level of membership (Admin or User). |
 | `x-ms-cpim-slice` | b2clogin.com, login.microsoftonline.com, branded domain | End of [browser session](session-behavior.md) | Used to route requests to the appropriate production instance. |
 | `x-ms-cpim-trans` | b2clogin.com, login.microsoftonline.com, branded domain | End of [browser session](session-behavior.md) | Used for tracking the transactions  (number of authentication requests to Azure AD B2C) and the current transaction. |
-| `x-ms-cpim-sso:{Id}` | b2clogin.com, login.microsoftonline.com, branded domain | End of [browser session](session-behavior.md) | Used for maintaining the SSO session. |
+| `x-ms-cpim-sso:{Id}` | b2clogin.com, login.microsoftonline.com, branded domain | End of [browser session](session-behavior.md) | Used for maintaining the SSO session. This cookie is set as `persistent`, when [Keep Me Signed In](session-behavior.md#enable-keep-me-signed-in-kmsi) is enabled.|
 | `x-ms-cpim-cache:{id}_n` | b2clogin.com, login.microsoftonline.com, branded domain | End of [browser session](session-behavior.md), successful authentication | Used for maintaining the request state. |
 | `x-ms-cpim-csrf` | b2clogin.com, login.microsoftonline.com, branded domain | End of [browser session](session-behavior.md) | Cross-Site Request Forgery token used for CRSF protection. |
 | `x-ms-cpim-dc` | b2clogin.com, login.microsoftonline.com, branded domain | End of [browser session](session-behavior.md) | Used for Azure AD B2C network routing. |

@@ -1,12 +1,13 @@
 ---
 title: Azure Disk Encryption on an isolated network
-description: This article provides troubleshooting tips for Microsoft Azure Disk Encryption for Linux VMs.
+description: In this article, learn about troubleshooting tips for Microsoft Azure Disk Encryption on Linux VMs.
 author: msmbaldwin
-ms.service: virtual-machines-linux
-ms.subservice: security
-ms.topic: article
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: linux
+ms.topic: conceptual
 ms.author: mbaldwin
-ms.date: 02/27/2020
+ms.date: 05/15/2021
 
 ms.custom: seodec18
 
@@ -21,10 +22,10 @@ Azure Disk Encryption depends on a number of components, which are typically ins
 
 Here are the packages necessary for each distribution. For a full list of supported distros and volume types, see [supported VMs and operating systems](disk-encryption-overview.md#supported-vms-and-operating-systems).
 
-- **Ubuntu 14.04, 16.04, 18.04**: lsscsi, psmisc, at, cryptsetup-bin, python-parted, python-six, procps
-- **CentOS 7.2 - 7.7**: lsscsi, psmisc, lvm2, uuid, at, patch, cryptsetup, cryptsetup-reencrypt, pyparted, procps-ng, util-linux
+- **Ubuntu 14.04, 16.04, 18.04**: lsscsi, psmisc, at, cryptsetup-bin, python-parted, python-six, procps, grub-pc-bin
+- **CentOS 7.2 - 7.9, 8.1, 8.2**: lsscsi, psmisc, lvm2, uuid, at, patch, cryptsetup, cryptsetup-reencrypt, pyparted, procps-ng, util-linux
 - **CentOS 6.8**: lsscsi, psmisc, lvm2, uuid, at, cryptsetup-reencrypt, pyparted, python-six
-- **RedHat 7.2 - 7.7**: lsscsi, psmisc, lvm2, uuid, at, patch, cryptsetup, cryptsetup-reencrypt, procps-ng, util-linux
+- **RedHat 7.2 - 7.9, 8.1, 8.2**: lsscsi, psmisc, lvm2, uuid, at, patch, cryptsetup, cryptsetup-reencrypt, procps-ng, util-linux
 - **RedHat 6.8**: lsscsi, psmisc, lvm2, uuid, at, patch, cryptsetup-reencrypt
 - **openSUSE 42.3, SLES 12-SP4, 12-SP3**: lsscsi, cryptsetup
 
@@ -39,7 +40,7 @@ Any network security group settings that are applied must still allow the endpoi
 
 If using [Azure Disk Encryption with Azure AD (previous version)](disk-encryption-overview-aad.md), the [Azure Active Directory Library](../../active-directory/azuread-dev/active-directory-authentication-libraries.md) will need to be installed manually for all distros (in addition to the packages appropriate for the distro, as [listed above](#package-management)).
 
-When encryption is being enabled with [Azure AD credentials](disk-encryption-linux-aad.md), the target VM must allow connectivity to both Azure Active Directory endpoints and Key Vault endpoints. Current Azure Active Directory authentication endpoints are maintained in sections 56 and 59 of the [Office 365 URLs and IP address ranges](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) documentation. Key Vault instructions are provided in the documentation on how to [Access Azure Key Vault behind a firewall](../../key-vault/general/access-behind-firewall.md).
+When encryption is being enabled with [Azure AD credentials](disk-encryption-linux-aad.md), the target VM must allow connectivity to both Azure Active Directory endpoints and Key Vault endpoints. Current Azure Active Directory authentication endpoints are maintained in sections 56 and 59 of the [Microsoft 365 URLs and IP address ranges](/microsoft-365/enterprise/urls-and-ip-address-ranges) documentation. Key Vault instructions are provided in the documentation on how to [Access Azure Key Vault behind a firewall](../../key-vault/general/access-behind-firewall.md).
 
 ### Azure Instance Metadata Service 
 

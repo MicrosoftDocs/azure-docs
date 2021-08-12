@@ -9,13 +9,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ---
 
 # Quickstart: Search for videos using the Bing Video Search REST API and Ruby
 
-Use this quickstart to make your first call to the Bing Video Search API and view a search result from the JSON response. This simple Ruby application sends an HTTP video search query to the API, and displays the response. While this application is written in Python, the API is a RESTful Web service compatible with most programming languages. The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingVideoSearchv7.rb) with additional error handling, and code annotations.
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+
+Use this quickstart to make your first call to the Bing Video Search API. This simple Ruby application sends an HTTP video search query to the API, and displays the JSON response. Although this application is written in Python, the API is a RESTful Web service compatible with most programming languages. 
+
+The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingVideoSearchv7.rb) with additional error handling, and code annotations.
 
 ## Prerequisites
 
@@ -25,7 +32,7 @@ Use this quickstart to make your first call to the Bing Video Search API and vie
 
 ## Create and initialize the application
 
-1. import the following packages into your code file.
+1. Import the following packages into your code file:
 
     ```ruby
     require 'net/https'
@@ -33,7 +40,7 @@ Use this quickstart to make your first call to the Bing Video Search API and vie
     require 'json'
     ```
 
-2. Create variables for the API endpoint, video API search path, your subscription key, and search term. `uri` can be the global endpoint below, or the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+2. Create variables for the API endpoint, video API search path, your subscription key, and search term. For the `url` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```ruby
     uri  = "https://api.cognitive.microsoft.com"
@@ -44,20 +51,20 @@ Use this quickstart to make your first call to the Bing Video Search API and vie
 
 ## Create and send an API request
 
-1. Use the variables from the last step to format a search URL for the request. Combine your uri and path, then url-encode your search term before appending it to the `?q=` parameter.
+1. Use the variables from the previous step to format a search URL for the request. Combine your uri and path, and then url-encode your search term before appending it to the `?q=` parameter.
 
     ```ruby
     uri = URI(uri + path + "?q=" + URI.escape(term))
     ```
 
-2. Add the complete search URL to the request, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
+2. Add the complete search URL to the request and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
     
     ``` ruby
     request = Net::HTTP::Get.new(uri)
     request['Ocp-Apim-Subscription-Key'] = accessKey
     ```
 
-3. Send the request, and save the response.
+3. Send the request, and then save the response.
     
     ```ruby
     response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
@@ -67,11 +74,11 @@ Use this quickstart to make your first call to the Bing Video Search API and vie
 
 ## Process and view the response
 
-1. After the response is received, you can print the JSON response.
+After the response is received, print the JSON response.
 
-    ```ruby
-    puts JSON::pretty_generate(JSON(response.body))
-    ```
+```ruby
+puts JSON::pretty_generate(JSON(response.body))
+```
 
 ## JSON response
 
@@ -187,9 +194,8 @@ A successful response is returned in JSON, as shown in the following example:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a single page web app](../tutorial-bing-video-search-single-page-app.md)
+> [Create a single-page web app](../tutorial-bing-video-search-single-page-app.md)
 
 ## See also 
 
  [What is the Bing Video Search API?](../overview.md)
-

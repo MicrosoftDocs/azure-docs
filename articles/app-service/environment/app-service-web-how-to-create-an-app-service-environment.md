@@ -17,7 +17,7 @@ ms.custom: seodec18
 > 
 
 ### Overview
-The App Service Environment (ASE) is a Premium service option of Azure App Service that delivers an enhanced configuration capability that is not available in the multi-tenant stamps. The ASE feature essentially deploys the Azure App Service into a customer’s virtual network. To gain a greater understanding of the capabilities offered by App Service Environments read the [What is an App Service Environment][WhatisASE] documentation.
+The App Service Environment (ASE) is a Premium service option of Azure App Service that delivers an enhanced configuration capability that is not available in the multi-tenant stamps. The ASE feature essentially deploys the Azure App Service into a customer's virtual network. To gain a greater understanding of the capabilities offered by App Service Environments read the [What is an App Service Environment][WhatisASE] documentation.
 
 ### Before you create your ASE
 It is important to be aware of the things you cannot change. Those aspects you cannot change about your ASE after it is created are:
@@ -36,11 +36,11 @@ To create an App Service Environment v1, you can search the Azure Marketplace fo
 
 1. Provide the name of your ASE. The name you specify for the ASE will be used for the apps created in the ASE. If the name of the ASE is appsvcenvdemo, the subdomain name would be: *appsvcenvdemo.p.azurewebsites.net*. If you thus created an app named *mytestapp*, it would be addressable at *mytestapp.appsvcenvdemo.p.azurewebsites.net*. You cannot use white space in the name of your ASE. If you use upper-case characters in the name, the domain name will be the total lowercase version of that name. If you use an ILB, your ASE name is not used in your subdomain but is instead explicitly stated during ASE creation.
    
-    ![][1]
+    ![Screenshot that shows how to create an App Service Environment (ASE).][1]
 2. Select your subscription. The subscription you use for your ASE will also apply to all apps you create in that ASE. You cannot place your ASE in a VNet that is in another subscription.
 3. Select or specify a new resource group. The resource group used for your ASE must be the same that is used for your VNet. If you select a pre-existing VNet, the resource group selection for your ASE will be updated to reflect that of your VNet.
    
-    ![][2]
+    ![Screenshot that shows how to select or modify a new resource group.][2]
 4. Make your Virtual Network and Location selections. You can choose to create a new VNet or select a pre-existing VNet. If you select a new VNet then you can specify a name and location. The new VNet will have the address range 192.168.250.0/23 and a subnet named **default** that is defined as 192.168.250.0/24. You can also simply select a pre-existing Classic or Resource Manager VNet. The VIP Type selection determines if your ASE can be directly accessed from the internet (External) or if it uses an Internal Load Balancer (ILB). To learn more about them read [Using an Internal Load Balancer with an App Service Environment][ILBASE]. If you select a VIP type of External then you can select how many external IP addresses the system is created with for IP SSL purposes. If you select Internal then you need to specify the subdomain that your ASE will use. ASEs can be deployed into virtual networks that use *either* public address ranges, *or* RFC1918 address spaces (i.e. private addresses). In order to use a virtual network with a public address range, you will need to create the VNet ahead of time. When you select a pre-existing VNet you will need to create a new subnet during ASE creation. **You cannot use a pre-created subnet in the portal. You can create an ASE with a pre-existing subnet if you create your ASE using a resource manager template.** To create an ASE from a template use the information here, [Creating an App Service Environment from template][ILBAseTemplate] and here, [Creating an ILB App Service Environment from template][ASEfromTemplate].
 
 ### Details
@@ -78,5 +78,5 @@ To get started with App Service Environment v1, see [Introduction to the App Ser
 [AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/ 
 [ASEAutoscale]: app-service-environment-auto-scale.md
 [ILBASE]: app-service-environment-with-internal-load-balancer.md
-[ILBAseTemplate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/
+[ILBAseTemplate]: https://azure.microsoft.com/resources/templates/web-app-ase-create/
 [ASEfromTemplate]: app-service-app-service-environment-create-ilb-ase-resourcemanager.md

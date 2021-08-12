@@ -2,22 +2,18 @@
 title: Manage federation certificates in Azure AD | Microsoft Docs
 description: Learn how to customize the expiration date for your federation certificates, and how to renew certificates that will soon expire.
 services: active-directory
-documentationcenter: ''
-author: msmimart
+author: davidmu1
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.author: mimart
-ms.reviewer: jeedes
-
+ms.author: davidmu
+ms.reviewer: saumadan
 ms.collection: M365-identity-device-management
 ---
+
 # Manage certificates for federated single sign-on in Azure Active Directory
 
 In this article, we cover common questions and information related to certificates that Azure Active Directory (Azure AD) creates to establish federated single sign-on (SSO) to your software as a service (SaaS) applications. Add applications from the Azure AD app gallery or by using a non-gallery application template. Configure the application by using the federated SSO option.
@@ -59,7 +55,7 @@ First, create and save new certificate with a different expiration date:
 1. Select **New Certificate**. A new row appears below the certificate list, where the expiration date defaults to exactly three years after the current date. (Your changes haven't been saved yet, so you can still modify the expiration date.)
 1. In the new certificate row, hover over the expiration date column and select the **Select Date** icon (a calendar). A calendar control appears, displaying the days of a month of the new row's current expiration date.
 1. Use the calendar control to set a new date. You can set any date between the current date and three years after the current date.
-1. Select **Save**. The new certificate now appears with a status of **Inactive**, the expiration date that you chose, and a thumbprint.
+1. Select **Save**. The new certificate now appears with a status of **Inactive**, the expiration date that you chose, and a thumbprint. **Note**- When you have an existing certificate that is already expired and you generate a new certificate, the new certificate will be considered for signing tokens, even though you have not activated it yet.
 1. Select the **X** to return to the **Set up Single Sign-On with SAML - Preview** page.
 
 ### Upload and activate a certificate
@@ -76,6 +72,8 @@ Next, download the new certificate in the correct format, upload it to the appli
 1. When you want to roll over to the new certificate, go back to the **SAML Signing Certificate** page, and in the newly saved certificate row, select the ellipsis (**...**) and select **Make certificate active**. The status of the new certificate changes to **Active**, and the previously active certificate changes to a status of **Inactive**.
 1. Continue following the application's SAML sign-on configuration instructions that you displayed earlier, so that you can upload the SAML signing certificate in the correct encoding format.
 
+If your application does not have any validation for the certificate's expiration, and the certificate matches in both Azure Active Directory and your application, your app is still accessible despite having an expired certificate. Please ensure your application can validate the certificate's expiration date.
+
 ## Add email notification addresses for certificate expiration
 
 Azure AD will send an email notification 60, 30, and 7 days before the SAML certificate expires. You may add more than one email address to receive notifications. To specify the email address(es) you want the notifications to be sent to:
@@ -86,7 +84,9 @@ Azure AD will send an email notification 60, 30, and 7 days before the SAML cert
 1. For each email address you want to delete, select the **Delete** icon (a garbage can) next to the email address.
 1. Select **Save**.
 
-You will receive the notification email from aadnotification@microsoft.com. To avoid the email going to your spam location, add this email to your contacts.
+You can add up to 5 email addresses to the Notification list (including the email address of the admin who added the application). If you need more people to be notified, use the distribution list emails.
+
+You will receive the notification email from azure-noreply@microsoft.com. To avoid the email going to your spam location, add this email to your contacts.
 
 ## Renew a certificate that will soon expire
 
@@ -99,12 +99,14 @@ If a certificate is about to expire, you can renew it using a procedure that res
    1. Skip the next two steps.
 
 1. If the app can only handle one certificate at a time, pick a downtime interval to perform the next step. (Otherwise, if the application doesn’t automatically pick up the new certificate but can handle more than one signing certificate, you can perform the next step anytime.)
-1. Before the old certificate expires, follow the instructions in the [Upload and activate a certificate](#upload-and-activate-a-certificate) section earlier.
+1. Before the old certificate expires, follow the instructions in the [Upload and activate a certificate](#upload-and-activate-a-certificate) section earlier. If your application certificate isn't updated after a new certificate is updated in Azure Active Directory, authentication on your app may fail.
 1. Sign in to the application to make sure that the certificate works correctly.
+
+If your application does not validate the certificate expiration configured in Azure Active Directory, and the certificate matches in both Azure Active Directory and your application, your app is still accessible despite having an expired certificate. Please ensure your application can validate certificate expiration.
 
 ## Related articles
 
 - [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md)
 - [Application management with Azure Active Directory](what-is-application-management.md)
 - [Single sign-on to applications in Azure Active Directory](what-is-single-sign-on.md)
-- [Debug SAML-based single sign-on to applications in Azure Active Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+- [Debug SAML-based single sign-on to applications in Azure Active Directory](./debug-saml-sso-issues.md)

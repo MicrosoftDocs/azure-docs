@@ -1,15 +1,12 @@
 ---
 title: Release notes for Azure HDInsight 
-description: Latest release notes for Azure HDInsight. Get development tips and details for Hadoop, Spark, R Server, Hive, and more.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
-ms.custom: hdinsightactive
+description: Latest release notes for Azure HDInsight. Get development tips and details for Hadoop, Spark, Hive, and more.
+ms.custom: references_regions
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/20/2020
+ms.date: 07/27/2021
 ---
-# Release notes
+# Azure HDInsight release notes
 
 This article provides information about the **most recent** Azure HDInsight release updates. For information on earlier releases, see [HDInsight Release Notes Archive](hdinsight-release-notes-archive.md).
 
@@ -17,58 +14,82 @@ This article provides information about the **most recent** Azure HDInsight rele
 
 Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
 
-## Release date: 01/09/2020
+If you would like to subscribe on release notes, watch releases on [this GitHub repository](https://github.com/hdinsight/release-notes/releases).
 
-This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, please wait for the release being live in your region in several days.
+## Release date: 07/27/2021
 
-> [!IMPORTANT]  
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versioning article](hdinsight-component-versioning.md).
+This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+
+The OS versions for this release are:
+- HDInsight 3.6: Ubuntu 16.04.7 LTS
+- HDInsight 4.0: Ubuntu 18.04.5 LTS
 
 ## New features
-### TLS 1.2 enforcement
-Transport Layer Security (TLS) and Secure Sockets Layer (SSL) are cryptographic protocols that provide communications security over a computer network. Learn more about [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0). HDInsight uses TLS 1.2 on public HTTPs endpoints but TLS 1.1 is still supported for backward compatibility. 
-
-With this release, customers can opt into TLS 1.2 only for all connections through the public cluster endpoint. To support this, the new property **minSupportedTlsVersion** is introduced and can be specified during cluster creation. If the property is not set, the cluster still supports TLS 1.0, 1.1 and 1.2, which is the same as today's behavior. Customers can set the value for this property to "1.2", which means that the cluster only supports TLS 1.2 and above. For more information, see [Plan a virtual network - Transport Layer Security](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#transport-layer-security).
-
-### Bring your own key for disk encryption
-All managed disks in HDInsight are protected with Azure Storage Service Encryption (SSE). Data on those disks is encrypted by Microsoft-managed keys by default. Starting from this release, you can Bring Your Own Key (BYOK) for disk encryption and manage it using Azure Key Vault. BYOK encryption is a one-step configuration during cluster creation with no additional cost. Just register HDInsight as a managed identity with Azure Key Vault and add the encryption key when you create your cluster. For more information, see [Customer-managed key disk encryption](https://docs.microsoft.com/azure/hdinsight/disk-encryption).
+### New Azure Monitor integration experience (Preview)
+The new Azure monitor integration experience will be Preview in East US and West Europe with this release. Learn more details about the new Azure monitor experience [here](./log-analytics-migration.md#migrate-to-the-new-azure-monitor-integration).
 
 ## Deprecation
-No deprecations for this release. To get ready for upcoming deprecations, see [Upcoming changes](#upcoming-changes).
+### Basic support for HDInsight 3.6 starting July 1, 2021
+Starting July 1, 2021, Microsoft offers [Basic support](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) for certain HDInsight 3.6 cluster types. The Basic support plan will be available until 3 April 2022. You are automatically enrolled in Basic support starting July 1, 2021. No action is required by you to opt in. See [our documentation](hdinsight-36-component-versioning.md) for which cluster types are included under Basic support. 
+
+We don't recommend building any new solutions on HDInsight 3.6, freeze changes on existing 3.6 environments. We recommend that you [migrate your clusters to HDInsight 4.0](hdinsight-version-release.md#how-to-upgrade-to-hdinsight-40). Learn more about [what's new in HDInsight 4.0](hdinsight-version-release.md#whats-new-in-hdinsight-40).
 
 ## Behavior changes
-No behavior changes for this release. To get ready for upcoming changes, see [Upcoming changes](#upcoming-changes).
+### HDInsight Interactive Query only supports schedule-based Autoscale
+As customer scenarios grow more mature and diverse, we have identified some limitations with Interactive Query (LLAP) load-based Autoscale. These limitations are caused by the nature of LLAP query dynamics, future load prediction accuracy issues, and issues in the LLAP scheduler's task redistribution. Due to these limitations, users may see their queries run slower on LLAP clusters when Autoscale is enabled. The effect on performance can outweigh the cost benefits of Autoscale.
+
+Starting from July 2021, the Interactive Query workload in HDInsight only supports schedule-based Autoscale. You can no longer enable load-based autoscale on new Interactive Query clusters. Existing running clusters can continue to run with the known limitations described above. 
+
+Microsoft recommends that you move to a schedule-based Autoscale for LLAP.  You can analyze your cluster's current usage pattern through the Grafana Hive dashboard. For more information, see [Automatically scale Azure HDInsight clusters](hdinsight-autoscale-clusters.md). 
 
 ## Upcoming changes
-The following changes will happen in upcoming releases. 
+The following changes will happen in upcoming releases.
 
-### A minimum 4-core VM is required for Head Node 
-A minimum 4-core VM is required for Head Node to ensure the high availability and reliability of HDInsight clusters. Starting from April 6th 2020, customers can only choose 4-core or above VM as Head Node for the new HDInsight clusters. Existing clusters will continue to run as expected. 
+### Built-in LLAP component in ESP Spark cluster will be removed
+HDInsight 4.0 ESP Spark cluster has built-in LLAP components running on both head nodes. The LLAP components in ESP Spark cluster were originally added for HDInsight 3.6 ESP Spark, but has no real user case for HDInsight 4.0 ESP Spark. In the next release scheduled in Sep 2021, HDInsight will remove the built-in LLAP component from HDInsight 4.0 ESP Spark cluster. This change will help to offload head node workload and avoid confusion between ESP Spark and ESP Interactive Hive cluster type.
 
-### ESP Spark cluster node size change 
-In the upcoming release, the minimum allowed node size for ESP Spark cluster will be changed to Standard_D13_V2. 
-A-series VMs could cause ESP cluster issues because of relatively low CPU and memory capacity. A-series VMs will be deprecated for creating new ESP clusters.
-
-### Moving to Azure virtual machine scale sets
-HDInsight now uses Azure virtual machines to provision the cluster. In the upcoming release, HDInsight will use Azure virtual machine scale sets instead. See more about Azure virtual machine scale sets.
-
-### HBase 2.0 to 2.1
-In the upcoming HDInsight 4.0 release, HBase version will be upgraded from version 2.0 to 2.1.
-
-## Bug fixes
-HDInsight continues to make cluster reliability and performance improvements. 
+## New region
+- West US 3
+- Jio India West
+- Australia Central
 
 ## Component version change
-No component version change for this release. You could find the current component versions for HDInsight 4.0 ad HDInsight 3.6 here.
+The following component version has been changed with this release:
+- ORC version from 1.5.1 to 1.5.9
 
-## Known issues
+You can find the current component versions for HDInsight 4.0 and HDInsight 3.6 in [this doc](./hdinsight-component-versioning.md).
 
-As of March 18th, 2020 some Azure HDInsight customers in West Europe or North Europe have received error notifications when creating or scaling HDInsight clusters in these regions. Errors related to this issue include:
+## Back ported JIRAs
+Here are the back ported Apache JIRAs for this release:
 
-- Internal server error occurred while processing the request. Please retry the request or contact support.
-- At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/DeployOperations for usage details
-- User SubscriptionId '\<Subscription ID\>' does not have cores left to create resource '\<cluster name>'. Required: \<X\>, Available: 0.
-
-Engineers are aware of this issue and are actively investigating.
-
-For additional help, create a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+| Impacted Feature    |   Apache JIRA                                                      |
+|---------------------|--------------------------------------------------------------------|
+| Date / Timestamp    | [HIVE-25104](https://issues.apache.org/jira/browse/HIVE-25104)     |
+|                     | [HIVE-24074](https://issues.apache.org/jira/browse/HIVE-24074)     |
+|                     | [HIVE-22840](https://issues.apache.org/jira/browse/HIVE-22840)     |
+|                     | [HIVE-22589](https://issues.apache.org/jira/browse/HIVE-22589)     |
+|                     | [HIVE-22405](https://issues.apache.org/jira/browse/HIVE-22405)     |
+|                     | [HIVE-21729](https://issues.apache.org/jira/browse/HIVE-21729)     |
+|                     | [HIVE-21291](https://issues.apache.org/jira/browse/HIVE-21291)     |
+|                     | [HIVE-21290](https://issues.apache.org/jira/browse/HIVE-21290)     |
+| UDF                 | [HIVE-25268](https://issues.apache.org/jira/browse/HIVE-25268)     |
+|                     | [HIVE-25093](https://issues.apache.org/jira/browse/HIVE-25093)     |
+|                     | [HIVE-22099](https://issues.apache.org/jira/browse/HIVE-22099)     |
+|                     | [HIVE-24113](https://issues.apache.org/jira/browse/HIVE-24113)     |
+|                     | [HIVE-22170](https://issues.apache.org/jira/browse/HIVE-22170)     |
+|                     | [HIVE-22331](https://issues.apache.org/jira/browse/HIVE-22331)     |
+| ORC                 | [HIVE-21991](https://issues.apache.org/jira/browse/HIVE-21991)     |
+|                     | [HIVE-21815](https://issues.apache.org/jira/browse/HIVE-21815)     |
+|                     | [HIVE-21862](https://issues.apache.org/jira/browse/HIVE-21862)     |
+| Table Schema        | [HIVE-20437](https://issues.apache.org/jira/browse/HIVE-20437)     |
+|                     | [HIVE-22941](https://issues.apache.org/jira/browse/HIVE-22941)     |
+|                     | [HIVE-21784](https://issues.apache.org/jira/browse/HIVE-21784)     |
+|                     | [HIVE-21714](https://issues.apache.org/jira/browse/HIVE-21714)     |
+|                     | [HIVE-18702](https://issues.apache.org/jira/browse/HIVE-18702)     |
+|                     | [HIVE-21799](https://issues.apache.org/jira/browse/HIVE-21799)     |
+|                     | [HIVE-21296](https://issues.apache.org/jira/browse/HIVE-21296)     |
+| Workload Management | [HIVE-24201](https://issues.apache.org/jira/browse/HIVE-24201)     |
+| Compaction          | [HIVE-24882](https://issues.apache.org/jira/browse/HIVE-24882)     |
+|                     | [HIVE-23058](https://issues.apache.org/jira/browse/HIVE-23058)     |
+|                     | [HIVE-23046](https://issues.apache.org/jira/browse/HIVE-23046)     |
+| Materialized view   | [HIVE-22566](https://issues.apache.org/jira/browse/HIVE-22566)     |

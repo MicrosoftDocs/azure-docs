@@ -1,27 +1,28 @@
 ---
 title: Integrate Azure Service Bus with Azure Private Link Service
 description: Learn how to integrate Azure Service Bus with Azure Private Link Service
-services: service-bus-messaging
 author: spelluru
 ms.author: spelluru
-ms.date: 03/13/2020
-ms.service: service-bus-messaging
-ms.topic: article
-
+ms.date: 03/29/2021
+ms.topic: article 
+ms.custom: devx-track-azurepowershell
 ---
 
-# Integrate Azure Service Bus with Azure Private Link (Preview)
-
+# Allow access to Azure Service Bus namespaces via private endpoints
 Azure Private Link Service enables you to access Azure services (for example, Azure Service Bus, Azure Storage, and Azure Cosmos DB) and Azure hosted customer/partner services over a **private endpoint** in your virtual network.
 
 A private endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can connect to an instance of an Azure resource, giving you the highest level of granularity in access control.
 
 For more information, see [What is Azure Private Link?](../private-link/private-link-overview.md)
 
-> [!NOTE]
-> This feature is supported with the **premium** tier of Azure Service Bus. For more information about the premium tier, see the [Service Bus Premium and Standard messaging tiers](service-bus-premium-messaging.md) article.
->
-> This feature is currently in **preview**. 
+## Important points
+- This feature is supported with the **premium** tier of Azure Service Bus. For more information about the premium tier, see the [Service Bus Premium and Standard messaging tiers](service-bus-premium-messaging.md) article.
+- Implementing private endpoints can prevent other Azure services from interacting with Service Bus. As an exception, you can allow access to Service Bus resources from certain **trusted services** even when private endpoints are enabled. For a list of trusted services, see [Trusted services](#trusted-microsoft-services).
+
+    The following Microsoft services are required to be on a virtual network
+    - Azure App Service
+    - Azure Functions
+- Specify **at least one IP rule or virtual network rule** for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network. If there are no IP and virtual network rules, the namespace can be accessed over the public internet (using the access key). 
 
 
 ## Add a private endpoint using Azure portal
@@ -32,7 +33,7 @@ To integrate a Service Bus namespace with Azure Private Link, you'll need the fo
 
 - A Service Bus namespace.
 - An Azure virtual network.
-- A subnet in the virtual network.
+- A subnet in the virtual network. You can use the **default** subnet. 
 - Owner or contributor permissions for both the Service Bus namespace and the virtual network.
 
 Your private endpoint and virtual network must be in the same region. When you select a region for the private endpoint using the portal, it will automatically filter only virtual networks that are in that region. Your Service Bus namespace can be in a different region. And, Your private endpoint uses a private IP address in your virtual network.
@@ -44,8 +45,20 @@ If you already have an existing namespace, you can create a private endpoint by 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 2. In the search bar, type in **Service Bus**.
 3. Select the **namespace** from the list to which you want to add a private endpoint.
-4. Select the **Networking** tab under **Settings**.
-5. Select the **Private endpoint connections (preview)** tab at the top of the page
+2. On the left menu, select **Networking** option under **Settings**.     By default, the **Selected networks** option is selected.
+ 
+    > [!NOTE]
+    > You see the **Networking** tab only for **premium** namespaces.  
+   
+    :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Networking page - default" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
+
+    > [!WARNING]
+    > If you don't add at least one IP firewall rule or a virtual network on this page, the namespace can be accessed over public internet (using the access key).
+   
+    If you select the **All networks** option, your Service Bus namespace accepts connections from any IP address (using the access key). This default setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
+
+    ![Firewall - All networks option selected](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
+5. To allow access to the namespace via private endpoints, select the **Private endpoint connections** tab at the top of the page
 6. Select the **+ Private Endpoint** button at the top of the page.
 
     ![Add private endpoint button](./media/private-link-service/private-link-service-3.png)
@@ -53,7 +66,7 @@ If you already have an existing namespace, you can create a private endpoint by 
     1. Select the **Azure subscription** in which you want to create the private endpoint. 
     2. Select the **resource group** for the private endpoint resource.
     3. Enter a **name** for the private endpoint. 
-    5. Select a **region** for the private endpoint. Your private endpoint must be in the same region as your virtual network, but can be in a different region fro the private link resource that you are connecting to. 
+    5. Select a **region** for the private endpoint. Your private endpoint must be in the same region as your virtual network, but can be in a different region from the private link resource that you are connecting to. 
     6. Select **Next: Resource >** button at the bottom of the page.
 
         ![Create Private Endpoint - Basics page](./media/private-link-service/create-private-endpoint-basics-page.png)
@@ -67,7 +80,7 @@ If you already have an existing namespace, you can create a private endpoint by 
         
             ![Create Private Endpoint - Resource page](./media/private-link-service/create-private-endpoint-resource-page.png)
     2. If you select **Connect to an Azure resource by resource ID or alias**, follow these steps:
-        1. Enter the **resource ID** or **alias**. It can be the resource ID or alias that some has shared with you.
+        1. Enter the **resource ID** or **alias**. It can be the resource ID or alias that someone has shared with you. The easiest way to get the resource ID is to navigate to the Service Bus namespace in the Azure portal and copy the portion of URI starting from `/subscriptions/`. See the following image for an example. 
         2. For **Target sub-resource**, enter **namespace**. It's the type of the sub-resource that your private endpoint can access. 
         3. (optional) Enter a **request message**. The resource owner sees this message while managing private endpoint connection. 
         4. Then, select **Next: Configuration >** button at the bottom of the page. 
@@ -87,6 +100,8 @@ If you already have an existing namespace, you can create a private endpoint by 
 
     ![Private endpoint created](./media/private-link-service/private-endpoint-created.png)
 
+[!INCLUDE [service-bus-trusted-services](./includes/service-bus-trusted-services.md)]
+
 ## Add a private endpoint using PowerShell
 The following example shows you how to use Azure PowerShell to create a private endpoint connection to a Service Bus namespace.
 
@@ -103,7 +118,7 @@ $namespaceName = "<NAMESPACE NAME>"
 $peConnectionName = "<PRIVATE ENDPOINT CONNECTION NAME>"
 
 # create resource group
-az group create -l $vnetLocation -n $rgName
+New-AzResourceGroup -Name $rgName -Location $vnetLocation 
 
 # create virtual network
 $virtualNetwork = New-AzVirtualNetwork `
@@ -209,50 +224,37 @@ There are four provisioning states:
 
 ## Validate that the private link connection works
 
-You should validate that the resources within the same subnet of the private endpoint resource are connecting to your Service Bus namespace over a private IP address, and that they have the correct private DNS zone integration.
+You should validate that resources within the virtual network of the private endpoint are connecting to your Service Bus namespace over a private IP address, and that they have the correct private DNS zone integration.
 
 First, create a virtual machine by following the steps in [Create a Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md)
 
-In the **Networking** tab:
+In the **Networking** tab: 
 
-1. Specify **Virtual network** and **Subnet**. You can create a new virtual network or select an existing one. If selecting an existing one, make sure the region matches.
-1. Specify a **public IP** resource.
-1. For **NIC network security group**, select **None**.
-1. For **Load balancing**, select **No**.
+1. Specify **Virtual network** and **Subnet**. You must select the Virtual Network on which you deployed the private endpoint.
+2. Specify a **public IP** resource.
+3. For **NIC network security group**, select **None**.
+4. For **Load balancing**, select **No**.
 
-Open the command line and run the following command:
+Connect to the VM, open the command line, and run the following command:
 
 ```console
-nslookup <your-service-bus-namespace-name>.servicebus.windows.net
+nslookup <service-bus-namespace-name>.servicebus.windows.net
 ```
 
-If you run the ns lookup command to resolve the IP address of a Service Bus namespace over a public endpoint, you will see a result that looks like this:
+You should see a result that looks like the following. 
 
 ```console
-c:\ >nslookup <your-service-bus-namespace-name>.servicebus.windows.net
-
 Non-authoritative answer:
-Name:    
-Address:  (public IP address)
-Aliases:  <your-service-bus-namespace-name>.servicebus.windows.net
-```
-
-If you run the ns lookup command to resolve the IP address of a Service Bus namespace over a private endpoint, you will see a result that looks like this:
-
-```console
-c:\ >nslookup your_service-bus-namespace-name.servicebus.windows.net
-
-Non-authoritative answer:
-Name:    
-Address:  10.1.0.5 (private IP address)
-Aliases:  <your-service-bus-namespace-name>.servicebus.windows.net
+Name:    <service-bus-namespace-name>.privatelink.servicebus.windows.net
+Address:  10.0.0.4 (private IP address associated with the private endpoint)
+Aliases:  <service-bus-namespace-name>.servicebus.windows.net
 ```
 
 ## Limitations and Design Considerations
 
 **Pricing**: For pricing information, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 
-**Limitations**:  Private Endpoint for Azure Service Bus is in public preview. This feature is available in all Azure public regions.
+**Limitations**:  This feature is available in all Azure public regions.
 
 **Maximum number of private endpoints per Service Bus namespace**: 120.
 

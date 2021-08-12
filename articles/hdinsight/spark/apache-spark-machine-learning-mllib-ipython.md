@@ -1,18 +1,15 @@
 ---
 title: Machine learning example with Spark MLlib on HDInsight - Azure
 description: Learn how to use Spark MLlib to create a machine learning app that analyzes a dataset using classification through logistic regression.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 04/16/2020
+ms.topic: how-to
+ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, devx-track-python
+ms.date: 04/27/2020
 ---
 
 # Use Apache Spark MLlib to build a machine learning application and analyze a dataset
 
-Learn how to use Apache Spark [MLlib](https://spark.apache.org/mllib/) to create a machine learning application. The application will do predictive analysis on an open dataset. From Spark's built-in machine learning libraries, this example uses *classification* through logistic regression.
+Learn how to use Apache Spark MLlib to create a machine learning application. The application will do predictive analysis on an open dataset. From Spark's built-in machine learning libraries, this example uses *classification* through logistic regression.
 
 MLlib is a core Spark library that provides many utilities useful for machine learning tasks, such as:
 
@@ -39,7 +36,7 @@ In the steps below, you develop a model to see what it takes to pass or fail a f
 
 ## Create an Apache Spark MLlib machine learning app
 
-1. Create a Jupyter notebook using the PySpark kernel. For the instructions, see [Create a Jupyter notebook](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
+1. Create a Jupyter Notebook using the PySpark kernel. For the instructions, see [Create a Jupyter Notebook file](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook-file).
 
 2. Import the types required for this application. Copy and paste the following code into an empty cell, and then press **SHIFT + ENTER**.
 
@@ -169,13 +166,13 @@ Let's start to get a sense of what the dataset contains.
     SELECT COUNT(results) AS cnt, results FROM CountResults GROUP BY results
     ```
 
-    The `%%sql` magic followed by `-o countResultsdf` ensures that the output of the query is persisted locally on the Jupyter server (typically the headnode of the cluster). The output is persisted as a [Pandas](https://pandas.pydata.org/) dataframe with the specified name **countResultsdf**. For more information about the `%%sql` magic, and other magics available with the PySpark kernel, see [Kernels available on Jupyter notebooks with Apache Spark HDInsight clusters](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+    The `%%sql` magic followed by `-o countResultsdf` ensures that the output of the query is persisted locally on the Jupyter server (typically the headnode of the cluster). The output is persisted as a [Pandas](https://pandas.pydata.org/) dataframe with the specified name **countResultsdf**. For more information about the `%%sql` magic, and other magics available with the PySpark kernel, see [Kernels available on Jupyter Notebooks with Apache Spark HDInsight clusters](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
     The output is:
 
-    ![SQL query output](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png "SQL query output")
+    :::image type="content" source="./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png " alt-text="SQL query output" border="true":::
 
-3. You can also use [Matplotlib](https://en.wikipedia.org/wiki/Matplotlib), a library used to construct visualization of data, to create a plot. Because the plot must be created from the locally persisted **countResultsdf** dataframe, the code snippet must begin with the `%%local` magic. This action ensures that the code is run locally on the Jupyter server.
+3. You can also use Matplotlib, a library used to construct visualization of data, to create a plot. Because the plot must be created from the locally persisted **countResultsdf** dataframe, the code snippet must begin with the `%%local` magic. This action ensures that the code is run locally on the Jupyter server.
 
     ```PySpark
     %%local
@@ -346,7 +343,7 @@ You can now construct a final visualization to help you reason about the results
 
     You should see the following output:
 
-    ![Spark machine learning application output - pie chart percentages of failed food inspections.](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Spark machine learning result output")
+    :::image type="content" source="./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png " alt-text="Spark machine learning application output - pie chart percentages of failed food inspections." border="true":::
 
     In this chart, a "positive" result refers to the failed food inspection, while a negative result refers to a passed inspection.
 
@@ -357,28 +354,5 @@ After you have finished running the application, you should shut down the notebo
 ## Next steps
 
 * [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)
-
-### Scenarios
-
-* [Apache Spark with BI: Interactive data analysis using Spark in HDInsight with BI tools](apache-spark-use-bi-tools.md)
-* [Apache Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](apache-spark-ipython-notebook-machine-learning.md)
 * [Website log analysis using Apache Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
-
-### Create and run applications
-
-* [Create a standalone application using Scala](apache-spark-create-standalone-application.md)
-* [Run jobs remotely on an Apache Spark cluster using Apache Livy](apache-spark-livy-rest-interface.md)
-
-### Tools and extensions
-
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications](apache-spark-intellij-tool-plugin.md)
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Apache Spark applications remotely](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Use Apache Zeppelin notebooks with an Apache Spark cluster on HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels available for Jupyter notebook in Apache Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)
-* [Use external packages with Jupyter notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
-* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](apache-spark-jupyter-notebook-install-locally.md)
-
-### Manage resources
-
-* [Manage resources for the Apache Spark cluster in Azure HDInsight](apache-spark-resource-manager.md)
-* [Track and debug jobs running on an Apache Spark cluster in HDInsight](apache-spark-job-debugging.md)
+* [Microsoft Cognitive Toolkit deep learning model with Azure HDInsight](apache-spark-microsoft-cognitive-toolkit.md)

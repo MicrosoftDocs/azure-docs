@@ -4,7 +4,7 @@ description: This article provides information on how to deploy an Application G
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ---
@@ -26,8 +26,8 @@ shared between one or more AKS clusters and/or other Azure components.
 
 ## Prerequisites
 This document assumes you already have the following tools and infrastructure installed:
-- [AKS](https://azure.microsoft.com/services/kubernetes-service/) with [Advanced Networking](https://docs.microsoft.com/azure/aks/configure-azure-cni) enabled
-- [Application Gateway v2](https://docs.microsoft.com/azure/application-gateway/create-zone-redundant) in the same virtual network as AKS
+- [AKS](https://azure.microsoft.com/services/kubernetes-service/) with [Azure Container Networking Interface (CNI)](../aks/configure-azure-cni.md)
+- [Application Gateway v2](./tutorial-autoscale-ps.md) in the same virtual network as AKS
 - [AAD Pod Identity](https://github.com/Azure/aad-pod-identity) installed on your AKS cluster
 - [Cloud Shell](https://shell.azure.com/) is the Azure shell environment, which has `az` CLI, `kubectl`, and `helm` installed. These tools are required for the commands below.
 
@@ -39,13 +39,13 @@ The zip file you downloaded will have JSON templates, bash, and PowerShell scrip
 Gateway should that become necessary
 
 ## Install Helm
-[Helm](https://docs.microsoft.com/azure/aks/kubernetes-helm) is a package manager for
+[Helm](../aks/kubernetes-helm.md) is a package manager for
 Kubernetes. We will leverage it to install the `application-gateway-kubernetes-ingress` package.
 Use [Cloud Shell](https://shell.azure.com/) to install Helm:
 
-1. Install [Helm](https://docs.microsoft.com/azure/aks/kubernetes-helm) and run the following to add `application-gateway-kubernetes-ingress` helm package:
+1. Install [Helm](../aks/kubernetes-helm.md) and run the following to add `application-gateway-kubernetes-ingress` helm package:
 
-    - *RBAC enabled* AKS cluster
+    - *Kubernetes RBAC enabled* AKS cluster
 
     ```bash
     kubectl create serviceaccount --namespace kube-system tiller-sa
@@ -53,7 +53,7 @@ Use [Cloud Shell](https://shell.azure.com/) to install Helm:
     helm init --tiller-namespace kube-system --service-account tiller-sa
     ```
 
-    - *RBAC disabled* AKS cluster
+    - *Kubernetes RBAC disabled* AKS cluster
 
     ```bash
     helm init
@@ -75,7 +75,7 @@ these APIs.
 [AAD Pod Identity](https://github.com/Azure/aad-pod-identity) is a controller, similar to AGIC, which also runs on your
 AKS. It binds Azure Active Directory identities to your Kubernetes pods. Identity is required for an application in a
 Kubernetes pod to be able to communicate with other Azure components. In the particular case here, we need authorization
-for the AGIC pod to make HTTP requests to [ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+for the AGIC pod to make HTTP requests to [ARM](../azure-resource-manager/management/overview.md).
 
 Follow the [AAD Pod Identity installation instructions](https://github.com/Azure/aad-pod-identity#deploy-the-azure-aad-identity-infra) to add this component to your AKS.
 
@@ -126,7 +126,7 @@ It is also possible to provide AGIC access to ARM via a Kubernetes secret.
 blob to be saved to Kubernetes.
 
 ```azurecli
-az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0
+az ad sp create-for-rbac --sdk-auth | base64 -w0
 ```
 
 2. Add the base64 encoded JSON blob to the `helm-config.yaml` file. More information on `helm-config.yaml` is in the
@@ -194,10 +194,10 @@ In the first few steps, we install Helm's Tiller on your Kubernetes cluster. Use
     ## Alternatively you can use Service Principal credentials
     # armAuth:
     #    type: servicePrincipal
-    #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0" >>
+    #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --sdk-auth | base64 -w0" >>
     
     ################################################################################
-    # Specify if the cluster is RBAC enabled or not
+    # Specify if the cluster is Kubernetes RBAC enabled or not
     rbac:
         enabled: false # true/false
     
@@ -231,7 +231,7 @@ In the first few steps, we install Helm's Tiller on your Kubernetes cluster. Use
          --set appgw.subscriptionId=subscription-uuid \
          --set appgw.shared=false \
          --set armAuth.type=servicePrincipal \
-         --set armAuth.secretJSON=$(az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0) \
+         --set armAuth.secretJSON=$(az ad sp create-for-rbac --sdk-auth | base64 -w0) \
          --set rbac.enabled=true \
          --set verbosityLevel=3 \
          --set kubernetes.watchNamespace=default \
@@ -342,11 +342,11 @@ Broaden AGIC permissions with:
 
 ### Enable for an existing AGIC installation
 Let's assume that we already have a working AKS, Application Gateway, and configured AGIC in our cluster. We have an Ingress for
-`prod.contosor.com` and are successfully serving traffic for it from AKS. We want to add `staging.contoso.com` to our
+`prod.contoso.com` and are successfully serving traffic for it from AKS. We want to add `staging.contoso.com` to our
 existing Application Gateway, but need to host it on a [VM](https://azure.microsoft.com/services/virtual-machines/). We
 are going to reuse the existing Application Gateway and manually configure a listener and backend pools for
 `staging.contoso.com`. But manually tweaking Application Gateway config (via
-[portal](https://portal.azure.com), [ARM APIs](https://docs.microsoft.com/rest/api/resources/) or
+[portal](https://portal.azure.com), [ARM APIs](/rest/api/resources/) or
 [Terraform](https://www.terraform.io/)) would conflict with AGIC's assumptions of full ownership. Shortly after we apply
 changes, AGIC will overwrite or delete them.
 

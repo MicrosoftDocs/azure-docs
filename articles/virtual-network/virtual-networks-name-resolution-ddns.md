@@ -3,18 +3,18 @@ title: Using dynamic DNS to register hostnames in Azure | Microsoft Docs
 description: Learn how to setup dynamic DNS to register hostnames in your own DNS servers.
 services: dns
 documentationcenter: na
-author: subsarma
+author: KumudD
 manager: vitinnan
 editor: ''
 
 ms.assetid: c315961a-fa33-45cf-82b9-4551e70d32dd
 ms.service: dns
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
-ms.author: subsarma
+ms.author: kumud
 
 ---
 # Use dynamic DNS to register hostnames in your own DNS server
@@ -24,7 +24,7 @@ ms.author: subsarma
 When your custom DNS servers are hosted as Azure VMs, you can forward hostname queries for the same virtual network to Azure to resolve hostnames. If you do not wish to use this option, you can register your VM hostnames in your DNS server using dynamic DNS (DDNS). Azure doesn't have the credentials to directly create records in your DNS servers, so alternative arrangements are often needed. Some common scenarios, with alternatives follow:
 
 ## Windows clients
-Non-domain-joined Windows clients attempt unsecured DDNS updates when they boot, or when their IP address changes. The DNS name is the hostname plus the primary DNS suffix. Azure leaves the primary DNS suffix blank, but you can set the suffix in the VM, via the [user interface](https://technet.microsoft.com/library/cc794784.aspx) or [PowerShell](/powershell/module/dnsclient/set-dnsclient).
+Non-domain-joined Windows clients attempt unsecured DDNS updates when they boot, or when their IP address changes. The DNS name is the hostname plus the primary DNS suffix. Azure leaves the primary DNS suffix blank, but you can set the suffix in the VM, via the [user interface](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794784(v=ws.10)) or [PowerShell](/powershell/module/dnsclient/set-dnsclient).
 
 Domain-joined Windows clients register their IP addresses with the domain controller by using secure DDNS. The domain-join process sets the primary DNS suffix on the client and creates and maintains the trust relationship.
 
@@ -57,7 +57,7 @@ then
 fi
 ```
 
-You can also use the `nsupdate` command to perform secure DDNS updates. For example, when you're using a Bind DNS server, a public-private key pair is [generated](http://linux.yyz.us/nsupdate/). The DNS server is [configured](http://linux.yyz.us/dns/ddns-server.html) with the public part of the key, so that it can verify the signature on the request. To provide the key-pair to `nsupdate`, use the `-k` option, for the DDNS update request to be signed.
+You can also use the `nsupdate` command to perform secure DDNS updates. For example, when you're using a Bind DNS server, a public-private key pair is generated (`http://linux.yyz.us/nsupdate/`). The DNS server is configured (`http://linux.yyz.us/dns/ddns-server.html`) with the public part of the key, so that it can verify the signature on the request. To provide the key-pair to `nsupdate`, use the `-k` option, for the DDNS update request to be signed.
 
 When you're using a Windows DNS server, you can use Kerberos authentication with the `-g` parameter in `nsupdate`, but it's not available in the Windows version of `nsupdate`. To use Kerberos, use `kinit` to load the credentials. For example, you can load credentials from a [keytab file](https://www.itadmintools.com/2011/07/creating-kerberos-keytab-files.html)), then `nsupdate -g` picks up the credentials, from the cache.
 

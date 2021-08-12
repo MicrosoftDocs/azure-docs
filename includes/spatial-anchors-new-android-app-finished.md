@@ -1,11 +1,11 @@
 ---
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
-ms.date: 04/03/2019
+ms.date: 11/20/2020
 ms.topic: include
-ms.author: rgarcia
+ms.author: parkerra
 ms.service: azure-spatial-anchors
 ---
 ## Putting everything together
@@ -142,6 +142,7 @@ public class MainActivity extends AppCompatActivity {
 
         this.cloudSession.getConfiguration().setAccountId(/* Copy your account Identifier in here */);
         this.cloudSession.getConfiguration().setAccountKey(/* Copy your account Key in here */);
+        this.cloudSession.getConfiguration().setAccountDomain(/* Copy your account Domain in here */);
         this.cloudSession.start();
     }
     // </initializeSession>
@@ -244,4 +245,4 @@ public class MainActivity extends AppCompatActivity {
 In this tutorial, you've seen how to create a new Android app that integrates ARCore functionality with Azure Spatial Anchors. To learn more about the Azure Spatial Anchors library, continue to our guide on how to create and locate anchors.
 
 > [!div class="nextstepaction"]
-> [Create and locate anchors using Azure Spatial Anchors](/azure/spatial-anchors/create-locate-anchors-overview)
+> [Create and locate anchors using Azure Spatial Anchors](../articles/spatial-anchors/create-locate-anchors-overview.md)

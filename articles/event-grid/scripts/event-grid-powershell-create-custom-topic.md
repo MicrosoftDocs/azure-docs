@@ -3,15 +3,12 @@ title: Azure PowerShell script sample - Create custom topic | Microsoft Docs
 description: This article provides a sample Azure PowerShell script that shows how to create an Event Grid custom topic.
 services: event-grid
 documentationcenter: na
-author: spelluru
 
-ms.service: event-grid
 ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2020
-ms.author: tomfitz
+ms.date: 07/22/2021
 ---
 
 # Create Event Grid custom topic with PowerShell
@@ -32,9 +29,9 @@ This script uses the following command to create the custom topic. Each command 
 
 | Command | Notes |
 |---|---|
-| [New-AzEventGridTopic](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridtopic) | Create an Event Grid custom topic. |
+| [New-AzEventGridTopic](/powershell/module/az.eventgrid/new-azeventgridtopic) | Create an Event Grid custom topic. |
 
 ## Next steps
 
 * For an introduction to managed applications, see [Azure Managed Application overview](../overview.md).
-* For more information on PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* For more information on PowerShell, see [Azure PowerShell documentation](/powershell/azure/get-started-azureps).

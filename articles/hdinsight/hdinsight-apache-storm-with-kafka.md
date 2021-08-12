@@ -1,9 +1,6 @@
 ---
 title: 'Tutorial: Apache Storm with Apache Kafka - Azure HDInsight'
 description: Learn how to create a streaming pipeline using Apache Storm and Apache Kafka on HDInsight. In this tutorial, you use the KafkaBolt and KafkaSpout components to stream data from Kafka.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
@@ -376,7 +373,7 @@ Apache Kafka on HDInsight does not provide access to the Kafka brokers over the 
 
 The following diagram shows how communication flows between Storm and Kafka:
 
-![Diagram of Storm and Kafka clusters in an Azure virtual network](./media/hdinsight-apache-storm-with-kafka/apache-storm-kafka-vnet.png)
+:::image type="content" source="./media/hdinsight-apache-storm-with-kafka/apache-storm-kafka-vnet.png" alt-text="Diagram of Storm and Kafka clusters in an Azure virtual network":::
 
 > [!NOTE]  
 > Other services on the cluster such as SSH and [Apache Ambari](https://ambari.apache.org/) can be accessed over the internet. For more information on the public ports available with HDInsight, see [Ports and URIs used by HDInsight](hdinsight-hadoop-port-settings-for-services.md).
@@ -414,7 +411,7 @@ To create an Azure Virtual Network, and then create the Kafka and Storm clusters
       | SSH User Name | The SSH user to create for the clusters. |
       | SSH Password | The password for the SSH user. |
    
-      ![Picture of the template parameters](./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png)
+      :::image type="content" source="./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png" alt-text="Picture of the template parameters":::
 
 3. Read the **Terms and Conditions**, and then select **I agree to the terms and conditions stated above**.
 
@@ -468,7 +465,7 @@ To create an Azure Virtual Network, and then create the Kafka and Storm clusters
     The value returned is similar to the following text:
 
     ```output
-    wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
+    <brokername1>.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,<brokername2>.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
      ```
 
     > [!IMPORTANT]  
@@ -496,7 +493,9 @@ To create an Azure Virtual Network, and then create the Kafka and Storm clusters
 
     The value returned is similar to the following text:
 
-        zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
+    ```output
+    <zookeepername1>.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,<zookeepername2>.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
+    ```
 
     > [!IMPORTANT]  
     > While there are more than two Zookeeper nodes, you do not need to provide a full list of all hosts to clients. One or two is enough.
@@ -505,9 +504,11 @@ To create an Azure Virtual Network, and then create the Kafka and Storm clusters
 
 3. Edit the `dev.properties` file in the root of the project. Add the Broker and Zookeeper hosts information for the __Kafka__ cluster to the matching lines in this file. The following example is configured using the sample values from the previous steps:
 
-        kafka.zookeeper.hosts: zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
-        kafka.broker.hosts: wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
-        kafka.topic: stormtopic
+    ```bash
+    kafka.zookeeper.hosts: <zookeepername1>.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,<zookeepername2>.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
+    kafka.broker.hosts: <brokername1>.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,<brokername2>.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
+    kafka.topic: stormtopic
+    ```
 
     > [!IMPORTANT]  
     > The `hdfs.url` entry is configured for a cluster that uses an Azure Storage account. To use this topology with a Storm cluster that uses Data Lake Storage, change this value from `wasb` to `adl`.
@@ -586,11 +587,13 @@ Kafka stores data into a _topic_. You must create the topic before starting the 
 
     The output is similar to the following text:
 
-        Found 173 items
-        -rw-r--r--   1 storm supergroup       5137 2018-04-09 19:00 /stormdata/hdfs-bolt-4-0-1523300453088.txt
-        -rw-r--r--   1 storm supergroup       5128 2018-04-09 19:00 /stormdata/hdfs-bolt-4-1-1523300453624.txt
-        -rw-r--r--   1 storm supergroup       5131 2018-04-09 19:00 /stormdata/hdfs-bolt-4-10-1523300455170.txt
-        ...
+    ```output
+    Found 173 items
+      -rw-r--r--   1 storm supergroup       5137 2018-04-09 19:00 /stormdata/hdfs-bolt-4-0-1523300453088.txt
+      -rw-r--r--   1 storm supergroup       5128 2018-04-09 19:00 /stormdata/hdfs-bolt-4-1-1523300453624.txt
+      -rw-r--r--   1 storm supergroup       5131 2018-04-09 19:00 /stormdata/hdfs-bolt-4-10-1523300455170.txt
+      ...
+    ```
 
 3. To view the contents of the file, use the following command. Replace `filename.txt` with the name of a file:
 
@@ -600,13 +603,19 @@ Kafka stores data into a _topic_. You must create the topic before starting the 
 
     The following text is an example of the file contents:
 
-        four score and seven years ago
-        snow white and the seven dwarfs
-        i am at two with nature
-        snow white and the seven dwarfs
-        i am at two with nature
-        four score and seven years ago
-        an apple a day keeps the doctor away
+    > four score and seven years ago
+    >
+    > snow white and the seven dwarfs
+    >
+    > i am at two with nature
+    >
+    > snow white and the seven dwarfs
+    >
+    > i am at two with nature
+    >
+    > four score and seven years ago
+    >
+    > an apple a day keeps the doctor away
 
 ## Stop the topologies
 

@@ -1,23 +1,16 @@
 ---
-title: Known issues with SCIM 2.0 protocol compliance - Azure AD
+title: Known issues with System for Cross-Domain Identity Management (SCIM) 2.0 protocol compliance - Azure AD
 description: How to solve common protocol compatibility issues faced when adding a non-gallery application that supports SCIM 2.0 to Azure AD
 services: active-directory
-documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
-ms.assetid: 
+author: kenwith
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 12/03/2018
-ms.author: mimart
+ms.topic: reference
+ms.date: 05/11/2021
+ms.author: kenwith
 ms.reviewer: arvinh
-
-ms.collection: M365-identity-device-management
 ---
 
 # Known issues and resolutions with SCIM 2.0 protocol compliance of the Azure AD User Provisioning service
@@ -28,33 +21,228 @@ Azure AD's support for the SCIM 2.0 protocol is described in [Using System for C
 
 This article describes current and past issues with the Azure AD user provisioning service's adherence to the SCIM 2.0 protocol, and how to work around these issues.
 
-> [!IMPORTANT]
-> The latest update to the Azure AD user provisioning service SCIM client was made on December 18, 2018. This update addressed the known compatibility issues listed in the table below. See the frequently asked questions below for more information about this update.
+## Understanding the provisioning job
+The provisioning service uses the concept of a job to operate against an application. The jobID can be found in the [progress bar](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar). All new provisioning applications are created with a jobID starting with "scim". The scim job represents the current state of the service. Older jobs have the ID "customappsso". This job represents the state of the service in 2018. 
+
+If you are using an application in the gallery, the job generally contains the name of the app (e.g. zoom snowFlake, dataBricks, etc.). You can skip this documentation when using a gallery application. This primarily applies for non-gallery applications with jobID SCIM or customAppSSO.
 
 ## SCIM 2.0 compliance issues and status
-
-| **SCIM 2.0 compliance issue** |  **Fixed?** | **Fix date**  |  
-|---|---|---|
-| Azure AD requires "/scim" to be in the root of the application's SCIM endpoint URL  | Yes  |  December 18, 2018 | 
-| Extension attributes use dot "." notation before attribute names instead of colon ":" notation |  Yes  | December 18, 2018  | 
-|  Patch requests for multi-value attributes contain invalid path filter syntax | Yes  |  December 18, 2018  | 
-|  Group creation requests contain an invalid schema URI | Yes  |  December 18, 2018  |  
-
-## Were the services fixes described automatically applied to my pre-existing SCIM app?
-
-No. As it would have constituted a breaking change to SCIM apps that were coded to work with the older behavior, the changes were not automatically applied to existing apps.
-
-The changes are applied to all new [non-gallery SCIM apps](../manage-apps/configure-single-sign-on-non-gallery-applications.md)
- configured in the Azure portal, after the date of the fix.
-
-For information on how to migrate a pre-existing user provisioning job to include the latest fixes, see the next section.
-
-## Can I migrate an existing SCIM-based user provisioning job to include the latest service fixes?
-
-Yes. If you are already using this application instance for single sign-on, and need to migrate the existing provisioning job to include the latest fixes, follow the procedure below. This procedure describes how to use the Microsoft Graph API and the Microsoft Graph API explorer to remove your old provisioning job from your existing SCIM app, and create a new one that exhibits the new behavior.
+In the table below, any item marked as fixed means that the proper behavior can be found on the SCIM job. We have worked to ensure backwards compatibility for the changes we have made. However, we do not recommend implementing old behavior. We recommend using the new behavior for any new implementations and updating existing implementations.
 
 > [!NOTE]
-> If your application is still in development and has not yet been deployed for either single sign-on or user provisioning, the easiest solution is to delete the application entry in the **Azure Active Directory > Enterprise Applications** section of the Azure portal, and simply add a new entry for the application using the **Create application > Non-gallery** option. This is an alternative to running the procedure below.
+> For the changes made in 2018, you can revert back to the customappsso behavior. For the changes made since 2018, you can use the URLs to revert back to the older behavior. We have worked to ensure backwards compatibility for the changes we have made by allowing you to revert back to the old jobID or by using a flag. However, as previously mentioned, we do not recommend implementing old behavior. We recommend using the new behavior for any new implementations and updating existing implementations.
+
+| **SCIM 2.0 compliance issue** |  **Fixed?** | **Fix date**  |  **Backwards compatibility** |
+|---|---|---|
+| Azure AD requires "/scim" to be in the root of the application's SCIM endpoint URL  | Yes  |  December 18, 2018 | downgrade to customappSSO |
+| Extension attributes use dot "." notation before attribute names instead of colon ":" notation |  Yes  | December 18, 2018  | downgrade to customappSSO |
+| Patch requests for multi-value attributes contain invalid path filter syntax | Yes  |  December 18, 2018  | downgrade to customappSSO |
+| Group creation requests contain an invalid schema URI | Yes  |  December 18, 2018  |  downgrade to customappSSO |
+| Update PATCH behavior to ensure compliance (e.g. active as boolean and proper group membership removals) | No | TBD| use preview flag |
+
+## Flags to alter the SCIM behavior
+Use the flags below in the tenant URL of your application in order to change the default SCIM client behavior.
+
+:::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="SCIM flags to later behavior.":::
+
+Use the following URL to update PATCH behavior and ensure SCIM compliance. The flag will alter the following behaviors:                
+- Requests made to disable users
+- Requests to add a single-value string attribute
+- Requests to replace multiple attributes
+- Requests to remove a group member        
+                                                                                     
+This behavior is currently only available when using the flag, but will become the default behavior over the next few months. Note this preview flag currently does not work with on-demand provisioning. 
+  * **URL (SCIM Compliant):** aadOptscim062020
+  * **SCIM RFC references:** 
+    * https://tools.ietf.org/html/rfc7644#section-3.5.2    
+
+Below are sample requests to help outline what the sync engine currently sends versus the requests that are sent once the feature flag is enabled. 
+                           
+**Requests made to disable users:**
+
+**Without feature flag**
+  ```json
+  {
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "Replace",
+            "path": "active",
+            "value": "False"
+        }
+    ]
+}
+  ```
+
+**With feature flag**
+  ```json
+  {
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "replace",
+            "path": "active",
+            "value": false
+        }
+    ]
+}
+  ```
+
+**Requests made to add a single-value string attribute:**
+
+**Without feature flag**
+  ```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "Add",
+            "path": "nickName",
+            "value": [
+                {
+                    "value": "Babs"
+                }
+            ]
+        }
+    ]
+}   
+  ```
+
+**With feature flag**
+  ```json
+  {
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "add",
+            "value": {
+                "nickName": "Babs"
+            }
+        }
+    ]
+}
+  ```
+
+**Requests to replace multiple attributes:**
+
+**Without feature flag**
+  ```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "Replace",
+            "path": "displayName",
+            "value": "Pvlo"
+        },
+        {
+            "op": "Replace",
+            "path": "emails[type eq \"work\"].value",
+            "value": "TestBcwqnm@test.microsoft.com"
+        },
+        {
+            "op": "Replace",
+            "path": "name.givenName",
+            "value": "Gtfd"
+        },
+        {
+            "op": "Replace",
+            "path": "name.familyName",
+            "value": "Pkqf"
+        },
+        {
+            "op": "Replace",
+            "path": "externalId",
+            "value": "Eqpj"
+        },
+        {
+            "op": "Replace",
+            "path": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber",
+            "value": "Eqpj"
+        }
+    ]
+}
+  ```
+
+**With feature flag**
+  ```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "replace",
+            "path": "emails[type eq \"work\"].value",
+            "value": "TestMhvaes@test.microsoft.com"
+        },
+        {
+            "op": "replace",
+            "value": {
+                "displayName": "Bjfe",
+                "name.givenName": "Kkom",
+                "name.familyName": "Unua",
+                "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber": "Aklq"
+            }
+        }
+    ]
+} 
+  ```
+
+**Requests made to remove a group member:**
+
+**Without feature flag**
+  ```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "Remove",
+            "path": "members",
+            "value": [
+                {
+                    "value": "u1091"
+                }
+            ]
+        }
+    ]
+} 
+  ```
+
+**With feature flag**
+  ```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "remove",
+            "path": "members[value eq \"7f4bc1a3-285e-48ae-8202-5accb43efb0e\"]"
+        }
+    ]
+}
+  ```
+
+
+  * **Downgrade URL:** Once the new SCIM compliant behavior becomes the default on the non-gallery application, you can use the following URL to roll back to the old, non SCIM compliant behavior: AzureAdScimPatch2017
+  
+
+
+## Upgrading from the older customappsso job to the SCIM job
+Following the steps below will delete your existing customappsso job and create a new scim job. 
  
 1. Sign into the Azure portal at https://portal.azure.com.
 2. In the **Azure Active Directory > Enterprise Applications** section of the Azure portal, locate and select your existing SCIM application.
@@ -75,7 +263,7 @@ Yes. If you are already using this application instance for single sign-on, and 
  
    ![Get Schema](media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Get Schema") 
 
-8. Copy the JSON output from the last step, and save it to a text file. This contains any custom attribute-mappings that you added to your old app, and should be approximately a few thousand lines of JSON.
+8. Copy the JSON output from the last step, and save it to a text file. The JSON contains any custom attribute-mappings that you added to your old app, and should be approximately a few thousand lines of JSON.
 9. Run the command below to delete the provisioning job:
  
    `DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]`
@@ -85,7 +273,7 @@ Yes. If you are already using this application instance for single sign-on, and 
  `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
  `{   templateId: "scim"   }`
    
-11. In the results of the last step, copy the full "ID" string that begins with "scim". Optionally, re-apply your old attribute-mappings by running the command below, replacing [new-job-id] with the new job ID you just copied, and entering the JSON output from step #7 as the request body.
+11. In the results of the last step, copy the full "ID" string that begins with "scim". Optionally, reapply your old attribute-mappings by running the command below, replacing [new-job-id] with the new job ID you copied, and entering the JSON output from step #7 as the request body.
 
  `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema`
  `{   <your-schema-json-here>   }`
@@ -93,10 +281,9 @@ Yes. If you are already using this application instance for single sign-on, and 
 12. Return to the first web browser window, and select the **Provisioning** tab for your application.
 13. Verify your configuration, and then start the provisioning job. 
 
-## Can I add a new non-gallery app that has the old user provisioning behavior?
+## Downgrading from the SCIM job to the customappsso job (not recommended)
+ We allow you to downgrade back to the old behavior but don't recommend it as the customappsso does not benefit from some of the updates we make, and may not be supported forever. 
 
-Yes. If you had coded an application to the old behavior that existed prior to the fixes, and need to deploy a new instance of it, follow the procedure below. This procedure describes how to use the Microsoft Graph API and the Microsoft Graph API explorer to create a SCIM provisioning job that exhibits the old behavior.
- 
 1. Sign into the Azure portal at https://portal.azure.com.
 2. in the **Azure Active Directory > Enterprise Applications > Create application** section of the Azure portal, create a new **Non-gallery** application.
 3. In the **Properties** section of your new custom app, copy the **Object ID**.
@@ -114,4 +301,3 @@ Yes. If you had coded an application to the old behavior that existed prior to t
 
 ## Next steps
 [Learn more about provisioning and de-provisioning to SaaS applications](user-provisioning.md)
-

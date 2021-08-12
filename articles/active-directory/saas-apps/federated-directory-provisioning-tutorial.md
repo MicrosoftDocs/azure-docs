@@ -2,20 +2,15 @@
 title: 'Tutorial: Configure Federated Directory for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Federated Directory.
 services: active-directory
-documentationcenter: ''
-author: zchia
-writer: zchia
-manager: beatrizd
-
-ms.assetid: na
+author: twimmers
+writer: twimmers
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/12/2019
-ms.author: zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Federated Directory for automatic user provisioning
@@ -53,24 +48,24 @@ Before configuring Federated Directory for automatic user provisioning with Azur
 
 1. Sign in to your [Federated Directory Admin Console](https://federated.directory/of)
 
-	![Federated Directory tutorial](media/federated-directory-provisioning-tutorial/companyname.png)
+	:::image type="content" source="media/federated-directory-provisioning-tutorial/companyname.png" alt-text="Screenshot of the Federated Directory admin console showing a field for entering a company name. Sign in buttons are also visible." border="false":::
 
 2. Navigate to **Directories > User directories** and select your tenant. 
 
-	![federated directory](media/federated-directory-provisioning-tutorial/ad-user-directories.png)
+	:::image type="content" source="media/federated-directory-provisioning-tutorial/ad-user-directories.png" alt-text="Screenshot of the Federated Directory admin console, with Directories and Federated Directory Azure A D Test highlighted." border="false":::
 
 3. 	To generate a permanent bearer token, navigate to **Directory Keys > Create New Key.** 
 
-	![federated directory](media/federated-directory-provisioning-tutorial/federated01.png)
+	:::image type="content" source="media/federated-directory-provisioning-tutorial/federated01.png" alt-text="Screenshot of the Directory keys page of the Federated Directory admin console. The Create new key button is highlighted." border="false":::
 
 4. Create a directory key. 
 
-	![federated directory](media/federated-directory-provisioning-tutorial/federated02.png)
+	:::image type="content" source="media/federated-directory-provisioning-tutorial/federated02.png" alt-text="Screenshot of the Create directory key page of the Federated Directory admin console, with Name and Description fields and a Create key button." border="false":::
 	
 
 5. Copy the **Access Token** value. This value will be entered in the **Secret Token** field in the Provisioning tab of your Federated Directory application in the Azure portal. 
 
-	![federated directory](media/federated-directory-provisioning-tutorial/federated03.png)
+	:::image type="content" source="media/federated-directory-provisioning-tutorial/federated03.png" alt-text="Screenshot of a page in the Federated Directory admin console. An access token placeholder and a key name, description, and issuer are visible." border="false":::
 	
 ## Add Federated Directory from the gallery
 
@@ -96,15 +91,15 @@ To configure Federated Directory for automatic user provisioning with Azure AD, 
 
 5. Navigate to the **URL** highlighted below in a separate browser. 
 
-	![federated directory](media/federated-directory-provisioning-tutorial/loginpage1.png)
+	:::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage1.png" alt-text="Screenshot of a page in the Azure portal that displays information on Federated Directory. The U R L value is highlighted." border="false":::
 
 6. Click **LOG IN**.
 
-	![federated directory](media/federated-directory-provisioning-tutorial/federated04.png)
+	:::image type="content" source="media/federated-directory-provisioning-tutorial/federated04.png" alt-text="Screenshot of the main menu on the Federated Directory site. The Log in button is highlighted." border="false":::
 
 7.  As Federated Directory is an OpenIDConnect app, choose to login to Federated Directory using your Microsoft work account.
 	
-	![federated directory](media/federated-directory-provisioning-tutorial/loginpage3.png)
+	:::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage3.png" alt-text="Screenshot of the S C I M A D test page on the Federated Directory site. Log in with your Microsoft account is highlighted." border="false":::
  
 8. After a successful authentication, accept the consent prompt for the consent page. The application will then be automatically added to your tenant and you will be redirected to your Federated Directory account.
 
@@ -128,11 +123,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input `https://api.federated.directory/v2/` in Tenant URL. Input the value that you retrieved and saved earlier from Federated Directory in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Federated Directory. If the connection fails, ensure your Federated Directory account has Admin permissions and try again.
 
@@ -146,12 +141,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Federated Directory**.
 
-	![Federated Directory tutorial](media/federated-directory-provisioning-tutorial/user-mappings.png)
+	:::image type="content" source="media/federated-directory-provisioning-tutorial/user-mappings.png" alt-text="Screenshot of the Mappings section. Under Name, Synchronize Azure Active Directory Users to Federated Directory is highlighted." border="false":::
 	
 	
 11. Review the user attributes that are synchronized from Azure AD to Federated Directory in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Federated Directory for update operations. Select the **Save** button to commit any changes.
 
-	![Federated Directory tutorial](media/federated-directory-provisioning-tutorial/user-attributes.png)
+	:::image type="content" source="media/federated-directory-provisioning-tutorial/user-attributes.png" alt-text="Screenshot of the Attribute Mappings page. A table lists Azure Active Directory and Federated Directory attributes and the matching status." border="false":::
 	
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

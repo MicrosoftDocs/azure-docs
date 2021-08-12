@@ -1,21 +1,19 @@
 ---
 title: Plan an automatic user provisioning deployment for Azure Active Directory
-description: Guidance for planning and executing automatic user provisioning
+description: Guidance for planning and executing automatic user provisioning in Azure Active Directory
 services: active-directory
-author: martincoetzer
-manager: CelesteDG
+author: kenwith
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/17/2019
-ms.author: martinco
-ms.reviewer: arvindha
-ms.collection: M365-identity-device-management
-#customer intent: As an admin, I want to automate user provisioning to SaaS apps
+ms.date: 07/13/2021
+ms.author: kenwith
+ms.reviewer: arvinh
 ---
 
-# Plan an automatic user provisioning deployment
+# Plan an automatic user provisioning deployment in Azure Active Directory
 
 Many organizations rely on software as a service (SaaS) applications such as ServiceNow, Zscaler, and Slack for end-user productivity. Historically IT staff have relied on manual provisioning methods such as uploading CSV files, or using custom scripts to securely manage user identities in each SaaS application. These processes are error prone, insecure, and hard to manage.
 
@@ -41,7 +39,7 @@ The key benefits of enabling automatic user provisioning are:
 
 ### Licensing
 
-Azure AD provides self-service integration of any application using templates provided in the application gallery menu. For a full list of license requirements, see [Azure AD licensing page](https://azure.microsoft.com/pricing/details/active-directory/).
+Azure AD provides self-service integration of any application using templates provided in the application gallery menu. For a full list of license requirements, see [Azure AD pricing page](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 #### Application licensing
 
@@ -96,7 +94,7 @@ In this example, users and or groups are created in an HR database connected to 
 
 In this example, user creation occurs in Azure AD and the  Azure AD provisioning service manages automatic user provisioning to the target (SaaS) applications.
 
-![Picture 2](./media/plan-auto-user-provisioning/cloudprovisioning.png)
+![Diagram that shows the user/group creation process from an on-premises H R application through the Azure A D Provisioning Service to the target S a a S applications.](./media/plan-auto-user-provisioning/cloudprovisioning.png)
 
 **Description of workflow:**
 
@@ -126,7 +124,7 @@ Consider your organizational needs to determine the strategy for deploying user 
 
 ### Engage the right stakeholders
 
-When technology projects fail, it's typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure you're engaging the right stakeholders](https://aka.ms/deploymentplans) and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountabilities.
+When technology projects fail, it's typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure you're engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md) and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountabilities.
 
 ### Plan communications
 
@@ -142,7 +140,7 @@ A pilot allows you to test with a small group before deploying a capability for 
 
 In your first wave, target IT, usability, and other appropriate users who can test and provide feedback. Use this feedback to further develop the communications and instructions you send to your users, and to give insights into the types of issues your support staff may see.
 
-Widen the rollout to larger groups of users by increasing the scope of the group(s) targeted. This can be done through [dynamic group membership](../users-groups-roles/groups-dynamic-membership.md), or by manually adding users to the targeted group(s).
+Widen the rollout to larger groups of users by increasing the scope of the group(s) targeted. This can be done through [dynamic group membership](../enterprise-users/groups-dynamic-membership.md), or by manually adding users to the targeted group(s).
 
 ## Plan application connections and administration
 
@@ -154,7 +152,7 @@ The actual steps required to enable and configure automatic provisioning vary de
 
 If not, follow the steps below:
 
-1. [Create a request](../develop/howto-app-gallery-listing.md) for a pre-integrated user provisioning connector. Our team will work with you and the application developer to onboard your application to our platform if it supports SCIM.
+1. [Create a request](../develop/v2-howto-app-gallery-listing.md) for a pre-integrated user provisioning connector. Our team will work with you and the application developer to onboard your application to our platform if it supports SCIM.
 
 1. Use the [BYOA SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) generic user provisioning support for the app. This is a requirement for Azure AD to provision users to the app without a pre-integrated provisioning connector.
 
@@ -253,7 +251,7 @@ Choose the steps that align to your solution requirements.
 
 When the Azure AD provisioning service runs for the first time, the initial cycle against the source system and target systems creates a snapshot of all user objects for each target system.
 
-When enabling automatic provisioning for an application, the initial cycle can take anywhere from 20 minutes to several hours. The duration depends on the size of the Azure AD directory and the number of users in scope for provisioning. See [How to improve provisioning performance](../app-provisioning/application-provisioning-when-will-provisioning-finish.md).
+When enabling automatic provisioning for an application, the initial cycle can take anywhere from 20 minutes to several hours. The duration depends on the size of the Azure AD directory and the number of users in scope for provisioning.
 
 The provisioning service stores the state of both systems after the initial cycle, improving performance of subsequent incremental cycles.
 
@@ -261,7 +259,7 @@ The provisioning service stores the state of both systems after the initial cycl
 
 Use the [Azure portal](https://portal.azure.com/) to manage automatic user account provisioning and de-provisioning for applications that support it. Follow the steps in [How do I set up automatic provisioning to an application?](../app-provisioning/user-provisioning.md)
 
-The Azure AD user provisioning service can also be configured and managed using the [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview).
+The Azure AD user provisioning service can also be configured and managed using the [Microsoft Graph API](/graph/api/resources/synchronization-overview).
 
 ## Manage automatic user provisioning
 
@@ -271,7 +269,7 @@ Now that you've deployed, you need to manage the solution.
 
 After a successful [initial cycle](../app-provisioning/user-provisioning.md), the Azure AD provisioning service will run incremental updates indefinitely, at intervals specific to each application, until one of the following events occurs:
 
-* The service is manually stopped, and a new initial cycle is triggered using the [Azure portal](https://portal.azure.com/), or using the appropriate [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) command.
+* The service is manually stopped, and a new initial cycle is triggered using the [Azure portal](https://portal.azure.com/), or using the appropriate [Microsoft Graph API](/graph/api/resources/synchronization-overview) command.
 
 * A new initial cycle is triggered by a change in attribute mappings or scoping filters.
 
@@ -297,19 +295,17 @@ Refer to the following links to troubleshoot any issues that may turn up during 
 
 * [Sync an attribute from your on-premises Active Directory to Azure AD for provisioning to an application](../app-provisioning/user-provisioning-sync-attributes-for-mapping.md)
 
-* [User provisioning to an Azure AD Gallery application is taking hours or more](../app-provisioning/application-provisioning-when-will-provisioning-finish.md)
-
-* [Problem saving administrator credentials while configuring user provisioning to an Azure Active Directory Gallery application](../app-provisioning/application-provisioning-config-problem-storage-limit.md)
+* [Problem saving administrator credentials while configuring user provisioning to an Azure Active Directory Gallery application](./user-provisioning.md)
 
 * [No users are being provisioned to an Azure AD Gallery application](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md)
 
-* [Wrong set of users are being provisioned to an Azure AD Gallery application](../app-provisioning/application-provisioning-config-problem-wrong-users-provisioned.md)
+* [Wrong set of users are being provisioned to an Azure AD Gallery application](../manage-apps/add-application-portal-assign-users.md)
 
 ### Helpful documentation
 
 * [Writing expressions for attribute mappings](../app-provisioning/functions-for-customizing-application-data.md)
 
-* [Azure AD synchronization API overview](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+* [Azure AD synchronization API overview](/graph/api/resources/synchronization-overview)
 
 * [Skip deletion of user accounts that go out of scope](skip-out-of-scope-deletions.md)
 
@@ -321,7 +317,7 @@ Refer to the following links to troubleshoot any issues that may turn up during 
 
 * [Keep up to date on what's new with Azure AD](https://azure.microsoft.com/updates/?product=active-directory)
 
-* [Stack overflow Azure AD forum](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Microsoft Q&A Azure AD forum](/answers/topics/azure-active-directory.html)
 
 ## Next steps
 * [Configure Automatic User Provisioning](../app-provisioning/configure-automatic-user-provisioning-portal.md)

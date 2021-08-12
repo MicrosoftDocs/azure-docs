@@ -1,17 +1,32 @@
 ---
-title: Diagnose and troubleshoot Azure Cosmos DB Java Async SDK
-description: Use features like client-side logging and other third-party tools to identify, diagnose, and troubleshoot Azure Cosmos DB issues.
-author: moderakh
+title: Diagnose and troubleshoot Azure Cosmos DB Async Java SDK v2
+description: Use features like client-side logging and other third-party tools to identify, diagnose, and troubleshoot Azure Cosmos DB issues in Async Java SDK v2.
+author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 04/30/2019
-ms.author: moderakh
+ms.date: 05/11/2020
+ms.author: anfeldma
 ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
+ms.custom: devx-track-java
 ---
 
-# Troubleshoot issues when you use the Java Async SDK with Azure Cosmos DB SQL API accounts
+# Troubleshoot issues when you use the Azure Cosmos DB Async Java SDK v2 with SQL API accounts
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
+> [!div class="op_single_selector"]
+> * [Java SDK v4](troubleshoot-java-sdk-v4-sql.md)
+> * [Async Java SDK v2](troubleshoot-java-async-sdk.md)
+> * [.NET](troubleshoot-dot-net-sdk.md)
+> 
+
+> [!IMPORTANT]
+> This is *not* the latest Java SDK for Azure Cosmos DB! You should upgrade your project to [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) and then read the Azure Cosmos DB Java SDK v4 [troubleshooting guide](troubleshoot-java-sdk-v4-sql.md). Follow the instructions in the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide and [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) guide to upgrade. 
+>
+> This article covers troubleshooting for Azure Cosmos DB Async Java SDK v2 only. See the Azure Cosmos DB Async Java SDK v2 [Release Notes](sql-api-sdk-async-java.md), [Maven repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) and [performance tips](performance-tips-async-java.md) for more information.
+>
+
 This article covers common issues, workarounds, diagnostic steps, and tools when you use the [Java Async SDK](sql-api-sdk-async-java.md) with Azure Cosmos DB SQL API accounts.
 The Java Async SDK provides client-side logical representation to access the Azure Cosmos DB SQL API. This article describes tools and approaches to help you if you run into any issues.
 
@@ -44,13 +59,13 @@ The number of max allowed open files, which are identified as "nofile," needs to
 
 ##### <a name="snat"></a>Azure SNAT (PAT) port exhaustion
 
-If your app is deployed on Azure Virtual Machines without a public IP address, by default [Azure SNAT ports](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) establish connections to any endpoint outside of your VM. The number of connections allowed from the VM to the Azure Cosmos DB endpoint is limited by the [Azure SNAT configuration](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+If your app is deployed on Azure Virtual Machines without a public IP address, by default [Azure SNAT ports](../load-balancer/load-balancer-outbound-connections.md#preallocatedports) establish connections to any endpoint outside of your VM. The number of connections allowed from the VM to the Azure Cosmos DB endpoint is limited by the [Azure SNAT configuration](../load-balancer/load-balancer-outbound-connections.md#preallocatedports).
 
  Azure SNAT ports are used only when your VM has a private IP address and a process from the VM tries to connect to a public IP address. There are two workarounds to avoid Azure SNAT limitation:
 
-* Add your Azure Cosmos DB service endpoint to the subnet of your Azure Virtual Machines virtual network. For more information, see [Azure Virtual Network service endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). 
+* Add your Azure Cosmos DB service endpoint to the subnet of your Azure Virtual Machines virtual network. For more information, see [Azure Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md). 
 
-    When the service endpoint is enabled, the requests are no longer sent from a public IP to Azure Cosmos DB. Instead, the virtual network and subnet identity are sent. This change might result in firewall drops if only public IPs are allowed. If you use a firewall, when you enable the service endpoint, add a subnet to the firewall by using [Virtual Network ACLs](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).
+    When the service endpoint is enabled, the requests are no longer sent from a public IP to Azure Cosmos DB. Instead, the virtual network and subnet identity are sent. This change might result in firewall drops if only public IPs are allowed. If you use a firewall, when you enable the service endpoint, add a subnet to the firewall by using [Virtual Network ACLs](/previous-versions/azure/virtual-network/virtual-networks-acl).
 * Assign a public IP to your Azure VM.
 
 ##### <a name="cant-connect"></a>Can't reach the Service - firewall
@@ -75,6 +90,9 @@ The SDK uses the [Netty](https://netty.io/) IO library to communicate with Azure
 The Netty IO threads are meant to be used only for non-blocking Netty IO work. The SDK returns the API invocation result on one of the Netty IO threads to the app's code. If the app performs a long-lasting operation after it receives results on the Netty thread, the SDK might not have enough IO threads to perform its internal IO work. Such app coding might result in low throughput, high latency, and `io.netty.handler.timeout.ReadTimeoutException` failures. The workaround is to switch the thread when you know the operation takes time.
 
 For example, take a look at the following code snippet. You might perform long-lasting work that takes more than a few milliseconds on the Netty thread. If so, you eventually can get into a state where no Netty IO thread is present to process IO work. As a result, you get a ReadTimeoutException failure.
+
+### <a id="asyncjava2-readtimeout"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
+
 ```java
 @Test
 public void badCodeWithReadTimeoutException() throws Exception {
@@ -126,13 +144,19 @@ public void badCodeWithReadTimeoutException() throws Exception {
     assertThat(failureCount.get()).isGreaterThan(0);
 }
 ```
-   The workaround is to change the thread on which you perform work that takes time. Define a singleton instance of the scheduler for your app.
-   ```java
+The workaround is to change the thread on which you perform work that takes time. Define a singleton instance of the scheduler for your app.
+
+### <a id="asyncjava2-scheduler"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
+
+```java
 // Have a singleton instance of an executor and a scheduler.
 ExecutorService ex  = Executors.newFixedThreadPool(30);
 Scheduler customScheduler = rx.schedulers.Schedulers.from(ex);
-   ```
-   You might need to do work that takes time, for example, computationally heavy work or blocking IO. In this case, switch the thread to a worker provided by your `customScheduler` by using the `.observeOn(customScheduler)` API.
+```
+You might need to do work that takes time, for example, computationally heavy work or blocking IO. In this case, switch the thread to a worker provided by your `customScheduler` by using the `.observeOn(customScheduler)` API.
+
+### <a id="asyncjava2-applycustomscheduler"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
+
 ```java
 Observable<ResourceResponse<Document>> createObservable = client
         .createDocument(getCollectionLink(), docDefinition, null, false);
@@ -153,9 +177,9 @@ This modification solves the problem. You won't get a `io.netty.handler.timeout.
 ### Request rate too large
 This failure is a server-side failure. It indicates that you consumed your provisioned throughput. Retry later. If you get this failure often, consider an increase in the collection throughput.
 
-### Failure connecting to Azure Cosmos DB emulator
+### Failure connecting to Azure Cosmos DB Emulator
 
-The Azure Cosmos DB emulator HTTPS certificate is self-signed. For the SDK to work with the emulator, import the emulator certificate to a Java TrustStore. For more information, see [Export Azure Cosmos DB emulator certificates](local-emulator-export-ssl-certificates.md).
+The Azure Cosmos DB Emulator HTTPS certificate is self-signed. For the SDK to work with the emulator, import the emulator certificate to a Java TrustStore. For more information, see [Export Azure Cosmos DB Emulator certificates](local-emulator-export-ssl-certificates.md).
 
 ### Dependency Conflict Issues
 
@@ -165,13 +189,13 @@ Exception in thread "main" java.lang.NoSuchMethodError: rx.Observable.toSingle()
 
 The above exception suggests you have a dependency on an older version of RxJava lib (e.g., 1.2.2). Our SDK relies on RxJava 1.3.8 which has APIs not available in earlier version of RxJava. 
 
-The workaround for such issuses is to identify which other dependency brings in RxJava-1.2.2 and exclude the transitive dependency on RxJava-1.2.2, and allow CosmosDB SDK bring the newer version.
+The workaround for such issues is to identify which other dependency brings in RxJava-1.2.2 and exclude the transitive dependency on RxJava-1.2.2, and allow CosmosDB SDK bring the newer version.
 
 To identify which library brings in RxJava-1.2.2 run the following command next to your project pom.xml file:
 ```bash
 mvn dependency:tree
 ```
-For more information, see the [maven dependency tree guide](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html).
+For more information, see the [maven dependency tree guide](https://maven.apache.org/plugins-archives/maven-dependency-plugin-2.10/examples/resolving-conflicts-using-the-dependency-tree.html).
 
 Once you identify  RxJava-1.2.2 is transitive dependency of which other dependency of your project, you can modify the dependency on that lib in your pom file and exclude RxJava transitive dependency it:
 
@@ -249,5 +273,3 @@ Many connections to the Azure Cosmos DB endpoint might be in the `CLOSE_WAIT` st
 [Enable client SDK logging]: #enable-client-sice-logging
 [Connection limit on a host machine]: #connection-limit-on-host
 [Azure SNAT (PAT) port exhaustion]: #snat
-
-

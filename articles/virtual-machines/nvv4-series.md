@@ -1,34 +1,37 @@
 ---
- title: NVv4-series - Azure Virtual Machines
- description: Specifications for the NVv4-series VMs.
- services: virtual-machines
- author: vikancha
- ms.service: virtual-machines
- ms.topic: article
- ms.date: 02/03/2020
- ms.author: lahugh
+title: NVv4-series 
+description: Specifications for the NVv4-series VMs.
+author: vikancha-MSFT
+ms.service: virtual-machines
+ms.subservice: vm-sizes-gpu
+ms.topic: conceptual
+ms.date: 01/12/2020
+ms.author: vikancha
 ---
 
 # NVv4-series 
 
-The NVv4-series virtual machines are powered by [AMD Radeon Instinct MI25](https://www.amd.com/en/products/professional-graphics/instinct-mi25) GPUs and AMD EPYC 7V12(Rome) CPUs. With NVv4-series Azure is introducing virtual machines with partial GPUs. Pick the right sized virtual machine for GPU accelerated graphics applications and virtual desktops starting at 1/8th of a GPU with 2 GiB frame buffer to a full GPU with 16 GiB frame buffer. NVv4 virtual machines currently support only Windows guest operating system.
+The NVv4-series virtual machines are powered by [AMD Radeon Instinct MI25](https://www.amd.com/en/products/professional-graphics/instinct-mi25) GPUs and AMD EPYC 7V12(Rome) CPUs with a base frequency of 2.45GHz, all-cores peak frequency of 3.1GHz and single-core peak frequency of 3.3GHz. With NVv4-series Azure is introducing virtual machines with partial GPUs. Pick the right sized virtual machine for GPU accelerated graphics applications and virtual desktops starting at 1/8th of a GPU with 2 GiB frame buffer to a full GPU with 16 GiB frame buffer. NVv4 virtual machines currently support only Windows guest operating system.
 
 <br>
 
-Premium Storage:  Supported
+[ACU](acu.md): 230-260<br>
+[Premium Storage](premium-storage-performance.md): Supported<br>
+[Premium Storage caching](premium-storage-performance.md): Supported<br>
+[Ultra Disks](disks-types.md#ultra-disk): Supported ([Learn more](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) about availability, usage and performance) <br>
+[Live Migration](maintenance-and-updates.md): Not Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
+[VM Generation Support](generation-2.md): Generation 1 and 2<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported ([In preview](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
+<br>
 
-Premium Storage caching:  Supported
-
-Live Migration: Not Supported
-
-Memory Preserving Updates: Not Supported
-
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs / Expected network bandwidth (MBps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV4as_v4 |4 |14 |88 | 1/8 | 2 | 4 | 2 |
-| Standard_NV8as_v4 |8 |28 |176 | 1/4 | 4 | 8 | 4 |
-| Standard_NV16as_v4 |16 |56 |352 | 1/2 | 8 | 16 | 8 |
-| Standard_NV32as_v4 |32 |112 |704 | 1 | 16 | 32 | 8 |
+| Standard_NV4as_v4 |4 |14 |88 | 1/8 | 2 | 4 | 2 / 1000 |
+| Standard_NV8as_v4 |8 |28 |176 | 1/4 | 4 | 8 | 4 / 2000 |
+| Standard_NV16as_v4 |16 |56 |352 | 1/2 | 8 | 16 | 8 / 4000 |
+| Standard_NV32as_v4 |32 |112 |704 | 1 | 16 | 32 | 8 / 8000 |
 
 <sup>1</sup> NVv4-series VMs feature AMD Simultaneous multithreading Technology
 

@@ -1,9 +1,6 @@
 ---
 title: An introduction to Apache Kafka on HDInsight - Azure 
 description: 'Learn about Apache Kafka on HDInsight: What it is, what it does, and where to find examples and getting started information.'
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive
@@ -23,13 +20,15 @@ The following are specific characteristics of Kafka on HDInsight:
 
 * It uses Azure Managed Disks as the backing store for Kafka. Managed Disks can provide up to 16 TB of storage per Kafka broker. For information on configuring managed disks with Kafka on HDInsight, see [Increase scalability of Apache Kafka on HDInsight](apache-kafka-scalability.md).
 
-    For more information on managed disks, see [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md).
+    For more information on managed disks, see [Azure Managed Disks](../../virtual-machines/managed-disks-overview.md).
 
 * Kafka was designed with a single dimensional view of a rack. Azure separates a rack into two dimensions - Update Domains (UD) and Fault Domains (FD). Microsoft provides tools that rebalance Kafka partitions and replicas across UDs and FDs.
 
     For more information, see [High availability with Apache Kafka on HDInsight](apache-kafka-high-availability.md).
 
-* HDInsight allows you to change the number of worker nodes (which host the Kafka-broker) after cluster creation. Scaling can be performed from the Azure portal, Azure PowerShell, and other Azure management interfaces. For Kafka, you should rebalance partition replicas after scaling operations. Rebalancing partitions allows Kafka to take advantage of the new number of worker nodes.
+* HDInsight allows you to change the number of worker nodes (which host the Kafka-broker) after cluster creation. Upward scaling can be performed from the Azure portal, Azure PowerShell, and other Azure management interfaces. For Kafka, you should rebalance partition replicas after scaling operations. Rebalancing partitions allows Kafka to take advantage of the new number of worker nodes.
+
+   HDInsight Kafka does not support downward scaling or decreasing the number of brokers within a cluster. If an attempt is made to decrease the number of nodes, an `InvalidKafkaScaleDownRequestErrorCode` error is returned.
 
     For more information, see [High availability with Apache Kafka on HDInsight](apache-kafka-high-availability.md).
 
@@ -41,7 +40,7 @@ The following are specific characteristics of Kafka on HDInsight:
 
 The following diagram shows a typical Kafka configuration that uses consumer groups, partitioning, and replication to offer parallel reading of events with fault tolerance:
 
-![Kafka cluster configuration diagram](./media/apache-kafka-introduction/kafka-cluster-diagram.png)
+:::image type="content" source="./media/apache-kafka-introduction/kafka-cluster-diagram.png" alt-text="Kafka cluster configuration diagram" border="false":::
 
 Apache ZooKeeper manages the state of the Kafka cluster. Zookeeper is built for concurrent, resilient, and low-latency transactions.
 

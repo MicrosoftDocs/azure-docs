@@ -1,10 +1,10 @@
 ---
 title: Generate Soil Moisture Heatmap
 description: Describes how to generate Soil Moisture Heatmap in Azure FarmBeats
-author: uhabiba04
+author: RiyazPishori
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
+ms.author: riyazp
 ---
 
 # Generate Soil Moisture Heatmap
@@ -31,7 +31,7 @@ A farm is a geographical area of interest for which you want to create a soil mo
 
 ## Deploy sensors
 
-You should physically deploy soil moisture sensors on the farm. You can purchase soil moisture sensors from any of our approved partners - [Davis Instruments](https://www.davisinstruments.com/product/enviromonitor-gateway/) and [Teralytic](https://teralytic.com/). You should coordinate with your sensor provider to do the physical setup on your farm.
+You should physically deploy soil moisture sensors on the farm. You can purchase soil moisture sensors from any of our approved partners - [Davis Instruments](https://www.davisinstruments.com/products/enviromonitor-gateway-us-lte) and [Teralytic](https://teralytic.com/). You should coordinate with your sensor provider to do the physical setup on your farm.
 
 ## Get soil moisture sensor data from partner
 
@@ -49,7 +49,7 @@ Once you have linked your sensor account into Azure FarmBeats, you need to assig
 2.	Select **MyFarm** > **Add Devices**.
 3.	The **Add Devices** window displays. Select any device that is linked to the soil moisture sensors for your farm.
 
-    ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
+    ![Screenshot that shows the Add Devices screen.](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
 
 4. Select **Add Devices**.     
 
@@ -65,7 +65,7 @@ This step is to create a job or a long running operation that will generate Soil
 6.	In the **Select Soil Moisture** **Sensor Measure**, enter the measure you want to use for the map.
     To find the sensor measure, in **Sensors**, select any soil moisture sensor. In **Sensor Properties**, use the **Measure Name** value.
 
-    ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
+    ![Screenshot that shows the Soil Moisture screen.](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
 
 
 7.	Select **Generate Maps**.

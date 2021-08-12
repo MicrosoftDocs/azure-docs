@@ -63,7 +63,7 @@ FROM
 A result of ```1``` indicates an encrypted database, ```0``` indicates a non-encrypted database.
 
 <!--Anchors-->
-[Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
+[Transparent Data Encryption (TDE)]: /sql/relational-databases/security/encryption/transparent-data-encryption
 
 
 <!--Image references-->

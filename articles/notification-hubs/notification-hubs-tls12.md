@@ -11,7 +11,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/07/2020
+ms.date: 04/29/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/28/2020
@@ -19,7 +19,7 @@ ms.lastreviewed: 01/28/2020
 
 # Transport Layer Security (TLS)
 
-To ensure a higher level of security, Notification Hubs will disable support for TLS versions 1.0 and 1.1 on May 31, 2020 (extended from April 30, 2020). These older protocols deliver weak cryptography, and are vulnerable to BEAST and POODLE attacks. Applications deployed to devices running Android version 5 or greater, or iOS version 5 or greater, are not impacted by this change as those operating systems support TLS 1.2 and the client and server will negotiate the highest mutually supported version of the protocol upon connection.
+To ensure a higher level of security, Notification Hubs will disable support for TLS versions 1.0 and 1.1 on **December 31, 2020** (extended from April 30, 2020). These older protocols deliver weak cryptography, and are vulnerable to BEAST and POODLE attacks. Applications deployed to devices running Android version 5 or greater, or iOS version 5 or greater, are not impacted by this change as those operating systems support TLS 1.2 and the client and server will negotiate the highest mutually supported version of the protocol upon connection.
 
 We recommend that you review your all of your applications that use Azure Notification Hubs, to ensure that they use the most applicable libraries and TLS stacks that support TLS 1.2.
 
@@ -31,7 +31,7 @@ For Android applications using SSLSocket instances, set enabled protocols on eac
 
 The table on the [TLS Protocol Compatibility](https://support.globalsign.com/customer/portal/articles/2934392-tls-protocol-compatibility) support page helps map operating systems with compatible TLS versions.
 
-For more information, see the overview of the [support for TLS protocols on Windows](https://docs.microsoft.com/archive/blogs/kaushal/support-for-ssltls-protocols-on-windows).
+For more information, see the overview of the [support for TLS protocols on Windows](/archive/blogs/kaushal/support-for-ssltls-protocols-on-windows).
 
 ## Next steps
 

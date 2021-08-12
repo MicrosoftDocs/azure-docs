@@ -1,6 +1,9 @@
 ---
 title: Azure Migrate replication appliance 
-description: Learn about the Azure Migrate replication appliance for agent-based VMWare migration.
+description: Learn about the Azure Migrate replication appliance for agent-based VMware migration.
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 01/30/2020
 ---
@@ -54,8 +57,8 @@ TLS | TLS 1.2 should be enabled.
 MySQL | MySQL should be installed on the appliance.<br/> MySQL should be installed. You can install manually, or Site Recovery can install it during appliance deployment.
 Other apps | Don't run other apps on the replication appliance.
 Windows Server roles | Don't enable these roles: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V
-Group policies | Don't enable these group policies: <br> - Prevent access to the command prompt. <br> - Prevent access to registry editing tools. <br> - Trust logic for file attachments. <br> - Turn on Script Execution. <br> [Learn more](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
-IIS | - No pre-existing default website <br> - No pre-existing website/application listening on port 443 <br>- Enable  [anonymous authentication](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Enable [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) setting
+Group policies | Don't enable these group policies: <br> - Prevent access to the command prompt. <br> - Prevent access to registry editing tools. <br> - Trust logic for file attachments. <br> - Turn on Script Execution. <br> [Learn more](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))
+IIS | - No pre-existing default website <br> - No pre-existing website/application listening on port 443 <br>- Enable  [anonymous authentication](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br> - Enable [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10)) setting
 **Network settings** |
 IP address type | Static
 Ports | 443 (Control channel orchestration)<br>9443 (Data transport)
@@ -68,7 +71,7 @@ MySQL must be installed on the replication appliance machine. It can be installe
 **Method** | **Details**
 --- | ---
 Download and install manually | Download MySQL application & place it in the folder C:\Temp\ASRSetup, then install manually.<br/> When you set up the appliance MySQL will show as already installed.
-Without online download | Place the MySQL installer application in the folder C:\Temp\ASRSetup. When you install the appliance and click to download and install MySQL, setup will use the installer you added.
+Without online download | Place the MySQL installer application in the folder C:\Temp\ASRSetup. When you install the appliance and select download and install MySQL, setup will use the installer you added.
 Download and install in Azure Migrate | When you install the appliance and are prompted for MySQL, select **Download and install**.
 
 ## URL access
@@ -82,7 +85,7 @@ The replication appliance needs access to these URLs in the Azure public cloud.
 \*.blob.core.windows.net | Used to access storage account that stores replicated data
 \*.hypervrecoverymanager.windowsazure.com | Used for replication management operations and coordination
 https:\//management.azure.com | Used for replication management operations and coordination
-*.services.visualstudio.com | Used for telemetry purposes (It is optional)
+*.services.visualstudio.com | Used for logging purposes (It is optional)
 time.windows.com | Used to check time synchronization between system and global time.
 https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | Appliance setup needs access to these URLs. They are used for access control and identity management by Azure Active Directory
 https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | To complete MySQL download. In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also allowed if  needed.
@@ -99,10 +102,17 @@ The replication appliance needs access to these URLs in Azure Government.
 \*.blob.core.windows.net | Used to access storage account that stores replicated data
 \*.hypervrecoverymanager.windowsazure.us | Used for replication management operations and coordination
 https:\//management.usgovcloudapi.net | Used for replication management operations and coordination
-*.services.visualstudio.com | Used for telemetry purposes (It is optional)
+*.services.visualstudio.com | Used for logging purposes (It is optional)
 time.nist.gov | Used to check time synchronization between system and global time.
 https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | Appliance setup with OVA needs access to these URLs. They are used for access control and identity management by Azure Active Directory.
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | To complete MySQL download. In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also allowed if  needed.
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | To complete MySQL download. In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also allowed if  needed.  
+
+>[!Note]
+>
+> If you Migrate project has private endpoint connectivity, you will need access to following URLs over and above private link access:   
+> - *.blob.core.windows.com - To access storage account that stores replicated data. This is optional and is not required if the storage account has a private endpoint attached. 
+> - https:\//management.azure.com for replication management operations and coordination. 
+>- https:\//login.microsoftonline.com <br/>https:\//login.windows.net <br/> https:\//www.live.com _and_ <br/> https:\//www.microsoft.com for access control and identity management by Azure Active Directory
 
 ## Port access
 
@@ -125,13 +135,13 @@ Process server | The process server receives replication data, optimizes, and en
     - The process server receives replication data, optimizes, and encrypts it, and sends it to Azure storage over port 443 outbound.
 5. The replication data logs first land in a cache storage account in Azure. These logs are processed and the data is stored in an Azure managed disk.
 
-![Architecture](./media/migrate-replication-appliance/architecture.png)
+![Diagram shows the architecture of the replication process.](./media/migrate-replication-appliance/architecture.png)
 
 ## Appliance upgrades
 
 The appliance is upgraded manually from the Azure Migrate hub. We recommend that you always run the latest version.
 
-1. In Azure Migrate > Servers > Azure Migrate: Server Assessment, Infrastructure servers, click **Configuration servers**.
+1. In Azure Migrate > Servers > Azure Migrate: Server Assessment, Infrastructure servers, select **Configuration servers**.
 2. In **Configuration servers**, a link appears in **Agent Version** when a new version of the replication appliance is available. 
 3. Download the installer to the replication appliance machine, and install the upgrade. The installer detects the version current running on the appliance.
  

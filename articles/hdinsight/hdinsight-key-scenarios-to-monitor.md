@@ -1,11 +1,8 @@
 ---
 title: Monitor cluster performance - Azure HDInsight 
 description: How to monitor health and performance of Apache Hadoop clusters in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/09/2020
 ---
@@ -31,11 +28,11 @@ To get a high-level look at the nodes of your cluster and their loading, sign in
 
 You'll also see columns showing the number of cores and amount of RAM for each host, and the disk usage and load average.
 
-![Apache Ambari hosts tab overview](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-hosts-tab.png)
+:::image type="content" source="./media/hdinsight-key-scenarios-to-monitor/apache-ambari-hosts-tab.png" alt-text="Apache Ambari hosts tab overview":::
 
 Select any of the host names for a detailed look at components running on that host and their metrics. The metrics are shown as a selectable timeline of CPU usage, load, disk usage, memory usage, network usage, and numbers of processes.
 
-![Apache Ambari host details overview](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-host-details.png)
+:::image type="content" source="./media/hdinsight-key-scenarios-to-monitor/apache-ambari-host-details.png" alt-text="Apache Ambari host details overview":::
 
 See [Manage HDInsight clusters by using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) for details on setting alerts and viewing metrics.
 
@@ -51,25 +48,25 @@ When multiple tenants share a large cluster, there's competition for the cluster
 
 YARN allows us to allocate resources to these queues, and shows you whether all of your available resources are assigned. To view information about your queues, sign in to the Ambari Web UI, then select **YARN Queue Manager** from the top menu.
 
-![Apache Ambari YARN Queue Manager](./media/hdinsight-key-scenarios-to-monitor/apache-yarn-queue-manager.png)
+:::image type="content" source="./media/hdinsight-key-scenarios-to-monitor/apache-yarn-queue-manager.png" alt-text="Apache Ambari YARN Queue Manager":::
 
 The YARN Queue Manager page shows a list of your queues on the left, along with the percentage of capacity assigned to each.
 
-![YARN Queue Manager details page](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager-details.png)
+:::image type="content" source="./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager-details.png" alt-text="YARN Queue Manager details page":::
 
 For a more detailed look at your queues, from the Ambari dashboard, select the **YARN** service from the list on the left. Then under the **Quick Links** dropdown menu, select **Resource Manager UI** underneath your active node.
 
-![Resource Manager UI menu links](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu-link.png)
+:::image type="content" source="./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu-link.png" alt-text="Resource Manager UI menu links":::
 
 In the Resource Manager UI, select **Scheduler** from the left-hand menu. You see a list of your queues underneath *Application Queues*. Here you can see the capacity used for each of your queues, how well the jobs are distributed between them, and whether any jobs are resource-constrained.
 
-![Apache HAdoop Resource Manager UI menu](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
+:::image type="content" source="./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png" alt-text="Apache HAdoop Resource Manager UI menu":::
 
 ## Storage throttling
 
 A cluster's performance bottleneck can happen at the storage level. This type of bottleneck is most often because of *blocking* input/output (IO) operations, which happen when your running tasks send more IO than the storage service can handle. This blocking creates a queue of IO requests waiting to be processed until after current IOs are processed. The blocks are because of *storage throttling*, which isn't a physical limit, but rather a limit imposed by the storage service by a service level agreement (SLA). This limit ensures that no single client or tenant can monopolize the service. The SLA limits the number of IOs per second (IOPS) for Azure Storage - for details, see [Scalability and performance targets for standard storage accounts](../storage/common/scalability-targets-standard-account.md).
 
-If you're using Azure Storage, for information on monitoring storage-related issues, including throttling, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
+If you're using Azure Storage, for information on monitoring storage-related issues, including throttling, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
 
 If your cluster's backing store is Azure Data Lake Storage (ADLS), your throttling is most likely because of bandwidth limits. Throttling in this case could be identified by observing throttling errors in task logs. For ADLS, see the throttling section for the appropriate service in these articles:
 
@@ -121,6 +118,6 @@ For more information regarding disk space issues, see [Out of disk space](./hado
 
 Visit the following links for more information about troubleshooting and monitoring your clusters:
 
-* [Analyze HDInsight logs](hdinsight-debug-jobs.md)
+* [Analyze HDInsight logs](./hdinsight-troubleshoot-guide.md)
 * [Debug apps with Apache Hadoop YARN logs](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Enable heap dumps for Apache Hadoop services on Linux-based HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)

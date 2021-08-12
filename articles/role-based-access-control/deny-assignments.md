@@ -1,6 +1,6 @@
 ---
-title: Understand deny assignments for Azure resources
-description: Learn about deny assignments in role-based access control (RBAC) for Azure resources.
+title: Understand Azure deny assignments - Azure RBAC
+description: Learn about Azure deny assignments in Azure role-based access control (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -17,7 +17,7 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: 
 ---
-# Understand deny assignments for Azure resources
+# Understand Azure deny assignments
 
 Similar to a role assignment, a *deny assignment* attaches a set of deny actions to a user, group, or service principal at a particular scope for the purpose of denying access. Deny assignments block users from performing specific Azure resource actions even if a role assignment grants them access.
 
@@ -85,4 +85,4 @@ All Principals can be combined with `ExcludePrincipals` to deny all principals e
 ## Next steps
 
 * [Tutorial: Protect new resources with Azure Blueprints resource locks](../governance/blueprints/tutorials/protect-new-resources.md)
-* [List deny assignments for Azure resources using the Azure portal](deny-assignments-portal.md)
+* [List Azure deny assignments using the Azure portal](deny-assignments-portal.md)

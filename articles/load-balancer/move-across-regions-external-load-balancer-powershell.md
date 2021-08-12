@@ -3,16 +3,17 @@ title: Move Azure external Load Balancer to another Azure region using Azure Pow
 description: Use Azure Resource Manager template to move Azure external Load Balancer from one Azure region to another using Azure PowerShell.
 author: asudbring
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/17/2019
-ms.author: allensu
+ms.author: allensu 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Move Azure external Load Balancer to another region using Azure PowerShell
 
 There are various scenarios in which you'd want to move your existing external load balancer from one region to another. For example, you may want to create an external load balancer with the same configuration for testing. You may also want to move an external load balancer to another region as part of disaster recovery planning.
 
-Azure external load balancers can't be moved from one region to another. You can however, use an Azure Resource Manager template to export the existing configuration and public IP of an external load balancer.  You can then stage the resource in another region by exporting the load balancer and public IP to a template, modifying the parameters to match the destination region, and then deploy the templates to the new region.  For more information on Resource Manager and templates, see [Export resource groups to templates](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates)
+Azure external load balancers can't be moved from one region to another. You can however, use an Azure Resource Manager template to export the existing configuration and public IP of an external load balancer.  You can then stage the resource in another region by exporting the load balancer and public IP to a template, modifying the parameters to match the destination region, and then deploy the templates to the new region.  For more information on Resource Manager and templates, see [Export resource groups to templates](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates)
 
 
 ## Prerequisites
@@ -27,7 +28,7 @@ Azure external load balancers can't be moved from one region to another. You can
 
 - Verify that your Azure subscription allows you to create external load balancers in the target region that's used. Contact support to enable the required quota.
 
-- Make sure that your subscription has enough resources to support the addition of load balancers for this process.  See [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)
+- Make sure that your subscription has enough resources to support the addition of load balancers for this process.  See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)
 
 
 ## Prepare and move
@@ -38,18 +39,18 @@ The following steps show how to prepare the external load balancer for the move 
 
 ### Export the public IP template and deploy from Azure PowerShell
 
-1. Sign in to your Azure subscription with the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) command and follow the on-screen directions:
+1. Sign in to your Azure subscription with the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command and follow the on-screen directions:
     
     ```azurepowershell-interactive
     Connect-AzAccount
     ```
-2. Obtain the resource ID of the public IP you want to move to the target region and place it in a variable using [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0):
+2. Obtain the resource ID of the public IP you want to move to the target region and place it in a variable using [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress):
 
     ```azurepowershell-interactive
     $sourcePubIPID = (Get-AzPublicIPaddress -Name <source-public-ip-name> -ResourceGroupName <source-resource-group-name>).Id
 
     ```
-3. Export the source public IP to a .json file into the directory where you execute the command [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
+3. Export the source public IP to a .json file into the directory where you execute the command [Export-AzResourceGroup](/powershell/module/az.resources/export-azresourcegroup):
    
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
@@ -102,7 +103,7 @@ The following steps show how to prepare the external load balancer for the move 
              ]             
     ```
   
-7. To obtain region location codes, you can use the Azure PowerShell cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) by running the following command:
+7. To obtain region location codes, you can use the Azure PowerShell cmdlet [Get-AzLocation](/powershell/module/az.resources/get-azlocation) by running the following command:
 
     ```azurepowershell-interactive
 
@@ -126,7 +127,7 @@ The following steps show how to prepare the external load balancer for the move 
                     },
          ```
 
-         For more information on the differences between basic and standard sku public ips, see [Create, change, or delete a public IP address](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
+         For more information on the differences between basic and standard sku public ips, see [Create, change, or delete a public IP address](../virtual-network/virtual-network-public-ip-address.md).
 
     * **Public IP allocation method** and **Idle timeout** - You can change both of these options in the template by altering the **publicIPAllocationMethod** property from **Dynamic** to **Static** or **Static** to **Dynamic**. The idle timeout can be changed by altering the **idleTimeoutInMinutes** property to your desired amount.  The default is **4**:
 
@@ -153,17 +154,17 @@ The following steps show how to prepare the external load balancer for the move 
                 }            
          ```
 
-        For more information on the allocation methods and the idle timeout values, see [Create, change, or delete a public IP address](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
+        For more information on the allocation methods and the idle timeout values, see [Create, change, or delete a public IP address](../virtual-network/virtual-network-public-ip-address.md).
 
 
 9. Save the **\<resource-group-name>.json** file.
 
-10. Create a resource group in the target region for the target public IP to be deployed using [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0).
+10. Create a resource group in the target region for the target public IP to be deployed using [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. Deploy the edited **\<resource-group-name>.json** file to the resource group created in the previous step using [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+11. Deploy the edited **\<resource-group-name>.json** file to the resource group created in the previous step using [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
 
     ```azurepowershell-interactive
 
@@ -171,7 +172,7 @@ The following steps show how to prepare the external load balancer for the move 
     
     ```
 
-12. To verify the resources were created in the target region, use [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) and [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0):
+12. To verify the resources were created in the target region, use [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup) and [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress):
     
     ```azurepowershell-interactive
 
@@ -187,19 +188,19 @@ The following steps show how to prepare the external load balancer for the move 
 
 ### Export the external load balancer template and deploy from Azure PowerShell
 
-1. Sign in to your Azure subscription with the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) command and follow the on-screen directions:
+1. Sign in to your Azure subscription with the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command and follow the on-screen directions:
     
     ```azurepowershell-interactive
     Connect-AzAccount
     ```
 
-2. Obtain the resource ID of the external load balancer you want to move to the target region and place it in a variable using [Get-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/get-azloadbalancer?view=azps-2.6.0):
+2. Obtain the resource ID of the external load balancer you want to move to the target region and place it in a variable using [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer):
 
     ```azurepowershell-interactive
     $sourceExtLBID = (Get-AzLoadBalancer -Name <source-external-lb-name> -ResourceGroupName <source-resource-group-name>).Id
 
     ```
-3. Export the source external load balancer configuration to a .json file into the directory where you execute the command [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
+3. Export the source external load balancer configuration to a .json file into the directory where you execute the command [Export-AzResourceGroup](/powershell/module/az.resources/export-azresourcegroup):
    
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceExtLBID -IncludeParameterDefaultValue
@@ -227,7 +228,7 @@ The following steps show how to prepare the external load balancer for the move 
 
     ```
 
-6.  To edit value of the target public IP that was moved above, you must first obtain the resource ID and then copy and paste it into the **\<resource-group-name>.json** file.  To obtain the ID, use [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0):
+6.  To edit value of the target public IP that was moved above, you must first obtain the resource ID and then copy and paste it into the **\<resource-group-name>.json** file.  To obtain the ID, use [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress):
 
     ```azurepowershell-interactive
     $targetPubIPID = (Get-AzPublicIPaddress -Name <target-public-ip-name> -ResourceGroupName <target-resource-group-name>).Id
@@ -292,7 +293,7 @@ The following steps show how to prepare the external load balancer for the move 
                 },
     ```
 
-11. To obtain region location codes, you can use the Azure PowerShell cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) by running the following command:
+11. To obtain region location codes, you can use the Azure PowerShell cmdlet [Get-AzLocation](/powershell/module/az.resources/get-azlocation) by running the following command:
 
     ```azurepowershell-interactive
 
@@ -315,7 +316,7 @@ The following steps show how to prepare the external load balancer for the move 
                 "tier": "Regional"
             },
         ```
-      For more information on the differences between basic and standard sku load balancers, see [Azure Standard Load Balancer overview](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
+      For more information on the differences between basic and standard sku load balancers, see [Azure Standard Load Balancer overview](./load-balancer-overview.md)
 
     * **Load balancing rules** - You can add or remove load balancing rules in the configuration by adding or removing entries to the **loadBalancingRules** section of the **\<resource-group-name>.json** file:
 
@@ -347,7 +348,7 @@ The following steps show how to prepare the external load balancer for the move 
                     }
                 ]
         ```
-       For more information on load balancing rules, see [What is Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+       For more information on load balancing rules, see [What is Azure Load Balancer?](./load-balancer-overview.md)
 
     * **Probes** - You can add or remove a probe for the load balancer in the configuration by adding or removing entries to the **probes** section of the **\<resource-group-name>.json** file:
 
@@ -367,7 +368,7 @@ The following steps show how to prepare the external load balancer for the move 
                     }
                 ],
         ```
-       For more information on Azure Load Balancer health probes, see [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)
+       For more information on Azure Load Balancer health probes, see [Load Balancer health probes](./load-balancer-custom-probe-overview.md)
 
     * **Inbound NAT rules** - You can add or remove inbound NAT rules for the load balancer by adding or removing entries to the **inboundNatRules** section of the **\<resource-group-name>.json** file:
 
@@ -415,7 +416,7 @@ The following steps show how to prepare the external load balancer for the move 
             }
         }
         ```
-        For more information on inbound NAT rules, see [What is Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+        For more information on inbound NAT rules, see [What is Azure Load Balancer?](./load-balancer-overview.md)
 
     * **Outbound rules** - You can add or remove outbound rules in the configuration by editing the **outboundRules** property in the **\<resource-group-name>.json** file:
 
@@ -443,16 +444,16 @@ The following steps show how to prepare the external load balancer for the move 
                 ]
         ```
 
-         For more information on outbound rules, see [Load Balancer outbound rules](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)
+         For more information on outbound rules, see [Load Balancer outbound rules](./load-balancer-outbound-connections.md#outboundrules)
 
 13. Save the **\<resource-group-name>.json** file.
     
-10. Create or a resource group in the target region for the target external load balancer to be deployed using [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0). The existing resource group from above can also be reused as part of this process:
+10. Create or a resource group in the target region for the target external load balancer to be deployed using [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The existing resource group from above can also be reused as part of this process:
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. Deploy the edited **\<resource-group-name>.json** file to the resource group created in the previous step using [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+11. Deploy the edited **\<resource-group-name>.json** file to the resource group created in the previous step using [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
 
     ```azurepowershell-interactive
 
@@ -460,7 +461,7 @@ The following steps show how to prepare the external load balancer for the move 
     
     ```
 
-12. To verify the resources were created in the target region, use [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) and [Get-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/get-azloadbalancer?view=azps-2.6.0):
+12. To verify the resources were created in the target region, use [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup) and [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer):
     
     ```azurepowershell-interactive
 
@@ -476,7 +477,7 @@ The following steps show how to prepare the external load balancer for the move 
 
 ## Discard 
 
-After the deployment, if you wish to start over or discard the public IP and load balancer in the target, delete the resource group that was created in the target and the moved public IP and load balancer will be deleted.  To remove the resource group, use [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
+After the deployment, if you wish to start over or discard the public IP and load balancer in the target, delete the resource group that was created in the target and the moved public IP and load balancer will be deleted.  To remove the resource group, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup):
 
 ```azurepowershell-interactive
 
@@ -486,7 +487,7 @@ Remove-AzResourceGroup -Name <resource-group-name>
 
 ## Clean up
 
-To commit the changes and complete the move of the NSG, delete the source NSG or resource group, use [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0) or [Remove-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/remove-azpublicipaddress?view=azps-2.6.0) and [Remove-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/remove-azloadbalancer?view=azps-2.6.0)
+To commit the changes and complete the move of the NSG, delete the source NSG or resource group, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) or [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) and [Remove-AzLoadBalancer](/powershell/module/az.network/remove-azloadbalancer)
 
 ```azurepowershell-interactive
 
@@ -508,5 +509,5 @@ Remove-AzPublicIpAddress -Name <public-ip> -ResourceGroupName <resource-group-na
 In this tutorial, you moved an Azure network security group from one region to another and cleaned up the source resources.  To learn more about moving resources between regions and disaster recovery in Azure, refer to:
 
 
-- [Move resources to a new resource group or subscription](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Move Azure VMs to another region](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Move Azure VMs to another region](../site-recovery/azure-to-azure-tutorial-migrate.md)

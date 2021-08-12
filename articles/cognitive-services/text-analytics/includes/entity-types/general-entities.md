@@ -5,180 +5,815 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include 
-ms.date: 02/06/2020
+ms.date: 01/15/2021
 ms.author: aahi
 ---
 
-## General entity types:
+The NER feature for Text Analytics returns the following general (non identifying) entity categories. for example when sending requests to the `/entities/recognition/general` endpoint.
 
-### Person
 
-Recognize person names in text.
+| Category | Description                          |
+|------------|-------------|--------------------------------------|-------------------------------------------------------------|--------------------------------------|
+| [Person](#category-person)     | Names of people.  |
+| [PersonType](#category-persontype) | Job types or roles held by a person. |
+| [Location](#category-location)    | Natural and human-made landmarks, structures, geographical features, and geopolitical entities |
+| [Organization](#category-organization)  | Companies, political groups, musical bands, sport clubs, government bodies, and public organizations.  |
+| [Event](#category-event)  | Historical, social, and naturally occurring events. |
+| [Product](#category-product) | Physical objects of various categories. |
+| [Skill](#category-skill) | A capability, skill, or expertise.  |
+| [Address](#category-address) | Full mailing addresses.  |
+| [Phone number](#category-phonenumber) | Phone numbers. |
+| [Email](#category-email) | Email addresses. |
+| [URL](#category-url) | URLs to websites. |
+| [IPAddress](#category-ipaddress) | Network IP addresses. |
+| [DateTime](#category-datetime) | Dates and times of day. |
+| [Quantity](#category-quantity) | Numerical measurements and units. |
 
-Languages:
-* Public preview: `Arabic`, `Czech`, `Chinese-Simplified`, `Danish`, `Dutch`, `English`, `Finnish`, `French`, `German`, `Hungarian`, `Italian`, `Japanese`, `Korean`, `Norwegian (Bokmål)`, `Polish`, `Portuguese (Portugal)`, `Portuguese (Brazil)`, `Russian`, `Spanish`, `Swedish` and `Turkish`
 
-| Subtype name | Description                                                      | Available starting with model version |
-|--------------|------------------------------------------------------------------|---------------------------------------|
-| N/A          | Recognized person names, for example `Bill Gates`, `Marie Curie` | `2019-10-01`                          | 
+### Category: Person
 
-### PersonType
-Job type or role held by a person.
+This category contains the following entity:
 
-Languages:
-* Public preview: `English`
+:::row:::
+    :::column span="":::
+        **Entity**
 
-| Subtype name | Description                                                                                | Available starting with model version |
-|--------------|--------------------------------------------------------------------------------------------|----------------------------------------|
-| N/A          | Job types for example `civil engineer`, `salesperson`, `chef`, `librarian`, `nursing aide` | `2020-02-01`                           |
+        Person
 
-### Location
+    :::column-end:::
+    :::column span="2":::
+        **Details**
 
-Natural and human-made landmarks, structures, geographical features and geopolitical entities.
+        Names of people.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
 
-Languages:
+      `ar`, `cs`, `da`, `nl`, `en`, `fi`, `fr`, `de`, `he`, <br> `hu`, `it`, `ja`, `ko`, `no`, `pl`, `pt-br`, `pt`-`pt`, `ru`, `es`, `sv`, `tr`   
+      
+   :::column-end:::
+:::row-end:::
 
-* Public preview: `Arabic`, `Czech`, `Chinese-Simplified`, `Danish`, `Dutch`, `English`, `Finnish`, `French`, `German`, `Hungarian`, `Italian`, `Japanese`, `Korean`, `Norwegian (Bokmål)`, `Polish`, `Portuguese (Portugal)`, `Portuguese (Brazil)`, `Russian`, `Spanish`, `Swedish` and `Turkish`
+### Category: PersonType
 
-| Subtype name              | Description                                                                              | Available starting with model version |
-|---------------------------|------------------------------------------------------------------------------------------|----------------------------------------|
-| N/A                       | locations, for example `Atlantic Ocean`, `library`, `Eiffel Tower`, `Statue of Liberty`  | `2019-10-01`                           |
-| Geopolitical Entity (GPE) - English only| Cities, countries, states for example `Seattle`, `Pennsylvania`, `South Africa`, `Tokyo` | `2020-02-01`                           |
+This category contains the following entity:
 
-### Organization  
 
-Recognized organizations, corporations, agencies, and other groups of people. For example: companies, political groups, musical bands, sport clubs, government bodies, and public organizations. Nationalities and religions are not included in this entity type. 
+:::row:::
+    :::column span="":::
+        **Entity**
 
-Languages: 
+        PersonType
 
-* Public preview: `Arabic`, `Czech`, `Chinese-Simplified`, `Danish`, `Dutch`, `English`, `Finnish`, `French`, `German`, `Hungarian`, `Italian`, `Japanese`, `Korean`, `Norwegian (Bokmål)`, `Polish`, `Portuguese (Portugal)`, `Portuguese (Brazil)`, `Russian`, `Spanish`, `Swedish` and `Turkish`
+    :::column-end:::
+    :::column span="2":::
+        **Details**
 
-| Subtype name | Description                                                                                             | Available starting with model version |
-|--------------|---------------------------------------------------------------------------------------------------------|----------------------------------------|
-| N/A          | organizations, for example `Microsoft`, `NASA`, `National Oceanic and Atmospheric Administration`,`VOA` | `2019-10-01`                           |
+        Job types or roles held by a person
+      
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
 
-### Event  
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`  
+      
+   :::column-end:::
+:::row-end:::
 
-Historical, social and natural-occuring events.  
+### Category: Location
 
-Languages: 
+This category contains the following entity:
 
-* Public preview: `English`
+:::row:::
+    :::column span="":::
+        **Entity**
 
-| Subtype name | Description                                                            | Available starting with model version |
-|--------------|------------------------------------------------------------------------|----------------------------------------|
-| N/A          | Events such as `wedding`, `hurricane`, `car accident`, `solar eclipse`, `American Revolution` | `2020-02-01`                           |
+        Location
 
-### Product  
+    :::column-end:::
+    :::column span="2":::
+        **Details**
 
-Physical objects of various categories.  
+        Natural and human-made landmarks, structures, geographical features, and geopolitical entities.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
 
-Languages: 
+      `ar`, `cs`, `da`, `nl`, `en`, `fi`, `fr`, `de`, `he`, `hu`, `it`, `ja`, `ko`, `no`, `pl`, `pt-br`, `pt-pt`, `ru`, `es`, `sv`, `tr`   
+      
+   :::column-end:::
+:::row-end:::
 
-* Public preview: `English`
+#### Subcategories
 
-| Subtype name | Description                                                                        | Available starting with model version |
-|--------------|------------------------------------------------------------------------------------|----------------------------------------|
-| N/A          | For example, `Microsoft Surface laptop`, `sunglasses`, `motorcycle`, `bag`, `Xbox` | `2020-02-01`                           |
-| Computing    | `Azure Cosmos DB`, `Azure Kubernetes Service`                                     | `2020-02-01`                           |
+The entity in this category can have the following subcategories.
 
-### Skill  
+:::row:::
+    :::column span="":::
+        **Entity subcategory**
 
-An entity describing a capability or expertise.  
+        Geopolitical Entity (GPE)
 
-Languages: 
+    :::column-end:::
+    :::column span="2":::
+        **Details**
 
-* Public preview: `English`
+        Cities, countries/regions, states.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
 
-| Subtype name | Description                                                                 | Available starting with model version |
-|--------------|-----------------------------------------------------------------------------|----------------------------------------|
-| N/A          | `nursing`, `data mining`, `linguistics`, `critical thinking`, `photography` | `2020-02-01`                           |
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`   
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
 
-### Phone Number
+        Structural
 
-Phone numbers (US Phone numbers only). 
+    :::column-end:::
+    :::column span="2":::
 
-Languages:
+        Manmade structures. 
+      
+    :::column-end:::
+    :::column span="2":::
 
-* Public preview: `English`
+      `en`   
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
 
-| Subtype name | Description                                    | Available starting with model version |
-|--------------|------------------------------------------------|----------------------------------------|
-| N/A          | US phone numbers, for example `(312) 555-0176` | `2019-10-01`                           |
+        Geographical
 
-### Email
+    :::column-end:::
+    :::column span="2":::
 
-Email address. 
+        Geographic and natural features such as rivers, oceans, and deserts.
+      
+    :::column-end:::
+    :::column span="2":::
 
-Languages:
+      `en`   
+      
+   :::column-end:::
+:::row-end:::
 
-* Public preview: `English`
+### Category: Organization
 
-| Subtype name | Description                                      | Available starting with model version |
-|--------------|--------------------------------------------------|----------------------------------------|
-| N/A          | Email address, for example `support@contoso.com` | `2019-10-01`                           |
+This category contains the following entity:
 
-### URL
+:::row:::
+    :::column span="":::
+        **Entity**
 
-Internet URLs.
+        Organization
 
-Languages:
+    :::column-end:::
+    :::column span="2":::
+        **Details**
 
-* Public preview: `English`
+        Companies, political groups, musical bands, sport clubs, government bodies, and public organizations. Nationalities and religions are not included in this entity type.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
 
-| Subtype name | Description                                          | Available starting with model version |
-|--------------|------------------------------------------------------|----------------------------------------|
-| N/A          | URLs to websites, for example `https://www.bing.com` | `2019-10-01`                           |
+      `ar`, `cs`, `da`, `nl`, `en`, `fi`, `fr`, `de`, `he`, `hu`, `it`, `ja`, `ko`, `no`, `pl`, `pt-br`, `pt-pt`, `ru`, `es`, `sv`, `tr`   
+      
+   :::column-end:::
+:::row-end:::
 
-### IP Address
+#### Subcategories
 
-Internet Protocol Address
+The entity in this category can have the following subcategories.
 
-Languages:
+:::row:::
+    :::column span="":::
+        **Entity subcategory**
 
-* Public preview: `English`
+        Medical
 
-| Subtype name | Description                              | Available starting with model version |
-|--------------|------------------------------------------|----------------------------------------|
-| N/A          | Network address for example `10.0.0.101` | `2019-10-01`                           |
+    :::column-end:::
+    :::column span="2":::
+        **Details**
 
-###  DateTime
+        Medical companies and groups.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
 
-Date and Time entities. 
+      `en`   
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
 
-* Available starting with model version `2019-10-01`
+        Stock exchange
 
-Languages:
+    :::column-end:::
+    :::column span="2":::
 
-* Public preview: `Chinese-Simplified`, `English`, `French`, `German` and `Spanish`
+        Stock exchange groups. 
+      
+    :::column-end:::
+    :::column span="2":::
 
-| Subtype name    | Examples                     |
-|-------------|------------------------------|
-| N/A         | `6:30PM February 4, 2012`, `4/1/2011 2:45`                   |
-| Date  | `May 2nd, 2017`, `05/02/2017`       |
-| Time     | `8:15`, `6AM`              |
-| DateRange    | `August 2nd to August 5th`         |
-| TimeRange   | `4-6PM`, `10:00AM to Noon`          |
-| Duration | `2.5 minutes`, `one and a half hours`         |
-| Set | `every Saturday`         |
+      `en`   
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
 
-###  Quantity
+        Sports
 
-Numbers and numeric quantities. 
+    :::column-end:::
+    :::column span="2":::
 
-* Available starting with model version `2019-10-01`
+        Sports-related organizations.
+      
+    :::column-end:::
+    :::column span="2":::
 
-Languages:
+      `en`   
+      
+   :::column-end:::
+:::row-end:::
 
-* Public preview: `Chinese-Simplified`, `English`, `French`, `German` and `Spanish`
+### Category: Event
 
-| Subtype name    | Examples                     |
-|-------------|------------------------------|
-| Number         | `6`, `six`                   |
-| Percentage  | `50%`, `fifty percent`       |
-| Ordinal     | `2nd`, `second`              |
-| Age         | `90 day old`, `30 years old` |
-| Currency    | `$10.99`, `€30.00`           |
-| Dimension   | `10 miles`, `40 cm`          |
-| Temperature | `32 degrees`, `10°C`         |
+This category contains the following entity:
+
+:::row:::
+    :::column span="":::
+        **Entity**
+
+        Event
+
+    :::column-end:::
+    :::column span="2":::
+        **Details**
+
+        Historical, social, and naturally occurring events.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt` and `pt-br`  
+      
+   :::column-end:::
+:::row-end:::
+
+#### Subcategories
+
+The entity in this category can have the following subcategories.
+
+:::row:::
+    :::column span="":::
+        **Entity subcategory**
+
+        Cultural
+
+    :::column-end:::
+    :::column span="2":::
+        **Details**
+
+        Cultural events and holidays.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`   
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Natural
+
+    :::column-end:::
+    :::column span="2":::
+
+        Naturally occurring events.
+      
+    :::column-end:::
+    :::column span="2":::
+
+      `en`   
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Sports
+
+    :::column-end:::
+    :::column span="2":::
+
+        Sporting events.
+      
+    :::column-end:::
+    :::column span="2":::
+
+      `en`   
+      
+   :::column-end:::
+:::row-end:::
+
+### Category: Product
+
+This category contains the following entity:
+
+:::row:::
+    :::column span="":::
+        **Entity**
+
+        Product
+
+    :::column-end:::
+    :::column span="2":::
+        **Details**
+
+        Physical objects of various categories.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`  
+      
+   :::column-end:::
+:::row-end:::
+
+
+#### Subcategories
+
+The entity in this category can have the following subcategories.
+
+:::row:::
+    :::column span="":::
+        **Entity subcategory**
+
+        Computing products
+    :::column-end:::
+    :::column span="2":::
+        **Details**
+
+        Computing products.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`   
+      
+   :::column-end:::
+:::row-end:::
+
+### Category: Skill
+
+This category contains the following entity:
+
+:::row:::
+    :::column span="":::
+        **Entity**
+
+        Skill
+
+    :::column-end:::
+    :::column span="2":::
+        **Details**
+
+        A capability, skill, or expertise.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en` , `es`, `fr`, `de`, `it`, `pt-pt`, `pt-br` 
+      
+   :::column-end:::
+:::row-end:::
+
+### Category: Address
+
+This category contains the following entity:
+
+:::row:::
+    :::column span="":::
+        **Entity**
+
+        Address
+
+    :::column-end:::
+    :::column span="2":::
+        **Details**
+
+        Full mailing address.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
+      
+   :::column-end:::
+:::row-end:::
+
+### Category: PhoneNumber
+
+This category contains the following entity:
+
+:::row:::
+    :::column span="":::
+        **Entity**
+
+        PhoneNumber
+
+    :::column-end:::
+    :::column span="2":::
+        **Details**
+
+        Phone numbers (US and EU phone numbers only).
+      
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt` `pt-br`
+      
+   :::column-end:::
+:::row-end:::
+
+### Category: Email
+
+This category contains the following entity:
+
+:::row:::
+    :::column span="":::
+        **Entity**
+
+        Email
+
+    :::column-end:::
+    :::column span="2":::
+        **Details**
+
+        Email addresses.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
+      
+   :::column-end:::
+:::row-end:::
+
+### Category: URL
+
+This category contains the following entity:
+
+:::row:::
+    :::column span="":::
+        **Entity**
+
+        URL
+
+    :::column-end:::
+    :::column span="2":::
+        **Details**
+
+        URLs to websites. 
+      
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
+      
+   :::column-end:::
+:::row-end:::
+
+### Category: IPAddress
+
+This category contains the following entity:
+
+:::row:::
+    :::column span="":::
+        **Entity**
+
+        IPAddress
+
+    :::column-end:::
+    :::column span="2":::
+        **Details**
+
+        network IP addresses. 
+      
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
+      
+   :::column-end:::
+:::row-end:::
+
+### Category: DateTime
+
+This category contains the following entities:
+
+:::row:::
+    :::column span="":::
+        **Entity**
+
+        DateTime
+
+    :::column-end:::
+    :::column span="2":::
+        **Details**
+
+        Dates and times of day. 
+      
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
+      
+   :::column-end:::
+:::row-end:::
+
+Entities in this category can have the following subcategories
+
+#### Subcategories
+
+The entity in this category can have the following subcategories.
+
+:::row:::
+    :::column span="":::
+        **Entity subcategory**
+
+        Date
+
+    :::column-end:::
+    :::column span="2":::
+        **Details**
+
+        Calender dates.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`   
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Time
+
+    :::column-end:::
+    :::column span="2":::
+
+        Times of day.
+      
+    :::column-end:::
+    :::column span="2":::
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`   
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        DateRange
+
+    :::column-end:::
+    :::column span="2":::
+
+        Date ranges.
+      
+    :::column-end:::
+    :::column span="2":::
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`  
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        TimeRange
+
+    :::column-end:::
+    :::column span="2":::
+
+        Time ranges.
+      
+    :::column-end:::
+    :::column span="2":::
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`  
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Duration
+
+    :::column-end:::
+    :::column span="2":::
+
+        Durations.
+      
+    :::column-end:::
+    :::column span="2":::
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`  
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        Set
+
+    :::column-end:::
+    :::column span="2":::
+
+        Set, repeated times.
+      
+    :::column-end:::
+    :::column span="2":::
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`  
+      
+   :::column-end:::
+:::row-end:::
+
+### Category: Quantity
+
+This category contains the following entities:
+
+:::row:::
+    :::column span="":::
+        **Entity**
+
+        Quantity
+
+    :::column-end:::
+    :::column span="2":::
+        **Details**
+
+        Numbers and numeric quantities.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
+      
+   :::column-end:::
+:::row-end:::
+
+#### Subcategories
+
+The entity in this category can have the following subcategories.
+
+:::row:::
+    :::column span="":::
+        **Entity subcategory**
+
+        Number
+
+    :::column-end:::
+    :::column span="2":::
+        **Details**
+
+        Numbers.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`   
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+        Percentage
+
+    :::column-end:::
+    :::column span="2":::
+
+        Percentages
+      
+    :::column-end:::
+    :::column span="2":::
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`   
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+        Ordinal numbers
+
+    :::column-end:::
+    :::column span="2":::
+
+        Ordinal numbers.
+      
+    :::column-end:::
+    :::column span="2":::
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`   
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+        Age
+
+    :::column-end:::
+    :::column span="2":::
+
+        Ages.
+      
+    :::column-end:::
+    :::column span="2":::
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`   
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+        Currency
+
+    :::column-end:::
+    :::column span="2":::
+
+        Currencies
+      
+    :::column-end:::
+    :::column span="2":::
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`   
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+        Dimensions
+
+    :::column-end:::
+    :::column span="2":::
+
+        Dimensions and measurements.
+      
+    :::column-end:::
+    :::column span="2":::
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`   
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+        Temperature
+
+    :::column-end:::
+    :::column span="2":::
+
+        Temperatures.
+      
+    :::column-end:::
+    :::column span="2":::
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`   
+      
+   :::column-end:::
+:::row-end:::

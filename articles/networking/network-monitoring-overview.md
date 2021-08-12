@@ -48,10 +48,10 @@ Performance Monitor is part of NPM and is network monitoring for cloud, hybrid, 
 For more information, view the following articles:
 
 * [Configure a Network Performance Monitor Solution in Azure Monitor logs](../azure-monitor/insights/network-performance-monitor.md) 
-* [Use cases](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
+* [Use cases](/archive/blogs/msoms/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor)
 * Product Updates:
-  * [February 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/)
-  * [August 2017](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
+  * [February 2017](/archive/blogs/msoms/oms-network-performance-monitor-is-now-generally-available)
+  * [August 2017](/archive/blogs/msoms/improvements-to-oms-network-performance-monitor)
 
 ## ExpressRoute Monitor
 
@@ -61,7 +61,7 @@ NPM for ExpressRoute offers comprehensive ExpressRoute monitoring for Azure Priv
 * Detection of network topology  from on-premises to your cloud applications
 * Capacity planning,  bandwidth utilization analysis
 * Monitoring and alerting on both primary and secondary paths
-* Monitoring connectivity to Azure services such as Office 365, Dynamics 365, ... over ExpressRoute
+* Monitoring connectivity to Azure services such as Microsoft 365, Dynamics 365, ... over ExpressRoute
 * Detect degradation of connectivity to VNets
 
 ![Geo-map showing traffic across regions](./media/network-monitoring-overview/expressroute-topology-map.png) 
@@ -80,7 +80,7 @@ With Service Connectivity monitoring, you can now test reachability of applicati
 * Test application reachability from multiple user locations across the globe
 * Determine network latency and packet loss for your line of business and SaaS applications
 * Determine hot spots on the network, that may be causing poor application performance
-* Monitor reachability to  Office 365 applications, using built-in tests for Microsoft Office 365, Dynamics 365, Skype for Business and other Microsoft services
+* Monitor reachability to Microsoft 365 applications, using built-in tests for Microsoft 365, Dynamics 365, Skype for Business and other Microsoft services
 
 For more information, see the following articles:
 
@@ -99,10 +99,10 @@ Traffic Analytics is a cloud-based solution that provides  visibility into user 
 
 Traffic Analytics equips you with actionable information that helps you audit your organization’s network activity, secure applications and data,  optimize workload performance and stay compliant.
 
-![Geo-map showing traffic across regions](../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png) 
+![Geo-map showing traffic across regions 2](../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png) 
 
 Related links:
-* [Blog post](https://aka.ms/trafficanalytics), [Documentation](https://aka.ms/trafficanalyticsdocs), [FAQ](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)
+* [Blog post](https://aka.ms/trafficanalytics), [Documentation](../network-watcher/traffic-analytics.md), [FAQ](../network-watcher/traffic-analytics-faq.yml)
 
 ## DNS Analytics
 Built for DNS Administrators, this solution collects, analyzes, and correlates DNS logs to provide security, operations, and performance-related insights.  Some of the capabilities are:
@@ -116,8 +116,8 @@ Built for DNS Administrators, this solution collects, analyzes, and correlates D
 ![DNS Analytics Dashboard](./media/network-monitoring-overview/dns-analytics-overview.png) 
 
 Related links:
-* [Blog post](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [Documentation](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
+* [Blog post](/archive/blogs/msoms/introducing-oms-dns-analytics), [Documentation](../azure-monitor/insights/dns-analytics.md)
 
 ## Miscellaneous
 
-* [New Pricing](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor-pricing-faq)
+* [New Pricing](../azure-monitor/insights/network-performance-monitor-pricing-faq.yml)

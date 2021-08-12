@@ -1,27 +1,27 @@
 ---
 title: 'Azure AD Connect: Cloud authentication via staged rollout | Microsoft Docs'
-description: This article explains how to migrate from federated authentication to cloud authentication by using a staged rollout.
+description: This article explains how to migrate from federated authentication, to cloud authentication, by using a staged rollout.
 author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 11/07/2019
+ms.topic: how-to
+ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
 
-# Migrate to cloud authentication by using staged rollout (preview)
+# Migrate to cloud authentication using staged rollout
 
-By using a staged rollout approach, you can migrate from federated authentication to cloud authentication. This article discusses how to make the switch. Before you begin the staged rollout, however, you should consider the implications if one or more of the following conditions is true:
-	
+Staged rollout allows you to selectively test groups of users with cloud authentication capabilities like Azure AD Multi-Factor Authentication (MFA), Conditional Access, Identity Protection for leaked credentials, Identity Governance, and others, before cutting over your domains.  This article discusses how to make the switch. Before you begin the staged rollout, however, you should consider the implications if one or more of the following conditions is true:
+    
 -  You're currently using an on-premises Multi-Factor Authentication server. 
 -  You're using smart cards for authentication. 
 -  Your current server offers certain federation-only features.
 
-Before you try this feature, we suggest that you review our guide on choosing the right authentication method. For more information, see the "Comparing methods" table in [Choose the right authentication method for your Azure Active Directory hybrid identity solution](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn#comparing-methods).
+Before you try this feature, we suggest that you review our guide on choosing the right authentication method. For more information, see the "Comparing methods" table in [Choose the right authentication method for your Azure Active Directory hybrid identity solution](./choose-ad-authn.md#comparing-methods).
 
 For an overview of the feature, view this "Azure Active Directory: What is staged rollout?" video:
 
@@ -34,18 +34,23 @@ For an overview of the feature, view this "Azure Active Directory: What is stage
 -   You have an Azure Active Directory (Azure AD) tenant with federated domains.
 
 -   You have decided to move to either of two options:
-    - **Option A** - *password hash synchronization (sync)* + *seamless single sign-on (SSO)*
-    - **Option B** - *pass-through authentication* + *seamless SSO*
+    - **Option A** - *password hash synchronization (sync)*.  For more information, see [What is password hash sync](whatis-phs.md) 
+    - **Option B** - *pass-through authentication*.  For more information, see [What is pass-through authentication](how-to-connect-pta.md)  
     
-    Although *seamless SSO* is optional, we recommend enabling it to achieve a silent sign-in experience for users who are running domain-joined machines from inside a corporate network.
+    For both options, we recommend enabling single sign-on (SSO) to achieve a silent sign-in experience. 
+    For Windows 7 or 8.1 domain-joined devices, we recommend using seamless SSO. For more information, see [What is seamless SSO](how-to-connect-sso.md). 
+    For Windows 10, Windows Server 2016 and later versions, it’s recommended to use SSO via [Primary Refresh Token (PRT)](../devices/concept-primary-refresh-token.md) with [Azure AD joined devices](../devices/concept-azure-ad-join.md), [hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md) or personal registered devices via Add Work or School Account.
 
 -   You have configured all the appropriate tenant-branding and conditional access policies you need for users who are being migrated to cloud authentication.
 
--   If you plan to use Azure Multi-Factor Authentication, we recommend that you use [converged registration for self-service password reset (SSPR) and Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) to have your users register their authentication methods once.
+-   If you plan to use Azure AD Multi-Factor Authentication, we recommend that you use [combined registration for self-service password reset (SSPR) and Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) to have your users register their authentication methods once. Note- when using SSPR to reset password or change password using MyProfile page while in Staged rollout, Azure AD Connect needs to sync the new password hash which can take up to 2 minutes after reset.
 
 -   To use the staged rollout feature, you need to be a global administrator on your tenant.
 
 -   To enable *seamless SSO* on a specific Active Directory forest, you need to be a domain administrator.
+
+-  If you are deploying Hybrid Azure AD or Azure AD join, you must upgrade to Windows 10 1903 update.
+
 
 ## Supported scenarios
 
@@ -55,9 +60,15 @@ The following scenarios are supported for staged rollout. The feature works only
 
 - User sign-in traffic on browsers and *modern authentication* clients. Applications or cloud services that use legacy authentication will fall back to federated authentication flows. An example might be Exchange online with modern authentication turned off, or Outlook 2010, which does not support modern authentication.
 
+- Group size is currently limited to 50,000 users.  If you have groups that are larger then 50,000 users, it is recommended to split this group over multiple groups for staged rollout.
+
+- Windows 10 Hybrid Join or Azure AD Join primary refresh token acquisition without line-of-sight to the federation server for Windows 10 version 1903 and newer, when user’s UPN is routable and domain suffix is verified in Azure AD.
+
 ## Unsupported scenarios
 
 The following scenarios are not supported for staged rollout:
+
+- Legacy authentication such as POP3 and SMTP are not supported.
 
 - Certain applications send the "domain_hint" query parameter to Azure AD during authentication. These flows will continue, and users who are enabled for staged rollout will continue to use federation for authentication.
 
@@ -66,29 +77,40 @@ The following scenarios are not supported for staged rollout:
 - Admins can roll out cloud authentication by using security groups. To avoid sync latency when you're using on-premises Active Directory security groups, we recommend that you use cloud security groups. The following conditions apply:
 
     - You can use a maximum of 10 groups per feature. That is, you can use 10 groups each for *password hash sync*, *pass-through authentication*, and *seamless SSO*.
-    - Nested groups are *not supported*. This scope applies to public preview as well.
+    - Nested groups are *not supported*. 
     - Dynamic groups are *not supported* for staged rollout.
     - Contact objects inside the group will block the group from being added.
 
-- You still need to make the final cutover from federated to cloud authentication by using Azure AD Connect or PowerShell. Staged rollout doesn't switch domains from federated to managed.
-
 - When you first add a security group for staged rollout, you're limited to 200 users to avoid a UX time-out. After you've added the group, you can add more users directly to it, as required.
 
+- While users are in Staged Rollout, password expiration policy is set to 90 days with no option to customize it. 
+
+- Windows 10 Hybrid Join or Azure AD Join primary refresh token acquisition for Windows 10 version older than 1903. This scenario will fall back to the WS-Trust endpoint of the federation server, even if the user signing in is in scope of staged rollout.
+
+- Windows 10 Hybrid Join or Azure AD Join primary refresh token acquisition for all versions, when user’s on-premises UPN is not routable. This scenario will fall back to the WS-Trust endpoint while in staged rollout mode, but will stop working when staged migration is complete and user sign-on is no longer relying on federation server.
+
+- If you have a non-persistent VDI setup with Windows 10, version 1903 or later, you must remain on a federated domain. Moving to a managed domain isn't supported on non-persistent VDI. For more information, see [Device identity and desktop virtualization](../devices/howto-device-identity-virtual-desktop-infrastructure.md).
+
+- If you have a Windows Hello for Business hybrid certificate trust with certs that are issued via your federation server acting as Registration Authority or smartcard users, the scenario isn't supported on a staged rollout. 
+
+  >[!NOTE]
+  >You still need to make the final cutover from federated to cloud authentication by using Azure AD Connect or PowerShell. Staged rollout doesn't switch domains from  federated to managed.  For more information about domain cutover, see [Migrate from federation to password hash synchronization](./migrate-from-federation-to-cloud-authentication.md) and [Migrate from federation to pass-through authentication](./migrate-from-federation-to-cloud-authentication.md).
+  
 ## Get started with staged rollout
 
 To test the *password hash sync* sign-in by using staged rollout, follow the pre-work instructions in the next section.
 
-For information about which PowerShell cmdlets to use, see [Azure AD 2.0 preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
+For information about which PowerShell cmdlets to use, see [Azure AD 2.0 preview](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout).
 
 ## Pre-work for password hash sync
 
 1. Enable *password hash sync* from the [Optional features](how-to-connect-install-custom.md#optional-features) page in Azure AD Connect. 
 
-   ![Screenshot of the "Optional features" page in Azure Active Directory Connect](media/how-to-connect-staged-rollout/sr1.png)
+   ![Screenshot of the "Optional features" page in Azure Active Directory Connect](media/how-to-connect-staged-rollout/staged-1.png)
 
 1. Ensure that a full *password hash sync* cycle has run so that all the users' password hashes have been synchronized to Azure AD. To check the status of *password hash sync*, you can use the PowerShell diagnostics in [Troubleshoot password hash sync with Azure AD Connect sync](tshoot-connect-password-hash-synchronization.md).
 
-   ![Screenshot of the AADConnect Troubleshooting log](./media/how-to-connect-staged-rollout/sr2.png)
+   ![Screenshot of the AADConnect Troubleshooting log](./media/how-to-connect-staged-rollout/staged-2.png)
 
 If you want to test *pass-through authentication* sign-in by using staged rollout, enable it by following the pre-work instructions in the next section.
 
@@ -124,7 +146,7 @@ Enable *seamless SSO* by doing the following:
 
 5. Call `Get-AzureADSSOStatus | ConvertFrom-Json`. This command displays a list of Active Directory forests (see the "Domains" list) on which this feature has been enabled. By default, it is set to false at the tenant level.
 
-   ![Example of the Windows PowerShell output](./media/how-to-connect-staged-rollout/sr3.png)
+   ![Example of the Windows PowerShell output](./media/how-to-connect-staged-rollout/staged-3.png)
 
 6. Call `$creds = Get-Credential`. At the prompt, enter the domain administrator credentials for the intended Active Directory forest.
 
@@ -148,22 +170,25 @@ You can roll out one of these options:
 
 Do the following:
 
-1. To access the preview UX, sign in to the [Azure AD portal](https://aka.ms/stagedrolloutux).
+1. To access the UX, sign in to the [Azure AD portal](https://aka.ms/stagedrolloutux).
 
-2. Select the **Enable staged rollout for managed user sign-in (Preview)** link.
+2. Select the **Enable staged rollout for managed user sign-in** link.
 
    For example, if you want to enable *Option A*, slide the **Password Hash Sync** and **Seamless single sign-on** controls to **On**, as shown in the following images.
 
-   ![The Azure AD Connect page](./media/how-to-connect-staged-rollout/sr4.png)
+   
 
-   ![The "Enable staged rollout features (Preview)" page](./media/how-to-connect-staged-rollout/sr5.png)
+  
 
 3. Add the groups to the feature to enable *pass-through authentication* and *seamless SSO*. To avoid a UX time-out, ensure that the security groups contain no more than 200 members initially.
 
-   ![The "Manage groups for Password Hash Sync (Preview)" page](./media/how-to-connect-staged-rollout/sr6.png)
+   
 
    >[!NOTE]
    >The members in a group are automatically enabled for staged rollout. Nested and dynamic groups are not supported for staged rollout.
+   >When adding a new group, users in the group (up to 200 users for a new group) will be updated to use managed auth immediately. 
+   >Editing a group (adding or removing users), it can take up to 24 hours for changes to take effect.
+   >Seamless SSO will apply only if users are in the Seamless SSO group and also in either a PTA or PHS group.
 
 ## Auditing
 
@@ -174,24 +199,24 @@ We've enabled audit events for the various actions we perform for staged rollout
   >[!NOTE]
   >An audit event is logged when *seamless SSO* is turned on by using staged rollout.
 
-  ![The "Create rollout policy for feature" pane - Activity tab](./media/how-to-connect-staged-rollout/sr7.png)
+  ![The "Create rollout policy for feature" pane - Activity tab](./media/how-to-connect-staged-rollout/staged-7.png)
 
-  ![The "Create rollout policy for feature" pane - Modified Properties tab](./media/how-to-connect-staged-rollout/sr8.png)
+  ![The "Create rollout policy for feature" pane - Modified Properties tab](./media/how-to-connect-staged-rollout/staged-8.png)
 
 - Audit event when a group is added to *password hash sync*, *pass-through authentication*, or *seamless SSO*.
 
   >[!NOTE]
   >An audit event is logged when a group is added to *password hash sync* for staged rollout.
 
-  ![The "Add a group to feature rollout" pane - Activity tab](./media/how-to-connect-staged-rollout/sr9.png)
+  ![The "Add a group to feature rollout" pane - Activity tab](./media/how-to-connect-staged-rollout/staged-9.png)
 
-  ![The "Add a group to feature rollout" pane - Modified Properties tab](./media/how-to-connect-staged-rollout/sr10.png)
+  ![The "Add a group to feature rollout" pane - Modified Properties tab](./media/how-to-connect-staged-rollout/staged-10.png)
 
 - Audit event when a user who was added to the group is enabled for staged rollout.
 
-  ![The "Add user to feature rollout" pane - Activity tab](media/how-to-connect-staged-rollout/sr11.png)
+  ![The "Add user to feature rollout" pane - Activity tab](media/how-to-connect-staged-rollout/staged-11.png)
 
-  ![The "Add user to feature rollout" pane - Target(s) tab](./media/how-to-connect-staged-rollout/sr12.png)
+  ![The "Add user to feature rollout" pane - Target(s) tab](./media/how-to-connect-staged-rollout/staged-12.png)
 
 ## Validation
 
@@ -211,7 +236,12 @@ To test sign-in with *seamless SSO*:
 
 1. Ensure that the sign-in successfully appears in the [Azure AD sign-in activity report](../reports-monitoring/concept-sign-ins.md) by filtering with the UserPrincipalName.
 
-   To track user sign-ins that still occur on Active Directory Federation Services (AD FS) for selected staged rollout users, follow the instructions at [AD FS troubleshooting: Events and logging](https://docs.microsoft.com/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-logging#types-of-events). Check vendor documentation about how to check this on third-party federation providers.
+   To track user sign-ins that still occur on Active Directory Federation Services (AD FS) for selected staged rollout users, follow the instructions at [AD FS troubleshooting: Events and logging](/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-logging#types-of-events). Check vendor documentation about how to check this on third-party federation providers.
+
+## Monitoring
+You can monitor the users and groups added or removed from staged rollout and users sign-ins while in staged rollout, using the new Hybrid Auth workbooks in the Azure portal.
+
+ ![Hybrid Auth workbooks](./media/how-to-connect-staged-rollout/staged-13.png)
 
 ## Remove a user from staged rollout
 
@@ -225,11 +255,14 @@ A: Yes, you can use this feature in your production tenant, but we recommend tha
 
 **Q: Can this feature be used to maintain a permanent "co-existence," where some users use federated authentication and others use cloud authentication?**
 
-A: No, this feature is designed for migrating from federated to cloud authentication in stages and then to eventually cut over to cloud authentication. We do not recommend using a permanent mixed state, because this approach could lead to unexpected authentication flows.
+A: No, this feature is designed for testing cloud authentication. After successful testing a few groups of users you should cut over to cloud authentication. We do not recommend using a permanent mixed state, because this approach could lead to unexpected authentication flows.
 
 **Q: Can I use PowerShell to perform staged rollout?**
 
-A: Yes. To learn how to use PowerShell to perform staged rollout, see [Azure AD Preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
+A: Yes. To learn how to use PowerShell to perform staged rollout, see [Azure AD Preview](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout).
 
 ## Next steps
-- [Azure AD 2.0 preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )
+- [Azure AD 2.0 preview](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout )
+- [Change the sign-in method to password hash synchronization](./migrate-from-federation-to-cloud-authentication.md)
+- [Change sign-in method to pass-through authentication](./migrate-from-federation-to-cloud-authentication.md)
+- [Staged rollout interactive guide](https://mslearn.cloudguides.com/en-us/guides/Test%20migration%20to%20cloud%20authentication%20using%20staged%20rollout%20in%20Azure%20AD)

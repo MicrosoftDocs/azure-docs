@@ -6,6 +6,7 @@ author: gvashishtha
 ms.topic: tutorial
 ms.date: 02/28/2020
 ms.author: gopalv
+ms.custom: devx-track-python, devx-track-azurepowershell
 
 ---
 
@@ -100,7 +101,7 @@ In Azure Functions, a function project is a container for one or more individual
     func init --worker-runtime python
     ```
 
-    After initialization, the *start* folder contains various files for the project, including configurations files named [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
+    After initialization, the *start* folder contains various files for the project, including configurations files named [local.settings.json](functions-develop-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
 
     > [!TIP]
     > Because a function project is tied to a specific runtime, all the functions in the project must be written with the same language.
@@ -111,7 +112,7 @@ In Azure Functions, a function project is a container for one or more individual
     func new --name classify --template "HTTP trigger"
     ```
 
-    This command creates a folder matching the name of the function, *classify*. In that folder are two files: *\_\_init\_\_.py*, which contains the function code, and *function.json*, which describes the function's trigger and its input and output bindings. For details on the contents of these files, see [Examine the file contents](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#optional-examine-the-file-contents) in the Python quickstart.
+    This command creates a folder matching the name of the function, *classify*. In that folder are two files: *\_\_init\_\_.py*, which contains the function code, and *function.json*, which describes the function's trigger and its input and output bindings. For details on the contents of these files, see [Examine the file contents](./create-first-function-cli-python.md#optional-examine-the-file-contents) in the Python quickstart.
 
 
 ## Run the function locally
@@ -163,14 +164,9 @@ To modify the `classify` function to classify an image based on its contents, yo
     ```txt
     azure-functions
     requests
-    numpy==1.15.4
-    https://download.pytorch.org/whl/cpu/torch-1.4.0%2Bcpu-cp36-cp36m-win_amd64.whl; sys_platform == 'win32' and python_version == '3.6'
-    https://download.pytorch.org/whl/cpu/torch-1.4.0%2Bcpu-cp36-cp36m-linux_x86_64.whl; sys_platform == 'linux' and python_version == '3.6'
-    https://download.pytorch.org/whl/cpu/torch-1.4.0%2Bcpu-cp37-cp37m-win_amd64.whl; sys_platform == 'win32' and python_version == '3.7'
-    https://download.pytorch.org/whl/cpu/torch-1.4.0%2Bcpu-cp37-cp37m-linux_x86_64.whl; sys_platform == 'linux' and python_version == '3.7'
-    https://download.pytorch.org/whl/cpu/torch-1.4.0%2Bcpu-cp38-cp38-win_amd64.whl; sys_platform == 'win32' and python_version == '3.8'
-    https://download.pytorch.org/whl/cpu/torch-1.4.0%2Bcpu-cp38-cp38-linux_x86_64.whl; sys_platform == 'linux' and python_version == '3.8'
-    torchvision==0.5.0
+    -f https://download.pytorch.org/whl/torch_stable.html
+    torch==1.5.0+cpu
+    torchvision==0.6.0+cpu
     ```
 
 1. Save *requirements.txt*, then run the following command from the *start* folder to install the dependencies.

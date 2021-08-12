@@ -24,11 +24,12 @@ This article describes how to create and customize a recovery plan for failover 
    Hyper-V (managed by VMM) to Azure  | Select the VMM server | Select Azure
   
     Note the following:
-    -  You can only use a recovery plan for failover from the source location to Azure. You can't use a recovery plan for failback from Azure.
-    - The source location must have machines that are enabled for failover and recovery. 
-    - A recovery plan can contain machines with the same source and target. 
+    - You can use a recovery plan for both failover to Azure and failback from Azure.
+    - The source location must have machines that are enabled for failover and recovery.
+    - A recovery plan can contain machines with the same source and target.
     - You can include VMware VMs and Hyper-V VMs managed by VMM, in the same plan.
     - VMware VMs and physical servers can be in the same plan.
+    - All VMs in a recovery plan must replicate into a single subscription. If you want to replicate different VMs to different subscriptions, please use more than one recovery plan (one or more for each target subscription).
 
 4. In **Select items virtual machines**, select the machines (or replication group) that you want to add to the plan. Then click **OK**.
     - Machines are added default group (Group 1) in the  plan. After failover, all machines in this group start at the same time.

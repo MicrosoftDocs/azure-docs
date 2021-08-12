@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 04/23/2019
  ms.author: cherylmc
- ms.custom: include file
+ ms.custom: include file, devx-track-azurepowershell
 ---
 
 To quickly create a VNet, you can click "Try It" in this article to open a PowerShell console in Azure Cloud Shell. Adjust the values, then copy and paste the commands into the console window. 

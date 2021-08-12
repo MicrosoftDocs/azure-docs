@@ -2,32 +2,28 @@
 title: SAML token encryption in Azure Active Directory
 description: Learn how to configure Azure Active Directory SAML token encryption.
 services: active-directory
-documentationcenter: ''
-author: msmimart
+author: davidmu1
 manager: CelesteDG
-editor: ''
-
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/13/2020
-ms.author: mimart
-ms.reviewer: paulgarn
+ms.author: davidmu
+ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
 ---
+
 # How to: Configure Azure AD SAML token encryption
 
 > [!NOTE]
-> Token encryption is an Azure Active Directory (Azure AD) premium feature. To learn more about Azure AD editions, features, and pricing, see [Azure AD pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+> Token encryption is an Azure Active Directory (Azure AD) premium feature. To learn more about Azure AD editions, features, and pricing, see [Azure AD pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 SAML token encryption enables the use of encrypted SAML assertions with an application that supports it. When configured for an application, Azure AD will encrypt the SAML assertions it emits for that application using the public key obtained from a certificate stored in Azure AD. The application must use the matching private key to decrypt the token before it can be used as evidence of authentication for the signed in user.
 
 Encrypting the SAML assertions between Azure AD and the application provides additional assurance that the content of the token can't be intercepted, and personal or corporate data compromised.
 
-Even without token encryption, Azure AD SAML tokens are never passed on the network in the clear. Azure AD requires token request/response exchanges to take place over encrypted HTTPS/TLS channels so that communications between the IDP, browser, and application take place over encrypted links. Consider the value of token encryption for your situation compared with the overhead of managing additional certificates.   
+Even without token encryption, Azure AD SAML tokens are never passed on the network in the clear. Azure AD requires token request/response exchanges to take place over encrypted HTTPS/TLS channels so that communications between the IDP, browser, and application take place over encrypted links. Consider the value of token encryption for your situation compared with the overhead of managing additional certificates.
 
 To configure token encryption, you need to upload an X.509 certificate file that contains the public key to the Azure AD application object that represents the application. To obtain the X.509 certificate, you can download it from the application itself, or get it from the application vendor in cases where the application vendor provides encryption keys or in cases where the application expects you to provide a private key, it can be created using cryptography tools, the private key portion uploaded to the application’s key store and the matching public key certificate uploaded to Azure AD.
 
@@ -120,7 +116,7 @@ When you configure a keyCredential using Graph, PowerShell, or in the applicatio
 
 1. Use the latest Azure AD PowerShell module to connect to your tenant.
 
-1. Set the token encryption settings using the **[Set-AzureApplication](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview)** command.
+1. Set the token encryption settings using the **[Set-AzureApplication](/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview&preserve-view=true)** command.
 
     ```
     Set-AzureADApplication -ObjectId <ApplicationObjectId> -KeyCredentials "<KeyCredentialsObject>"  -TokenEncryptionKeyId <keyID>

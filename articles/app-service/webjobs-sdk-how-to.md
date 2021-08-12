@@ -4,45 +4,47 @@ description: Learn more about how to write code for the WebJobs SDK. Create even
 author: ggailey777
 
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: article
-ms.date: 02/18/2019
+ms.date: 06/24/2021
 ms.author: glenga
 #Customer intent: As an App Services developer, I want use the WebJobs SDK to be able to execute event-driven code in Azure.
 ---
 
 # How to use the Azure WebJobs SDK for event-driven background processing
 
-This article provides guidance on how to work with the Azure WebJobs SDK. To get started with WebJobs right away, see [Get started with the Azure WebJobs SDK for event-driven background processing](webjobs-sdk-get-started.md). 
+This article provides guidance on how to work with the Azure WebJobs SDK. To get started with WebJobs right away, see [Get started with the Azure WebJobs SDK](webjobs-sdk-get-started.md). 
 
 ## WebJobs SDK versions
 
 These are the key differences between version 3.*x* and version 2.*x* of the WebJobs SDK:
 
 * Version 3.*x* adds support for .NET Core.
-* In version 3.*x*, you need to explicitly install the Storage binding extension required by the WebJobs SDK. In version 2.*x*, the Storage bindings were included in the SDK.
-* Visual Studio tooling for .NET Core (3.*x*) projects differs from tooling for .NET Framework (2.*x*) projects. To learn more, see [Develop and deploy WebJobs using Visual Studio - Azure App Service](webjobs-dotnet-deploy-vs.md).
+* In version 3.*x*, you'll install the Storage binding extension required by the WebJobs SDK. In version 2.*x*, the Storage bindings are included in the SDK.
+* Visual Studio 2019 tooling for .NET Core (3.*x*) projects differs from tooling for .NET Framework (2.*x*) projects. To learn more, see [Develop and deploy WebJobs using Visual Studio - Azure App Service](webjobs-dotnet-deploy-vs.md).
 
-When possible, examples are provided for both version 3.*x* and version 2.*x*.
+Several descriptions in this article provide examples for both WebJobs version 3.*x* and WebJobs version 2.*x*.
 
-> [!NOTE]
-> [Azure Functions](../azure-functions/functions-overview.md) is built on the WebJobs SDK, and this article provides links to Azure Functions documentation for some topics. Note these differences between Functions and the WebJobs SDK:
-> * Azure Functions version 2.*x* corresponds to WebJobs SDK version 3.*x*, and Azure Functions 1.*x* corresponds to WebJobs SDK 2.*x*. Source code repositories use the WebJobs SDK numbering.
-> * Sample code for Azure Functions C# class libraries is like WebJobs SDK code, except you don't need a `FunctionName` attribute in a WebJobs SDK project.
-> * Some binding types are supported only in Functions, like HTTP (Webhooks) and Event Grid (which is based on HTTP).
->
-> For more information, see [Compare the WebJobs SDK and Azure Functions](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs).
+[Azure Functions](../azure-functions/functions-overview.md) is built on the WebJobs SDK. 
+  
+ * Azure Functions version 2.*x* is built on WebJobs SDK version 3.*x*.
+ * Azure Functions version 1.*x* is built on WebJobs SDK version 2.*x*.
+  
+Source code repositories for both Azure Functions and WebJobs SDK use the WebJobs SDK numbering. Several sections of this how-to article link to Azure Functions documentation. 
+
+For more information, see [Compare the WebJobs SDK and Azure Functions](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs) 
 
 ## WebJobs host
 
-The host is a runtime container for functions.  It listens for triggers and calls functions. In version 3.*x*, the host is an implementation of `IHost`. In version 2.*x*, you use the `JobHost` object. You create a host instance in your code and write code to customize its behavior.
+The host is a runtime container for functions. The Host listens for triggers and calls functions. In version 3.*x*, the host is an implementation of `IHost`. In version 2.*x*, you use the `JobHost` object. You create a host instance in your code and write code to customize its behavior.
 
-This is a key difference between using the WebJobs SDK directly and using it indirectly through Azure Functions. In Azure Functions, the service controls the host, and you can't customize the host by writing code. Azure Functions lets you customize host behavior through settings in the host.json file. Those settings are strings, not code, and this limits the kinds of customizations you can do.
+This is a key difference between using the WebJobs SDK directly and using it indirectly through Azure Functions. In Azure Functions, the service controls the host, and you can't customize the host by writing code. Azure Functions lets you customize host behavior through settings in the host.json file. Those settings are strings, not code, and use of these strings limits the kinds of customizations you can do.
 
 ### Host connection strings
 
-The WebJobs SDK looks for Azure Storage and Azure Service Bus connection strings in the local.settings.json file when you run locally, or in the environment of the WebJob  when you run in Azure. By default, a storage connection string setting named `AzureWebJobsStorage` is required.  
+The WebJobs SDK looks for Azure Storage and Azure Service Bus connection strings in the local.settings.json file when you run locally or in the environment of the WebJob when you run in Azure. By default, the WebJobs SDK requires a storage connection string setting with the name `AzureWebJobsStorage`.  
 
-Version 2.*x* of the SDK lets you use your own names for these connection strings or store them elsewhere. You can set names in code using the [`JobHostConfiguration`], as shown here:
+Version 2.*x* of the SDK doesn't require a specific name. Version 2.*x* lets you use your own names for these connection strings and allows you to store them elsewhere. You can set names in code using the [`JobHostConfiguration`], like this:
 
 ```cs
 static void Main(string[] args)
@@ -62,11 +64,12 @@ static void Main(string[] args)
 }
 ```
 
-Because version 3.*x* uses the default .NET Core configuration APIs, there is no API to change connection string names.
+> [!NOTE]
+> Because version 3.*x* uses the default .NET Core configuration APIs, there is no API to change connection string names. See [Develop and deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md)
 
 ### Host development settings
 
-You can run the host in development mode to make local development more efficient. Here are some of the settings that are changed when you run in development mode:
+You can run the host in development mode to make local development more efficient. Here are some of the settings that automatically change when you run in development mode:
 
 | Property | Development setting |
 | ------------- | ------------- |
@@ -99,7 +102,7 @@ static async Task Main()
 
 #### Version 2.*x*
 
-The `JobHostConfiguration` class has a `UseDevelopmentSettings` method that enables development mode.  The following example shows how to use development settings. To make `config.IsDevelopment` return `true` when it runs locally, set a local environment variable named `AzureWebJobsEnv` with the value `Development`.
+The `JobHostConfiguration` class has a `UseDevelopmentSettings` method that enables development mode. The following example shows how to use development settings. To make `config.IsDevelopment` return `true` when it runs locally, set a local environment variable named `AzureWebJobsEnv` with the value `Development`.
 
 ```cs
 static void Main()
@@ -122,9 +125,9 @@ In version 3.*x*, the connection limit defaults to infinite connections. If for 
 
 In version 2.*x*, you control the number of concurrent connections to a host by using the [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) API. In 2.*x*, you should increase this value from the default of 2 before starting your WebJobs host.
 
-All outgoing HTTP requests that you make from a function by using `HttpClient` flow through `ServicePointManager`. After you reach the value set in `DefaultConnectionLimit`, `ServicePointManager` starts queueing requests before sending them. Suppose your `DefaultConnectionLimit` is set to 2 and your code makes 1,000 HTTP requests. Initially, only two requests are allowed through to the OS. The other 998 are queued until there’s room for them. That means your `HttpClient` might time out because it appears to have made the request, but the request was never sent by the OS to the destination server. So you might see behavior that doesn't seem to make sense: your local `HttpClient` is taking 10 seconds to complete a request, but your service is returning every request in 200 ms. 
+All outgoing HTTP requests that you make from a function by using `HttpClient` flow through `ServicePointManager`. After you reach the value set in `DefaultConnectionLimit`, `ServicePointManager` starts queueing requests before sending them. Suppose your `DefaultConnectionLimit` is set to 2 and your code makes 1,000 HTTP requests. Initially, only two requests are allowed through to the OS. The other 998 are queued until there's room for them. That means your `HttpClient` might time out because it appears to have made the request, but the request was never sent by the OS to the destination server. So you might see behavior that doesn't seem to make sense: your local `HttpClient` is taking 10 seconds to complete a request, but your service is returning every request in 200 ms. 
 
-The default value for ASP.NET applications is `Int32.MaxValue`, and that's likely to work well for WebJobs running in a Basic or higher App Service Plan. WebJobs typically need the Always On setting, and that's supported only by Basic and higher App Service Plans.
+The default value for ASP.NET applications is `Int32.MaxValue`, and that's likely to work well for WebJobs running in a Basic or higher App Service Plan. WebJobs typically need the **Always On** setting, and that's supported only by Basic and higher App Service Plans.
 
 If your WebJob is running in a Free or Shared App Service Plan, your application is restricted by the App Service sandbox, which currently has a [connection limit of 300](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#per-sandbox-per-appper-site-numerical-limits). With an unbound connection limit in `ServicePointManager`, it's more likely that the sandbox connection threshold will be reached and the site will shut down. In that case, setting `DefaultConnectionLimit` to something lower, like 50 or 100, can prevent this from happening and still allow for sufficient throughput.
 
@@ -143,11 +146,13 @@ static void Main(string[] args)
 
 ## Triggers
 
+WebJobs SDK supports the same set of triggers and binding used by [Azure Functions](../azure-functions/functions-triggers-bindings.md). Please note that in the WebJobs SDK, triggers are function-specific and not related to the WebJob deployment type. WebJobs with event-triggered functions created using the SDK should always be published as a _continuous_ WebJob, with _Always on_ enabled.   
+
 Functions must be public methods and must have one trigger attribute or the [`NoAutomaticTrigger`](#manual-triggers) attribute.
 
 ### Automatic triggers
 
-Automatic triggers call a function in response to an event. Consider this example of a function that's triggered by a message added to Azure Queue storage. It responds by reading a blob from Azure Blob storage:
+Automatic triggers call a function in response to an event. Consider this example of a function that's triggered by a message added to Azure Queue storage. The function responds by reading a blob from Azure Blob storage:
 
 ```cs
 public static void Run(
@@ -159,7 +164,7 @@ public static void Run(
 }
 ```
 
-The `QueueTrigger` attribute tells the runtime to call the function whenever a queue message appears in the `myqueue-items` queue. The `Blob` attribute tells the runtime to use the queue message to read a blob in the *sample-workitems* container. The name of the blob item in the `samples-workitems` container is obtained directly from the queue trigger as a binding expression (`{queueTrigger}`).
+The `QueueTrigger` attribute tells the runtime to call the function whenever a queue message appears in `myqueue-items`. The `Blob` attribute tells the runtime to use the queue message to read a blob in the *sample-workitems* container. The name of the blob item in the `samples-workitems` container is obtained directly from the queue trigger as a binding expression (`{queueTrigger}`).
 
 [!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
@@ -224,7 +229,7 @@ Input bindings provide a declarative way to make data from Azure or third-party 
 
 You can use a method return value for an output binding by applying the attribute to the method return value. See the example in [Using the Azure Function return value](../azure-functions/functions-bindings-return-value.md).
 
-## Binding types
+### Binding types
 
 The process for installing and managing binding types depends on whether you're using version 3.*x* or version 2.*x* of the SDK. You can find the package to install for a particular binding type in the "Packages" section of that binding type's Azure Functions [reference article](#binding-reference-information). An exception is the Files trigger and binding (for the local file system), which isn't supported by Azure Functions.
 
@@ -268,7 +273,7 @@ static async Task Main()
 }
 ```
 
-To use the Timer trigger or the Files binding, which are part of core services, call the `AddTimers` or `AddFiles` extension methods, respectively.
+To use the Timer trigger or the Files binding, which are part of core services, call the `AddTimers` or `AddFiles` extension methods.
 
 #### Version 2.*x*
 
@@ -348,7 +353,7 @@ class Program
 }
 ```
 
-## Binding configuration
+### Binding configuration
 
 You can configure the behavior of some triggers and bindings. The process for configuring them depends on the SDK version.
 
@@ -365,7 +370,7 @@ You can configure the following bindings:
 * [SendGrid binding](#sendgrid-binding-configuration-version-3x)
 * [Service Bus trigger](#service-bus-trigger-configuration-version-3x)
 
-### Azure CosmosDB trigger configuration (version 3.*x*)
+#### Azure CosmosDB trigger configuration (version 3.*x*)
 
 This example shows how to configure the Azure Cosmos DB trigger:
 
@@ -392,9 +397,9 @@ static async Task Main()
 }
 ```
 
-For more details, see the [Azure CosmosDB binding](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings) article.
+For more information, see the [Azure CosmosDB binding](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings) article.
 
-### Event Hubs trigger configuration (version 3.*x*)
+#### Event Hubs trigger configuration (version 3.*x*)
 
 This example shows how to configure the Event Hubs trigger:
 
@@ -420,11 +425,11 @@ static async Task Main()
 }
 ```
 
-For more details, see the [Event Hubs binding](../azure-functions/functions-bindings-event-hubs-output.md#hostjson-settings) article.
+For more information, see the [Event Hubs binding](../azure-functions/functions-bindings-event-hubs.md#hostjson-settings) article.
 
 ### Queue storage trigger configuration
 
-These examples show how to configure the Queue storage trigger:
+The following examples show how to configure the Queue storage trigger.
 
 #### Version 3.*x*
 
@@ -450,7 +455,7 @@ static async Task Main()
 }
 ```
 
-For more details, see the [Queue storage binding](../azure-functions/functions-bindings-storage-queue-trigger.md#hostjson-properties) article.
+For more information, see the [Queue storage binding](../azure-functions/functions-bindings-storage-queue-trigger.md#hostjson-properties) article.
 
 #### Version 2.*x*
 
@@ -467,7 +472,7 @@ static void Main(string[] args)
 }
 ```
 
-For more details, see the [host.json v1.x reference](../azure-functions/functions-host-json-v1.md#queues).
+For more information, see the [host.json v1.x reference](../azure-functions/functions-host-json-v1.md#queues).
 
 ### SendGrid binding configuration (version 3.*x*)
 
@@ -494,7 +499,7 @@ static async Task Main()
 }
 ```
 
-For more details, see the [SendGrid binding](../azure-functions/functions-bindings-sendgrid.md#hostjson-settings) article.
+For more information, see the [SendGrid binding](../azure-functions/functions-bindings-sendgrid.md#hostjson-settings) article.
 
 ### Service Bus trigger configuration (version 3.*x*)
 
@@ -521,11 +526,11 @@ static async Task Main()
 }
 ```
 
-For more details, see the [Service Bus binding](../azure-functions/functions-bindings-service-bus-output.md#hostjson-settings) article.
+For more details, see the [Service Bus binding](../azure-functions/functions-bindings-service-bus.md#hostjson-settings) article.
 
 ### Configuration for other bindings
 
-Some trigger and binding types define their own custom configuration types. For example, the File trigger lets you specify the root path to monitor, as in these examples:
+Some trigger and binding types define their own custom configuration types. For example, the File trigger lets you specify the root path to monitor, as in the following examples.
 
 #### Version 3.*x*
 
@@ -562,7 +567,7 @@ static void Main()
 }
 ```
 
-## Binding expressions
+### Binding expressions
 
 In attribute constructor parameters, you can use expressions that resolve to values from various sources. For example, in the following code, the path for the `BlobTrigger` attribute creates an expression named `filename`. When used for the output binding, `filename` resolves to the name of the triggering blob.
 
@@ -653,7 +658,7 @@ Pass your `NameResolver` class in to the `JobHost` object, as shown here:
 
 Azure Functions implements `INameResolver` to get values from app settings, as shown in the example. When you use the WebJobs SDK directly, you can write a custom implementation that gets placeholder replacement values from whatever source you prefer.
 
-## Binding at runtime
+### Binding at runtime
 
 If you need to do some work in your function before you use a binding attribute like `Queue`, `Blob`, or `Table`, you can use the `IBinder` interface.
 
@@ -673,7 +678,7 @@ public static void CreateQueueMessage(
 
 For more information, see [Binding at runtime](../azure-functions/functions-dotnet-class-library.md#binding-at-runtime) in the Azure Functions documentation.
 
-## Binding reference information
+### Binding reference information
 
 The Azure Functions documentation provides reference information about each binding type. You'll find the following information in each binding reference article. (This example is based on Storage queue.)
 
@@ -682,10 +687,16 @@ The Azure Functions documentation provides reference information about each bind
 * [Attributes](../azure-functions/functions-bindings-storage-queue-trigger.md#attributes-and-annotations). The attributes to use for the binding type.
 * [Configuration](../azure-functions/functions-bindings-storage-queue-trigger.md#configuration). Explanations of the attribute properties and constructor parameters.
 * [Usage](../azure-functions/functions-bindings-storage-queue-trigger.md#usage). The types you can bind to and information about how the binding works. For example: polling algorithm, poison queue processing.
-  
-For a list of binding reference articles, see "Supported bindings" in the [Triggers and bindings](../azure-functions/functions-triggers-bindings.md#supported-bindings) article for Azure Functions. In that list, the HTTP, Webhooks, and Event Grid bindings are supported only by Azure Functions, not by the WebJobs SDK.
 
-## Disable attribute 
+> [!NOTE]
+> The HTTP, Webhooks, and Event Grid bindings are supported only by Azure Functions, not by the WebJobs SDK.
+  
+For a full list of bindings supported in Azure Functions runtime, see [Supported bindings](../azure-functions/functions-triggers-bindings.md#supported-bindings).  
+
+## Attributes for Disable, Timeout, and Singleton
+With these attributes, you can control function triggering, cancel functions, and ensure that only one instance of a function runs.
+
+### Disable attribute 
 
 The [`Disable`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs) attribute lets you control whether a function can be triggered. 
 
@@ -703,7 +714,7 @@ When you change app setting values in the Azure portal, the WebJob restarts to p
 
 The attribute can be declared at the parameter, method, or class level. The setting name can also contain binding expressions.
 
-## Timeout attribute
+### Timeout attribute
 
 The [`Timeout`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TimeoutAttribute.cs) attribute causes a function to be canceled if it doesn't finish within a specified amount of time. In the following example, the function would run for one day without the Timeout attribute. Timeout causes the function to be canceled after 15 seconds.
 
@@ -722,9 +733,9 @@ public static async Task TimeoutJob(
 
 You can apply the Timeout attribute at the class or method level, and you can specify a global timeout by using `JobHostConfiguration.FunctionTimeout`. Class-level or method-level timeouts override global timeouts.
 
-## Singleton attribute
+### Singleton attribute
 
-The [`Singleton`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonAttribute.cs) attribute ensures that only one instance of a function runs, even when there are multiple instances of the host web app. It does this by using [distributed locking](#viewing-lease-blobs).
+The [`Singleton`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonAttribute.cs) attribute ensures that only one instance of a function runs, even when there are multiple instances of the host web app. The Singleton attribute uses [distributed locking](#viewing-lease-blobs) to ensure that one instance runs.
 
 In this example, only a single instance of the `ProcessImage` function runs at any given time:
 
@@ -736,7 +747,7 @@ public static async Task ProcessImage([BlobTrigger("images")] Stream image)
 }
 ```
 
-### SingletonMode.Listener
+#### SingletonMode.Listener
 
 Some triggers have built-in support for concurrency management:
 
@@ -746,9 +757,12 @@ Some triggers have built-in support for concurrency management:
 
 You can use these settings to ensure that your function runs as a singleton on a single instance. To ensure that only a single instance of the function is running when the web app scales out to multiple instances, apply a listener-level singleton lock on the function (`[Singleton(Mode = SingletonMode.Listener)]`). Listener locks are acquired when the JobHost starts. If three scaled-out instances all start at the same time, only one of the instances acquires the lock and only one listener starts.
 
-### Scope values
+> [!NOTE]
+> See this [GitHub Repo](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonMode.cs) to learn more about how the SingletonMode.Function works.
 
-You can specify a *scope expression/value* on a singleton. The expression/value ensures that all executions of the function at a specific scope will be serialized. Implementing more granular locking in this way can allow for some level of parallelism for your function while serializing other invocations as dictated by your requirements. For example, in the following code, the scope expression binds to the `Region` value of the incoming message. When the queue contains three messages in regions East, East, and West respectively, the messages that have region East are run serially while the message with region West is run in parallel with those in East.
+#### Scope values
+
+You can specify a *scope expression/value* on a singleton. The expression/value ensures that all executions of the function at a specific scope will be serialized. Implementing more granular locking in this way can allow for some level of parallelism for your function while serializing other invocations as dictated by your requirements. For example, in the following code, the scope expression binds to the `Region` value of the incoming message. When the queue contains three messages in regions East, East, and West, the messages that have region East are run serially. The message with region West is run in parallel with those in region East.
 
 ```csharp
 [Singleton("{Region}")]
@@ -766,7 +780,7 @@ public class WorkItem
 }
 ```
 
-### SingletonScope.Host
+#### SingletonScope.Host
 
 The default scope for a lock is `SingletonScope.Function`, meaning the lock scope (the blob lease path) is tied to the fully qualified function name. To lock across functions, specify `SingletonScope.Host` and use a scope ID name that's the same across all functions that you don't want to run simultaneously. In the following example, only one instance of `AddItem` or `RemoveItem` runs at a time:
 
@@ -784,9 +798,9 @@ public static void RemoveItem([QueueTrigger("remove-item")] string message)
 }
 ```
 
-### Viewing lease blobs
+## Viewing lease blobs
 
-The WebJobs SDK uses [Azure blob leases](../storage/common/storage-concurrency.md#pessimistic-concurrency-for-blobs) under the covers to implement distributed locking. The lease blobs used by Singleton can be found in the `azure-webjobs-host` container in the `AzureWebJobsStorage` storage account under the path "locks". For example, the lease blob path for the first `ProcessImage` example shown earlier might be `locks/061851c758f04938a4426aa9ab3869c0/WebJobs.Functions.ProcessImage`. All paths include the JobHost ID, in this case 061851c758f04938a4426aa9ab3869c0.
+The WebJobs SDK uses [Azure blob leases](../storage/blobs/concurrency-manage.md#pessimistic-concurrency-for-blobs) under the covers to implement distributed locking. The lease blobs used by Singleton can be found in the `azure-webjobs-host` container in the `AzureWebJobsStorage` storage account under the path "locks". For example, the lease blob path for the first `ProcessImage` example shown earlier might be `locks/061851c758f04938a4426aa9ab3869c0/WebJobs.Functions.ProcessImage`. All paths include the JobHost ID, in this case 061851c758f04938a4426aa9ab3869c0.
 
 ## Async functions
 
@@ -808,7 +822,7 @@ If you want to ensure that only one instance of a function runs even when there 
 
 ## Filters
 
-Function Filters (preview) provide a way to customize the WebJobs execution pipeline with your own logic. Filters are similar to [ASP.NET Core filters](https://docs.microsoft.com/aspnet/core/mvc/controllers/filters). You can implement them as declarative attributes that are applied to your functions or classes. For more information, see [Function Filters](https://github.com/Azure/azure-webjobs-sdk/wiki/Function-Filters).
+Function Filters (preview) provide a way to customize the WebJobs execution pipeline with your own logic. Filters are similar to [ASP.NET Core filters](/aspnet/core/mvc/controllers/filters). You can implement them as declarative attributes that are applied to your functions or classes. For more information, see [Function Filters](https://github.com/Azure/azure-webjobs-sdk/wiki/Function-Filters).
 
 ## Logging and monitoring
 
@@ -889,7 +903,7 @@ config.LoggerFactory = new LoggerFactory()
 
 ### Custom telemetry for Application Insights
 
-The process for implementing custom telemetry for [Application Insights](../azure-monitor/app/app-insights-overview.md) depends on the SDK version. To learn how to configure Application Insights, see [Add Application Insights logging](webjobs-sdk-get-started.md#add-application-insights-logging).
+The process for implementing custom telemetry for [Application Insights](../azure-monitor/app/app-insights-overview.md) depends on the SDK version. To learn how to configure Application Insights, see [Add Application Insights logging](webjobs-sdk-get-started.md#enable-application-insights-logging).
 
 #### Version 3.*x*
 
@@ -953,9 +967,9 @@ In version 3.*x*, you no longer have to flush the [`TelemetryClient`] when the h
 
 #### Version 2.*x*
 
-In version 2.*x*, the [`TelemetryClient`] created internally by the Application Insights provider for the WebJobs SDK uses [`ServerTelemetryChannel`](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs). When the Application Insights endpoint is unavailable or throttling incoming requests, this channel [saves requests in the web app's file system and resubmits them later](https://apmtips.com/blog/2015/09/03/more-telemetry-channels).
+In version 2.*x*, the [`TelemetryClient`] created internally by the Application Insights provider for the WebJobs SDK uses [`ServerTelemetryChannel`](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/.publicApi/Microsoft.AI.ServerTelemetryChannel.dll). When the Application Insights endpoint is unavailable or throttling incoming requests, this channel [saves requests in the web app's file system and resubmits them later](https://apmtips.com/posts/2015-09-03-more-telemetry-channels/).
 
-The [`TelemetryClient`] is created by a class that implements `ITelemetryClientFactory`. By default, this is the [`DefaultTelemetryClientFactory`](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/DefaultTelemetryClientFactory.cs).
+The [`TelemetryClient`] is created by a class that implements `ITelemetryClientFactory`. By default, this is the [`DefaultTelemetryClientFactory`](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/).
 
 If you want to modify any part of the Application Insights pipeline, you can supply your own `ITelemetryClientFactory`, and the host will use your class to construct a [`TelemetryClient`]. For example, this code overrides `DefaultTelemetryClientFactory` to modify a property of `ServerTelemetryChannel`:
 
@@ -979,7 +993,7 @@ private class CustomTelemetryClientFactory : DefaultTelemetryClientFactory
 }
 ```
 
-The `SamplingPercentageEstimatorSettings` object configures [adaptive sampling](https://docs.microsoft.com/azure/application-insights/app-insights-sampling). This means that in certain high-volume scenarios, Applications Insights sends a selected subset of telemetry data to the server.
+The `SamplingPercentageEstimatorSettings` object configures [adaptive sampling](../azure-monitor/app/sampling.md). This means that in certain high-volume scenarios, Applications Insights sends a selected subset of telemetry data to the server.
 
 After you create the telemetry factory, you pass it in to the Application Insights logging provider:
 

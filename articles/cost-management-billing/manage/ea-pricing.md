@@ -5,8 +5,9 @@ author: bandersmsft
 ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 01/07/2021
 ms.author: banders
 ms.custom: seodec18
 ---
@@ -20,19 +21,13 @@ Azure customers with an Azure Enterprise Agreement (EA), Microsoft Customer Agre
 Depending on the policies set for your organization by the Enterprise Admin, only certain administrative roles provide access to your organization's EA pricing information. For more information, see [Understand Azure Enterprise Agreement administrative roles in Azure](understand-ea-roles.md).
 
 1. As an Enterprise Admin, sign-in to the [Azure portal](https://portal.azure.com/).
-1. Search for *Cost Management + Billing*.
-
-   ![Screenshot that shows Azure portal search](./media/ea-pricing/portal-cm-billing-search.png)
-
-1. Under the billing account, select **Usage + charges**.
-
+1. Search for *Cost Management + Billing*.  
+   ![Screenshot that shows Azure portal search.](./media/ea-pricing/portal-cm-billing-search.png)
+1. Under the billing account, select **Usage + charges**.  
    ![Screenshot that shows usage and charges under Billing](./media/ea-pricing/ea-pricing-usage-charges-nav.png)
-
-1. Select ![Screenshot that shows Azure portal search](./media/ea-pricing/download-icon.png) **Download** for the month.
-
-1. Under **Price Sheet**, select **Download csv**.
-
-   ![Screenshot that shows the price sheet download csv button](./media/ea-pricing/download-ea-price-sheet.png)
+1. Select ![Download icon.](./media/ea-pricing/download-icon.png) **Download** for the month.
+1. Under **Price Sheet**, select **Download csv**.  
+    :::image type="content" source="./media/ea-pricing/download-enterprise-agreement-price-sheet-01.png" alt-text="Screenshot shows the Download Usage + Charges options." :::
 
 ## Download pricing for an MCA or MPA account
 
@@ -45,13 +40,11 @@ If you have an MCA, you must be the billing profile owner, contributor, reader, 
 1. Select a billing profile. Depending on your access, you might need to select a billing account first.
 1. Select **Invoices**.
 1. In the invoice grid, find the row of the invoice corresponding to the price sheet you want to download.
-1. Click the ellipsis (`...`) at the end of the row.
-![Screenshot that shows the ellipsis selected](./media/ea-pricing/billingprofile-invoicegrid-new.png)
-
+1. Click the ellipsis (`...`) at the end of the row.  
+    ![Screenshot that shows the ellipsis selected](./media/ea-pricing/billingprofile-invoicegrid-new.png)
 1. If you want to see prices for the services in the selected invoice, select **Invoice price sheet**.
-1. If you want to see prices for all Azure services for the given billing period, select **Azure price sheet**.
-
-![Screenshot that shows context menu with price sheets](./media/ea-pricing/contextmenu-pricesheet01.png)
+1. If you want to see prices for all Azure services for the given billing period, select **Azure price sheet**.  
+    ![Screenshot that shows context menu with price sheets](./media/ea-pricing/contextmenu-pricesheet01.png)
 
 ### Download price sheets for the current billing period
 
@@ -61,8 +54,8 @@ If you have an MCA, you can download pricing for the current billing period.
 1. Search for *Cost Management + Billing*.
 1. Select a billing profile. Depending on your access, you might need to select a billing account first.
 1. In the **Overview** area, find the download links beneath the month-to-date charges.
-1. Select **Azure price sheet**.
-![Screenshot that shows download from Overview](./media/ea-pricing/open-pricing01.png)
+1. Select **Azure price sheet**.  
+    ![Screenshot that shows download from Overview](./media/ea-pricing/open-pricing01.png)
 
 ## Estimate costs with the Azure pricing calculator
 
@@ -71,10 +64,8 @@ You may also use your organization’s pricing to estimate costs with the Azure 
 1. Go to the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 1. On the top right, select **Sign in**.
 1. Under **Programs and Offer** > **Licensing Program**, select **Enterprise Agreement (EA)**.
-1. Under **Programs and Offer** > **Selected agreement**, select **None selected**.
-
-    ![Screenshot that shows the price sheet download csv button](./media/ea-pricing/ea-pricing-calculator-estimate.png)
-
+1. Under **Programs and Offer** > **Selected agreement**, select **None selected**.  
+    ![Screenshot shows the Programs and Offers available.](./media/ea-pricing/ea-pricing-calculator-estimate.png)
 1. Choose the organization.
 1. Select **Apply**.
 1. Search for and then add products to your estimate.

@@ -3,9 +3,8 @@ title: Shaper cognitive skill
 titleSuffix: Azure Cognitive Search
 description: Extract metadata and structured information from unstructured data and shape it as a complex type in an AI enrichment pipeline in Azure Cognitive Search.
 
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
@@ -247,5 +246,5 @@ In this case, the **Shaper** creates a complex type. This structure exists in-me
 + [Built-in skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [How to use complex types](search-howto-complex-data-types.md)
-+ [Knowledge store (preview)](knowledge-store-concept-intro.md)
++ [Knowledge store](knowledge-store-concept-intro.md)
 + [Create a knowledge store in REST](knowledge-store-create-rest.md)

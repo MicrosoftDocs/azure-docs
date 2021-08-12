@@ -3,21 +3,22 @@ title: Scale streaming endpoints with the Azure portal | Microsoft Docs
 description: This tutorial walks you through the steps of scaling streaming endpoints with the Azure portal.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: 1008b3a3-2fa1-4146-85bd-2cf43cd1e00e
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
 # Scale streaming endpoints with the Azure portal
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## Overview
 
 > [!NOTE]

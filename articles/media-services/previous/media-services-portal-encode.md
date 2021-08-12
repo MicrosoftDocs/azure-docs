@@ -3,21 +3,21 @@ title: Encode an asset by using Media Encoder Standard in the Azure portal | Mic
 description: This tutorial walks you through the steps of encoding an asset by using Media Encoder Standard in the Azure portal.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: 107d9e9a-71e9-43e5-b17c-6e00983aceab
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
 # Encode an asset by using Media Encoder Standard in the Azure portal
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > To complete this tutorial, you need an Azure account. For details, see [Azure free trial](https://azure.microsoft.com/pricing/free-trial/). 

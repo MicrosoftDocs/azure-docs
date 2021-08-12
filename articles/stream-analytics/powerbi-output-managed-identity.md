@@ -1,11 +1,11 @@
 ---
 title: Use Managed Identity to authenticate your Azure Stream Analytics job to Power BI output
 description: This article describes how to use managed identities to authenticate your Azure Stream Analytics job to Power BI output.
-author: cedarbaum
-ms.author: sacedarb
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 3/10/2020
+author: enkrumah
+ms.author: ebnkruma
+ms.topic: how-to
+ms.date: 05/30/2021
 ---
 
 # Use Managed Identity to authenticate your Azure Stream Analytics job to Power BI
@@ -18,7 +18,7 @@ This article shows you how to enable Managed Identity for the Power BI output(s)
 
 The following are required for using this feature:
 
-- A Power BI account with a [Pro license](https://docs.microsoft.com/power-bi/service-admin-purchasing-power-bi-pro).
+- A Power BI account with a [Pro license](/power-bi/service-admin-purchasing-power-bi-pro).
 
 - An upgraded workspace within your Power BI account. See [Power BI's announcement](https://powerbi.microsoft.com/blog/announcing-new-workspace-experience-general-availability-ga/) of this feature for more details.
 
@@ -40,7 +40,7 @@ The following are required for using this feature:
 
 ## Azure Resource Manager deployment
 
-Azure Resource Manager allows you to fully automate the deployment of your Stream Analytics job. You can deploy Resource Manager templates using either Azure PowerShell or the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). The below examples use the Azure CLI.
+Azure Resource Manager allows you to fully automate the deployment of your Stream Analytics job. You can deploy Resource Manager templates using either Azure PowerShell or the [Azure CLI](/cli/azure/). The below examples use the Azure CLI.
 
 
 1. You can create a **Microsoft.StreamAnalytics/streamingjobs** resource with a Managed Identity by including the following property in the resource section of your Resource Manager template:
@@ -95,7 +95,7 @@ Azure Resource Manager allows you to fully automate the deployment of your Strea
     Deploy the job above to the Resource group **ExampleGroup** using the below Azure CLI command:
 
     ```azurecli
-    az group deployment create --resource-group ExampleGroup -template-file StreamingJob.json
+    az deployment group create --resource-group ExampleGroup -template-file StreamingJob.json
     ```
 
 2. After the job is created, use Azure Resource Manager to retrieve the job's full definition.
@@ -150,14 +150,14 @@ Azure Resource Manager allows you to fully automate the deployment of your Strea
 
 ## Give the Stream Analytics job access to your Power BI workspace
 
-Now that the Stream Analytics job has been created, it can be given access to a Power BI workspace.
+Now that the Stream Analytics job has been created, it can be given access to a Power BI workspace. Once you have given your job access, allow a few minutes for the identity to propagate.
 
 ### Use the Power BI UI
 
    > [!Note]
-   > In order to add the Stream Analytics job to your Power BI workspace using the UI, you also have to enable service principal access in the **Developer settings** in the Power BI admin portal. See [Get started with a service principal](https://docs.microsoft.com/power-bi/developer/embed-service-principal) for more details.
+   > In order to add the Stream Analytics job to your Power BI workspace using the UI, you also have to enable service principal access in the **Developer settings** in the Power BI admin portal. See [Get started with a service principal](/power-bi/developer/embed-service-principal) for more details.
 
-1. Navigate to the workspace's access settings. See this article for more details: [Give access to your workspace](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces#give-access-to-your-workspace).
+1. Navigate to the workspace's access settings. See this article for more details: [Give access to your workspace](/power-bi/service-create-the-new-workspaces#give-access-to-your-workspace).
 
 2. Type the name of your Stream Analytics job in the text box and select **Contributor** as the access level.
 
@@ -190,7 +190,7 @@ Add-PowerBIWorkspaceUser -WorkspaceId <group-id> -PrincipalId <principal-id> -Pr
 
 ### Use the Power BI REST API
 
-The Stream Analytics job can also be added as a Contributor to the workspace by using the "Add Group User" REST API directly. Full documentation for this API can be found here: [Groups - Add Group User](https://docs.microsoft.com/rest/api/power-bi/groups/addgroupuser).
+The Stream Analytics job can also be added as a Contributor to the workspace by using the "Add Group User" REST API directly. Full documentation for this API can be found here: [Groups - Add Group User](/rest/api/power-bi/groups/addgroupuser).
 
 **Sample Request**
 ```http
@@ -204,6 +204,18 @@ Request Body
     "principalType": "App"
 }
 ```
+
+### Use a Service Principal to grant permission for an ASA job's Managed Identity
+
+For automated deployments, using an interactive login to give an ASA job access to a Power BI workspace is not possible. This can be done be using service principal to grant permission for an ASA job's managed identity. This is possible using PowerShell:
+
+Connect-PowerBIServiceAccount -ServicePrincipal -TenantId "<tenant-id>" -CertificateThumbprint "<thumbprint>" -ApplicationId "<app-id>"
+Add-PowerBIWorkspaceUser -WorkspaceId <group-id> -PrincipalId <principal-id> -PrincipalType App -AccessRight Contributor
+
+
+## Remove Managed Identity
+
+The Managed Identity created for a Stream Analytics job is deleted only when the job is deleted. There is no way to delete the Managed Identity without deleting the job. If you no longer want to use the Managed Identity, you can change the authentication method for the output. The Managed Identity will continue to exist until the job is deleted, and will be used if you decide to used Managed Identity authentication again.
 
 ## Limitations
 Below are the limitations of this feature:

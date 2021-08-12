@@ -1,44 +1,31 @@
 ---
-title: Use Azure Image Builder with an image gallery for Windows VMs (preview)
+title: Use Azure Image Builder with an image gallery for Windows VMs
 description: Create Azure Shared Gallery image versions using Azure Image Builder and Azure PowerShell.
-author: cynthn
-ms.author: cynthn
-ms.date: 01/14/2020
-ms.topic: article
-ms.service: virtual-machines-windows
-manager: gwallace
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
+ms.date: 03/02/2021
+ms.topic: how-to
+ms.service: virtual-machines
+ms.subervice: image-builder
+ms.colletion: windows 
+ms.custom: devx-track-azurepowershell
 ---
-# Preview: Create a Windows image and distribute it to a Shared Image Gallery 
+# Create a Windows image and distribute it to a Shared Image Gallery 
 
-This article is to show you how you can use the Azure Image Builder, and Azure PowerShell, to create an image version in a [Shared Image Gallery](shared-image-galleries.md), then distribute the image globally. You can also do this using the [Azure CLI](../linux/image-builder-gallery.md).
+This article is to show you how you can use the Azure Image Builder, and Azure PowerShell, to create an image version in a [Shared Image Gallery](../shared-image-galleries.md), then distribute the image globally. You can also do this using the [Azure CLI](../linux/image-builder-gallery.md).
 
-We will be using a .json template to configure the image. The .json file we are using is here: [armTemplateWinSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json). We will be downloading and editing a local version of the template, so this article is written using local PowerShell session.
+We will be using a .json template to configure the image. The .json file we are using is here: [armTemplateWinSIG.json](https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json). We will be downloading and editing a local version of the template, so this article is written using local PowerShell session.
 
-To distribute the image to a Shared Image Gallery, the template uses [sharedImage](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#distribute-sharedimage) as the value for the `distribute` section of the template.
+To distribute the image to a Shared Image Gallery, the template uses [sharedImage](../linux/image-builder-json.md#distribute-sharedimage) as the value for the `distribute` section of the template.
 
-Azure Image Builder automatically runs sysprep to generalize the image, this is a generic sysprep command, which you can [override](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#vms-created-from-aib-images-do-not-create-successfully) if needed. 
+Azure Image Builder automatically runs sysprep to generalize the image, this is a generic sysprep command, which you can [override](../linux/image-builder-troubleshoot.md#vms-created-from-aib-images-do-not-create-successfully) if needed. 
 
-Be aware how many times you layer customizations. You can run the Sysprep command up to 8 times on a single Windows image. After running Sysprep 8 times, you must recreate your Windows image. For more information, see [Limits on how many times you can run Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep). 
+Be aware how many times you layer customizations. You can run the Sysprep command a limited number times on a single Windows image. After reaching the Sysprep limit, you must recreate your Windows image. For more information, see [Limits on how many times you can run Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep). 
 
-> [!IMPORTANT]
-> Azure Image Builder is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Register the features
-To use Azure Image Builder during the preview, you need to register the new feature.
-
-```powershell
-Register-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
-```
-
-Check the status of the feature registration.
-
-```powershell
-Get-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
-```
-
-Wait until `RegistrationState` is `Registered` before moving to the next step.
+To use Azure Image Builder, you need to register the feature.
 
 Check your provider registrations. Make sure each returns `Registered`.
 
@@ -47,6 +34,7 @@ Get-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages | Forma
 Get-AzResourceProvider -ProviderNamespace Microsoft.Storage | Format-table -Property ResourceTypes,RegistrationState 
 Get-AzResourceProvider -ProviderNamespace Microsoft.Compute | Format-table -Property ResourceTypes,RegistrationState
 Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault | Format-table -Property ResourceTypes,RegistrationState
+Get-AzResourceProvider -ProviderNamespace Microsoft.Network | Format-table -Property ResourceTypes,RegistrationState
 ```
 
 If they do not return `Registered`, use the following to register the providers:
@@ -56,6 +44,12 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages
 Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 Register-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
+Register-AzResourceProvider -ProviderNamespace Microsoft.Network
+```
+
+Install PowerShell Modules:
+```powerShell
+'Az.ImageBuilder', 'Az.ManagedServiceIdentity' | ForEach-Object {Install-Module -Name $_ -AllowPrerelease}
 ```
 
 ## Create variables
@@ -84,24 +78,58 @@ $imageTemplateName="helloImageTemplateWin02ps"
 # Distribution properties object name (runOutput).
 # This gives you the properties of the managed image on completion.
 $runOutputName="winclientR01"
-```
 
-
-
-## Create the resource group
-
-Create a resource group and give Azure Image Builder permission to create resources in that resource group.
-
-```powershell
+# Create a resource group for Image Template and Shared Image Gallery
 New-AzResourceGroup `
    -Name $imageResourceGroup `
    -Location $location
-New-AzRoleAssignment `
-   -ObjectId ef511139-6170-438e-a6e1-763dc31bdf74 `
-   -Scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup `
-   -RoleDefinitionName Contributor
 ```
 
+
+## Create a user-assigned identity and set permissions on the resource group
+Image Builder will use the [user-identity](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md) provided to inject the image into the Azure Shared Image Gallery (SIG). In this example, you will create an Azure role definition that has the granular actions to perform distributing the image to the SIG. The role definition will then be assigned to the user-identity.
+
+```powershell
+# setup role def names, these need to be unique
+$timeInt=$(get-date -UFormat "%s")
+$imageRoleDefName="Azure Image Builder Image Def"+$timeInt
+$identityName="aibIdentity"+$timeInt
+
+## Add AZ PS module to support AzUserAssignedIdentity
+Install-Module -Name Az.ManagedServiceIdentity
+
+# create identity
+New-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName
+
+$identityNameResourceId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).Id
+$identityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).PrincipalId
+```
+
+
+### Assign permissions for identity to distribute images
+
+This command will download an Azure role definition template, and update the template with the parameters specified earlier.
+
+```powershell
+$aibRoleImageCreationUrl="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
+$aibRoleImageCreationPath = "aibRoleImageCreation.json"
+
+# download config
+Invoke-WebRequest -Uri $aibRoleImageCreationUrl -OutFile $aibRoleImageCreationPath -UseBasicParsing
+
+((Get-Content -path $aibRoleImageCreationPath -Raw) -replace '<subscriptionID>',$subscriptionID) | Set-Content -Path $aibRoleImageCreationPath
+((Get-Content -path $aibRoleImageCreationPath -Raw) -replace '<rgName>', $imageResourceGroup) | Set-Content -Path $aibRoleImageCreationPath
+((Get-Content -path $aibRoleImageCreationPath -Raw) -replace 'Azure Image Builder Service Image Creation Role', $imageRoleDefName) | Set-Content -Path $aibRoleImageCreationPath
+
+# create role definition
+New-AzRoleDefinition -InputFile  ./aibRoleImageCreation.json
+
+# grant role definition to image builder service principal
+New-AzRoleAssignment -ObjectId $identityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
+
+### NOTE: If you see this error: 'New-AzRoleDefinition: Role definition limit exceeded. No more role definitions can be created.' See this article to resolve:
+https://docs.microsoft.com/azure/role-based-access-control/troubleshooting
+```
 
 
 ## Create the Shared Image Gallery
@@ -150,7 +178,7 @@ Download the .json template and configure it with your variables.
 $templateFilePath = "armTemplateWinSIG.json"
 
 Invoke-WebRequest `
-   -Uri "https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json" `
+   -Uri "https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json" `
    -OutFile $templateFilePath `
    -UseBasicParsing
 
@@ -168,7 +196,7 @@ Invoke-WebRequest `
    -replace '<region1>',$location | Set-Content -Path $templateFilePath
 (Get-Content -path $templateFilePath -Raw ) `
    -replace '<region2>',$replRegion2 | Set-Content -Path $templateFilePath
-
+((Get-Content -path $templateFilePath -Raw) -replace '<imgBuilderId>',$identityNameResourceId) | Set-Content -Path $templateFilePath
 ```
 
 
@@ -180,7 +208,7 @@ Your template must be submitted to the service, this will download any dependent
 New-AzResourceGroupDeployment `
    -ResourceGroupName $imageResourceGroup `
    -TemplateFile $templateFilePath `
-   -api-version "2019-05-01-preview" `
+   -apiversion "2020-02-14" `
    -imageTemplateName $imageTemplateName `
    -svclocation $location
 ```
@@ -192,14 +220,17 @@ Invoke-AzResourceAction `
    -ResourceName $imageTemplateName `
    -ResourceGroupName $imageResourceGroup `
    -ResourceType Microsoft.VirtualMachineImages/imageTemplates `
-   -ApiVersion "2019-05-01-preview" `
+   -ApiVersion "2020-02-14" `
    -Action Run
 ```
 
 Creating the image and replicating it to both regions can take a while. Wait until this part is finished before moving on to creating a VM.
 
-For information on options for automating getting the image build status, see the [Readme](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/readme.md#get-status-of-the-image-build-and-query) for this template on GitHub.
-
+For information on options for automating getting the image build status, see the [Readme]
+```powershell
+Get-AzImageBuilderTemplate -ImageTemplateName $imageTemplateName -ResourceGroupName $imageResourceGroup |
+  Select-Object -Property Name, LastRunStatusRunState, LastRunStatusMessage, ProvisioningState
+```
 
 ## Create the VM
 
@@ -270,13 +301,31 @@ Delete the resource group template first, otherwise the staging resource group (
 Get ResourceID of the image template. 
 
 ```powerShell
-$resTemplateId = Get-AzResource -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2019-05-01-preview"
+$resTemplateId = Get-AzResource -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2020-02-14"
 ```
 
 Delete image template.
 
 ```powerShell
 Remove-AzResource -ResourceId $resTemplateId.ResourceId -Force
+```
+
+Delete role assignment
+
+```powerShell
+Remove-AzRoleAssignment -ObjectId $identityNamePrincipalId -RoleDefinitionName $imageRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
+```
+
+remove definitions
+
+```powerShell
+Remove-AzRoleDefinition -Name "$identityNamePrincipalId" -Force -Scope "/subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup"
+```
+
+delete identity
+
+```powerShell
+Remove-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName -Force
 ```
 
 delete the resource group.

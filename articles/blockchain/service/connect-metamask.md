@@ -11,6 +11,8 @@ ms.reviewer: janders
 
 In this quickstart you'll use MetaMask to connect to an Azure Blockchain Service network and use Remix to deploy a smart contract. Metamask is a browser extension to manage an Ether wallet and perform smart contract actions.
 
+[!INCLUDE [Retirement note](./includes/retirement.md)]
+
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
@@ -64,18 +66,18 @@ Remix is a browser-based Solidity development environment. Using MetaMask and Re
 
     ```solidity
     pragma solidity ^0.5.0;
-             
+
     contract simple {
         uint balance;
-                 
+
         constructor() public{
             balance = 0;
         }
-                 
+
         function add(uint _num) public {
             balance += _num;
         }
-                 
+
         function get() public view returns (uint){
             return balance;
         }
@@ -85,7 +87,7 @@ Remix is a browser-based Solidity development environment. Using MetaMask and Re
     The **simple contract** declares a state variable named **balance**. There are two functions defined. The **add** function adds a number to **balance**. The **get** function returns the value of **balance**.
 1. To compile the contract, first select the Solidity compiler pane then select the  **Compile simple.sol**.
 
-    ![Compile](./media/connect-metamask/compile.png)
+    ![Screen capture shows a contract being compiled.](./media/connect-metamask/compile.png)
 
 1. Select the **Deploy & Run** pane then set the **Environment** to **Injected Web3** to connect through MetaMask to your blockchain member.
 
@@ -93,7 +95,7 @@ Remix is a browser-based Solidity development environment. Using MetaMask and Re
 
 1. Select the **simple** contract, then **Deploy**.
 
-    ![Deploy](./media/connect-metamask/deploy.png)
+    ![Screen capture shows deploy and run transactions with a contract selected and Deploy selected.](./media/connect-metamask/deploy.png)
 
 
 1. A MetaMask notification alerts you of insufficient funds to perform the transaction.
@@ -124,9 +126,9 @@ Remix is a browser-based Solidity development environment. Using MetaMask and Re
 
 The debug pane of Remix shows details about the transactions on the blockchain:
 
-    ![Debug history](./media/connect-metamask/debug.png)
+![Debug history](./media/connect-metamask/debug.png)
 
-    You can see the **simple** contract creation, transaction for **simple.add**, and call to **simple.get**.
+You can see the **simple** contract creation, transaction for **simple.add**, and call to **simple.get**.
 
 To see transaction history in MetaMask, open the MetaMask browser extension and look in the **History** section for a log of the deployed contract and transactions.
 

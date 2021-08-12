@@ -2,8 +2,9 @@
 title: Create and upload an OpenBSD image  
 description: Learn how to create and upload a virtual hard disk (VHD) that contains the OpenBSD operating system to create an Azure virtual machine through Azure CLI
 author: gbowerman
-ms.service: virtual-machines-linux
-ms.topic: article
+ms.service: virtual-machines
+ms.collection: linux
+ms.topic: how-to
 ms.date: 05/24/2017
 ms.author: guybo
 
@@ -17,7 +18,7 @@ This article assumes that you have the following items:
 
 * **An Azure subscription** - If you don't have an account, you can create one in just a couple of minutes. If you have an MSDN subscription, see [Monthly Azure credit for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Otherwise, learn how to [create a free trial account](https://azure.microsoft.com/pricing/free-trial/).  
 * **Azure CLI** - Make sure you have the latest [Azure CLI](/cli/azure/install-azure-cli) installed and logged in to your Azure account with [az login](/cli/azure/reference-index).
-* **OpenBSD operating system installed in a .vhd file** - A supported OpenBSD operating system ([6.6 version AMD64](https://ftp.openbsd.org/pub/OpenBSD/6.6/amd64/)) must be installed to a virtual hard disk. Multiple tools exist to create .vhd files. For example, you can use a virtualization solution such as Hyper-V to create the .vhd file and install the operating system. For instructions about how to install and use Hyper-V, see [Install Hyper-V and create a virtual machine](https://technet.microsoft.com/library/hh846766.aspx).
+* **OpenBSD operating system installed in a .vhd file** - A supported OpenBSD operating system ([6.6 version AMD64](https://ftp.openbsd.org/pub/OpenBSD/6.6/amd64/)) must be installed to a virtual hard disk. Multiple tools exist to create .vhd files. For example, you can use a virtualization solution such as Hyper-V to create the .vhd file and install the operating system. For instructions about how to install and use Hyper-V, see [Install Hyper-V and create a virtual machine](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 
 
 ## Prepare OpenBSD image for Azure
@@ -82,7 +83,7 @@ Now you can shut down your VM.
 
 
 ## Prepare the VHD
-The VHDX format is not supported in Azure, only **fixed VHD**. You can convert the disk to fixed VHD format using Hyper-V Manager or the Powershell [convert-vhd](https://technet.microsoft.com/itpro/powershell/windows/hyper-v/convert-vhd) cmdlet. An example is as following.
+The VHDX format is not supported in Azure, only **fixed VHD**. You can convert the disk to fixed VHD format using Hyper-V Manager or the Powershell [convert-vhd](/powershell/module/hyper-v/convert-vhd) cmdlet. An example is as following.
 
 ```powershell
 Convert-VHD OpenBSD61.vhdx OpenBSD61.vhd -VHDType Fixed
@@ -135,7 +136,7 @@ az storage blob upload \
 
 
 ## Create VM from your VHD
-You can create a VM with a [sample script](../scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md) or directly with [az vm create](/cli/azure/vm). To specify the OpenBSD VHD you uploaded, use the `--image` parameter as follows:
+You can create a VM with a [sample script](/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-vhd) or directly with [az vm create](/cli/azure/vm). To specify the OpenBSD VHD you uploaded, use the `--image` parameter as follows:
 
 ```azurecli
 az vm create \
@@ -163,4 +164,4 @@ ssh azureuser@<ip address>
 ## Next steps
 If you want to know more about Hyper-V support on OpenBSD6.1, read [OpenBSD 6.1](https://www.openbsd.org/61.html) and [hyperv.4](https://man.openbsd.org/hyperv.4).
 
-If you want to create a VM from managed disk, read [az disk](/cli/azure/disk). 
+If you want to create a VM from managed disk, read [az disk](/cli/azure/disk).

@@ -1,8 +1,9 @@
 ---
 title: "Quickstart: New policy assignment with Azure CLI"
 description: In this quickstart, you use Azure CLI to create an Azure Policy assignment to identify non-compliant resources.
-ms.date: 01/11/2020
+ms.date: 03/31/2021
 ms.topic: quickstart
+ms.custom: devx-track-azurecli
 ---
 # Quickstart: Create a policy assignment to identify non-compliant resources with Azure CLI
 
@@ -22,8 +23,8 @@ Azure environment.
 - If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/)
   account before you begin.
 
-- This quickstart requires that you run Azure CLI version 2.0.76 or later to install and use the CLI
-  locally. To find the version, run `az --version`. If you need to install or upgrade, see
+- This quickstart requires that you run Azure CLI version 2.0.76 or later. To find the version, run
+  `az --version`. If you need to install or upgrade, see
   [Install Azure CLI](/cli/azure/install-azure-cli).
 
 - Register the Azure Policy Insights resource provider using Azure CLI. Registering the resource
@@ -60,9 +61,10 @@ The preceding command uses the following information:
 - **Name** - The actual name of the assignment. For this example, _audit-vm-manageddisks_ was used.
 - **DisplayName** - Display name for the policy assignment. In this case, you're using _Audit VMs
   without managed disks Assignment_.
-- **Policy** – The policy definition ID, based on which you're using to create the assignment. In
+- **Policy** - The policy definition ID, based on which you're using to create the assignment. In
   this case, it's the ID of policy definition _Audit VMs that do not use managed disks_. To get the
-  policy definition ID, run this command: `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
+  policy definition ID, run this command:
+  `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
 - **Scope** - A scope determines what resources or grouping of resources the policy assignment gets
   enforced on. It could range from a subscription to resource groups. Be sure to replace
   &lt;scope&gt; with the name of your resource group.
@@ -83,7 +85,7 @@ Next, run the following command to get the resource IDs of the non-compliant res
 output into a JSON file:
 
 ```console
-armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-09-01&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
+armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
 ```
 
 Your results resemble the following example:

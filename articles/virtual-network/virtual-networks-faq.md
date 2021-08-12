@@ -8,10 +8,10 @@ author: KumudD
 manager: twooley
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2019
+ms.date: 06/26/2020
 ms.author: kumud
 
 ---
@@ -31,7 +31,7 @@ Use VNets to:
 * Enable hybrid cloud scenarios. VNets give you the flexibility to support a range of hybrid cloud scenarios. You can securely connect cloud-based applications to any type of on-premises system such as mainframes and Unix systems.
 
 ### How do I get started?
-Visit the [Virtual network documentation](https://docs.microsoft.com/azure/virtual-network/) to get started. This content provides overview and deployment information for all of the VNet features.
+Visit the [Virtual network documentation](./index.yml) to get started. This content provides overview and deployment information for all of the VNet features.
 
 ### Can I use VNets without cross-premises connectivity?
 Yes. You can use a VNet without connecting it to your premises. For example, you could run Microsoft Windows Server Active Directory domain controllers and SharePoint farms solely in an Azure VNet.
@@ -47,11 +47,17 @@ You can use the following tools to create or configure a VNet:
 * Azure portal
 * PowerShell
 * Azure CLI
-* A network configuration file (netcfg - for classic VNets only). See the [Configure a VNet using a network configuration file](virtual-networks-using-network-configuration-file.md) article.
+* A network configuration file (netcfg - for classic VNets only). See the [Configure a VNet using a network configuration file](/previous-versions/azure/virtual-network/virtual-networks-using-network-configuration-file) article.
 
 ### What address ranges can I use in my VNets?
-Any IP address range defined in [RFC 1918](https://tools.ietf.org/html/rfc1918). For example, 10.0.0.0/16. 
-You cannot add the following address ranges:
+We recommend that you use the address ranges enumerated in [RFC 1918](https://tools.ietf.org/html/rfc1918), which have been set aside by the IETF for private, non-routable address spaces:
+* 10.0.0.0 - 10.255.255.255  (10/8 prefix)
+* 172.16.0.0 - 172.31.255.255  (172.16/12 prefix)
+* 192.168.0.0 - 192.168.255.255 (192.168/16 prefix)
+
+Other address spaces may work but may have undesirable side effects.
+
+In addition, you cannot add the following address ranges:
 * 224.0.0.0/4 (Multicast)
 * 255.255.255.255/32 (Broadcast)
 * 127.0.0.0/8 (Loopback)
@@ -69,10 +75,10 @@ Yes. Azure reserves 5 IP addresses within each subnet. These are x.x.x.0-x.x.x.3
 - x.x.x.0: Network address
 - x.x.x.1: Reserved by Azure for the default gateway
 - x.x.x.2, x.x.x.3: Reserved by Azure to map the Azure DNS IPs to the VNet space
-- x.x.x.255: Network broadcast address
+- x.x.x.255: Network broadcast address for subnets of size /25 and larger. This will be a different address in smaller subnets. 
 
 ### How small and how large can VNets and subnets be?
-The smallest supported IPv4 subnet is /29, and the largest is /8 (using CIDR subnet definitions).  IPv6 subnets must be exactly /64 in size.  
+The smallest supported IPv4 subnet is /29, and the largest is /2 (using CIDR subnet definitions).  IPv6 subnets must be exactly /64 in size.  
 
 ### Can I bring my VLANs to Azure using VNets?
 No. VNets are Layer-3 overlays. Azure does not support any Layer-2 semantics.
@@ -84,7 +90,7 @@ Yes. You can create a route table and associate it to a subnet. For more informa
 No. Multicast and broadcast are not supported.
 
 ### What protocols can I use within VNets?
-You can use TCP, UDP, and ICMP TCP/IP protocols within VNets. Unicast is supported within VNets, with the exception of Dynamic Host Configuration Protocol (DHCP) via Unicast (source port UDP/68 / destination port UDP/67). Multicast, broadcast, IP-in-IP encapsulated packets, and Generic Routing Encapsulation (GRE) packets are blocked within VNets. 
+You can use TCP, UDP, and ICMP TCP/IP protocols within VNets. Unicast is supported within VNets, with the exception of Dynamic Host Configuration Protocol (DHCP) via Unicast (source port UDP/68 / destination port UDP/67) and UDP source port 65330 which is reserved for the host. Multicast, broadcast, IP-in-IP encapsulated packets, and Generic Routing Encapsulation (GRE) packets are blocked within VNets. 
 
 ### Can I ping my default routers within a VNet?
 No.
@@ -98,7 +104,7 @@ Yes. Subnets can be added to VNets at any time as long as the subnet address ran
 ### Can I modify the size of my subnet after I create it?
 Yes. You can add, remove, expand, or shrink a subnet if there are no VMs or services deployed within it.
 
-### Can I modify subnets after I created them?
+### Can I modify Vnet after I created them?
 Yes. You can add, remove, and modify the CIDR blocks used by a VNet.
 
 ### If I am running my services in a VNet, can I connect to the internet?
@@ -151,7 +157,7 @@ Yes. All network interfaces (NIC) attached to a VM deployed through the Resource
   - **Resource Manager**: A private IP address assigned with the dynamic or static method remains assigned to a virtual machine (Resource Manager) until the resource is deleted. The difference is that you select the address to assign when using static, and Azure chooses when using dynamic. 
   - **Classic**: A private IP address assigned with the dynamic method may change when a virtual machine (classic) VM is restarted after having been in the stopped (deallocated) state. If you need to ensure that the private IP address for a resource deployed through the classic deployment model never changes, assign a private IP address with the static method.
 
-* **Public:** Optionally assigned to NICs attached to VMs deployed through the Azure Resource Manager deployment model. The address can be assigned with the static or dynamic allocation method. All VMs and Cloud Services role instances deployed through the classic deployment model exist within a cloud service, which is assigned a *dynamic*, public virtual IP (VIP) address. A public *static* IP address, called a [Reserved IP address](virtual-networks-reserved-public-ip.md), can optionally be assigned as a VIP. You can assign public IP addresses to individual VMs or Cloud Services role instances deployed through the classic deployment model. These addresses are called [Instance level public IP (ILPIP](virtual-networks-instance-level-public-ip.md) addresses and can be assigned dynamically.
+* **Public:** Optionally assigned to NICs attached to VMs deployed through the Azure Resource Manager deployment model. The address can be assigned with the static or dynamic allocation method. All VMs and Cloud Services role instances deployed through the classic deployment model exist within a cloud service, which is assigned a *dynamic*, public virtual IP (VIP) address. A public *static* IP address, called a [Reserved IP address](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip), can optionally be assigned as a VIP. You can assign public IP addresses to individual VMs or Cloud Services role instances deployed through the classic deployment model. These addresses are called [Instance level public IP (ILPIP](/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip) addresses and can be assigned dynamically.
 
 ### Can I reserve a private IP address for a VM that I will create at a later time?
 No. You cannot reserve a private IP address. If a private IP address is available, it is assigned to a VM or role instance by the DHCP server. The VM may or may not be the one that you want the private IP address assigned to. You can, however, change the private IP address of an already created VM, to any available private IP address.
@@ -166,7 +172,7 @@ Yes, but it's not recommended unless necessary, such as when assigning multiple 
 Nothing. The IP addresses (public VIP, public, and private) remain assigned to the cloud service deployment slot or VM.
 
 ### Can I move VMs from one subnet to another subnet in a VNet without redeploying?
-Yes. You can find more information in the [How to move a VM or role instance to a different subnet](virtual-networks-move-vm-role-to-subnet.md) article.
+Yes. You can find more information in the [How to move a VM or role instance to a different subnet](/previous-versions/azure/virtual-network/virtual-networks-move-vm-role-to-subnet) article.
 
 ### Can I configure a static MAC address for my VM?
 No. A MAC address cannot be statically configured.
@@ -209,7 +215,7 @@ No. You cannot move services in and out of VNets. To move a resource to another 
 VNets are isolated from one another, and other services hosted in the Azure infrastructure. A VNet is a trust boundary.
 
 ### Can I restrict inbound or outbound traffic flow to VNet-connected resources?
-Yes. You can apply [Network Security Groups](security-overview.md) to individual subnets within a VNet, NICs attached to a VNet, or both.
+Yes. You can apply [Network Security Groups](./network-security-groups-overview.md) to individual subnets within a VNet, NICs attached to a VNet, or both.
 
 ### Can I implement a firewall between VNet-connected resources?
 Yes. You can deploy a [firewall network virtual appliance](https://azure.microsoft.com/marketplace/?term=firewall) from several vendors through the Azure Marketplace.
@@ -217,16 +223,19 @@ Yes. You can deploy a [firewall network virtual appliance](https://azure.microso
 ### Is there information available about securing VNets?
 Yes. For details, see [Azure Network Security Overview](../security/fundamentals/network-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
+### Do Virtual Networks store customer data?
+No. Virtual Networks doesn't store any customer data. 
+
 ## APIs, schemas, and tools
 
 ### Can I manage VNets from code?
-Yes. You can use REST APIs for VNets in the [Azure Resource Manager](/rest/api/virtual-network) and [classic](https://go.microsoft.com/fwlink/?LinkId=296833) deployment models.
+Yes. You can use REST APIs for VNets in the [Azure Resource Manager](/rest/api/virtual-network) and [classic](/previous-versions/azure/ee460799(v=azure.100)) deployment models.
 
 ### Is there tooling support for VNets?
 Yes. Learn more about using:
-- The Azure portal to deploy VNets through the [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) and [classic](virtual-networks-create-vnet-classic-pportal.md) deployment models.
-- PowerShell to manage VNets deployed through the [Resource Manager](/powershell/module/az.network) and [classic](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0) deployment models.
-- The Azure command-line interface (CLI) to deploy and manage VNets deployed through the [Resource Manager](/cli/azure/network/vnet) and [classic](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-resources) deployment models.  
+- The Azure portal to deploy VNets through the [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) and [classic](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal) deployment models.
+- PowerShell to manage VNets deployed through the [Resource Manager](/powershell/module/az.network) and [classic](/powershell/module/servicemanagement/azure.service/) deployment models.
+- The Azure command-line interface (CLI) to deploy and manage VNets deployed through the [Resource Manager](/cli/azure/network/vnet) and [classic](/previous-versions/azure/virtual-machines/azure-cli-arm-commands?toc=%2fazure%2fvirtual-network%2ftoc.json#network-resources) deployment models.  
 
 ## VNet peering
 
@@ -244,7 +253,6 @@ The following resources can use Basic Load Balancers which means you cannot reac
 - Redis Cache 
 - Application Gateway (v1) SKU
 - Service Fabric
-- SQL MI
 - API Management
 - Active Directory Domain Service (ADDS)
 - Logic Apps
@@ -255,7 +263,7 @@ The following resources can use Basic Load Balancers which means you cannot reac
 You can connect to these resources via ExpressRoute or VNet-to-VNet through VNet Gateways.
 
 ### Can I enable VNet Peering if my virtual networks belong to subscriptions within different Azure Active Directory tenants?
-Yes. It is possible to establish VNet Peering (whether local or global) if your subscriptions belong to different Azure Active Directory tenants. You can do this via PowerShell or CLI. Portal is not yet supported.
+Yes. It is possible to establish VNet Peering (whether local or global) if your subscriptions belong to different Azure Active Directory tenants. You can do this via Portal, PowerShell or CLI.
 
 ### My VNet peering connection is in *Initiated* state, why can't I connect?
 If your peering connection is in an *Initiated* state, this means you have created only one link. A bidirectional link must be created in order to establish a successful connection. For example, to peer VNet A to VNet B, a link must be created from VNetA to VNetB and from VNetB to VNetA. Creating both links will change the state to *Connected*.
@@ -269,11 +277,14 @@ Yes. You can peer VNets across subscriptions and across regions.
 ### Can I peer two VNets with matching or overlapping address ranges?
 No. Address spaces must not overlap to enable VNet Peering.
 
+### Can I peer a VNet to two different VNets with the the 'Use Remote Gateway' option enabled on both the peerings?
+No. You can only enable the 'Use Remote Gateway' option on one peering to one of the VNets.
+
 ### How much do VNet peering links cost?
 There is no charge for creating a VNet peering connection. Data transfer across peering connections is charged. [See here](https://azure.microsoft.com/pricing/details/virtual-network/).
 
 ### Is VNet peering traffic encrypted?
-No. Traffic between resources in peered VNets is private and isolated. It remains completely on the Microsoft Backbone.
+When Azure traffic moves between datacenters (outside physical boundaries not controlled by Microsoft or on behalf of Microsoft), [MACsec data-link layer encryption](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) is utilized on the underlying network hardware.  This is applicable to VNet peering traffic.
 
 ### Why is my peering connection in a *Disconnected* state?
 VNet peering connections go into *Disconnected* state when one VNet peering link is deleted. You must delete both links in order to reestablish a successful peering connection.
@@ -303,7 +314,7 @@ Yes. The same virtual network TAP resource can be used to aggregate mirrored tra
 
 ### Are there any performance considerations on production traffic if I enable a virtual network TAP configuration on a network interface?
 
-Virtual network TAP is in preview. During preview, there is no service level agreement. The capability should not be used for production workloads. When a virtual machine network interface is enabled with a TAP configuration, the same resources on the Azure host allocated to the virtual machine to send the production traffic is used to perform the mirroring function and send the mirrored packets. Select the correct [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine size to ensure that sufficient resources are available for the virtual machine to send the production traffic and the mirrored traffic.
+Virtual network TAP is in preview. During preview, there is no service level agreement. The capability should not be used for production workloads. When a virtual machine network interface is enabled with a TAP configuration, the same resources on the Azure host allocated to the virtual machine to send the production traffic is used to perform the mirroring function and send the mirrored packets. Select the correct [Linux](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine size to ensure that sufficient resources are available for the virtual machine to send the production traffic and the mirrored traffic.
 
 ### Is accelerated networking for [Linux](create-vm-accelerated-networking-cli.md) or [Windows](create-vm-accelerated-networking-powershell.md) supported with virtual network TAP?
 
@@ -316,7 +327,7 @@ There are two steps to secure an Azure service resource through service endpoint
 1. Turn on service endpoints for the Azure service.
 2. Set up VNet ACLs on the Azure service.
 
-The first step is a network side operation and the second step is a service resource side operation. Both steps can be performed either by the same administrator or different administrators based on the RBAC permissions granted to the administrator role. We recommend that you first turn on service endpoints for your virtual network prior to setting up VNet ACLs on Azure service side. Hence, the steps must be performed in the sequence listed above to set up VNet service endpoints.
+The first step is a network side operation and the second step is a service resource side operation. Both steps can be performed either by the same administrator or different administrators based on the Azure RBAC permissions granted to the administrator role. We recommend that you first turn on service endpoints for your virtual network prior to setting up VNet ACLs on Azure service side. Hence, the steps must be performed in the sequence listed above to set up VNet service endpoints.
 
 >[!NOTE]
 > Both the operations described above must be completed before you can limit the Azure service access to the allowed VNet and subnet. Only turning on service endpoints for the Azure service on the network side does not provide you the limited access. In addition, you must also set up VNet ACLs on the Azure service side.
@@ -345,7 +356,7 @@ No, there is no additional cost for using VNet service endpoints.
 Yes, it is possible. Virtual networks and Azure service resources can be either in the same or different subscriptions. The only requirement is that both the virtual network and Azure service resources must be under the same Active Directory (AD) tenant.
 
 ### Can I turn on VNet service endpoints and set up VNet ACLs if the virtual network and the Azure service resources belong to different AD tenants?
-No, VNet service endpoints and VNet ACLs are not supported across AD tenants.
+Yes, it is possible when using service endpoints for Azure Storage and Azure Key Vault. For rest of services, VNet service endpoints and VNet ACLs are not supported across AD tenants.
 
 ### Can an on-premises device’s IP address that is connected through Azure Virtual Network gateway (VPN) or ExpressRoute gateway access Azure PaaS Service over VNet service endpoints?
 By default, Azure service resources secured to virtual networks are not reachable from on-premises networks. If you want to allow traffic from on-premises, you must also allow public (typically, NAT) IP addresses from your on-premises or ExpressRoute. These IP addresses can be added through the IP firewall configuration for the Azure service resources.
@@ -354,7 +365,7 @@ By default, Azure service resources secured to virtual networks are not reachabl
 To secure Azure services to multiple subnets within a virtual network or across multiple virtual networks, enable service endpoints on the network side on each of the subnets independently and then secure Azure service resources to all of the subnets by setting up appropriate VNet ACLs on the Azure service side.
  
 ### How can I filter outbound traffic from a virtual network to Azure services and still use service endpoints?
-If you want to inspect or filter the traffic destined to an Azure service from a virtual network, you can deploy a network virtual appliance within the virtual network. You can then apply service endpoints to the subnet where the network virtual appliance is deployed and secure Azure service resources only to this subnet through VNet ACLs. This scenario might also be helpful if you wish to restrict Azure service access from your virtual network only to specific Azure resources using network virtual appliance filtering. For more information, see [egress with network virtual appliances](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha).
+If you want to inspect or filter the traffic destined to an Azure service from a virtual network, you can deploy a network virtual appliance within the virtual network. You can then apply service endpoints to the subnet where the network virtual appliance is deployed and secure Azure service resources only to this subnet through VNet ACLs. This scenario might also be helpful if you wish to restrict Azure service access from your virtual network only to specific Azure resources using network virtual appliance filtering. For more information, see [egress with network virtual appliances](/azure/architecture/reference-architectures/dmz/nva-ha).
 
 ### What happens when you access an Azure service account that has a virtual network access control list (ACL) enabled from outside the VNet?
 The HTTP 403 or HTTP 404 error is returned.
@@ -376,12 +387,15 @@ When virtual network service endpoints are enabled, the source IP addresses of t
 
 ### Does the service endpoint route always take precedence?
 Service endpoints add a system route which takes precedence over BGP routes and provides optimum routing for the service endpoint traffic. Service endpoints always take service traffic directly from your virtual network to the service on the Microsoft Azure backbone network. For more information about how Azure selects a route, see [Azure Virtual network traffic routing](virtual-networks-udr-overview.md).
+
+### Do service endpoints work with ICMP?
+No, ICMP traffic that is sourced from a subnet with service endpoints enabled will not take the service tunnel path to the desired endpoint. Service endpoints will only handle TCP traffic. This means that if you want to test latency or connectivity to an endpoint via service endpoints, tools like ping and tracert will not show the true path that the resources within the subnet will take.
  
 ### How does NSG on a subnet work with service endpoints?
 To reach the Azure service, NSGs need to allow outbound connectivity. If your NSGs are opened to all Internet outbound traffic, then the service endpoint traffic should work. You can also limit the outbound traffic to service IPs only using the Service tags.  
  
 ### What permissions do I need to set up service endpoints?
-Service endpoints can be configured on a virtual network independently by a user with write access to the virtual network. To secure Azure service resources to a VNet, the user must have permission **Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action** for the subnets being added. This permission is included in the built-in service administrator role by default and can be modified by creating custom roles. Learn more about built-in roles and assigning specific permissions to [custom roles](https://docs.microsoft.com/azure/role-based-access-control/custom-roles?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Service endpoints can be configured on a virtual network independently by a user with write access to the virtual network. To secure Azure service resources to a VNet, the user must have permission **Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action** for the subnets being added. This permission is included in the built-in service administrator role by default and can be modified by creating custom roles. Learn more about built-in roles and assigning specific permissions to [custom roles](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 
 ### Can I filter virtual network traffic to Azure services, allowing only specific azure service resources, over VNet service endpoints? 
@@ -390,18 +404,17 @@ Virtual network (VNet) service endpoint policies allow you to filter virtual net
 
 ### Does Azure Active Directory (Azure AD) support VNet service endpoints?
 
-Azure Active Directory (Azure AD) doesn't support service endpoints natively. Complete list of Azure Services supporting VNet service endpoints can be seen [here](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). Note that the "Microsoft.AzureActiveDirectory" tag listed under services supporting service endpoints is used for supporting service endpoints to ADLS Gen 1. For ADLS Gen 1, virtual network integration for Azure Data Lake Storage Gen1 makes use of the virtual network service endpoint security between your virtual network and Azure Active Directory (Azure AD) to generate additional security claims in the access token. These claims are then used to authenticate your virtual network to your Data Lake Storage Gen1 account and allow access. Learn more about [Azure Data Lake Store Gen 1 VNet Integration](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+Azure Active Directory (Azure AD) doesn't support service endpoints natively. Complete list of Azure Services supporting VNet service endpoints can be seen [here](./virtual-network-service-endpoints-overview.md). Note that the "Microsoft.AzureActiveDirectory" tag listed under services supporting service endpoints is used for supporting service endpoints to ADLS Gen 1. For ADLS Gen 1, virtual network integration for Azure Data Lake Storage Gen1 makes use of the virtual network service endpoint security between your virtual network and Azure Active Directory (Azure AD) to generate additional security claims in the access token. These claims are then used to authenticate your virtual network to your Data Lake Storage Gen1 account and allow access. Learn more about [Azure Data Lake Store Gen 1 VNet Integration](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ### Are there any limits on how many VNet service endpoints I can set up from my VNet?
 There is no limit on the total number of VNet service endpoints in a virtual network. For an Azure service resource (such as an Azure Storage account), services may enforce limits on the number of subnets used for securing the resource. The following table shows some example limits: 
 
-|||
-|---|---|
 |Azure service|	Limits on VNet rules|
+|---|---|
 |Azure Storage|	100|
 |Azure SQL|	128|
-|Azure SQL Data Warehouse|	128|
-|Azure KeyVault|	127|
+|Azure Synapse Analytics|	128|
+|Azure KeyVault|	200 |
 |Azure Cosmos DB|	64|
 |Azure Event Hub|	128|
 |Azure Service Bus|	128|
@@ -410,10 +423,6 @@ There is no limit on the total number of VNet service endpoints in a virtual net
 >[!NOTE]
 > The limits are subjected to changes at the discretion of the Azure service. Refer to the respective service documentation for services details. 
 
-
-
-
-  
 
 
 

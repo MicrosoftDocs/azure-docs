@@ -1,6 +1,6 @@
 ---
 title: Connect Check Point data to Azure Sentinel| Microsoft Docs
-description: Learn how to connect Check Point data to Azure Sentinel.
+description: Configure your Check Point appliance to forward Syslog messages in CEF format to your Azure Sentinel workspace via the Syslog agent.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -23,6 +23,9 @@ ms.author: yelevin
 
 This article explains how to connect your Check Point appliance to Azure Sentinel. The Check Point data connector allows you to easily connect your Check Point logs with Azure Sentinel, to view dashboards, create custom alerts, and improve investigation. Using Check Point on Azure Sentinel will provide you more insights into your organization’s Internet usage, and will enhance its security operation capabilities.​ 
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
+
 ## Forward Check Point logs to the Syslog agent
 
 Configure your Check Point appliance to forward Syslog messages in CEF format to your Azure workspace via the Syslog agent.
@@ -39,7 +42,7 @@ Configure your Check Point appliance to forward Syslog messages in CEF format to
 ## Next steps
 In this document, you learned how to connect Check Point appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - [Validate connectivity](connect-cef-verify.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).
 - [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
 
 

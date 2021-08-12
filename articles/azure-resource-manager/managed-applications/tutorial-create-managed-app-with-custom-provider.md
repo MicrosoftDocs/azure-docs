@@ -5,6 +5,7 @@ ms.topic: tutorial
 ms.author: lazinnat
 author: lazinnat
 ms.date: 06/20/2019
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Tutorial: Create managed application with custom actions and resources
@@ -35,7 +36,7 @@ To complete this tutorial, you need to know:
 
 In this tutorial, you create a managed application and its managed resource group will contain custom provider instance, storage account, and function. The Azure Function used in this example implements an API that handles custom provider operations for actions and resources. Azure Storage Account is used as basic storage for your custom provider resources.
 
-The user interface definition for creating a managed application instance includes `funcname` and `storagename` input elements. Storage account name and function name must be globally unique. By default function files will be deployed from [sample function package](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip), but you can change it by adding an input element for a package link in *createUIDefinition.json*:
+The user interface definition for creating a managed application instance includes `funcname` and `storagename` input elements. Storage account name and function name must be globally unique. By default function files will be deployed from [sample function package](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.customproviders/custom-rp-with-function/artifacts/functionzip), but you can change it by adding an input element for a package link in *createUiDefinition.json*:
 
 ```json
 {
@@ -61,14 +62,14 @@ The user interface definition for creating a managed application instance includ
 {
   "name": "zipFileBlobUri",
   "type": "Microsoft.Common.TextBox",
-  "defaultValue": "https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip/functionpackage.zip",
+  "defaultValue": "https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.customproviders/custom-rp-with-function/artifacts/functionzip/functionpackage.zip",
   "label": "The Uri to the uploaded function zip file",
   "toolTip": "The Uri to the uploaded function zip file",
   "visible": true
 }
 ```
 
-and output in *createUIDefinition.json*:
+and output in *createUiDefinition.json*:
 
 ```json
   "funcname": "[steps('applicationSettings').funcname]",
@@ -76,13 +77,13 @@ and output in *createUIDefinition.json*:
   "zipFileBlobUri": "[steps('applicationSettings').zipFileBlobUri]"
 ```
 
-The complete *createUIDefinition.json* sample can be found at [Reference: User interface elements artifacts](reference-createuidefinition-artifact.md).
+The complete *createUiDefinition.json* sample can be found at [Reference: User interface elements artifacts](reference-createuidefinition-artifact.md).
 
 ## Template with custom provider
 
 To create a managed application instance with custom provider, you need to define custom provider resource with name **public** and type **Microsoft.CustomProviders/resourceProviders** in your **mainTemplate.json**. In that resource, you define the resource types and actions for your service. To deploy Azure Function and Azure Storage Account instances define resources of type `Microsoft.Web/sites` and `Microsoft.Storage/storageAccounts` respectively.
 
-In this tutorial, you will create one `users` resource type, `ping` custom action, and `users/contextAction` custom action that will be performed in a context of a `users` custom resource. For each resource type and action provide an endpoint pointing to the function with name provided in [createUIDefinition.json](#user-interface-definition). Specify the **routingType** as `Proxy,Cache` for resource types and `Proxy` for actions:
+In this tutorial, you will create one `users` resource type, `ping` custom action, and `users/contextAction` custom action that will be performed in a context of a `users` custom resource. For each resource type and action provide an endpoint pointing to the function with name provided in [createUiDefinition.json](#user-interface-definition). Specify the **routingType** as `Proxy,Cache` for resource types and `Proxy` for actions:
 
 ```json
 {
@@ -179,7 +180,7 @@ Package the following managed application artifacts to zip archive and upload it
 * mainTemplate.json
 * viewDefinition.json
 
-All files must be at root level. The package with artifacts can be stored in any storage, for example GitHub blob or Azure Storage Account blob. Here is a script to upload the application package to storage account: 
+All files must be at root level. The package with artifacts can be stored in any storage, for example GitHub blob or Azure Storage Account blob. Here is a script to upload the application package to storage account:
 
 ```powershell
 $resourceGroup="appResourcesGroup"
@@ -204,7 +205,7 @@ Set-AzStorageBlobContent `
   -File "path_to_your_zip_package" `
   -Container appcontainer `
   -Blob app.zip `
-  -Context $ctx 
+  -Context $ctx
 
 # Get blob absolute uri
 $blobUri=(Get-AzureStorageBlob -Container appcontainer -Blob app.zip -Context $ctx).ICloudBlob.uri.AbsoluteUri
@@ -242,8 +243,8 @@ az managedapp definition create \
 # [Portal](#tab/azure-portal)
 
 1. In the Azure portal, select **All services**. In the list of resources, type and select **Managed Applications Center**.
-2. On the **Managed Applications Center**, choose **Service Catalog application definition** and click **Add**. 
-    
+2. On the **Managed Applications Center**, choose **Service Catalog application definition** and click **Add**.
+
     ![Add Service Catalog](./media/tutorial-create-managed-app-with-custom-provider/service-catalog-managed-application.png)
 
 3. Provide values for creating a Service Catalog definition:
@@ -298,7 +299,7 @@ az managedapp create \
 # [Portal](#tab/azure-portal)
 
 1. In the Azure portal, select **All services**. In the list of resources, type and select **Managed Applications Center**.
-2. On the **Managed Applications Center**, choose **Service Catalog applications** and click **Add**. 
+2. On the **Managed Applications Center**, choose **Service Catalog applications** and click **Add**.
 
     ![Add managed application](./media/tutorial-create-managed-app-with-custom-provider/add-managed-application.png)
 
@@ -313,8 +314,8 @@ az managedapp create \
 
     ![Application settings](./media/tutorial-create-managed-app-with-custom-provider/application-settings.png)
 
-5. When validation passed, click **OK** to deploy an instance of a managed application. 
-    
+5. When validation passed, click **OK** to deploy an instance of a managed application.
+
     ![Deploy managed application](./media/tutorial-create-managed-app-with-custom-provider/deploy-managed-application.png)
 
 ---
@@ -333,20 +334,20 @@ You can go to managed application instance and perform **custom action** in "Ove
 
 * Go to "Users" page and click "Add" button. Provide inputs for creating a resource and submit the form:
 
-![Create custom resource](./media/tutorial-create-managed-app-with-custom-provider/create-custom-resource.png)
+![Screenshot shows the Add button selected from Users.](./media/tutorial-create-managed-app-with-custom-provider/create-custom-resource.png)
 
 * Go to "Users" page, select a "users" resource and click "Custom Context Action":
 
-![Create custom resource](./media/tutorial-create-managed-app-with-custom-provider/perform-custom-resource-action.png)
+![Screenshot shows Custom Context Action selected.](./media/tutorial-create-managed-app-with-custom-provider/perform-custom-resource-action.png)
 
 [!INCLUDE [clean-up-section-portal](../../../includes/clean-up-section-portal.md)]
 
 ## Looking for help
 
-If you have questions about Azure Managed Applications, try asking on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-managedapps). A similar question may have already been asked and answered, so check first before posting. Add the tag `azure-managedapps` to get a fast response!
+If you have questions about Azure Managed Applications, you can try asking on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-managed-app) with tag azure-managed-app or [Microsoft Q&A](/answers/topics/azure-managed-applications.html) with tag azure-managed-application. A similar question may have already been asked and answered, so check first before posting. Please use respective tags for faster response.
 
 ## Next steps
 
-To publish your managed application to the Azure Marketplace, see [Azure managed applications in the Marketplace](publish-marketplace-app.md).
+To publish your managed application to the Azure Marketplace, see [Azure managed applications in the Marketplace](../../marketplace/azure-app-offer-setup.md).
 
 Learn more about [Azure Custom Providers](../custom-providers/overview.md).

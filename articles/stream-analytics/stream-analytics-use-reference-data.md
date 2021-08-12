@@ -3,20 +3,31 @@ title: Use reference data for lookups in Azure Stream Analytics
 description: This article describes how to use reference data to lookup or correlate data in an Azure Stream Analytics job's query design.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
+
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/8/2019
+ms.date: 06/25/2021
 ---
 # Using reference data for lookups in Stream Analytics
 
-Reference data (also known as a lookup table) is a finite data set that is static or slowly changing in nature, used to perform a lookup or to augment your data streams. For example, in an IoT scenario, you could store metadata about sensors (which don’t change often) in reference data and join it with real time IoT data streams. Azure Stream Analytics loads reference data in memory to achieve low latency stream processing. To make use of reference data in your Azure Stream Analytics job, you will generally use a [Reference Data Join](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) in your query. 
+Reference data (also known as a lookup table) is a finite data set that is static or slowly changing in nature, used to perform a lookup or to augment your data streams. For example, in an IoT scenario, you could store metadata about sensors (which don’t change often) in reference data and join it with real time IoT data streams. Azure Stream Analytics loads reference data in memory to achieve low latency stream processing. To make use of reference data in your Azure Stream Analytics job, you will generally use a [Reference Data Join](/stream-analytics-query/reference-data-join-azure-stream-analytics) in your query. 
+
+## Example  
+You can have a real time stream of events generated when cars pass a toll booth. The toll booth can capture the license plate in real time and join with a static dataset that has registration details to identify license plates that have expired.  
+  
+```SQL  
+SELECT I1.EntryTime, I1.LicensePlate, I1.TollId, R.RegistrationId  
+FROM Input1 I1 TIMESTAMP BY EntryTime  
+JOIN Registration R  
+ON I1.LicensePlate = R.LicensePlate  
+WHERE R.Expired = '1'
+```  
 
 Stream Analytics supports Azure Blob storage and Azure SQL Database as the storage layer for Reference Data. You can also transform and/or copy reference data to Blob storage from Azure Data Factory to use [any number of cloud-based and on-premises data stores](../data-factory/copy-activity-overview.md).
 
 ## Azure Blob storage
 
-Reference data is modeled as a sequence of blobs (defined in the input configuration) in ascending order of the date/time specified in the blob name. It **only** supports adding to the end of the sequence by using a date/time **greater** than the one specified by the last blob in the sequence.
+Reference data is modeled as a sequence of blobs (defined in the input configuration) in ascending order of the date/time specified in the blob name. It **only** supports adding to the end of the sequence by using a date/time **greater** than the one specified by the last blob in the sequence. For more information, see [Use reference data from a Blob Storage for an Azure Stream Analytics job](data-protection.md).
 
 ### Configure blob reference data
 
@@ -28,7 +39,7 @@ To configure your reference data, you first need to create an input that is of t
 |Storage Account   | The name of the storage account where your blobs are located. If it’s in the same subscription as your Stream Analytics Job, you can select it from the drop-down.   |
 |Storage Account Key   | The secret key associated with the storage account. This gets automatically populated if the storage account is in the same subscription as your Stream Analytics job.   |
 |Storage Container   | Containers provide a logical grouping for blobs stored in the Microsoft Azure Blob service. When you upload a blob to the Blob service, you must specify a container for that blob.   |
-|Path Pattern   | The path used to locate your blobs within the specified container. Within the path, you may choose to specify one or more instances of the following 2 variables:<BR>{date}, {time}<BR>Example 1: products/{date}/{time}/product-list.csv<BR>Example 2: products/{date}/product-list.csv<BR>Example 3: product-list.csv<BR><br> If the blob doesn't exist in the specified path, the Stream Analytics job will wait indefinitely for the blob to become available.   |
+|Path Pattern   | This is a required property that is used to locate your blobs within the specified container. Within the path, you may choose to specify one or more instances of the following 2 variables:<BR>{date}, {time}<BR>Example 1: products/{date}/{time}/product-list.csv<BR>Example 2: products/{date}/product-list.csv<BR>Example 3: product-list.csv<BR><br> If the blob doesn't exist in the specified path, the Stream Analytics job will wait indefinitely for the blob to become available.   |
 |Date Format [optional]   | If you have used {date} within the Path Pattern that you specified, then you can select the date format in which your blobs are organized from the drop-down of supported formats.<BR>Example: YYYY/MM/DD, MM/DD/YYYY, etc.   |
 |Time Format [optional]   | If you have used {time} within the Path Pattern that you specified, then you can select the time format in which your blobs are organized from the drop-down of supported formats.<BR>Example: HH, HH/mm, or HH-mm.  |
 |Event Serialization Format   | To make sure your queries work the way you expect, Stream Analytics needs to know which serialization format you're using for incoming data streams. For Reference Data, the supported formats are CSV and JSON.  |
@@ -79,13 +90,13 @@ With the delta query option, Stream Analytics runs the snapshot query initially 
 
 To configure your SQL Database reference data, you first need to create **Reference Data** input. The table below explains each property that you will need to provide while creating the reference data input with its description. For more information, see [Use reference data from a SQL Database for an Azure Stream Analytics job](sql-reference-data.md).
 
-You can use [Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) as a reference data input. You have to [configure public endpoint in Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) and then manually configure the following settings in Azure Stream Analytics. Azure virtual machine running SQL Server with a database attached is also supported by manually configuring the settings below.
+You can use [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) as a reference data input. You have to [configure public endpoint in SQL Managed Instance](../azure-sql/managed-instance/public-endpoint-configure.md) and then manually configure the following settings in Azure Stream Analytics. Azure virtual machine running SQL Server with a database attached is also supported by manually configuring the settings below.
 
 |**Property Name**|**Description**  |
 |---------|---------|
 |Input alias|A friendly name that will be used in the job query to reference this input.|
 |Subscription|Choose your subscription|
-|Database|The Azure SQL Database that contains your reference data. For Azure SQL Database Managed Instance, it is required to specify the port 3342. For example, *sampleserver.public.database.windows.net,3342*|
+|Database|The Azure SQL Database that contains your reference data. For SQL Managed Instance, it is required to specify the port 3342. For example, *sampleserver.public.database.windows.net,3342*|
 |Username|The username associated with your Azure SQL Database.|
 |Password|The password associated with your Azure SQL Database.|
 |Refresh periodically|This option allows you to choose a refresh rate. Choosing "On" will allow you to specify the refresh rate in DD:HH:MM.|
@@ -94,17 +105,44 @@ You can use [Azure SQL Database Managed Instance](https://docs.microsoft.com/azu
 
 ## Size limitation
 
-Stream Analytics supports reference data with **maximum size of 300 MB**. The 300 MB limit of maximum size of reference data is achievable only with simple queries. As the complexity of query increases to include stateful processing, such as windowed aggregates, temporal joins and temporal analytic functions, it is expected that the maximum supported size of reference data decreases. If Azure Stream Analytics cannot load the reference data and perform complex operations, the job will run out of memory and fail. In such cases, SU % Utilization metric will reach 100%.    
+It is recommended to use reference datasets which are less than 300 MB for best performance. Reference datasets 5 GB or lower is supported in jobs with 6 SUs or more. Using a very large reference data may impact end-to-end latency of your job. As the complexity of query increases to include stateful processing, such as windowed aggregates, temporal joins and temporal analytic functions, it is expected that the maximum supported size of reference data decreases. If Azure Stream Analytics cannot load the reference data and perform complex operations, the job will run out of memory and fail. In such cases, SU % Utilization metric will reach 100%.    
 
-|**Number of Streaming Units**  |**Approx. Max Size Supported (in MB)**  |
+|**Number of Streaming Units**  |**Recommended Size**  |
 |---------|---------|
-|1   |50   |
-|3   |150   |
-|6 and beyond   |300   |
+|1   |50 MB or lower   |
+|3   |150 MB or lower   |
+|6 and beyond   |5 GB or lower.    |
 
-Increasing number of Streaming Units of a job beyond 6 does not increase the maximum supported size of reference data.
+Support for compression is not available for reference data. For reference datasets larger than 300 MB, it is recommended to use Azure SQL Database as the source with [delta query](./sql-reference-data.md#delta-query) option for optimal performance. If delta query is not used in such scenarios, you will see in spikes in watermark delay metric every time the reference dataset is refreshed. 
 
-Support for compression is not available for reference data. 
+## Joining multiple reference datasets in a job
+You can join only one stream input with one reference data input in a single step of your query. However, you can join multiple reference datasets by breaking down your query into multiple steps. An example is shown below.
+
+```SQL  
+With Step1 as (
+    --JOIN input stream with reference data to get 'Desc'
+    SELECT streamInput.*, refData1.Desc as Desc
+    FROM    streamInput
+    JOIN    refData1 ON refData1.key = streamInput.key 
+)
+--Now Join Step1 with second reference data
+SELECT *
+INTO    output 
+FROM    Step1
+JOIN    refData2 ON refData2.Desc = Step1.Desc 
+``` 
+
+## IoT Edge jobs
+
+Only local reference data is supported for Stream Analytics edge jobs. When a job is deployed to IoT Edge device, it loads reference data from the user defined file path. Have a reference data file ready on the device. For a Windows container, put the reference data file on the local drive and share the local drive with the Docker container. For a Linux container, create a Docker volume and populate the data file to the volume.
+
+Reference data on IoT Edge update is triggered by a deployment. Once triggered, the Stream Analytics module picks the updated data without stopping the running job.
+
+There are two ways to update the reference data:
+
+* Update reference data path in your Stream Analytics job from Azure portal.
+
+* Update the IoT Edge deployment.
 
 ## Next steps
 > [!div class="nextstepaction"]
@@ -114,6 +152,6 @@ Support for compression is not available for reference data.
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.get.started]: stream-analytics-get-started.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.get.started]: ./stream-analytics-real-time-fraud-detection.md
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

@@ -1,10 +1,11 @@
 ---
 title: Organize your resources with management groups - Azure Governance
-description: Learn about the management groups, how their permissions work, and how to use them. 
-ms.date: 04/15/2020
+description: Learn about the management groups, how their permissions work, and how to use them.
+ms.date: 04/28/2021
 ms.topic: overview
+ms.custom: contperf-fy21q1
 ---
-# Organize your resources with Azure management groups
+# What are Azure management groups?
 
 If your organization has many subscriptions, you may need a way to efficiently manage access,
 policies, and compliance for those subscriptions. Azure management groups provide a level of scope
@@ -26,7 +27,9 @@ You can build a flexible structure of management groups and subscriptions to org
 into a hierarchy for unified policy and access management. The following diagram shows an example of
 creating a hierarchy for governance using management groups.
 
-:::image type="content" source="./media/tree.png" alt-text="Example of a management group hierarchy tree" border="false":::
+:::image type="complex" source="./media/tree.png" alt-text="Diagram of a sample management group hierarchy." border="false":::
+   Diagram of a root management group holding both management groups and subscriptions. Some child management groups hold management groups, some hold subscriptions, and some hold both. One of the examples in the sample hierarchy is four levels of management groups with the child level being all subscriptions.
+:::image-end:::
 
 You can create a hierarchy that applies a policy, for example, which limits VM locations to the US
 West Region in the group called "Production". This policy will inherit onto all the Enterprise
@@ -36,9 +39,9 @@ owner allowing for improved governance.
 
 Another scenario where you would use management groups is to provide user access to multiple
 subscriptions. By moving multiple subscriptions under that management group, you can create one
-[role-based access control](../../role-based-access-control/overview.md) (RBAC) assignment on the
+[Azure role assignment](../../role-based-access-control/overview.md) on the
 management group, which will inherit that access to all the subscriptions. One assignment on the
-management group can enable users to have access to everything they need instead of scripting RBAC
+management group can enable users to have access to everything they need instead of scripting Azure RBAC
 over different subscriptions.
 
 ### Important facts about management groups
@@ -55,11 +58,11 @@ over different subscriptions.
 
 Each directory is given a single top-level management group called the "Root" management group. This
 root management group is built into the hierarchy to have all management groups and subscriptions
-fold up to it. This root management group allows for global policies and RBAC assignments to be
+fold up to it. This root management group allows for global policies and Azure role assignments to be
 applied at the directory level. The [Azure AD Global Administrator needs to elevate
 themselves](../../role-based-access-control/elevate-access-global-admin.md) to the User Access
 Administrator role of this root group initially. After elevating access, the administrator can
-assign any RBAC role to other directory users or groups to manage the hierarchy. As administrator,
+assign any Azure role to other directory users or groups to manage the hierarchy. As administrator,
 you can assign your own account as owner of the root management group.
 
 ### Important facts about the Root management group
@@ -70,7 +73,7 @@ you can assign your own account as owner of the root management group.
   root management group. See
   [Change the name of a management group](manage.md#change-the-name-of-a-management-group) to update
   the name of a management group.
-- The root management group can't be moved or deleted, unlike other management groups.  
+- The root management group can't be moved or deleted, unlike other management groups.
 - All subscriptions and management groups fold up to the one root management group within the
   directory.
   - All resources in the directory fold up to the root management group for global management.
@@ -78,17 +81,17 @@ you can assign your own account as owner of the root management group.
 - All Azure customers can see the root management group, but not all customers have access to manage
   that root management group.
   - Everyone who has access to a subscription can see the context of where that subscription is in
-    the hierarchy.  
+    the hierarchy.
   - No one is given default access to the root management group. Azure AD Global Administrators are
     the only users that can elevate themselves to gain access. Once they have access to the root
-    management group, the global administrators can assign any RBAC role to other users to manage  
+    management group, the global administrators can assign any Azure role to other users to manage
     it.
 - In SDK, the root management group, or 'Tenant Root', operates as a management group.
 
 > [!IMPORTANT]
 > Any assignment of user access or policy assignment on the root management group **applies to all
 > resources within the directory**. Because of this, all customers should evaluate the need to have
-> items defined on this scope. User access and policy assignments should be "Must Have" only at this  
+> items defined on this scope. User access and policy assignments should be "Must Have" only at this
 > scope.
 
 ## Initial setup of management groups
@@ -114,8 +117,8 @@ the root management group in the directory.
 There are two options you can do to resolve this issue.
 
 - Remove all Role and Policy assignments from the root management group
-  - By removing any policy and role assignments from the root management group, the service will
-    backfill all subscriptions into the hierarchy the next overnight cycle. This process is so
+  - By removing any policy and role assignments from the root management group, the service
+    backfills all subscriptions into the hierarchy the next overnight cycle. This process is so
     there's no accidental access given or policy assignment to all of the tenants subscriptions.
   - The best way to do this process without impacting your services is to apply the role or policy
     assignments one level below the Root management group. Then you can remove all assignments from
@@ -130,19 +133,20 @@ There are two options you can do to resolve this issue.
     subscriptions.
 
 If you have questions on this backfill process, contact: `managementgroups@microsoft.com`
-  
+
 ## Management group access
 
-Azure management groups support [Azure Role-Based Access Control
-(RBAC)](../../role-based-access-control/overview.md) for all resource accesses and role definitions.
-These permissions are inherited to child resources that exist in the hierarchy. Any RBAC role can be
-assigned to a management group that will inherit down the hierarchy to the resources. For example,
-the RBAC role VM contributor can be assigned to a management group. This role has no action on the
-management group, but will inherit to all VMs under that management group.
+Azure management groups support
+[Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) for all
+resource accesses and role definitions. These permissions are inherited to child resources that
+exist in the hierarchy. Any Azure role can be assigned to a management group that will inherit down
+the hierarchy to the resources. For example, the Azure role VM contributor can be assigned to a
+management group. This role has no action on the management group, but will inherit to all VMs under
+that management group.
 
 The following chart shows the list of roles and the supported actions on management groups.
 
-| RBAC Role Name             | Create | Rename | Move\*\* | Delete | Assign Access | Assign Policy | Read  |
+| Azure Role Name             | Create | Rename | Move\*\* | Delete | Assign Access | Assign Policy | Read  |
 |:-------------------------- |:------:|:------:|:--------:|:------:|:-------------:| :------------:|:-----:|
 |Owner                       | X      | X      | X        | X      | X             | X             | X     |
 |Contributor                 | X      | X      | X        | X      |               |               | X     |
@@ -152,33 +156,33 @@ The following chart shows the list of roles and the supported actions on managem
 |Resource Policy Contributor |        |        |          |        |               | X             |       |
 |User Access Administrator   |        |        |          |        | X             | X             |       |
 
-\*: MG Contributor and MG Reader only allow users to do those actions on the management group scope.  
+\*: MG Contributor and MG Reader only allow users to do those actions on the management group scope.
 \*\*: Role Assignments on the Root management group aren't required to move a subscription or
 management group to and from it. See [Manage your resources with management groups](manage.md) for
 details on moving items within the hierarchy.
 
-## Custom RBAC role definition and assignment
+## Azure custom role definition and assignment
 
-Custom RBAC role support for management groups is currently in preview with some
+Azure custom role support for management groups is currently in preview with some
 [limitations](#limitations). You can define the management group scope in the Role Definition's
-assignable scope. That custom RBAC Role will then be available for assignment on that management
+assignable scope. That Azure custom role will then be available for assignment on that management
 group and any management group, subscription, resource group, or resource under it. This custom role
-will inherit down the hierarchy like any built-in role.  
+will inherit down the hierarchy like any built-in role.
 
 ### Example definition
 
-[Defining and creating a custom role](../../role-based-access-control/custom-roles.md) does not
+[Defining and creating a custom role](../../role-based-access-control/custom-roles.md) doesn't
 change with the inclusion of management groups. Use the full path to define the management group
 **/providers/Microsoft.Management/managementgroups/{groupId}**.
 
 Use the management group's ID and not the management group's display name. This common error happens
-since both are custom defined fields when creating a management group.
+since both are custom-defined fields when creating a management group.
 
 ```json
 ...
 {
   "Name": "MG Test Custom Role",
-  "Id": "id", 
+  "Id": "id",
   "IsCustom": true,
   "Description": "This role provides members understand custom roles.",
   "Actions": [
@@ -209,57 +213,68 @@ since both are custom defined fields when creating a management group.
 
 Role definitions are assignable scope anywhere within the management group hierarchy. A role
 definition can be defined on a parent management group while the actual role assignment exists on
-the child subscription. Since there is a relationship between the two items, you will receive an
-error when trying to separate the assignment from its definition.
+the child subscription. Since there's a relationship between the two items, you'll receive an error
+when trying to separate the assignment from its definition.
 
 For example, let's look at a small section of a hierarchy for a visual.
 
-:::image type="content" source="./media/subtree.png" alt-text="sub-tree" border="false":::
+:::image type="complex" source="./media/subtree.png" alt-text="Diagram of a subset of the sample management group hierarchy." border="false":::
+   The diagram focuses on the root management group with child I T and Marketing management groups. The I T management group has a single child management group named Production while the Marketing management group has two Free Trial child subscriptions.
+:::image-end:::
 
-Let's say there is a custom role defined on the Marketing management group. That custom role is then
-assigned on the two free trial subscriptions.  
+Let's say there's a custom role defined on the Marketing management group. That custom role is then
+assigned on the two free trial subscriptions.
 
 If we try to move one of those subscriptions to be a child of the Production management group, this
 move would break the path from subscription role assignment to the Marketing management group role
 definition. In this scenario, you'll receive an error saying the move isn't allowed since it will
-break this relationship.  
+break this relationship.
 
 There are a couple different options to fix this scenario:
-- Remove the role assignment from the subscription prior to moving the subscription to a new parent
+- Remove the role assignment from the subscription before moving the subscription to a new parent
   MG.
 - Add the subscription to the Role Definition's assignable scope.
 - Change the assignable scope within the role definition. In the above example, you can update the
   assignable scopes from Marketing to Root Management Group so that the definition can be reached by
-  both branches of the hierarchy.  
-- Create an additional Custom Role that will be defined in the other branch. This new role will
-  require the role assignment to be changed on the subscription also.  
+  both branches of the hierarchy.
+- Create another Custom Role that is defined in the other branch. This new role requires the role
+  assignment to be changed on the subscription also.
 
-### Limitations  
+### Limitations
 
-There are limitations that exist when using custom roles on management groups. 
+There are limitations that exist when using custom roles on management groups.
 
- - You can only define one management group in the assignable scopes of a new role. This limitation
-   is in place to reduce the number of situations where role definitions and role assignments are
-   disconnected. This happens when a subscription or management group with a role assignment is
-   moved to a different parent that doesn't have the role definition.  
- - RBAC Data Plane actions aren't allowed to be defined in management group custom roles. This
-   restriction is in place as there is a latency issue with RBAC actions updating the data plane
-   resource providers. This latency issue is being worked on and these actions will be disabled from
-   the role definition to reduce any risks.
- - The Azure Resource Manager doesn't validate the management group's existence in the role
-   definition's assignable scope. If there is a typo or a incorrect management group ID listed, the
-   role definition will still be created.  
+- You can only define one management group in the assignable scopes of a new role. This limitation
+  is in place to reduce the number of situations where role definitions and role assignments are
+  disconnected. This situation happens when a subscription or management group with a role
+  assignment moves to a different parent that doesn't have the role definition.
+- Resource provider data plane actions can't be defined in management group custom roles. This
+  restriction is in place as there's a latency issue with updating the data plane resource
+  providers. This latency issue is being worked on and these actions will be disabled from the role
+  definition to reduce any risks.
+- The Azure Resource Manager doesn't validate the management group's existence in the role
+  definition's assignable scope. If there's a typo or an incorrect management group ID listed, the
+  role definition is still created.
+- Role assignment of a role with _dataActions_ isn't supported. Create the role assignment at the
+  subscription scope instead.
 
-## Moving management groups and subscriptions 
+> [!IMPORTANT]
+> Adding a management group to `AssignableScopes` is currently in preview. This preview version is
+> provided without a service-level agreement, and it's not recommended for production workloads.
+> Certain features might not be supported or might have constrained capabilities. For more
+> information, see
+> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To a management group or subscription to be a child of another management group, three rules need to
-be evaluated as true.
+## Moving management groups and subscriptions
 
-If you're doing the move action, you need: 
+To move a management group or subscription to be a child of another management group, three rules
+need to be evaluated as true.
+
+If you're doing the move action, you need:
 
 - Management group write and Role Assignment write permissions on the child subscription or
   management group.
-  - Built-on role example **Owner**
+  - Built-in role example **Owner**
 - Management group write access on the target parent management group.
   - Built-in role example: **Owner**, **Contributor**, **Management Group Contributor**
 - Management group write access on the existing parent management group.
@@ -277,15 +292,19 @@ lose ownership of the subscription. If you're directly assigned to the Owner rol
 subscription (not inherited from the management group), you can move it to any management group
 where you're a contributor.
 
+> [!IMPORTANT]
+> Azure Resource Manager caches management group hierarchy details for up to 30 minutes.
+> As a result, moving a management group may not immediately be reflected in the Azure portal. 
+
 ## Audit management groups using activity logs
 
 Management groups are supported within
-[Azure Activity Log](../../azure-monitor/platform/platform-logs-overview.md). You can search all
+[Azure Activity Log](../../azure-monitor/essentials/platform-logs-overview.md). You can search all
 events that happen to a management group in the same central location as other Azure resources. For
 example, you can see all Role Assignments or Policy Assignment changes made to a particular
 management group.
 
-:::image type="content" source="./media/al-mg.png" alt-text="Activity Logs with Management Groups" border="false":::
+:::image type="content" source="./media/al-mg.png" alt-text="Screenshot of Activity Logs and operations related to the selected management group." border="false":::
 
 When looking to query on Management Groups outside of the Azure portal, the target scope for
 management groups looks like **"/providers/Microsoft.Management/managementGroups/{yourMgID}"**.
@@ -294,8 +313,6 @@ management groups looks like **"/providers/Microsoft.Management/managementGroups
 
 To learn more about management groups, see:
 
-- [Create management groups to organize Azure resources](./create.md)
+- [Create management groups to organize Azure resources](./create-management-group-portal.md)
 - [How to change, delete, or manage your management groups](./manage.md)
-- [Review management groups in Azure PowerShell Resources Module](/powershell/module/az.resources#resources)
-- [Review management groups in REST API](/rest/api/resources/managementgroups)
-- [Review management groups in Azure CLI](/cli/azure/account/management-group)
+- See options for [How to protect your resource hierarchy](./how-to/protect-resource-hierarchy.md)

@@ -2,29 +2,30 @@
 title: Troubleshoot common issues
 description: Learn how to troubleshoot common issues when your deploy, run, or manage Azure Container Instances
 ms.topic: article
-ms.date: 09/25/2019
-ms.custom: mvc
+ms.date: 06/25/2020
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Troubleshoot common issues in Azure Container Instances
 
-This article shows how to troubleshoot common issues for managing or deploying containers to Azure Container Instances. See also [Frequently asked questions](container-instances-faq.md).
+This article shows how to troubleshoot common issues for managing or deploying containers to Azure Container Instances. See also [Frequently asked questions](container-instances-faq.yml).
 
 If you need additional support, see available **Help + support** options in the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## Issues during Container Group deployment
+## Issues during container group deployment
 ### Naming conventions
 
-When defining your container specification, certain parameters require adherence to naming restrictions. Below is a table with specific requirements for container group properties. For more information on Azure naming conventions, see [Naming conventions][azure-name-restrictions] in the Azure Architecture Center.
+When defining your container specification, certain parameters require adherence to naming restrictions. Below is a table with specific requirements for container group properties. For more information, see [Naming conventions][azure-name-restrictions] in the Azure Architecture Center and [Naming rules and restrictions for Azure resources][naming-rules].
 
 | Scope | Length | Casing | Valid characters | Suggested pattern | Example |
 | --- | --- | --- | --- | --- | --- |
-| Container group name | 1-64 |Case insensitive |Alphanumeric, and hyphen anywhere except the first or last character |`<name>-<role>-CG<number>` |`web-batch-CG1` |
-| Container name | 1-64 |Case insensitive |Alphanumeric, and hyphen anywhere except the first or last character |`<name>-<role>-CG<number>` |`web-batch-CG1` |
+| Container name<sup>1</sup> | 1-63 |Lowercase | Alphanumeric, and hyphen anywhere except the first or last character |`<name>-<role>-container<number>` |`web-batch-container1` |
 | Container ports | Between 1 and 65535 |Integer |Integer between 1 and 65535 |`<port-number>` |`443` |
 | DNS name label | 5-63 |Case insensitive |Alphanumeric, and hyphen anywhere except the first or last character |`<name>` |`frontend-site1` |
 | Environment variable | 1-63 |Case insensitive |Alphanumeric, and underscore (_) anywhere except the first or last character |`<name>` |`MY_VARIABLE` |
-| Volume name | 5-63 |Case insensitive |Lowercase letters and numbers, and hyphens anywhere except the first or last character. Cannot contain two consecutive hyphens. |`<name>` |`batch-output-volume` |
+| Volume name | 5-63 |Lowercase |Alphanumeric, and hyphens anywhere except the first or last character. Cannot contain two consecutive hyphens. |`<name>` |`batch-output-volume` |
+
+<sup>1</sup>Restriction also for container group names when not specified independently of container instances, for example with `az container create` command deployments.
 
 ### OS version of image not supported
 
@@ -39,7 +40,7 @@ If you specify an image that Azure Container Instances doesn't support, an `OsVe
 }
 ```
 
-This error is most often encountered when deploying Windows images that are based on Semi-Annual Channel release 1709 or 1803, which are not supported. For supported Windows images in Azure Container Instances, see [Frequently asked questions](container-instances-faq.md#what-windows-base-os-images-are-supported).
+This error is most often encountered when deploying Windows images that are based on Semi-Annual Channel release 1709 or 1803, which are not supported. For supported Windows images in Azure Container Instances, see [Frequently asked questions](/azure/container-instances/container-instances-faq#what-windows-base-os-images-are-supported).
 
 ### Unable to pull image
 
@@ -90,7 +91,7 @@ This error indicates that due to heavy load in the region in which you are attem
 * Deploy to a different Azure region
 * Deploy at a later time
 
-## Issues during Container Group runtime
+## Issues during container group runtime
 ### Container continually exits and restarts (no long-running process)
 
 Container groups default to a [restart policy](container-instances-restart-policy.md) of **Always**, so containers in the container group always restart after they run to completion. You may need to change this to **OnFailure** or **Never** if you intend to run task-based containers. If you specify **OnFailure** and still see continual restarts, there might be an issue with the application or script executed in your container.
@@ -177,11 +178,11 @@ The key to keeping image sizes small is ensuring that your final image does not 
 
 #### Image location
 
-Another way to reduce the impact of the image pull on your container's startup time is to host the container image in [Azure Container Registry](/azure/container-registry/) in the same region where you intend to deploy container instances. This shortens the network path that the container image needs to travel, significantly shortening the download time.
+Another way to reduce the impact of the image pull on your container's startup time is to host the container image in [Azure Container Registry](../container-registry/index.yml) in the same region where you intend to deploy container instances. This shortens the network path that the container image needs to travel, significantly shortening the download time.
 
 #### Cached images
 
-Azure Container Instances uses a caching mechanism to help speed container startup time for images built on common [Windows base images](container-instances-faq.md#what-windows-base-os-images-are-supported), including `nanoserver:1809`, `servercore:ltsc2019`, and `servercore:1809`. Commonly used Linux images such as `ubuntu:1604` and `alpine:3.6` are also cached. For an up-to-date list of cached images and tags, use the [List Cached Images][list-cached-images] API.
+Azure Container Instances uses a caching mechanism to help speed container startup time for images built on common [Windows base images](/azure/container-instances/container-instances-faq#what-windows-base-os-images-are-supported), including `nanoserver:1809`, `servercore:ltsc2019`, and `servercore:1809`. Commonly used Linux images such as `ubuntu:1604` and `alpine:3.6` are also cached. For both Windows and Linux images, avoid using the `latest` tag. Review Container Registry's [Image tag best practices](../container-registry/container-registry-image-tag-version.md) for guidance. For an up-to-date list of cached images and tags, use the [List Cached Images][list-cached-images] API.
 
 > [!NOTE]
 > Use of Windows Server 2019-based images in Azure Container Instances is in preview.
@@ -192,7 +193,7 @@ On initial creation, Windows containers may have no inbound or outbound connecti
 
 ### Cannot connect to underlying Docker API or run privileged containers
 
-Azure Container Instances does not expose direct access to the underlying infrastructure that hosts container groups. This includes access to the Docker API running on the container's host and running privileged containers. If you require Docker interaction, check the [REST reference documentation](https://aka.ms/aci/rest) to see what the ACI API supports. If there is something missing, submit a request on the [ACI feedback forums](https://aka.ms/aci/feedback).
+Azure Container Instances does not expose direct access to the underlying infrastructure that hosts container groups. This includes access to the Docker API running on the container's host and running privileged containers. If you require Docker interaction, check the [REST reference documentation](/rest/api/container-instances/) to see what the ACI API supports. If there is something missing, submit a request on the [ACI feedback forums](https://aka.ms/aci/feedback).
 
 ### Container group IP address may not be accessible due to mismatched ports
 
@@ -222,12 +223,13 @@ If you want to confirm that Azure Container Instances can listen on the port you
 Learn how to [retrieve container logs and events](container-instances-get-logs.md) to help debug your containers.
 
 <!-- LINKS - External -->
-[azure-name-restrictions]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources
-[windows-sac-overview]: https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview
+[azure-name-restrictions]: /azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources
+[naming-rules]: ../azure-resource-manager/management/resource-name-rules.md
+[windows-sac-overview]: /windows-server/get-started/semi-annual-channel-overview
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
 [docker-hub-windows-core]: https://hub.docker.com/_/microsoft-windows-servercore
 [docker-hub-windows-nano]: https://hub.docker.com/_/microsoft-windows-nanoserver
 
 <!-- LINKS - Internal -->
-[az-container-show]: /cli/azure/container#az-container-show
-[list-cached-images]: /rest/api/container-instances/listcachedimages
+[az-container-show]: /cli/azure/container#az_container_show
+[list-cached-images]: /rest/api/container-instances/location/listcachedimages

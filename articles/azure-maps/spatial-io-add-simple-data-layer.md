@@ -1,13 +1,14 @@
 ---
 title: Add a simple data layer | Microsoft Azure Maps
 description: Learn how to add a simple data layer using the Spatial IO module, provided by Azure Maps Web SDK.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 02/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
+ms.custom: devx-track-js
 #Customer intent: As an Azure Maps web sdk user, I want to add simple data layer so that I can render styled features on the map.
 ---
 
@@ -52,7 +53,7 @@ The following code renders the above point feature using the simple data layer.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Use the Simple data layer" src="//codepen.io/azuremaps/embed/zYGzpQV/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true"> See the Pen <a href='https://codepen.io/azuremaps/pen/zYGzpQV/'>Use the simple data layer</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Use the Simple data layer" src="//codepen.io/azuremaps/embed/zYGzpQV/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true"> See the Pen <a href='https://codepen.io/azuremaps/pen/zYGzpQV/'>Use the simple data layer</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 The real power of the simple data layer comes when:
@@ -65,7 +66,7 @@ For example when parsing XML data feeds, you may not know the exact styles and g
 
 <br/>
 
-<iframe height="700" style="width: 100%;" scrolling="no" title="Simple data layer options" src="//codepen.io/azuremaps/embed/gOpRXgy/?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true"> See the Pen <a href='https://codepen.io/azuremaps/pen/gOpRXgy/'>Simple data layer options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height="700" style="width: 100%;" scrolling="no" title="Simple data layer options" src="//codepen.io/azuremaps/embed/gOpRXgy/?height=700&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true"> See the Pen <a href='https://codepen.io/azuremaps/pen/gOpRXgy/'>Simple data layer options</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
@@ -81,11 +82,11 @@ For example when parsing XML data feeds, you may not know the exact styles and g
 
 As mentioned earlier, the simple data layer wraps several of the core rendering layers: bubble, symbol, line, polygon, and extruded polygon. It then uses expressions to search for valid style properties on individual features.
 
-Azure Maps and GitHub style properties are the two main sets of supported property names. Most property names of the different azure maps layer options are supported as style properties of features in the simple data layer. Expressions have been added to some layer options to support style property names that are commonly used by GitHub. These property names are defined by [GitHub's GeoJSON map support](https://help.github.com/en/github/managing-files-in-a-repository/mapping-geojson-files-on-github), and they're used to style GeoJSON files that are stored and rendered within the platform. All of GitHub's styling properties are supported in the simple data layer, except the `marker-symbol` styling properties.
+Azure Maps and GitHub style properties are the two main sets of supported property names. Most property names of the different Azure maps layer options are supported as style properties of features in the simple data layer. Expressions have been added to some layer options to support style property names that are commonly used by GitHub. These property names are defined by [GitHub's GeoJSON map support](https://help.github.com/en/github/managing-files-in-a-repository/mapping-geojson-files-on-github), and they're used to style GeoJSON files that are stored and rendered within the platform. All of GitHub's styling properties are supported in the simple data layer, except the `marker-symbol` styling properties.
 
 If the reader comes across a less common style property, it will convert it to the closest Azure Maps style property. Additionally, the default style expressions can be overridden by using the `getLayers` function of the simple data layer and updating the options on any of the layers.
 
-The following sections provide details on the default style properties that are supported by the simple data layer. The order of the supported property name is also the priority of the property. If two style properties are defined for the same layer option, then the first one in the list has higher precedence.
+The following sections provide details on the default style properties that are supported by the simple data layer. The order of the supported property name is also the priority of the property. If two style properties are defined for the same layer option, then the first one in the list has higher precedence. Colors can be any CSS3 color value; HEX, RGB, RGBA, HSL, HSLA, or named color value.
 
 ### Bubble layer style properties
 
@@ -171,10 +172,10 @@ If the feature is a `Polygon` or a `MultiPolygon`, and has a `height` property w
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [SimpleDataLayer](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.layer.simpledatalayer)
+> [SimpleDataLayer](/javascript/api/azure-maps-spatial-io/atlas.layer.simpledatalayer)
 
 > [!div class="nextstepaction"]
-> [SimpleDataLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.simpledatalayeroptions)
+> [SimpleDataLayerOptions](/javascript/api/azure-maps-spatial-io/atlas.simpledatalayeroptions)
 
 See the following articles for more code samples to add to your maps:
 

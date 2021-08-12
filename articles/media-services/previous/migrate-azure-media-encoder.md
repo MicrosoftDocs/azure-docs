@@ -3,20 +3,21 @@ title: Migrate from Azure Media Encoder to Media Encoder Standard | Microsoft Do
 description: This topic discusses how to migrate from Azure Media Encoder to the Media Encoder Standard media processor.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2019
-ms.author: juliako
-
+ms.date: 3/10/2021
+ms.author: inhenkel
+ms.custom: devx-track-csharp
 ---
 # Migrate from Azure Media Encoder to Media Encoder Standard
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 This article discusses the steps for migrating from the legacy Azure Media Encoder (AME) media processor (which is being retired) to the Media Encoder Standard media processor. For the retirement dates, see this [legacy components](legacy-components.md) topic.
 

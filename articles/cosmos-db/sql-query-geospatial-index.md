@@ -3,31 +3,37 @@ title: Index geospatial data with Azure Cosmos DB
 description: Index spatial data with Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 11/03/2020
 ms.author: tisande
 
 ---
 # Index geospatial data with Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 We designed Azure Cosmos DB's database engine to be truly schema agnostic and provide first class support for JSON. The write optimized database engine of Azure Cosmos DB natively understands spatial data represented in the GeoJSON standard.
 
 In a nutshell, the geometry is projected from geodetic coordinates onto a 2D plane then divided progressively into cells using a **quadtree**. These cells are mapped to 1D based on the location of the cell within a **Hilbert space filling curve**, which preserves locality of points. Additionally when location data is indexed, it goes through a process known as **tessellation**, that is, all the cells that intersect a location are identified and stored as keys in the Azure Cosmos DB index. At query time, arguments like points and Polygons are also tessellated to extract the relevant cell ID ranges, then used to retrieve data from the index.
 
-If you specify an indexing policy that includes spatial index for /* (all paths), then all data found within the container is indexed for efficient spatial queries.
+If you specify an indexing policy that includes a spatial index for `/*` (all paths), then all data found within the container is indexed for efficient spatial queries.
 
 > [!NOTE]
-> Azure Cosmos DB supports indexing of Points, LineStrings, Polygons, and MultiPolygons
->
->
+> Azure Cosmos DB supports indexing of Points, LineStrings, Polygons, and MultiPolygons. If you index any one of these types, we will automatically index all other types. In other words, if you index Polygons, we'll also index Points, LineStrings, and MultiPolygons. Indexing a new spatial type does not affect the write RU charge or index size unless you have valid GeoJSON data of that type.
 
-## Modifying geospatial data type
+## Modifying geospatial configuration
 
-In your container, the `geospatialConfig` specifies how the geospatial data will be indexed. You should specify one `geospatialConfig` per container: geography or geometry. If not specified, the `geospatialConfig` will default to the geography data type. When you modify the `geospatialConfig`, all existing geospatial data in the container will be reindexed.
+In your container, the **Geospatial Configuration** specifies how the spatial data will be indexed. Specify one **Geospatial Configuration** per container: geography or geometry.
 
-> [!NOTE]
-> Azure Cosmos DB currently supports modifications to the geospatialConfig in the .NET SDK only in versions 3.6 and above.
->
+You can toggle between the **geography** and **geometry** spatial type in the Azure portal. It's important that you create a [valid spatial geometry indexing policy with a bounding box](#geometry-data-indexing-examples) before switching to the geometry spatial type.
+
+Here's how to set the **Geospatial Configuration** in **Data Explorer** within the Azure portal:
+
+:::image type="content" source="./media/sql-query-geospatial-index/geospatial-configuration.png" alt-text="Setting geospatial configuration":::
+
+You can also modify the `geospatialConfig` in the .NET SDK to adjust the **Geospatial Configuration**:
+
+If not specified, the `geospatialConfig` will default to the geography data type. When you modify the `geospatialConfig`, all existing geospatial data in the container will be reindexed.
 
 Here is an example for modifying the geospatial data type to `geometry` by setting the `geospatialConfig` property and adding a **boundingBox**:
 
@@ -66,15 +72,15 @@ The following JSON snippet shows an indexing policy with spatial indexing enable
 **Container indexing policy JSON with geography spatial indexing**
 
 ```json
-    {
-       "automatic":true,
-       "indexingMode":"Consistent",
-        "includedPaths": [
+{
+    "automatic": true,
+    "indexingMode": "Consistent",
+    "includedPaths": [
         {
             "path": "/*"
         }
-        ],
-        "spatialIndexes": [
+    ],
+    "spatialIndexes": [
         {
             "path": "/*",
             "types": [
@@ -85,8 +91,8 @@ The following JSON snippet shows an indexing policy with spatial indexing enable
             ]
         }
     ],
-       "excludedPaths":[]
-    }
+    "excludedPaths": []
+}
 ```
 
 > [!NOTE]
@@ -107,12 +113,12 @@ The bounding box consists of the following properties:
 
 A bounding box is required because geometric data occupies a plane that can be infinite. Spatial indexes, however, require a finite space. For the **geography** data type, the Earth is the boundary and you do not need to set a bounding box.
 
-You should create a bounding box that contains all (or most) of your data. Only operations computed on the objects that are entirely inside the bounding box will be able to utilize the spatial index. You should not make the bounding box significantly larger than necessary because this will negatively impact query performance.
+Create a bounding box that contains all (or most) of your data. Only operations computed on the objects that are entirely inside the bounding box will be able to utilize the spatial index. Making the bounding box larger than necessary will negatively impact query performance.
 
 Here is an example indexing policy that indexes **geometry** data with **geospatialConfig** set to `geometry`:
 
 ```json
- {
+{
     "indexingMode": "consistent",
     "automatic": true,
     "includedPaths": [

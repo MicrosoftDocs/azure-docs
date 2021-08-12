@@ -1,10 +1,15 @@
 - name: Fundamentals Documentation
   href: index.yml
 
+- name: Recovering from systemic identity compromise
+  href: recover-from-identity-compromise.md
+  
 - name: Overview
   items:
   - name: Introduction to Azure security
     href: overview.md
+  - name: End-to-end security
+    href: end-to-end.md
   - name: Shared responsibility in the cloud
     href: shared-responsibility.md
 
@@ -12,8 +17,6 @@
   items:
   - name: Security technical capabilities
     href: technical-capabilities.md
-  - name: Built-in security controls
-    href: security-controls.md
 
 - name: Azure platform and infrastructure
   items:
@@ -41,6 +44,23 @@
       href: infrastructure-integrity.md
     - name: Data protection
       href: protection-customer-data.md
+  - name: Platform integrity and security
+    href: platform.md
+    items:
+    - name: Firmware security
+      href: firmware.md
+    - name: Code integrity
+      href: code-integrity.md
+    - name: Secure Boot
+      href: secure-boot.md
+    - name: Measured boot & host attestation
+      href: measured-boot-host-attestation.md
+    - name: Project Cerberus
+      href: project-cerberus.md
+    - name: Encryption at rest
+      href: encryption-atrest.md
+    - name: Hypervisor security
+      href: hypervisor.md
   - name: Isolation in the Azure cloud
     href: isolation-choices.md
 
@@ -53,7 +73,9 @@
   - name: Security checklist
     href: steps-secure-identity.md
   - name: Choose passwordless 
-    href: ad-passwordless.md
+    href: ../../active-directory/authentication/concept-authentication-passwordless.md?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - name: Authentication
+    href: /azure/architecture/framework/security/design-identity-authentication?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
 
 
 
@@ -63,46 +85,60 @@
     href: network-overview.md
   - name: Best practices
     href: network-best-practices.md
-  - name: DDoS Protection
-    href: ddos-best-practices.md
+  - name: DDoS Protection best practices
+    href: ../../ddos-protection/fundamental-best-practices.md
+  - name: DDoS Protection security baseline
+    href: /security/benchmark/azure/baselines/ddos-protection-security-baseline?toc=/azure/security/fundamentals/TOC.json
+  - name: Dangling DNS and subdomain takeover
+    href: subdomain-takeover.md
   - name: Secure hybrid network architecture
-    href: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+    href: /azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
 
 - name: IaaS security
   items:
   - name: Microsoft Antimalware
     href: antimalware.md
+  - name: Microsoft Antimalware code samples
+    href: antimalware-code-samples.md
   - name: Virtual machine security overview
     href: virtual-machines-overview.md
   - name: Best practices - IaaS workloads
     href: iaas.md
-  - name: Azure marketplace images
+  - name: Azure Marketplace images
     href: azure-marketplace-images.md
 
 - name: Data security, encryption, and storage
   items: 
   - name: Data security and encryption
     href: encryption-overview.md
+  - name: Double encryption
+    href: double-encryption.md
+  - name: TLS certificate changes
+    href: tls-certificate-changes.md
   - name: Disk encryption
-    items:
+    items: 
     - name: Best practices
       href: data-encryption-best-practices.md
-    - name: Data encryption-at-rest
+    - name: Data encryption at rest
       href: encryption-atrest.md
+    - name: Data encryption models
+      href: encryption-models.md
     - name: Azure Disk Encryption for virtual machines
       href: azure-disk-encryption-vms-vmss.md
   - name: Database security
     items:
     - name: Overview
-      href: ../../sql-database/sql-database-security-overview.md
+      href: ../../azure-sql/database/security-overview.md
     - name: Best practices
-      href: ../../sql-database/sql-database-security-best-practice.md
+      href: ../../azure-sql/database/security-best-practice.md
     - name: Security checklist
       href: database-security-checklist.md
   - name: Storage security guide
-    href: https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+    href: ../../storage/blobs/security-recommendations.md?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Customer Lockbox
     href: customer-lockbox-overview.md
+  - name: Security baseline for Customer Lockbox
+    href: /security/benchmark/azure/baselines/lockbox-security-baseline?toc=/azure/security/fundamentals/TOC.json
 
 - name: Application
   items:
@@ -120,7 +156,7 @@
 
 - name: Monitoring, auditing, and operations
   items:
-  - name: Advanced threat protection
+  - name: Threat protection
     href: threat-detection.md
   - name: Azure logging and auditing
     href: log-audit.md
@@ -141,6 +177,8 @@
   items:
   - name: Azure security services
     href: services-technologies.md
+  - name: Feature availability for US Government clouds
+    href: feature-availability.md
   - name: Security white papers
     href: https://azure.microsoft.com/resources/whitepapers/search/?term=security&type=WhitePaperResource
   - name: Best practices
@@ -151,4 +189,5 @@
     href: event-support-ticket.md
   - name: Pen testing
     href: pen-testing.md
-
+  - name: Azure domains
+    href: azure-domains.md

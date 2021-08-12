@@ -4,7 +4,7 @@ description: This article describes resource and object limits for an Azure Anal
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 03/29/2021
 ms.author: owend
 ms.reviewer: minewiskan
 

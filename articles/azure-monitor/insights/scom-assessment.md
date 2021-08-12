@@ -1,7 +1,6 @@
 ---
 title: Assess System Center Operations Manager with Azure Monitor
 description: You can use the System Center Operations Manager Health Check solution to assess the risk and health of your environments on a regular interval.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -60,7 +59,7 @@ Data is collected on the management server and forwarded to Log Analytics every 
 
 ## Operations Manager run-as accounts for Log Analytics
 
-Log Analytics builds on management packs for workloads to provide value-add services. Each workload requires workload-specific privileges to run management packs in a different security context, such as a domain user account. Configure an Operations Manager Run As account with privileged credentials. For additional information, see [How to create a Run As account](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx) in the Operations Manager documentation.
+Log Analytics builds on management packs for workloads to provide value-add services. Each workload requires workload-specific privileges to run management packs in a different security context, such as a domain user account. Configure an Operations Manager Run As account with privileged credentials. For additional information, see [How to create a Run As account](/previous-versions/system-center/system-center-2012-R2/hh321655(v=sc.12)) in the Operations Manager documentation.
 
 Use the following information to set the Operations Manager Run As account for System Center Operations Manager Health Check.
 
@@ -199,7 +198,7 @@ Every recommendation includes guidance about why it is important. Use this guida
 
 ## Use health check focus area recommendations
 
-Before you can use a health check solution in Log Analytics, you must have the solution installed. To read more about installing solutions, see [Install a management solution](../../azure-monitor/insights/solutions.md). After it is installed, you can view the summary of recommendations by using the System Center Operations Manager Health Check tile on the **Overview** page for your workspace in the Azure portal.
+Before you can use a health check solution in Log Analytics, you must have the solution installed. To read more about installing solutions, see [Install a management solution](./solutions.md). After it is installed, you can view the summary of recommendations by using the System Center Operations Manager Health Check tile on the **Overview** page for your workspace in the Azure portal.
 
 View the summarized compliance assessments for your infrastructure and then drill-into recommendations.
 
@@ -225,7 +224,7 @@ If you have recommendations that you want to ignore, you can create a text file 
     ```
 
     >[!NOTE]
-    > If your workspace has been upgraded to the [new Log Analytics query language](../../azure-monitor/log-query/log-query-overview.md), then the above query would change to the following.
+    > If your workspace has been upgraded to the [new Log Analytics query language](../logs/log-query-overview.md), then the above query would change to the following.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -250,7 +249,7 @@ If you have recommendations that you want to ignore, you can create a text file 
     ```
 
     >[!NOTE]
-    > If your workspace has been upgraded to the [new Log Analytics query language](../../azure-monitor/log-query/log-query-overview.md), then the above query would change to the following.
+    > If your workspace has been upgraded to the [new Log Analytics query language](../logs/log-query-overview.md), then the above query would change to the following.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -291,4 +290,5 @@ If you have recommendations that you want to ignore, you can create a text file 
 
 ## Next steps
 
-- [Search logs](../../azure-monitor/log-query/log-query-overview.md) to learn how to analyze detailed System Center Operations Manager Health Check data and recommendations.
+- [Search logs](../logs/log-query-overview.md) to learn how to analyze detailed System Center Operations Manager Health Check data and recommendations.
+

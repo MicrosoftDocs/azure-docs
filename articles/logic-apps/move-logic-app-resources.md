@@ -1,9 +1,9 @@
 ---
-title: Migrate logic apps across subscriptions, resource groups, or regions
+title: Move logic apps across subscriptions, resource groups, or regions
 description: Migrate logic apps or integration accounts to other Azure subscriptions, resource groups, or locations (regions)
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/06/2020
 ---
@@ -26,7 +26,7 @@ To migrate your logic app or related resources to another Azure resource group, 
 
 * The same Azure subscription that was used to create the logic app or integration account that you want to move
 
-* Resource owner permissions to move and set up the resources that you want. Learn more about [role-based access control (RBAC)](../role-based-access-control/built-in-roles.md#owner).
+* Resource owner permissions to move and set up the resources that you want. Learn more about [Azure role-based access control (Azure RBAC)](../role-based-access-control/built-in-roles.md#owner).
 
 <a name="move-subscription"></a>
 
@@ -52,7 +52,7 @@ To move a resource, such as a logic app or integration account, to another Azure
 
 To move a resource, such as a logic app, integration account, or [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), to another Azure resource group, you can use the Azure portal, Azure PowerShell, Azure CLI, or REST API. These steps cover the Azure portal, which you can use when the resource's region stays the same. For other steps and general preparation, see [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-Before actually moving resources between groups, you can test whether you can successfully move your resource to another group. For more information, see [Validate your move](../azure-resource-manager/management/move-resource-group-and-subscription.md#validate-move).
+Before actually moving resources between groups, you can test whether you can successfully move your resource to another group. For more information, see [Validate your move](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-rest-api).
 
 1. In the [Azure portal](https://portal.azure.com), find and select the logic app resource that you want to move.
 
@@ -89,7 +89,7 @@ Some Azure resources, such as on-premises data gateway resources in Azure, can e
 
 For example, to link a logic app to an integration account, both resources must exist in the same region. In scenarios such as disaster recovery, you usually want integration accounts that have the same configuration and artifacts. In other scenarios, you might need integration accounts with different configurations and artifacts.
 
-Custom connectors in Azure Logic Apps are visible to the connectors' authors and users who have the same Azure subscription and the same Azure Active Directory tenant. These connectors are available in the same region where logic apps are deployed. For more information, see [Share custom connectors in your organization](https://docs.microsoft.com/connectors/custom-connectors/share).
+Custom connectors in Azure Logic Apps are visible to the connectors' authors and users who have the same Azure subscription and the same Azure Active Directory tenant. These connectors are available in the same region where logic apps are deployed. For more information, see [Share custom connectors in your organization](/connectors/custom-connectors/share).
 
 The template that you get from Visual Studio includes only the resource definitions for your logic app and its connections. So, if your logic app uses other resources, for example, an integration account and B2B artifacts, such as partners, agreements, and schemas, you must export that integration account's template by using the Azure portal. This template includes the resource definitions for both the integration account and artifacts. However, the template isn't fully parameterized. So, you must manually parameterize the values that you want to use for deployment.
 

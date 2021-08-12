@@ -2,24 +2,25 @@
 title: Cloud-to-device messages with Azure IoT Hub (Node) | Microsoft Docs
 description: How to send cloud-to-device messages to a device from an Azure IoT hub using the Azure IoT SDKs for Node.js. You modify a simulated device app to receive cloud-to-device messages and modify a back-end app to send the cloud-to-device messages.
 author: wesmc7777
-manager: philmea
+
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: javascript
 ms.topic: conceptual
 ms.date: 06/16/2017
+ms.custom: [amqp, mqtt, devx-track-js]
 ---
 
 # Send cloud-to-device messages with IoT Hub (Node.js)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end. The [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-node.md) quickstart shows how to create an IoT hub, provision a device identity in it, and code a simulated device app that sends device-to-cloud messages.
+Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end. The [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) quickstart shows how to create an IoT hub, provision a device identity in it, and code a simulated device app that sends device-to-cloud messages.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-This tutorial builds on [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-node.md). It shows you how to:
+This tutorial builds on [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs). It shows you how to:
 
 * From your solution back end, send cloud-to-device messages to a single device through IoT Hub.
 * Receive cloud-to-device messages on a device.
@@ -29,7 +30,7 @@ You can find more information on cloud-to-device messages in the [IoT Hub develo
 
 At the end of this tutorial, you run two Node.js console apps:
 
-* **SimulatedDevice**, a modified version of the app created in [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-node.md), which connects to your IoT hub and receives cloud-to-device messages.
+* **SimulatedDevice**, a modified version of the app created in [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs), which connects to your IoT hub and receives cloud-to-device messages.
 
 * **SendCloudToDeviceMessage**, which sends a cloud-to-device message to the simulated device app through IoT Hub, and then receives its delivery acknowledgment.
 
@@ -47,9 +48,9 @@ At the end of this tutorial, you run two Node.js console apps:
 
 ## Receive messages in the simulated device app
 
-In this section, you modify the simulated device app you created in [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-node.md) to receive cloud-to-device messages from the IoT hub.
+In this section, you modify the simulated device app you created in [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) to receive cloud-to-device messages from the IoT hub.
 
-1. Using a text editor, open the **SimulatedDevice.js** file. This file is located in the **iot-hub\Quickstarts\simulated-device** folder off of the root folder of the Node.js sample code you downloaded in the [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-node.md) quickstart.
+1. Using a text editor, open the **SimulatedDevice.js** file. This file is located in the **iot-hub\Quickstarts\simulated-device** folder off of the root folder of the Node.js sample code you downloaded in the [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) quickstart.
 
 2. Register a handler with the device client to receive messages sent from IoT Hub. Add the call to `client.on` just after the line that creates the device client as in the following snippet:
 
@@ -68,21 +69,30 @@ In this section, you modify the simulated device app you created in [Send teleme
     });
     ```
 
-    In this example, the device invokes the **complete** function to notify IoT Hub that it has processed the message. The call to **complete** is not required if you are using MQTT transport and can be omitted. It is required for HTTPS and AMQP.
+In this example, the device invokes the **complete** function to notify IoT Hub that it has processed the message and that it can safely be removed from the device queue. The call to **complete** is not required if you are using MQTT transport and can be omitted. It is required for AMQP and HTTPS.
+
+With AMQP and HTTPS, but not MQTT, the device can also:
+
+* Abandon a message, which results in IoT Hub retaining the message in the device queue for future consumption.
+* Reject a message, which which permanently removes the message from the device queue.
+
+If something happens that prevents the device from completing, abandoning, or rejecting the message, IoT Hub will, after a fixed timeout period, queue the message for delivery again. For this reason, the message processing logic in the device app must be *idempotent*, so that receiving the same message multiple times produces the same result.
+
+For more detailed information about how IoT Hub processes cloud-to-device messages, including details of the cloud-to-device message lifecycle, see [Send cloud-to-device messages from an IoT hub](iot-hub-devguide-messages-c2d.md).
   
-   > [!NOTE]
-   > If you use HTTPS instead of MQTT or AMQP as the transport, the **DeviceClient** instance checks for messages from IoT Hub infrequently (less than every 25 minutes). For more information about the differences between MQTT, AMQP and HTTPS support, and IoT Hub throttling, see the [IoT Hub developer guide](iot-hub-devguide-messaging.md).
-   >
+> [!NOTE]
+> If you use HTTPS instead of MQTT or AMQP as the transport, the **DeviceClient** instance checks for messages from IoT Hub infrequently (a minimum of every 25 minutes). For more information about the differences between MQTT, AMQP, and HTTPS support, see [Cloud-to-device communications guidance](iot-hub-devguide-c2d-guidance.md) and [Choose a communication protocol](iot-hub-devguide-protocols.md).
+>
 
 ## Get the IoT hub connection string
 
-In this article, you create a backend service to send cloud-to-device messages through the IoT hub you created in [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-node.md). To send cloud-to-device messages, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission.
+In this article, you create a backend service to send cloud-to-device messages through the IoT hub you created in [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs). To send cloud-to-device messages, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission.
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
 ## Send a cloud-to-device message
 
-In this section, you create a Node.js console app that sends cloud-to-device messages to the simulated device app. You need the device ID of the device you added in the [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-node.md) quickstart. You also need the IoT hub connection string you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string).
+In this section, you create a Node.js console app that sends cloud-to-device messages to the simulated device app. You need the device ID of the device you added in the [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) quickstart. You also need the IoT hub connection string you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string).
 
 1. Create an empty folder called **sendcloudtodevicemessage**. In the **sendcloudtodevicemessage** folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
 

@@ -25,4 +25,4 @@ This article addresses those questions. Specifically, you:
 > * Lock resources that are critical to your system.
 > * Tag resources so you can track them by values that make sense to your organization.
 
-This article focuses on the tasks you take to implement governance. For a broader discussion of the concepts, see [Governance in Azure](../articles/security/governance-in-azure.md). 
+This article focuses on the tasks you take to implement governance. For a broader discussion of the concepts, see [Governance in Azure](../articles/governance/index.yml).

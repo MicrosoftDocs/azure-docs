@@ -1,29 +1,21 @@
 ---
 title: 'Quickstart: Use the Azure CLI to create a Linux VM'
 description: In this quickstart, you learn how to use the Azure CLI to create a Linux virtual machine
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machines-linux
-
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: quickstart
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/09/2018
+ms.date: 03/30/2021
 ms.author: cynthn
-ms.custom: [mvc, seo-javascript-september2019, seo-javascript-october2019, seo-python-october2019]
+ms.custom: [mvc, seo-javascript-september2019, seo-javascript-october2019, seo-python-october2019, devx-track-azurecli]
 ---
 
 # Quickstart: Create a Linux virtual machine with the Azure CLI
 
 This quickstart shows you how to use the Azure command-line interface (CLI) to deploy a Linux virtual machine (VM) in Azure. The Azure CLI is used to create and manage Azure resources from the command line or in scripts.
 
-In this tutorial, we will be installing Ubuntu 16.04 LTS. To show the VM in action, you'll connect to it using SSH and install the NGINX web server.
+In this tutorial, we will be installing the latest Ubuntu LTS image. To show the VM in action, you'll connect to it using SSH and install the NGINX web server.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -75,6 +67,8 @@ It takes a few minutes to create the VM and supporting resources. The following 
 
 Note your own `publicIpAddress` in the output from your VM. This address is used to access the VM in the next steps.
 
+[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
+
 ## Open port 80 for web traffic
 
 By default, only SSH connections are opened when you create a Linux VM in Azure. Use [az vm open-port](/cli/azure/vm) to open TCP port 80 for use with the NGINX web server:
@@ -85,10 +79,10 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## Connect to virtual machine
 
-SSH to your VM as normal. Replace **publicIpAddress** with the public IP address of your VM as noted in the previous output from your VM:
+SSH to your VM as normal. Replace the IP address in the example with the public IP address of your VM as noted in the previous output:
 
 ```bash
-ssh azureuser@publicIpAddress
+ssh azureuser@40.68.254.142
 ```
 
 ## Install web server

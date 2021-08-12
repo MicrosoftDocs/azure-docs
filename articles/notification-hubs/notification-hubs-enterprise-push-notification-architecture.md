@@ -17,6 +17,7 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
+ms.custom: devx-track-csharp
 ---
 
 # Enterprise push architectural guidance
@@ -33,7 +34,7 @@ Here is the general architecture of the solution (generalized with multiple mobi
 
 ## Architecture
 
-![][1]
+![Diagram of the enterprise architecture showing the flow through Events, Subscriptions, and Push Messages.][1]
 
 The key piece in this architectural diagram is Azure Service Bus, which provides a topics/subscriptions programming model (more on it at [Service Bus Pub/Sub programming]). The receiver, which in this case, is the Mobile backend (typically [Azure Mobile Service], which initiates a push to the mobile apps) does not receive messages directly from the backend systems but instead, an intermediate abstraction layer provided by [Azure Service Bus], which enables mobile backend to receive messages from one or more backend systems. A Service Bus Topic needs to be created for each of the backend systems, for example,  Account, HR, Finance, which is basically "topics" of interest, which initiates messages to be sent as push notification. The backend systems send messages to these topics. A Mobile Backend can subscribe to one or more such topics by creating a Service Bus subscription. It entitles the mobile backend to receive a notification from the corresponding backend system. Mobile backend continues to listen for messages on their subscriptions and as soon as a message arrives, it turns back and sends it as notification to its notification hub. Notification hubs then eventually deliver the message to the mobile app. Here is the list of key components:
 
@@ -224,15 +225,17 @@ The full sample code is available at [Notification Hub Samples]. It is split int
 
     e. For publishing this app as a **WebJob**, right click on the solution in Visual Studio and select **Publish as WebJob**
 
-    ![][2]
+    ![Screenshot of the right-click options being displayed with Publish as Azure WebJob outlined in red.][2]
 
     f. Select your publishing profile and create a new Azure WebSite if it does not exist already, which hosts this WebJob and once you have the WebSite then **Publish**.
 
-    ![][3]
+    :::image type="complex" source="./media/notification-hubs-enterprise-push-architecture/PublishAsWebJob.png" alt-text="Screenshot showing the workflow to create a site on Azure.":::
+    Screenshot of the Publish Web dialog box with the Microsoft Azure Websites option selected, a green arrow pointing to the Select Existing Website dialog box with the New option outlined in red, and a green arrow pointing to the Create site on Microsoft Azure dialog box with the Site name and Create options outlined in red.
+    :::image-end:::
 
     g. Configure the job to be "Run Continuously" so that when you log in to the [Azure portal] you should see something like the following:
 
-    ![][4]
+    ![Screenshot of the Azure Portal with the enterprise push backend webjobs displayed and the Name, Schedule, and Logs values outlined in red.][4]
 
 3. **EnterprisePushMobileApp**
 
@@ -266,11 +269,11 @@ The full sample code is available at [Notification Hub Samples]. It is split int
 2. Run the **EnterprisePushMobileApp**, which starts the Windows Store app.
 3. Run the **EnterprisePushBackendSystem** console application, which simulates the LoB backend and starts sending messages and you should see toast notifications appearing like the following image:
 
-    ![][5]
+    ![Screenshot of a console running the Enterprise Push Backend System app and the message that is sent by the app.][5]
 
 4. The messages were originally sent to Service Bus topics, which was being monitored by Service Bus subscriptions in your Web Job. Once a message was received, a notification was created and sent to the mobile app. You can look through the WebJob logs to confirm the processing when you go to the Logs link in [Azure portal] for your Web Job:
 
-    ![][6]
+    ![Screenshot of the Continuous WebJob Details dialog box with the message that is sent outlined in red.][6]
 
 <!-- Images -->
 [1]: ./media/notification-hubs-enterprise-push-architecture/architecture.png
@@ -282,9 +285,9 @@ The full sample code is available at [Notification Hub Samples]. It is split int
 
 <!-- Links -->
 [Notification Hub Samples]: https://github.com/Azure/azure-notificationhubs-samples
-[Azure Mobile Service]: https://azure.microsoft.com/documentation/services/mobile-services/
-[Azure Service Bus]: https://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
-[Service Bus Pub/Sub programming]: https://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
+[Azure Mobile Service]: https://azure.microsoft.com/services/app-service/mobile/
+[Azure Service Bus]: ../service-bus-messaging/service-bus-messaging-overview.md
+[Service Bus Pub/Sub programming]: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md
 [Azure WebJob]: ../app-service/webjobs-create.md
-[Notification Hubs - Windows Universal tutorial]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Notification Hubs - Windows Universal tutorial]: ./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Azure portal]: https://portal.azure.com/

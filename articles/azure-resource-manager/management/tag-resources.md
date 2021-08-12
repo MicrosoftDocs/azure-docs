@@ -2,32 +2,38 @@
 title: Tag resources, resource groups, and subscriptions for logical organization
 description: Shows how to apply tags to organize Azure resources for billing and managing.
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 07/29/2021
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
+
 # Use tags to organize your Azure resources and management hierarchy
 
-You apply tags to your Azure resources, resource groups, and subscriptions to logically organize them into a taxonomy. Each tag consists of a name and a value pair. For example, you can apply the name "Environment" and the value "Production" to all the resources in production.
+You apply tags to your Azure resources, resource groups, and subscriptions to logically organize them into a taxonomy. Each tag consists of a name and a value pair. For example, you can apply the name _Environment_ and the value _Production_ to all the resources in production.
 
 For recommendations on how to implement a tagging strategy, see [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 
 > [!IMPORTANT]
-> Tag names are case-insensitive. Tag values are case-sensitive.
+> Tag names are case-insensitive for operations. A tag with a tag name, regardless of casing, is updated or retrieved. However, the resource provider might keep the casing you provide for the tag name. You'll see that casing in cost reports.
+>
+> Tag values are case-sensitive.
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 
 ## Required access
 
-To apply tags to a resource, you must have write access to the **Microsoft.Resources/tags** resource type. The [Tag Contributor](../../role-based-access-control/built-in-roles.md#tag-contributor) role lets you apply tags to an entity without having access to the entity itself. Currently, the tag contributor role can't apply tags to resources or resource groups through the portal. It can apply tags to subscriptions through the portal. It supports all tag operations through PowerShell and REST API.  
+There are two ways to get the required access to tag resources.
 
-The [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role also grants the required access to apply tags to any entity. To apply tags to only one resource type, use the contributor role for that resource. For example, to apply tags to virtual machines, use the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
+- You can have write access to the `Microsoft.Resources/tags` resource type. This access lets you tag any resource, even if you don't have access to the resource itself. The [Tag Contributor](../../role-based-access-control/built-in-roles.md#tag-contributor) role grants this access. Currently, the tag contributor role can't apply tags to resources or resource groups through the portal. It can apply tags to subscriptions through the portal. It supports all tag operations through PowerShell and REST API.
+
+- You can have write access to the resource itself. The [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role grants the required access to apply tags to any entity. To apply tags to only one resource type, use the contributor role for that resource. For example, to apply tags to virtual machines, use the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
 ## PowerShell
 
 ### Apply tags
 
-Azure PowerShell offers two commands for applying tags - [New-AzTag](/powershell/module/az.resources/new-aztag) and [Update-AzTag](/powershell/module/az.resources/update-aztag). You must have the Az.Resources module 1.12.0 or later. You can check your version with `Get-Module Az.Resources`. You can install that module or [install Azure PowerShell](/powershell/azure/install-az-ps) 3.6.1 or later.
+Azure PowerShell offers two commands for applying tags: [New-AzTag](/powershell/module/az.resources/new-aztag) and [Update-AzTag](/powershell/module/az.resources/update-aztag). You must have the `Az.Resources` module 1.12.0 or later. You can check your version with `Get-InstalledModule -Name Az.Resources`. You can install that module or [install Azure PowerShell](/powershell/azure/install-az-ps) 3.6.1 or later.
 
-The **New-AzTag** replaces all tags on the resource, resource group, or subscription. When calling the command, pass in the resource ID of the entity you wish to tag.
+The `New-AzTag` replaces all tags on the resource, resource group, or subscription. When calling the command, pass in the resource ID of the entity you wish to tag.
 
 The following example applies a set of tags to a storage account:
 
@@ -62,7 +68,7 @@ Properties :
         Team         Compliance
 ```
 
-To add tags to a resource that already has tags, use **Update-AzTag**. Set the **-Operation** parameter to **Merge**.
+To add tags to a resource that already has tags, use `Update-AzTag`. Set the `-Operation` parameter to `Merge`.
 
 ```azurepowershell-interactive
 $tags = @{"Dept"="Finance"; "Status"="Normal"}
@@ -81,7 +87,7 @@ Properties :
         Environment  Production
 ```
 
-Each tag name can have only one value. If you provide a new value for a tag, the old value is replaced even if you use the merge operation. The following example changes the Status tag from Normal to Green.
+Each tag name can have only one value. If you provide a new value for a tag, the old value is replaced even if you use the merge operation. The following example changes the `Status` tag from _Normal_ to _Green_.
 
 ```azurepowershell-interactive
 $tags = @{"Status"="Green"}
@@ -98,7 +104,7 @@ Properties :
         Environment  Production
 ```
 
-When you set the **-Operation** parameter to **Replace**, the existing tags are replaced by the new set of tags.
+When you set the `-Operation` parameter to `Replace`, the existing tags are replaced by the new set of tags.
 
 ```azurepowershell-interactive
 $tags = @{"Project"="ECommerce"; "CostCenter"="00123"; "Team"="Web"}
@@ -204,7 +210,7 @@ To get resource groups that have a specific tag name and value, use:
 
 ### Remove tags
 
-To remove specific tags, use **Update-AzTag** and set **-Operation** to **Delete**. Pass in the tags you want to delete.
+To remove specific tags, use `Update-AzTag` and set `-Operation` to `Delete`. Pass in the tags you want to delete.
 
 ```azurepowershell-interactive
 $removeTags = @{"Project"="ECommerce"; "Team"="Web"}
@@ -231,271 +237,499 @@ Remove-AzTag -ResourceId "/subscriptions/$subscription"
 
 ### Apply tags
 
-When adding tags to a resource group or resource, you can either overwrite the existing tags or append new tags to existing tags.
+Azure CLI offers two commands for applying tags: [az tag create](/cli/azure/tag#az_tag_create) and [az tag update](/cli/azure/tag#az_tag_update). You must have Azure CLI 2.10.0 or later. You can check your version with `az version`. To update or install, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-To overwrite the tags on a resource, use:
+The `az tag create` replaces all tags on the resource, resource group, or subscription. When calling the command, pass in the resource ID of the entity you wish to tag.
 
-```azurecli-interactive
-az resource tag --tags 'Dept=IT' 'Environment=Test' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
-```
-
-To append a tag to the existing tags on a resource, use:
+The following example applies a set of tags to a storage account:
 
 ```azurecli-interactive
-az resource update --set tags.'Status'='Approved' -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
+resource=$(az resource show -g demoGroup -n demoStorage --resource-type Microsoft.Storage/storageAccounts --query "id" --output tsv)
+az tag create --resource-id $resource --tags Dept=Finance Status=Normal
 ```
 
-To overwrite the existing tags on a resource group, use:
+When the command completes, notice that the resource has two tags.
+
+```output
+"properties": {
+  "tags": {
+    "Dept": "Finance",
+    "Status": "Normal"
+  }
+},
+```
+
+If you run the command again but this time with different tags, notice that the earlier tags are removed.
 
 ```azurecli-interactive
-az group update -n examplegroup --tags 'Environment=Test' 'Dept=IT'
+az tag create --resource-id $resource --tags Team=Compliance Environment=Production
 ```
 
-To append a tag to the existing tags on a resource group, use:
+```output
+"properties": {
+  "tags": {
+    "Environment": "Production",
+    "Team": "Compliance"
+  }
+},
+```
+
+To add tags to a resource that already has tags, use `az tag update`. Set the `--operation` parameter to `Merge`.
 
 ```azurecli-interactive
-az group update -n examplegroup --set tags.'Status'='Approved'
+az tag update --resource-id $resource --operation Merge --tags Dept=Finance Status=Normal
 ```
 
-Currently, Azure CLI doesn't support applying tags to subscriptions.
+Notice that the two new tags were added to the two existing tags.
+
+```output
+"properties": {
+  "tags": {
+    "Dept": "Finance",
+    "Environment": "Production",
+    "Status": "Normal",
+    "Team": "Compliance"
+  }
+},
+```
+
+Each tag name can have only one value. If you provide a new value for a tag, the old value is replaced even if you use the merge operation. The following example changes the `Status` tag from _Normal_ to _Green_.
+
+```azurecli-interactive
+az tag update --resource-id $resource --operation Merge --tags Status=Green
+```
+
+```output
+"properties": {
+  "tags": {
+    "Dept": "Finance",
+    "Environment": "Production",
+    "Status": "Green",
+    "Team": "Compliance"
+  }
+},
+```
+
+When you set the `--operation` parameter to `Replace`, the existing tags are replaced by the new set of tags.
+
+```azurecli-interactive
+az tag update --resource-id $resource --operation Replace --tags Project=ECommerce CostCenter=00123 Team=Web
+```
+
+Only the new tags remain on the resource.
+
+```output
+"properties": {
+  "tags": {
+    "CostCenter": "00123",
+    "Project": "ECommerce",
+    "Team": "Web"
+  }
+},
+```
+
+The same commands also work with resource groups or subscriptions. You pass in the identifier for the resource group or subscription you want to tag.
+
+To add a new set of tags to a resource group, use:
+
+```azurecli-interactive
+group=$(az group show -n demoGroup --query id --output tsv)
+az tag create --resource-id $group --tags Dept=Finance Status=Normal
+```
+
+To update the tags for a resource group, use:
+
+```azurecli-interactive
+az tag update --resource-id $group --operation Merge --tags CostCenter=00123 Environment=Production
+```
+
+To add a new set of tags to a subscription, use:
+
+```azurecli-interactive
+sub=$(az account show --subscription "Demo Subscription" --query id --output tsv)
+az tag create --resource-id /subscriptions/$sub --tags CostCenter=00123 Environment=Dev
+```
+
+To update the tags for a subscription, use:
+
+```azurecli-interactive
+az tag update --resource-id /subscriptions/$sub --operation Merge --tags Team="Web Apps"
+```
 
 ### List tags
 
-To see the existing tags for a resource, use:
+To get the tags for a resource, resource group, or subscription, use the [az tag list](/cli/azure/tag#az_tag_list) command and pass in the resource ID for the entity.
+
+To see the tags for a resource, use:
 
 ```azurecli-interactive
-az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
+resource=$(az resource show -g demoGroup -n demoStorage --resource-type Microsoft.Storage/storageAccounts --query "id" --output tsv)
+az tag list --resource-id $resource
 ```
 
-To see the existing tags for a resource group, use:
+To see the tags for a resource group, use:
 
 ```azurecli-interactive
-az group show -n examplegroup --query tags
+group=$(az group show -n demoGroup --query id --output tsv)
+az tag list --resource-id $group
 ```
 
-That script returns the following format:
+To see the tags for a subscription, use:
 
-```json
-{
-  "Dept"        : "IT",
-  "Environment" : "Test"
-}
+```azurecli-interactive
+sub=$(az account show --subscription "Demo Subscription" --query id --output tsv)
+az tag list --resource-id /subscriptions/$sub
 ```
 
 ### List by tag
 
-To get all the resources that have a particular tag and value, use `az resource list`:
+To get resources that have a specific tag name and value, use:
 
 ```azurecli-interactive
-az resource list --tag Dept=Finance
+az resource list --tag CostCenter=00123 --query [].name
 ```
 
-To get resource groups that have a specific tag, use `az group list`:
+To get resources that have a specific tag name with any tag value, use:
 
 ```azurecli-interactive
-az group list --tag Dept=IT
+az resource list --tag Team --query [].name
+```
+
+To get resource groups that have a specific tag name and value, use:
+
+```azurecli-interactive
+az group list --tag Dept=Finance
+```
+
+### Remove tags
+
+To remove specific tags, use `az tag update` and set `--operation` to `Delete`. Pass in the tags you want to delete.
+
+```azurecli-interactive
+az tag update --resource-id $resource --operation Delete --tags Project=ECommerce Team=Web
+```
+
+The specified tags are removed.
+
+```output
+"properties": {
+  "tags": {
+    "CostCenter": "00123"
+  }
+},
+```
+
+To remove all tags, use the [az tag delete](/cli/azure/tag#az_tag_delete) command.
+
+```azurecli-interactive
+az tag delete --resource-id $resource
 ```
 
 ### Handling spaces
 
-If your tag names or values include spaces, you must take a couple of extra steps. The following example applies all tags from a resource group to its resources when the tags may contain spaces.
+If your tag names or values include spaces, enclose them in double quotes.
 
 ```azurecli-interactive
-jsontags=$(az group show --name examplegroup --query tags -o json)
-tags=$(echo $jsontags | tr -d '{}"' | sed 's/: /=/g' | sed "s/\"/'/g" | sed 's/, /,/g' | sed 's/ *$//g' | sed 's/^ *//g')
-origIFS=$IFS
-IFS=','
-read -a tagarr <<< "$tags"
-resourceids=$(az resource list -g examplegroup --query [].id --output tsv)
-for id in $resourceids
-do
-  az resource tag --tags "${tagarr[@]}" --id $id
-done
-IFS=$origIFS
+az tag update --resource-id $group --operation Merge --tags "Cost Center"=Finance-1222 Location="West US"
 ```
 
-## Templates
+## ARM templates
 
-You can tag resources, resource groups, and subscriptions during deployment with a Resource Manager template.
+You can tag resources, resource groups, and subscriptions during deployment with an Azure Resource Manager template (ARM template).
+
+> [!NOTE]
+> The tags you apply through an ARM template or Bicep file overwrite any existing tags.
 
 ### Apply values
 
 The following example deploys a storage account with three tags. Two of the tags (`Dept` and `Environment`) are set to literal values. One tag (`LastDeployed`) is set to a parameter that defaults to the current date.
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "utcShort": {
-            "type": "string",
-            "defaultValue": "[utcNow('d')]"
-        },
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "utcShort": {
+      "type": "string",
+      "defaultValue": "[utcNow('d')]"
     },
-    "resources": [
-        {
-            "apiVersion": "2019-04-01",
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
-            "location": "[parameters('location')]",
-            "tags": {
-                "Dept": "Finance",
-                "Environment": "Production",
-                "LastDeployed": "[parameters('utcShort')]"
-            },
-            "sku": {
-                "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {}
-        }
-    ]
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2021-02-01",
+      "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "tags": {
+        "Dept": "Finance",
+        "Environment": "Production",
+        "LastDeployed": "[parameters('utcShort')]"
+      },
+      "properties": {}
+    }
+  ]
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```Bicep
+param location string = resourceGroup().location
+param utcShort string = utcNow('d')
+
+resource stgAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+  name: 'storage${uniqueString(resourceGroup().id)}'
+  location: location
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'Storage'
+  tags: {
+    Dept: 'Finance'
+    Environment: 'Production'
+    LastDeployed: utcShort
+  }
+}
+```
+
+---
 
 ### Apply an object
 
 You can define an object parameter that stores several tags, and apply that object to the tag element. This approach provides more flexibility than the previous example because the object can have different properties. Each property in the object becomes a separate tag for the resource. The following example has a parameter named `tagValues` that is applied to the tag element.
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]"
-        },
-        "tagValues": {
-            "type": "object",
-            "defaultValue": {
-                "Dept": "Finance",
-                "Environment": "Production"
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
     },
-    "resources": [
-        {
-            "apiVersion": "2019-04-01",
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
-            "location": "[parameters('location')]",
-            "tags": "[parameters('tagValues')]",
-            "sku": {
-                "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {}
-        }
-    ]
+    "tagValues": {
+      "type": "object",
+      "defaultValue": {
+        "Dept": "Finance",
+        "Environment": "Production"
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2021-02-01",
+      "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "tags": "[parameters('tagValues')]",
+      "properties": {}
+    }
+  ]
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```Bicep
+param location string = resourceGroup().location
+param tagValues object = {
+  Dept: 'Finance'
+  Environment: 'Production'
+}
+
+resource stgAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+  name: 'storage${uniqueString(resourceGroup().id)}'
+  location: location
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'Storage'
+  tags: tagValues
+}
+```
+
+---
 
 ### Apply a JSON string
 
-To store many values in a single tag, apply a JSON string that represents the values. The entire JSON string is stored as one tag that can't exceed 256 characters. The following example has a single tag named `CostCenter` that contains several values from a JSON string:  
+To store many values in a single tag, apply a JSON string that represents the values. The entire JSON string is stored as one tag that can't exceed 256 characters. The following example has a single tag named `CostCenter` that contains several values from a JSON string:
+
+# [JSON](#tab/json)
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]"
-        }
-    },
-    "resources": [
-        {
-            "apiVersion": "2019-04-01",
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
-            "location": "[parameters('location')]",
-            "tags": {
-                "CostCenter": "{\"Dept\":\"Finance\",\"Environment\":\"Production\"}"
-            },
-            "sku": {
-                "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {}
-        }
-    ]
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2021-02-01",
+      "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "tags": {
+        "CostCenter": "{\"Dept\":\"Finance\",\"Environment\":\"Production\"}"
+      },
+      "properties": {}
+    }
+  ]
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```Bicep
+param location string = resourceGroup().location
+
+resource stgAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+  name: 'storage${uniqueString(resourceGroup().id)}'
+  location: location
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'Storage'
+  tags: {
+    CostCenter: '{"Dept":"Finance","Environment":"Production"}'
+  }
+}
+```
+
+---
 
 ### Apply tags from resource group
 
-To apply tags from a resource group to a resource, use the [resourceGroup](../templates/template-functions-resource.md#resourcegroup) function. When getting the tag value, use the `tags[tag-name]` syntax instead of the `tags.tag-name` syntax, because some characters aren't parsed correctly in the dot notation.
+To apply tags from a resource group to a resource, use the [resourceGroup()](../templates/template-functions-resource.md#resourcegroup) function. When getting the tag value, use the `tags[tag-name]` syntax instead of the `tags.tag-name` syntax, because some characters aren't parsed correctly in the dot notation.
+
+# [JSON](#tab/json)
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]"
-        }
-    },
-    "resources": [
-        {
-            "apiVersion": "2019-04-01",
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
-            "location": "[parameters('location')]",
-            "tags": {
-                "Dept": "[resourceGroup().tags['Dept']]",
-                "Environment": "[resourceGroup().tags['Environment']]"
-            },
-            "sku": {
-                "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {}
-        }
-    ]
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2021-02-01",
+      "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "tags": {
+        "Dept": "[resourceGroup().tags['Dept']]",
+        "Environment": "[resourceGroup().tags['Environment']]"
+      },
+      "properties": {}
+    }
+  ]
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```Bicep
+param location string = resourceGroup().location
+
+resource stgAccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+  name: 'storage${uniqueString(resourceGroup().id)}'
+  location: location
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'Storage'
+  tags: {
+    Dept: resourceGroup().tags['Dept']
+    Environment: resourceGroup().tags['Environment']
+  }
+}
+```
+
+---
 
 ### Apply tags to resource groups or subscriptions
 
-You can add tags to a resource group or subscription by deploying the **Microsoft.Resources/tags** resource type. The tags are applied to the target resource group or subscription for the deployment. Each time you deploy the template you replace any tags there were previously applied.
+You can add tags to a resource group or subscription by deploying the `Microsoft.Resources/tags` resource type. The tags are applied to the target resource group or subscription for the deployment. Each time you deploy the template you replace any tags there were previously applied.
+
+# [JSON](#tab/json)
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "tagName": {
-            "type": "string",
-            "defaultValue": "TeamName"
-        },
-        "tagValue": {
-            "type": "string",
-            "defaultValue": "AppTeam1"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "tagName": {
+      "type": "string",
+      "defaultValue": "TeamName"
     },
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.Resources/tags",
-            "name": "default",
-            "apiVersion": "2019-10-01",
-            "dependsOn": [],
-            "properties": {
-                "tags": {
-                    "[parameters('tagName')]": "[parameters('tagValue')]"
-                }
-            }
+    "tagValue": {
+      "type": "string",
+      "defaultValue": "AppTeam1"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/tags",
+      "name": "default",
+      "apiVersion": "2021-04-01",
+      "properties": {
+        "tags": {
+          "[parameters('tagName')]": "[parameters('tagValue')]"
         }
-    ]
+      }
+    }
+  ]
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```Bicep
+param tagName string = 'TeamName'
+param tagValue string = 'AppTeam1'
+
+resource applyTags 'Microsoft.Resources/tags@2021-04-01' = {
+  name: 'default'
+  properties: {
+    tags: {
+      '${tagName}': tagValue
+    }
+  }
+}
+```
+
+---
 
 To apply the tags to a resource group, use either PowerShell or Azure CLI. Deploy to the resource group that you want to tag.
 
@@ -517,35 +751,59 @@ New-AzSubscriptionDeployment -name tagresourcegroup -Location westus2 -TemplateU
 az deployment sub create --name tagresourcegroup --location westus2 --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/tags.json
 ```
 
+For more information about subscription deployments, see [Create resource groups and resources at the subscription level](../templates/deploy-to-subscription.md).
+
 The following template adds the tags from an object to either a resource group or subscription.
 
+# [JSON](#tab/json)
+
 ```json
-"$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "tags": {
-            "type": "object",
-            "defaultValue": {
-                "TeamName": "AppTeam1",
-                "Dept": "Finance",
-                "Environment": "Production"
-            }
-        }
-    },
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.Resources/tags",
-            "name": "default",
-            "apiVersion": "2019-10-01",
-            "dependsOn": [],
-            "properties": {
-                "tags": "[parameters('tags')]"
-            }
-        }
-    ]
+{
+  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "tags": {
+      "type": "object",
+      "defaultValue": {
+        "TeamName": "AppTeam1",
+        "Dept": "Finance",
+        "Environment": "Production"
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/tags",
+      "apiVersion": "2021-04-01",
+      "name": "default",
+      "properties": {
+        "tags": "[parameters('tags')]"
+      }
+    }
+  ]
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```Bicep
+targetScope = 'subscription'
+
+param tagObject object = {
+  TeamName: 'AppTeam1'
+  Dept: 'Finance'
+  Environment: 'Production'
+}
+
+resource applyTags 'Microsoft.Resources/tags@2021-04-01' = {
+  name: 'default'
+  properties: {
+    tags: tagObject
+  }
+}
+```
+
+---
 
 ## Portal
 
@@ -568,7 +826,7 @@ Tags applied to the resource group or subscription aren't inherited by the resou
 
 You can use tags to group your billing data. For example, if you're running multiple VMs for different organizations, use the tags to group usage by cost center. You can also use tags to categorize costs by runtime environment, such as the billing usage for VMs running in the production environment.
 
-You can retrieve information about tags through the [Azure Resource Usage and RateCard APIs](../../billing/billing-usage-rate-card-overview.md) or the usage comma-separated values (CSV) file. You download the usage file from the [Azure Account Center](https://account.azure.com/Subscriptions) or Azure portal. For more information, see [Download or view your Azure billing invoice and daily usage data](../../billing/billing-download-azure-invoice-daily-usage-date.md). When downloading the usage file from the Azure Account Center, select **Version 2**. For services that support tags with billing, the tags appear in the **Tags** column.
+You can retrieve information about tags by downloading  the usage file, a comma-separated values (CSV) file available from the Azure portal. For more information, see [Download or view your Azure billing invoice and daily usage data](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). For services that support tags with billing, the tags appear in the **Tags** column.
 
 For REST API operations, see [Azure Billing REST API Reference](/rest/api/billing/).
 
@@ -577,15 +835,22 @@ For REST API operations, see [Azure Billing REST API Reference](/rest/api/billin
 The following limitations apply to tags:
 
 * Not all resource types support tags. To determine if you can apply a tag to a resource type, see [Tag support for Azure resources](tag-support.md).
-* Management groups currently don't support tags.
 * Each resource, resource group, and subscription can have a maximum of 50 tag name/value pairs. If you need to apply more tags than the maximum allowed number, use a JSON string for the tag value. The JSON string can contain many values that are applied to a single tag name. A resource group or subscription can contain many resources that each have 50 tag name/value pairs.
 * The tag name is limited to 512 characters, and the tag value is limited to 256 characters. For storage accounts, the tag name is limited to 128 characters, and the tag value is limited to 256 characters.
-* Generalized VMs don't support tags.
 * Tags can't be applied to classic resources such as Cloud Services.
+* Azure IP Groups and Azure Firewall Policies don't support PATCH operations, which means they don't support updating tags through the portal. Instead, use the update commands for those resources. For example, you can update tags for an IP group with the [az network ip-group update](/cli/azure/network/ip-group#az_network_ip_group_update) command. 
 * Tag names can't contain these characters: `<`, `>`, `%`, `&`, `\`, `?`, `/`
 
    > [!NOTE]
-   > Currently Azure DNS zones and Traffic Manger services also don't allow the use of spaces in the tag.
+   > * Azure DNS zones and Traffic Manager doesn't support the use of spaces in the tag or a tag that starts with a number.
+   >
+   > * Azure Front Door doesn't support the use of `#` or `:` in the tag name.
+   >
+   > * The following Azure resources only support 15 tags:
+   >     * Azure Automation 
+   >     * Azure CDN
+   >     * Azure DNS (Zone and A records)
+   >     * Azure Private DNS (Zone, A records, and virtual network link)
 
 ## Next steps
 

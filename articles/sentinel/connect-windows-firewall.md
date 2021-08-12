@@ -1,6 +1,6 @@
 ---
-title: Connect Windows firewall data to Azure Sentinel| Microsoft Docs
-description: Learn how to connect Windows firewall data to Azure Sentinel.
+title: Connect Windows Defender Firewall data to Azure Sentinel | Microsoft Docs
+description: Enable the Windows firewall connector in Azure Sentinel to easily stream firewall events from Windows machines that have Log Analytics agents installed.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -11,50 +11,84 @@ ms.assetid: 0e41f896-8521-49b8-a244-71c78d469bc3
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 08/05/2020
 ms.author: yelevin
 
 ---
-# Connect Windows firewall
+# Connect Windows Defender Firewall with Advanced Security to Azure Sentinel
 
+The [Windows Defender Firewall with Advanced Security](/windows/security/threat-protection/windows-firewall/windows-firewall-with-advanced-security) connector allows Azure Sentinel to easily ingest Windows Defender Firewall with Advanced Security logs from any Windows machines in your workspace. This connection enables you to view and analyze Windows Firewall events in your workbooks, to use them in creating custom alerts, and to incorporate them in your security investigations, giving you more insight into your organization’s network and improving your security operations capabilities. 
 
-
-The Windows firewall connector allows you to easily connect your Windows firewalls logs, if they are connected to your Azure Sentinel workspace. This connection enables you to view dashboards, create custom alerts, and improve investigation. This gives you more insight into your organization’s network and improves your security operation capabilities. The solution collects Windows firewall events from the Windows machines on which a Log Analytics agent is installed. 
-
+The solution collects Windows firewall events from the Windows machines on which a Log Analytics agent is installed. 
 
 > [!NOTE]
 > - Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
-> - If Azure Sentinel and Azure Security Center are collected to the same workspace, there is no need to enable the Windows Firewall solution through this connector. If you enabled it anyway, it will not cause duplicated data. 
+>
+> - If Azure Defender alerts from Azure Security Center are already collected to the Azure Sentinel workspace, there is no need to enable the Windows Firewall solution through this connector. However, if you did enable it, it will not cause duplicated data.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
+
+## Prerequisites
+
+- You must have read and write permissions on the workspace to which the machines you wish to monitor are connected.
+
+- You must be assigned the **Log Analytics Contributor** role on the SecurityInsights solution on that workspace, in addition to any **Azure Sentinel** roles. [Learn more](../role-based-access-control/built-in-roles.md#log-analytics-contributor)
 
 ## Enable the connector 
 
-1. In the Azure Sentinel portal, select **Data connectors** and then click on the **Windows firewall** tile. 
-1.  If your Windows machines are in Azure:
-    1. Click **Install agent on Azure Windows virtual machine**.
-    1. In the **Virtual machines** list, select the Windows machine you want to stream into Azure Sentinel. Make sure this is a Windows VM.
-    1. In the window that opens for that VM, click **Connect**.  
-    1. Click **Enable** in the **Windows firewall connector** window. 
+1. In the Azure Sentinel portal, select **Data connectors** from the navigation menu.
 
-2. If your Windows machine is not an Azure VM:
-    1. Click **Install agent on non-Azure machines**.
-    1. In the **Direct agent** window, select either **Download Windows agent (64 bit)** or **Download Windows agent (32 bit)**.
-    1. Install the agent on your Windows machine. Copy the **Workspace ID**, **Primary key**, and **Secondary key** and use them when prompted during the installation.
+1. Select **Windows Firewall** from the connectors gallery and click **Open connector page**.
 
-4. Select which data types you want to stream.
-5. Click **Install solution**.
-6. To use the relevant schema in Log Analytics for the Windows firewall, search for **SecurityEvent**.
+### Instructions tab
+
+- **If your Windows machines are in Azure:**
+
+    1. Select **Install agent on Azure Windows Virtual Machine**.
+
+    1. Click the **Download & install agent for Azure Windows Virtual machines >** link that appears.
+
+    1. In the **Virtual machines** list, select the Windows machine you want to stream into Azure Sentinel. (You can select **Windows** in the OS column filter to ensure that only Windows VMs are displayed).
+
+    1. In the window that opens for that VM, click **Connect**.
+
+    1. Return to the **Virtual Machines** pane and repeat the previous two steps for any other VMs you want to connect. When you're done, return to the **Windows Firewall** pane.
+
+- **If your Windows machine is not an Azure VM:**
+
+    1. Select **Install agent on non-Azure Windows Machine**.
+
+    1. Click the **Download & install agent for non-Azure Windows machines >** link that appears.
+
+    1. In the **Agents management** pane, select either **Download Windows Agent (64 bit)** or **Download Windows Agent (32 bit)**, as needed.
+
+    1. Copy the **Workspace ID**, **Primary key**, and **Secondary key** strings to a text file. Copy that file and the downloaded installation file to your Windows machine. Run the installation file, and when prompted, enter the ID and key strings in the text file during the installation.
+
+    1. Return to the **Windows Firewall** pane.
+
+1. Click **Install solution**.
+
+### Next steps tab
+
+- See the available recommended workbooks and query samples bundled with the **Windows Firewall** data connector to get insight into your Windows Firewall log data.
+
+- To query Windows firewall data in **Logs**, type **WindowsFirewall** in the query window.
 
 ## Validate connectivity
+ 
+Because Windows Firewall logs are sent to Azure Sentinel only when the local log file reaches capacity, leaving the log at its default size of 4096 KB will most likely result in high collection latency. You can lower the latency by lowering the log file size. For more information, see [configure the Windows Firewall log](/windows/security/threat-protection/windows-firewall/configure-the-windows-firewall-log).
 
-It may take upwards of 20 minutes until your logs start to appear in Log Analytics. 
-
-
+> [!NOTE]
+>
+> - While smaller log sizes will reduce collection latency, they might also negatively impact the local machine's performance.
+> 
+> - The data collection configuration requires a minimum of 1000 new lines in the log file before data is collected. Therefore, the log file size should be set to no less than 100 (one hundred) KB, as this will ensure the accumulation of 1000 lines.
 
 ## Next steps
 In this document, you learned how to connect Windows firewall to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
-
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).

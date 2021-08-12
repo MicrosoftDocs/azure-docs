@@ -1,7 +1,7 @@
 ---
 title: Language support - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: This article provides a list of natural languages supported by Computer Vision features; OCR, Recognize Text and Read.
+description: This article provides a list of natural languages supported by Computer Vision features; OCR, Image analysis.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -16,44 +16,97 @@ ms.author: pafarley
 
 Some features of Computer Vision support multiple languages; any features not mentioned here only support English.
 
-## Text recognition
+## Optical Character Recognition (OCR)
 
-Computer Vision can recognize text in many languages. Specifically, the [OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) API supports a variety of languages, whereas the [Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) API and [Recognize Text](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) API only support English. See [Recognize printed and handwritten text](concept-recognizing-text.md) for more information on this functionality and the advantages of each API.
+Computer Vision's OCR APIs support several languages. They do not require you to specify a language code. See the [Optical Character Recognition (OCR) overview](overview-ocr.md) for more information.
 
-OCR automatically detects the language of the input material, so there is no need to specify a language code in the API call. However, language codes are always returned as the value of the `"language"` node in the JSON response.
-
-|Language| Language code | OCR API |
-|:-----|:----:|:-----:|
-|Arabic | `ar`|✔ |
-|Chinese (Simplified) | `zh-Hans`|✔ |
-|Chinese (Traditional) | `zh-Hant`|✔ |
-|Czech | `cs` |✔ |
-|Danish | `da` |✔ |
-|Dutch | `nl` |✔ |
-|English | `en` |✔ |
-|Finnish | `fi` |✔ |
-|French | `fr` |✔ |
-|German | `de` |✔ |
-|Greek | `el` |✔ |
-|Hungarian | `hu` |✔ |
-|Italian | `it` |✔ |
-|Japanese | `ja` |✔ |
-|Korean | `ko` |✔ |
-|Norwegian | `nb` |✔ |
-|Polish | `pl` |✔ |
-|Portuguese | `pt` |✔ |
-|Romanian | `ro` |✔ |
-|Russian | `ru` |✔ |
-|Serbian (Cyrillic) | `sr-Cyrl` |✔ |
-|Serbian (Latin) | `sr-Latn` |✔ |
-|Slovak | `sk` |✔ |
-|Spanish | `es` |✔ |
-|Swedish | `sw` |✔ |
-|Turkish | `tr` |✔ |
+|Language| Language code | Read 3.2 | OCR API | Read 3.0/3.1 |
+|:-----|:----:|:-----:|:---:|:---:|
+|Afrikaans|`af`|✔ | | |
+|Albanian |`sq`|✔ | | |
+|Arabic | `ar`|  | ✔ | |
+|Asturian |`ast`|✔ | | |
+|Basque  |`eu`| ✔ | | |
+|Bislama   |`bi`|✔ | | |
+|Breton    |`br`|✔ | | |
+|Catalan    |`ca`|✔ | | |
+|Cebuano    |`ceb`|✔ | | |
+|Chamorro  |`ch`|✔| | |
+|Chinese Simplified | `zh-Hans`|✔ |✔ | |
+|Chinese Traditional | `zh-Hant`|✔ |✔ | |
+|Cornish     |`kw`|✔ | | |
+|Corsican      |`co`|✔ | | |
+|Crimean Tatar Latin  |`crh`| ✔ | | |
+|Czech | `cs` |✔ | ✔ | |
+|Danish | `da` |✔ | ✔ | |
+|Dutch | `nl` |✔ |✔ |✔ |
+|English (incl. handwritten) | `en` |✔ |✔ (print only)|✔ |
+|Estonian  |`et`|✔ | | |
+|Fijian |`fj`|✔ | | |
+|Filipino  |`fil`|✔ | | |
+|Finnish | `fi` |✔ |✔ | |
+|French | `fr` |✔ |✔ |✔ |
+|Friulian  | `fur` |✔ | | |
+|Galician   | `gl` |✔ | | |
+|German | `de` |✔ |✔ |✔ |
+|Gilbertese    | `gil` |✔ | | |
+|Greek | `el` | |✔ | |
+|Greenlandic   | `kl` |✔ | | |
+|Haitian Creole  | `ht` |✔ | | |
+|Hani  | `hni` |✔ | | |
+|Hmong Daw Latin | `mww` | ✔ | | |
+|Hungarian | `hu` | ✔ |✔ | |
+|Indonesian   | `id` |✔ | | |
+|Interlingua  | `ia` |✔ | | |
+|Inuktitut Latin  | `iu` | ✔ | | |
+|Irish    | `ga` |✔ | | |
+|Italian | `it` |✔ |✔ |✔ |
+|Japanese | `ja` |✔ |✔ | |
+|Javanese | `jv` |✔ | | |
+|K'iche'  | `quc` |✔ | | |
+|Kabuverdianu | `kea` |✔ | | |
+|Kachin Latin | `kac` |✔ | | |
+|Kara-Kalpak | `kaa` | ✔ | | |
+|Kashubian | `csb` |✔ | | |
+|Khasi  | `kha` | ✔ | | |
+|Korean | `ko` |✔ |✔ | |
+|Kurdish Latin | `kur` |✔ | | |
+|Luxembourgish  | `lb` | ✔ | | |
+|Malay Latin  | `ms` | ✔ | | |
+|Manx  | `gv` | ✔ | | |
+|Neapolitan   | `nap` | ✔ | | |
+|Norwegian | `nb` | | ✔ | |
+|Norwegian | `no` | ✔ | | |
+|Occitan | `oc` | ✔ | | |
+|Polish | `pl` | ✔ |✔ | |
+|Portuguese | `pt` |✔ |✔ |✔ |
+|Romanian | `ro` | | ✔ | |
+|Romansh  | `rm` | ✔ | | |
+|Russian | `ru` | |✔ | |
+|Scots  | `sco` | ✔ | | |
+|Scottish Gaelic  | `gd` |✔ | | |
+|Serbian Cyrillic | `sr-Cyrl` | |✔ | |
+|Serbian Latin | `sr-Latn` | |✔ | |
+|Slovak | `sk` | |✔ | |
+|Slovenian  | `slv` | ✔ || |
+|Spanish | `es` |✔ |✔ |✔ |
+|Swahili Latin  | `sw` |✔ | | |
+|Swedish | `sv` |✔ |✔ | |
+|Tatar Latin  | `tat` | ✔ | | |
+|Tetum    | `tet` |✔ |  | |
+|Turkish | `tr` |✔ | ✔ | |
+|Upper Sorbian  | `hsb` |✔ |  | |
+|Uzbek Latin     | `uz` |✔ |  | |
+|Volapük   | `vo` | ✔ | | |
+|Walser    | `wae` | ✔ | | |
+|Western Frisian | `fy` | ✔ | | |
+|Yucatec Maya | `yua` | ✔ | | |
+|Zhuang | `za` |✔ |  | |
+|Zulu  | `zu` | ✔ | | |
 
 ## Image analysis
 
-Some actions of the [Analyze - Image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API can return results in other languages, specified with the `language` query parameter. Other actions return results in English regardless of what language is specified, and others throw an exception for unsupported languages. Actions are specified with the `visualFeatures` and `details` query parameters; see the [Overview](home.md) for a list of all the actions you can do with image analysis.
+Some actions of the [Analyze - Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API can return results in other languages, specified with the `language` query parameter. Other actions return results in English regardless of what language is specified, and others throw an exception for unsupported languages. Actions are specified with the `visualFeatures` and `details` query parameters; see the [Overview](overview-image-analysis.md) for a list of all the actions you can do with image analysis.
 
 |Language | Language code | Categories | Tags | Description | Adult | Brands | Color | Faces | ImageType | Objects | Celebrities | Landmarks |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -62,10 +115,3 @@ Some actions of the [Analyze - Image](https://westus.dev.cognitive.microsoft.com
 |Japanese | `ja`   | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Portuguese | `pt` | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Spanish | `es`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
-
-## Next steps
-
-Get started using the Computer Vision features mentioned in this guide.
-
-* [Analyze a local image (REST)](./quickstarts/csharp-analyze.md)
-* [Extract printed text (REST)](./quickstarts/csharp-print-text.md)

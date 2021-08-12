@@ -1,30 +1,30 @@
 ---
-title: Tutorial - Create an Azure Active Directory Domain Services instance | Microsoft Docs
-description: In this tutorial, you learn how to create and configure an Azure Active Directory Domain Services instance using the Azure portal.
-author: iainfoulds
+title: Tutorial - Create an Azure Active Directory Domain Services managed domain | Microsoft Docs
+description: In this tutorial, you learn how to create and configure an Azure Active Directory Domain Services managed domain using the Azure portal.
+author: justinha
 manager: daveba
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/30/2020
-ms.author: iainfou
+ms.date: 06/01/2021
+ms.author: justinha
 
-#Customer intent: As an identity administrator, I want to create an Azure Active Directory Domain Services instance so that I can synchronize identity information with my Azure Active Directory tenant and provide Domain Services connectivity to virtual machines and applications in Azure.
+#Customer intent: As an identity administrator, I want to create an Azure Active Directory Domain Services managed domain so that I can synchronize identity information with my Azure Active Directory tenant and provide Domain Services connectivity to virtual machines and applications in Azure.
 ---
 
-# Tutorial: Create and configure an Azure Active Directory Domain Services instance
+# Tutorial: Create and configure an Azure Active Directory Domain Services managed domain
 
 Azure Active Directory Domain Services (Azure AD DS) provides managed domain services such as domain join, group policy, LDAP, Kerberos/NTLM authentication that is fully compatible with Windows Server Active Directory. You consume these domain services without deploying, managing, and patching domain controllers yourself. Azure AD DS integrates with your existing Azure AD tenant. This integration lets users sign in using their corporate credentials, and you can use existing groups and user accounts to secure access to resources.
 
-You can create a managed domain using default configuration options for networking and synchronization, or [manually define these settings][tutorial-create-instance-advanced]. This tutorial shows you how to use default options to create and configure an Azure AD DS instance using the Azure portal.
+You can create a managed domain using default configuration options for networking and synchronization, or [manually define these settings][tutorial-create-instance-advanced]. This tutorial shows you how to use default options to create and configure an Azure AD DS managed domain using the Azure portal.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Understand DNS requirements for a managed domain
-> * Create an Azure AD DS instance
+> * Create a managed domain
 > * Enable password hash synchronization
 
 If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -43,13 +43,13 @@ To complete this tutorial, you need the following resources and privileges:
 Although not required for Azure AD DS, it's recommended to [configure self-service password reset (SSPR)][configure-sspr] for the Azure AD tenant. Users can change their password without SSPR, but SSPR helps if they forget their password and need to reset it.
 
 > [!IMPORTANT]
-> After you create an Azure AD DS managed domain, you can't then move the instance to a different resource group, virtual network, subscription, etc. Take care to select the most appropriate subscription, resource group, region, and virtual network when you deploy the Azure AD DS instance.
+> After you create a managed domain, you can't then move the managed domain to a different resource group, virtual network, subscription, etc. Take care to select the most appropriate subscription, resource group, region, and virtual network when you deploy the managed domain.
 
 ## Sign in to the Azure portal
 
-In this tutorial, you create and configure the Azure AD DS instance using the Azure portal. To get started, first sign in to the [Azure portal](https://portal.azure.com).
+In this tutorial, you create and configure the managed domain using the Azure portal. To get started, first sign in to the [Azure portal](https://portal.azure.com).
 
-## Create an instance
+## Create a managed domain
 
 To launch the **Enable Azure AD Domain Services** wizard, complete the following steps:
 
@@ -59,7 +59,7 @@ To launch the **Enable Azure AD Domain Services** wizard, complete the following
 1. Select the Azure **Subscription** in which you would like to create the managed domain.
 1. Select the **Resource group** to which the managed domain should belong. Choose to **Create new** or select an existing resource group.
 
-When you create an Azure AD DS instance, you specify a DNS name. There are some considerations when you choose this DNS name:
+When you create a managed domain, you specify a DNS name. There are some considerations when you choose this DNS name:
 
 * **Built-in domain name:** By default, the built-in domain name of the directory is used (a *.onmicrosoft.com* suffix). If you wish to enable secure LDAP access to the managed domain over the internet, you can't create a digital certificate to secure the connection with this default domain. Microsoft owns the *.onmicrosoft.com* domain, so a Certificate Authority (CA) won't issue a certificate.
 * **Custom domain names:** The most common approach is to specify a custom domain name, typically one that you already own and is routable. When you use a routable, custom domain, traffic can correctly flow as needed to support your applications.
@@ -68,7 +68,7 @@ When you create an Azure AD DS instance, you specify a DNS name. There are some 
 > [!TIP]
 > If you create a custom domain name, take care with existing DNS namespaces. It's recommended to use a domain name separate from any existing Azure or on-premises DNS name space.
 >
-> For example, if you have an existing DNS name space of *contoso.com*, create an Azure AD DS managed domain with the custom domain name of *aaddscontoso.com*. If you need to use secure LDAP, you must register and own this custom domain name to generate the required certificates.
+> For example, if you have an existing DNS name space of *contoso.com*, create a managed domain with the custom domain name of *aaddscontoso.com*. If you need to use secure LDAP, you must register and own this custom domain name to generate the required certificates.
 >
 > You may need to create some additional DNS records for other services in your environment, or conditional DNS forwarders between existing DNS name spaces in your environment. For example, if you run a webserver that hosts a site using the root DNS name, there can be naming conflicts that require additional DNS entries.
 >
@@ -82,35 +82,38 @@ The following DNS name restrictions also apply:
     * If the virtual network where you plan to enable the managed domain has a VPN connection with your on-premises network. In this scenario, ensure you don't have a domain with the same DNS domain name on your on-premises network.
     * If you have an existing Azure cloud service with that name on the Azure virtual network.
 
-Complete the fields in the *Basics* window of the Azure portal to create an Azure AD DS instance:
+Complete the fields in the *Basics* window of the Azure portal to create a managed domain:
 
 1. Enter a **DNS domain name** for your managed domain, taking into consideration the previous points.
-1. Choose the Azure **Location** in which the managed domain should be created. If you choose a region that supports Availability Zones, the Azure AD DS resources are distributed across zones for additional redundancy.
+1. Choose the Azure **Location** in which the managed domain should be created. If you choose a region that supports Azure Availability Zones, the Azure AD DS resources are distributed across zones for additional redundancy.
 
-    Availability Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there's a minimum of three separate zones in all enabled regions.
+    > [!TIP]
+    > Availability Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there's a minimum of three separate zones in all enabled regions.
+    >
+    > There's nothing for you to configure for Azure AD DS to be distributed across zones. The Azure platform automatically handles the zone distribution of resources. For more information and to see region availability, see [What are Availability Zones in Azure?][availability-zones]
 
-    There's nothing for you to configure for Azure AD DS to be distributed across zones. The Azure platform automatically handles the zone distribution of resources. For more information and to see region availability, see [What are Availability Zones in Azure?][availability-zones]
-
-1. The **SKU** determines the performance, backup frequency, and maximum number of forest trusts you can create. You can change the SKU after the managed domain has been created if your business demands or requirements change. For more information, see [Azure AD DS SKU concepts][concepts-sku].
+1. The **SKU** determines the performance and backup frequency. You can change the SKU after the managed domain has been created if your business demands or requirements change. For more information, see [Azure AD DS SKU concepts][concepts-sku].
 
     For this tutorial, select the *Standard* SKU.
-1. A *forest* is a logical construct used by Active Directory Domain Services to group one or more domains. By default, an Azure AD DS managed domain is created as a *User* forest. This type of forest synchronizes all objects from Azure AD, including any user accounts created in an on-premises AD DS environment. A *Resource* forest only synchronizes users and groups created directly in Azure AD. Resource forests are currently in preview. For more information on *Resource* forests, including why you may use one and how to create forest trusts with on-premises AD DS domains, see [Azure AD DS resource forests overview][resource-forests].
+1. A *forest* is a logical construct used by Active Directory Domain Services to group one or more domains. By default, a managed domain is created as a *User* forest. This type of forest synchronizes all objects from Azure AD, including any user accounts created in an on-premises AD DS environment.
+
+    A *Resource* forest only synchronizes users and groups created directly in Azure AD. For more information on *Resource* forests, including why you may use one and how to create forest trusts with on-premises AD DS domains, see [Azure AD DS resource forests overview][resource-forests].
 
     For this tutorial, choose to create a *User* forest.
 
-    ![Configure basic settings for an Azure AD Domain Services instance](./media/tutorial-create-instance/basics-window.png)
+    ![Configure basic settings for an Azure AD Domain Services managed domain](./media/tutorial-create-instance/basics-window.png)
 
-To quickly create an Azure AD DS managed domain, you can select **Review + create** to accept additional default configuration options. The following defaults are configured when you choose this create option:
+To quickly create a managed domain, you can select **Review + create** to accept additional default configuration options. The following defaults are configured when you choose this create option:
 
 * Creates a virtual network named *aadds-vnet* that uses the IP address range of *10.0.2.0/24*.
 * Creates a subnet named *aadds-subnet* using the IP address range of *10.0.2.0/24*.
-* Synchronizes *All* users from Azure AD into the Azure AD DS managed domain.
+* Synchronizes *All* users from Azure AD into the managed domain.
 
 Select **Review + create** to accept these default configuration options.
 
 ## Deploy the managed domain
 
-On the **Summary** page of the wizard, review the configuration settings for the managed domain. You can go back to any step of the wizard to make changes. To redeploy an Azure AD DS managed domain to a different Azure AD tenant in a consistent way using these configuration options, you can also **Download a template for automation**.
+On the **Summary** page of the wizard, review the configuration settings for your managed domain. You can go back to any step of the wizard to make changes. To redeploy a managed domain to a different Azure AD tenant in a consistent way using these configuration options, you can also **Download a template for automation**.
 
 1. To create the managed domain, select **Create**. A note is displayed that certain configuration options such as DNS name or virtual network can't be changed once the Azure AD DS managed has been created. To continue, select **OK**.
 1. The process of provisioning your managed domain can take up to an hour. A notification is displayed in the portal that shows the progress of your Azure AD DS deployment. Select the notification to see detailed progress for the deployment.
@@ -118,7 +121,7 @@ On the **Summary** page of the wizard, review the configuration settings for the
     ![Notification in the Azure portal of the deployment in progress](./media/tutorial-create-instance/deployment-in-progress.png)
 
 1. The page will load with updates on the deployment process, including the creation of new resources in your directory.
-1. Select your resource group, such as *myResourceGroup*, then choose your Azure AD DS instance from the list of Azure resources, such as *aaddscontoso.com*. The **Overview** tab shows that the managed domain is currently *Deploying*. You can't configure the managed domain until it's fully provisioned.
+1. Select your resource group, such as *myResourceGroup*, then choose your managed domain from the list of Azure resources, such as *aaddscontoso.com*. The **Overview** tab shows that the managed domain is currently *Deploying*. You can't configure the managed domain until it's fully provisioned.
 
     ![Domain Services status during the provisioning state](./media/tutorial-create-instance/provisioning-in-progress.png)
 
@@ -126,11 +129,12 @@ On the **Summary** page of the wizard, review the configuration settings for the
 
     ![Domain Services status once successfully provisioned](./media/tutorial-create-instance/successfully-provisioned.png)
 
-The managed domain is associated with your Azure AD tenant. During the provisioning process, Azure AD DS creates two Enterprise Applications named *Domain Controller Services* and *AzureActiveDirectoryDomainControllerServices* in the Azure AD tenant. These Enterprise Applications are needed to service your managed domain. Don't delete these applications.
+> [!IMPORTANT]
+> The managed domain is associated with your Azure AD tenant. During the provisioning process, Azure AD DS creates two Enterprise Applications named *Domain Controller Services* and *AzureActiveDirectoryDomainControllerServices* in the Azure AD tenant. These Enterprise Applications are needed to service your managed domain. Don't delete these applications.
 
 ## Update DNS settings for the Azure virtual network
 
-With Azure AD DS successfully deployed, now configure the virtual network to allow other connected VMs and applications to use the managed domain. To provide this connectivity, update the DNS server settings for your virtual network to point to the two IP addresses where Azure AD DS is deployed.
+With Azure AD DS successfully deployed, now configure the virtual network to allow other connected VMs and applications to use the managed domain. To provide this connectivity, update the DNS server settings for your virtual network to point to the two IP addresses where the managed domain is deployed.
 
 1. The **Overview** tab for your managed domain shows some **Required configuration steps**. The first configuration step is to update DNS server settings for your virtual network. Once the DNS settings are correctly configured, this step is no longer shown.
 
@@ -148,9 +152,17 @@ With Azure AD DS successfully deployed, now configure the virtual network to all
 To authenticate users on the managed domain, Azure AD DS needs password hashes in a format that's suitable for NT LAN Manager (NTLM) and Kerberos authentication. Azure AD doesn't generate or store password hashes in the format that's required for NTLM or Kerberos authentication until you enable Azure AD DS for your tenant. For security reasons, Azure AD also doesn't store any password credentials in clear-text form. Therefore, Azure AD can't automatically generate these NTLM or Kerberos password hashes based on users' existing credentials.
 
 > [!NOTE]
-> Once appropriately configured, the usable password hashes are stored in the Azure AD DS managed domain. If you delete the Azure AD DS managed domain, any password hashes stored at that point are also deleted. Synchronized credential information in Azure AD can't be re-used if you later create an Azure AD DS managed domain - you must reconfigure the password hash synchronization to store the password hashes again. Previously domain-joined VMs or users won't be able to immediately authenticate - Azure AD needs to generate and store the password hashes in the new Azure AD DS managed domain. For more information, see [Password hash sync process for Azure AD DS and Azure AD Connect][password-hash-sync-process].
+> Once appropriately configured, the usable password hashes are stored in the managed domain. If you delete the managed domain, any password hashes stored at that point are also deleted.
+>
+> Synchronized credential information in Azure AD can't be re-used if you later create a managed domain - you must reconfigure the password hash synchronization to store the password hashes again. Previously domain-joined VMs or users won't be able to immediately authenticate - Azure AD needs to generate and store the password hashes in the new managed domain.
+>
+> [Azure AD Connect Cloud Sync is not supported with Azure AD DS][/azure/active-directory/cloud-sync/what-is-cloud-sync#comparison-between-azure-ad-connect-and-cloud-sync]. On-premises users need to be synced using Azure AD Connect in order to be able to access domain-joined VMs. For more information, see [Password hash sync process for Azure AD DS and Azure AD Connect][password-hash-sync-process].
 
-The steps to generate and store these password hashes are different for cloud-only user accounts created in Azure AD versus user accounts that are synchronized from your on-premises directory using Azure AD Connect. A cloud-only user account is an account that was created in your Azure AD directory using either the Azure portal or Azure AD PowerShell cmdlets. These user accounts aren't synchronized from an on-premises directory. In this tutorial, let's work with a basic cloud-only user account. For more information on the additional steps required to use Azure AD Connect, see [Synchronize password hashes for user accounts synced from your on-premises AD to your managed domain][on-prem-sync].
+The steps to generate and store these password hashes are different for cloud-only user accounts created in Azure AD versus user accounts that are synchronized from your on-premises directory using Azure AD Connect.
+
+A cloud-only user account is an account that was created in your Azure AD directory using either the Azure portal or Azure AD PowerShell cmdlets. These user accounts aren't synchronized from an on-premises directory.
+
+> In this tutorial, let's work with a basic cloud-only user account. For more information on the additional steps required to use Azure AD Connect, see [Synchronize password hashes for user accounts synced from your on-premises AD to your managed domain][on-prem-sync].
 
 > [!TIP]
 > If your Azure AD tenant has a combination of cloud-only users and users from your on-premises AD, you need to complete both sets of steps.
@@ -178,11 +190,11 @@ In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Understand DNS requirements for a managed domain
-> * Create an Azure AD DS instance
+> * Create a managed domain
 > * Add administrative users to domain management
 > * Enable user accounts for Azure AD DS and generate password hashes
 
-Before you domain-join VMs and deploy applications that use the Azure AD DS managed domain, configure an Azure virtual network for application workloads.
+Before you domain-join VMs and deploy applications that use the managed domain, configure an Azure virtual network for application workloads.
 
 > [!div class="nextstepaction"]
 > [Configure Azure virtual network for application workloads to use your managed domain](tutorial-configure-networking.md)
@@ -195,7 +207,7 @@ Before you domain-join VMs and deploy applications that use the Azure AD DS mana
 [create-dedicated-subnet]: ../virtual-network/virtual-network-manage-subnet.md#add-a-subnet
 [scoped-sync]: scoped-synchronization.md
 [on-prem-sync]: tutorial-configure-password-hash-sync.md
-[configure-sspr]: ../active-directory/authentication/quickstart-sspr.md
+[configure-sspr]: ../active-directory/authentication/tutorial-enable-sspr.md
 [password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
 [tutorial-create-instance-advanced]: tutorial-create-instance-advanced.md
 [skus]: overview.md

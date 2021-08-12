@@ -2,16 +2,16 @@
 title: Azure Monitor metrics for Application Gateway
 description: Learn how to use metrics to monitor performance of application gateway
 services: application-gateway
-author: abshamsft
+author: azhar2005
 ms.service: application-gateway
 ms.topic: article
-ms.date: 2/5/2019
-ms.author: absha
+ms.date: 04/19/2021
+ms.author: azhussai
 
 ---
 # Metrics for Application Gateway
 
-Application Gateway publishes data points, called metrics, to [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) for the performance of your Application Gateway and backend instances. These metrics are numerical values in an ordered set of time-series data that describe some aspect of your application gateway at a particular time. If there are requests flowing through the Application Gateway, it measures and sends its metrics in 60-second intervals. If there are no requests flowing through the Application Gateway or no data for a metric, the metric is not reported. For more information, see [Azure Monitor metrics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+Application Gateway publishes data points, called metrics, to [Azure Monitor](../azure-monitor/overview.md) for the performance of your Application Gateway and backend instances. These metrics are numerical values in an ordered set of time-series data that describe some aspect of your application gateway at a particular time. If there are requests flowing through the Application Gateway, it measures and sends its metrics in 60-second intervals. If there are no requests flowing through the Application Gateway or no data for a metric, the metric is not reported. For more information, see [Azure Monitor metrics](../azure-monitor/essentials/data-platform-metrics.md).
 
 ## Metrics supported by Application Gateway V2 SKU
 
@@ -19,7 +19,7 @@ Application Gateway publishes data points, called metrics, to [Azure Monitor](ht
 
 Application Gateway provides several built‑in timing metrics related to the request and response, which are all measured in milliseconds. 
 
-![](./media/application-gateway-metrics/application-gateway-metrics.png)
+:::image type="content" source="./media/application-gateway-metrics/application-gateway-metrics.png" alt-text="[Diagram of timing metrics for the Application Gateway" border="false":::
 
 > [!NOTE]
 >
@@ -48,7 +48,7 @@ Application Gateway provides several built‑in timing metrics related to the re
 
   Average time that it takes for a request to be received, processed and its response to be sent. 
 
-  This is the interval from the time when Application Gateway receives the first byte of the HTTP request to the time when the last response byte has been sent to the client. This includes the processing time taken by Application Gateway, the *Backend last byte response time*, time taken by Application Gateway to send all the response and the *Client RTT*.
+  This is the interval from the time when Application Gateway receives the first byte of the HTTP request to the time when the last response byte has been sent to the client. This includes the processing time taken by Application Gateway, the *Backend last byte response time*, and the time taken by Application Gateway to send all the response.
 
 - **Client RTT**
 
@@ -158,7 +158,7 @@ For Application Gateway, the following metrics are available:
 
 - **Failed Requests**
 
-  Number of requests that Application Gateway has served with 5xx server error codes. This includes the 5xx codes that are generated from the Application Gateway as well as the 5xx codes that are generated from the backend. The request count can be further filtered to show count per each/specific backend pool-http setting combination.
+  Number of requests that failed due to connection issues. This count includes requests that failed due to exceeding the "Request time-out" HTTP setting and requests that failed due to connection issues between Application gateway and backend. This count does not include failures due to no healthy backend being available. 4xx and 5xx responses from the backend are also not considered as part of this metric.
 
 - **Response Status**
 
@@ -194,9 +194,9 @@ Browse to an application gateway, under **Monitoring** select **Metrics**. To vi
 
 In the following image, you see an example with three metrics displayed for the last 30 minutes:
 
-[![](media/application-gateway-diagnostics/figure5.png "Metric view")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
+:::image type="content" source="media/application-gateway-diagnostics/figure5.png" alt-text="Metric view." lightbox="media/application-gateway-diagnostics/figure5-lb.png":::
 
-To see a current list of metrics, see [Supported metrics with Azure Monitor](../azure-monitor/platform/metrics-supported.md).
+To see a current list of metrics, see [Supported metrics with Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
 ### Alert rules on metrics
 
@@ -226,14 +226,14 @@ A list of alerts appears after you create a metric alert. It provides an overvie
 
 ![List of alerts and rules][9]
 
-To learn more about alert notifications, see [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+To learn more about alert notifications, see [Receive alert notifications](../azure-monitor/alerts/alerts-overview.md).
 
-To understand more about webhooks and how you can use them with alerts, visit [Configure a webhook on an Azure metric alert](../azure-monitor/platform/alerts-webhooks.md).
+To understand more about webhooks and how you can use them with alerts, visit [Configure a webhook on an Azure metric alert](../azure-monitor/alerts/alerts-webhooks.md).
 
 ## Next steps
 
 * Visualize counter and event logs by using [Azure Monitor logs](../azure-monitor/insights/azure-networking-analytics.md).
-* [Visualize your Azure activity log with Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blog post.
+* [Visualize your Azure activity log with Power BI](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) blog post.
 * [View and analyze Azure activity logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blog post.
 
 [1]: ./media/application-gateway-diagnostics/figure1.png

@@ -1,10 +1,10 @@
 ---
 title: Microsoft Security Code Analysis onboarding guide
-description: This article describes installing the Microsoft Security Code Analysis extension
+description: Learn how to onboard and install the Microsoft Security Code Analysis extension. See prerequisites and view additional resources.
 author: sukhans
 manager: sukhans
 ms.author: terrylan
-ms.date: 04/14/2020
+ms.date: 03/22/2021
 ms.topic: article
 ms.service: security
 services: azure
@@ -16,6 +16,9 @@ ms.workload: na
 ---
 
 # Onboarding and installing
+
+> [!Note]
+> Effective March 1, 2022, the Microsoft Security Code Analysis (MSCA) extension will be retired. Existing MSCA customers will retain their access to MSCA through March 1, 2022. Please refer to the [OWASP Source Code Analysis Tools](https://owasp.org/www-community/Source_Code_Analysis_Tools) for alternative options in Azure DevOps. For customers planning to migrate to GitHub, you can check out [GitHub Advanced Security](https://docs.github.com/github/getting-started-with-github/about-github-advanced-security).
 
 Prerequisites to getting started with Microsoft Security Code Analysis:
 
@@ -40,12 +43,13 @@ If you do not have one of the mentioned above support agreements, you can purcha
 
 **Next Steps:**
 
-Contact a Partner from the below list and ask to purchase the Microsoft Security Code Analysis extension.
+If you meet the above qualifications, contact a partner from the below list to purchase the Microsoft Security Code Analysis extension. Otherwise, contact [Microsoft Security Code Analysis Support](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request).
 
 >**Partners:**
 
-- Zones - Contact Details: cloudsupport@zones.com
+- Zones – Contact Details: cloudsupport@zones.com
 - Wortell – Contact Details: info@wortell.nl
+- Logicalis – Contact Details: logicalisleads@us.logicalis.com
 
 ### Become a Partner
 
@@ -85,10 +89,10 @@ After you install the extension, the secure development build tasks are visible 
 > - Always select **Continue on Error** for secure-development build tasks. Even if one tool fails, the others can run. There are no interdependencies among tools.
 > - Microsoft Security Code Analysis build tasks fail only if a tool fails to run successfully. But they succeed even if a tool identifies issues in the code. By using the Post-Analysis build task, you can configure your build to fail when a tool identifies issues in the code.
 > - Some Azure DevOps build tasks are not supported when run via a release pipeline. More specifically, Azure DevOps doesn't support tasks that publish artifacts from within a release pipeline.
-> - For a list of predefined variables in Azure DevOps Team Build that you can specify as parameters, see [Azure DevOps Build Variables](https://docs.microsoft.com/azure/devops/pipelines/build/variables?tabs=batch&view=vsts).
+> - For a list of predefined variables in Azure DevOps Team Build that you can specify as parameters, see [Azure DevOps Build Variables](/azure/devops/pipelines/build/variables?tabs=batch).
 
 ## Next steps
 
 For more information about configuring the build tasks, see our [Configuration guide](security-code-analysis-customize.md) or [YAML Configuration guide](yaml-configuration.md).
 
-If you have more questions about the extension and the tools offered, check out our [FAQ page](security-code-analysis-faq.md).
+If you have more questions about the extension and the tools offered, check out our [FAQ page](security-code-analysis-faq.yml).

@@ -1,17 +1,10 @@
 ---
-title: Run a parallel workload - Azure Batch .NET
+title: Tutorial - Run a parallel workload using the .NET API
 description: Tutorial - Transcode media files in parallel with ffmpeg in Azure Batch using the Batch .NET client library
-services: batch
-author: LauraBrenner
-manager: evansma
-
-ms.assetid: 
-ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 12/21/2018
-ms.author: labrenne
-ms.custom: mvc
+ms.date: 09/29/2020
+ms.custom: "mvc, devx-track-csharp"
 ---
 
 # Tutorial: Run a parallel workload with Azure Batch using the .NET API
@@ -33,11 +26,11 @@ In this tutorial, you convert MP4 media files in parallel to MP3 format using th
 
 ## Prerequisites
 
-* [Visual Studio 2017 or later](https://www.visualstudio.com/vs), or [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) for Linux, macOS, or Windows.
+* [Visual Studio 2017 or later](https://www.visualstudio.com/vs), or [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1) for Linux, macOS, or Windows.
 
 * A Batch account and a linked Azure Storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md).
 
-* [Windows 64-bit version of ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip) (.zip). Download the zip file to your local computer. For this tutorial, you only need the zip file. You do not need to unzip the file or install it locally.
+* [Windows 64-bit version of ffmpeg 4.3.1](https://github.com/GyanD/codexffmpeg/releases/tag/4.3.1-2020-11-08) (.zip). Download the zip file to your local computer. For this tutorial, you only need the zip file. You do not need to unzip the file or install it locally.
 
 ## Sign in to Azure
 
@@ -49,7 +42,7 @@ Use the Azure portal to add ffmpeg to your Batch account as an [application pack
 
 1. In the Azure portal, click **More services** > **Batch accounts**, and click the name of your Batch account.
 3. Click **Applications** > **Add**.
-4. For **Application id** enter *ffmpeg*, and a package version of *3.4*. Select the ffmpeg zip file you downloaded previously, and then click **OK**. The ffmpeg application package is added to your Batch account.
+4. For **Application id** enter *ffmpeg*, and a package version of *4.3.1*. Select the ffmpeg zip file you downloaded previously, and then click **OK**. The ffmpeg application package is added to your Batch account.
 
 ![Add application package](./media/tutorial-parallel-dotnet/add-application.png)
 
@@ -86,7 +79,7 @@ Also, make sure that the ffmpeg application package reference in the solution ma
 
 ```csharp
 const string appPackageId = "ffmpeg";
-const string appPackageVersion = "3.4";
+const string appPackageVersion = "4.3.1";
 ```
 
 ### Build and run the sample project
@@ -195,7 +188,7 @@ Next, the sample creates a pool of compute nodes in the Batch account with a cal
 The number of nodes and VM size are set using defined constants. Batch supports dedicated nodes and [low-priority nodes](batch-low-pri-vms.md), and you can use either or both in your pools. Dedicated nodes are reserved for your pool. Low-priority nodes are offered at a reduced price from surplus VM capacity in Azure. Low-priority nodes become unavailable if Azure does not have enough capacity. The sample by default creates a pool containing only 5 low-priority nodes in size *Standard_A1_v2*.
 
 >[!Note]
->Be sure you check your node quotas. See [Batch service quotas and limits](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbatch%2Fbatch-quota-limit%23increase-a-quota&data=02%7C01%7CLaura.Brenner%40microsoft.com%7C9843bf742920414ca3e508d7cb83e288%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637201639605899246&sdata=uKY00XhSMjDkFIPGHYmDN4TOtL4UQhFus42ncst95pg%3D&reserved=0) for instructions on how to create a quota request."
+>Be sure you check your node quotas. See [Batch service quotas and limits](batch-quota-limit.md#increase-a-quota) for instructions on how to create a quota request."
 
 The ffmpeg application is deployed to the compute nodes by adding an [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) to the pool configuration.
 
@@ -265,7 +258,7 @@ for (int i = 0; i < inputFiles.Count; i++)
     string outputMediaFile = String.Format("{0}{1}",
         System.IO.Path.GetFileNameWithoutExtension(inputMediaFile),
         ".mp3");
-    string taskCommandLine = String.Format("cmd /c {0}\\ffmpeg-3.4-win64-static\\bin\\ffmpeg.exe -i {1} {2}", appPath, inputMediaFile, outputMediaFile);
+    string taskCommandLine = String.Format("cmd /c {0}\\ffmpeg-4.3.1-2020-09-21-full_build\\bin\\ffmpeg.exe -i {1} {2}", appPath, inputMediaFile, outputMediaFile);
 
     // Create a cloud task (with the task ID and command line)
     CloudTask task = new CloudTask(taskId, taskCommandLine);
@@ -319,7 +312,7 @@ When no longer needed, delete the resource group, Batch account, and storage acc
 
 ## Next steps
 
-In this tutorial, you learned about how to:
+In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Add an application package to your Batch account
@@ -334,6 +327,3 @@ For more examples of using the .NET API to schedule and process Batch workloads,
 
 > [!div class="nextstepaction"]
 > [Batch C# samples](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp)
-
-
-Setting the instance variable LowPriorityNodeCount=0 and the DedicatedNodeCount=5 fixed the issue and allowed the job to complete.

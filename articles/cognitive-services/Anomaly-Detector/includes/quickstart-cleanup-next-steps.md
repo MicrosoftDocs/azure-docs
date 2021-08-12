@@ -2,12 +2,12 @@
 title: Next steps for Anomaly Detector quickstarts
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include 
 ms.date: 11/19/2019
-ms.author: aahi
+ms.author: mbullwin
 ---
 
 ## Clean up resources
@@ -28,4 +28,4 @@ Concepts:
 Tutorials:
 
 * [Visualize anomalies as a batch using Power BI](../tutorials/batch-anomaly-detection-powerbi.md)
-* [Anomaly detection on streaming data using Azure Databricks](../tutorials/anomaly-detection-streaming-databricks.md)
+* [Anomaly detection on streaming data using Azure Databricks](../overview.md)

@@ -1,14 +1,16 @@
 ---
 title: Security - Azure Database for MySQL
 description: An overview of the security features in Azure Database for MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ---
 
 # Security in Azure Database for MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 There are multiple layers of security that are available to protect the data on your Azure Database for MySQL server. This article outlines those security options.
 
@@ -18,7 +20,7 @@ There are multiple layers of security that are available to protect the data on 
 Azure Database for MySQL secures your data by encrypting data in-transit with Transport Layer Security. Encryption (SSL/TLS) is enforced by default.
 
 ### At-rest
-The Azure Database for MySQL service uses the FIPS 140-2 validated cryptographic module for storage encryption of data at-rest. Data, including backups, are encrypted on disk, with the exception of temporary files created while running queries. The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys are system managed. Storage encryption is always on and can't be disabled.
+The Azure Database for MySQL service uses the FIPS 140-2 validated cryptographic module for storage encryption of data at-rest. Data, including backups, are encrypted on disk, including the temporary files created while running queries. The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys are system managed. Storage encryption is always on and can't be disabled.
 
 
 ## Network security
@@ -42,7 +44,7 @@ While creating the Azure Database for MySQL server, you provide credentials for 
 
 ## Threat protection
 
-You can opt in to [Advanced Threat Protection](concepts-data-access-and-security-threat-protection.md) which detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit servers.
+You can opt in to [Azure Defender for open-source relational databases](../security-center/defender-for-databases-introduction.md) which detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit servers.
 
 [Audit logging](concepts-audit-logs.md) is available to track activity in your databases. 
 

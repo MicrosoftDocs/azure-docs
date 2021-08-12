@@ -5,12 +5,12 @@ description: How and why should you provide feedback on Identity Protection risk
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: conceptual
-ms.date: 11/21/2019
+ms.topic: how-to
+ms.date: 06/05/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sahandle
 
 ms.collection: M365-identity-device-management
@@ -57,4 +57,4 @@ Feedback on user risk detections in Identity Protection is processed offline and
 
 ## Next steps
 
-- [Azure Active Directory Identity Protection risk detections reference](risk-events-reference.md)
+- [Azure Active Directory Identity Protection risk detections reference](./concept-identity-protection-risks.md)

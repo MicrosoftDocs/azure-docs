@@ -1,13 +1,15 @@
 ---
 title: Filter transformation in mapping data flow 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Filter out rows using the filter transformation in Azure Data Factory mapping data flow
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 10/16/2019
+ms.custom: synapse
+ms.date: 05/26/2020
 ---
 
 # Filter transformation in mapping data flow
@@ -15,6 +17,8 @@ ms.date: 10/16/2019
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 The Filter transforms allows row filtering based upon a condition. The output stream includes all rows that matching the filtering condition. The filter transformation is similar to a WHERE clause in SQL.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4xnxN]
 
 ## Configuration
 

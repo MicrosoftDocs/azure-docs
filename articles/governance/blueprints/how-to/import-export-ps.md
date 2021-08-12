@@ -1,7 +1,7 @@
 ---
 title: Import and export blueprints with PowerShell
 description: Learn how to work with your blueprint definitions as code. Share, source control, and manage them using the export and import commands.
-ms.date: 09/03/2019
+ms.date: 05/01/2021
 ms.topic: how-to
 ---
 # Import and export blueprint definitions with PowerShell
@@ -28,12 +28,14 @@ This article assumes a moderate working knowledge of Azure Blueprints. If you ha
 work through the following articles:
 
 - [Create a blueprint in the portal](../create-blueprint-portal.md)
-- Read about [deployment stages](../concepts/deployment-stages.md) and [the blueprint lifecycle](../concepts/lifecycle.md)
-- [Creating](../create-blueprint-powershell.md) and [managing](./manage-assignments-ps.md)
-blueprint definitions and assignments with PowerShell
+- Read about [deployment stages](../concepts/deployment-stages.md) and
+  [the blueprint lifecycle](../concepts/lifecycle.md)
+- [Creating](../create-blueprint-powershell.md) and [managing](./manage-assignments-ps.md) blueprint
+  definitions and assignments with PowerShell
 
-If it isn't already installed, follow the instructions in [Add the Az.Blueprint module](./manage-assignments-ps.md#add-the-azblueprint-module)
-to install and validate the **Az.Blueprint** module from the PowerShell Gallery.
+If it isn't already installed, follow the instructions in
+[Add the Az.Blueprint module](./manage-assignments-ps.md#add-the-azblueprint-module) to install and
+validate the **Az.Blueprint** module from the PowerShell Gallery.
 
 ## Folder structure of a blueprint definition
 
@@ -96,8 +98,9 @@ definition can be useful for sharing, backup, or placing into source control.
 ## Import your blueprint definition
 
 Once you have either an [exported blueprint definition](#export-your-blueprint-definition) or have a
-manually created blueprint definition in the [required folder structure](#folder-structure-of-a-blueprint-definition),
-you can import that blueprint definition to a different management group or subscription.
+manually created blueprint definition in the
+[required folder structure](#folder-structure-of-a-blueprint-definition), you can import that
+blueprint definition to a different management group or subscription.
 
 For examples of built-in blueprint definitions, see the
 [Azure Blueprint GitHub repo](https://github.com/Azure/azure-blueprints/tree/master/samples/001-builtins).
@@ -122,7 +125,8 @@ For examples of built-in blueprint definitions, see the
    Import-AzBlueprintWithArtifact -Name 'MyBlueprint' -ManagementGroupId 'DevMG' -InputPath 'C:\Blueprints\MyBlueprint'
    ```
 
-Once the blueprint definition is imported, [assign it with PowerShell](./manage-assignments-ps.md#create-blueprint-assignments).
+Once the blueprint definition is imported,
+[assign it with PowerShell](./manage-assignments-ps.md#create-blueprint-assignments).
 
 For information about creating advanced blueprint definitions, see the following articles:
 
@@ -137,4 +141,5 @@ For information about creating advanced blueprint definitions, see the following
 - Understand how to use [static and dynamic parameters](../concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](../concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](../concepts/resource-locking.md).
-- Resolve issues during the assignment of a blueprint with [general troubleshooting](../troubleshoot/general.md).
+- Resolve issues during the assignment of a blueprint with
+  [general troubleshooting](../troubleshoot/general.md).

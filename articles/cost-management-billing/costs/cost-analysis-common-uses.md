@@ -3,15 +3,65 @@ title: Common cost analysis uses in Azure Cost Management
 description: This article explains how you can get results for common cost analysis tasks in Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/10/2020
-ms.topic: conceptual
+ms.date: 07/24/2020
+ms.topic: how-to
 ms.service: cost-management-billing
+ms.subservice: cost-management
 ms.reviewer: adwise
 ---
 
 # Common cost analysis uses
 
 Azure Cost Management users often want answers to questions that many others ask. This article walks you through getting results for common cost analysis tasks in Cost Management.
+
+## View forecasted costs
+
+Forecasted costs are shown in cost analysis areas for area and stacked column views. The forecast is based on your historical resource use. Changes to your resource use affect forecasted costs.
+
+In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
+
+In the default view, the top chart has the Actual/Amortized cost and forecasted cost sections. The solid color of the chart shows your Actual/Amortized cost. The shaded color shows the forecast cost.
+
+[![Forecasted cost](./media/cost-analysis-common-uses/enrollment-forecast.png)](./media/cost-analysis-common-uses/enrollment-forecast.png#lightbox)
+
+## View forecasted costs grouped by service
+
+The default view doesn't show forecasted costs group by a service, so you have to add a group by selection.
+
+In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
+
+Select **Group by** > **Service name**.
+
+The view shows your costs grouped for each service. The forecasted cost isn't calculated for each service. It's projected for the **Total** of all your services.
+
+[![Grouped forecasted cost](./media/cost-analysis-common-uses/forecast-group-by-service.png)](./media/cost-analysis-common-uses/forecast-group-by-service.png#lightbox)
+
+## View forecasted costs for a service
+
+You can view forecasted costs narrowed to a single service. For example, you might want to see forecasted costs for just virtual machines.
+
+1. In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
+1. Select **Add filter** and then select **Service name**.
+1. In the **choose** list, select a service. For example select, **virtual machines**.
+
+Review the actual cost for selection and the forecasted cost.
+
+You can add more customizations to the view.
+
+1. Add a second filter for **Meter** and select a value to filter for an individual type of meter under your selected service name.
+1. Group by **Resource** to see the specific resources that are accruing cost. The forecasted cost isn't calculated for each service. It's projected for the **Total** of all your resources.
+
+[![Forecasted cost for a service](./media/cost-analysis-common-uses/forecast-by-service.png)](./media/cost-analysis-common-uses/forecast-by-service.png#lightbox)
+
+## View your Azure and AWS costs together  
+
+To view Azure and AWS costs together, you use management group scopes in Azure.
+
+1. Create a management group or select an existing one.
+1. Assign the existing Azure subscriptions that you need to the management group.
+1. Assign the *same* management group to the linked account of the connector.
+1. Go to cost analysis and select **Accumulated costs**.
+1. Select **Group by** - **Provider**.
 
 ## View cost breakdown by Azure service
 
@@ -32,7 +82,6 @@ To view your invoice details in the Azure portal, navigate to Cost analysis for 
 Viewing invoice details, you can identify the service that has unexpected costs and determine which resources are directly associated with the resource in Cost analysis. For example, if you want to analyze charges for the Virtual Machines service, navigate to the **Accumulated cost** view. Then, set the granularity to **Daily** and filter charges **Service name: Virtual machines** and group charges by **Resource**.
 
 [![Example showing accumulated costs for virtual machines](./media/cost-analysis-common-uses/virtual-machines.png)](./media/cost-analysis-common-uses/virtual-machines.png#lightbox)
-
 
 ## View cost breakdown by Azure resource
 
@@ -144,7 +193,7 @@ Costs are only shown for your active enrollment. If you transferred an enrollmen
 
 
 1. In the Azure portal, navigate to **Cost Management + Billing** > **Overview**.
-1. Click **Breakdown** for the current month and view your monetary commitment burn down.  
+1. Click **Breakdown** for the current month and view your Azure Prepayment (previously called monetary commitment) burn down.  
     [![EA costs overview - breakdown summary](./media/cost-analysis-common-uses/breakdown1.png)](./media/cost-analysis-common-uses/breakdown1.png#lightbox)
 1.  Click the **Usage and Charges** tab and view the prior month's breakdown in the chosen timespan.  
     [![Usage and charges tab](./media/cost-analysis-common-uses/breakdown2.png)](./media/cost-analysis-common-uses/breakdown2.png#lightbox)

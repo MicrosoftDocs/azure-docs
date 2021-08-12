@@ -1,15 +1,17 @@
 ---
-title: 'Connect using Node.js - Azure Database for MySQL'
+title: 'Quickstart: Connect using Node.js - Azure Database for MySQL'
 description: This quickstart provides several Node.js code samples you can use to connect and query data from Azure Database for MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 3/18/2020
+ms.date: 12/11/2020
 ---
 # Quickstart: Use Node.js to connect and query data in Azure Database for MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 In this quickstart, you connect to an Azure Database for MySQL by using Node.js. You then use SQL statements to query, insert, update, and delete data in the database from Mac, Ubuntu Linux, and Windows platforms. 
 
@@ -20,11 +22,14 @@ This topic assumes that you're familiar with developing using Node.js, but you'r
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - An Azure Database for MySQL server. [Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) or [Create an Azure Database for MySQL server using Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
 
+> [!IMPORTANT] 
+> Ensure the IP address you're connecting from has been added the server's firewall rules using the [Azure portal](./howto-manage-firewall-using-portal.md) or [Azure CLI](./howto-manage-firewall-using-cli.md)
+
 ## Install Node.js and the MySQL connector
 
 Depending on your platform, follow the instructions in the appropriate section to install [Node.js](https://nodejs.org). Use npm to install the [mysql](https://www.npmjs.com/package/mysql) package and its dependencies into your project folder.
 
-### **Windows**
+### Windows
 
 1. Visit the [Node.js downloads page](https://nodejs.org/en/download/), and then select your desired Windows installer option.
 2. Make a local project folder such as `nodejsmysql`. 
@@ -39,12 +44,18 @@ Depending on your platform, follow the instructions in the appropriate section t
 
 5. Verify the installation by checking the `npm list` output text. The version number may vary as new patches are released.
 
-### **Linux (Ubuntu)**
+### Linux (Ubuntu)
 
 1. Run the following commands to install **Node.js** and **npm** the package manager for Node.js.
 
    ```bash
-   sudo apt-get install -y nodejs npm
+    # Using Ubuntu
+    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+
+    # Using Debian, as root
+    curl -sL https://deb.nodesource.com/setup_14.x | bash -
+    apt-get install -y nodejs
    ```
 
 2. Run the following commands to create a project folder `mysqlnodejs` and install the mysql package into that folder.
@@ -57,14 +68,10 @@ Depending on your platform, follow the instructions in the appropriate section t
    ```
 3. Verify the installation by checking npm list output text. The version number may vary as new patches are released.
 
-### **Mac OS**
+### macOS
 
-1. Enter the following commands to install **brew**, an easy-to-use package manager for Mac OS X and **Node.js**.
+1. Visit the [Node.js downloads page](https://nodejs.org/en/download/), and then select your macOS installer.
 
-   ```bash
-   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-   brew install node
-   ```
 2. Run the following commands to create a project folder `mysqlnodejs` and install the mysql package into that folder.
 
    ```bash
@@ -84,7 +91,7 @@ Get the connection information needed to connect to the Azure Database for MySQL
 2. From the left-hand menu in Azure portal, select **All resources**, and then search for the server you have created (such as **mydemoserver**).
 3. Select the server name.
 4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
- ![Azure Database for MySQL server name](./media/connect-nodejs/server-name-azure-database-mysql.png)
+ :::image type="content" source="./media/connect-nodejs/server-name-azure-database-mysql.png" alt-text="Azure Database for MySQL server name":::
 
 ## Running the JavaScript code in Node.js
 
@@ -106,58 +113,58 @@ const mysql = require('mysql');
 
 var config =
 {
-	host: 'mydemoserver.mysql.database.azure.com',
-	user: 'myadmin@mydemoserver',
-	password: 'your_password',
-	database: 'quickstartdb',
-	port: 3306,
-	ssl: true
+    host: 'mydemoserver.mysql.database.azure.com',
+    user: 'myadmin@mydemoserver',
+    password: 'your_password',
+    database: 'quickstartdb',
+    port: 3306,
+    ssl: true
 };
 
 const conn = new mysql.createConnection(config);
 
 conn.connect(
-	function (err) { 
-	if (err) { 
-		console.log("!!! Cannot connect !!! Error:");
-		throw err;
-	}
-	else
-	{
-	   console.log("Connection established.");
+    function (err) { 
+    if (err) { 
+        console.log("!!! Cannot connect !!! Error:");
+        throw err;
+    }
+    else
+    {
+       console.log("Connection established.");
            queryDatabase();
-	}	
+    }
 });
 
 function queryDatabase(){
-	   conn.query('DROP TABLE IF EXISTS inventory;', function (err, results, fields) { 
-			if (err) throw err; 
-			console.log('Dropped inventory table if existed.');
-		})
-  	   conn.query('CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);', 
-	      	function (err, results, fields) {
-      			if (err) throw err;
-			console.log('Created inventory table.');
-		})
-	   conn.query('INSERT INTO inventory (name, quantity) VALUES (?, ?);', ['banana', 150], 
-      		function (err, results, fields) {
-      			if (err) throw err;
-			else console.log('Inserted ' + results.affectedRows + ' row(s).');
-	   	})
-	   conn.query('INSERT INTO inventory (name, quantity) VALUES (?, ?);', ['orange', 154], 
-      		function (err, results, fields) {
-      			if (err) throw err;
-			console.log('Inserted ' + results.affectedRows + ' row(s).');
-	   	})
-	   conn.query('INSERT INTO inventory (name, quantity) VALUES (?, ?);', ['apple', 100], 
-		function (err, results, fields) {
-      			if (err) throw err;
-			console.log('Inserted ' + results.affectedRows + ' row(s).');
-	   	})
-	   conn.end(function (err) { 
-		if (err) throw err;
-		else  console.log('Done.') 
-		});
+    conn.query('DROP TABLE IF EXISTS inventory;', function (err, results, fields) { 
+        if (err) throw err; 
+        console.log('Dropped inventory table if existed.');
+    })
+        conn.query('CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);', 
+            function (err, results, fields) {
+                if (err) throw err;
+        console.log('Created inventory table.');
+    })
+    conn.query('INSERT INTO inventory (name, quantity) VALUES (?, ?);', ['banana', 150], 
+            function (err, results, fields) {
+                if (err) throw err;
+        else console.log('Inserted ' + results.affectedRows + ' row(s).');
+        })
+    conn.query('INSERT INTO inventory (name, quantity) VALUES (?, ?);', ['orange', 154], 
+            function (err, results, fields) {
+                if (err) throw err;
+        console.log('Inserted ' + results.affectedRows + ' row(s).');
+        })
+    conn.query('INSERT INTO inventory (name, quantity) VALUES (?, ?);', ['apple', 100], 
+    function (err, results, fields) {
+                if (err) throw err;
+        console.log('Inserted ' + results.affectedRows + ' row(s).');
+        })
+    conn.end(function (err) { 
+    if (err) throw err;
+    else  console.log('Done.') 
+    });
 };
 ```
 
@@ -174,43 +181,43 @@ const mysql = require('mysql');
 
 var config =
 {
-	host: 'mydemoserver.mysql.database.azure.com',
-	user: 'myadmin@mydemoserver',
-	password: 'your_password',
-	database: 'quickstartdb',
-	port: 3306,
-	ssl: true
+    host: 'mydemoserver.mysql.database.azure.com',
+    user: 'myadmin@mydemoserver',
+    password: 'your_password',
+    database: 'quickstartdb',
+    port: 3306,
+    ssl: true
 };
 
 const conn = new mysql.createConnection(config);
 
 conn.connect(
-	function (err) { 
-		if (err) { 
-			console.log("!!! Cannot connect !!! Error:");
-			throw err;
-		}
-		else {
-			console.log("Connection established.");
-			readData();
-		}	
-	});
+    function (err) { 
+        if (err) { 
+            console.log("!!! Cannot connect !!! Error:");
+            throw err;
+        }
+        else {
+            console.log("Connection established.");
+            readData();
+        }
+    });
 
 function readData(){
-		conn.query('SELECT * FROM inventory', 
-			function (err, results, fields) {
-				if (err) throw err;
-				else console.log('Selected ' + results.length + ' row(s).');
-				for (i = 0; i < results.length; i++) {
-					console.log('Row: ' + JSON.stringify(results[i]));
-				}
-				console.log('Done.');
-			})
-	   conn.end(
-		   function (err) { 
-				if (err) throw err;
-				else  console.log('Closing connection.') 
-		});
+    conn.query('SELECT * FROM inventory', 
+        function (err, results, fields) {
+            if (err) throw err;
+            else console.log('Selected ' + results.length + ' row(s).');
+            for (i = 0; i < results.length; i++) {
+                console.log('Row: ' + JSON.stringify(results[i]));
+            }
+            console.log('Done.');
+        })
+    conn.end(
+        function (err) { 
+            if (err) throw err;
+            else  console.log('Closing connection.') 
+    });
 };
 ```
 
@@ -227,39 +234,39 @@ const mysql = require('mysql');
 
 var config =
 {
-	host: 'mydemoserver.mysql.database.azure.com',
-	user: 'myadmin@mydemoserver',
-	password: 'your_password',
-	database: 'quickstartdb',
-	port: 3306,
-	ssl: true
+    host: 'mydemoserver.mysql.database.azure.com',
+    user: 'myadmin@mydemoserver',
+    password: 'your_password',
+    database: 'quickstartdb',
+    port: 3306,
+    ssl: true
 };
 
 const conn = new mysql.createConnection(config);
 
 conn.connect(
-	function (err) { 
-		if (err) { 
-			console.log("!!! Cannot connect !!! Error:");
-			throw err;
-		}
-		else {
-			console.log("Connection established.");
-			updateData();
-		}	
-	});
+    function (err) { 
+        if (err) { 
+            console.log("!!! Cannot connect !!! Error:");
+            throw err;
+        }
+        else {
+            console.log("Connection established.");
+            updateData();
+        }
+    });
 
 function updateData(){
-	   conn.query('UPDATE inventory SET quantity = ? WHERE name = ?', [200, 'banana'], 
-			function (err, results, fields) {
-				if (err) throw err;
-				else console.log('Updated ' + results.affectedRows + ' row(s).');
-	   	})
-	   conn.end(
-		   function (err) { 
-				if (err) throw err;
-				else  console.log('Done.') 
-		});
+       conn.query('UPDATE inventory SET quantity = ? WHERE name = ?', [200, 'banana'], 
+            function (err, results, fields) {
+                if (err) throw err;
+                else console.log('Updated ' + results.affectedRows + ' row(s).');
+           })
+       conn.end(
+           function (err) { 
+                if (err) throw err;
+                else  console.log('Done.') 
+        });
 };
 ```
 
@@ -276,40 +283,50 @@ const mysql = require('mysql');
 
 var config =
 {
-	host: 'mydemoserver.mysql.database.azure.com',
-	user: 'myadmin@mydemoserver',
-	password: 'your_password',
-	database: 'quickstartdb',
-	port: 3306,
-	ssl: true
+    host: 'mydemoserver.mysql.database.azure.com',
+    user: 'myadmin@mydemoserver',
+    password: 'your_password',
+    database: 'quickstartdb',
+    port: 3306,
+    ssl: true
 };
 
 const conn = new mysql.createConnection(config);
 
 conn.connect(
-	function (err) { 
-		if (err) { 
-			console.log("!!! Cannot connect !!! Error:");
-			throw err;
-		}
-		else {
-			console.log("Connection established.");
-			deleteData();
-		}	
-	});
+    function (err) { 
+        if (err) { 
+            console.log("!!! Cannot connect !!! Error:");
+            throw err;
+        }
+        else {
+            console.log("Connection established.");
+            deleteData();
+        }
+    });
 
 function deleteData(){
-	   conn.query('DELETE FROM inventory WHERE name = ?', ['orange'], 
-			function (err, results, fields) {
-				if (err) throw err;
-				else console.log('Deleted ' + results.affectedRows + ' row(s).');
-	   	})
-	   conn.end(
-		   function (err) { 
-				if (err) throw err;
-				else  console.log('Done.') 
-		});
+       conn.query('DELETE FROM inventory WHERE name = ?', ['orange'], 
+            function (err, results, fields) {
+                if (err) throw err;
+                else console.log('Deleted ' + results.affectedRows + ' row(s).');
+           })
+       conn.end(
+           function (err) { 
+                if (err) throw err;
+                else  console.log('Done.') 
+        });
 };
+```
+
+## Clean up resources
+
+To clean up all resources used during this quickstart, delete the resource group using the following command:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## Next steps

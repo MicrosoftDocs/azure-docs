@@ -1,30 +1,17 @@
 ---
 title: Azure Germany images | Microsoft Docs
 description: This article provides an overview of the images included in the Azure Germany Marketplace
-services: germany
-cloud: na
-documentationcenter: na
-author: gitralf
-manager: rainerst
-
-ms.assetid: na
-ms.service: germany
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/12/2019
-ms.author: ralfwi
+ms.date: 10/16/2020
+author: gitralf
+ms.author: ralfwi 
+ms.service: germany
+ms.custom: bfdocs
 ---
 
 # Azure Germany images
 
-> [!IMPORTANT]
-> Since [August 2018](https://news.microsoft.com/europe/2018/08/31/microsoft-to-deliver-cloud-services-from-new-datacentres-in-germany-in-2019-to-meet-evolving-customer-needs/), we have not been accepting new customers or deploying any new features and services into the original Microsoft Cloud Germany locations.
->
-> Based on the evolution in customers’ needs, we recently [launched](https://azure.microsoft.com/blog/microsoft-azure-available-from-new-cloud-regions-in-germany/) two new datacenter regions in Germany, offering customer data residency, full connectivity to Microsoft’s global cloud network, as well as market competitive pricing. 
->
-> Take advantage of the breadth of functionality, enterprise-grade security, and comprehensive features available in our new German datacenter regions by [migrating](germany-migration-main.md) today.
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
 
 ## Overview
 When deploying new virtual servers in Azure Germany, customers can choose to deploy prebuilt images from Microsoft or upload their own VHDs. This flexibility means that you can deploy your own standardized images if needed.
@@ -248,7 +235,7 @@ To uncover any programmatic differences with endpoints when you're working with 
 For more information on deploying from the Marketplace or creating your own VHD, see these resources:  
 
 * [Deploying a Windows virtual machine](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Windows virtual machines FAQ](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Windows virtual machines FAQ](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Create a Linux VM custom image](../virtual-machines/linux/create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 

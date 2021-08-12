@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 07/22/2021
 ms.author: aahi
 ---
 
@@ -41,47 +41,6 @@ Refer to the [Speech service container host computer][speech-container-host-comp
 
 The host computer is expected to have an available Kubernetes cluster. See this tutorial on [deploying a Kubernetes cluster](../../aks/tutorial-kubernetes-deploy-cluster.md) for a conceptual understanding of how to deploy a Kubernetes cluster to a host computer.
 
-### Sharing Docker credentials with the Kubernetes cluster
-
-To allow the Kubernetes cluster to `docker pull` the configured image(s) from the `containerpreview.azurecr.io` container registry, you need to transfer the docker credentials into the cluster. Execute the [`kubectl create`][kubectl-create] command below to create a *docker-registry secret* based on the credentials provided from the container registry access prerequisite.
-
-From your command-line interface of choice, run the following command. Be sure to replace the `<username>`, `<password>`, and `<email-address>` with the container registry credentials.
-
-```console
-kubectl create secret docker-registry mcr \
-    --docker-server=containerpreview.azurecr.io \
-    --docker-username=<username> \
-    --docker-password=<password> \
-    --docker-email=<email-address>
-```
-
-> [!NOTE]
-> If you already have access to the `containerpreview.azurecr.io` container registry, you could create a Kubernetes secret using the generic flag instead. Consider the following command that executes against your Docker configuration JSON.
-> ```console
->  kubectl create secret generic mcr \
->      --from-file=.dockerconfigjson=~/.docker/config.json \
->      --type=kubernetes.io/dockerconfigjson
-> ```
-
-The following output is printed to the console when the secret has been successfully created.
-
-```console
-secret "mcr" created
-```
-
-To verify that the secret has been created, execute the [`kubectl get`][kubectl-get] with the `secrets` flag.
-
-```console
-kubectl get secrets
-```
-
-Executing the `kubectl get secrets` prints all the configured secrets.
-
-```console
-NAME    TYPE                              DATA    AGE
-mcr     kubernetes.io/dockerconfigjson    1       30s
-```
-
 ## Configure Helm chart values for deployment
 
 Visit the [Microsoft Helm Hub][ms-helm-hub] for all the publicly available helm charts offered by Microsoft. From the Microsoft Helm Hub, you'll find the **Cognitive Services Speech On-Premises Chart**. The **Cognitive Services Speech On-Premises** is the chart we'll install, but we must first create an `config-values.yaml` file with explicit configurations. Let's start by adding the Microsoft repository to our Helm instance.
@@ -94,15 +53,14 @@ Next, we'll configure our Helm chart values. Copy and paste the following YAML i
 
 ```yaml
 # These settings are deployment specific and users can provide customizations
-
 # speech-to-text configurations
 speechToText:
   enabled: true
   numberOfConcurrentRequest: 3
   optimizeForAudioFile: true
   image:
-    registry: containerpreview.azurecr.io
-    repository: microsoft/cognitive-services-speech-to-text
+    registry: mcr.microsoft.com
+    repository: azure-cognitive-services/speechservices/speech-to-text
     tag: latest
     pullSecrets:
       - mcr # Or an existing secret
@@ -117,8 +75,8 @@ textToSpeech:
   numberOfConcurrentRequest: 3
   optimizeForTurboMode: true
   image:
-    registry: containerpreview.azurecr.io
-    repository: microsoft/cognitive-services-text-to-speech
+    registry: mcr.microsoft.com
+    repository: azure-cognitive-services/speechservices/speech-to-text
     tag: latest
     pullSecrets:
       - mcr # Or an existing secret
@@ -133,11 +91,11 @@ textToSpeech:
 
 ### The Kubernetes package (Helm chart)
 
-The *Helm chart* contains the configuration of which docker image(s) to pull from the `containerpreview.azurecr.io` container registry.
+The *Helm chart* contains the configuration of which docker image(s) to pull from the `mcr.microsoft.com` container registry.
 
 > A [Helm chart][helm-charts] is a collection of files that describe a related set of Kubernetes resources. A single chart might be used to deploy something simple, like a memcached pod, or something complex, like a full web app stack with HTTP servers, databases, caches, and so on.
 
-The provided *Helm charts* pull the docker images of the Speech service, both text-to-speech and the speech-to-text services from the `containerpreview.azurecr.io` container registry.
+The provided *Helm charts* pull the docker images of the Speech service, both text-to-speech and the speech-to-text services from the `mcr.microsoft.com` container registry.
 
 ## Install the Helm chart on the Kubernetes cluster
 
@@ -266,7 +224,7 @@ For more details on installing applications with Helm in Azure Kubernetes Servic
 <!-- LINKS - external -->
 [free-azure-account]: https://azure.microsoft.com/free
 [git-download]: https://git-scm.com/downloads
-[azure-cli]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
+[azure-cli]: /cli/azure/install-azure-cli
 [docker-engine]: https://www.docker.com/products/docker-engine
 [kubernetes-cli]: https://kubernetes.io/docs/tasks/tools/install-kubectl
 [helm-install]: https://helm.sh/docs/intro/install/
@@ -280,6 +238,6 @@ For more details on installing applications with Helm in Azure Kubernetes Servic
 [ms-helm-hub-speech-chart]: https://hub.helm.sh/charts/microsoft/cognitive-services-speech-onpremise
 
 <!-- LINKS - internal -->
-[speech-container-host-computer]: speech-container-howto.md#the-host-computer
+[speech-container-host-computer]: speech-container-howto.md#host-computer-requirements-and-recommendations
 [installing-helm-apps-in-aks]: ../../aks/kubernetes-helm.md
 [cog-svcs-containers]: ../cognitive-services-container-support.md

@@ -5,9 +5,10 @@ description: Enable Azure Peering Service on a Direct peering by using PowerShel
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/27/2019
-ms.author: prmitiki
+ms.author: prmitiki 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Enable Azure Peering Service on a Direct peering by using PowerShell
@@ -51,4 +52,4 @@ You can get detailed descriptions of all the parameters by running the following
 Get-Help Get-AzPeering -detailed
 ```
 
-For frequently asked questions, see the [Peering Service FAQ](service-faqs.md).
+For frequently asked questions, see the [Peering Service FAQ](service-faqs.yml).

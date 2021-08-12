@@ -1,11 +1,11 @@
-﻿---
+---
 title: Kubernetes on Azure tutorial - Deploy a cluster
 description: In this Azure Kubernetes Service (AKS) tutorial, you create an AKS cluster and use kubectl to connect to the Kubernetes master node.
 services: container-service
 ms.topic: tutorial
-ms.date: 02/25/2020
+ms.date: 05/24/2021
 
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli, devx-track-azurepowershell
 
 #Customer intent: As a developer or IT pro, I want to learn how to create an Azure Kubernetes Service (AKS) cluster so that I can deploy and run my own applications.
 ---
@@ -19,19 +19,31 @@ Kubernetes provides a distributed platform for containerized applications. With 
 > * Install the Kubernetes CLI (kubectl)
 > * Configure kubectl to connect to your AKS cluster
 
-In additional tutorials, the Azure Vote application is deployed to the cluster, scaled, and updated.
+In later tutorials, the Azure Vote application is deployed to the cluster, scaled, and updated.
 
 ## Before you begin
 
 In previous tutorials, a container image was created and uploaded to an Azure Container Registry instance. If you haven't done these steps, and would like to follow along, start at [Tutorial 1 – Create container images][aks-tutorial-prepare-app].
 
+### [Azure CLI](#tab/azure-cli)
+
 This tutorial requires that you're running the Azure CLI version 2.0.53 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+This tutorial requires that you're running Azure PowerShell version 5.9.0 or later. Run `Get-InstalledModule -Name Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell][azure-powershell-install].
+
+---
 
 ## Create a Kubernetes cluster
 
-AKS clusters can use Kubernetes role-based access controls (RBAC). These controls let you define access to resources based on roles assigned to users. Permissions are combined if a user is assigned multiple roles, and permissions can be scoped to either a single namespace or across the whole cluster. By default, the Azure CLI automatically enables RBAC when you create an AKS cluster.
+AKS clusters can use Kubernetes role-based access control (Kubernetes RBAC). These controls let you define access to resources based on roles assigned to users. Permissions are combined if a user is assigned multiple roles, and permissions can be scoped to either a single namespace or across the whole cluster. By default, the Azure CLI automatically enables Kubernetes RBAC when you create an AKS cluster.
 
-Create an AKS cluster using [az aks create][]. The following example creates a cluster named *myAKSCluster* in the resource group named *myResourceGroup*. This resource group was created in the [previous tutorial][aks-tutorial-prepare-acr]. To allow an AKS cluster to interact with other Azure resources, an Azure Active Directory service principal is automatically created, since you did not specify one. Here, this service principal is [granted the right to pull images][container-registry-integration] from the Azure Container Registry (ACR) instance you created in the previous tutorial. Note that you can use a [managed identity](use-managed-identity.md) instead of a service principal for easier management.
+### [Azure CLI](#tab/azure-cli)
+
+Create an AKS cluster using [az aks create][]. The following example creates a cluster named *myAKSCluster* in the resource group named *myResourceGroup*. This resource group was created in the [previous tutorial][aks-tutorial-prepare-acr] in the *eastus* region. The following example does not specify a region so the AKS cluster is also created in the *eastus* region. For more information, see [Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)][quotas-skus-regions] for more information about resource limits and region availability for AKS.
+
+To allow an AKS cluster to interact with other Azure resources, a cluster identity is automatically created, since you did not specify one. Here, this cluster identity is [granted the right to pull images][container-registry-integration] from the Azure Container Registry (ACR) instance you created in the previous tutorial. To execute the command successfully, you're required to have an **Owner** or **Azure account administrator** role on the Azure subscription.
 
 ```azurecli
 az aks create \
@@ -42,7 +54,19 @@ az aks create \
     --attach-acr <acrName>
 ```
 
-You can also manually configure a service principal to pull images from ACR. For more information, see [ACR authentication with service principals](../container-registry/container-registry-auth-service-principal.md) or [Authenticate from Kubernetes with a pull secret](../container-registry/container-registry-auth-kubernetes.md).
+### [Azure PowerShell](#tab/azure-powershell)
+
+Create an AKS cluster using [New-AzAksCluster][new-azakscluster]. The following example creates a cluster named *myAKSCluster* in the resource group named *myResourceGroup*. This resource group was created in the [previous tutorial][aks-tutorial-prepare-acr] in the *eastus* region. The following example does not specify a region so the AKS cluster is also created in the *eastus* region. For more information, see [Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)][quotas-skus-regions] for more information about resource limits and region availability for AKS.
+
+To allow an AKS cluster to interact with other Azure resources, a cluster identity is automatically created, since you did not specify one. Here, this cluster identity is [granted the right to pull images][container-registry-integration] from the Azure Container Registry (ACR) instance you created in the previous tutorial. To execute the command successfully, you're required to have an **Owner** or **Azure account administrator** role on the Azure subscription.
+
+```azurepowershell
+New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 2 -GenerateSshKey -AcrNameToAttach <acrName>
+```
+
+---
+
+To avoid needing an **Owner** or **Azure account administrator** role, you can also manually configure a service principal to pull images from ACR. For more information, see [ACR authentication with service principals](../container-registry/container-registry-auth-service-principal.md) or [Authenticate from Kubernetes with a pull secret](../container-registry/container-registry-auth-kubernetes.md). Alternatively, you can use a [managed identity](use-managed-identity.md) instead of a service principal for easier management.
 
 After a few minutes, the deployment completes, and returns JSON-formatted information about the AKS deployment.
 
@@ -53,13 +77,26 @@ After a few minutes, the deployment completes, and returns JSON-formatted inform
 
 To connect to the Kubernetes cluster from your local computer, you use [kubectl][kubectl], the Kubernetes command-line client.
 
+### [Azure CLI](#tab/azure-cli)
+
 If you use the Azure Cloud Shell, `kubectl` is already installed. You can also install it locally using the [az aks install-cli][] command:
 
 ```azurecli
 az aks install-cli
 ```
+### [Azure PowerShell](#tab/azure-powershell)
+
+If you use the Azure Cloud Shell, `kubectl` is already installed. You can also install it locally using the [Install-AzAksKubectl][install-azakskubectl] cmdlet:
+
+```azurepowershell
+Install-AzAksKubectl
+```
+
+---
 
 ## Connect to cluster using kubectl
+
+### [Azure CLI](#tab/azure-cli)
 
 To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials][] command. The following example gets credentials for the AKS cluster named *myAKSCluster* in the *myResourceGroup*:
 
@@ -67,13 +104,30 @@ To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks ge
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
+### [Azure PowerShell](#tab/azure-powershell)
+
+To configure `kubectl` to connect to your Kubernetes cluster, use the [Import-AzAksCredential][import-azakscredential] cmdlet. The following example gets credentials for the AKS cluster named *myAKSCluster* in the *myResourceGroup*:
+
+```azurepowershell
+Import-AzAksCredential -ResourceGroupName myResourceGroup -Name myAKSCluster
+```
+
+---
+
 To verify the connection to your cluster, run the [kubectl get nodes][kubectl-get] command to return a list of the cluster nodes:
+
+```azurecli-interactive
+kubectl get nodes
+```
+
+The following example output shows the list of cluster nodes.
 
 ```
 $ kubectl get nodes
 
-NAME                       STATUS   ROLES   AGE   VERSION
-aks-nodepool1-12345678-0   Ready    agent   32m   v1.14.8
+NAME                                STATUS   ROLES   AGE     VERSION
+aks-nodepool1-37463671-vmss000000   Ready    agent   2m37s   v1.18.10
+aks-nodepool1-37463671-vmss000001   Ready    agent   2m28s   v1.18.10
 ```
 
 ## Next steps
@@ -98,11 +152,16 @@ Advance to the next tutorial to learn how to deploy an application to the cluste
 [aks-tutorial-deploy-app]: ./tutorial-kubernetes-deploy-application.md
 [aks-tutorial-prepare-acr]: ./tutorial-kubernetes-prepare-acr.md
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
-[az ad sp create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az acr show]: /cli/azure/acr#az-acr-show
-[az role assignment create]: /cli/azure/role/assignment#az-role-assignment-create
-[az aks create]: /cli/azure/aks#az-aks-create
-[az aks install-cli]: /cli/azure/aks#az-aks-install-cli
-[az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az ad sp create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[az acr show]: /cli/azure/acr#az_acr_show
+[az role assignment create]: /cli/azure/role/assignment#az_role_assignment_create
+[az aks create]: /cli/azure/aks#az_aks_create
+[az aks install-cli]: /cli/azure/aks#az_aks_install_cli
+[az aks get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [azure-cli-install]: /cli/azure/install-azure-cli
 [container-registry-integration]: ./cluster-container-registry-integration.md
+[quotas-skus-regions]: quotas-skus-regions.md
+[azure-powershell-install]: /powershell/azure/install-az-ps
+[new-azakscluster]: /powershell/module/az.aks/new-azakscluster
+[install-azakskubectl]: /powershell/module/az.aks/install-azakskubectl
+[import-azakscredential]: /powershell/module/az.aks/import-azakscredential

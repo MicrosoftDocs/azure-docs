@@ -1,23 +1,19 @@
 ---
 title: Copy data from SQL Server to Blob storage using Azure portal
 description: Learn how to copy data from an on-premises data store to the cloud by using a self-hosted integration runtime in Azure Data Factory.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: tutorials
 ms.topic: tutorial
-ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 03/12/2020
+ms.date: 07/05/2021
 ---
 
-# Copy data from an on-premises SQL Server database to Azure Blob storage
+# Copy data from a SQL Server database to Azure Blob storage
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-In this tutorial, you use the Azure Data Factory user interface (UI) to create a data factory pipeline that copies data from an on-premises SQL Server database to Azure Blob storage. You create and use a self-hosted integration runtime, which moves data between on-premises and cloud data stores.
+In this tutorial, you use the Azure Data Factory user interface (UI) to create a data factory pipeline that copies data from a SQL Server database to Azure Blob storage. You create and use a self-hosted integration runtime, which moves data between on-premises and cloud data stores.
 
 > [!NOTE]
 > This article doesn't provide a detailed introduction to Data Factory. For more information, see [Introduction to Data Factory](introduction.md).
@@ -40,12 +36,12 @@ Before you begin, if you don't already have an Azure subscription, [create a fre
 ### Azure roles
 To create data factory instances, the user account you use to sign in to Azure must be assigned a *Contributor* or *Owner* role or must be an *administrator* of the Azure subscription.
 
-To view the permissions you have in the subscription, go to the Azure portal. In the upper-right corner, select your user name, and then select **Permissions**. If you have access to multiple subscriptions, select the appropriate subscription. For sample instructions on how to add a user to a role, see [Manage access using RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md).
+To view the permissions you have in the subscription, go to the Azure portal. In the upper-right corner, select your user name, and then select **Permissions**. If you have access to multiple subscriptions, select the appropriate subscription. For sample instructions on how to add a user to a role, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ### SQL Server 2014, 2016, and 2017
-In this tutorial, you use an on-premises SQL Server database as a *source* data store. The pipeline in the data factory you create in this tutorial copies data from this on-premises SQL Server database (source) to Blob storage (sink). You then create a table named **emp** in your SQL Server database and insert a couple of sample entries into the table.
+In this tutorial, you use a SQL Server database as a *source* data store. The pipeline in the data factory you create in this tutorial copies data from this SQL Server database (source) to Blob storage (sink). You then create a table named **emp** in your SQL Server database and insert a couple of sample entries into the table.
 
-1. Start SQL Server Management Studio. If it's not already installed on your machine, go to [Download SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+1. Start SQL Server Management Studio. If it's not already installed on your machine, go to [Download SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 1. Connect to your SQL Server instance by using your credentials.
 
@@ -69,7 +65,7 @@ In this tutorial, you use an on-premises SQL Server database as a *source* data 
    ```
 
 ### Azure storage account
-In this tutorial, you use a general-purpose Azure storage account (specifically, Blob storage) as a destination/sink data store. If you don't have a general-purpose Azure storage account, see [Create a storage account](../storage/common/storage-account-create.md). The pipeline in the data factory that you create in this tutorial copies data from the on-premises SQL Server database (source) to Blob storage (sink). 
+In this tutorial, you use a general-purpose Azure storage account (specifically, Blob storage) as a destination/sink data store. If you don't have a general-purpose Azure storage account, see [Create a storage account](../storage/common/storage-account-create.md). The pipeline in the data factory that you create in this tutorial copies data from the SQL Server database (source) to Blob storage (sink). 
 
 #### Get the storage account name and account key
 You use the name and key of your storage account in this tutorial. To get the name and key of your storage account, take the following steps:
@@ -105,7 +101,7 @@ In this section, you create a blob container named **adftutorial** in your Blob 
 In this step, you create a data factory and start the Data Factory UI to create a pipeline in the data factory.
 
 1. Open the **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
-1. On the left menu, select **Create a resource** > **Analytics** > **Data Factory**:
+1. On the left menu, select **Create a resource** > **Integration** > **Data Factory**:
 
    ![Data Factory selection in the "New" pane](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -113,7 +109,7 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
    The name of the data factory must be *globally unique*. If you see the following error message for the name field, change the name of the data factory (for example, yournameADFTutorialDataFactory). For naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
 
-   ![New data factory name](./media/doc-common-process/name-not-available-error.png)
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="New data factory error message for duplicate name.":::
 
 1. Select the Azure **subscription** in which you want to create the data factory.
 1. For **Resource Group**, take one of the following steps:
@@ -129,17 +125,18 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
 1. After the creation is finished, you see the **Data Factory** page as shown in the image:
 
-    ![Data factory home page](./media/doc-common-process/data-factory-home-page.png)
-1. Select the **Author & Monitor** tile to launch the Data Factory UI in a separate tab.
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
+
+1. Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Data Factory UI in a separate tab.
 
 
 ## Create a pipeline
 
-1. On the **Let's get started** page, select **Create pipeline**. A pipeline is automatically created for you. You see the pipeline in the tree view, and its editor opens.
+1. On the Azure Data Factory home page, select **Orchestrate**. A pipeline is automatically created for you. You see the pipeline in the tree view, and its editor opens.
 
-   ![Let's get started page](./media/doc-common-process/get-started-page.png)
+   ![Screenshot that shows the Azure Data Factory home page.](./media/doc-common-process/get-started-page.png)
 
-1. On the **General** tab at the bottom of the **Properties** window, for **Name**, enter **SQLServerToBlobPipeline**.
+1. In the General panel under **Properties**, specify **SQLServerToBlobPipeline** for **Name**. Then collapse the panel by clicking the Properties icon in the top-right corner.
 
 1. In the **Activities** tool box, expand **Move & Transform**. Drag and drop the **Copy** activity to the pipeline design surface. Set the name of the activity to **CopySqlServerToAzureBlobActivity**.
 
@@ -173,7 +170,7 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
     d. Under **Authentication type**, select the appropriate authentication type that Data Factory should use to connect to your SQL Server database.
 
-    e. Under **User name** and **Password**, enter the user name and password. If you need to use a backslash (\\) in your user account or server name, precede it with the escape character (\\). For example, use *mydomain\\\\myuser*.
+    e. Under **User name** and **Password**, enter the user name and password. Use *mydomain\\myuser* as user name if needed.
 
     f. Select **Test connection**. This step is to confirm that Data Factory can connect to your SQL Server database by using the self-hosted integration runtime you created.
 

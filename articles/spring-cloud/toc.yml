@@ -4,79 +4,215 @@
 - name: Overview
   items:
     - name: What is Azure Spring Cloud?
-      href: spring-cloud-overview.md
+      href: overview.md
 - name: Quickstarts
-  expanded: true 
+  expanded: true
   items:
-    - name: Launch a Spring Cloud app using the portal
-      href: spring-cloud-quickstart-launch-app-portal.md
-    - name: Launch a Spring Cloud app using the Azure CLI
-      href: spring-cloud-quickstart-launch-app-cli.md 
-    - name: Launch a Spring Cloud app from source
-      href: spring-cloud-launch-from-source.md
-    - name: Launch a Spring Cloud app using Maven
-      href: spring-cloud-quickstart-launch-app-maven.md
+    - name: Launch your first app
+      href: quickstart.md
+    - name: Build and run microservices
+      expanded: true
+      items:
+      - name: Introduction to the sample app
+        href: quickstart-sample-app-introduction.md
+      - name: Provision an Azure Spring Cloud service
+        href: quickstart-provision-service-instance.md
+      - name: Set up configuration server
+        href: quickstart-setup-config-server.md
+      - name: Build and deploy apps
+        href: quickstart-deploy-apps.md
+      - name: Use logs, metrics and tracing
+        href: quickstart-logs-metrics-tracing.md
+      - name: Integrate with Azure Database for MySQL
+        href: quickstart-integrate-azure-database-mysql.md
+    - name: Provisioning
+      expanded: true
+      items:
+      - name: Provision using an ARM template
+        href: quickstart-deploy-infrastructure-vnet.md
+      - name: Provision using Azure CLI
+        href: quickstart-deploy-infrastructure-vnet-azure-cli.md
+      - name: Provision using Terraform
+        href: quickstart-deploy-infrastructure-vnet-terraform.md          
 - name: Tutorials
   items:
-    - name: Set up a Config Server
-      href: spring-cloud-tutorial-config-server.md
-    - name: Manually scale an application
-      href: spring-cloud-tutorial-scale-manual.md
-    - name: Monitor an application using distributed tracing and App Insights
-      href: spring-cloud-tutorial-distributed-tracing.md
-    - name: Monitor Spring Cloud resources using alerts and action groups
-      href: spring-cloud-tutorial-alerts-action-groups.md
-    - name: Bind an application to Azure CosmosDB
-      href: spring-cloud-tutorial-bind-cosmos.md
-    - name: Bind an application with Azure Cache for Redis
-      href: spring-cloud-tutorial-bind-redis.md
-    - name: Bind an application to Azure MySQL
-      href: spring-cloud-tutorial-bind-mysql.md
-    - name: Use IntelliJ to deploy Azure Spring Cloud applications
-      href: spring-cloud-tutorial-intellij-deploy-apps.md
+    - name: Alerts and action groups
+      href: tutorial-alerts-action-groups.md
+    - name: Circuit Breaker Dashboard
+      href: tutorial-circuit-breaker.md
+    - name: Custom DNS name
+      href: tutorial-custom-domain.md
+    - name: Managed identity to connect Key Vault
+      href: tutorial-managed-identities-key-vault.md
+    - name: Managed identity to invoke Azure Functions
+      href: tutorial-managed-identities-functions.md
 - name: Concepts
-  items: 
-    - name: Understanding Azure Spring Cloud quotas and limits
-      href: spring-cloud-quotas.md
-    - name: Understanding metrics in the Azure Spring Cloud
-      href: spring-cloud-concept-metrics.md
+  items:
+    - name: App and deployment
+      href: concept-understand-app-and-deployment.md
+    - name: Blue-green deployment strategies
+      href: concepts-blue-green-deployment-strategies.md
+    - name: Quotas and limits
+      href: quotas.md
+    - name: Metrics
+      href: concept-metrics.md
+    - name: Azure Spring Boot Actuator
+      href: concept-manage-monitor-app-spring-boot-actuator.md
+- name: Security
+  items:
+    - name: Security controls
+      href: concept-security-controls.md
+    - name: Azure Policy Security controls
+      href: ./security-controls-policy.md
+    - name: Understand app status
+      href: concept-app-status.md
     - name: Plan for disaster recovery
       href: disaster-recovery.md
 - name: How-to guides
   items:
-    - name: Prepare a Java Spring app for deployment
-      href: spring-cloud-tutorial-prepare-app-deployment.md 
-    - name: How to start, stop, and delete an Azure Spring Cloud application
-      href: spring-cloud-howto-start-stop-delete.md
-    - name: How to set up a staging environment
-      href: spring-cloud-howto-staging-environment.md
-    - name: Enable Service Registration
-      href: spring-cloud-service-registration.md
-    - name: Analyze application logs and Metrics
-      href: diagnostic-services.md
-    - name: Stream Azure Spring Cloud app logs in real-time
-      href: spring-cloud-howto-log-streaming.md
-    - name: Use persistent storage in Azure Spring Cloud
-      href: spring-cloud-howto-persistent-storage.md
-- name: DevOps Deployment to Azure Spring Cloud
+    - name: Develop
+      items:
+        - name: Prepare a Java Spring app for deployment
+          href: how-to-prepare-app-deployment.md
+        - name: Set up a Config Server
+          href: how-to-config-server.md
+        - name: Enable Service Registration
+          href: how-to-service-registration.md
+    - name: Deploy
+      items:
+        - name: Set up a staging environment
+          href: how-to-staging-environment.md
+        - name: Launch Java app from source code
+          href: how-to-launch-from-source.md
+        - name: Use IntelliJ to deploy apps
+          href: how-to-intellij-deploy-apps.md
+        - name: Use VS Code to deploy apps
+          href: https://code.visualstudio.com/docs/java/java-spring-cloud
+        - name: Deploy Azure Spring Cloud with Azure PowerShell
+          href: how-to-deploy-powershell.md
+    - name: Manage
+      items:
+        - name: Start, stop, and delete an app
+          href: how-to-start-stop-delete.md
+        - name: Use persistent storage
+          href: how-to-persistent-storage.md
+        - name: Identify outbound public IP addresses
+          href: how-to-outbound-public-ip.md
+    - name: Scale
+      items: 
+        - name: Manually scale an app
+          href: how-to-scale-manual.md
+        - name: Autoscale an app
+          href: how-to-setup-autoscale.md
+    - name: Integrate
+      items:
+        - name: Azure CosmosDB
+          href: how-to-bind-cosmos.md
+        - name: Azure Cache for Redis
+          href: how-to-bind-redis.md
+        - name: Azure Database for MySQL
+          href: how-to-bind-mysql.md
+        - name: Azure SQL Database with Managed identity
+          href: connect-managed-identity-to-azure-sql.md
+        - name: Azure Load Balance Solutions
+          href: how-to-integrate-azure-load-balancers.md
+    - name: Monitor
+      items:
+        - name: Distributed tracing and App Insights
+          href: how-to-distributed-tracing.md
+        - name: Analyze logs and metrics
+          href: diagnostic-services.md
+        - name: Stream logs in real-time
+          href: how-to-log-streaming.md
+        - name: Application Insights using Java In-Process Agent
+          href: how-to-application-insights.md
+        - name: Resilience4J Circuit Breaker Metrics
+          href: how-to-circuit-breaker-metrics.md
+        - name: Structured application log
+          href: structured-app-log.md
+        - name: New Relic Java in-process agent
+          href: how-to-new-relic-monitor.md          
+    - name: Network
+      items: 
+        - name: Deploy Azure Spring Cloud in a virtual network
+          href: how-to-deploy-in-azure-virtual-network.md
+        - name: Access your application in a private network
+          href: access-app-virtual-network.md
+        - name: Expose applications to the Internet
+          href: expose-apps-gateway-azure-firewall.md
+        - name: Customer responsibilities running Azure Spring Cloud in VNET
+          href: vnet-customer-responsibilities.md
+        - name: Troubleshooting Azure Spring Cloud in virtual networks
+          href: troubleshooting-vnet.md
+    - name: Secure
+      items:
+        - name: Enable system-assigned managed identity
+          href: how-to-enable-system-assigned-managed-identity.md
+        - name: Create roles and permissions
+          href: how-to-permissions.md
+        - name: Enable end-to-end Transport Layer Security
+          href: how-to-enable-end-to-end-tls.md
+        - name: Access Config Server and Service Registry
+          href: how-to-access-data-plane-azure-ad-rbac.md
+    - name: Automate
+      items:
+        - name: CI/CD with Azure DevOps
+          href: how-to-cicd.md
+        - name: CI/CD with GitHub Actions
+          href: how-to-github-actions.md
+        - name: Auth with Key Vault in GitHub Actions
+          href: github-actions-key-vault.md
+        - name: Provision an Azure Spring Cloud instance with terraform
+          href: how-to-provision-azure-spring-cloud-instance-terraform.md
+    - name: Troubleshoot
+      items:
+        - name: Self diagnose and solve problems
+          href: how-to-self-diagnose-solve.md
+        - name: Self diagnose running in VNET
+          href: how-to-self-diagnose-running-in-vnet.md
+        - name: Troubleshooting guide
+          href: troubleshoot.md
+    - name: Migrate
+      items:
+        - name: Spring Cloud
+          href: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud
+        - name: Spring Boot
+          href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
+        - name: Tomcat
+          href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
+- name: Architecture
   items:
-    - name: CI/CD with Azure DevOps
-      href: spring-cloud-howto-cicd.md
-    - name: CI/CD with GitHub Actions
-      href: spring-cloud-howto-github-actions.md
-    - name: Auth Azure Spring Cloud with Key Vault in GitHub actions
-      href: spring-cloud-github-actions-key-vault.md
-    - name: CI/CD with Jenkins
-      href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
+    - name: Reference architecture
+      href: reference-architecture.md
+- name: DevOps deployment
+  items:
+  - name: CI/CD with Azure DevOps
+    href: ./how-to-cicd.md
+  - name: CI/CD with GitHub Actions
+    href: ./how-to-github-actions.md
+  - name: Auth with Key Vault in GitHub Actions
+    href: ./github-actions-key-vault.md
+- name: Troubleshoot
+  items:
+  - name: Troubleshooting guide
+    href: troubleshoot.md
 - name: Reference
-  items: 
-    - name: Azure CLI Plugin
-      href: spring-cloud-cli-reference.md
-    - name: Resources
-      href: spring-cloud-resources.md
-    - name: Frequently Asked Questions
-      href: spring-cloud-faq.md
-    - name: Troubleshooting Guide
-      href: spring-cloud-troubleshoot.md
-    - name: REST API reference
-      href: https://docs.microsoft.com/rest/api/azurespringclould/
+  items:
+  - name: Azure CLI plugin
+    href: /cli/azure/spring-cloud
+  - name: Azure PowerShell
+    href: /powershell/module/az.springcloud
+  - name: Azure Pipelines task
+    href: /azure/devops/pipelines/tasks/deploy/azure-spring-cloud
+  - name: Resources
+    href: resources.md
+  - name: Frequently asked questions
+    href: faq.md
+  - name: REST API reference
+    href: /rest/api/azurespringcloud/
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
+  - name: What's New
+    displayName: What's New
+    href: https://azure.microsoft.com/updates/?query=spring

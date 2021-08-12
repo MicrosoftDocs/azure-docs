@@ -1,19 +1,24 @@
 ---
 title: Use Ethereum Blockchain connector with Azure Logic Apps - Azure Blockchain Service
 description: Use the Ethereum Blockchain connector with Azure Logic Apps to trigger smart contract functions and respond to smart contract events.
-ms.date: 10/14/2019
-ms.topic: article
-ms.reviewer: chrisseg
+ms.date: 08/31/2020
+ms.topic: how-to
+ms.reviewer: caleteet
 #Customer intent: As a developer, I want to use Azure Logic Apps and Azure Blockchain Service so that I can trigger smart contract functions and respond to smart contract events.
 ---
 
 # Use the Ethereum Blockchain connector with Azure Logic Apps
 
-Use the [Ethereum Blockchain connector](https://docs.microsoft.com/connectors/blockchainethereum/) with [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) to perform smart contract actions and respond to smart contract events. For example, let's say you want to create a REST-based microservice that returns information from a blockchain ledger. By using a logic app, you can accept HTTP requests that query information stored in a blockchain ledger.
+Use the [Ethereum Blockchain connector](/connectors/blockchainethereum/) with [Azure Logic Apps](../../logic-apps/index.yml) to perform smart contract actions and respond to smart contract events.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
+
+This article explains how you might use the Ethereum Blockchain connector to send blockchain information to another service or call a blockchain function. For example, let's say you want to create a REST-based microservice that returns information from a blockchain ledger. By using a logic app, you can accept HTTP requests that query information stored in a blockchain ledger.
 
 ## Prerequisites
 
-Complete the optional prerequisite [Quickstart: Use Visual Studio Code to connect to an Azure Blockchain Service consortium network](connect-vscode.md). The quickstart guides you though installing [Azure Blockchain Development Kit for Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) and setting up your blockchain development environment.
+- Complete the optional prerequisite [Quickstart: Use Visual Studio Code to connect to an Azure Blockchain Service consortium network](connect-vscode.md). The quickstart guides you though installing [Azure Blockchain Development Kit for Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) and setting up your blockchain development environment.
+- If you are new to Azure Logic Apps, consider reviewing the Microsoft Learn modules [Introduction to Azure Logic Apps](/learn/modules/intro-to-logic-apps/) and [Call an API from a Logic Apps workflow using a custom connector](/learn/modules/logic-apps-and-custom-connectors/).
 
 ## Create a logic app
 
@@ -29,7 +34,7 @@ Azure Logic Apps helps you schedule and automate business processes and workflow
 
 Every logic app must start with a trigger, which fires when a specific event happens or when a specific condition is met. Each time the trigger fires, the Logic Apps engine creates a logic app instance that starts and runs your workflow.
 
-The Ethereum Blockchain connector has one trigger and several actions. Which trigger or action you use depends on your scenario.
+The Ethereum Blockchain connector has one trigger and several actions. Which trigger or action you use depends on your scenario. Follow the section in this article that best matches your scenario.
 
 If your workflow:
 
@@ -124,7 +129,7 @@ For example, the following steps generate a REST-based microservice logic app ba
 
     ![Designer view with the Connections selection](./media/ethereum-logic-app/microservice-logic-app.png)
 
-1. You can now use your logic app. To test the REST-based microservice, issue an HTTP POST request to the logic app request URL. Copy the **HTTP POST URL** contents from the **When a HTTP request is received** step.
+1. You can now use your logic app. To test the REST-based microservice, issue an HTTP POST request to the logic app request URL. Copy the **HTTP POST URL** contents from the **When an HTTP request is received** step.
 
     ![Logic Apps Designer pane with the HTTP POST URL](./media/ethereum-logic-app/post-url.png)
 
@@ -189,7 +194,7 @@ The Azure Blockchain Service RPC endpoint address is required to connect to a bl
 You can use the Ethereum account's private key to authenticate when sending a transaction to the blockchain. Your Ethereum account's public and private keys are generated from a 12-word mnemonic. The Azure Blockchain Development Kit for Ethereum generates a mnemonic when you connect to an Azure Blockchain Service consortium member. You can get the endpoint address by using the development kit extension.
 
 1. In Visual Studio Code, open the command palette (F1).
-1. Select **Azure Blockchain: Retrieve private key**.
+1. Select **Blockchain: Retrieve private key**.
 1. Select the mnemonic you saved when connecting to the consortium member.
 
     ![Command palette with an option to select the mnemonic](./media/ethereum-logic-app/private-key.png)

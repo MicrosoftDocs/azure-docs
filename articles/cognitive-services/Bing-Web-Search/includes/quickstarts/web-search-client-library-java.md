@@ -7,6 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/05/2020
+ms.custom: devx-track-java
 ms.author: aahi
 ---
 
@@ -18,7 +19,7 @@ Want to see the code right now? Samples for the [Bing Search client libraries fo
 
 Here are a few things that you'll need before running this quickstart:
 
-* [JDK 7 or 8](https://aka.ms/azure-jdks)
+* [JDK 7 or 8](/azure/developer/java/fundamentals/java-support-on-azure)
 * [Apache Maven](https://maven.apache.org/download.cgi) or your favorite build automation tool
 * A subscription key
 
@@ -289,4 +290,4 @@ When you're done with this project, make sure to remove your subscription key fr
 
 ## See also
 
-* [Azure Java SDK reference](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingwebsearchapi?view=azure-java-stable)
+* [Azure Java SDK reference](/java/api/overview/azure/cognitiveservices/client/bingwebsearchapi)

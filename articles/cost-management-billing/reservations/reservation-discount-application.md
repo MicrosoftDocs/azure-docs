@@ -4,6 +4,7 @@ description: This article helps you understand how reserved instance discounts a
 author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 03/22/2020
 ms.author: banders
@@ -33,7 +34,7 @@ When you buy a reservation, the discount can apply to other instances with attri
 
 Service plans:
 
-- Reserved VM Instances: When you buy the reservation and select **Optimized for instance size flexibility**, the discount coverage depends on the VM size you select. The reservation can apply to the virtual machines (VMs) sizes in the same size series group. For more information, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+- Reserved VM Instances: When you buy the reservation and select **Optimized for instance size flexibility**, the discount coverage depends on the VM size you select. The reservation can apply to the virtual machines (VMs) sizes in the same size series group. For more information, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
 - Azure Storage reserved capacity: You can purchase reserved capacity for standard Azure Storage accounts in units of 100 TiB or 1 PiB per month. For information about which regions support Azure Storage reserved capacity, see [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/). Azure Storage reserved capacity is available for all access tiers (hot, cool, and archive) and for any replication configuration (LRS, GRS, or ZRS).
 - SQL Database reserved capacity: The discount coverage depends on the performance tier you pick. For more information, see [Understand how an Azure reservation discount is applied](understand-reservation-charges.md).
 - Azure Cosmos DB reserved capacity: The discount coverage depends on the provisioned throughput. For more information, see [Understand how an Azure Cosmos DB reservation discount is applied](understand-cosmosdb-reservation-charges.md).
@@ -42,7 +43,7 @@ Service plans:
 
 Read the following articles that apply to you to learn how discounts apply to a specific Azure service:
 
-- [App Service](reservation-discount-app-service-isolated-stamp.md)
+- [App Service](reservation-discount-app-service.md)
 - [Azure Cache for Redis](understand-azure-cache-for-redis-reservation-charges.md)
 - [Cosmos DB](understand-cosmosdb-reservation-charges.md)
 - [Database for MariaDB](understand-reservation-charges-mariadb.md)
@@ -56,7 +57,7 @@ Read the following articles that apply to you to learn how discounts apply to a 
 - [Software plans](understand-suse-reservation-charges.md)
 - [Storage](understand-storage-charges.md)
 - [SQL Database](understand-reservation-charges.md)
-- [SQL Data Warehouse](reservation-discount-azure-sql-dw.md)
+- [Azure Synapse Analytics](reservation-discount-azure-sql-dw.md)
 - [Virtual machines](../manage/understand-vm-reservation-charges.md)
 
 

@@ -1,16 +1,16 @@
 ---
-author: MightyPen
+author: rothja
+ms.author: jroth
 ms.service: sql-database
 ms.topic: include
 ms.date: 12/10/2018	
-ms.author: genemi
 ---
 
 ## C# program example
 
-The next sections of this article present a C# program that uses ADO.NET to send Transact-SQL (T-SQL) statements to the SQL database. The C# program demonstrates the following actions:
+The next sections of this article present a C# program that uses ADO.NET to send Transact-SQL (T-SQL) statements to SQL Database. The C# program demonstrates the following actions:
 
-- [Connect to SQL database using ADO.NET](#cs_1_connect)
+- [Connect to SQL Database using ADO.NET](#cs_1_connect)
 - [Methods that return T-SQL statements](#cs_2_return)
     - Create tables
     - Populate tables with data
@@ -75,9 +75,9 @@ The C# program is logically one .cs file, and is physically divided into several
     View the report output here, then press any key to end the program...
     ```
 
-<a name="cs_1_connect"/>
+<a name="cs_1_connect"></a>
 
-### Connect to SQL database using ADO.NET
+### Connect to SQL Database using ADO.NET
 
 ```csharp
 using System;
@@ -125,7 +125,7 @@ namespace csharp_db_test
         }
 ```
 
-<a name="cs_2_return"/>
+<a name="cs_2_return"></a>
 
 ### Methods that return T-SQL statements
 
@@ -233,7 +233,7 @@ static string Build_6_Tsql_SelectEmployees()
 }
 ```
 
-<a name="cs_3_submit"/>
+<a name="cs_3_submit"></a>
 
 ### Submit T-SQL to the database
 

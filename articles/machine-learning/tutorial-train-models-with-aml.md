@@ -1,7 +1,7 @@
 ---
-title: "Image classification tutorial: Train models"
+title: "Tutorial: Train an example Jupyter Notebook"
 titleSuffix: Azure Machine Learning
-description: Use Azure Machine Learning to train an image classification model with scikit-learn in a Python Jupyter notebook. This tutorial is part one of two. 
+description: Use Azure Machine Learning to train an image classification model with scikit-learn in a cloud-based Python Jupyter Notebook. This tutorial is part one of two. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,15 +9,14 @@ ms.topic: tutorial
 
 author: sdgilley
 ms.author: sgilley
-ms.date: 02/10/2020
-ms.custom: seodec18
-#Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter notebook.
+ms.date: 04/26/2021
+ms.custom: seodec18, devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4
+#Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
 
-# Tutorial: Train image classification models with MNIST data and scikit-learn 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# Tutorial: Train an image classification model with an example Jupyter Notebook 
 
-In this tutorial, you train a machine learning model on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning in a Python Jupyter notebook.  You can then use the notebook as a template to train your own machine learning model with your own data. This tutorial is **part one of a two-part tutorial series**.  
+In this tutorial, you train a machine learning model on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning in a Python Jupyter Notebook.  You can then use the notebook as a template to train your own machine learning model with your own data. This tutorial is **part one of a two-part tutorial series**.  
 
 This tutorial trains a simple logistic regression by using the [MNIST](http://yann.lecun.com/exdb/mnist/) dataset and [scikit-learn](https://scikit-learn.org) with Azure Machine Learning. MNIST is a popular dataset consisting of 70,000 grayscale images. Each image is a handwritten digit of 28 x 28 pixels, representing a number from zero to nine. The goal is to create a multi-class classifier to identify the digit a given image represents.
 
@@ -31,27 +30,68 @@ Learn how to take the following actions:
 
 You learn how to select a model and deploy it in [part two of this tutorial](tutorial-deploy-models-with-aml.md).
 
-If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
 >[!NOTE]
-> Code in this article was tested with [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) version 1.0.65.
+> Code in this article was tested with [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro) version 1.13.0.
 
 ## Prerequisites
 
-* Complete the [Tutorial: Get started creating your first Azure ML experiment](tutorial-1st-experiment-sdk-setup.md) to:
-    * Create a workspace
-    * Clone the tutorials notebook to your folder in the workspace.
-    * Create a cloud-based compute instance.
+* Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to:
+    * Create a workspace.
+    * Create a cloud-based compute instance to use for your development environment.
+    * Create a cloud-based compute cluster to use for training your model.
 
-* In your cloned *tutorials/image-classification-mnist-data* folder, open the *img-classification-part1-training.ipynb* notebook. 
+## <a name="azure"></a>Run a notebook from your workspace
+
+Azure Machine Learning includes a cloud notebook server in your workspace for an install-free and pre-configured experience. Use [your own environment](how-to-configure-environment.md#local) if you prefer to have control over your environment, packages, and dependencies.
+
+ Follow along with this video or use the detailed steps to clone and run the tutorial notebook from your workspace.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
+
+### <a name="clone"></a> Clone a notebook folder
+
+You complete the following experiment setup and run steps in Azure Machine Learning studio. This consolidated interface includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
+
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
+
+1. Select your subscription and the workspace you created.
+
+1. On the left, select **Notebooks**.
+
+1. At the top, select the **Samples** tab.
+
+1. Open the **Python** folder.
+
+1. Open the folder with a version number on it. This number represents the current release for the Python SDK.
+
+1. Select the **...** button at the right of the **tutorials** folder, and then select **Clone**.
+
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png" alt-text="Screenshot that shows the Clone tutorials folder.":::
+
+1. A list of folders shows each user who accesses the workspace. Select your folder to clone the **tutorials**  folder there.
+
+### <a name="open"></a> Open the cloned notebook
+
+1. Open the **tutorials** folder that was cloned into your **User files** section.
+
+    > [!IMPORTANT]
+    > You can view notebooks in the **samples** folder but you can't run a notebook from there. To run a notebook, make sure you open the cloned version of the notebook in the **User Files** section.
+    
+1. Select the **img-classification-part1-training.ipynb** file in your **tutorials/image-classification-mnist-data** folder.
+
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Screenshot that shows the Open tutorials folder.":::
+
+1. On the top bar, select your compute instance to use to run the notebook.
 
 
-The tutorial and accompanying **utils.py** file is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](how-to-configure-environment.md#local). Run `pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` to install dependencies for this tutorial.
+The tutorial and accompanying **utils.py** file is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](how-to-configure-environment.md#local). If you aren't using the compute instance, run `pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` to install dependencies for this tutorial. 
 
 > [!Important]
 > The rest of this article contains the same content as you see in the notebook.  
 >
-> Switch to the Jupyter notebook now if you want to read along as you run the code. 
+> Switch to the Jupyter Notebook now if you want to read along as you run the code. 
 > To run a single code cell in a notebook, click the code cell and hit **Shift+Enter**. Or, run the entire notebook by choosing **Run all** from the top toolbar.
 
 ## <a name="start"></a>Set up your development environment
@@ -81,7 +121,7 @@ print("Azure ML SDK Version: ", azureml.core.VERSION)
 
 ### Connect to a workspace
 
-Create a workspace object from the existing workspace. `Workspace.from_config()` reads the file **config.json** and loads the details into an object named `ws`:
+Create a workspace object from the existing workspace. `Workspace.from_config()` reads the file **config.json** and loads the details into an object named `ws`.  The compute instance has a copy of this file saved in its root directory.  If you run the code elsewhere, you'll need to [create the file](how-to-configure-environment.md#workspace).
 
 ```python
 # load workspace configuration from the config.json file in the current folder.
@@ -89,13 +129,16 @@ ws = Workspace.from_config()
 print(ws.name, ws.location, ws.resource_group, sep='\t')
 ```
 
+>[!NOTE]
+> You may be asked to authenticate to your workspace the first time you run the following code. Follow the on-screen instructions.
+
 ### Create an experiment
 
 Create an experiment to track the runs in your workspace. A workspace can have multiple experiments:
 
 ```python
 from azureml.core import Experiment
-experiment_name = 'sklearn-mnist'
+experiment_name = 'Tutorial-sklearn-mnist'
 
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
@@ -104,9 +147,12 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 By using Azure Machine Learning Compute, a managed service, data scientists can train machine learning models on clusters of Azure virtual machines. Examples include VMs with GPU support. In this tutorial, you create Azure Machine Learning Compute as your training environment. You will submit Python code to run on this VM later in the tutorial. 
 
-The code below creates the compute clusters for you if they don't already exist in your workspace.
+The code below creates the compute clusters for you if they don't already exist in your workspace. It sets up a cluster that will scale down to 0 when not in use, and can scale up to a maximum of 4 nodes.
 
- **Creation of the compute target takes about five minutes.** If the compute resource is already in the workspace, the code uses it and skips the creation process.
+ **Creation of the compute target takes about five minutes.** If the compute resource is already in the workspace, the code uses it and skips the creation process.  
+
+> [!TIP]
+> If you created a compute cluster in the quickstart, make sure `compute_name` in the code below uses the same name.
 
 ```python
 from azureml.core.compute import AmlCompute
@@ -114,7 +160,7 @@ from azureml.core.compute import ComputeTarget
 import os
 
 # choose a name for your cluster
-compute_name = os.environ.get("AML_COMPUTE_CLUSTER_NAME", "cpucluster")
+compute_name = os.environ.get("AML_COMPUTE_CLUSTER_NAME", "cpu-cluster")
 compute_min_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MIN_NODES", 0)
 compute_max_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MAX_NODES", 4)
 
@@ -156,7 +202,7 @@ Before you train a model, you need to understand the data that you use to train 
 
 ### Download the MNIST dataset
 
-Use Azure Open Datasets to get the raw MNIST data files. [Azure Open Datasets](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) are curated public datasets that you can use to add scenario-specific features to machine learning solutions for more accurate models. Each dataset has a corresponding class, `MNIST` in this case, to retrieve the data in different ways.
+Use Azure Open Datasets to get the raw MNIST data files. [Azure Open Datasets](../open-datasets/overview-what-are-open-datasets.md) are curated public datasets that you can use to add scenario-specific features to machine learning solutions for more accurate models. Each dataset has a corresponding class, `MNIST` in this case, to retrieve the data in different ways.
 
 This code retrieves the data as a `FileDataset` object, which is a subclass of `Dataset`. A `FileDataset` references single or multiple files of any format in your datastores or public urls. The class provides you with the ability to download or mount the files to your compute by creating a reference to the data source location. Additionally, you register the Dataset to your workspace for easy retrieval during training.
 
@@ -180,17 +226,20 @@ mnist_file_dataset = mnist_file_dataset.register(workspace=ws,
 
 ### Display some sample images
 
-Load the compressed files into `numpy` arrays. Then use `matplotlib` to plot 30 random images from the dataset with their labels above them. This step requires a `load_data` function that's included in an `util.py` file. This file is included in the sample folder. Make sure it's placed in the same folder as this notebook. The `load_data` function simply parses the compressed files into numpy arrays.
+Load the compressed files into `numpy` arrays. Then use `matplotlib` to plot 30 random images from the dataset with their labels above them. This step requires a `load_data` function that's included in an `utils.py` file. This file is included in the sample folder. Make sure it's placed in the same folder as this notebook. The `load_data` function simply parses the compressed files into numpy arrays.
 
 ```python
 # make sure utils.py is in the same directory as this code
 from utils import load_data
+import glob
+
 
 # note we also shrink the intensity values (X) from 0-255 to 0-1. This helps the model converge faster.
-X_train = load_data(os.path.join(data_folder, "train-images-idx3-ubyte.gz"), False) / 255.0
-X_test = load_data(os.path.join(data_folder, "t10k-images-idx3-ubyte.gz"), False) / 255.0
-y_train = load_data(os.path.join(data_folder, "train-labels-idx1-ubyte.gz"), True).reshape(-1)
-y_test = load_data(os.path.join(data_folder, "t10k-labels-idx1-ubyte.gz"), True).reshape(-1)
+X_train = load_data(glob.glob(os.path.join(data_folder,"**/train-images-idx3-ubyte.gz"), recursive=True)[0], False) / 255.0
+X_test = load_data(glob.glob(os.path.join(data_folder,"**/t10k-images-idx3-ubyte.gz"), recursive=True)[0], False) / 255.0
+y_train = load_data(glob.glob(os.path.join(data_folder,"**/train-labels-idx1-ubyte.gz"), recursive=True)[0], True).reshape(-1)
+y_test = load_data(glob.glob(os.path.join(data_folder,"**/t10k-labels-idx1-ubyte.gz"), recursive=True)[0], True).reshape(-1)
+
 
 # now let's show some randomly chosen images from the traininng set.
 count = 0
@@ -217,7 +266,7 @@ Now you have an idea of what these images look like and the expected prediction 
 For this task, you submit the job to run on the remote training cluster you set up earlier.  To submit a job you:
 * Create a directory
 * Create a training script
-* Create an estimator object
+* Create a script run configuration
 * Submit the job
 
 ### Create a directory
@@ -225,6 +274,7 @@ For this task, you submit the job to run on the remote training cluster you set 
 Create a directory to deliver the necessary code from your computer to the remote resource.
 
 ```python
+import os
 script_folder = os.path.join(os.getcwd(), "sklearn-mnist")
 os.makedirs(script_folder, exist_ok=True)
 ```
@@ -242,7 +292,7 @@ import numpy as np
 import glob
 
 from sklearn.linear_model import LogisticRegression
-from sklearn.externals import joblib
+import joblib
 
 from azureml.core import Run
 from utils import load_data
@@ -262,6 +312,7 @@ X_train = load_data(glob.glob(os.path.join(data_folder, '**/train-images-idx3-ub
 X_test = load_data(glob.glob(os.path.join(data_folder, '**/t10k-images-idx3-ubyte.gz'), recursive=True)[0], False) / 255.0
 y_train = load_data(glob.glob(os.path.join(data_folder, '**/train-labels-idx1-ubyte.gz'), recursive=True)[0], True).reshape(-1)
 y_test = load_data(glob.glob(os.path.join(data_folder, '**/t10k-labels-idx1-ubyte.gz'), recursive=True)[0], True).reshape(-1)
+
 print(X_train.shape, y_train.shape, X_test.shape, y_test.shape, sep = '\n')
 
 # get hold of the current run
@@ -300,50 +351,56 @@ Notice how the script gets data and saves models:
   shutil.copy('utils.py', script_folder)
   ```
 
-### Create an estimator
+### Configure the training job
 
-An [SKLearn estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) object is used to submit the run. Create your estimator by running the following code to define these items:
+Create a [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) object to specify the configuration details of your training job, including your training script, environment to use, and the compute target to run on. Configure the ScriptRunConfig by specifying:
 
-* The name of the estimator object, `est`.
 * The directory that contains your scripts. All the files in this directory are uploaded into the cluster nodes for execution.
 * The compute target. In this case, you use the Azure Machine Learning compute cluster you created.
 * The training script name, **train.py**.
-* Parameters required from the training script.
+* An environment that contains the libraries needed to run the script.
+* Arguments required from the training script.
 
-In this tutorial, this target is AmlCompute. All files in the script folder are uploaded into the cluster nodes for run. The **data_folder** is set to use the dataset. First create an environment object that specifies the dependencies required for training. 
+In this tutorial, this target is AmlCompute. All files in the script folder are uploaded into the cluster nodes for run. The **--data_folder** is set to use the dataset.
+
+First, create the environment that contains: the scikit-learn library, azureml-dataset-runtime required for accessing the dataset, and azureml-defaults which contains the dependencies for logging metrics. The azureml-defaults also contains the dependencies required for deploying the model as a web service later in the part 2 of the tutorial.
+
+Once the environment is defined, register it with the Workspace to re-use it in part 2 of the tutorial.
 
 ```python
 from azureml.core.environment import Environment
 from azureml.core.conda_dependencies import CondaDependencies
 
-env = Environment('my_env')
-cd = CondaDependencies.create(pip_packages=['azureml-sdk','scikit-learn','azureml-dataprep[pandas,fuse]>=1.1.14'])
+# to install required packages
+env = Environment('tutorial-env')
+cd = CondaDependencies.create(pip_packages=['azureml-dataset-runtime[pandas,fuse]', 'azureml-defaults'], conda_packages=['scikit-learn==0.22.1'])
+
 env.python.conda_dependencies = cd
+
+# Register environment to re-use later
+env.register(workspace=ws)
 ```
 
-Then create the estimator with the following code.
+Then, create the ScriptRunConfig by specifying the training script, compute target and environment.
 
 ```python
-from azureml.train.sklearn import SKLearn
+from azureml.core import ScriptRunConfig
 
-script_params = {
-    '--data-folder': mnist_file_dataset.as_named_input('mnist_opendataset').as_mount(),
-    '--regularization': 0.5
-}
+args = ['--data-folder', mnist_file_dataset.as_mount(), '--regularization', 0.5]
 
-est = SKLearn(source_directory=script_folder,
-              script_params=script_params,
-              compute_target=compute_target,
-              environment_definition=env, 
-              entry_script='train.py')
+src = ScriptRunConfig(source_directory=script_folder,
+                      script='train.py', 
+                      arguments=args,
+                      compute_target=compute_target,
+                      environment=env)
 ```
 
 ### Submit the job to the cluster
 
-Run the experiment by submitting the estimator object:
+Run the experiment by submitting the ScriptRunConfig object:
 
 ```python
-run = exp.submit(config=est)
+run = exp.submit(config=src)
 run
 ```
 
@@ -355,7 +412,7 @@ In total, the first run takes **about 10 minutes**. But for subsequent runs, as 
 
 What happens while you wait:
 
-- **Image creation**: A Docker image is created that matches the Python environment specified by the estimator. The image is uploaded to the workspace. Image creation and uploading takes **about five minutes**.
+- **Image creation**: A Docker image is created that matches the Python environment specified by the Azure ML environment. The image is uploaded to the workspace. Image creation and uploading takes **about five minutes**.
 
   This stage happens once for each Python environment because the container is cached for subsequent runs. During image creation, logs are streamed to the run history. You can monitor the image creation progress by using these logs.
 
@@ -369,7 +426,7 @@ You can check the progress of a running job in several ways. This tutorial uses 
 
 ### Jupyter widget
 
-Watch the progress of the run with a [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py). Like the run submission, the widget is asynchronous and provides live updates every 10 to 15 seconds until the job finishes:
+Watch the progress of the run with a [Jupyter widget](/python/api/azureml-widgets/azureml.widgets). Like the run submission, the widget is asynchronous and provides live updates every 10 to 15 seconds until the job finishes:
 
 ```python
 from azureml.widgets import RunDetails
@@ -380,7 +437,7 @@ The widget will look like the following at the end of training:
 
 ![Notebook widget](./media/tutorial-train-models-with-aml/widget.png)
 
-If you need to cancel a run, you can follow [these instructions](https://aka.ms/aml-docs-cancel-run).
+If you need to cancel a run, you can follow [these instructions](./how-to-track-monitor-analyze-runs.md).
 
 ### Get log results upon completion
 

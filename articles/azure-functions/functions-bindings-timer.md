@@ -5,28 +5,28 @@ author: craigshoemaker
 
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.topic: reference
-ms.date: 09/08/2018
+ms.date: 11/18/2020
 ms.author: cshoe
-
-ms.custom: 
+ms.custom: "devx-track-csharp, devx-track-python"
 
 ---
-# Timer trigger for Azure Functions 
+# Timer trigger for Azure Functions
 
-This article explains how to work with timer triggers in Azure Functions. 
-A timer trigger lets you run a function on a schedule. 
+This article explains how to work with timer triggers in Azure Functions. A timer trigger lets you run a function on a schedule.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## Packages - Functions 1.x
-
-The timer trigger is provided in the [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet package, version 2.x. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Timers/) GitHub repository.
-
-[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
+For information on how to manually run a timer-triggered function, see [Manually run a non HTTP-triggered function](./functions-manually-run-non-http.md).
 
 ## Packages - Functions 2.x and higher
 
 The timer trigger is provided in the [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet package, version 3.x. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) GitHub repository.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
+
+## Packages - Functions 1.x
+
+The timer trigger is provided in the [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet package, version 2.x. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Timers/) GitHub repository.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -76,6 +76,21 @@ public static void Run(TimerInfo myTimer, ILogger log)
 }
 ```
 
+# [Java](#tab/java)
+
+The following example function triggers and executes every five minutes. The `@TimerTrigger` annotation on the function defines the schedule using the same string format as [CRON expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression).
+
+```java
+@FunctionName("keepAlive")
+public void keepAlive(
+  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
+      ExecutionContext context
+ ) {
+     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
+     context.getLogger().info("Timer is triggered: " + timerInfo);
+}
+```
+
 # [JavaScript](#tab/javascript)
 
 The following example shows a timer trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function writes a log indicating whether this function invocation is due to a missed schedule occurrence. A [timer object](#usage) is passed into the function.
@@ -97,7 +112,7 @@ Here's the JavaScript code:
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
 
-    if (myTimer.IsPastDue)
+    if (myTimer.isPastDue)
     {
         context.log('Node is running late!');
     }
@@ -107,9 +122,44 @@ module.exports = function (context, myTimer) {
 };
 ```
 
+# [PowerShell](#tab/powershell)
+
+The following example demonstrates how to configure the *function.json* and *run.ps1* file for a timer trigger in [PowerShell](./functions-reference-powershell.md).
+
+```json
+{
+  "bindings": [
+    {
+      "name": "Timer",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 */5 * * * *"
+    }
+  ]
+}
+```
+
+```powershell
+# Input bindings are passed in via param block.
+param($Timer)
+
+# Get the current universal time in the default string format.
+$currentUTCtime = (Get-Date).ToUniversalTime()
+
+# The 'IsPastDue' property is 'true' when the current function invocation is later than scheduled.
+if ($Timer.IsPastDue) {
+    Write-Host "PowerShell timer is running late!"
+}
+
+# Write an information log with the current time.
+Write-Host "PowerShell timer trigger function ran! TIME: $currentUTCtime"
+```
+
+An instance of the [timer object](#usage) is passed as the first argument to the function.
+
 # [Python](#tab/python)
 
-The following example uses a timer trigger binding whose configuration is described in the *function.json* file. The actual [Python function](functions-reference-python.md) that uses the binding is described in the *__init__.py* file. The object passed into the function is of type [azure.functions.TimerRequest object](/python/api/azure-functions/azure.functions.timerrequest). The function logic writes to the logs indicating whether the current invocation is due to a missed schedule occurrence. 
+The following example uses a timer trigger binding whose configuration is described in the *function.json* file. The actual [Python function](functions-reference-python.md) that uses the binding is described in the *__init__.py* file. The object passed into the function is of type [azure.functions.TimerRequest object](/python/api/azure-functions/azure.functions.timerrequest). The function logic writes to the logs indicating whether the current invocation is due to a missed schedule occurrence.
 
 Here's the binding data in the *function.json* file:
 
@@ -141,21 +191,6 @@ def main(mytimer: func.TimerRequest) -> None:
     logging.info('Python timer trigger function ran at %s', utc_timestamp)
 ```
 
-# [Java](#tab/java)
-
-The following example function triggers and executes every five minutes. The `@TimerTrigger` annotation on the function defines the schedule using the same string format as [CRON expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression).
-
-```java
-@FunctionName("keepAlive")
-public void keepAlive(
-  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
-      ExecutionContext context
- ) {
-     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
-     context.getLogger().info("Timer is triggered: " + timerInfo);
-}
-```
-
 ---
 
 ## Attributes and annotations
@@ -184,14 +219,6 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 Attributes are not supported by C# Script.
 
-# [JavaScript](#tab/javascript)
-
-Attributes are not supported by JavaScript.
-
-# [Python](#tab/python)
-
-Attributes are not supported by Python.
-
 # [Java](#tab/java)
 
 The `@TimerTrigger` annotation on the function defines the schedule using the same string format as [CRON expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression).
@@ -206,6 +233,18 @@ public void keepAlive(
      context.getLogger().info("Timer is triggered: " + timerInfo);
 }
 ```
+
+# [JavaScript](#tab/javascript)
+
+Attributes are not supported by JavaScript.
+
+# [PowerShell](#tab/powershell)
+
+Attributes are not supported by PowerShell.
+
+# [Python](#tab/python)
+
+Attributes are not supported by Python.
 
 ---
 
@@ -225,7 +264,7 @@ The following table explains the binding configuration properties that you set i
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!CAUTION]
-> We recommend against setting **runOnStartup** to `true` in production. Using this setting makes code execute at highly unpredictable times. In certain production settings, these extra executions can result in significantly higher costs for apps hosted in Consumption plans. For example, with **runOnStartup** enabled the trigger is invoked whenever your function app is scaled. Make sure you fully understand the production behavior of your functions before enabling **runOnStartup** in production.   
+> We recommend against setting **runOnStartup** to `true` in production. Using this setting makes code execute at highly unpredictable times. In certain production settings, these extra executions can result in significantly higher costs for apps hosted in Consumption plans. For example, with **runOnStartup** enabled the trigger is invoked whenever your function app is scaled. Make sure you fully understand the production behavior of your functions before enabling **runOnStartup** in production.
 
 ## Usage
 
@@ -233,20 +272,20 @@ When a timer trigger function is invoked, a timer object is passed into the func
 
 ```json
 {
-    "Schedule":{
+    "schedule":{
     },
-    "ScheduleStatus": {
-        "Last":"2016-10-04T10:15:00+00:00",
-        "LastUpdated":"2016-10-04T10:16:00+00:00",
-        "Next":"2016-10-04T10:20:00+00:00"
+    "scheduleStatus": {
+        "last":"2016-10-04T10:15:00+00:00",
+        "lastUpdated":"2016-10-04T10:16:00+00:00",
+        "next":"2016-10-04T10:20:00+00:00"
     },
-    "IsPastDue":false
+    "isPastDue":false
 }
 ```
 
-The `IsPastDue` property is `true` when the current function invocation is later than scheduled. For example, a function app restart might cause an invocation to be missed.
+The `isPastDue` property is `true` when the current function invocation is later than scheduled. For example, a function app restart might cause an invocation to be missed.
 
-## NCRONTAB expressions 
+## NCRONTAB expressions
 
 Azure Functions uses the [NCronTab](https://github.com/atifaziz/NCrontab) library to interpret NCRONTAB expressions. An NCRONTAB expression is similar to a CRON expression except that it includes an additional sixth field at the beginning to use for time precision in seconds:
 
@@ -256,11 +295,11 @@ Each field can have one of the following types of values:
 
 |Type  |Example  |When triggered  |
 |---------|---------|---------|
-|A specific value |<nobr>"0 5 * * * *"</nobr>|at hh:05:00 where hh is every hour (once an hour)|
-|All values (`*`)|<nobr>"0 * 5 * * *"</nobr>|at 5:mm:00 every day, where mm is every minute of the hour (60 times a day)|
-|A range (`-` operator)|<nobr>"5-7 * * * * *"</nobr>|at hh:mm:05,hh:mm:06, and hh:mm:07 where hh:mm is every minute of every hour (3 times a minute)|
-|A set of values (`,` operator)|<nobr>"5,8,10 * * * * *"</nobr>|at hh:mm:05,hh:mm:08, and hh:mm:10 where hh:mm is every minute of every hour (3 times a minute)|
-|An interval value (`/` operator)|<nobr>"0 */5 * * * *"</nobr>|at hh:00:00, hh:05:00, hh:10:00, and so on through hh:55:00 where hh is every hour (12 times an hour)|
+|A specific value |<nobr>`0 5 * * * *`</nobr>| Once every hour of the day at minute 5 of each hour |
+|All values (`*`)|<nobr>`0 * 5 * * *`</nobr>| At every minute in the hour, beginning at hour 5 |
+|A range (`-` operator)|<nobr>`5-7 * * * * *`</nobr>| Three times a minute - at seconds 5 through 7 during every minute of every hour of each day |
+|A set of values (`,` operator)|<nobr>`5,8,10 * * * * *`</nobr>| Three times a minute - at seconds 5, 8, and 10 during every minute of every hour of each day |
+|An interval value (`/` operator)|<nobr>`0 */5 * * * *`</nobr>| 12 times an hour - at second 0 of every 5th minute of every hour of each day |
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
@@ -268,39 +307,24 @@ Each field can have one of the following types of values:
 
 Here are some examples of NCRONTAB expressions you can use for the timer trigger in Azure Functions.
 
-|Example|When triggered  |
-|---------|---------|
-|`"0 */5 * * * *"`|once every five minutes|
-|`"0 0 * * * *"`|once at the top of every hour|
-|`"0 0 */2 * * *"`|once every two hours|
-|`"0 0 9-17 * * *"`|once every hour from 9 AM to 5 PM|
-|`"0 30 9 * * *"`|at 9:30 AM every day|
-|`"0 30 9 * * 1-5"`|at 9:30 AM every weekday|
-|`"0 30 9 * Jan Mon"`|at 9:30 AM every Monday in January|
+| Example            | When triggered                     |
+|--------------------|------------------------------------|
+| `0 */5 * * * *`    | once every five minutes            |
+| `0 0 * * * *`      | once at the top of every hour      |
+| `0 0 */2 * * *`    | once every two hours               |
+| `0 0 9-17 * * *`   | once every hour from 9 AM to 5 PM  |
+| `0 30 9 * * *`     | at 9:30 AM every day               |
+| `0 30 9 * * 1-5`   | at 9:30 AM every weekday           |
+| `0 30 9 * Jan Mon` | at 9:30 AM every Monday in January |
 
+> [!NOTE]
+> NCRONTAB expression supports both **five field** and **six field** format. The sixth field position is a value for seconds which is placed at the beginning of the expression.
 
 ### NCRONTAB time zones
 
 The numbers in a CRON expression refer to a time and date, not a time span. For example, a 5 in the `hour` field refers to 5:00 AM, not every 5 hours.
 
-The default time zone used with the CRON expressions is Coordinated Universal Time (UTC). To have your CRON expression based on another time zone, create an app setting for your function app named `WEBSITE_TIME_ZONE`. Set the value to the name of the desired time zone as shown in the [Microsoft Time Zone Index](https://technet.microsoft.com/library/cc749073).
-
-  > [!NOTE]
-  > `WEBSITE_TIME_ZONE` is not currently supported on the Linux Consumption plan.
-
-For example, *Eastern Standard Time* is UTC-05:00. To have your timer trigger fire at 10:00 AM EST every day, use the following NCRONTAB expression that accounts for UTC time zone:
-
-```
-"0 0 15 * * *"
-```	
-
-Or create an app setting for your function app named `WEBSITE_TIME_ZONE` and set the value to **Eastern Standard Time**.  Then uses the following NCRONTAB expression: 
-
-```
-"0 0 10 * * *"
-```	
-
-When you use `WEBSITE_TIME_ZONE`, the time is adjusted for time changes in the specific timezone, such as daylight savings time. 
+[!INCLUDE [functions-timezone](../../includes/functions-timezone.md)]
 
 ## TimeSpan
 
@@ -310,16 +334,16 @@ Unlike a CRON expression, a `TimeSpan` value specifies the time interval between
 
 Expressed as a string, the `TimeSpan` format is `hh:mm:ss` when `hh` is less than 24. When the first two digits are 24 or greater, the format is `dd:hh:mm`. Here are some examples:
 
-|Example |When triggered  |
-|---------|---------|
-|"01:00:00" | every hour        |
-|"00:01:00"|every minute         |
-|"24:00:00" | every 24 days        |
-|"1.00:00:00" | every day        |
+| Example      | When triggered |
+|--------------|----------------|
+| "01:00:00"   | every hour     |
+| "00:01:00"   | every minute   |
+| "25:00:00"   | every 25 days  |
+| "1.00:00:00" | every day      |
 
 ## Scale-out
 
-If a function app scales out to multiple instances, only a single instance of a timer-triggered function is run across all instances.
+If a function app scales out to multiple instances, only a single instance of a timer-triggered function is run across all instances. It will not trigger again if there is an outstanding invocation is still running.
 
 ## Function apps sharing Storage
 
@@ -337,6 +361,16 @@ The timer trigger uses a storage lock to ensure that there is only one timer ins
 ## Retry behavior
 
 Unlike the queue trigger, the timer trigger doesn't retry after a function fails. When a function fails, it isn't called again until the next time on the schedule.
+
+## Manually invoke a timer trigger
+
+The timer trigger for Azure Functions provides an HTTP webhook that can be invoked to manually trigger the function. This can be extremely useful in the following scenarios.
+
+* Integration testing
+* Slot swaps as part of a smoke test or warmup activity
+* Initial deployment of a function to immediately populate a cache or lookup table in a database
+
+Please refer to [manually run a non HTTP-triggered function](./functions-manually-run-non-http.md) for details on how to manually invoke a timer triggered function.
 
 ## Troubleshooting
 

@@ -4,7 +4,8 @@ description: This article describes how to configure and access metric alerts fo
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
-ms.topic: conceptual
+ms.subservice: hyperscale-citus
+ms.topic: how-to
 ms.date: 3/16/2020
 ---
 
@@ -20,28 +21,28 @@ You can configure an alert to do the following actions when it triggers:
 * Call a webhook.
 
 You can configure and get information about alert rules using:
-* [Azure portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
-* [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts)
+* [Azure portal](../azure-monitor/alerts/alerts-metric.md#create-with-azure-portal)
+* [Azure CLI](../azure-monitor/alerts/alerts-metric.md#with-azure-cli)
+* [Azure Monitor REST API](/rest/api/monitor/metricalerts)
 
 ## Create an alert rule on a metric from the Azure portal
 1. In the [Azure portal](https://portal.azure.com/), select the Azure Database for PostgreSQL server you want to monitor.
 
 2. Under the **Monitoring** section of the sidebar, select **Alerts** as shown:
 
-   ![Select Alert Rules](./media/howto-hyperscale-alert-on-metric/2-alert-rules.png)
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/2-alert-rules.png" alt-text="Select Alert Rules":::
 
 3. Select **New alert rule** (+ icon).
 
 4. The **Create rule** page opens as shown below. Fill in the required information:
 
-   ![Add metric alert form](./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png)
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png" alt-text="Add metric alert form":::
 
 5. Within the **Condition** section, select **Add**.
 
 6. Select a metric from the list of signals to be alerted on. In this example, select "Storage percent".
    
-   ![Select metric](./media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png)
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png" alt-text="Screenshot shows the Configure signal logic page where you can view several signals.":::
 
 7. Configure the alert logic:
 
@@ -52,13 +53,13 @@ You can configure and get information about alert rules using:
    
    Select **Done** when complete.
 
-   ![Select metric](./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png)
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png" alt-text="Screenshot shows the pane where you can configure Alert logic.":::
 
 8. Within the **Action Groups** section, select **Create New** to create a new group to receive notifications on the alert.
 
 9. Fill out the "Add action group" form with a name, short name, subscription, and resource group.
 
-    ![Action group](./media/howto-hyperscale-alert-on-metric/9-add-action-group.png)
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/9-add-action-group.png" alt-text="Screenshot shows the Add action group form where you can enter the described values.":::
 
 10. Configure an **Email/SMS/Push/Voice** action type.
     
@@ -66,11 +67,11 @@ You can configure and get information about alert rules using:
    
     Select **OK** when completed.
 
-    ![Action group](./media/howto-hyperscale-alert-on-metric/10-action-group-type.png)
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/10-action-group-type.png" alt-text="Screenshot shows the Email/S M S/Push/Voice pane.":::
 
 11. Specify an Alert rule name, Description, and Severity.
 
-    ![Action group](./media/howto-hyperscale-alert-on-metric/11-name-description-severity.png) 
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/11-name-description-severity.png" alt-text="Screenshot shows the Alert Details pane."::: 
 
 12. Select **Create alert rule** to create the alert.
 
@@ -95,13 +96,13 @@ We recommend setting disk space alerts on every node in every server group, even
 As the disk approaches its space limit, try these techniques to get more free space:
 
 * Review data retention policy. Move older data to cold storage if feasible.
-* Consider [adding nodes](howto-hyperscale-scaling.md#add-worker-nodes) to the server group and rebalancing shards. Rebalancing distributes the data across more computers.
-* Consider [growing the capacity](howto-hyperscale-scaling.md#increase-or-decrease-vcores-on-nodes) of worker nodes. Each worker can have up to 2 TiB of storage. However adding nodes should be attempted before resizing nodes because adding nodes completes faster.
+* Consider [adding nodes](howto-hyperscale-scale-grow.md#add-worker-nodes) to the server group and rebalancing shards. Rebalancing distributes the data across more computers.
+* Consider [growing the capacity](howto-hyperscale-scale-grow.md#increase-or-decrease-vcores-on-nodes) of worker nodes. Each worker can have up to 2 TiB of storage. However adding nodes should be attempted before resizing nodes because adding nodes completes faster.
 
 ### CPU usage
 
 Monitoring CPU usage is useful to establish a baseline for performance. For example, you may notice that CPU usage is usually around 40-60%. If CPU usage suddenly begins hovering around 95%, you can recognize an anomaly. The CPU usage may reflect organic growth, but it may also reveal a stray query. When creating a CPU alert, set a long aggregation granularity to catch prolonged increases and ignore momentary spikes.
 
 ## Next steps
-* Learn more about [configuring webhooks in alerts](../azure-monitor/platform/alerts-webhooks.md).
-* Get an [overview of metrics collection](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.
+* Learn more about [configuring webhooks in alerts](../azure-monitor/alerts/alerts-webhooks.md).
+* Get an [overview of metrics collection](../azure-monitor/data-platform.md) to make sure your service is available and responsive.

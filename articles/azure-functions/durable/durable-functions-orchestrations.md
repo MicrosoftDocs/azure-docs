@@ -3,7 +3,7 @@ title: Durable Orchestrations - Azure Functions
 description: Introduction to the orchestration feature for Azure Durable Functions.
 author: cgillum
 ms.topic: overview
-ms.date: 09/08/2019
+ms.date: 05/11/2021
 ms.author: azfuncdf
 #Customer intent: As a developer, I want to understand durable orchestrations so that I can use them effectively in my applications.
 ---
@@ -37,17 +37,17 @@ An orchestration's instance ID is a required parameter for most [instance manage
 
 ## Reliability
 
-Orchestrator functions reliably maintain their execution state by using the [event sourcing](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) design pattern. Instead of directly storing the current state of an orchestration, the Durable Task Framework uses an append-only store to record the full series of actions the function orchestration takes. An append-only store has many benefits compared to "dumping" the full runtime state. Benefits include increased performance, scalability, and responsiveness. You also get eventual consistency for transactional data and full audit trails and history. The audit trails support reliable compensating actions.
+Orchestrator functions reliably maintain their execution state by using the [event sourcing](/azure/architecture/patterns/event-sourcing) design pattern. Instead of directly storing the current state of an orchestration, the Durable Task Framework uses an append-only store to record the full series of actions the function orchestration takes. An append-only store has many benefits compared to "dumping" the full runtime state. Benefits include increased performance, scalability, and responsiveness. You also get eventual consistency for transactional data and full audit trails and history. The audit trails support reliable compensating actions.
 
-Durable Functions uses event sourcing transparently. Behind the scenes, the `await` (C#) or `yield` (JavaScript) operator in an orchestrator function yields control of the orchestrator thread back to the Durable Task Framework dispatcher. The dispatcher then commits any new actions that the orchestrator function scheduled (such as calling one or more child functions or scheduling a durable timer) to storage. The transparent commit action appends to the execution history of the orchestration instance. The history is stored in a storage table. The commit action then adds messages to a queue to schedule the actual work. At this point, the orchestrator function can be unloaded from memory.
+Durable Functions uses event sourcing transparently. Behind the scenes, the `await` (C#) or `yield` (JavaScript/Python) operator in an orchestrator function yields control of the orchestrator thread back to the Durable Task Framework dispatcher. The dispatcher then commits any new actions that the orchestrator function scheduled (such as calling one or more child functions or scheduling a durable timer) to storage. The transparent commit action updates the execution history of the orchestration instance by appending all new events into storage, much like an append-only log. Similarly, the commit action creates messages in storage to schedule the actual work. At this point, the orchestrator function can be unloaded from memory. By default, Durable Functions uses Azure Storage as its runtime state store, but other [storage providers are also supported](durable-functions-storage-providers.md).
 
 When an orchestration function is given more work to do (for example, a response message is received or a durable timer expires), the orchestrator wakes up and re-executes the entire function from the start to rebuild the local state. During the replay, if the code tries to call a function (or do any other async work), the Durable Task Framework consults the execution history of the current orchestration. If it finds that the [activity function](durable-functions-types-features-overview.md#activity-functions) has already executed and yielded a result, it replays that function's result and the orchestrator code continues to run. Replay continues until the function code is finished or until it has scheduled new async work.
 
 > [!NOTE]
-> In order for the replay pattern to work correctly and reliably, orchestrator function code must be *deterministic*. For more information about code restrictions for orchestrator functions, see the [orchestrator function code constraints](durable-functions-code-constraints.md) topic.
+> In order for the replay pattern to work correctly and reliably, orchestrator function code must be *deterministic*. Non-deterministic orchestrator code may result in runtime errors or other unexpected behavior. For more information about code restrictions for orchestrator functions, see the [orchestrator function code constraints](durable-functions-code-constraints.md) documentation.
 
 > [!NOTE]
-> If an orchestrator function emits log messages, the replay behavior may cause duplicate log messages to be emitted. See the [Logging](durable-functions-diagnostics.md#logging) topic to learn more about why this behavior occures and how to work around it.
+> If an orchestrator function emits log messages, the replay behavior may cause duplicate log messages to be emitted. See the [Logging](durable-functions-diagnostics.md#app-logging) topic to learn more about why this behavior occurs and how to work around it.
 
 ## Orchestration history
 
@@ -87,49 +87,77 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# [Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    result1 = yield context.call_activity('SayHello', "Tokyo")
+    result2 = yield context.call_activity('SayHello', "Seattle")
+    result3 = yield context.call_activity('SayHello', "London")
+    return [result1, result2, result3]
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+$output = @()
+
+$output += Invoke-DurableActivity -FunctionName 'SayHello' -Input 'Tokyo'
+$output += Invoke-DurableActivity -FunctionName 'SayHello' -Input 'Seattle'
+$output += Invoke-DurableActivity -FunctionName 'SayHello' -Input 'London'
+
+$output
+```
 ---
 
-At each `await` (C#) or `yield` (JavaScript) statement, the Durable Task Framework checkpoints the execution state of the function into some durable storage backend (typically Azure Table storage). This state is what is referred to as the *orchestration history*.
+At each `await` (C#) or `yield` (JavaScript/Python) statement, the Durable Task Framework checkpoints the execution state of the function into some durable storage backend (Azure Table storage by default). This state is what's referred to as the *orchestration history*.
 
 ### History table
 
 Generally speaking, the Durable Task Framework does the following at each checkpoint:
 
-1. Saves execution history into Azure Storage tables.
+1. Saves execution history into durable storage.
 2. Enqueues messages for functions the orchestrator wants to invoke.
 3. Enqueues messages for the orchestrator itself &mdash; for example, durable timer messages.
 
 Once the checkpoint is complete, the orchestrator function is free to be removed from memory until there is more work for it to do.
 
 > [!NOTE]
-> Azure Storage does not provide any transactional guarantees between saving data into table storage and queues. To handle failures, the Durable Functions storage provider uses *eventual consistency* patterns. These patterns ensure that no data is lost if there is a crash or loss of connectivity in the middle of a checkpoint.
+> Azure Storage does not provide any transactional guarantees between saving data into table storage and queues. To handle failures, the [Durable Functions Azure Storage](durable-functions-storage-providers.md#azure-storage) provider uses *eventual consistency* patterns. These patterns ensure that no data is lost if there is a crash or loss of connectivity in the middle of a checkpoint. Alternate storage providers, such as the [Durable Functions MSSQL storage provider](durable-functions-storage-providers.md#mssql), may provide stronger consistency guarantees.
 
 Upon completion, the history of the function shown earlier looks something like the following table in Azure Table Storage (abbreviated for illustration purposes):
 
 | PartitionKey (InstanceId)                     | EventType             | Timestamp               | Input | Name             | Result                                                    | Status |
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
-| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     |
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
-| eaee885b | TaskScheduled         | 2017-05-05T18:45:32.670Z |       | E1_SayHello      |                                                           |                     |
-| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:32.670Z |       |                  |                                                           |                     |
-| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.201Z |       |                  | """Hello Tokyo!"""                                        |                     |
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.232Z |       |                  |                                                           |                     |
-| eaee885b | TaskScheduled         | 2017-05-05T18:45:34.435Z |       | E1_SayHello      |                                                           |                     |
-| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.435Z |       |                  |                                                           |                     |
-| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.763Z |       |                  | """Hello Seattle!"""                                      |                     |
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     |
-| eaee885b | TaskScheduled         | 2017-05-05T18:45:34.857Z |       | E1_SayHello      |                                                           |                     |
-| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     |
-| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.919Z |       |                  | """Hello London!"""                                       |                     |
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:35.032Z |       |                  |                                                           |                     |
-| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:35.044Z |       |                  |                                                           |                     |
-| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044Z |       |                  | "[""Hello Tokyo!"",""Hello Seattle!"",""Hello London!""]" | Completed           |
+| eaee885b | ExecutionStarted      | 2021-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     |
+| eaee885b | OrchestratorStarted   | 2021-05-05T18:45:32.362Z |       |                  |                                                           |                     |
+| eaee885b | TaskScheduled         | 2021-05-05T18:45:32.670Z |       | E1_SayHello      |                                                           |                     |
+| eaee885b | OrchestratorCompleted | 2021-05-05T18:45:32.670Z |       |                  |                                                           |                     |
+| eaee885b | TaskCompleted         | 2021-05-05T18:45:34.201Z |       |                  | """Hello Tokyo!"""                                        |                     |
+| eaee885b | OrchestratorStarted   | 2021-05-05T18:45:34.232Z |       |                  |                                                           |                     |
+| eaee885b | TaskScheduled         | 2021-05-05T18:45:34.435Z |       | E1_SayHello      |                                                           |                     |
+| eaee885b | OrchestratorCompleted | 2021-05-05T18:45:34.435Z |       |                  |                                                           |                     |
+| eaee885b | TaskCompleted         | 2021-05-05T18:45:34.763Z |       |                  | """Hello Seattle!"""                                      |                     |
+| eaee885b | OrchestratorStarted   | 2021-05-05T18:45:34.857Z |       |                  |                                                           |                     |
+| eaee885b | TaskScheduled         | 2021-05-05T18:45:34.857Z |       | E1_SayHello      |                                                           |                     |
+| eaee885b | OrchestratorCompleted | 2021-05-05T18:45:34.857Z |       |                  |                                                           |                     |
+| eaee885b | TaskCompleted         | 2021-05-05T18:45:34.919Z |       |                  | """Hello London!"""                                       |                     |
+| eaee885b | OrchestratorStarted   | 2021-05-05T18:45:35.032Z |       |                  |                                                           |                     |
+| eaee885b | OrchestratorCompleted | 2021-05-05T18:45:35.044Z |       |                  |                                                           |                     |
+| eaee885b | ExecutionCompleted    | 2021-05-05T18:45:35.044Z |       |                  | "[""Hello Tokyo!"",""Hello Seattle!"",""Hello London!""]" | Completed           |
 
 A few notes on the column values:
 
 * **PartitionKey**: Contains the instance ID of the orchestration.
 * **EventType**: Represents the type of the event. May be one of the following types:
-  * **OrchestrationStarted**: The orchestrator function resumed from an await or is running for the first time. The `Timestamp` column is used to populate the deterministic value for the `CurrentUtcDateTime` (.NET) and `currentUtcDateTime` (JavaScript) APIs.
+  * **OrchestrationStarted**: The orchestrator function resumed from an await or is running for the first time. The `Timestamp` column is used to populate the deterministic value for the `CurrentUtcDateTime` (.NET), `currentUtcDateTime` (JavaScript), and `current_utc_datetime` (Python) APIs.
   * **ExecutionStarted**: The orchestrator function started executing for the first time. This event also contains the function input in the `Input` column.
   * **TaskScheduled**: An activity function was scheduled. The name of the activity function is captured in the `Name` column.
   * **TaskCompleted**: An activity function completed. The result of the function is in the `Result` column.
@@ -147,7 +175,7 @@ A few notes on the column values:
 > [!WARNING]
 > While it's useful as a debugging tool, don't take any dependency on this table. It may change as the Durable Functions extension evolves.
 
-Every time the function resumes from an `await` (C#) or `yield` (JavaScript), the Durable Task Framework reruns the orchestrator function from scratch. On each rerun, it consults the execution history to determine whether the current async operation has taken place.  If the operation took place, the framework replays the output of that operation immediately and moves on to the next `await` (C#) or `yield` (JavaScript). This process continues until the entire history has been replayed. Once the current history has been replayed, the local variables will have been restored to their previous values.
+Every time the function resumes from an `await` (C#) or `yield` (JavaScript/Python), the Durable Task Framework reruns the orchestrator function from scratch. On each rerun, it consults the execution history to determine whether the current async operation has taken place.  If the operation took place, the framework replays the output of that operation immediately and moves on to the next `await` (C#) or `yield` (JavaScript/Python). This process continues until the entire history has been replayed. Once the current history has been replayed, the local variables will have been restored to their previous values.
 
 ## Features and patterns
 
@@ -161,7 +189,7 @@ For more information and for examples, see the [Sub-orchestrations](durable-func
 
 ### Durable timers
 
-Orchestrations can schedule *durable timers* to implement delays or to set up timeout handling on async actions. Use durable timers in orchestrator functions instead of `Thread.Sleep` and `Task.Delay` (C#) or `setTimeout()` and `setInterval()` (JavaScript).
+Orchestrations can schedule *durable timers* to implement delays or to set up timeout handling on async actions. Use durable timers in orchestrator functions instead of `Thread.Sleep` and `Task.Delay` (C#), or `setTimeout()` and `setInterval()` (JavaScript), or `time.sleep()` (Python).
 
 For more information and for examples, see the [Durable timers](durable-functions-timers.md) article.
 
@@ -248,6 +276,22 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# [Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    url = context.get_input()
+    res = yield context.call_http('GET', url)
+    if res.status_code >= 400:
+        # handing of error code goes here
+```
+# [PowerShell](#tab/powershell)
+
+The feature is not currently supported in PowerShell.
+
 ---
 
 In addition to supporting basic request/response patterns, the method supports automatic handling of common async HTTP 202 polling patterns, and also supports authentication with external services using [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md).
@@ -263,7 +307,7 @@ It isn't possible to pass multiple parameters to an activity function directly. 
 
 # [C#](#tab/csharp)
 
-In .NET you can also use [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) objects. The following sample is using new features of [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) added with [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
+In .NET you can also use [ValueTuple](/dotnet/csharp/tuples) objects. The following sample is using new features of [ValueTuple](/dotnet/csharp/tuples) added with [C# 7](/dotnet/csharp/whats-new/csharp-7#tuples):
 
 ```csharp
 [FunctionName("GetCourseRecommendations")]
@@ -318,7 +362,7 @@ module.exports = df.orchestrator(function*(context) {
 };
 ```
 
-#### Activity
+#### `GetWeather` Activity
 
 ```javascript
 module.exports = async function (context, location) {
@@ -328,6 +372,63 @@ module.exports = async function (context, location) {
 };
 ```
 
+# [Python](#tab/python)
+
+#### Orchestrator
+
+```python
+from collections import namedtuple
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    Location = namedtuple('Location', ['city', 'state'])
+    location = Location(city='Seattle', state= 'WA')
+
+    weather = yield context.call_activity("GetWeather", location)
+
+    # ...
+
+```
+#### `GetWeather` Activity
+
+```python
+from collections import namedtuple
+
+Location = namedtuple('Location', ['city', 'state'])
+
+def main(location: Location) -> str:
+    city, state = location
+    return f"Hello {city}, {state}!"
+```
+
+# [PowerShell](#tab/powershell)
+
+#### Orchestrator
+
+```powershell
+param($Context)
+
+$output = @()
+
+$location = @{
+    City = 'Seattle'
+    State  = 'WA'
+}
+
+Invoke-ActivityFunction -FunctionName 'GetWeather' -Input $location
+
+# ...
+
+```
+#### `GetWeather` Activity
+
+```powershell
+param($location)
+
+"Hello $($location.City), $($location.State)!"
+# ...
+```
 ---
 
 ## Next steps

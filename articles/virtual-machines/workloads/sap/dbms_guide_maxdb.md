@@ -8,9 +8,7 @@ manager: patfilot
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-
-ms.service: virtual-machines-linux
-
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -72,7 +70,7 @@ ms.custom: H1Hack27Feb2017
 
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
-[azure-ps]:/powershell/azureps-cmdlets-docs
+[azure-ps]:/powershell/azure/
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
 [azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
@@ -236,7 +234,7 @@ ms.custom: H1Hack27Feb2017
 [resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam 
-[sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
+[sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
 [sap-templates-2-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image%2Fazuredeploy.json
 [sap-templates-3-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image%2Fazuredeploy.json
@@ -245,13 +243,13 @@ ms.custom: H1Hack27Feb2017
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../windows/disks-types.md
+[storage-premium-storage-preview-portal]:../../disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
-[templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
+[templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-from-user-image
 [virtual-machines-linux-attach-disk-portal]:../../linux/attach-disk-portal.md
 [virtual-machines-azure-resource-manager-architecture]:../../../resource-manager-deployment-model.md
 [virtual-machines-azurerm-versus-azuresm]:../../../resource-manager-deployment-model.md
@@ -279,9 +277,9 @@ ms.custom: H1Hack27Feb2017
 [virtual-machines-sizes-windows]:../../windows/sizes.md
 [virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
 [virtual-machines-windows-classic-ps-sql-int-listener]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
-[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:./../../windows/sql/virtual-machines-windows-sql-high-availability-dr.md
-[virtual-machines-sql-server-infrastructure-services]:./../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md
-[virtual-machines-sql-server-performance-best-practices]:./../../windows/sql/virtual-machines-windows-sql-performance.md
+[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
+[virtual-machines-sql-server-infrastructure-services]:../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
+[virtual-machines-sql-server-performance-best-practices]:../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/resources/templates/sql-server-2014-alwayson-existing-vnet-and-ad/
@@ -307,7 +305,7 @@ ms.custom: H1Hack27Feb2017
 
 
 
-This document covers several different areas to consider when deploying MaxDB, liveCache, and Content Server in Azure IaaS. As a precondition to this document, you should have read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) as well as other guides in the [SAP workload on Azure documentation](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
+This document covers several different areas to consider when deploying MaxDB, liveCache, and Content Server in Azure IaaS. As a precondition to this document, you should have read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) as well as other guides in the [SAP workload on Azure documentation](./get-started.md). 
 
 ## Specifics for the SAP MaxDB deployments on Windows
 ### SAP MaxDB Version Support on Azure
@@ -327,7 +325,7 @@ You can find the updated list of SAP MaxDB documentation in the following SAP No
 
 ### SAP MaxDB Configuration Guidelines for SAP Installations in Azure VMs
 #### <a name="b48cfe3b-48e9-4f5b-a783-1d29155bd573"></a>Storage configuration
-Azure storage best practices for SAP MaxDB follow the general recommendations mentioned in chapter [Storage structure of a VM for RDBMS Deployments](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64).
+Azure storage best practices for SAP MaxDB follow the general recommendations mentioned in chapter [Storage structure of a VM for RDBMS Deployments](./dbms_guide_general.md#65fa79d6-a85f-47ee-890b-22e794f51a64).
 
 > [!IMPORTANT]
 > Like other databases, SAP MaxDB also has data and log files. However, in SAP MaxDB terminology the correct term is "volume" (not "file"). For example, there are SAP MaxDB data volumes and log volumes. Do not confuse these with OS disk volumes. 

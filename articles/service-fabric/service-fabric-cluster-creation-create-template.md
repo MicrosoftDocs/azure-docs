@@ -3,7 +3,8 @@ title: Create an Azure Service Fabric cluster template
 description: Learn how to create a Resource Manager template for a Service Fabric cluster. Configure security, Azure Key Vault, and Azure Active Directory (Azure AD) for client authentication.
 
 ms.topic: conceptual
-ms.date: 08/16/2018
+ms.date: 08/16/2018 
+ms.custom: devx-track-azurepowershell
 ---
 # Create a Service Fabric cluster Resource Manager template
 
@@ -257,7 +258,7 @@ To learn about the JSON syntax and properties for the resources deployed in this
 <!-- Links -->
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [service-fabric-secure-cluster-5-node-1-nodetype]: https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure
-[resource-group-template-deploy]: https://azure.microsoft.com/documentation/articles/resource-group-template-deploy/
+[resource-group-template-deploy]: ../azure-resource-manager/templates/deploy-powershell.md
 
 <!-- Images -->
 [cluster-security-arm-dependency-map]: ./media/service-fabric-cluster-creation-create-template/cluster-security-arm-dependency-map.png

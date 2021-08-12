@@ -6,33 +6,33 @@ author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ---
 
-# Azure Synapse Analytics workload group isolation (Preview)
+# Azure Synapse Analytics workload group isolation
 
 This article explains how workload groups can be used to configure workload isolation, contain resources, and apply runtime rules for query execution.
 
 ## Workload groups
 
-Workload groups are containers for a set of requests and are the basis for how workload management, including workload isolation, is configured on a system.  Workload groups are created using the [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) syntax.  A simple workload management configuration can manage data loads and user queries.  For example, a workload group named `wgDataLoads` will define workload aspects for data being loaded into the system. Also, a workload group named `wgUserQueries` will define workload aspects for users running queries to read data from the system.
+Workload groups are containers for a set of requests and are the basis for how workload management, including workload isolation, is configured on a system.  Workload groups are created using the [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) syntax.  A simple workload management configuration can manage data loads and user queries.  For example, a workload group named `wgDataLoads` will define workload aspects for data being loaded into the system. Also, a workload group named `wgUserQueries` will define workload aspects for users running queries to read data from the system.
 
 The following sections will highlight how workload groups provide the ability to define isolation, containment, request resource definition, and adhere to execution rules.
 
 ## Workload isolation
 
-Workload isolation means resources are reserved, exclusively, for a workload group.  Workload isolation is achieved by configuring the MIN_PERCENTAGE_RESOURCE parameter to greater than zero in the [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) syntax.  For continuous execution workloads that need to adhere to tight SLAs, isolation ensures resources are always available for the workload group.
+Workload isolation means resources are reserved, exclusively, for a workload group.  Workload isolation is achieved by configuring the MIN_PERCENTAGE_RESOURCE parameter to greater than zero in the [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) syntax.  For continuous execution workloads that need to adhere to tight SLAs, isolation ensures resources are always available for the workload group.
 
 Configuring workload isolation implicitly defines a guaranteed level of concurrency. For example, a workload group with a `MIN_PERCENTAGE_RESOURCE` set to 30% and `REQUEST_MIN_RESOURCE_GRANT_PERCENT` set to 2% is guaranteed 15 concurrency.  The level of concurrency is guaranteed because 15-2% slots of resources are reserved within the workload group at all times (regardless of how `REQUEST_*MAX*_RESOURCE_GRANT_PERCENT` is configured).  If `REQUEST_MAX_RESOURCE_GRANT_PERCENT` is greater than `REQUEST_MIN_RESOURCE_GRANT_PERCENT` and `CAP_PERCENTAGE_RESOURCE` is greater than `MIN_PERCENTAGE_RESOURCE` additional resources are added per request.  If `REQUEST_MAX_RESOURCE_GRANT_PERCENT` and `REQUEST_MIN_RESOURCE_GRANT_PERCENT` are equal and `CAP_PERCENTAGE_RESOURCE` is greater than `MIN_PERCENTAGE_RESOURCE`, additional concurrency is possible.  Consider the below method for determining guaranteed concurrency:
 
 [Guaranteed Concurrency] = [`MIN_PERCENTAGE_RESOURCE`] / [`REQUEST_MIN_RESOURCE_GRANT_PERCENT`]
 
 > [!NOTE]
-> There are specific service level minimum viable values for min_percentage_resource.  For more information, see [Effective Values](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#effective-values) for further details.
+> There are specific service level minimum viable values for min_percentage_resource.  For more information, see [Effective Values](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json?view=azure-sqldw-latest&preserve-view=true#effective-values) for further details.
 
 In the absence of workload isolation, requests operate in the [shared pool](#shared-pool-resources) of resources.  Access to resources in the shared pool is not guaranteed and is assigned on an [importance](sql-data-warehouse-workload-importance.md) basis.
 
@@ -45,18 +45,18 @@ Users should avoid a workload management solution that configures 100% workload 
 
 ## Workload containment
 
-Workload containment refers to limiting the amount of resources a workload group can consume.  Workload containment is achieved by configuring the CAP_PERCENTAGE_RESOURCE parameter to less than 100 in the [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  syntax.  Consider the scenario whereby users need read access to the system so they can run a what-if analysis via ad-hoc queries.  These types of requests could have a negative impact on other workloads that are running on the system.  Configuring containment ensures the amount of resources is limited.
+Workload containment refers to limiting the amount of resources a workload group can consume.  Workload containment is achieved by configuring the CAP_PERCENTAGE_RESOURCE parameter to less than 100 in the [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)  syntax.  Consider the scenario whereby users need read access to the system so they can run a what-if analysis via ad-hoc queries.  These types of requests could have a negative impact on other workloads that are running on the system.  Configuring containment ensures the amount of resources is limited.
 
 Configuring workload containment implicitly defines a maximum level of concurrency.  With a CAP_PERCENTAGE_RESOURCE set to 60% and a REQUEST_MIN_RESOURCE_GRANT_PERCENT set to 1%, up to a 60-concurrency level is allowed for the workload group.  Consider the method included below for determining the maximum concurrency:
 
 [Max Concurrency] = [`CAP_PERCENTAGE_RESOURCE`] / [`REQUEST_MIN_RESOURCE_GRANT_PERCENT`]
 
 > [!NOTE]
-> The effective CAP_PERCENTAGE_RESOURCE of a workload group will not reach 100% when workload groups with MIN_PERCENTAGE_RESOURCE at a level greater than zero are created.  See [sys.dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) for effective runtime values.
+> The effective CAP_PERCENTAGE_RESOURCE of a workload group will not reach 100% when workload groups with MIN_PERCENTAGE_RESOURCE at a level greater than zero are created.  See [sys.dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) for effective runtime values.
 
 ## Resources per request definition
 
-Workload groups provide a mechanism to define the min and max amount of resources that are allocated per request with the REQUEST_MIN_RESOURCE_GRANT_PERCENT and REQUEST_MAX_RESOURCE_GRANT_PERCENT parameters in the [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) syntax.  Resources in this case are CPU and memory.  Configuring these values dictates how much resources and what level of concurrency can be achieved on the system.
+Workload groups provide a mechanism to define the min and max amount of resources that are allocated per request with the REQUEST_MIN_RESOURCE_GRANT_PERCENT and REQUEST_MAX_RESOURCE_GRANT_PERCENT parameters in the [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) syntax.  Resources in this case are CPU and memory.  Configuring these values dictates how much resources and what level of concurrency can be achieved on the system.
 
 > [!NOTE]
 > REQUEST_MAX_RESOURCE_GRANT_PERCENT is an optional parameter that defaults to the same value that is specified for REQUEST_MIN_RESOURCE_GRANT_PERCENT.
@@ -66,11 +66,11 @@ Like choosing a resource class, configuring REQUEST_MIN_RESOURCE_GRANT_PERCENT s
 Configuring REQUEST_MAX_RESOURCE_GRANT_PERCENT to a value greater than REQUEST_MIN_RESOURCE_GRANT_PERCENT allows the system to allocate more resources per request.  While scheduling a request, system determines actual resource allocation  to the request, which is between REQUEST_MIN_RESOURCE_GRANT_PERCENT and REQUEST_MAX_RESOURCE_GRANT_PERCENT, based on resource availability in shared pool and current load on the system.  The resources must exist in the [shared pool](#shared-pool-resources) of resources when the query is scheduled.  
 
 > [!NOTE]
-> REQUEST_MIN_RESOURCE_GRANT_PERCENT and REQUEST_MAX_RESOURCE_GRANT_PERCENT have effective values that are dependent on the effective MIN_PERCENTAGE_RESOURCE and CAP_PERCENTAGE_RESOURCE values.  See [sys.dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) for effective runtime values.
+> REQUEST_MIN_RESOURCE_GRANT_PERCENT and REQUEST_MAX_RESOURCE_GRANT_PERCENT have effective values that are dependent on the effective MIN_PERCENTAGE_RESOURCE and CAP_PERCENTAGE_RESOURCE values.  See [sys.dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) for effective runtime values.
 
 ## Execution Rules
 
-On ad-hoc reporting systems, customers can accidentally execute runaway queries that severely impact the productivity of others.  System admins are forced to spend time killing runaway queries to free up system resources.  Workload groups offer the ability to configure a query execution timeout rule to cancel queries that have exceeded the specified value.  The rule is configured by setting the `QUERY_EXECUTION_TIMEOUT_SEC` parameter in the [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) syntax.
+On ad-hoc reporting systems, customers can accidentally execute runaway queries that severely impact the productivity of others.  System admins are forced to spend time killing runaway queries to free up system resources.  Workload groups offer the ability to configure a query execution timeout rule to cancel queries that have exceeded the specified value.  The rule is configured by setting the `QUERY_EXECUTION_TIMEOUT_SEC` parameter in the [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) syntax.
 
 ## Shared pool resources
 
@@ -83,6 +83,6 @@ Access to resources in the shared pool is allocated on an [importance](sql-data-
 ## Next steps
 
 - [Quickstart: configure workload isolation](quickstart-configure-workload-isolation-tsql.md)
-- [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 - [Convert resource classes to workload groups](sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md).
 - [Workload Management Portal Monitoring](sql-data-warehouse-workload-management-portal-monitor.md).  

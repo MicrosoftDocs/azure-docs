@@ -1,12 +1,12 @@
 ---
 title: 'Tutorial: Create a new Android app'
 description: In this tutorial, you learn how to create a new Android app using Azure Spatial Anchors.
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
-ms.author: rgarcia
-ms.date: 04/03/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ---
@@ -113,21 +113,33 @@ Next, add the following code into your `app\java\<PackageName>\MainActivity` `on
 
 Finally, add the following `handleTap()` method, that will tie everything together. It will create a sphere, and place it on the tapped location. The sphere will initially be black, since `this.recommendedSessionProgress` is set to zero right now. This value will be adjusted later on.
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=150-158,170-171,174-182,198-199)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=151-159,171-172,175-183,199-200)]
 
 [Redeploy](#trying-it-out) your app to your device to validate it once more. This time, you can move around your device to get ARCore to start recognizing your environment. Then, tap the screen to create & place your black sphere over the surface of your choice.
 
 ## Attach a local Azure Spatial Anchor
 
-Modify `Gradle Scripts\build.gradle (Module: app)` to include the following entry. This code will ensure that your app targets Azure Spatial Anchors version 2.2.0. That said, referencing any recent version of Azure Spatial Anchors should work. You can find the release notes [here.](https://github.com/Azure/azure-spatial-anchors-samples/releases)
+Modify `Gradle Scripts\build.gradle (Module: app)` to include the following entry. This sample code snippet targets Azure Spatial Anchors SDK version 2.10.0. Note that SDK version 2.7.0 is currenlty the minimum supported version, and referencing any more recent version of Azure Spatial Anchors should work as well. We recommend using the latest version of Azure Spatial Anchors SDK. You can find the SDK release notes [here.](https://github.com/Azure/azure-spatial-anchors-samples/releases)
 
 ```
 dependencies {
     ...
-    implementation "com.microsoft.azure.spatialanchors:spatialanchors_jni:[2.2.0]"
-    implementation "com.microsoft.azure.spatialanchors:spatialanchors_java:[2.2.0]"
+    implementation "com.microsoft.azure.spatialanchors:spatialanchors_jni:[2.10.0]"
+    implementation "com.microsoft.azure.spatialanchors:spatialanchors_java:[2.10.0]"
     ...
 }
+```
+
+If you are targeting Azure Spatial Anchors SDK 2.10.0 or later, include the following entry in the repositories section of your project's build.gradle file. This will include the URL to the Maven package feed that hosts Azure Spatial Anchors Android packages for SDK 2.10.0 or later: 
+```
+repositories {
+    ...
+    maven {
+        url 'https://pkgs.dev.azure.com/aipmr/MixedReality-Unity-Packages/_packaging/Maven-packages/maven/v1'
+    }
+    ...
+}
+
 ```
 
 Right-click `app\java\<PackageName>`->**New**->**Java Class**. Set **Name** to _MyFirstApp_, and **Superclass** to _android.app.Application_. Leave the other options as they are. Click **OK**. A file called `MyFirstApp.java` will be created. Add the following import to it:
@@ -165,7 +177,7 @@ Then, add the following member variables into your `MainActivity` class:
 
 Next, let's add the following `initializeSession()` method inside your `mainActivity` class. Once called, it will ensure an Azure Spatial Anchors session is created and properly initialized during the startup of your app.
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=89-97,146)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=89-97,147)]
 
 Now, let's hook your `initializeSession()` method into your `onCreate()` method. Also, we'll ensure that frames from your camera feed are sent to Azure Spatial Anchors SDK for processing.
 
@@ -173,17 +185,17 @@ Now, let's hook your `initializeSession()` method into your `onCreate()` method.
 
 Finally, add the following code into your `handleTap()` method. It will attach a local Azure Spatial Anchor to the black sphere that we're placing in the real world.
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=150-158,170-182,198-199&highlight=12-13)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=151-159,171-183,199-200&highlight=12-13)]
 
 [Redeploy](#trying-it-out) your app once more. Move around your device, tap the screen, and place a black sphere. This time, though, your code will be creating and attaching a local Azure Spatial Anchor to your sphere.
 
-Before proceeding any further, you'll need to create an Azure Spatial Anchors account Identifier and Key, if you don't already have them. Follow the following section to obtain them.
+Before proceeding any further, you'll need to create an Azure Spatial Anchors account to get the account Identifier, Key, and Domain, if you don't already have them. Follow the following section to obtain them.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
 ## Upload your local anchor into the cloud
 
-Once you have your Azure Spatial Anchors account Identifier and Key, we can go back in `app\java\<PackageName>\MainActivity`, add the following imports into it:
+Once you have your Azure Spatial Anchors account Identifier, Key, and Domain, we can go back in `app\java\<PackageName>\MainActivity`, add the following imports into it:
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=40-45&highlight=3-6)]
 
@@ -191,9 +203,9 @@ Then, add the following member variables into your `MainActivity` class:
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=60-65&highlight=3-6)]
 
-Now, add the following code into your `initializeSession()` method. First, this code will allow your app to monitor the progress that the Azure Spatial Anchors SDK makes as it collects frames from your camera feed. As it does, the color of your sphere will start changing from its original black, into grey. Then, it will turn white once enough frames are collected to submit your anchor to the cloud. Second, this code will provide the credentials needed to communicate with the cloud back-end. Here is where you'll configure your app to use your account Identifier and Key. You copied them into a text editor when [setting up the Spatial Anchors resource](#create-a-spatial-anchors-resource).
+Now, add the following code into your `initializeSession()` method. First, this code will allow your app to monitor the progress that the Azure Spatial Anchors SDK makes as it collects frames from your camera feed. As it does, the color of your sphere will start changing from its original black, into grey. Then, it will turn white once enough frames are collected to submit your anchor to the cloud. Second, this code will provide the credentials needed to communicate with the cloud back-end. Here is where you'll configure your app to use your account Identifier, Key, and Domain. You copied them into a text editor when [setting up the Spatial Anchors resource](#create-a-spatial-anchors-resource).
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=89-120,142-146&highlight=11-36)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=89-120,142-148&highlight=11-37)]
 
 Next, add the following `uploadCloudAnchorAsync()` method inside your `mainActivity` class. Once called, this method will asynchronously wait until enough frames are collected from your device. As soon as that happens, it will switch the color of your sphere to yellow, and then it will start uploading your local Azure Spatial Anchor into the cloud. Once the upload finishes, the code will return an anchor identifier.
 
@@ -201,7 +213,7 @@ Next, add the following `uploadCloudAnchorAsync()` method inside your `mainActiv
 
 Finally, let's hook everything together. In your `handleTap()` method, add the following code. It will invoke your `uploadCloudAnchorAsync()` method as soon as your sphere is created. Once the method returns, the code below will perform one final update to your sphere, changing its color to blue.
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=150-158,170-199&highlight=24-37)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=151-159,171-200&highlight=24-37)]
 
 [Redeploy](#trying-it-out) your app once more. Move around your device, tap the screen, and place your sphere. This time, though, your sphere will change its color from black towards white, as camera frames are collected. Once we have enough frames, the sphere will turn into yellow, and the cloud upload will start. Once the upload finishes, your sphere will turn blue. Optionally, you could also use the `Logcat` window inside Android Studio to monitor the log messages your app is sending. For example, the session progress during frame captures, and the anchor identifier that the cloud returns once the upload is completed.
 

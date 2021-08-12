@@ -14,18 +14,18 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs by using the Microsoft identity platform.
 ---
 
 # Get a token for a mobile app that calls web APIs
 
-Before your app can call protected web APIs, it needs an access token. This article walks you through the process to get a token by using Microsoft Authentication Library (MSAL).
+Before your app can call protected web APIs, it needs an access token. This article walks you through the process to get a token by using the Microsoft Authentication Library (MSAL).
 
 ## Define a scope
 
-When you request a token, you need to define a scope. The scope determines what data your app can access.
+When you request a token, define a scope. The scope determines what data your app can access.
 
-The easiest way to define a scope is to combine the desired web API's `App ID URI` with the scope `.default`. This definition tells Microsoft identity platform that your app requires all scopes that are set in the portal.
+The easiest way to define a scope is to combine the desired web API's `App ID URI` with the scope `.default`. This definition tells the Microsoft identity platform that your app requires all scopes that are set in the portal.
 
 ### Android
 ```Java
@@ -206,7 +206,7 @@ catch(MsalUiRequiredException)
 
 `AcquireTokenInteractive` has only one mandatory parameter: `scopes`. The `scopes` parameter enumerates strings that define the scopes for which a token is required. If the token is for Microsoft Graph, you can find the required scopes in the API reference of each Microsoft Graph API. In the reference, go to the "Permissions" section.
 
-For example, to [list the user's contacts](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_contacts), use the scope "User.Read", "Contacts.Read". For more information, see [Microsoft Graph permissions reference](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+For example, to [list the user's contacts](/graph/api/user-list-contacts), use the scope "User.Read", "Contacts.Read". For more information, see [Microsoft Graph permissions reference](/graph/permissions-reference).
 
 On Android, you can specify parent activity when you create the app by using `PublicClientApplicationBuilder`. If you don't specify the parent activity at that time, later you can specify it by using `.WithParentActivityOrWindow` as in the following section. If you specify parent activity, then the token gets back to that parent activity after the interaction. If you don't specify it, then the `.ExecuteAsync()` call throws an exception.
 
@@ -218,7 +218,7 @@ The following sections explain the optional parameters in MSAL.NET.
 
 The `WithPrompt()` parameter controls interactivity with the user by specifying a prompt.
 
-<img src="https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png" width="25%" />
+![Image showing the fields in the Prompt structure. These constant values control interactivity with the user by defining the type of prompt displayed by the WithPrompt() parameter.](https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png)
 
 The class defines the following constants:
 
@@ -231,16 +231,16 @@ The class defines the following constants:
 - `ForceLogin` enables the service to prompt the user for credentials even if the prompt isn't needed.
 
     This option can be useful if the token acquisition fails and you want to let the user sign in again. In this case, MSAL sends `prompt=login` to the identity provider. You might want to use this option in security-focused applications where the organization governance requires the user to sign in each time they access specific parts of the application.
-- `Never` is for only .NET 4.5 and Windows Runtime (WinRT). This constant won't prompt the user, but it will try to use the cookie that's stored in the hidden embedded web view. For more information, see [Using web browsers with MSAL.NET](https://docs.microsoft.com/azure/active-directory/develop/msal-net-web-browsers).
+- `Never` is for only .NET 4.5 and Windows Runtime (WinRT). This constant won't prompt the user, but it will try to use the cookie that's stored in the hidden embedded web view. For more information, see [Using web browsers with MSAL.NET](./msal-net-web-browsers.md).
 
-    If this option fails, then `AcquireTokenInteractive` throws an exception to notify you that a UI interaction is needed. Then you need to use another `Prompt` parameter.
+    If this option fails, then `AcquireTokenInteractive` throws an exception to notify you that a UI interaction is needed. Then use another `Prompt` parameter.
 - `NoPrompt` doesn't send a prompt to the identity provider.
 
     This option is useful only for edit-profile policies in Azure Active Directory B2C. For more information, see [B2C specifics](https://aka.ms/msal-net-b2c-specificities).
 
 ##### WithExtraScopeToConsent
 
-Use the `WithExtraScopeToConsent` modifier in an advanced scenario where you want the user to provide upfront consent to several resources. You can use this modifier when you don't want to use incremental consent, which is normally used with MSAL.NET or Microsoft identity platform 2.0. For more information, see [Have the user consent upfront for several resources](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources).
+Use the `WithExtraScopeToConsent` modifier in an advanced scenario where you want the user to provide upfront consent to several resources. You can use this modifier when you don't want to use incremental consent, which is normally used with MSAL.NET or the Microsoft identity platform. For more information, see [Have the user consent upfront for several resources](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources).
 
 Here's a code example:
 
@@ -252,7 +252,7 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
 
 ##### Other optional parameters
 
-To learn about the other optional parameters for `AcquireTokenInteractive`, see the [reference documentation for AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods).
+To learn about the other optional parameters for `AcquireTokenInteractive`, see the [reference documentation for AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder#methods).
 
 ### Acquire tokens via the protocol
 
@@ -265,7 +265,7 @@ When you use the protocol to get tokens for mobile apps, make two requests:
 
 #### Get an authorization code
 
-```Text
+```
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
 client_id=<CLIENT_ID>
 &response_type=code
@@ -277,7 +277,7 @@ client_id=<CLIENT_ID>
 
 #### Get access and refresh the token
 
-```Text
+```HTTP
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1
 Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
@@ -291,5 +291,5 @@ client_id=<CLIENT_ID>
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Calling a web API](scenario-mobile-call-api.md)
+Move on to the next article in this scenario,
+[Calling a web API](scenario-mobile-call-api.md).

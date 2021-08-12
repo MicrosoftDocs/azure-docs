@@ -1,21 +1,11 @@
 ---
 title: Move data from Amazon Redshift by using Azure Data Factory 
 description: Learn how to move data from Amazon Redshift by using Azure Data Factory Copy Activity.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-
-
-ms.assetid: 01d15078-58dc-455c-9d9d-98fbdf4ea51e
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 # Move data From Amazon Redshift using Azure Data Factory
@@ -100,13 +90,13 @@ Alternatively, you can use the **RelationalSource** type, which includes Amazon 
 
 The Amazon Redshift [**UNLOAD**](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) command unloads the results of a query to one or more files on Amazon S3. This command is recommended by Amazon for copying large datasets from Redshift.
 
-**Example: Copy data from Amazon Redshift to Azure SQL Data Warehouse**
+**Example: Copy data from Amazon Redshift to Azure Synapse Analytics**
 
-This example copies data from Amazon Redshift to Azure SQL Data Warehouse. The example uses the Redshift **UNLOAD** command, staged copy data, and Microsoft PolyBase.
+This example copies data from Amazon Redshift to Azure Synapse Analytics. The example uses the Redshift **UNLOAD** command, staged copy data, and Microsoft PolyBase.
 
-For this sample use case, Copy Activity first unloads the data from Amazon Redshift to Amazon S3 as configured in the  **redshiftUnloadSettings** option. Next, the data is copied from Amazon S3 to Azure Blob storage as specified in the **stagingSettings** option. Finally, PolyBase loads the data into SQL Data Warehouse. All of the interim formats are handled by Copy Activity.
+For this sample use case, Copy Activity first unloads the data from Amazon Redshift to Amazon S3 as configured in the  **redshiftUnloadSettings** option. Next, the data is copied from Amazon S3 to Azure Blob storage as specified in the **stagingSettings** option. Finally, PolyBase loads the data into Azure Synapse Analytics. All of the interim formats are handled by Copy Activity.
 
-![Copy workflow from Amazon Redshift to SQL Data Warehouse](media/data-factory-amazon-redshift-connector/redshift-to-sql-dw-copy-workflow.png)
+![Copy workflow from Amazon Redshift to Azure Synapse Analytics](media/data-factory-amazon-redshift-connector/redshift-to-sql-dw-copy-workflow.png)
 
 ```json
 {

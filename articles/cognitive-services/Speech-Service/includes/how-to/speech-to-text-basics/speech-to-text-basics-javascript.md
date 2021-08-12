@@ -2,132 +2,118 @@
 author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/15/2020
+ms.date: 03/04/2021
 ms.author: trbye
+ms.custom: devx-track-js
 ---
+
+One of the core features of the Speech service is the ability to recognize and transcribe human speech (often referred to as speech-to-text). In this quickstart, you learn how to use the Speech SDK in your apps and products to perform high-quality speech-to-text conversion.
+
+## Skip to samples on GitHub
+
+If you want to skip straight to sample code, see the [JavaScript quickstart samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node) on GitHub.
+
+Alternatively, see the [React sample](https://github.com/Azure-Samples/AzureSpeechReactSample) to learn how to use the Speech SDK in a browser-based environment.
 
 ## Prerequisites
 
-This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](../../../get-started.md).
+This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
 
 ## Install the Speech SDK
 
-Before you can do anything, you'll need to install the <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">JavaScript Speech SDK <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Depending on your platform, use the following instructions:
+Before you can do anything, you need to install the Speech SDK for Node.js. If you just want the package name to install, run `npm install microsoft-cognitiveservices-speech-sdk`. For guided installation instructions, see the [get started](../../../quickstarts/setup-platform.md?pivots=programming-language-javascript&tabs=dotnet%2clinux%2cjre%2cnodejs) article.
 
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span 
-class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Web Browser <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-
-Additionally, depending on the target environment use one of the following:
-
-# [import](#tab/import)
-
-```javascript
-import {
-    AudioConfig,
-    CancellationDetails,
-    CancellationReason,
-    PhraseListGrammar,
-    ResultReason,
-    SpeechConfig,
-    SpeechRecognizer
-} from "microsoft-cognitiveservices-speech-sdk";
-```
-
-For more information on `import`, see <a href="https://javascript.info/import-export" target="_blank">export and import <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-
-# [require](#tab/require)
+Use the following `require` statement to import the SDK.
 
 ```javascript
 const sdk = require("microsoft-cognitiveservices-speech-sdk");
 ```
 
-For more information on `require`, see <a href="https://nodejs.org/en/knowledge/getting-started/what-is-require/" target="_blank">what is require? <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-
-
-# [script](#tab/script)
-
-Download and extract the <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">JavaScript Speech SDK <span class="docon docon-navigate-external x-hidden-focus"></span></a> *microsoft.cognitiveservices.speech.bundle.js* file, and place it in a folder accessible to your HTML file.
-
-```html
-<script src="microsoft.cognitiveservices.speech.bundle.js"></script>;
-```
-
-> [!TIP]
-> If you're targeting a web browser, and using the `<script>` tag; the `sdk` prefix is not needed. The `sdk` prefix is an alias used to name the `require` module.
-
----
+For more information on `require`, see the [require documentation](https://nodejs.org/en/knowledge/getting-started/what-is-require/).
 
 ## Create a speech configuration
 
-To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest). This class includes information about your subscription, like your key and associated region, endpoint, host, or authorization token.
+To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig). This class includes information about your subscription, like your key and associated location/region, endpoint, host, or authorization token. Create a [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig) using your key and location/region. See the [Find keys and location/region](../../../overview.md#find-keys-and-locationregion) page to find your key-location/region pair.
+
+```javascript
+const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+```
+
+There are a few other ways that you can initialize a [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig):
+
+* With an endpoint: pass in a Speech service endpoint. A key or authorization token is optional.
+* With a host: pass in a host address. A key or authorization token is optional.
+* With an authorization token: pass in an authorization token and the associated location/region.
 
 > [!NOTE]
 > Regardless of whether you're performing speech recognition, speech synthesis, translation, or intent recognition, you'll always create a configuration.
 
-There are a few ways that you can initialize a [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest):
+## Recognize from microphone (Browser only)
 
-* With a subscription: pass in a key and the associated region.
-* With an endpoint: pass in a Speech service endpoint. A key or authorization token is optional.
-* With a host: pass in a host address. A key or authorization token is optional.
-* With an authorization token: pass in an authorization token and the associated region.
-
-Let's take a look at how a [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest) is created using a key and region. See the [region support](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) page to find your region identifier.
-
-```javascript
-const speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
-```
-
-## Initialize a recognizer
-
-After you've created a [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest), the next step is to initialize a [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest). When you initialize a [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest), you'll need to pass it your `speechConfig`. This provides the credentials that the speech service requires to validate your request.
-
-If you're recognizing speech using your device's default microphone, here's what the [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest) should look like:
-
-```javascript
-const recognizer = new SpeechRecognizer(speechConfig);
-```
-
-If you want to specify the audio input device, then you'll need to create an [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest) and provide the `audioConfig` parameter when initializing your [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest).
-
-> [!TIP]
-> [Learn how to get the device ID for your audio input device](../../../how-to-select-audio-input-devices.md).
-
-Reference the `AudioConfig` object as follows:
-
-```javascript
-const audioConfig = AudioConfig.fromDefaultMicrophoneInput();
-const speechConfig = SpeechConfig.fromSubscription(speechConfig, audioConfig);
-```
-
-If you want to provide an audio file instead of using a microphone, you'll still need to provide an `audioConfig`. However, this can only be done when targeting **Node.js** and when you create an [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest), instead of calling `fromDefaultMicrophoneInput`, you'll call `fromWavFileOutput` and pass the `filename` parameter.
-
-```javascript
-const audioConfig = AudioConfig.fromWavFileInput("YourAudioFile.wav");
-const speechConfig = SpeechConfig.fromSubscription(speechConfig, audioConfig);
-```
-
-## Recognize speech
-
-The [Recognizer class](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest) for the Speech SDK for C# exposes a few methods that you can use for speech recognition.
-
-* Single-shot recognition (async) - Performs recognition in a non-blocking (asynchronous) mode. This will recognize a single utterance. The end of a single utterance is determined by listening for silence at the end or until a maximum of 15 seconds of audio is processed.
-* Continuous recognition (async) - Asynchronously initiates continuous recognition operation. The user registers to events and handles various application state. To stop asynchronous continuous recognition, call [`stopContinuousRecognitionAsync`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest#stopcontinuousrecognitionasync).
+Recognizing speech from a microphone is **not supported in Node.js**, and is only supported in a browser-based JavaScript environment. See the [React sample](https://github.com/Azure-Samples/AzureSpeechReactSample) on GitHub to see the [speech-to-text from microphone implementation](https://github.com/Azure-Samples/AzureSpeechReactSample/blob/main/src/App.js#L29).
 
 > [!NOTE]
-> Learn more about how to [choose a speech recognition mode](../../../how-to-choose-recognition-mode.md).
+> If you want to use a *specific* audio input device, you need to specify the device ID in the `AudioConfig`. Learn [how to get the device ID](../../../how-to-select-audio-input-devices.md) for your audio input device.
 
-### Single-shot recognition
+## Recognize from file 
 
-Here's an example of asynchronous single-shot recognition using [`recognizeOnceAsync`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest#recognizeonceasync):
+To recognize speech from an audio file, create an `AudioConfig` using `fromWavFileInput()` which accepts a `Buffer` object. Then initialize a [`SpeechRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer), passing your `audioConfig` and `speechConfig`.
 
 ```javascript
-recognizer.recognizeOnceAsync(result => {
-    // Interact with result
-});
+const fs = require('fs');
+const sdk = require("microsoft-cognitiveservices-speech-sdk");
+const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+
+function fromFile() {
+    let audioConfig = sdk.AudioConfig.fromWavFileInput(fs.readFileSync("YourAudioFile.wav"));
+    let recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
+
+    recognizer.recognizeOnceAsync(result => {
+        console.log(`RECOGNIZED: Text=${result.text}`);
+        recognizer.close();
+    });
+}
+fromFile();
 ```
 
-You'll need to write some code to handle the result. This sample evaluates the [`result.reason`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognitionresult?view=azure-node-latest#reason):
+## Recognize from in-memory stream
+
+For many use-cases, it is likely your audio data will be coming from blob storage, or otherwise already be in-memory as an [`ArrayBuffer`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) or similar raw data structure. The following code:
+
+* Creates a push stream using `createPushStream()`.
+* Reads a `.wav` file using `fs.createReadStream` for demonstration purposes, but if you already have audio data in an `ArrayBuffer`, you can skip directly to writing the content to the input stream.
+* Creates an audio config using the push stream.
+
+```javascript
+const fs = require('fs');
+const sdk = require("microsoft-cognitiveservices-speech-sdk");
+const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+
+function fromStream() {
+    let pushStream = sdk.AudioInputStream.createPushStream();
+
+    fs.createReadStream("YourAudioFile.wav").on('data', function(arrayBuffer) {
+        pushStream.write(arrayBuffer.slice());
+    }).on('end', function() {
+        pushStream.close();
+    });
+ 
+    let audioConfig = sdk.AudioConfig.fromStreamInput(pushStream);
+    let recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
+    recognizer.recognizeOnceAsync(result => {
+        console.log(`RECOGNIZED: Text=${result.text}`);
+        recognizer.close();
+    });
+}
+fromStream();
+```
+
+Using a push stream as input assumes that the audio data is a raw PCM, e.g. skipping any headers.
+The API will still work in certain cases if the header has not been skipped, but for the best results consider implementing logic to read off the headers so the `fs` starts at the *start of the audio data*.
+
+## Error handling
+
+The previous examples simply get the recognized text from `result.text`, but to handle errors and other responses, you'll need to write some code to handle the result. The following code evaluates the [`result.reason`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognitionresult#reason) property and:
 
 * Prints the recognition result: `ResultReason.RecognizedSpeech`
 * If there is no recognition match, inform the user: `ResultReason.NoMatch`
@@ -137,7 +123,6 @@ You'll need to write some code to handle the result. This sample evaluates the [
 switch (result.reason) {
     case ResultReason.RecognizedSpeech:
         console.log(`RECOGNIZED: Text=${result.text}`);
-        console.log("    Intent not recognized.");
         break;
     case ResultReason.NoMatch:
         console.log("NOMATCH: Speech could not be recognized.");
@@ -149,29 +134,30 @@ switch (result.reason) {
         if (cancellation.reason == CancellationReason.Error) {
             console.log(`CANCELED: ErrorCode=${cancellation.ErrorCode}`);
             console.log(`CANCELED: ErrorDetails=${cancellation.errorDetails}`);
-            console.log("CANCELED: Did you update the subscription info?");
+            console.log("CANCELED: Did you update the key and location/region info?");
         }
         break;
     }
-}
 ```
 
-### Continuous recognition
+## Continuous recognition
 
-Continuous recognition is a bit more involved than single-shot recognition. It requires you to subscribe to the `Recognizing`, `Recognized`, and `Canceled` events to get the recognition results. To stop recognition, you must call [`stopContinuousRecognitionAsync`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest#stopcontinuousrecognitionasync). Here's an example of how continuous recognition is performed on an audio input file.
+The previous examples use single-shot recognition, which recognizes a single utterance. The end of a single utterance is determined by listening for silence at the end or until a maximum of 15 seconds of audio is processed.
 
-Let's start by defining the input and initializing a [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest):
+In contrast, continuous recognition is used when you want to **control** when to stop recognizing. It requires you to subscribe to the `Recognizing`, `Recognized`, and `Canceled` events to get the recognition results. To stop recognition, you must call [`stopContinuousRecognitionAsync`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer#stopcontinuousrecognitionasync). Here's an example of how continuous recognition is performed on an audio input file.
+
+Start by defining the input and initializing a [`SpeechRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer):
 
 ```javascript
-const recognizer = new SpeechRecognizer(speechConfig);
+const recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
 ```
 
-We'll subscribe to the events sent from the [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest).
+Next, subscribe to the events sent from the [`SpeechRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer).
 
-* [`recognizing`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest#recognizing): Signal for events containing intermediate recognition results.
-* [`recognized`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest#recognized): Signal for events containing final recognition results (indicating a successful recognition attempt).
-* [`sessionStopped`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest#sessionstopped): Signal for events indicating the end of a recognition session (operation).
-* [`canceled`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest#canceled): Signal for events containing canceled recognition results (indicating a recognition attempt that was canceled as a result or a direct cancellation request or, alternatively, a transport or protocol failure).
+* [`recognizing`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer#recognizing): Signal for events containing intermediate recognition results.
+* [`recognized`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer#recognized): Signal for events containing final recognition results (indicating a successful recognition attempt).
+* [`sessionStopped`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer#sessionstopped): Signal for events indicating the end of a recognition session (operation).
+* [`canceled`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer#canceled): Signal for events containing canceled recognition results (indicating a recognition attempt that was canceled as a result or a direct cancellation request or, alternatively, a transport or protocol failure).
 
 ```javascript
 recognizer.recognizing = (s, e) => {
@@ -193,7 +179,7 @@ recognizer.canceled = (s, e) => {
     if (e.reason == CancellationReason.Error) {
         console.log(`"CANCELED: ErrorCode=${e.errorCode}`);
         console.log(`"CANCELED: ErrorDetails=${e.errorDetails}`);
-        console.log("CANCELED: Did you update the subscription info?");
+        console.log("CANCELED: Did you update the key and location/region info?");
     }
 
     recognizer.stopContinuousRecognitionAsync();
@@ -205,13 +191,12 @@ recognizer.sessionStopped = (s, e) => {
 };
 ```
 
-With everything set up, we can call [`stopContinuousRecognitionAsync`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest#stopcontinuousrecognitionasync).
+With everything set up, call [`startContinuousRecognitionAsync`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer#startcontinuousrecognitionasync) to start recognizing.
 
 ```javascript
-// Starts continuous recognition. Uses stopContinuousRecognitionAsync() to stop recognition.
 recognizer.startContinuousRecognitionAsync();
 
-// Something later can call, stops recognition.
+// make the following call at some point to stop recognition.
 // recognizer.StopContinuousRecognitionAsync();
 ```
 
@@ -219,7 +204,7 @@ recognizer.startContinuousRecognitionAsync();
 
 When using continuous recognition, you can enable dictation processing by using the corresponding "enable dictation" function. This mode will cause the speech config instance to interpret word descriptions of sentence structures such as punctuation. For example, the utterance "Do you live in town question mark" would be interpreted as the text "Do you live in town?".
 
-To enable dictation mode, use the [`enableDictation`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#enabledictation--) method on your [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest).
+To enable dictation mode, use the [`enableDictation`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#enabledictation--) method on your [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig).
 
 ```javascript
 speechConfig.enableDictation();
@@ -227,27 +212,35 @@ speechConfig.enableDictation();
 
 ## Change source language
 
-A common task for speech recognition is specifying the input (or source) language. Let's take a look at how you would change the input language to Italian. In your code, find your [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest), then add this line directly below it.
+A common task for speech recognition is specifying the input (or source) language. Let's take a look at how you would change the input language to Italian. In your code, find your [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig), then add this line directly below it.
 
 ```javascript
 speechConfig.speechRecognitionLanguage = "it-IT";
 ```
 
-The [`speechRecognitionLanguage`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#speechrecognitionlanguage) property expects a language-locale format string. You can provide any value in the **Locale** column in the list of supported [locales/languages](../../../language-support.md).
+The [`speechRecognitionLanguage`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#speechrecognitionlanguage) property expects a language-locale format string. You can provide any value in the **Locale** column in the list of supported [locales/languages](../../../language-support.md).
 
 ## Improve recognition accuracy
 
-There are a few ways to improve recognition accuracy with the Speech  Let's take a look at Phrase Lists. Phrase Lists are used to identify known phrases in audio data, like a person's name or a specific location. Single words or complete phrases can be added to a Phrase List. During recognition, an entry in a phrase list is used if an exact match for the entire phrase is included in the audio. If an exact match to the phrase is not found, recognition is not assisted.
+Phrase Lists are used to identify known phrases in audio data, like a person's name or a specific location. By providing a list of phrases, you improve the accuracy of speech recognition.
+
+As an example, if you have a command "Move to" and a possible destination of "Ward" that may be spoken, you can add an entry of "Move to Ward". Adding a phrase will increase the probability that when the audio is recognized that "Move to Ward" will be recognized instead of "Move toward"
+
+Single words or complete phrases can be added to a Phrase List. During recognition, an entry in a phrase list is used to boost recognition of the words and phrases in the list even when the entries appear in the middle of the utterance. 
 
 > [!IMPORTANT]
-> The Phrase List feature is only available in English.
+> The Phrase List feature is available in the following languages: en-US, de-DE, en-AU, en-CA, en-GB, en-IN, es-ES, fr-FR, it-IT, ja-JP, pt-BR, zh-CN
+>
+> The Phrase List feature should be used with no more than a few hundred phrases. If you have a larger list or for languages that are not currently supported, [training a custom model](../../../custom-speech-overview.md) will likely be the better choice to improve accuracy.
+>
+> Do not use the Phrase List feature with custom endpoints. Instead, train a custom model that includes the phrases.
 
-To use a phrase list, first create a [`PhraseListGrammar`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/phraselistgrammar?view=azure-node-latest) object, then add specific words and phrases with [`addPhrase`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/phraselistgrammar?view=azure-node-latest#addphrase-string-).
+To use a phrase list, first create a [`PhraseListGrammar`](/javascript/api/microsoft-cognitiveservices-speech-sdk/phraselistgrammar) object, then add specific words and phrases with [`addPhrase`](/javascript/api/microsoft-cognitiveservices-speech-sdk/phraselistgrammar#addphrase-string-).
 
-Any changes to [`PhraseListGrammar`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/phraselistgrammar?view=azure-node-latest) take effect on the next recognition or after a reconnection to the Speech service.
+Any changes to [`PhraseListGrammar`](/javascript/api/microsoft-cognitiveservices-speech-sdk/phraselistgrammar) take effect on the next recognition or after a reconnection to the Speech service.
 
 ```javascript
-const phraseList = PhraseListGrammar.fromRecognizer(recognizer);
+const phraseList = sdk.PhraseListGrammar.fromRecognizer(recognizer);
 phraseList.addPhrase("Supercalifragilisticexpialidocious");
 ```
 
@@ -261,5 +254,5 @@ phraseList.clear();
 
 Phrase lists are only one option to improve recognition accuracy. You can also: 
 
-* [Improve accuracy with Custom Speech](../../../how-to-custom-speech.md)
+* [Improve accuracy with Custom Speech](../../../custom-speech-overview.md)
 * [Improve accuracy with tenant models](../../../tutorial-tenant-model.md)

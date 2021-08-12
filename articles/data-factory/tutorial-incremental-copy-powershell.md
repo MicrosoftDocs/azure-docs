@@ -1,23 +1,19 @@
 ---
 title: Incrementally copy a table using PowerShell
-description: 'In this tutorial, you create an Azure data factory pipeline that copies data incrementally from an Azure SQL database to Azure Blob storage.'
-services: data-factory
+description: In this tutorial, you create an Azure Data Factory pipeline that incrementally copies data from an Azure SQL database to Azure Blob storage.'
 author: dearandyxu
 ms.author: yexu
-manager: anandsub
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: tutorials
 ms.topic: tutorial
-ms.custom: seo-dt-2019
-ms.date: 01/22/2018
+ms.date: 02/18/2021
 ---
 
-# Incrementally load data from an Azure SQL database to Azure Blob storage using PowerShell
+# Incrementally load data from Azure SQL Database to Azure Blob storage using PowerShell
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-In this tutorial, you create an Azure data factory with a pipeline that loads delta data from a table in an Azure SQL database to Azure Blob storage.
+In this tutorial, you use Azure Data Factory to create a pipeline that loads delta data from a table in Azure SQL Database to Azure Blob storage.
 
 You perform the following steps in this tutorial:
 
@@ -38,18 +34,18 @@ Here is the high-level solution diagram:
 Here are the important steps to create this solution:
 
 1. **Select the watermark column**.
-	Select one column in the source data store, which can be used to slice the new or updated records for every run. Normally, the data in this selected column (for example, last_modify_time or ID) keeps increasing when rows are created or updated. The maximum value in this column is used as a watermark.
+    Select one column in the source data store, which can be used to slice the new or updated records for every run. Normally, the data in this selected column (for example, last_modify_time or ID) keeps increasing when rows are created or updated. The maximum value in this column is used as a watermark.
 
 2. **Prepare a data store to store the watermark value**.   
-	In this tutorial, you store the watermark value in a SQL database.
+    In this tutorial, you store the watermark value in a SQL database.
 
 3. **Create a pipeline with the following workflow**:
 
-	The pipeline in this solution has the following activities:
+    The pipeline in this solution has the following activities:
 
-	* Create two Lookup activities. Use the first Lookup activity to retrieve the last watermark value. Use the second Lookup activity to retrieve the new watermark value. These watermark values are passed to the Copy activity.
-	* Create a Copy activity that copies rows from the source data store with the value of the watermark column greater than the old watermark value and less than the new watermark value. Then, it copies the delta data from the source data store to Blob storage as a new file.
-	* Create a StoredProcedure activity that updates the watermark value for the pipeline that runs next time.
+    * Create two Lookup activities. Use the first Lookup activity to retrieve the last watermark value. Use the second Lookup activity to retrieve the new watermark value. These watermark values are passed to the Copy activity.
+    * Create a Copy activity that copies rows from the source data store with the value of the watermark column greater than the old watermark value and less than the new watermark value. Then, it copies the delta data from the source data store to Blob storage as a new file.
+    * Create a StoredProcedure activity that updates the watermark value for the pipeline that runs next time.
 
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
@@ -58,7 +54,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Azure SQL Database**. You use the database as the source data store. If you don't have a SQL database, see [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) for steps to create one.
+* **Azure SQL Database**. You use the database as the source data store. If you don't have a database in Azure SQL Database, see [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) for steps to create one.
 * **Azure Storage**. You use the blob storage as the sink data store. If you don't have a storage account, see [Create a storage account](../storage/common/storage-account-create.md) for steps to create one. Create a container named adftutorial. 
 * **Azure PowerShell**. Follow the instructions in [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
 
@@ -68,33 +64,33 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 2. Run the following SQL command against your SQL database to create a table named `data_source_table` as the data source store:
 
     ```sql
-	create table data_source_table
-	(
-		PersonID int,
-		Name varchar(255),
-		LastModifytime datetime
-	);
+    create table data_source_table
+    (
+        PersonID int,
+        Name varchar(255),
+        LastModifytime datetime
+    );
 
-	INSERT INTO data_source_table
-	(PersonID, Name, LastModifytime)
-	VALUES
-	(1, 'aaaa','9/1/2017 12:56:00 AM'),
-	(2, 'bbbb','9/2/2017 5:23:00 AM'),
-	(3, 'cccc','9/3/2017 2:36:00 AM'),
-	(4, 'dddd','9/4/2017 3:21:00 AM'),
-	(5, 'eeee','9/5/2017 8:06:00 AM');
+    INSERT INTO data_source_table
+    (PersonID, Name, LastModifytime)
+    VALUES
+    (1, 'aaaa','9/1/2017 12:56:00 AM'),
+    (2, 'bbbb','9/2/2017 5:23:00 AM'),
+    (3, 'cccc','9/3/2017 2:36:00 AM'),
+    (4, 'dddd','9/4/2017 3:21:00 AM'),
+    (5, 'eeee','9/5/2017 8:06:00 AM');
     ```
-	In this tutorial, you use LastModifytime as the watermark column. The data in the data source store is shown in the following table:
+    In this tutorial, you use LastModifytime as the watermark column. The data in the data source store is shown in the following table:
 
-	```
-	PersonID | Name | LastModifytime
-	-------- | ---- | --------------
-	1 | aaaa | 2017-09-01 00:56:00.000
-	2 | bbbb | 2017-09-02 05:23:00.000
-	3 | cccc | 2017-09-03 02:36:00.000
-	4 | dddd | 2017-09-04 03:21:00.000
-	5 | eeee | 2017-09-05 08:06:00.000
-	```
+    ```
+    PersonID | Name | LastModifytime
+    -------- | ---- | --------------
+    1 | aaaa | 2017-09-01 00:56:00.000
+    2 | bbbb | 2017-09-02 05:23:00.000
+    3 | cccc | 2017-09-03 02:36:00.000
+    4 | dddd | 2017-09-04 03:21:00.000
+    5 | eeee | 2017-09-05 08:06:00.000
+    ```
 
 ### Create another table in your SQL database to store the high watermark value
 1. Run the following SQL command against your SQL database to create a table named `watermarktable` to store the watermark value:  
@@ -136,8 +132,8 @@ AS
 
 BEGIN
 
-	UPDATE watermarktable
-	SET [WatermarkValue] = @LastModifiedtime
+UPDATE watermarktable
+SET [WatermarkValue] = @LastModifiedtime
 WHERE [TableName] = @TableName
 
 END
@@ -187,11 +183,11 @@ Note the following points:
     ```
 
 * To create Data Factory instances, the user account you use to sign in to Azure must be a member of contributor or owner roles, or an administrator of the Azure subscription.
-* For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Storage, SQL Database, etc.) and computes (Azure HDInsight, etc.) used by the data factory can be in other regions.
+* For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Storage, SQL Database, Azure SQL Managed Instance, and so on) and computes (Azure HDInsight, etc.) used by the data factory can be in other regions.
 
 
 ## Create linked services
-You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your storage account and SQL database.
+You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your storage account and SQL Database.
 
 ### Create a Storage linked service
 1. Create a JSON file named AzureStorageLinkedService.json in the C:\ADF folder with the following content. (Create the folder ADF if it doesn't already exist.) Replace `<accountName>` and `<accountKey>` with the name and key of your storage account before you save the file.
@@ -217,7 +213,7 @@ You create linked services in a data factory to link your data stores and comput
 
     Here is the sample output:
 
-    ```json
+    ```console
     LinkedServiceName : AzureStorageLinkedService
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -229,13 +225,13 @@ You create linked services in a data factory to link your data stores and comput
 
     ```json
     {
-    	"name": "AzureSQLDatabaseLinkedService",
-    	"properties": {
-    		"type": "AzureSqlDatabase",
-    		"typeProperties": {
-    			"connectionString": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database>; Persist Security Info=False; User ID=<user> ; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;"
-    		}
-    	}
+        "name": "AzureSQLDatabaseLinkedService",
+        "properties": {
+            "type": "AzureSqlDatabase",
+            "typeProperties": {
+                "connectionString": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database>; Persist Security Info=False; User ID=<user> ; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;"
+            }
+        }
     }
     ```
 2. In PowerShell, switch to the ADF folder.
@@ -248,7 +244,7 @@ You create linked services in a data factory to link your data stores and comput
 
     Here is the sample output:
 
-    ```json
+    ```console
     LinkedServiceName : AzureSQLDatabaseLinkedService
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
@@ -265,17 +261,17 @@ In this step, you create datasets to represent source and sink data.
 
     ```json
     {
-    	"name": "SourceDataset",
-    	"properties": {
-    		"type": "AzureSqlTable",
-    		"typeProperties": {
-    			"tableName": "data_source_table"
-    		},
-    		"linkedServiceName": {
-    			"referenceName": "AzureSQLDatabaseLinkedService",
-    			"type": "LinkedServiceReference"
-    		}
-    	}
+        "name": "SourceDataset",
+        "properties": {
+            "type": "AzureSqlTable",
+            "typeProperties": {
+                "tableName": "data_source_table"
+            },
+            "linkedServiceName": {
+                "referenceName": "AzureSQLDatabaseLinkedService",
+                "type": "LinkedServiceReference"
+            }
+        }
     }
 
     ```
@@ -303,26 +299,26 @@ In this step, you create datasets to represent source and sink data.
 
     ```json
     {
-    	"name": "SinkDataset",
-    	"properties": {
-    		"type": "AzureBlob",
-    		"typeProperties": {
-    			"folderPath": "adftutorial/incrementalcopy",
-    			"fileName": "@CONCAT('Incremental-', pipeline().RunId, '.txt')",
-    			"format": {
-    				"type": "TextFormat"
-    			}
-    		},
-    		"linkedServiceName": {
-    			"referenceName": "AzureStorageLinkedService",
-    			"type": "LinkedServiceReference"
-    		}
-    	}
+        "name": "SinkDataset",
+        "properties": {
+            "type": "AzureBlob",
+            "typeProperties": {
+                "folderPath": "adftutorial/incrementalcopy",
+                "fileName": "@CONCAT('Incremental-', pipeline().RunId, '.txt')",
+                "format": {
+                    "type": "TextFormat"
+                }
+            },
+            "linkedServiceName": {
+                "referenceName": "AzureStorageLinkedService",
+                "type": "LinkedServiceReference"
+            }
+        }
     }   
     ```
 
-   	> [!IMPORTANT]
-	> This snippet assumes that you have a blob container named adftutorial in your blob storage. Create the container if it doesn't exist, or set it to the name of an existing one. The output folder `incrementalcopy` is automatically created if it doesn't exist in the container. In this tutorial, the file name is dynamically generated by using the expression `@CONCAT('Incremental-', pipeline().RunId, '.txt')`.
+    > [!IMPORTANT]
+    > This snippet assumes that you have a blob container named `adftutorial` in your blob storage. Create the container if it doesn't exist, or set it to the name of an existing one. The output folder `incrementalcopy` is automatically created if it doesn't exist in the container. In this tutorial, the file name is dynamically generated by using the expression `@CONCAT('Incremental-', pipeline().RunId, '.txt')`.
 
 2. Run the **Set-AzDataFactoryV2Dataset** cmdlet to create the dataset SinkDataset.
 
@@ -384,110 +380,110 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 
     ```json
     {
-    	"name": "IncrementalCopyPipeline",
+        "name": "IncrementalCopyPipeline",
         "properties": {
-    		"activities": [
-    			{
-    				"name": "LookupOldWaterMarkActivity",
-    				"type": "Lookup",
-    				"typeProperties": {
-    					"source": {
-    					"type": "SqlSource",
-    					"sqlReaderQuery": "select * from watermarktable"
-    					},
+            "activities": [
+                {
+                    "name": "LookupOldWaterMarkActivity",
+                    "type": "Lookup",
+                    "typeProperties": {
+                        "source": {
+                        "type": "SqlSource",
+                        "sqlReaderQuery": "select * from watermarktable"
+                        },
 
-    					"dataset": {
-    					"referenceName": "WatermarkDataset",
-    					"type": "DatasetReference"
-    					}
-    				}
-    			},
-    			{
-    				"name": "LookupNewWaterMarkActivity",
-    				"type": "Lookup",
-    				"typeProperties": {
-    					"source": {
-    						"type": "SqlSource",
-    						"sqlReaderQuery": "select MAX(LastModifytime) as NewWatermarkvalue from data_source_table"
-    					},
+                        "dataset": {
+                        "referenceName": "WatermarkDataset",
+                        "type": "DatasetReference"
+                        }
+                    }
+                },
+                {
+                    "name": "LookupNewWaterMarkActivity",
+                    "type": "Lookup",
+                    "typeProperties": {
+                        "source": {
+                            "type": "SqlSource",
+                            "sqlReaderQuery": "select MAX(LastModifytime) as NewWatermarkvalue from data_source_table"
+                        },
 
-    					"dataset": {
-    					"referenceName": "SourceDataset",
-    					"type": "DatasetReference"
-    					}
-    				}
-    			},
+                        "dataset": {
+                        "referenceName": "SourceDataset",
+                        "type": "DatasetReference"
+                        }
+                    }
+                },
 
-    			{
-    				"name": "IncrementalCopyActivity",
-    				"type": "Copy",
-    				"typeProperties": {
-    					"source": {
-    						"type": "SqlSource",
-    						"sqlReaderQuery": "select * from data_source_table where LastModifytime > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and LastModifytime <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'"
-    					},
-    					"sink": {
-    						"type": "BlobSink"
-    					}
-    				},
-    				"dependsOn": [
-    					{
-    						"activity": "LookupNewWaterMarkActivity",
-    						"dependencyConditions": [
-    							"Succeeded"
-    						]
-    					},
-    					{
-    						"activity": "LookupOldWaterMarkActivity",
-    						"dependencyConditions": [
-    							"Succeeded"
-    						]
-    					}
-    				],
+                {
+                    "name": "IncrementalCopyActivity",
+                    "type": "Copy",
+                    "typeProperties": {
+                        "source": {
+                            "type": "SqlSource",
+                            "sqlReaderQuery": "select * from data_source_table where LastModifytime > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and LastModifytime <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'"
+                        },
+                        "sink": {
+                            "type": "BlobSink"
+                        }
+                    },
+                    "dependsOn": [
+                        {
+                            "activity": "LookupNewWaterMarkActivity",
+                            "dependencyConditions": [
+                                "Succeeded"
+                            ]
+                        },
+                        {
+                            "activity": "LookupOldWaterMarkActivity",
+                            "dependencyConditions": [
+                                "Succeeded"
+                            ]
+                        }
+                    ],
 
-    				"inputs": [
-    					{
-    						"referenceName": "SourceDataset",
-    						"type": "DatasetReference"
-    					}
-    				],
-    				"outputs": [
-    					{
-    						"referenceName": "SinkDataset",
-    						"type": "DatasetReference"
-    					}
-    				]
-    			},
+                    "inputs": [
+                        {
+                            "referenceName": "SourceDataset",
+                            "type": "DatasetReference"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "referenceName": "SinkDataset",
+                            "type": "DatasetReference"
+                        }
+                    ]
+                },
 
-    			{
-    				"name": "StoredProceduretoWriteWatermarkActivity",
-    				"type": "SqlServerStoredProcedure",
-    				"typeProperties": {
+                {
+                    "name": "StoredProceduretoWriteWatermarkActivity",
+                    "type": "SqlServerStoredProcedure",
+                    "typeProperties": {
 
-    					"storedProcedureName": "usp_write_watermark",
-    					"storedProcedureParameters": {
-    						"LastModifiedtime": {"value": "@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}", "type": "datetime" },
-    						"TableName":  { "value":"@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}", "type":"String"}
-    					}
-    				},
+                        "storedProcedureName": "usp_write_watermark",
+                        "storedProcedureParameters": {
+                            "LastModifiedtime": {"value": "@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}", "type": "datetime" },
+                            "TableName":  { "value":"@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}", "type":"String"}
+                        }
+                    },
 
-    				"linkedServiceName": {
-    					"referenceName": "AzureSQLDatabaseLinkedService",
-    					"type": "LinkedServiceReference"
-    				},
+                    "linkedServiceName": {
+                        "referenceName": "AzureSQLDatabaseLinkedService",
+                        "type": "LinkedServiceReference"
+                    },
 
-    				"dependsOn": [
-    					{
-    						"activity": "IncrementalCopyActivity",
-    						"dependencyConditions": [
-    							"Succeeded"
-    						]
-    					}
-    				]
-    			}
-    		]
+                    "dependsOn": [
+                        {
+                            "activity": "IncrementalCopyActivity",
+                            "dependencyConditions": [
+                                "Succeeded"
+                            ]
+                        }
+                    ]
+                }
+            ]
 
-    	}
+        }
     }
     ```
 
@@ -500,7 +496,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 
    Here is the sample output:
 
-   ```json
+   ```console
     PipelineName      : IncrementalCopyPipeline
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
@@ -512,207 +508,207 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 
 1. Run the pipeline IncrementalCopyPipeline by using the **Invoke-AzDataFactoryV2Pipeline** cmdlet. Replace placeholders with your own resource group and data factory name.
 
-	```powershell
-	$RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
-	```
+    ```powershell
+    $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
+    ```
 2. Check the status of the pipeline by running the **Get-AzDataFactoryV2ActivityRun** cmdlet until you see all the activities running successfully. Replace placeholders with your own appropriate time for the parameters *RunStartedAfter* and *RunStartedBefore*. In this tutorial, you use *-RunStartedAfter "2017/09/14"* and *-RunStartedBefore "2017/09/15"*.
 
-	```powershell
-	Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
-	```
+    ```powershell
+    Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
+    ```
 
-	Here is the sample output:
+    Here is the sample output:
 
-	```json
-	ResourceGroupName : ADF
-	DataFactoryName   : incrementalloadingADF
-	ActivityName      : LookupNewWaterMarkActivity
-	PipelineRunId     : d4bf3ce2-5d60-43f3-9318-923155f61037
-	PipelineName      : IncrementalCopyPipeline
-	Input             : {source, dataset}
-	Output            : {NewWatermarkvalue}
-	LinkedServiceName :
-	ActivityRunStart  : 9/14/2017 7:42:42 AM
-	ActivityRunEnd    : 9/14/2017 7:42:50 AM
-	DurationInMs      : 7777
-	Status            : Succeeded
-	Error             : {errorCode, message, failureType, target}
+    ```console
+    ResourceGroupName : ADF
+    DataFactoryName   : incrementalloadingADF
+    ActivityName      : LookupNewWaterMarkActivity
+    PipelineRunId     : d4bf3ce2-5d60-43f3-9318-923155f61037
+    PipelineName      : IncrementalCopyPipeline
+    Input             : {source, dataset}
+    Output            : {NewWatermarkvalue}
+    LinkedServiceName :
+    ActivityRunStart  : 9/14/2017 7:42:42 AM
+    ActivityRunEnd    : 9/14/2017 7:42:50 AM
+    DurationInMs      : 7777
+    Status            : Succeeded
+    Error             : {errorCode, message, failureType, target}
 
-	ResourceGroupName : ADF
-	DataFactoryName   : incrementalloadingADF
-	ActivityName      : LookupOldWaterMarkActivity
-	PipelineRunId     : d4bf3ce2-5d60-43f3-9318-923155f61037
-	PipelineName      : IncrementalCopyPipeline
-	Input             : {source, dataset}
-	Output            : {TableName, WatermarkValue}
-	LinkedServiceName :
-	ActivityRunStart  : 9/14/2017 7:42:42 AM
-	ActivityRunEnd    : 9/14/2017 7:43:07 AM
-	DurationInMs      : 25437
-	Status            : Succeeded
-	Error             : {errorCode, message, failureType, target}
+    ResourceGroupName : ADF
+    DataFactoryName   : incrementalloadingADF
+    ActivityName      : LookupOldWaterMarkActivity
+    PipelineRunId     : d4bf3ce2-5d60-43f3-9318-923155f61037
+    PipelineName      : IncrementalCopyPipeline
+    Input             : {source, dataset}
+    Output            : {TableName, WatermarkValue}
+    LinkedServiceName :
+    ActivityRunStart  : 9/14/2017 7:42:42 AM
+    ActivityRunEnd    : 9/14/2017 7:43:07 AM
+    DurationInMs      : 25437
+    Status            : Succeeded
+    Error             : {errorCode, message, failureType, target}
 
-	ResourceGroupName : ADF
-	DataFactoryName   : incrementalloadingADF
-	ActivityName      : IncrementalCopyActivity
-	PipelineRunId     : d4bf3ce2-5d60-43f3-9318-923155f61037
-	PipelineName      : IncrementalCopyPipeline
-	Input             : {source, sink}
-	Output            : {dataRead, dataWritten, rowsCopied, copyDuration...}
-	LinkedServiceName :
-	ActivityRunStart  : 9/14/2017 7:43:10 AM
-	ActivityRunEnd    : 9/14/2017 7:43:29 AM
-	DurationInMs      : 19769
-	Status            : Succeeded
-	Error             : {errorCode, message, failureType, target}
+    ResourceGroupName : ADF
+    DataFactoryName   : incrementalloadingADF
+    ActivityName      : IncrementalCopyActivity
+    PipelineRunId     : d4bf3ce2-5d60-43f3-9318-923155f61037
+    PipelineName      : IncrementalCopyPipeline
+    Input             : {source, sink}
+    Output            : {dataRead, dataWritten, rowsCopied, copyDuration...}
+    LinkedServiceName :
+    ActivityRunStart  : 9/14/2017 7:43:10 AM
+    ActivityRunEnd    : 9/14/2017 7:43:29 AM
+    DurationInMs      : 19769
+    Status            : Succeeded
+    Error             : {errorCode, message, failureType, target}
 
-	ResourceGroupName : ADF
-	DataFactoryName   : incrementalloadingADF
-	ActivityName      : StoredProceduretoWriteWatermarkActivity
-	PipelineRunId     : d4bf3ce2-5d60-43f3-9318-923155f61037
-	PipelineName      : IncrementalCopyPipeline
-	Input             : {storedProcedureName, storedProcedureParameters}
-	Output            : {}
-	LinkedServiceName :
-	ActivityRunStart  : 9/14/2017 7:43:32 AM
-	ActivityRunEnd    : 9/14/2017 7:43:47 AM
-	DurationInMs      : 14467
-	Status            : Succeeded
-	Error             : {errorCode, message, failureType, target}
+    ResourceGroupName : ADF
+    DataFactoryName   : incrementalloadingADF
+    ActivityName      : StoredProceduretoWriteWatermarkActivity
+    PipelineRunId     : d4bf3ce2-5d60-43f3-9318-923155f61037
+    PipelineName      : IncrementalCopyPipeline
+    Input             : {storedProcedureName, storedProcedureParameters}
+    Output            : {}
+    LinkedServiceName :
+    ActivityRunStart  : 9/14/2017 7:43:32 AM
+    ActivityRunEnd    : 9/14/2017 7:43:47 AM
+    DurationInMs      : 14467
+    Status            : Succeeded
+    Error             : {errorCode, message, failureType, target}
 
-	```
+    ```
 
 ## Review the results
 
 1. In the blob storage (sink store), you see that the data were copied to the file defined in SinkDataset. In the current tutorial, the file name is `Incremental- d4bf3ce2-5d60-43f3-9318-923155f61037.txt`. Open the file, and you can see records in the file that are the same as the data in the SQL database.
 
-	```
-	1,aaaa,2017-09-01 00:56:00.0000000
-	2,bbbb,2017-09-02 05:23:00.0000000
-	3,cccc,2017-09-03 02:36:00.0000000
-	4,dddd,2017-09-04 03:21:00.0000000
-	5,eeee,2017-09-05 08:06:00.0000000
-	```
+    ```
+    1,aaaa,2017-09-01 00:56:00.0000000
+    2,bbbb,2017-09-02 05:23:00.0000000
+    3,cccc,2017-09-03 02:36:00.0000000
+    4,dddd,2017-09-04 03:21:00.0000000
+    5,eeee,2017-09-05 08:06:00.0000000
+    ```
 2. Check the latest value from `watermarktable`. You see that the watermark value was updated.
 
-	```sql
-	Select * from watermarktable
-	```
+    ```sql
+    Select * from watermarktable
+    ```
 
-	Here is the sample output:
+    Here is the sample output:
 
-	TableName | WatermarkValue
-	--------- | --------------
-	data_source_table | 2017-09-05	8:06:00.000
+    TableName | WatermarkValue
+    --------- | --------------
+    data_source_table | 2017-09-05 8:06:00.000
 
 ### Insert data into the data source store to verify delta data loading
 
 1. Insert new data into the SQL database (data source store).
 
-	```sql
-	INSERT INTO data_source_table
-	VALUES (6, 'newdata','9/6/2017 2:23:00 AM')
+    ```sql
+    INSERT INTO data_source_table
+    VALUES (6, 'newdata','9/6/2017 2:23:00 AM')
 
-	INSERT INTO data_source_table
-	VALUES (7, 'newdata','9/7/2017 9:01:00 AM')
-	```
+    INSERT INTO data_source_table
+    VALUES (7, 'newdata','9/7/2017 9:01:00 AM')
+    ```
 
-	The updated data in the SQL database is:
+    The updated data in the SQL database is:
 
     ```
-	PersonID | Name | LastModifytime
-	-------- | ---- | --------------
-	1 | aaaa | 2017-09-01 00:56:00.000
-	2 | bbbb | 2017-09-02 05:23:00.000
-	3 | cccc | 2017-09-03 02:36:00.000
-	4 | dddd | 2017-09-04 03:21:00.000
-	5 | eeee | 2017-09-05 08:06:00.000
-	6 | newdata | 2017-09-06 02:23:00.000
-	7 | newdata | 2017-09-07 09:01:00.000
+    PersonID | Name | LastModifytime
+    -------- | ---- | --------------
+    1 | aaaa | 2017-09-01 00:56:00.000
+    2 | bbbb | 2017-09-02 05:23:00.000
+    3 | cccc | 2017-09-03 02:36:00.000
+    4 | dddd | 2017-09-04 03:21:00.000
+    5 | eeee | 2017-09-05 08:06:00.000
+    6 | newdata | 2017-09-06 02:23:00.000
+    7 | newdata | 2017-09-07 09:01:00.000
     ```
 2. Run the pipeline IncrementalCopyPipeline again by using the **Invoke-AzDataFactoryV2Pipeline** cmdlet. Replace placeholders with your own resource group and data factory name.
 
-	```powershell
-	$RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
-	```
+    ```powershell
+    $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
+    ```
 3. Check the status of the pipeline by running the **Get-AzDataFactoryV2ActivityRun** cmdlet until you see all the activities running successfully. Replace placeholders with your own appropriate time for the parameters *RunStartedAfter* and *RunStartedBefore*. In this tutorial, you use *-RunStartedAfter "2017/09/14"* and *-RunStartedBefore "2017/09/15"*.
 
-	```powershell
-	Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
-	```
+    ```powershell
+    Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
+    ```
 
-	Here is the sample output:
+    Here is the sample output:
 
-	```json
-	ResourceGroupName : ADF
-	DataFactoryName   : incrementalloadingADF
-	ActivityName      : LookupNewWaterMarkActivity
-	PipelineRunId     : 2fc90ab8-d42c-4583-aa64-755dba9925d7
-	PipelineName      : IncrementalCopyPipeline
-	Input             : {source, dataset}
-	Output            : {NewWatermarkvalue}
-	LinkedServiceName :
-	ActivityRunStart  : 9/14/2017 8:52:26 AM
-	ActivityRunEnd    : 9/14/2017 8:52:58 AM
-	DurationInMs      : 31758
-	Status            : Succeeded
-	Error             : {errorCode, message, failureType, target}
+    ```console
+    ResourceGroupName : ADF
+    DataFactoryName   : incrementalloadingADF
+    ActivityName      : LookupNewWaterMarkActivity
+    PipelineRunId     : 2fc90ab8-d42c-4583-aa64-755dba9925d7
+    PipelineName      : IncrementalCopyPipeline
+    Input             : {source, dataset}
+    Output            : {NewWatermarkvalue}
+    LinkedServiceName :
+    ActivityRunStart  : 9/14/2017 8:52:26 AM
+    ActivityRunEnd    : 9/14/2017 8:52:58 AM
+    DurationInMs      : 31758
+    Status            : Succeeded
+    Error             : {errorCode, message, failureType, target}
 
-	ResourceGroupName : ADF
-	DataFactoryName   : incrementalloadingADF
-	ActivityName      : LookupOldWaterMarkActivity
-	PipelineRunId     : 2fc90ab8-d42c-4583-aa64-755dba9925d7
-	PipelineName      : IncrementalCopyPipeline
-	Input             : {source, dataset}
-	Output            : {TableName, WatermarkValue}
-	LinkedServiceName :
-	ActivityRunStart  : 9/14/2017 8:52:26 AM
-	ActivityRunEnd    : 9/14/2017 8:52:52 AM
-	DurationInMs      : 25497
-	Status            : Succeeded
-	Error             : {errorCode, message, failureType, target}
+    ResourceGroupName : ADF
+    DataFactoryName   : incrementalloadingADF
+    ActivityName      : LookupOldWaterMarkActivity
+    PipelineRunId     : 2fc90ab8-d42c-4583-aa64-755dba9925d7
+    PipelineName      : IncrementalCopyPipeline
+    Input             : {source, dataset}
+    Output            : {TableName, WatermarkValue}
+    LinkedServiceName :
+    ActivityRunStart  : 9/14/2017 8:52:26 AM
+    ActivityRunEnd    : 9/14/2017 8:52:52 AM
+    DurationInMs      : 25497
+    Status            : Succeeded
+    Error             : {errorCode, message, failureType, target}
 
-	ResourceGroupName : ADF
-	DataFactoryName   : incrementalloadingADF
-	ActivityName      : IncrementalCopyActivity
-	PipelineRunId     : 2fc90ab8-d42c-4583-aa64-755dba9925d7
-	PipelineName      : IncrementalCopyPipeline
-	Input             : {source, sink}
-	Output            : {dataRead, dataWritten, rowsCopied, copyDuration...}
-	LinkedServiceName :
-	ActivityRunStart  : 9/14/2017 8:53:00 AM
-	ActivityRunEnd    : 9/14/2017 8:53:20 AM
-	DurationInMs      : 20194
-	Status            : Succeeded
-	Error             : {errorCode, message, failureType, target}
+    ResourceGroupName : ADF
+    DataFactoryName   : incrementalloadingADF
+    ActivityName      : IncrementalCopyActivity
+    PipelineRunId     : 2fc90ab8-d42c-4583-aa64-755dba9925d7
+    PipelineName      : IncrementalCopyPipeline
+    Input             : {source, sink}
+    Output            : {dataRead, dataWritten, rowsCopied, copyDuration...}
+    LinkedServiceName :
+    ActivityRunStart  : 9/14/2017 8:53:00 AM
+    ActivityRunEnd    : 9/14/2017 8:53:20 AM
+    DurationInMs      : 20194
+    Status            : Succeeded
+    Error             : {errorCode, message, failureType, target}
 
-	ResourceGroupName : ADF
-	DataFactoryName   : incrementalloadingADF
-	ActivityName      : StoredProceduretoWriteWatermarkActivity
-	PipelineRunId     : 2fc90ab8-d42c-4583-aa64-755dba9925d7
-	PipelineName      : IncrementalCopyPipeline
-	Input             : {storedProcedureName, storedProcedureParameters}
-	Output            : {}
-	LinkedServiceName :
-	ActivityRunStart  : 9/14/2017 8:53:23 AM
-	ActivityRunEnd    : 9/14/2017 8:53:41 AM
-	DurationInMs      : 18502
-	Status            : Succeeded
-	Error             : {errorCode, message, failureType, target}
+    ResourceGroupName : ADF
+    DataFactoryName   : incrementalloadingADF
+    ActivityName      : StoredProceduretoWriteWatermarkActivity
+    PipelineRunId     : 2fc90ab8-d42c-4583-aa64-755dba9925d7
+    PipelineName      : IncrementalCopyPipeline
+    Input             : {storedProcedureName, storedProcedureParameters}
+    Output            : {}
+    LinkedServiceName :
+    ActivityRunStart  : 9/14/2017 8:53:23 AM
+    ActivityRunEnd    : 9/14/2017 8:53:41 AM
+    DurationInMs      : 18502
+    Status            : Succeeded
+    Error             : {errorCode, message, failureType, target}
 
-	```
+    ```
 4. In the blob storage, you see that another file was created. In this tutorial, the new file name is `Incremental-2fc90ab8-d42c-4583-aa64-755dba9925d7.txt`. Open that file, and you see two rows of records in it.
 
 5. Check the latest value from `watermarktable`. You see that the watermark value was updated again.
 
-	```sql
-	Select * from watermarktable
-	```
-	sample output:
+    ```sql
+    Select * from watermarktable
+    ```
+    sample output:
 
-	TableName | WatermarkValue
-	--------- | ---------------
-	data_source_table | 2017-09-07 09:01:00.000
+    TableName | WatermarkValue
+    --------- | ---------------
+    data_source_table | 2017-09-07 09:01:00.000
 
 
 ## Next steps
@@ -727,7 +723,7 @@ You performed the following steps in this tutorial:
 > * Run the pipeline.
 > * Monitor the pipeline run.
 
-In this tutorial, the pipeline copied data from a single table in a SQL database to Blob storage. Advance to the following tutorial to learn how to copy data from multiple tables in an on-premises SQL Server database to a SQL database.
+In this tutorial, the pipeline copied data from a single table in Azure SQL Database to Blob storage. Advance to the following tutorial to learn how to copy data from multiple tables in a SQL Server database to SQL Database.
 
 > [!div class="nextstepaction"]
 >[Incrementally load data from multiple tables in SQL Server to Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)

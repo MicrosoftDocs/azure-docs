@@ -2,20 +2,15 @@
 title: 'Tutorial: Configure Elium for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Elium.
 services: active-directory
-documentationcenter: ''
-author: zchia
-writer: zchia
-manager: beatrizd
-
-ms.assetid: fb48deae-4653-448a-ba2f-90258edab3a7
+author: twimmers
+writer: twimmers
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/19/2019
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Elium for automatic user provisioning

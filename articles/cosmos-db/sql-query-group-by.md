@@ -3,18 +3,16 @@ title: GROUP BY clause in Azure Cosmos DB
 description: Learn about the GROUP BY clause for Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 07/30/2021
 ms.author: tisande
 
 ---
 # GROUP BY clause in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 The GROUP BY clause divides the query's results according to the values of one or more specified properties.
-
-> [!NOTE]
-> Azure Cosmos DB currently supports GROUP BY in .NET SDK 3.3 and above as well as JavaScript SDK 3.4 and above.
-> Support for other language SDK's is not currently available but is planned.
 
 ## Syntax
 
@@ -38,7 +36,7 @@ The GROUP BY clause divides the query's results according to the values of one o
 
 ## Remarks
   
-  When a query uses a GROUP BY clause, the SELECT clause can only contain the subset of properties and system functions included in the GROUP BY clause. One exception is [aggregate system functions](sql-query-aggregates.md), which can appear in the SELECT clause without being included in the GROUP BY clause. You can also always include literal values in the SELECT clause.
+  When a query uses a GROUP BY clause, the SELECT clause can only contain the subset of properties and system functions included in the GROUP BY clause. One exception is [aggregate functions](sql-query-aggregate-functions.md), which can appear in the SELECT clause without being included in the GROUP BY clause. You can also always include literal values in the SELECT clause.
 
   The GROUP BY clause must be after the SELECT, FROM, and WHERE clause and before the OFFSET LIMIT clause. You currently cannot use GROUP BY with an ORDER BY clause but this is planned.
 
@@ -51,14 +49,21 @@ The GROUP BY clause divides the query's results according to the values of one o
 Queries with an aggregate system function and a subquery with `GROUP BY` are not supported. For example, the following query is not supported:
 
 ```sql
-SELECT COUNT(UniqueLastNames) FROM (SELECT AVG(f.age) FROM f GROUP BY f.lastName) AS UniqueLastNames
+SELECT COUNT(UniqueLastNames)
+FROM (
+SELECT AVG(f.age)
+FROM f
+GROUP BY f.lastName
+) AS UniqueLastNames
 ```
+
+Additionally, cross-partition `GROUP BY` queries can have a maximum of 21 [aggregate system functions](sql-query-aggregate-functions.md). 
 
 ## Examples
 
-These examples use the nutrition data set available through the [Azure Cosmos DB Query Playground](https://www.documentdb.com/sql/demo).
+These examples use a sample [nutrition data set](https://github.com/AzureCosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
 
-For example, here's a query which returns the total count of items in each foodGroup:
+Here's a query which returns the total count of items in each foodGroup:
 
 ```sql
 SELECT TOP 4 COUNT(1) AS foodGroupCount, f.foodGroup
@@ -69,22 +74,24 @@ GROUP BY f.foodGroup
 Some results are (TOP keyword is used to limit results):
 
 ```json
-[{
-  "foodGroup": "Fast Foods",
-  "foodGroupCount": 371
-},
-{
-  "foodGroup": "Finfish and Shellfish Products",
-  "foodGroupCount": 267
-},
-{
-  "foodGroup": "Meals, Entrees, and Side Dishes",
-  "foodGroupCount": 113
-},
-{
-  "foodGroup": "Sausages and Luncheon Meats",
-  "foodGroupCount": 244
-}]
+[
+    {
+        "foodGroupCount": 183,
+        "foodGroup": "Cereal Grains and Pasta"
+    },
+    {
+        "foodGroupCount": 133,
+        "foodGroup": "Nut and Seed Products"
+    },
+    {
+        "foodGroupCount": 113,
+        "foodGroup": "Meals, Entrees, and Side Dishes"
+    },
+    {
+        "foodGroupCount": 64,
+        "foodGroup": "Spices and Herbs"
+    }
+]
 ```
 
 This query has two expressions used to divide results:
@@ -98,26 +105,28 @@ GROUP BY f.foodGroup, f.version
 Some results are:
 
 ```json
-[{
-  "version": 1,
-  "foodGroup": "Nut and Seed Products",
-  "foodGroupCount": 133
-},
-{
-  "version": 1,
-  "foodGroup": "Finfish and Shellfish Products",
-  "foodGroupCount": 267
-},
-{
-  "version": 1,
-  "foodGroup": "Fast Foods",
-  "foodGroupCount": 371
-},
-{
-  "version": 1,
-  "foodGroup": "Sausages and Luncheon Meats",
-  "foodGroupCount": 244
-}]
+[
+    {
+        "foodGroupCount": 183,
+        "foodGroup": "Cereal Grains and Pasta",
+        "version": 1
+    },
+    {
+        "foodGroupCount": 133,
+        "foodGroup": "Nut and Seed Products",
+        "version": 1
+    },
+    {
+        "foodGroupCount": 113,
+        "foodGroup": "Meals, Entrees, and Side Dishes",
+        "version": 1
+    },
+    {
+        "foodGroupCount": 64,
+        "foodGroup": "Spices and Herbs",
+        "version": 1
+    }
+]
 ```
 
 This query has a system function in the GROUP BY clause:
@@ -131,22 +140,24 @@ GROUP BY UPPER(f.foodGroup)
 Some results are:
 
 ```json
-[{
-  "foodGroupCount": 371,
-  "upperFoodGroup": "FAST FOODS"
-},
-{
-  "foodGroupCount": 267,
-  "upperFoodGroup": "FINFISH AND SHELLFISH PRODUCTS"
-},
-{
-  "foodGroupCount": 389,
-  "upperFoodGroup": "LEGUMES AND LEGUME PRODUCTS"
-},
-{
-  "foodGroupCount": 113,
-  "upperFoodGroup": "MEALS, ENTREES, AND SIDE DISHES"
-}]
+[
+    {
+        "foodGroupCount": 183,
+        "upperFoodGroup": "CEREAL GRAINS AND PASTA"
+    },
+    {
+        "foodGroupCount": 133,
+        "upperFoodGroup": "NUT AND SEED PRODUCTS"
+    },
+    {
+        "foodGroupCount": 113,
+        "upperFoodGroup": "MEALS, ENTREES, AND SIDE DISHES"
+    },
+    {
+        "foodGroupCount": 64,
+        "upperFoodGroup": "SPICES AND HERBS"
+    }
+]
 ```
 
 This query uses both keywords and system functions in the item property expression:
@@ -160,20 +171,22 @@ GROUP BY ARRAY_CONTAINS(f.tags, {name: 'orange'}), f.version BETWEEN 0 AND 2
 The results are:
 
 ```json
-[{
-  "correctVersion": true,
-  "containsOrangeTag": false,
-  "foodGroupCount": 8608
-},
-{
-  "correctVersion": true,
-  "containsOrangeTag": true,
-  "foodGroupCount": 10
-}]
+[
+    {
+        "foodGroupCount": 10,
+        "containsOrangeTag": true,
+        "correctVersion": true
+    },
+    {
+        "foodGroupCount": 8608,
+        "containsOrangeTag": false,
+        "correctVersion": true
+    }
+]
 ```
 
 ## Next steps
 
 - [Getting started](sql-query-getting-started.md)
 - [SELECT clause](sql-query-select.md)
-- [Aggregate functions](sql-query-aggregates.md)
+- [Aggregate functions](sql-query-aggregate-functions.md)

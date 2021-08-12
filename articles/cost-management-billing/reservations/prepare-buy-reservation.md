@@ -4,8 +4,9 @@ description: Learn about important points to help you buy an Azure reservation.
 author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 04/07/2020
+ms.subservice: reservations
+ms.topic: how-to
+ms.date: 04/12/2021
 ms.author: banders
 ---
 
@@ -15,9 +16,9 @@ Azure Reservations help you save money by committing to one-year or three-years 
 
 ## Who can buy a reservation
 
-To buy a plan, you must have a subscription owner role in an Enterprise (MS-AZR-0017P or MS-AZR-0148P) or Pay-As-You-Go subscription (MS-AZR-0003P or MS-AZR-0023P) or Microsoft Customer Agreement subscription. Cloud solution providers can use the Azure portal or [Partner Center](/partner-center/azure-reservations) to purchase Azure Reservations.
+To buy a reservation, you must have owner role or reservation purchaser role on an Azure subscription that's of type Enterprise (MS-AZR-0017P or MS-AZR-0148P) or Pay-As-You-Go (MS-AZR-0003P or MS-AZR-0023P) or Microsoft Customer Agreement. Cloud solution providers can use the Azure portal or [Partner Center](/partner-center/azure-reservations) to purchase Azure Reservations.
 
-Enterprise Agreement (EA) customers can limit purchases to EA admins by disabling the **Add Reserved Instances** option in the EA Portal. EA admins must be a subscription owner for at least one EA subscription to purchase a reservation. The option is useful for enterprises that want a centralized team to purchase reservations for different cost centers. After the purchase, centralized teams can add cost center owners to the reservations. Owners can then scope the reservation to their subscriptions. The central team doesn't need to have subscription owner access where the reservation is purchased.
+Enterprise Agreement (EA) customers can limit purchases to EA admins by disabling the **Add Reserved Instances** option in the EA Portal. EA admins must have owner or reservation purchaser access on at least one EA subscription to purchase a reservation. The option is useful for enterprises that want a centralized team to purchase reservations.
 
 A reservation discount only applies to resources associated with subscriptions purchased through Enterprise, Cloud Solution Provider (CSP), Microsoft Customer Agreement and individual plans with pay-as-you-go rates.
 
@@ -29,15 +30,18 @@ You can scope a reservation to a subscription or resource groups. Setting the sc
 
 You have three options to scope a reservation, depending on your needs:
 
-- **Single resource group scope**—Applies the reservation discount to the matching resources in the selected resource group only.
-- **Single subscription scope**—Applies the reservation discount to the matching resources in the selected subscription.
-- **Shared scope**—Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. For Enterprise Agreement customers, the billing context is the enrollment. For Microsoft Customer Agreement customers, the billing scope is the billing profile. For individual subscriptions with pay-as-you-go rates, the billing scope is all eligible subscriptions created by the account administrator.
+- **Single resource group scope** — Applies the reservation discount to the matching resources in the selected resource group only.
+- **Single subscription scope** — Applies the reservation discount to the matching resources in the selected subscription.
+- **Shared scope** — Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. If a subscription was moved to different billing context, the benefit will no longer be applied to this subscription and will continue to apply to other subscriptions in the billing context.
+    - For Enterprise Agreement customers, the billing context is the enrollment. The reservation shared scope would include multiple Active Directory tenants in an enrollment.
+    - For Microsoft Customer Agreement customers, the billing scope is the billing profile.
+    - For individual subscriptions with pay-as-you-go rates, the billing scope is all eligible subscriptions created by the account administrator.
 
 While applying reservation discounts on your usage, Azure processes the reservation in the following order:
 
-1. Reservations that are scoped to a resource group
-2. Single scope reservations
-3. Shared scope reservations
+1. Reservations with a single resource group scope
+2. Reservations with a single subscription scope
+3. Reservations with a shared scope (multiple subscriptions), described previously
 
 You can always update the scope after you buy a reservation. To do so, go to the reservation, click **Configuration**, and rescope the reservation. Rescoping a reservation isn't a commercial transaction. Your reservation term isn't changed. For more information about updating the scope, see [Update the scope after you purchase a reservation](manage-reserved-vm-instance.md#change-the-reservation-scope).
 
@@ -58,18 +62,22 @@ Resources that run in a subscription with other offer types don't receive the re
 
 You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the following articles that apply to you when you're ready to make a reservation purchase:
 
-- [App Service](prepay-app-service-isolated-stamp.md)
+- [App Service](prepay-app-service.md)
 - [Azure Cache for Redis](../../azure-cache-for-redis/cache-reserved-pricing.md)
 - [Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)
 - [Databricks](prepay-databricks-reserved-capacity.md)
 - [Data Explorer](/azure/data-explorer/pricing-reserved-capacity)
-- [Disk Storage](../../virtual-machines/linux/disks-reserved-capacity.md)
+- [Disk Storage](../../virtual-machines/disks-reserved-capacity.md)
 - [Dedicated Host](../../virtual-machines/prepay-dedicated-hosts-reserved-instances.md)
 - [Software plans](../../virtual-machines/linux/prepay-suse-software-charges.md)
 - [Storage](../../storage/blobs/storage-blob-reserved-capacity.md)
-- [SQL Database](../../sql-database/sql-database-reserved-capacity.md)
-- [SQL Data Warehouse](prepay-sql-data-warehouse-charges.md)
-- [Virtual machines](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [SQL Database](../../azure-sql/database/reserved-capacity-overview.md)
+- [Azure Database for PostgreSQL](../../postgresql/concept-reserved-pricing.md)
+- [Azure Database for MySQL](../../mysql/concept-reserved-pricing.md)
+- [Azure Database for MariaDB](../../mariadb/concept-reserved-pricing.md)
+- [Azure Synapse Analytics](prepay-sql-data-warehouse-charges.md)
+- [Azure VMware Solution](../../azure-vmware/reserved-instance.md)
+- [Virtual machines](../../virtual-machines/prepay-reserved-vm-instances.md)
 
 ## Buy reservations with monthly payments
 
@@ -77,7 +85,7 @@ You can pay for reservations with monthly payments. Unlike an up-front purchase 
 
 If reservation is purchased using Microsoft customer agreement (MCA), your monthly payment amount may vary, depending on the current month's market exchange rate for your local currency.
 
-Monthly payments are not available for: Databricks, SUSE Linux reservations, Red Hat Plans and Azure Red Hat OpenShift Compute.
+Monthly payments are not available for: Databricks, SUSE Linux reservations, Red Hat Plans and Azure Red Hat OpenShift Licenses.
 
 ### View payments made
 
@@ -111,7 +119,7 @@ Depending on how you pay for your Azure subscription, email reservation notifica
 For customers with EA subscriptions:
 
 - Notifications are sent only to the EA notification contacts.
-- Users added to a reservation using RBAC (IAM) permission don't receive any email notifications.
+- Users added to a reservation using Azure RBAC (IAM) permission don't receive any email notifications.
 
 For customers with individual subscriptions:
 
@@ -121,4 +129,8 @@ For customers with individual subscriptions:
 
 ## Next steps
 
+- [Learn more about Reservations permissions](view-reservations.md)
 - [Manage Reservations for Azure resources](manage-reserved-vm-instance.md)
+- [Automate using REST APIs](/rest/api/reserved-vm-instances/reservationorder)
+- [Automate using Azure PowerShell](/powershell/module/az.reservations)
+- [Automate using CLI](/cli/azure/reservations)

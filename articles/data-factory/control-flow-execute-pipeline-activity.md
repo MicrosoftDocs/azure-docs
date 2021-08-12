@@ -1,14 +1,13 @@
 ---
 title: Execute Pipeline Activity in Azure Data Factory 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how you can use the Execute Pipeline Activity to invoke one Data Factory pipeline from another Data Factory pipeline.
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
-ms.reviewer: maghan
+author: chez-charlie
+ms.author: chez
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 01/10/2018
 ---

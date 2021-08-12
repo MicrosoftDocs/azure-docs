@@ -10,7 +10,7 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: dobett
 
-# As an IT Pro, I want to try out a cloud-based solution to understand how I can monitor and manage my industrial IoT devices. 
+#Customer intent: As an IT Pro, I want to try out a cloud-based solution to understand how I can monitor and manage my industrial IoT devices.
 ---
 
 # Quickstart: Try a cloud-based solution to manage my industrial IoT devices
@@ -95,7 +95,7 @@ You can click on a chart to do further analysis of the data.
 
 ### Factory Locations
 
-A **Factory locations** panel that shows the status, location, and current production configuration in the solution. When you first run the solution accelerator, the dashboard shows a simulated set of factories. Each production line simulation is made up of three real OPC UA servers that run simulated tasks and share data. For more information about OPC UA, see the [Connected Factory FAQ](iot-accelerators-faq-cf.md):
+A **Factory locations** panel that shows the status, location, and current production configuration in the solution. When you first run the solution accelerator, the dashboard shows a simulated set of factories. Each production line simulation is made up of three real OPC UA servers that run simulated tasks and share data. For more information about OPC UA, see the [Connected Factory FAQ](iot-accelerators-faq-cf.yml):
 
 [![Factory locations](./media/quickstart-connected-factory-deploy/factorylocations-inline.png)](./media/quickstart-connected-factory-deploy/factorylocations-expanded.png#lightbox)
 
@@ -113,7 +113,7 @@ You can navigate through the solution hierarchy and view OEE values and KPIs at 
 
 ### Map
 
-If your subscription has access to the [Bing Maps API](iot-accelerators-faq-cf.md), the *Factories* map shows you the geographical location and status of all the factories in the solution. To drill into the location details, click the locations displayed on the map.
+If your subscription has access to the [Bing Maps API](iot-accelerators-faq-cf.yml), the *Factories* map shows you the geographical location and status of all the factories in the solution. To drill into the location details, click the locations displayed on the map.
 
 [![Map](./media/quickstart-connected-factory-deploy/map-inline.png)](./media/quickstart-connected-factory-deploy/map-expanded.png#lightbox)
 

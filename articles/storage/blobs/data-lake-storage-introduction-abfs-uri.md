@@ -1,6 +1,6 @@
 ---
 title: Use the Azure Data Lake Storage Gen2 URI
-description: Use the Azure Data Lake Storage Gen2 URI
+description: Learn URI syntax for the abfs scheme identifier, which represents the Azure Blob File System driver (Hadoop Filesystem driver for Azure Data Lake Storage Gen2).
 author: normesta
 ms.topic: conceptual
 ms.author: normesta
@@ -22,7 +22,7 @@ If the Data Lake Storage Gen2 capable account you wish to address **is not** set
 
 <pre>abfs[s]<sup>1</sup>://&lt;file_system&gt;<sup>2</sup>@&lt;account_name&gt;<sup>3</sup>.dfs.core.windows.net/&lt;path&gt;<sup>4</sup>/&lt;file_name&gt;<sup>5</sup></pre>
 
-1. **Scheme identifier**: The `abfs` protocol is used as the scheme identifier. You have the option to connect with or without a Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), connection. Use `abfss` to connect with a TLS connection.
+1. **Scheme identifier**: The `abfs` protocol is used as the scheme identifier. If you add an 's' at the end (abfs<b><i>s</i></b>) then the ABFS Hadoop client driver will <i>ALWAYS</i> use Transport Layer Security (TLS) irrespective of the authentication method chosen. If you choose OAuth as your authentication then the client driver will always use TLS even if you specify 'abfs' instead of 'abfss' because OAuth solely relies on the TLS layer. Finally, if you choose to use the older method of storage account key, then the client driver will interpret 'abfs' to mean that you do not want to use TLS. 
 
 2. **File system**: The parent location that holds the files and folders. This is the same as Containers in the Azure Storage Blobs service.
 
@@ -43,4 +43,4 @@ However, if the account you wish to address is set as the default file system du
 
 ## Next steps
 
-- [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

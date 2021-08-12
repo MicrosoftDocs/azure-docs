@@ -1,63 +1,65 @@
 ---
-title: Use Azure Cognitive Search in .NET
+title: Use Azure.Search.Documents (v11) in .NET
 titleSuffix: Azure Cognitive Search
-description: Learn how to use Azure Cognitive Search in a .NET application using C# and the .NET SDK. Code-based tasks include connect to the service, index content, and query an index.
+description: Learn how to create and manage search objects in a .NET application using C# and the Azure.Search.Documents (v11) client library. Code snippets demonstrate connecting to the service, creating indexes, and queries.
 
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: HeidiSteen
+ms.author: heidist
 ms.devlang: dotnet
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/27/2020
+ms.custom: devx-track-csharp
 ---
-# How to use Azure Cognitive Search from a .NET Application
+# How to use Azure.Search.Documents in a C# .NET Application
 
-This article is a walkthrough to get you up and running with the [Azure Cognitive Search .NET SDK](https://aka.ms/search-sdk). You can use the .NET SDK to implement a rich search experience in your application using Azure Cognitive Search.
+This article explains how to create and manage search objects using C# and the [**Azure.Search.Documents**](/dotnet/api/overview/azure/search) (version 11) client library.
 
-## What's in the Azure Cognitive Search SDK
-The SDK consists of a few client libraries that enable you to manage your indexes, data sources, indexers, and synonym maps, as well as upload and manage documents, and execute queries, all without having to deal with the details of HTTP and JSON. These client libraries are all distributed as NuGet packages.
+## About version 11
 
-The main NuGet package is `Microsoft.Azure.Search`, which is a meta-package that includes all the other packages as dependencies. Use this package if you're just getting started or if you know your application will need all the features of Azure Cognitive Search.
+Azure SDK for .NET adds a new [**Azure.Search.Documents**](/dotnet/api/overview/azure/search) client library from the Azure SDK team that is functionally equivalent to [Microsoft.Azure.Search](/dotnet/api/overview/azure/search/client10) client libraries, but utilizes common approaches and conventions where applicable. Some examples include [`AzureKeyCredential`](/dotnet/api/azure.azurekeycredential) key authentication, and [System.Text.Json.Serialization](/dotnet/api/system.text.json.serialization) for JSON serialization.
 
-The other NuGet packages in the SDK are:
- 
-  - `Microsoft.Azure.Search.Data`: Use this package if you're developing a .NET application using Azure Cognitive Search, and you only need to query or update documents in your indexes. If you also need to create or update indexes, synonym maps, or other service-level resources, use the `Microsoft.Azure.Search` package instead.
-  - `Microsoft.Azure.Search.Service`: Use this package if you're developing automation in .NET to manage Azure Cognitive Search indexes, synonym maps, indexers, data sources, or other service-level resources. If you only need to query or update documents in your indexes, use the `Microsoft.Azure.Search.Data` package instead. If you need all the functionality of Azure Cognitive Search, use the `Microsoft.Azure.Search` package instead.
-  - `Microsoft.Azure.Search.Common`: Common types needed by the Azure Cognitive Search .NET libraries. You do not need to use this package directly in your application. It is only meant to be used as a dependency.
+As with previous versions, you can use this library to:
 
-The various client libraries define classes like `Index`, `Field`, and `Document`, as well as operations like `Indexes.Create` and `Documents.Search` on the `SearchServiceClient` and `SearchIndexClient` classes. These classes are organized into the following namespaces:
++ Create and manage search indexes, data sources, indexers, skillsets, and synonym maps
++ Load and manage search documents in an index
++ Execute queries, all without having to deal with the details of HTTP and JSON
 
-* [Microsoft.Azure.Search](https://docs.microsoft.com/dotnet/api/microsoft.azure.search)
-* [Microsoft.Azure.Search.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models)
+The library is distributed as a single [Azure.Search.Documents NuGet package](https://www.nuget.org/packages/Azure.Search.Documents/), which includes all APIs used for programmatic access to a search service.
 
-If you would like to provide feedback for a future update of the SDK, see our [feedback page](https://feedback.azure.com/forums/263029-azure-search/) or create an issue on [GitHub](https://github.com/azure/azure-sdk-for-net/issues) and mention "Azure Cognitive Search" in the issue title.
+The client library defines classes like `SearchIndex`, `SearchField`, and `SearchDocument`, as well as operations like `SearchIndexClient.CreateIndex` and `SearchClient.Search` on the `SearchIndexClient` and `SearchClient` classes. These classes are organized into the following namespaces:
 
-The .NET SDK supports version `2019-05-06` of the [Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/). This version includes support for [complex types](search-howto-complex-data-types.md), [AI enrichment](cognitive-search-concept-intro.md), [autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete), and [JsonLines parsing mode](search-howto-index-json-blobs.md) when indexing Azure Blobs. 
++ [`Azure.Search.Documents`](/dotnet/api/azure.search.documents)
++ [`Azure.Search.Documents.Indexes`](/dotnet/api/azure.search.documents.indexes)
++ [`Azure.Search.Documents.Indexes.Models`](/dotnet/api/azure.search.documents.indexes.models)
++ [`Azure.Search.Documents.Models`](/dotnet/api/azure.search.documents.models)
 
-This SDK does not support [Management Operations](https://docs.microsoft.com/rest/api/searchmanagement/) such as creating and scaling Search services and managing API keys. If you need to manage your Search resources from a .NET application, you can use the [Azure Cognitive Search .NET Management SDK](https://aka.ms/search-mgmt-sdk).
+Azure.Search.Documents (version 11) targets version [`2020-06-30` of the Azure Cognitive Search REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/data-plane/Azure.Search/preview/2020-06-30). 
 
-## Upgrading to the latest version of the SDK
-If you're already using an older version of the Azure Cognitive Search .NET SDK and you'd like to upgrade to the latest generally available version, [this article](search-dotnet-sdk-migration-version-9.md) explains how.
+The client library does not provide [service management operations](/rest/api/searchmanagement/), such as creating and scaling search services and managing API keys. If you need to manage your search resources from a .NET application, use the [Microsoft.Azure.Management.Search](/dotnet/api/overview/azure/search/management) library in the Azure SDK for .NET.
 
-## Requirements for the SDK
-1. Visual Studio 2017 or later.
-2. Your own Azure Cognitive Search service. In order to use the SDK, you will need the name of your service and one or more API keys. [Create a service in the portal](search-create-service-portal.md) will help you through these steps.
-3. Download the Azure Cognitive Search .NET SDK [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Search) by using "Manage NuGet Packages" in Visual Studio. Just search for the package name `Microsoft.Azure.Search` on NuGet.org (or one of the other package names above if you only need a subset of the functionality).
+## Upgrade to v11
 
-The Azure Cognitive Search .NET SDK supports applications targeting the .NET Framework 4.5.2 and higher, as well as .NET Core 2.0 and higher.
+If you have been using the previous version of the .NET SDK and you'd like to upgrade to the current generally available version, see [Upgrade to Azure Cognitive Search .NET SDK version 11](search-dotnet-sdk-migration-version-11.md)
 
-## Core scenarios
-There are several things you'll need to do in your search application. In this tutorial, we'll cover these core scenarios:
+## SDK requirements
 
-* Creating an index
-* Populating the index with documents
-* Searching for documents using full-text search and filters
++ Visual Studio 2019 or later.
 
-The following sample code illustrates each of these scenarios. Feel free to use the code snippets in your own application.
++ Your own Azure Cognitive Search service. In order to use the SDK, you will need the name of your service and one or more API keys. [Create a service in the portal](search-create-service-portal.md) if you don't have one.
 
-### Overview
-The sample application we'll be exploring creates a new index named "hotels", populates it with a few documents, then executes some search queries. Here is the main program, showing the overall flow:
++ Download the [Azure.Search.Documents package](https://www.nuget.org/packages/Azure.Search.Documents) using **Tools** > **NuGet Package Manager** > **Manage NuGet Packages for Solution** in Visual Studio. Search for the package name `Azure.Search.Documents`.
+
+Azure SDK for .NET conforms to [.NET Standard 2.0](/dotnet/standard/net-standard#net-implementation-support), which means .NET Framework 4.6.1 and .NET Core 2.0 as minimum requirements.
+
+## Example application
+
+This article "teaches by example", relying on the [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) code example on GitHub to illustrate fundamental concepts in Azure Cognitive Search - specifically, how to create, load, and query a search index.
+
+For the rest of this article, assume a new index named "hotels", populated with a few documents, with several queries that match on results.
+
+Below is the main program, showing the overall flow:
 
 ```csharp
 // This sample shows how to delete, create, upload documents and query an index
@@ -66,23 +68,24 @@ static void Main(string[] args)
     IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
     IConfigurationRoot configuration = builder.Build();
 
-    SearchServiceClient serviceClient = CreateSearchServiceClient(configuration);
+    SearchIndexClient indexClient = CreateSearchIndexClient(configuration);
 
     string indexName = configuration["SearchIndexName"];
 
     Console.WriteLine("{0}", "Deleting index...\n");
-    DeleteIndexIfExists(indexName, serviceClient);
+    DeleteIndexIfExists(indexName, indexClient);
 
     Console.WriteLine("{0}", "Creating index...\n");
-    CreateIndex(indexName, serviceClient);
+    CreateIndex(indexName, indexClient);
 
-    ISearchIndexClient indexClient = serviceClient.Indexes.GetClient(indexName);
+    SearchClient searchClient = indexClient.GetSearchClient(indexName);
 
     Console.WriteLine("{0}", "Uploading documents...\n");
-    UploadDocuments(indexClient);
+    UploadDocuments(searchClient);
 
-    ISearchIndexClient indexClientForQueries = CreateSearchIndexClient(configuration);
+    SearchClient indexClientForQueries = CreateSearchClientForQueries(indexName, configuration);
 
+    Console.WriteLine("{0}", "Run queries...\n");
     RunQueries(indexClientForQueries);
 
     Console.WriteLine("{0}", "Complete.  Press any key to end application...\n");
@@ -90,569 +93,131 @@ static void Main(string[] args)
 }
 ```
 
-> [!NOTE]
-> You can find the full source code of the sample application used in this walk through on [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo).
-> 
->
+Next is a partial screenshot of the output, assuming you run this application with a valid service name and API keys:
 
-We'll walk through this step by step. First we need to create a new `SearchServiceClient`. This object allows you to manage indexes. In order to construct one, you need to provide your Azure Cognitive Search service name as well as an admin API key. You can enter this information in the `appsettings.json` file of the [sample application](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo).
+:::image type="content" source="media/search-howto-dotnet-sdk/console-output.png" alt-text="Console.WriteLine output from the sample program":::
+
+### Client types
+
+The client library uses three client types for various operations: [`SearchIndexClient`](/dotnet/api/azure.search.documents.indexes.searchindexclient) to create, update, or delete indexes, [`SearchClient`](/dotnet/api/azure.search.documents.searchclient) to load or query an index, and [`SearchIndexerClient`](/dotnet/api/azure.search.documents.indexes.searchindexerclient) to work with indexers and skillsets. This article focuses on the first two. 
+
+At a minimum, all of the clients require the service name or endpoint, and an API key. It's common to provide this information in a configuration file, similar to what you find in the `appsettings.json` file of the [DotNetHowTo sample application](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo). To read from the configuration file, add `using Microsoft.Extensions.Configuration;` to your program.
+
+The following statement creates the index client used to create, update, or delete indexes. It takes a search endpoint and admin API key.
 
 ```csharp
-private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
+private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot configuration)
 {
-    string searchServiceName = configuration["SearchServiceName"];
+    string searchServiceEndPoint = configuration["SearchServiceEndPoint"];
     string adminApiKey = configuration["SearchServiceAdminApiKey"];
 
-    SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));
-    return serviceClient;
-}
-```
-
-> [!NOTE]
-> If you provide an incorrect key (for example, a query key where an admin key was required), the `SearchServiceClient` will throw a `CloudException` with the error message "Forbidden" the first time you call an operation method on it, such as `Indexes.Create`. If this happens to you, double-check our API key.
-> 
-> 
-
-The next few lines call methods to create an index named "hotels", deleting it first if it already exists. We will walk through these methods a little later.
-
-```csharp
-Console.WriteLine("{0}", "Deleting index...\n");
-DeleteIndexIfExists(indexName, serviceClient);
-
-Console.WriteLine("{0}", "Creating index...\n");
-CreateIndex(indexName, serviceClient);
-```
-
-Next, the index needs to be populated. To do populate the index, we will need a `SearchIndexClient`. There are two ways to obtain one: by constructing it, or by calling `Indexes.GetClient` on the `SearchServiceClient`. We use the latter for convenience.
-
-```csharp
-ISearchIndexClient indexClient = serviceClient.Indexes.GetClient(indexName);
-```
-
-> [!NOTE]
-> In a typical search application, index management and population may be handled by a separate component from search queries. `Indexes.GetClient` is convenient for populating an index because it saves you the trouble of providing additional `SearchCredentials`. It does this by passing the admin key that you used to create the `SearchServiceClient` to the new `SearchIndexClient`. However, in the part of your application that executes queries, it is better to create the `SearchIndexClient` directly so that you can pass in a query key, which only allows you to read data, instead of an admin key. This is consistent with the principle of least privilege and will help to make your application more secure. You can find out more about admin keys and query keys [here](https://docs.microsoft.com/rest/api/searchservice/#authentication-and-authorization).
-> 
-> 
-
-Now that we have a `SearchIndexClient`, we can populate the index. Index population is done by another method that we will walk through later.
-
-```csharp
-Console.WriteLine("{0}", "Uploading documents...\n");
-UploadDocuments(indexClient);
-```
-
-Finally, we execute a few search queries and display the results. This time we use a different `SearchIndexClient`:
-
-```csharp
-ISearchIndexClient indexClientForQueries = CreateSearchIndexClient(indexName, configuration);
-
-RunQueries(indexClientForQueries);
-```
-
-We will take a closer look at the `RunQueries` method later. Here is the code to create the new `SearchIndexClient`:
-
-```csharp
-private static SearchIndexClient CreateSearchIndexClient(string indexName, IConfigurationRoot configuration)
-{
-    string searchServiceName = configuration["SearchServiceName"];
-    string queryApiKey = configuration["SearchServiceQueryApiKey"];
-
-    SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, indexName, new SearchCredentials(queryApiKey));
+    SearchIndexClient indexClient = new SearchIndexClient(new Uri(searchServiceEndPoint), new AzureKeyCredential(adminApiKey));
     return indexClient;
 }
 ```
 
-This time we use a query key since we do not need write access to the index. You can enter this information in the `appsettings.json` file of the [sample application](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo).
-
-If you run this application with a valid service name and API keys, the output should look like this example:
-(Some console output has been replaced with "..." for illustration purposes.)
-
-	Deleting index...
-
-	Creating index...
-
-	Uploading documents...
-
-	Waiting for documents to be indexed...
-
-	Search the entire index for the term 'motel' and return only the HotelName field:
-
-	Name: Secret Point Motel
-
-	Name: Twin Dome Motel
-
-
-	Apply a filter to the index to find hotels with a room cheaper than $100 per night, and return the hotelId and description:
-
-	HotelId: 1
-	Description: The hotel is ideally located on the main commercial artery of the city in the heart of New York. A few minutes away is Times Square and the historic centre of the city, as well as other places of interest that make New York one of America's most attractive and cosmopolitan cities.
-
-	HotelId: 2
-	Description: The hotel is situated in a  nineteenth century plaza, which has been expanded and renovated to the highest architectural standards to create a modern, functional and first-class hotel in which art and unique historical elements coexist with the most modern comforts.
-
-
-	Search the entire index, order by a specific field (lastRenovationDate) in descending order, take the top two results, and show only hotelName and lastRenovationDate:
-
-	Name: Triple Landscape Hotel
-	Last renovated on: 9/20/2015 12:00:00 AM +00:00
-
-	Name: Twin Dome Motel
-	Last renovated on: 2/18/1979 12:00:00 AM +00:00
-
-
-	Search the hotel names for the term 'hotel':
-
-	HotelId: 3
-	Name: Triple Landscape Hotel
-	...
-
-	Complete.  Press any key to end application... 
-
-The full source code of the application is provided at the end of this article.
-
-Next, we will take a closer look at each of the methods called by `Main`.
-
-### Creating an index
-After creating a `SearchServiceClient`, `Main` deletes the "hotels" index if it already exists. That deletion is done by the following method:
+The next statement creates the search client used to load documents or run queries. `SearchClient` requires an index. You will need an admin API key to load documents, but you can use a query API key to run queries. 
 
 ```csharp
-private static void DeleteIndexIfExists(string indexName, SearchServiceClient serviceClient)
+string indexName = configuration["SearchIndexName"];
+
+private static SearchClient CreateSearchClientForQueries(string indexName, IConfigurationRoot configuration)
 {
-    if (serviceClient.Indexes.Exists(indexName))
-    {
-        serviceClient.Indexes.Delete(indexName);
-    }
+    string searchServiceEndPoint = configuration["SearchServiceEndPoint"];
+    string queryApiKey = configuration["SearchServiceQueryApiKey"];
+
+    SearchClient searchClient = new SearchClient(new Uri(searchServiceEndPoint), indexName, new AzureKeyCredential(queryApiKey));
+    return searchClient;
 }
 ```
-
-This method uses the given `SearchServiceClient` to check if the index exists, and if so, delete it.
 
 > [!NOTE]
-> The example code in this article uses the synchronous methods of the Azure Cognitive Search .NET SDK for simplicity. We recommend that you use the asynchronous methods in your own applications to keep them scalable and responsive. For example, in the method above you could use `ExistsAsync` and `DeleteAsync` instead of `Exists` and `Delete`.
-> 
-> 
+> If you provide an invalid key for the import operation (for example, a query key where an admin key was required), the `SearchClient` will throw a `CloudException` with the error message "Forbidden" the first time you call an operation method on it. If this happens to you, double-check the API key.
+>
 
-Next, `Main` creates a new "hotels" index by calling this method:
+### Deleting the index
+
+In the early stages of development, you might want to include a [`DeleteIndex`](/dotnet/api/azure.search.documents.indexes.searchindexclient.deleteindex) statement to delete a work-in-progress index so that you can recreate it with an updated definition. Sample code for Azure Cognitive Search often includes a deletion step so that you can re-run the sample.
+
+The following line calls `DeleteIndexIfExists`:
 
 ```csharp
-private static void CreateIndex(string indexName, SearchServiceClient serviceClient)
+Console.WriteLine("{0}", "Deleting index...\n");
+DeleteIndexIfExists(indexName, indexClient);
+```
+
+This method uses the given `SearchIndexClient` to check if the index exists, and if so, deletes it:
+
+```csharp
+private static void DeleteIndexIfExists(string indexName, SearchIndexClient indexClient)
 {
-    var definition = new Index()
+    try
     {
-        Name = indexName,
-        Fields = FieldBuilder.BuildForType<Hotel>()
-    };
-    
-    serviceClient.Indexes.Create(definition);
+        if (indexClient.GetIndex(indexName) != null)
+        {
+            indexClient.DeleteIndex(indexName);
+        }
+    }
+    catch (RequestFailedException e) when (e.Status == 404)
+    {
+        // Throw an exception if the index name isn't found
+        Console.WriteLine("The index doesn't exist. No deletion occurred.");
+```
+
+> [!NOTE]
+> The example code in this article uses the synchronous methods for simplicity, but you should use the asynchronous methods in your own applications to keep them scalable and responsive. For example, in the method above you could use [`DeleteIndexAsync`](/dotnet/api/azure.search.documents.indexes.searchindexclient.deleteindexasync) instead of [`DeleteIndex`](/dotnet/api/azure.search.documents.indexes.searchindexclient.deleteindex).
+>
+
+## Create an index
+
+You can use [`SearchIndexClient`](/dotnet/api/azure.search.documents.indexes.searchindexclient) to create an index. 
+
+The method below creates a new [`SearchIndex`](/dotnet/api/azure.search.documents.indexes.models.searchindex) object with a list of [`SearchField`](/dotnet/api/azure.search.documents.indexes.models.searchfield) objects that define the schema of the new index. Each field has a name, data type, and several attributes that define its search behavior. 
+
+Fields can be defined from a model class using [`FieldBuilder`](/dotnet/api/azure.search.documents.indexes.fieldbuilder). The `FieldBuilder` class uses reflection to create a list of `SearchField` objects for the index by examining the public properties and attributes of the given `Hotel` model class. We'll take a closer look at the `Hotel` class later on.
+
+```csharp
+private static void CreateIndex(string indexName, SearchIndexClient indexClient)
+{
+    FieldBuilder fieldBuilder = new FieldBuilder();
+    var searchFields = fieldBuilder.Build(typeof(Hotel));
+
+    var definition = new SearchIndex(indexName, searchFields);
+
+    indexClient.CreateOrUpdateIndex(definition);
 }
 ```
 
-This method creates a new `Index` object with a list of `Field` objects that defines the schema of the new index. Each field has a name, data type, and several attributes that define its search behavior. The `FieldBuilder` class uses reflection to create a list of `Field` objects for the index by examining the public properties and attributes of the given `Hotel` model class. We'll take a closer look at the `Hotel` class later on.
+Besides fields, you could also add scoring profiles, suggesters, or CORS options to the index (these parameters are omitted from the sample for brevity). You can find more information about the SearchIndex object and its constituent parts in the [`SearchIndex`](/dotnet/api/azure.search.documents.indexes.models.searchindex) properties list, as well as in the [REST API reference](/rest/api/searchservice/).
 
 > [!NOTE]
 > You can always create the list of `Field` objects directly instead of using `FieldBuilder` if needed. For example, you may not want to use a model class or you may need to use an existing model class that you don't want to modify by adding attributes.
 >
-> 
 
-In addition to fields, you can also add scoring profiles, suggesters, or CORS options to the Index (these parameters are omitted from the sample for brevity). You can find more information about the Index object and its constituent parts in the [SDK reference](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index), as well as in the [Azure Cognitive Search REST API reference](https://docs.microsoft.com/rest/api/searchservice/).
+### Call CreateIndex in Main()
 
-### Populating the index
-The next step in `Main` populates the newly-created index. This index population is done in the following method:
-(Some code replaced with "..." for illustration purposes.  See the full sample solution for the full data population code.)
+`Main` creates a new "hotels" index by calling the above method:
 
 ```csharp
-private static void UploadDocuments(ISearchIndexClient indexClient)
-{
-    var hotels = new Hotel[]
-    {
-        new Hotel()
-        {
-            HotelId = "1",
-            HotelName = "Secret Point Motel",
-            ...
-            Address = new Address()
-            {
-                StreetAddress = "677 5th Ave",
-                ...
-            },
-            Rooms = new Room[]
-            {
-                new Room()
-                {
-                    Description = "Budget Room, 1 Queen Bed (Cityside)",
-                    ...
-                },
-                new Room()
-                {
-                    Description = "Budget Room, 1 King Bed (Mountain View)",
-                    ...
-                },
-                new Room()
-                {
-                    Description = "Deluxe Room, 2 Double Beds (City View)",
-                    ...
-                }
-            }
-        },
-        new Hotel()
-        {
-            HotelId = "2",
-            HotelName = "Twin Dome Motel",
-            ...
-            {
-                StreetAddress = "140 University Town Center Dr",
-                ...
-            },
-            Rooms = new Room[]
-            {
-                new Room()
-                {
-                    Description = "Suite, 2 Double Beds (Mountain View)",
-                    ...
-                },
-                new Room()
-                {
-                    Description = "Standard Room, 1 Queen Bed (City View)",
-                    ...
-                },
-                new Room()
-                {
-                    Description = "Budget Room, 1 King Bed (Waterfront View)",
-                    ...
-                }
-            }
-        },
-        new Hotel()
-        {
-            HotelId = "3",
-            HotelName = "Triple Landscape Hotel",
-            ...
-            Address = new Address()
-            {
-                StreetAddress = "3393 Peachtree Rd",
-                ...
-            },
-            Rooms = new Room[]
-            {
-                new Room()
-                {
-                    Description = "Standard Room, 2 Queen Beds (Amenities)",
-                    ...
-                },
-                new Room ()
-                {
-                    Description = "Standard Room, 2 Double Beds (Waterfront View)",
-                    ...
-                },
-                new Room()
-                {
-                    Description = "Deluxe Room, 2 Double Beds (Cityside)",
-                    ...
-                }
-            }
-        }
-    };
-
-    var batch = IndexBatch.Upload(hotels);
-
-    try
-    {
-        indexClient.Documents.Index(batch);
-    }
-    catch (IndexBatchException e)
-    {
-        // Sometimes when your Search service is under load, indexing will fail for some of the documents in
-        // the batch. Depending on your application, you can take compensating actions like delaying and
-        // retrying. For this simple demo, we just log the failed document keys and continue.
-        Console.WriteLine(
-            "Failed to index some of the documents: {0}",
-            String.Join(", ", e.IndexingResults.Where(r => !r.Succeeded).Select(r => r.Key)));
-    }
-
-    Console.WriteLine("Waiting for documents to be indexed...\n");
-    Thread.Sleep(2000);
-}
+Console.WriteLine("{0}", "Creating index...\n");
+CreateIndex(indexName, indexClient);
 ```
 
-This method has four parts. The first creates an array of 3 `Hotel` objects each with 3 `Room` objects that will serve as our input data to upload to the index. This data is hard-coded for simplicity. In your own application, your data will likely come from an external data source such as a SQL database.
+## Use a model class for data representation
 
-The second part creates an `IndexBatch` containing the documents. You specify the operation you want to apply to the batch at the time you create it, in this case by calling `IndexBatch.Upload`. The batch is then uploaded to the Azure Cognitive Search index by the `Documents.Index` method.
+The DotNetHowTo sample uses model classes for the [Hotel](https://github.com/Azure-Samples/search-dotnet-getting-started/blob/master/DotNetHowTo/DotNetHowTo/Hotel.cs), [Address](https://github.com/Azure-Samples/search-dotnet-getting-started/blob/master/DotNetHowTo/DotNetHowTo/Address.cs), and [Room](https://github.com/Azure-Samples/search-dotnet-getting-started/blob/master/DotNetHowTo/DotNetHowTo/Room.cs) data structures. `Hotel` references `Address`, a single level complex type (a multi-part field), and `Room` (a collection of multi-part fields).
 
-> [!NOTE]
-> In this example, we are just uploading documents. If you wanted to merge changes into existing documents or delete documents, you could create batches by calling `IndexBatch.Merge`, `IndexBatch.MergeOrUpload`, or `IndexBatch.Delete` instead. You can also mix different operations in a single batch by calling `IndexBatch.New`, which takes a collection of `IndexAction` objects, each of which tells Azure Cognitive Search to perform a particular operation on a document. You can create each `IndexAction` with its own operation by calling the corresponding method such as `IndexAction.Merge`, `IndexAction.Upload`, and so on.
-> 
-> 
-
-The third part of this method is a catch block that handles an important error case for indexing. If your Azure Cognitive Search service fails to index some of the documents in the batch, an `IndexBatchException` is thrown by `Documents.Index`. This exception can happen if you are indexing documents while your service is under heavy load. **We strongly recommend explicitly handling this case in your code.** You can delay and then retry indexing the documents that failed, or you can log and continue like the sample does, or you can do something else depending on your application's data consistency requirements.
-
-> [!NOTE]
-> You can use the [`FindFailedActionsToRetry`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexbatchexception.findfailedactionstoretry) method to construct a new batch containing only the actions that failed in a previous call to `Index`. There is a discussion of how to properly use it [on StackOverflow](https://stackoverflow.com/questions/40012885/azure-search-net-sdk-how-to-use-findfailedactionstoretry).
->
->
-
-Finally, the `UploadDocuments` method delays for two seconds. Indexing happens asynchronously in your Azure Cognitive Search service, so the sample application needs to wait a short time to ensure that the documents are available for searching. Delays like this are typically only necessary in demos, tests, and sample applications.
-
-<a name="how-dotnet-handles-documents"></a>
-
-#### How the .NET SDK handles documents
-You may be wondering how the Azure Cognitive Search .NET SDK is able to upload instances of a user-defined class like `Hotel` to the index. To help answer that question, let's look at the `Hotel` class:
+You can use these types to create and load the index, and to structure the response from a query:
 
 ```csharp
-using System;
-using Microsoft.Azure.Search;
-using Microsoft.Azure.Search.Models;
-using Microsoft.Spatial;
-using Newtonsoft.Json;
+// Use-case: <Hotel> in a field definition
+FieldBuilder fieldBuilder = new FieldBuilder();
+var searchFields = fieldBuilder.Build(typeof(Hotel));
 
-public partial class Hotel
+// Use-case: <Hotel> in a response
+private static void WriteDocuments(SearchResults<Hotel> searchResults)
 {
-    [System.ComponentModel.DataAnnotations.Key]
-    [IsFilterable]
-    public string HotelId { get; set; }
-
-    [IsSearchable, IsSortable]
-    public string HotelName { get; set; }
-
-    [IsSearchable]
-    [Analyzer(AnalyzerName.AsString.EnLucene)]
-    public string Description { get; set; }
-
-    [IsSearchable]
-    [Analyzer(AnalyzerName.AsString.FrLucene)]
-    [JsonProperty("Description_fr")]
-    public string DescriptionFr { get; set; }
-
-    [IsSearchable, IsFilterable, IsSortable, IsFacetable]
-    public string Category { get; set; }
-
-    [IsSearchable, IsFilterable, IsFacetable]
-    public string[] Tags { get; set; }
-
-    [IsFilterable, IsSortable, IsFacetable]
-    public bool? ParkingIncluded { get; set; }
-
-    // SmokingAllowed reflects whether any room in the hotel allows smoking.
-    // The JsonIgnore attribute indicates that a field should not be created 
-    // in the index for this property and it will only be used by code in the client.
-    [JsonIgnore]
-    public bool? SmokingAllowed => (Rooms != null) ? Array.Exists(Rooms, element => element.SmokingAllowed == true) : (bool?)null;
-
-    [IsFilterable, IsSortable, IsFacetable]
-    public DateTimeOffset? LastRenovationDate { get; set; }
-
-    [IsFilterable, IsSortable, IsFacetable]
-    public double? Rating { get; set; }
-
-    public Address Address { get; set; }
-
-    [IsFilterable, IsSortable]
-    public GeographyPoint Location { get; set; }
-
-    public Room[] Rooms { get; set; }
-}
-```
-
-The first thing to notice is that the name of each public property in the `Hotel` class will map to a field with the same name in the index definition. If you would like each field to start with a lower-case letter ("camel case"), you can tell the SDK to map the property names to camel-case automatically with the `[SerializePropertyNamesAsCamelCase]` attribute on the class. This scenario is common in .NET applications that perform data-binding where the target schema is outside the control of the application developer without having to violate the "Pascal case" naming guidelines in .NET.
-
-> [!NOTE]
-> The Azure Cognitive Search .NET SDK uses the [NewtonSoft JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) library to serialize and deserialize your custom model objects to and from JSON. You can customize this serialization if needed. For more information, see [Custom Serialization with JSON.NET](#JsonDotNet).
-> 
-> 
-
-The second thing to notice is each property is decorated with attributes such as `IsFilterable`, `IsSearchable`, `Key`, and `Analyzer`. These attributes map directly to the [corresponding field attributes in an Azure Cognitive Search index](/rest/api/searchservice/create-index). The `FieldBuilder` class uses these properties to construct field definitions for the index.
-
-The third important thing about the `Hotel` class is the data types of the public properties. The .NET types of these properties map to their equivalent field types in the index definition. For example, the `Category` string property maps to the `category` field, which is of type `Edm.String`. There are similar type mappings between `bool?`, `Edm.Boolean`, `DateTimeOffset?`, and `Edm.DateTimeOffset` and so on. The specific rules for the type mapping are documented with the `Documents.Get` method in the [Azure Cognitive Search .NET SDK reference](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get). The `FieldBuilder` class takes care of this mapping for you, but it can still be helpful to understand in case you need to troubleshoot any serialization issues.
-
-Did you happen to notice the `SmokingAllowed` property?
-
-```csharp
-[JsonIgnore]
-public bool? SmokingAllowed => (Rooms != null) ? Array.Exists(Rooms, element => element.SmokingAllowed == true) : (bool?)null;
-```
-
-The `JsonIgnore` attribute on this property tells the `FieldBuilder` to not serialize it to the index as a field.  This is a great way to create client-side calculated properties you can use as helpers in your application.  In this case, the `SmokingAllowed` property reflects whether any `Room` in the `Rooms` collection allows smoking.  If all are false, it indicates that the entire hotel does not allow smoking.
-
-Some properties such as `Address` and `Rooms` are instances of .NET classes.  These properties represent more complex data structures and, as a result, require fields with a [complex data type](https://docs.microsoft.com/azure/search/search-howto-complex-data-types) in the index.
-
-The `Address` property represents a set of multiple values in the `Address` class, defined below:
-
-```csharp
-using System;
-using Microsoft.Azure.Search;
-using Microsoft.Azure.Search.Models;
-using Newtonsoft.Json;
-
-namespace AzureSearch.SDKHowTo
-{
-    public partial class Address
-    {
-        [IsSearchable]
-        public string StreetAddress { get; set; }
-
-        [IsSearchable, IsFilterable, IsSortable, IsFacetable]
-        public string City { get; set; }
-
-        [IsSearchable, IsFilterable, IsSortable, IsFacetable]
-        public string StateProvince { get; set; }
-
-        [IsSearchable, IsFilterable, IsSortable, IsFacetable]
-        public string PostalCode { get; set; }
-
-        [IsSearchable, IsFilterable, IsSortable, IsFacetable]
-        public string Country { get; set; }
-    }
-}
-```
-
-This class contains the standard values used to describe addresses in the United States or Canada. You can use types like this to group logical fields together in the index.
-
-The `Rooms` property represents an array of `Room` objects:
-
-```csharp
-using System;
-using Microsoft.Azure.Search;
-using Microsoft.Azure.Search.Models;
-using Newtonsoft.Json;
-
-namespace AzureSearch.SDKHowTo
-{
-    public partial class Room
-    {
-        [IsSearchable]
-        [Analyzer(AnalyzerName.AsString.EnMicrosoft)]
-        public string Description { get; set; }
-
-        [IsSearchable]
-        [Analyzer(AnalyzerName.AsString.FrMicrosoft)]
-        [JsonProperty("Description_fr")]
-        public string DescriptionFr { get; set; }
-
-        [IsSearchable, IsFilterable, IsFacetable]
-        public string Type { get; set; }
-
-        [IsFilterable, IsFacetable]
-        public double? BaseRate { get; set; }
-
-        [IsSearchable, IsFilterable, IsFacetable]
-        public string BedOptions { get; set; }
-
-        [IsFilterable, IsFacetable]
-        public int SleepsCount { get; set; }
-
-        [IsFilterable, IsFacetable]
-        public bool? SmokingAllowed { get; set; }
-
-        [IsSearchable, IsFilterable, IsFacetable]
-        public string[] Tags { get; set; }
-    }
-}
-```
-
-Your data model in .NET and its corresponding index schema should be designed to support the search experience you'd like to give to your end user. Each top level object in .NET, ie document in the index, corresponds to a search result you would present in your user interface. For example, in a hotel search application your end users may want to search by hotel name, features of the hotel, or the characteristics of a particular room. We'll cover some query examples a little later.
-
-This ability to use your own classes to interact with documents in the index works in both directions; You can also retrieve search results and have the SDK automatically deserialize them to a type of your choice, as we will see in the next section.
-
-> [!NOTE]
-> The Azure Cognitive Search .NET SDK also supports dynamically-typed documents using the `Document` class, which is a key/value mapping of field names to field values. This is useful in scenarios where you don't know the index schema at design-time, or where it would be inconvenient to bind to specific model classes. All the methods in the SDK that deal with documents have overloads that work with the `Document` class, as well as strongly-typed overloads that take a generic type parameter. Only the latter are used in the sample code in this tutorial. The [`Document` class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.document) inherits from `Dictionary<string, object>`.
-> 
->
-
-**Why you should use nullable data types**
-
-When designing your own model classes to map to an Azure Cognitive Search index, we recommend declaring properties of value types such as `bool` and `int` to be nullable (for example, `bool?` instead of `bool`). If you use a non-nullable property, you have to **guarantee** that no documents in your index contain a null value for the corresponding field. Neither the SDK nor the Azure Cognitive Search service will help you to enforce this.
-
-This is not just a hypothetical concern: Imagine a scenario where you add a new field to an existing index that is of type `Edm.Int32`. After updating the index definition, all documents will have a null value for that new field (since all types are nullable in Azure Cognitive Search). If you then use a model class with a non-nullable `int` property for that field, you will get a `JsonSerializationException` like this when trying to retrieve documents:
-
-    Error converting value {null} to type 'System.Int32'. Path 'IntValue'.
-
-For this reason, we recommend that you use nullable types in your model classes as a best practice.
-
-<a name="JsonDotNet"></a>
-
-#### Custom Serialization with JSON.NET
-The SDK uses JSON.NET for serializing and deserializing documents. You can customize serialization and deserialization if needed by defining your own `JsonConverter` or `IContractResolver`. For more information, see the [JSON.NET documentation](https://www.newtonsoft.com/json/help/html/Introduction.htm). This can be useful when you want to adapt an existing model class from your application for use with Azure Cognitive Search, and other more advanced scenarios. For example, with custom serialization you can:
-
-* Include or exclude certain properties of your model class from being stored as document fields.
-* Map between property names in your code and field names in your index.
-* Create custom attributes that can be used for mapping properties to document fields.
-
-You can find examples of implementing custom serialization in the unit tests for the Azure Cognitive Search .NET SDK on GitHub. A good starting point is [this folder](https://github.com/Azure/azure-sdk-for-net/tree/4f6f4e4c90200c1b0621c4cead302a91e89f2aba/sdk/search/Microsoft.Azure.Search/tests/Tests/Models). It contains classes that are used by the custom serialization tests.
-
-### Searching for documents in the index
-The last step in the sample application is to search for some documents in the index:
-
-```csharp
-private static void RunQueries(ISearchIndexClient indexClient)
-{
-    SearchParameters parameters;
-    DocumentSearchResult<Hotel> results;
-
-    Console.WriteLine("Search the entire index for the term 'motel' and return only the HotelName field:\n");
-
-    parameters =
-        new SearchParameters()
-        {
-            Select = new[] { "HotelName" }
-        };
-
-    results = indexClient.Documents.Search<Hotel>("motel", parameters);
-
-    WriteDocuments(results);
-
-    Console.Write("Apply a filter to the index to find hotels with a room cheaper than $100 per night, ");
-    Console.WriteLine("and return the hotelId and description:\n");
-
-    parameters =
-        new SearchParameters()
-        {
-            Filter = "Rooms/any(r: r/BaseRate lt 100)",
-            Select = new[] { "HotelId", "Description" }
-        };
-
-    results = indexClient.Documents.Search<Hotel>("*", parameters);
-
-    WriteDocuments(results);
-
-    Console.Write("Search the entire index, order by a specific field (lastRenovationDate) ");
-    Console.Write("in descending order, take the top two results, and show only hotelName and ");
-    Console.WriteLine("lastRenovationDate:\n");
-
-    parameters =
-        new SearchParameters()
-        {
-            OrderBy = new[] { "LastRenovationDate desc" },
-            Select = new[] { "HotelName", "LastRenovationDate" },
-            Top = 2
-        };
-
-    results = indexClient.Documents.Search<Hotel>("*", parameters);
-
-    WriteDocuments(results);
-
-    Console.WriteLine("Search the entire index for the term 'hotel':\n");
-
-    parameters = new SearchParameters();
-    results = indexClient.Documents.Search<Hotel>("hotel", parameters);
-
-    WriteDocuments(results);
-}
-```
-
-Each time it executes a query, this method first creates a new `SearchParameters` object. This object is used to specify additional options for the query such as sorting, filtering, paging, and faceting. In this method, we're setting the `Filter`, `Select`, `OrderBy`, and `Top` property for different queries. All the `SearchParameters` properties are documented [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters).
-
-The next step is to actually execute the search query. Running the search is done using the `Documents.Search` method. For each query, we pass the search text to use as a string (or `"*"` if there is no search text), plus the search parameters created earlier. We also specify `Hotel` as the type parameter for `Documents.Search`, which tells the SDK to deserialize documents in the search results into objects of type `Hotel`.
-
-> [!NOTE]
-> You can find more information about the search query expression syntax [here](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search).
-> 
-> 
-
-Finally, after each query this method iterates through all the matches in the search results, printing each document to the console:
-
-```csharp
-private static void WriteDocuments(DocumentSearchResult<Hotel> searchResults)
-{
-    foreach (SearchResult<Hotel> result in searchResults.Results)
+    foreach (SearchResult<Hotel> result in searchResults.GetResults())
     {
         Console.WriteLine(result.Document);
     }
@@ -661,95 +226,419 @@ private static void WriteDocuments(DocumentSearchResult<Hotel> searchResults)
 }
 ```
 
+An alternative approach is to add fields to an index directly. The following example shows just a few fields.
+
+   ```csharp
+    SearchIndex index = new SearchIndex(indexName)
+    {
+        Fields =
+            {
+                new SimpleField("hotelId", SearchFieldDataType.String) { IsKey = true, IsFilterable = true, IsSortable = true },
+                new SearchableField("hotelName") { IsFilterable = true, IsSortable = true },
+                new SearchableField("hotelCategory") { IsFilterable = true, IsSortable = true },
+                new SimpleField("baseRate", SearchFieldDataType.Int32) { IsFilterable = true, IsSortable = true },
+                new SimpleField("lastRenovationDate", SearchFieldDataType.DateTimeOffset) { IsFilterable = true, IsSortable = true }
+            }
+    };
+   ```
+
+### Field definitions
+
+Your data model in .NET and its corresponding index schema should support the search experience you'd like to give to your end user. Each top level object in .NET, such as a search document in a search index, corresponds to a search result you would present in your user interface. For example, in a hotel search application your end users may want to search by hotel name, features of the hotel, or the characteristics of a particular room. 
+
+Within each class, a field is defined with a data type and attributes that determine how it's used. The name of each public property in each class maps to a field with the same name in the index definition. 
+
+Take a look at the following snippet that pulls several field definitions from the Hotel class. Notice that Address and Rooms are C# types with their own class definitions (refer to the sample code if you want to view them). Both are complex types. For more information, see [How to model complex types](search-howto-complex-data-types.md).
+
+```csharp
+public partial class Hotel
+{
+    [SimpleField(IsKey = true, IsFilterable = true)]
+    public string HotelId { get; set; }
+
+    [SearchableField(IsSortable = true)]
+    public string HotelName { get; set; }
+
+    [SearchableField(AnalyzerName = LexicalAnalyzerName.Values.EnLucene)]
+    public string Description { get; set; }
+
+    [SearchableField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
+    public string Category { get; set; }
+
+    [JsonIgnore]
+    public bool? SmokingAllowed => (Rooms != null) ? Array.Exists(Rooms, element => element.SmokingAllowed == true) : (bool?)null;
+
+    [SearchableField]
+    public Address Address { get; set; }
+
+    public Room[] Rooms { get; set; }
+```
+
+#### Choosing a field class
+
+When defining fields, you can use the base [`SearchField`](/dotnet/api/azure.search.documents.indexes.models.searchfield) class, or you can use derivative helper models that serve as "templates", with pre-configured properties.
+
+Exactly one field in your index must serve as the document key (`IsKey = true`). It must be a string, and it must uniquely identify each document. It's also required to have `IsHidden = true`, which means it cannot be visible in search results.
+
+| Field type | Description and usage |
+|------------|-----------------------|
+| [`SearchField`](/dotnet/api/azure.search.documents.indexes.models.searchfield) | Base class, with most properties set to null, excepting `Name` which is required, and `AnalyzerName` which defaults to standard Lucene. |
+| [`SimpleField`](/dotnet/api/azure.search.documents.indexes.models.simplefield) | Helper model. Can be any data type, is always non-searchable (it's ignored for full text search queries), and is retrievable (it's not hidden). Other attributes are off by default, but can be enabled. You might use a `SimpleField` for document IDs or fields used only in filters, facets, or scoring profiles. If so, be sure to apply any attributes that are necessary for the scenario, such as `IsKey = true` for a document ID. For more information, see [SimpleFieldAttribute.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/src/Indexes/SimpleFieldAttribute.cs) in source code. |
+| [`SearchableField`](/dotnet/api/azure.search.documents.indexes.models.searchablefield) | Helper model. Must be a string, and is always searchable and retrievable. Other attributes are off by default, but can be enabled. Because this field type is searchable, it supports synonyms and the full complement of analyzer properties. For more information, see the [SearchableFieldAttribute.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/src/Indexes/SearchableFieldAttribute.cs) in source code. |
+
+Whether you use the basic `SearchField` API or either one of the helper models, you must explicitly enable filter, facet, and sort attributes. For example, [IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable), [IsSortable](/dotnet/api/azure.search.documents.indexes.models.searchfield.issortable), and [IsFacetable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfacetable) must be explicitly attributed, as shown in the sample above.
+
+#### Adding field attributes
+
+Notice how each field is decorated with attributes such as `IsFilterable`, `IsSortable`, `IsKey`, and `AnalyzerName`. These attributes map directly to the [corresponding field attributes in an Azure Cognitive Search index](/rest/api/searchservice/create-index). The `FieldBuilder` class uses these properties to construct field definitions for the index.
+
+#### Field type mapping
+
+The .NET types of the properties map to their equivalent field types in the index definition. For example, the `Category` string property maps to the `category` field, which is of type `Edm.String`. There are similar type mappings between `bool?`, `Edm.Boolean`, `DateTimeOffset?`, and `Edm.DateTimeOffset` and so on. 
+
+Did you happen to notice the `SmokingAllowed` property?
+
+```csharp
+[JsonIgnore]
+public bool? SmokingAllowed => (Rooms != null) ? Array.Exists(Rooms, element => element.SmokingAllowed == true) : (bool?)null;
+```
+
+The `JsonIgnore` attribute on this property tells the `FieldBuilder` to not serialize it to the index as a field.  This is a great way to create client-side calculated properties you can use as helpers in your application.  In this case, the `SmokingAllowed` property reflects whether any `Room` in the `Rooms` collection allows smoking. If all are false, it indicates that the entire hotel does not allow smoking.
+
+## Load an index
+
+The next step in `Main` populates the newly-created "hotels" index. This index population is done in the following method:
+(Some code replaced with "..." for illustration purposes. See the full sample solution for the full data population code.)
+
+```csharp
+private static void UploadDocuments(SearchClient searchClient)
+{
+    IndexDocumentsBatch<Hotel> batch = IndexDocumentsBatch.Create(
+        IndexDocumentsAction.Upload(
+            new Hotel()
+            {
+                HotelId = "1",
+                HotelName = "Secret Point Motel",
+                ...
+                Address = new Address()
+                {
+                    StreetAddress = "677 5th Ave",
+                    ...
+                },
+                Rooms = new Room[]
+                {
+                    new Room()
+                    {
+                        Description = "Budget Room, 1 Queen Bed (Cityside)",
+                        ...
+                    },
+                    new Room()
+                    {
+                        Description = "Budget Room, 1 King Bed (Mountain View)",
+                        ...
+                    },
+                    new Room()
+                    {
+                        Description = "Deluxe Room, 2 Double Beds (City View)",
+                        ...
+                    }
+                }
+            }),
+        IndexDocumentsAction.Upload(
+            new Hotel()
+            {
+                HotelId = "2",
+                HotelName = "Twin Dome Motel",
+                ...
+                {
+                    StreetAddress = "140 University Town Center Dr",
+                    ...
+                },
+                Rooms = new Room[]
+                {
+                    new Room()
+                    {
+                        Description = "Suite, 2 Double Beds (Mountain View)",
+                        ...
+                    },
+                    new Room()
+                    {
+                        Description = "Standard Room, 1 Queen Bed (City View)",
+                        ...
+                    },
+                    new Room()
+                    {
+                        Description = "Budget Room, 1 King Bed (Waterfront View)",
+                        ...
+                    }
+                }
+            }),
+        IndexDocumentsAction.Upload(
+            new Hotel()
+            {
+                HotelId = "3",
+                HotelName = "Triple Landscape Hotel",
+                ...
+                Address = new Address()
+                {
+                    StreetAddress = "3393 Peachtree Rd",
+                    ...
+                },
+                Rooms = new Room[]
+                {
+                    new Room()
+                    {
+                        Description = "Standard Room, 2 Queen Beds (Amenities)",
+                        ...
+                    },
+                    new Room ()
+                    {
+                        Description = "Standard Room, 2 Double Beds (Waterfront View)",
+                        ...
+                    },
+                    new Room()
+                    {
+                        Description = "Deluxe Room, 2 Double Beds (Cityside)",
+                        ...
+                    }
+                }
+            }
+        };
+
+    try
+    {
+        IndexDocumentsResult result = searchClient.IndexDocuments(batch);
+    }
+    catch (Exception)
+    {
+        // Sometimes when your Search service is under load, indexing will fail for some of the documents in
+        // the batch. Depending on your application, you can take compensating actions like delaying and
+        // retrying. For this simple demo, we just log the failed document keys and continue.
+        Console.WriteLine("Failed to index some of the documents: {0}");
+    }
+
+    Console.WriteLine("Waiting for documents to be indexed...\n");
+    Thread.Sleep(2000);
+```
+
+This method has four parts. The first creates an array of 3 `Hotel` objects each with 3 `Room` objects that will serve as our input data to upload to the index. This data is hard-coded for simplicity. In an actual application, data will likely come from an external data source such as a SQL database.
+
+The second part creates an [`IndexDocumentsBatch`](/dotnet/api/azure.search.documents.models.indexdocumentsbatch) containing the documents. You specify the operation you want to apply to the batch at the time you create it, in this case by calling [`IndexDocumentsAction.Upload`](/dotnet/api/azure.search.documents.models.indexdocumentsaction.upload). The batch is then uploaded to the Azure Cognitive Search index by the [`IndexDocuments`](/dotnet/api/azure.search.documents.searchclient.indexdocuments) method.
+
+> [!NOTE]
+> In this example, we are just uploading documents. If you wanted to merge changes into existing documents or delete documents, you could create batches by calling `IndexDocumentsAction.Merge`, `IndexDocumentsAction.MergeOrUpload`, or `IndexDocumentsAction.Delete` instead. You can also mix different operations in a single batch by calling `IndexBatch.New`, which takes a collection of `IndexDocumentsAction` objects, each of which tells Azure Cognitive Search to perform a particular operation on a document. You can create each `IndexDocumentsAction` with its own operation by calling the corresponding method such as `IndexDocumentsAction.Merge`, `IndexAction.Upload`, and so on.
+> 
+
+The third part of this method is a catch block that handles an important error case for indexing. If your search service fails to index some of the documents in the batch, an `IndexBatchException` is thrown by `IndexDocuments`. This exception can happen if you are indexing documents while your service is under heavy load. **We strongly recommend explicitly handling this case in your code.** You can delay and then retry indexing the documents that failed, or you can log and continue like the sample does, or you can do something else depending on your application's data consistency requirements.
+
+Finally, the `UploadDocuments` method delays for two seconds. Indexing happens asynchronously in your search service, so the sample application needs to wait a short time to ensure that the documents are available for searching. Delays like this are typically only necessary in demos, tests, and sample applications.
+
+### Call UploadDocuments in Main()
+
+The following code snippet sets up an instance of [`SearchClient`](/dotnet/api/azure.search.documents.searchclient) using the [`GetSearchClient`](/dotnet/api/azure.search.documents.indexes.searchindexclient.getsearchclient) method of indexClient. The indexClient uses an admin API key on its requests, which is required for loading or refreshing documents.
+
+An alternate approach is to call `SearchClient` directly, passing in an admin API key on `AzureKeyCredential`.
+
+```csharp
+SearchClient searchClient = indexClient.GetSearchClient(indexName);
+
+Console.WriteLine("{0}", "Uploading documents...\n");
+UploadDocuments(searchClient);
+```
+
+## Run queries
+
+First, set up a `SearchClient` that reads the search endpoint and query API key from **appsettings.json**:
+
+```csharp
+private static SearchClient CreateSearchClientForQueries(string indexName, IConfigurationRoot configuration)
+{
+    string searchServiceEndPoint = configuration["SearchServiceEndPoint"];
+    string queryApiKey = configuration["SearchServiceQueryApiKey"];
+
+    SearchClient searchClient = new SearchClient(new Uri(searchServiceEndPoint), indexName, new AzureKeyCredential(queryApiKey));
+    return searchClient;
+}
+```
+
+Second, define a method that sends a query request. 
+
+Each time the method executes a query, it creates a new [`SearchOptions`](/dotnet/api/azure.search.documents.searchoptions) object. This object is used to specify additional options for the query such as sorting, filtering, paging, and faceting. In this method, we're setting the `Filter`, `Select`, and `OrderBy` property for different queries. For more information about the search query expression syntax, [Simple query syntax](/rest/api/searchservice/Simple-query-syntax-in-Azure-Search).
+
+The next step is to actually execute the search query. Running the search is done using the `SearchClient.Search` method. For each query, pass the search text to use as a string (or `"*"` if there is no search text), plus the search options created earlier. We also specify `Hotel` as the type parameter for `SearchClient.Search`, which tells the SDK to deserialize documents in the search results into objects of type `Hotel`.
+
+```csharp
+private static void RunQueries(SearchClient searchClient)
+{
+    SearchOptions options;
+    SearchResults<Hotel> results;
+
+    Console.WriteLine("Query 1: Search for 'motel'. Return only the HotelName in results:\n");
+
+    options = new SearchOptions();
+    options.Select.Add("HotelName");
+
+    results = searchClient.Search<Hotel>("motel", options);
+
+    WriteDocuments(results);
+
+    Console.Write("Query 2: Apply a filter to find hotels with rooms cheaper than $100 per night, ");
+    Console.WriteLine("returning the HotelId and Description:\n");
+
+    options = new SearchOptions()
+    {
+        Filter = "Rooms/any(r: r/BaseRate lt 100)"
+    };
+    options.Select.Add("HotelId");
+    options.Select.Add("Description");
+
+    results = searchClient.Search<Hotel>("*", options);
+
+    WriteDocuments(results);
+
+    Console.Write("Query 3: Search the entire index, order by a specific field (lastRenovationDate) ");
+    Console.Write("in descending order, take the top two results, and show only hotelName and ");
+    Console.WriteLine("lastRenovationDate:\n");
+
+    options =
+        new SearchOptions()
+        {
+            Size = 2
+        };
+    options.OrderBy.Add("LastRenovationDate desc");
+    options.Select.Add("HotelName");
+    options.Select.Add("LastRenovationDate");
+
+    results = searchClient.Search<Hotel>("*", options);
+
+    WriteDocuments(results);
+
+    Console.WriteLine("Query 4: Search the HotelName field for the term 'hotel':\n");
+
+    options = new SearchOptions();
+    options.SearchFields.Add("HotelName");
+
+    //Adding details to select, because "Location" is not supported yet when deserialize search result to "Hotel"
+    options.Select.Add("HotelId");
+    options.Select.Add("HotelName");
+    options.Select.Add("Description");
+    options.Select.Add("Category");
+    options.Select.Add("Tags");
+    options.Select.Add("ParkingIncluded");
+    options.Select.Add("LastRenovationDate");
+    options.Select.Add("Rating");
+    options.Select.Add("Address");
+    options.Select.Add("Rooms");
+
+    results = searchClient.Search<Hotel>("hotel", options);
+
+    WriteDocuments(results);
+}
+```
+
+Third, define a method that writes the response, printing each document to the console:
+
+```csharp
+private static void WriteDocuments(SearchResults<Hotel> searchResults)
+{
+    foreach (SearchResult<Hotel> result in searchResults.GetResults())
+    {
+        Console.WriteLine(result.Document);
+    }
+
+    Console.WriteLine();
+}
+```
+
+### Call RunQueries in Main()
+
+```csharp
+SearchClient indexClientForQueries = CreateSearchClientForQueries(indexName, configuration);
+
+Console.WriteLine("{0}", "Running queries...\n");
+RunQueries(indexClientForQueries);
+```
+
+### Explore query constructs
+
 Let's take a closer look at each of the queries in turn. Here is the code to execute the first query:
 
 ```csharp
-parameters =
-    new SearchParameters()
-    {
-        Select = new[] { "HotelName" }
-    };
+options = new SearchOptions();
+options.Select.Add("HotelName");
 
-results = indexClient.Documents.Search<Hotel>("motel", parameters);
+results = searchClient.Search<Hotel>("motel", options);
 
 WriteDocuments(results);
 ```
 
-In this case, we're searching the entire index for the word "motel" in any searchable field and we only want to retrieve the hotel names, as specified by the `Select` parameter. Here are the results:
+In this case, we're searching the entire index for the word "motel" in any searchable field and we only want to retrieve the hotel names, as specified by the `Select` option. Here are the results:
 
-    Name: Secret Point Motel
+```output
+Name: Secret Point Motel
 
-    Name: Twin Dome Motel
-
-The next query is a little more interesting.  We want to find any hotels that have a room with a nightly rate of less than $100 and return only the hotel ID and description:
-
-```csharp
-parameters =
-    new SearchParameters()
-    {
-        Filter = "Rooms/any(r: r/BaseRate lt 100)",
-        Select = new[] { "HotelId", "Description" }
-    };
-
-results = indexClient.Documents.Search<Hotel>("*", parameters);
-
-WriteDocuments(results);
+Name: Twin Dome Motel
 ```
 
-This query uses an OData `$filter` expression, `Rooms/any(r: r/BaseRate lt 100)`, to filter the documents in the index. This uses the [any operator](https://docs.microsoft.com/azure/search/search-query-odata-collection-operators) to apply the 'BaseRate lt 100' to every item in the Rooms collection. You can find out more about the OData syntax that Azure Cognitive Search supports [here](https://docs.microsoft.com/azure/search/query-odata-filter-orderby-syntax).
-
-Here are the results of the query:
-
-	HotelId: 1
-	Description: The hotel is ideally located on the main commercial artery of the city in the heart of New York...
-
-	HotelId: 2
-	Description: The hotel is situated in a nineteenth century plaza, which has been expanded and renovated to...
-
-Next, we want to find the top two hotels that have been most recently renovated, and show the hotel name and last renovation date. Here is the code: 
+In the second query, use a filter to select room with a nightly rate of less than $100. Return only the hotel ID and description in the results:
 
 ```csharp
-parameters =
-    new SearchParameters()
-    {
-        OrderBy = new[] { "LastRenovationDate desc" },
-        Select = new[] { "HotelName", "LastRenovationDate" },
-        Top = 2
-    };
-
-results = indexClient.Documents.Search<Hotel>("*", parameters);
-
-WriteDocuments(results);
-```
-
-In this case, we again use OData syntax to specify the `OrderBy` parameter as `lastRenovationDate desc`. We also set `Top` to 2 to ensure we only get the top two documents. As before, we set `Select` to specify which fields should be returned.
-
-Here are the results:
-
-	Name: Fancy Stay        Last renovated on: 6/27/2010 12:00:00 AM +00:00
-	Name: Roach Motel       Last renovated on: 4/28/1982 12:00:00 AM +00:00
-
-Finally, we want to find all hotels names that match the word "hotel":
-
-```csharp
-parameters = new SearchParameters()
+options = new SearchOptions()
 {
-    SearchFields = new[] { "HotelName" }
+    Filter = "Rooms/any(r: r/BaseRate lt 100)"
 };
-results = indexClient.Documents.Search<Hotel>("hotel", parameters);
+options.Select.Add("HotelId");
+options.Select.Add("Description");
+
+results = searchClient.Search<Hotel>("*", options);
+```
+
+The above query uses an OData `$filter` expression, `Rooms/any(r: r/BaseRate lt 100)`, to filter the documents in the index. This uses the [any operator](./search-query-odata-collection-operators.md) to apply the 'BaseRate lt 100' to every item in the Rooms collection. For more information, see [OData filter syntax](./query-odata-filter-orderby-syntax.md).
+
+In the third query, find the top two hotels that have been most recently renovated, and show the hotel name and last renovation date. Here is the code: 
+
+```csharp
+options =
+    new SearchOptions()
+    {
+        Size = 2
+    };
+options.OrderBy.Add("LastRenovationDate desc");
+options.Select.Add("HotelName");
+options.Select.Add("LastRenovationDate");
+
+results = searchClient.Search<Hotel>("*", options);
 
 WriteDocuments(results);
 ```
 
-And here are the results, which include all fields since we did not specify the `Select` property:
+In the last query, find all hotels names that match the word "hotel":
 
-	HotelId: 3
-	Name: Triple Landscape Hotel
-	...
+```csharp
+options.Select.Add("HotelId");
+options.Select.Add("HotelName");
+options.Select.Add("Description");
+options.Select.Add("Category");
+options.Select.Add("Tags");
+options.Select.Add("ParkingIncluded");
+options.Select.Add("LastRenovationDate");
+options.Select.Add("Rating");
+options.Select.Add("Address");
+options.Select.Add("Rooms");
 
-This step completes the tutorial, but don't stop here. **Next steps provide additional resources for learning more about Azure Cognitive Search.
+results = searchClient.Search<Hotel>("hotel", options);
+
+WriteDocuments(results);
+```
+
+This section concludes this introduction to the .NET SDK, but don't stop here. The next section suggests additional resources for learning more about programming with Azure Cognitive Search.
 
 ## Next steps
-* Browse the references for the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) and [REST API](https://docs.microsoft.com/rest/api/searchservice/).
-* Review [naming conventions](https://docs.microsoft.com/rest/api/searchservice/Naming-rules) to learn the rules for naming various objects.
-* Review [supported data types](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types) in Azure Cognitive Search.
+
++ Browse the API reference documentation for [Azure.Search.Documents](/dotnet/api/azure.search.documents) and [REST API](/rest/api/searchservice/)
+
++ Browse other code samples based on Azure.Search.Documents in [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) and [search-getting-started-dotnet](https://github.com/Azure-Samples/search-dotnet-getting-started)
+
++ Review [naming conventions](/rest/api/searchservice/Naming-rules) to learn the rules for naming various objects
+
++ Review [supported data types](/rest/api/searchservice/Supported-data-types)

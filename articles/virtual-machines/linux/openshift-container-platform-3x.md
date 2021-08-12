@@ -1,18 +1,12 @@
 ---
 title: Deploy OpenShift Container Platform 3.11 in Azure 
 description: Deploy OpenShift Container Platform 3.11 in Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: haroldwongms
 manager: mdotson
-editor: 
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machines-linux
-
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 04/05/2020
 ms.author: haroldw
@@ -24,7 +18,7 @@ You can use one of several methods to deploy OpenShift Container Platform 3.11 i
 
 - You can manually deploy the necessary Azure infrastructure components and then follow the [OpenShift Container Platform documentation](https://docs.openshift.com/container-platform).
 - You can also use an existing [Resource Manager template](https://github.com/Microsoft/openshift-container-platform/) that simplifies the deployment of the OpenShift Container Platform cluster.
-- Another option is to use the [Azure Marketplace offer](https://azuremarketplace.microsoft.com/marketplace/apps/osatesting.open-shift-azure-proxy).
+- Another option is to use the Azure Marketplace offer.
 
 For all options, a Red Hat subscription is required. During the deployment, the Red Hat Enterprise Linux instance is registered to the Red Hat subscription and attached to the Pool ID that contains the entitlements for OpenShift Container Platform.
 Make sure you have a valid Red Hat Subscription Manager (RHSM) username, password, and Pool ID. You can use an Activation Key, Org ID, and Pool ID. You can verify this information by signing in to https://access.redhat.com.
@@ -309,12 +303,12 @@ Different releases may have different parameters so verify the necessary paramet
 ### Deploy using Azure CLI
 
 > [!NOTE] 
-> The following command requires Azure CLI 2.0.8 or later. You can verify the CLI version with the `az --version` command. To update the CLI version, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latesti).
+> The following command requires Azure CLI 2.0.8 or later. You can verify the CLI version with the `az --version` command. To update the CLI version, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 The following example deploys the OpenShift cluster and all related resources into a resource group named openshiftrg, with a deployment name of myOpenShiftCluster. The template is referenced directly from the GitHub repo, and a local parameters file named azuredeploy.parameters.json file is used.
 
 ```azurecli 
-az group deployment create -g openshiftrg --name myOpenShiftCluster \
+az deployment group create -g openshiftrg --name myOpenShiftCluster \
       --template-uri https://raw.githubusercontent.com/Microsoft/openshift-container-platform/master/azuredeploy.json \
       --parameters @./azuredeploy.parameters.json
 ```

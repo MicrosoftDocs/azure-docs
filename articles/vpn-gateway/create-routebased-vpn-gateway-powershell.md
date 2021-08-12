@@ -1,13 +1,15 @@
-﻿---
-title: 'Azure VPN Gateway: Create route-based gateway: PowerShell'
-description: Quickly create a route-based VPN Gateway using PowerShell
+---
+title: 'Create a route-based virtual network gateway: PowerShell'
+titleSuffix: Azure VPN Gateway
+description: Learn how to create a route-based virtual network gateway for a VPN connection to your on-premises network, or to connect virtual networks.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
-ms.topic: article
-ms.date: 02/10/2020
-ms.author: cherylmc
+ms.topic: how-to
+ms.date: 09/02/2020
+ms.author: cherylmc 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create a route-based VPN gateway using PowerShell
@@ -99,7 +101,7 @@ $gwipconfig = New-AzVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $s
 ```
 ## <a name="CreateGateway"></a>Create the VPN gateway
 
-A VPN gateway can take 45 minutes or more to create. Once the gateway has completed, you can create a connection between your virtual network and another VNet. Or, create a connection between your virtual network and an on-premises location. Create a VPN gateway using the [New-AzVirtualNetworkGateway](/powershell/module/az.network/New-azVirtualNetworkGateway) cmdlet.
+Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU. Once the gateway has completed, you can create a connection between your virtual network and another VNet. Or, create a connection between your virtual network and an on-premises location. Create a VPN gateway using the [New-AzVirtualNetworkGateway](/powershell/module/az.network/New-azVirtualNetworkGateway) cmdlet.
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `

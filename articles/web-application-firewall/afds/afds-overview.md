@@ -4,8 +4,8 @@ description: Learn how Azure web application firewall on Azure Front Door servic
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.topic: overview
-ms.date: 02/01/2020
+ms.topic: conceptual
+ms.date: 06/09/2021
 ms.author: victorh
 ---
 
@@ -19,9 +19,11 @@ WAF prevents malicious attacks close to the attack sources, before they enter yo
 
 ![Azure web application firewall](../media/overview/wafoverview.png)
 
+Azure Front Door introduces [two new SKUs in preview](../../frontdoor/standard-premium/overview.md): Front Door Standard and Front Door Premium SKU. WAF is natively integrated with Front Door Premium SKU with full capabilities. For Front Door Standard SKU, only [custom rules](#custom-authored-rules) are supported.
+
 ## WAF policy and rules
 
-You can configure a WAF policy and associate that policy to one or more Front Door front-ends for protection. A WAF policy consists of two types of security rules:
+You can configure a [WAF policy](waf-front-door-create-portal.md) and associate that policy to one or more Front Door front-ends for protection. A WAF policy consists of two types of security rules:
 
 - custom rules that are authored by the customer.
 
@@ -64,15 +66,15 @@ You can configure custom rules WAF as follows:
 
 - **HTTP parameters-based access control:** You can base rules on string matches in HTTP/HTTPS request parameters.  For example, query strings, POST args, Request URI, Request Header, and Request Body.
 
-- **Request method-based access control:** You based rules on the HTTP request method of the request. For example, GET, PUT, or HEAD.
+- **Request method-based access control:** You base rules on the HTTP request method of the request. For example, GET, PUT, or HEAD.
 
 - **Size constraint:** You can base rules on the lengths of specific parts of a request such as query string, Uri, or request body.
 
-- **Rate limiting rules:** A rate control rule is to limit abnormal high traffic from any client IP. You may configure a threshold on the number of web requests allowed from a client IP during a one-minute duration. This rule is distinct from an IP list-based allow/block custom rule that either allows all or blocks all request from a client IP. Rate limits can be combined with additional match conditions such as HTTP(S) parameter matches for granular rate control.
+- **Rate limiting rules:** A rate control rule limits abnormally high traffic from any client IP address. You may configure a threshold on the number of web requests allowed from a client IP during a one-minute duration. This rule is distinct from an IP list-based allow/block custom rule that either allows all or blocks all request from a client IP. Rate limits can be combined with additional match conditions such as HTTP(S) parameter matches for granular rate control.
 
 ### Azure-managed rule sets
 
-Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Since such rulesets are managed by Azure, the rules are updated as needed to protect against new attack signatures. Azure-managed Default Rule Set includes rules against the following threat categories:
+Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Since such rulesets are managed by Azure, the rules are updated as needed to protect against new attack signatures. The Azure-managed Default Rule Set includes rules against the following threat categories:
 
 - Cross-site scripting
 - Java attacks
@@ -84,14 +86,10 @@ Azure-managed rule sets provide an easy way to deploy protection against a commo
 - SQL injection protection
 - Protocol attackers
 
-The version number of the Default Rule Set increments when new attack signatures are added to the rule set.
-Default Rule Set is enabled by default in Detection mode in your WAF policies. You can disable or enable individual rules within the Default Rule Set to meet your application requirements. You can also set specific actions (ALLOW/BLOCK/REDIRECT/LOG) per rule.
-
-Sometimes you may need to omit certain request attributes from a WAF evaluation. A common example is Active Directory-inserted tokens that are used for authentication. You may configure an exclusion list for a managed rule, rule group, or for the entire rule set.  
-
-The Default action is to BLOCK. Additionally, custom rules can be configured in the same WAF policy if you wish to bypass any of the pre-configured rules in the Default Rule Set.
-
 Custom rules are always applied before rules in the Default Rule Set are evaluated. If a request matches a custom rule, the corresponding rule action is applied. The request is either blocked or passed through to the back-end. No other custom rules or the rules in the Default Rule Set are processed. You can also remove the Default Rule Set from your WAF policies.
+
+For more information, see [Web Application Firewall DRS rule groups and rules](waf-front-door-drs.md).
+
 
 ### Bot protection rule set (preview)
 

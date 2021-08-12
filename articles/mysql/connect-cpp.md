@@ -1,28 +1,35 @@
 ---
-title: 'Connect using C++ - Azure Database for MySQL'
+title: 'Quickstart: Connect using C++ - Azure Database for MySQL'
 description: This quickstart provides a C++ code sample you can use to connect and query data from Azure Database for MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: cpp
 ms.topic: quickstart
-ms.date: 3/18/2020
+ms.date: 5/26/2020
 ---
 
-# Azure Database for MySQL: Use Connector/C++ to connect and query data
+# Quickstart: Use Connector/C++ to connect and query data in Azure Database for MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 This quickstart demonstrates how to connect to an Azure Database for MySQL by using a C++ application. It shows how to use SQL statements to query, insert, update, and delete data in the database. This topic assumes you're familiar with developing using C++ and you're new to working with Azure Database for MySQL.
 
 ## Prerequisites
+
 This quickstart uses the resources created in either of the following guides as a starting point:
 - [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 You also need to:
-- Install [.NET Framework](https://www.microsoft.com/net/download)
+- Install [.NET Framework](https://dotnet.microsoft.com/download/dotnet-framework)
 - Install [Visual Studio](https://www.visualstudio.com/downloads/)
 - Install [MySQL Connector/C++](https://dev.mysql.com/downloads/connector/cpp/) 
 - Install [Boost](https://www.boost.org/)
+
+> [!IMPORTANT] 
+> Ensure the IP address you're connecting from has been added the server's firewall rules using the [Azure portal](./howto-manage-firewall-using-portal.md) or [Azure CLI](./howto-manage-firewall-using-cli.md)
 
 ## Install Visual Studio and .NET
 The steps in this section assume that you're familiar with developing using .NET.
@@ -47,7 +54,7 @@ Get the connection information needed to connect to the Azure Database for MySQL
 2. From the left-hand menu in Azure portal, click **All resources**, and then search for the server you have created (such as **mydemoserver**).
 3. Click the server name.
 4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
- ![Azure Database for MySQL server name](./media/connect-cpp/1_server-overview-name-login.png)
+ :::image type="content" source="./media/connect-cpp/1_server-overview-name-login.png" alt-text="Azure Database for MySQL server name":::
 
 ## Connect, create table, and insert data
 Use the following code to connect and load the data by using **CREATE TABLE** and **INSERT INTO** SQL statements. The code uses sql::Driver class with the connect() method to establish a connection to MySQL. Then the code uses method createStatement() and execute() to run the database commands. 
@@ -296,6 +303,16 @@ int main()
 	system("pause");
 	return 0;
 }
+```
+
+## Clean up resources
+
+To clean up all resources used during this quickstart, delete the resource group using the following command:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## Next steps

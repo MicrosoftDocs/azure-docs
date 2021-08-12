@@ -3,42 +3,21 @@ title: Use a customer-managed key to encrypt Azure disks in Azure Kubernetes Ser
 description: Bring your own keys (BYOK) to encrypt AKS OS and Data disks.
 services: container-service
 ms.topic: article
-ms.date: 01/12/2020
+ms.date: 09/01/2020
 
 ---
 
 # Bring your own keys (BYOK) with Azure disks in Azure Kubernetes Service (AKS)
 
-Azure Storage encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can supply [customer-managed keys][customer-managed-keys] to use for encryption at rest for both the OS and data disks for your AKS clusters.
+Azure Storage encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can supply customer-managed keys to use for encryption at rest for both the OS and data disks for your AKS clusters. Learn more about customer-managed keys on [Linux][customer-managed-keys-linux] and [Windows][customer-managed-keys-windows].
 
-> [!NOTE]
-> BYOK Linux and Windows based AKS clusters are available in [Azure regions][supported-regions] that support server side encryption of Azure managed disks.
+## Limitations
+* Data disk encryption support is limited to AKS clusters running Kubernetes version 1.17 and above.
+* Encryption of OS disk with customer-managed keys can only be enabled when creating an AKS cluster.
 
-## Before you begin
-
-* This article assumes that you are creating a *new AKS cluster*.
-
+## Prerequisites
 * You must enable soft delete and purge protection for *Azure Key Vault* when using Key Vault to encrypt managed disks.
-
-* You need the Azure CLI version 2.0.79 or later and the aks-preview 0.4.26 extension
-
-> [!IMPORTANT]
-> AKS preview features are self-service opt-in. Previews are provided "as-is" and "as available" and are excluded from the service level agreements and limited warranty. AKS Previews are partially covered by customer support on best effort basis. As such, these features are not meant for production use. For additional infromation, please see the following support articles:
->
-> * [AKS Support Policies](support-policies.md)
-> * [Azure Support FAQ](faq.md)
-
-## Install latest AKS CLI preview extension
-
-To use customer-managed keys, you need the *aks-preview* CLI extension version 0.4.26 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command:
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
+* You need the Azure CLI version 2.11.1 or later.
 
 ## Create an Azure Key Vault instance
 
@@ -65,10 +44,10 @@ Replace *myKeyVaultName* with the name of your key vault.  You will also need a 
     
 ```azurecli-interactive
 # Retrieve the Key Vault Id and store it in a variable
-keyVaultId=$(az keyvault show --name myKeyVaultName --query [id] -o tsv)
+keyVaultId=$(az keyvault show --name myKeyVaultName --query "[id]" -o tsv)
 
 # Retrieve the Key Vault key URL and store it in a variable
-keyVaultKeyUrl=$(az keyvault key show --vault-name myKeyVaultName  --name myKeyName  --query [key.kid] -o tsv)
+keyVaultKeyUrl=$(az keyvault key show --vault-name myKeyVaultName  --name myKeyName  --query "[key.kid]" -o tsv)
 
 # Create a DiskEncryptionSet
 az disk-encryption-set create -n myDiskEncryptionSetName  -l myAzureRegionName  -g myResourceGroup --source-vault $keyVaultId --key-url $keyVaultKeyUrl 
@@ -80,13 +59,10 @@ Use the DiskEncryptionSet and resource groups you created on the prior steps, an
 
 ```azurecli-interactive
 # Retrieve the DiskEncryptionSet value and set a variable
-desIdentity=$(az disk-encryption-set show -n myDiskEncryptionSetName  -g myResourceGroup --query [identity.principalId] -o tsv)
+desIdentity=$(az disk-encryption-set show -n myDiskEncryptionSetName  -g myResourceGroup --query "[identity.principalId]" -o tsv)
 
 # Update security policy settings
 az keyvault set-policy -n myKeyVaultName -g myResourceGroup --object-id $desIdentity --key-permissions wrapkey unwrapkey get
-
-# Assign the reader role
-az role assignment create --assignee $desIdentity --role Reader --scope $keyVaultId
 ```
 
 ## Create a new AKS cluster and encrypt the OS disk
@@ -98,23 +74,22 @@ Create a **new resource group** and AKS cluster, then use your key to encrypt th
 
 ```azurecli-interactive
 # Retrieve the DiskEncryptionSet value and set a variable
-diskEncryptionSetId=$(az resource show -n mydiskEncryptionSetName -g myResourceGroup --resource-type "Microsoft.Compute/diskEncryptionSets" --query [id] -o tsv)
+diskEncryptionSetId=$(az disk-encryption-set show -n mydiskEncryptionSetName -g myResourceGroup --query "[id]" -o tsv)
 
 # Create a resource group for the AKS cluster
 az group create -n myResourceGroup -l myAzureRegionName
 
 # Create the AKS cluster
-az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset-id $diskEncryptionSetId --kubernetes-version 1.17.0 --generate-ssh-keys
+az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset-id $diskEncryptionSetId --kubernetes-version KUBERNETES_VERSION --generate-ssh-keys
 ```
 
 When new node pools are added to the cluster created above, the customer-managed key provided during the create is used to encrypt the OS disk.
 
-## Encrypt your AKS cluster data disk
-
-You can also encrypt the AKS data disks with your own keys.
+## Encrypt your AKS cluster data disk(optional)
+OS disk encryption key will be used to encrypt data disk if key is not provided for data disk from v1.17.2, and you can also encrypt AKS data disks with your other keys.
 
 > [!IMPORTANT]
-> Ensure you have the proper AKS credentials. The Service principal will need to have contributor access to the resource group where the diskencryptionset is deployed. Otherwise, you will get an error suggesting that the service principal does not have permissions.
+> Ensure you have the proper AKS credentials. The managed identity will need to have contributor access to the resource group where the diskencryptionset is deployed. Otherwise, you will get an error suggesting that the managed identity does not have permissions.
 
 ```azurecli-interactive
 # Retrieve your Azure Subscription Id from id property as shown below
@@ -162,15 +137,6 @@ az aks get-credentials --name myAksCluster --resource-group myResourceGroup --ou
 kubectl apply -f byok-azure-disk.yaml
 ```
 
-## Limitations
-
-* BYOK is only currently available in GA and Preview in certain [Azure regions][supported-regions]
-* OS Disk Encryption supported with Kubernetes version 1.17 and above   
-* Available only in regions where BYOK is supported
-* Encryption with customer-managed keys currently is for new AKS clusters only, existing clusters cannot be upgraded
-* AKS cluster using Virtual Machine Scale Sets are required, no support for Virtual Machine Availability Sets
-
-
 ## Next steps
 
 Review [best practices for AKS cluster security][best-practices-security]
@@ -178,10 +144,11 @@ Review [best practices for AKS cluster security][best-practices-security]
 <!-- LINKS - external -->
 
 <!-- LINKS - internal -->
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
-[best-practices-security]: /azure/aks/operator-best-practices-cluster-security
-[byok-azure-portal]: /azure/storage/common/storage-encryption-keys-portal
-[customer-managed-keys]: /azure/virtual-machines/windows/disk-encryption#customer-managed-keys
-[key-vault-generate]: /azure/key-vault/key-vault-manage-with-cli2
-[supported-regions]: /azure/virtual-machines/windows/disk-encryption#supported-regions
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
+[best-practices-security]: ./operator-best-practices-cluster-security.md
+[byok-azure-portal]: ../storage/common/customer-managed-keys-configure-key-vault.md
+[customer-managed-keys-windows]: ../virtual-machines/disk-encryption.md#customer-managed-keys
+[customer-managed-keys-linux]: ../virtual-machines/disk-encryption.md#customer-managed-keys
+[key-vault-generate]: ../key-vault/general/manage-with-cli2.md
+[supported-regions]: ../virtual-machines/disk-encryption.md#supported-regions

@@ -1,16 +1,19 @@
 ---
 title: Configure TLS for a cloud service  | Microsoft Docs
 description: Learn how to specify an HTTPS endpoint for a web role and how to upload a TLS/SSL certificate to secure your application. These examples use the Azure portal.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 05/26/2017
-ms.author: tagore
-
+ms.service: cloud-services
+ms.date: 10/14/2020
+author: hirenshah1
+ms.author: hirshah
+ms.reviewer: mimckitt
+ms.custom: 
 ---
+
 # Configuring TLS for an application in Azure
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
 
 Transport Layer Security (TLS), previously known as Secure Socket Layer (SSL) encryption, is the most commonly used method of securing data sent across the internet. This common task discusses how to specify an HTTPS endpoint for a web role and how to upload a TLS/SSL certificate to secure your application.
 
@@ -27,7 +30,7 @@ To configure TLS for an application, you first need to get a TLS/SSL certificate
 
 The certificate must meet the following requirements for TLS/SSL certificates in Azure:
 
-* The certificate must contain a private key.
+* The certificate must contain a public key.
 * The certificate must be created for key exchange, exportable to a Personal Information Exchange (.pfx) file.
 * The certificate's subject name must match the domain used to access the cloud service. You cannot obtain a TLS/SSL certificate from a certificate authority (CA) for the cloudapp.net domain. You must acquire a custom domain name to use when access your service. When you request a certificate from a CA, the certificate's subject name must match the custom domain name used to access your application. For example, if your custom domain name is **contoso.com** you would request a certificate from your CA for ***.contoso.com** or **www\.contoso.com**.
 * The certificate must use a minimum of 2048-bit encryption.

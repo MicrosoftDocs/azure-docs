@@ -3,7 +3,6 @@ title: Common parameters and headers
 description: The parameters and headers common to all operations that you might do related to Key Vault resources.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -18,6 +17,7 @@ ms.author: mbaldwin
 
 The following information is common to all operations that you might do related to Key Vault resources:
 
+- The HTTP `Host` header must always be present and must specify the vault hostname. Example: `Host: contoso.vault.azure.net`. Note that most client technologies populate the `Host` header from the URI. For instance, `GET https://contoso.vault.azure.net/secrets/mysecret{...}` will set the `Host` as `contoso.vault.azure.net`. This means that if you access Key Vault using raw IP address like `GET https://10.0.0.23/secrets/mysecret{...}`, the automatic value of `Host` header will be wrong and you will have to manually insure that the `Host` header contains the vault hostname.
 - Replace `{api-version}` with the api-version in the URI.
 - Replace `{subscription-id}` with your subscription identifier in the URI
 - Replace `{resource-group-name}` with the resource group. For more information, see Using Resource groups to manage your Azure resources.

@@ -1,11 +1,11 @@
 ---
 title: Create an Azure function app with Java and Eclipse 
 description: How-to guide to create and publish a simple HTTP triggered serverless app using Java and Eclipse to Azure Functions.
-author: jeffhollan
+author: ggailey777
 ms.topic: how-to
 ms.date: 07/01/2018
-ms.author: jehollan
-ms.custom: mvc, devcenter
+ms.author: glenga
+ms.custom: mvc, devcenter, devx-track-java
 ---
 
 # Create your first function with Java and Eclipse 
@@ -23,7 +23,7 @@ To develop a functions app with Java and Eclipse, you must have the following in
 -  [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 8.
 -  [Apache Maven](https://maven.apache.org), version 3.0 or above.
 -  [Eclipse](https://www.eclipse.org/downloads/packages/), with Java and Maven support.
--  [Azure CLI](https://docs.microsoft.com/cli/azure)
+-  [Azure CLI](/cli/azure)
 
 > [!IMPORTANT] 
 > The JAVA_HOME environment variable must be set to the install location of the JDK to complete this quickstart.
@@ -34,15 +34,11 @@ It's highly recommended to also install [Azure Functions Core Tools, version 2](
 
 1. In Eclipse, select the **File** menu, then select **New -&gt; Maven Project**. 
 1. Accept the defaults in the **New Maven Project** dialogue and select **Next**.
-1. Select **Add Archetype** and add the entries for the [azure-functions-archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype).
-    - Archetype Group ID: com.microsoft.azure
-    - Archetype Artifact ID: azure-functions-archetype
-    - Version: Check and use latest version from [the central repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
-    ![Eclipse Maven create](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
-1. Click **OK** and then click **Next**.  Be sure to fill in values for all of the fields including `resourceGroup`, `appName`, and `appRegion` (please use a different appName other than **fabrikam-function-20170920120101928**), and eventually **Finish**.
+1. Find and select the [azure-functions-archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype) and click **Next**.
+1. Be sure to fill in values for all of the fields including `resourceGroup`, `appName`, and `appRegion` (please use a different appName other than **fabrikam-function-20170920120101928**), and eventually **Finish**.
     ![Eclipse Maven create2](media/functions-create-first-java-eclipse/functions-create-eclipse2.png)  
 
-Maven creates the project files in a new folder with a name of _artifactId_. The generated code in the project is a simple [HTTP triggered](/azure/azure-functions/functions-bindings-http-webhook) function that echoes the body of the triggering HTTP request.
+Maven creates the project files in a new folder with a name of _artifactId_. The generated code in the project is a simple [HTTP triggered](./functions-bindings-http-webhook.md) function that echoes the body of the triggering HTTP request.
 
 ## Run functions locally in the IDE
 
@@ -50,7 +46,7 @@ Maven creates the project files in a new folder with a name of _artifactId_. The
 > [Azure Functions Core Tools, version 2](functions-run-local.md#v2) must be installed to run and debug functions locally.
 
 1. Right-click on the generated project, then choose **Run As** and **Maven build**.
-1. In the **Edit Configuration** dialog, Enter `package` in the **Goals** and **Name** fields, then select **Run**. This will build and package the function code.
+1. In the **Edit Configuration** dialog, Enter `package` in the **Goals**, then select **Run**. This will build and package the function code.
 1. Once the build is complete, create another Run configuration as above, using `azure-functions:run` as the goal and name. Select **Run** to run the function in the IDE.
 
 Terminate the runtime in the console window when you're done testing your function. Only one function host can be active and running locally at a time.
@@ -67,7 +63,7 @@ Set breakpoints and inspect objects in your function using the IDE. When finishe
 
 ## Deploy the function to Azure
 
-The deploy process to Azure Functions uses account credentials from the Azure CLI. [Log in with the Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) before continuing using your computer's command prompt.
+The deploy process to Azure Functions uses account credentials from the Azure CLI. [Log in with the Azure CLI](/cli/azure/authenticate-azure-cli) before continuing using your computer's command prompt.
 
 ```azurecli
 az login

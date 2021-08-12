@@ -1,58 +1,40 @@
 ---
 title: Maintenance control for Azure virtual machines using PowerShell
-description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance Control and PowerShell.
+description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance control and PowerShell.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.subservice: maintenance-control
+ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 01/31/2020
-ms.author: cynthn
+ms.date: 11/19/2020
+ms.author: cynthn 
+ms.custom: devx-track-azurepowershell
 #pmcontact: shants
 ---
 
-# Preview: Control updates with Maintenance Control and Azure PowerShell
+# Control updates with Maintenance Control and Azure PowerShell
 
-Manage platform updates, that don't require a reboot, using maintenance control. Azure frequently updates its infrastructure to improve reliability, performance, security or launch new features. Most updates are transparent to users. Some sensitive workloads, like gaming, media streaming, and financial transactions, can’t tolerate even few seconds of a VM freezing or disconnecting for maintenance. Maintenance control gives you the option to wait on platform updates and apply them within a 35-day rolling window. 
+Maintenance control lets you decide when to apply platform updates to the host infrastructure of your isolated VMs and Azure dedicated hosts. This topic covers the Azure PowerShell options for Maintenance control. For more about benefits of using Maintenance control, its limitations, and other management options, see [Managing platform updates with Maintenance Control](maintenance-control.md).
 
-Maintenance control lets you decide when to apply updates to your isolated VMs.
-
-With maintenance control, you can:
-- Batch updates into one update package.
-- Wait up to 35 days to apply updates. 
-- Automate platform updates for your maintenance window using Azure Functions.
-- Maintenance configurations work across subscriptions and resource groups. 
-
-> [!IMPORTANT]
-> Maintenance Control is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> 
-
-## Limitations
-
-- VMs must be on a [dedicated host](./linux/dedicated-hosts.md), or be created using an [isolated VM size](./linux/isolation.md).
-- After 35 days, an update will automatically be applied.
-- User must have **Resource Contributor** access.
-
-
+If you are looking for information about Maintenance Control for scale sets, see [Maintenance Control for virtual machine scale sets](virtual-machine-scale-sets-maintenance-control.md).
+ 
 ## Enable the PowerShell module
 
-Make sure `PowerShellGet` is up to date.
+Make sure `PowerShellGet` is up to date.	
 
-```azurepowershell-interactive
-Install-Module -Name PowerShellGet -Repository PSGallery -Force
-```
+```azurepowershell-interactive	
+Install-Module -Name PowerShellGet -Repository PSGallery -Force	
+```	
 
-The Az.Maintenance PowerShell cmdlets are in preview, so you need to install the module with the `AllowPrerelease` parameter in Cloud Shell or your local PowerShell installation.   
+Install the `Az.Maintenance` PowerShell module.   	
 
-```azurepowershell-interactive
-Install-Module -Name Az.Maintenance -AllowPrerelease
-```
+```azurepowershell-interactive	
+Install-Module -Name Az.Maintenance
+```	
 
 If you are installing locally, make sure you open your PowerShell prompt as an administrator.
 
 You may also be asked to confirm that you want to install from an *untrusted repository*. Type `Y` or select **Yes to All** to install the module.
-
 
 
 ## Create a maintenance configuration
@@ -65,7 +47,7 @@ New-AzResourceGroup `
    -Name myMaintenanceRG
 ```
 
-Use [New-AzMaintenanceConfiguration](https://docs.microsoft.com/powershell/module/az.maintenance/new-azmaintenanceconfiguration) to create a maintenance configuration. This example creates a maintenance configuration named *myConfig* scoped to the host. 
+Use [New-AzMaintenanceConfiguration](/powershell/module/az.maintenance/new-azmaintenanceconfiguration) to create a maintenance configuration. This example creates a maintenance configuration named *myConfig* scoped to the host. 
 
 ```azurepowershell-interactive
 $config = New-AzMaintenanceConfiguration `
@@ -77,17 +59,41 @@ $config = New-AzMaintenanceConfiguration `
 
 Using `-MaintenanceScope host` ensures that the maintenance configuration is used for controlling updates to the host.
 
-If you try to create a configuration with the same name, but in a different location, you will get an error. Configuration names must be unique to your subscription.
+If you try to create a configuration with the same name, but in a different location, you will get an error. Configuration names must be unique to your resource group.
 
-You can query for available maintenance configurations using [Get-AzMaintenanceConfiguration](https://docs.microsoft.com/powershell/module/az.maintenance/get-azmaintenanceconfiguration).
+You can query for available maintenance configurations using [Get-AzMaintenanceConfiguration](/powershell/module/az.maintenance/get-azmaintenanceconfiguration).
 
 ```azurepowershell-interactive
 Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 ```
 
+### Create a maintenance configuration with scheduled window
+
+You can also declare a scheduled window when Azure will apply the updates on your resources. This example creates a maintenance configuration named myConfig with a scheduled window of 5 hours on the fourth Monday of every month. Once you create a scheduled window you no longer have to apply the updates manually.
+
+```azurepowershell-interactive
+$config = New-AzMaintenanceConfiguration `
+   -ResourceGroup $RGName `
+   -Name $MaintenanceConfig `
+   -MaintenanceScope Host `
+   -Location $location `
+   -StartDateTime "2020-10-01 00:00" `
+   -TimeZone "Pacific Standard Time" `
+   -Duration "05:00" `
+   -RecurEvery "Month Fourth Monday"
+```
+> [!IMPORTANT]
+> Maintenance **duration** must be *2 hours* or longer. Maintenance **recurrence** must be set to at least occur once in 35-days.
+
+Maintenance **recurrence** can be expressed as daily, weekly or monthly. Some examples are:
+ - **daily**- RecurEvery "Day" **or** "3Days" 
+ - **weekly**- RecurEvery "3Weeks" **or** "Week Saturday,Sunday" 
+ - **monthly**- RecurEvery "Month day23,day24" **or** "Month Last Sunday" **or** "Month Fourth Monday"  
+	  
+
 ## Assign the configuration
 
-Use [New-AzConfigurationAssignment](https://docs.microsoft.com/powershell/module/az.maintenance/new-azconfigurationassignment) to assign the configuration to your isolated VM or Azure Dedicated Host.
+Use [New-AzConfigurationAssignment](/powershell/module/az.maintenance/new-azconfigurationassignment) to assign the configuration to your isolated VM or Azure Dedicated Host.
 
 ### Isolated VM
 
@@ -124,7 +130,7 @@ New-AzConfigurationAssignment `
 
 ## Check for pending updates
 
-Use [Get-AzMaintenanceUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azmaintenanceupdate) to see if there are pending updates. Use `-subscription` to specify the Azure subscription of the VM if it is different from the one that you are logged into.
+Use [Get-AzMaintenanceUpdate](/powershell/module/az.maintenance/get-azmaintenanceupdate) to see if there are pending updates. Use `-subscription` to specify the Azure subscription of the VM if it is different from the one that you are logged into.
 
 If there are no updates to show, this command will return nothing. Otherwise, it will return a PSApplyUpdate object:
 
@@ -170,7 +176,7 @@ Get-AzMaintenanceUpdate `
 
 ## Apply updates
 
-Use [New-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/new-azapplyupdate) to apply pending updates.
+Use [New-AzApplyUpdate](/powershell/module/az.maintenance/new-azapplyupdate) to apply pending updates. Apply update calls can take upto 2 hours to complete.
 
 ### Isolated VM
 
@@ -201,7 +207,7 @@ New-AzApplyUpdate `
 ```
 
 ## Check update status
-Use [Get-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azapplyupdate) to check on the status of an update. The commands shown below show the status of the latest update by using `default` for the `-ApplyUpdateName` parameter. You can substitute the name of the update (returned by the [New-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/new-azapplyupdate) command) to get the status of a specific update.
+Use [Get-AzApplyUpdate](/powershell/module/az.maintenance/get-azapplyupdate) to check on the status of an update. The commands shown below show the status of the latest update by using `default` for the `-ApplyUpdateName` parameter. You can substitute the name of the update (returned by the [New-AzApplyUpdate](/powershell/module/az.maintenance/new-azapplyupdate) command) to get the status of a specific update.
 
 ```text
 Status         : Completed
@@ -245,7 +251,7 @@ Get-AzApplyUpdate `
 
 ## Remove a maintenance configuration
 
-Use [Remove-AzMaintenanceConfiguration](https://docs.microsoft.com/powershell/module/az.maintenance/remove-azmaintenanceconfiguration) to delete a maintenance configuration.
+Use [Remove-AzMaintenanceConfiguration](/powershell/module/az.maintenance/remove-azmaintenanceconfiguration) to delete a maintenance configuration.
 
 ```azurepowershell-interactive
 Remove-AzMaintenanceConfiguration `

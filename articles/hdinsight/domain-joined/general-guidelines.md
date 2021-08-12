@@ -1,9 +1,6 @@
 ---
 title: Enterprise security general guidelines in Azure HDInsight
 description: Some best practices that should make Enterprise Security Package deployment and management easier.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/13/2020
@@ -57,7 +54,7 @@ When deploying a secure HDInsight cluster, there are some best practices that sh
 When hierarchical name space in not enabled:
 
 * There are no inherited permissions.
-* Only filesystem permission that works is **Storage Data XXXX** RBAC role, to be assigned to the user directly in Azure portal.
+* Only filesystem permission that works is **Storage Data XXXX** Azure role, to be assigned to the user directly in Azure portal.
 
 ### Default HDFS permissions
 
@@ -110,7 +107,7 @@ Use a new resource group for each cluster so that you can distinguish between cl
 [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md) (Azure AD DS) provides managed domain services such as domain join, group policy, lightweight directory access protocol (LDAP), and Kerberos / NTLM authentication that is fully compatible with Windows Server Active Directory.
 
 Azure AD DS is required for secure clusters to join a domain.
-HDInsight can't depend on on-premise domain controllers or custom domain controllers, as it introduces too many fault points, credential sharing, DNS permissions, and so on. For more information, see [Azure AD DS FAQs](../../active-directory-domain-services/faqs.md).
+HDInsight can't depend on on-premise domain controllers or custom domain controllers, as it introduces too many fault points, credential sharing, DNS permissions, and so on. For more information, see [Azure AD DS FAQs](../../active-directory-domain-services/faqs.yml).
 
 ### Azure AD DS instance
 
@@ -154,6 +151,17 @@ Most common reasons:
 * NSGs are too restrictive, preventing domain join.
 * Managed Identity doesn't have sufficient permissions.
 * Cluster name isn't unique on the first six characters (either with another live cluster, or with a deleted cluster).
+
+## Authentication setup and configuration
+
+### User Principal Name (UPN)
+
+* Please use lowercase for all services - UPNs are not case sensitive in ESP clusters, but
+* The UPN prefix should match both SAMAccountName in Azure AD-DS. Matching with the mail field is not required.
+
+### LDAP properties in Ambari configuration
+
+For a full list of the Ambari properties that affect your HDInsight cluster configuration, see [Ambari LDAP Authentication Setup](https://ambari.apache.org/1.2.1/installing-hadoop-using-ambari/content/ambari-chap2-4.html).
 
 ## Next steps
 

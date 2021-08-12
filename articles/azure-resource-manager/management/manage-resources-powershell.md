@@ -4,7 +4,8 @@ description: Use Azure PowerShell and Azure Resource Manager to manage your reso
 author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
-ms.author: jgao
+ms.author: jgao 
+ms.custom: devx-track-azurepowershell
 ---
 # Manage Azure resources by using Azure PowerShell
 
@@ -45,7 +46,7 @@ The following script creates deploy a Quickstart template to create a storage ac
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json"
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -Location $location
 ```
 
@@ -53,11 +54,11 @@ For more information, see [Deploy resources with Resource Manager templates and 
 
 ## Deploy a resource group and resources
 
-You can create a resource group and deploy resources to the group. For more information, see [Create resource group and deploy resources](../templates/deploy-to-subscription.md#resource-group-and-resources).
+You can create a resource group and deploy resources to the group. For more information, see [Create resource group and deploy resources](../templates/deploy-to-subscription.md#resource-groups).
 
 ## Deploy resources to multiple subscriptions or resource groups
 
-Typically, you deploy all the resources in your template to a single resource group. However, there are scenarios where you want to deploy a set of resources together but place them in different resource groups or subscriptions. For more information, see [Deploy Azure resources to multiple subscriptions or resource groups](../templates/cross-resource-group-deployment.md).
+Typically, you deploy all the resources in your template to a single resource group. However, there are scenarios where you want to deploy a set of resources together but place them in different resource groups or subscriptions. For more information, see [Deploy Azure resources to multiple subscriptions or resource groups](../templates/deploy-to-resource-group.md).
 
 ## Delete resources
 
@@ -127,11 +128,11 @@ Tagging helps organizing your resource group and resources logically. For inform
 
 ## Manage access to resources
 
-[Role-based access control (RBAC)](../../role-based-access-control/overview.md) is the way that you manage access to resources in Azure. For more information, see [Manage access using RBAC and Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+[Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) is the way that you manage access to resources in Azure. For more information, see [Add or remove Azure role assignments using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 ## Next steps
 
 - To learn Azure Resource Manager, see [Azure Resource Manager overview](overview.md).
-- To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](../templates/template-syntax.md).
-- To learn how to develop templates, see the [step-by-step tutorials](/azure/azure-resource-manager/).
+- To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](../templates/syntax.md).
+- To learn how to develop templates, see the [step-by-step tutorials](../index.yml).
 - To view the Azure Resource Manager template schemas, see [template reference](/azure/templates/).

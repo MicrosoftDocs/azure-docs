@@ -1,13 +1,14 @@
 ---
 title: Understand Azure IoT Hub device twins | Microsoft Docs
 description: Developer guide - use device twins to synchronize state and configuration data between IoT Hub and your devices
-author: wesmc7777
-manager: philmea
-ms.author: wesmc
+author: nehsin
+
+ms.author: nehsin
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/01/2020
+ms.date: 09/29/2020
+ms.custom: [mqtt, 'Role: Cloud Development']
 ---
 
 # Understand and use device twins in IoT Hub
@@ -34,6 +35,8 @@ Use device twins to:
 Refer to [Device-to-cloud communication guidance](iot-hub-devguide-d2c-guidance.md) for guidance on using reported properties, device-to-cloud messages, or file upload.
 
 Refer to [Cloud-to-device communication guidance](iot-hub-devguide-c2d-guidance.md) for guidance on using desired properties, direct methods, or cloud-to-device messages.
+
+To learn how device twins relate to the device model used by an Azure IoT Plug and Play device, see [Understand IoT Plug and Play digital twins](../iot-develop/concepts-digital-twin.md).
 
 ## Device twins
 
@@ -193,7 +196,7 @@ The solution back end operates on the device twin using the following atomic ope
 
   - Body
         
-    This section includes all the twin changes in a JSON format. It uses the same format as a patch, with the difference that it can contain all twin sections: tags, properties.reported, properties.desired, and that it contains the “$metadata” elements. For example,
+    This section includes all the twin changes in a JSON format. It uses the same format as a patch, with the difference that it can contain all twin sections: tags, properties.reported, properties.desired, and that it contains the "$metadata" elements. For example,
 
     ```json
     {
@@ -214,7 +217,7 @@ The solution back end operates on the device twin using the following atomic ope
     }
     ```
 
-All the preceding operations support [Optimistic concurrency](iot-hub-devguide-device-twins.md#optimistic-concurrency) and require the **ServiceConnect** permission, as defined in [Control access to IoT Hub](iot-hub-devguide-security.md).
+All the preceding operations support [Optimistic concurrency](iot-hub-devguide-device-twins.md#optimistic-concurrency) and require the **ServiceConnect** permission, as defined in [Control access to IoT Hub](iot-hub-dev-guide-sas.md).
 
 In addition to these operations, the solution back end can:
 
@@ -232,7 +235,7 @@ The device app operates on the device twin using the following atomic operations
 
 * **Observe desired properties**. The currently connected device can choose to be notified of updates to the desired properties when they happen. The device receives the same form of update (partial or full replacement) executed by the solution back end.
 
-All the preceding operations require the **DeviceConnect** permission, as defined in [Control Access to IoT Hub](iot-hub-devguide-security.md).
+All the preceding operations require the **DeviceConnect** permission, as defined in [Control Access to IoT Hub](iot-hub-dev-guide-sas.md).
 
 The [Azure IoT device SDKs](iot-hub-devguide-sdks.md) make it easy to use the preceding operations from many languages and platforms. For more information on the details of IoT Hub primitives for desired properties synchronization, see [Device reconnection flow](iot-hub-devguide-device-twins.md#device-reconnection-flow).
 
@@ -242,7 +245,7 @@ Tags, desired properties, and reported properties are JSON objects with the foll
 
 * **Keys**: All keys in JSON objects are UTF-8 encoded, case-sensitive, and up-to 1 KB in length. Allowed characters exclude UNICODE control characters (segments C0 and C1), and `.`, `$`, and SP.
 
-* **Values**: All values in JSON objects can be of the following JSON types: boolean, number, string, object. Arrays are not allowed.
+* **Values**: All values in JSON objects can be of the following JSON types: boolean, number, string, object. Arrays are also supported.
 
     * Integers can have a minimum value of -4503599627370496 and a maximum value of 4503599627370495.
 
@@ -331,7 +334,9 @@ For example:
             "batteryLevel": "55%",
             "$metadata": {
                 "telemetryConfig": {
-                    "sendFrequency": "5m",
+                    "sendFrequency": {
+                        "$lastUpdated": "2016-03-31T16:35:48.789Z"
+                    },
                     "status": {
                         "$lastUpdated": "2016-03-31T16:35:48.789Z"
                     },

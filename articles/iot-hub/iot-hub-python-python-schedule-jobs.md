@@ -8,6 +8,7 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: robinsh
+ms.custom: devx-track-python
 ---
 
 # Schedule and broadcast jobs (Python)
@@ -26,7 +27,7 @@ Learn more about each of these capabilities in these articles:
 
 * Device twin and properties: [Get started with device twins](iot-hub-python-twin-getstarted.md) and [Tutorial: How to use device twin properties](tutorial-device-twins.md)
 
-* Direct methods: [IoT Hub developer guide - direct methods](iot-hub-devguide-direct-methods.md) and [Tutorial: direct methods](quickstart-control-device-python.md)
+* Direct methods: [IoT Hub developer guide - direct methods](iot-hub-devguide-direct-methods.md) and [Quickstart: direct methods](./quickstart-control-device.md?pivots=programming-language-python)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -75,62 +76,56 @@ In this section, you create a Python console app that responds to a direct metho
 3. Add the following `import` statements and variables at the start of the **simDevice.py** file. Replace `deviceConnectionString` with the connection string of the device you created above:
 
     ```python
-    import threading
-    import time
     from azure.iot.device import IoTHubDeviceClient, MethodResponse
 
     CONNECTION_STRING = "{deviceConnectionString}"
+    client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
     ```
 
-4. Add the following function callback to handle the **lockDoor** method:
+4. Define the following handler function that will be used to respond to the **lockDoor** method:
 
     ```python
-    def lockdoor_listener(client):
-        while True:
-            # Receive the direct method request
-            method_request = client.receive_method_request("lockDoor")  # blocking call
-            print( "Locking Door!" )
+    def method_request_handler(method_request):
+        if method_request.name == "lockDoor":
+            print("Locking Door!")
 
             resp_status = 200
             resp_payload = {"Response": "lockDoor called successfully"}
-            method_response = MethodResponse(method_request.request_id, resp_status, resp_payload)
+            method_response = MethodResponse.create_from_method_request(
+                method_request=method_request,
+                status=resp_status,
+                payload=resp_payload
+            )
             client.send_method_response(method_response)
     ```
 
-5. Add another function callback to handle device twins updates:
+5. Add another handler function for receiving device twins updates:
 
     ```python
-    def twin_update_listener(client):
-        while True:
-            patch = client.receive_twin_desired_properties_patch()  # blocking call
-            print ("")
-            print ("Twin desired properties patch received:")
-            print (patch)
+    def twin_patch_handler(twin_patch):
+        print("")
+        print("Twin desired properties patch received:")
+        print(twin_patch)
     ```
 
-6. Add the following code to register the handler for the **lockDoor** method. Also include the `main` routine:
+6. Add the following code to register the handlers for the **lockDoor** method as well as twin patches. Also include the `main` routine:
 
     ```python
     def iothub_jobs_sample_run():
+        print("Beginning to listen for 'lockDoor' direct method invocations...")
+        client.on_method_request_received = method_request_handler
+        print("Beginning to listen for updates to the Twin desired properties...")
+        client.on_twin_desired_properties_patch_received = twin_patch_handler
+
+        client.connect()
+
         try:
-            client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
-
-            print( "Beginning to listen for 'lockDoor' direct method invocations...")
-            lockdoor_listener_thread = threading.Thread(target=lockdoor_listener, args=(client,))
-            lockdoor_listener_thread.daemon = True
-            lockdoor_listener_thread.start()
-
-            # Begin listening for updates to the Twin desired properties
-            print ( "Beginning to listen for updates to Twin desired properties...")
-            twin_update_listener_thread = threading.Thread(target=twin_update_listener, args=(client,))
-            twin_update_listener_thread.daemon = True
-            twin_update_listener_thread.start()
-            
             while True:
-                time.sleep(1000)
-
+                import time
+                time.sleep(100)
         except KeyboardInterrupt:
-            print ( "IoTHubDeviceClient sample stopped" )
+            print("IoTHubDeviceClient sample stopped!")
+            client.shutdown()
 
     if __name__ == '__main__':
         print ( "Starting the IoT Hub Python jobs sample..." )
@@ -167,7 +162,7 @@ To create a shared access policy that grants **service connect**, **registry rea
 
     ![Show how to retrieve the connection string](./media/iot-hub-python-python-schedule-jobs/get-connection-string.png)
 
-For more information about IoT Hub shared access policies and permissions, see [Access control and permissions](./iot-hub-devguide-security.md#access-control-and-permissions).
+For more information about IoT Hub shared access policies and permissions, see [Access control and permissions](./iot-hub-dev-guide-sas.md#access-control-and-permissions).
 
 ## Schedule jobs for calling a direct method and updating a device twin's properties
 

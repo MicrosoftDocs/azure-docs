@@ -1,36 +1,39 @@
 ---
-title: 'Quickstart: Create an Azure WAF v2 on Application Gateway - Resource Manager template'
+title: 'Quickstart: Create an Azure WAF v2 on Application Gateway - Azure Resource Manager template'
 titleSuffix: Azure Application Gateway
-description: Learn how to use a Resource Manager template to create a Web Application Firewall v2 on Azure Application Gateway.
+description: Learn how to use an Azure Resource Manager quickstart template (ARM template) to create a Web Application Firewall v2 on Azure Application Gateway.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: quickstart
-ms.date: 04/02/2020
+ms.date: 09/16/2020
 ms.author: victorh
+ms.custom: subject-armqs, devx-track-azurepowershell
 ---
 
-# Quickstart: Create an Azure WAF v2 on Application Gateway - Resource Manager template
+# Quickstart: Create an Azure WAF v2 on Application Gateway using an ARM template
 
-In this quickstart, you use a Resource Manager template to create an Azure Web Application Firewall v2 on Application Gateway.
+In this quickstart, you use an Azure Resource Manager template (ARM template) to create an Azure Web Application Firewall v2 on Application Gateway.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+
+[![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fag-docs-wafv2%2Fazuredeploy.json)
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Create a Web Application Firewall
+## Review the template
 
 This template creates a simple Web Application Firewall v2 on Azure Application Gateway. This includes a public IP frontend IP address, HTTP settings, a rule with a basic listener on port 80, and a backend pool. A WAF policy with a custom rule is created to block traffic to the backend pool based on an IP address match type.
 
-### Review the template
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/ag-docs-wafv2/).
 
-The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/blob/master/ag-docs-wafv2/azuredeploy.json)
-
-:::code language="json" source="~/quickstart-templates/ag-docs-wafv2/azuredeploy.json" range="001-404" highlight="314-358":::
+:::code language="json" source="~/quickstart-templates/demos/ag-docs-wafv2/azuredeploy.json":::
 
 Multiple Azure resources are defined in the template:
 
@@ -43,20 +46,20 @@ Multiple Azure resources are defined in the template:
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) : two for the virtual machines
 - [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) : to configure IIS and the web pages
 
-### Deploy the template
+## Deploy the template
 
-Deploy Resource Manager template to Azure:
+Deploy the ARM template to Azure:
 
 1. Select **Deploy to Azure** to sign in to Azure and open the template. The template creates an application gateway, the network infrastructure, and two virtual machines in the backend pool running IIS.
 
-   [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-wafv2%2Fazuredeploy.json)
+   [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fag-docs-wafv2%2Fazuredeploy.json)
 
 2. Select or create your resource group.
 3. Select **I agree to the terms and conditions stated above** and then select **Purchase**. The deployment can take 10 minutes or longer to complete.
 
 ## Validate the deployment
 
-Although IIS isn't required to create the application gateway, it's installed on the backend servers to verify if Azure successfully created a WAF v2 on the application gateway. 
+Although IIS isn't required to create the application gateway, it's installed on the backend servers to verify if Azure successfully created a WAF v2 on the application gateway.
 
 Use IIS to test the application gateway:
 

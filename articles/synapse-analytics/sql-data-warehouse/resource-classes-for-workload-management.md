@@ -6,7 +6,7 @@ author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
@@ -128,7 +128,7 @@ The following statements are exempt from resource classes and always run in smal
 - DBCC
 
 <!--
-Removed as these two are not confirmed / supported under SQL DW
+Removed as these two are not confirmed / supported under Azure Synapse Analytics
 - CREATE REMOTE TABLE AS SELECT
 - CREATE EXTERNAL TABLE AS SELECT
 - REDISTRIBUTE
@@ -157,13 +157,13 @@ WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
 
 Resource classes are implemented by assigning users to database roles. When a user runs a query, the query runs with the user's resource class. For example, if a user is a member of the staticrc10 database role, their queries run with small amounts of memory. If a database user is a member of the xlargerc or staticrc80 database roles, their queries run with large amounts of memory.
 
-To increase a user's resource class, use [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) to add the user to a database role of a large resource class.  The below code adds a user to the largerc database role.  Each request gets 22% of the system memory.
+To increase a user's resource class, use [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to add the user to a database role of a large resource class.  The below code adds a user to the largerc database role.  Each request gets 22% of the system memory.
 
 ```sql
 EXEC sp_addrolemember 'largerc', 'loaduser';
 ```
 
-To decrease the resource class, use [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  If 'loaduser' is not a member or any other resource classes, they go into the default smallrc resource class with a 3% memory grant.  
+To decrease the resource class, use [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  If 'loaduser' is not a member or any other resource classes, they go into the default smallrc resource class with a 3% memory grant.  
 
 ```sql
 EXEC sp_droprolemember 'largerc', 'loaduser';
@@ -268,7 +268,7 @@ GO
 -- Creating prc_workload_management_by_DWU.
 -------------------------------------------------------------------------------
 CREATE PROCEDURE dbo.prc_workload_management_by_DWU
-(@DWU VARCHAR(7),
+(@DWU VARCHAR(8),
  @SCHEMA_NAME VARCHAR(128),
  @TABLE_NAME VARCHAR(128)
 )
@@ -587,4 +587,4 @@ GO
 
 ## Next steps
 
-For more information about managing database users and security, see [Secure a database in SQL Analytics](sql-data-warehouse-overview-manage-security.md). For more information about how larger resource classes can improve clustered columnstore index quality, see [Memory optimizations for columnstore compression](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+For more information about managing database users and security, see [Secure a database in Synapse SQL](sql-data-warehouse-overview-manage-security.md). For more information about how larger resource classes can improve clustered columnstore index quality, see [Memory optimizations for columnstore compression](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).

@@ -2,12 +2,13 @@
 title: Developer guide for Azure IoT Hub | Microsoft Docs
 description: The Azure IoT Hub developer guide includes discussions of endpoints, security, the identity registry, device management, direct methods, device twins, file uploads, jobs, the IoT Hub query language, and messaging.
 author: wesmc7777
-manager: philmea
+
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
+ms.custom: mqtt
 ---
 
 # Azure IoT Hub developer guide
@@ -46,7 +47,7 @@ This IoT Hub developer guide includes the following articles:
 
 * [Upload files from a device](iot-hub-devguide-file-upload.md) describes how you can upload files from a device. The article also includes information about topics such as the notifications the upload process can send.
 
-* [Manage device identities in IoT Hub](iot-hub-devguide-identity-registry.md)describes what information each IoT hub's identity registry stores. The article also describes how you can access and modify it.
+* [Manage device identities in IoT Hub](iot-hub-devguide-identity-registry.md) describes what information each IoT hub's identity registry stores. The article also describes how you can access and modify it.
 
 * [Control access to IoT Hub](iot-hub-devguide-security.md) describes the security model used to grant access to IoT Hub functionality for both devices and cloud components. The article includes information about using tokens and X.509 certificates, and details of the permissions you can grant.
 
@@ -69,5 +70,3 @@ This IoT Hub developer guide includes the following articles:
 * [Reference - Device and service SDKs](iot-hub-devguide-sdks.md) lists the Azure IoT SDKs for developing device and service apps that interact with your IoT hub. The article includes links to online API documentation.
 
 * [Reference - IoT Hub MQTT support](iot-hub-mqtt-support.md) provides detailed information about how IoT Hub supports the MQTT protocol. The article describes the support for the MQTT protocol built-in to the Azure IoT SDKs and provides information about using the MQTT protocol directly.
-
-* [Glossary](iot-hub-devguide-glossary.md) a list of common IoT Hub-related terms.

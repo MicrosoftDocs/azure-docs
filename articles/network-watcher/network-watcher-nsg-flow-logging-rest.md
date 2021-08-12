@@ -7,10 +7,10 @@ documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 02/22/2017
+ms.date: 01/07/2021
 ms.author: damendo
 
 ---
@@ -28,7 +28,7 @@ Network Security Group flow logs are a feature of Network Watcher that allows yo
 
 ## Before you begin
 
-ARMclient is used to call the REST API using PowerShell. ARMClient is found on chocolatey at [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient)
+ARMclient is used to call the REST API using PowerShell. ARMClient is found on chocolatey at [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient). The detailed specifications of NSG flow logs REST API can be found [here](/rest/api/network-watcher/flowlogs) 
 
 This scenario assumes you have already followed the steps in [Create a Network Watcher](network-watcher-create.md) to create a Network Watcher.
 
@@ -112,6 +112,9 @@ The response returned from the preceding example is as follows:
   }
 }
 ```
+> [!NOTE]
+> - The api [Network Watchers - Set Flow Log Configuration](/rest/api/network-watcher/network-watchers/set-flow-log-configuration) used above is old and may soon be deprecated.
+> - It is recommended to use the new [Flow Logs - Create Or Update](/rest/api/network-watcher/flow-logs/create-or-update) rest api instead.
 
 ## Disable Network Security Group flow logs
 
@@ -164,6 +167,10 @@ The response returned from the preceding example is as follows:
 }
 ```
 
+> [!NOTE]
+> - The api [Network Watchers - Set Flow Log Configuration](/rest/api/network-watcher/network-watchers/set-flow-log-configuration) used above is old and may soon be deprecated.
+> - It is recommended to use the new [Flow Logs - Create Or Update](/rest/api/network-watcher/flow-logs/create-or-update) rest api to disable flow logs and the [Flow Logs - Delete](/rest/api/network-watcher/flow-logs/delete) to delete flow logs resource.
+
 ## Query flow logs
 
 The following REST call queries the status of flow logs on a Network Security Group.
@@ -201,6 +208,10 @@ The following is an example of the response returned:
   }
 }
 ```
+
+> [!NOTE]
+> - The api [Network Watchers - Get Flow Log Status](/rest/api/network-watcher/network-watchers/get-flow-log-status) used above, requires an additional "reader" permission in the resource group of the network watcher. Also, this api is old and may soon be deprecated.
+> - It is recommended to use the new [Flow Logs - Get](/rest/api/network-watcher/flow-logs/get) rest api instead.
 
 ## Download a flow log
 

@@ -1,16 +1,20 @@
 ---
-title: Handle Cloud Service lifecycle events | Microsoft Docs
-description: Learn how the lifecycle methods of a Cloud Service role can be used in .NET
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
+title: Handle Cloud Service (classic) lifecycle events | Microsoft Docs
+description: Learn how to use the lifecycle methods of a Cloud Service role in .NET, including RoleEntryPoint, which provides methods to respond to lifecycle events.
 ms.topic: article
-ms.date: 07/18/2017
-ms.author: tagore
-
+ms.service: cloud-services
+ms.date: 10/14/2020
+author: hirenshah1
+ms.author: hirshah
+ms.reviewer: mimckitt
+ms.custom: 
 ---
+
 # Customize the Lifecycle of a Web or Worker role in .NET
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 When you create a worker role, you extend the [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) class which provides methods for you to override that let you respond to lifecycle events. For web roles this class is optional, so you must use it to respond to lifecycle events.
 
 ## Extend the RoleEntryPoint class

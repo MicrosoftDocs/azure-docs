@@ -3,29 +3,28 @@ title: Azure Media Services concepts | Microsoft Docs
 description: This article gives a brief overview of Microsoft Azure Media Services concepts and links to other articles for details.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2019
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
-# Azure Media Services concepts 
+# Azure Media Services concepts
 
-> [!NOTE]
-> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
+[!INCLUDE [v2 deprecation notice](../latest/includes/v2-deprecation-notice.md)]
 
 This topic gives an overview of the most important Media Services concepts.
 
-## <a id="assets"/>Assets and Storage
+## <a name="assets"></a>Assets and Storage
 ### Assets
-An [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) contains digital files (including video, audio, images, thumbnail collections, text tracks and closed caption files) and the metadata about these files. After the digital files are uploaded into an asset, they could be used in the Media Services encoding and streaming workflows.
+An [Asset](/rest/api/media/operations/asset) contains digital files (including video, audio, images, thumbnail collections, text tracks and closed caption files) and the metadata about these files. After the digital files are uploaded into an asset, they could be used in the Media Services encoding and streaming workflows.
 
 An asset is mapped to a blob container in the Azure Storage account and the files in the asset are stored as block blobs in that container. Page blobs are not supported by Azure Media Services.
 
@@ -35,7 +34,7 @@ When deciding what media content to upload and store in an asset, the following 
 * An asset should not contain multiple renditions or edits of an audiovisual file. One example of an improper usage of an Asset would be attempting to store more than one TV episode, advertisement, or multiple camera angles from a single production inside an asset. Storing multiple renditions or edits of an audiovisual file in an asset can result in difficulties submitting encoding jobs, streaming and securing the delivery of the asset later in the workflow.  
 
 ### Asset file
-An [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) represents an actual video or audio file that is stored in a blob container. An asset file is always associated with an asset, and an asset may contain one or many files. The Media Services Encoder task fails if an asset file object is not associated with a digital file in a blob container.
+An [AssetFile](/rest/api/media/operations/assetfile) represents an actual video or audio file that is stored in a blob container. An asset file is always associated with an asset, and an asset may contain one or many files. The Media Services Encoder task fails if an asset file object is not associated with a digital file in a blob container.
 
 The **AssetFile** instance and the actual media file are two distinct objects. The AssetFile instance contains metadata about the media file, while the media file contains the actual media content.
 
@@ -58,7 +57,7 @@ In order to deliver a storage encrypted asset, you must configure the asset’s 
 **EnvelopeEncryptionProtected** – Use this option if you want to protect (or upload already protected) HTTP Live Streaming (HLS) encrypted with Advanced Encryption Standard (AES). If you are uploading HLS already encrypted with AES, it must have been encrypted by Transform Manager.
 
 ### Access policy
-An [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy) defines permissions (like read, write, and list) and duration of access to an asset. You would usually pass an AccessPolicy object to a locator that would then be used to access the files contained in an asset.
+An [AccessPolicy](/rest/api/media/operations/accesspolicy) defines permissions (like read, write, and list) and duration of access to an asset. You would usually pass an AccessPolicy object to a locator that would then be used to access the files contained in an asset.
 
 >[!NOTE]
 >There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions, for example, policies for locators that are intended to remain in place for a long time (non-upload policies). For more information, see [this](media-services-dotnet-manage-entities.md#limit-access-policies) topic.
@@ -71,8 +70,8 @@ A blob container provides a grouping of a set of blobs. Blob containers are used
 > 
 > 
 
-### <a id="locators"/>Locators
-[Locator](https://docs.microsoft.com/rest/api/media/operations/locator)s provide an entry point to access the files contained in an asset. An access policy is used to define the permissions and duration that a client has access to a given asset. Locators can have a many to one relationship with an access policy, such that different locators can provide different start times and connection types to different clients while all using the same permission and duration settings; however, because of a shared access policy restriction set by Azure storage services, you cannot have more than five unique locators associated with a given asset at one time. 
+### <a name="locators"></a>Locators
+[Locator](/rest/api/media/operations/locator)s provide an entry point to access the files contained in an asset. An access policy is used to define the permissions and duration that a client has access to a given asset. Locators can have a many to one relationship with an access policy, such that different locators can provide different start times and connection types to different clients while all using the same permission and duration settings; however, because of a shared access policy restriction set by Azure storage services, you cannot have more than five unique locators associated with a given asset at one time. 
 
 Media Services supports two types of locators: OnDemandOrigin locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) or progressively download media and SAS URL locators, used to upload or download media files to\from Azure storage. 
 
@@ -80,12 +79,12 @@ Media Services supports two types of locators: OnDemandOrigin locators, used to 
 >The list permission (AccessPermissions.List) should not be used when creating an OnDemandOrigin locator. 
 
 ### Storage account
-All access to Azure Storage is done through a storage account. A Media Service account can associate with one or more storage accounts. An account can contain an unlimited number of containers, as long as their total size is under 500TB per storage account.  Media Services provides SDK level tooling to allow you to manage multiple storage accounts and load balance the distribution of your assets during upload to these accounts based on metrics or random distribution. For more information, see Working with [Azure Storage](https://msdn.microsoft.com/library/azure/dn767951.aspx). 
+All access to Azure Storage is done through a storage account. A Media Service account can associate with one or more storage accounts. An account can contain an unlimited number of containers, as long as their total size is under 500TB per storage account.  Media Services provides SDK level tooling to allow you to manage multiple storage accounts and load balance the distribution of your assets during upload to these accounts based on metrics or random distribution. For more information, see Working with [Azure Storage](/previous-versions/azure/dn767951(v=azure.100)). 
 
 ## Jobs and tasks
-A [job](https://docs.microsoft.com/rest/api/media/operations/job) is typically used to process (for example, index or encode) one audio/video presentation. If you are processing multiple videos, create a job for each video to be encoded.
+A [job](/rest/api/media/operations/job) is typically used to process (for example, index or encode) one audio/video presentation. If you are processing multiple videos, create a job for each video to be encoded.
 
-A job contains metadata about the processing to be performed. Each job contains one or more [task](https://docs.microsoft.com/rest/api/media/operations/task)s that specify an atomic processing task, its input Assets, output Assets, a media processor and its associated settings. Tasks within a job can be chained together, where the output asset of one task is given as the input asset to the next task. In this way one job can contain all of the processing necessary for a media presentation.
+A job contains metadata about the processing to be performed. Each job contains one or more [task](/rest/api/media/operations/task)s that specify an atomic processing task, its input Assets, output Assets, a media processor and its associated settings. Tasks within a job can be chained together, where the output asset of one task is given as the input asset to the next task. In this way one job can contain all of the processing necessary for a media presentation.
 
 ## <a id="encoding"></a>Encoding
 Azure Media Services provides multiple options for the encoding of media in the cloud.
@@ -97,12 +96,11 @@ Media Services provides dynamic packaging which allows you to deliver your adapt
 
 To take advantage of [dynamic packaging](media-services-dynamic-packaging-overview.md), you need to encode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files and have at least one standard or premium streaming endpoint in started state.
 
-Media Services supports the following on-demand encoders that are described in this article:
+Media Services supports the following on-demand encoder that is described in this article:
 
 * [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
-* [Media Encoder Premium Workflow](media-services-encode-asset.md#media-encoder-premium-workflow)
 
-For information about supported encoders, see [Encoders](media-services-encode-asset.md).
+For information about this supported encoder, see [Encoder](media-services-encode-asset.md).
 
 ## Live Streaming
 In Azure Media Services, a Channel represents a pipeline for processing live streaming content. A Channel receives live input streams in one of two ways:
@@ -111,14 +109,14 @@ In Azure Media Services, a Channel represents a pipeline for processing live str
 * A single bitrate stream (in one of the following formats: RTMP, or Smooth Streaming (Fragmented MP4)) is sent to the Channel that is enabled to perform live encoding with Media Services. The Channel then performs live encoding of the incoming single bitrate stream to a multi-bitrate (adaptive) video stream. When requested, Media Services delivers the stream to customers.
 
 ### Channel
-In Media Services, [Channel](https://docs.microsoft.com/rest/api/media/operations/channel)s are responsible for processing live streaming content. A Channel provides an input endpoint (ingest URL) that you then provide to a live transcoder. The channel receives live input streams from the live transcoder and makes it available for streaming through one or more StreamingEndpoints. Channels also provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery.
+In Media Services, [Channel](/rest/api/media/operations/channel)s are responsible for processing live streaming content. A Channel provides an input endpoint (ingest URL) that you then provide to a live transcoder. The channel receives live input streams from the live transcoder and makes it available for streaming through one or more StreamingEndpoints. Channels also provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery.
 
 You can get the ingest URL and the preview URL when you create the channel. To get these URLs, the channel does not have to be in the started state. When you are ready to start pushing data from a live transcoder into the channel, the channel must be started. Once the live transcoder starts ingesting data, you can preview your stream.
 
 Each Media Services account can contain multiple Channels, multiple Programs, and multiple StreamingEndpoints. Depending on the bandwidth and security needs, StreamingEndpoint services can be dedicated to one or more channels. Any StreamingEndpoint can pull from any Channel.
 
 ### Program (event)
-A [Program (event)](https://docs.microsoft.com/rest/api/media/operations/program) enables you to control the publishing and storage of segments in a live stream. Channels manage Programs (events). The Channel and Program relationship is similar to traditional media where a channel has a constant stream of content and a program is scoped to some timed event on that channel.
+A [Program (event)](/rest/api/media/operations/program) enables you to control the publishing and storage of segments in a live stream. Channels manage Programs (events). The Channel and Program relationship is similar to traditional media where a channel has a constant stream of content and a program is scoped to some timed event on that channel.
 You can specify the number of hours you want to retain the recorded content for the program by setting the **ArchiveWindowLength** property. This value can be set from a minimum of 5 minutes to a maximum of 25 hours.
 
 ArchiveWindowLength also dictates the maximum amount of time clients can seek back in time from the current live position. Programs can run over the specified amount of time, but content that falls behind the window length is continuously discarded. This value of this property also determines how long the client manifests can grow.
@@ -152,11 +150,11 @@ When configuring the token restricted policy, you must specify the primary verif
 
 For more information, see the following articles:
 - [Protect content overview](media-services-content-protection-overview.md)
-- [Protect with AES-128](media-services-protect-with-aes128.md)
+- [Protect with AES-128](media-services-playready-license-template-overview.md)
 - [Protect with PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 
 ## Delivering
-### <a id="dynamic_packaging"/>Dynamic packaging
+### <a name="dynamic_packaging"></a>Dynamic packaging
 When working with Media Services, it is recommended to encode your mezzanine files into an adaptive bitrate MP4 set and then convert the set to the desired format using the [Dynamic Packaging](media-services-dynamic-packaging-overview.md).
 
 ### Streaming endpoint
@@ -176,7 +174,7 @@ By default you can have up to 2 streaming endpoints in your Media Services accou
 You are only billed when your StreamingEndpoint is in running state.
 
 ### Asset delivery policy
-One of the steps in the Media Services content delivery workflow is configuring [delivery policies for assets](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)that you want to be streamed. The asset delivery policy tells Media Services how you want for your asset to be delivered: into which streaming protocol should your asset be dynamically packaged (for example, MPEG DASH, HLS, Smooth Streaming, or all), whether or not you want to dynamically encrypt your asset and how (envelope or common encryption).
+One of the steps in the Media Services content delivery workflow is configuring [delivery policies for assets](/rest/api/media/operations/assetdeliverypolicy)that you want to be streamed. The asset delivery policy tells Media Services how you want for your asset to be delivered: into which streaming protocol should your asset be dynamically packaged (for example, MPEG DASH, HLS, Smooth Streaming, or all), whether or not you want to dynamically encrypt your asset and how (envelope or common encryption).
 
 If you have a storage encrypted asset, before your asset can be streamed, the streaming server removes the storage encryption and streams your content using the specified delivery policy. For example, to deliver your asset encrypted with Advanced Encryption Standard (AES) encryption key, set the policy type to DynamicEnvelopeEncryption. To remove storage encryption and stream the asset in the clear, set the policy type to NoDynamicEncryption.
 
@@ -188,7 +186,7 @@ Progressive download allows you to start playing media before the entire file ha
 
 To provide users with progressive download URLs, you first must create an OnDemandOrigin locator. Creating the locator, gives you the base Path to the asset. You then need to append the name of MP4 file. For example:
 
-http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
+`http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4`
 
 ### Streaming URLs
 Streaming your content to clients. To provide users with streaming URLs, you first must create an OnDemandOrigin locator. Creating the locator, gives you the base Path to the asset that contains the content you want to stream. However, to be able to stream this content you need to modify this path further. To construct a full URL to the streaming manifest file, you must concatenate the locator’s Path value and the manifest (filename.ism) file name. Then, append /Manifest and an appropriate format (if needed) to the locator path.
@@ -233,4 +231,3 @@ http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

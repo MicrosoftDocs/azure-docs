@@ -46,7 +46,7 @@ To resolve this error when the parent resource was previously deployed in a diff
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "sqlServerName": {
@@ -72,4 +72,4 @@ To resolve this error when the parent resource was previously deployed in a diff
 }
 ```
 
-For more information, see [Define the order for deploying resources in Azure Resource Manager templates](define-resource-dependency.md).
+For more information, see [Define the order for deploying resources in Azure Resource Manager templates](./resource-dependency.md).

@@ -1,11 +1,9 @@
 ---
 title: Generate log events from a .NET app
 description: Learn about how to add logging to your .NET Service Fabric application hosted on an Azure cluster or a standalone-cluster.
-author: srrengar
-
 ms.topic: conceptual
 ms.date: 03/27/2018
-ms.author: srrengar
+ms.custom: devx-track-csharp
 ---
 
 # Add logging to your Service Fabric application
@@ -92,7 +90,7 @@ Using a hybrid of structured and generic instrumentation also can work well. Str
 
 The ASP.NET Core logging ([Microsoft.Extensions.Logging NuGet package](https://www.nuget.org/packages/Microsoft.Extensions.Logging)) is a logging framework that provides a standard logging API for your application. Support for other logging backends can be plugged into ASP.NET Core logging. This gives you a wide variety of support for logging in your application is processed, without having to change much code.
 
-1. Add the **Microsoft.Extensions.Logging** NuGet package to the project you want to instrument. Also, add any provider packages. For more information, see [Logging in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
+1. Add the **Microsoft.Extensions.Logging** NuGet package to the project you want to instrument. Also, add any provider packages. For more information, see [Logging in ASP.NET Core](/aspnet/core/fundamentals/logging).
 2. Add a **using** directive for **Microsoft.Extensions.Logging** to your service file.
 3. Define a private variable within your service class.
 
@@ -163,13 +161,3 @@ Some third-party providers use the approach described in the preceding section, 
 
 - Read more information about [application monitoring in Service Fabric](service-fabric-diagnostics-event-generation-app.md).
 - Read about logging with [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) and [Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md).
-
-
-
-
-
-
-
-
-
-

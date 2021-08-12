@@ -9,7 +9,7 @@
     - name: Web Application Firewall on Application Gateway
       href: ./ag/ag-overview.md
     - name: What's new
-      href: ./ag/whats-new.md
+      href: ./ag/ag-overview.md#whats-new
   - name: Front Door
     items:
     - name: Web Application Firewall on Azure Front Door
@@ -63,8 +63,14 @@
       href: ./ag/policy-overview.md
     - name: Bot protection overview
       href: ./ag/bot-protection-overview.md
+    - name: FAQ
+      href: ./ag/application-gateway-waf-faq.yml
   - name: Front Door
     items:
+    - name: Tuning
+      href: ./afds/waf-front-door-tuning.md
+    - name: Managed rules
+      href: ./afds/waf-front-door-drs.md
     - name: Custom rules
       href: ./afds/waf-front-door-custom-rules.md
     - name: Exclusion lists
@@ -74,7 +80,13 @@
     - name: Geo-filtering
       href: ./afds/waf-front-door-geo-filtering.md
     - name: FAQ
-      href: ./afds/waf-faq.md
+      href: ./afds/waf-faq.yml
+  - name: Security
+    items:
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/web-application-firewall-security-baseline?toc=/azure/web-application-firewall/toc.json
+  - name: WAF and Azure Policy
+    href: ./shared/waf-azure-policy.md
 - name: How-to guides
   items:
   - name: Application Gateway
@@ -107,7 +119,7 @@
        href: ./ag/bot-protection.md
      - name: Associate a policy with an existing Application Gateway
        href: ./ag/associate-waf-policy-existing-gateway.md
-     - name: Diagnostic logs
+     - name: Resource logs
        href: ./ag/web-application-firewall-logs.md
      - name: Troubleshoot WAF
        href: ./ag/web-application-firewall-troubleshoot.md
@@ -127,6 +139,8 @@
       href: ./afds/waf-front-door-tutorial-geo-filtering.md
     - name: Monitor and logging
       href: ./afds/waf-front-door-monitor.md
+  - name: Using Azure Sentinel with Web Application Firewall
+    href: waf-sentinel.md
   - name: Troubleshoot
     items:
      - name: Application Gateway
@@ -142,25 +156,25 @@
   - name: Azure CLI
     items:
     - name: Front Door
-      href: https://docs.microsoft.com/cli/azure/ext/front-door/network?view=azure-cli-latest
+      href: /cli/azure/network
     - name: Application Gateway
-      href: https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest
+      href: /cli/azure/network/application-gateway
     - name: CDN
-      href: https://docs.microsoft.com/cli/azure/cdn/waf?view=azure-cli-latest
+      href: /cli/azure/cdn/waf
   - name: Azure PowerShell
     items:
     - name: Front Door
-      href: https://docs.microsoft.com/powershell/module/az.frontdoor/?view=azps-3.3.0
+      href: /powershell/module/az.frontdoor/
     - name: Application Gateway
-      href: https://docs.microsoft.com/powershell/module/az.network/?view=azps-3.3.0#application_gateway
+      href: /powershell/module/az.network/#application_gateway
     - name: CDN
       href: https://www.powershellgallery.com/packages/Az.Cdn/1.5.0-preview
   - name: REST API
     items:
     - name: Front Door
-      href: https://docs.microsoft.com/rest/api/frontdoorservice/webapplicationfirewall/policies
+      href: /rest/api/frontdoorservice/webapplicationfirewall/policies
     - name: Application Gateway
-      href: https://docs.microsoft.com/rest/api/virtualnetwork/webapplicationfirewallpolicies
+      href: /rest/api/application-gateway
   - name: .NET
     href: /dotnet/api
   - name: Java
@@ -172,7 +186,7 @@
 - name: Resources
   items:
   - name: Author templates
-    href: ../azure-resource-manager/templates/template-syntax.md
+    href: ../azure-resource-manager/templates/syntax.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Community templates

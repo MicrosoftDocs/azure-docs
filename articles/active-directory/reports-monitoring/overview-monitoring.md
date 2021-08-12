@@ -33,9 +33,27 @@ Currently, you can route the logs to:
 - An Azure event hub, so you can integrate with your Splunk and Sumologic instances.
 - Azure Log Analytics workspace, wherein you can analyze the data, create dashboard and alert on specific events
 
+**Prerequisite role**: Global Admin
+
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+## Licensing and prerequisites for Azure AD reporting and monitoring
+
+You'll need an Azure AD premium license to access the Azure AD sign in logs.
+
+For detailed feature and licensing information in the [Azure Active Directory pricing guide](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+
+To deploy Azure AD monitoring and reporting you'll need a user who is a global administrator or security administrator for the Azure AD tenant.
+
+Depending on the final destination of your log data, you'll need one of the following:
+
+* An Azure storage account that you have ListKeys permissions for. We recommend that you use a general storage account and not a Blob storage account. For storage pricing information, see the [Azure Storage pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=storage).
+
+* An Azure Event Hubs namespace to integrate with third-party SIEM solutions.
+
+* An Azure Log Analytics workspace to send logs to Azure Monitor logs.
 
 ## Diagnostic settings configuration
 
@@ -60,7 +78,7 @@ Routing logs to an Azure event hub allows you to integrate with third-party SIEM
 
 ## Send logs to Azure Monitor logs
 
-[Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) is a solution that consolidates monitoring data from different sources and provides a query language and analytics engine that gives you insights into the operation of your applications and resources. By sending Azure AD activity logs to Azure Monitor logs, you can quickly retrieve, monitor and alert on collected data. Learn how to [send data to Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md).
+[Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md) is a solution that consolidates monitoring data from different sources and provides a query language and analytics engine that gives you insights into the operation of your applications and resources. By sending Azure AD activity logs to Azure Monitor logs, you can quickly retrieve, monitor and alert on collected data. Learn how to [send data to Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md).
 
 You can also install the pre-built views for Azure AD activity logs to monitor common scenarios involving sign-ins and audit events. Learn how to [install and use log analytics views for Azure AD activity logs](howto-install-use-log-analytics-views.md).
 

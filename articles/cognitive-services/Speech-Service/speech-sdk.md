@@ -3,13 +3,13 @@ title: About the Speech SDK - Speech service
 titleSuffix: Azure Cognitive Services
 description: The Speech software development kit (SDK) exposes many of the Speech service capabilities, making it easier to develop speech-enabled applications.
 services: cognitive-services
-author: trevorbye
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.author: trbye
+ms.author: nitinme
 ---
 
 # About the Speech SDK
@@ -24,19 +24,56 @@ The Speech SDK exposes many features from the Speech service, but not all of the
 
 ### Speech-to-text
 
-[Speech-to-text](speech-to-text.md) (also known as *speech recognition*) transcribes audio streams to text that your applications, tools, or devices can consume or display. Use speech-to-text with [Language Understanding (LUIS)](../luis/index.yml) to derive user intents from transcribed speech and act on voice commands. Use [Speech Translation](speech-translation.md) to translate speech input to a different language with a single call. For more information, see [Speech-to-text basics](speech-to-text-basics.md).
+[Speech-to-text](speech-to-text.md) (also known as *speech recognition*) transcribes audio streams to text that your applications, tools, or devices can consume or display. Use speech-to-text with [Language Understanding (LUIS)](../luis/index.yml) to derive user intents from transcribed speech and act on voice commands. Use [Speech Translation](speech-translation.md) to translate speech input to a different language with a single call. For more information, see [Speech-to-text basics](./get-started-speech-to-text.md).
+
+**Speech-Recognition (SR), Phrase List, Intent, Translation, and On-premises containers** are available on the following platforms:
+
+  - C++/Windows & Linux & macOS
+  - C# (Framework & .NET Core)/Windows & UWP & Unity & Xamarin & Linux & macOS
+  - Java (Jre and Android)
+  - JavaScript (Browser and NodeJS)
+  - Python
+  - Swift
+  - Objective-C  
+  - Go (SR only)
 
 ### Text-to-speech
 
 [Text-to-speech](text-to-speech.md) (also known as *speech synthesis*) converts text into human-like synthesized speech. The input text is either string literals or using the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). For more information on standard or neural voices, see [Text-to-speech language and voice support](language-support.md#text-to-speech).
 
+**Text-to-speech (TTS)** is available on the following platforms:
+
+  - C++/Windows & Linux & macOS
+  - C# (Framework & .NET Core)/Windows & UWP & Unity & Xamarin & Linux & macOS
+  - Java (Jre and Android)
+  - JavaScript (Browser and NodeJS)
+  - Python
+  - Swift
+  - Objective-C
+  - Go
+  - TTS REST API can be used in every other situation.
+
 ### Voice assistants
 
-Voice assistants using the Speech SDK enable developers to create natural, human-like conversational interfaces for their applications and experiences. The voice assistant service provides fast, reliable interaction between a device and an assistant. The implementation uses the Bot Framework's Direct Line Speech channel or the integrated Custom Commands (Preview) service for task completion. Additionally, voice assistants can be created using the [Custom Voice Portal](https://aka.ms/customvoice) to create a unique voice experience.
+[Voice assistants](voice-assistants.md) using the Speech SDK enable you to create natural, human-like conversational interfaces for your applications and experiences. The Speech SDK provides fast, reliable interaction that includes speech-to-text, text-to-speech, and conversational data on a single connection. Your implementation can use the Bot Framework's Direct Line Speech channel or the integrated Custom Commands service for task completion. Additionally, voice assistants can use custom voices created in the [Custom Voice Portal](https://aka.ms/customvoice) to add a unique voice output experience.
 
-#### Keyword spotting
+**Voice assistant** support is available on the following platforms:
 
-The concept of [keyword spotting](speech-devices-sdk-create-kws.md) is supported in the Speech SDK. Keyword spotting is the act of identifying a keyword in speech, followed by an action upon hearing the keyword. For example, "Hey Cortana" would activate the Cortana assistant.
+  - C++/Windows & Linux & macOS
+  - C#/Windows
+  - Java/Windows & Linux & macOS & Android (Speech Devices SDK)
+  - Go
+
+#### Keyword recognition
+
+The concept of [keyword recognition](custom-keyword-basics.md) is supported in the Speech SDK. Keyword recognition is the act of identifying a keyword in speech, followed by an action upon hearing the keyword. For example, "Hey Cortana" would activate the Cortana assistant.
+
+**Keyword recognition** is available on the following platforms:
+
+  - C++/Windows & Linux
+  - C#/Windows & Linux
+  - Python/Windows & Linux
+  - Java/Windows & Linux & Android
 
 ### Meeting scenarios
 
@@ -46,9 +83,20 @@ The Speech SDK is perfect for transcribing meeting scenarios, whether from a sin
 
 [Conversation Transcription](conversation-transcription.md) enables real-time (and asynchronous) speech recognition, speaker identification, and sentence attribution to each speaker (also known as *diarization*). It's perfect for transcribing in-person meetings with the ability to distinguish speakers.
 
+**Conversation Transcription** is available on the following platforms:
+
+  - C++/Windows & Linux
+  - C# (Framework & .NET Core)/Windows & UWP & Linux
+  - Java/Windows & Linux & Android (Speech Devices SDK)
+
 #### Multi-device Conversation
 
 With [Multi-device Conversation](multi-device-conversation.md), connect multiple devices or clients in a conversation to send speech-based or text-based messages, with easy support for transcription and translation.
+
+**Multi-device Conversation** is available on the following platforms:
+
+  - C++/Windows
+  - C# (Framework & .NET Core)/Windows
 
 ### Custom / agent scenarios
 
@@ -58,9 +106,17 @@ The Speech SDK can be used for transcribing call center scenarios, where telepho
 
 [Call Center Transcription](call-center-transcription.md) is common scenario for speech-to-text for transcribing large volumes of telephony data that may come from various systems, such as Interactive Voice Response (IVR). The latest speech recognition models from the Speech service excel at transcribing this telephony data, even in cases when the data is difficult for a human to understand.
 
+**Call Center Transcription** is available through the Batch Speech Service via its REST API and can be used in any situation.
+
 ### Codec compressed audio input
 
-Several of the Speech SDK programming languages support codec compressed audio input streams. For more information, see <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">use compressed audio input formats <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Several of the Speech SDK programming languages support codec compressed audio input streams. For more information, see <a href="/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">use compressed audio input formats </a>.
+
+**Codec compressed audio input** is available on the following platforms:
+
+  - C++/Linux
+  - C#/Linux
+  - Java/Linux, Android, and iOS
 
 ## REST API
 
@@ -76,7 +132,7 @@ The Speech Service delivers great functionality with its default models across s
 
 ### Custom Speech-to-text
 
-When using speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models to address ambient noise or industry-specific vocabulary. The creation and management of no-code Custom Speech models is available through the [Custom Speech Portal](https://aka.ms/customspeech). Once the Custom Speech model is published, it can be consumed by the Speech SDK.
+When using speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models to address ambient noise or industry-specific vocabulary. The creation and management of no-code Custom Speech models is available through the [Custom Speech Portal](./custom-speech-overview.md). Once the Custom Speech model is published, it can be consumed by the Speech SDK.
 
 ### Custom Text-to-speech
 
@@ -120,5 +176,5 @@ Custom text-to-speech, also known as Custom Voice is a set of online tools that 
 
 ## Next steps
 
-* [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-* [See how to recognize speech in C#](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
+* [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)
+* [See how to recognize speech in C#](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet)

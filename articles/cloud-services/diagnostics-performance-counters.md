@@ -1,16 +1,19 @@
 ---
-title: Collect on Performance Counters in Azure Cloud Services | Microsoft Docs
+title: Collect on Performance Counters in Azure Cloud Services (classic) | Microsoft Docs
 description: Learn how to discover, use, and create performance counters in Cloud Services with Azure Diagnostics and Application Insights.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 02/02/2018
-ms.author: tagore
+ms.service: cloud-services
+ms.date: 10/14/2020
+author: hirenshah1
+ms.author: hirshah
+ms.reviewer: mimckitt
+ms.custom: 
 ---
 
-# Collect performance counters for your Azure Cloud Service
+# Collect performance counters for your Azure Cloud Service (classic)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
 
 Performance counters provide a way for you to track how well your application and the host are performing. Windows Server provides many different performance counters related to hardware, applications, the operating system, and more. By collecting and sending performance counters to Azure, you can analyze this information to help make better decisions. 
 
@@ -65,7 +68,7 @@ Get-Counter -ListSet * | Where-Object CounterSetName -eq "Processor" | Select -E
 \Processor(*)\C3 Transitions/sec
 ```
 
-These individual counter paths can be added to the diagnostics framework your cloud service uses. For more information about how a performance counter path is constructed, see [Specifying a Counter Path](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85)).
+These individual counter paths can be added to the diagnostics framework your cloud service uses. For more information about how a performance counter path is constructed, see [Specifying a Counter Path](/windows/win32/perfctrs/specifying-a-counter-path).
 
 ## Collect a performance counter
 
@@ -116,7 +119,7 @@ The Azure Diagnostics extension for Cloud Services allows you specify what perfo
 
 The performance counters you want to collect are defined in the **diagnostics.wadcfgx** file. Open this file (it is defined per role) in Visual Studio and find the **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration** > **PerformanceCounters** element. Add a new **PerformanceCounterConfiguration** element as a child. This element has two attributes: `counterSpecifier` and `sampleRate`. The `counterSpecifier` attribute defines which system performance counter set (outlined in the previous section) to collect. The `sampleRate` value indicates how often that value is polled. As a whole, all performance counters are transferred to Azure according to the parent `PerformanceCounters` element's `scheduledTransferPeriod` attribute value.
 
-For more information about the `PerformanceCounters` schema element, see the [Azure Diagnostics Schema](../azure-monitor/platform/diagnostics-extension-schema-windows.md#performancecounters-element).
+For more information about the `PerformanceCounters` schema element, see the [Azure Diagnostics Schema](../azure-monitor/agents/diagnostics-extension-schema-windows.md#performancecounters-element).
 
 The period defined by the `sampleRate` attribute uses the XML duration data type to indicate how often the performance counter is polled. In the example below, the rate is set to `PT3M`, which means `[P]eriod[T]ime[3][M]inutes`: every three minutes.
 
@@ -285,8 +288,5 @@ As previously stated, the performance counters you want to collect are defined i
 
 - [Application Insights for Azure Cloud Services](../azure-monitor/app/cloudservices.md#performance-counters)
 - [System performance counters in Application Insights](../azure-monitor/app/performance-counters.md)
-- [Specifying a Counter Path](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
-- [Azure Diagnostics Schema - Performance Counters](../azure-monitor/platform/diagnostics-extension-schema-windows.md#performancecounters-element)
-
-
-
+- [Specifying a Counter Path](/windows/win32/perfctrs/specifying-a-counter-path)
+- [Azure Diagnostics Schema - Performance Counters](../azure-monitor/agents/diagnostics-extension-schema-windows.md#performancecounters-element)

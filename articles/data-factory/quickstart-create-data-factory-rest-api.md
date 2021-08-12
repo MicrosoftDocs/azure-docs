@@ -1,20 +1,16 @@
 ---
 title: Create an Azure data factory using REST API
-description: Create an Azure data factory to copy data from one location in Azure Blob storage to another location.
-services: data-factory
-documentationcenter: ''
+description: Create an Azure data factory pipeline to copy data from one location in Azure Blob storage to another location.
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
-
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm:
+ms.subservice: data-movement
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 06/10/2019
-ms.author: jingwang
+ms.date: 05/31/2021
+ms.author: jingwang 
+ms.custom: devx-track-azurepowershell
 ---
+
 # Quickstart: Create an Azure data factory and pipeline by using the REST API
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -23,7 +19,7 @@ ms.author: jingwang
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Using Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores, process/transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning, and publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume.
+Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Using Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores, process/transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning, and publish output data to data stores such as Azure Synapse Analytics for business intelligence (BI) applications to consume.
 
 This quickstart describes how to use REST API to create an Azure data factory. The pipeline in this data factory copies data from one location to another location in an Azure blob storage.
 
@@ -35,10 +31,13 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 * **Azure subscription**. If you don't have a subscription, you can create a [free trial](https://azure.microsoft.com/pricing/free-trial/) account.
 * **Azure Storage account**. You use the blob storage as **source** and **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-account-create.md) article for steps to create one.
-* Create a **blob container** in Blob Storage, create an input **folder** in the container, and upload some files to the folder. You can use tools such as [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/) to connect to Azure Blob storage, create a blob container, upload input file, and verify the output file.
+* Create a **blob container** in Blob Storage, create an input **folder** in the container, and upload some files to the folder. You can use tools such as [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to connect to Azure Blob storage, create a blob container, upload input file, and verify the output file.
 * Install **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps). This quickstart uses PowerShell to invoke REST API calls.
-* **Create an application in Azure Active Directory** following [this instruction](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Make note of the following values that you use in later steps: **application ID**, **clientSecrets**, and **tenant ID**. Assign application to "**Contributor**" role.
-
+* **Create an application in Azure Active Directory** following [this instruction](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Make note of the following values that you use in later steps: **application ID**, **clientSecrets**, and **tenant ID**. Assign application to "**Contributor**" role.
+>[!NOTE]
+>	For Sovereign clouds, you must use the appropriate cloud-specific endpoints for ActiveDirectoryAuthority and ResourceManagerUrl (BaseUri). 
+>	 You can use Powershell to easily get the endpoint Urls for various clouds by executing “Get-AzEnvironment | Format-List”, which will return a list of endpoints for each cloud environment.  
+>	 
 ## Set global variables
 
 1. Launch **PowerShell**. Keep Azure PowerShell open until the end of this quickstart. If you close and reopen, you need to run the commands again.
@@ -93,7 +92,7 @@ Run the following commands to create a data factory:
 $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}?api-version=${apiVersion}"
 $body = @"
 {
-    "name": "$dataFactoryName",
+    "name": "$factoryName",
     "location": "East US",
     "properties": {},
     "identity": {
@@ -298,10 +297,10 @@ Here is the sample output:
 ```
 ## Create pipeline
 
-In this example, this pipeline contains one activity and takes two parameters - input blob path and output blob path. The values for these parameters are set when the pipeline is triggered/run. The copy activity refers to the same blob dataset created in the previous step as input and output. When the dataset is used as an input dataset, input path is specified. And, when the dataset is used as an output dataset, the output path is specified.
+In this example, this pipeline contains one Copy activity. The Copy activity refers to the "InputDataset" and the "OutputDataset" created in the previous step as input and output.
 
 ```powershell
-$request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${dataFactoryName}/pipelines/Adfv2QuickStartPipeline?api-version=${apiVersion}"
+$request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/pipelines/Adfv2QuickStartPipeline?api-version=${apiVersion}"
 $body = @"
 {
     "name": "Adfv2QuickStartPipeline",
@@ -378,10 +377,7 @@ Here is the sample output:
 
 ## Create pipeline run
 
-In this step, you set values of **inputPath** and **outputPath** parameters specified in pipeline with the actual values of source and sink blob paths, and trigger a pipeline run. The pipeline run ID returned in the response body is used in later monitoring API.
-
-Replace value of **inputPath** and **outputPath** with your source and sink blob path to copy data from and to before saving the file.
-
+In this step, you trigger a pipeline run. The pipeline run ID returned in the response body is used in later monitoring API.
 
 ```powershell
 $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.DataFactory/factories/${factoryName}/pipelines/Adfv2QuickStartPipeline/createRun?api-version=${apiVersion}"
@@ -408,7 +404,7 @@ Here is the sample output:
         $response = Invoke-RestMethod -Method GET -Uri $request -Header $authHeader
         Write-Host  "Pipeline run status: " $response.Status -foregroundcolor "Yellow"
 
-        if ($response.Status -eq "InProgress") {
+        if ( ($response.Status -eq "InProgress") -or ($response.Status -eq "Queued") ) {
             Start-Sleep -Seconds 15
         }
         else {

@@ -8,7 +8,7 @@ ms.reviewer: mmercuri
 ---
 # Azure Blockchain Workbench database views
 
-Azure Blockchain Workbench Preview delivers data from distributed ledgers to an *off-chain* SQL DB database. The off-chain database makes it possible to use SQL and existing tools, such as [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017), to interact with blockchain data.
+Azure Blockchain Workbench Preview delivers data from distributed ledgers to an *off-chain* SQL DB database. The off-chain database makes it possible to use SQL and existing tools, such as [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms), to interact with blockchain data.
 
 Azure Blockchain Workbench provides a set of database views that provide access to data that will be helpful when performing your queries. These views are heavily denormalized to make it easy to quickly get started building reports, analytics, and otherwise consume blockchain data with existing tools and without having to retrain database staff.
 
@@ -293,7 +293,7 @@ This view provides details on the consortium members that are provisioned to use
 
 ## vwWorkflow
 
-This view represents the details core workflow metadata as well as the workflow’s functions and parameters. Designed for reporting, it also contains metadata about the application associated with the workflow. This view contains data from multiple underlying tables to facilitate reporting on workflows. For each workflow, this view contains the following data:
+This view represents the details core workflow metadata as well as the workflow's functions and parameters. Designed for reporting, it also contains metadata about the application associated with the workflow. This view contains data from multiple underlying tables to facilitate reporting on workflows. For each workflow, this view contains the following data:
 
 -   Associated application definition
 -   Associated workflow definition
@@ -320,7 +320,7 @@ This view represents the details core workflow metadata as well as the workflow�
 
 ## vwWorkflowFunction
 
-This view represents the details core workflow metadata as well as the workflow’s functions and parameters. Designed for reporting, it also contains metadata about the application associated with the workflow. This view contains data from multiple underlying tables to facilitate reporting on workflows. For each workflow function, this view contains the following data:
+This view represents the details core workflow metadata as well as the workflow's functions and parameters. Designed for reporting, it also contains metadata about the application associated with the workflow. This view contains data from multiple underlying tables to facilitate reporting on workflows. For each workflow function, this view contains the following data:
 
 -   Associated application definition
 -   Associated workflow definition

@@ -12,37 +12,39 @@ metadata:
   author: nitinme
   ms.author: nitinme
   manager: nitinme
-  ms.date: 03/17/2020
+  ms.custom: custom-portals-hub
+  ms.date: 08/28/2020
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
     - title: What are Cognitive Services?
       itemType: overview # controls the icon image and super-title text
-      url: ./welcome.md
+      url: ./what-are-cognitive-services.md
+    - title: What's new in docs?
+      itemType: whats-new
+      url: whats-new-docs.md
+    - title: Development options
+      itemType: concept
+      url: ./cognitive-services-development-options.md
     - title: Cognitive Services and machine learning
       itemType: concept
       url: ./cognitive-services-and-machine-learning.md
-    - title: Language support in Cognitive Services
+    - title: Cognitive Services on-prem containers
+      itemType: concept
+      url: ./containers/index.yml
+    - title: Cognitive Services with databases
+      itemType: concept
+      url: ./big-data/cognitive-services-for-big-data.md
+    - title: Language support
       itemType: reference
       url: ./language-support.md
-    - title: Create a Cognitive Services resource
-      itemType: how-to-guide
-      url: ./cognitive-services-apis-create-account.md
-    - title: Use Cognitive Services in Containers
-      itemType: concept
-      url: ./cognitive-services-container-support.md
-    - title: Virtual networks for Cognitive Services
-      itemType: architecture
-      url: cognitive-services-virtual-networks.md
-    - title: Custom subdomains for Cognitive Services
-      itemType: how-to-guide
-      url: cognitive-services-custom-subdomains.md
-    - title: Cognitive Services security
-      itemType: concept
-      url: cognitive-services-security.md
+    - title: Support and help options
+      itemType: reference
+      url: ./cognitive-services-support-options.md
 
 conceptualContent:
+  
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
     - title: Vision
@@ -51,27 +53,15 @@ conceptualContent:
         - url: ./computer-vision/index.yml
           itemType: overview
           text: Computer Vision
-        - url: ./Custom-Vision-Service/index.yml
+        - url: ./custom-vision-service/index.yml
           itemType: overview
           text: Custom Vision
         - url: ./face/index.yml
           itemType: overview
           text: Face
-        - url: ./form-recognizer/index.yml
-          itemType: overview
-          text: Form Recognizer (Preview)
-        - url: ./ink-recognizer/index.yml
-          itemType: overview
-          text: Ink Recognizer (Preview)
-        - url: ../media-services/video-indexer/index.yml
-          itemType: overview
-          text: Video Indexer
     - title: Language
       summary: Allow your apps to process natural language with pre-built scripts, evaluate sentiment and learn how to recognize what users want.
       links:
-        - url: ./immersive-reader/index.yml
-          itemType: overview
-          text: Immersive Reader (Preview)
         - url: ./luis/index.yml
           itemType: overview
           text: Language Understanding (LUIS)
@@ -83,16 +73,17 @@ conceptualContent:
           text: Text Analytics
         - url: ./translator/index.yml
           itemType: overview
-          text: Translator Text
+          text: Translator
+
     - title: Speech
       summary: Convert speech into text and text into natural-sounding speech. Translate from one language to another and enable speaker verification and recognition.
       links:
         - url: ./speech-service/index.yml
           itemType: overview
           text: Speech service
-        - url: ./speaker-recognition/home.md
+        - url: https://speech.microsoft.com/
           itemType: overview
-          text: Speaker Recognition (Preview)
+          text: "Customize with Speech Studio"
 #        - url: ./speech/home.md
 #          itemType: overview
 #          text: Bing Speech (Retiring)
@@ -104,7 +95,7 @@ conceptualContent:
       links:
         - url: ./anomaly-detector/index.yml
           itemType: overview
-          text: Anomaly Detector (Preview)
+          text: Anomaly Detector
         - url: ./content-moderator/index.yml
           itemType: overview
           text: Content Moderator
@@ -120,9 +111,12 @@ conceptualContent:
     - title: Cognitive Service Containers
       summary: Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with Docker containers.
       links:
+        - url: ./containers/index.yml
+          itemType: overview
+          text:  Cognitive Services containers documentation
         - url: ./cognitive-services-container-support.md
           itemType: overview
-          text: Cognitive Service Containers
+          text: What are Cognitive Service containers?
         - url: ./containers/container-reuse-recipe.md
           itemType: learn
           text: Create containers for reuse
@@ -135,43 +129,73 @@ conceptualContent:
         - url: ./containers/docker-compose-recipe.md
           itemType: get-started
           text: Use Docker Compose to deploy multiple containers
-        - url: ./containers/container-faq.md
+        - url: ./containers/container-faq.yml
           itemType: reference
           text: Cognitive Services containers FAQ
-
-tools:
-  title: Software development kits (SDKs)
-  summary: Get started with the Cognitive Services SDK in your favorite programming language.
-  items:
-  - title: C#
-    imageSrc: https://docs.microsoft.com/media/logos/logo_Csharp.svg
-    url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
-  - title: Go
-    imageSrc: https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg
-    url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices
-  - title: Java
-    imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
-    url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client?view=azure-java-stable
-  - title: JavaScript
-    imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
-    url: https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest
-  - title: Python
-    imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
-    url: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python
-  - title: R
-    imageSrc: https://docs.microsoft.com/media/logos/logo_R.svg
-    url: https://github.com/Azure/AzureCognitive
-
+    - title: Cognitive Services for Big Data
+      summary: The Cognitive Services for Big Data allows developers to use cognitive services within databases to apply intelligent algorithms over large datasets
+      links:
+        - url: ./big-data/cognitive-services-for-big-data.md
+          itemType: overview
+          text: Cognitive Services for Big Data
+        - url: ./big-data/getting-started.md
+          itemType: get-started
+          text: Use Cognitive Services within Azure Databricks and Azure Synapse Analytics
+        - url: ./big-data/samples-python.md
+          itemType: reference
+          text: Python Samples
+    - title: Responsible use of AI
+      summary: Azure Cognitive Services provides information and guidelines on how to responsibly use our AI services in your applications.
+      links:
+        - url: responsible-use-of-ai-overview.md
+          itemType: overview
+          text: Responsible use of AI
 additionalContent:
   sections:
-    - items:
-      - title: Additional resources
-        links:
-          - text: Azure CLI
-            url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
-          - text: PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services
-      - title: REST APIs
-        links:
-          - text: Cognitive Services Management
-            url: https://docs.microsoft.com/rest/api/cognitiveservices/
+    - title: Additional resources
+      items:
+        - title: Portals for customization
+          links:
+            - text: Custom Translator
+              url: https://portal.customtranslator.azure.ai/
+            - text: Custom Vision
+              url: https://www.customvision.ai/
+            # Card
+            - text: Language Understanding (LUIS)
+              url: https://luis.ai
+            # Card
+            - text: QnA Maker 
+              url: https://www.qnamaker.ai/
+            # Card
+            - text: Speech Studio
+              url: https://speech.microsoft.com/
+        - title: SDKs & REST APIs
+          links:
+            - text: C#
+              url: /dotnet/api/overview/azure/cognitiveservices/client
+            - text: Go
+              url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices
+            - text: Java
+              url: /java/api/overview/azure/cognitiveservices/client
+            - text: JavaScript
+              url: /javascript/api/overview/azure/cognitive-services
+            - text: Python
+              url: /python/api/overview/azure/cognitive-services
+            - text: R 
+              url: https://github.com/Azure/AzureCognitive
+            - text: Apache Spark and Databases 
+              url: ./big-data/cognitive-services-for-big-data.md
+            - text: Cognitive Services Management REST API
+              url: /rest/api/cognitiveservices/
+        - title: Explore other Azure AI Services
+          links:
+            - text: Azure Applied AI Services
+              url: ../applied-ai-services/index.yml
+            - text: Azure Machine Learning
+              url: ../machine-learning/index.yml
+        - title: Tools
+          links:
+            - text: Azure CLI
+              url: /cli/azure/cognitiveservices
+            - text: PowerShell
+              url: /powershell/module/az.cognitiveservices/#cognitive_services

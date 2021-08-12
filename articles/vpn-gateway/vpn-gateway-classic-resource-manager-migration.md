@@ -1,26 +1,22 @@
 ---
-title: VPN Gateway Classic to Resource Manager Migration | Microsoft Docs
-description: This page provides an overview of the VPN Gateway Classic to Resource Manager migration.
-documentationcenter: na
+title: Migrate VPN gateways from Classic to Resource Manager
+titleSuffix: Azure VPN Gateway
+description: Learn about migrating VPN Gateway resources from the classic deployment model to the Resource Manager deployment model.
 services: vpn-gateway
 author: amsriva
 manager: rossort
-editor: amsriva
 
-ms.assetid: caa8eb19-825a-4031-8b49-18fbf3ebc04e
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/06/2020
 ms.author: amsriva
 
 ---
 # VPN Gateway classic to Resource Manager migration
-VPN Gateways can now be migrated from classic to Resource Manager deployment model. You can read more about Azure Resource Manager [features and benefits](../azure-resource-manager/management/overview.md). In this article, we  detail how to migrate from classic deployments to newer Resource Manager based model. 
+VPN Gateways can now be migrated from classic to [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md). You can read more about Azure Resource Manager [features and benefits](../azure-resource-manager/management/overview.md). In this article, we  detail how to migrate from classic deployments to newer Resource Manager based model. 
 
-VPN Gateways are migrated as part of VNet migration from classic to Resource Manager. This migration is done one VNet at a time. There is no additional requirement in terms of tools or prerequisites to migration. Migration steps are identical to existing VNet migration and are documented at [IaaS resources migration page](../virtual-machines/windows/migration-classic-resource-manager-ps.md). There is no data path downtime during migration and thus existing workloads would continue to function without loss of on-premises connectivity during migration. The public IP address associated with the VPN gateway does not change during the migration process. This implies that you will not need to reconfigure your on-premises router once the migration is completed.  
+VPN Gateways are migrated as part of VNet migration from classic to Resource Manager. This migration is done one VNet at a time. There is no additional requirement in terms of tools or prerequisites to migration. Migration steps are identical to existing VNet migration and are documented at [IaaS resources migration page](../virtual-machines/migration-classic-resource-manager-ps.md). There is no data path downtime during migration and thus existing workloads would continue to function without loss of on-premises connectivity during migration. The public IP address associated with the VPN gateway does not change during the migration process. This implies that you will not need to reconfigure your on-premises router once the migration is completed.  
 
 The model in Resource Manager is different from classic model and is composed of virtual network gateways, local network gateways and connection resources. These represent the VPN gateway itself, the local-site representing on premises address space and connectivity between the two respectively. Once migration is completed your gateways would not be available in classic model and all management operations on virtual network gateways, local network gateways, and connection objects must be performed using Resource Manager model.
 
@@ -62,5 +58,4 @@ Since we transform VNet to VNet connectivity without requiring local sites, the 
 * Establish an explicit connection from affected VNet to the local network gateway representing on-premises location. This would also require changing configuration on the on-premises router to create and configure the IPsec tunnel.
 
 ## Next steps
-After learning about VPN gateway migration support, go to [platform-supported migration of IaaS resources from classic to Resource Manager](../virtual-machines/windows/migration-classic-resource-manager-ps.md) to get started.
-
+After learning about VPN gateway migration support, go to [platform-supported migration of IaaS resources from classic to Resource Manager](../virtual-machines/migration-classic-resource-manager-ps.md) to get started.

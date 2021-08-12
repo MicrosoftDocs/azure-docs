@@ -5,23 +5,24 @@ author: viv-liu
 ms.author: viviali
 ms.date: 03/27/2020
 ms.topic: how-to
-ms.service: iot-central
+ms.service: iot-central 
+ms.custom: devx-track-azurecli, device-developer
 services: iot-central
 manager: corywink
+# This topic applies to device developers and solution builders.
 ---
 
 # Monitor device connectivity using Azure CLI
 
-*This topic applies to builders and administrators.*
-
 Use the Azure CLI IoT extension to see messages your devices are sending to IoT Central and observe changes in the device twin. You can use this tool to debug and observe device connectivity and diagnose issues of device messages not reaching the cloud or devices not responding to twin changes.
 
-[Visit the Azure CLI extensions reference for more details](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/central?view=azure-cli-latest)
+[Visit the Azure CLI extensions reference for more details](/cli/azure/iot/central)
 
 ## Prerequisites
 
-+ Azure CLI installed and is version 2.0.7 or higher. Check the version of your Azure CLI by running `az --version`. Learn how to install and update from the [Azure CLI docs](https://docs.microsoft.com/cli/azure/install-azure-cli)
-+ A work or school account in Azure, added as a user in an IoT Central application.
+A work or school account in Azure, added as a user in an IoT Central application.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3](../../../includes/azure-cli-prepare-your-environment-h3.md)]
 
 ## Install the IoT Central extension
 
@@ -37,7 +38,7 @@ Check the version of the extension by running:
 az --version
 ```
 
-You should see the azure-iot extension is 0.8.1 or higher. If it is not, run:
+You should see the azure-iot extension is 0.9.9 or higher. If it is not, run:
 
 ```azurecli
 az extension update --name azure-iot
@@ -64,16 +65,16 @@ In **Administration/Application Settings**, copy the **Application ID**. You use
 Monitor the messages that are being sent to your IoT Central app from your devices. The output includes all headers and annotations.
 
 ```azurecli
-az iot central app monitor-events --app-id <app-id> --properties all
+az iot central diagnostics monitor-events --app-id <app-id> --properties all
 ```
 
 ### View device properties
 View the current read and read/write device properties for a given device.
 
 ```azurecli
-az iot central device-twin show --app-id <app-id> --device-id <device-id>
+az iot central device twin show --app-id <app-id> --device-id <device-id>
 ```
 
 ## Next steps
 
-Now that you've learned how to use the IoT Central Explorer, the suggested next step is to explore [managing devices IoT Central](howto-manage-devices.md).
+A suggested next step is to read about [Device connectivity in Azure IoT Central](./concepts-get-connected.md).

@@ -1,14 +1,14 @@
 ---
 title: Azure CLI Samples - Use a custom VM image
-description: This script creates a virtual machine scale set that uses a custom VM image as the source for the VM instances.
-author: cynthn
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.devlang: azurecli
+description: This Azure CLI script creates a virtual machine scale set that uses a custom VM image as the source for the VM instances.
+author: axayjo
+ms.author: akjosh
 ms.topic: sample
+ms.service: virtual-machine-scale-sets
+ms.subservice: imaging
 ms.date: 03/27/2018
-ms.author: cynthn
-ms.custom: mvc
+ms.reviewer: cynthn
+ms.custom: akjosh, devx-track-azurecli
 
 ---
 
@@ -39,6 +39,4 @@ This script uses the following commands to create a resource group, virtual mach
 | [az group delete](/cli/azure/ad/group) | Deletes a resource group including all nested resources. |
 
 ## Next steps
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
-
-Additional virtual machine scale set Azure CLI script samples can be found in the [Azure virtual machine scale set documentation](../cli-samples.md).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure/overview).

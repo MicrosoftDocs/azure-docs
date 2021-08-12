@@ -8,7 +8,7 @@ author: asudbring
 manager: kumudD
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -24,22 +24,22 @@ Health probes support multiple protocols. The availability of a specific health 
 
 | | Standard SKU | Basic SKU |
 | --- | --- | --- |
-| [Probe types](#types) | TCP, HTTP, HTTPS | TCP, HTTP |
-| [Probe down behavior](#probedown) | All probes down, all TCP flows continue. | All probes down, all TCP flows expire. | 
+| **[Probe types](#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
+| **[Probe down behavior](#probedown)** | All probes down, all TCP flows continue. | All probes down, all TCP flows expire. | 
 
 
 >[!IMPORTANT]
 >Review this document in its entirety, including important [design guidance](#design) below to create a reliable service.
 
 >[!IMPORTANT]
->Load Balancer health probes originate from the IP address 168.63.129.16 and must not be blocked for probes to mark up your instance.  Review [probe source IP address](#probesource) for details.
+>Load Balancer health probes originate from the IP address 168.63.129.16 and must not be blocked for probes to mark up your instance.  Review [probe source IP address](#probesource) for details. To see this probe traffic within your backend instance, review [this FAQ](/azure/load-balancer/load-balancer-faqs#probes).
 
 >[!IMPORTANT]
 >Regardless of configured time-out threshold, HTTP(S) Load Balancer health probes will automatically probe down an instance if the server returns any status code that is not HTTP 200 OK or if the connection is terminated via TCP reset.
 
 ## <a name="probes"></a>Probe configuration
 
-Health probe configuration consists out of the following elements:
+Health probe configuration consists of the following elements:
 
 - Duration of the interval between individual probes
 - Number of probe responses which have to be observed before the probe transitions to a different state
@@ -61,7 +61,7 @@ The timeout and interval values specified determine whether an instance will be 
 
 We can illustrate the behavior further with an example. If you have set the number of probe responses to 2 and the interval to 5 seconds, this means 2 probe time-out failures must be observed within a 10 second interval.  Because the time at which a probe is sent is not synchronized when your application may change state, we can bound the time to detect by two scenarios:
 
-1. If your application starts producing a time-out probe response just before the first probe arrives, the detection of these events will take 10 seconds (2 x 5 second intervals) plus the duration of the the application starting to signal a time-out to when the the first probe arrives.  You can assume this detection to take slightly over 10 seconds.
+1. If your application starts producing a time-out probe response just before the first probe arrives, the detection of these events will take 10 seconds (2 x 5 second intervals) plus the duration of the application starting to signal a time-out to when the first probe arrives.  You can assume this detection to take slightly over 10 seconds.
 2. If your application starts producing a time-out probe response just after the first probe arrives, the detection of these events will not begin until the next probe arrives (and times out) plus another 10 seconds (2 x 5 second intervals).  You can assume this detection to take just under 15 seconds.
 
 For this example, once detection has occurred, the platform will then take a small amount of time to react to this change.  This means a depending on 
@@ -87,8 +87,8 @@ The available protocols depend on the Load Balancer SKU used:
 
 || TCP | HTTP | HTTPS |
 | --- | --- | --- | --- |
-| Standard SKU | 	&#9989; | 	&#9989; | 	&#9989; |
-| Basic SKU | 	&#9989; | 	&#9989; | &#10060; |
+| **Standard SKU** | 	&#9989; | 	&#9989; | 	&#9989; |
+| **Basic SKU** | 	&#9989; | 	&#9989; | &#10060; |
 
 ### <a name="tcpprobe"></a> TCP probe
 
@@ -116,7 +116,7 @@ The following illustrates how you could express this kind of probe configuration
 ### <a name="httpprobe"></a> <a name="httpsprobe"></a> HTTP / HTTPS probe
 
 >[!NOTE]
->HTTPS probe is only available for [Standard Load Balancer](load-balancer-standard-overview.md).
+>HTTPS probe is only available for [Standard Load Balancer](./load-balancer-overview.md).
 
 HTTP and HTTPS probes build on the TCP probe and issue an HTTP GET with the specified path. Both of these probes support relative paths for the HTTP GET. HTTPS probes are the same as HTTP probes with the addition of a Transport Layer Security (TLS, formerly known as SSL) wrapper. The health probe is marked up when the instance responds with an HTTP status 200 within the timeout period.  The health probe attempts to check the configured health probe port every 15 seconds by default. The minimum probe interval is 5 seconds. The total duration of all intervals cannot exceed 120 seconds.
 
@@ -164,7 +164,7 @@ Cloud service roles (worker roles and web roles) use a guest agent for probe mon
 
 A guest agent probe is a check of the guest agent inside the VM. It then listens and responds with an HTTP 200 OK response only when the instance is in the Ready state. (Other states are Busy, Recycling, or Stopping.)
 
-For more information, see [Configure the service definition file (csdef) for health probes](https://msdn.microsoft.com/library/azure/ee758710.aspx) or [Get started by creating a public load balancer for cloud services](https://docs.microsoft.com/azure/load-balancer/load-balancer-get-started-internet-classic-cloud#check-load-balancer-health-status-for-cloud-services).
+For more information, see [Configure the service definition file (csdef) for health probes](/previous-versions/azure/reference/ee758710(v=azure.100)) or [Get started by creating a public load balancer for cloud services](/previous-versions/azure/load-balancer/load-balancer-get-started-internet-classic-cloud#check-load-balancer-health-status-for-cloud-services).
 
 If the guest agent fails to respond with HTTP 200 OK, the load balancer marks the instance as unresponsive. It then stops sending flows to that instance. The load balancer continues to check the instance. 
 
@@ -210,7 +210,7 @@ If all probes for all instances in a backend pool fail, existing UDP flows will 
 
 Load Balancer uses a distributed probing service for its internal health model. The probing service resides on each host where VMs and can be programmed on-demand to generate health probes per the customer's configuration. The health probe traffic is directly between the probing service that generates the health probe and the customer VM. All Load Balancer health probes originate from the IP address 168.63.129.16 as their source.  You can use  IP address space inside of a VNet that is not RFC1918 space.  Using a globally reserved, Microsoft owned IP address reduces the chance of an IP address conflict with the IP address space you use inside the VNet.  This IP address is the same in all regions and does not change and is not a security risk because only the internal Azure platform component can source a packet from this IP address. 
 
-The AzureLoadBalancer service tag identifies this source IP address in your [network security groups](../virtual-network/security-overview.md) and permits health probe traffic by default.
+The AzureLoadBalancer service tag identifies this source IP address in your [network security groups](../virtual-network/network-security-groups-overview.md) and permits health probe traffic by default.
 
 In addition to Load Balancer health probes, the [following operations use this IP address](../virtual-network/what-is-ip-address-168-63-129-16.md):
 
@@ -228,15 +228,15 @@ Sometimes it can be useful for your application to generate a health probe respo
 
 For UDP load balancing, you should generate a custom health probe signal from the backend endpoint and use either a TCP, HTTP, or HTTPS health probe targeting the corresponding listener to reflect the health of your UDP application.
 
-When using [HA Ports load-balancing rules](load-balancer-ha-ports-overview.md) with [Standard Load Balancer](load-balancer-standard-overview.md), all ports are load balanced and a single health probe response must reflect the status of the entire instance.
+When using [HA Ports load-balancing rules](load-balancer-ha-ports-overview.md) with [Standard Load Balancer](./load-balancer-overview.md), all ports are load balanced and a single health probe response must reflect the status of the entire instance.
 
 Do not translate or proxy a health probe through the instance that receives the health probe to another instance in your VNet as this  configuration can lead to cascading failures in your scenario.  Consider the following scenario: a set of third-party appliances is deployed in the backend pool of a Load Balancer resource to provide scale and redundancy for the appliances and the health probe is configured to probe a port that the third-party appliance proxies or translates to other virtual machines behind the appliance.  If you probe the same port you are using to translate or proxy requests to the other virtual machines behind the appliance, any probe response from a single virtual machine behind the appliance will mark the appliance itself dead. This configuration can lead to a cascading failure of the entire application scenario as a result of a single backend endpoint behind the appliance.  The trigger can be an intermittent probe failure that will cause Load Balancer to mark down the original destination (the appliance instance) and in turn can disable your entire application scenario. Probe the health of the appliance itself instead. The selection of the probe to determine the health signal is an important consideration for network virtual appliances (NVA) scenarios and you must consult your application vendor for what the appropriate health signal is for such scenarios.
 
 If you don't allow the [source IP](#probesource) of the probe in your firewall policies, the health probe will fail as it is unable to reach your instance.  In turn, Load Balancer will mark down your instance due to the health probe failure.  This misconfiguration can cause your load balanced application scenario to fail.
 
-For Load Balancer's health probe to mark up your instance, you **must** allow this IP address in any Azure [network security groups](../virtual-network/security-overview.md) and local firewall policies.  By default, every network security group includes the [service tag](../virtual-network/security-overview.md#service-tags) AzureLoadBalancer to permit health probe traffic.
+For Load Balancer's health probe to mark up your instance, you **must** allow this IP address in any Azure [network security groups](../virtual-network/network-security-groups-overview.md) and local firewall policies.  By default, every network security group includes the [service tag](../virtual-network/network-security-groups-overview.md#service-tags) AzureLoadBalancer to permit health probe traffic.
 
-If you wish to test a health probe failure or mark down an individual instance, you can use a [network security groups](../virtual-network/security-overview.md) to explicitly block the health probe (destination port or [source IP](#probesource)) and simulate the failure of a probe.
+If you wish to test a health probe failure or mark down an individual instance, you can use a [network security groups](../virtual-network/network-security-groups-overview.md) to explicitly block the health probe (destination port or [source IP](#probesource)) and simulate the failure of a probe.
 
 Do not configure your VNet with the Microsoft owned IP address range that contains 168.63.129.16.  Such configurations will collide with the IP address of the health probe and can cause your scenario to fail.
 
@@ -246,9 +246,9 @@ Do not enable [TCP timestamps](https://tools.ietf.org/html/rfc1323).  Enabling T
 
 ## Monitoring
 
-Both public and internal [Standard Load Balancer](load-balancer-standard-overview.md) expose per endpoint and backend endpoint health probe status as multi-dimensional metrics through Azure Monitor. These metrics can be consumed by other Azure services or partner applications. 
+Both public and internal [Standard Load Balancer](./load-balancer-overview.md) expose per endpoint and backend endpoint health probe status as multi-dimensional metrics through Azure Monitor. These metrics can be consumed by other Azure services or partner applications. 
 
-Basic public Load Balancer exposes health probe status summarized per backend pool via Azure Monitor logs.  Azure Monitor logs are not available for internal Basic Load Balancers.  You can use [Azure Monitor logs](load-balancer-monitor-log.md) to check on the public load balancer probe health status and probe count. Logging can be used with Power BI or Azure Operational Insights to provide statistics about load balancer health status.
+Basic public Load Balancer exposes health probe status summarized per backend pool via Azure Monitor logs.  Azure Monitor logs are not available for internal Basic Load Balancers.  You can use [Azure Monitor logs](./monitor-load-balancer.md) to check on the public load balancer probe health status and probe count. Logging can be used with Power BI or Azure Operational Insights to provide statistics about load balancer health status.
 
 ## Limitations
 
@@ -257,7 +257,7 @@ Basic public Load Balancer exposes health probe status summarized per backend po
 
 ## Next steps
 
-- Learn more about [Standard Load Balancer](load-balancer-standard-overview.md)
-- [Get started creating a public load balancer in Resource Manager by using PowerShell](quickstart-create-standard-load-balancer-powershell.md)
-- [REST API for health probes](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerprobes/)
+- Learn more about [Standard Load Balancer](./load-balancer-overview.md)
+- [Get started creating a public load balancer in Resource Manager by using PowerShell](quickstart-load-balancer-standard-public-powershell.md)
+- [REST API for health probes](/rest/api/load-balancer/loadbalancerprobes/)
 - Request new health probe abilities with [Load Balancer's Uservoice](https://aka.ms/lbuservoice)

@@ -1,22 +1,18 @@
 ---
-title: Provision apps with scoping filters | Microsoft Docs
-description: Learn how to use scoping filters to prevent objects in apps that support automated user provisioning from being provisioned if an object doesn't satisfy your business requirements.
+title: Use scoping filters in Azure Active Directory Application Provisioning
+description: Learn how to use scoping filters to prevent objects in apps that support automated user provisioning from being provisioned if an object doesn't satisfy your business requirements in Azure Active Directory Application Provisioning.
 services: active-directory
-documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 09/11/2018
-ms.author: mimart
-ms.custom: H1Hack27Feb2017
-
-ms.collection: M365-identity-device-management
+ms.topic: how-to
+ms.date: 05/11/2021
+ms.author: kenwith
+ms.reviewer: arvinh
 ---
+
 # Attribute-based application provisioning with scoping filters
 The objective of this article is to explain how to use scoping filters to define attribute-based rules that determine which users are provisioned to an application.
 
@@ -29,7 +25,7 @@ Scoping filters can be used differently depending on the type of provisioning co
 * **Outbound provisioning from Azure AD to SaaS applications**. When Azure AD is the source system, [user and group assignments](../manage-apps/assign-user-or-group-access-portal.md) are the most common method for determining which users are in scope for provisioning. These assignments also are used for enabling single sign-on and provide a single method to manage access and provisioning. Scoping filters can be used optionally, in addition to assignments or instead of them, to filter users based on attribute values.
 
     >[!TIP]
-    > You can disable provisioning based on assignments for an enterprise application by changing settings in the [Scope](../app-provisioning/user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) menu under the provisioning settings to **Sync all users and groups**. Using this option plus attribute-based scoping filters offers faster performance than using group-based assignments.  
+    > You can disable provisioning based on assignments for an enterprise application by changing settings in the [Scope](../app-provisioning/user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) menu under the provisioning settings to **Sync all users and groups**. 
 
 * **Inbound provisioning from HCM applications to Azure AD and Active Directory**. When an [HCM application such as Workday](../saas-apps/workday-tutorial.md) is the source system, scoping filters are the primary method for determining which users should be provisioned from the HCM application to Active Directory or Azure AD.
 
@@ -94,7 +90,7 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
    
    j. **Greater_Than_OR_EQUALS.** Clause returns "true" if the evaluated attribute is greater than or equal to the value. The value specified on the scoping filter must be an integer and the attribute on the user must be an integer [0,1,2,...]. 
    
-   k. **Includes.** Clause returns "true" if the evaluated attribute contains the string value (case sensitive) as described [here](https://docs.microsoft.com/dotnet/api/system.string.contains?view=netframework-4.8). 
+   k. **Includes.** Clause returns "true" if the evaluated attribute contains the string value (case sensitive) as described [here](/dotnet/api/system.string.contains). 
 
 
 >[!IMPORTANT] 
@@ -130,4 +126,3 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 * [Account provisioning notifications](../app-provisioning/user-provisioning.md)
 * [Use SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 * [List of tutorials on how to integrate SaaS apps](../saas-apps/tutorial-list.md)
-

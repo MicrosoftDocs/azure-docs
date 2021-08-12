@@ -1,8 +1,8 @@
 ---
 title: User-defined functions in Azure Stream Analytics
 description: This article is an overview of user-defined functions in Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/07/2020
@@ -38,10 +38,13 @@ User-defined functions are stateless, and the return value can only be a scalar 
 
 Azure Stream Analytics does not keep a record of all functions invocations and returned results. To guarantee repeatability - for example, re-running your job from older timestamp produces the same results again - do not to use functions such as `Date.GetData()` or `Math.random()`, as these functions do not return the same result for each invocation.  
 
-## Diagnostic logs
+## Resource logs
 
-Any runtime errors are considered fatal and are surfaced through activity and diagnostic logs. It is recommended that your function handles all exceptions and errors and return a valid result to your query. This will prevent your job from going to a [Failed state](job-states.md).  
+Any runtime errors are considered fatal and are surfaced through activity and resource logs. It is recommended that your function handles all exceptions and errors and return a valid result to your query. This will prevent your job from going to a [Failed state](job-states.md).  
 
+## Exception handling
+
+Any exception during data processing is considered a catastrophic failure when consuming data in Azure Stream Analytics. User-defined functions have a higher potential to throw exceptions and cause the processing to stop. To avoid this issue, use a *try-catch* block in JavaScript or C# to catch exceptions during code execution. Exceptions that are caught can be logged and treated without causing a system failure. You are encouraged to always wrap your custom code in a *try-catch* block to avoid throwing unexpected exceptions to the processing engine.
 
 ## Next steps
 
@@ -49,4 +52,3 @@ Any runtime errors are considered fatal and are surfaced through activity and di
 * [Azure Stream Analytics JavaScript user-defined aggregates](stream-analytics-javascript-user-defined-aggregates.md)
 * [Develop .NET Standard user-defined functions for Azure Stream Analytics jobs](stream-analytics-edge-csharp-udf-methods.md)
 * [Integrate Azure Stream Analytics with Azure Machine Learning](machine-learning-udf.md)
-

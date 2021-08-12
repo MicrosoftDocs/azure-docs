@@ -1,22 +1,31 @@
 ---
-title: Text-to-speech - Speech service
+title: Text-to-speech overview - Speech service
 titleSuffix: Azure Cognitive Services
-description: The text-to-speech feature in the Speech service enables your applications, tools, or devices to convert text into natural human-like synthesized speech. Choose preset voices or create your own custom voice.
+description: The text-to-speech feature in the Speech service enables your applications, tools, or devices to convert text into natural human-like synthesized speech. This article is an overview of the benefits and capabilities of the text-to-speech service.
 services: cognitive-services
-author: trevorbye
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/23/2020
-ms.author: trbye
+ms.date: 09/01/2020
+ms.author: nitinme
+ms.custom: cog-serv-seo-aug-2020
+keywords: text to speech
 ---
 
 # What is text-to-speech?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Text-to-speech from the Speech service enables your applications, tools, or devices to convert text into human-like synthesized speech. Choose from standard and neural voices, or create a custom voice unique to your product or brand. 75+ standard voices are available in more than 45 languages and locales, and 5 neural voices are available in a select number of languages and locales. For a full list of supported voices, languages, and locales, see [supported languages](language-support.md#text-to-speech).
+In this overview, you learn about the benefits and capabilities of the text-to-speech service, which enables your applications, tools, or devices to convert text into human-like synthesized speech. Use human-like neural voices, or create a custom voice unique to your product or brand. For a full list of supported voices, languages, and locales, see [supported languages](language-support.md#text-to-speech).
+
+This documentation contains the following article types:
+
+* **Quickstarts** are getting-started instructions to guide you through making requests to the service.
+* **How-to guides** contain instructions for using the service in more specific or customized ways.
+* **Concepts** provide in-depth explanations of the service functionality and features.
+* **Tutorials** are longer guides that show you how to use the service as a component in broader business solutions.
 
 > [!NOTE]
 > Bing Speech was decommissioned on October 15, 2019. If your applications, tools, or products are using the Bing Speech APIs or Custom Speech, we've created guides to help you migrate to the Speech service.
@@ -24,25 +33,19 @@ Text-to-speech from the Speech service enables your applications, tools, or devi
 
 ## Core features
 
-* Speech synthesis - Use the [Speech SDK](quickstarts/text-to-speech-audio-file.md) or [REST API](rest-text-to-speech.md) to convert text-to-speech using standard, neural, or custom voices.
+* Speech synthesis - Use the [Speech SDK](./get-started-text-to-speech.md) or [REST API](rest-text-to-speech.md) to convert text-to-speech using standard, neural, or custom voices.
 
 * Asynchronous synthesis of long audio - Use the [Long Audio API](long-audio-api.md) to asynchronously synthesize text-to-speech files longer than 10 minutes (for example audio books or lectures). Unlike synthesis performed using the Speech SDK or speech-to-text REST API, responses aren't returned in real time. The expectation is that requests are sent asynchronously, responses are polled for, and that the synthesized audio is downloaded when made available from the service. Only custom neural voices are supported.
 
-* Standard voices - Created using Statistical Parametric Synthesis and/or Concatenation Synthesis techniques. These voices are highly intelligible and sound natural. You can easily enable your applications to speak in more than 45 languages, with a wide range of voice options. These voices provide high pronunciation accuracy, including support for abbreviations, acronym expansions, date/time interpretations, polyphones, and more. For a full list of standard voices, see [supported languages](language-support.md#text-to-speech).
+* Neural voices - Deep neural networks are used to overcome the limits of traditional speech synthesis with regard to stress and intonation in spoken language. Prosody prediction and voice synthesis are performed simultaneously, which results in more fluid and natural-sounding outputs. Neural voices can be used to make interactions with chatbots and voice assistants more natural and engaging, convert digital texts such as e-books into audiobooks, and enhance in-car navigation systems. With the human-like natural prosody and clear articulation of words, neural voices significantly reduce listening fatigue when you interact with AI systems. For a full list of neural voices, see [supported languages](language-support.md#text-to-speech).
 
-* Neural voices - Deep neural networks are used to overcome the limits of traditional speech synthesis with regards to stress and intonation in spoken language. Prosody prediction and voice synthesis are performed simultaneously, which results in more fluid and natural-sounding outputs. Neural voices can be used to make interactions with chatbots and voice assistants more natural and engaging, convert digital texts such as e-books into audiobooks, and enhance in-car navigation systems. With the human-like natural prosody and clear articulation of words, neural voices significantly reduce listening fatigue when you interact with AI systems. For a full list of neural voices, see [supported languages](language-support.md#text-to-speech).
+* Fine-tune TTS output with SSML - Speech Synthesis Markup Language (SSML) is an XML-based markup language used to customize text-to-speech outputs. With SSML, you can not only adjust pitch, add pauses, improve pronunciation, change speaking rate, adjust volume, and attribute multiple voices to a single document, but also define your own lexicons or switch to different speaking styles. With the multi-lingual voices, you can also adjust the speaking languages via SSML. See [how to use SSML](speech-synthesis-markup.md) to fine-tune the voice output for your scenario. 
 
-* Speech Synthesis Markup Language (SSML) - An XML-based markup language used to customize speech-to-text outputs. With SSML, you can adjust pitch, add pauses, improve pronunciation, speed up or slow down speaking rate, increase or decrease volume, and attribute multiple voices to a single document. See [SSML](speech-synthesis-markup.md).
+* Visemes - [Visemes](how-to-speech-synthesis-viseme.md) are the key poses in observed speech, including the position of the lips, jaw and tongue when producing a particular phoneme. Visemes have a strong correlation with voices and phonemes. Using viseme events in Speech SDK, you can generate facial animation data, which can be used to animate faces in lip-reading communication, education, entertainment, and customer service. Viseme is currently only supported for the `en-US` English (United States) [neural voices](language-support.md#text-to-speech).
 
 ## Get started
 
-The text-to-speech service is available via the [Speech SDK](speech-sdk.md). There are several common scenarios available as quickstarts, in various languages and platforms:
-
-* [Synthesize speech into an audio file](quickstarts/text-to-speech-audio-file.md)
-* [Synthesize speech to a speaker](quickstarts/text-to-speech.md)
-* [Asynchronously synthesize long-form audio](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
-
-If you prefer, the text-to-speech service is accessible via [REST](rest-text-to-speech.md).
+See the [quickstart](get-started-text-to-speech.md) to get started with text-to-speech. The text-to-speech service is available via the [Speech SDK](speech-sdk.md), the [REST API](rest-text-to-speech.md), and the [Speech CLI](spx-overview.md)
 
 ## Sample code
 
@@ -53,7 +56,7 @@ Sample code for text-to-speech is available on GitHub. These samples cover text-
 
 ## Customization
 
-In addition to standard and neural voices, you can create and fine-tune custom voices unique to your product or brand. All it takes to get started are a handful of audio files and the associated transcriptions. For more information, see [Get started with Custom Voice](how-to-custom-voice.md)
+In addition to neural voices, you can create and fine-tune custom voices unique to your product or brand. All it takes to get started are a handful of audio files and the associated transcriptions. For more information, see [Get started with Custom Neural Voice](how-to-custom-voice.md)
 
 ## Pricing note
 
@@ -76,5 +79,5 @@ For detailed information, see [Pricing](https://azure.microsoft.com/pricing/deta
 
 ## Next steps
 
-- [Get a free Speech service subscription](get-started.md)
+- [Get a free Speech service subscription](overview.md#try-the-speech-service-for-free)
 - [Get the Speech SDK](speech-sdk.md)

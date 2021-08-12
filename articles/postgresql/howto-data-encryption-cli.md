@@ -1,11 +1,12 @@
 ---
 title: Data encryption - Azure CLI - for Azure Database for PostgreSQL - Single server
 description: Learn how to set up and manage data encryption for your Azure Database for PostgreSQL Single server by using the Azure CLI.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
-ms.topic: conceptual
-ms.date: 03/30/2020
+ms.topic: how-to
+ms.date: 03/30/2020 
+ms.custom: devx-track-azurecli
 ---
 
 # Data encryption for Azure Database for PostgreSQL Single server by using the Azure CLI
@@ -17,28 +18,28 @@ Learn how to use the Azure CLI to set up and manage data encryption for your Azu
 * You must have an Azure subscription and be an administrator on that subscription.
 * Create a key vault and a key to use for a customer-managed key. Also enable purge protection and soft delete on the key vault.
 
-    ```azurecli-interactive
-    az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true --enable-purge-protection true
-    ```
+   ```azurecli-interactive
+   az keyvault create -g <resource_group> -n <vault_name> --enable-soft-delete true --enable-purge-protection true
+   ```
 
 * In the created Azure Key Vault, create the key that will be used for the data encryption of the Azure Database for PostgreSQL Single server.
 
-    ```azurecli-interactive
-    az keyvault key create --name <key_name> -p software --vault-name <vault_name>
-    ```
+   ```azurecli-interactive
+   az keyvault key create --name <key_name> -p software --vault-name <vault_name>
+   ```
 
 * In order to use an existing key vault, it must have the following properties to use as a customer-managed key:
-  * [Soft delete](../key-vault/general/overview-soft-delete.md)
+  * [Soft delete](../key-vault/general/soft-delete-overview.md)
 
-    ```azurecli-interactive
-    az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
-    ```
+      ```azurecli-interactive
+      az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
+      ```
 
-  * [Purge protected](../key-vault/general/overview-soft-delete.md#purge-protection)
+  * [Purge protected](../key-vault/general/soft-delete-overview.md#purge-protection)
 
-    ```azurecli-interactive
-    az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
-    ```
+      ```azurecli-interactive
+      az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
+      ```
 
 * The key must have the following attributes to use as a customer-managed key:
   * No expiration date
@@ -49,16 +50,16 @@ Learn how to use the Azure CLI to set up and manage data encryption for your Azu
 
 1. There are two ways of getting the managed identity for your Azure Database for PostgreSQL Single server.
 
-    ### Create an new Azure Database for MySQL server with a managed identity.
+    ### Create an new Azure Database for PostgreSQL server with a managed identity.
 
     ```azurecli-interactive
-    az postgres server create --name -g <resource_group> --location <locations> --storage-size <size>  -u <user>-p <pwd> --backup-retention <7> --sku-name <sku name> --geo-redundant-backup <Enabled/Disabled>  --assign-identity
+    az postgres server create --name <server_name> -g <resource_group> --location <location> --storage-size <size>  -u <user> -p <pwd> --backup-retention <7> --sku-name <sku name> --geo-redundant-backup <Enabled/Disabled> --assign-identity
     ```
 
-    ### Update an existing the Azure Database for MySQL server to get a managed identity.
+    ### Update an existing the Azure Database for PostgreSQL server to get a managed identity.
 
     ```azurecli-interactive
-    az postgres server update –name <server name>  -g <resoure_group> --assign-identity
+    az postgres server update --resource-group <resource_group> --name <server_name> --assign-identity
     ```
 
 2. Set the **Key permissions** (**Get**, **Wrap**, **Unwrap**) for the **Principal**, which is the name of the PostgreSQL Single server server.
@@ -72,10 +73,10 @@ Learn how to use the Azure CLI to set up and manage data encryption for your Azu
 1. Enable Data encryption for the Azure Database for PostgreSQL Single server using the key created in the Azure Key Vault.
 
     ```azurecli-interactive
-    az postgres server key create –name  <server name>  -g <resource_group> --kid <key url>
+    az postgres server key create --name <server_name> -g <resource_group> --kid <key_url>
     ```
 
-    Key url:  https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>
+    Key url:  `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
 
 ## Using Data encryption for restore or replica servers
 
@@ -83,36 +84,56 @@ After Azure Database for PostgreSQL Single server is encrypted with a customer's
 
 ### Creating a restored/replica server
 
-  *  [Create a restore server](howto-restore-server-cli.md) 
-  *  [Create a read replica server](howto-read-replicas-cli.md) 
+* [Create a restore server](howto-restore-server-cli.md)
+* [Create a read replica server](howto-read-replicas-cli.md)
 
 ### Once the server is restored, revalidate data encryption the restored server
 
-    ```azurecli-interactive
-    az postgres server key create –name  <server name> -g <resource_group> --kid <key url>
-    ```
+*	Assign identity for the replica server
+```azurecli-interactive
+az postgres server update --name  <server name>  -g <resoure_group> --assign-identity
+```
+
+*	Get the existing key that has to be used for the restored/replica server
+
+```azurecli-interactive
+az postgres server key list --name  '<server_name>'  -g '<resource_group_name>'
+```
+
+*	Set the policy for the new identity for the restored/replica server
+
+```azurecli-interactive
+az keyvault set-policy --name <keyvault> -g <resoure_group> --key-permissions get unwrapKey wrapKey --object-id <principl id of the server returned by the step 1>
+```
+
+* Re-validate the restored/replica server with the encryption key
+
+```azurecli-interactive
+az postgres server key create –name  <server name> -g <resource_group> --kid <key url>
+```
 
 ## Additional capability for the key being used for the Azure Database for PostgreSQL Single server
 
 ### Get the Key used
 
-    ```azurecli-interactive
-    az mysql server key show --name  <server name>  -g <resource_group> --kid <key url>
-    ```
+```azurecli-interactive
+az postgres server key show --name <server name>  -g <resource_group> --kid <key url>
+```
 
-    Key url:  https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>
+Key url: `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
 
 ### List the Key used
 
-    ```azurecli-interactive
-    az postgres server key list --name  <server name>  -g <resource_group>
-    ```
+```azurecli-interactive
+az postgres server key list --name  <server name>  -g <resource_group>
+```
 
 ### Drop the key being used
 
-    ```azurecli-interactive
-    az postgres server key delete -g <resource_group> --kid <key url> 
-    ```
+```azurecli-interactive
+az postgres server key delete -g <resource_group> --kid <key url> 
+```
+
 ## Using an Azure Resource Manager template to enable data encryption
 
 Apart from Azure portal, you can also enable data encryption on your Azure Database for PostgreSQL single server using Azure Resource Manager templates for new and existing server.

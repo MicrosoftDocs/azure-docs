@@ -2,15 +2,17 @@
 title: Convert a Windows virtual machine from unmanaged disks to managed disks
 description: How to convert a Windows VM from unmanaged disks to managed disks by using PowerShell in the Resource Manager deployment model
 author: roygara
-ms.service: virtual-machines-windows
-ms.topic: conceptual
+ms.service: virtual-machines
+ms.subservice: disks
+ms.topic: how-to
 ms.date: 07/12/2018
 ms.author: rogarana
 ---
 
 # Convert a Windows virtual machine from unmanaged disks to managed disks
 
-If you have existing Windows virtual machines (VMs) that use unmanaged disks, you can convert the VMs to use managed disks through the [Azure Managed Disks](managed-disks-overview.md) service. This process converts both the OS disk and any attached data disks.
+If you have existing Windows virtual machines (VMs) that use unmanaged disks, you can convert the VMs to use managed disks through the [Azure Managed Disks](../managed-disks-overview.md) service. This process converts both the operating system (OS) disk and any attached data disks.
+
 
  
 
@@ -19,7 +21,7 @@ If you have existing Windows virtual machines (VMs) that use unmanaged disks, yo
 
 * Review [Plan for the migration to Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks).
 
-* Review [the FAQ about migration to Managed Disks](faq-for-disks.md#migrate-to-managed-disks).
+* Review [the FAQ about migration to Managed Disks](/azure/virtual-machines/faq-for-disks#migrate-to-managed-disks).
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 
@@ -29,7 +31,7 @@ If you have existing Windows virtual machines (VMs) that use unmanaged disks, yo
 ## Convert single-instance VMs
 This section covers how to convert single-instance Azure VMs from unmanaged disks to managed disks. (If your VMs are in an availability set, see the next section.) 
 
-1. Deallocate the VM by using the [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) cmdlet. The following example deallocates the VM named `myVM` in the resource group named `myResourceGroup`: 
+1. Deallocate the VM by using the [Stop-AzVM](/powershell/module/az.compute/stop-azvm) cmdlet. The following example deallocates the VM named `myVM` in the resource group named `myResourceGroup`: 
 
    ```azurepowershell-interactive
    $rgName = "myResourceGroup"
@@ -37,7 +39,7 @@ This section covers how to convert single-instance Azure VMs from unmanaged disk
    Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
    ```
 
-2. Convert the VM to managed disks by using the [ConvertTo-AzVMManagedDisk](https://docs.microsoft.com/powershell/module/az.compute/convertto-azvmmanageddisk) cmdlet. The following process converts the previous VM, including the OS disk and any data disks, and starts the Virtual Machine:
+2. Convert the VM to managed disks by using the [ConvertTo-AzVMManagedDisk](/powershell/module/az.compute/convertto-azvmmanageddisk) cmdlet. The following process converts the previous VM, including the OS disk and any data disks, and starts the Virtual Machine:
 
    ```azurepowershell-interactive
    ConvertTo-AzVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
@@ -49,7 +51,7 @@ This section covers how to convert single-instance Azure VMs from unmanaged disk
 
 If the VMs that you want to convert to managed disks are in an availability set, you first need to convert the availability set to a managed availability set.
 
-1. Convert the availability set by using the [Update-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/update-azavailabilityset) cmdlet. The following example updates the availability set named `myAvailabilitySet` in the resource group named `myResourceGroup`:
+1. Convert the availability set by using the [Update-AzAvailabilitySet](/powershell/module/az.compute/update-azavailabilityset) cmdlet. The following example updates the availability set named `myAvailabilitySet` in the resource group named `myResourceGroup`:
 
    ```azurepowershell-interactive
    $rgName = 'myResourceGroup'
@@ -66,7 +68,7 @@ If the VMs that you want to convert to managed disks are in an availability set,
    Update-AzAvailabilitySet -AvailabilitySet $avSet -Sku Aligned
    ```
 
-2. Deallocate and convert the VMs in the availability set. The following script deallocates each VM by using the [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) cmdlet, converts it by using [ConvertTo-AzVMManagedDisk](https://docs.microsoft.com/powershell/module/az.compute/convertto-azvmmanageddisk), and restarts it automatically as apart of the conversion process:
+2. Deallocate and convert the VMs in the availability set. The following script deallocates each VM by using the [Stop-AzVM](/powershell/module/az.compute/stop-azvm) cmdlet, converts it by using [ConvertTo-AzVMManagedDisk](/powershell/module/az.compute/convertto-azvmmanageddisk), and restarts it automatically as apart of the conversion process:
 
    ```azurepowershell-interactive
    $avSet = Get-AzAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
@@ -82,8 +84,11 @@ If the VMs that you want to convert to managed disks are in an availability set,
 
 ## Troubleshooting
 
-If there is an error during conversion, or if a VM is in a failed state because of issues in a previous conversion, run the `ConvertTo-AzVMManagedDisk` cmdlet again. A simple retry usually unblocks the situation.
-Before converting, make sure all the VM extensions are in the 'Provisioning succeeded' state or the conversion will fail with the error code 409.
+- Before converting, make sure all the VM extensions are in the 'Provisioning succeeded' state or the conversion will fail with the error code 409.
+- If there is an error during conversion, or if a VM is in a failed state because of issues in a previous conversion, run the `ConvertTo-AzVMManagedDisk` cmdlet again. A simple retry usually unblocks the situation.
+- If you are converting a Linux VM to managed disks, use the latest version of the Azure Linux Agent. Operations using Azure Linux Agent versions '2.2.0' and earlier will likely fail. Running the conversion on a generalized VM or a VM that belongs to a classic availability set is also not supported.
+- If the conversion fails with the "SnapshotCountExceeded" error, delete some snapshots and attempt the operation again.
+
 
 ## Convert using the Azure portal
 
@@ -102,4 +107,3 @@ The VM will be stopped and restarted after migration is complete.
 [Convert standard managed disks to premium](convert-disk-storage.md)
 
 Take a read-only copy of a VM by using [snapshots](snapshot-copy-managed-disk.md).
-

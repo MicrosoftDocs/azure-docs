@@ -1,19 +1,16 @@
 ---
-title: Azure Application Insights usage cohorts | Microsoft Docs
+title: Application Insights usage cohorts | Microsoft Docs
 description: Analyze different sets or users, sessions, events, or operations that have something in common
 ms.topic: conceptual
-author: NumberByColors
-ms.author: daviste
-ms.date: 04/10/2018
+author: lgayhardt
+ms.author: lagayhar
+ms.date: 07/30/2021
 
-ms.reviewer: mbullwin
 ---
 
 # Application Insights cohorts
 
-A cohort is a set of users, sessions, events, or operations that have something in common. In Azure Application Insights, cohorts are defined by an analytics query. In cases where you have to analyze a specific set of users or events repeatedly, cohorts can give you more flexibility to express exactly the set you’re interested in.
-
-![Cohorts pane](./media/usage-cohorts/001.png)
+A cohort is a set of users, sessions, events, or operations that have something in common. In Application Insights, cohorts are defined by an analytics query. In cases where you have to analyze a specific set of users or events repeatedly, cohorts can give you more flexibility to express exactly the set you’re interested in.
 
 ## Cohorts versus basic filters
 
@@ -28,7 +25,7 @@ You might define a cohort of users who have all tried a new feature in your app.
 
 Your team defines an engaged user as anyone who uses your app five or more times in a given month. In this section, you define a cohort of these engaged users.
 
-1. Open the Cohorts tool.
+1. Select **Create a Cohort**
 
 2. Select the **Template Gallery** tab. You see a collection of templates for various cohorts.
 
@@ -41,8 +38,7 @@ Your team defines an engaged user as anyone who uses your app five or more times
 
 4. Change **UsedAtLeastCustom** to **5+ days**, and leave **Period** on the default of 28 days.
 
-    ![Engaged users](./media/usage-cohorts/003.png)
-
+  
     Now this cohort represents all user IDs sent with any custom event or page view on 5 separate days in the past 28.
 
 5. Select **Save**.
@@ -56,9 +52,8 @@ Your team defines an engaged user as anyone who uses your app five or more times
 
 Open the Users tool. In the **Show** drop-down box, choose the cohort you created under **Users who belong to**.
 
-Now the Users tool is filtered to this cohort of users:
 
-![Users pane filtered to a particular cohort](./media/usage-cohorts/004.png)
+:::image type="content" source="./media/usage-cohorts/cohort-2.png" alt-text="Screenshot of the Show dropdown, showing a cohort.":::
 
 A few important things to notice:
 
@@ -71,13 +66,11 @@ These filters support more sophisticated questions that are impossible to expres
 
 You can also make cohorts of events. In this section, you define a cohort of the events and page views. Then you see how to use them from the other tools. This cohort might define a set of events that your team considers _active usage_ or a set related to a certain new feature.
 
-1. Open the Cohorts tool.
+1. Select **Create a Cohort**
 
 2. Select the **Template Gallery** tab. You’ll see a collection of templates for various cohorts.
 
 3. Select **Events Picker**.
-
-    ![Screenshot of events picker](./media/usage-cohorts/006.png)
 
 4. In the **Activities** drop-down box, select the events you want to be in the cohort.
 
@@ -87,11 +80,10 @@ You can also make cohorts of events. In this section, you define a cohort of the
 
 The previous two cohorts were defined by using drop-down boxes. But you can also define cohorts by using analytics queries for total flexibility. To see how, create a cohort of users from the United Kingdom.
 
-![Animated image walking through use of Cohorts tool](./media/usage-cohorts/cohorts0001.gif)
 
 1. Open the Cohorts tool, select the **Template Gallery** tab, and select **Blank Users cohort**.
 
-    ![Blank users cohort](./media/usage-cohorts/001.png)
+   :::image type="content" source="./media/usage-cohorts/cohort.png" alt-text="Screenshot of the template gallery for cohorts." lightbox="./media/usage-cohorts/cohort.png":::
 
     There are three sections:
    * A Markdown text section, where you describe the cohort in more detail for others on your team.
@@ -103,7 +95,7 @@ The previous two cohorts were defined by using drop-down boxes. But you can also
      In the query section, you [write an analytics query](/azure/kusto/query). The query selects the certain set of rows that describe the cohort you want to define. The Cohorts tool then implicitly adds a “| summarize by user_Id” clause to the query. This data is previewed below the query in a table, so you can make sure your query is returning results.
 
      > [!NOTE]
-     > If you don’t see the query, try resizing the section to make it taller and reveal the query. The animated .gif at the beginning of this section illustrates the resizing behavior.
+     > If you don’t see the query, try resizing the section to make it taller and reveal the query. 
 
 2. Copy and paste the following text into the query editor:
 
@@ -127,7 +119,7 @@ Cohorts and filters are different. Suppose you have a cohort of users from the U
 
 ## Learn more
 
-* [Analytics query language](https://go.microsoft.com/fwlink/?linkid=856587)
+* [Analytics query language](../logs/log-analytics-tutorial.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 * [Users, sessions, events](usage-segmentation.md)
 * [User flows](usage-flows.md)
 * [Usage overview](usage-overview.md)

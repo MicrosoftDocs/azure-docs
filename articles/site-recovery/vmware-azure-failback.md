@@ -1,13 +1,12 @@
 ---
 title: Fail back VMware VMs/physical servers from Azure with Azure Site Recovery 
 description: Learn how to fail back to the on-premises site after failover to Azure, during disaster recovery of VMware VMs and physical servers to Azure.
-author: mayurigupta13
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
-ms.date: 01/15/2019
 ms.topic: conceptual
-ms.author: mayg
-
+ms.author: sharrai
+ms.date: 05/27/2021
 ---
 # Fail back VMware VMs to on-premises site
 
@@ -24,7 +23,7 @@ This article describes how to fail back Azure VMs to an on-premises site, follow
 
 ## Run a failover to fail back
 
-1. Make sure that Azure VMs are reprotected and replicating to the on-premises site. 
+1. Make sure that Azure VMs are reprotected and replicating to the on-premises site.
     - A VM needs at least one recovery point in order to fail back.
     - If you fail back a recovery plan, then all machines in the plan should have at least one recovery point.
 2. In the vault > **Replicated items**, select the VM. Right-click the VM > **Unplanned Failover**.

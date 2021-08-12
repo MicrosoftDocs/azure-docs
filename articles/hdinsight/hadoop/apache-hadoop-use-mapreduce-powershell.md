@@ -1,18 +1,15 @@
 ---
 title: Use MapReduce and PowerShell with Apache Hadoop - Azure HDInsight 
 description: Learn how to use PowerShell to remotely run MapReduce jobs with Apache Hadoop on HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.topic: how-to
+ms.custom: hdinsightactive, devx-track-azurepowershell
 ms.date: 01/08/2020
 ---
 
 # Run MapReduce jobs with Apache Hadoop on HDInsight using PowerShell
 
-[!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
+[!INCLUDE [mapreduce-selector](../includes/hdinsight-selector-use-mapreduce.md)]
 
 This document provides an example of using Azure PowerShell to run a MapReduce job in a Hadoop on HDInsight cluster.
 
@@ -20,7 +17,7 @@ This document provides an example of using Azure PowerShell to run a MapReduce j
 
 * An Apache Hadoop cluster on HDInsight. See [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
-* The PowerShell [Az Module](https://docs.microsoft.com/powershell/azure/overview) installed.
+* The PowerShell [Az Module](/powershell/azure/) installed.
 
 ## Run a MapReduce job
 
@@ -44,21 +41,25 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
 
 2. Open a new **Azure PowerShell** command prompt. Change directories to the location of the **mapreducejob.ps1** file, then use the following command to run the script:
 
-        .\mapreducejob.ps1
+    ```azurepowershell
+    .\mapreducejob.ps1
+    ```
 
     When you run the script, you're prompted for the name of the HDInsight cluster and the cluster login. You may also be prompted to authenticate to your Azure subscription.
 
 3. When the job completes, you receive output similar to the following text:
 
-        Cluster         : CLUSTERNAME
-        ExitCode        : 0
-        Name            : wordcount
-        PercentComplete : map 100% reduce 100%
-        Query           :
-        State           : Completed
-        StatusDirectory : f1ed2028-afe8-402f-a24b-13cc17858097
-        SubmissionTime  : 12/5/2014 8:34:09 PM
-        JobId           : job_1415949758166_0071
+    ```output
+    Cluster         : CLUSTERNAME
+    ExitCode        : 0
+    Name            : wordcount
+    PercentComplete : map 100% reduce 100%
+    Query           :
+    State           : Completed
+    StatusDirectory : f1ed2028-afe8-402f-a24b-13cc17858097
+    SubmissionTime  : 12/5/2014 8:34:09 PM
+    JobId           : job_1415949758166_0071
+    ```
 
     This output indicates that the job completed successfully.
 

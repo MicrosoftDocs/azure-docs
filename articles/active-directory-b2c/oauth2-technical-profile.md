@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/24/2020
+ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -24,7 +24,7 @@ Azure Active Directory B2C (Azure AD B2C) provides support for the OAuth2 protoc
 
 The **Name** attribute of the **Protocol** element needs to be set to `OAuth2`. For example, the protocol for the **Facebook-OAUTH** technical profile is `OAuth2`:
 
-```XML
+```xml
 <TechnicalProfile Id="Facebook-OAUTH">
   <DisplayName>Facebook</DisplayName>
   <Protocol Name="OAuth2" />
@@ -35,7 +35,7 @@ The **Name** attribute of the **Protocol** element needs to be set to `OAuth2`. 
 
 The **InputClaims** and **InputClaimsTransformations** elements are not required. But you may want to send additional parameters to your identity provider. The following example adds the **domain_hint** query string parameter with the value of `contoso.com` to the authorization request.
 
-```XML
+```xml
 <InputClaims>
   <InputClaim ClaimTypeReferenceId="domain_hint" DefaultValue="contoso.com" />
 </InputClaims>
@@ -80,11 +80,13 @@ The technical profile also returns claims that aren't returned by the identity p
 | authorization_endpoint | Yes | The URL of the authorization endpoint as per RFC 6749. |
 | AccessTokenEndpoint | Yes | The URL of the token endpoint as per RFC 6749. |
 | ClaimsEndpoint | Yes | The URL of the user information endpoint as per RFC 6749. |
+| end_session_endpoint | Yes | The URL of the end session endpoint as per RFC 6749. |
 | AccessTokenResponseFormat | No | The format of the access token endpoint call. For example, Facebook requires an HTTP GET method, but the access token response is in JSON format. |
 | AdditionalRequestQueryParameters | No | Additional request query parameters. For example, you may want to send additional parameters to your identity provider. You can include multiple parameters using comma delimiter. |
-| ClaimsEndpointAccessTokenName | No | The name of the access token query string parameter. Some identity providers' claims endpoints support GET HTTP request. In this case, the bearer token is sent by using a query string parameter instead of the authorization header. |
+| ClaimsEndpointAccessTokenName | No | The name of the access token query string parameter. Some identity providers' claims endpoints support GET HTTP request. In this case, the bearer token is sent by using a query string parameter instead of the authorization header. Default value: `access_token`. |
 | ClaimsEndpointFormatName | No | The name of the format query string parameter. For example, you can set the name as `format` in this LinkedIn claims endpoint `https://api.linkedin.com/v1/people/~?format=json`. |
 | ClaimsEndpointFormat | No | The value of the format query string parameter. For example, you can set the value as `json` in this LinkedIn claims endpoint `https://api.linkedin.com/v1/people/~?format=json`. |
+| BearerTokenTransmissionMethod | No | Specifies how the token is sent. The default method is a query string. To send the token as a request header, set to `AuthorizationHeader`. |
 | ProviderName | No | The name of the identity provider. |
 | response_mode | No | The method that the identity provider uses to send the result back to Azure AD B2C. Possible values: `query`, `form_post` (default), or `fragment`. |
 | scope | No | The scope of the request that is defined according to the OAuth2 identity provider specification. Such as `openid`, `profile`, and `email`. |
@@ -93,7 +95,11 @@ The technical profile also returns claims that aren't returned by the identity p
 | ExtraParamsInAccessTokenEndpointResponse | No | Contains the extra parameters that can be returned in the response from **AccessTokenEndpoint** by some identity providers. For example, the response from **AccessTokenEndpoint** contains an extra parameter such as `openid`, which is a mandatory parameter besides the access_token in a **ClaimsEndpoint** request query string. Multiple parameter names should be escaped and separated by the comma ',' delimiter. |
 | ExtraParamsInClaimsEndpointRequest | No | Contains the extra parameters that can be returned in the **ClaimsEndpoint** request by some identity providers. Multiple parameter names should be escaped and separated by the comma ',' delimiter. |
 | IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
-| ResolveJsonPathsInJsonTokens  | No | Indicates whether the technical profile resolves JSON paths. Possible values: `true`, or `false` (default). Use this metadata to read data from a nested JSON element. In an [OutputClaim](technicalprofiles.md#outputclaims), set the `PartnerClaimType` to the JSON path element you want to output. For example: `firstName.localized`, or `data.0.to.0.email`.|
+| ResolveJsonPathsInJsonTokens  | No | Indicates whether the technical profile resolves JSON paths. Possible values: `true`, or `false` (default). Use this metadata to read data from a nested JSON element. In an [OutputClaim](technicalprofiles.md#output-claims), set the `PartnerClaimType` to the JSON path element you want to output. For example: `firstName.localized`, or `data.0.to.0.email`.|
+|token_endpoint_auth_method| No| Specifies how Azure AD B2C sends the authentication header to the token endpoint. Possible values: `client_secret_post` (default), and `client_secret_basic` (public preview), `private_key_jwt` (public preview). For more information, see [OpenID Connect client authentication section](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
+|token_signing_algorithm| No | Specifies the signing algorithm to use when `token_endpoint_auth_method` is set to `private_key_jwt`. Possible values: `RS256` (default) or `RS512`.|
+|SingleLogoutEnabled| No | Indicates whether during sign-in the technical profile attempts to sign out from federated identity providers. For more information, see [Azure AD B2C session sign-out](session-behavior.md#sign-out). Possible values: `true` (default), or `false`.|
+| UsePolicyInRedirectUri | No | Indicates whether to use a policy when constructing the redirect URI. When you configure your application in the identity provider, you need to specify the redirect URI. The redirect URI points to Azure AD B2C, `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp`. If you specify `true`, you need to add a redirect URI for each policy you use. For example: `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/{policy-name}/oauth2/authresp`. |
 
 ## Cryptographic keys
 
@@ -105,23 +111,8 @@ The **CryptographicKeys** element contains the following attribute:
 
 ## Redirect URI
 
-When you configure the redirect URL of your identity provider, enter `https://login.microsoftonline.com/te/tenant/policyId/oauth2/authresp`. Make sure to replace **tenant** with your tenant's name (for example, contosob2c.onmicrosoft.com) and **policyId** with the identifier of your policy (for example, b2c_1a_policy). The redirect URI needs to be in all lowercase.
-
-If you are using the **b2clogin.com** domain instead of **login.microsoftonline.com** Make sure to use b2clogin.com instead of login.microsoftonline.com.
+When you configure the redirect URI of your identity provider, enter `https://{tenant-name}.b2clogin.com/{tenant-name}.onmicrosoft.com/oauth2/authresp`. Make sure to replace `{tenant-name}` with your tenant's name (for example, contosob2c). The redirect URI needs to be in all lowercase.
 
 Examples:
 
-- [Add Google+ as an OAuth2 identity provider using custom policies](identity-provider-google-custom.md)
-
-
-
-
-
-
-
-
-
-
-
-
-
+- [Add Google+ as an OAuth2 identity provider using custom policies](identity-provider-google.md)

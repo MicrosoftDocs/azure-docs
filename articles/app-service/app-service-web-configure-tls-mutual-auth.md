@@ -4,8 +4,8 @@ description: Learn how to authenticated client certificates on TLS. Azure App Se
 
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
-ms.date: 10/01/2019
-ms.custom: seodec18
+ms.date: 12/11/2020
+ms.custom: "devx-track-csharp, seodec18"
 
 ---
 # Configure TLS mutual authentication for Azure App Service
@@ -20,20 +20,33 @@ You can restrict access to your Azure App Service app by enabling different type
 
 ## Enable client certificates
 
-To set up your app to require client certificates, you need to set the `clientCertEnabled` setting for your app to `true`. To set the setting, run the following command in the [Cloud Shell](https://shell.azure.com).
+To set up your app to require client certificates:
+
+1. From the left navigation of your app's management page, select **Configuration** > **General Settings**.
+
+1. Set **Client certificate mode** to **Require**. Click **Save** at the top of the page.
+
+To do the same with Azure CLI, run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>
+az webapp update --set clientCertEnabled=true --name <app-name> --resource-group <group-name>
 ```
 
 ## Exclude paths from requiring authentication
 
-When you enable mutual auth for your application, all paths under the root of your app will require a client certificate for access. To allow certain paths to remain open for anonymous access, you can define exclusion paths as part of your application configuration.
+When you enable mutual auth for your application, all paths under the root of your app require a client certificate for access. To remove this requirement for certain paths, define exclusion paths as part of your application configuration.
 
-Exclusion paths can be configured by selecting **Configuration** > **General Settings** and defining an exclusion path. In this example, anything under `/public` path for your application would not request a client certificate.
+1. From the left navigation of your app's management page, select **Configuration** > **General Settings**.
+
+1. Next to **Client exclusion paths**, click the edit icon.
+
+1. Click **New path**, specify a path, or a list of paths separated by `,` or `;`, and click **OK**.
+
+1. Click **Save** at the top of the page.
+
+In the following screenshot, any path for your app that starts with `/public` does not request a client certificate. Path matching is case-insensitive.
 
 ![Certificate Exclusion Paths][exclusion-paths]
-
 
 ## Access client certificate
 
@@ -43,7 +56,71 @@ For ASP.NET, the client certificate is available through the **HttpRequest.Clien
 
 For other application stacks (Node.js, PHP, etc.), the client cert is available in your app through a base64 encoded value in the `X-ARR-ClientCert` request header.
 
-## ASP.NET sample
+## ASP.NET 5+, ASP.NET Core 3.1 sample
+
+For ASP.NET Core, middleware is provided to parse forwarded certificates. Separate middleware is provided to use the forwarded protocol headers. Both must be present for forwarded certificates to be accepted. You can place custom certificate validation logic in the [CertificateAuthentication options](/aspnet/core/security/authentication/certauth).
+
+```csharp
+public class Startup
+{
+    public Startup(IConfiguration configuration)
+    {
+        Configuration = configuration;
+    }
+
+    public IConfiguration Configuration { get; }
+
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddControllersWithViews();
+        // Configure the application to use the protocol and client ip address forwared by the frontend load balancer
+        services.Configure<ForwardedHeadersOptions>(options =>
+        {
+            options.ForwardedHeaders =
+                ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+        });       
+        
+        // Configure the application to client certificate forwarded the frontend load balancer
+        services.AddCertificateForwarding(options => { options.CertificateHeader = "X-ARR-ClientCert"; });
+
+        // Add certificate authentication so when authorization is performed the user will be created from the certificate
+        services.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme).AddCertificate();
+    }
+
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        if (env.IsDevelopment())
+        {
+            app.UseDeveloperExceptionPage();
+        }
+        else
+        {
+            app.UseExceptionHandler("/Home/Error");
+            app.UseHsts();
+        }
+        
+        app.UseForwardedHeaders();
+        app.UseCertificateForwarding();
+        app.UseHttpsRedirection();
+
+        app.UseAuthentication()
+        app.UseAuthorization();
+
+        app.UseStaticFiles();
+
+        app.UseRouting();
+        
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}");
+        });
+    }
+}
+```
+
+## ASP.NET WebForms sample
 
 ```csharp
     using System;

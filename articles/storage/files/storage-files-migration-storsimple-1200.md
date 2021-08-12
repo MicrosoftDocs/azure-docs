@@ -3,7 +3,7 @@ title: StorSimple 1200 migration to Azure File Sync
 description: Learn how to migrate a StorSimple 1200 series virtual appliance to Azure File Sync.
 author: fauhse
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
@@ -15,24 +15,31 @@ StorSimple 1200 series is a virtual appliance that is run in an on-premises data
 
 StorSimple 1200 series will reach its [end-of-life](https://support.microsoft.com/en-us/lifecycle/search?alpha=StorSimple%201200%20Series) in December 2022.  It is important to begin planning your migration as soon as possible. This article provides the necessary background knowledge and migrations steps for a successful migration to Azure File Sync. 
 
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+
 ## Azure File Sync
 
 > [!IMPORTANT]
-> Microsoft is committed to assist customers in their migration. Email AzureFilesMigration@microsoft .com for a customized migration plan as well as assistance during the migration.
+> Microsoft is committed to assist customers in their migration. Email AzureFilesMigration@microsoft .com for a customized migration plan or assistance during the migration.
 
 Azure File Sync is a Microsoft cloud service, based on two main components:
 
 * File synchronization and cloud tiering.
-* File shares as native storage in Azure, that can be accessed over multiple protocols like SMB and file REST. An Azure file share is comparable to a file share on a Windows Server, that you can natively mount as a network drive. It supports important file fidelity aspects like attributes, permissions, and timestamps. Unlike with StorSimple, no application/service is required to interpret the files and folders stored in the cloud. The ideal, and most flexible approach to store general purpose file server data as well as some application data, in the cloud.
+* File shares as native storage in Azure, that can be accessed over multiple protocols like SMB and file REST. An Azure file share is comparable to a file share on a Windows Server, that you can natively mount as a network drive. It supports important file fidelity aspects like attributes, permissions, and timestamps. Unlike with StorSimple, no application/service is required to interpret the files and folders stored in the cloud. The ideal, and most flexible approach to store general purpose file server data and some application data, in the cloud.
 
 This article focuses on the migration steps. If before migrating you'd like to learn more about Azure File Sync, we recommend the following articles:
 
-* [Azure File Sync - overview](https://aka.ms/AFS "Overview")
-* [Azure File Sync - deployment guide](storage-sync-files-deployment-guide.md)
+* [Azure File Sync - overview](../file-sync/file-sync-planning.md "Overview")
+* [Azure File Sync - deployment guide](../file-sync/file-sync-deployment-guide.md)
 
 ## Migration goals
 
-The goal is to guarantee the integrity of the production data as well as guaranteeing availability. The latter requires keeping downtime to a minimum, so that it can fit into or only slightly exceed regular maintenance windows.
+The goal is to guarantee the integrity of the production data and guaranteeing availability. The latter requires keeping downtime to a minimum, so that it can fit into or only slightly exceed regular maintenance windows.
 
 ## StorSimple 1200 migration path to Azure File Sync
 
@@ -73,6 +80,15 @@ This article assumes you are mapping 1:1, so you must take your mapping changes 
 
 [!INCLUDE [storage-files-migration-provision-azfs](../../../includes/storage-files-migration-provision-azure-file-share.md)]
 
+#### Storage account settings
+
+There are many configurations you can make on a storage account. The following checklist should be used for your storage account configurations. You can change for instance the networking configuration after your migration is complete. 
+
+> [!div class="checklist"]
+> * Large file shares: Enabled - Large file shares improve performance and allow you to store up to 100TiB in a share.
+> * Firewall and virtual networks: Disabled - do not configure any IP restrictions or limit storage account access to a specific VNET. The public endpoint of the storage account is used during the migration. All IP addresses from Azure VMs must be allowed. It's best to configure any firewall rules on the storage account after the migration.
+> * Private Endpoints: Supported - You can enable private endpoints but the public endpoint is used for the migration and must remain available.
+
 ### Step 6: Configure Windows Server target folders
 
 In previous steps, you have considered all aspects that will determine the components of your sync topologies. It is now time, to prepare the server to receive files for upload.
@@ -107,76 +123,7 @@ Run the first local copy to your Windows Server target folder:
 
 The following RoboCopy command will recall files from your StorSimple Azure storage to your local StorSimple and then move them over to the Windows Server target folder. The Windows Server will sync it to the Azure file share(s). As the local Windows Server volume gets full, cloud tiering will kick in and tier files that have successfully synced already. Cloud tiering will generate enough space to continue the copy from the StorSimple virtual appliance. Cloud tiering checks once an hour to see what has synced and to free up disk space to reach the 99% volume free space.
 
-```console
-Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
-```
-
-Background:
-
-:::row:::
-   :::column span="1":::
-      /MT
-   :::column-end:::
-   :::column span="1":::
-      Allows for RoboCopy to run multi-threaded. Default is 8, max is 128.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /UNILOG:<file name>
-   :::column-end:::
-   :::column span="1":::
-      Outputs status to LOG file as UNICODE (overwrites existing log).
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /TEE
-   :::column-end:::
-   :::column span="1":::
-      Outputs to console window. Used in conjunction with output to a log file.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /B
-   :::column-end:::
-   :::column span="1":::
-      Runs RoboCopy in the same mode a backup application would use. It allows RoboCopy to move files that the current user does not have permissions to.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /MIR
-   :::column-end:::
-   :::column span="1":::
-      Allows to run this RoboCopy command several times, sequentially on the same target / destination. It identifies what has been copied before and omits it. Only changes, additions and "*deletes*" will be processed, that occurred since the last run. If the command wasn't run before, nothing is omitted. This is an excellent option for source locations that are still actively used and changing.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /COPY:copyflag[s]
-   :::column-end:::
-   :::column span="1":::
-      fidelity of the file copy (default is /COPY:DAT), copy flags: D=Data, A=Attributes, T=Timestamps, S=Security=NTFS ACLs, O=Owner info, U=aUditing info
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /COPYALL
-   :::column-end:::
-   :::column span="1":::
-      COPY ALL file info (equivalent to /COPY:DATSOU)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /DCOPY:copyflag[s]
-   :::column-end:::
-   :::column span="1":::
-      fidelity for the copy of directories (default is /DCOPY:DA), copy flags: D=Data, A=Attributes, T=Timestamps
-   :::column-end:::
-:::row-end:::
+[!INCLUDE [storage-files-migration-robocopy](../../../includes/storage-files-migration-robocopy.md)]
 
 When you run the RoboCopy command for the first time, your users and applications are still accessing the StorSimple files and folders and potentially change it. It is possible, that RoboCopy has processed a directory, moves on to the next and then a user on the source location (StorSimple) adds, changes, or deletes a file that will now not be processed in this current RoboCopy run. That is fine.
 
@@ -220,6 +167,8 @@ When your Windows Server has sufficient available capacity, rerunning the comman
 You can also run into other Azure File Sync issues.
 As unlikely as they may be, if that happens, take a look at the **LINK Azure File Sync troubleshooting guide**.
 
+[!INCLUDE [storage-files-migration-robocopy-optimize](../../../includes/storage-files-migration-robocopy-optimize.md)]
+
 ## Relevant links
 
 Migration content:
@@ -228,6 +177,6 @@ Migration content:
 
 Azure File Sync content:
 
-* [AFS overview](https://aka.ms/AFS)
-* [AFS deployment guide](storage-files-deployment-guide.md)
-* [AFS troubleshooting](storage-sync-files-troubleshoot.md)
+* [Azure File Sync overview](../file-sync/file-sync-planning.md)
+* [Deploy Azure File Sync](../file-sync/file-sync-deployment-guide.md)
+* [Azure File Sync troubleshooting guide](../file-sync/file-sync-troubleshoot.md)

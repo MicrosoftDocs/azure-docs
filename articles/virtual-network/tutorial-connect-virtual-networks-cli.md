@@ -6,17 +6,17 @@ documentationcenter: virtual-network
 author: KumudD
 
 tags: azure-resource-manager
-Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
+# Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
 
 ms.assetid: 
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
-ms.custom:
+ms.custom: devx-track-azurecli
 ---
 
 # Connect virtual networks with virtual network peering using the Azure CLI
@@ -28,11 +28,11 @@ You can connect virtual networks to each other with virtual network peering. Onc
 * Deploy a virtual machine (VM) into each virtual network
 * Communicate between VMs
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). 
+- This article requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create virtual networks
 
@@ -166,6 +166,8 @@ The VM takes a few minutes to create. After the VM is created, the Azure CLI sho
 ```
 
 Take note of the **publicIpAddress**. This address is used to access the VM from the internet in a later step.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## Communicate between VMs
 

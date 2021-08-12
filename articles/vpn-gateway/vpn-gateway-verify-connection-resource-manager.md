@@ -1,18 +1,19 @@
 ---
-title: 'Azure VPN Gateway: Verify a gateway connection'
-description: This article shows you how to verify a virtual network VPN Gateway connection.
+title: 'Verify a gateway connection'
+titleSuffix: Azure VPN Gateway
+description: Learn how to verify a virtual network VPN Gateway connection.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
-ms.topic: article
-ms.date: 05/16/2017
+ms.topic: how-to
+ms.date: 04/28/2021
 ms.author: cherylmc
 
 ---
 # Verify a VPN Gateway connection
 
-This article shows you how to verify a VPN gateway connection for both the classic and Resource Manager deployment models.
+This article shows you how to verify a VPN gateway connection for both the classic and the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md).
 
 ## Azure portal
 
@@ -20,16 +21,15 @@ This article shows you how to verify a VPN gateway connection for both the class
 
 ## PowerShell
 
-To verify a VPN gateway connection for the Resource Manager deployment model using PowerShell, install the latest version of the [Azure Resource Manager PowerShell cmdlets](/powershell/azure/overview).
+To verify a VPN gateway connection for the Resource Manager deployment model using PowerShell, install the latest version of the [Azure Resource Manager PowerShell cmdlets](/powershell/azure/).
 
 [!INCLUDE [PowerShell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
 ## Azure CLI
 
-To verify a VPN gateway connection for the Resource Manager deployment model using Azure CLI, install the latest version of the [CLI commands](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0 or later).
+To verify a VPN gateway connection for the Resource Manager deployment model using Azure CLI, install the latest version of the [CLI commands](/cli/azure/install-azure-cli) (2.0 or later).
 
 [!INCLUDE [CLI](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
-
 
 ## Azure portal (classic)
 
@@ -37,10 +37,10 @@ To verify a VPN gateway connection for the Resource Manager deployment model usi
 
 ## PowerShell (classic)
 
-To verify your VPN gateway connection for the classic deployment model using PowerShell, install the latest versions of the Azure PowerShell cmdlets. Be sure to download and install the [Service Management](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets) module. Use 'Add-AzureAccount' to log in to the classic deployment model.
+To verify your VPN gateway connection for the classic deployment model using PowerShell, install the latest versions of the Azure PowerShell cmdlets. Be sure to download and install the [Service Management](/powershell/azure/servicemanagement/install-azure-ps?#azure-service-management-cmdlets) module. Use 'Add-AzureAccount' to log in to the classic deployment model.
 
 [!INCLUDE [Classic PowerShell](../../includes/vpn-gateway-verify-connection-ps-classic-include.md)]
 
 ## Next steps
 
-* You can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for steps.
+* You can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/windows/quick-create-portal.md) for steps.

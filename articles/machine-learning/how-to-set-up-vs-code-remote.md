@@ -1,113 +1,135 @@
 ---
-title: 'Interactive debug: VS Code & ML compute instances'
+title: 'Connect to compute instance in Visual Studio Code (preview)'
 titleSuffix: Azure Machine Learning
-description: Set up VS Code Remote to interactively debug your code with Azure Machine Learning. 
+description: Learn how to connect to an Azure Machine Learning compute instance in Visual Studio Code to run interactive Jupyter Notebook and remote development workloads.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.author: jmartens
-author: j-martens
-ms.date: 12/09/2019
-# As a data scientist, I want to how to use SSH to set up a VS COde remote to use with an Azure ML compute instance. 
+ms.topic: how-to
+ms.author: luquinta
+author: luisquintanilla
+ms.date: 07/15/2021
+# As a data scientist, I want to connect to an Azure Machine Learning compute instance in Visual Studio Code to access my resources and run my code.
 ---
 
-# Debug interactively on an Azure Machine Learning Compute Instance with VS Code Remote
+# Connect to an Azure Machine Learning compute instance in Visual Studio Code (preview)
 
-In this article, you'll learn how to set up Visual Studio Code Remote on an Azure Machine Learning Compute Instance so you can **interactively debug your code** from VS Code. 
+In this article, you'll learn how to connect to an Azure Machine Learning compute instance using Visual Studio Code.
 
-+ An [Azure Machine Learning Compute Instance](concept-compute-instance.md) is a fully managed cloud-based workstation for data scientists and provides management and enterprise readiness capabilities for IT administrators. 
+An [Azure Machine Learning Compute Instance](concept-compute-instance.md) is a fully managed cloud-based workstation for data scientists and provides management and enterprise readiness capabilities for IT administrators.
 
+There are two ways you can connect to a compute instance from Visual Studio Code:
 
-+ [Visual Studio Code Remote](https://code.visualstudio.com/docs/remote/remote-overview) Development allows you to use a container, remote machine, or the Windows Subsystem for Linux (WSL) as a full-featured development environment. 
+* Remote compute instance. This option provides you with a full-featured development environment for building your machine learning projects.
+* Remote Jupyter Notebook server. This option allows you to set a compute instance as a remote Jupyter Notebook server.
 
-## Prerequisite  
+## Configure a remote compute instance
 
-On Windows platforms, you must [install an OpenSSH compatible SSH client](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client) if one is not already present. 
+To configure a remote compute instance for development, you'll need a few prerequisites.
 
-> [!Note]
-> PuTTY is not supported on Windows since the ssh command must be in the path. 
+* Azure Machine Learning Visual Studio Code extension. For more information, see the [Azure Machine Learning Visual Studio Code Extension setup guide](how-to-setup-vs-code.md).
+* Azure Machine Learning workspace. [Use the Azure Machine Learning Visual Studio Code extension to create a new workspace](how-to-manage-resources-vscode.md#create-a-workspace) if you don't already have one.
+* Azure Machine Learning compute instance. [Use the Azure Machine Learning Visual Studio Code extension to create a new compute instance](how-to-manage-resources-vscode.md#create-compute-instance) if you don't have one.
 
-## Get IP and SSH port 
+> [!IMPORTANT]
+> To connect to a compute instance behind a firewall, see [use workspace behind a Firewall for Azure Machine Learning](how-to-access-azureml-behind-firewall.md#visual-studio-code-hosts).
 
-1. Go to the Azure Machine Learning studio at https://ml.azure.com/.
+To connect to your remote compute instance:
 
-2. Select your [workspace](concept-workspace.md).
-1. Click the **Compute Instances** tab.
-1. In the **Application URI** column, click the **SSH** link of the compute instance you want to use as a remote compute. 
-1. In the dialog, take note of the IP Address and SSH port. 
-1. Save your private key to the ~/.ssh/ directory on your local computer; for instance, open an editor for a new file and paste the key in: 
+# [Studio](#tab/studio)
 
-   **Linux**: 
-   ```sh
-   vi ~/.ssh/id_azmlcitest_rsa  
-   ```
+Navigate to [ml.azure.com](https://ml.azure.com)
 
-   **Windows**: 
-   ```
-   notepad C:\Users\<username>\.ssh\id_azmlcitest_rsa 
-   ```
+> [!IMPORTANT]
+> In order to connect to your remote compute instance from Visual Studio Code, make sure that the account you're logged into in Azure Machine Learning studio is the same one you use in Visual Studio Code.
 
-   The private key will look somewhat like this:
-   ```
-   -----BEGIN RSA PRIVATE KEY----- 
+### Compute
 
-   MIIEpAIBAAKCAQEAr99EPm0P4CaTPT2KtBt+kpN3rmsNNE5dS0vmGWxIXq4vAWXD 
-   ..... 
-   ewMtLnDgXWYJo0IyQ91ynOdxbFoVOuuGNdDoBykUZPQfeHDONy2Raw== 
+1. Select the **Compute** tab
+1. In the *Application URI* column, select **VS Code** for the compute instance you want to connect to.
 
-   -----END RSA PRIVATE KEY----- 
-   ```
+:::image type="content" source="media/how-to-set-up-vs-code-remote/studio-compute-instance-vs-code-launch.png" alt-text="Connect to Compute Instance VS Code Azure ML studio" lightbox="media/how-to-set-up-vs-code-remote/studio-compute-instance-vs-code-launch.png":::
 
-1. Change permissions on file to make sure only you can read the file.  
-   ```sh
-   chmod 600 ~/.ssh/id_azmlcitest_rsa   
-   ```
+### Notebook
 
-## Add instance as a host 
+1. Select the **Notebook** tab
+1. In the *Notebook* tab, select the file you want to edit.
+1. Select **Editors > Edit in VS Code (preview)**.
 
-Open the file `~/.ssh/config` (Linux) or `C:\Users<username>.ssh\config` (Windows) in an editor and add a new entry similar to this:
+:::image type="content" source="media/how-to-set-up-vs-code-remote/studio-notebook-compute-instance-vs-code-launch.png" alt-text="Connect to Compute Instance VS Code Azure ML Notebook" lightbox="media/how-to-set-up-vs-code-remote/studio-notebook-compute-instance-vs-code-launch.png":::
 
-```
-Host azmlci1 
+# [VS Code](#tab/extension)
 
-    HostName 13.69.56.51 
+### Azure Machine Learning Extension
 
-    Port 50000 
+1. In VS Code, launch the Azure Machine Learning extension.
+1. Expand the **Compute instances** node in your extension.
+1. Right-click the compute instance you want to connect to and select **Connect to Compute Instance**.
 
-    User azureuser 
+:::image type="content" source="media/how-to-set-up-vs-code-remote/vs-code-compute-instance-launch.png" alt-text="Connect to compute instance Visual Studio Code Azure ML Extension" lightbox="media/how-to-set-up-vs-code-remote/vs-code-compute-instance-launch.png":::
 
-    IdentityFile ~/.ssh/id_azmlcitest_rsa   
-```
+### Command Palette
 
-Here some details on the fields: 
+1. In VS Code, open the command palette by selecting **View > Command Palette**.
+1. Enter into the text box **Azure ML: Connect to Compute Instance**.
+1. Select your subscription.
+1. Select your workspace.
+1. Select your compute instance or create a new one.
 
-|Field|Description|
-|----|---------|
-|Host|Use whatever shorthand you like for the compute instance |
-|HostName|This is the IP address of the compute instance |
-|Port|This is the port shown on the SSH dialog above |
-|User|This needs to be `azureuser` |
-|IdentityFile|Should point to the file where you saved the private key |
+---
 
-Now, you should be able to ssh to your compute instance using the shorthand you used above, `ssh azmlci1`. 
+A new window launches for your remote compute instance. When attempting to make a connection to a remote compute instance, the following tasks are taking place:
 
-## Connect VS Code to the instance 
+1. Authorization. Some checks are performed to make sure the user attempting to make a connection is authorized to use the compute instance.
+1. VS Code Remote Server is installed on the compute instance.
+1. A WebSocket connection is established for real-time interaction.
 
-1. [Install Visual Studio Code](https://code.visualstudio.com/).
+Once the connection is established, it's persisted. A token is issued at the start of the session which gets refreshed automatically to maintain the connection with your compute instance.
 
-1. [Install the Remote SSH Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh). 
+After you connect to your remote compute instance, use the editor to:
 
-1. Click the Remote-SSH icon on the left to show your SSH configurations.
+* [Author and manage files on your remote compute instance or file share](https://code.visualstudio.com/docs/editor/codebasics).
+* Use the [VS Code integrated terminal](https://code.visualstudio.com/docs/editor/integrated-terminal) to [run commands and applications on your remote compute instance](how-to-access-terminal.md).
+* [Debug your scripts and applications](https://code.visualstudio.com/Docs/editor/debugging)
+* [Use VS Code to manage your Git repositories](concept-train-model-git-integration.md)
 
-1. Right-click the SSH host configuration you just created.
+## Configure compute instance as remote notebook server
 
-1. Select **Connect to Host in Current Window**. 
+In order to configure a compute instance as a remote Jupyter Notebook server you'll need a few prerequisites:
 
-From here on, you are entirely working on the compute instance and you can now edit, debug, use git, use extensions, etc. -- just like you can with your local Visual Studio Code. 
+* Azure Machine Learning Visual Studio Code extension. For more information, see the [Azure Machine Learning Visual Studio Code Extension setup guide](how-to-setup-vs-code.md).
+* Azure Machine Learning workspace. [Use the Azure Machine Learning Visual Studio Code extension to create a new workspace](how-to-manage-resources-vscode.md#create-a-workspace) if you don't already have one.
+
+To connect to a compute instance:
+
+1. Open a Jupyter Notebook in Visual Studio Code.
+1. When the integrated notebook experience loads, select **Jupyter Server**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Launch Azure Machine Learning remote Jupyter Notebook server dropdown](media/how-to-set-up-vs-code-remote/launch-server-selection-dropdown.png)
+
+    Alternatively, you also use the command palette:
+
+    1. Open the command palette by selecting **View > Command Palette** from the menu bar.
+    1. Enter into the text box `Azure ML: Connect to Compute instance Jupyter server`.
+
+1. Choose `Azure ML Compute Instances` from the list of Jupyter server options.
+1. Select your subscription from the list of subscriptions. If you have have previously configured your default Azure Machine Learning workspace, this step is skipped.
+1. Select your workspace.
+1. Select your compute instance from the list. If you don't have one, select **Create new Azure ML Compute Instance** and follow the prompts to create one.
+1. For the changes to take effect, you have to reload Visual Studio Code.
+1. Open a Jupyter Notebook and run a cell.
+
+> [!IMPORTANT]
+> You **MUST** run a cell in order to establish the connection.
+
+At this point, you can continue to run cells in your Jupyter Notebook.
+
+> [!TIP]
+> You can also work with Python script files (.py) containing Jupyter-like code cells. For more information, see the [Visual Studio Code Python interactive documentation](https://code.visualstudio.com/docs/python/jupyter-support-py).
 
 ## Next steps
 
-Now that you've set up Visual Studio Code Remote, you can use a compute instance as remote compute from Visual Studio Code to interactively debug your code. 
+Now that you've set up Visual Studio Code Remote, you can use a compute instance as remote compute from Visual Studio Code to [interactively debug your code](how-to-debug-visual-studio-code.md).
 
 [Tutorial: Train your first ML model](tutorial-1st-experiment-sdk-train.md) shows how to use a compute instance with an integrated notebook.

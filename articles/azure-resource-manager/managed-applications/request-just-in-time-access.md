@@ -3,12 +3,12 @@ title: Request just-in-time access
 description: Describes how publishers of Azure Managed Applications request just-in-time access to a managed application.
 author: MSEvanhi
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 09/25/2020
 ms.author: evanhi
 ---
 # Enable and request just-in-time access for Azure Managed Applications
 
-Consumers of your managed application may be reluctant to grant you permanent access to the managed resource group. As a publisher of a manager application, you might prefer that consumers know exactly when you need to access the managed resources. To give consumers greater control over granting access to managed resources, Azure Managed Applications provides a feature called just-in-time (JIT) access, which is currently in preview.
+Consumers of your managed application may be reluctant to grant you permanent access to the managed resource group. As a publisher of a managed application, you might prefer that consumers know exactly when you need to access the managed resources. To give consumers greater control over granting access to managed resources, Azure Managed Applications provides a feature called just-in-time (JIT) access. This feature is currently in preview.
 
 JIT access enables you to request elevated access to a managed application's resources for troubleshooting or maintenance. You always have read-only access to the resources, but for a specific time period you can have greater access.
 
@@ -28,9 +28,7 @@ This article focuses on the actions publishers take to enable JIT access and sub
 
 ## Add JIT access step to UI
 
-Your CreateUiDefinition.json file is exactly like the UI file you create for permanent access, except you must include a step that lets consumers enable JIT access. To learn more about publishing your first managed application offering in the Azure Marketplace, see [Azure Managed Applications in the Marketplace](publish-marketplace-app.md).
-
-To support JIT capability for your offer, add the following content to your CreateUiDefinition.json file:
+In your CreateUiDefinition.json file, include a step that lets consumers enable JIT access. To support JIT capability for your offer, add the following content to your CreateUiDefinition.json file.
 
 In "steps":
 
@@ -52,7 +50,7 @@ In "steps":
     ]
 }
 ```
- 
+
 In "outputs":
 
 ```json
@@ -64,19 +62,21 @@ In "outputs":
 
 ## Enable JIT access
 
-When defining your offering in the marketplace, make sure you enable JIT access.
+When creating your offer in Partner Center, make sure you enable JIT access.
 
-1. Sign in to the [Cloud Partner publishing portal](https://cloudpartner.azure.com).
+1. Sign in to the Commercial Marketplace portal in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 
-1. Provide values to publish your managed application in the marketplace. Select **Yes** for **Enable JIT Access?**
+1. For guidance creating a new managed application, follow the steps in [Create an Azure application offer](../../marketplace/azure-app-offer-setup.md).
 
-   ![Enable just-in-time access](./media/request-just-in-time-access/marketplace-enable.png)
+1. On the **Technical configuration** page, select the **Enable just-in-time (JIT) access** checkbox.
 
-You have added a JIT configuration step to your UI, and have enabled JIT access in the marketplace offering. When consumers deploy your managed application, they can [turn on JIT access for their instance](approve-just-in-time-access.md#enable-during-deployment).
+   :::image type="content" source="./media/request-just-in-time-access/enable-just-in-time-access.png" alt-text="Enable just-in-time access":::
+
+You've added a JIT configuration step to your UI, and have enabled JIT access in the commercial marketplace offering. When consumers deploy your managed application, they can [turn on JIT access for their instance](approve-just-in-time-access.md#enable-during-deployment).
 
 ## Request access
 
-When you need to access the consumer's managed resources, you send a request for a specific role, time and duration. The consumer must then approve the request.
+When you need to access the consumer's managed resources, you send a request for a specific role, time, and duration. The consumer must then approve the request.
 
 To send a JIT access request:
 

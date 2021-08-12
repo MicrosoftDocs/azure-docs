@@ -2,12 +2,13 @@
 title: Import/Export of Azure IoT Hub device identities | Microsoft Docs
 description: How to use the Azure IoT service SDK to run bulk operations against the identity registry to import and export device identities. Import operations enable you to create, update, and delete device identities in bulk.
 author: robinsh
-manager: philmea
+
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
+ms.custom: devx-track-csharp
 ---
 
 # Import and export IoT Hub device identities in bulk
@@ -21,9 +22,7 @@ Import and export operations take place in the context of *Jobs* that enable you
 
 The **RegistryManager** class includes the **ExportDevicesAsync** and **ImportDevicesAsync** methods that use the **Job** framework. These methods enable you to export, import, and synchronize the entirety of an IoT hub identity registry.
 
-This topic discusses using the **RegistryManager** class and **Job** system to perform bulk imports and exports of devices to and from an IoT hub's identity registry. You can also use the Azure IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning to one or more IoT hubs without requiring human intervention. To learn more, see the [provisioning service documentation](/azure/iot-dps).
-
-[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+This topic discusses using the **RegistryManager** class and **Job** system to perform bulk imports and exports of devices to and from an IoT hub's identity registry. You can also use the Azure IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning to one or more IoT hubs without requiring human intervention. To learn more, see the [provisioning service documentation](../iot-dps/index.yml).
 
 ## What are jobs?
 
@@ -83,7 +82,7 @@ while(true)
 ```
 
 > [!NOTE]
-> If your storage account has firewall configurations that restrict IoT Hub's connectivity, consider using [Microsoft trusted first party exception](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) (available in select regions for IoT hubs with managed service identity).
+> If your storage account has firewall configurations that restrict IoT Hub's connectivity, consider using [Microsoft trusted first party exception](./virtual-network-support.md#egress-connectivity-from-iot-hub-to-other-azure-resources) (available in select regions for IoT hubs with managed service identity).
 
 
 ## Device import/export job limits
@@ -395,7 +394,7 @@ while(true)
 
 ## Get the container SAS URI
 
-The following code sample shows you how to generate a [SAS URI](../storage/common/storage-dotnet-shared-access-signature-part-1.md) with read, write, and delete permissions for a blob container:
+The following code sample shows you how to generate a [SAS URI](../storage/common/storage-sas-overview.md) with read, write, and delete permissions for a blob container:
 
 ```csharp
 static string GetContainerSasUri(CloudBlobContainer container)
@@ -428,14 +427,13 @@ The cloning article has a working sample associated with it, which is located in
 
 To learn more about managing Azure IoT Hub, check out the following articles:
 
-* [IoT Hub metrics](iot-hub-metrics.md)
-* [IoT Hub logs](iot-hub-monitor-resource-health.md)
+* [Monitor IoT Hub](monitor-iot-hub.md)
 
 To further explore the capabilities of IoT Hub, see:
 
 * [IoT Hub developer guide](iot-hub-devguide.md)
-* [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/quickstart-linux.md)
 
 To explore using the IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning, see: 
 
-* [Azure IoT Hub Device Provisioning Service](/azure/iot-dps)
+* [Azure IoT Hub Device Provisioning Service](../iot-dps/index.yml)

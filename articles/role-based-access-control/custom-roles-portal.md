@@ -1,28 +1,20 @@
 ---
-title: Create or update Azure custom roles using the Azure portal (Preview) - Azure RBAC
-description: Learn how to create Azure custom roles for Azure role-based access control (Azure RBAC) using the Azure portal. This includes how to list, create, update, and delete custom roles.
+title: Create or update Azure custom roles using the Azure portal - Azure RBAC
+description: Learn how to create Azure custom roles using the Azure portal and Azure role-based access control (Azure RBAC). This includes how to list, create, update, and delete custom roles.
 services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
-
 ms.service: role-based-access-control
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload: identity
-ms.date: 02/26/2020
+ms.date: 12/11/2020
 ms.author: rolyon
 ---
 
-# Create or update Azure custom roles using the Azure portal (Preview)
+# Create or update Azure custom roles using the Azure portal
 
-> [!IMPORTANT]
-> Azure custom roles using the Azure portal is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own Azure custom roles. Just like built-in roles, you can assign custom roles to users, groups, and service principals at subscription and resource group scopes. Custom roles are stored in an Azure Active Directory (Azure AD) directory and can be shared across subscriptions. Each directory can have up to 5000 custom roles. Custom roles can be created using the Azure portal, Azure PowerShell, Azure CLI, or the REST API. This article describes how to create custom roles using the Azure portal (currently in preview).
+If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own Azure custom roles. Just like built-in roles, you can assign custom roles to users, groups, and service principals at subscription and resource group scopes. Custom roles are stored in an Azure Active Directory (Azure AD) directory and can be shared across subscriptions. Each directory can have up to 5000 custom roles. Custom roles can be created using the Azure portal, Azure PowerShell, Azure CLI, or the REST API. This article describes how to create custom roles using the Azure portal.
 
 ## Prerequisites
 
@@ -32,14 +24,12 @@ To create custom roles, you need:
 
 ## Step 1: Determine the permissions you need
 
-Azure has thousands of permissions that you can potentially include in your custom role. Here are four ways that you can determine the permissions you will want to add to your custom role:
+Azure has thousands of permissions that you can potentially include in your custom role. Here are some methods that can help you determine the permissions you will want to add to your custom role:
 
-| Method | Description |
-| --- | --- |
-| Look at existing roles | You can look at existing roles to see what permissions are being used. For more information, see [Azure built-in roles](built-in-roles.md). |
-| Search for permissions by keyword | When you create a custom role using the Azure portal, you can search for permissions by keyword. For example, you can search for *virtual machine* or *billing* permissions. This search functionality is described more later in [Step 4: Permissions](#step-4-permissions). |
-| Download all permissions | When you create a custom role using the Azure portal, you can download all of the permissions as a CSV file and then search this file. On the **Add permissions** pane, click the **Download all permissions** button to download all of the permissions. For more information about the Add permissions pane, see [Step 4: Permissions](#step-4-permissions). |
-| View the permissions in the docs | You can view the available permissions in [Azure Resource Manager resource provider operations](resource-provider-operations.md). |
+- Look at existing [built-in roles](built-in-roles.md).
+- List the Azure services you want to grant access to.
+- Determine the [resource providers that map to the Azure services](../azure-resource-manager/management/azure-services-resource-providers.md). A search method is described later in [Step 4: Permissions](#step-4-permissions).
+- Search the [available permissions](resource-provider-operations.md) to find permissions you want to include. A search method is described later in [Step 4: Permissions](#step-4-permissions).
 
 ## Step 2: Choose how to start
 
@@ -73,7 +63,7 @@ If you prefer, you can follow these steps to start a custom role from scratch.
 
 1. In the Azure portal, open a subscription or resource group where you want the custom role to be assignable and then open **Access control (IAM)**.
 
-1. Click **Add** and then click **Add custom role (preview)**.
+1. Click **Add** and then click **Add custom role**.
 
     ![Add custom role menu](./media/custom-roles-portal/add-custom-role-menu.png)
 
@@ -105,7 +95,7 @@ If you prefer, you can specify most of your custom role values in a JSON file. Y
     }
     ```
 
-1. In the JSON file, specify values for the various properties. Here's an example with some values added. For information about the different properties, see [Understand role definitions](role-definitions.md).
+1. In the JSON file, specify values for the various properties. Here's an example with some values added. For information about the different properties, see [Understand Azure role definitions](role-definitions.md).
 
     ```json
     {
@@ -137,7 +127,7 @@ If you prefer, you can specify most of your custom role values in a JSON file. Y
     
 1. In the Azure portal, open the **Access control (IAM)** page.
 
-1. Click **Add** and then click **Add custom role (preview)**.
+1. Click **Add** and then click **Add custom role**.
 
     ![Add custom role menu](./media/custom-roles-portal/add-custom-role-menu.png)
 
@@ -205,17 +195,7 @@ Follow these steps to add or remove permissions for your custom role.
 
 ### Add wildcard permissions
 
-Depending on how you chose to start, you might have permissions with wildcards (\*) in your list of permissions. A wildcard (\*) extends a permission to everything that matches the string you provide. For example, suppose that you wanted to add all the permissions related to Azure Cost Management and exports. You could add all of these permissions:
-
-```
-Microsoft.CostManagement/exports/action
-Microsoft.CostManagement/exports/read
-Microsoft.CostManagement/exports/write
-Microsoft.CostManagement/exports/delete
-Microsoft.CostManagement/exports/run/action
-```
-
-Instead of adding all of these permissions, you could just add a wildcard permission. For example, the following wildcard permission is equivalent to the previous five permissions. This would also include any future export permissions that might be added.
+Depending on how you chose to start, you might have permissions with wildcards (`*`) in your list of permissions. A wildcard (`*`) extends a permission to everything that matches the action string you provide. For example, the following wildcard string adds all permissions related to Azure Cost Management and exports. This would also include any future export permissions that might be added.
 
 ```
 Microsoft.CostManagement/exports/*
@@ -225,7 +205,7 @@ If you want to add a new wildcard permission, you can't add it using the **Add p
 
 ### Exclude permissions
 
-If your role has a wildcard (\*) permission and you want to exclude or subtract specific permissions from that wildcard permission, you can exclude them. For example, let's say that you have the following wildcard permission:
+If your role has a wildcard (`*`) permission and you want to exclude or subtract specific permissions from that wildcard permission, you can exclude them. For example, let's say that you have the following wildcard permission:
 
 ```
 Microsoft.CostManagement/exports/*
@@ -256,7 +236,7 @@ When you exclude a permission, it is added as a `NotActions` or `NotDataActions`
 
 ## Step 5: Assignable scopes
 
-On the **Assignable scopes** tab, you specify where your custom role is available for assignment, such as subscription or resource group. Depending on how you chose to start, this tab might list the scope where you opened the Access control (IAM) page. Setting assignable scope to root scope ("/") is not supported. For this preview, you cannot add a management group as an assignable scope.
+On the **Assignable scopes** tab, you specify where your custom role is available for assignment, such as subscription or resource group. Depending on how you chose to start, this tab might list the scope where you opened the Access control (IAM) page. Setting assignable scope to root scope ("/") is not supported. Currently, you cannot add a management group as an assignable scope.
 
 1. Click **Add assignable scopes** to open the Add assignable scopes pane.
 
@@ -270,7 +250,7 @@ On the **Assignable scopes** tab, you specify where your custom role is availabl
 
 ## Step 6: JSON
 
-On the **JSON** tab, you see your custom role formatted in JSON. If you want, you can directly edit the JSON. If you want to add a wildcard (\*) permission, you must use this tab.
+On the **JSON** tab, you see your custom role formatted in JSON. If you want, you can directly edit the JSON. If you want to add a wildcard (`*`) permission, you must use this tab.
 
 1. To edit the JSON, click **Edit**.
 
@@ -342,12 +322,12 @@ Follow these steps to view your custom roles.
 
 1. Click the ellipsis (**...**) for the custom role you want to delete and then click **Delete**.
 
-    ![Custom role menu](./media/custom-roles-portal/delete-menu.png)
+    ![Screenshot that shows a list of custom roles that can be selected for deletion.](./media/custom-roles-portal/delete-menu.png)
 
     It can take a few minutes for your custom role to be completely deleted.
 
 ## Next steps
 
-- [Tutorial: Create a custom role using Azure PowerShell](tutorial-custom-role-powershell.md)
-- [Custom roles in Azure](custom-roles.md)
-- [Azure Resource Manager resource provider operations](resource-provider-operations.md)
+- [Tutorial: Create an Azure custom role using Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Azure custom roles](custom-roles.md)
+- [Azure resource provider operations](resource-provider-operations.md)

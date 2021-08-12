@@ -1,62 +1,62 @@
 ---
 title: Troubleshooting connectivity
-description: Troubleshooting connectivity in Synapse SQL pool.
+description: Troubleshooting connectivity in dedicated SQL pool (formerly SQL DW).
 services: synapse-analytics
-author: anumjs
+author: rothja
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 03/27/2019
-ms.author: anjangsh
+ms.author: jroth
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse
+ms.custom: "seo-lt-2019, azure-synapse, devx-track-csharp"
 ---
 
-# Troubleshooting connectivity issues
+# Troubleshooting connectivity issues in dedicated SQL pool (formerly SQL DW)
 
-This article lists common troubleshooting techniques around connecting to your SQL Analytics database.
+This article lists common troubleshooting techniques around connecting to your dedicated SQL pool database (formerly SQL DW).
 
 ## Check service availability
 
-Check to see if the service is available. In the Azure portal, go to the Synapse SQL pool you're trying to connect. In the left TOC panel, click on **Diagnose and solve problems**.
+Check to see if the service is available. In the Azure portal, go to the dedicated SQL pool (formerly SQL DW) you're trying to connect. In the left TOC panel, click on **Diagnose and solve problems**.
 
 ![Select Resource health](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
 
-The status of your Synapse SQL pool will be shown here. If the service isn't showing as **Available**, check further steps.
+The status of your dedicated SQL pool  (formerly SQL DW) will be shown here. If the service isn't showing as **Available**, check further steps.
 
 ![Service Available](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
-If your Resource health shows that your Synapse SQL pool instance is paused or scaling, follow the guidance to resume your instance.
+If your Resource health shows that your dedicated SQL pool (formerly SQL DW) instance is paused or scaling, follow the guidance to resume your instance.
 
-![Service Paused](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png)
+![Screenshot shows an instance of dedicated SQL pool that is paused or scaling.](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png)
 Additional information about Resource Health can be found here.
 
 ## Check for paused or scaling operation
 
-Check the portal to see if your Synapse SQL pool instance is paused or scaling.
+Check the portal to see if your dedicated SQL pool (formerly SQL DW) instance is paused or scaling.
 
-![Service Paused](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
+![Screenshot shows how to check whether a data warehouse is paused.](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
-If you see that your service is paused or scaling, check to see it isn't during your maintenance schedule. On the portal for your Synapse SQL pool *Overview*, you'll see the elected maintenance schedule.
+If you see that your service is paused or scaling, check to see it isn't during your maintenance schedule. On the portal for your dedicated SQL pool (formerly SQL DW) *Overview*, you'll see the elected maintenance schedule.
 
 ![Overview Maintenance Schedule](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
 
-Otherwise, check with your IT administrator to verify that this maintenance isn't a scheduled event. To resume the SQL Analytics instance, follow [these steps](pause-and-resume-compute-portal.md).
+Otherwise, check with your IT administrator to verify that this maintenance isn't a scheduled event. To resume the dedicated SQL pool (formerly SQL DW) instance, follow [these steps](pause-and-resume-compute-portal.md).
 
 ## Check your firewall settings
 
-SQL Analytics database communicates over port 1433.   If you're trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. In that case, you can't connect to your Azure SQL Database server unless your IT department opens port 1433. Additional information on firewall configurations can be found [here](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
+The dedicated SQL pool (formerly SQL DW) database communicates over port 1433.  If you're trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. In that case, you can't connect to your [logical server](../../azure-sql/database/logical-servers.md) unless your IT department opens port 1433. Additional information on firewall configurations can be found [here](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
 
 ## Check your VNet/Service Endpoint settings
 
-If you're receiving Errors 40914 and 40615, see [error description and resolution here](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
+If you're receiving Errors 40914 and 40615, see [error description and resolution here](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
 
 ## Check for the latest drivers
 
 ### Software
 
-Check to make sure you're using the latest tools to connect to your Synapse SQL pool:
+Check to make sure you're using the latest tools to connect to your dedicated SQL pool (formerly SQL DW):
 
 - SSMS
 - Azure Data Studio
@@ -66,10 +66,10 @@ Check to make sure you're using the latest tools to connect to your Synapse SQL 
 
 Check to make sure you're using the latest driver versions.  Using an older version of the drivers could result in unexpected behaviors as the older drivers may not support new features.
 
-- [ODBC](/sql/connect/odbc/download-odbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [JDBC](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [OLE DB](/sql/connect/oledb/download-oledb-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [PHP](/sql/connect/php/download-drivers-php-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [ODBC](/sql/connect/odbc/download-odbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [JDBC](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [OLE DB](/sql/connect/oledb/download-oledb-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [PHP](/sql/connect/php/download-drivers-php-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
 ## Check your connection string
 
@@ -101,11 +101,11 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## Intermittent connection issues
 
-Check to see if you're experiencing heavy load on the server with a high number of queued requests. You may need to scale up your Synapse SQL pool for additional resources.
+Check to see if you're experiencing heavy load on the server with a high number of queued requests. You may need to scale up your dedicated SQL pool (formerly SQL DW) for additional resources.
 
 ## Common error messages
 
-Errors 40914 and 40615, see the [error description and resolution here](../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
+Errors 40914 and 40615, see the [error description and resolution here](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#errors-40914-and-40615).
 
 ## Still having connectivity issues?
 

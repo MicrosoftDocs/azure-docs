@@ -1,12 +1,14 @@
 ---
 title: Pivot transformation in mapping data flow
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Pivot data from rows to columns using Azure Data Factory mapping data flow Pivot Transformation
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 01/30/2019
+ms.custom: synapse
+ms.date: 07/17/2020
 ---
 
 # Pivot transformation in mapping data flow
@@ -16,13 +18,15 @@ ms.date: 01/30/2019
 
 Use the pivot transformation to create multiple columns from the unique row values of a single column. Pivot is an aggregation transformation where you select group by columns and generate pivot columns using [aggregate functions](data-flow-expression-functions.md#aggregate-functions).
 
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4C4YN]
+
 ## Configuration
 
 The pivot transformation requires three different inputs: group by columns, the pivot key, and how to generate the pivoted columns
 
 ### Group by
 
-![Group by options](media/data-flow/pivot2.png "[Group by options")
+![Group by options](media/data-flow/pivot2.png "Group by options")
 
 Select which columns to aggregate the pivoted columns over. The output data will group all rows with the same group by values into one row. The aggregation done in the pivoted column will occur over each group.
 
@@ -58,7 +62,7 @@ The below help graphic shows how the different pivot components interact with on
 
 If no values are specified in the pivot key configuration, the pivoted columns will be dynamically generated at run time. The number of pivoted columns will equal the number of unique pivot key values multiplied by the number of pivot columns. As this can be a changing number, the UX will not display the column metadata in the **Inspect** tab and there will be no column propagation. To transformation these columns, use the [column pattern](concepts-data-flow-column-pattern.md) capabilities of mapping data flow. 
 
-If specific pivot key values are set, the pivoted columns will appear in the metadata.e column names will be available to you in the Inspect and Sink mapping.
+If specific pivot key values are set, the pivoted columns will appear in the metadata. The column names will be available to you in the Inspect and Sink mapping.
 
 ### Generate metadata from drifted columns
 
@@ -68,7 +72,7 @@ Pivot generates new column names dynamically based on row values. You can add th
 
 ### Sinking pivoted columns
 
-Although pivoted columns are dynamic, they can still be written into your destination data store. Enable **Allow schema drift** in your sink settings. This will allow you to write columns that are not included in metadata. your column metadata, but the schema drift option will allow you to land the data.
+Although pivoted columns are dynamic, they can still be written into your destination data store. Enable **Allow schema drift** in your sink settings. This will allow you to write columns that are not included in metadata. You will not see the new dynamic names in your column metadata, but the schema drift option will allow you to land the data.
 
 ### Rejoin original fields
 

@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 04/17/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 
 ms.collection: M365-identity-device-management
@@ -32,6 +32,7 @@ This article details the requirements and the supported scenarios for configurin
 | Azure Information Protection app |![Check mark signifying support for this application][1] |
 | Intune Company Portal |![Check mark signifying support for this application][1] |
 | Microsoft Teams |![Check mark signifying support for this application][1] |
+| Office (mobile) |![Check mark signifying support for this application][1] |
 | OneNote |![Check mark signifying support for this application][1] |
 | OneDrive |![Check mark signifying support for this application][1] |
 | Outlook |![Check mark signifying support for this application][1] |
@@ -65,13 +66,13 @@ As a best practice, you also should update your organization's ADFS error pages 
 * The requirement for installing the Microsoft Authenticator on iOS.
 * Instructions on how to get a user certificate.
 
-For more information, see [Customizing the AD FS sign in page](https://technet.microsoft.com/library/dn280950.aspx).
+For more information, see [Customizing the AD FS sign in page](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11)).
 
 ## Use modern authentication with Office apps
 
 Some Office apps with modern authentication enabled send `prompt=login` to Azure AD in their request. By default, Azure AD translates `prompt=login` in the request to ADFS as `wauth=usernamepassworduri` (asks ADFS to do U/P Auth) and `wfresh=0` (asks ADFS to ignore SSO state and do a fresh authentication). If you want to enable certificate-based authentication for these apps, modify the default Azure AD behavior.
 
-To update the default behavior, set the '*PromptLoginBehavior*' in your federated domain settings to *Disabled*. You can use the [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) cmdlet to perform this task, as shown in the following example:
+To update the default behavior, set the '*PromptLoginBehavior*' in your federated domain settings to *Disabled*. You can use the [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings) cmdlet to perform this task, as shown in the following example:
 
 ```powershell
 Set-MSOLDomainFederationSettings -domainname <domain> -PromptLoginBehavior Disabled

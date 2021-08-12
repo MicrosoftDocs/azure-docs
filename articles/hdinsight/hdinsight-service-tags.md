@@ -1,19 +1,19 @@
 ---
 title: Network security group (NSG) service tags for Azure HDInsight
 description: Use HDInsight service tags to allow inbound traffic to your cluster from health and management services nodes, without adding IP addresses to your NSGs.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/15/2020
+ms.date: 06/23/2021
 ---
 
 # NSG service tags for Azure HDInsight
 
-Azure HDInsight service tags for network security groups (NSGs) are groups of IP addresses for health and management services. These groups help minimize complexity for security rule creation. [Service tags](../virtual-network/security-overview.md#service-tags) allow inbound traffic from specific IPs without entering each of the [management IP addresses](hdinsight-management-ip-addresses.md) in your NSGs.
+Azure HDInsight service tags for network security groups (NSGs) are groups of IP addresses for health and management services. These groups help minimize complexity for security rule creation. [Service tags](../virtual-network/network-security-groups-overview.md#service-tags) allow inbound traffic from specific IPs without entering each of the [management IP addresses](hdinsight-management-ip-addresses.md) in your NSGs.
 
 The HDInsight service manages these service tags. You can't create your own service tag or modify an existing tag. Microsoft manages the address prefixes that match to the service tag and automatically updates the service tag as addresses change.
+
+If you would like to use a particular region and the service tag is not yet documented on this page, you can use the [Service Tag Discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) to find your service tag. You can also download the [service tag JSON file](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) and search for your desired region.
 
 ## Get started with service tags
 
@@ -35,7 +35,7 @@ The easiest way to begin using service tags with your HDInsight cluster is to ad
 
 1. From the **Source service tag** drop-down list, select **HDInsight**.
 
-    ![Add a service tag from the Azure portal](./media/hdinsight-service-tags/azure-portal-add-service-tag.png)
+    :::image type="content" source="./media/hdinsight-service-tags/azure-portal-add-service-tag.png" alt-text="Add a service tag from the Azure portal":::
 
 This tag contains the IP addresses of health and management services for all regions where HDInsight is available. The tag will ensure that your cluster can communicate with the necessary health and management services no matter where it's created.
 
@@ -54,20 +54,32 @@ If your cluster is located in a region listed in this table, you only need to ad
 | Australia | Australia East | HDInsight.AustraliaEast |
 | &nbsp; | Australia Southeast | HDInsight.AustraliaSoutheast |
 | &nbsp; | Australia Central | HDInsight.AustraliaCentral |
+| Brazil | Brazil South | HDInsight.BrazilSouth |
+| &nbsp; | Brazil Southeast | HDInsight.BrazilSoutheast |
 | China | China East 2 | HDInsight.ChinaEast2 |
 | &nbsp; | China North 2 | HDInsight.ChinaNorth2 |
-| United States | North Central US | HDInsight.NorthCentralUS |
-| &nbsp; | West US 2 | HDInsight.WestUS2 |
-| &nbsp; | West Central US | HDInsight.WestCentralUS |
-| Canada | Canada East | HDInsight.CanadaEast |
-| Brazil | Brazil South | HDInsight.BrazilSouth |
+| Japan | Japan West | HDInsight.JapanWest |
 | Korea | Korea Central | HDInsight.KoreaCentral |
 | &nbsp; | Korea South | HDInsight.KoreaSouth |
 | India | Central India | HDInsight.CentralIndia |
+| &nbsp; | JIO India West | HDInsight.JioIndiaWest |
 | &nbsp; | South India | HDInsight.SouthIndia |
-| Japan | Japan West | HDInsight.JapanWest |
+| South Africa | South Africa North | HDInsight.SouthAfricaNorth |
+| UAE | UAE North | HDInsight.UAENorth |
+| &nbsp; | UAE Central | HDInsight.UAECentral |
 | France | France Central| HDInsight.FranceCentral |
+| Germany | Germany West Central| HDInsight.GermanyWestCentral |
+| Norway | Norway East | HDInsight.NorwayEast |
+| Switzerland | Switzerland North | HDInsight.SwitzerlandNorth |
+| &nbsp; | Switzerland West | HDInsight.SwitzerlandWest |
 | UK | UK South | HDInsight.UKSouth |
+| &nbsp; | UK West | HDInsight.UKWest |
+| United States | North Central US | HDInsight.NorthCentralUS |
+| &nbsp; | West US 2 | HDInsight.WestUS2 |
+| &nbsp; | West US 3 | HDInsight.WestUS3 |
+| &nbsp; | West Central US | HDInsight.WestCentralUS |
+| Canada | Canada East | HDInsight.CanadaEast |
+| &nbsp; | Canada Central | HDInsight.CanadaCentral |
 | Azure Government | USDoD Central | HDInsight.USDoDCentral |
 | &nbsp; | USGov Texas | HDInsight.USGovTexas |
 | &nbsp; | UsDoD East | HDInsight.USDoDEast |
@@ -118,5 +130,5 @@ Clusters in the regions of *Germany Central* and *Germany Northeast* need to all
 
 ## Next steps
 
-- [Network security groups: service tags](../virtual-network/security-overview.md#security-rules)
+- [Network security groups: service tags](../virtual-network/network-security-groups-overview.md#security-rules)
 - [Create virtual networks for Azure HDInsight clusters](hdinsight-create-virtual-network.md)

@@ -3,14 +3,15 @@ title: Power BI dashboard integration with Azure Stream Analytics
 description: This article describes how to use a real-time Power BI dashboard to visualize data out of an Azure Stream Analytics job.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
+
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 03/05/2019
+ms.topic: how-to
+ms.date: 11/16/2020
 ---
+
 # Stream Analytics and Power BI: A real-time analytics dashboard for streaming data
 
-Azure Stream Analytics enables you to take advantage of one of the leading business intelligence tools, [Microsoft Power BI](https://powerbi.com/). In this article, you learn how create business intelligence tools by using Power BI as an output for your Azure Stream Analytics jobs. You also learn how to create and use a real-time dashboard.
+Azure Stream Analytics enables you to take advantage of one of the leading business intelligence tools, [Microsoft Power BI](https://powerbi.com/). In this article, you learn how create business intelligence tools by using Power BI as an output for your Azure Stream Analytics jobs. You also learn how to create and use a real-time dashboard that is continuously updated by the Stream Analytics job.
 
 This article continues from the Stream Analytics [real-time fraud detection](stream-analytics-real-time-fraud-detection.md) tutorial. It builds on the workflow created in that tutorial and adds a Power BI output so that you can visualize fraudulent phone calls that are detected by a Streaming Analytics job. 
 
@@ -33,7 +34,10 @@ In the real-time fraud detection tutorial, the output is sent to Azure Blob stor
 
 2. On the left menu, select **Outputs** under **Job topology**. Then, select **+ Add** and choose **Power BI** from the dropdown menu.
 
-3. Select **+ Add** > **Power BI**. Then fill the form with the following details and select **Authorize**:
+3. Select **+ Add** > **Power BI**. Then fill the form with the following details and select **Authorize** to use your own user identity to connect to Power BI (the token is valid for 90 days). 
+
+>[!NOTE]
+>For production jobs, we recommend to connect to [use Managed Identity to authenticate your Azure Stream Analytics job to Power BI](./powerbi-output-managed-identity.md).
 
    |**Setting**  |**Suggested value**  |
    |---------|---------|
@@ -55,11 +59,11 @@ In the real-time fraud detection tutorial, the output is sent to Azure Blob stor
 The dataset is created with the following settings:
 
 * **defaultRetentionPolicy: BasicFIFO** - Data is FIFO, with a maximum of 200,000 rows.
-* **defaultMode: pushStreaming** - The dataset supports both streaming tiles and traditional report-based visuals (also known as push).
+* **defaultMode: hybrid** - The dataset supports both streaming tiles (also known as push) and traditional report-based visuals. For the push content, the data is continuously updated from the stream analytics job in this case, with no need to schedule refresh from the Power BI side.
 
 Currently, you can't create datasets with other flags.
 
-For more information about Power BI datasets, see the [Power BI REST API](https://msdn.microsoft.com/library/mt203562.aspx) reference.
+For more information about Power BI datasets, see the [Power BI REST API](/rest/api/power-bi/) reference.
 
 
 ## Write the query
@@ -178,16 +182,6 @@ Your Streaming Analytics job starts looking for fraudulent calls in the incoming
 
      ![Finished Power BI dashboard showing two tiles for fraudulent calls](./media/stream-analytics-power-bi-dashboard/pbi-dashboard-fraudulent-calls-finished.png)
 
-
-## Learn more about Power BI
-
-This tutorial demonstrates how to create only a few kinds of visualizations for a dataset. Power BI can help you create other customer business intelligence tools for your organization. For more ideas, see the following resources:
-
-* For another example of a Power BI dashboard, watch the [Getting Started with Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s) video.
-* For more information about configuring Streaming Analytics job output to Power BI and using Power BI groups, review the [Power BI](stream-analytics-define-outputs.md#power-bi) section of the [Stream Analytics outputs](stream-analytics-define-outputs.md) article. 
-* For information about using Power BI generally, see [Dashboards in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
-
-
 ## Learn about limitations and best practices
 Currently, Power BI can be called roughly once per second. Streaming visuals support packets of 15 KB. Beyond that, streaming visuals fail (but push continues to work). Because of these limitations, Power BI lends itself most naturally to cases where Azure Stream Analytics does a significant data load reduction. We recommend using a Tumbling window or Hopping window to ensure that data push is at most one push per second, and that your query lands within the throughput requirements.
 
@@ -222,18 +216,16 @@ Given this configuration, you can change the original query to the following:
 ```
 
 ### Renew authorization
-If the password has changed since your job was created or last authenticated, you need to reauthenticate your Power BI account. If Azure Multi-Factor Authentication is configured on your Azure Active Directory (Azure AD) tenant, you also need to renew Power BI authorization every two weeks. If you don't renew, you could see symptoms such as a lack of job output or an `Authenticate user error` in the operation logs.
+If the password has changed since your job was created or last authenticated, you need to reauthenticate your Power BI account. If Azure AD Multi-Factor Authentication is configured on your Azure Active Directory (Azure AD) tenant, you also need to renew Power BI authorization every two weeks. If you don't renew, you could see symptoms such as a lack of job output or an `Authenticate user error` in the operation logs.
 
 Similarly, if a job starts after the token has expired, an error occurs and the job fails. To resolve this issue, stop the job that's running and go to your Power BI output. To avoid data loss, select the **Renew authorization** link, and then restart your job from the **Last Stopped Time**.
 
 After the authorization has been refreshed with Power BI, a green alert appears in the authorization area to reflect that the issue has been resolved.
 
-## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
-
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics query language reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics Management REST API reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Stream Analytics outputs](stream-analytics-define-outputs.md)
+* [Azure Stream Analytics query language reference](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics Management REST API reference](/rest/api/streamanalytics/)
+* [Use Managed Identity to authenticate your Azure Stream Analytics job to Power BI](./powerbi-output-managed-identity.md)

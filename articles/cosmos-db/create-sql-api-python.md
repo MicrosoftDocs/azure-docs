@@ -1,21 +1,25 @@
 ---
 title: 'Quickstart: Build a Python app using Azure Cosmos DB SQL API account'
 description: Presents a Python code sample you can use to connect to and query the Azure Cosmos DB SQL API
-author: SnehaGunda
+author: Rodrigossz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 03/09/2020
-ms.author: sngun
-ms.custom: [seodec18, seo-javascript-september2019, seo-python-october2019]
+ms.date: 04/06/2021
+ms.author: rosouz
+ms.custom: [seodec18, seo-javascript-september2019, seo-python-october2019, devx-track-python]
 ---
+
 # Quickstart: Build a Python application using an Azure Cosmos DB SQL API account
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
-> * [Java](create-sql-api-java.md)
+> * [Java SDK v4](create-sql-api-java.md)
+> * [Spring Data v3](create-sql-api-spring-data.md)
+> * [Spark v3 connector](create-sql-api-spark.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -24,46 +28,35 @@ In this quickstart, you create and manage an Azure Cosmos DB SQL API account fro
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Or [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription. You can also use the [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator) with a URI of `https://localhost:8081` and the key `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`.
-- [Python 3.6+](https://www.python.org/downloads/), with the `python` executable in your `PATH`.
+- A Cosmos DB Account. You options are:
+    * Within an Azure active subscription:
+        * [Create an Azure free Account](https://azure.microsoft.com/free) or use your existing subscription 
+        * [Visual Studio Monthly Credits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers)
+        * [Azure Cosmos DB Free Tier](./optimize-dev-test.md#azure-cosmos-db-free-tier)
+    * Without an Azure active subscription:
+        * [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/), a tests environment that lasts for 30 days.
+        * [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator) 
+- [Python 2.7 or 3.6+](https://www.python.org/downloads/), with the `python` executable in your `PATH`.
 - [Visual Studio Code](https://code.visualstudio.com/).
 - The [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview).
 - [Git](https://www.git-scm.com/downloads). 
+- [Azure Cosmos DB SQL API SDK for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)
 
 ## Create a database account
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](includes/cosmos-db-create-dbaccount.md)]
 
 ## Add a container
 
-You can now use the Data Explorer tool in the Azure portal to create a database and container. 
-
-1. Select **Data Explorer** > **New Container**. 
-    
-    The **Add Container** area is displayed on the far right, you may need to scroll right to see it.
-
-    ![The Azure portal Data Explorer, Add Container pane](./media/create-sql-api-python/azure-cosmosdb-data-explorer.png)
-
-2. In the **Add container** page, enter the settings for the new container.
-
-    |Setting|Suggested value|Description
-    |---|---|---|
-    |**Database ID**|Tasks|Enter *Tasks* as the name for the new database. Database names must contain from 1 through 255 characters, and they cannot contain `/, \\, #, ?`, or a trailing space. Check the **Provision database throughput** option, it allows you to share the throughput provisioned to the database across all the containers within the database. This option also helps with cost savings. |
-    |**Throughput**|400|Leave the throughput at 400 request units per second (RU/s). If you want to reduce latency, you can scale up the throughput later.| 
-    |**Container ID**|Items|Enter *Items* as the name for your new container. Container IDs have the same character requirements as database names.|
-    |**Partition key**| /category| The sample described in this article uses */category* as the partition key.|
-    
-    In addition to the preceding settings, you can optionally add **Unique keys** for the container. Let's leave the field empty in this example. Unique keys provide developers with the ability to add a layer of data integrity to the database. By creating a unique key policy while creating a container, you ensure the uniqueness of one or more values per partition key. To learn more, refer to the [Unique keys in Azure Cosmos DB](unique-keys.md) article.
-    
-    Select **OK**. The Data Explorer displays the new database and container.
+[!INCLUDE [cosmos-db-create-collection](includes/cosmos-db-create-collection.md)]
 
 ## Add sample data
 
-[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../../includes/cosmos-db-create-sql-api-add-sample-data.md)]
+[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](includes/cosmos-db-create-sql-api-add-sample-data.md)]
 
 ## Query your data
 
-[!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
+[!INCLUDE [cosmos-db-create-sql-api-query-data](includes/cosmos-db-create-sql-api-query-data.md)]
 
 ## Clone the sample application
 
@@ -98,7 +91,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In your Azure Cosmos DB account in the [Azure portal](https://portal.azure.com/), select **Keys** from the left navigation. Use the copy buttons on the right side of the screen to copy the **URI** and **Primary Key** into the *cosmos_get_started.py* file in the next step.
 
-    ![Get an access key and URI in the Keys settings in the Azure portal](./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png)
+    :::image type="content" source="./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png" alt-text="Get an access key and URI in the Keys settings in the Azure portal":::
 
 2. In Visual Studio Code, open the *cosmos_get_started.py* file in *\git-samples\azure-cosmos-db-python-getting-started*.
 
@@ -206,11 +199,11 @@ The following snippets are all taken from the *cosmos_get_started.py* file.
 
 ## Review SLAs in the Azure portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](includes/cosmos-db-tutorial-review-slas.md)]
 
 ## Clean up resources
 
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 
@@ -218,5 +211,3 @@ In this quickstart, you've learned how to create an Azure Cosmos DB account, cre
 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB for the SQL API](import-data.md)
-
-

@@ -5,10 +5,9 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/29/2019
+ms.subservice: iot-edge
+ms.date: 05/10/2021
 ms.topic: article
-ms.service: event-grid
-services: event-grid
 ---
 
 # Tutorial: Publish, subscribe to events locally
@@ -54,7 +53,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
    * **Image URI**: `mcr.microsoft.com/azure-event-grid/iotedge:latest`
    * **Container Create Options**:
 
-   [!INCLUDE [event-grid-edge-module-version-update](../../../includes/event-grid-edge-module-version-update.md)]
+   [!INCLUDE [event-grid-edge-module-version-update](../includes/event-grid-edge-module-version-update.md)]
 
     ```json
         {
@@ -156,7 +155,7 @@ As a publisher of an event, you need to create an event grid topic. In Azure Eve
 
 Subscribers can register for events published to a topic. To receive any event, you'll need to create an Event Grid subscription for a topic of interest.
 
-[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
+[!INCLUDE [event-grid-deploy-iot-edge](../includes/event-grid-edge-persist-event-subscriptions.md)]
 
 1. Create subscription.json with the following content. For details about the payload, see our [API documentation](api.md)
 

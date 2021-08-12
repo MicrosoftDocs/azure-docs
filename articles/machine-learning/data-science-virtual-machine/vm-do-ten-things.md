@@ -3,33 +3,32 @@ title: Explore data and model on Windows
 titleSuffix: Azure Data Science Virtual Machine 
 description: Perform data exploration and modeling tasks on the Windows Data Science Virtual Machine.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
+ms.custom: devx-track-python, devx-track-azurepowershell
 
-author: vijetajo
-ms.author: vijetaj
+author: lobrien
+ms.author: laobri
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 05/08/2020
 
 ---
 
-# Ten things you can do on the Windows Data Science Virtual Machine
+# Data science with a Windows Data Science Virtual Machine
 
 The Windows Data Science Virtual Machine (DSVM) is a powerful data science development environment where you can perform data exploration and modeling tasks. The environment comes already built and bundled with several popular data analytics tools that make it easy to get started with your analysis for on-premises, cloud, or hybrid deployments. 
 
-The DSVM works closely with Azure services. It can read and process data that's already stored on Azure, in Azure SQL Data Warehouse, Azure Data Lake, Azure Storage, or Azure Cosmos DB. It can also take advantage of other analytics tools, such as Azure Machine Learning and Azure Data Factory.
+The DSVM works closely with Azure services. It can read and process data that's already stored on Azure, in Azure Synapse (formerly SQL DW),Azure Data Lake, Azure Storage, or Azure Cosmos DB. It can also take advantage of other analytics tools, such as Azure Machine Learning.
 
 In this article, you'll learn how to use your DSVM to perform data science tasks and interact with other Azure services. Here are some of the things you can do on the DSVM:
 
+- Use a Jupyter Notebook to experiment with your data in a browser by using Python 2, Python 3, and Microsoft R. (Microsoft R is an enterprise-ready version of R designed for performance.)
 - Explore data and develop models locally on the DSVM by using Microsoft Machine Learning Server and Python.
-- Use a Jupyter notebook to experiment with your data in a browser by using Python 2, Python 3, and Microsoft R. (Microsoft R is an enterprise-ready version of R designed for performance.)
-- Deploy models built through R and Python on Azure Machine Learning so client applications can access your models by using a simple web service interface.
 - Administer your Azure resources by using the Azure portal or PowerShell.
 - Extend your storage space and share large-scale datasets/code across your whole team by creating an Azure Files share as a mountable drive on your DSVM.
 - Share code with your team by using GitHub. Access your repository by using the pre-installed Git clients: Git Bash and Git GUI.
-- Access Azure data and analytics services like Azure Blob storage, Azure Data Lake, Azure HDInsight (Hadoop), Azure Cosmos DB, Azure SQL Data Warehouse, and Azure SQL Database.
+- Access Azure data and analytics services like Azure Blob storage, Azure Cosmos DB, Azure Synapse (formerly SQL DW), and Azure SQL Database.
 - Build reports and a dashboard by using the Power BI Desktop instance that's pre-installed on the DSVM, and deploy them in the cloud.
-- Dynamically scale your DSVM to meet your project's needs.
+
 - Install additional tools on your virtual machine.   
 
 > [!NOTE]
@@ -45,27 +44,13 @@ In this article, you'll learn how to use your DSVM to perform data science tasks
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## Explore data and develop models with Microsoft Machine Learning Server
-You can use languages like R and Python to do your data analytics right on the DSVM.
 
-For R, you can use an IDE like RStudio that can be found on the start menu or on the desktop. Or you can use R Tools for Visual Studio. Microsoft has provided additional libraries on top of the open-source CRAN R to enable scalable analytics and the ability to analyze data larger than the memory size allowed in parallel chunked analysis. 
-
-For Python, you can use an IDE like Visual Studio Community Edition, which has the Python Tools for Visual Studio (PTVS) extension pre-installed. By default, only Python 3.6, the root Conda environment, is configured on PTVS. To enable Anaconda Python 2.7, take the following steps:
-
-1. Create custom environments for each version by going to **Tools** > **Python Tools** > **Python Environments**, and then selecting **+ Custom** in Visual Studio Community Edition.
-1. Give a description and set the environment prefix path as **c:\anaconda\envs\python2** for Anaconda Python 2.7.
-1. Select **Auto Detect** > **Apply** to save the environment.
-
-See the [PTVS documentation](https://aka.ms/ptvsdocs) for more details on how to create Python environments.
-
-Now you're set up to create a new Python project. Go to **File** > **New** > **Project** > **Python** and select the type of Python application you're building. You can set the Python environment for the current project to the desired version (Python 2.7 or 3.6) by right-clicking **Python environments** and then selecting **Add/Remove Python Environments**. You can find more information about working with PTVS in the [product documentation](https://aka.ms/ptvsdocs).
-
-## Use Jupyter notebooks
-The Jupyter Notebook provides a browser-based IDE for data exploration and modeling. You can use Python 2, Python 3, or R (both open source and Microsoft R Server) in a Jupyter notebook.
+## Use Jupyter Notebooks
+The Jupyter Notebook provides a browser-based IDE for data exploration and modeling. You can use Python 2, Python 3, or R in a Jupyter Notebook.
 
 To start the Jupyter Notebook, select the **Jupyter Notebook** icon on the **Start** menu or on the desktop. In the DSVM command prompt, you can also run the command ```jupyter notebook``` from the directory where you have existing notebooks or where you want to create new notebooks.  
 
-After you start Jupyter, you should see a directory that contains a few example notebooks that are pre-packaged into the DSVM. Now you can:
+After you start Jupyter, navigate to the `/notebooks` directory for example notebooks that are pre-packaged into the DSVM. Now you can:
 
 * Select the notebook to see the code.
 * Run each cell by selecting Shift+Enter.
@@ -79,119 +64,28 @@ After you start Jupyter, you should see a directory that contains a few example 
 
 When you're in the notebook, you can explore your data, build the model, and test the model by using your choice of libraries.
 
-## Train and deploy models by using Azure Machine Learning
-After you've built and validated your model, the next step is usually to deploy it into production. This step allows your client applications to invoke the model predictions on a real-time basis or a batch mode basis. Azure Machine Learning provides a mechanism to operationalize a model built in either R or Python.
-
-When you operationalize your model in Azure Machine Learning, a web service is exposed. It allows clients to make REST calls that pass in input parameters and receive predictions from the model as outputs.
-
-### Build and operationalize Python models
-Here's a snippet of code developed in a Python Jupyter notebook that builds a simple model by using the Scikit-learn library:
-
-```python
-# IRIS classification
-from sklearn import datasets
-from sklearn import svm
-clf = svm.SVC()
-iris = datasets.load_iris()
-X, y = iris.data, iris.target
-clf.fit(X, y)
-```
-
-The method that's used to deploy your Python models to Azure Machine Learning wraps the prediction of the model into a function and decorates it with attributes provided by the pre-installed Azure Machine Learning Python library. The attributes denote your Azure Machine Learning workspace ID, the API key, and the input and return parameters.  
-
-```python
-from azureml import services
-@services.publish(workspaceid, auth_token)
-@services.types(sep_l=float, sep_w=float, pet_l=float, pet_w=float)
-@services.returns(int)  # 0, or 1, or 2
-def predictIris(sep_l, sep_w, pet_l, pet_w):
-    inputArray = [sep_l, sep_w, pet_l, pet_w]
-
-
-return clf.predict(inputArray)
-```
-
-A client can now make calls to the web service. Convenience wrappers construct the REST API requests. Here's sample code to consume the web service:
-
-```python
-# Consume through web service URL and keys
-from azureml import services
-@services.service(url, api_key)
-@services.types(sep_l = float, sep_w = float, pet_l=float, pet_w=float)
-@services.returns(float)
-def IrisPredictor(sep_l, sep_w, pet_l, pet_w):
-pass
-
-IrisPredictor(3,2,3,4)
-```
+## Explore data and develop models with Microsoft Machine Learning Server
 
 > [!NOTE]
-> Currently, the Azure Machine Learning library is supported only on Python 2.7.   
-> 
-> 
+> Support for Machine Learning Server Standalone will end July 1, 2021. We will remove it from the DSVM images after
+> June, 30. Existing deployments will continue to have access to the software but due to the reached support end date,
+> there will be no support for it after July 1, 2021.
 
-### Build and operationalize R models
-You can deploy R models built on the Data Science Virtual Machine or elsewhere onto Azure Machine Learning in a way that's similar to how it's done for Python. Here are the steps:
+You can use languages like R and Python to do your data analytics right on the DSVM.
 
-1. Create a settings.json file to provide your workspace ID and authentication token. 
-2. Write a wrapper for the model's predict function.
-3. Call ```publishWebService``` in the Azure Machine Learning library to pass in the function wrapper.  
+For R, you can use an IDE like RStudio that can be found on the start menu or on the desktop. Or you can use R Tools for Visual Studio. Microsoft has provided additional libraries on top of the open-source CRAN R to enable scalable analytics and the ability to analyze data larger than the memory size allowed in parallel chunked analysis. 
 
-Use the following procedure and code snippets to set up, build, publish, and consume a model as a web service in Azure Machine Learning.
+For Python, you can use an IDE like Visual Studio Community Edition, which has the Python Tools for Visual Studio (PTVS) extension pre-installed. By default, only Python 3.6, the root Conda environment, is configured on PTVS. To enable Anaconda Python 2.7, take the following steps:
 
-#### Set up
+1. Create custom environments for each version by going to **Tools** > **Python Tools** > **Python Environments**, and then selecting **+ Custom** in Visual Studio Community Edition.
+1. Give a description and set the environment prefix path as **c:\anaconda\envs\python2** for Anaconda Python 2.7.
+1. Select **Auto Detect** > **Apply** to save the environment.
 
-Create a settings.json file under a directory called ```.azureml``` under your home directory. Enter the parameters from your Azure Machine Learning workspace.
+See the [PTVS documentation](/visualstudio/python/) for more details on how to create Python environments.
 
-Here's the settings.json file structure:
+Now you're set up to create a new Python project. Go to **File** > **New** > **Project** > **Python** and select the type of Python application you're building. You can set the Python environment for the current project to the desired version (Python 2.7 or 3.6) by right-clicking **Python environments** and then selecting **Add/Remove Python Environments**. You can find more information about working with PTVS in the [product documentation](/visualstudio/python/).
 
-```json
-{"workspace":{
-"id"                  : "ENTER YOUR AZUREML WORKSPACE ID",
-"authorization_token" : "ENTER YOUR AZUREML AUTH TOKEN"
-}}
-```
 
-#### Build a model in R and publish it in Azure Machine Learning
-
-```r
-library(AzureML)
-ws <- workspace(config="~/.azureml/settings.json")
-
-if(!require("lme4")) install.packages("lme4")
-library(lme4)
-set.seed(1)
-train <- sleepstudy[sample(nrow(sleepstudy), 120),]
-m <- lm(Reaction ~ Days + Subject, data = train)
-
-# Define a prediction function to publish based on the model:
-sleepyPredict <- function(newdata){
-        predict(m, newdata=newdata)
-}
-
-ep <- publishWebService(ws, fun = sleepyPredict, name="sleepy lm", inputSchema = sleepstudy, data.frame=TRUE)
-```
-
-#### Consume the model deployed in Azure Machine Learning
-To consume the model from a client application, use the Azure Machine Learning library to look up the published web service by name. Use the `services` API call to determine the endpoint. Then you just call the `consume` function and pass in the data frame to be predicted.
-
-Use the following code to consume the model published as an Azure Machine Learning web service:
-
-```r
-library(AzureML)
-library(lme4)
-ws <- workspace(config="~/.azureml/settings.json")
-
-s <-  services(ws, name = "sleepy lm")
-s <- tail(s, 1) # use the last published function, in case of duplicate function names
-
-ep <- endpoints(ws, s)
-
-# Try this out, and compare with raw data
-ans = consume(ep, sleepstudy)$ans
-```
-
-See more information about [R packages in Machine Learning Studio](/azure/machine-learning/studio-module-reference/r-packages-supported-by-azure-machine-learning).
 
 ## Manage Azure resources
 The DSVM doesn't just allow you to build your analytics solution locally on the virtual machine. It also allows you to access services on the Azure cloud platform. Azure provides several compute, storage, data analytics, and other services that you can administer and access from your DSVM.
@@ -200,7 +94,7 @@ To administer your Azure subscription and cloud resources, you have two options:
 + Use your browser and go to the [Azure portal](https://portal.azure.com).
 
 + Use PowerShell scripts. Run Azure PowerShell from a shortcut on the desktop or from the **Start** menu. See the 
-[Microsoft Azure PowerShell documentation](../../powershell-azure-resource-manager.md) for full details. 
+[Microsoft Azure PowerShell documentation](../../azure-resource-manager/management/manage-resources-powershell.md) for full details. 
 
 ## Extend storage by using shared file systems
 Data scientists can share large datasets, code, or other resources within the team. The DSVM has about 45 GB of space available. To extend your storage, you can use Azure Files and either mount it on one or more DSVM instances or access it via a REST API. You can also use the [Azure portal](../../virtual-machines/windows/attach-managed-disk-portal.md) or use [Azure PowerShell](../../virtual-machines/windows/attach-disk-ps.md) to add extra dedicated data disks. 
@@ -251,11 +145,13 @@ The DSVM comes loaded with client tools on the command line and on the GUI to ac
 
 To download code from a GitHub repository, you use the ```git clone``` command. For example, to download the data science repository published by Microsoft into the current directory, you can run the following command in Git Bash:
 
-    git clone https://github.com/Azure/DataScienceVM.git
+```bash
+git clone https://github.com/Azure/DataScienceVM.git
+```
 
 In Visual Studio, you can do the same clone operation. The  following screenshot shows how to access Git and GitHub tools in Visual Studio:
 
-![Screenshot of Visual Studio with the GitHub connection displayed](./media/vm-do-ten-things/VSGit.PNG)
+![Screenshot of Visual Studio with the GitHub connection displayed](./media/vm-do-ten-things/VSGit.png)
 
 You can find more information on using Git to work with your GitHub repository from resources available on github.com. The [cheat sheet](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf) is a useful reference.
 
@@ -267,9 +163,9 @@ Azure Blob storage is a reliable, economical cloud storage service for data big 
 
 * Create your Azure Blob storage account from the [Azure portal](https://portal.azure.com).
 
-   ![Screenshot of the storage account creation process in the Azure portal](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
+   ![Screenshot of the storage account creation process in the Azure portal](./media/vm-do-ten-things/create-azure-blob.png)
 
-* Confirm that the command-line AzCopy tool is pre-installed: ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. The directory that contains azcopy.exe is already on your PATH environment variable, so you can avoid typing the full command path when running this tool. For more information on the AzCopy tool, see the [AzCopy documentation](../../storage/common/storage-use-azcopy.md).
+* Confirm that the command-line AzCopy tool is pre-installed: ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. The directory that contains azcopy.exe is already on your PATH environment variable, so you can avoid typing the full command path when running this tool. For more information on the AzCopy tool, see the [AzCopy documentation](../../storage/common/storage-use-azcopy-v10.md).
 * Start the Azure Storage Explorer tool. You can download it from the  [Storage Explorer webpage](https://storageexplorer.com/). 
 
    ![Screenshot of Azure Storage Explorer accessing a storage account](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
@@ -278,7 +174,9 @@ Azure Blob storage is a reliable, economical cloud storage service for data big 
 
 To move data between your local files and Blob storage, you can use AzCopy on the command line or in PowerShell:
 
-    AzCopy /Source:C:\myfolder /Dest:https://<mystorageaccount>.blob.core.windows.net/<mycontainer> /DestKey:<storage account key> /Pattern:abc.txt
+```powershell
+AzCopy /Source:C:\myfolder /Dest:https://<mystorageaccount>.blob.core.windows.net/<mycontainer> /DestKey:<storage account key> /Pattern:abc.txt
+```
 
 Replace **C:\myfolder** with the path where your file is stored, **mystorageaccount** with your Blob storage account name, **mycontainer** with the container name, and **storage account key** with your Blob storage access key. You can find your storage account credentials in the [Azure portal](https://portal.azure.com).
 
@@ -304,15 +202,9 @@ You can also upload data from the local file in your VM by using Azure Storage E
 * To upload data to a container, select the target container and select the **Upload** button.![Screenshot of the upload button in Azure Storage Explorer](./media/vm-do-ten-things/storage-accounts.png)
 * Select the ellipsis (**...**) to the right of the **Files** box, select one or multiple files to upload from the file system, and select **Upload** to begin uploading the files.![Screenshot of the Upload files dialog box](./media/vm-do-ten-things/upload-files-to-blob.png)
 
-#### Read data from an Azure blob: Machine Learning reader module
-
-In Azure Machine Learning Studio, you can use the Import Data module to read data from your blob.
-
-![Screenshot of the Import Data module in Machine Learning Studio](./media/vm-do-ten-things/AML_ReaderBlob_Module_v3.png)
-
 #### Read data from an Azure blob: Python ODBC
 
-You can use the BlobService library to read data directly from a blob in a Jupyter notebook or in a Python program.
+You can use the BlobService library to read data directly from a blob in a Jupyter Notebook or in a Python program.
 
 First, import the required packages:
 
@@ -360,452 +252,13 @@ print 'the size of the data is: %d rows and  %d columns' % df1.shape
 
 The data is read as a data frame:
 
-![Screenshot of the first 10 rows of data](./media/vm-do-ten-things/IPNB_data_readin.PNG)
+![Screenshot of the first 10 rows of data](./media/vm-do-ten-things/IPNB_data_readin.png)
 
-### Azure Data Lake
-Azure Data Lake Storage is a hyperscale repository for big data analytics workloads and is compatible with Hadoop Distributed File System (HDFS). It works with Hadoop, Spark, and Azure Data Lake Analytics. In this section, you'll learn how you can move data into Azure Data Lake Storage and run analytics by using Azure Data Lake Analytics.
 
-#### Prerequisites
+### Azure Synapse Analytics and databases
+Azure Synapse Analytics is an elastic data warehouse as a service with an enterprise-class SQL Server experience.
 
-* Create your Azure Data Lake Analytics instance in the [Azure portal](https://portal.azure.com).
-
-   ![Screenshot of creating a Data Lake Analytics instance from the Azure portal](./media/vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
-
-* The  [Azure Data Lake and Stream Analytics Tools for Visual Studio plug-in](https://www.microsoft.com/download/details.aspx?id=49504) is already installed in Visual Studio Community Edition on the virtual machine. After you start Visual Studio and sign in to your Azure subscription, you should see your Azure Data Analytics account and storage in the left panel of Visual Studio.
-
-   ![Screenshot of the plug-in for Data Lake tools in Visual Studio](./media/vm-do-ten-things/Azure_Data_Lake_PlugIn_v2.PNG)
-
-#### Move data from a VM to Data Lake: Azure Data Lake Explorer
-
-You can use Azure Data Lake Explorer to [upload data from the local files in your virtual machine to Data Lake Storage](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
-
-You can also build a data pipeline to operationalize your data movement to or from Azure Data Lake by using [Azure Data Factory](https://azure.microsoft.com/services/data-factory/). [This article](https://azure.microsoft.com/blog/creating-big-data-pipelines-using-azure-data-lake-and-azure-data-factory/) guides you through the steps to build the data pipelines.
-
-#### Read data from an Azure blob to Data Lake: U-SQL
-
-If your data resides in Azure Blob storage, you can directly read data from an Azure blob in a U-SQL query. Before you compose your U-SQL query, make sure your Blob storage account is linked to your Azure Data Lake instance. Go to the Azure portal, find your Azure Data Lake Analytics dashboard, select **Add Data Source**, select a storage type of **Azure Storage**, and plug in your Azure storage account name and key. Then you can reference the data stored in the storage account.
-
-![Screenshot of the Add Data Source dialog box](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
-
-In Visual Studio, you can read data from Blob storage, manipulate data, engineer features, and send the resulting data to either Azure Data Lake or Azure Blob storage. When you reference the data in Blob storage, use **wasb://**. When you reference the data in Azure Data Lake, use **swbhdfs://**.
-
-You can use the following U-SQL queries in Visual Studio:
-
-```usql
-@a =
-    EXTRACT medallion string,
-            hack_license string,
-            vendor_id string,
-            rate_code string,
-            store_and_fwd_flag string,
-            pickup_datetime string,
-            dropoff_datetime string,
-            passenger_count int,
-            trip_time_in_secs double,
-            trip_distance double,
-            pickup_longitude string,
-            pickup_latitude string,
-            dropoff_longitude string,
-            dropoff_latitude string
-
-    FROM "wasb://<Container name>@<Azure Blob Storage Account Name>.blob.core.windows.net/<Input Data File Name>"
-    USING Extractors.Csv();
-
-@b =
-    SELECT vendor_id,
-    COUNT(medallion) AS cnt_medallion,
-    SUM(passenger_count) AS cnt_passenger,
-    AVG(trip_distance) AS avg_trip_dist,
-    MIN(trip_distance) AS min_trip_dist,
-    MAX(trip_distance) AS max_trip_dist,
-    AVG(trip_time_in_secs) AS avg_trip_time
-    FROM @a
-    GROUP BY vendor_id;
-
-OUTPUT @b   
-TO "swebhdfs://<Azure Data Lake Storage Account Name>.azuredatalakestore.net/<Folder Name>/<Output Data File Name>"
-USING Outputters.Csv();
-
-OUTPUT @b   
-TO "wasb://<Container name>@<Azure Blob Storage Account Name>.blob.core.windows.net/<Output Data File Name>"
-USING Outputters.Csv();
-```
-
-After your query is submitted to the server, a diagram shows the status of your job.
-
-![Screenshot of the job status diagram](./media/vm-do-ten-things/USQL_Job_Status.PNG)
-
-#### Query data in Data Lake: U-SQL
-
-After the dataset is ingested in Azure Data Lake, you can use [U-SQL language](../../data-lake-analytics/data-lake-analytics-u-sql-get-started.md) to query and explore the data. U-SQL language is similar to T-SQL, but combines some features from C# so that users can write customized modules and user-defined functions. You can use the scripts in the previous step.
-
-After the query is submitted to the server, tripdata_summary.CSV appears in Azure Data Lake Explorer. You can preview the data by right-clicking the file.
-
-![Screenshot of the CSV file in Data Lake Explorer](./media/vm-do-ten-things/USQL_create_summary.png)
-
-The file information appears:
-
-![Screenshot of the file summary information](./media/vm-do-ten-things/USQL_tripdata_summary.png)
-
-### HDInsight Hadoop clusters
-Azure HDInsight is a managed Apache Hadoop, Spark, HBase, and Storm service in the cloud. You can work easily with Azure HDInsight clusters from the Data Science Virtual Machine.
-
-#### Prerequisites
-
-* Create your Azure Blob storage account from the [Azure portal](https://portal.azure.com). This storage account is used to store data for HDInsight clusters.
-
-   ![Screenshot of creating a storage account from the Azure portal](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
-
-* Customize Azure HDInsight Hadoop clusters from the [Azure portal](../team-data-science-process/customize-hadoop-cluster.md).
-  
-   Link the storage account created with your HDInsight cluster when it's created. This storage account is used for accessing data that can be processed within the cluster.
-
-   ![Selections for linking the storage account created with an HDInsight cluster](./media/vm-do-ten-things/Create_HDI_v4.PNG)
-
-* Enable Remote Desktop access to the head node of the cluster after it's created. Remember the remote access credentials that you specify here, because you'll need them in the subsequent procedure.
-
-   ![Remote Desktop button for enabling remote access to the HDInsight cluster](./media/vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
-
-* Create an Azure Machine Learning workspace. Your Machine Learning experiments are stored in this Machine Learning workspace. Select the highlighted options in the portal, as shown in the following screenshot:
-
-   ![Create an Azure Machine Learning workspace](./media/vm-do-ten-things/Create_ML_Space.PNG)
-
-* Enter the parameters for your workspace.
-
-   ![Enter Machine Learning workspace parameters](./media/vm-do-ten-things/Create_ML_Space_step2_v2.PNG)
-
-* Upload data by using IPython Notebook. Import required packages, plug in credentials, create a database in your storage account, and then load data into HDI clusters.
-
-```python
-# Import required packages
-import pyodbc
-import time as time
-import json
-import os
-import urllib
-import urllib2
-import warnings
-import re
-import pandas as pd
-import matplotlib.pyplot as plt
-from azure.storage.blob import BlobService
-warnings.filterwarnings("ignore", category=UserWarning, module='urllib2')
-
-
-# Create the connection to Hive by using ODBC
-SERVER_NAME = 'xxx.azurehdinsight.net'
-DATABASE_NAME = 'nyctaxidb'
-USERID = 'xxx'
-PASSWORD = 'xxxx'
-DB_DRIVER = 'Microsoft Hive ODBC Driver'
-driver = 'DRIVER={' + DB_DRIVER + '}'
-server = 'Host=' + SERVER_NAME + ';Port=443'
-database = 'Schema=' + DATABASE_NAME
-hiveserv = 'HiveServerType=2'
-auth = 'AuthMech=6'
-uid = 'UID=' + USERID
-pwd = 'PWD=' + PASSWORD
-CONNECTION_STRING = ';'.join(
-    [driver, server, database, hiveserv, auth, uid, pwd])
-connection = pyodbc.connect(CONNECTION_STRING, autocommit=True)
-cursor = connection.cursor()
-
-
-# Create the Hive database and tables
-queryString = "create database if not exists nyctaxidb;"
-cursor.execute(queryString)
-
-queryString = """
-                create external table if not exists nyctaxidb.trip
-                (
-                    medallion string,
-                    hack_license string,
-                    vendor_id string,
-                    rate_code string,
-                    store_and_fwd_flag string,
-                    pickup_datetime string,
-                    dropoff_datetime string,
-                    passenger_count int,
-                    trip_time_in_secs double,
-                    trip_distance double,
-                    pickup_longitude double,
-                    pickup_latitude double,
-                    dropoff_longitude double,
-                    dropoff_latitude double)  
-                PARTITIONED BY (month int)
-                ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' lines terminated by '\\n'
-                STORED AS TEXTFILE LOCATION 'wasb:///nyctaxidbdata/trip' TBLPROPERTIES('skip.header.line.count'='1');
-            """
-cursor.execute(queryString)
-
-queryString = """
-                create external table if not exists nyctaxidb.fare
-                (
-                    medallion string,
-                    hack_license string,
-                    vendor_id string,
-                    pickup_datetime string,
-                    payment_type string,
-                    fare_amount double,
-                    surcharge double,
-                    mta_tax double,
-                    tip_amount double,
-                    tolls_amount double,
-                    total_amount double)
-                PARTITIONED BY (month int)
-                ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' lines terminated by '\\n'
-                STORED AS TEXTFILE LOCATION 'wasb:///nyctaxidbdata/fare' TBLPROPERTIES('skip.header.line.count'='1');
-            """
-cursor.execute(queryString)
-
-
-# Upload data from Blob storage to an HDI cluster
-for i in range(1, 13):
-    queryString = "LOAD DATA INPATH 'wasb:///nyctaxitripraw2/trip_data_%d.csv' INTO TABLE nyctaxidb2.trip PARTITION (month=%d);" % (
-        i, i)
-    cursor.execute(queryString)
-    queryString = "LOAD DATA INPATH 'wasb:///nyctaxifareraw2/trip_fare_%d.csv' INTO TABLE nyctaxidb2.fare PARTITION (month=%d);" % (
-        i, i)
-    cursor.execute(queryString)
-```
-
-Alternatively, you can follow [this walkthrough](../team-data-science-process/hive-walkthrough.md) to upload NYC Taxi data to the HDI cluster. Major steps include:
-  
-* Use AzCopy to download zipped CSVs from the public blob to your local folder.
-* Use AzCopy to upload unzipped CSVs from the local folder to an HDI cluster.
-* Log in to the head node of Hadoop cluster and prepare for exploratory data analysis.
-
-After the data is loaded into the HDI cluster, you can check your data in Azure Storage Explorer. And the nyctaxidb database has been created in the HDI cluster.
-
-#### Data exploration: Hive Queries in Python
-
-Because the data is in a Hadoop cluster, you can use the pyodbc package to connect to Hadoop clusters and query databases by using Hive to do exploration and feature engineering. You can view the existing tables that you created in the prerequisite step.
-
-```python
-queryString = """
-    show tables in nyctaxidb2;
-    """
-pd.read_sql(queryString, connection)
-```
-
-![View existing tables](./media/vm-do-ten-things/Python_View_Existing_Tables_Hive_v3.PNG)
-
-Let's look at the number of records in each month and the frequencies of tipped or not in the trip table:
-
-```python
-queryString = """
-    select month, count(*) from nyctaxidb.trip group by month;
-    """
-results = pd.read_sql(queryString,connection)
-
-%matplotlib inline
-
-results.columns = ['month', 'trip_count']
-df = results.copy()
-df.index = df['month']
-df['trip_count'].plot(kind='bar')
-```
-
-![Plot of number of records in each month](./media/vm-do-ten-things/Exploration_Number_Records_by_Month_v3.PNG)
-
-```python
-queryString = """
-    SELECT tipped, COUNT(*) AS tip_freq
-    FROM
-    (
-        SELECT if(tip_amount > 0, 1, 0) as tipped, tip_amount
-        FROM nyctaxidb.fare
-    )tc
-    GROUP BY tipped;
-    """
-results = pd.read_sql(queryString, connection)
-
-results.columns = ['tipped', 'trip_count']
-df = results.copy()
-df.index = df['tipped']
-df['trip_count'].plot(kind='bar')
-```
-
-![Plot of tip frequencies](./media/vm-do-ten-things/Exploration_Frequency_tip_or_not_v3.PNG)
-
-You can also compute the distance between pickup location and drop-off location, and then compare it to the trip distance.
-
-```python
-queryString = """
-                select pickup_longitude, pickup_latitude, dropoff_longitude, dropoff_latitude, trip_distance, trip_time_in_secs,
-                    3959*2*2*atan((1-sqrt(1-pow(sin((dropoff_latitude-pickup_latitude)
-                    *radians(180)/180/2),2)-cos(pickup_latitude*radians(180)/180)
-                    *cos(dropoff_latitude*radians(180)/180)*pow(sin((dropoff_longitude-pickup_longitude)*radians(180)/180/2),2)))
-                    /sqrt(pow(sin((dropoff_latitude-pickup_latitude)*radians(180)/180/2),2)
-                    +cos(pickup_latitude*radians(180)/180)*cos(dropoff_latitude*radians(180)/180)*
-                    pow(sin((dropoff_longitude-pickup_longitude)*radians(180)/180/2),2))) as direct_distance
-                    from nyctaxidb.trip
-                    where month=1
-                        and pickup_longitude between -90 and -30
-                        and pickup_latitude between 30 and 90
-                        and dropoff_longitude between -90 and -30
-                        and dropoff_latitude between 30 and 90;
-            """
-results = pd.read_sql(queryString, connection)
-results.head(5)
-```
-
-![Top rows of the pickup and drop-off table](./media/vm-do-ten-things/Exploration_compute_pickup_dropoff_distance_v2.PNG)
-
-```python
-results.columns = ['pickup_longitude', 'pickup_latitude', 'dropoff_longitude',
-                   'dropoff_latitude', 'trip_distance', 'trip_time_in_secs', 'direct_distance']
-df = results.loc[results['trip_distance'] <= 100]  # remove outliers
-df = df.loc[df['direct_distance'] <= 100]  # remove outliers
-plt.scatter(df['direct_distance'], df['trip_distance'])
-```
-
-![Plot of pickup/drop-off distance to trip distance](./media/vm-do-ten-things/Exploration_direct_distance_trip_distance_v2.PNG)
-
-Now let's prepare a downsampled (1 percent) set of data for modeling. You can use this data in the Machine Learning reader module.
-
-```python
-queryString = """
-create  table if not exists nyctaxi_downsampled_dataset_testNEW (
-medallion string,
-hack_license string,
-vendor_id string,
-rate_code string,
-store_and_fwd_flag string,
-pickup_datetime string,
-dropoff_datetime string,
-pickup_hour string,
-pickup_week string,
-weekday string,
-passenger_count int,
-trip_time_in_secs double,
-trip_distance double,
-pickup_longitude double,
-pickup_latitude double,
-dropoff_longitude double,
-dropoff_latitude double,
-direct_distance double,
-payment_type string,
-fare_amount double,
-surcharge double,
-mta_tax double,
-tip_amount double,
-tolls_amount double,
-total_amount double,
-tipped string,
-tip_class string
-)
-row format delimited fields terminated by ','
-lines terminated by '\\n'
-stored as textfile;
-"""
-cursor.execute(queryString)
-```
-
-Now insert contents of the join into the preceding internal table.
-
-```python
-queryString = """
-insert overwrite table nyctaxi_downsampled_dataset_testNEW
-select
-t.medallion,
-t.hack_license,
-t.vendor_id,
-t.rate_code,
-t.store_and_fwd_flag,
-t.pickup_datetime,
-t.dropoff_datetime,
-hour(t.pickup_datetime) as pickup_hour,
-weekofyear(t.pickup_datetime) as pickup_week,
-from_unixtime(unix_timestamp(t.pickup_datetime, 'yyyy-MM-dd HH:mm:ss'),'u') as weekday,
-t.passenger_count,
-t.trip_time_in_secs,
-t.trip_distance,
-t.pickup_longitude,
-t.pickup_latitude,
-t.dropoff_longitude,
-t.dropoff_latitude,
-t.direct_distance,
-f.payment_type,
-f.fare_amount,
-f.surcharge,
-f.mta_tax,
-f.tip_amount,
-f.tolls_amount,
-f.total_amount,
-if(tip_amount>0,1,0) as tipped,
-if(tip_amount=0,0,
-if(tip_amount>0 and tip_amount<=5,1,
-if(tip_amount>5 and tip_amount<=10,2,
-if(tip_amount>10 and tip_amount<=20,3,4)))) as tip_class
-from
-(
-select
-medallion,
-hack_license,
-vendor_id,
-rate_code,
-store_and_fwd_flag,
-pickup_datetime,
-dropoff_datetime,
-passenger_count,
-trip_time_in_secs,
-trip_distance,
-pickup_longitude,
-pickup_latitude,
-dropoff_longitude,
-dropoff_latitude,
-3959*2*2*atan((1-sqrt(1-pow(sin((dropoff_latitude-pickup_latitude)
-radians(180)/180/2),2)-cos(pickup_latitude*radians(180)/180)
-*cos(dropoff_latitude*radians(180)/180)*pow(sin((dropoff_longitude-pickup_longitude)*radians(180)/180/2),2)))
-/sqrt(pow(sin((dropoff_latitude-pickup_latitude)*radians(180)/180/2),2)
-+cos(pickup_latitude*radians(180)/180)*cos(dropoff_latitude*radians(180)/180)*pow(sin((dropoff_longitude-pickup_longitude)*radians(180)/180/2),2))) as direct_distance,
-rand() as sample_key
-
-from trip
-where pickup_latitude between 30 and 90
-    and pickup_longitude between -90 and -30
-    and dropoff_latitude between 30 and 90
-    and dropoff_longitude between -90 and -30
-)t
-join
-(
-select
-medallion,
-hack_license,
-vendor_id,
-pickup_datetime,
-payment_type,
-fare_amount,
-surcharge,
-mta_tax,
-tip_amount,
-tolls_amount,
-total_amount
-from fare
-)f
-on t.medallion=f.medallion and t.hack_license=f.hack_license and t.pickup_datetime=f.pickup_datetime
-where t.sample_key<=0.01
-"""
-cursor.execute(queryString)
-```
-
-After a while, you can see that the data has been loaded in Hadoop clusters:
-
-```python
-queryString = """
-    select * from nyctaxi_downsampled_dataset limit 10;
-    """
-cursor.execute(queryString)
-pd.read_sql(queryString, connection)
-```
-
-![Top rows of data from the table](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
-
-### Azure SQL Data Warehouse and databases
-Azure SQL Data Warehouse is an elastic data warehouse as a service with an enterprise-class SQL Server experience.
-
-You can provision your Azure SQL data warehouse by following the instructions in [this article](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md). After you provision your SQL data warehouse, you can use [this walkthrough](../team-data-science-process/sqldw-walkthrough.md) to do data upload, exploration, and modeling by using data within the SQL data warehouse.
+You can provision Azure Synapse Analytics by following the instructions in [this article](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md). After you provision Azure Synapse Analytics, you can use [this walkthrough](/azure/architecture/data-science-process/sqldw-walkthrough) to do data upload, exploration, and modeling by using data within Azure Synapse Analytics.
 
 #### Azure Cosmos DB
 Azure Cosmos DB is a NoSQL database in the cloud. You can use it to work with documents like JSON, and to store and query the documents.
@@ -815,11 +268,11 @@ Use the following prerequisite steps to access Azure Cosmos DB from the DSVM:
 1. The Azure Cosmos DB Python SDK is already installed on the DSVM. To update it, run ```pip install pydocumentdb --upgrade``` from a command prompt.
 2. Create an Azure Cosmos DB account and database from the [Azure portal](https://portal.azure.com).
 3. Download the Azure Cosmos DB Data Migration Tool from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53595) and extract to a directory of your choice.
-4. Import JSON data (volcano data) stored in a [public blob](https://dotnet.microsoft.com/) into Azure Cosmos DB with the following command parameters to the migration tool. (Use dtui.exe from the directory where you installed the Azure Cosmos DB Data Migration Tool.) Enter the source and target location with these parameters:
+4. Import JSON data (volcano data) stored in a [public blob](https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928/download/volcano.json) into Azure Cosmos DB with the following command parameters to the migration tool. (Use dtui.exe from the directory where you installed the Azure Cosmos DB Data Migration Tool.) Enter the source and target location with these parameters:
    
-    `/s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`
+    `/s:JsonFile /s.Files:https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928/download/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`
 
-After you import the data, you can go to Jupyter and open the notebook titled *DocumentDBSample*. It contains Python code to access Azure Cosmos DB and do some basic querying. You can learn more about Azure Cosmos DB by visiting the service's [documentation page](https://docs.microsoft.com/azure/cosmos-db/).
+After you import the data, you can go to Jupyter and open the notebook titled *DocumentDBSample*. It contains Python code to access Azure Cosmos DB and do some basic querying. You can learn more about Azure Cosmos DB by visiting the service's [documentation page](../../cosmos-db/index.yml).
 
 ## Use Power BI reports and dashboards 
 You can visualize the Volcano JSON file from the preceding Azure Cosmos DB example in Power BI Desktop to gain visual insights into the data. Detailed steps are available in the [Power BI article](../../cosmos-db/powerbi-visualize.md). Here are the high-level steps:
@@ -855,13 +308,12 @@ You can start building reports and visualizations by using the data model. You c
 You can scale up and down the DSVM to meet your project's needs. If you don't need to use the VM in the evening or on weekends, you can shut down the VM from the [Azure portal](https://portal.azure.com).
 
 > [!NOTE]
-> You incur compute charges if you use just the shutdown button for the operating system on the VM.  
+> You incur compute charges if you use just the shutdown button for the operating system on the VM. Instead You should deallocate your DSVM using the Azure portal or Cloud Shell.
 > 
 > 
 
 You might need to handle some large-scale analysis and need more CPU, memory, or disk capacity. If so, you can find a choice of VM sizes in terms of CPU cores, GPU-based instances for deep learning, memory capacity, and disk types (including solid-state drives) that meet your compute and budgetary needs. The full list of VMs, along with their hourly compute pricing, is available on the [Azure Virtual Machines pricing](https://azure.microsoft.com/pricing/details/virtual-machines/) page.
 
-Similarly, your need for VM processing capacity might diminish. (For example: you moved a major workload to a Hadoop or Spark cluster.) You can then scale down the cluster from the [Azure portal](https://portal.azure.com) and go to the settings of your VM instance. 
 
 ## Add more tools
 Tools prebuilt into the DSVM can address many common data-analytics needs. This saves you time because you don't have to install and configure your environments one by one. It also saves you money, because you pay for only resources that you use.
@@ -877,10 +329,9 @@ In addition to the framework-based samples, you can get a set of comprehensive w
 
 - [A how-to guide to build an end-to-end solution to detect products within images](https://github.com/Azure/cortana-intelligence-product-detection-from-images): Image detection is a technique that can locate and classify objects within images. This technology has the potential to bring huge rewards in many real-life business domains. For example, retailers can use this technique to determine which product a customer has picked up from the shelf. This information in turn helps stores manage product inventory. 
 
-- [Deep learning for audio](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/): This tutorial shows how to train a deep-learning model for audio event detection on the [urban sounds dataset](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html). It also provides an overview of how to work with audio data.
+- [Deep learning for audio](/archive/blogs/machinelearning/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure): This tutorial shows how to train a deep-learning model for audio event detection on the [urban sounds dataset](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html). It also provides an overview of how to work with audio data.
 
-- [Classification of text documents](https://github.com/anargyri/lstm_han): This walkthrough demonstrates how to build and train two neural network architectures: Hierarchical Attention Network and Long Short Term Memory (LSTM) network. These neural networks use the Keras API for deep learning to classify text documents. Keras is a front end to three of the most popular deep-learning frameworks: Microsoft Cognitive Toolkit, TensorFlow, and Theano.
+- [Classification of text documents](https://github.com/anargyri/lstm_han): This walkthrough demonstrates how to build and train two neural network architectures: Hierarchical Attention Network and Long Short Term Memory (LSTM) network. These neural networks use the Keras API for deep learning to classify text documents. 
 
 ## Summary
 This article described some of the things you can do on the Microsoft Data Science Virtual Machine. There are many more things you can do to make the DSVM an effective analytics environment.
-

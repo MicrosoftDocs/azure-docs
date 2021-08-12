@@ -3,10 +3,11 @@ title: Configure a Point-to-Site (P2S) VPN on Windows for use with Azure Files |
 description: How to configure a Point-to-Site (P2S) VPN on Windows for use with Azure Files
 author: roygara
 ms.service: storage
-ms.topic: overview
+ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
-ms.subservice: files
+ms.subservice: files 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure a Point-to-Site (P2S) VPN on Windows for use with Azure Files
@@ -14,63 +15,59 @@ You can use a Point-to-Site (P2S) VPN connection to mount your Azure file shares
 
 We strongly recommend that you read [Networking considerations for direct Azure file share access](storage-files-networking-overview.md) before continuing with this how to article for a complete discussion of the networking options available for Azure Files.
 
-The article details the steps to configure a Point-to-Site VPN on Windows (Windows client and Windows Server) to mount Azure file shares directly on-premises. If you're looking to route Azure File Sync traffic over a VPN, please see [configuring Azure File Sync proxy and firewall settings](storage-sync-files-firewall-and-proxy.md).
+The article details the steps to configure a Point-to-Site VPN on Windows (Windows client and Windows Server) to mount Azure file shares directly on-premises. If you're looking to route Azure File Sync traffic over a VPN, please see [configuring Azure File Sync proxy and firewall settings](../file-sync/file-sync-firewall-and-proxy.md).
+
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Prerequisites
-- The most recent version of the Azure PowerShell module. For more information on how to install the Azure PowerShell, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) and select your operating system. If you prefer to use the Azure CLI on Windows, you may, however the instructions below are presented for Azure PowerShell.
+- The most recent version of the Azure PowerShell module. For more information on how to install the Azure PowerShell, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps) and select your operating system. If you prefer to use the Azure CLI on Windows, you may, however the instructions below are presented for Azure PowerShell.
 
 - An Azure file share you would like to mount on-premises. Azure file shares are deployed within storage accounts, which are management constructs that represent a shared pool of storage in which you can deploy multiple file shares, as well as other storage resources, such as blob containers or queues. You can learn more about how to deploy Azure file shares and storage accounts in [Create an Azure file share](storage-how-to-create-file-share.md).
 
-- A private endpoint for the storage account containing the Azure file share you want to mount on-premises. To learn more about how to create a private endpoint, see [Configuring Azure Files network endpoints](storage-files-networking-endpoints.md?tabs=azure-powershell). 
+- A virtual network with a private endpoint for the storage account containing the Azure file share you want to mount on-premises. To learn more about how to create a private endpoint, see [Configuring Azure Files network endpoints](storage-files-networking-endpoints.md?tabs=azure-powershell). 
 
-## Deploy a virtual network
-To access your Azure file share and other Azure resources from on-premises via a Point-to-Site VPN, you must create a virtual network, or VNet. The P2S VPN connection you will automatically create is a bridge between your on-premises Windows machine and this Azure virtual network.
+## Collect environment information
+In order to set up the point-to-site VPN, we first need to collect some information about your environment for use throughout the guide. See the [prerequisites](#prerequisites) section if you have not already created a storage account, virtual network, and/or private endpoints.
 
-The following PowerShell will create an Azure virtual network with three subnets: one for your storage account's service endpoint, one for your storage account's private endpoint, which is required to access the storage account on-premises without creating custom routing for the public IP of the storage account that may change, and one for your virtual network gateway that provides the VPN service. 
-
-Remember to replace `<region>`, `<resource-group>`, and `<desired-vnet-name>` with the appropriate values for your environment.
+Remember to replace `<resource-group>`, `<vnet-name>`, `<subnet-name>`, and `<storage-account-name>` with the appropriate values for your environment.
 
 ```PowerShell
-$region = "<region>"
-$resourceGroupName = "<resource-group>" 
-$virtualNetworkName = "<desired-vnet-name>"
+$resourceGroupName = "<resource-group-name>" 
+$virtualNetworkName = "<vnet-name>"
+$subnetName = "<subnet-name>"
+$storageAccountName = "<storage-account-name>"
 
-$virtualNetwork = New-AzVirtualNetwork `
-    -ResourceGroupName $resourceGroupName `
-    -Name $virtualNetworkName `
-    -Location $region `
-    -AddressPrefix "192.168.0.0/16"
-
-Add-AzVirtualNetworkSubnetConfig `
-    -Name "ServiceEndpointSubnet" `
-    -AddressPrefix "192.168.0.0/24" `
-    -VirtualNetwork $virtualNetwork `
-    -ServiceEndpoint "Microsoft.Storage" `
-    -WarningAction SilentlyContinue | Out-Null
-
-Add-AzVirtualNetworkSubnetConfig `
-    -Name "PrivateEndpointSubnet" `
-    -AddressPrefix "192.168.1.0/24" `
-    -VirtualNetwork $virtualNetwork `
-    -WarningAction SilentlyContinue | Out-Null
-
-Add-AzVirtualNetworkSubnetConfig `
-    -Name "GatewaySubnet" `
-    -AddressPrefix "192.168.2.0/24" `
-    -VirtualNetwork $virtualNetwork `
-    -WarningAction SilentlyContinue | Out-Null
-
-$virtualNetwork | Set-AzVirtualNetwork | Out-Null
 $virtualNetwork = Get-AzVirtualNetwork `
     -ResourceGroupName $resourceGroupName `
     -Name $virtualNetworkName
 
-$serviceEndpointSubnet = $virtualNetwork.Subnets | `
-    Where-Object { $_.Name -eq "ServiceEndpointSubnet" }
-$privateEndpointSubnet = $virtualNetwork.Subnets | `
-    Where-Object { $_.Name -eq "PrivateEndpointSubnet" }
-$gatewaySubnet = $virtualNetwork.Subnets | ` 
-    Where-Object { $_.Name -eq "GatewaySubnet" }
+$subnetId = $virtualNetwork | `
+    Select-Object -ExpandProperty Subnets | `
+    Where-Object { $_.Name -eq "StorageAccountSubnet" } | `
+    Select-Object -ExpandProperty Id
+
+$storageAccount = Get-AzStorageAccount `
+    -ResourceGroupName $resourceGroupName `
+    -Name $storageAccountName
+
+$privateEndpoint = Get-AzPrivateEndpoint | `
+    Where-Object {
+        $subnets = $_ | `
+            Select-Object -ExpandProperty Subnet | `
+            Where-Object { $_.Id -eq $subnetId }
+
+        $connections = $_ | `
+            Select-Object -ExpandProperty PrivateLinkServiceConnections | `
+            Where-Object { $_.PrivateLinkServiceId -eq $storageAccount.Id }
+        
+        $null -ne $subnets -and $null -ne $connections
+    } | `
+    Select-Object -First 1
 ```
 
 ## Create root certificate for VPN authentication
@@ -207,7 +204,7 @@ Export-PfxCertificate `
 ```
 
 ## Configure the VPN client
-The Azure virtual network gateway will create a downloadable package with configuration files required to initialize the VPN connection on your on-premises Windows machine. We will configure the VPN connection using the [Always On VPN](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/) feature of Windows 10/Windows Server 2016+. This package also contains executable packages which will configure the legacy Windows VPN client, if so desired. This guide uses Always On VPN rather than the legacy Windows VPN client as the Always On VPN client allows end-users to connect/disconnect from the Azure VPN without having administrator permissions to their machine. 
+The Azure virtual network gateway will create a downloadable package with configuration files required to initialize the VPN connection on your on-premises Windows machine. We will configure the VPN connection using the [Always On VPN](/windows-server/remote/remote-access/vpn/always-on-vpn/) feature of Windows 10/Windows Server 2016+. This package also contains executable packages which will configure the legacy Windows VPN client, if so desired. This guide uses Always On VPN rather than the legacy Windows VPN client as the Always On VPN client allows end-users to connect/disconnect from the Azure VPN without having administrator permissions to their machine. 
 
 The following script will install the client certificate required for authentication against the virtual network gateway, download, and install the VPN package. Remember to replace `<computer1>` and `<computer2>` with the desired computers. You can run this script on as many machines as you desire by adding more PowerShell sessions to the `$sessions` array. Your use account must be an administrator on each of these machines. If one of these machines is the local machine you are running the script from, you must run the script from an elevated PowerShell session. 
 

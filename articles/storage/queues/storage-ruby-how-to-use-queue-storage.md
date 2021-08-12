@@ -1,53 +1,55 @@
 ---
-title: How to use Queue storage from Ruby - Azure Storage
-description: Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Ruby.
-author: mhopkins-msft
-
-ms.author: mhopkins
-ms.date: 12/08/2016
+title: How to use Queue Storage from Ruby - Azure Storage
+description: Learn how to use the Azure Queue Storage to create and delete queues, and insert, get, and delete messages. Samples written in Ruby.
+author: twooley
+ms.author: twooley
+ms.reviewer: dineshm
+ms.date: 06/08/2021
+ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
-ms.reviewer: cbrooks
 ---
 
-# How to use Queue storage from Ruby
+# How to use Queue Storage from Ruby
+
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## Overview
-This guide shows you how to perform common scenarios using the Microsoft
-Azure Queue Storage service. The samples are written using the Ruby Azure API.
-The scenarios covered include **inserting**, **peeking**, **getting**,
-and **deleting** queue messages, as well as **creating and deleting
-queues**.
+
+This guide shows you how to perform common scenarios using the Microsoft Azure Queue Storage service. The samples are written using the Ruby Azure API. The scenarios covered include **inserting**, **peeking**, **getting**, and **deleting** queue messages, as well as **creating and deleting queues**.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
-## Create a Ruby Application
-Create a Ruby application. For instructions, see [Create a Ruby App in App Service on Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby).
+## Create a Ruby application
 
-## Configure Your Application to Access Storage
-To use Azure storage, you need to download and use the Ruby azure package, which includes a set of convenience libraries that communicate with the storage REST services.
+Create a Ruby application. For instructions, see [Create a Ruby application in App Service on Linux](../../app-service/quickstart-ruby.md).
+
+## Configure your application to access storage
+
+To use Azure Storage, you need to download and use the Ruby Azure package, which includes a set of convenience libraries that communicate with the storage REST services.
+
+<!-- docutune:ignore Terminal -->
 
 ### Use RubyGems to obtain the package
-1. Use a command-line interface such as **PowerShell** (Windows), **Terminal** (Mac), or **Bash** (Unix).
-2. Type "gem install azure" in the command window to install the gem and dependencies.
+
+1. Use a command-line interface such as PowerShell (Windows), Terminal (Mac), or Bash (Unix).
+2. Type `gem install azure` in the command window to install the gem and dependencies.
 
 ### Import the package
+
 Use your favorite text editor, add the following to the top of the Ruby file where you intend to use storage:
 
 ```ruby
 require "azure"
 ```
 
-## Setup an Azure Storage Connection
-The azure module will read the environment variables **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS_KEY** 
-for information required to connect to your Azure storage account. If these environment variables are not set, 
-you must specify the account information before using **Azure::QueueService** with the following code:
+## Setup an Azure Storage connection
+
+The Azure module will read the environment variables `AZURE_STORAGE_ACCOUNT` and `AZURE_STORAGE_ACCESS_KEY` for information required to connect to your Azure Storage account. If these environment variables are not set, you must specify the account information before using `Azure::QueueService` with the following code:
 
 ```ruby
 Azure.config.storage_account_name = "<your azure storage account>"
@@ -58,18 +60,19 @@ To obtain these values from a classic or Resource Manager storage account in the
 
 1. Log in to the [Azure portal](https://portal.azure.com).
 2. Navigate to the storage account you want to use.
-3. In the Settings blade on the right, click **Access Keys**.
-4. In the Access keys blade that appears, you'll see the access key 1 and access key 2. You can use either of these. 
-5. Click the copy icon to copy the key to the clipboard. 
+3. In the **Settings** blade on the right, click **Access Keys**.
+4. In the **Access Keys** blade that appears, you'll see the access key 1 and access key 2. You can use either of these.
+5. Click the copy icon to copy the key to the clipboard.
 
-## How To: Create a Queue
-The following code creates a **Azure::QueueService** object, which enables you to work with queues.
+## How to: Create a queue
+
+The following code creates a `Azure::QueueService` object, which enables you to work with queues.
 
 ```ruby
 azure_queue_service = Azure::QueueService.new
 ```
 
-Use the **create_queue()** method to create a queue with the specified name.
+Use the `create_queue()` method to create a queue with the specified name.
 
 ```ruby
 begin
@@ -79,52 +82,57 @@ rescue
 end
 ```
 
-## How To: Insert a Message into a Queue
-To insert a message into a queue, use the **create_message()** method to create a new message and add it to the queue.
+## How to: Insert a message into a queue
+
+To insert a message into a queue, use the `create_message()` method to create a new message and add it to the queue.
 
 ```ruby
 azure_queue_service.create_message("test-queue", "test message")
 ```
 
-## How To: Peek at the Next Message
-You can peek at the message in the front of a queue without removing it from the queue by calling the **peek\_messages()** method. By default, **peek\_messages()** peeks at a single message. You can also specify how many messages you want to peek.
+## How to: Peek at the next message
+
+You can peek at the message in the front of a queue without removing it from the queue by calling the `peek_messages()` method. By default, `peek_messages()` peeks at a single message. You can also specify how many messages you want to peek.
 
 ```ruby
 result = azure_queue_service.peek_messages("test-queue",
   {:number_of_messages => 10})
 ```
 
-## How To: Dequeue the Next Message
+## How to: Dequeue the next message
+
 You can remove a message from a queue in two steps.
 
-1. When you call **list\_messages()**, you get the next message in a queue by default. You can also specify how many messages you want to get. The messages returned from **list\_messages()** becomes invisible to any other code reading messages from this queue. You pass in the visibility timeout in seconds as a parameter.
-2. To finish removing the message from the queue, you must also call **delete_message()**.
+1. When you call `list_messages()`, you get the next message in a queue by default. You can also specify how many messages you want to get. The messages returned from `list_messages()` becomes invisible to any other code reading messages from this queue. You pass in the visibility timeout in seconds as a parameter.
+2. To finish removing the message from the queue, you must also call `delete_message()`.
 
-This two-step process of removing a message assures that when your code fails to process a message due to hardware or software failure, another instance of your code can get the same message and try again. Your code calls **delete\_message()** right after the message has been processed.
+This two-step process of removing a message assures that when your code fails to process a message due to hardware or software failure, another instance of your code can get the same message and try again. Your code calls `delete_message()` right after the message has been processed.
 
 ```ruby
 messages = azure_queue_service.list_messages("test-queue", 30)
-azure_queue_service.delete_message("test-queue", 
+azure_queue_service.delete_message("test-queue",
   messages[0].id, messages[0].pop_receipt)
 ```
 
-## How To: Change the Contents of a Queued Message
-You can change the contents of a message in-place in the queue. The code below uses the **update_message()** method to update a message. The method will return a tuple which contains the pop receipt of the queue message and a UTC date time value that represents when the message will be visible on the queue.
+## How to: Change the contents of a queued message
+
+You can change the contents of a message in-place in the queue. The following code uses the `update_message()` method to update a message. The method will return a tuple which contains the pop receipt of the queue message and a UTC `DateTime` value that represents when the message will be visible on the queue.
 
 ```ruby
 message = azure_queue_service.list_messages("test-queue", 30)
 pop_receipt, time_next_visible = azure_queue_service.update_message(
-  "test-queue", message.id, message.pop_receipt, "updated test message", 
+  "test-queue", message.id, message.pop_receipt, "updated test message",
   30)
 ```
 
-## How To: Additional Options for Dequeuing Messages
+## How to: Additional options for dequeuing messages
+
 There are two ways you can customize message retrieval from a queue.
 
 1. You can get a batch of message.
 2. You can set a longer or shorter invisibility timeout, allowing your code more or less time to fully process each message.
 
-The following code example uses the **list\_messages()** method to get 15 messages in one call. Then it prints and deletes each message. It also sets the invisibility timeout to five minutes for each message.
+The following code example uses the `list_messages()` method to get 15 messages in one call. Then it prints and deletes each message. It also sets the invisibility timeout to five minutes for each message.
 
 ```ruby
 azure_queue_service.list_messages("test-queue", 300
@@ -134,25 +142,28 @@ azure_queue_service.list_messages("test-queue", 300
 end
 ```
 
-## How To: Get the Queue Length
-You can get an estimation of the number of messages in the queue. The **get\_queue\_metadata()** method asks the queue service to return the approximate message count and metadata about the queue.
+## How to: Get the queue length
+
+You can get an estimation of the number of messages in the queue. The `get_queue_metadata()` method returns the approximate message count and other queue metadata.
 
 ```ruby
 message_count, metadata = azure_queue_service.get_queue_metadata(
   "test-queue")
 ```
 
-## How To: Delete a Queue
-To delete a queue and all the messages contained in it, call the **delete\_queue()** method on the queue object.
+## How to: Delete a queue
+
+To delete a queue and all the messages contained in it, call the `delete_queue()` method on the queue object.
 
 ```ruby
 azure_queue_service.delete_queue("test-queue")
 ```
 
-## Next Steps
-Now that you've learned the basics of queue storage, follow these links to learn about more complex storage tasks.
+## Next steps
 
-* Visit the [Azure Storage Team Blog](https://blogs.msdn.com/b/windowsazurestorage/)
-* Visit the [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
+Now that you've learned the basics of Queue Storage, follow these links to learn about more complex storage tasks.
 
-For a comparison between the Azure Queue Service discussed in this article and Azure Service Bus Queues discussed in the [How to use Service Bus Queues](https://azure.microsoft.com/develop/ruby/how-to-guides/service-bus-queues/) article, see [Azure Queues and Service Bus Queues - Compared and Contrasted](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+- Visit the [Azure Storage team blog](/archive/blogs/windowsazurestorage/)
+- Visit the [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
+
+For a comparison between Azure Queue Storage discussed in this article and Azure Service Bus queues discussed in [How to use Service Bus queues](https://azure.microsoft.com/develop/ruby/how-to-guides/service-bus-queues/), see [Azure Queue Storage and Service Bus queues - compared and contrasted](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)

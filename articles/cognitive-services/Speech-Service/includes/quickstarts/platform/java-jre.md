@@ -8,7 +8,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/11/2019
+ms.date: 10/15/2020
+ms.custom: devx-track-java
 ms.author: erhopf
 ---
 
@@ -24,40 +25,35 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
 - The Java Speech SDK package is available for these operating systems:
   - Windows: 64-bit only
   - Mac: macOS X version 10.13 or later
-  - Linux: 64-bit only on Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8
+  - Linux; see the list of [supported Linux distributions and target architectures](~/articles/cognitive-services/speech-service/speech-sdk.md).
 
 ## Prerequisites
 
 - [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) or [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 - [Eclipse Java IDE](https://www.eclipse.org/downloads/) (requires Java already installed)
-- Supported Linux platforms will require certain libraries installed (`libssl` for secure sockets layer support and `libasound2` for sound support). Refer to your distribution below for the commands needed to install the correct versions of these libraries.
 
-  - On Ubuntu, run the following commands to install the required packages:
+- On Windows, you need the [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) for your platform. Installing this for the first time may require a restart.
 
-        ```sh
-        sudo apt-get update
-        sudo apt-get install build-essential libssl1.0.0 libasound2
-        ```
+- On Linux, see the [system requirements and setup instructions](~/articles/cognitive-services/speech-service/speech-sdk.md#get-the-speech-sdk).
 
-  - On Debian 9, run the following commands to install the required packages:
+## Gradle config
 
-        ```sh
-        sudo apt-get update
-        sudo apt-get install build-essential libssl1.0.2 libasound2
-        ```
+Gradle configs require both a custom repository, and an explicit reference to the dependency extension `.jar`. 
 
-  - On RHEL/CentOS 8, run the following commands to install the required packages:
+```groovy
+// build.gradle
 
-        ```sh
-        sudo yum update
-        sudo yum install alsa-lib java-1.8.0-openjdk-devel openssl
-        ```
+repositories {
+    maven {
+        url "https://csspeechstorage.blob.core.windows.net/maven/"
+    }
+}
 
-> [!NOTE]
-> On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
-
-- On Windows, you need the [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) for your platform. Note that installing this for the first time may require you to restart Windows before continuing with this guide.
+dependencies {
+    implementation group: 'com.microsoft.cognitiveservices.speech', name: 'client-sdk', version: "1.17.0", ext: "jar"
+}
+```
 
 ## Create an Eclipse project and install the Speech SDK
 

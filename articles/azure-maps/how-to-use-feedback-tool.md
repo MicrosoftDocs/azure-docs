@@ -1,13 +1,13 @@
 ---
 title: Provide data feedback to Azure Maps | Microsoft Azure Maps
 description: Provide data feedback using Microsoft Azure Maps feedback tool.
-author: philmea
-ms.author: philmea
-ms.date: 08/19/2019
-ms.topic: conceptual
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 12/07/2020
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ms.custom: mvc
 ---
 
@@ -62,5 +62,4 @@ You can also track the status of your request by checking the "I want to track s
 
 To post any technical questions related to Azure Maps, visit:
 
-* [Azure Maps Stack Overflow](https://stackoverflow.com/questions/tagged/azure-maps)
-* [Azure Maps feedback forum](https://feedback.azure.com/forums/909172-azure-maps)
+* [Microsoft Q & A](/answers/topics/azure-maps.html)

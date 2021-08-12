@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Palo Alto Networks - Admin UI | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Palo Alto Networks - Admin UI.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: a826eaec-15af-4c85-8855-8a3374d1efb9
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 03/12/2020
+ms.date: 09/10/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Palo Alto Networks - Admin UI
 
@@ -26,9 +20,6 @@ Integrating Palo Alto Networks - Admin UI with Azure AD provides you with the fo
 * You can control in Azure AD who has access to Palo Alto Networks - Admin UI.
 * You can enable your users to be automatically signed-in to Palo Alto Networks - Admin UI (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
-
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
@@ -48,19 +39,19 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 To configure the integration of Palo Alto Networks - Admin UI into Azure AD, you need to add Palo Alto Networks - Admin UI from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Palo Alto Networks - Admin UI** in the search box.
 1. Select **Palo Alto Networks - Admin UI** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on
+## Configure and test Azure AD SSO
 
 In this section, you configure and test Azure AD single sign-on with Palo Alto Networks - Admin UI based on a test user called **B.Simon**.
 For single sign-on to work, a link relationship between an Azure AD user and the related user in Palo Alto Networks - Admin UI needs to be established.
 
-To configure and test Azure AD single sign-on with Palo Alto Networks - Admin UI, you need to complete the following building blocks:
+To configure and test Azure AD single sign-on with Palo Alto Networks - Admin UI, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
@@ -69,23 +60,15 @@ To configure and test Azure AD single sign-on with Palo Alto Networks - Admin UI
     * **[Create Palo Alto Networks - Admin UI test user](#create-palo-alto-networks---admin-ui-test-user)** - to have a counterpart of B.Simon in Palo Alto Networks - Admin UI that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD SSO
+## Configure Azure AD SSO
 
-In this section, you enable Azure AD single sign-on in the Azure portal.
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-To configure Azure AD single sign-on with Palo Alto Networks - Admin UI, perform the following steps:
+1. In the Azure portal, on the **Palo Alto Networks - Admin UI** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Palo Alto Networks - Admin UI** application integration page, select **Single sign-on**.
-
-    ![Configure single sign-on link](common/select-sso.png)
-
-1. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
-
-    ![Single sign-on select mode](common/select-saml-option.png)
-
-1. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
-
-	![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
@@ -105,14 +88,14 @@ To configure Azure AD single sign-on with Palo Alto Networks - Admin UI, perform
 
     > Port 443 is required on the **Identifier** and the **Reply URL** as these values are hardcoded into the Palo Alto Firewall. Removing the port number will result in an error during login if removed.
 
-1. PureCloud by Genesys application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+1. The Palo Alto Networks - Admin UI application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
 	![image](common/default-attributes.png)
 
    > [!NOTE]
    > Because the attribute values are examples only, map the appropriate values for *username* and *adminrole*. There is another optional attribute, *accessdomain*, which is used to restrict admin access to specific virtual systems on the firewall.
 
-1. In addition to above, PureCloud by Genesys application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+1. In addition to above, the Palo Alto Networks - Admin UI application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 
 	| Name |  Source Attribute|
     | --- | --- |
@@ -120,10 +103,13 @@ To configure Azure AD single sign-on with Palo Alto Networks - Admin UI, perform
     | adminrole | customadmin |
 	| | |
 
+    > [!NOTE]
+    > The **Name** value, shown above as _adminrole_, should be the same value as the _Admin role attribute_, which is configured in step 12 of the **[Configure Palo Alto Networks - Admin UI SSO](#configure-palo-alto-networks---admin-ui-sso)** section. The **Source Attribute** value, shown above as _customadmin_, should be the same value as the _Admin Role Profile Name_, which is configured in step 9 of the the **[Configure Palo Alto Networks - Admin UI SSO](#configure-palo-alto-networks---admin-ui-sso)** section.  
+
 	> [!NOTE]
     > For more information about the attributes, see the following articles:
     > * [Administrative role profile for Admin UI (adminrole)](https://www.paloaltonetworks.com/documentation/80/pan-os/pan-os/firewall-administration/manage-firewall-administrators/configure-an-admin-role-profile)
-    > * [Device access domain for Admin UI (accessdomain)](https://www.paloaltonetworks.com/documentation/80/pan-os/web-interface-help/device/device-access-domain)
+    > * [Device access domain for Admin UI (accessdomain)](https://docs.paloaltonetworks.com/pan-os/8-0/pan-os-web-interface-help/device/device-access-domain.html)
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -133,11 +119,6 @@ To configure Azure AD single sign-on with Palo Alto Networks - Admin UI, perform
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	a. Login URL
-
-	b. Azure Ad Identifier
-
-	c. Logout URL
 
 ### Create an Azure AD test user
 
@@ -158,18 +139,12 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **Palo Alto Networks - Admin UI**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-
-   ![The "Users and groups" link](common/users-groups-blade.png)
-
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-
-	![The Add User link](common/add-assign-user.png)
-
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-### Configure Palo Alto Networks - Admin UI SSO
+## Configure Palo Alto Networks - Admin UI SSO
 
 1. Open the Palo Alto Networks Firewall Admin UI as an administrator in a new window.
 
@@ -258,22 +233,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 Palo Alto Networks - Admin UI supports just-in-time user provisioning. If a user doesn't already exist, it is automatically created in the system after a successful authentication. No action is required from you to create the user.
 
-### Test SSO
+## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-When you click the Palo Alto Networks - Admin UI tile in the Access Panel, you should be automatically signed in to the Palo Alto Networks - Admin UI for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Click on **Test this application** in Azure portal. This will redirect to Palo Alto Networks - Admin UI Sign-on URL where you can initiate the login flow. 
 
-## Additional Resources
+* Go to Palo Alto Networks - Admin UI Sign-on URL directly and initiate the login flow from there.
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* You can use Microsoft My Apps. When you click the Palo Alto Networks - Admin UI tile in the My Apps, you should be automatically signed in to the Palo Alto Networks - Admin UI for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+## Next steps
 
-- [Try Palo Alto Networks - Admin UI with Azure AD](https://aad.portal.azure.com/)
-
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [How to protect Palo Alto Networks - Admin UI with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+Once you configure Palo Alto Networks - Admin UI you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

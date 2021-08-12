@@ -3,24 +3,29 @@ title: Image Analysis cognitive skill
 titleSuffix: Azure Cognitive Search
 description: Extract semantic text through image analysis using the Image Analysis cognitive skill in an AI enrichment pipeline in Azure Cognitive Search.
 
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 06/17/2020
 ---
 # Image Analysis cognitive skill
 
-The **Image Analysis** skill extracts a rich set of visual features based on the image content. For example, you can generate a caption from an image, generate tags, or identify celebrities and landmarks. This skill uses the machine learning models provided by [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) in Cognitive Services. 
+The **Image Analysis** skill extracts a rich set of visual features based on the image content. For example, you can generate a caption from an image, generate tags, or identify celebrities and landmarks. This skill uses the machine learning models provided by [Computer Vision](../cognitive-services/computer-vision/overview.md) in Cognitive Services. 
+
+**Image Analysis** works on images that meet the following requirements:
+
++ The image must be presented in JPEG, PNG, GIF, or BMP format
++ The file size of the image must be less than 4 megabytes (MB)
++ The dimensions of the image must be greater than 50 x 50 pixels
 
 > [!NOTE]
 > Small volumes (under 20 transactions) can be executed for free in Azure Cognitive Search, but larger workloads require [attaching a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Cognitive Search. There are no charges for text extraction from documents.
 >
-> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Cognitive Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/).
 
+## @odata.type 
 
-## @odata.type  
 Microsoft.Skills.Vision.ImageAnalysisSkill 
 
 ## Skill parameters
@@ -29,17 +34,15 @@ Parameters are case-sensitive.
 
 | Parameter name	 | Description |
 |--------------------|-------------|
-| defaultLanguageCode	|  A string indicating the language to return. The service returns recognition results in a specified language. If this parameter is not specified, the default value is "en". <br/><br/>Supported languages are: <br/>*en* - English (default) <br/> *es* - Spanish <br/> *ja* - Japanese <br/> *pt* - Portuguese <br/> *zh* - Simplified Chinese|
-| visualFeatures |	An array of strings indicating the visual feature types to return. Valid visual feature types include:  <ul><li>*adult* - detects if the image is pornographic in nature (depicts nudity or a sex act), or is gory (depicts extreme violence or blood). Sexually suggestive content (aka racy content) is also detected.</li><li>*brands* - detects various brands within an image, including the approximate location. The *brands* visual feature is only available in English.</li><li> *categories* - categorizes image content according to a taxonomy defined in the Cognitive Services [Computer Vision documentation](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy). </li><li>*description* - describes the image content with a complete sentence in supported languages.</li><li>*faces* - detects if faces are present. If present, generates coordinates, gender and age.</li><li>	*objects* - detects various objects within an image, including the approximate location. The *objects* visual feature is only available in English.</li><li> *tags* - tags the image with a detailed list of words related to the image content.</li></ul> Names of visual features are case-sensitive. Note that the *color* and *imageType* visual features have been deprecated, but this functionality could still be accessed via a [custom skill](https://go.microsoft.com/fwlink/?linkid=2121117).|
-| details	| An array of strings indicating which domain-specific details to return. Valid visual feature types include: <ul><li>*celebrities* - identifies celebrities if detected in the image.</li><li>*landmarks* - identifies landmarks if detected in the image. </li></ul> |
+| `defaultLanguageCode`	|  A string indicating the language to return. The service returns recognition results in a specified language. If this parameter is not specified, the default value is "en". <br/><br/>Supported languages are: <br/>*en* - English (default) <br/> *es* - Spanish <br/> *ja* - Japanese <br/> *pt* - Portuguese <br/> *zh* - Simplified Chinese|
+| `visualFeatures` |	An array of strings indicating the visual feature types to return. Valid visual feature types include:  <ul><li>*adult* - detects if the image is pornographic in nature (depicts nudity or a sex act), or is gory (depicts extreme violence or blood). Sexually suggestive content (also known as racy content) is also detected.</li><li>*brands* - detects various brands within an image, including the approximate location. The *brands* visual feature is only available in English.</li><li> *categories* - categorizes image content according to a taxonomy defined in the Cognitive Services [Computer Vision documentation](../cognitive-services/computer-vision/category-taxonomy.md). </li><li>*description* - describes the image content with a complete sentence in supported languages.</li><li>*faces* - detects if faces are present. If present, generates coordinates, gender and age.</li><li>	*objects* - detects various objects within an image, including the approximate location. The *objects* visual feature is only available in English.</li><li> *tags* - tags the image with a detailed list of words related to the image content.</li></ul> Names of visual features are case-sensitive. Note that the *color* and *imageType* visual features have been deprecated, but this functionality could still be accessed via a [custom skill](./cognitive-search-custom-skill-interface.md).|
+| `details`	| An array of strings indicating which domain-specific details to return. Valid visual feature types include: <ul><li>*celebrities* - identifies celebrities if detected in the image.</li><li>*landmarks* - identifies landmarks if detected in the image. </li></ul> |
 
 ## Skill inputs
 
 | Input name	  | Description                                          |
 |---------------|------------------------------------------------------|
-| image         | Complex Type. Currently only works with "/document/normalized_images" field, produced by the Azure Blob indexer when ```imageAction``` is set to a value other than ```none```. See the [sample](#sample-output) for more information.|
-
-
+| `image`         | Complex Type. Currently only works with "/document/normalized_images" field, produced by the Azure Blob indexer when ```imageAction``` is set to a value other than ```none```. See the [sample](#sample-output) for more information.|
 
 ##	Sample skill definition
 
@@ -81,7 +84,9 @@ Parameters are case-sensitive.
             ]
         }
 ```
+
 ### Sample index (for only the categories, description, faces and tags fields)
+
 ```json
 {
     "fields": [
@@ -293,7 +298,9 @@ Parameters are case-sensitive.
 }
 
 ```
+
 ### Sample output field mapping (for the above index)
+
 ```json
     "outputFieldMappings": [
         {
@@ -317,6 +324,7 @@ Parameters are case-sensitive.
             "targetFieldName": "brands"
         }
 ```
+
 ### Variation on output field mappings (nested properties)
 
 You can define output field mappings to lower-level properties, such as just landmarks or celebrities. In this case, make sure your index schema has a field to contain landmarks specifically.
@@ -328,6 +336,7 @@ You can define output field mappings to lower-level properties, such as just lan
             "targetFieldName": "celebrities"
         }
 ```
+
 ##	Sample input
 
 ```json
@@ -509,13 +518,13 @@ In the following error cases, no elements are extracted.
 
 | Error Code | Description |
 |------------|-------------|
-| NotSupportedLanguage | The language provided is not supported. |
-| InvalidImageUrl | Image URL is badly formatted or not accessible.|
-| InvalidImageFormat | Input data is not a valid image. |
-| InvalidImageSize | Input image is too large. |
-| NotSupportedVisualFeature  | Specified feature type is not valid. |
-| NotSupportedImage | Unsupported image, for example, child pornography. |
-| InvalidDetails | Unsupported domain-specific model. |
+| `NotSupportedLanguage` | The language provided is not supported. |
+| `InvalidImageUrl` | Image URL is badly formatted or not accessible.|
+| `InvalidImageFormat` | Input data is not a valid image. |
+| `InvalidImageSize` | Input image is too large. |
+| `NotSupportedVisualFeature`  | Specified feature type is not valid. |
+| `NotSupportedImage` | Unsupported image, for example, child pornography. |
+| `InvalidDetails` | Unsupported domain-specific model. |
 
 If you get the error similar to `"One or more skills are invalid. Details: Error in skill #<num>: Outputs are not supported by skill: Landmarks"`, check the path. Both celebrities and landmarks are properties under `detail`.
 
@@ -535,6 +544,7 @@ If you get the error similar to `"One or more skills are invalid. Details: Error
 
 ## See also
 
++ [What is Image Analysis?](../cognitive-services/computer-vision/overview-image-analysis.md)
 + [Built-in skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
-+ [Create Indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Create Indexer (REST)](/rest/api/searchservice/create-indexer)

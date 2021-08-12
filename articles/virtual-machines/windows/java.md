@@ -1,26 +1,19 @@
 ---
 title: Create and Manage an Azure Virtual Machine Using Java 
 description: Use Java and Azure Resource Manager to deploy a virtual machine and all its supporting resources.
-services: virtual-machines-windows
-documentationcenter: ''
+services: virtual-machines
 author: cynthn
-manager: gwallace
-
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machines-windows
-ms.workload: na
-ms.tgt_pltfrm: vm-windows
-
-ms.topic: article
+ms.service: virtual-machines
+ms.workload: infrastructure
+ms.topic: how-to
 ms.date: 07/17/2017
+ms.custom: devx-track-java
 ms.author: cynthn
 
 ---
 # Create and manage Windows VMs in Azure using Java
 
-An [Azure Virtual Machine](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (VM) needs several supporting Azure resources. This article covers creating, managing, and deleting VM resources using Java. You learn how to:
+An [Azure Virtual Machine](overview.md) (VM) needs several supporting Azure resources. This article covers creating, managing, and deleting VM resources using Java. You learn how to:
 
 > [!div class="checklist"]
 > * Create a Maven project
@@ -35,7 +28,7 @@ It takes about 20 minutes to do these steps.
 
 ## Create a Maven project
 
-1. If you haven't already done so, install [Java](https://aka.ms/azure-jdks).
+1. If you haven't already done so, install [Java](/azure/developer/java/fundamentals/java-support-on-azure).
 2. Install [Maven](https://maven.apache.org/download.cgi).
 3. Create a new folder and the project:
     
@@ -214,7 +207,7 @@ AvailabilitySet availabilitySet = azure.availabilitySets()
 ```
 ### Create the public IP address
 
-A [Public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) is needed to communicate with the virtual machine.
+A [Public IP address](../../virtual-network/public-ip-addresses.md) is needed to communicate with the virtual machine.
 
 To create the public IP address for the virtual machine, add this code to the try block in the main method:
 
@@ -290,7 +283,7 @@ input.nextLine();
 ```
 
 > [!NOTE]
-> This tutorial creates a virtual machine running a version of the Windows Server operating system. To learn more about selecting other images, see [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> This tutorial creates a virtual machine running a version of the Windows Server operating system. To learn more about selecting other images, see [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](../linux/cli-ps-findimage.md).
 > 
 >
 
@@ -415,7 +408,7 @@ input.nextLine();
 
 ### Resize the VM
 
-Many aspects of deployment should be considered when deciding on a size for your virtual machine. For more information, see [VM sizes](sizes.md).  
+Many aspects of deployment should be considered when deciding on a size for your virtual machine. For more information, see [VM sizes](../sizes.md).  
 
 To change size of the virtual machine, add this code to the try block in the main method:
 
@@ -468,5 +461,4 @@ It should take about five minutes for this console application to run completely
 
 
 ## Next steps
-* Learn more about using the [Azure libraries for Java](https://docs.microsoft.com/java/azure/java-sdk-azure-overview).
-
+* Learn more about using the [Azure libraries for Java](/java/azure/java-sdk-azure-overview).

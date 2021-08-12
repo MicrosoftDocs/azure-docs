@@ -1,22 +1,14 @@
 ---
 title: Tutorial - Manage Azure disks with the Azure CLI 
 description: In this tutorial, you learn how to use the Azure CLI to create and manage Azure disks for virtual machines
-services: virtual-machines-linux
-documentationcenter: virtual-machines
-author: cynthn
-manager: gwallace
-
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machines-linux
-ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
-ms.date: 11/14/2018
-ms.author: cynthn
-ms.custom: mvc
+author: roygara
+ms.author: rogarana
+ms.service: storage
 ms.subservice: disks
+ms.topic: tutorial
+ms.workload: infrastructure
+ms.date: 08/20/2020
+ms.custom: mvc, devx-track-azurecli
 
 #Customer intent: As an IT administrator, I want to learn about Azure Managed Disks so that I can create and manage storage for Linux VMs in Azure.
 ---
@@ -31,7 +23,6 @@ Azure virtual machines (VMs) use disks to store the operating system, applicatio
 > * Standard and Premium disks
 > * Disk performance
 > * Attaching and preparing data disks
-> * Resizing disks
 > * Disk snapshots
 
 
@@ -49,20 +40,20 @@ To install applications and store data, additional data disks can be added. Data
 
 ## VM disk types
 
-Azure provides two types of disks, standard and Premium.
+Azure provides two types of disks.
 
-### Standard disk
+**Standard disks** - backed by HDDs, and delivers cost-effective storage while still being performant. Standard disks are ideal for a cost effective dev and test workload.
 
-Standard Storage is backed by HDDs, and delivers cost-effective storage while still being performant. Standard disks are ideal for a cost effective dev and test workload.
+**Premium disks** - backed by SSD-based, high-performance, low-latency disk. Perfect for VMs running production workload. VM sizes with an  **S** in the [size name](../vm-naming-conventions.md), typically support Premium Storage. For example, DS-series, DSv2-series, GS-series, and FS-series VMs support premium storage. When you select a disk size, the value is rounded up to the next type. For example, if the disk size is more than 64 GB, but less than 128 GB, the disk type is P10. 
 
-### Premium disk
+<br>
 
-Premium disks are backed by SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. Premium Storage supports DS-series, DSv2-series, GS-series, and FS-series VMs. When you select a disk size, the value is rounded up to the next type. For example, if the disk size is less than 128 GB, the disk type is P10. If the disk size is between 129 GB and 512 GB, the size is a P20. Over, 512 GB, the size is a P30.
 
-### Premium disk performance
 [!INCLUDE [disk-storage-premium-ssd-sizes](../../../includes/disk-storage-premium-ssd-sizes.md)]
 
-While the above table identifies max IOPS per disk, a higher level of performance can be achieved by striping multiple data disks. For instance, a Standard_GS5 VM can achieve a maximum of 80,000 IOPS. For detailed information on max IOPS per VM, see [Linux VM sizes](sizes.md).
+When you provision a premium storage disk, unlike standard storage, you are guaranteed the capacity, IOPS, and throughput of that disk. For example, if you create a P50 disk, Azure provisions 4,095-GB storage capacity, 7,500 IOPS, and 250-MB/s throughput for that disk. Your application can use all or part of the capacity and performance. Premium SSD disks are designed to provide low single-digit millisecond latencies and target IOPS and throughput described in the preceding table 99.9% of the time.
+
+While the above table identifies max IOPS per disk, a higher level of performance can be achieved by striping multiple data disks. For instance, 64 data disks can be attached to Standard_GS5 VM. If each of these disks is sized as a P30, a maximum of 80,000 IOPS can be achieved. For detailed information on max IOPS per VM, see [VM types and sizes](../sizes.md).
 
 ## Launch Azure Cloud Shell
 
@@ -76,13 +67,13 @@ Data disks can be created and attached at VM creation time or to an existing VM.
 
 ### Attach disk at VM creation
 
-Create a resource group with the [az group create](/cli/azure/group#az-group-create) command.
+Create a resource group with the [az group create](/cli/azure/group#az_group_create) command.
 
 ```azurecli-interactive
 az group create --name myResourceGroupDisk --location eastus
 ```
 
-Create a VM using the [az vm create](/cli/azure/vm#az-vm-create) command. The following example creates a VM named *myVM*, adds a user account named *azureuser*, and generates SSH keys if they do not exist. The `--datadisk-sizes-gb` argument is used to specify that an additional disk should be created and attached to the virtual machine. To create and attach more than one disk, use a space-delimited list of disk size values. In the following example, a VM is created with two data disks, both 128 GB. Because the disk sizes are 128 GB, these disks are both configured as P10s, which provide maximum 500 IOPS per disk.
+Create a VM using the [az vm create](/cli/azure/vm#az_vm_create) command. The following example creates a VM named *myVM*, adds a user account named *azureuser*, and generates SSH keys if they do not exist. The `--datadisk-sizes-gb` argument is used to specify that an additional disk should be created and attached to the virtual machine. To create and attach more than one disk, use a space-delimited list of disk size values. In the following example, a VM is created with two data disks, both 128 GB. Because the disk sizes are 128 GB, these disks are both configured as P10s, which provide maximum 500 IOPS per disk.
 
 ```azurecli-interactive
 az vm create \
@@ -90,13 +81,14 @@ az vm create \
   --name myVM \
   --image UbuntuLTS \
   --size Standard_DS2_v2 \
+  --admin-username azureuser \
   --generate-ssh-keys \
   --data-disk-sizes-gb 128 128
 ```
 
 ### Attach disk to existing VM
 
-To create and attach a new disk to an existing virtual machine, use the [az vm disk attach](/cli/azure/vm/disk#az-vm-disk-attach) command. The following example creates a premium disk, 128 gigabytes in size, and attaches it to the VM created in the last step.
+To create and attach a new disk to an existing virtual machine, use the [az vm disk attach](/cli/azure/vm/disk#az_vm_disk_attach) command. The following example creates a premium disk, 128 gigabytes in size, and attaches it to the VM created in the last step.
 
 ```azurecli-interactive
 az vm disk attach \
@@ -119,16 +111,17 @@ Create an SSH connection with the virtual machine. Replace the example IP addres
 ssh 10.101.10.10
 ```
 
-Partition the disk with `fdisk`.
+Partition the disk with `parted`.
 
 ```bash
-(echo n; echo p; echo 1; echo ; echo ; echo w) | sudo fdisk /dev/sdc
+sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
 ```
 
-Write a file system to the partition by using the `mkfs` command.
+Write a file system to the partition by using the `mkfs` command. Use `partprobe` to make the OS aware of the change.
 
 ```bash
-sudo mkfs -t ext4 /dev/sdc1
+sudo mkfs.xfs /dev/sdc1
+sudo partprobe /dev/sdc1
 ```
 
 Mount the new disk so that it is accessible in the operating system.
@@ -137,18 +130,19 @@ Mount the new disk so that it is accessible in the operating system.
 sudo mkdir /datadrive && sudo mount /dev/sdc1 /datadrive
 ```
 
-The disk can now be accessed through the *datadrive* mountpoint, which can be verified by running the `df -h` command.
+The disk can now be accessed through the `/datadrive` mountpoint, which can be verified by running the `df -h` command.
 
 ```bash
-df -h
+df -h | grep -i "sd"
 ```
 
-The output shows the new drive mounted on */datadrive*.
+The output shows the new drive mounted on `/datadrive`.
 
 ```bash
 Filesystem      Size  Used Avail Use% Mounted on
-/dev/sda1        30G  1.4G   28G   5% /
-/dev/sdb1       6.8G   16M  6.4G   1% /mnt
+/dev/sda1        29G  2.0G   27G   7% /
+/dev/sda15      105M  3.6M  101M   4% /boot/efi
+/dev/sdb1        14G   41M   13G   1% /mnt
 /dev/sdc1        50G   52M   47G   1% /datadrive
 ```
 
@@ -161,14 +155,25 @@ sudo -i blkid
 The output displays the UUID of the drive, `/dev/sdc1` in this case.
 
 ```bash
-/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
+/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="xfs"
 ```
 
-Add a line similar to the following to the */etc/fstab* file.
+> [!NOTE]
+> Improperly editing the **/etc/fstab** file could result in an unbootable system. If unsure, refer to the distribution's documentation for information on how to properly edit this file. It is also recommended that a backup of the /etc/fstab file is created before editing.
+
+Open the `/etc/fstab` file in a text editor as follows:
 
 ```bash
-UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  ext4    defaults,nofail   1  2
+sudo nano /etc/fstab
 ```
+
+Add a line similar to the following to the */etc/fstab* file, replacing the UUID value with your own.
+
+```bash
+UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  xfs    defaults,nofail   1  2
+```
+
+When you are done editing the file, use `Ctrl+O` to write the file and `Ctrl+X` to exit the editor.
 
 Now that the disk has been configured, close the SSH session.
 
@@ -178,11 +183,11 @@ exit
 
 ## Take a disk snapshot
 
-When you take a disk snapshot, Azure creates a read only, point-in-time copy of the disk. Azure VM snapshots are useful to quickly save the state of a VM before you make configuration changes. In the event of an issue or error, VM can be restored using a snapshot. When a VM has more than one disk, a snapshot is taken of each disk independently of the others. To take application consistent backups, consider stopping the VM before you take disk snapshots. Alternatively, use the [Azure Backup service](/azure/backup/), which enables you to perform automated backups while the VM is running.
+When you take a disk snapshot, Azure creates a read only, point-in-time copy of the disk. Azure VM snapshots are useful to quickly save the state of a VM before you make configuration changes. In the event of an issue or error, VM can be restored using a snapshot. When a VM has more than one disk, a snapshot is taken of each disk independently of the others. To take application consistent backups, consider stopping the VM before you take disk snapshots. Alternatively, use the [Azure Backup service](../../backup/index.yml), which enables you to perform automated backups while the VM is running.
 
 ### Create snapshot
 
-Before you create a virtual machine disk snapshot, the ID or name of the disk is needed. Use the [az vm show](/cli/azure/vm#az-vm-show) command to return the disk ID. In this example, the disk ID is stored in a variable so that it can be used in a later step.
+Before you create a snapshot, you need the ID or name of the disk. Use [az vm show](/cli/azure/vm#az_vm_show) to shot the disk ID. In this example, the disk ID is stored in a variable so that it can be used in a later step.
 
 ```azurecli-interactive
 osdiskid=$(az vm show \
@@ -192,7 +197,7 @@ osdiskid=$(az vm show \
    -o tsv)
 ```
 
-Now that you have the ID of the virtual machine disk, the following command creates a snapshot of the disk.
+Now that you have the ID, use [az snapshot create](/cli/azure/snapshot#az_snapshot_create) to create a snapshot of the disk.
 
 ```azurecli-interactive
 az snapshot create \
@@ -203,7 +208,7 @@ az snapshot create \
 
 ### Create disk from snapshot
 
-This snapshot can then be converted into a disk, which can be used to recreate the virtual machine.
+This snapshot can then be converted into a disk using [az disk create](/cli/azure/disk#az_disk_create), which can be used to recreate the virtual machine.
 
 ```azurecli-interactive
 az disk create \
@@ -214,7 +219,7 @@ az disk create \
 
 ### Restore virtual machine from snapshot
 
-To demonstrate virtual machine recovery, delete the existing virtual machine.
+To demonstrate virtual machine recovery, delete the existing virtual machine using [az vm delete](/cli/azure/vm#az_vm_delete).
 
 ```azurecli-interactive
 az vm delete \
@@ -236,7 +241,7 @@ az vm create \
 
 All data disks need to be reattached to the virtual machine.
 
-First find the data disk name using the [az disk list](/cli/azure/disk#az-disk-list) command. This example places the name of the disk in a variable named *datadisk*, which is used in the next step.
+Find the data disk name using the [az disk list](/cli/azure/disk#az_disk_list) command. This example places the name of the disk in a variable named `datadisk`, which is used in the next step.
 
 ```azurecli-interactive
 datadisk=$(az disk list \
@@ -245,7 +250,7 @@ datadisk=$(az disk list \
    -o tsv)
 ```
 
-Use the [az vm disk attach](/cli/azure/vm/disk#az-vm-disk-attach) command to attach the disk.
+Use the [az vm disk attach](/cli/azure/vm/disk#az_vm_disk_attach) command to attach the disk.
 
 ```azurecli-interactive
 az vm disk attach \
@@ -264,7 +269,6 @@ In this tutorial, you learned about VM disks topics such as:
 > * Standard and Premium disks
 > * Disk performance
 > * Attaching and preparing data disks
-> * Resizing disks
 > * Disk snapshots
 
 Advance to the next tutorial to learn about automating VM configuration.

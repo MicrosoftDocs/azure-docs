@@ -1,11 +1,13 @@
 ---
 title: Prepare source machines to install the Mobility Service through push installation for disaster recovery of VMware VMs and physical servers to Azure | Microsoft Docs
 description: Learn how to prepare your server to install Mobility agent through push installation for disaster recovery of VMware VMs and physical servers to Azure using the  Azure Site Recovery service.
-author: Rajeswari-Mamilla
+services: site-recovery
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/25/2019
-ms.author: ramamill
+ms.author: sharrai
+ms.date: 05/27/2021
 ---
 
 # Prepare source machine for push installation of mobility agent
@@ -20,8 +22,12 @@ On each Windows machine you want to protect, do the following:
 1. Create an account that the process server can use to access the computer. The account should have administrator rights, either local or domain. Use this account only for the push installation and for agent updates.
 2. If you don't use a domain account, disable Remote User Access control on the local computer as follows:
     - Under  HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System registry key, add a new DWORD: **LocalAccountTokenFilterPolicy**. Set the value to **1**.
-    -  To do this at a command prompt, run the following command:  
-   `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d
+    -  To do this at a command prompt, run the following command:
+    
+       ```
+       REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1 /f
+       ```
+
 3. In Windows Firewall on the machine you want to protect, select **Allow an app or feature through Firewall**. Enable **File and Printer Sharing** and **Windows Management Instrumentation (WMI)**. For computers that belong to a domain, you can configure the firewall settings by using a Group Policy object (GPO).
 
    ![Firewall settings](./media/vmware-azure-install-mobility-service/mobility1.png)
@@ -54,6 +60,7 @@ On each Linux machine that you want to protect, do the following:
 11. On the **Manage Accounts** tab, select **Add Account**.
 12. Add the account you created.
 13. Enter the credentials you use when you enable replication for a computer.
+1. Additional step for updating or protecting SUSE Linux Enterprise Server 11 SP3 OR RHEL 5 or CentOS 5 or Debian 7 machines. [Ensure the latest version is available in the configuration server](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-rhel-5-debian-7-server).
 
 ## Anti-virus on replicated machines
 

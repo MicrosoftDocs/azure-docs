@@ -5,9 +5,10 @@ description: Learn how to generate an Azure Application Gateway self-signed cert
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/23/2019
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Generate an Azure Application Gateway self-signed certificate with a custom root CA
@@ -44,25 +45,26 @@ Create your root CA certificate using OpenSSL.
 
 ### Create the root key
 
-1. Sign in to your computer where OpenSSL is installed and run the following command. This creates a password protected key.
+1. Sign in to your computer where OpenSSL is installed and run the following command. This creates an encrypted key.
 
    ```
    openssl ecparam -out contoso.key -name prime256v1 -genkey
    ```
-1. At the prompt, type a strong password. For example, at least nine characters, using upper case, lower case, numbers, and symbols.
-
+   
 ### Create a Root Certificate and self-sign it
 
 1. Use the following commands to generate the csr and the certificate.
 
    ```
    openssl req -new -sha256 -key contoso.key -out contoso.csr
-
+   ```
+   
+   ```
    openssl x509 -req -sha256 -days 365 -in contoso.csr -signkey contoso.key -out contoso.crt
    ```
    The previous commands create the root certificate. You'll use this to sign your server certificate.
 
-1. When prompted, type the password for the root key, and the organizational information for the custom CA such as Country, State, Org, OU, and the fully qualified domain name (this is the domain of the issuer).
+1. When prompted, type the password for the root key, and the organizational information for the custom CA such as Country/Region, State, Org, OU, and the fully qualified domain name (this is the domain of the issuer).
 
    ![create root certificate](media/self-signed-certificates/root-cert.png)
 
@@ -92,7 +94,7 @@ The CSR is a public key that is given to a CA when requesting a certificate. The
    openssl req -new -sha256 -key fabrikam.key -out fabrikam.csr
    ```
 
-1. When prompted, type the password for the root key, and the organizational information for the custom CA: Country, State, Org, OU, and the fully qualified domain name. This is the domain of the website and it should be different from the issuer.
+1. When prompted, type the password for the root key, and the organizational information for the custom CA: Country/Region, State, Org, OU, and the fully qualified domain name. This is the domain of the website and it should be different from the issuer.
 
    ![Server certificate](media/self-signed-certificates/server-cert.png)
 
@@ -128,7 +130,7 @@ In your web server, configure TLS using the fabrikam.crt and fabrikam.key files.
 
 For instructions on how to import certificate and upload them as server certificate on IIS, see [HOW TO: Install Imported Certificates on a Web Server in Windows Server 2003](https://support.microsoft.com/help/816794/how-to-install-imported-certificates-on-a-web-server-in-windows-server).
 
-For TLS binding instructions, see [How to Set Up SSL on IIS 7](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis#create-an-ssl-binding-1).
+For TLS binding instructions, see [How to Set Up SSL on IIS 7](/iis/manage/configuring-security/how-to-set-up-ssl-on-iis#create-an-ssl-binding-1).
 
 ### Apache
 
@@ -268,4 +270,3 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 ## Next steps
 
 To learn more about SSL\TLS in Application Gateway, see [Overview of TLS termination and end to end TLS with Application Gateway](ssl-overview.md).
-

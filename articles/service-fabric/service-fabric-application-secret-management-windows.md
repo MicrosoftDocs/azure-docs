@@ -1,11 +1,9 @@
 ---
 title: Set up an encryption cert on Windows clusters
 description: Learn how to set up an encryption certificate and encrypt secrets on Windows clusters.
-author: vturecek
 
 ms.topic: conceptual
 ms.date: 01/04/2019
-ms.author: vturecek
 ---
 # Set up an encryption certificate and encrypt secrets on Windows clusters
 This article shows how to set up an encryption certificate and use it to encrypt secrets on Windows clusters. For Linux clusters, see [Set up an encryption certificate and encrypt secrets on Linux clusters.][secret-management-linux-specific-link]

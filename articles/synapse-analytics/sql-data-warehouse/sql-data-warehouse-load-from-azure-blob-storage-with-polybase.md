@@ -1,21 +1,21 @@
 ---
-title: Load Contoso retail data to a Synapse SQL data warehouse
-description: Use PolyBase and T-SQL commands to load two tables from the Contoso retail data into Synapse SQL.
+title: Load Contoso retail data to dedicated SQL pools
+description: Use PolyBase and T-SQL commands to load two tables from the Contoso retail data into dedicated SQL pools.
 services: synapse-analytics
-author: kevinvngo 
+author: julieMSFT 
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
-ms.date: 04/17/2018
-ms.author: kevin
+ms.subservice: sql-dw 
+ms.date: 11/20/2020
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ---
 
-# Load Contoso retail data to Synapse SQL 
+# Load Contoso retail data into dedicated SQL pools in Azure Synapse Analytics
 
-In this tutorial, you learn to use PolyBase and T-SQL commands to load two tables from the Contoso retail data into a Synapse SQL data warehouse.
+In this tutorial, you learn to use PolyBase and T-SQL commands to load two tables from the Contoso retail data into dedicated SQL pools.
 
 In this tutorial you will:
 
@@ -25,11 +25,11 @@ In this tutorial you will:
 
 ## Before you begin
 
-To run this tutorial, you need an Azure account that already has a Synapse SQL data warehouse. If you don't have a data warehouse provisioned, see [Create a data warehouse and set server-level firewall rule](create-data-warehouse-portal.md).
+To run this tutorial, you need an Azure account that already has a dedicated SQL pool. If you don't have a data warehouse provisioned, see [Create a data warehouse and set server-level firewall rule](create-data-warehouse-portal.md).
 
 ## Configure the data source
 
-PolyBase uses T-SQL external objects to define the location and attributes of the external data. The external object definitions are stored in your Synapse SQL data warehouse. The data is stored externally.
+PolyBase uses T-SQL external objects to define the location and attributes of the external data. The external object definitions are stored in dedicated SQL pools. The data is stored externally.
 
 ## Create a credential
 
@@ -72,7 +72,7 @@ WITH (
 
 ## Create the external data source
 
-Use this [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) command to store the location of the data, and the data type.
+Use this [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) command to store the location of the data, and the data type.
 
 ```sql
 CREATE EXTERNAL DATA SOURCE AzureStorage_west_public
@@ -216,7 +216,7 @@ GO
 
 ### Load the data into new tables
 
-To load data from Azure blob storage into the data warehouse table, use the [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) statement. Loading with [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) leverages the strongly typed external tables you've created. To load the data into new tables, use one CTAS statement per table.
+To load data from Azure blob storage into the data warehouse table, use the [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) statement. Loading with [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md) leverages the strongly typed external tables you've created. To load the data into new tables, use one CTAS statement per table.
 
 CTAS creates a new table and populates it with the results of a select statement. CTAS defines the new table to have the same columns and data types as the results of the select statement. If you select all the columns from an external table, the new table will be a replica of the columns and data types in the external table.
 
@@ -269,7 +269,7 @@ ORDER BY
 
 ## Optimize columnstore compression
 
-By default, the Synapse SQL data warehouse stores the table as a clustered columnstore index. After a load completes, some of the data rows might not be compressed into the columnstore.  There are different reasons why this can happen. To learn more, see [manage columnstore indexes](sql-data-warehouse-tables-index.md).
+By default, dedicated SQL pools store the table as a clustered columnstore index. After a load completes, some of the data rows might not be compressed into the columnstore.  There are different reasons why this can happen. To learn more, see [manage columnstore indexes](sql-data-warehouse-tables-index.md).
 
 To optimize query performance and columnstore compression after a load, rebuild the table to force the columnstore index to compress all the rows.
 

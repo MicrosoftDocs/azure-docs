@@ -1,12 +1,13 @@
 ---
 title: Ensure business continuity & disaster recovery using Azure Paired Regions
 description: Ensure application resiliency using Azure regional pairing
-author: jpconnock
-manager: angrobe
+author: martinekuan
+manager: martinekuan
 ms.service: multiple
 ms.topic: conceptual
-ms.date: 03/03/2020
-ms.author: jeconnoc
+ms.date: 06/21/2021
+ms.author: martinek
+ms.custom: references_regions
 ---
 
 # Business continuity and disaster recovery (BCDR): Azure Paired Regions
@@ -23,7 +24,7 @@ A regional pair consists of two regions within the same geography. Azure seriali
 
 Some Azure services take further advantage of paired regions to ensure business continuity and to protect against data loss.  Azure provides several [storage solutions](./storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) that take advantage of paired regions to ensure data availability. For example, [Azure Geo-redundant Storage](./storage/common/storage-redundancy.md#geo-redundant-storage) (GRS) replicates data to a secondary region automatically, ensuring that data is durable even in the event that the primary region isn't recoverable. 
 
-Note that not all Azure services automatically replicate data, nor do all Azure services automatically fall-back from a failed region to its pair.  In such cases, recovery and replication must be configured by the customer.
+Note that not all Azure services automatically replicate data, nor do all Azure services automatically fallback from a failed region to its pair.  In such cases, recovery and replication must be configured by the customer.
 
 ## Can I select my regional pairs?
 
@@ -37,7 +38,7 @@ No. While a given Azure service may rely upon a regional pair, you can host your
 
 ## Must I use Azure regional pairs?
 
-No. Customers can leverage Azure services to architect a resilient service without relying on Azure's regional pairs.  However, we recommend that you configure business continuity disaster recovery (BCDR) across regional pairs to benefit from [isolation](./security/fundamentals/isolation-choices.md) and improve [availability](./availability-zones/az-overview.md). For applications that support multiple active regions, we recommend using both regions in a region pair where possible. This ensures optimal availability for applications and minimized recovery time in the event of a disaster. Whenever possible, design your application for [maximum resiliency](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview) and ease of [disaster recovery](https://docs.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery).
+No. Customers can leverage Azure services to architect a resilient service without relying on Azure's regional pairs.  However, we recommend that you configure business continuity disaster recovery (BCDR) across regional pairs to benefit from [isolation](./security/fundamentals/isolation-choices.md) and improve [availability](./availability-zones/az-overview.md). For applications that support multiple active regions, we recommend using both regions in a region pair where possible. This ensures optimal availability for applications and minimized recovery time in the event of a disaster. Whenever possible, design your application for [maximum resiliency](/azure/architecture/framework/resiliency/app-design) and ease of [disaster recovery](/azure/architecture/framework/resiliency/backup-and-recovery).
 
 ## Azure Regional Pairs
 
@@ -45,14 +46,15 @@ No. Customers can leverage Azure services to architect a resilient service witho
 |:--- |:--- |:--- |
 | Asia-Pacific |East Asia (Hong Kong) | Southeast Asia (Singapore) |
 | Australia |Australia East |Australia Southeast |
-| Australia |Australia Central |Australia Central 2 |
+| Australia |Australia Central |Australia Central 2* |
 | Brazil |Brazil South |South Central US |
+| Brazil |Brazil Southeast* |Brazil South |
 | Canada |Canada Central |Canada East |
 | China |China North |China East|
 | China |China North 2 |China East 2|
 | Europe |North Europe (Ireland) |West Europe (Netherlands) |
-| France |France Central|France South|
-| Germany |Germany Central |Germany Northeast |
+| France |France Central|France South*|
+| Germany |Germany West Central |Germany North* |
 | India |Central India |South India |
 | India |West India |South India |
 | Japan |Japan East |Japan West |
@@ -61,15 +63,18 @@ No. Customers can leverage Azure services to architect a resilient service witho
 | North America |East US 2 |Central US |
 | North America |North Central US |South Central US |
 | North America |West US 2 |West Central US |
-| Norway | Norway East | Norway West |
-| South Africa | South Africa North |South Africa West |
-| Switzerland | Switzerland North |Switzerland West |
+| North America |West US 3 |East US |
+| Norway | Norway East | Norway West* |
+| South Africa | South Africa North |South Africa West* |
+| Switzerland | Switzerland North |Switzerland West* |
 | UK |UK West |UK South |
-| United Arab Emirates | UAE North | UAE Central
-| US Department of Defense |US DoD East |US DoD Central |
-| US Government |US Gov Arizona |US Gov Texas |
-| US Government |US Gov Iowa |US Gov Virginia |
-| US Government |US Gov Virginia |US Gov Texas |
+| United Arab Emirates | UAE North | UAE Central* |
+| US Department of Defense |US DoD East* |US DoD Central* |
+| US Government |US Gov Arizona* |US Gov Texas* |
+| US Government |US Gov Iowa* |US Gov Virginia* |
+| US Government |US Gov Virginia* |US Gov Texas* |
+
+(*) Certain regions are access restricted to support specific customer scenarios, for example in-country disaster recovery. These regions are available only upon request by [creating a new support request in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 > [!Important]
 > - West India is paired in one direction only. West India's secondary region is South India, but South India's secondary region is Central India.
@@ -88,9 +93,9 @@ As referred to in figure 2.
 
 1. **Azure Compute (IaaS)** – You must provision additional compute resources in advance to ensure resources are available in another region during a disaster. For more information, see [Azure resiliency technical guidance](https://github.com/uglide/azure-content/blob/master/articles/resiliency/resiliency-technical-guidance.md). 
 
-2. **Azure Storage** - If you're using managed disks, learn about [cross-region backups](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) with Azure Backup, and [replicating VMs](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) from one region to another with Azure Site Recovery. If you're using storage accounts, then geo-redundant storage (GRS) is configured by default when an Azure Storage account is created. With GRS, your data is automatically replicated three times within the primary region, and three times in the paired region. For more information, see [Azure Storage Redundancy Options](storage/common/storage-redundancy.md).
+2. **Azure Storage** - If you're using managed disks, learn about [cross-region backups](/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) with Azure Backup, and [replicating VMs](./site-recovery/azure-to-azure-tutorial-enable-replication.md) from one region to another with Azure Site Recovery. If you're using storage accounts, then geo-redundant storage (GRS) is configured by default when an Azure Storage account is created. With GRS, your data is automatically replicated three times within the primary region, and three times in the paired region. For more information, see [Azure Storage Redundancy Options](storage/common/storage-redundancy.md).
 
-3. **Azure SQL Database** – With Azure SQL Database Geo-Replication, you can configure asynchronous replication of transactions to any region in the world; however, we recommend you deploy these resources in a paired region for most disaster recovery scenarios. For more information, see [Geo-Replication in Azure SQL Database](sql-database/sql-database-geo-replication-overview.md).
+3. **Azure SQL Database** – With Azure SQL Database Geo-Replication, you can configure asynchronous replication of transactions to any region in the world; however, we recommend you deploy these resources in a paired region for most disaster recovery scenarios. For more information, see [Geo-Replication in Azure SQL Database](./azure-sql/database/auto-failover-group-overview.md).
 
 4. **Azure Resource Manager** - Resource Manager inherently provides logical isolation of components across regions. This means logical failures in one region are less likely to impact another.
 

@@ -1,21 +1,22 @@
 ---
 title: What are Azure Reservations?
-description: Learn about Azure Reservations and pricing to save on your virtual machines, SQL databases, Azure Cosmos DB, and other resource costs.
+description: Learn about Azure Reservations and pricing to save on your reserved instances for virtual machines, SQL databases, Azure Cosmos DB, and other resource costs.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 03/30/2020
+ms.subservice: reservations
+ms.topic: overview
+ms.date: 02/24/2021
 ms.author: banders
 ---
 
 # What are Azure Reservations?
 
-Azure Reservations help you save money by committing to one-year or three-year plans for multiple products. Committing allows you to get a discount on the resources you use. Reservations can significantly reduce your resource costs up to 72% on pay-as-you-go prices. Reservations provide a billing discount and don't affect the runtime state of your resources. After you purchase a reservation, the discount automatically applies to matching resources.
+Azure Reservations help you save money by committing to one-year or three-year plans for multiple products. Committing allows you to get a discount on the resources you use. Reservations can significantly reduce your resource costs by up to 72% from pay-as-you-go prices. Reservations provide a billing discount and don't affect the runtime state of your resources. After you purchase a reservation, the discount automatically applies to matching resources.
 
 You can pay for a reservation up front or monthly. The total cost of up-front and monthly reservations is the same and you don't pay any extra fees when you choose to pay monthly. Monthly payment is available for Azure reservations, not third-party products.
 
-You can buy a reservation in the Azure portal at [https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
+You can buy a reservation in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
 ## Why buy a reservation?
 
@@ -33,7 +34,7 @@ For more information about how reservation scope works, see [Scope reservations]
 
 All reservations, except Azure Databricks, are applied on an hourly basis. Consider reservation purchases based on your consistent base usage. You can determine which reservation to purchase by analyzing your usage data or by using reservation recommendations. Recommendations are available in:
 
-- Azure advisor (VMs only)
+- Azure Advisor (VMs only)
 - Reservation purchase experience in the Azure portal
 - Cost Management Power BI app
 - APIs 
@@ -44,21 +45,22 @@ For more information, see [Determine what reservation to purchase](determine-r
 
 You can purchase reservations from the Azure portal, APIs, PowerShell, and CLI. 
 
-Go to Azure portal to purchase (https://ms.portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs) 
+Go to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs) to make a purchase.
 
-For more information, see [Buy a reservation](prepare-buy-reservation.md) 
+For more information, see [Buy a reservation](prepare-buy-reservation.md).
 
 ## How is a reservation billed? 
 
-The reservation is charged to the payment method tied to the subscription. The reservation cost is deducted from your monetary commitment balance, if available. When your monetary commitment balance doesn't cover the cost of the reservation, you're billed the overage. If you have a subscription from an individual plan with pay-as-you-go rates, the credit card you have on your account is billed immediately for up-front purchases. Monthly payments appear on your invoice and your credit card is charged monthly. When you're billed by invoice, you see the charges on your next invoice. 
+The reservation is charged to the payment method tied to the subscription. The reservation cost is deducted from your Azure Prepayment (previously called monetary commitment) balance, if available. When your Azure Prepayment balance doesn't cover the cost of the reservation, you're billed the overage. If you have a subscription from an individual plan with pay-as-you-go rates, the credit card you have on your account is billed immediately for up-front purchases. Monthly payments appear on your invoice and your credit card is charged monthly. When you're billed by invoice, you see the charges on your next invoice. 
 
-## Permissions to view and manage reservations 
+## Who can manage a reservation by default
 
-The user who purchases a reservation and the account administrator of the subscription used for billing the reservation get the Owner role on the reservation order and the reservation.
+By default, the following users can view and manage reservations:
 
-You can delegate reservation management by adding people to roles on the reservation order or the reservation. You assign the roles in the Azure portal or by using APIs and PowerShell. 
+- The person who buys a reservation and the account administrator of the billing subscription used to buy the reservation are added to the reservation order.
+- Enterprise Agreement and Microsoft Customer Agreement billing administrators.
 
-For more information, see [Add or change users who can manage a reservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation) 
+To allow other people to manage reservations, see [Manage Reservations for Azure resources](manage-reserved-vm-instance.md).
 
 ## Get reservation details and utilization after purchase
 
@@ -81,11 +83,12 @@ For more information, see [Self-service exchanges and refunds for Azure Reservat
 
 ## Charges covered by reservation
 
-- **Reserved Virtual Machine Instance** - A reservation only covers the virtual machine compute costs. It doesn't cover additional software, Windows, networking, or storage charges.
+- **Reserved Virtual Machine Instance** - A reservation only covers the virtual machine and cloud services compute costs. It doesn't cover additional software, Windows, networking, or storage charges.
 - **Azure Storage reserved capacity** - A reservation covers storage capacity for standard storage accounts for Blob storage or Azure Data Lake Gen2 storage. The reservation doesn't cover bandwidth or transaction rates.
 - **Azure Cosmos DB reserved capacity** - A reservation covers throughput provisioned for your resources. It doesn't cover the storage and networking charges.
-- **SQL Database reserved vCore** - Only the compute costs are included with a reservation. The SQL license is billed separately.
-- **SQL Data Warehouse** - A reservation covers cDWU usage. It doesn't cover storage or networking charges associated with the SQL Data Warehouse usage.
+- **Azure Data Factory data flows** - A reservation covers integration runtime cost for the compute type and number of cores that you buy.
+- **SQL Database reserved vCore** - Covers both SQL Managed Instance and SQL Database Elastic Pool/single database. Only the compute costs are included with a reservation. The SQL license is billed separately.
+- **Azure Synapse Analytics** - A reservation covers cDWU usage. It doesn't cover storage or networking charges associated with the Azure Synapse Analytics usage.
 - **Azure Databricks** - A reservation covers only the DBU usage. Other charges, such as compute, storage, and networking, are applied separately.
 - **App Service stamp fee** - A reservation covers stamp usage. It doesn't apply to workers, so any other resources associated with the stamp are charged separately.
 - **Azure Database for MySQL** - Only the compute costs are included with a reservation. A reservation doesn't cover software, networking, or storage charges associated with the MySQL Database server.
@@ -100,11 +103,10 @@ Software plans:
 
 - **SUSE Linux** - A reservation covers the software plan costs. The discounts apply only to SUSE meters and not to the virtual machine usage.
 - **Red Hat Plans** - A reservation covers the software plan costs. The discounts apply only to RedHat meters and not to the virtual machine usage.
-- **Azure VMware Solution by CloudSimple** - A reservation covers the VMWare CloudSimple Nodes. Additional software costs still apply.
+- **Azure VMware Solution by CloudSimple** - A reservation covers the VMware CloudSimple Nodes. Additional software costs still apply.
 - **Azure Red Hat OpenShift** - A reservation applies to the OpenShift costs, not to Azure infrastructure costs.
 
 For Windows virtual machines and SQL Database, the reservation discount doesn't apply to the software costs. You can cover the licensing costs with [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
-
 
 ## Need help? Contact us.
 
@@ -120,9 +122,10 @@ If you have questions or need help,  [create a support request](https://go.micro
     - [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](/partner-center/azure-reservations)
 
 - Learn more about reservations for service plans:
-    - [Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+    - [Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)
     - [Azure Cosmos DB resources with Azure Cosmos DB reserved capacity](../../cosmos-db/cosmos-db-reserved-capacity.md)
-    - [SQL Database compute resources with Azure SQL Database reserved capacity](../../sql-database/sql-database-reserved-capacity.md)
+    - [SQL Database compute resources with Azure SQL Database reserved capacity](../../azure-sql/database/reserved-capacity-overview.md)
+    - [Azure Cache for Redis resources with Azure Cache for Redis reserved capacity](../../azure-cache-for-redis/cache-reserved-pricing.md)
 Learn more about reservations for software plans:
-    - [Red Hat software plans from Azure Reservations](../../virtual-machines/linux/prepay-rhel-software-charges.md)
+    - [Red Hat software plans from Azure Reservations](../../virtual-machines/linux/prepay-suse-software-charges.md)
     - [SUSE software plans from Azure Reservations](../../virtual-machines/linux/prepay-suse-software-charges.md)

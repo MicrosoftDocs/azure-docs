@@ -1,26 +1,24 @@
 ---
 title: Copy data from/to SAP Cloud for Customer
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from SAP Cloud for Customer to supported sink data stores (or) from supported source data stores to SAP Cloud for Customer by using Data Factory.
-services: data-factory
-documentationcenter: ''
-ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
+ms.author: jingwang
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 09/02/2019
+ms.custom: synapse
+ms.date: 03/17/2021
 ---
 
 # Copy data from SAP Cloud for Customer (C4C) using Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from/to SAP Cloud for Customer (C4C). It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 >[!TIP]
->To learn ADF's overall support on SAP data integration scenario, see [SAP data integration using Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) with detailed introduction, comparsion and guidance.
+>To learn ADF's overall support on SAP data integration scenario, see [SAP data integration using Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) with detailed introduction on each SAP connector, comparsion and guidance.
 
 ## Supported capabilities
 
@@ -35,7 +33,7 @@ Specifically, this connector enables Azure Data Factory to copy data from/to SAP
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to SAP Cloud for Customer connector.
 
@@ -49,10 +47,7 @@ The following properties are supported for SAP Cloud for Customer linked service
 | url | The URL of the SAP C4C OData service. | Yes |
 | username | Specify the user name to connect to the SAP C4C. | Yes |
 | password | Specify the password for the user account you specified for the username. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. | No for source, Yes for sink |
-
->[!IMPORTANT]
->To copy data into SAP Cloud for Customer, explicitly [create an Azure IR](create-azure-integration-runtime.md#create-azure-ir) with a location near your SAP Cloud for Customer, and associate in the linked service as the following example:
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. | No |
 
 **Example:**
 
@@ -119,6 +114,7 @@ To copy data from SAP Cloud for Customer, set the source type in the copy activi
 |:--- |:--- |:--- |
 | type | The type property must be set to: **SapCloudForCustomerSource**  | Yes |
 | query | Specify the custom OData query to read data. | No |
+| httpRequestTimeout | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to read response data. If not specified, the default value is **00:30:00** (30 minutes). | No |
 
 Sample query to get data for a specific day:
 `"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
@@ -164,6 +160,7 @@ To copy data to SAP Cloud for Customer, set the sink type in the copy activity t
 | type | The type property must be set to: **SapCloudForCustomerSink**  | Yes |
 | writeBehavior | The write behavior of the operation. Could be “Insert”, “Update”. | No. Default “Insert”. |
 | writeBatchSize | The batch size of write operation. The batch size to get best performance may be different for different table or server. | No. Default 10. |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 
 **Example:**
 

@@ -5,7 +5,7 @@ summary: Learn how Language Understanding enables your applications to understan
 
 metadata:
   ms.topic: landing-page
-  ms.date: 02/11/2020
+  ms.date: 04/16/2021
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -32,6 +32,8 @@ landingContent:
             url: luis-how-plan-your-app.md
           - text: Iterative app design
             url: luis-concept-app-iteration.md
+          - text: DevOps practices
+            url: luis-concept-devops-sourcecontrol.md
       - linkListType: whats-new
         links:
           - text: What's new?
@@ -56,11 +58,11 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: "Portal: Create a new LUIS app"
-            url: get-started-portal-build-app.md
+            url: luis-get-started-create-app.md
           - text: Using C# SDK
-            url: sdk-authoring.md?pivots=programming-language-csharp
+            url: ./client-libraries-rest-api.md?pivots=rest-api
           - text: Using Python SDK
-            url: sdk-authoring.md?pivots=programming-language-python
+            url: ./client-libraries-rest-api.md?pivots=rest-api
 
       - linkListType: how-to-guide
         links:
@@ -69,7 +71,7 @@ landingContent:
           - text: Add intent with example utterances
             url: luis-how-to-add-intents.md
           - text: Add entities
-            url: luis-how-to-add-example-utterances.md
+            url: ./luis-how-to-add-entities.md
           - text: Add phrase list feature
             url: luis-how-to-add-features.md
 
@@ -78,18 +80,16 @@ landingContent:
       - linkListType: concept
         links:
           - text: Versioning
-            url: luis-concept-version.md
+            url: ./luis-concept-app-iteration.md
           - text: Interactive testing
-            url: luis-concept-test.md
+            url: ./luis-interactive-test.md
           - text: Batch testing
-            url: luis-concept-batch-test.md
+            url: ./luis-how-to-batch-test.md
 
       - linkListType: quickstart
         links:
-          - text: "Portal: Deploy app to prediction endpoint"
-            url: get-started-portal-deploy-app.md
           - text: Using SDK
-            url: sdk-authoring.md
+            url: ./client-libraries-rest-api.md?pivots=rest-api
 
       - linkListType: how-to-guide
         links:
@@ -109,19 +109,19 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Using SDK
-            url: sdk-query-prediction-endpoint.md
+            url: ./client-libraries-rest-api.md?pivots=rest-api
       - linkListType: quickstart
         links:
           - text: With C# using REST
-            url: luis-get-started-cs-get-intent.md
+            url: ./luis-get-started-get-intent-from-rest.md
           - text: With Go using REST
-            url: luis-get-started-go-get-intent.md
+            url: ./luis-get-started-get-intent-from-rest.md
           - text: With Java using REST
-            url: luis-get-started-java-get-intent.md
+            url: ./luis-get-started-get-intent-from-rest.md
           - text: With Node.js using REST
-            url: luis-get-started-node-get-intent.md
+            url: ./luis-get-started-get-intent-from-rest.md
           - text: With Python using REST
-            url: luis-get-started-python-get-intent.md
+            url: ./luis-get-started-get-intent-from-rest.md
   - title: Reference
     linkLists:
       - linkListType: reference
@@ -129,21 +129,19 @@ landingContent:
           - text: Developer resources
             url: developer-reference-resource.md
           - text: App limitations
-            url: luis-boundaries.md
+            url: luis-limits.md
           - text: Prebuilt entities
             url: luis-reference-prebuilt-entities.md
           - text: Custom Entities
-            url: luis-concept-entity-types.md#types-of-entities
+            url: reference-entity-machine-learned-entity.md
           - text: Prebuilt domains
             url: luis-reference-prebuilt-domains.md
 
   - title: Help and feedback
     linkLists:
-      - linkListType: reference
-        links:
-          - text: Troubleshooting
-            url: troubleshooting.md
-          - text: Ask questions on Stack Overflow
-            url: https://stackoverflow.com/questions/tagged/LUIS
-          - text: Influence service with UserVoice
-            url: https://cognitive.uservoice.com/forums/551524-luis
+    - linkListType: reference
+      links:
+        - text: Support and help options
+          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/luis/context/context
+        - text: Troubleshooting
+          url: troubleshooting.yml

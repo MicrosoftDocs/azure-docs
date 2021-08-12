@@ -27,7 +27,7 @@ Virtual network service endpoint policies provide following benefits:
 
 - __Improved security for your Virtual Network traffic to Azure Storage__
 
-  [Azure service tags for network security groups](https://aka.ms/servicetags) allow you to restrict virtual network outbound traffic to specific Azure Storage regions. However, this allows traffic to any account within selected Azure Storage region.
+  [Azure service tags for network security groups](./network-security-groups-overview.md) allow you to restrict virtual network outbound traffic to specific Azure Storage regions. However, this allows traffic to any account within selected Azure Storage region.
   
   Endpoint policies allow you to specify the Azure Storage accounts that are allowed virtual network outbound access and restricts access to all the other storage accounts. This gives much more granular security control for protecting data exfiltration from your virtual network.
 
@@ -86,7 +86,7 @@ Let's take a quick look at the Service Endpoint Policy object.
 Service endpoint policies only apply to the traffic from subnets associated to the policies. To allow access to specific Azure service resources from on-premises, traffic should be filtered using network virtual appliances or firewalls.
 
 ## Logging and troubleshooting
-No centralized logging is available for service endpoint policies. For service diagnostic logs, see [Service endpoints logging](virtual-network-service-endpoints-overview.md#logging-and-troubleshooting).
+No centralized logging is available for service endpoint policies. For service resource logs, see [Service endpoints logging](virtual-network-service-endpoints-overview.md#logging-and-troubleshooting).
 
 ### Troubleshooting scenarios
 - Access denied to storage accounts that were working in preview (not in geo-paired region)
@@ -105,6 +105,8 @@ No centralized logging is available for service endpoint policies. For service d
   - Ensure the accounts are not **classic storage accounts** with service endpoint policies on the subnet.
 - A managed Azure Service stopped working after applying a Service Endpoint Policy over the subnet
   - Managed services are not supported with service endpoint policies at this time. *Watch this space for updates*.
+- Access to Managed Storage Accounts stopped working after applying a Service Endpoint Policy over the subnet
+  - Managed Storage Accounts are not supported with service endpoint policies. If configured, policies will deny access to all Managed Storage Accounts, by default. If your application needs access to Managed Storage Accounts, endpoint policies should not be used for this traffic.
 
 ## Provisioning
 
@@ -118,7 +120,7 @@ Virtual networks and Azure Storage accounts can be in the same or different subs
 - Virtual networks must be in the same region as the service endpoint policy.
 - You can only apply service endpoint policy on a subnet if service endpoints are configured for the Azure services listed in the policy.
 - You can't use service endpoint policies for traffic from your on-premises network to Azure services.
-- Azure managed services do not currently support Endpoint policies. This includes managed services deployed into the shared subnets (e.g. *Azure HDInsight, Azure Batch, Azure ADDS, Azure APplication Gateway, Azure VPN gateway, Azure Firewall*) or into the dedicated subnets (e.g. *Azure App Service Environment, Azure Redis Cache, Azure API Management, Azure SQL MI, classic managed services*).
+- Azure managed services do not currently support Endpoint policies. This includes managed services deployed into the shared subnets (e.g. *Azure Batch, Azure ADDS, Azure Application Gateway, Azure VPN Gateway, Azure Firewall*) or into the dedicated subnets (e.g. *Azure App Service Environment, Azure Redis Cache, Azure API Management, Azure SQL MI, classic managed services*).
 
  > [!WARNING]
  > Azure services deployed into your virtual network, such as Azure HDInsight, access other Azure services, such as Azure Storage, for infrastructure requirements. Restricting endpoint policy to specific resources could break access to these infrastructure resources for the Azure services deployed in your virtual network.
@@ -134,7 +136,7 @@ Following limits are enforced on service endpoint policies:
  |Resource | Default limit |
  |---------|---------------|
  |ServiceEndpointPoliciesPerSubscription |500 |
- |ServiceEndpintPoliciesPerSubnet|100 |
+ |ServiceEndpointPoliciesPerSubnet|100 |
  |ServiceResourcesPerServiceEndpointPolicyDefinition|200 |
 
 ## Next Steps

@@ -4,7 +4,7 @@ description: Learn how to deploy your app to Azure App Service with a ZIP file (
 ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: sisirap
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 
 ---
 
@@ -24,20 +24,23 @@ For more information, see [Kudu documentation](https://github.com/projectkudu/ku
 
 The WAR file deployment deploys your [WAR](https://wikipedia.org/wiki/WAR_(file_format)) file to App Service to run your Java web app. See [Deploy WAR file](#deploy-war-file).
 
+> [!NOTE]
+> When using `ZipDeploy`, files will only be copied if their timestamps don't match what is already deployed. Generating a zip using a build process that caches outputs can result in faster deployments. See [Deploying from a zip file or url](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url), for more information.
+
 ## Prerequisites
 
-To complete the steps in this article, [create an App Service app](/azure/app-service/), or use an app that you created for another tutorial.
+To complete the steps in this article, [create an App Service app](./index.yml), or use an app that you created for another tutorial.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [Create a project ZIP file](../../includes/app-service-web-deploy-zip-prepare.md)]
 
 [!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
-The above endpoint does not work for Linux App Services at this time. Consider using FTP or the [ZIP deploy API](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#continuous-integration-and-deployment) instead.
+The above endpoint does not work for Linux App Services at this time. Consider using FTP or the [ZIP deploy API](/azure/app-service/faq-app-service-linux#continuous-integration-and-deployment) instead.
 
 ## Deploy ZIP file with Azure CLI
 
-Deploy the uploaded ZIP file to your web app by using the [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) command.  
+Deploy the uploaded ZIP file to your web app by using the [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config_zip) command.  
 
 The following example deploys the ZIP file you uploaded. When using a local installation of Azure CLI, specify the path to your local ZIP file for `--src`.
 
@@ -46,6 +49,8 @@ az webapp deployment source config-zip --resource-group <group-name> --name <app
 ```
 
 This command deploys the files and directories from the ZIP file to your default App Service application folder (`\home\site\wwwroot`) and restarts the app.
+
+## Enable build automation
 
 By default, the deployment engine assumes that a ZIP file is ready to run as-is and doesn't run any build automation. To enable the same build automation as in a [Git deployment](deploy-local-git.md), set the `SCM_DO_BUILD_DURING_DEPLOYMENT` app setting by running the following command in the [Cloud Shell](https://shell.azure.com):
 
@@ -92,3 +97,4 @@ enables version control, package restore, MSBuild, and more.
 
 * [Kudu: Deploying from a zip file](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)
 * [Azure App Service Deployment Credentials](deploy-ftp.md)
+* [Environment variables and app settings reference](reference-app-settings.md)

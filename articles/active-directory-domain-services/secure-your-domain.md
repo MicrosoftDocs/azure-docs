@@ -2,7 +2,7 @@
 title: Secure Azure AD Domain Services | Microsoft Docs
 description: Learn how to disable weak ciphers, old protocols, and NTLM password hash synchronization for an Azure Active Directory Domain Services managed domain.
 services: active-directory-ds
-author: iainfoulds
+author: justinha
 manager: daveba
 
 ms.assetid: 6b4665b5-4324-42ab-82c5-d36c01192c2a
@@ -10,15 +10,21 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/31/2020
-ms.author: iainfou
+ms.date: 07/21/2021
+ms.author: justinha 
+ms.custom: devx-track-azurepowershell
 
 ---
-# Disable weak ciphers and password hash synchronization to secure an Azure AD Domain Services managed domain
+# Harden an Azure Active Directory Domain Services managed domain
 
 By default, Azure Active Directory Domain Services (Azure AD DS) enables the use of ciphers such as NTLM v1 and TLS v1. These ciphers may be required for some legacy applications, but are considered weak and can be disabled if you don't need them. If you have on-premises hybrid connectivity using Azure AD Connect, you can also disable the synchronization of NTLM password hashes.
 
-This article shows you how to disable NTLM v1 and TLS v1 ciphers and disable NTLM password hash synchronization.
+This article shows you how to harden a managed domain by using setting setting such as: 
+
+- Disable NTLM v1 and TLS v1 ciphers
+- Disable NTLM password hash synchronization
+- Disable the ability to change passwords with RC4 encryption
+- Enable Kerberos armoring
 
 ## Prerequisites
 
@@ -29,15 +35,42 @@ To complete this article, you need the following resources:
 * An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
-    * If needed, [create and configure an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance].
-* Install and configure Azure PowerShell.
-    * If needed, follow the instructions to [install the Azure PowerShell module and connect to your Azure subscription](/powershell/azure/install-az-ps).
-    * Make sure that you sign in to your Azure subscription using the [Connect-AzAccount][Connect-AzAccount] cmdlet.
-* Install and configure Azure AD PowerShell.
-    * If needed, follow the instructions to [install the Azure AD PowerShell module and connect to Azure AD](/powershell/azure/active-directory/install-adv2).
-    * Make sure that you sign in to your Azure AD tenant using the [Connect-AzureAD][Connect-AzureAD] cmdlet.
+    * If needed, [create and configure an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance].
 
-## Disable weak ciphers and NTLM password hash sync
+## Use Security settings to harden your domain
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Search for and select **Azure AD Domain Services**.
+1. Choose your managed domain, such as *aaddscontoso.com*.
+1. On the left-hand side, select **Security settings**.
+1. Click **Enable** or **Disable** for the following settings:
+   - **TLS 1.2 only mode**
+   - **NTLM authentication**
+   - **Password synchronization from on-premises**
+   - **NTLM password synchronization from on-premises**
+   - **RC4 encryption**
+   - **Kerberos armoring**
+
+   ![Screenshot of Security settings to disable weak ciphers and NTLM password hash sync](media/secure-your-domain/security-settings.png)
+
+## Assign Azure Policy compliance for TLS 1.2 usage
+
+In addition to **Security settings**, Microsoft Azure Policy has a **Compliance** setting to enforce TLS 1.2 usage. The policy has no impact until it is assigned. When the policy is assigned, it appears in **Compliance**:
+
+- If the assignment is **Audit**, the compliance will report if the Azure AD DS instance is compliant.
+- If the assignment is **Deny**, the compliance will prevent an Azure AD DS instance from being created if TLS 1.2 is not required and prevent any update to an Azure AD DS instance until TLS 1.2 is required.
+
+![Screenshot of Compliance settings](media/secure-your-domain/policy-tls.png)
+
+## Audit NTLM failures
+
+While disabling NTLM password synchronization will improve security, many applications and services are not designed to work without it. For example, connecting to any resource by its IP address, such as DNS Server management or RDP, will fail with Access Denied. If you disable NTLM password synchronization and your application or service isn’t working as expected, you can check for NTLM authentication failures by enabling security auditing for the **Logon/Logoff** > **Audit Logon** event category, where NTLM is specified as the **Authentication Package** in the event details. For more information, see [Enable security audits for Azure Active Directory Domain Services](security-audit-events.md).
+
+## Use PowerShell to harden your domain
+
+If needed, [install and configure Azure PowerShell](/powershell/azure/install-az-ps). Make sure that you sign in to your Azure subscription using the [Connect-AzAccount][Connect-AzAccount] cmdlet. 
+
+Also if needed, [install and configure Azure AD PowerShell](/powershell/azure/active-directory/install-adv2). Make sure that you sign in to your Azure AD tenant using the [Connect-AzureAD][Connect-AzureAD] cmdlet.
 
 To disable weak cipher suites and NTLM credential hash synchronization, sign in to your Azure account, then get the Azure AD DS resource using the [Get-AzResource][Get-AzResource] cmdlet:
 
@@ -60,20 +93,25 @@ Next, define *DomainSecuritySettings* to configure the following security option
 > Users and service accounts can't perform LDAP simple binds if you disable NTLM password hash synchronization in the Azure AD DS managed domain. If you need to perform LDAP simple binds, don't set the *"SyncNtlmPasswords"="Disabled";* security configuration option in the following command.
 
 ```powershell
-$securitySettings = @{"DomainSecuritySettings"=@{"NtlmV1"="Disabled";"SyncNtlmPasswords"="Disabled";"TlsV1"="Disabled"}}
+$securitySettings = @{"DomainSecuritySettings"=@{"NtlmV1"="Disabled";"SyncNtlmPasswords"="Disabled";"TlsV1"="Disabled";"KerberosRc4Encryption"="Disabled";"KerberosArmoring"="Disabled"}}
 ```
 
-Finally, apply the defined security settings to the Azure AD DS managed domain using the [Set-AzResource][Set-AzResource] cmdlet. Specify the Azure AD DS resource from the first step, and the security settings from the previous step.
+Finally, apply the defined security settings to the managed domain using the [Set-AzResource][Set-AzResource] cmdlet. Specify the Azure AD DS resource from the first step, and the security settings from the previous step.
 
 ```powershell
-Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySettings -Verbose -Force
+Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySettings -ApiVersion “2021-03-01” -Verbose -Force
 ```
 
-It takes a few moments for the security settings to be applied to the Azure AD DS managed domain.
+It takes a few moments for the security settings to be applied to the managed domain.
+
+> [!IMPORTANT]
+> After you disable NTLM, perform a full password hash synchronization in Azure AD Connect to remove all the password hashes from the managed domain. If you disable NTLM but don't force a password hash sync, NTLM password hashes for a user account are only removed on the next password change. This behavior could allow a user to continue to sign in if they have cached credentials on a system where NTLM is used as the authentication method.
+>
+> Once the NTLM password hash is different from the Kerberos password hash, fallback to NTLM won't work. Cached credentials also no longer work if the VM has connectivity to the managed domain controller.  
 
 ## Next steps
 
-To learn more about the synchronization process, see [How objects and credentials are synchronized in an Azure AD DS managed domain][synchronization].
+To learn more about the synchronization process, see [How objects and credentials are synchronized in a managed domain][synchronization].
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

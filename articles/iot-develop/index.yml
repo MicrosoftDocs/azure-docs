@@ -1,0 +1,68 @@
+### YamlMime:Landing
+
+title: IoT Device Development Documentation
+summary: Explore the Azure IoT documentation for developing cloud-connected embedded devices and device applications. 
+
+metadata:
+  title: IoT device development
+  description: Learn how to use Azure IoT for developing cloud-connected embedded devices and device applications. 
+  services: iot-develop
+  ms.service: iot-develop
+  ms.topic: landing-page
+  author: timlt
+  ms.author: timlt
+  ms.date: 07/15/2021
+
+landingContent:
+  - title: About IoT device development
+    linkLists:
+    - linkListType: overview
+      links:
+        - text: What is Azure IoT device development?
+          url: about-iot-develop.md
+        - text: Review IoT device types
+          url: concepts-iot-device-types.md
+        - text: What is IoT Plug and Play?
+          url: overview-iot-plug-and-play.md
+  - title: Get started with device application development
+    linkLists:
+    - linkListType: quickstart
+      links:
+        - text: Send device telemetry to IoT Central
+          url: quickstart-send-telemetry-central.md
+        - text: Send device telemetry to IoT Hub
+          url: quickstart-send-telemetry-iot-hub.md
+  - title: Get started with embedded device development
+    linkLists:
+    - linkListType: quickstart
+      links:
+        - text: Connect an MXCHIP AZ3166 to Azure IoT
+          url: quickstart-devkit-mxchip-az3166.md
+        - text: Connect an MXCHIP AZ3166 to Azure IoT Hub
+          url: quickstart-devkit-mxchip-az3166-iot-hub.md
+        - text: Connect a Microchip ATSAME54-XPro to Azure IoT
+          url: quickstart-devkit-microchip-atsame54-xpro.md
+        - text: Connect an STMicroelectronics B-L475E/L4S5I-IOT01A to Azure IoT
+          url: quickstart-devkit-stm-b-l475e.md
+  - title: Build device solutions
+    linkLists:
+    - linkListType: tutorial
+      links:
+        - text: Connect a sample device to IoT Hub
+          url: tutorial-connect-device.md
+        - text: Securely connect IoT devices to the cloud
+          url: /learn/paths/securely-connect-iot-devices/?wt.mc_id=iothub_connect_docs_tutorials
+  - title: Device development framework
+    linkLists:
+    - linkListType: concept
+      links: 
+        - text: Overview of device types
+          url: concepts-iot-device-types.md
+        - text: Developer guide
+          url: concepts-developer-guide-device.md
+        - text: Modeling guide
+          url: concepts-modeling-guide.md
+        - text: IoT Plug and Play conventions
+          url: concepts-convention.md  
+        - text: IoT Plug and Play bridge
+          url: concepts-iot-pnp-bridge.md

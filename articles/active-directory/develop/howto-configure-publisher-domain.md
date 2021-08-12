@@ -8,12 +8,12 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
-ms.date: 04/05/2019
+ms.date: 06/23/2021
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
-ms.custom: aaddev
+ms.custom: contperf-fy21q4, aaddev
 ---
 
 # How to: Configure an application's publisher domain
@@ -44,18 +44,12 @@ If your app was registered before May 21, 2019, your application's consent promp
 
 To set your app's publisher domain, follow these steps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
-
-1. If your account is present in more than one Azure AD tenant:
-   1. Select your profile from the menu on the top-right corner of the page, and then **Switch directory**.
-   1. Change your session to the Azure AD tenant where you want to create your application.
-
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which the app is registered.
 1. Navigate to [Azure Active Directory > App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) to find and select the app that you want to configure.
 
    Once you've selected the app, you'll see the app's **Overview** page.
-
-1. From the app's **Overview** page, select the **Branding** section.
-
+1. Under **Manage**, select the **Branding**.
 1. Find the **Publisher domain** field and select one of the following options:
 
    - Select **Configure a domain** if you haven't configured a domain already.
@@ -72,27 +66,30 @@ If your app isn't registered in a tenant, you'll only see the option to verify a
    ```json
    {
       "associatedApplications": [
-        {
-           "applicationId": "{YOUR-APP-ID-HERE}"
-        }
+         {
+            "applicationId": "{YOUR-APP-ID-HERE}"
+         },
+         {
+            "applicationId": "{YOUR-OTHER-APP-ID-HERE}"
+         }
       ]
     }
    ```
 
 1. Replace the placeholder *{YOUR-APP-ID-HERE}* with the application (client) ID that corresponds to your app.
-
 1. Host the file at: `https://{YOUR-DOMAIN-HERE}.com/.well-known/microsoft-identity-association.json`. Replace the placeholder *{YOUR-DOMAIN-HERE}* to match the verified domain.
-
 1. Click the **Verify and save domain** button.
+
+You're not required to maintain the resources that are used for verification after a domain has been verified. When the verification is finished, you can remove the hosted file.
 
 ### To select a verified domain
 
-- If your tenant has verified domains, select one of the domains from the **Select a verified domain** dropdown.
+If your tenant has verified domains, select one of the domains from the **Select a verified domain** dropdown.
 
->[!Note]
-> The expected 'Content-Type' header that should be returned is `application/json`. You may get an error as mentioned below if you use anything else like `application/json; charset=utf-8` 
-> 
->``` "Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value. " ```
+> [!NOTE]
+> The expected `Content-Type` header that should be returned is `application/json`. You may get an error if you use anything else, like `application/json; charset=utf-8`:
+>
+> `Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value.`
 >
 
 ## Implications on the app consent prompt
@@ -109,7 +106,7 @@ The behavior for new applications created after May 21, 2019 will depend on the 
 
 ## Implications on redirect URIs
 
-Applications that sign in users with any work or school account, or personal Microsoft accounts ([multi-tenant](single-and-multi-tenant-apps.md)) are subject to few restrictions when specifying redirect URIs.
+Applications that sign in users with any work or school account, or personal Microsoft accounts (multi-tenant) are subject to few restrictions when specifying redirect URIs.
 
 ### Single root domain restriction
 

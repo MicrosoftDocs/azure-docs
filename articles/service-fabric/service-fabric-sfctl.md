@@ -23,7 +23,6 @@ Commands follow the noun-verb pattern. See subgroups for more information.
 | [container](service-fabric-sfctl-container.md) | Run container related commands on a cluster node. |
 | [events](service-fabric-sfctl-events.md) | Retrieve events from the events store (if EventStore service is already installed). |
 | [is](service-fabric-sfctl-is.md) | Query and send commands to the infrastructure service. |
-| [mesh](service-fabric-sfctl-mesh.md) | Delete and manage Service Fabric Mesh applications. |
 | [node](service-fabric-sfctl-node.md) | Manage the nodes that form a cluster. |
 | [partition](service-fabric-sfctl-partition.md) | Query and manage partitions for any service. |
 | [property](service-fabric-sfctl-property.md) | Store and query properties under Service Fabric names. |
@@ -36,4 +35,4 @@ Commands follow the noun-verb pattern. See subgroups for more information.
 
 ## Next steps
 - [Set up](service-fabric-cli.md) the Service Fabric CLI.
-- Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Learn how to use the Service Fabric CLI using the [sample scripts](./scripts/sfctl-upgrade-application.md).

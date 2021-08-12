@@ -2,7 +2,7 @@
 title: Supported Resource Types through Azure Resource Health | Microsoft Docs
 description: Supported Resource Types through Azure Resource health
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 07/05/2021
 ---
 
 # Resource types and health checks in Azure resource health
@@ -17,6 +17,11 @@ Below is a complete list of all the checks executed through resource health by r
 |Executed Checks|
 |---|
 |<ul><li>Is the Api Management service up and running?</li></ul>|
+
+## Microsoft.AppPlatform/Spring
+|Executed Checks|
+|---|
+|<ul><li>Is the Azure Spring Cloud instance available?</li></ul>|
 
 ## Microsoft.Batch/batchAccounts
 |Executed Checks|
@@ -38,6 +43,11 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Is the host server up and running?</li><li>Has the host OS booting completed?</li><li>Is the virtual machine container provisioned and powered up?</li><li>Is there network connectivity between the host and the storage account?</li><li>Has the booting of the guest OS completed?</li><li>Is there ongoing planned maintenance?</li><li>Is the host hardware degraded and predicted to fail soon?</li></ul>|
 
+## Microsoft.classiccompute/domainnames
+|Executed Checks|
+|---|
+|<ul><li>Is production slot deployment healthy across all role instances?</li><li>Is the role healthy across all its VM instances?</li><li>What is the health status of each VM within a role of a cloud service?</li><li>Was the VM status change due to platform or customer initiated operation?</li><li>Has the booting of the guest OS completed?</li><li>Is there ongoing planned maintenance?</li><li>Is the host hardware degraded and predicted to fail soon?</li><li>[Learn More](../cloud-services/resource-health-for-cloud-services.md) about Executed Checks</li></ul>|
+
 ## Microsoft.cognitiveservices/accounts
 |Executed Checks|
 |---|
@@ -46,12 +56,17 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.compute/hostgroups/hosts
 |Executed Checks|
 |---|
-|<ul><li>Is the host up and  running</li><li>Is the host hardware degraded?</li><li>Is the host deallocated?</li><li>Has the host hardware service healed to different hardware?</li></ul>|
+|<ul><li>Is the host up and running?</li><li>Is the host hardware degraded?</li><li>Is the host deallocated?</li><li>Has the host hardware service healed to different hardware?</li></ul>|
 
 ## Microsoft.compute/virtualmachines
 |Executed Checks|
 |---|
 |<ul><li>Is the server hosting this virtual machine up and running?</li><li>Has the host OS booting completed?</li><li>Is the virtual machine container provisioned and powered up?</li><li>Is there network connectivity between the host and the storage account?</li><li>Has the booting of the guest OS completed?</li><li>Is there ongoing planned maintenance?</li><li>Is the host hardware degraded and predicted to fail soon?</li></ul>|
+
+## Microsoft.ContainerService/managedClusters
+|Executed Checks|
+|---|
+|<ul><li>Is the cluster up and running?</li><li>Are core services available on the cluster?</li><li>Are all cluster nodes ready?</li><li>Is the service principal current and valid?</li></ul>|
 
 ## Microsoft.datafactory/factories
 |Executed Checks|
@@ -99,6 +114,11 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Is the IoT hub up and running?</li></ul>|
 
+## Microsoft.DigitalTwins/DigitalTwinsInstances
+|Executed Checks|
+|---|
+|<ul><li>Is the Azure Digital Twins instance up and running?</li></ul>|
+
 ## Microsoft.documentdb/databaseAccounts
 |Executed Checks|
 |---|
@@ -114,10 +134,20 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Are core services available on the HDInsight cluster?</li><li>Can the HDInsight cluster access the key for BYOK encryption at rest?</li></ul>|
 
+## Microsoft.IoTCentral/IoTApps
+|Executed Checks|
+|---|
+|<ul><li>Is the IoT Central Application available?</li></ul>|
+
 ## Microsoft.KeyVault/vaults
 |Executed Checks|
 |---|
 |<ul><li>Are requests to key vault failing due to Azure KeyVault platform issues?</li><li>Are requests to key vault being throttled due to too many requests made by customer?</li></ul>|
+
+## Microsoft.Kusto/clusters
+|Executed Checks|
+|---|
+|<ul><li>Is the cluster experiencing low ingestion success rates?</li><li>Is the cluster experiencing high ingestion latency?</li><li>Is the cluster experiencing a high number of query failures?</li></ul>|
 
 ## Microsoft.MachineLearning/webServices
 |Executed Checks|
@@ -133,6 +163,11 @@ Below is a complete list of all the checks executed through resource health by r
 |Executed Checks|
 |---|
 |<ul><li>Is performance of the Application Gateway degraded?</li><li>Is the Application Gateway available?</li></ul>|
+
+## Microsoft.network/bastionhosts
+|Executed Checks|
+|---|
+|<ul><li>Is the Bastion Host up and running?</li></ul>|
 
 ## Microsoft.network/connections
 |Executed Checks|
@@ -154,6 +189,11 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Are the load balancing endpoints available?</li></ul>|
 
+## Microsoft.network/trafficmanagerprofiles
+|Executed Checks|
+|---|
+|<ul><li>Are there any issues impacting the Traffic Manager profile?</li></ul>|
+
 ## Microsoft.network/virtualNetworkGateways
 |Executed Checks|
 |---|
@@ -172,12 +212,7 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.PowerBIDedicated/Capacities
 |Executed Checks|
 |---|
-|<ul><li>Is the capacity resource up and running?</li><li>Are all the workloads up and running?</li></ul>|
-
-## Microsoft.PowerBI/workspaceCollections
-|Executed Checks|
-|---|
-|<ul><li>Is the host OS up and running?</li><li>Is the workspaceCollection reachable from outside the datacenter?</li><li>Is the Power BI Resource Provider available?</li><li>Is the Power BI Service available in the appropriate region?</li></ul>|
+|<ul><li>Is the capacity resource up and running?</li><li>Are all the workloads up and running?</li></ul>
 
 ## Microsoft.search/searchServices
 |Executed Checks|
@@ -199,7 +234,7 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Is the database up and running?</li></ul>|
 
-## Microsoft.SQL/Server/databases
+## Microsoft.SQL/servers/databases
 |Executed Checks|
 |---|
 |<ul><li>Have there been logins to the database?</li></ul>|
@@ -224,7 +259,13 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Is the host server up and running?</li><li>Is Internet Information server running?</li><li>Is the Load balancer running?</li><li>Can the Web App be reached from within the datacenter?</li><li>Is the storage account hosting the site content available?</li></ul>|
 
+## Microsoft.RecoveryServices/vaults
+
+| Executed Checks |
+| --- |
+|<ul><li>Are any Backup operations on Backup Items configured in this vault failing due to causes beyond user control?</li><li>Are any Restore operations on Backup Items configured in this vault failing due to causes beyond user control?</li></ul> |
+
 ## Next Steps
 -  See [Introduction to Azure Service Health dashboard](service-health-overview.md) and [Introduction to Azure Resource Health](resource-health-overview.md) to understand more about them. 
--  [Frequently asked questions about Azure Resource Health](resource-health-faq.md)
-- Set up alerts so you are notified of health issues. For more information, see [Configure Alerts for service health events](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 
+-  [Frequently asked questions about Azure Resource Health](resource-health-faq.yml)
+- Set up alerts so you are notified of health issues. For more information, see [Configure Alerts for service health events](./alerts-activity-log-service-notifications-portal.md).

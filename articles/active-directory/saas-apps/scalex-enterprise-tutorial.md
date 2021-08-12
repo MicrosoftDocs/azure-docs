@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ScaleX Enterprise | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and ScaleX Enterprise.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: c2379a8d-a659-45f1-87db-9ba156d83183
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with ScaleX Enterprise
@@ -28,7 +21,7 @@ In this tutorial, you'll learn how to integrate ScaleX Enterprise with Azure Act
 * Enable your users to be automatically signed-in to ScaleX Enterprise with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -92,7 +85,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://platform.rescale.com/saml2/<company id>/sso/`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [ScaleX Enterprise Client support team](https://info.rescale.com/contact_sales) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [ScaleX Enterprise Client support team](https://about.rescale.com/contactus.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Your ScaleX Enterprise application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **emailaddress** is mapped with **user.mail**. ScaleX Enterprise application expects **emailaddress** to be mapped with **user.userprincipalname**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
@@ -153,11 +146,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	> [!NOTE]
 	> Contoso is just an example. This should be your actual Company Name.
 
-	![Configure single sign-on](./media/scalex-enterprise-tutorial/Test_Admin.png)
+	![Screenshot that shows an example company name selected from the menu in the upper-right.](./media/scalex-enterprise-tutorial/Test_Admin.png)
 
 1. Select **Integrations** from the top menu and select **single sign-on**.
 
-	![Configure single sign-on](./media/scalex-enterprise-tutorial/admin_sso.png) 
+	![Screenshot that shows "Integrations" selected, and "Single Sign-On" selected from the drop-down menu.](./media/scalex-enterprise-tutorial/admin_sso.png) 
 
 1. Complete the form as follows:
 
@@ -187,14 +180,14 @@ To enable Azure AD users to sign in to ScaleX Enterprise, they must be provision
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the ScaleX Enterprise tile in the Access Panel, you should be automatically signed in to the ScaleX Enterprise for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the ScaleX Enterprise tile in the Access Panel, you should be automatically signed in to the ScaleX Enterprise for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try ScaleX Enterprise with Azure AD](https://aad.portal.azure.com/)

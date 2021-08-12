@@ -1,28 +1,19 @@
 ---
-title: Copy data from Presto using Azure Data Factory (Preview) 
+title: Copy data from Presto using Azure Data Factory
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from Presto to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-services: data-factory
-documentationcenter: ''
-author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
-
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
-
-
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.author: jingwang
-
+ms.date: 12/18/2020
+ms.author: jianleishen
 ---
-# Copy data from Presto using Azure Data Factory (Preview)
+# Copy data from Presto using Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Presto. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!IMPORTANT]
-> This connector is currently in preview. You can try it out and give us feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
 
 ## Supported capabilities
 
@@ -37,7 +28,7 @@ Azure Data Factory provides a built-in driver to enable connectivity, therefore 
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Presto connector.
 
@@ -48,8 +39,8 @@ The following properties are supported for Presto linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Presto** | Yes |
-| host | The IP address or host name of the Presto server. (i.e. 192.168.222.160)  | Yes |
-| serverVersion | The version of the Presto server. (i.e. 0.148-t)  | Yes |
+| host | The IP address or host name of the Presto server. (e.g. 192.168.222.160)  | Yes |
+| serverVersion | The version of the Presto server. (e.g. 0.148-t)  | Yes |
 | catalog | The catalog context for all request against the server.  | Yes |
 | port | The TCP port that the Presto server uses to listen for client connections. The default value is 8080.  | No |
 | authenticationType | The authentication mechanism used to connect to the Presto server. <br/>Allowed values are: **Anonymous**, **LDAP** | Yes |

@@ -1,20 +1,25 @@
 ---
-title: Auto scale a cloud service in the portal | Microsoft Docs
-description: Learn how to use the portal to configure auto scale rules for a cloud service web role or worker role in Azure.
-services: cloud-services
-author: tgore03
-ms.service: cloud-services
+title: Auto scale a cloud service (classic) in the portal | Microsoft Docs
+description: Learn how to use the portal to configure auto scale rules for a cloud service (classic) roles in Azure.
 ms.topic: article
-ms.date: 05/18/2017
-ms.author: tagore
+ms.service: cloud-services
+ms.subservice: autoscale
+ms.date: 10/14/2020
+author: hirenshah1
+ms.author: hirshah
+ms.reviewer: mimckitt
+ms.custom: 
 ---
 
-# How to configure auto scaling for a Cloud Service in the portal
+# How to configure auto scaling for a Cloud Service (classic) in the portal
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
 
 Conditions can be set for a cloud service worker role that trigger a scale in or out operation. The conditions for the role can be based on the CPU, disk, or network load of the role. You can also set a condition based on a message queue or the metric of some other Azure resource associated with your subscription.
 
 > [!NOTE]
-> This article focuses on Cloud Service web and worker roles. When you create a virtual machine (classic) directly, it is hosted in a cloud service. You can scale a standard virtual machine by associating it with an [availability set](../virtual-machines/windows/classic/configure-availability-classic.md) and manually turn them on or off.
+> This article focuses on Cloud Service (classic). When you create a virtual machine (classic) directly, it is hosted in a cloud service. You can scale a standard virtual machine by associating it with an [availability set](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic) and manually turn them on or off.
 
 ## Considerations
 You should consider the following information before you configure scaling for your application:
@@ -38,17 +43,17 @@ After you select your cloud service, you should have the cloud service blade vis
 1. On the cloud service blade, on the **Roles and Instances** tile, select the name of the cloud service.   
    **IMPORTANT**: Make sure to click the cloud service role, not the role instance that is below the role.
 
-    ![](./media/cloud-services-how-to-scale-portal/roles-instances.png)
+    ![Screenshot of the Roles and instances tile with the Worker Role With S B Queue 1 option outlined in red.](./media/cloud-services-how-to-scale-portal/roles-instances.png)
 2. Select the **scale** tile.
 
-    ![](./media/cloud-services-how-to-scale-portal/scale-tile.png)
+    ![Screenshot of the Operations page with the Sale tile outlined in red.](./media/cloud-services-how-to-scale-portal/scale-tile.png)
 
 ## Automatic scale
 You can configure scale settings for a role with either two modes **manual** or **automatic**. Manual is as you would expect, you set the absolute count of instances. Automatic however allows you to set rules that govern how and by how much you should scale.
 
 Set the **Scale by** option to **schedule and performance rules**.
 
-![Cloud services scale settings with profile and rule](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
+![image Cloud services scale settings with profile and rule](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
 
 1. An existing profile.
 2. Add a rule for the parent profile.
@@ -84,7 +89,7 @@ Rules are added to a profile and represent a condition that triggers the scale.
 
 The rule trigger is based on a metric of the cloud service (CPU usage, disk activity, or network activity) to which you can add a conditional value. Additionally you can have the trigger based on a message queue or the metric of some other Azure resource associated with your subscription.
 
-![](./media/cloud-services-how-to-scale-portal/rule-settings.png)
+![Screenshot of the Rule dialog box with the Metric name option outlined in red.](./media/cloud-services-how-to-scale-portal/rule-settings.png)
 
 After you have configured the rule, select the **OK** button at the bottom of the rule blade.
 
@@ -100,6 +105,3 @@ This setting removes automated scaling from the role and then you can set the in
 3. Instances of the role to scale to.
 
 After you have configured the scale settings, select the **Save** icon at the top.
-
-
-

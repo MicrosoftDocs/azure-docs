@@ -1,6 +1,6 @@
 ---
-title: List role assignments using Azure RBAC and Azure PowerShell
-description: Learn how to determine what resources users, groups, service principals, or managed identities have access to using Azure role-based access control (RBAC) and Azure PowerShell.
+title: List Azure role assignments using Azure PowerShell - Azure RBAC
+description: Learn how to determine what resources users, groups, service principals, or managed identities have access to using Azure PowerShell and Azure role-based access control (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -9,25 +9,26 @@ manager: mtillman
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/10/2020
+ms.date: 07/28/2020
 ms.author: rolyon
-ms.reviewer: bagovind
+ms.reviewer: bagovind 
+ms.custom: devx-track-azurepowershell
 ---
-# List role assignments using Azure RBAC and Azure PowerShell
+# List Azure role assignments using Azure PowerShell
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] This article describes how to list role assignments using Azure PowerShell.
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control/definition-list.md)] This article describes how to list role assignments using Azure PowerShell.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> If your organization has outsourced management functions to a service provider who uses [Azure delegated resource management](../lighthouse/concepts/azure-delegated-resource-management.md), role assignments authorized by that service provider won't be shown here.
+> If your organization has outsourced management functions to a service provider who uses [Azure Lighthouse](../lighthouse/overview.md), role assignments authorized by that service provider won't be shown here.
 
 ## Prerequisites
 
-- [PowerShell in Azure Cloud Shell](/azure/cloud-shell/overview) or [Azure PowerShell](/powershell/azure/install-az-ps)
+- [PowerShell in Azure Cloud Shell](../cloud-shell/overview.md) or [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## List role assignments for the current subscription
 
@@ -137,6 +138,26 @@ Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGroups/<gr
 PS C:\> Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGroups/marketing-group
 ```
 
+## List role assignments for a resource
+
+To list role assignments for a specific resource, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) and the `-Scope` parameter. The scope will be different depending on the resource. To get the scope, you can run `Get-AzRoleAssignment` without any parameters to list all of the role assignments and then find the scope you want to list.
+
+```azurepowershell
+Get-AzRoleAssignment -Scope "/subscriptions/<subscription_id>/resourcegroups/<resource_group_name>/providers/<provider_name>/<resource_type>/<resource>
+```
+
+This following example shows how to list the role assignments for a storage account. Note that this command also lists role assignments at higher scopes, such as resource groups and subscriptions, that apply to this storage account.
+
+```Example
+PS C:\> Get-AzRoleAssignment -Scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/storage-test-rg/providers/Microsoft.Storage/storageAccounts/storagetest0122"
+```
+
+If you want to just list role assignments that are assigned directly on a resource, you can use the [Where-Object](/powershell/module/microsoft.powershell.core/where-object) command to filter the list.
+
+```Example
+PS C:\> Get-AzRoleAssignment | Where-Object {$_.Scope -eq "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/storage-test-rg/providers/Microsoft.Storage/storageAccounts/storagetest0122"}
+```
+
 ## List role assignments for classic service administrator and co-administrators
 
 To list role assignments for the classic subscription administrator and co-administrators, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
@@ -147,7 +168,7 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 ## List role assignments for a managed identity
 
-1. Get the the object ID of the system-assigned or user-assigned managed identity. 
+1. Get the object ID of the system-assigned or user-assigned managed identity. 
 
     To get the object ID of a user-assigned managed identity, you can use [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal).
 
@@ -163,4 +184,4 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 ## Next steps
 
-- [Add or remove role assignments using Azure RBAC and Azure PowerShell](role-assignments-powershell.md)
+- [Assign Azure roles using Azure PowerShell](role-assignments-powershell.md)

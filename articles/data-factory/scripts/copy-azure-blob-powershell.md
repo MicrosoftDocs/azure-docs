@@ -1,14 +1,12 @@
 ---
 title: Copy data in the cloud using PowerShell
 description: This PowerShell script copies data from one location in an Azure Blob Storage to another location in the same Blob Storage.
-services: data-factory
-ms.author: jingwang
-author: linda33wj
-manager: shwang
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: data-movement
 ms.topic: article
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 03/12/2020
 ---
 
@@ -22,7 +20,7 @@ This sample PowerShell script creates a pipeline in Azure Data Factory that copi
 
 ## Prerequisites
 * **Azure Storage account**. You use the blob storage as both the **source** and **sink** data stores. If you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-account-create.md) on creating one. 
-* Create a **blob container** in Blob Storage, create an input **folder** in the container, and upload some files to the folder. You can use tools such as [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/) to connect to Azure Blob storage, create a blob container, upload input file, and verify the output file.
+* Create a **blob container** in Blob Storage, create an input **folder** in the container, and upload some files to the folder. You can use tools such as [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to connect to Azure Blob storage, create a blob container, upload input file, and verify the output file.
 
 ## Sample script
 
@@ -63,6 +61,6 @@ This script uses the following commands:
 
 ## Next steps
 
-For more information on the Azure PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/).
+For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/).
 
 Additional Azure Data Factory PowerShell script samples can be found in the [Azure Data Factory PowerShell samples](../samples-powershell.md).

@@ -4,20 +4,20 @@ description: In this article, learn how to route network traffic with a route ta
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
+manager: mtillman
 editor: ''
 tags: azure-resource-manager
-Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
+# Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 
 ms.assetid: 
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
-ms.custom:
+ms.custom: devx-track-azurecli
 ---
 
 # Route network traffic with a route table using the Azure CLI
@@ -32,11 +32,11 @@ Azure automatically routes traffic between all subnets within a virtual network,
 * Deploy virtual machines (VM) into different subnets
 * Route traffic from one subnet to another through an NVA
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). 
+- This article requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a route table
 
@@ -49,7 +49,7 @@ az group create \
   --location eastus
 ```
 
-Create a route table with [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create). The following example creates a route table named *myRouteTablePublic*. 
+Create a route table with [az network route-table create](/cli/azure/network/route-table#az_network_route_table_create). The following example creates a route table named *myRouteTablePublic*. 
 
 ```azurecli-interactive
 # Create a route table
@@ -60,7 +60,7 @@ az network route-table create \
 
 ## Create a route
 
-Create a route in the route table with [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create). 
+Create a route in the route table with [az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create). 
 
 ```azurecli-interactive
 az network route-table route create \

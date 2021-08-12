@@ -2,15 +2,18 @@
 title: How to install IoT Edge on Kubernetes | Microsoft Docs 
 description: Learn on how to install IoT Edge on Kubernetes using a local development cluster environment
 author: kgremban
-manager: philmea
+
 ms.author: veyalla
 ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+monikerRange: "iotedge-2018-06"
 ---
 
 # How to install IoT Edge on Kubernetes (Preview)
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 IoT Edge can integrate with Kubernetes using it as a resilient, highly available infrastructure layer. Here is where this support fits in a high level IoT Edge solution:
 

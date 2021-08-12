@@ -1,22 +1,23 @@
 ---
-title: 'Connect your on-premises network to an Azure virtual network: Site-to-Site VPN: PowerShell'
-description: Steps to create an IPsec connection from your on-premises network to an Azure virtual network over the public Internet. These steps will help you create a cross-premises Site-to-Site VPN Gateway connection using PowerShell.
+title: 'Connect your on-premises network to an Azure VNet: Site-to-Site VPN: PowerShell'
+description: Learn how to create a Site-to-Site VPN Gateway connection between your on-premises network and an Azure VNet using PowerShell.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
-ms.topic: conceptual
-ms.date: 01/15/2020
-ms.author: cherylmc
+ms.topic: how-to
+ms.date: 04/28/2021
+ms.author: cherylmc 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Create a VNet with a Site-to-Site VPN connection using PowerShell
 
-This article shows you how to use PowerShell to create a Site-to-Site VPN gateway connection from your on-premises network to the VNet. The steps in this article apply to the Resource Manager deployment model. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
+This article shows you how to use PowerShell to create a Site-to-Site VPN gateway connection from your on-premises network to the VNet. The steps in this article apply to the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md). You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
-> * [Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Azure portal](./tutorial-site-to-site-portal.md)
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Azure portal (classic)](vpn-gateway-howto-site-to-site-classic-portal.md)
@@ -190,7 +191,7 @@ New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -VpnType RouteBased -GatewaySku VpnGw1
 ```
 
-After running this command, it can take up to 45 minutes for the gateway configuration to complete.
+Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
 
 ## <a name="ConfigureVPNDevice"></a>6. Configure your VPN device
 
@@ -233,12 +234,12 @@ There are a few different ways to verify your VPN connection.
 
 ## <a name="connectVM"></a>To connect to a virtual machine
 
-[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
+[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm.md)]
 
 
 ## <a name="modify"></a>To modify IP address prefixes for a local network gateway
 
-If the IP address prefixes that you want routed to your on-premises location change, you can modify the local network gateway. Two sets of instructions are provided. The instructions you choose depend on whether you have already created your gateway connection. When using these examples, modify the values to match your environment.
+If the IP address prefixes that you want routed to your on-premises location change, you can modify the local network gateway. When using these examples, modify the values to match your environment.
 
 [!INCLUDE [Modify prefixes](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 
@@ -257,7 +258,7 @@ Remove-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 `
 
 ## Next steps
 
-*  Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](https://docs.microsoft.com/azure/).
+*  Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](../index.yml).
 * For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
-* For information about creating a site-to-site VPN connection using Azure Resource Manager template, see [Create a Site-to-Site VPN Connection](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/).
-* For information about creating a vnet-to-vnet VPN connection using Azure Resource Manager template, see [Deploy HBase geo replication](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).
+* For information about creating a site-to-site VPN connection using Azure Resource Manager template, see [Create a Site-to-Site VPN Connection](https://azure.microsoft.com/resources/templates/site-to-site-vpn-create/).
+* For information about creating a vnet-to-vnet VPN connection using Azure Resource Manager template, see [Deploy HBase geo replication](https://azure.microsoft.com/resources/templates/hdinsight-hbase-replication-geo/).

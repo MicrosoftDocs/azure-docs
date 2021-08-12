@@ -1,44 +1,32 @@
 ---
 title: Automatically scale Azure HDInsight clusters
-description: Use the Azure HDInsight Autoscale feature to automatically Apache Hadoop scale clusters
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
+description: Use the Autoscale feature to automatically scale Azure HDInsight clusters based on a schedule or performance metrics.
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 04/07/2020
+ms.topic: how-to
+ms.custom: contperf-fy21q1, contperf-fy21q2
+ms.date: 12/14/2020
 ---
 
 # Automatically scale Azure HDInsight clusters
 
-> [!Important]
-> The Azure HDInsight Autoscale feature was released for general availability on November 7th, 2019 for Spark and Hadoop clusters and included improvements not available in the preview version of the feature. If you created a Spark cluster prior to November 7th, 2019 and want to use the Autoscale feature on your cluster, the recommended path is to create a new cluster, and enable Autoscale on the new cluster.
->
-> Autoscale for Interactive Query (LLAP) and HBase clusters is still in preview. Autoscale is only available on Spark, Hadoop, Interactive Query, and HBase clusters.
-
-Azure HDInsight's cluster Autoscale feature automatically scales the number of worker nodes in a cluster up and down. Other types of nodes in the cluster can't be scaled currently.  During the creation of a new HDInsight cluster, a minimum and maximum number of worker nodes can be set. Autoscale then monitors the resource requirements of the analytics load and scales the number of worker nodes up or down. There's no additional charge for this feature.
-
-## Cluster compatibility
-
-The following table describes the cluster types and versions that are compatible with the Autoscale feature.
-
-| Version | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
-|---|---|---|---|---|---|---|---|
-| HDInsight 3.6 without ESP | Yes | Yes | Yes | Yes* | No | No | No |
-| HDInsight 4.0 without ESP | Yes | Yes | Yes | Yes* | No | No | No |
-| HDInsight 3.6 with ESP | Yes | Yes | Yes | Yes* | No | No | No |
-| HDInsight 4.0 with ESP | Yes | Yes | Yes | Yes* | No | No | No |
-
-\* HBase clusters can only be configured for schedule-based scaling, not load-based.
+Azure HDInsight's free Autoscale feature can automatically increase or decrease the number of worker nodes in your cluster based on previously set criteria. The Autoscale feature works by scaling the number of nodes within preset limits based on either performance metrics or a schedule of scale-up and scale-down operations.
 
 ## How it works
 
-You can choose load-based scaling or schedule-based scaling for your HDInsight cluster. Load-based scaling changes the number of nodes in your cluster, within a range that you set, to ensure optimal CPU usage and minimize running cost.
+The Autoscale feature uses two types of conditions to trigger scaling events: thresholds for various cluster performance metrics (called *load-based scaling*) and time-based triggers (called *schedule-based scaling*). Load-based scaling changes the number of nodes in your cluster, within a range that you set, to ensure optimal CPU usage and minimize running cost. Schedule-based scaling changes the number of nodes in your cluster based on a schedule of scale-up and scale-down operations.
 
-Schedule-based scaling changes the number of nodes in your cluster based on conditions that take effect at specific times. These conditions scale the cluster to an intended number of nodes.
+The following video provides an overview of the challenges which Autoscale solves and how it can help you to control costs with HDInsight.
 
-### Metrics monitoring
+> [!VIDEO https://www.youtube.com/embed/UlZcDGGFlZ0?WT.mc_id=dataexposed-c9-niner]
+
+### Choosing load-based or schedule-based scaling
+
+Consider the following factors when choosing a scaling type:
+
+* Load variance: does the load of the cluster follow a consistent pattern at specific times, on specific days? If not, load based scheduling is a better option.
+* SLA requirements: Autoscale scaling is reactive instead of predictive. Will there be a sufficient delay between when the load starts to increase and when the cluster needs to be at its target size? If there are strict SLA requirements and the load is a fixed known pattern, 'schedule based' is a better option.
+
+### Cluster metrics
 
 Autoscale continuously monitors the cluster and collects the following metrics:
 
@@ -51,7 +39,7 @@ Autoscale continuously monitors the cluster and collects the following metrics:
 |Used Memory per Node|The load on a worker node. A worker node on which 10 GB of memory is used, is considered under more load than a worker with 2 GB of used memory.|
 |Number of Application Masters per Node|The number of Application Master (AM) containers running on a worker node. A worker node that is hosting two AM containers, is considered more important than a worker node that is hosting zero AM containers.|
 
-The above metrics are checked every 60 seconds. Autoscale makes decisions based on these metrics.
+The above metrics are checked every 60 seconds. You can setup scaling operations for your cluster using any of these metrics.
 
 ### Load-based scale conditions
 
@@ -66,6 +54,24 @@ For scale-up, Autoscale issues a scale-up request to add the required number of 
 
 For scale-down, Autoscale issues a request to remove a certain number of nodes. The scale-down is based on the number of AM containers per node. And the current CPU and memory requirements. The service also detects which nodes are candidates for removal based on current job execution. The scale down operation first decommissions the nodes, and then removes them from the cluster.
 
+### Cluster compatibility
+
+> [!Important]
+> The Azure HDInsight Autoscale feature was released for general availability on November 7th, 2019 for Spark and Hadoop clusters and included improvements not available in the preview version of the feature. If you created a Spark cluster prior to November 7th, 2019 and want to use the Autoscale feature on your cluster, the recommended path is to create a new cluster, and enable Autoscale on the new cluster.
+>
+> Autoscale for Interactive Query (LLAP) was released for general availability for HDI 4.0 on August 27th, 2020. HBase clusters are still in preview. Autoscale is only available on Spark, Hadoop, Interactive Query, and HBase clusters.
+
+The following table describes the cluster types and versions that are compatible with the Autoscale feature.
+
+| Version | Spark | Hive | Interactive Query | HBase | Kafka | Storm | ML |
+|---|---|---|---|---|---|---|---|
+| HDInsight 3.6 without ESP | Yes | Yes | Yes* | Yes* | No | No | No |
+| HDInsight 4.0 without ESP | Yes | Yes | Yes* | Yes* | No | No | No |
+| HDInsight 3.6 with ESP | Yes | Yes | Yes* | Yes* | No | No | No |
+| HDInsight 4.0 with ESP | Yes | Yes | Yes* | Yes* | No | No | No |
+
+\* HBase and Interactive Query clusters can only be configured for schedule-based scaling, not load-based.
+
 ## Get started
 
 ### Create a cluster with load-based Autoscaling
@@ -74,13 +80,13 @@ To enable the Autoscale feature with load-based scaling, complete the following 
 
 1. On the **Configuration + pricing** tab, select the **Enable autoscale** checkbox.
 1. Select **Load-based** under **Autoscale type**.
-1. Enter the intended values for the following properties:  
+1. Enter the intended values for the following properties:
 
     * Initial **Number of nodes** for **Worker node**.
     * **Min** number of worker nodes.
     * **Max** number of worker nodes.
 
-    ![Enable worker node load-based autoscale](./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-autoscale.png)
+    :::image type="content" source="./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-autoscale.png" alt-text="Enable worker node load-based autoscale":::
 
 The initial number of worker nodes must fall between the minimum and maximum, inclusive. This value defines the initial size of the cluster when it's created. The minimum number of worker nodes should be set to three or more. Scaling your cluster to fewer than three nodes can result in it getting stuck in safe mode because of insufficient file replication.  For more information, see [Getting stuck in safe mode](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
 
@@ -97,7 +103,7 @@ To enable the Autoscale feature with schedule-based scaling, complete the follow
 1. Edit the time the condition should take effect and the number of nodes that the cluster should be scaled to.
 1. Add more conditions if needed.
 
-    ![Enable worker node schedule-based creation](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-schedule-creation.png)
+    :::image type="content" source="./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-schedule-creation.png" alt-text="Enable worker node schedule-based creation":::
 
 The number of nodes must be between 3 and the maximum number of worker nodes that you entered before adding conditions.
 
@@ -105,20 +111,20 @@ The number of nodes must be between 3 and the maximum number of worker nodes tha
 
 Select the VM type for worker nodes by selecting a VM from the drop-down list under **Node size**. After you choose the VM type for each node type, you can see the estimated cost range for the whole cluster. Adjust the VM types to fit your budget.
 
-![Enable worker node schedule-based autoscale node size](./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-vmsize.png)
+:::image type="content" source="./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-vmsize.png" alt-text="Enable worker node schedule-based autoscale node size":::
 
 Your subscription has a capacity quota for each region. The total number of cores of your head nodes and the maximum worker nodes can't exceed the capacity quota. However, this quota is a soft limit; you can always create a support ticket to get it increased easily.
 
-> [!Note]  
+> [!Note]
 > If you exceed the total core quota limit, You will receive an error message saying 'the maximum node exceeded the available cores in this region, please choose another region or contact the support to increase the quota.'
 
-For more information on HDInsight cluster creation using the Azure portal, see [Create Linux-based clusters in HDInsight using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md).  
+For more information on HDInsight cluster creation using the Azure portal, see [Create Linux-based clusters in HDInsight using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ### Create a cluster with a Resource Manager template
 
 #### Load-based autoscaling
 
-You can create an HDInsight cluster with load-based Autoscaling an Azure Resource Manager template, by adding an `autoscale` node to the `computeProfile` > `workernode` section with the properties `minInstanceCount` and `maxInstanceCount` as shown in the json snippet below.
+You can create an HDInsight cluster with load-based Autoscaling an Azure Resource Manager template, by adding an `autoscale` node to the `computeProfile` > `workernode` section with the properties `minInstanceCount` and `maxInstanceCount` as shown in the json snippet below. For a complete Resource Manager template see [Quickstart template: Deploy Spark Cluster with load-based autoscale enabled](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-autoscale-loadbased).
 
 ```json
 {
@@ -146,7 +152,7 @@ You can create an HDInsight cluster with load-based Autoscaling an Azure Resourc
 
 #### Schedule-based autoscaling
 
-You can create an HDInsight cluster with schedule-based Autoscaling an Azure Resource Manager template, by adding an `autoscale` node to the `computeProfile` > `workernode` section. The `autoscale` node contains a `recurrence` that has a `timezone` and `schedule` that describes when the change will take place.
+You can create an HDInsight cluster with schedule-based Autoscaling an Azure Resource Manager template, by adding an `autoscale` node to the `computeProfile` > `workernode` section. The `autoscale` node contains a `recurrence` that has a `timezone` and `schedule` that describes when the change will take place. For a complete Resource Manager template, see [Deploy Spark Cluster with schedule-based Autoscale Enabled](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-autoscale-schedulebased).
 
 ```json
 {
@@ -167,12 +173,12 @@ You can create an HDInsight cluster with schedule-based Autoscaling an Azure Res
             "minInstanceCount": 10,
             "maxInstanceCount": 10
           }
-        },
+        }
       ]
     }
   },
   "name": "workernode",
-  "targetInstanceCount": 4,
+  "targetInstanceCount": 4
 }
 ```
 
@@ -182,7 +188,7 @@ You can create an HDInsight cluster with schedule-based Autoscaling an Azure Res
 
 To enable Autoscale on a running cluster, select **Cluster size** under **Settings**. Then select **Enable autoscale**. Select the type of Autoscale that you want and enter the options for load-based or schedule-based scaling. Finally, select **Save**.
 
-![Enable worker node schedule-based autoscale running cluster](./media/hdinsight-autoscale-clusters/azure-portal-settings-autoscale.png)
+:::image type="content" source="./media/hdinsight-autoscale-clusters/azure-portal-settings-autoscale.png" alt-text="Enable worker node schedule-based autoscale running cluster":::
 
 #### Using the REST API
 
@@ -195,43 +201,18 @@ https://management.azure.com/subscriptions/{subscription Id}/resourceGroups/{res
 Use the appropriate parameters in the request payload. The json payload below could be used to enable Autoscale. Use the payload `{autoscale: null}` to disable Autoscale.
 
 ```json
-{ autoscale: { capacity: { minInstanceCount: 3, maxInstanceCount: 2 } } }
+{ "autoscale": { "capacity": { "minInstanceCount": 3, "maxInstanceCount": 5 } } }
 ```
 
 See the previous section on [enabling load-based autoscale](#load-based-autoscaling) for a full description of all payload parameters.
 
-## Guidelines
-
-### Choosing load-based or schedule-based scaling
-
-Consider the following factors before making a decision on which mode to choose:
-
-* Enable Autoscale during cluster creation.
-* The minimum number of nodes should be at least three.
-* Load variance: does the load of the cluster follow a consistent pattern at specific times, on specific days. If not, load based scheduling is a better option.
-* SLA requirements: Autoscale scaling is reactive instead of predictive. Will there be a sufficient delay between when the load starts to increase and when the cluster needs to be at its target size? If there are strict SLA requirements and the load is a fixed known pattern, 'schedule based' is a better option.
-
-### Consider the latency of scale up or scale down operations
-
-It can take 10 to 20 minutes for a scaling operation to complete. When setting up a customized schedule, plan for this delay. For example, if you need the cluster size to be 20 at 9:00 AM, set the schedule trigger to an earlier time such as 8:30 AM so that the scaling operation has completed by 9:00 AM.
-
-### Preparation for scaling down
-
-During cluster scaling down process, Autoscale will decommission the nodes to meet the target size. If tasks are running on those nodes, Autoscale will wait until the tasks are completed. Since each worker node also serves a role in HDFS, the temp data will be shifted to the remaining nodes. So you should make sure there's enough space on the remaining nodes to host all the temp data.
-
-The running jobs will continue. The pending jobs will wait for scheduling with fewer available worker nodes.
-
-### Minimum cluster size
-
-Don't scale your cluster down to fewer than three nodes. Scaling your cluster to fewer than three nodes can result in it getting stuck in safe mode because of insufficient file replication.  For more information, see [Getting stuck in safe mode](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
-
-## Monitoring
+## Monitoring Autoscale activities
 
 ### Cluster status
 
 The cluster status listed in the Azure portal can help you monitor Autoscale activities.
 
-![Enable worker node load-based autoscale cluster status](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-cluster-status.png)
+:::image type="content" source="./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-cluster-status.png" alt-text="Enable worker node load-based autoscale cluster status":::
 
 All of the cluster status messages that you might see are explained in the list below.
 
@@ -251,7 +232,57 @@ You can view the cluster scale-up and scale-down history as part of the cluster 
 
 Select **Metrics** under **Monitoring**. Then select **Add metric** and **Number of Active Workers** from the **Metric** dropdown box. Select the button in the upper right to change the time range.
 
-![Enable worker node schedule-based autoscale metric](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
+:::image type="content" source="./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png" alt-text="Enable worker node schedule-based autoscale metric":::
+
+## Best practices
+
+### Consider the latency of scale up and scale down operations
+
+It can take 10 to 20 minutes for a scaling operation to complete. When setting up a customized schedule, plan for this delay. For example, if you need the cluster size to be 20 at 9:00 AM, set the schedule trigger to an earlier time such as 8:30 AM so that the scaling operation has completed by 9:00 AM.
+
+### Prepare for scaling down
+
+During the cluster scaling down process, Autoscale decommissions the nodes to meet the target size. If tasks are running on those nodes, Autoscale waits until the tasks are completed for Spark and Hadoop clusters. Since each worker node also serves a role in HDFS, the temporary data is shifted to the remaining nodes. Make sure there's enough space on the remaining nodes to host all temporary data.
+
+The running jobs will continue. The pending jobs will wait for scheduling with fewer available worker nodes.
+
+### Configure schedule-based Autoscale based on usage pattern
+
+You need to understand your cluster usage pattern when you configure schedule based Autoscale. [Grafana dashboard](./interactive-query/hdinsight-grafana.md)  can help you understand your query load and execution slots. You can get the available executor slots and total executor slots from the dashboard.
+
+Here is a way you can estimate how many worker nodes will be needed. We recommend giving additional 10% buffer to handle the variation of the workload.
+
+Number of executor slots actually used = Total executor slots – Total available executor slots.
+
+Number of worker nodes required = Number of executor slots actually used / (hive.llap.daemon.num.executors + hive.llap.daemon.task.scheduler.wait.queue.size)
+
+*hive.llap.daemon.num.executors is configurable and default is 4
+
+*hive.llap.daemon.task.scheduler.wait.queue.size is configurable and default is 10
+
+
+### Be aware of the minimum cluster size
+
+Don't scale your cluster down to fewer than three nodes. Scaling your cluster to fewer than three nodes can result in it getting stuck in safe mode because of insufficient file replication. For more information, see [getting stuck in safe mode](hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
+
+### Increase the number of mappers and reducers
+
+Autoscale for Hadoop clusters also monitors HDFS usage. If the HDFS is busy, it assumes the cluster still needs the current resources. When there is massive data involved in the query, you can increase the number of mappers and reducers to increase the parallelism and accelerate the HDFS operations. In this way, proper scaling down will be triggered when there are extra resources.
+
+### Set the Hive configuration Maximum Total Concurrent Queries for the peak usage scenario
+
+Autoscale events don't change the Hive configuration *Maximum Total Concurrent Queries* in Ambari. This means that the Hive Server 2 Interactive Service can handle only the given number of concurrent queries at any point of time even if the Interactive Query daemons count are scaled up and down based on load and schedule. The general recommendation is to set this configuration for the peak usage scenario to avoid manual intervention.
+
+However, you may experience a Hive Server 2 restart failure if there are only a small number of worker nodes and the value for maximum total concurrent queries is configured too high. At a minimum, you need the minimum number of worker nodes that can accommodate the given number of Tez Ams (equal to the Maximum Total Concurrent Queries configuration).
+
+## Limitations
+
+
+### Interactive Query Daemons count
+
+In case of autoscale-enabled Interactive Query clusters, an autoscale up/down event also scales up/down the number of Interactive Query daemons to the number of active worker nodes. The change in the number of daemons is not persisted in the `num_llap_nodes` configuration in Ambari. If Hive services are restarted manually, the number of Interactive Query daemons is reset as per the configuration in Ambari.
+
+If the Interactive Query service is manually restarted, you need to manually change the `num_llap_node` configuration (the number of node(s) needed to run the Hive Interactive Query daemon) under *Advanced hive-interactive-env* to match the current active worker node count.
 
 ## Next steps
 

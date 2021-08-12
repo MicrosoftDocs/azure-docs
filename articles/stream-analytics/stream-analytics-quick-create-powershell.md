@@ -1,12 +1,12 @@
 ---
 title: Quickstart - Create a Stream Analytics job using Azure PowerShell
 description: This quickstart demonstrates how to use the Azure PowerShell module to deploy and run an Azure Stream Analytics job.
-author: mamccrea
-ms.author: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell, devx-track-azurecli
 #Customer intent: "As an IT admin/developer I want to create a Stream Analytics job, configure input and output & analyze data by using Azure PowerShell."
 ---
 
@@ -22,9 +22,9 @@ The example job reads streaming data from an IoT Hub device. The input data is g
 
 * If you don't have an Azure subscription, create a [free account.](https://azure.microsoft.com/free/)
 
-* This quickstart requires the Azure PowerShell module. Run `Get-Module -ListAvailable Az` to find the version that is installed on your local machine. If you need to install or upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+* This quickstart requires the Azure PowerShell module. Run `Get-Module -ListAvailable Az` to find the version that is installed on your local machine. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
 
-* Some IoT Hub actions are not supported by Azure PowerShell and must be completed using Azure CLI version 2.0.70 or later and the IoT extension for Azure CLI. [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) and use `az extension add --name azure-iot` to install the IoT extension.
+* Some IoT Hub actions are not supported by Azure PowerShell and must be completed using Azure CLI version 2.0.70 or later and the IoT extension for Azure CLI. [Install the Azure CLI](/cli/azure/install-azure-cli) and use `az extension add --name azure-iot` to install the IoT extension.
 
 
 ## Sign in to Azure
@@ -48,7 +48,7 @@ Get-AzSubscription -SubscriptionName "<your subscription name>" | Select-AzSubsc
 
 ## Create a resource group
 
-Create an Azure resource group with [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed.
+Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed.
 
 ```powershell
 $resourceGroup = "StreamAnalyticsRG"
@@ -64,9 +64,9 @@ Before defining the Stream Analytics job, prepare the data that is configured as
 
 The following Azure CLI code block does many commands to prepare the input data required by the job. Review the sections to understand the code.
 
-1. In your PowerShell window, run the [az login](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) command to sign in to your Azure account.
+1. In your PowerShell window, run the [az login](/cli/azure/authenticate-azure-cli) command to sign in to your Azure account.
 
-    When you successfully sign in, Azure CLI returns a list of your subscriptions. Copy the subscription you're using for this quickstart and run the [az account set](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription) command to select that subscription. Choose the same subscription you selected in the previous section with PowerShell. Make sure to replace `<your subscription name>` with the name of your subscription.
+    When you successfully sign in, Azure CLI returns a list of your subscriptions. Copy the subscription you're using for this quickstart and run the [az account set](/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription) command to select that subscription. Choose the same subscription you selected in the previous section with PowerShell. Make sure to replace `<your subscription name>` with the name of your subscription.
 
     ```azurecli
     az login
@@ -74,25 +74,25 @@ The following Azure CLI code block does many commands to prepare the input data 
     az account set --subscription "<your subscription>"
     ```
 
-2. Create an IoT Hub using the [az iot hub create](../iot-hub/iot-hub-create-using-cli.md#create-an-iot-hub) command. This example creates an IoT Hub called **MyASAIoTHub**. Because IoT Hub names are unique, you need to come up with your own IoT Hub name. Set the SKU to F1 to use the free tier if it is available with your subscription. If not, choose the next lowest tier.
+2. Create an IoT Hub using the [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) command. This example creates an IoT Hub called **MyASAIoTHub**. Because IoT Hub names are unique, you need to come up with your own IoT Hub name. Set the SKU to F1 to use the free tier if it is available with your subscription. If not, choose the next lowest tier.
 
     ```azurecli
     az iot hub create --name "<your IoT Hub name>" --resource-group $resourceGroup --sku S1
     ```
 
-    Once the IoT hub has been created, get the IoT Hub connection string using the [az iot hub show-connection-string](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest) command. Copy the entire connection string and save it for when you add the IoT Hub as input to your Stream Analytics job.
+    Once the IoT hub has been created, get the IoT Hub connection string using the [az iot hub show-connection-string](/cli/azure/iot/hub#az_iot_hub_show_connection_string) command. Copy the entire connection string and save it for when you add the IoT Hub as input to your Stream Analytics job.
 
     ```azurecli
     az iot hub show-connection-string --hub-name "MyASAIoTHub"
     ```
 
-3. Add a device to IoT Hub using the [az iothub device-identity create](../iot-hub/quickstart-send-telemetry-c.md#register-a-device) command. This example creates a device called **MyASAIoTDevice**.
+3. Add a device to IoT Hub using the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create) command. This example creates a device called **MyASAIoTDevice**.
 
     ```azurecli
     az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"
     ```
 
-4. Get the device connection string using the [az iot hub device-identity show-connection-string](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity#ext-azure-cli-iot-ext-az-iot-hub-device-identity-show-connection-string) command. Copy the entire connection string and save it for when you create the Raspberry Pi simulator.
+4. Get the device connection string using the [az iot hub device-identity show-connection-string](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_show_connection_string) command. Copy the entire connection string and save it for when you create the Raspberry Pi simulator.
 
     ```azurecli
     az iot hub device-identity show-connection-string --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice" --output table
@@ -108,11 +108,11 @@ The following Azure CLI code block does many commands to prepare the input data 
 
 The following Azure PowerShell code block uses commands to create blob storage that is used for job output. Review the sections to understand the code.
 
-1. Create a standard general-purpose storage account using [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/New-azStorageAccount) cmdlet.  This example creates a storage account called **myasaquickstartstorage** with locally redundant storage(LRS) and blob encryption (enabled by default).
+1. Create a standard general-purpose storage account using [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) cmdlet.  This example creates a storage account called **myasaquickstartstorage** with locally redundant storage(LRS) and blob encryption (enabled by default).
 
 2. Retrieve the storage account context `$storageAccount.Context` that defines the storage account to be used. When working with storage accounts, you reference the context instead of repeatedly providing the credentials.
 
-3. Create a storage container using [New-AzStorageContainer](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontainer).
+3. Create a storage container using [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer).
 
 4. Copy the storage key that is outputted by the code, and save that key to create the streaming job's output later on.
 
@@ -142,7 +142,7 @@ The following Azure PowerShell code block uses commands to create blob storage t
 
 ## Create a Stream Analytics job
 
-Create a Stream Analytics job with [New-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsjob) cmdlet. This cmdlet takes the job name, resource group name, and job definition as parameters. The job name can be any friendly name that identifies your job. It can have alphanumeric characters, hyphens, and underscores only and it must be between 3 and 63 characters long. The job definition is a JSON file that contains the properties required to create a job. On your local machine, create a file named `JobDefinition.json` and add the following JSON data to it:
+Create a Stream Analytics job with [New-AzStreamAnalyticsJob](/powershell/module/az.streamanalytics/new-azstreamanalyticsjob) cmdlet. This cmdlet takes the job name, resource group name, and job definition as parameters. The job name can be any friendly name that identifies your job. It can have alphanumeric characters, hyphens, and underscores only and it must be between 3 and 63 characters long. The job definition is a JSON file that contains the properties required to create a job. On your local machine, create a file named `JobDefinition.json` and add the following JSON data to it:
 
 ```json
 {
@@ -172,7 +172,7 @@ New-AzStreamAnalyticsJob `
 
 ## Configure input to the job
 
-Add an input to your job by using the [New-AzStreamAnalyticsInput](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsinput) cmdlet. This cmdlet takes the job name, job input name, resource group name, and the job input definition as parameters. The job input definition is a JSON file that contains the properties required to configure the job’s input. In this example, you'll create a blob storage as an input.
+Add an input to your job by using the [New-AzStreamAnalyticsInput](/powershell/module/az.streamanalytics/new-azstreamanalyticsinput) cmdlet. This cmdlet takes the job name, job input name, resource group name, and the job input definition as parameters. The job input definition is a JSON file that contains the properties required to configure the job’s input. In this example, you'll create a blob storage as an input.
 
 On your local machine, create a file named `JobInputDefinition.json` and add the following JSON data to it. Make sure to replace the value for `accesspolicykey` with the `SharedAccessKey` portion of the IoT Hub connection string you saved in a previous section.
 
@@ -219,7 +219,7 @@ New-AzStreamAnalyticsInput `
 
 ## Configure output to the job
 
-Add an output to your job by using the [New-AzStreamAnalyticsOutput](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsoutput) cmdlet. This cmdlet takes the job name, job output name, resource group name, and the job output definition as parameters. The job output definition is a JSON file that contains the properties required to configure job’s output. This example uses blob storage as output.
+Add an output to your job by using the [New-AzStreamAnalyticsOutput](/powershell/module/az.streamanalytics/new-azstreamanalyticsoutput) cmdlet. This cmdlet takes the job name, job output name, resource group name, and the job output definition as parameters. The job output definition is a JSON file that contains the properties required to configure job’s output. This example uses blob storage as output.
 
 On your local machine, create a file named `JobOutputDefinition.json`, and add the following JSON data to it. Make sure to replace the value for `accountKey` with your storage account’s access key that is the value stored in $storageAccountKey value.
 
@@ -268,7 +268,7 @@ New-AzStreamAnalyticsOutput `
 
 ## Define the transformation query
 
-Add a transformation your job by using the [New-AzStreamAnalyticsTransformation](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticstransformation) cmdlet. This cmdlet takes the job name, job transformation name, resource group name, and the job transformation definition as parameters. On your local machine, create a file named `JobTransformationDefinition.json` and add the following JSON data to it. The JSON file contains a query parameter that defines the transformation query:
+Add a transformation your job by using the [New-AzStreamAnalyticsTransformation](/powershell/module/az.streamanalytics/new-azstreamanalyticstransformation) cmdlet. This cmdlet takes the job name, job transformation name, resource group name, and the job transformation definition as parameters. On your local machine, create a file named `JobTransformationDefinition.json` and add the following JSON data to it. The JSON file contains a query parameter that defines the transformation query:
 
 ```json
 {
@@ -306,7 +306,7 @@ New-AzStreamAnalyticsTransformation `
 
 ## Start the Stream Analytics job and check the output
 
-Start the job by using the [Start-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/start-azstreamanalyticsjob) cmdlet. This cmdlet takes the job name, resource group name, output start mode, and start time as parameters. `OutputStartMode` accepts values of `JobStartTime`, `CustomTime`, or `LastOutputEventTime`. To learn more about what each of these values are referring to, see the [parameters](https://docs.microsoft.com/powershell/module/az.streamanalytics/start-azstreamanalyticsjob) section in PowerShell documentation.
+Start the job by using the [Start-AzStreamAnalyticsJob](/powershell/module/az.streamanalytics/start-azstreamanalyticsjob) cmdlet. This cmdlet takes the job name, resource group name, output start mode, and start time as parameters. `OutputStartMode` accepts values of `JobStartTime`, `CustomTime`, or `LastOutputEventTime`. To learn more about what each of these values are referring to, see the [parameters](/powershell/module/az.streamanalytics/start-azstreamanalyticsjob) section in PowerShell documentation.
 
 After you run the following cmdlet, it returns `True` as output if the job starts. In the storage container, an output folder is created with the transformed data.
 

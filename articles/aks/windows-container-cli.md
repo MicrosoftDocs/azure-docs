@@ -1,74 +1,25 @@
 ---
-title: Run Windows Server container in Azure Kubernetes Service cluster
+title: Create a Windows Server container on an AKS cluster by using Azure CLI
 description: Learn how to quickly create a Kubernetes cluster, deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using the Azure CLI.
 services: container-service
 ms.topic: article
-ms.date: 01/27/2020
+ms.date: 08/06/2021
 
 
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy a Windows Server container so that I can see how to run applications running on a Windows Server container using the managed Kubernetes service in Azure.
 ---
 
-# Preview - Create a Windows Server container on an Azure Kubernetes Service (AKS) cluster using the Azure CLI
+# Create a Windows Server container on an Azure Kubernetes Service (AKS) cluster using the Azure CLI
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this article, you deploy an AKS cluster using the Azure CLI. You also deploy an ASP.NET sample application in a Windows Server container to the cluster.
-
-This feature is currently in preview.
 
 ![Image of browsing to ASP.NET sample application](media/windows-container/asp-net-sample-app.png)
 
 This article assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.61 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
-
-## Before you begin
-
-You must add an additional node pool after you create your cluster that can run Windows Server containers. Adding an additional node pool is covered in a later step, but you first need to enable a few preview features.
-
-> [!IMPORTANT]
-> AKS preview features are self-service opt-in. Previews are provided "as-is" and "as available" and are excluded from the service level agreements and limited warranty. AKS Previews are partially covered by customer support on best effort basis. As such, these features are not meant for production use. For additional infromation, please see the following support articles:
->
-> * [AKS Support Policies][aks-support-policies]
-> * [Azure Support FAQ][aks-faq]
-
-### Install aks-preview CLI extension
-
-To use Windows Server containers, you need the *aks-preview* CLI extension version 0.4.12 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command::
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-
-### Register Windows preview feature
-
-To create an AKS cluster that can use multiple node pools and run Windows Server containers, first enable the *WindowsPreview* feature flags on your subscription. The *WindowsPreview* feature also uses multi-node pool clusters and virtual machine scale set to manage the deployment and configuration of the Kubernetes nodes. Register the  *WindowsPreview* feature flag using the [az feature register][az-feature-register] command as shown in the following example:
-
-```azurecli-interactive
-az feature register --name WindowsPreview --namespace Microsoft.ContainerService
-```
-
-> [!NOTE]
-> Any AKS cluster you create after you've successfully registered the *WindowsPreview* feature flag use this preview cluster experience. To continue to create regular, fully-supported clusters, don't enable preview features on production subscriptions. Use a separate test or development Azure subscription for testing preview features.
-
-It takes a few minutes for the registration to complete. Check on the registration status using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/WindowsPreview')].{Name:name,State:properties.state}"
-```
-
-When the registration state is `Registered`, press Ctrl-C to stop monitoring the state.  Then refresh the registration of the *Microsoft.ContainerService* resource provider using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ### Limitations
 
@@ -76,10 +27,10 @@ The following limitations apply when you create and manage AKS clusters that sup
 
 * You can't delete the first node pool.
 
-While this feature is in preview, the following additional limitations apply:
+The following additional limitations apply to Windows Server node pools:
 
-* The AKS cluster can have a maximum of eight node pools.
-* The AKS cluster can have a maximum of 400 nodes across those eight node pools.
+* The AKS cluster can have a maximum of 10 node pools.
+* The AKS cluster can have a maximum of 100 nodes in each node pool.
 * The Windows Server node pool name has a limit of 6 characters.
 
 ## Create a resource group
@@ -114,45 +65,48 @@ The following example output shows the resource group created successfully:
 
 ## Create an AKS cluster
 
-In order to run an AKS cluster that supports node pools for Windows Server containers, your cluster needs to use a network policy that uses [Azure CNI][azure-cni-about] (advanced) network plugin. For more detailed information to help plan out the required subnet ranges and network considerations, see [configure Azure CNI networking][use-advanced-networking]. Use the [az aks create][az-aks-create] command to create an AKS cluster named *myAKSCluster*. This command will create the necessary network resources if they don't exist.
-  * The cluster is configured with two nodes
-  * The *windows-admin-password* and *windows-admin-username* parameters set the admin credentials for any Windows Server containers created on the cluster.
+To run an AKS cluster that supports node pools for Windows Server containers, your cluster needs to use a network policy that uses [Azure CNI][azure-cni-about] (advanced) network plugin. For more detailed information to help plan out the required subnet ranges and network considerations, see [configure Azure CNI networking][use-advanced-networking]. Use the [az aks create][az-aks-create] command to create an AKS cluster named *myAKSCluster*. This command will create the necessary network resources if they don't exist.
+
+* The cluster is configured with two nodes.
+* The `--windows-admin-password` and `--windows-admin-username` parameters set the administrator credentials for any Windows Server nodes on the cluster and must meet [Windows Server password requirements][windows-server-password]. If you don't specify the *windows-admin-password* parameter, you will be prompted to provide a value.
+* The node pool uses `VirtualMachineScaleSets`.
 
 > [!NOTE]
 > To ensure your cluster to operate reliably, you should run at least 2 (two) nodes in the default node pool.
 
-Provide your own secure *PASSWORD_WIN* (remember that the commands in this article are entered into a BASH shell):
+Create a username to use as administrator credentials for the Windows Server nodes on your cluster. The following commands prompt you for a username and set it WINDOWS_USERNAME for use in a later command (remember that the commands in this article are entered into a BASH shell).
 
 ```azurecli-interactive
-PASSWORD_WIN="P@ssw0rd1234"
+echo "Please enter the username to use as administrator credentials for Windows Server nodes on your cluster: " && read WINDOWS_USERNAME
+```
 
+Create your cluster ensuring you specify `--windows-admin-username` parameter. The following example command creates a cluster using the value from *WINDOWS_USERNAME* you set in the previous command. Alternatively you can provide a different username directly in the parameter instead of using *WINDOWS_USERNAME*. The following command will also prompt you to create a password for the administrator credentials for the Windows Server nodes on your cluster. Alternatively, you can use the *windows-admin-password* parameter and specify your own value there.
+
+```azurecli-interactive
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --node-count 2 \
     --enable-addons monitoring \
-    --kubernetes-version 1.15.7 \
     --generate-ssh-keys \
-    --windows-admin-password $PASSWORD_WIN \
-    --windows-admin-username azureuser \
+    --windows-admin-username $WINDOWS_USERNAME \
     --vm-set-type VirtualMachineScaleSets \
-    --load-balancer-sku standard \
+    --kubernetes-version 1.20.7 \
     --network-plugin azure
 ```
 
-> [!Note]
-> If you get a password validation error, try creating your resource group in another region.
-> Then try creating the cluster with the new resource group.
+> [!NOTE]
+> If you get a password validation error, verify the password you set meets the [Windows Server password requirements][windows-server-password]. If your password meets the requirements, try creating your resource group in another region. Then try creating the cluster with the new resource group.
+>
+> If you do not specify an administrator username and password when setting `--vm-set-type VirtualMachineScaleSets` and `--network-plugin azure`, the username is set to *azureuser* and the password is set to a random value.
+> 
+> The administrator username can't be changed, but you can change the administrator password your AKS cluster uses for Windows Server nodes using `az aks update`. For more details, see [Windows Server node pools FAQ][win-faq-change-admin-creds].
 
-> [!Note]
-> If you are unable to create the AKS cluster because the version is not supported in this region then you can use the [az aks get-versions --location eastus] command to find the supported version list for this region.
-
-
-After a few minutes, the command completes and returns JSON-formatted information about the cluster. Occasionally the cluster can take longer than a few minutes to provision. Allow up to 10 minutes in these cases. 
+After a few minutes, the command completes and returns JSON-formatted information about the cluster. Occasionally the cluster can take longer than a few minutes to provision. Allow up to 10 minutes in these cases.
 
 ## Add a Windows Server node pool
 
-By default, an AKS cluster is created with a node pool that can run Linux containers. Use `az aks nodepool add` command to add an additional node pool that can run Windows Server containers.
+By default, an AKS cluster is created with a node pool that can run Linux containers. Use `az aks nodepool add` command to add an additional node pool that can run Windows Server containers alongside the Linux node pool.
 
 ```azurecli
 az aks nodepool add \
@@ -160,11 +114,101 @@ az aks nodepool add \
     --cluster-name myAKSCluster \
     --os-type Windows \
     --name npwin \
-    --node-count 1 \
-    --kubernetes-version 1.15.7
+    --node-count 1
 ```
 
-The above command creates a new node pool named *npwin* and adds it to the *myAKSCluster*. When creating a node pool to run Windows Server containers, the default value for *node-vm-size* is *Standard_D2s_v3*. If you choose to set the *node-vm-size* parameter, please check the list of [restricted VM sizes][restricted-vm-sizes]. The minimum recommended size is *Standard_D2s_v3*. The above command also uses the default subnet in the default vnet created when running `az aks create`.
+The above command creates a new node pool named *npwin* and adds it to the *myAKSCluster*. The above command also uses the default subnet in the default vnet created when running `az aks create`.
+
+## Optional: Using `containerd` with Windows Server node pools (preview)
+
+Beginning in Kubernetes version 1.20 and greater, you can specify `containerd` as the container runtime for Windows Server 2019 node pools.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+You will need the *aks-preview* Azure CLI extension version 0.5.24 or greater. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+> [!IMPORTANT]
+> When using `containerd` with Windows Server 2019 node pools:
+> - Both the control plane and Windows Server 2019 node pools must use Kubernetes version 1.20 or greater.
+> - When creating or updating a node pool to run Windows Server containers, the default value for *node-vm-size* is *Standard_D2s_v3* which was minimum recommended size for Windows Server 2019 node pools prior to Kubernetes 1.20. The minimum recommended size for Windows Server 2019 node pools using `containerd` is *Standard_D4s_v3*. When setting the *node-vm-size* parameter, please check the list of [restricted VM sizes][restricted-vm-sizes].
+> - It is highly recommended that you use [taints or labels][aks-taints] with your Windows Server 2019 node pools running `containerd` and tolerations or node selectors with your deployments to guarantee your workloads are scheduled correctly.
+
+Register the `UseCustomizedWindowsContainerRuntime` feature flag using the [az feature register][az-feature-register] command as shown in the following example:
+
+```azurecli
+az feature register --namespace "Microsoft.ContainerService" --name "UseCustomizedWindowsContainerRuntime"
+```
+
+You can check on the registration status using the [az feature list][az-feature-list] command:
+
+```azurecli
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedWindowsContainerRuntime')].{Name:name,State:properties.state}"
+```
+
+When ready, refresh the registration of the Microsoft.ContainerService resource provider using the [az provider register][az-provider-register] command:
+
+```azurecli
+az provider register --namespace Microsoft.ContainerService
+```
+
+### Add a Windows Server node pool with `containerd` (preview)
+
+Use the `az aks nodepool add` command to add an additional node pool that can run Windows Server containers with the `containerd` runtime.
+
+> [!NOTE]
+> If you do not specify the *WindowsContainerRuntime=containerd* custom header, the node pool will use Docker as the container runtime.
+
+```azurecli
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --os-type Windows \
+    --name npwcd \
+    --node-vm-size Standard_D4s_v3 \
+    --kubernetes-version 1.20.5 \
+    --aks-custom-headers WindowsContainerRuntime=containerd \
+    --node-count 1
+```
+
+The above command creates a new Windows Server node pool using `containerd` as the runtime named *npwcd* and adds it to the *myAKSCluster*. The above command also uses the default subnet in the default vnet created when running `az aks create`.
+
+### Upgrade an existing Windows Server node pool to `containerd` (preview)
+
+Use the `az aks nodepool upgrade` command to upgrade a specific node pool from Docker to `containerd`.
+
+```azurecli
+az aks nodepool upgrade \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name npwd \
+    --kubernetes-version 1.20.7 \
+    --aks-custom-headers WindowsContainerRuntime=containerd
+```
+
+The above command upgrades a node pool named *npwd* to the `containerd` runtime.
+
+To upgrade all existing node pools in a cluster to use the `containerd` runtime for all Windows Server node pools:
+
+```azurecli
+az aks upgrade \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --kubernetes-version 1.20.7 \
+    --aks-custom-headers WindowsContainerRuntime=containerd
+```
+
+The above command upgrades all Windows Server node pools in the *myAKSCluster* to use the `containerd` runtime.
+
+> [!NOTE]
+> After upgrading all existing Windows Server node pools to use the `containerd` runtime, Docker will still be the default runtime when adding new Windows Server node pools. 
 
 ## Connect to the cluster
 
@@ -183,16 +227,21 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 To verify the connection to your cluster, use the [kubectl get][kubectl-get] command to return a list of the cluster nodes.
 
 ```console
-kubectl get nodes
+kubectl get nodes -o wide
 ```
 
 The following example output shows the all the nodes in the cluster. Make sure that the status of all nodes is *Ready*:
 
 ```output
-NAME                                STATUS   ROLES   AGE    VERSION
-aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.15.7
-aksnpwin987654                      Ready    agent   108s   v1.15.7
+NAME                                STATUS   ROLES   AGE    VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION     CONTAINER-RUNTIME
+aks-nodepool1-12345678-vmss000000   Ready    agent   34m    v1.20.7   10.240.0.4    <none>        Ubuntu 18.04.5 LTS               5.4.0-1046-azure   containerd://1.4.4+azure
+aks-nodepool1-12345678-vmss000001   Ready    agent   34m    v1.20.7   10.240.0.35   <none>        Ubuntu 18.04.5 LTS               5.4.0-1046-azure   containerd://1.4.4+azure
+aksnpwcd123456                      Ready    agent   9m6s   v1.20.7   10.240.0.97   <none>        Windows Server 2019 Datacenter   10.0.17763.1879    containerd://1.4.4+unknown
+aksnpwin987654                      Ready    agent   25m    v1.20.7   10.240.0.66   <none>        Windows Server 2019 Datacenter   10.0.17763.1879    docker://19.3.14
 ```
+
+> [!NOTE]
+> The container runtime for each node pool is shown under *CONTAINER-RUNTIME*. Notice *aksnpwin987654* begins with `docker://` which means it is using Docker for the container runtime. Notice *aksnpwcd123456* begins with `containerd://` which means it is using `containerd` for the container runtime.
 
 ## Run the application
 
@@ -218,7 +267,7 @@ spec:
         app: sample
     spec:
       nodeSelector:
-        "beta.kubernetes.io/os": windows
+        "kubernetes.io/os": windows
       containers:
       - name: sample
         image: mcr.microsoft.com/dotnet/framework/samples:aspnetapp
@@ -321,18 +370,19 @@ To learn more about AKS, and walk through a complete code to deployment example,
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: concepts-clusters-workloads.md
-[aks-monitor]: https://aka.ms/coingfonboarding
+[aks-monitor]: ../azure-monitor/containers/container-insights-onboard.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
-[az-aks-browse]: /cli/azure/aks?view=azure-cli-latest#az-aks-browse
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
-[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-group-create]: /cli/azure/group#az-group-create
-[az-group-delete]: /cli/azure/group#az-group-delete
-[az-provider-register]: /cli/azure/provider#az-provider-register
+[aks-taints]:  use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool
+[az-aks-browse]: /cli/azure/aks#az_aks_browse
+[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-group-create]: /cli/azure/group#az_group_create
+[az-group-delete]: /cli/azure/group#az_group_delete
+[az-provider-register]: /cli/azure/provider#az_provider_register
 [azure-cli-install]: /cli/azure/install-azure-cli
 [azure-cni-about]: concepts-network.md#azure-cni-advanced-networking
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
@@ -341,8 +391,10 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [kubernetes-service]: concepts-network.md#services
 [kubernetes-dashboard]: kubernetes-dashboard.md
 [restricted-vm-sizes]: quotas-skus-regions.md#restricted-vm-sizes
-[use-advanced-networking]: configure-advanced-networking.md
+[use-advanced-networking]: configure-azure-cni.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[windows-server-password]: /windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference
+[win-faq-change-admin-creds]: windows-faq.md#how-do-i-change-the-administrator-password-for-windows-server-nodes-on-my-cluster

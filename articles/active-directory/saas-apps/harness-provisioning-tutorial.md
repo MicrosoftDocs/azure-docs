@@ -2,20 +2,15 @@
 title: 'Tutorial: Configure Harness for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and deprovision user accounts to Harness.
 services: active-directory
-documentationcenter: ''
-author: zchia
-writer: zchia
-manager: beatrizd
-
-ms.assetid: 0cdb970b-440b-4e7c-9118-2f03baab6a20
+author: twimmers
+writer: twimmers
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/29/2019
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Harness for automatic user provisioning
@@ -99,7 +94,7 @@ Before you configure Harness for automatic user provisioning with Azure AD, you 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users or groups in Harness based on user or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Harness by following the instructions in the [Harness single sign-on tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/harness-tutorial). You can configure single sign-on independent of automatic user provisioning, although these two features complement each other.
+> You may also choose to enable SAML-based single sign-on for Harness by following the instructions in the [Harness single sign-on tutorial](./harness-tutorial.md). You can configure single sign-on independent of automatic user provisioning, although these two features complement each other.
 
 > [!NOTE]
 > To learn more about the Harness SCIM endpoint, see the Harness [API Keys](https://docs.harness.io/article/smloyragsm-api-keys) article.
@@ -126,7 +121,7 @@ To configure automatic user provisioning for Harness in Azure AD, do the followi
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
  
-   a. In the **Tenant URL** box, enter **`https://app.harness.io/gateway/api/scim/account/XCPzWkCIQ46ypIu2DeT7yw`**.  
+   a. In the **Tenant URL** box, enter **`https://app.harness.io/gateway/api/scim/account/<your_harness_account_ID>`**. You can obtain your Harness account ID from the URL in your browser when you are logged into Harness.
    b. In the **Secret Token** box, enter the SCIM Authentication Token value that you saved in step 6 of the "Set up Harness for provisioning" section.  
    c. Select **Test Connection** to ensure that Azure AD can connect to Harness. If the connection fails, ensure that your Harness account has *Admin* permissions, and then try again.
 

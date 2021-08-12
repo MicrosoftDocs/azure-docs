@@ -1,20 +1,19 @@
 ---
 title: Copy new and changed files by LastModifiedDate
 description: Learn how to use a solution template to copy new and changed files by LastModifiedDate with Azure Data Factory.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
 ms.reviewer: ''
-manager: shwang
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 3/8/2019
 ---
 
 # Copy new and changed files by LastModifiedDate with Azure Data Factory
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 This article describes a solution template that you can use to copy new and changed files only by LastModifiedDate from a file-based store to a destination store. 
 
@@ -69,7 +68,7 @@ The template defines six parameters:
 	
 7. Now you can add a tumbling windows trigger to automate this pipeline, so that the pipeline can always copy new and changed files only by LastModifiedDate periodically.  Select **Add trigger**, and select **New/Edit**.
 
-    ![Review the result](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate8.png)
+    ![Screenshot that highlights the New/Edit menu option that appears when you select Add trigger.](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate8.png)
 	
 8. In the **Add Triggers** window, select **+ New**.
 
@@ -97,7 +96,7 @@ The template defines six parameters:
 
 14. Review the result. You will see your pipeline will be triggered automatically every 15 minutes, and only the new or changed files from source store will be copied to the destination store in each pipeline run.
 
-    ![Review the result](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate15.png)
+    ![Screenshot that shows the results that return when the pipeline is triggered.](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate15.png)
 	
 ## Next steps
 

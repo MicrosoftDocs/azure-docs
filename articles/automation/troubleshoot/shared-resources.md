@@ -1,20 +1,16 @@
 ---
-title: Troubleshooting Azure Automation shared resources
-description: Learn how to troubleshoot and resolve issues with Azure Automation shared resources. 
+title: Troubleshoot Azure Automation shared resource issues
+description: This article tells how to troubleshoot and resolve issues with Azure Automation shared resources.
 services: automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 03/12/2019
-ms.topic: conceptual
-ms.service: automation
-manager: carmonm
+ms.subservice:
+ms.date: 01/27/2021
+ms.topic: troubleshooting 
+ms.custom: devx-track-azurepowershell
 ---
-# Troubleshoot errors with shared resources
 
-This article discusses solutions for issues that you might run across when using [shared resources](../automation-intro.md#shared-resources) in Azure Automation.
+# Troubleshoot shared resource issues
 
->[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
+This article discusses issues that might arise when you're using [shared resources](../automation-intro.md#shared-resources) in Azure Automation.
 
 ## Modules
 
@@ -22,15 +18,15 @@ This article discusses solutions for issues that you might run across when using
 
 #### Issue
 
-A module is stuck in the Importing state when you are importing or updating your Azure Automation modules.
+A module is stuck in the *Importing* state when you're importing or updating your Azure Automation modules.
 
 #### Cause
 
-Since importing PowerShell modules is a complex multistep process, a module might not import correctly and can be stuck in a transient state. To learn more about the import process, see [Importing a PowerShell Module](/powershell/scripting/developer/module/importing-a-powershell-module#the-importing-process).
+Because importing PowerShell modules is a complex, multistep process, a module might not import correctly, and can be stuck in a transient state. To learn more about the import process, see [Importing a PowerShell module](/powershell/scripting/developer/module/importing-a-powershell-module#the-importing-process).
 
 #### Resolution
 
-To resolve this issue, you must remove the module that is stuck in the Importing state by using the [Remove-AzAutomationModule](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationModule?view=azps-3.7.0) cmdlet. You can then retry importing the module.
+To resolve this issue, you must remove the module that is stuck by using the [Remove-AzAutomationModule](/powershell/module/Az.Automation/Remove-AzAutomationModule) cmdlet. You can then retry importing the module.
 
 ```azurepowershell-interactive
 Remove-AzAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
@@ -48,7 +44,7 @@ Azure modules are being updated
 
 #### Cause
 
-There is a known issue with updating the AzureRM modules in an Automation account that's in a resource group with a numeric name starting with 0.
+There is a known issue with updating the AzureRM modules in an Automation account. Specifically, the problem occurs if the modules are in a resource group with a numeric name starting with 0.
 
 #### Resolution
 
@@ -58,7 +54,7 @@ To update your AzureRM modules in your Automation account, the account must be i
 
 #### Issue
 
-A module fails to import or it imports successfully, but no cmdlets are extracted.
+A module fails to import, or it imports successfully, but no cmdlets are extracted.
 
 #### Cause
 
@@ -67,11 +63,11 @@ Some common reasons that a module might not successfully import to Azure Automat
 * The structure doesn't match the structure that Automation needs.
 * The module depends on another module that hasn't been deployed to your Automation account.
 * The module is missing its dependencies in the folder.
-* The [New-AzAutomationModule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationModule?view=azps-3.7.0) cmdlet is being used to upload the module, and you haven't given the full storage path or haven't loaded the module by using a publicly accessible URL.
+* The [New-AzAutomationModule](/powershell/module/Az.Automation/New-AzAutomationModule) cmdlet is being used to upload the module, and you haven't provided the full storage path or haven't loaded the module by using a publicly accessible URL.
 
 #### Resolution
 
-Use any of these solutions to fix the issue.
+Use any of these solutions to fix the issue:
 
 * Make sure that the module follows the format: ModuleName.zip -> ModuleName or Version Number -> (ModuleName.psm1, ModuleName.psd1).
 * Open the **.psd1** file and see if the module has any dependencies. If it does, upload these modules to the Automation account.
@@ -81,35 +77,35 @@ Use any of these solutions to fix the issue.
 
 #### Issue
 
-When using the [Update-AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook to update your Azure modules, the module update process is suspended.
+When you're using the [Update-AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook to update your Azure modules, the module update process is suspended.
 
 #### Cause
 
-The default setting to determine how many modules are updated simultaneously is 10 when using **Update-AzureModule.ps1**. The update process is prone to errors when too many modules are being updated at the same time.
+For this runbook, the default setting to determine how many modules are updated simultaneously is 10. The update process is prone to errors when too many modules are being updated at the same time.
 
 #### Resolution
 
-It's not common that all the AzureRM or Az modules are required in the same Automation account. It's recommended to only import the specific modules that you need.
+It's not common that all the AzureRM or Az modules are required in the same Automation account. You should only import the specific modules that you need.
 
 > [!NOTE]
 > Avoid importing the entire `Az.Automation` or `AzureRM.Automation` module, which imports all contained modules.
 
-If the update process suspends, add the `SimultaneousModuleImportJobCount` parameter to the **Update-AzureModules.ps1** script and provide a lower value than the default of 10. If you implement this logic, it's recommended to start with a value of 3 or 5. `SimultaneousModuleImportJobCount` is a parameter of the **Update-AutomationAzureModulesForAccount** system runbook that is used to update Azure modules. If you make this adjustment, the update process runs longer, but has a better chance of completing. The following example shows the parameter and where to put it in the runbook:
+If the update process suspends, add the `SimultaneousModuleImportJobCount` parameter to the **Update-AzureModules.ps1** script, and provide a lower value than the default of 10. If you implement this logic, try starting with a value of 3 or 5. `SimultaneousModuleImportJobCount` is a parameter of the **Update-AutomationAzureModulesForAccount** system runbook that is used to update Azure modules. If you make this adjustment, the update process runs longer, but has a better chance of completing. The following example shows the parameter and where to put it in the runbook:
 
- ```powershell
-         $Body = @"
-            {
-               "properties":{
-               "runbook":{
-                   "name":"Update-AutomationAzureModulesForAccount"
-               },
-               "parameters":{
-                    ...
-                    "SimultaneousModuleImportJobCount":"3",
-                    ... 
-               }
-              }
-           }
+```powershell
+$Body = @"
+   {
+      "properties":{
+      "runbook":{
+            "name":"Update-AutomationAzureModulesForAccount"
+      },
+      "parameters":{
+            ...
+            "SimultaneousModuleImportJobCount":"3",
+            ... 
+      }
+      }
+   }
 "@
 ```
 
@@ -119,7 +115,7 @@ If the update process suspends, add the `SimultaneousModuleImportJobCount` param
 
 #### Issue
 
-When you try to create or update a Run As account, you receive an error similar to the following error message:
+When you try to create or update a Run As account, you receive an error similar to the following:
 
 ```error
 You do not have permissions to create…
@@ -127,19 +123,19 @@ You do not have permissions to create…
 
 #### Cause
 
-You don't have the permissions that you need to create or update the Run As account or the resource is locked at a resource group level.
+You don't have the permissions that you need to create or update the Run As account, or the resource is locked at a resource group level.
 
 #### Resolution
 
-To create or update a Run As account, you must have appropriate [permissions](../manage-runas-account.md#permissions) to the various resources used by the Run As account. 
+To create or update a Run As account, you must have appropriate [permissions](../automation-security-overview.md#permissions) to the various resources used by the Run As account.
 
-If the issue is because of a lock, verify that the lock can be removed. Then navigate to the resource that is locked in Azure portal, right-click the lock, and click **Delete**.
+If the problem is because of a lock, verify that the lock can be removed. Then go to the resource that is locked in Azure portal, right-click the lock, and select **Delete**.
 
 ### <a name="iphelper"></a>Scenario: You receive the error "Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'" when executing a runbook
 
 #### Issue
 
-When executing a runbook you receive the following exception:
+When you're executing a runbook, you receive the following exception:
 
 ```error
 Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
@@ -147,11 +143,11 @@ Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
 
 #### Cause
 
-This error is most likely caused by an incorrectly configured [Run As Account](../manage-runas-account.md).
+This error is most likely caused by an incorrectly configured [Run As account](../automation-security-overview.md).
 
 #### Resolution
 
-Make sure that your Run As account is properly configured. Then verify that you have the proper code in your runbook to authenticate with Azure. The following example shows a snippet of code to authenticate to Azure in a runbook using a Run As Account.
+Make sure that your Run As account is properly configured. Then verify that you have the proper code in your runbook to authenticate with Azure. The following example shows a snippet of code to authenticate to Azure in a runbook by using a Run As account.
 
 ```powershell
 $connection = Get-AutomationConnection -Name AzureRunAsConnection
@@ -161,8 +157,8 @@ Connect-AzAccount -ServicePrincipal -Tenant $connection.TenantID `
 
 ## Next steps
 
-If you don't see your problem above or can't resolve your issue, try one of the following channels for additional support:
+If this article doesn't resolve your issue, try one of the following channels for additional support:
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
-* Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
-* File an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
+* Connect with [@AzureSupport](https://twitter.com/azuresupport). This is the official Microsoft Azure account for connecting the Azure community to the right resources: answers, support, and experts.
+* File an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/), and select **Get Support**.

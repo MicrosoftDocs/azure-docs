@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure SignalR Service documentation
-summary: Azure SignalR Service is an Azure managed service that helps developers easily build web applications with real-time features.
+summary: Azure SignalR Service is an Azure-managed service that helps developers easily build web applications with real-time features.
 
 metadata:
   title: Azure SignalR Service documentation
@@ -40,6 +40,8 @@ landingContent:
             url: signalr-quickstart-azure-functions-java.md
           - text: Azure Functions - Python
             url: signalr-quickstart-azure-functions-python.md
+          - text: Azure SignalR Service deployment - ARM template
+            url: signalr-quickstart-azure-signalr-service-arm-template.md
           - text: REST API
             url: signalr-quickstart-rest-api.md            
 

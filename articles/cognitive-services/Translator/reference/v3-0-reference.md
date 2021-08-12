@@ -1,22 +1,22 @@
 ---
-title: Translator Text API V3.0 Reference
+title: Translator V3.0 Reference
 titleSuffix: Azure Cognitive Services
-description: Reference documentation for the Translator Text API V3.0. Version 3 of the Translator Text API provides a modern JSON-based Web API.
+description: Reference documentation for the Translator V3.0. Version 3 of the Translator provides a modern JSON-based Web API.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 4/2/2020
-ms.author: swmachan
+ms.date: 07/06/2021
+ms.author: lajanuar
 ---
 
-# Translator Text API v3.0
+# Translator v3.0
 
 ## What's new?
 
-Version 3 of the Translator Text API provides a modern JSON-based Web API. It improves usability and performance by consolidating existing features into fewer operations and it provides new features.
+Version 3 of the Translator provides a modern JSON-based Web API. It improves usability and performance by consolidating existing features into fewer operations and it provides new features.
 
  * Transliteration to convert text in one language from one script to another script.
  * Translation to multiple languages in one request.
@@ -30,28 +30,39 @@ Microsoft Translator is served out of multiple datacenter locations. Currently t
 
 * **Americas:** East US, South Central US, West Central US, and West US 2 
 * **Asia Pacific:** Korea South, Japan East, Southeast Asia, and Australia East
-* **Europe:** North Europe and West Europe
+* **Europe:** North Europe, West Europe
 
-Requests to the Microsoft Translator Text API are in most cases handled by the datacenter that is closest to where the request originated. In case of a datacenter failure, the request may be routed outside of the Azure geography.
+Requests to the Microsoft Translator are in most cases handled by the datacenter that is closest to where the request originated. If there is a datacenter failure, the request may be routed outside of the geography.
 
-To force the request to be handled by a specific Azure geography, change the Global endpoint in the API request to the desired regional endpoint:
+To force the request to be handled by a specific geography, change the Global endpoint in the API request to the desired geographical endpoint:
 
-|Description|Azure geography|Base URL|
-|:--|:--|:--|
-|Azure|Global (non-regional)|	api.cognitive.microsofttranslator.com|
-|Azure|United States|	api-nam.cognitive.microsofttranslator.com|
-|Azure|Europe|	api-eur.cognitive.microsofttranslator.com|
-|Azure|Asia Pacific|	api-apc.cognitive.microsofttranslator.com|
+|Geography|Base URL (geographical endpoint)|
+|:--|:--|
+|Global (non-regional)|    api.cognitive.microsofttranslator.com|
+|United States|    api-nam.cognitive.microsofttranslator.com|
+|Europe|    api-eur.cognitive.microsofttranslator.com|
+|Asia Pacific|    api-apc.cognitive.microsofttranslator.com|
+
+<sup>1</sup> Customers with a resource located in Switzerland North or Switzerland West can ensure that their Text API requests are served within Switzerland. To ensure that requests are handled in Switzerland, create the Translator resource in the ‘Resource region’ ‘Switzerland North’ or ‘Switzerland West’, then use the resource’s custom endpoint in your API requests. For example: If you create a Translator resource in Azure portal with ‘Resource region’ as ‘Switzerland North’ and your resource name is ‘my-ch-n’, then your custom endpoint is “https://my-ch-n.cognitiveservices.azure.com”. And a sample request to translate is:
+```curl
+// Pass secret key and region using headers to a custom endpoint
+curl -X POST " my-ch-n.cognitiveservices.azure.com/translator/text/v3.0/translate?to=fr" \
+-H "Ocp-Apim-Subscription-Key: xxx" \
+-H "Ocp-Apim-Subscription-Region: switzerlandnorth" \
+-H "Content-Type: application/json" \
+-d "[{'Text':'Hello'}]" -v
+```
+<sup>2</sup> Custom Translator is not currently available in Switzerland.
 
 ## Authentication
 
-Subscribe to Translator Text API or [Cognitive Services multi-service](https://azure.microsoft.com/pricing/details/cognitive-services/) in Azure Cognitive Services, and use your subscription key (available in the Azure portal) to authenticate. 
+Subscribe to Translator or [Cognitive Services multi-service](https://azure.microsoft.com/pricing/details/cognitive-services/) in Azure Cognitive Services, and use your subscription key (available in the Azure portal) to authenticate. 
 
 There are three headers that you can use to authenticate your subscription. This table describes how each is used:
 
 |Headers|Description|
 |:----|:----|
-|Ocp-Apim-Subscription-Key|*Use with Cognitive Services subscription if you are passing your secret key*.<br/>The value is the Azure secret key for your subscription to Translator Text API.|
+|Ocp-Apim-Subscription-Key|*Use with Cognitive Services subscription if you are passing your secret key*.<br/>The value is the Azure secret key for your subscription to Translator.|
 |Authorization|*Use with Cognitive Services subscription if you are passing an authentication token.*<br/>The value is the Bearer token: `Bearer <token>`.|
 |Ocp-Apim-Subscription-Region|*Use with Cognitive Services multi-service and regional translator resource.*<br/>The value is the region of the multi-service or regional translator resource. This value is optional when using a global translator resource.|
 
@@ -60,13 +71,13 @@ The first option is to authenticate using the `Ocp-Apim-Subscription-Key` header
 
 #### Authenticating with a global resource
 
-When you use a [global translator resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation), you need to include one header to call the translator API.
+When you use a [global translator resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation), you need to include one header to call the Translator.
 
 |Headers|Description|
 |:-----|:----|
-|Ocp-Apim-Subscription-Key| The value is the Azure secret key for your subscription to Translator Text API.|
+|Ocp-Apim-Subscription-Key| The value is the Azure secret key for your subscription to Translator.|
 
-Here's an example request to call the Translator API using the global translator resource
+Here's an example request to call the Translator using the global translator resource
 
 ```curl
 // Pass secret key using headers
@@ -79,14 +90,14 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 #### Authenticating with a regional resource
 
 When you use a [regional translator resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
-There are 2 headers that you need to call the translator API.
+There are two headers that you need to call the Translator.
 
 |Headers|Description|
 |:-----|:----|
-|Ocp-Apim-Subscription-Key| The value is the Azure secret key for your subscription to Translator Text API.|
+|Ocp-Apim-Subscription-Key| The value is the Azure secret key for your subscription to Translator.|
 |Ocp-Apim-Subscription-Region| The value is the region of the translator resource. |
 
-Here's an example request to call the Translator API using the regional translator resource
+Here's an example request to call the Translator using the regional translator resource
 
 ```curl
 // Pass secret key and region using headers
@@ -101,7 +112,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 When you use a Cognitive Service’s multi-service resource. This allows you to use a single secret key to authenticate requests for multiple services. 
 
-When you use a multi-service secret key, you must include two authentication headers with your request. There are 2 headers that you need to call the translator API.
+When you use a multi-service secret key, you must include two authentication headers with your request. There are two headers that you need to call the Translator.
 
 |Headers|Description|
 |:-----|:----|
@@ -138,22 +149,22 @@ A successful request returns the encoded access token as plain text in the respo
 Authorization: Bearer <Base64-access_token>
 ```
 
-An authentication token is valid for 10 minutes. The token should be reused when making multiple calls to the Translator APIs. However, if your program makes requests to the Translator API over an extended period of time, then your program must request a new access token at regular intervals (for example, every 8 minutes).
+An authentication token is valid for 10 minutes. The token should be reused when making multiple calls to the Translator. However, if your program makes requests to the Translator over an extended period of time, then your program must request a new access token at regular intervals (for example, every 8 minutes).
 
 ## Virtual Network support
 
-Translator service is now available with Virtual Network capabilities in limited regions (`WestUS2`, `EastUS`, `SouthCentralUS`, `WestUS`, `Central US EUAP`, `global`). To enable Virtual Network, please see [Configuring Azure Cognitive Services Virtual Networks](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
+The Translator service is now available with Virtual Network (VNET) capabilities in all regions of the Azure public cloud. To enable Virtual Network, *See* [Configuring Azure Cognitive Services Virtual Networks](../../cognitive-services-virtual-networks.md?tabs=portal). 
 
-Once you turn on this capability, you must use the custom endpoint to call the Translator API. You cannot use the global translator endpoint ("api.cognitive.microsofttranslator.com") and you cannot authenticate with an access token.
+Once you turn on this capability, you must use the custom endpoint to call the Translator. You cannot use the global translator endpoint ("api.cognitive.microsofttranslator.com") and you cannot authenticate with an access token.
 
-You can find the custom endpoint once you create the [translator resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
+You can find the custom endpoint after you create a [translator resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) and allow access from selected networks and private endpoints.
 
 |Headers|Description|
 |:-----|:----|
-|Ocp-Apim-Subscription-Key| The value is the Azure secret key for your subscription to Translator Text API.|
+|Ocp-Apim-Subscription-Key| The value is the Azure secret key for your subscription to Translator.|
 |Ocp-Apim-Subscription-Region| The value is the region of the translator resource. This value is optional if the resource is `global`|
 
-Here's an example request to call the Translator API using the custom endpoint
+Here's an example request to call the Translator using the custom endpoint
 
 ```curl
 // Pass secret key and region using headers
@@ -181,6 +192,7 @@ For example, a customer with a free trial subscription would receive the followi
     }
 }
 ```
+
 The error code is a 6-digit number combining the 3-digit HTTP status code followed by a 3-digit number to further categorize the error. Common error codes are:
 
 | Code | Description |
@@ -213,19 +225,19 @@ The error code is a 6-digit number combining the 3-digit HTTP status code follow
 | 400079| The custom system requested for translation between from and to language does not exist.|
 | 400080| Transliteration is not supported for the language or script.|
 | 401000| The request is not authorized because credentials are missing or invalid.|
-| 401015| "The credentials provided are for the Speech API. This request requires credentials for the Text API. Use a subscription to Translator Text API."|
+| 401015| "The credentials provided are for the Speech API. This request requires credentials for the Text API. Use a subscription to Translator."|
 | 403000| The operation is not allowed.|
 | 403001| The operation is not allowed because the subscription has exceeded its free quota.|
 | 405000| The request method is not supported for the requested resource.|
-| 408001| The translation system requested is being prepared. Please retry in a few minutes.|
+| 408001| The translation system requested is being prepared. Retry in a few minutes.|
 | 408002| Request timed out waiting on incoming stream. The client did not produce a request within the time that the server was prepared to wait. The client may repeat the request without modifications at any later time.|
 | 415000| The Content-Type header is missing or invalid.|
 | 429000, 429001, 429002| The server rejected the request because the client has exceeded request limits.|
 | 500000| An unexpected error occurred. If the error persists, report it with date/time of error, request identifier from response header X-RequestId, and client identifier from request header X-ClientTraceId.|
-| 503000| Service is temporarily unavailable. Please retry. If the error persists, report it with date/time of error, request identifier from response header X-RequestId, and client identifier from request header X-ClientTraceId.|
+| 503000| Service is temporarily unavailable. Retry. If the error persists, report it with date/time of error, request identifier from response header X-RequestId, and client identifier from request header X-ClientTraceId.|
 
 ## Metrics 
-Metrics allow you to view the translator usage and availability information in Azure portal, under metrics section as shown in the below screenshot. For more information, see [Data and platform metrics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+Metrics allow you to view the translator usage and availability information in Azure portal, under metrics section as shown in the below screenshot. For more information, see [Data and platform metrics](../../../azure-monitor/essentials/data-platform-metrics.md).
 
 ![Translator Metrics](../media/translatormetrics.png)
 
@@ -239,6 +251,6 @@ This table lists available metrics with description of how they are used to moni
 | TotalErrors| Number of calls with error response.|
 | BlockedCalls| Number of calls that exceeded rate or quota limit.|
 | ServerErrors| Number of calls with server internal error(5XX).|
-| ClientErrors| Number of calls with client side error(4XX).|
+| ClientErrors| Number of calls with client-side error(4XX).|
 | Latency| Duration to complete request in milliseconds.|
 | CharactersTranslated| Total number of characters in incoming text request.|

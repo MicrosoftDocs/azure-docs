@@ -1,6 +1,6 @@
 ---
 title: Connect Cloud App Security data to Azure Sentinel| Microsoft Docs
-description: Learn how to connect Cloud App Security data to Azure Sentinel.
+description: Learn to use the Microsoft Cloud App Security (MCAS) connector to stream alerts and Cloud Discovery logs from MCAS into Azure Sentinel. 
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -19,15 +19,15 @@ ms.author: yelevin
 ---
 # Connect data from Microsoft Cloud App Security 
 
+The [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS) connector lets you stream alerts and [Cloud Discovery logs](/cloud-app-security/tutorial-shadow-it) from MCAS into Azure Sentinel. This will enable you to gain visibility into your cloud apps, get sophisticated analytics to identify and combat cyberthreats, and control how your data travels.
 
-
-The [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) (MCAS) connector lets you stream alerts and [Cloud Discovery logs](https://docs.microsoft.com/cloud-app-security/tutorial-shadow-it) from MCAS into Azure Sentinel. This will enable you to gain visibility into your cloud apps, get sophisticated analytics to identify and combat cyberthreats, and control how your data travels.
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## Prerequisites
 
 - Your user must have read and write permissions on the workspace.
 - Your user must have Global Administrator or Security Administrator permissions on the workspace's tenant.
-- To stream Cloud Discovery logs into Azure Sentinel, [enable Azure Sentinel as your SIEM in Microsoft Cloud App Security](https://aka.ms/AzureSentinelMCAS).
+- To stream Cloud Discovery logs into Azure Sentinel, [enable Azure Sentinel as your SIEM in Microsoft Cloud App Security](/cloud-app-security/siem-sentinel).
 
 > [!IMPORTANT]
 > Ingestion of Cloud Discovery logs is currently in public preview.
@@ -36,7 +36,7 @@ The [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security
  
 ## Connect to Cloud App Security
 
-If you already have Cloud App Security, make sure it is [enabled on your network](https://docs.microsoft.com/cloud-app-security/getting-started-with-cloud-app-security).
+If you already have Cloud App Security, make sure it is [enabled on your network](/cloud-app-security/getting-started-with-cloud-app-security).
 If Cloud App Security is deployed and ingesting your data, the alert data can easily be streamed into Azure Sentinel.
 
 
@@ -45,6 +45,8 @@ If Cloud App Security is deployed and ingesting your data, the alert data can ea
 1. Select which logs you want to stream into Azure Sentinel; you can choose **Alerts** and **Cloud Discovery Logs** (preview). 
 
 1. Click **Apply Changes**.
+
+1. You can select whether you want the alerts from Cloud App Security to automatically generate incidents in Azure Sentinel. Under **Create incidents - Recommended!**, select **Enabled** to turn on the default analytics rule that automatically creates incidents from alerts. You can then edit this rule under **Analytics**, in the  **Active rules** tab.
 
 1. To use the relevant schema in Log Analytics for Cloud App Security alerts, type `SecurityAlert` in the query window. For the Cloud Discovery logs schema, type `McasShadowItReporting`.
 
@@ -56,5 +58,5 @@ In the event that a low-level investigation requires more immediate data, it sho
 
 ## Next steps
 In this document, you learned how to connect Microsoft Cloud App Security to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started detecting threats with Azure Sentinel, using [built-in](tutorial-detect-threats.md) or [custom](tutorial-detect-threats-custom.md) rules.
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Get started detecting threats with Azure Sentinel, using [built-in](./detect-threats-built-in.md) or [custom](detect-threats-custom.md) rules.

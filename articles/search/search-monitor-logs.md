@@ -8,32 +8,30 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 01/27/2021
 ---
 
 # Collect and analyze log data for Azure Cognitive Search
 
-Diagnostic or operational logs provide insight into the detailed operations of Azure Cognitive Search and are useful for monitoring service and workload processes. Internally, logs exist on the backend for a short period of time, sufficient for investigation and analysis if you file a support ticket. However, if you want self-direction over operational data, you should configure a diagnostic setting to specify where logging information is collected.
+Diagnostic or operational logs provide insight into the detailed operations of Azure Cognitive Search and are useful for monitoring service health and processes. Internally, Microsoft preserves system information on the backend for a short period of time (about 30 days), sufficient for investigation and analysis if you file a support ticket. However, if you want ownership over operational data, you should configure a diagnostic setting to specify where logging information is collected.
 
-Setting up logs is useful for diagnostics and preserving operational history. After you enable logging, you can run queries or build reports for structured analysis.
-
-The following table enumerates options for collecting and persisting data.
+Diagnostic logging is enabled through back-end integration with [Azure Monitor](../azure-monitor/index.yml). When you set up diagnostic logging, you will be asked to specify a storage option for persisting the log. The following table enumerates your options.
 
 | Resource | Used for |
 |----------|----------|
-| [Send to Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs) | Events and metrics are sent to a Log Analytics workspace, which can be queried in the portal to return detailed information. For an introduction, see [Get started with Azure Monitor logs](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
-| [Archive with Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Events and metrics are archived to a Blob container and stored in JSON files. Logs can be quite granular (by the hour/minute), useful for researching a specific incident but not for open-ended investigation. Use a JSON editor to view a raw log file or Power BI to aggregate and visualize log data.|
-| [Stream to Event Hub](https://docs.microsoft.com/azure/event-hubs/) | Events and metrics are streamed to an Azure Event Hubs service. Choose this as an alternative data collection service for very large logs. |
-
-Both Azure Monitor logs and Blob storage are available as a free service so that you can try it out at no charge for the lifetime of your Azure subscription. Application Insights is free to sign up and use as long as application data size is under certain limits (see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for details).
+| [Send to Log Analytics workspace](../azure-monitor/essentials/tutorial-resource-logs.md) | Events and metrics are sent to a Log Analytics workspace, which can be queried in the portal to return detailed information. For an introduction, see [Get started with Azure Monitor logs](../azure-monitor/logs/log-analytics-tutorial.md) |
+| [Archive with Blob storage](../storage/blobs/storage-blobs-overview.md) | Events and metrics are archived to a Blob container and stored in JSON files. Logs can be quite granular (by the hour/minute), useful for researching a specific incident but not for open-ended investigation. Use a JSON editor to view a raw log file or Power BI to aggregate and visualize log data.|
+| [Stream to Event Hub](../event-hubs/index.yml) | Events and metrics are streamed to an Azure Event Hubs service. Choose this as an alternative data collection service for very large logs. |
 
 ## Prerequisites
 
-If you are using Log Analytics or Azure Storage, you can create resources in advance.
+Create resources in advance so that you can select one or more when configuring diagnostic logging.
 
-+ [Create a log analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
++ [Create a log analytics workspace](../azure-monitor/logs/quick-create-workspace.md)
 
-+ [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
++ [Create a storage account](../storage/common/storage-account-create.md)
+
++ [Create an Event Hub](../event-hubs/event-hubs-create.md)
 
 ## Enable data collection
 
@@ -51,9 +49,9 @@ Diagnostic settings specify how logged events and metrics are collected.
 
 1. Save the setting.
 
-1. After logging has been enabled, use your search service to start generating logs and metrics. It will take time before logged events and metrics become available.
+1. After logging is enabled, your search service will start generating logs and metrics. It can take some time before logged events and metrics become available.
 
-For Log Analytics, it will be several minutes before data is available, after which you can run Kusto queries to return data. For more information, see [Monitor query requests](search-monitor-logs.md).
+For Log Analytics, expect to wait several minutes before data is available, after which you can run Kusto queries to return data. For more information, see [Monitor query requests](search-monitor-logs.md).
 
 For Blob storage, it takes one hour before the containers will appear in Blob storage. There is one blob, per hour, per container. Containers are only created when there is an activity to log or measure. When the data is copied to a storage account, the data is formatted as JSON and placed in two containers:
 
@@ -62,24 +60,26 @@ For Blob storage, it takes one hour before the containers will appear in Blob st
 
 ## Query log information
 
-In diagnostic logs, two tables contain logs and metrics for Azure Cognitive Search: **AzureDiagnostics** and **AzureMetrics**.
+Two tables contain logs and metrics for Azure Cognitive Search: **AzureDiagnostics** and **AzureMetrics**.
 
 1. Under **Monitoring**, select **Logs**.
 
-1. Enter **AzureMetrics** in the query window. Run this simple query to get acquainted with the data collected in this table. Scroll across the table to view metrics and values. Notice the record count at the top, and if your service has been collecting metrics for a while, you might want to adjust the time interval to get a manageable data set.
+1. In the query window, type **AzureMetrics**, check the scope (your search service) and time range, and then click **Run** to get acquainted with the data collected in this table.
+
+   Scroll across the table to view metrics and values. Notice the record count at the top. If your service has been collecting metrics for a while, you might want to adjust the time interval to get a manageable data set.
 
    ![AzureMetrics table](./media/search-monitor-usage/azuremetrics-table.png "AzureMetrics table")
 
 1. Enter the following query to return a tabular result set.
 
-   ```
+   ```kusto
    AzureMetrics
-    | project MetricName, Total, Count, Maximum, Minimum, Average
+   | project MetricName, Total, Count, Maximum, Minimum, Average
    ```
 
 1. Repeat the previous steps, starting with **AzureDiagnostics** to return all columns for informational purposes, followed by a more selective query that extracts more interesting information.
 
-   ```
+   ```kusto
    AzureDiagnostics
    | project OperationName, resultSignature_d, DurationMs, Query_s, Documents_d, IndexName_s
    | where OperationName == "Query.Search" 
@@ -87,20 +87,59 @@ In diagnostic logs, two tables contain logs and metrics for Azure Cognitive Sear
 
    ![AzureDiagnostics table](./media/search-monitor-usage/azurediagnostics-table.png "AzureDiagnostics table")
 
+## Kusto query examples
+
+If you enabled diagnostic logging, you can query **AzureDiagnostics** for a list of operations that ran on your service and when. You can also correlate activity to investigate changes in performance.
+
+#### Example: List operations 
+
+Return a list of operations and a count of each one.
+
+```kusto
+AzureDiagnostics
+| summarize count() by OperationName
+```
+
+#### Example: Correlate operations
+
+Correlate query request with indexing operations, and render the data points across a time chart to see operations coincide.
+
+```kusto
+AzureDiagnostics
+| summarize OperationName, Count=count()
+| where OperationName in ('Query.Search', 'Indexing.Index')
+| summarize Count=count(), AvgLatency=avg(durationMs) by bin(TimeGenerated, 1h), OperationName
+| render timechart
+```
+
+## Logged operations
+
+Logged events captured by Azure Monitor include those related to indexing and queries. The **AzureDiagnostics** table in Log Analytics collects operational data related to queries and indexing.
+
+| OperationName | Description |
+|---------------|-------------|
+| ServiceStats | This operation is a routine call to [Get Service Statistics](/rest/api/searchservice/get-service-statistics), either called directly or implicitly to populate a portal overview page when it is loaded or refreshed. |
+| Query.Search |  Query requests against an index See [Monitor queries](search-monitor-queries.md) for information about logged queries.|
+| Indexing.Index  | This operation is a call to [Add, Update or Delete Documents](/rest/api/searchservice/addupdate-or-delete-documents). |
+| indexes.Prototype | This is an index created by the Import Data wizard. |
+| Indexers.Create | Create an indexer explicitly or implicitly through the Import Data wizard. |
+| Indexers.Get | Returns the name of an indexer whenever the indexer is run. |
+| Indexers.Status | Returns the status of an indexer whenever the indexer is run. |
+| DataSources.Get | Returns the name of the data source whenever an indexer is run.|
+| Indexes.Get | Returns the name of an index whenever an indexer is run. |
+
 ## Log schema
 
-Data structures that contain Azure Cognitive Search log data conform to the schema below. 
+If you are building custom reports, the data structures that contain Azure Cognitive Search log data conform to the schema below. For Blob storage, each blob has one root object called **records** containing an array of log objects. Each blob contains records for all the operations that took place during the same hour.
 
-For Blob storage, each blob has one root object called **records** containing an array of log objects. Each blob contains records for all the operations that took place during the same hour.
-
-The following table is a partial list of fields common to diagnostic logging.
+The following table is a partial list of fields common to resource logging.
 
 | Name | Type | Example | Notes |
 | --- | --- | --- | --- |
 | timeGenerated |datetime |"2018-12-07T00:00:43.6872559Z" |Timestamp of the operation |
 | resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Your ResourceId |
 | operationName |string |"Query.Search" |The name of the operation |
-| operationVersion |string |"2019-05-06" |The api-version used |
+| operationVersion |string |"2020-06-30" |The api-version used |
 | category |string |"OperationLogs" |constant |
 | resultType |string |"Success" |Possible values: Success or Failure |
 | resultSignature |int |200 |HTTP result code |
@@ -116,7 +155,7 @@ The properties below are specific to Azure Cognitive Search.
 | Description_s |string |"GET /indexes('content')/docs" |The operation's endpoint |
 | Documents_d |int |42 |Number of documents processed |
 | IndexName_s |string |"test-index" |Name of the index associated with the operation |
-| Query_s |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |The query parameters |
+| Query_s |string |"?search=AzureSearch&$count=true&api-version=2020-06-30" |The query parameters |
 
 ## Metrics schema
 

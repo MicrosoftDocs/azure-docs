@@ -2,8 +2,8 @@
 title: Create resource pools with Azure subscription mapping
 titleSuffix: Azure VMware Solution by CloudSimple
 description: Describes how to create resource pools for your Private Cloud through Azure subscription mapping
-author: sharaths-cs 
-ms.author: b-shsury 
+author: shortpatti 
+ms.author: v-patsho
 ms.date: 08/14/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 

@@ -3,27 +3,29 @@ title: Polling Long-Running Operations | Microsoft Docs
 description: Azure Media Services offers APIs that send requests to Media Services to start operations (for example, create, start, stop, or delete a channel), these operations are long-running. This topic shows how to poll long-running operations.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 writer: juliako
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.custom: devx-track-csharp
 ---
 
 # Delivering Live Streaming with Azure Media Services
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 ## Overview
 
 Microsoft Azure Media Services offers APIs that send requests to Media Services to start operations (for example: create, start, stop, or delete a channel). These operations are long-running.
 
-The Media Services .NET SDK provides APIs that send the request and wait for the operation to complete (internally, the APIs are polling for operation progress at some intervals). For example, when you call channel.Start(), the method returns after the channel is started. You can also use the asynchronous version: await channel.StartAsync() (for information about Task-based Asynchronous Pattern, see [TAP](https://msdn.microsoft.com/library/hh873175\(v=vs.110\).aspx)). APIs that send an operation request and then poll for the status until the operation is complete are called “polling methods”. These methods (especially the Async version) are recommended for rich client applications and/or stateful services.
+The Media Services .NET SDK provides APIs that send the request and wait for the operation to complete (internally, the APIs are polling for operation progress at some intervals). For example, when you call channel.Start(), the method returns after the channel is started. You can also use the asynchronous version: await channel.StartAsync() (for information about Task-based Asynchronous Pattern, see [TAP](./media-services-mes-schema.md)). APIs that send an operation request and then poll for the status until the operation is complete are called “polling methods”. These methods (especially the Async version) are recommended for rich client applications and/or stateful services.
 
 There are scenarios where an application cannot wait for a long running http request and wants to poll for the operation progress manually. A typical example would be a browser interacting with a stateless web service: when the browser requests to create a channel, the web service initiates a long running operation and returns the operation ID to the browser. The browser could then ask the web service to get the operation status based on the ID. The Media Services .NET SDK provides APIs that are useful for this scenario. These APIs are called “non-polling methods”.
 The “non-polling methods” have the following naming pattern: Send*OperationName*Operation (for example, SendCreateOperation). Send*OperationName*Operation methods return the **IOperation** object; the returned object contains information that can be used to track the operation. The Send*OperationName*OperationAsync methods return **Task\<IOperation>**.
@@ -211,4 +213,3 @@ Console.WriteLine(channelId);
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

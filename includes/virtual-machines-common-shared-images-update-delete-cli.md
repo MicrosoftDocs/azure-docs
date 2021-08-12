@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 04/25/2019
  ms.author: cynthn
- ms.custom: include file
+ ms.custom: include file, devx-track-azurecli
 ---
 
 ## Update resources
@@ -31,7 +31,7 @@ Image version:
 
 If you plan on adding replica regions, do not delete the source managed image. The source managed image is needed for replicating the image version to additional regions. 
 
-Update the description of a gallery using ([az sig update](https://docs.microsoft.com/cli/azure/sig?view=azure-cli-latest#az-sig-update). 
+Update the description of a gallery using ([az sig update](/cli/azure/sig#az_sig_update). 
 
 ```azurecli-interactive
 az sig update \
@@ -41,7 +41,7 @@ az sig update \
 ```
 
 
-Update the description of an image definition using [az sig image-definition update](https://docs.microsoft.com/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-update).
+Update the description of an image definition using [az sig image-definition update](/cli/azure/sig/image-definition#az_sig_image_definition_update).
 
 ```azurecli-interactive
 az sig image-definition update \
@@ -51,7 +51,7 @@ az sig image-definition update \
    --set description="My updated description."
 ```
 
-Update an image version to add a region to replicate to using [az sig image-version update](https://docs.microsoft.com/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-update). This change will take a while as the image gets replicated to the new region.
+Update an image version to add a region to replicate to using [az sig image-version update](/cli/azure/sig/image-definition#az_sig_image_definition_update). This change will take a while as the image gets replicated to the new region.
 
 ```azurecli-interactive
 az sig image-version update \
@@ -62,11 +62,33 @@ az sig image-version update \
    --add publishingProfile.targetRegions  name=eastus
 ```
 
+This example shows how to use [az sig image-version update](/cli/azure/sig/image-definition#az_sig_image_definition_update) to exclude this image version from being used as the *latest* image.
+
+```azurecli-interactive
+az sig image-version update \
+   --resource-group myGalleryRG \
+   --gallery-name myGallery \
+   --gallery-image-definition myImageDefinition \
+   --gallery-image-version 1.0.0 \
+   --set publishingProfile.excludeFromLatest=true
+```
+
+This example shows how to use [az sig image-version update](/cli/azure/sig/image-definition#az_sig_image_definition_update) to include this image version in being considered for *latest* image.
+
+```azurecli-interactive
+az sig image-version update \
+   --resource-group myGalleryRG \
+   --gallery-name myGallery \
+   --gallery-image-definition myImageDefinition \
+   --gallery-image-version 1.0.0 \
+   --set publishingProfile.excludeFromLatest=false
+```
+
 ## Delete resources
 
 You have to delete resources in reverse order, by deleting the image version first. After you delete all of the image versions, you can delete the image definition. After you delete all image definitions, you can delete the gallery. 
 
-Delete an image version using [az sig image-version delete](https://docs.microsoft.com/cli/azure/sig/image-version?view=azure-cli-latest#az-sig-image-version-delete).
+Delete an image version using [az sig image-version delete](/cli/azure/sig/image-version#az_sig_image_version_delete).
 
 ```azurecli-interactive
 az sig image-version delete \
@@ -76,7 +98,7 @@ az sig image-version delete \
    --gallery-image-version 1.0.0 
 ```
 
-Delete an image definition using [az sig image-definition delete](https://docs.microsoft.com/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-delete).
+Delete an image definition using [az sig image-definition delete](/cli/azure/sig/image-definition#az_sig_image_definition_delete).
 
 ```azurecli-interactive
 az sig image-definition delete \
@@ -86,7 +108,7 @@ az sig image-definition delete \
 ```
 
 
-Delete an image gallery using [az sig delete](https://docs.microsoft.com/cli/azure/sig?view=azure-cli-latest#az-sig-delete).
+Delete an image gallery using [az sig delete](/cli/azure/sig#az_sig_delete).
 
 ```azurecli-interactive
 az sig delete \

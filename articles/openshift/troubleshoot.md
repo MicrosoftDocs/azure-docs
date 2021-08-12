@@ -3,7 +3,7 @@ title: Troubleshoot Azure Red Hat OpenShift
 description: Troubleshoot and resolve common issues with Azure Red Hat OpenShift
 author: jimzim
 ms.author: jzim
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: troubleshooting
 ms.date: 05/08/2019
 ---
@@ -25,10 +25,10 @@ Currently, the `Microsoft.ContainerService/openShiftManagedClusters` resource th
 
 ## Creating a cluster results in error that no registered resource provider found
 
-If creating a cluster results in an error that `No registered resource provider found for location '<location>' and API version '2019-04-30' for type 'openShiftManagedClusters'. The supported api-versions are '2018-09-30-preview`, then you were part of the preview and now need to [purchase Azure virtual machine reserved instances](https://aka.ms/openshift/buy) to use the generally available product. A reservation reduces your spend by pre-paying for fully managed Azure services. Refer to [*What are Azure Reservations*](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations) to learn more about reservations and how they save you money.
+If creating a cluster results in an error that `No registered resource provider found for location '<location>' and API version '2019-04-30' for type 'openShiftManagedClusters'. The supported api-versions are '2018-09-30-preview`, then you were part of the preview and now need to [purchase Azure virtual machine reserved instances](https://aka.ms/openshift/buy) to use the generally available product. A reservation reduces your spend by pre-paying for fully managed Azure services. Refer to [*What are Azure Reservations*](../cost-management-billing/reservations/save-compute-costs-reservations.md) to learn more about reservations and how they save you money.
 
 ## Next steps
 
 - Try the [Red Hat OpenShift Help Center](https://help.openshift.com/) for more on OpenShift troubleshooting.
 
-- Find answers to [frequently asked questions about Azure Red Hat OpenShift](openshift-faq.md).
+- Find answers to [frequently asked questions about Azure Red Hat OpenShift](openshift-faq.yml).

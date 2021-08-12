@@ -1,15 +1,10 @@
 ---
 title: Tutorial to configure an Azure-SSIS integration runtime to join a virtual network
-description: Learn how to join an Azure-SSIS integration runtime to an Azure virtual network. 
-services: data-factory
-documentationcenter: ''
+description: Learn how to join an Azure-SSIS integration runtime to join an Azure virtual network. 
 author: chugugrace
 ms.author: chugu
-ms.reviewer: 
-manager: 
 ms.service: data-factory
-ms.workload: data-services
-
+ms.subservice: integration-services
 ms.topic: conceptual
 ms.date: 1/10/2020
 ---
@@ -28,14 +23,14 @@ The steps include:
 
 - **Azure-SSIS integration runtime**. If you do not have an Azure-SSIS integration runtime, [provision an Azure-SSIS integration runtime in Azure Data Factory](tutorial-deploy-ssis-packages-azure.md) before begin.
 
-- **User permission**. The user who creates the Azure-SSIS IR must have the [role assignment](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-portal#list-role-assignments-for-a-user-at-a-scope) at least on Azure Data Factory resource with one of the options below:
+- **User permission**. The user who creates the Azure-SSIS IR must have the [role assignment](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-at-a-scope) at least on Azure Data Factory resource with one of the options below:
 
     - Use the built-in Network Contributor role. This role comes with the _Microsoft.Network/\*_ permission, which has a much larger scope than necessary.
     - Create a custom role that includes only the necessary _Microsoft.Network/virtualNetworks/\*/join/action_ permission. If you also want to bring your own public IP addresses for Azure-SSIS IR while joining it to an Azure Resource Manager virtual network, please also include _Microsoft.Network/publicIPAddresses/*/join/action_ permission in the role.
 
 - **Virtual network**.
 
-    - If you do not have a virtual network, [create a virtual network using the Azure portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal).
+    - If you do not have a virtual network, [create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md).
 
     - Make sure that the virtual network's resource group can create and delete certain Azure network resources.
     
@@ -46,9 +41,9 @@ The steps include:
     
         Those resources will be created when your Azure-SSIS IR starts. They'll be deleted when your Azure-SSIS IR stops. To avoid blocking your Azure-SSIS IR from stopping, don't reuse these network resources in your other resources.
 
-    - Make sure that you have no [resource lock](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) on the resource group/subscription to which the virtual network belongs. If you configure a read-only/delete lock, starting and stopping your Azure-SSIS IR will fail, or it will stop responding.
+    - Make sure that you have no [resource lock](../azure-resource-manager/management/lock-resources.md) on the resource group/subscription to which the virtual network belongs. If you configure a read-only/delete lock, starting and stopping your Azure-SSIS IR will fail, or it will stop responding.
 
-    - Make sure that you don't have an Azure policy that prevents the following resources from being created under the resource group/subscription to which the virtual network belongs:
+    - Make sure that you don't have an Azure Policy assignment that prevents the following resources from being created under the resource group/subscription to which the virtual network belongs:
         - Microsoft.Network/LoadBalancers
         - Microsoft.Network/NetworkSecurityGroups
 
@@ -81,7 +76,7 @@ Use the Azure portal to configure a virtual network before you try to join an Az
 
     - Ensure that the subnet you select has enough available address space for the Azure-SSIS IR to use. Leave available IP addresses for at least two times the IR node number. Azure reserves some IP addresses within each subnet. These addresses can't be used. The first and last IP addresses of the subnets are reserved for protocol conformance, and three more addresses are used for Azure services. For more information, see [Are there any restrictions on using IP addresses within these subnets?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
     - Don't select the GatewaySubnet to deploy an Azure-SSIS IR. It's dedicated for virtual network gateways.
-    - Don't use a subnet that is exclusively occupied by other Azure services (for example, SQL Database managed instance, App Service, and so on).
+    - Don't use a subnet that is exclusively occupied by other Azure services (for example, SQL Database SQL Managed Instance, App Service, and so on).
 
 1. Verify that the Azure Batch provider is registered in the Azure subscription that has the virtual network. Or register the Azure Batch provider. If you already have an Azure Batch account in your subscription, your subscription is registered for Azure Batch. (If you create the Azure-SSIS IR in the Data Factory portal, the Azure Batch provider is automatically registered for you.)
 
@@ -132,9 +127,9 @@ After you've configured your Azure Resource Manager virtual network or classic v
 
    1. For **Type**, select the type of your virtual network: classic or Azure Resource Manager. We recommend that you select an Azure Resource Manager virtual network, because classic virtual networks will be deprecated soon.
 
-   1. For **VNet Name**, select the name of your virtual network. It should be the same one used for your Azure SQL Database server with virtual network service endpoints or managed instance with private endpoint to host SSISDB. Or it should be the same one connected to your on-premises network. Otherwise, it can be any virtual network to bring your own static public IP addresses for Azure-SSIS IR.
+   1. For **VNet Name**, select the name of your virtual network. It should be the same one used for SQL Database with virtual network service endpoints or SQL Managed Instance with private endpoint to host SSISDB. Or it should be the same one connected to your on-premises network. Otherwise, it can be any virtual network to bring your own static public IP addresses for Azure-SSIS IR.
 
-   1. For **Subnet Name**, select the name of subnet for your virtual network. It should be the same one used for your Azure SQL Database server with virtual network service endpoints to host SSISDB. Or it should be a different subnet from the one used for your managed instance with private endpoint to host SSISDB. Otherwise, it can be any subnet to bring your own static public IP addresses for Azure-SSIS IR.
+   1. For **Subnet Name**, select the name of subnet for your virtual network. It should be the same one used for SQL Datbase with virtual network service endpoints to host SSISDB. Or it should be a different subnet from the one used for your SQL Managed Instance with private endpoint to host SSISDB. Otherwise, it can be any subnet to bring your own static public IP addresses for Azure-SSIS IR.
 
    1. Select **VNet Validation**. If the validation is successful, select **Continue**.
 

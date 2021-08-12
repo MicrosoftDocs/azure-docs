@@ -2,19 +2,25 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Arc for servers?
-    href: ./servers/overview.md
-- name: How-to guides
+  - name: About Azure Arc
+    href: overview.md
+- name: Samples
   items:
-  - name: Connect to Azure Arc
-    items:
-    - name: Connect machines to Azure Arc from the Azure portal
-      href: ./servers/onboard-portal.md
-    - name: Connect machines at scale using a service principal
-      href: ./servers/onboard-service-principal.md
-    - name: Connect machines to Azure Arc with PowerShell DSC
-      href: ./servers/onboard-dsc.md
-  - name: Manage
-    items:
-    - name: Manage agent
-      href: ./servers/manage-agent.md
+  - name: Azure Resource Graph queries
+    href: ./resource-graph-samples.md
+- name: Arc-enabled servers >
+  href: ./servers/overview.md
+- name: Arc-enabled Kubernetes >
+  href: ./kubernetes/overview.md
+- name: Arc-enabled data services  >
+  href: ./data/overview.md
+- name: SQL Server on Azure Arc-enabled servers >
+  href: /sql/sql-server/azure-arc/overview
+- name: Arc validation program
+  items:
+   - name: Program overview
+     href: validation-program/overview.md
+   - name: Validated Kubernetes partners
+     href: kubernetes/validation-program.md?toc=/azure/azure-arc/toc.json&bc=/azure/azure-arc/breadcrumb/toc.json
+   - name: Validated data services partners
+     href: data/validation-program.md?toc=/azure/azure-arc/toc.json&bc=/azure/azure-arc/breadcrumb/toc.json

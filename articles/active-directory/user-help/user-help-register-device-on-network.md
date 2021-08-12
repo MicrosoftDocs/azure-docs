@@ -9,8 +9,8 @@ ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 01/04/2019
+ms.topic: end-user-help
+ms.date: 05/24/2020
 ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: "user-help, seo-update-azuread-jan"
@@ -26,9 +26,9 @@ While you're registering your device on your organization's network, the followi
 
 - Windows registers your device on your organization's network.
 
-- Optionally, based on your organization's choices, you might be asked to set up two-step verification through either [Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md) or [security info](user-help-security-info-overview.md).
+- Optionally, based on your organization's choices, you might be asked to set up two-step verification through either [two-factor authentication](multi-factor-authentication-end-user-first-time.md) or [security info](./security-info-setup-signin.md).
 
-- Optionally, based on your organization's choices, you might be automatically enrolled in mobile device management, such as Microsoft Intune. For more info about enrolling in Microsoft Intune, see [Enroll your device in Intune](https://docs.microsoft.com/intune-user-help/enroll-your-device-in-intune-all).
+- Optionally, based on your organization's choices, you might be automatically enrolled in mobile device management, such as Microsoft Intune. For more info about enrolling in Microsoft Intune, see [Enroll your device in Intune](/intune-user-help/enroll-your-device-in-intune-all).
 
 - You'll go through the sign-in process, using the username and password for your work or school account.
 
@@ -40,24 +40,27 @@ Follow these steps to register your personal device on your network.
 
     ![Accounts on the Settings screen](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
 
-2. Select **Access work or school**, and then select **Connect** from the **Access work or school** screen.
+1. Select **Access work or school**, and then select **Connect** from the **Access work or school** screen.
 
     ![Access work or school screen with Connect option highlighted](./media/user-help-register-device-on-network/register-device-access-work-school-connect.png)
 
-3. On the **Add a work or school account** screen, type in your email address for your work or school account, and then select **Next**. For example, alain@contoso.com.
+1. On the **Add a work or school account** screen, type in your email address for your work or school account, and then select **Next**. For example, alain@contoso.com.
 
-4. Sign in to your work or school account, and then select **Sign in**.
+1. Sign in to your work or school account, and then select **Sign in**.
 
-5. Complete the rest of the registration process, including approving your identity verification request (if you use two-step verification) and setting up Windows Hello (if necessary).
+1. Complete the rest of the registration process, including approving your identity verification request (if you use two-step verification) and setting up Windows Hello (if necessary).
+
+1. Restart the device.
 
 ## To verify that you're registered
+
 You can make sure that you're registered by looking at your settings.
 
 1. Open **Settings**, and then select **Accounts**.
 
     ![Accounts on the Settings screen](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
 
-2. Select **Access work or school**, and make sure you see your work or school account.
+1. Select **Access work or school**, and make sure you see your work or school account.
 
     ![Access work or school screen with connected contoso account](./media/user-help-register-device-on-network/register-device-setup-verify.png)
 
@@ -65,6 +68,3 @@ You can make sure that you're registered by looking at your settings.
 After you register your personal device to your organization's network, you should be able to access most of your resources.
 
 - If your organization wants you to join your work device, see [Join your work device to your organization's network](user-help-join-device-on-network.md).
-
-
-

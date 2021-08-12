@@ -5,7 +5,7 @@ description: Enable Azure Peering Service on a Direct peering by using the Azure
 services: internet-peering
 author: derekolo
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 3/18/2020
 ms.author: derekol
 ---
@@ -43,4 +43,4 @@ To modify connection settings, see the "Modify a Direct peering" section in [Cre
 
 ## Additional resources
 
-For frequently asked questions, see the [Peering Service FAQ](service-faqs.md).
+For frequently asked questions, see the [Peering Service FAQ](service-faqs.yml).

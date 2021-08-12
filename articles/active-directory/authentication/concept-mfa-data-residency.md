@@ -1,106 +1,134 @@
 ---
-title: Azure Multi-Factor Authentication data residency
-description: Learn what personal and organizational data Azure Multi-Factor Authentication stores about you and your users and what data remains within the country of origin.
+title: Azure AD multifactor authentication data residency
+description: Learn what personal and organizational data Azure AD multifactor authentication stores about you and your users and what data remains within the country/region of origin.
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 06/03/2021
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: inbarc
+ms.custom: references_regions
+
 ms.collection: M365-identity-device-management
 ---
-# Data residency and customer data for Azure Multi-Factor Authentication
+# Data residency and customer data for Azure AD multifactor authentication
 
-Customer data is stored by Azure AD in a geographical location based on the address provided by your organization when subscribing for a Microsoft Online service such as Office 365 and Azure. For information on where your customer data is stored, you can use the [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
+Azure Active Directory (Azure AD) stores customer data in a geographical location based on the address an organization provides when subscribing to a Microsoft online service such as Microsoft 365 or Azure. For information on where your customer data is stored, see [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) in the Microsoft Trust Center.
 
-Cloud-based Azure Multi-Factor Authentication and Azure Multi-Factor Authentication Server process and store some amount of personal data and organizational data. This article outlines what and where data is stored.
+Cloud-based Azure AD multifactor authentication and MFA Server process and store personal data and organizational data. This article outlines what and where data is stored.
 
-The following Multi-Factor Authentication activities currently originate out of US datacenters except where noted:
+The Azure AD multifactor authentication service has datacenters in the United States, Europe, and Asia Pacific. The following activities originate from the regional datacenters except where noted:
 
-* Two-factor authentication using phone calls or SMS typically originate from US datacenters and are routed by global providers.
-    * General purpose user authentication requests from other regions such as Europe or Australia are currently processed by datacenters in that region. Other events such as self-service password resets, Azure B2C events, or hybrid scenarios using NPS Extension or AD FS adapter, are all currently processed by US datacenters.
-* Push notifications using the Microsoft Authenticator app originate from US datacenters. In addition, device vendor-specific services may also come into play from different regions.
-* OATH codes are typically currently validated in the U.S.
-    * Again, general purpose user authentication events that originate in other regions, like Europe or Australia, are processed by datacenters in that region. Additional events are currently processed by US datacenters.
+* Multifactor authentication phone calls originate from datacenters in the customer's region and are routed by global providers. Phone calls using custom greetings always originate from data centers in the United States.
+* General purpose user authentication requests from other regions are currently processed based on the user's location.
+* Push notifications that use the Microsoft Authenticator app are currently processed in regional datacenters based on the user's location. Vendor-specific device services, such as Apple Push Notification Service, might be outside the user's location.
 
-## Personal data stored by Azure Multi-Factor Authentication
+## Personal data stored by Azure AD multifactor authentication
 
-Personal data is user-level information associated with a specific person. The following data stores contain personal information:
+Personal data is user-level information that's associated with a specific person. The following data stores contain personal information:
 
 * Blocked users
 * Bypassed users
 * Microsoft Authenticator device token change requests
-* Multi-Factor Authentication activity reports
+* Multifactor Authentication activity reports—store multifactor authentication activity from the Multifactor Authentication on-premises components: NPS Extension, AD FS adapter and MFA server.
 * Microsoft Authenticator activations
 
 This information is retained for 90 days.
 
-Azure Multi-Factor Authentication doesn't log personal data such as username, phone number, or IP address, but there is a *UserObjectId* that identifies Multi-Factor Authentication attempts to users. Log data is stored for 30 days.
+Azure AD multifactor authentication doesn't log personal data such as usernames, phone numbers, or IP addresses. However, *UserObjectId* identifies authentication attempts to users. Log data is stored for 30 days.
 
-### Azure Multi-Factor Authentication
+### Data stored by Azure AD multifactor authentication
 
-For Azure public clouds, excluding Azure B2C authentication, NPS Extension, and Windows Server 2016 or 2019 AD FS Adapter, the following personal data is stored:
-
-| Event type                           | Data store type |
-|--------------------------------------|-----------------|
-| OATH token                           | In Multi-Factor Authentication logs     |
-| One-way SMS                          | In Multi-Factor Authentication logs     |
-| Voice call                           | In Multi-Factor Authentication logs<br />Multi-Factor Authentication activity report data store<br />Blocked users if fraud reported |
-| Microsoft Authenticator notification | In Multi-Factor Authentication logs<br />Multi-Factor Authentication activity report data store<br />Blocked users if fraud reported<br />Change requests when Microsoft Authenticator device token changes |
-
-> [!NOTE]
-> The Multi-Factor Authentication activity report data store is stored in the United States for all clouds, regardless of the region that processes the authentication request. Microsoft Azure Germany, Microsoft Azure Operated by 21Vianet, and Microsoft Government Cloud have their own independent data stores separate from public cloud region data stores, however this data is always stored in the United States.
-
-For Microsoft Azure Government, Microsoft Azure Germany, Microsoft Azure Operated by 21Vianet, Azure B2C authentication, NPS Extension, and Windows Server 2016 or 2019 AD FS Adapter, the following personal data is stored:
+For Azure public clouds, excluding Azure AD B2C authentication, the NPS Extension, and the Windows Server 2016 or 2019 Active Directory Federation Services (AD FS) adapter, the following personal data is stored:
 
 | Event type                           | Data store type |
 |--------------------------------------|-----------------|
-| OATH token                           | In Multi-Factor Authentication logs<br />Multi-Factor Authentication activity report data store |
-| One-way SMS                          | In Multi-Factor Authentication logs<br />Multi-Factor Authentication activity report data store |
-| Voice call                           | In Multi-Factor Authentication logs<br />Multi-Factor Authentication activity report data store<br />Blocked users if fraud reported |
-| Microsoft Authenticator notification | In Multi-Factor Authentication logs<br />Multi-Factor Authentication activity report data store<br />Blocked users if fraud reported<br />Change requests when Microsoft Authenticator device token changes |
+| OATH token                           | Multifactor authentication logs     |
+| One-way SMS                          | Multifactor authentication logs     |
+| Voice call                           | Multifactor authentication logs<br/>Multifactor authentication activity report data store<br/>Blocked users (if fraud was reported) |
+| Microsoft Authenticator notification | Multifactor authentication logs<br/>Multifactor authentication activity report data store<br/>Blocked users (if fraud was reported)<br/>Change requests when the Microsoft Authenticator device token changes |
 
-### Multi-Factor Authentication Server
+For Microsoft Azure Government, Microsoft Azure Germany, Microsoft Azure operated by 21Vianet, Azure AD B2C authentication, the NPS extension, and the Windows Server 2016 or 2019 AD FS adapter, the following personal data is stored:
 
-If you deploy and run Azure Multi-Factor Authentication Server, the following personal data is stored:
+| Event type                           | Data store type |
+|--------------------------------------|-----------------|
+| OATH token                           | Multifactor authentication logs<br/>Multifactor authentication activity report data store |
+| One-way SMS                          | Multifactor authentication logs<br/>Multifactor authentication activity report data store |
+| Voice call                           | Multifactor authentication logs<br/>Multifactor authentication activity report data store<br/>Blocked users (if fraud was reported) |
+| Microsoft Authenticator notification | Multifactor authentication logs<br/>Multifactor authentication activity report data store<br/>Blocked users (if fraud was reported)<br/>Change requests when the Microsoft Authenticator device token changes |
+
+### Data stored by MFA Server
+
+If you use MFA Server, the following personal data is stored.
 
 > [!IMPORTANT]
-> As of July 1, 2019, Microsoft will no longer offer Multi-Factor Authentication Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated Multi-Factor Authentication Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
+> As of July 1, 2019, Microsoft no longer offers MFA Server for new deployments. New customers who want to require multifactor authentication from their users should use cloud-based Azure AD multifactor authentication. Existing customers who activated Multifactor Authentication Server before July 1, 2019, can download the latest version and updates, and generate activation credentials as usual.
 
 | Event type                           | Data store type |
 |--------------------------------------|-----------------|
-| OATH token                           | In Multi-Factor Authentication logs<br />Multi-Factor Authentication activity report data store |
-| One-way SMS                          | In Multi-Factor Authentication logs<br />Multi-Factor Authentication activity report data store |
-| Voice call                           | In Multi-Factor Authentication logs<br />Multi-Factor Authentication activity report data store<br />Blocked users if fraud reported |
-| Microsoft Authenticator notification | In Multi-Factor Authentication logs<br />Multi-Factor Authentication activity report data store<br />Blocked users if fraud reported<br />Change requests when Microsoft Authenticator device token changes |
+| OATH token                           | Multifactor authentication logs<br />Multifactor authentication activity report data store |
+| One-way SMS                          | Multifactor authentication logs<br />Multifactor authentication activity report data store |
+| Voice call                           | Multifactor authentication logs<br />Multifactor authentication activity report data store<br />Blocked users (if fraud was reported) |
+| Microsoft Authenticator notification | Multifactor authentication logs<br />Multifactor authentication activity report data store<br />Blocked users (if fraud was reported)<br />Change requests when Microsoft Authenticator device token changes |
 
-## Organizational data stored by Azure Multi-Factor Authentication
+## Organizational data stored by Azure AD multifactor authentication
 
-Organizational data is tenant-level information that could expose configuration or environment setup. Tenant settings from the following Azure portal Multi-Factor Authentication pages may store organizational data such as lockout thresholds or caller ID information for incoming phone authentication requests:
+Organizational data is tenant-level information that can expose configuration or environment setup. Tenant settings from the following Azure portal multifactor authentication pages might store organizational data such as lockout thresholds or caller ID information for incoming phone authentication requests:
 
 * Account lockout
 * Fraud alert
 * Notifications
 * Phone call settings
 
-And for Azure Multi-Factor Authentication Server, the following Azure portal pages may contain organizational data:
+For MFA Server, the following Azure portal pages might contain organizational data:
 
 * Server settings
 * One-time bypass
 * Caching rules
-* Multi-Factor Authentication Server status
+* Multifactor Authentication Server status
 
-## Log data location
+## Multifactor authentication activity reports for public cloud
 
-Where log information is stored depends on which region they're processed in. Most geographies have native Azure Multi-Factor Authentication capabilities, so log data is stored in the same region that processes the Multi-Factor Authentication request. In geographies without native Azure Multi-Factor Authentication support, they're serviced by either the United States or Europe geographies and log data is stored in the same region that processes the Multi-Factor Authentication request.
+Multifactor authentication activity reports store activity from on-premises components: NPS Extension, AD FS adapter, and MFA server. 
+The multifactor authentication service logs are used to operate the service.
+The following sections show where activity reports and services logs are stored for specific authentication methods for each component in different customer regions. 
+Standard voice calls may failover to a different region.
 
-Some core authentication log data is only stored in the United States. Microsoft Azure Germany and Microsoft Azure Operated by 21Vianet are always stored in their respective cloud. Microsoft Government Cloud log data is always stored in the United States.
+>[!NOTE]
+>The multifactor authentication activity reports contain personal data such as User Principal Name (UPN) and complete phone number.
+
+### NPS extension and AD FS adapter
+
+| Authentication method                                                             | Customer region                      | Activity report location | Service log location |
+|-----------------------------------------------------------------------------------|--------------------------------------|--------------------------|----------------------|
+| OATH software and hardware tokens                                                 | Australia and New Zealand            | Australia/New Zealand    | Cloud in-region      |
+| OATH software and hardware tokens                                                 | Outside of Australia and New Zealand | United States            | Cloud in-region      |
+| Voice calls without custom greetings and all other authentication methods except OATH software and hardware tokens  | Any                               | United States            | Cloud in-region      |
+| Voice calls with custom greetings                                         | Any                                  | United States            | MFA backend in United States |
+
+### MFA server and cloud-based MFA
+
+| Component  | Authentication method                          | Customer region                      | Activity report location        | Service log location         |
+|------------|------------------------------------------------|--------------------------------------|---------------------------------|------------------------------|
+| MFA server | All methods                                    | Any                                  | United States                   | MFA backend in United States |
+| Cloud MFA  | Standard voice calls and all other methods     | Any                                  | Azure AD Sign-in logs in region | Cloud in-region              |
+| Cloud MFA  | Voice calls with custom greetings              | Any                                  | Azure AD Sign-in logs in region | MFA backend in United States |
+
+## Multifactor authentication activity reports for sovereign clouds
+
+The following table shows the location for service logs for sovereign clouds.
+
+| Sovereign cloud                      | Sign-in logs                         | Multifactor authentication activity report | Multifactor authentication service logs |
+|--------------------------------------|--------------------------------------|--------------------------------------------|-----------------------------------------|
+| Microsoft Azure Germany              | Germany                              | United States                              | United States                           |
+| Azure China 21Vianet                 | China                                | United States                              | United States                           |
+| Microsoft Government Cloud           | United States                        | United States                              | United States                           |
 
 ## Next steps
 
-For more information about what user information is collected by cloud-based Azure Multi-Factor Authentication and Azure Multi-Factor Authentication Server, see [Azure Multi-Factor Authentication user data collection](howto-mfa-reporting-datacollection.md).
+For more information about what user information is collected by cloud-based Azure AD multifactor authentication and MFA Server, see [Azure AD multifactor authentication user data collection](howto-mfa-reporting-datacollection.md).

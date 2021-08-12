@@ -8,17 +8,18 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: robinsh
+ms.custom: mqtt, devx-track-python
 ---
 
 # Send cloud-to-device messages with IoT Hub (Python)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end. The [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-python.md) quickstart shows how to create an IoT hub, provision a device identity in it, and code a simulated device app that sends device-to-cloud messages.
+Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end. The [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python) quickstart shows how to create an IoT hub, provision a device identity in it, and code a simulated device app that sends device-to-cloud messages.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-This tutorial builds on [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-python.md). It shows you how to:
+This tutorial builds on [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python). It shows you how to:
 
 * From your solution back end, send cloud-to-device messages to a single device through IoT Hub.
 
@@ -28,7 +29,7 @@ You can find more information on cloud-to-device messages in the [IoT Hub develo
 
 At the end of this tutorial, you run two Python console apps:
 
-* **SimulatedDevice.py**, a modified version of the app created in [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-python.md), which connects to your IoT hub and receives cloud-to-device messages.
+* **SimulatedDevice.py**, a modified version of the app created in [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python), which connects to your IoT hub and receives cloud-to-device messages.
 
 * **SendCloudToDeviceMessage.py**, which sends cloud-to-device messages to the simulated device app through IoT Hub.
 
@@ -62,7 +63,7 @@ In this section, you create a Python console app to simulate the device and rece
     RECEIVED_MESSAGES = 0
     ```
 
-1. Add the following code to **SimulatedDevice.py** file. Replace the `{deviceConnectionString}` placeholder value with the device connection string for the device you created in the [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-python.md) quickstart:
+1. Add the following code to **SimulatedDevice.py** file. Replace the `{deviceConnectionString}` placeholder value with the device connection string for the device you created in the [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python) quickstart:
 
     ```python
     CONNECTION_STRING = "{deviceConnectionString}"
@@ -118,13 +119,13 @@ In this section, you create a Python console app to simulate the device and rece
 
 ## Get the IoT hub connection string
 
-In this article, you create a backend service to send cloud-to-device messages through the IoT hub you created in [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-python.md). To send cloud-to-device messages, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission.
+In this article, you create a backend service to send cloud-to-device messages through the IoT hub you created in [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python). To send cloud-to-device messages, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission.
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
 ## Send a cloud-to-device message
 
-In this section, you create a Python console app that sends cloud-to-device messages to the simulated device app. You need the device ID of the device you added in the [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-python.md) quickstart. You also need the IoT hub connection string you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string).
+In this section, you create a Python console app that sends cloud-to-device messages to the simulated device app. You need the device ID of the device you added in the [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python) quickstart. You also need the IoT hub connection string you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string).
 
 1. In your working directory, open a command prompt and install the **Azure IoT Hub Service SDK for Python**.
 

@@ -3,8 +3,8 @@ title: Create Azure web and worker roles for PHP
 description: A guide to creating PHP web and worker roles in an Azure cloud service, and configuring the PHP runtime.
 services: ''
 documentationcenter: php
-author: msangapu
-manager: cfowler
+author: msangapu-msft
+manager: gwallace
 
 ms.assetid: 9f7ccda0-bd96-4f7b-a7af-fb279a9e975b
 ms.service: cloud-services
@@ -27,7 +27,7 @@ For more information about these options, see [Compute hosting options provided 
 
 ## Download the Azure SDK for PHP
 
-The [Azure SDK for PHP](https://github.com/Azure/azure-sdk-for-php) consists of several components. This article will use two of them: Azure PowerShell and the Azure emulators. These two components can be installed via the Microsoft Web Platform Installer. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+The [Azure SDK for PHP](https://github.com/Azure/azure-sdk-for-php) consists of several components. This article will use two of them: Azure PowerShell and the Azure emulators. These two components can be installed via the Microsoft Web Platform Installer. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/).
 
 ## Create a Cloud Services project
 
@@ -35,7 +35,9 @@ The first step in creating a PHP web or worker role is to create an Azure Servic
 
 To create a new Azure Service project, run Azure PowerShell as an administrator, and execute the following command:
 
-    PS C:\>New-AzureServiceProject myProject
+```powershell
+PS C:\>New-AzureServiceProject myProject
+```
 
 This command will create a new directory (`myProject`) to which you can add web and worker roles.
 
@@ -43,11 +45,15 @@ This command will create a new directory (`myProject`) to which you can add web 
 
 To add a PHP web role to a project, run the following command from within the project's root directory:
 
-    PS C:\myProject> Add-AzurePHPWebRole roleName
+```powershell
+PS C:\myProject> Add-AzurePHPWebRole roleName
+```
 
 For a worker role, use this command:
 
-    PS C:\myProject> Add-AzurePHPWorkerRole roleName
+```powershell
+PS C:\myProject> Add-AzurePHPWorkerRole roleName
+```
 
 > [!NOTE]
 > The `roleName` parameter is optional. If it is omitted, the role name will be automatically generated. The first web role created will be `WebRole1`, the second will be `WebRole2`, and so on. The first worker role created will be `WorkerRole1`, the second will be `WorkerRole2`, and so on.
@@ -66,7 +72,10 @@ To configure a web role to use a PHP runtime that you provide, follow these step
 2. Create a `php` folder in the `bin` folder that is in your web role's root directory, and then add your PHP runtime (all binaries, configuration files, subfolders, etc.) to the `php` folder.
 3. (OPTIONAL) If your PHP runtime uses the [Microsoft Drivers for PHP for SQL Server][sqlsrv drivers], you will need to configure your web role to install [SQL Server Native Client 2012][sql native client] when it is provisioned. To do this, add the [sqlncli.msi x64 installer] to the `bin` folder in your web role's root directory. The startup script described in the next step will silently run the installer when the role is provisioned. If your PHP runtime does not use the Microsoft Drivers for PHP for SQL Server, you can remove the following line from the script shown in the next step:
 
-        msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
+   ```console
+   msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
+   ```
+
 4. Define a startup task that configures [Internet Information Services (IIS)][iis.net] to use your PHP runtime to handle requests for `.php` pages. To do this, open the `setup_web.cmd` file (in the `bin` file of your web role's root directory) in a text editor and replace its contents with the following script:
 
     ```cmd
@@ -102,7 +111,10 @@ To configure a worker role to use a PHP runtime that you provide, follow these s
 2. Create a `php` folder in the worker role's root directory, and then add your PHP runtime (all binaries, configuration files, subfolders, etc.) to the `php` folder.
 3. (OPTIONAL) If your PHP runtime uses [Microsoft Drivers for PHP for SQL Server][sqlsrv drivers], you will need to configure your worker role to install [SQL Server Native Client 2012][sql native client] when it is provisioned. To do this, add the [sqlncli.msi x64 installer] to the worker role's root directory. The startup script described in the next step will silently run the installer when the role is provisioned. If your PHP runtime does not use the Microsoft Drivers for PHP for SQL Server, you can remove the following line from the script shown in the next step:
 
-        msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
+   ```console
+   msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
+   ```
+
 4. Define a startup task that adds your `php.exe` executable to the worker role's PATH environment variable when the role is provisioned. To do this, open the `setup_worker.cmd` file (in the worker role's root directory) in a text editor and replace its contents with the following script:
 
     ```cmd
@@ -136,39 +148,45 @@ To configure a worker role to use a PHP runtime that you provide, follow these s
 
 ## Run your application in the compute and storage emulators
 
-The Azure emulators provide a local environment in which you can test your Azure application before you deploy it to the cloud. There are some differences between the emulators and the Azure environment. To understand this better, see [Use the Azure storage emulator for development and testing](storage/common/storage-use-emulator.md).
+The Azure emulators provide a local environment in which you can test your Azure application before you deploy it to the cloud. There are some differences between the emulators and the Azure environment. To understand this better, see [Use the Azure Storage Emulator for development and testing](storage/common/storage-use-emulator.md).
 
 Note that you must have PHP installed locally to use the compute emulator. The compute emulator will use your local PHP installation to run your application.
 
 To run your project in the emulators, execute the following command from your project's root directory:
 
-    PS C:\MyProject> Start-AzureEmulator
+```powershell
+PS C:\MyProject> Start-AzureEmulator
+```
 
 You will see output similar to this:
 
-    Creating local package...
-    Starting Emulator...
-    Role is running at http://127.0.0.1:81
-    Started
+```output
+Creating local package...
+Starting Emulator...
+Role is running at http://127.0.0.1:81
+Started
+```
 
 You can see your application running in the emulator by opening a web browser and browsing to the local address shown in the output (`http://127.0.0.1:81` in the example output above).
 
 To stop the emulators, execute this command:
 
-    PS C:\MyProject> Stop-AzureEmulator
+```powershell
+PS C:\MyProject> Stop-AzureEmulator
+```
 
 ## Publish your application
 
-To publish your application, you need to first import your publish settings by using the [Import-AzurePublishSettingsFile](https://docs.microsoft.com/powershell/module/servicemanagement/azure/import-azurepublishsettingsfile) cmdlet. Then you can publish your application by using the [Publish-AzureServiceProject](https://docs.microsoft.com/powershell/module/servicemanagement/azure/publish-azureserviceproject) cmdlet. For information about signing in, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+To publish your application, you need to first import your publish settings by using the [Import-AzurePublishSettingsFile](/powershell/module/servicemanagement/azure.service/import-azurepublishsettingsfile) cmdlet. Then you can publish your application by using the [Publish-AzureServiceProject](/powershell/module/servicemanagement/azure.service/publish-azureserviceproject) cmdlet. For information about signing in, see [How to install and configure Azure PowerShell](/powershell/azure/).
 
 ## Next steps
 
 For more information, see the [PHP Developer Center](https://azure.microsoft.com/develop/php/).
 
 [install ps and emulators]: https://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
-[service definition (.csdef)]: https://msdn.microsoft.com/library/windowsazure/ee758711.aspx
-[service configuration (.cscfg)]: https://msdn.microsoft.com/library/windowsazure/ee758710.aspx
+[service definition (.csdef)]: /previous-versions/azure/reference/ee758711(v=azure.100)
+[service configuration (.cscfg)]: /previous-versions/azure/reference/ee758710(v=azure.100)
 [iis.net]: https://www.iis.net/
-[sql native client]: https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation
+[sql native client]: /sql/sql-server/sql-server-technical-documentation
 [sqlsrv drivers]: https://php.net/sqlsrv
 [sqlncli.msi x64 installer]: https://go.microsoft.com/fwlink/?LinkID=239648

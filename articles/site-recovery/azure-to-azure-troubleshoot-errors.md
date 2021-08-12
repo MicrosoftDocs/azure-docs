@@ -31,7 +31,7 @@ Replication couldn't be enabled for the virtual machine <VmName>.
 
 ### Fix the problem
 
-Contact [Azure billing support](/azure/azure-portal/supportability/resource-manager-core-quotas-request) to enable your subscription to create VMs of the required sizes in the target location. Then, retry the failed operation.
+Contact [Azure billing support](../azure-portal/supportability/resource-manager-core-quotas-request.md) to enable your subscription to create VMs of the required sizes in the target location. Then, retry the failed operation.
 
 If the target location has a capacity constraint, disable replication to that location. Then, enable replication to a different location where your subscription has sufficient quota to create VMs of the required sizes.
 
@@ -168,8 +168,6 @@ Because SUSE Linux uses symbolic links, or symlinks, to maintain a certificate l
 
 For Site Recovery replication to work, outbound connectivity to specific URLs is required from the VM. If your VM is behind a firewall or uses network security group (NSG) rules to control outbound connectivity, you might face one of these issues. While we continue to support outbound access via URLs, using an allow list of IP ranges is no longer supported.
 
-### Issue 1: Failed to register Azure VM with Site Recovery (151195)
-
 #### Possible causes
 
 - A connection can't be established to Site Recovery endpoints because of a Domain Name System (DNS) resolution failure.
@@ -188,18 +186,21 @@ To check if the VM uses a custom DNS setting:
 
 Try to access the DNS server from the virtual machine. If the DNS server isn't accessible, make it accessible by either failing over the DNS server or creating the line of site between DR network and DNS.
 
+> [!NOTE]
+> If you use private endpoints, ensure that the VMs can resolve the private DNS records.
+
 :::image type="content" source="./media/azure-to-azure-troubleshoot-errors/custom_dns.png" alt-text="com-error.":::
 
 ### Issue 2: Site Recovery configuration failed (151196)
 
 #### Possible cause
 
-A connection can't be established to Office 365 authentication and identity IP4 endpoints.
+A connection can't be established to Microsoft 365 authentication and identity IP4 endpoints.
 
 #### Fix the problem
 
-Azure Site Recovery required access to Office 365 IP ranges for authentication.
-If you're using Azure Network Security Group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure that you use [Azure Active Directory (AAD) service tag](/azure/virtual-network/security-overview#service-tags) based NSG rule for allowing access to AAD. We no longer support IP address-based NSG rules.
+Azure Site Recovery required access to Microsoft 365 IP ranges for authentication.
+If you're using Azure Network Security Group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure that you use [Azure Active Directory (AAD) service tag](../virtual-network/network-security-groups-overview.md#service-tags) based NSG rule for allowing access to AAD. We no longer support IP address-based NSG rules.
 
 ### Issue 3: Site Recovery configuration failed (151197)
 
@@ -257,8 +258,8 @@ Azure data disk <DiskName> <DiskURI> with logical unit number <LUN> <LUNValue> w
 
 Make sure that the data disks are initialized, and then retry the operation.
 
-- **Windows**: [Attach and initialize a new disk](/azure/virtual-machines/windows/attach-managed-disk-portal).
-- **Linux**: [Initialize a new data disk in Linux](/azure/virtual-machines/linux/add-disk).
+- **Windows**: [Attach and initialize a new disk](../virtual-machines/windows/attach-managed-disk-portal.md).
+- **Linux**: [Initialize a new data disk in Linux](../virtual-machines/linux/add-disk.md).
 
 If the problem persists, contact support.
 
@@ -531,6 +532,44 @@ This problem can occur if the virtual machine was previously protected, and when
 ### Fix the problem
 
 Delete the replica disk identified in the error message and retry the failed protection job.
+
+## Enable protection failed as the installer is unable to find the root disk (error code 151137)
+
+This error occurs for Linux machines where the OS disk is encrypted using Azure Disk Encryption (ADE). This is valid issue in Agent version 9.35 only.
+
+### Possible Causes
+
+The installer is unable to find the root disk that hosts the root file-system.
+
+### Fix the problem
+
+Follow the below steps to fix this issue -
+
+1. Find the agent bits under the directory _/var/lib/waagent_ on RHEL and CentOS machines using the below command: <br>
+
+	`# find /var/lib/ -name Micro\*.gz`
+
+   Expected output:
+
+	`/var/lib/waagent/Microsoft.Azure.RecoveryServices.SiteRecovery.LinuxRHEL7-1.0.0.9139/UnifiedAgent/Microsoft-ASR_UA_9.35.0.0_RHEL7-64_GA_30Jun2020_release.tar.gz`
+
+2. Create a new directory and change the directory to this new directory.
+3. Extract the Agent file found in the first step here, using the below command:
+
+    `tar -xf <Tar Ball File>`
+
+4. Open the file _prereq_check_installer.json_ and delete the following lines. Save the file after that.
+
+    ```
+       {
+          "CheckName": "SystemDiskAvailable",
+          "CheckType": "MobilityService"
+       },
+    ```
+5. Invoke the installer using the command: <br>
+
+    `./install -d /usr/local/ASR -r MS -q -v Azure`
+6. If the installer succeeds, retry the enable replication job.
 
 ## Next steps
 

@@ -4,46 +4,67 @@
   items:
   - name: What is Azure Advisor?
     href: advisor-overview.md
+- name: Quickstarts
+  items:
+  - name: Configure alerts for new recommendations
+    items:
+    - name: Azure portal
+      href: advisor-alerts-portal.md
+    - name: ARM template
+      displayName: Resource Manager
+      href: advisor-alerts-arm.md
+- name: Concepts
+  items:
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/advisor-security-baseline?toc=/azure/advisor/toc.json
 - name: Tutorials
   items:
   - name: Get started with Advisor
     href: advisor-get-started.md
+- name: Samples
+  items:
+  - name: Azure Resource Graph queries
+    href: ./resource-graph-samples.md
 - name: How-to guides
   items:
-  - name: Improve availability of Azure application
+  - name: Reliability
     href: advisor-high-availability-recommendations.md
-  - name: Make resources more secure
+  - name: Security
     href: advisor-security-recommendations.md
-  - name: Improve performance of Azure applications
+  - name: Performance efficiency
     href: advisor-performance-recommendations.md
-  - name: Reduce service costs
+  - name: Cost optimization
     href: advisor-cost-recommendations.md
-  - name: Achieve operational excellence
+  - name: Operational excellence
     href: advisor-operational-excellence-recommendations.md
   - name: Configure recommendations
     href: view-recommendations.md
   - name: Permissions and blocked actions
     href: permissions.md
   - name: Configure Alerts for recommendations
-    href: advisor-alerts.md
+    href: advisor-alerts-portal.md
+  - name: Configure recommendations summary
+    href: advisor-recommendations-digest.md
   - name: Bulk remediation for recommendations
     href: advisor-quick-fix.md
   - name: Advisor data in Azure Resource Graph
     href: advisor-azure-resource-graph.md
+  - name: Consume Advisor score 
+    href: azure-advisor-score.md
 - name: Reference
   items:
   - name: Security Center
     href: https://azure.microsoft.com/services/security-center/
-  - name: SQL DB Advisor
-    href: https://azure.microsoft.com/documentation/articles/sql-database-advisor/
+  - name: SQL Database Advisor
+    href: ../azure-sql/database/database-advisor-implement-performance-recommendations.md
   - name: App Service
-    href: https://docs.microsoft.com/azure/app-service/app-service-best-practices
+    href: ../app-service/app-service-best-practices.md
   - name: REST API
-    href: https://docs.microsoft.com/rest/api/advisor/
-  - name: CLI
-    href: https://docs.microsoft.com/cli/azure/advisor?view=azure-cli-latest
+    href: /rest/api/advisor/
+  - name: Azure CLI
+    href: /cli/azure/advisor
   - name: PowerShell
-    href: https://docs.microsoft.com/powershell/module/az.advisor/?view=azps-1.2.0
+    href: /powershell/module/az.advisor/
 - name: Resources
   items:
   - name: Azure Roadmap

@@ -2,11 +2,13 @@
 title: Instance Protection for Azure virtual machine scale set instances
 description: Learn how to protect Azure virtual machine scale set instances from scale-in and scale-set operations.
 author: avirishuv
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.date: 02/26/2020
 ms.author: avverma
+ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: instance-protection
+ms.date: 02/26/2020
+ms.reviewer: jushiman
+ms.custom: avverma, devx-track-azurepowershell
 
 ---
 # Instance Protection for Azure virtual machine scale set instances
@@ -87,7 +89,7 @@ Update-AzVmssVM `
 
 ### Azure CLI 2.0
 
-Use [az vmss update](/cli/azure/vmss#az-vmss-update) to apply scale-in protection to your scale set instance.
+Use [az vmss update](/cli/azure/vmss#az_vmss_update) to apply scale-in protection to your scale set instance.
 
 The following example applies scale-in protection to an instance in the scale set having instance ID 0.
 
@@ -158,7 +160,7 @@ Update-AzVmssVM `
 
 ### Azure CLI 2.0
 
-Use [az vmss update](/cli/azure/vmss#az-vmss-update) to apply protection from scale set actions to your scale set instance.
+Use [az vmss update](/cli/azure/vmss#az_vmss_update) to apply protection from scale set actions to your scale set instance.
 
 The following example applies protection from scale set actions to an instance in the scale set having instance ID 0.
 

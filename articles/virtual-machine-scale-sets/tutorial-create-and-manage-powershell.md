@@ -1,13 +1,13 @@
 ---
-title: Tutorial - Create and manage an Azure virtual machine scale set
+title: 'Tutorial: Create & manage an Azure VM scale set – Azure PowerShell'
 description: Learn how to use Azure PowerShell to create a virtual machine scale set, along with some common management tasks such as how to start and stop an instance, or change the scale set capacity.
 author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.topic: tutorial
-ms.date: 05/18/2018
 ms.author: jushiman
-ms.custom: mvc
+ms.topic: tutorial
+ms.service: virtual-machine-scale-sets
+ms.date: 05/18/2018
+ms.reviewer: mimckitt
+ms.custom: mimckitt, devx-track-azurepowershell
 
 ---
 # Tutorial: Create and manage a virtual machine scale set with Azure PowerShell
@@ -39,7 +39,7 @@ The resource group name is specified when you create or modify a scale set throu
 
 
 ## Create a scale set
-First, set an administrator username and password for the VM instances with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+First, set an administrator username and password for the VM instances with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
@@ -60,6 +60,9 @@ New-AzVmss `
 ```
 
 It takes a few minutes to create and configure all the scale set resources and VM instances.
+
+> [!IMPORTANT]
+> If you are unable to connect to your scale set, you may need to create a Network Security Group by adding the *[-SecurityGroupName "mySecurityGroup"](/powershell/module/az.compute/new-azvmss)* parameter.
 
 
 ## View the VM instances in a scale set
@@ -185,6 +188,8 @@ New-AzVmss `
   -Credential $cred
 ```
 
+> [!IMPORTANT]
+> We recommend using the *latest* image version. Specify 'latest' to use the latest version of an image available at deploy time. Note, even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
 
 ## Understand VM instance sizes
 A VM instance size, or *SKU*, determines the amount of compute resources such as CPU, GPU, and memory that are made available to the VM instance. VM instances in a scale set need to be sized appropriately for the expected work load.
@@ -194,12 +199,12 @@ The following table categorizes common VM sizes into use cases.
 
 | Type                     | Common sizes           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [General purpose](../virtual-machines/windows/sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Balanced CPU-to-memory. Ideal for dev / test and small to medium applications and data solutions.  |
-| [Compute optimized](../virtual-machines/windows/sizes-compute.md)   | Fs, F             | High CPU-to-memory. Good for medium traffic applications, network appliances, and batch processes.        |
-| [Memory optimized](../virtual-machines/windows/sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | High memory-to-core. Great for relational databases, medium to large caches, and in-memory analytics.                 |
-| [Storage optimized](../virtual-machines/windows/sizes-storage.md)      | Ls                | High disk throughput and IO. Ideal for Big Data, SQL, and NoSQL databases.                                                         |
-| [GPU](../virtual-machines/windows/sizes-gpu.md)          | NV, NC            | Specialized VMs targeted for heavy graphic rendering and video editing.       |
-| [High performance](../virtual-machines/windows/sizes-hpc.md) | H, A8-11          | Our most powerful CPU VMs with optional high-throughput network interfaces (RDMA). 
+| [General purpose](../virtual-machines/sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Balanced CPU-to-memory. Ideal for dev / test and small to medium applications and data solutions.  |
+| [Compute optimized](../virtual-machines/sizes-compute.md)   | Fs, F             | High CPU-to-memory. Good for medium traffic applications, network appliances, and batch processes.        |
+| [Memory optimized](../virtual-machines/sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | High memory-to-core. Great for relational databases, medium to large caches, and in-memory analytics.                 |
+| [Storage optimized](../virtual-machines/sizes-storage.md)      | Ls                | High disk throughput and IO. Ideal for Big Data, SQL, and NoSQL databases.                                                         |
+| [GPU](../virtual-machines/sizes-gpu.md)          | NV, NC            | Specialized VMs targeted for heavy graphic rendering and video editing.       |
+| [High performance](../virtual-machines/sizes-hpc.md) | H, A8-11          | Our most powerful CPU VMs with optional high-throughput network interfaces (RDMA). 
 
 ### Find available VM instance sizes
 To see a list of VM instance sizes available in a particular region, use the [Get-AzVMSize](/powershell/module/az.compute/get-azvmsize) command. 

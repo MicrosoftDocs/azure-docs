@@ -2,7 +2,7 @@
 title: Automatic deployment for device groups - Azure IoT Edge | Microsoft Docs 
 description: Use automatic deployments in Azure IoT Edge to manage groups of devices based on shared tags
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 01/30/2020
 ms.topic: conceptual
@@ -12,9 +12,11 @@ services: iot-edge
 
 # Understand IoT Edge automatic deployments for single devices or at scale
 
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
 Automatic deployments and layered deployment help you manage and configure modules on large numbers of IoT Edge devices.
 
-Azure IoT Edge provides two ways to configure the modules to run on IoT Edge devices. The first method is to deploy modules on a per-device basis. You create a deployment manifest and then apply it to a particular device by name. The second method is to deploy modules automatically to any registered device that meets a set of defined conditions. You create a deployment manifest and then define which devices it applies to based on [tags](../iot-edge/how-to-deploy-monitor.md#identify-devices-using-tags) in the device twin.
+Azure IoT Edge provides two ways to configure the modules to run on IoT Edge devices. The first method is to deploy modules on a per-device basis. You create a deployment manifest and then apply it to a particular device by name. The second method is to deploy modules automatically to any registered device that meets a set of defined conditions. You create a deployment manifest and then define which devices it applies to based on [tags](../iot-edge/how-to-deploy-at-scale.md#identify-devices-using-tags) in the device twin.
 
 This article focuses on configuring and monitoring fleets of devices, collectively referred to as *IoT Edge automatic deployments*. The basic deployment steps are as follows:
 
@@ -23,7 +25,7 @@ This article focuses on configuring and monitoring fleets of devices, collective
 3. The IoT Hub service retrieves status from the IoT Edge devices and makes them available to the operator.  For example, an operator can see when an Edge device isn't configured successfully or if a module fails during runtime.
 4. At any time, new IoT Edge devices that meet the targeting conditions are configured for the deployment.
 
-This article describes each component involved in configuring and monitoring a deployment. For a walkthrough of creating and updating a deployment, see [Deploy and monitor IoT Edge modules at scale](how-to-deploy-monitor.md).
+This article describes each component involved in configuring and monitoring a deployment. For a walkthrough of creating and updating a deployment, see [Deploy and monitor IoT Edge modules at scale](how-to-deploy-at-scale.md).
 
 ## Deployment
 
@@ -64,7 +66,7 @@ Examples of target conditions:
 * tags.environment ='prod'
 * tags.environment = 'prod' AND tags.location = 'westus'
 * tags.environment = 'prod' OR tags.location = 'westus'
-* tags.operator = 'John' AND tags.environment = 'prod' NOT deviceId = 'linuxprod1'
+* tags.operator = 'John' AND tags.environment = 'prod' AND NOT deviceId = 'linuxprod1'
 * properties.reported.devicemodel = '4000x'
 
 Consider these constraints when you construct a target condition:
@@ -192,5 +194,5 @@ Perform rollbacks in the following sequence:
 
 ## Next steps
 
-* Walk through the steps to create, update, or delete a deployment in [Deploy and monitor IoT Edge modules at scale](how-to-deploy-monitor.md).
+* Walk through the steps to create, update, or delete a deployment in [Deploy and monitor IoT Edge modules at scale](how-to-deploy-at-scale.md).
 * Learn more about other IoT Edge concepts like the [IoT Edge runtime](iot-edge-runtime.md) and [IoT Edge modules](iot-edge-modules.md).

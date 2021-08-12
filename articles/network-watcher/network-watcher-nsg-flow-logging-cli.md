@@ -3,17 +3,12 @@ title: Manage NSG Flow logs - Azure CLI
 titleSuffix: Azure Network Watcher
 description: This page explains how to manage Network Security Group Flow logs in Azure Network Watcher with Azure CLI
 services: network-watcher
-documentationcenter: na
 author: damendo
-
 ms.service: network-watcher
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.workload:  infrastructure-services
-ms.date: 02/22/2017
+ms.date: 01/07/2021
 ms.author: damendo
-
 ---
 
 
@@ -27,7 +22,7 @@ ms.author: damendo
 
 Network Security Group flow logs are a feature of Network Watcher that allows you to view information about ingress and egress IP traffic through a Network Security Group. These flow logs are written in json format and show outbound and inbound flows on a per rule basis, the NIC the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
 
-To perform the steps in this article, you need to [install the Azure command-line interface for Mac, Linux, and Windows (CLI)](/cli/azure/install-azure-cli).
+To perform the steps in this article, you need to [install the Azure command-line interface for Mac, Linux, and Windows (CLI)](/cli/azure/install-azure-cli). The detailed specification of all flow logs commands can be found [here](/cli/azure/network/watcher/flow-log)
 
 ## Register Insights provider
 
@@ -42,9 +37,9 @@ az provider register --namespace Microsoft.Insights
 The command to enable flow logs is shown in the following example:
 
 ```azurecli
-az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName
+az network watcher flow-log create --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName --location location
 # Configure 
-az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName  --format JSON --log-version 2
+az network watcher flow-log create --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName --location location --format JSON --log-version 2
 ```
 
 The storage account that you specify cannot have network rules configured for it that restrict network access to only Microsoft services or specific virtual networks. The storage account can be in the same, or a different Azure subscription, than the NSG that you enable the flow log for. If you use different subscriptions, they must both be associated to the same Azure Active Directory tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md). 

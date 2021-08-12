@@ -1,0 +1,75 @@
+### YamlMime:Landing
+title: Azure DDoS Protection Standard documentation
+summary: "Learn how the Azure DDoS Protection Standard, when combined with application design best practices, provides defense against DDoS attacks."
+
+metadata: 
+  description: "Learn how the Azure DDoS Protection Standard, when combined with application design best practices, provides defense against DDoS attacks."
+  keywords: azure ddos protection standard
+  author: aletheatoh
+  ms.author: yitoh
+  ms.date: 06/30/2021
+  ms.service: ddos-protection
+  ms.topic: landing-page
+  ms.custom: azure-ddos-protection
+
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstarts | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: Learn about Azure DDoS Protection Standard
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure DDoS Protection Standard?
+            url: ddos-protection-overview.md
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure DDoS Protection
+            url: /learn/modules/introduction-azure-ddos-protection/
+      - linkListType: architecture
+        links:
+          - text: Azure DDoS Protection Standard features
+            url: ddos-protection-standard-features.md
+          - text: Reference architectures
+            url: ddos-protection-reference-architectures.md
+
+  # Card
+  - title: Get started 
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a DDoS Protection Plan - Portal
+            url: manage-ddos-protection.md
+
+
+  # Card
+  - title: Configure attack analytics
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: View and configure DDoS protection telemetry
+            url: telemetry.md
+          - text: View and configure DDoS diagnostic logging
+            url: diagnostic-logging.md
+          - text: View and configure DDoS protection alerts
+            url: alerts.md
+
+  # Card
+  - title: Responding to DDoS attacks
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Types of attacks
+            url: types-of-attacks.md
+          - text: Fundamental best practices
+            url: fundamental-best-practices.md
+          - text: Components of a DDoS response strategy
+            url: ddos-response-strategy.md
+      - linkListType: how-to-guide
+        links: 
+          - text: Engage DDoS Rapid Response (DRR)
+            url: ddos-rapid-response.md
+  

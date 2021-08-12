@@ -1,13 +1,10 @@
 ---
 title: Cluster capacity planning in Azure HDInsight 
 description: Identify key questions for capacity and performance planning of an Azure HDInsight cluster.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/07/2020
+ms.date: 05/07/2020
 ---
 
 # Capacity planning for HDInsight clusters
@@ -82,7 +79,6 @@ You're charged for a cluster's lifetime. If there are only specific times that y
 
 > [!NOTE]  
 > When a cluster is deleted, its default Hive metastore is also deleted. To persist the metastore for the next cluster re-creation, use an external metadata store such as Azure Database or [Apache Oozie](https://oozie.apache.org/).
-<!-- see [Using external metadata stores](hdinsight-using-external-metadata-stores.md). -->
 
 ### Isolate cluster job errors
 
@@ -90,40 +86,7 @@ Sometimes errors can occur because of the parallel execution of multiple maps an
 
 ## Quotas
 
-After determining your target cluster VM size, scale, and type, check the current quota capacity limits of your subscription. When you reach a quota limit, you can't deploy new clusters. Or scale out existing clusters by adding more worker nodes. The only quota limit is the CPU Cores quota that exists at the region level for each subscription. For example, your subscription may have 30 core limit in the East US region.
-
-To check your available cores, do the following steps:
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Navigate to the **Overview** page for the HDInsight cluster.
-3. On the left menu, select **Quota limits**.
-
-   The page displays the number of cores in use, the number of available cores, and the total cores.
-
-If you need to request a quota increase, do the following steps:
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Select **Help + support** on the bottom-left side of the page.
-1. Select **New support request**.
-1. On the **New support request** page, under **Basics** tab, select the following options:
-
-   - **Issue type**: **Service and subscription limits (quotas)**
-   - **Subscription**: the subscription you want to modify
-   - **Quota type**: **HDInsight**
-
-     ![Create a support request to increase HDInsight core quota](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
-
-1. Select **Next: Solutions >>**.
-1. On the **Details** page, enter a description of the issue, select the severity of the issue, your preferred contact method, and other required fields.
-1. Select **Next: Review + create >>**.
-1. On the **Review + create** tab, select **Create**.
-
-> [!NOTE]  
-> If you need to increase the HDInsight core quota in a private region, [submit a whitelist request](https://aka.ms/canaryintwhitelist).
-
-You can [contact support to request a quota increase](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
-
-There are some fixed quota limits. For example, a single Azure subscription can have at most 10,000 cores. For details on these limits, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+For more information on managing subscription quotas, see [Requesting quota increases](quota-increase-request.md).
 
 ## Next steps
 

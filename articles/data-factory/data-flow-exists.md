@@ -1,13 +1,15 @@
 ---
 title: Exists transformation in mapping data flow 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Check for existing rows using the exists transformation in Azure Data Factory mapping data flow
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 10/16/2019
+ms.custom: synapse
+ms.date: 05/07/2020
 ---
 
 # Exists transformation in mapping data flow
@@ -15,6 +17,8 @@ ms.date: 10/16/2019
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 The exists transformation is a row filtering transformation that checks whether your data exists in another source or stream. The output stream includes all rows in the left stream that either exist or don't exist in the right stream. The exists transformation is similar to ```SQL WHERE EXISTS``` and ```SQL WHERE NOT EXISTS```.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4vZKz]
 
 ## Configuration
 
@@ -37,6 +41,14 @@ To create a free-form expression that contains operators other than "and" and "e
 
 ![Exists custom settings](media/data-flow/exists1.png "exists custom")
 
+## Broadcast optimization
+
+![Broadcast Join](media/data-flow/broadcast.png "Broadcast Join")
+
+In joins, lookups and exists transformation, if one or both data streams fit into worker node memory, you can optimize performance by enabling **Broadcasting**. By default, the spark engine will automatically decide whether or not to broadcast one side. To manually choose which side to broadcast, select **Fixed**.
+
+It's not recommended to disable broadcasting via the **Off** option unless your joins are running into timeout errors.
+
 ## Data flow script
 
 ### Syntax
@@ -46,7 +58,7 @@ To create a free-form expression that contains operators other than "and" and "e
     exists(
         <conditionalExpression>,
         negate: { true | false },
-        broadcast: {'none' | 'left' | 'right' | 'both'}
+        broadcast: { 'auto' | 'left' | 'right' | 'both' | 'off' }
     ) ~> <existsTransformationName>
 ```
 
@@ -65,7 +77,7 @@ NameNorm2, TypeConversions
     exists(
         NameNorm2@EmpID == TypeConversions@EmpID && NameNorm2@Region == DimEmployees@Region,
 	    negate:false,
-	    broadcast: 'none'
+	    broadcast: 'auto'
     ) ~> checkForChanges
 ```
 

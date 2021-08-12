@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 12/19/2019
+ms.date: 05/19/2021
 ms.author: aahi
 ---
 
@@ -29,7 +29,7 @@ In this tutorial, you'll learn how to:
 <a name="Prerequisites"></a>
 
 - Microsoft Power BI Desktop. [Download at no charge](https://powerbi.microsoft.com/get-started/).
-- A Microsoft Azure account. [Start a free trial](https://azure.microsoft.com/free/) or [sign in](https://portal.azure.com/).
+- A Microsoft Azure account. [Create a free account](https://azure.microsoft.com/free/cognitive-services/) or [sign in](https://portal.azure.com/).
 - A Cognitive Services API account with the Text Analytics API. If you don't have one, you can [sign up](../../cognitive-services-apis-create-account.md)
  and use the free tier for 5,000 transactions/month (see [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) to complete this tutorial.
 - The [Text Analytics access key](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that was generated for you during sign-up.
@@ -41,7 +41,7 @@ In this tutorial, you'll learn how to:
 To get started, open Power BI Desktop and load the comma-separated value (CSV) file `FabrikamComments.csv` that you downloaded in [Prerequisites](#Prerequisites). This file represents a day's worth of hypothetical activity in a fictional small company's support forum.
 
 > [!NOTE]
-> Power BI can use data from a wide variety of sources, such as Facebook or a SQL database. Learn more at [Facebook integration with Power BI](https://powerbi.microsoft.com/integrations/facebook/) and [SQL Server integration with Power BI](https://powerbi.microsoft.com/integrations/sql-server/).
+> Power BI can use data from a wide variety of web-based sources, such as SQL databases. See the [Power Query documentation](/power-query/connectors/) for more information.
 
 In the main Power BI Desktop window, select the **Home** ribbon. In the **External data** group of the ribbon, open the **Get Data** drop-down menu and select **Text/CSV**.
 
@@ -85,9 +85,9 @@ You might also consider filtering out blank messages using the Remove Empty filt
 ## Understand the API
 <a name="UnderstandingAPI"></a>
 
-The [Key Phrases API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) of the Text Analytics service can process up to a thousand text documents per HTTP request. Power BI prefers to deal with records one at a time, so in this tutorial your calls to the API will include only a single document each. The Key Phrases API requires the following fields for each document being processed.
+The [Key Phrases API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V3-1/operations/KeyPhrases) of the Text Analytics service can process up to a thousand text documents per HTTP request. Power BI prefers to deal with records one at a time, so in this tutorial your calls to the API will include only a single document each. The Key Phrases API requires the following fields for each document being processed.
 
-| | |
+| Field | Description |
 | - | - |
 | `id`  | A unique identifier for this document within the request. The response also contains this field. That way, if you process more than one document, you can easily associate the extracted key phrases with the document they came from. In this tutorial, because you're processing only one document per request, you can hard-code the value of `id` to be the same for each request.|
 | `text`  | The text to be processed. The value of this field comes from the `Merged` column you created in the [previous section](#PreparingData), which contains the combined subject line and comment text. The Key Phrases API requires this data be no longer than about 5,120 characters.|
@@ -99,7 +99,7 @@ The [Key Phrases API](https://westus.dev.cognitive.microsoft.com/docs/services/T
 Now you're ready to create the custom function that will integrate Power BI and Text Analytics. The function receives the text to be processed as a parameter. It converts data to and from the required JSON format and makes the HTTP request to the Key Phrases API. The function then parses the response from the API and returns a string that contains a comma-separated list of the extracted key phrases.
 
 > [!NOTE]
-> Power BI Desktop custom functions are written in the [Power Query M formula language](https://docs.microsoft.com/powerquery-m/power-query-m-reference), or just "M" for short. M is a functional programming language based on [F#](https://docs.microsoft.com/dotnet/fsharp/). You don't need to be a programmer to finish this tutorial, though; the required code is included below.
+> Power BI Desktop custom functions are written in the [Power Query M formula language](/powerquery-m/power-query-m-reference), or just "M" for short. M is a functional programming language based on [F#](/dotnet/fsharp/). You don't need to be a programmer to finish this tutorial, though; the required code is included below.
 
 In Power BI Desktop, make sure you're still in the Query Editor window. If you aren't, select the **Home** ribbon, and in the **External data** group, click **Edit Queries**.
 
@@ -117,7 +117,7 @@ Now, in the **Home** ribbon, in the **Query** group, click **Advanced Editor** t
 // Returns key phrases from the text in a comma-separated list
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics" & "/v2.1/keyPhrases",
+    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics" & "/v3.0/keyPhrases",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -186,7 +186,7 @@ Now you'll use this column to generate a word cloud. To get started, click the *
 > [!NOTE]
 > Why use extracted key phrases to generate a word cloud, rather than the full text of every comment? The key phrases provide us with the *important* words from our customer comments, not just the *most common* words. Also, word sizing in the resulting cloud isn't skewed by the frequent use of a word in a relatively small number of comments.
 
-If you don't already have the Word Cloud custom visual installed, install it. In the Visualizations panel to the right of the workspace, click the three dots (**...**) and choose **Import From Store**. Then search for "cloud" and click the **Add** button next the Word Cloud visual. Power BI installs the Word Cloud visual and lets you know that it installed successfully.
+If you don't already have the Word Cloud custom visual installed, install it. In the Visualizations panel to the right of the workspace, click the three dots (**...**) and choose **Import From Market**. If the word "cloud" is not among the displayed visualization tools in the list, you can search for "cloud" and click the **Add** button next the Word Cloud visual. Power BI installs the Word Cloud visual and lets you know that it installed successfully.
 
 ![[adding a custom visual]](../media/tutorials/power-bi/add-custom-visuals.png)<br><br>
 
@@ -196,7 +196,7 @@ First, click the Word Cloud icon in the Visualizations panel.
 
 A new report appears in the workspace. Drag the `keyphrases` field from the Fields panel to the Category field in the Visualizations panel. The word cloud appears inside the report.
 
-Now switch to the Format page of the Visualizations panel. In the Stop Words category, turn on **Default Stop Words** to eliminate short, common words like "of" from the cloud. 
+Now switch to the Format page of the Visualizations panel. In the Stop Words category, turn on **Default Stop Words** to eliminate short, common words like "of" from the cloud. However, because we're visualizing key phrases, they might not contain stop words.
 
 ![[activating default stop words]](../media/tutorials/power-bi/default-stop-words.png)
 
@@ -215,21 +215,21 @@ The Text Analytics service, one of the Cognitive Services offered by Microsoft A
 
 Both of these other APIs are similar to the Key Phrases API. That means you can integrate them with Power BI Desktop using custom functions that are nearly identical to the one you created in this tutorial. Just create a blank query and paste the appropriate code below into the Advanced Editor, as you did earlier. (Don't forget your access key!) Then, as before, use the function to add a new column to the table.
 
-The Sentiment Analysis function below returns a score indicating how positive the sentiment expressed in the text is.
+The Sentiment Analysis function below returns a label indicating how positive the sentiment expressed in the text is.
 
 ```fsharp
-// Returns the sentiment score of the text, from 0.0 (least favorable) to 1.0 (most favorable)
+// Returns the sentiment label of the text, for example, positive, negative or mixed.
 (text) => let
-    apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v2.1/sentiment",
-    jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
-    jsonbody    = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
-    bytesbody   = Text.ToBinary(jsonbody),
-    headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
-    bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
-    jsonresp    = Json.Document(bytesresp),
-    sentiment   = jsonresp[documents]{0}[score]
-in  sentiment
+    apikey = "YOUR_API_KEY_HERE",
+    endpoint = "<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.1/sentiment",
+    jsontext = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
+    jsonbody = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
+    bytesbody = Text.ToBinary(jsonbody),
+    headers = [#"Ocp-Apim-Subscription-Key" = apikey],
+    bytesresp = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
+    jsonresp = Json.Document(bytesresp),
+    sentiment   = jsonresp[documents]{0}[sentiment] 
+    in sentiment
 ```
 
 Here are two versions of a Language Detection function. The first returns the ISO language code (for example, `en` for English), while the second returns the "friendly" name (for example, `English`). You may notice that only the last line of the body differs between the two versions.
@@ -238,29 +238,27 @@ Here are two versions of a Language Detection function. The first returns the IS
 // Returns the two-letter language code (for example, 'en' for English) of the text
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v2.1/languages",
+    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.1/languages",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
     headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
     jsonresp    = Json.Document(bytesresp),
-    language    = jsonresp[documents]{0}[detectedLanguages]{0}[iso6391Name]
-in  language
+    language    = jsonresp [documents]{0}[detectedLanguage] [iso6391Name] in language 
 ```
 ```fsharp
 // Returns the name (for example, 'English') of the language in which the text is written
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v2.1/languages",
+    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.1/languages",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
     headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
     jsonresp    = Json.Document(bytesresp),
-    language    = jsonresp[documents]{0}[detectedLanguages]{0}[name]
-in  language
+    language    jsonresp [documents]{0}[detectedLanguage] [iso6391Name] in language 
 ```
 
 Finally, here's a variant of the Key Phrases function already presented that returns the phrases as a list object, rather than as a single string of comma-separated phrases. 
@@ -272,7 +270,7 @@ Finally, here's a variant of the Key Phrases function already presented that ret
 // Returns key phrases from the text as a list object
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v2.1/keyPhrases",
+    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.1/keyPhrases",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -289,10 +287,10 @@ in  keyphrases
 Learn more about the Text Analytics service, the Power Query M formula language, or Power BI.
 
 > [!div class="nextstepaction"]
-> [Text Analytics API reference](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6)
+> [Text Analytics API reference](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1)
 
 > [!div class="nextstepaction"]
-> [Power Query M reference](https://docs.microsoft.com/powerquery-m/power-query-m-reference)
+> [Power Query M reference](/powerquery-m/power-query-m-reference)
 
 > [!div class="nextstepaction"]
 > [Power BI documentation](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)

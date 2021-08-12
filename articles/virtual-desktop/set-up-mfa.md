@@ -1,93 +1,93 @@
 ---
-title: Set up Azure multi-factor authentication for Windows Virtual Desktop - Azure
-description: How to set up Azure multi-factor authentication for increased security in Windows Virtual Desktop.
-services: virtual-desktop
+title: Set up Azure multifactor authentication for Azure Virtual Desktop - Azure
+description: How to set up Azure multifactor authentication for increased security in Azure Virtual Desktop.
 author: Heidilohr
-
-ms.service: virtual-desktop
-ms.topic: conceptual
-ms.date: 04/01/2020
+ms.topic: how-to
+ms.date: 12/10/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
+# Enable Azure multifactor authentication for Azure Virtual Desktop
 
-# Set up Azure Multi-Factor Authentication
+>[!IMPORTANT]
+> If you're visiting this page from the Azure Virtual Desktop (classic) documentation, make sure to [return to the Azure Virtual Desktop (classic) documentation](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) once you're finished.
 
-The Windows client for Windows Virtual Desktop is an excellent option for integrating Windows Virtual Desktop with your local machine. However, when you configure your Windows Virtual Desktop account into the Windows Client, there are certain measures you'll need to take to keep yourself and your users safe.
+The Windows client for Azure Virtual Desktop is an excellent option for integrating Azure Virtual Desktop with your local machine. However, when you configure your Azure Virtual Desktop account into the Windows Client, there are certain measures you'll need to take to keep yourself and your users safe.
 
-When you first sign in, the client asks for your username, password, and Azure MFA. After that, the next time you sign in, the client will remember your token from your Azure Active Directory (AD) Enterprise Application. When you select **Remember me**, your users can sign in after restarting the client without needing to reenter their credentials.
+When you first sign in, the client asks for your username, password, and Azure multifactor authentication. After that, the next time you sign in, the client will remember your token from your Azure Active Directory (AD) Enterprise Application. When you select **Remember me** on the prompt for credentials for the session host, your users can sign in after restarting the client without needing to reenter their credentials.
 
-While remembering credentials is convenient, it can also make deployments on Enterprise scenarios or personal devices less secure. To protect your users, you'll need to make sure the client keeps asking for Azure Multi-Factor Authentication (MFA) credentials. This article will show you how to configure the Conditional Access policy for Windows Virtual Desktop to enable this setting.
+While remembering credentials is convenient, it can also make deployments on Enterprise scenarios or personal devices less secure. To protect your users, you can make sure the client keeps asking for Azure multifactor authentication credentials more frequently. This article will show you how to configure the Conditional Access policy for Azure Virtual Desktop to enable this setting.
 
 ## Prerequisites
 
 Here's what you'll need to get started:
 
-- Assign all your users one of the following licenses:
-  - Microsoft 365 E3 or E5
-  - Azure Active Directory Premium P1 or P2
-  - Enterprise Mobility + Security E3 or E5
+- Assign users a license that includes Azure Active Directory Premium P1 or P2.
 - An Azure Active Directory group with your users assigned as group members.
-- Enable Azure MFA for all your users. For more information about how to do that, see [How to require two-step verification for a user](../active-directory/authentication/howto-mfa-userstates.md#view-the-status-for-a-user).
+- Enable Azure multifactor authentication for all your users. For more information about how to do that, see [How to require two-step verification for a user](../active-directory/authentication/howto-mfa-userstates.md#view-the-status-for-a-user).
+
+> [!NOTE]
+> The following setting also applies to the [Azure Virtual Desktop web client](https://rdweb.wvd.microsoft.com/arm/webclient/index.html).
+
+## Create a Conditional Access policy
+
+Here's how to create a Conditional Access policy that requires multifactor authentication when connecting to Azure Virtual Desktop:
+
+1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+2. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
+3. Select **New policy**.
+4. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
+5. Under **Assignments**, select **Users and groups**.
+6. Under **Include**, select **Select users and groups** > **Users and groups** > Choose the group you created in the [prerequisites](#prerequisites) stage.
+7. Select **Done**.
+8. Under **Cloud apps or actions** > **Include**, select **Select apps**.
+9. Select one of the following apps based on which version of Azure Virtual Desktop you're using.
+   
+   - If you're using Azure Virtual Desktop (classic), choose these apps:
+       
+       - **Azure Virtual Desktop** (App ID 5a0aa725-4958-4b0c-80a9-34562e23f3b7)
+       - **Azure Virtual Desktop Client** (App ID fa4345a4-a730-4230-84a8-7d9651b86739), which will let you set policies on the web client
+       
+        After that, skip ahead to step 11.
+
+   - If you're using Azure Virtual Desktop, choose this app instead:
+       
+       -  **Azure Virtual Desktop** (App ID 9cdead84-a844-4324-93f2-b2e6bb768d07)
+       
+        After that, go to step 10.
+
+   >[!IMPORTANT]
+   > Don't select the app called Azure Virtual Desktop Azure Resource Manager Provider (50e95039-b200-4007-bc97-8d5790743a63). This app is only used for retrieving the user feed and shouldn't have multifactor authentication.
+   > 
+   > If you're using Azure Virtual Desktop (classic), if the Conditional Access policy blocks all access and only excludes Azure Virtual Desktop app IDs, you can fix this by adding the app ID 9cdead84-a844-4324-93f2-b2e6bb768d07 to the policy. Not adding this app ID will block feed discovery of Azure Virtual Desktop (classic) resources.
+
+10. Go to **Conditions** > **Client apps**. In **Configure**, select **Yes**, and then select where to apply the policy:
+    
+    - Select **Browser** if you want the policy to apply to the web client.
+    - Select **Mobile apps and desktop clients** if you want to apply the policy to other clients.
+    - Select both check boxes if you want to apply the policy to all clients.
+   
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the Client apps page. The user has selected the mobile apps and desktop clients check box.](media/select-apply.png)
+
+11. Once you've selected your app, choose **Select**, and then select **Done**.
+
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the Cloud apps or actions page. The Azure Virtual Desktop and Azure Virtual Desktop Client apps are highlighted in red.](media/cloud-apps-enterprise.png)
+
+    >[!NOTE]
+    >To find the App ID of the app you want to select, go to **Enterprise Applications** and select **Microsoft Applications** from the application type drop-down menu.
+
+12. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and then **Select**.
+13. Under **Access controls** > **Session**, select **Sign-in frequency**, set the value to the time you want between prompts, and then select **Select**. For example, setting the value to **1** and the unit to **Hours**, will require multifactor authentication if a connection is launched an hour after the last one.
+14. Confirm your settings and set **Enable policy** to **On**.
+15. Select **Create** to enable your policy.
 
 >[!NOTE]
->The following setting also applies to the [Windows Virtual Desktop web client](https://rdweb.wvd.microsoft.com/webclient/index.html).
+>When you use the web client to sign in to Azure Virtual Desktop through your browser, the log will list the client app ID as a85cf173-4192-42f8-81fa-777a763e6e2c (Azure Virtual Desktop client). This is because the client app is internally linked to the server app ID where the conditional access policy was set. 
 
-## Opt in to the Conditional Access policy
+## Next steps
 
-1. Open **Azure Active Directory**.
+- [Learn more about Conditional Access policies](../active-directory/conditional-access/concept-conditional-access-policies.md)
 
-2. Go to the **All applications** tab. In the "Application type" drop-down menu, select **Enterprise Applications**, then search for **Windows Virtual Desktop Client**.
-
-    ![A screenshot of the All applications tab. The user entered "windows virtual desktop client" into the search bar, and the app has shown up in the search results.](media/all-applications-search.png)
-
-3. Select **Conditional Access**.
-
-    ![A screenshot showing the user hovering their mouse cursor over the Conditional Access tab.](media/conditional-access-location.png)
-
-4. Select **+ New policy**.
-
-   ![A screenshot of the Conditional Access page. The user is hovering their mouse cursor over the new policy button.](media/new-policy-button.png)
-
-5. Enter a **name** for the **rule**, then **select** the *name of the **group** you created in the prerequisites.
-
-6. Select **Select**, then select **Done**.
-
-7. Next, open **Cloud Apps or actions**.
-
-8. On the **Select** panel, select the **Windows Virtual Desktop** Enterprise app.
-
-    ![A screenshot of the Cloud apps or actions page. The user has selected the Windows Virtual Desktop app by selecting the check mark next to it. The selected app is highlighted in red.](media/cloud-apps-select.png)
-    
-    >[!NOTE]
-    >You should also see the Windows Virtual Desktop Client app selected on the left side of the screen, as shown in the following image. You need both the Windows Virtual Desktop and Windows Virtual Desktop Client Enterprise apps for the policy to work.
-    >
-    > ![A screenshot of the Cloud apps or actions page. The Windows Virtual Desktop and Windows Virtual Desktop Client apps are highlighted in red.](media/cloud-apps-enterprise-selected.png)
-
-9. Select **Select**
-
-10. Next, open **Grant** 
-
-11. Select **Require multi-factor authentication**, then select **Require one of the selected controls**.
-   
-    ![A screenshot of the Grant page. "Require multi-factor authentication" is selected.](media/grant-page.png)
-
-    >[!NOTE]
-    >If you have MDM-enrolled devices in your organization and don't want them to show the MFA prompt, you can also select **Require device to be marked as compliant**.
-
-12. Select **Session**.
-
-13. Set the **Sign-in frequency** to **Active**, then change its value to **1 Hours**.
-
-    ![A screenshot of the Session page. The session menu shows the sign-in frequency drop-down menus have been changed to "1" and "Hours."](media/sign-in-frequency.png)
-   
-    >[!NOTE]
-    >Active sessions in your Windows Virtual Desktop environment will continue to work as you change the policy. However, if you disconnect or sign off, you'll need to provide your credentials again after 60 minutes. As you change the settings, you can extend the timeout period as much as you want (as long as it aligns with your organization's security policy).
-    >
-    >The default setting is a rolling window of 90 days, which means the client will ask users to sign in again when they try to access a resource after being inactive on their machine for 90 days or longer.
-
-14. Enable the policy.
-
-15. Select **Create** to confirm the policy.
-
-You're all done! Feel free to test the policy to make sure your allow list works as intended.
+- [Learn more about user sign in frequency](../active-directory/conditional-access/howto-conditional-access-session-lifetime.md#user-sign-in-frequency)

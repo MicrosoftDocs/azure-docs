@@ -1,23 +1,19 @@
 ---
 title: Incrementally copy a table using Azure portal
-description: In this tutorial, you create an Azure data factory pipeline that copies data incrementally from an Azure SQL database to Azure Blob storage.
-services: data-factory
+description: In this tutorial, you create an Azure Data Factory with a pipeline that loads delta data from a table in Azure SQL Database to Azure Blob storage.
 author: dearandyxu
 ms.author: yexu
-manager: anandsub
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: tutorials
 ms.topic: tutorial
-ms.custom: seo-dt-2019
-ms.date: 01/11/2018
+ms.date: 07/05/2021
 ---
 
-# Incrementally load data from an Azure SQL database to Azure Blob storage using the Azure portal
+# Incrementally load data from Azure SQL Database to Azure Blob storage using the Azure portal
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-In this tutorial, you create an Azure data factory with a pipeline that loads delta data from a table in an Azure SQL database to Azure Blob storage.
+In this tutorial, you create an Azure Data Factory with a pipeline that loads delta data from a table in Azure SQL Database to Azure Blob storage.
 
 You perform the following steps in this tutorial:
 
@@ -60,7 +56,7 @@ Here are the important steps to create this solution:
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Prerequisites
-* **Azure SQL Database**. You use the database as the source data store. If you don't have a SQL database, see [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) for steps to create one.
+* **Azure SQL Database**. You use the database as the source data store. If you don't have a database in Azure SQL Database, see [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) for steps to create one.
 * **Azure Storage**. You use the blob storage as the sink data store. If you don't have a storage account, see [Create a storage account](../storage/common/storage-account-create.md) for steps to create one. Create a container named adftutorial. 
 
 ### Create a data source table in your SQL database
@@ -98,6 +94,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 	```
 
 ### Create another table in your SQL database to store the high watermark value
+
 1. Run the following SQL command against your SQL database to create a table named `watermarktable` to store the watermark value:  
 
     ```sql
@@ -137,8 +134,8 @@ AS
 
 BEGIN
 
-	UPDATE watermarktable
-	SET [WatermarkValue] = @LastModifiedtime
+UPDATE watermarktable
+SET [WatermarkValue] = @LastModifiedtime
 WHERE [TableName] = @TableName
 
 END
@@ -147,15 +144,15 @@ END
 ## Create a data factory
 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
-2. On the left menu, select **Create a resource** > **Analytics** > **Data Factory**:
+2. On the left menu, select **Create a resource** > **Integration** > **Data Factory**:
 
    ![Data Factory selection in the "New" pane](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 3. In the **New data factory** page, enter **ADFIncCopyTutorialDF** for the **name**.
 
-   The name of the Azure data factory must be **globally unique**. If you see a red exclamation mark with the following error, change the name of the data factory (for example, yournameADFIncCopyTutorialDF) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
+   The name of the Azure Data Factory must be **globally unique**. If you see a red exclamation mark with the following error, change the name of the data factory (for example, yournameADFIncCopyTutorialDF) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
 
-       `Data factory name "ADFIncCopyTutorialDF" is not available`
+    *Data factory name "ADFIncCopyTutorialDF" is not available*
 4. Select your Azure **subscription** in which you want to create the data factory.
 5. For the **Resource Group**, do one of the following steps:
 
@@ -164,20 +161,21 @@ END
          
         To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).  
 6. Select **V2** for the **version**.
-7. Select the **location** for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
+7. Select the **location** for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (Azure Storage, Azure SQL Database, Azure SQL Managed Instance, and so on) and computes (HDInsight, etc.) used by data factory can be in other regions.
 8. Click **Create**.      
 9. After the creation is complete, you see the **Data Factory** page as shown in the image.
 
-   ![Data factory home page](./media/doc-common-process/data-factory-home-page.png)
-10. Click **Author & Monitor** tile to launch the Azure Data Factory user interface (UI) in a separate tab.
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
+
+10. Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Azure Data Factory user interface (UI) in a separate tab.
 
 ## Create a pipeline
 In this tutorial, you create a pipeline with two Lookup activities, one Copy activity, and one StoredProcedure activity chained in one pipeline.
 
-1. In the **get started** page of Data Factory UI, click the **Create pipeline** tile.
+1. On the home page of Data Factory UI, click the **Orchestrate** tile.
 
-   ![Get started page of Data Factory UI](./media/doc-common-process/get-started-page.png)    
-3. In the **General** page of the **Properties** window for the pipeline, enter **IncrementalCopyPipeline** name.
+   ![Screenshot that shows the home page of Data Factory UI.](./media/doc-common-process/get-started-page.png)    
+3. In the General panel under **Properties**, specify **IncrementalCopyPipeline** for **Name**. Then collapse the panel by clicking the Properties icon in the top-right corner.
 
 4. Let's add the first lookup activity to get the old watermark value. In the **Activities** toolbox, expand **General**, and drag-drop the **Lookup** activity to the pipeline designer surface. Change the name of the activity to **LookupOldWaterMarkActivity**.
 
@@ -191,10 +189,10 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 8. For **Linked Service**, select **New**, and then do the following steps:
 
     1. Enter **AzureSqlDatabaseLinkedService** for **Name**.
-    2. Select your Azure SQL server for **Server name**.
+    2. Select your server for **Server name**.
     3. Select your **Database name** from the dropdown list.
     4. Enter your **User name** & **Password**.
-    5. To test connection to the Azure SQL database, click **Test connection**.
+    5. To test connection to the your SQL database, click **Test connection**.
     6. Click **Finish**.
     7. Confirm that **AzureSqlDatabaseLinkedService** is selected for **Linked service**.
 
@@ -272,7 +270,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
         | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | String | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
-    ![Stored Procedure Activity - stored procedure settings](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
+        ![Stored Procedure Activity - stored procedure settings](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
 27. To validate the pipeline settings, click **Validate** on the toolbar. Confirm that there are no validation errors. To close the **Pipeline Validation Report** window, click >>.   
 
 28. Publish entities (linked services, datasets, and pipelines) to the Azure Data Factory service by selecting the **Publish All** button. Wait until you see a message that the publishing succeeded.
@@ -285,9 +283,9 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 
 ## Monitor the pipeline run
 
-1. Switch to the **Monitor** tab on the left. You can see the status of the pipeline run triggered by the manual trigger. Click **Refresh** button to refresh the list.
+1. Switch to the **Monitor** tab on the left. You see the status of the pipeline run triggered by a manual trigger. You can use links under the **PIPELINE NAME** column to view run details and to rerun the pipeline.
 
-2. To view activity runs associated with this pipeline run, click the first link (**View Activity Runs**) in the **Actions** column. You can go back to the previous view by clicking **Pipelines** at the top. Click **Refresh** button to refresh the list.
+2. To see activity runs associated with the pipeline run, select the link under the **PIPELINE NAME** column. For details about the activity runs, select the **Details** link (eyeglasses icon) under the **ACTIVITY NAME** column. Select **All pipeline runs** at the top to go back to the Pipeline Runs view. To refresh the view, select **Refresh**.
 
 
 ## Review the results
@@ -317,7 +315,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 
 ## Add more data to source
 
-Insert new data into the SQL database (data source store).
+Insert new data into your database (data source store).
 
 ```sql
 INSERT INTO data_source_table
@@ -327,7 +325,7 @@ INSERT INTO data_source_table
 VALUES (7, 'newdata','9/7/2017 9:01:00 AM')
 ```
 
-The updated data in the SQL database is:
+The updated data in the your database is:
 
 ```
 PersonID | Name | LastModifytime
@@ -341,8 +339,8 @@ PersonID | Name | LastModifytime
 7 | newdata | 2017-09-07 09:01:00.000
 ```
 
-
 ## Trigger another pipeline run
+
 1. Switch to the **Edit** tab. Click the pipeline in the tree view if it's not opened in the designer.
 
 2. Click **Add Trigger** on the toolbar, and click **Trigger Now**.
@@ -350,9 +348,9 @@ PersonID | Name | LastModifytime
 
 ## Monitor the second pipeline run
 
-1. Switch to the **Monitor** tab on the left. You can see the status of the pipeline run triggered by the manual trigger. Click **Refresh** button to refresh the list.
+1. Switch to the **Monitor** tab on the left. You see the status of the pipeline run triggered by a manual trigger. You can use links under the **PIPELINE NAME** column to view activity details and to rerun the pipeline.
 
-2. To view activity runs associated with this pipeline run, click the first link (**View Activity Runs**) in the **Actions** column. You can go back to the previous view by clicking **Pipelines** at the top. Click **Refresh** button to refresh the list.
+2. To see activity runs associated with the pipeline run, select the link under the **PIPELINE NAME** column. For details about the activity runs, select the **Details** link (eyeglasses icon) under the **ACTIVITY NAME** column. Select **All pipeline runs** at the top to go back to the Pipeline Runs view. To refresh the view, select **Refresh**.
 
 
 ## Verify the second output
@@ -393,7 +391,7 @@ You performed the following steps in this tutorial:
 > * Monitor the second pipeline run
 > * Review results from the second run
 
-In this tutorial, the pipeline copied data from a single table in a SQL database to Blob storage. Advance to the following tutorial to learn how to copy data from multiple tables in an on-premises SQL Server database to a SQL database.
+In this tutorial, the pipeline copied data from a single table in SQL Database to Blob storage. Advance to the following tutorial to learn how to copy data from multiple tables in a SQL Server database to SQL Database.
 
 > [!div class="nextstepaction"]
 >[Incrementally load data from multiple tables in SQL Server to Azure SQL Database](tutorial-incremental-copy-multiple-tables-portal.md)

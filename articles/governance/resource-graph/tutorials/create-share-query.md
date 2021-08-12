@@ -1,16 +1,16 @@
 ---
-title: "Tutorial: Manage queries in Azure portal"
+title: "Tutorial: Manage queries in the Azure portal"
 description: In this tutorial, you create a Resource Graph Query and share the new query with others in the Azure portal.
-ms.date: 11/21/2019
+ms.date: 05/01/2021
 ms.topic: tutorial
 ---
 # Tutorial: Create and share an Azure Resource Graph query in the Azure portal
 
 Azure Resource Graph Explorer lets you save your Resource Graph queries directly in the Azure
 portal. There are two types of queries: _Private_ and _Shared_. A Private query is saved in your
-Azure portal settings. Whereas a Shared query is a Resource Manager resource that can be managed
-with role-based access controls (RBAC) and protected with resource locks. Both types of queries are
-encrypted at rest.
+Azure portal settings. Whereas a Shared query is an Azure Resource Manager resource that can be
+managed with Azure role-based access control (Azure RBAC) and protected with resource locks. Both
+types of queries are encrypted at rest.
 
 By saving queries in the Azure portal, you save the time you might otherwise spend looking for your
 favorite or commonly used queries. When you share queries, you help your team realize goals of
@@ -50,8 +50,7 @@ follow these steps:
    Select **Run query** to see the query results in the bottom pane.
 
    For more information about this query, see
-   [Samples – Count virtual machines by OS type](../samples/starter.md#count-virtual-machines-by-os-type).
-
+   [Samples - Count virtual machines by OS type](../samples/starter.md#count-os).
 
 1. Select **Save** or **Save as**, enter **Count VMs by OS** as the name, leave the type as
    **Private query**, and then select **Save** at the bottom of the **Save query** pane. The tab
@@ -64,7 +63,7 @@ follow these steps:
    by OS** now appears in the **Query Name** list. When you select the title link of the saved
    query, it's loaded into a new tab with that query's name.
 
-   > [!NOTE] 
+   > [!NOTE]
    > When a saved query is open and the tab shows its name, selecting the **Save** button
    > updates it with any changes that have been made. To create a new saved query from this open
    > query, select **Save as** and proceed as if you were saving a brand new query.
@@ -77,9 +76,9 @@ follow these steps:
 ## Create a Shared query
 
 Unlike a Private query, a Shared query is a Resource Manager resource. This fact means the query
-gets saved to a resource group, can be managed and controlled with RBAC, and can even be protected
-with resource locks. As a resource, anyone who has the appropriate permissions can see and use it.
-To create a new Shared query, follow these steps:
+gets saved to a resource group, can be managed and controlled with Azure RBAC, and can even be
+protected with resource locks. As a resource, anyone who has the appropriate permissions can see and
+use it. To create a new Shared query, follow these steps:
 
 1. From the portal menu, select **All services**, or use the Azure search box at the top of all
    pages to search for and select **Resource Graph Explorer**.
@@ -91,16 +90,15 @@ To create a new Shared query, follow these steps:
    | where type =~ 'Microsoft.Compute/virtualMachines'
    | summarize count() by tostring(properties.storageProfile.osDisk.osType)
    ```
-    
+
    Select **Run query** to see the query results in the bottom pane.
 
    For more information about this query, see
-   [Samples – Count virtual machines by OS type](../samples/starter.md#count-virtual-machines-by-os-type).
+   [Samples - Count virtual machines by OS type](../samples/starter.md#count-os).
 
 1. Select **Save** or **Save as**.
 
-   
-   ![Save the new query using the save button](../media/create-share-query/save-shared-query-buttons.png)
+   :::image type="content" source="../media/create-share-query/save-shared-query-buttons.png" alt-text="Save the new query using the save button" border="false":::
 
 1. In the **Save query** pane, enter **Count VMs by OS** for the name.
 
@@ -113,10 +111,10 @@ To create a new Shared query, follow these steps:
 1. Select **Save** at the bottom of the **Save query** pane. The tab title changes from **Query 1**
    to **Count VMs by OS**. The first time the **resource-graph-queries** resource group is used, the
    save takes longer than expected as the resource group gets created.
-   
-   ![Save the new query as a Shared query](../media/create-share-query/save-shared-query-window.png)
 
-   > [!NOTE] 
+   :::image type="content" source="../media/create-share-query/save-shared-query-window.png" alt-text="Save the new query as a Shared query" border="false":::
+
+   > [!NOTE]
    > You can clear the **Publish to resource-graph-queries resource group** check box if you
    > want to provide the name of an existing resource group to save the shared query into. Using the
    > default named resource group for queries makes Shared queries easier to discover. It also makes
@@ -132,9 +130,9 @@ To create a new Shared query, follow these steps:
    load it into a new tab with that query's name. As a Shared query, it displays an icon in the tab
    next to the title, denoting it as shared.
 
-   ![Show the Shared Query with icon](../media/create-share-query/show-saved-shared-query.png)
+   :::image type="content" source="../media/create-share-query/show-saved-shared-query.png" alt-text="Show the Shared Query with icon" border="false":::
 
-   > [!NOTE] 
+   > [!NOTE]
    > When a saved query is open and the tab shows its name, the **Save** button updates it
    > with any changes that have been made. To create a new saved query, select **Save as** and
    > proceed as if you were saving a brand new query.
@@ -143,7 +141,7 @@ To create a new Shared query, follow these steps:
 
 Because a Shared query is a Resource Manager resource, there are several ways to find one:
 
-- From Resource Graph Explorer, select **Open a query** and set the type to **Shared query**.
+- From Resource Graph Explorer. Select **Open a query** and set the type to **Shared query**.
 - From the Resource Graph queries portal page.
 - From the resource group that the Shared query was saved in.
 - Through a query to Resource Graph.
@@ -167,7 +165,8 @@ Explorer**.
 
 The Resource Graph query is listed alongside other resources that are part of a resource group.
 Selecting the Resource Graph query opens the page for that query. The ellipsis and shortcut menu
-options (triggered by right-clicking) work the same as on the Resource Graph query page.
+options, triggered by select and hold (or right-click), work the same as on the Resource Graph query
+page.
 
 ### Query Resource Graph
 
@@ -181,12 +180,17 @@ Resources
 | project name, properties.timeModified, properties.query
 ```
 
+## Run a shared query
+
+A Resource Graph shared query can be run with the `{{shared-query-uri}}` syntax (preview). For more
+information, see [Shared query syntax](../concepts/query-language.md#shared-query-syntax).
+
 ## Delete a Shared query
 
 If a Shared query is no longer needed, delete it. By deleting a Shared query, you remove the
 corresponding Resource Manager resource. Any dashboards that the results chart was pinned to now
 display an error message. When that error message is displayed, use the **Remove from dashboard**
-button to clean up your dashboard.
+button to clean your dashboard.
 
 You can delete a Shared query through the following interfaces:
 - Resource Graph queries page
@@ -201,7 +205,7 @@ longer want them.
 
 ## Next steps
 
-In this tutorial, you've created Private and Shared queries. To learn more about the Resource graph
+In this tutorial, you've created Private and Shared queries. To learn more about the Resource Graph
 language, continue to the query language details page.
 
 > [!div class="nextstepaction"]

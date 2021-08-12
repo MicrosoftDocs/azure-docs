@@ -1,5 +1,6 @@
 ---
 title: Developer guidance for Azure Active Directory Conditional Access
+titleSuffix: Microsoft identity platform
 description: Developer guidance and scenarios for Azure AD Conditional Access and Microsoft identity platform.
 services: active-directory
 keywords:
@@ -8,7 +9,7 @@ manager: CelesteDG
 
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
-ms.date: 03/16/2020
+ms.date: 05/18/2020
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
@@ -20,36 +21,36 @@ ms.workload: identity
 
 The Conditional Access feature in Azure Active Directory (Azure AD) offers one of several ways that you can use to secure your app and protect a service. Conditional Access enables developers and enterprise customers to protect services in a multitude of ways including:
 
-* Multi-factor authentication
+* [Multi-factor authentication](../authentication/concept-mfa-howitworks.md)
 * Allowing only Intune enrolled devices to access specific services
 * Restricting user locations and IP ranges
 
-For more information on the full capabilities of Conditional Access, see [Conditional Access in Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
+For more information on the full capabilities of Conditional Access, see the article [What is Conditional Access](../conditional-access/overview.md).
 
 For developers building apps for Azure AD, this article shows how you can use Conditional Access and you'll also learn about the impact of accessing resources that you don't have control over that may have Conditional Access policies applied. The article also explores the implications of Conditional Access in the on-behalf-of flow, web apps, accessing Microsoft Graph, and calling APIs.
 
-Knowledge of [single](quickstart-register-app.md) and [multi-tenant](howto-convert-app-to-be-multi-tenant.md) apps and [common authentication patterns](authentication-scenarios.md) is assumed.
+Knowledge of [single](quickstart-register-app.md) and [multi-tenant](howto-convert-app-to-be-multi-tenant.md) apps and [common authentication patterns](./authentication-vs-authorization.md) is assumed.
 
 > [!NOTE]
-> Using this feature requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
+> Using this feature requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 > Customers with [Microsoft 365 Business licenses](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) also have access to Conditional Access features.
 
 ## How does Conditional Access impact an app?
 
 ### App types impacted
 
-In most common cases, Conditional Access does not change an app's behavior or requires any changes from the developer. Only in certain cases when an app indirectly or silently requests a token for a service, an app requires code changes to handle Conditional Access "challenges". It may be as simple as performing an interactive sign-in request.
+In most common cases, Conditional Access does not change an app's behavior or requires any changes from the developer. Only in certain cases when an app indirectly or silently requests a token for a service, an app requires code changes to handle Conditional Access challenges. It may be as simple as performing an interactive sign-in request.
 
-Specifically, the following scenarios require code to handle Conditional Access "challenges":
+Specifically, the following scenarios require code to handle Conditional Access challenges:
 
 * Apps performing the on-behalf-of flow
 * Apps accessing multiple services/resources
 * Single-page apps using MSAL.js
 * Web Apps calling a resource
 
-Conditional Access policies can be applied to the app, but also can be applied to a web API your app accesses. To learn more about how to configure a Conditional Access policy, see [Quickstart: Require MFA for specific apps with Azure Active Directory Conditional Access](../conditional-access/app-based-mfa.md).
+Conditional Access policies can be applied to the app, but also can be applied to a web API your app accesses. To learn more about how to configure a Conditional Access policy, see [Quickstart: Require MFA for specific apps with Azure Active Directory Conditional Access](../authentication/tutorial-enable-azure-mfa.md).
 
-Depending on the scenario, an enterprise customer can apply and remove Conditional Access policies at any time. In order for your app to continue functioning when a new policy is applied, you need to implement the "challenge" handling. The following examples illustrate challenge handling.
+Depending on the scenario, an enterprise customer can apply and remove Conditional Access policies at any time. For your app to continue functioning when a new policy is applied, implement challenge handling. The following examples illustrate challenge handling.
 
 ### Conditional Access examples
 
@@ -67,10 +68,10 @@ Specifically, all Microsoft Graph scopes represent some dataset that can individ
 For example, if an app requests the following Microsoft Graph scopes,
 
 ```
-scopes="Bookings.Read.All Mail.Read"
+scopes="ChannelMessages.Read.All Mail.Read"
 ```
 
-An app can expect their users to fulfill all policies set on Bookings and Exchange. Some scopes may map to multiple datasets if it grants access.
+An app can expect their users to fulfill all policies set on Teams and Exchange. Some scopes may map to multiple datasets if it grants access.
 
 ### Complying with a Conditional Access policy
 
@@ -88,7 +89,7 @@ Developers can take this challenge and append it onto a new request to Azure AD.
 
 ### Prerequisites
 
-Azure AD Conditional Access is a feature included in [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Customers with [Microsoft 365 Business licenses](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) also have access to Conditional Access features.
+Azure AD Conditional Access is a feature included in [Azure AD Premium](../fundamentals/active-directory-whatis.md). Customers with [Microsoft 365 Business licenses](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) also have access to Conditional Access features.
 
 ### Considerations for specific scenarios
 
@@ -122,17 +123,17 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 In Web API 1, we catch the error `error=interaction_required`, and send back the `claims` challenge to the desktop app. At that point, the desktop app can make a new `acquireToken()` call and append the `claims`challenge as an extra query string parameter. This new request requires the user to do multi-factor authentication and then send this new token back to Web API 1 and complete the on-behalf-of flow.
 
-To try out this scenario, see our [.NET code sample](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/Microsoft.Identity.Web/README.md#handle-conditional-access). It demonstrates how to pass the claims challenge back from Web API 1 to the native app and construct a new request inside the client app.
+To try out this scenario, see our [.NET code sample](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph#handling-required-interactions-with-the-user-dynamic-consent-mfa-etc-). It demonstrates how to pass the claims challenge back from Web API 1 to the native app and construct a new request inside the client app.
 
 ## Scenario: App accessing multiple services
 
-In this scenario, we walk through the case in which a web app accesses two services one of which has a Conditional Access policy assigned. Depending on your app logic, there may exist a path in which your app does not require access to both web services. In this scenario, the order in which you request a token plays an important role in the end user experience.
+In this scenario, we walk through the case in which a web app accesses two services one of which has a Conditional Access policy assigned. Depending on your app logic, there may exist a path in which your app does not require access to both web services. In this scenario, the order in which you request a token plays an important role in the end-user experience.
 
 Let's assume we have web service A and B and web service B has our Conditional Access policy applied. While the initial interactive auth request requires consent for both services, the Conditional Access policy is not required in all cases. If the app requests a token for web service B, then the policy is invoked and subsequent requests for web service A also succeeds as follows.
 
 ![App accessing multiple-services flow diagram](./media/v2-conditional-access-dev-guide/app-accessing-multiple-services-scenario.png)
 
-Alternatively, if the app initially requests a token for web service A, the end user does not invoke the Conditional Access policy. This allows the app developer to control the end user experience and not force the Conditional Access policy to be invoked in all cases. The tricky case is if the app subsequently requests a token for web service B. At this point, the end user needs to comply with the Conditional Access policy. When the app tries to `acquireToken`, it may generate the following error (illustrated in the following diagram):
+Alternatively, if the app initially requests a token for web service A, the end user does not invoke the Conditional Access policy. This allows the app developer to control the end-user experience and not force the Conditional Access policy to be invoked in all cases. The tricky case is if the app subsequently requests a token for web service B. At this point, the end user needs to comply with the Conditional Access policy. When the app tries to `acquireToken`, it may generate the following error (illustrated in the following diagram):
 
 ```
 HTTP 400; Bad Request
@@ -147,15 +148,14 @@ If the app is using the MSAL library, a failure to acquire the token is always r
 
 ## Scenario: Single-page app (SPA) using MSAL.js
 
-In this scenario, we walk through the case when we have a single-page app (SPA), using MSAL.js to call a Conditional Access protected web API. This is a simple architecture but has some nuances that need to be taken into account when developing around Conditional Access.
+In this scenario, we walk through the case when we have a single-page app (SPA) calling a Conditional Access protected web API using MSAL.js. This is a simple architecture but has some nuances that need to be taken into account when developing around Conditional Access.
 
-In MSAL.js, there are a few functions that obtain tokens: `loginPopup()`, `acquireTokenSilent(...)`, `acquireTokenPopup(…)`, and `acquireTokenRedirect(…)`.
+In MSAL.js, there are a few functions that obtain tokens: `acquireTokenSilent()`, `acquireTokenPopup()`, and `acquireTokenRedirect()`.
 
-* `loginPopup()` obtains an ID token through an interactive sign-in request but does not obtain access tokens for any service (including a Conditional Access protected web API).
-* `acquireTokenSilent(…)` can then be used to silently obtain an access token meaning it does not show UI in any circumstance.
-* `acquireTokenPopup(…)` and `acquireTokenRedirect(…)` are both used to interactively request a token for a resource meaning they always show sign-in UI.
+* `acquireTokenSilent()` can be used to silently obtain an access token meaning it does not show UI in any circumstance.
+* `acquireTokenPopup()` and `acquireTokenRedirect()` are both used to interactively request a token for a resource meaning they always show sign-in UI.
 
-When an app needs an access token to call a web API, it attempts an `acquireTokenSilent(…)`. If the token session is expired or we need to comply with a Conditional Access policy, then the *acquireToken* function fails and the app uses `acquireTokenPopup()` or `acquireTokenRedirect()`.
+When an app needs an access token to call a web API, it attempts an `acquireTokenSilent()`. If the token is expired or we need to comply with a Conditional Access policy, then the *acquireToken* function fails and the app uses `acquireTokenPopup()` or `acquireTokenRedirect()`.
 
 ![Single-page app using MSAL flow diagram](./media/v2-conditional-access-dev-guide/spa-using-msal-scenario.png)
 
@@ -171,12 +171,12 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 Our app needs to catch the `error=interaction_required`. The application can then use either `acquireTokenPopup()` or `acquireTokenRedirect()` on the same resource. The user is forced to do a multi-factor authentication. After the user completes the multi-factor authentication, the app is issued a fresh access token for the requested resource.
 
-To try out this scenario, see our [JS SPA On-behalf-of code sample](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/Microsoft.Identity.Web/README.md#handle-conditional-access). This code sample uses the Conditional Access policy and web API you registered earlier with a JS SPA to demonstrate this scenario. It shows how to properly handle the claims challenge and get an access token that can be used for your web API. Alternatively, checkout the general [Angular.js code sample](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) for guidance on an Angular SPA
+To try out this scenario, see our [JavaScript SPA calling Node.js web API using on-behalf-of flow](https://github.com/Azure-Samples/ms-identity-javascript-tutorial/tree/main/4-AdvancedGrants/2-call-api-api-ca) code sample. This code sample uses the Conditional Access policy and web API you registered earlier with a JavaScript SPA to demonstrate this scenario. It shows how to properly handle the claims challenge and get an access token that can be used for your web API.
 
 ## See also
 
-* To learn more about the capabilities, see [Conditional Access in Azure Active Directory](/azure/active-directory/conditional-access/overview).
+* To learn more about the capabilities, see [Conditional Access in Azure Active Directory](../conditional-access/overview.md).
 * For more Azure AD code samples, see [samples](sample-v2-code.md).
-* For more info on the MSAL SDK's and access the reference documentation, see [Microsoft Authentication Library overview](msal-overview.md).
+* For more info on the MSAL SDK's and access the reference documentation, see the [Microsoft Authentication Library overview](msal-overview.md).
 * To learn more about multi-tenant scenarios, see [How to sign in users using the multi-tenant pattern](howto-convert-app-to-be-multi-tenant.md).
 * Learn more about [Conditional access and securing access to IoT apps](/azure/architecture/example-scenario/iot-aad/iot-aad).

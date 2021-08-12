@@ -1,30 +1,32 @@
 ---
 title: 'Quickstart: Direct web traffic using CLI'
 titleSuffix: Azure Application Gateway
-description: Learn how to use the Azure CLI to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
+description: In this quickstart, you learn how to use the Azure CLI to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 03/05/2020
+ms.date: 06/14/2021
 ms.author: victorh
-ms.custom: mvc
+ms.custom: mvc, devx-track-js, devx-track-azurecli
 ---
 
 # Quickstart: Direct web traffic with Azure Application Gateway - Azure CLI
 
 In this quickstart, you use Azure CLI to create an application gateway. Then you test it to make sure it works correctly. 
 
-The application gateway directs application web traffic to specific resources in a backend pool. You assign listeners to ports, create rules, and add resources to a backend pool. For the sake of simplicity, this article uses a simple setup with a public front-end IP, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines in the backend pool.
+The application gateway directs application web traffic to specific resources in a backend pool. You assign listeners to ports, create rules, and add resources to a backend pool. For the sake of simplicity, this article uses a simple setup with a public front-end IP address, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines in the backend pool.
+
+:::image type="content" source="media/quick-create-portal/application-gateway-qs-resources.png" alt-text="application gateway resources":::
+
 
 You can also complete this quickstart using [Azure PowerShell](quick-create-powershell.md) or the [Azure portal](quick-create-portal.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Prerequisites
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Azure CLI version 2.0.4 or later](/cli/azure/install-azure-cli) (if you run Azure CLI locally).
+- This article requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create resource group
 
@@ -47,14 +49,14 @@ az network vnet create \
   --name myVNet \
   --resource-group myResourceGroupAG \
   --location eastus \
-  --address-prefix 10.0.0.0/16 \
+  --address-prefix 10.21.0.0/16 \
   --subnet-name myAGSubnet \
-  --subnet-prefix 10.0.1.0/24
+  --subnet-prefix 10.21.0.0/24
 az network vnet subnet create \
   --name myBackendSubnet \
   --resource-group myResourceGroupAG \
   --vnet-name myVNet   \
-  --address-prefix 10.0.2.0/24
+  --address-prefix 10.21.1.0/24
 az network public-ip create \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \
@@ -64,7 +66,7 @@ az network public-ip create \
 
 ## Create the backend servers
 
-A backend can have NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure App Service. In this example, you create two virtual machines to use as backend servers for the application gateway. You also install IIS on the virtual machines to test the application gateway.
+A backend can have NICs, virtual machine scale sets, public IP addresses, internal IP addresses, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure App Service. In this example, you create two virtual machines to use as backend servers for the application gateway. You also install IIS on the virtual machines to test the application gateway.
 
 #### Create two virtual machines
 

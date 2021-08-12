@@ -1,16 +1,16 @@
-﻿---
+---
 title: CLI example of auditing and Advanced Threat Protection - Azure SQL Database  
 description: Azure CLI example script to configure auditing and Advanced Threat Protection in an Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: security
+ms.custom: security, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: ronitr
-ms.author: ronitr
-ms.reviewer: carlrab, vanto
-ms.date: 08/05/2019
+author: DavidTrigano
+ms.author: datrigan
+ms.reviewer: vanto
+ms.date: 02/09/2021
 ---
 # Use CLI to configure SQL Database auditing and Advanced Threat Protection
 
@@ -32,7 +32,41 @@ az account set -s $subscription # ...or use 'az login'
 
 ### Run the script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/sql-database/database-auditing-and-threat-detection/database-auditing-and-threat-detection.sh "Configure auditing and threat detection")]
+```azurecli-interactive
+#!/bin/bash
+location="East US"
+randomIdentifier=random123
+
+resource="resource-$randomIdentifier"
+server="server-$randomIdentifier"
+database="database-$randomIdentifier"
+storage="storage$randomIdentifier"
+
+notification="changeto@your.email;changeto@your.email"
+
+login="sampleLogin"
+password="samplePassword123!"
+
+echo "Using resource group $resource with login: $login, password: $password..."
+
+echo "Creating $resource..."
+az group create --name $resource --location "$location"
+
+echo "Creating $server in $location..."
+az sql server create --name $server --resource-group $resource --location "$location" --admin-user $login --admin-password $password
+
+echo "Creating $database on $server..."
+az sql db create --name $database --resource-group $resource --server $server --service-objective S0
+
+echo "Creating $storage..."
+az storage account create --name $storage --resource-group $resource --location "$location" --sku Standard_LRS
+
+echo "Setting access policy on $storage..."
+az sql db audit-policy update --resource-group $resource --server $server --name $database --state Enabled --blob-storage-target-state Enabled --storage-account $storage
+
+echo "Setting threat detection policy on $storage..."
+az sql db threat-policy update --email-account-admins Disabled --email-addresses $notification --name $database --resource-group $resource --server $server --state Enabled --storage-account $storage
+```
 
 ### Clean up deployment
 
@@ -46,7 +80,7 @@ az group delete --name $resource
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
-| | |
+| Command | Description |
 |---|---|
 | [az sql db audit-policy](/cli/azure/sql/db/audit-policy) | Sets the auditing policy for a database. |
 | [az sql db threat-policy](/cli/azure/sql/db/threat-policy) | Sets an Advanced Threat Protection policy on a database. |
@@ -55,4 +89,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
-Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](../sql-database-cli-samples.md).
+Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](../../azure-sql/database/az-cli-script-samples-content-guide.md).

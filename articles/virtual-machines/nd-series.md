@@ -1,28 +1,30 @@
 ---
- title: ND-series - Azure Virtual Machines
- description: Specifications for the ND-series VMs.
- services: virtual-machines
- author: vikancha
- ms.service: virtual-machines
- ms.topic: article
- ms.date: 02/03/2020
- ms.author: lahugh
+title: ND-series - Azure Virtual Machines
+description: Specifications for the ND-series VMs.
+author: vikancha-MSFT
+ms.service: virtual-machines
+ms.subservice: vm-sizes-gpu
+ms.topic: conceptual
+ms.date: 02/03/2020
+ms.author: jushiman
 ---
 
 # ND-series
 
 The ND-series virtual machines are a new addition to the GPU family designed for AI, and Deep Learning workloads. They offer excellent performance for training and inference. ND instances are powered by [NVIDIA Tesla P40](https://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) GPUs and Intel Xeon E5-2690 v4 (Broadwell) CPUs. These instances provide excellent performance for single-precision floating point operations, for AI workloads utilizing Microsoft Cognitive Toolkit, TensorFlow, Caffe, and other frameworks. The ND-series also offers a much larger GPU memory size (24 GB), enabling to fit much larger neural net models. Like the NC-series, the ND-series offers a configuration with a secondary low-latency, high-throughput network through RDMA, and InfiniBand connectivity so you can run large-scale training jobs spanning many GPUs.
 
-Premium Storage: Supported
-
-Premium Storage caching: Supported
-
-Live Migration: Not Supported
-
-Memory Preserving Updates: Not Supported
+[Premium Storage](premium-storage-performance.md): Supported<br>
+[Premium Storage caching](premium-storage-performance.md): Supported<br>
+[Ultra Disks](disks-types.md#ultra-disk): Supported ([Learn more](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) about availability, usage and performance) <br>
+[Live Migration](maintenance-and-updates.md): Not Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
+[VM Generation Support](generation-2.md): Generation 1 and 2<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Not Supported<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported ([In preview](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
+Nvidia NVLink Interconnect: Not Supported<br>
 
 > [!IMPORTANT]
-> For this VM series, the vCPU (core) quota per region in your subscription is initially set to 0. [Request a vCPU quota increase](../azure-supportability/resource-manager-core-quotas-request.md) for this series in an [available region](https://azure.microsoft.com/regions/services/).
+> For this VM series, the vCPU (core) quota per region in your subscription is initially set to 0. [Request a vCPU quota increase](../azure-portal/supportability/resource-manager-core-quotas-request.md) for this series in an [available region](https://azure.microsoft.com/regions/services/).
 >
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max NICs |
 |---|---|---|---|---|---|---|---|---|

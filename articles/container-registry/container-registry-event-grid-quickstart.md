@@ -3,10 +3,8 @@ title: Quickstart - Send events to Event Grid
 description: In this quickstart, you enable Event Grid events for your container registry, then send container image push and delete events to a sample application.
 ms.topic: article
 ms.date: 08/23/2018
-ms.custom: seodec18
-# Customer intent: As a container registry owner, I want to send events to Event Grid
-# when container images are pushed to or deleted from my container registry so that
-# downstream applications can react to those events.
+ms.custom: seodec18, devx-track-azurecli
+# Customer intent: As a container registry owner, I want to send events to Event Grid when container images are pushed to or deleted from my container registry so that downstream applications can react to those events.
 ---
 
 # Quickstart: Send events from private container registry to Event Grid
@@ -17,11 +15,11 @@ After you complete the steps in this article, events sent from your container re
 
 ![Web browser rendering the sample web application with three received events][sample-app-01]
 
-If you don't have an Azure subscription, create a [free account][azure-account] before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-The Azure CLI commands in this article are formatted for the **Bash** shell. If you're using a different shell like PowerShell or Command Prompt, you may need to adjust line continuation characters or variable assignment lines accordingly. This article uses variables to minimize the amount of command editing required.
+- The Azure CLI commands in this article are formatted for the **Bash** shell. If you're using a different shell like PowerShell or Command Prompt, you may need to adjust line continuation characters or variable assignment lines accordingly. This article uses variables to minimize the amount of command editing required.
 
 ## Create a resource group
 
@@ -76,7 +74,7 @@ To deploy the sample app, set `SITE_NAME` to a unique name for your web app, and
 ```azurecli-interactive
 SITE_NAME=<your-site-name>
 
-az group deployment create \
+az deployment group create \
     --resource-group $RESOURCE_GROUP_NAME \
     --template-uri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" \
     --parameters siteName=$SITE_NAME hostingPlanName=$SITE_NAME-plan
@@ -141,8 +139,10 @@ Now that the sample app is up and running and you've subscribed to your registry
 
 Execute the following Azure CLI command to build a container image from the contents of a GitHub repository. By default, ACR Tasks automatically pushes a successfully built image to your registry, which generates the `ImagePushed` event.
 
+[!INCLUDE [pull-image-dockerfile-include](../../includes/pull-image-dockerfile-include.md)]
+
 ```azurecli-interactive
-az acr build --registry $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git
+az acr build --registry $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git#main
 ```
 
 You should see output similar to the following while ACR Tasks builds and then pushes your image. The following sample output has been truncated for brevity.
@@ -234,6 +234,6 @@ In this quickstart, you deployed a container registry, built an image with ACR T
 
 <!-- LINKS - Internal -->
 [az-acr-create]: /cli/azure/acr/repository
-[az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
-[az-eventgrid-event-subscription-create]: /cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create
-[az-group-create]: /cli/azure/group#az-group-create
+[az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
+[az-eventgrid-event-subscription-create]: /cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create
+[az-group-create]: /cli/azure/group#az_group_create

@@ -2,9 +2,9 @@
 title: 'Tutorial - Deploy Azure Machine Learning to a device using Azure IoT Edge'
 description: 'In this tutorial, you create an Azure Machine Learning model, then deploy it as a module to an edge device'
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
-ms.date: 11/11/2019
+ms.date: 07/29/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -13,7 +13,9 @@ ms.custom: mvc
 
 # Tutorial: Deploy Azure Machine Learning as an IoT Edge module (preview)
 
-Use Azure Notebooks to develop a machine learning module and deploy it to a Linux device running Azure IoT Edge.
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
+Use Azure Notebooks to develop a machine learning module and deploy it to a device running Azure IoT Edge with Linux containers.
 You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through deploying an Azure Machine Learning module that predicts when a device fails based on simulated machine temperature data. For more information about Azure Machine Learning on IoT Edge, see [Azure Machine Learning documentation](../machine-learning/how-to-deploy-and-where.md).
 
 >[!NOTE]
@@ -25,10 +27,10 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
-> * Create an Azure Machine Learning module
-> * Push a module container to an Azure container registry
-> * Deploy an Azure Machine Learning module to your IoT Edge device
-> * View generated data
+> * Create an Azure Machine Learning module.
+> * Push a module container to an Azure container registry.
+> * Deploy an Azure Machine Learning module to your IoT Edge device.
+> * View generated data.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -36,15 +38,15 @@ In this tutorial, you learn how to:
 
 An Azure IoT Edge device:
 
-* You can use an Azure virtual machine as an IoT Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md).
+* You can use the quickstarts to set up a [Linux device](quickstart-linux.md) or [Windows device](quickstart.md).
 * The Azure Machine Learning module doesn't support Windows containers.
 * The Azure Machine Learning module doesn't support ARM processors.
 
 Cloud resources:
 
 * A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
-* An Azure Machine Learning workspace. Follow the instructions in [Use the Azure portal to get started with Azure Machine Learning](../machine-learning/tutorial-1st-experiment-sdk-setup.md) to create one and learn how to use it.
-  * Make a note of the workspace name, resource group, and subscription ID. These values are all available on the workspace overview in the Azure portal. You'll use these values later in the tutorial to connect an Azure notebook to your workspace resources.
+* An Azure Machine Learning workspace. Follow the instructions in [Use the Azure portal to get started with Azure Machine Learning](../machine-learning/quickstart-create-resources.md) to create one and learn how to use it.
+  * Make a note of the workspace name, resource group, and subscription ID. These values are all available on the workspace overview in the Azure portal. You'll use these values later in the tutorial to connect an Azure Notebooks file to your workspace resources.
 
 ## Create and deploy Azure Machine Learning module
 
@@ -89,13 +91,13 @@ Check that your container image was successfully created and stored in the Azure
 
 2. The **Overview** section lists the workspace details as well its associated resources. Select the **Registry** value, which should be your workspace name followed by random numbers.
 
-3. In the container registry, select **Repositories**. You should see a repository called **tempanomalydetection** that was created by the notebook you ran in the earlier section.
+3. In the container registry, under **Services**, select **Repositories**. You should see a repository called **tempanomalydetection** that was created by the notebook you ran in the earlier section.
 
 4. Select **tempanomalydetection**. You should see that the repository has one tag: **1**.
 
    Now that you know the registry name, repository name, and tag, you know the full image path of the container. Image paths look like **\<registry_name\>.azurecr.io/tempanomalydetection:1**. You can use the image path to deploy this container to IoT Edge devices.
 
-5. In the container registry, select **Access keys**. You should see a number of access credentials, including **Login server** and the **Username**, and **Password** for an admin user.
+5. In the container registry, under **Settings**, select **Access keys**. You should see a number of access credentials, including **Login server** and the **Username**, and **Password** for an admin user.
 
    These credentials can be included in the deployment manifest to give your IoT Edge device access to pull container images from the registry.
 
@@ -129,17 +131,11 @@ You can view the device-to-cloud messages that your IoT hub receives by using th
 
 The following steps show you how to set up Visual Studio Code to monitor device-to-cloud messages that arrive at your IoT hub.
 
-1. In Visual Studio Code, select **IoT Hub Devices**.
+1. In the Visual Studio Code explorer, under the **Azure IoT Hub** section, expand **Devices** to see your list of IoT devices.
 
-2. Select **...** then select **Set IoT Hub Connection String** from the menu.
+2. Right-click the name of your IoT Edge device and select **Start Monitoring Built-in Event Endpoint**.
 
-   ![Set IoT Hub Connection String](./media/tutorial-deploy-machine-learning/set-connection.png)
-
-3. In the text box that opens at the top of the page, enter the iothubowner connection string for your IoT Hub. Your IoT Edge device should appear in the IoT Hub Devices list.
-
-4. Select **...** again then select **Start Monitoring Built-in Event Endpoint**.
-
-5. Observe the messages coming from tempSensor every five seconds. The message body contains a property called **anomaly**, which the machinelearningmodule provides with a true or false value. The **AzureMLResponse** property contains the value "OK" if the model ran successfully.
+3. Observe the messages coming from tempSensor every five seconds. The message body contains a property called **anomaly**, which the machinelearningmodule provides with a true or false value. The **AzureMLResponse** property contains the value "OK" if the model ran successfully.
 
    ![Azure Machine Learning response in message body](./media/tutorial-deploy-machine-learning/ml-output.png)
 

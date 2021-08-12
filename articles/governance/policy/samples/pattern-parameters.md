@@ -1,7 +1,7 @@
 ---
 title: "Pattern: Parameters in a policy definition"
-description: This Azure Policy pattern provides an example of how to use parameters in a policy definition.
-ms.date: 01/31/2020
+description: This Azure Policy pattern provides an example of how to use string and array parameters in a policy definition, and how to parameterize the effect.
+ms.date: 03/31/2021
 ms.topic: sample
 ---
 # Azure Policy pattern: parameters
@@ -13,9 +13,13 @@ parameter and how it's used.
 
 ## Sample 1: String parameters
 
-This policy definition uses two parameters, **tagName** and **tagValue** to set what the policy
-assignment is looking for on resources. This format allows the policy to be used for any number of
-tag name and tag value combinations, but only maintain a single policy definition.
+This policy definition uses two parameters, **tagName** and **tagValue**, to set what the policy
+assignment is looking for on resources. This format allows the policy definition to be used for any
+number of tag name and tag value combinations, but only maintain a single policy definition.
+
+> [!NOTE]
+> For a tag sample that uses **mode** _All_ and works with a resource group, see
+> [Pattern: Tags - Sample #1](./pattern-tags.md#sample-1-parameterize-tags).
 
 :::code language="json" source="~/policy-templates/patterns/pattern-parameters-1.json":::
 
@@ -51,6 +55,26 @@ The parameter is then used in the **policyRule.if** block. As an _array_ paramet
 Here, it's used against the **serviceProvider.bandwidthInMbps** alias as one of the defined values.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-parameters-2.json" range="21-24" highlight="3":::
+
+## Sample 3: Parameterized effect
+
+A common way to make policy definitions reusable is to parameterize the effect itself. This example
+uses a single parameter, **effect**. Parameterizing the effect makes it possible to assign the same
+definition to different scopes with different effects.
+
+:::code language="json" source="~/policy-templates/patterns/pattern-parameters-3.json":::
+
+### Sample 3: Explanation
+
+:::code language="json" source="~/policy-templates/patterns/pattern-parameters-3.json" range="11-25":::
+
+In this portion of the policy definition, the **effect** parameter is defined as _string_. The
+policy definition sets the default value for an assignment to _audit_ and limits the other options
+to _disabled_ and _deny_.
+
+The parameter is then used in the **policyRule.then** block for the _effect_.
+
+:::code language="json" source="~/policy-templates/patterns/pattern-parameters-3.json" range="38-40" highlight="2":::
 
 ## Next steps
 

@@ -1,13 +1,15 @@
 ---
 title: Aggregate transformation in mapping data flow
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to aggregate data at scale in Azure Data Factory with the mapping data flow Aggregate transformation.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 03/24/2020
+ms.custom: synapse
+ms.date: 09/14/2020
 ---
 
 # Aggregate transformation in mapping data flow
@@ -24,17 +26,18 @@ Select an existing column or create a new computed column to use as a group by c
 
 A group by clause is optional in an Aggregate transformation.
 
-## Aggregate column 
+## Aggregate columns
 
-Go to the **Aggregates** tab to build aggregation expressions. You can either overwrite an existing column with an aggregation, or create a new field with a new name. The aggregation expression is entered in the right-hand box next to the column name selector. To edit the expression, click on the text box to open up the expression builder. To add additional aggregations, hover over an existing expression and click plus icon to create a new aggregation column or [column pattern](concepts-data-flow-column-pattern.md).
+Go to the **Aggregates** tab to build aggregation expressions. You can either overwrite an existing column with an aggregation, or create a new field with a new name. The aggregation expression is entered in the right-hand box next to the column name selector. To edit the expression, click on the text box and open the expression builder. To add more aggregate columns, click on **Add** above the column list or the plus icon next to an existing aggregate column. Choose either **Add column** or **Add column pattern**. Each aggregation expression must contain at least one aggregate function.
 
-Each aggregation expression must contain at least one aggregate function.
-
-![Aggregate transformation aggregate settings](media/data-flow/agg2.png "Aggregate transformation aggregate settings")
-
+![Aggregate settings](media/data-flow/aggregate-columns.png "Aggregate settings")
 
 > [!NOTE]
 > In Debug mode, the expression builder cannot produce data previews with aggregate functions. To view data previews for aggregate transformations, close the expression builder and view the data via the 'Data Preview' tab.
+
+### Column patterns
+
+Use [column patterns](concepts-data-flow-column-pattern.md) to apply the same aggregation to a set of columns. This is useful if you wish to persist many columns from the input schema as they are dropped by default. Use a heuristic such as `first()` to persist input columns through the aggregation.
 
 ## Reconnect rows and columns
 

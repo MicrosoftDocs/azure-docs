@@ -1,49 +1,79 @@
 ---
-title: What is the Text Analytics API? - Capabilities - 
+title: Text mining and analysis with the Text Analytics API - Azure Cognitive Services
 titleSuffix: Azure Cognitive Services
-description: Use the Text Analytics API from Azure Cognitive Services for sentiment analysis, key phrase extraction, language detection, and entity recognition.
+description: Learn about text mining with the Text Analytics API. Use it for sentiment analysis, language detection, and other forms of Natural Language Processing.
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 03/04/2020
+ms.date: 04/14/2021
 ms.author: aahi
+keywords: text mining, sentiment analysis, text analytics
+ms.custom: cog-serv-seo-aug-2020
 ---
 
 # What is the Text Analytics API?
 
-The Text Analytics API is a cloud-based service that provides advanced natural language processing over raw text, and includes four main functions: sentiment analysis, key phrase extraction, language detection, and named entity recognition.
+The Text Analytics API is a cloud-based service that provides Natural Language Processing (NLP) features for text mining and text analysis, including: sentiment analysis, opinion mining, key phrase extraction, language detection, and named entity recognition.
 
-The API is a part of [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/), a collection of machine learning and AI algorithms in the cloud for your development projects.
+The API is a part of [Azure Cognitive Services](../index.yml), a collection of machine learning and AI algorithms in the cloud for your development projects. You can use these features with the REST API [version 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V3-0/) or [version 3.1](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1), or the [client library](quickstarts/client-libraries-rest-api.md).
 
-> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player]
+> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Whats-New-in-Text-Analytics-Opinion-Mining-and-Async-API/player]
 
-Text analysis can mean different things, but in Cognitive Services, the Text Analytics API provides four types of analysis as described below. You can use these features with the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/), or the [client library](quickstarts/text-analytics-sdk.md).
+This documentation contains the following types of articles:
+* [Quickstarts](./quickstarts/client-libraries-rest-api.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
+* [How-to guides](./how-tos/text-analytics-how-to-call-api.md) contain instructions for using the service in more specific or customized ways.
+* [Concepts](text-analytics-user-scenarios.md) provide in-depth explanations of the service's functionality and features.
+* [Tutorials](./tutorials/tutorial-power-bi-key-phrases.md) are longer guides that show you how to use this service as a component in broader business solutions.
 
-## Sentiment Analysis
-Use [sentiment analysis](how-tos/text-analytics-how-to-sentiment-analysis.md) to find out what customers think of your brand or topic by analyzing raw text for clues about positive or negative sentiment. This API returns a sentiment score between 0 and 1 for each document, where 1 is the most positive.<br /> The analysis models are pretrained using an extensive body of text and natural language technologies from Microsoft. For [selected languages](text-analytics-supported-languages.md), the API can analyze and score any raw text that you provide, directly returning results to the calling application.
+## Sentiment analysis
 
-## Key Phrase Extraction
-Automatically [extract key phrases](how-tos/text-analytics-how-to-keyword-extraction.md) to quickly identify the main points. For example, for the input text "The food was delicious and there were wonderful staff", the API returns the main talking points: "food" and "wonderful staff".
+Use [sentiment analysis](how-tos/text-analytics-how-to-sentiment-analysis.md) (SA) and find out what people think of your brand or topic by mining the text for clues about positive or negative sentiment. 
 
-## Language Detection
-You can [detect which language the input text is written in](how-tos/text-analytics-how-to-language-detection.md) and report a single language code for every document submitted on the request in a wide range of languages, variants, dialects, and some regional/cultural languages. The language code is paired with a score indicating the strength of the score.
+The feature provides sentiment labels (such as "negative", "neutral" and "positive") based on the highest confidence score found by the service at a sentence and document-level. This feature also returns confidence scores between 0 and 1 for each document & sentences within it for positive, neutral and negative sentiment. You can also be run the service on premises [using a container](how-tos/text-analytics-how-to-install-containers.md).
 
-## Named Entity Recognition
-[Identify and categorize entities](how-tos/text-analytics-how-to-entity-linking.md) in your text as people, places, organizations, date/time, quantities, percentages, currencies, and more. Well-known entities are also recognized and linked to more information on the web.
+Starting in the v3.1, opinion mining (OM) is a feature of Sentiment Analysis. Also known as Aspect-based Sentiment Analysis in Natural Language Processing (NLP), this feature provides more granular information about the opinions related to words (such as the attributes of products or services) in text.
 
-## Use containers
+## Key phrase extraction
 
-[Use the Text Analytics containers](how-tos/text-analytics-how-to-install-containers.md) to extract key phrases, detect language, and analyze sentiment locally, by installing standardized Docker containers closer to your data.
+Use [key phrase extraction](how-tos/text-analytics-how-to-keyword-extraction.md) (KPE) to quickly identify the main concepts in text. For example, in the text "The food was delicious and there were wonderful staff", Key Phrase Extraction will return the main talking points: "food" and "wonderful staff".
+
+## Language detection
+
+Language detection can [detect the language an input text is written in](how-tos/text-analytics-how-to-language-detection.md) and report a single language code for every document submitted on the request in a wide range of languages, variants, dialects, and some regional/cultural languages. The language code is paired with a confidence score.
+
+## Named entity recognition
+
+Named Entity Recognition (NER) can [Identify and categorize entities](how-tos/text-analytics-how-to-entity-linking.md) in your text as people, places, organizations, quantities, Well-known entities are also recognized and linked to more information on the web.
+
+## Text summarization
+
+[Summarization](how-tos/extractive-summarization.md) produces a summary of text by extracting sentences that collectively represent the most important or relevant information within the original content. This feature condenses articles, papers, or documents down to key sentences.
+
+## Text Analytics for health
+
+Text Analytics for health is a feature of the Text Analytics API service that extracts and labels relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records. 
+
+## Deploy on premises using Docker containers
+
+[Use Text Analytics containers](how-tos/text-analytics-how-to-install-containers.md) to deploy API features on-premises. These docker containers enable you to bring the service closer to your data for compliance, security or other operational reasons. Text Analytics offers the following containers:
+
+* sentiment analysis
+* key phrase extraction (preview)
+* language detection (preview)
+* Text Analytics for health
+
+## Asynchronous operations
+
+The `/analyze` endpoint enables you to use many features of the Text Analytics API [asynchronously](how-tos/text-analytics-how-to-call-api.md). Named Entity Recognition (NER), Key phrase extraction (KPE), Sentiment Analysis (SA), Opinion Mining (OM) are available as part of `/analyze` endpoint. It allows clubbing of these features in a single call. It allows sending up to 125,000 characters per document. Pricing is same as regular Text Analytics.
 
 ## Typical workflow
 
 The workflow is simple: you submit data for analysis and handle outputs in your code. Analyzers are consumed as-is, with no additional configuration or customization.
 
-1. [Create an Azure resource](../cognitive-services-apis-create-account.md) for Text Analytics. Afterwards, [get the key](../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) generated for you to authenticate your requests.
+1. [Create an Azure resource](how-tos/text-analytics-how-to-call-api.md) for Text Analytics. Afterwards, [get the key](how-tos/text-analytics-how-to-call-api.md) generated for you to authenticate your requests.
 
 2. [Formulate a request](how-tos/text-analytics-how-to-call-api.md#json-schema) containing your data as raw unstructured text, in JSON.
 
@@ -61,56 +91,37 @@ You can start using the Text Analytics API in your processes, even if you don't 
 
 * Minimal programming required:
     * [Extract information in Excel using Text Analytics and Power Automate](tutorials/extract-excel-information.md)
-    * [Use the Text Analytics API and MS Flow to identify the sentiment of comments in a Yammer group](https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
+    * [Use the Text Analytics API and MS Flow to identify the sentiment of comments in a Yammer group](/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure?bc=%2f%2fazure%2fbread%2ftoc.json&toc=%2f%2fazure%2fcognitive-services%2ftext-analytics%2ftoc.json)
     * [Integrate Power BI with the Text Analytics API to analyze customer feedback](tutorials/tutorial-power-bi-key-phrases.md)
 * Programming experience recommended:
-    * [Sentiment analysis on streaming data using Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
-    * [Build a Flask app to translate text, analyze sentiment, and synthesize speech](https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
+    * [Sentiment analysis on streaming data using Azure Databricks](/azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services?bc=%2f%2fazure%2fbread%2ftoc.json&toc=%2f%2fazure%2fcognitive-services%2ftext-analytics%2ftoc.json)
+    * [Build a Flask app to translate text, analyze sentiment, and synthesize speech](../translator/tutorial-build-flask-app-translation-synthesis.md?bc=%2f%2fazure%2fbread%2ftoc.json&toc=%2f%2fazure%2fcognitive-services%2ftext-analytics%2ftoc.json)
 
 
 <a name="supported-languages"></a>
 
 ## Supported languages
 
-This section has been moved to a separate article for better discoverability. Refer to [Supported languages in the Text Analytics API](text-analytics-supported-languages.md) for this content.
+This section has been moved to a separate article for better discoverability. Refer to [Supported languages in the Text Analytics API](./language-support.md) for this content.
 
 <a name="data-limits"></a>
 
 ## Data limits
 
-All of the Text Analytics API endpoints accept raw text data. The current limit is 5,120 characters for each document; if you need to analyze larger documents, you can break them up into smaller chunks.
-
-| Limit | Value |
-|------------------------|---------------|
-| Maximum size of a single document | 5,120 characters as measured by [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
-| Maximum size of entire request | 1 MB |
-| Maximum number of documents in a request | 1,000 documents |
-
-Your rate limit will vary with your pricing tier.
-
-| Tier          | Requests per second | Requests per minute |
-|---------------|---------------------|---------------------|
-| S / Multi-service | 1000                | 1000                |
-| S0 / F0         | 100                 | 300                 |
-| S1            | 200                 | 300                 |
-| S2            | 300                 | 300                 |
-| S3            | 500                 | 500                 |
-| S4            | 1000                | 1000                |
-
-Requests are measured for each Text Analytics feature separately. For example, you can send the maximum number of requests for your pricing tier to each feature, at the same time.      
+All of the Text Analytics API endpoints accept raw text data. See the [Data limits](concepts/data-limits.md) article for more information.
 
 ## Unicode encoding
 
-The Text Analytics API uses Unicode encoding for text representation and character count calculations. Requests can be submitted in both UTF-8 and UTF-16 with no measurable differences in the character count. Unicode codepoints are used as the heuristic for character length and are considered equivalent for the purposes of text analytics data limits. If you use [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements) to get the character count, you are using the same method we use to measure data size.
+The Text Analytics API uses Unicode encoding for text representation and character count calculations. Requests can be submitted in both UTF-8 and UTF-16 with no measurable differences in the character count. Unicode codepoints are used as the heuristic for character length and are considered equivalent for the purposes of text analytics data limits. If you use [`StringInfo.LengthInTextElements`](/dotnet/api/system.globalization.stringinfo.lengthintextelements) to get the character count, you are using the same method we use to measure data size.
 
 ## Next steps
 
 + [Create an Azure resource](../cognitive-services-apis-create-account.md) for Text Analytics to get a key and endpoint for your applications.
 
-+ Use the [quickstart](quickstarts/text-analytics-sdk.md) to start sending API calls. Learn how to submit text, choose an analysis, and view results with minimal code.
++ Use the [quickstart](quickstarts/client-libraries-rest-api.md) to start sending API calls. Learn how to submit text, choose an analysis, and view results with minimal code.
 
 + See [what's new in the Text Analytics API](whats-new.md) for information on new releases and features.
 
-+ Dig in a little deeper with this [sentiment analysis tutorial](https://docs.microsoft.com/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services) using Azure Databricks.
++ Dig in a little deeper with this [sentiment analysis tutorial](/azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services) using Azure Databricks.
 
 + Check out our list of blog posts and more videos on how to use the Text Analytics API with other tools and technologies in our [External & Community Content page](text-analytics-resource-external-community.md).

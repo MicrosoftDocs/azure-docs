@@ -1,7 +1,6 @@
 ---
 title: Network Performance Monitor solution Service Connectivity - Azure Log Analytics
 description: Use the Service Connectivity Monitor capability in Network Performance Monitor to monitor network connectivity to any endpoint that has an open TCP port.
-ms.subservice: logs
 ms.topic: conceptual
 author: abshamsft
 ms.author: absha
@@ -11,12 +10,15 @@ ms.date: 02/20/2018
 
 # Service Connectivity Monitor
 
+> [!IMPORTANT]
+> Starting 1 July 2021, you will not be able to add new tests in an existing workspace or enable a new workspace in Network Performance Monitor. You can continue to use the tests created prior to 1 July 2021. To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor to the new Connection Monitor](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) in Azure Network Watcher before 29 February 2024.
+
 You can use the Service Connectivity Monitor capability in [Network Performance Monitor](network-performance-monitor.md) to monitor network connectivity to any endpoint that has an open TCP port. Such endpoints include websites, SaaS applications, PaaS applications, and SQL databases. 
 
 You can perform the following functions with Service Connectivity Monitor: 
 
-- Monitor the network connectivity to your applications and network services from multiple branch offices or locations. Applications and network services include Office 365, Dynamics CRM, internal line-of-business applications, and SQL databases.
-- Use built-in tests to monitor network connectivity to Office 365 and Dynamics 365 endpoints. 
+- Monitor the network connectivity to your applications and network services from multiple branch offices or locations. Applications and network services include Microsoft 365, Dynamics CRM, internal line-of-business applications, and SQL databases.
+- Use built-in tests to monitor network connectivity to Microsoft 365 and Dynamics 365 endpoints. 
 - Determine the response time, network latency, and packet loss experienced when connecting to the endpoint.
 - Determine whether poor application performance is because of the network or because of some issue on the application provider's end.
 - Identify hot spots on the network that might be causing poor application performance by viewing the latency contributed by each hop on a topology map.
@@ -53,7 +55,7 @@ Start creating your tests to monitor network connectivity to the service endpoin
 
     * Select **Web** to monitor connectivity to a service that responds to HTTP/S requests, such as outlook.office365.com or bing.com.<br>
     * Select **Network** to monitor connectivity to a service that responds to TCP requests but doesn't respond to HTTP/S requests, such as a SQL server, FTP server, or SSH port. 
-    * For example: To create a web test to a blob storage account, select **Web** and enter target as *yourstorageaccount*.blob.core.windows.net. Similarly you can create tests for other table storage, queue storage and Azure Files using [this link.](https://docs.microsoft.com/azure/storage/common/storage-account-overview#storage-account-endpoints)
+    * For example: To create a web test to a blob storage account, select **Web** and enter target as *yourstorageaccount*.blob.core.windows.net. Similarly you can create tests for other table storage, queue storage and Azure Files using [this link.](../../storage/common/storage-account-overview.md#storage-account-endpoints)
 4. If you don't want to perform network measurements, such as network latency, packet loss, and topology discovery, clear the **Perform network measurements** check box. Keep it selected to get maximum benefit from the capability. 
 5. In **Target**, enter the URL/FQDN/IP address to which you want to monitor network connectivity.
 6. In **Port number**, enter the port number of the target service. 
@@ -95,7 +97,7 @@ Determine whether poor application performance is because of the network or an i
 
 After you determine that the problem is because of the network, select the **Topology** view link to identify the troublesome hop on the topology map. An example is shown in the following image. Out of the 105-ms total latency between the node and the application endpoint, 96 ms is because of the hop marked in red. After you identify the troublesome hop, you can take corrective action. 
 
-![Service Connectivity Monitor tests](media/network-performance-monitor-service-endpoint/service-endpoint-topology.png)
+![Service Connectivity Monitor endpoint topology](media/network-performance-monitor-service-endpoint/service-endpoint-topology.png)
 
 ## Diagnostics 
 
@@ -129,4 +131,4 @@ For US Government Virginia region, only DOD URLs are built-in NPM. Customers usi
 | MS Teams | gov.teams.microsoft.us | 
 
 ## Next steps
-[Search logs](../../azure-monitor/log-query/log-query-overview.md) to view detailed network performance data records.
+[Search logs](../logs/log-query-overview.md) to view detailed network performance data records.

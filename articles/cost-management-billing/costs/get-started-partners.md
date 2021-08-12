@@ -3,18 +3,21 @@ title: Get started with Azure Cost Management for partners
 description: This article explains how partners use Azure Cost Management features and how they enable Cost Management access for their customers.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/02/2020
+ms.date: 07/01/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
 ---
 
 # Get started with Azure Cost Management for partners
 
-Azure Cost Management is natively available for direct partners who have onboarded their customers to a Microsoft Customer Agreement and have [purchased an Azure Plan](/partner-center/purchase-azure-plan). This article explains how partners use [Azure Cost Management](../index.yml) features to view costs for subscriptions in the Azure Plan. It also describes how partners enable Cost Management access for their customers.
+Azure Cost Management is natively available for direct partners who have onboarded their customers to a Microsoft Customer Agreement and have [purchased an Azure Plan](/partner-center/purchase-azure-plan). This article explains how partners use [Azure Cost Management](../index.yml) features to view costs for subscriptions in the Azure Plan. It also describes how partners enable Cost Management access at retail rates for their customers.
 
-For direct partners and indirect providers, the global admin and admin agents of the indirect provider can access Cost Management in the partner tenant. Resellers and customers can access Cost Management in the customer tenant and view costs for the subscriptions, where costs are computed and shown at retail rates. However, they must have RBAC access to the subscription in the customer tenant to view costs. The cost visibility policy must be enabled by the provider for the customer tenant.
+For direct partners and indirect providers, the global admin and admin agents, can access Cost Management in the partner tenant and manage costs at invoiced prices.
+
+Resellers and customers can access Cost Management in the customer tenant and view consumption costs for each individual subscription, where costs are computed and shown at retail rates. However, they must have Azure RBAC access to the subscription in the customer tenant to view costs. The cost visibility policy must be enabled by the provider for the customer tenant.
 
 Customers can use Cost Management features when enabled by their CSP partner.
 
@@ -28,10 +31,12 @@ CSP partners use Cost Management to:
 - Export their cost and usage data to a storage blob with a pay-as-you-go subscription.
 
 Here's an example showing costs for all customers.
-![Example showing costs for all customers](./media/get-started-partners/customer-costs1.png)
+
+[![Example showing costs for all customers](./media/get-started-partners/customer-costs1.png)](./media/get-started-partners/customer-costs1.png#lightbox)
 
 Here's an example showing costs for a single customer.
-![Example showing costs for a single customer](./media/get-started-partners/customer-costs2.png)
+
+[![Example showing costs for a single customer](./media/get-started-partners/customer-costs2.png)](./media/get-started-partners/customer-costs2.png#lightbox)
 
 All functionality available in Azure Cost Management is also available with REST APIs. Use the APIs to automate cost management tasks.
 
@@ -45,14 +50,15 @@ Azure Cost Management requires read access to your billing account or subscripti
 
 For more information about enabling and assigning access to Azure Cost Management for a billing account, see [Assign users roles and permissions](/partner-center/permissions-overview). The **Global admin** and **Admin agent** roles can manage costs for a billing account.
 
-To access Azure Cost Management at the subscription scope, any user with RBAC access to a subscription can view costs at retail (pay-as-you-go) rates. However the cost visibility policy for the customer tenant must be enabled. To view a full list of supported account types, see [Understand Cost Management data](understand-cost-mgt-data.md).
+To access Azure Cost Management at the subscription scope, any user with Azure RBAC access to a subscription can view costs at retail (pay-as-you-go) rates. However the [cost visibility policy for the customer tenant](#enable-the-policy-to-view-azure-usage-charges) must be enabled. To view a full list of supported account types, see [Understand Cost Management data](understand-cost-mgt-data.md).
 
+When transferring existing billing agreements to a new partner, cost management capabilities are only available for the current billing relationship with the partner. Historical costs before the transfer to the new partner don't move to the new billing account. However, the cost history does remain with the original associated billing account.
 
 ## How Cost Management uses scopes
 
-Scopes are where you manage billing data, have roles specific to payments, view invoices, and conduct general account management. Billing and account roles are managed separately from scopes used for resource management, which use RBAC. To clearly distinguish the intent of the separate scopes, including the access control differences, they are referred to as billing scopes and RBAC scopes, respectively.
+Scopes are where you manage billing data, have roles specific to payments, view invoices, and conduct general account management. Billing and account roles are managed separately from scopes used for resource management, which use Azure RBAC. To clearly distinguish the intent of the separate scopes, including the access control differences, they are referred to as billing scopes and Azure RBAC scopes, respectively.
 
-To understand billing scopes and RBAC scopes and how cost management works with scopes, see [Understand and work with scopes](understand-work-scopes.md).
+To understand billing scopes and Azure RBAC scopes and how cost management works with scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
 ## Manage costs with partner tenant billing scopes
 
@@ -62,9 +68,9 @@ After you've onboarded your customers to a Microsoft Customer Agreement, the fol
 
 Use the billing account scope to view pre-tax costs across all your customers and billing profiles. Invoice costs are only shown for customer's consumption-based products on the Microsoft Customer Agreement. However, invoice costs are shown for purchased-based products for customers on both the Microsoft Customer Agreement and the CSP offer. Currently, the default currency to view costs in the scope is US dollars. Budgets set for the scope are also in USD.
 
-Regardless of different customer-billed currencies, partners use Billing account scope to set budgets and manage costs in USD across their customers, subscriptions, resources, and resource groups.
+Regardless of different billed currencies, partners use Billing account scope to set budgets and manage costs in USD across their customers, subscriptions, resources, and resource groups.
 
-Partners also filter costs in a specific billing currency across customers in the cost analysis view. Select the **Actual cost** list to view costs in supported customer billing currencies.
+Partners also filter costs in a specific billing currency across customers in the cost analysis view. Select the **Actual cost** list to view costs in supported billing currencies.
 
 ![Example showing Actual cost selection for currencies](./media/get-started-partners/actual-cost-selector.png)
 
@@ -74,7 +80,7 @@ Use the [amortized cost view](quick-acm-cost-analysis.md#customize-cost-views) i
 
 Use the billing profile scope to view pre-tax costs in the billing currency across all your customers for all products and subscriptions included in an invoice. You can filter costs in a billing profile for a specific invoice using the **InvoiceID** filter. The filter shows the consumption and product purchase costs for a specific invoice. You can also filter the costs for a specific customer on the invoice to see pre-tax costs.
 
-After you onboard customers to a Microsoft Customer Agreement, you receive an invoice that includes all charges for all products (consumption, purchases, and entitlements) for these customers on the Microsoft Customer Agreement. When billed in the same currency, these invoices also include the charges for entitlement and purchased products such as SaaS, Azure Marketplace, and reservations for customers who are still in the CSP offer.
+After you onboard customers to a Microsoft Customer Agreement, you receive an invoice that includes all charges for all products (consumption, purchases, and entitlements) for these customers on the Microsoft Customer Agreement. When billed in the same currency, these invoices also include the charges for entitlement and purchased products such as SaaS, Azure Marketplace, and reservations for customers who are still in the classic CSP offer no on the Azure plan.
 
 To help reconcile charges against the customer invoice, the billing profile scope enables you to see all costs that accrue for an invoice for your customers. Like the invoice, the scope shows costs for every customer in the new Microsoft Customer Agreement. The scope also shows every charge for customer entitlement products still in the current CSP offer.
 
@@ -82,7 +88,7 @@ The billing profile and billing account scopes are the only applicable scopes th
 
 Billing profiles define the subscriptions that are included in an invoice. Billing profiles are the functional equivalent of an enterprise agreement enrollment. A billing profile is the scope where invoices are generated.
 
-Currently, the customer's billing currency is the default currency when viewing costs in the billing profile scope. Budgets set at the billing profile scope are in the billing currency.
+Currently, the billing currency is the default currency when viewing costs in the billing profile scope. Budgets set at the billing profile scope are in the billing currency.
 
 Partners can use the scope to reconcile to invoices. And, they use the scope to set budgets in the billing currency for the following items:
 
@@ -99,29 +105,35 @@ Partners can use the scope to reconcile to invoices. And, they use the scope to 
 
 Partners use the scope to manage costs associated to customers that are onboarded to the Microsoft Customer Agreement. The scope allows partners to view pre-tax costs for a specific customer in a billing currency. You can also filter the pre-tax costs for a specific subscription, resource group, or resource.
 
-The customer scope doesn't include customers who are on the current CSP offer. The scope only includes customers who have a Microsoft Customer Agreement. Entitlement costs, not Azure usage, for current CSP offer customers are available at the billing account and billing profile scopes when you apply the customer filter. The budgets set at this scope are in the billing currency.
+The customer scope doesn't include customers who are on the current CSP offer. The scope only includes customers who have a Microsoft Customer Agreement.
+
+Entitlement costs, not Azure usage, for current CSP offer customers are available at the billing account and billing profile scopes when you apply the customer filter. The budgets set at this scope are in the billing currency.
+
+To view costs at the customer scope, in the partner tenant navigate to Cost analysis, select the scope picker and then select the specific customer in the list of scopes. Here's an example for the *Contoso Services* customer.
+
+:::image type="content" source="./media/get-started-partners/customer-scope.png" alt-text="Screenshot showing selecting a customer scope." lightbox="./media/get-started-partners/customer-scope.png" :::
 
 ## Partner access to billing scopes in Cost Management
 
 Only the users with **Global admin** and **Admin agent** roles can manage and view costs for billing accounts, billing profiles, and customers directly in the partner's Azure tenant. For more information about partner center roles, see [Assign users roles and permissions](/partner-center/permissions-overview).
 
-## Enable cost management in the customer tenant
+## Enable cost management for customer tenant subscriptions
 
-Partners may enable access to Cost Management after customers are onboarded to a Microsoft Customer Agreement. Then partners can then enable a policy allowing customers to view their costs computed at pay-as-you-go retail rates. Costs are shown in the customer's billing currency for their consumed usage at RBAC subscription and resource groups scopes.
+Partners may enable access to Cost Management after customers are onboarded to a Microsoft Customer Agreement. Then partners can then enable a policy allowing customers to view their costs for Azure consumed services computed at pay-as-you-go retail rates. Costs are shown in the customer's billing currency for their consumed usage at Azure RBAC subscription and resource groups scopes.
 
-When the policy for cost visibility is enabled by the partner, any user with Azure Resource Manager access to the subscription can manage and analyze costs at pay-as-you-go rates. Effectively, resellers and customers that have the appropriate RBAC access to the Azure subscriptions can view cost.
+When the policy for cost visibility is enabled by the partner, any user with Azure Resource Manager access to the subscription can manage and analyze costs at pay-as-you-go rates. Effectively, resellers and customers that have the appropriate Azure RBAC access to the Azure subscriptions can view cost.
 
-Regardless of the policy, partners can also view the costs if they have access to the subscription and resource group.
+Regardless of the policy, global admins and admin agents of the provider can view subscription costs if they have access to the subscription and resource group.
 
 ### Enable the policy to view Azure usage charges
 
-Partners use the following information to enable to the policy to view Azure usage charges for their customers.
+You need to be a member of the **admin agent** group to view and update the policy. Use the following information to enable the policy allowing customers to view Azure usage charges.
 
-In the Azure portal, sign in to the partner tenant and select **Cost Management + Billing**. Select the relevant Microsoft Partner Agreement billing account, and then select **Customers**. The list of customers is associated with the billing account.
+In the Azure portal, sign in to the *partner tenant* and select **Cost Management + Billing**. Select the relevant billing scope in the Billing Scope area, and then select **Customers**. The list of customers is associated with the billing account. *If you mistakenly sign in to the customer tenant, you won't see the **Customers** list.*
 
 In the list of customers, select the customer that you want to allow to view costs.
 
-![Select customers in Cost Management](./media/get-started-partners/customer-list.png)
+[![Select customers in Cost Management](./media/get-started-partners/customer-list.png)](./media/get-started-partners/customer-list.png#lightbox)
 
 Under **Settings**, select **Policies**.
 
@@ -132,24 +144,27 @@ When the policy is set to **No**, Azure Cost Management isn't available for subs
 
 When the cost policy is set to **Yes**, subscription users associated to the customer tenant can see usage charges at pay-as-you go rates.
 
-When the cost visibility policy is enabled, all services that have subscription usage show costs at pay-as-you-go rates. Reservation usage appears with zero charges for actual and amortized costs. Purchases and entitlements are not associated to a specific subscription. So, purchases aren't displayed at the subscription scope.
+When the cost visibility policy is enabled, all services that have subscription usage show costs at pay-as-you-go rates. Reservation usage appears with zero charges for actual and amortized costs. Purchases and entitlements are not associated to a specific subscription. So, purchases aren't displayed at the subscription scope. The global admin/admin agent of a direct partner or an indirect provider can also use the [Update Customer API](/rest/api/billing/2019-10-01-preview/policies/updatecustomer) to set each customer's cost visibility policy at scale.
 
+### View subscription costs in the customer tenant
 
-### View customer costs
+To view costs for a subscription, open **Cost Management + Billing** in the customer's Azure tenant. Select **Cost analysis** and then the required subscription to start reviewing costs. You can view consumption costs for each subscription individually in the customer tenant.
 
-To view costs for the customer tenant, open **Cost Management + Billing**. Select **Cost analysis** and then change the scope to the customer tenant subscription to start reviewing costs.
+[![View cost analysis as a customer ](./media/get-started-partners/subscription-costs.png)](./media/get-started-partners/subscription-costs.png#lightbox)
 
-![View cost analysis as a customer ](./media/get-started-partners/customer-tenant-view-cost-analysis.png)
+Cost analysis, budgets, and alerts are available for the subscription and resource group Azure RBAC scopes at pay-as-you-go rate-based costs.
 
-Cost analysis, budgets, and alerts are available for the subscription and resource group RBAC scopes at pay-as-you-go rate-based costs.
+Amortized views and actual costs for reserved instances in the Azure RBAC scopes show zero charges. Purchase costs for entitlements such as Reserved instances and Marketplace fees are only shown in billing scopes in the partner's tenant where the purchases were made.
 
-Amortized views and actual costs for reserved instances in the RBAC scopes show zero charges. Reserved instance costs are only showing in billing scopes where the purchases were made.
+The retail rates used to compute costs shown in the view are the same prices shown in the Azure Pricing Calculator for all customers. Costs shown don't include any discounts or credits that the partner may have like Partner Earned Credits, Tier Discounts, and Global Service discounts.
+
+ 
 
 ## Analyze costs in cost analysis
 
-Partners with access to billing scopes in the partner tenant can explore and analyze invoiced costs in cost analysis across customers for a specific customer or for an invoice. In the [cost analysis](quick-acm-cost-analysis.md) view, you can also [save views](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) and export data to [CSV and PNG files](quick-acm-cost-analysis.md#automation-and-offline-analysis).
+Partners with access to billing scopes in the partner tenant can explore and analyze invoiced costs in cost analysis across customers for a specific customer or for an invoice. In the [cost analysis](quick-acm-cost-analysis.md) view, you can also [save views](quick-acm-cost-analysis.md#saving-and-sharing-customized-views).
 
-RBAC users with access to the subscription in the customer tenant can also analyze retail costs for subscriptions in the customer tenant, save views, and export data to CSV and PNG files.
+Azure RBAC users with access to the subscription in the customer tenant can also analyze retail costs for subscriptions in the customer tenant, save views, and export data to CSV and PNG files.
 
 You can use filter and group by features in cost analysis to analyze costs by multiple fields. Partner-specific fields are shown in the next section.
 
@@ -208,13 +223,13 @@ The following data fields are found in usage detail files and Cost Management AP
 | Quantity | Measured quantity purchased or consumed. The amount of the meter used during the billing period. | Number of units. Ensure it matches the information in your billing system during reconciliation. |
 | unitOfMeasure | Identifies the unit that the service is charged in. For example, GB and hours. | Identifies the unit that the service is charged in. For example, GB, hours, and 10,000 s. |
 | pricingCurrency | The currency defining the unit price. | The currency in the price list.|
-| billingCurrency | The currency defining the billed cost. | The currency of the customer's geographic region. |
+| billingCurrency | The currency defining the billed cost. | The currency defined as the billed currency on the invoice. |
 | chargeType | Defines the type of charge that the cost represents in Azure Cost Management like purchase and refund. | The type of charge or adjustment. Not available for current activity. |
 | costinBillingCurrency | ExtendedCost or blended cost before tax in the billed currency. | N/A |
 | costinPricingCurrency | ExtendedCost or blended cost before tax in pricing currency to correlate with prices. | N/A |
 | **costinUSD** | Estimated ExtendedCost or blended cost before tax in USD. | N/A |
-| **paygCostInBillingCurrency** | Shows costs if pricing is in retail prices. Shows pay-as-you-go prices in the billing currency. Available only at RBAC scopes. | N/A |
-| **paygCostInUSD** | Shows costs if pricing is in retail prices. Shows pay-as-you-go prices in USD. Available only at RBAC scopes. | N/A |
+| **paygCostInBillingCurrency** | Shows costs if pricing is in retail prices. Shows pay-as-you-go prices in the billing currency. Available only at Azure RBAC scopes. | N/A |
+| **paygCostInUSD** | Shows costs if pricing is in retail prices. Shows pay-as-you-go prices in USD. Available only at Azure RBAC scopes. | N/A |
 | exchangeRate | Exchange rate used to convert from the pricing currency to the billing currency. | Referred to as PCToBCExchangeRate in the Partner Center. The pricing currency to billing currency exchange rate.|
 | exchangeRateDate | The date for the exchange rate that's used to convert from the pricing currency to the billing currency. | Referred to as PCToBCExchangeRateDat in the Partner Center. The pricing currency to billing currency exchange rate date.|
 | isAzureCreditEligible | Indicates whether the cost is eligible for payment by Azure credits. | N/A |
@@ -241,7 +256,7 @@ When the **PartnerEarnedCreditApplied** property is _True_, the associated cost 
 
 When the **PartnerEarnedCreditApplied** property is _False_, the associated cost hasn't met the required eligibility for the credit. Or, the service purchased isn't eligible for partner earned credit.
 
-Service usage data normally takes 8-24 hours to appear in Cost Management. For more information, see [Usage data update frequency varies](understand-cost-mgt-data.md#usage-data-update-frequency-varies). PEC credits appear within 48 hours from time of access in Azure Cost Management.
+Service usage data normally takes 8-24 hours to appear in Cost Management. For more information, see [Cost and usage data updates and retention](understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). PEC credits appear within 48 hours from time of access in Azure Cost Management.
 
 
 You can also group and filter by the **PartnerEarnedCreditApplied** property using the **Group by** options. Use the options to examine costs that do and don't have PEC.
@@ -250,9 +265,9 @@ You can also group and filter by the **PartnerEarnedCreditApplied** property usi
 
 ## Export cost data to Azure Storage
 
-Partners with access to billing scopes in a partner tenant can export their cost and usage data to an Azure Storage blob. The blob must be on a subscription in the partner tenant that's not a shared service subscription or a customer’s subscription. To enable cost data export, we recommended that you set up an independent pay-as-you-go subscription in the partner tenant to host the exported cost data. The export storage account is created on the Azure Storage blob hosted in the pay-as-you-go subscription. Based on the scope where the partner creates the export, the associated data is exported to the storage account automatically on a recurring basis.
+Partners with access to billing scopes in a partner tenant can export their cost and usage data to an Azure Storage blob. The blob must be on a subscription in the partner tenant that's not a [shared service subscription](/partner-center/shared-services) or a customer’s subscription. To enable cost data export, we recommended that you set up an independent pay-as-you-go subscription in the partner tenant to host the exported cost data. The export storage account is created on the Azure Storage blob hosted in the pay-as-you-go subscription. Based on the scope where the partner creates the export, the associated data is exported to the storage account automatically on a recurring basis.
 
-Users with RBAC access to the subscription can also export the cost data to an Azure storage blob hosted in any subscription in the customer tenant.
+Users with Azure RBAC access to the subscription can also export the cost data to an Azure storage blob hosted in any subscription in the customer tenant.
 
 ### Create an export in a partner tenant or customer tenant
 
@@ -266,7 +281,7 @@ Next, select  **Add** and type the name and select an export type. Select the **
 
 When you create an export in the partner tenant, select the pay-as-you-go subscription in the partner tenant. Create an Azure Storage account using that subscription.
 
-For RBAC users in the customer tenant, select a subscription in the customer tenant. Create an Azure Storage account using the subscription.
+For Azure RBAC users in the customer tenant, select a subscription in the customer tenant. Create an Azure Storage account using the subscription.
 
 Review the content and then select **Create** to schedule an export.
 

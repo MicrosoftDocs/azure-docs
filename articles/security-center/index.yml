@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: memildin #Required; your GitHub user alias, with correct capitalization.
   ms.author: memildin #Required; microsoft alias of author; optional team alias.
-  ms.date: 11/04/2019 #Required; mm/dd/yyyy format.
+  ms.date: 05/12/2021 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -25,42 +25,47 @@ landingContent:
       - linkListType: overview
         links:
           - text: What are the key capabilities of Security Center?
-            url: security-center-intro.md
-          - text: Which versions of Windows server and Linux are supported?
+            url: security-center-introduction.md
+          - text: What are the key capabilities of Azure Defender?
+            url: azure-defender.md
+          - text: Which versions of Windows Server and Linux are supported?
             url: security-center-os-coverage.md
+
  
   # Card
   - title: Stay current
     linkLists:
       - linkListType: whats-new
         links:
-          - text: Protect your containers
-            url: container-security.md
-          - text: Integrated vulnerability assessment for VMs
-            url: built-in-vulnerability-assessment.md
-          - text: Review the schemas for security alerts 
-            url: alerts-schemas.md
-          - text: Automate responses to alerts and recommendations
-            url: workflow-automation.md
-          - text: Export security alerts and recommendations
-            url: continuous-export.md
-          - text: Set up threat protection for Azure Key Vault 
-            url: advanced-threat-protection-key-vault.md
+          - text: Release notes for Security Center
+            url: release-notes.md
+          - text: Explore the overview dashboard
+            url: overview-page.md
+          - text: Use the integrated workbooks reports
+            url: custom-dashboards-azure-workbooks.md
+          - text: Protect hybrid and multi-cloud Kubernetes clusters
+            url: defender-for-kubernetes-azure-arc.md
+          - text: Azure Defender for open-source relational databases
+            url: defender-for-databases-introduction.md
  
   # Card
   - title: Get started
     linkLists:
       - linkListType: get-started
         links:
-          - text: Configure your security policies
-            url: tutorial-security-policy.md
-          - text: Evaluate your security posture
-            url: security-center-secure-score.md
-          - text: Upgrade to advanced security
-            url: security-center-onboarding.md
+          - text: Enable Security Center on your subscriptions
+            url: security-center-get-started.md
+          - text: Enable Azure Defender
+            url: enable-azure-defender.md
+          - text: Configure auto provisioning
+            url: security-center-enable-data-collection.md
+          - text: Set up email notifications
+            url: security-center-provide-security-contact-details.md
+          - text: Connect non-Azure machines
+            url: quickstart-onboard-machines.md
 
   # Card
-  - title: Improve your Secure Score
+  - title: Improve your secure score
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -68,10 +73,10 @@ landingContent:
             url: secure-score-security-controls.md
           - text: Remediate security recommendations
             url: security-center-remediate-recommendations.md
-          - text: Customize your security recommendations
-            url: tutorial-security-policy.md
-          - text: Use recommendations to enhance security
-            url: security-center-using-recommendations.md
+          - text: Exempt a resource from a recommendation
+            url: exempt-resource.md
+          - text: Track your scores over time
+            url: custom-dashboards-azure-workbooks.md#use-the-secure-score-over-time-workbook
 
   # Card
   - title: Mitigate threats
@@ -84,3 +89,5 @@ landingContent:
             url: security-center-adaptive-application.md
           - text: Implement Adaptive Network Hardening
             url: security-center-adaptive-network-hardening.md
+          - text: Use the Azure Defender dashboard
+            url: azure-defender-dashboard.md

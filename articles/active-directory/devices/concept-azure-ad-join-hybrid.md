@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 06/10/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,16 +17,11 @@ ms.collection: M365-identity-device-management
 ---
 # Hybrid Azure AD joined devices
 
-For more than a decade, many organizations have used the domain join to their on-premises Active Directory to enable:
+Organizations with existing Active Directory implementations can benefit from some of the functionality provided by Azure Active Directory (Azure AD) by implementing hybrid Azure AD joined devices. These devices are joined to your on-premises Active Directory and registered with Azure Active Directory.
 
-- IT departments to manage work-owned devices from a central location.
-- Users to sign in to their devices with their Active Directory work or school accounts.
+Hybrid Azure AD joined devices require network line of sight to your on-premises domain controllers periodically. Without this connection, devices become unusable. If this requirement is a concern, consider [Azure AD joining](concept-azure-ad-join.md) your devices.
 
-Typically, organizations with an on-premises footprint rely on imaging methods to provision devices, and they often use **Configuration Manager** or **group policy (GP)** to manage them.
-
-If your environment has an on-premises AD footprint and you also want benefit from the capabilities provided by Azure Active Directory, you can implement hybrid Azure AD joined devices. These devices, are devices that are joined to your on-premises Active Directory and registered with your Azure Active Directory.
-
-|   | Hybrid Azure AD Join |
+| Hybrid Azure AD Join | Description |
 | --- | --- |
 | **Definition** | Joined to on-premises AD and Azure AD requiring organizational account to sign in to the device |
 | **Primary audience** | Suitable for hybrid organizations with existing on-premises AD infrastructure |
@@ -54,10 +49,10 @@ If your environment has an on-premises AD footprint and you also want benefit fr
 
 Use Azure AD hybrid joined devices if:
 
-- You have Win32 apps deployed to these devices that rely on Active Directory machine authentication.
+- You support down-level devices running Windows 7 and 8.1.
 - You want to continue to use Group Policy to manage device configuration.
 - You want to continue to use existing imaging solutions to deploy and configure devices.
-- You must support down-level Windows 7 and 8.1 devices in addition to Windows 10
+- You have Win32 apps deployed to these devices that rely on Active Directory machine authentication.
 
 ## Next steps
 

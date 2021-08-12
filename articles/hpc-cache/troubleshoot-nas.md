@@ -3,9 +3,9 @@ title: Troubleshoot Azure HPC Cache NFS storage targets
 description: Tips to avoid and fix configuration errors and other problems that can cause failure when creating an NFS storage target
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 03/18/2020
-ms.author: rohogue
+ms.author: v-erkel
 ---
 
 # Troubleshoot NAS configuration and NFS storage target issues
@@ -15,7 +15,7 @@ This article gives solutions for some common configuration errors and other issu
 This article includes details about how to check ports and how to enable root access to a NAS system. It also includes detailed information about less common issues that might cause NFS storage target creation to fail.
 
 > [!TIP]
-> Before using this guide, read [prerequisites for NFS storage targets](hpc-cache-prereqs.md#nfs-storage-requirements).
+> Before using this guide, read [prerequisites for NFS storage targets](hpc-cache-prerequisites.md#nfs-storage-requirements).
 
 If the solution to your problem is not included here, please [open a support ticket](hpc-cache-support-ticket.md) so that Microsoft Service and Support can work with you to investigate and solve the problem.
 
@@ -45,7 +45,7 @@ rpcinfo -p <storage_IP> |egrep "100000\s+4\s+tcp|100005\s+3\s+tcp|100003\s+3\s+t
 
 Make sure that all of the ports returned by the ``rpcinfo`` query allow unrestricted traffic from the Azure HPC Cache's subnet.
 
-Check these settings both on the NAS itself as well as on any firewalls between the storage system and the cache subnet.
+Check these settings both on the NAS itself and also on any firewalls between the storage system and the cache subnet.
 
 ## Check root access
 
@@ -59,7 +59,7 @@ Different storage systems use different methods to enable this access:
 If using export rules, remember that the cache can use multiple different IP addresses from the cache subnet. Allow access from the full range of possible subnet IP addresses.
 
 > [!NOTE]
-> By default, Azure HPC Cache squashes root access. Read [Configure additional cache settings](configuration.md#configure-root-squash) for details.
+> Although the cache needs root access to the back-end storage system, you can restrict access for clients that connect through the cache. Read [Control client access](access-policies.md#root-squash) for details.
 
 Work with your NAS storage vendor to enable the right level of access for the cache.
 
@@ -76,7 +76,7 @@ For example, a system might show three exports like these:
 
 The export ``/ifs/accounting/payroll`` is a child of ``/ifs/accounting``, and ``/ifs/accounting`` is itself a child of ``/ifs``.
 
-If you add the ``payroll`` export as an HPC cache storage target, the cache actually mounts ``/ifs/`` and accesses the payroll directory from there. So Azure HPC Cache needs root access to ``/ifs`` in order to access the ``/ifs/accounting/payroll`` export.
+If you add the ``payroll`` export as an HPC Cache storage target, the cache actually mounts ``/ifs/`` and accesses the payroll directory from there. So Azure HPC Cache needs root access to ``/ifs`` in order to access the ``/ifs/accounting/payroll`` export.
 
 This requirement is related to the way the cache indexes files and avoids file collisions, using file handles that the storage system provides.
 
@@ -86,8 +86,7 @@ The back-end storage system keeps internal aliases for file handles, but Azure H
 
 To avoid this possible file collision for files in multiple exports, Azure HPC Cache automatically mounts the shallowest available export in the path (``/ifs`` in the example) and uses the file handle given from that export. If multiple exports use the same base path, Azure HPC Cache needs root access to that path.
 
-## Enable export listing
-<!-- link in prereqs article -->
+<!-- ## Enable export listing
 
 The NAS must list its exports when the Azure HPC Cache queries it.
 
@@ -95,7 +94,7 @@ On most NFS storage systems, you can test this by sending the following query fr
 
 Use a Linux client from the same virtual network as your cache, if possible.
 
-If that command doesn't list the exports, the cache will have trouble connecting to your storage system. Work with your NAS vendor to enable export listing.
+If that command doesn't list the exports, the cache will have trouble connecting to your storage system. Work with your NAS vendor to enable export listing.  -->
 
 ## Adjust VPN packet size restrictions
 <!-- link in prereqs article and configuration article -->

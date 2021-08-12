@@ -1,13 +1,15 @@
 ---
 title: Reward score - Personalizer
 description: The reward score indicates how well the personalization choice, RewardActionID, resulted for the user. The value of the reward score is determined by your business logic, based on observations of user behavior. Personalizer trains its machine learning models by evaluating the rewards.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.date: 02/20/2020
 ms.topic: conceptual
 ---
 
 # Reward scores indicate success of personalization
 
-The reward score indicates how well the personalization choice, [RewardActionID](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/rank/rank#response), resulted for the user. The value of the reward score is determined by your business logic, based on observations of user behavior.
+The reward score indicates how well the personalization choice, [RewardActionID](/rest/api/personalizer/1.0/rank/rank#response), resulted for the user. The value of the reward score is determined by your business logic, based on observations of user behavior.
 
 Personalizer trains its machine learning models by evaluating the rewards.
 
@@ -15,7 +17,7 @@ Learn [how to](how-to-settings.md#configure-rewards-for-the-feedback-loop) confi
 
 ## Use Reward API to send reward score to Personalizer
 
-Rewards are sent to Personalizer by the [Reward API](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/events/reward). Typically, a reward is a number from 0 to 1. A negative reward, with the value of -1, is possible in certain scenarios and should only be used if you are experienced with reinforcement learning (RL). Personalizer trains the model to achieve the highest possible sum of rewards over time.
+Rewards are sent to Personalizer by the [Reward API](/rest/api/personalizer/1.0/events/reward). Typically, a reward is a number from 0 to 1. A negative reward, with the value of -1, is possible in certain scenarios and should only be used if you are experienced with reinforcement learning (RL). Personalizer trains the model to achieve the highest possible sum of rewards over time.
 
 Rewards are sent after the user behavior has happened, which could be days later. The maximum amount of time Personalizer will wait until an event is considered to have no reward or a default reward is configured with the [Reward Wait Time](#reward-wait-time) in the Azure portal.
 

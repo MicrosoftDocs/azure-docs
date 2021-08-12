@@ -2,8 +2,8 @@
 title: Request limits and throttling
 description: Describes how to use throttling with Azure Resource Manager requests when subscription limits have been reached.
 ms.topic: conceptual
-ms.date: 03/24/2020
-ms.custom: seodec18
+ms.date: 12/15/2020
+ms.custom: seodec18, devx-track-azurepowershell
 ---
 # Throttling Resource Manager requests
 
@@ -50,15 +50,26 @@ The Microsoft.Network resource provider applies the following throttle limits:
 | write / delete (PUT) | 1000 per 5 minutes |
 | read (GET) | 10000 per 5 minutes |
 
+> [!NOTE]
+> **Azure Private DNS** has a throttle limit of 500 read (GET) operations per 5 minutes.
+>
+
 ### Compute throttling
 
-For information about throttling limits for compute operations, see [Troubleshooting API throttling errors - Compute](../../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md).
+For information about throttling limits for compute operations, see [Troubleshooting API throttling errors - Compute](/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors).
 
 For checking virtual machine instances within a virtual machine scale set, use the [Virtual Machine Scale Sets operations](/rest/api/compute/virtualmachinescalesetvms). For example, use the [Virtual Machine Scale Set VMs - List](/rest/api/compute/virtualmachinescalesetvms/list) with parameters to check the power state of virtual machine instances. This API reduces the number of requests.
 
 ### Azure Resource Graph throttling
 
 [Azure Resource Graph](../../governance/resource-graph/overview.md) limits the number of requests to its operations. The steps in this article to determine the remaining requests and how to respond when the limit is reached also apply to Resource Graph. However, Resource Graph sets its own limit and reset rate. For more information, see [Resource Graph throttling headers](../../governance/resource-graph/concepts/guidance-for-throttled-requests.md#understand-throttling-headers).
+
+### Other resource providers
+
+For information about throttling in other resource providers, see:
+
+* [Azure Key Vault throttling guidance](../../key-vault/general/overview-throttling.md)
+* [AKS troubleshooting](../../aks/troubleshooting.md#im-receiving-429---too-many-requests-errors)
 
 ## Error code
 
@@ -85,7 +96,7 @@ You can determine the number of remaining requests by examining response headers
 | x-ms-ratelimit-remaining-tenant-resource-requests |Tenant scoped resource type requests remaining.<br /><br />This header is only added for requests at tenant level, and only if a service has overridden the default limit. Resource Manager adds this value instead of the tenant reads or writes. |
 | x-ms-ratelimit-remaining-tenant-resource-entities-read |Tenant scoped resource type collection requests remaining.<br /><br />This header is only added for requests at tenant level, and only if a service has overridden the default limit. |
 
-The resource provider can also return response headers with information about remaining requests. For information about response headers returned by the Compute resource provider, see [Call rate informational response headers](../../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md#call-rate-informational-response-headers).
+The resource provider can also return response headers with information about remaining requests. For information about response headers returned by the Compute resource provider, see [Call rate informational response headers](/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors#call-rate-informational-response-headers).
 
 ## Retrieving the header values
 

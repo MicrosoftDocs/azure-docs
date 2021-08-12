@@ -8,13 +8,14 @@ ms.topic: tutorial
 ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Implement the data lake capture pattern to update a Databricks Delta table
 
 This tutorial shows you how to handle events in a storage account that has a hierarchical namespace.
 
-You'll build a small solution that enables a user to populate a Databricks Delta table by uploading a comma-separated values (csv) file that describes a sales order. You'll build this solution by connecting together an Event Grid subscription, an Azure Function, and a [Job](https://docs.azuredatabricks.net/user-guide/jobs.html) in Azure Databricks.
+You'll build a small solution that enables a user to populate a Databricks Delta table by uploading a comma-separated values (csv) file that describes a sales order. You'll build this solution by connecting together an Event Grid subscription, an Azure Function, and a [Job](/azure/databricks/jobs) in Azure Databricks.
 
 In this tutorial, you will:
 
@@ -27,22 +28,22 @@ We'll build this solution in reverse order, starting with the Azure Databricks w
 
 ## Prerequisites
 
-* If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* Create a storage account that has a hierarchical namespace (Azure Data Lake Storage Gen2). This tutorial uses a storage account named `contosoorders`. Make sure that your user account has the [Storage Blob Data Contributor role](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) assigned to it.
+* Create a storage account that has a hierarchical namespace (Azure Data Lake Storage Gen2). This tutorial uses a storage account named `contosoorders`. Make sure that your user account has the [Storage Blob Data Contributor role](assign-azure-role-data-access.md) assigned to it.
 
-  See [Create an Azure Data Lake Storage Gen2 account](data-lake-storage-quickstart-create-account.md).
+   See [Create a storage account to use with Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
 
-* Create a service principal. See [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+* Create a service principal. See [How to: Use the portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
 
   There's a couple of specific things that you'll have to do as you perform the steps in that article.
 
-  :heavy_check_mark: When performing the steps in the [Assign the application to a role](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) section of the article, make sure to assign the **Storage Blob Data Contributor** role to the service principal.
+  :heavy_check_mark: When performing the steps in the [Assign the application to a role](../../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) section of the article, make sure to assign the **Storage Blob Data Contributor** role to the service principal.
 
   > [!IMPORTANT]
   > Make sure to assign the role in the scope of the Data Lake Storage Gen2 storage account. You can assign a role to the parent resource group or subscription, but you'll receive permissions-related errors until those role assignments propagate to the storage account.
 
-  :heavy_check_mark: When performing the steps in the [Get values for signing in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) section of the article, paste the tenant ID, app ID, and password values into a text file. You'll need those values later.
+  :heavy_check_mark: When performing the steps in the [Get values for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) section of the article, paste the tenant ID, app ID, and password values into a text file. You'll need those values later.
 
 ## Create a sales order
 
@@ -110,7 +111,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 4. Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
-For more information on creating clusters, see [Create a Spark cluster in Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
+For more information on creating clusters, see [Create a Spark cluster in Azure Databricks](/azure/databricks/clusters/create).
 
 ### Create a notebook
 
@@ -120,7 +121,7 @@ For more information on creating clusters, see [Create a Spark cluster in Azure 
 
 2. In the **Create Notebook** dialog box, enter a name for the notebook. Select **Python** as the language, and then select the Spark cluster that you created earlier.
 
-    ![Create notebook in Databricks](./media/data-lake-storage-events/new-databricks-notebook.png "Create notebook in Databricks")
+    ![Screenshot that shows the Create Notebook dialog box and where to select Python as the language.](./media/data-lake-storage-events/new-databricks-notebook.png "Create notebook in Databricks")
 
     Select **Create**.
 
@@ -147,7 +148,7 @@ For more information on creating clusters, see [Create a Spark cluster in Azure 
     This code creates a widget named **source_file**. Later, you'll create an Azure Function that calls this code and passes a file path to that widget.  This code also authenticates your service principal with the storage account, and creates some variables that you'll use in other cells.
 
     > [!NOTE]
-    > In a production setting, consider storing your authentication key in Azure Databricks. Then, add a look up key to your code block instead of the authentication key. <br><br>For example, instead of using this line of code: `spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")`, you would use the following line of code: `spark.conf.set("fs.azure.account.oauth2.client.secret", dbutils.secrets.get(scope = "<scope-name>", key = "<key-name-for-service-credential>"))`. <br><br>After you've completed this tutorial, see the [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) article on the Azure Databricks Website to see examples of this approach.
+    > In a production setting, consider storing your authentication key in Azure Databricks. Then, add a look up key to your code block instead of the authentication key. <br><br>For example, instead of using this line of code: `spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")`, you would use the following line of code: `spark.conf.set("fs.azure.account.oauth2.client.secret", dbutils.secrets.get(scope = "<scope-name>", key = "<key-name-for-service-credential>"))`. <br><br>After you've completed this tutorial, see the [Azure Data Lake Storage Gen2](/azure/databricks/data/data-sources/azure/azure-datalake-gen2) article on the Azure Databricks Website to see examples of this approach.
 
 2. Press the **SHIFT + ENTER** keys to run the code in this block.
 
@@ -262,7 +263,7 @@ Create an Azure Function that runs the Job.
 
 5. In the **Overview** page of the Function App, click **Configuration**.
 
-   ![Configure the function app](./media/data-lake-storage-events/configure-function-app.png "Configure the function app")
+   ![Screenshot that highlights the Configuration option under Configured features.](./media/data-lake-storage-events/configure-function-app.png "Configure the function app")
 
 6. In the **Application Settings** page, choose the **New application setting** button to add each setting.
 
@@ -339,7 +340,7 @@ In this section, you'll create an Event Grid subscription that calls the Azure F
 
 1. In the function code page, click the **Add Event Grid subscription** button.
 
-   ![New event subscription](./media/data-lake-storage-events/new-event-subscription.png "New event subscription")
+   ![Screenshot that highlights the Add Event Grid subscription button.](./media/data-lake-storage-events/new-event-subscription.png "New event subscription")
 
 2. In the **Create Event Subscription** page, name the subscription, and then use the fields in the page to select your storage account.
 

@@ -1,13 +1,15 @@
 ---
 title: Surrogate key transformation in mapping data flow 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: How to use Azure Data Factory's mapping data flow Surrogate Key Transformation to generate sequential key values
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 04/08/2020
+ms.custom: synapse
+ms.date: 10/30/2020
 ---
 
 # Surrogate key transformation in mapping data flow 
@@ -26,9 +28,9 @@ Use the surrogate key transformation to add an incrementing key value to each ro
 
 ## Increment keys from existing sources
 
-To start your sequence from a value that exists in a source, use a derived column transformation following your surrogate key transformation to add the two values together:
+To start your sequence from a value that exists in a source, we recommend to use a cache sink to save that value and use a derived column transformation to add the two values together. Use a cached lookup to get the output and append it to the generated key. For more information, learn about [cache sinks](data-flow-sink.md#cache-sink) and [cached lookups](concepts-data-flow-expression-builder.md#cached-lookup).
 
-![SK add Max](media/data-flow/sk006.png "Surrogate Key Transformation Add Max")
+![Surrogate Key lookup](media/data-flow/cached-lookup-example.png "Surrogate Key lookup")
 
 ### Increment from existing maximum value
 
@@ -36,19 +38,18 @@ To seed the key value with the previous max, there are two techniques that you c
 
 #### Database sources
 
-Use a SQL query option to select MAX() from your source. For example, `Select MAX(<surrogateKeyName>) as maxval from <sourceTable>`/
+Use a SQL query option to select MAX() from your source. For example, `Select MAX(<surrogateKeyName>) as maxval from <sourceTable>`.
 
-![Surrogate Key Query](media/data-flow/sk002.png "Surrogate Key Transformation Query")
+![Surrogate Key Query](media/data-flow/surrogate-key-max-database.png "Surrogate Key Transformation Query")
 
 #### File sources
 
 If your previous max value is in a file, use the `max()` function in the aggregate transformation to get the previous max value:
 
-![Surrogate Key File](media/data-flow/sk008.png "Surrogate Key File")
+![Surrogate Key File](media/data-flow/surrogate-key-max-file.png "Surrogate Key File")
 
-In both cases, you must join your incoming new data together with your source that contains the previous max value.
+In both cases, you will need to write to a cache sink and lookup the value. 
 
-![Surrogate Key Join](media/data-flow/sk004.png "Surrogate Key Join")
 
 ## Data flow script
 

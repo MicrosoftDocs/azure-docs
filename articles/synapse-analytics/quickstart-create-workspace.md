@@ -1,80 +1,87 @@
 ---
-title: Quickstart - create a workspace  
-description: Create an Azure Synapse Analytics workspace by following the steps in this guide. 
+title: 'Quickstart: create a Synapse workspace'  
+description: Create an  Synapse workspace by following the steps in this guide. 
 services: synapse-analytics
-author: malvenko 
+author: saveenr
 ms.service: synapse-analytics 
 ms.topic: quickstart
-ms.subservice: 
-ms.date: 04/15/2020
-ms.author: josels
-ms.reviewer: jrasnick, carlrab
+ms.subservice: workspace
+ms.date: 09/03/2020
+ms.author: saveenr
+ms.reviewer: jrasnick
+ms.custom: subject-rbac-steps
 ---
 
-# Quickstart: Create an Azure Synapse Analytics workspace (preview)
-
+# Quickstart: Create a Synapse workspace
 This quickstart describes the steps to create an Azure Synapse workspace by using the Azure portal.
 
-If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
+## Create a Synapse workspace
 
-## Prerequisites
+1. Open the [Azure portal](https://portal.azure.com), and at the top search for **Synapse**.
+1. In the search results, under **Services**, select **Azure Synapse Analytics**.
+1. Select **Add** to create a workspace.
+1. In the **Basics** tab, give the workspace a unique name. We'll use **mysworkspace** in this document
+1. You need an ADLSGEN2 account to create a workspace. The simplest choice is to create a new one. If you want to re-use an existing one you'll need to perform some additional configuration. 
+1. OPTION 1 Creating a new ADLSGEN2 account 
+    1. Under **Select Data Lake Storage Gen 2**, click **Create New** and name it **contosolake**.
+    1. Under **Select Data Lake Storage Gen 2**, click **File System** and  name it **users**.
+1. OPTION 2 See the **Prepare a Storage Account** instructions at the bottom of this document.
+1. Your Azure Synapse workspace will use this storage account as the "primary" storage account and the container to store workspace data. The workspace stores data in Apache Spark tables. It stores Spark application logs under a folder called **/synapse/workspacename**.
+1. Select **Review + create** > **Create**. Your workspace is ready in a few minutes.
 
-- [Azure Data Lake Storage Gen2 storage account](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+> [!NOTE]
+> After creating your Azure Synapse workspace, you will not be able to move the workspace to another Azure Active Directory tenant. If you do so through subscription migration or other actions, you may lose access to the artifacts within the workspace.
+> Additionally, you currently cannot create a Synapse Analytics workspace in a [Cloud Solution Provider (CSP)](/partner-center/csp-overview) subscription.
 
-## Sign in to the Azure portal
+## Open Synapse Studio
 
-Sign in to the [Azure portal](https://portal.azure.com/)
+After your Azure Synapse workspace is created, you have two ways to open Synapse Studio:
 
-## Create an Azure Synapse workspace using the Azure portal
+* Open your Synapse workspace in the [Azure portal](https://portal.azure.com). On the top of the **Overview** section, select **Launch Synapse Studio**.
+* Go to the `https://web.azuresynapse.net` and sign in to your workspace.
 
-1. In the Microsoft Azure search pane, enter **Synapse workspace** and then select this service.
-![Azure portal search bar with Azure Synapse workspaces typed in.](media/quickstart-create-synapse-workspace/workspace-search.png).
-2. On the **Synapse workspaces** page, click **+ Add**.
-![Command to create new Azure Synapse workspace highlighted.](media/quickstart-create-synapse-workspace/create-workspace-02.png).
-3. Fill out the **Azure Synapse workspace** form with the following information:
+## Prepare an existing storage account for use with Azure Synapse Analytics
 
-    | Setting | Suggested value | Description |
-    | :------ | :-------------- | :---------- |
-    | **Subscription** | *Your subscription* | For details about your subscriptions, see [Subscriptions](https://account.windowsazure.com/Subscriptions). |
-    | **Resource group** | *Any resource group* | For valid resource group names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). |
-    | **Workspace name** | mysampleworkspace | Specifies the name of the workspace, which will also be used for connection endpoints.|
-    | **Region** | East US2 | Specifies the location of the workspace.|
-    | **Data Lake Storage Gen2** | Account: `storage account name` </br> File system: `root file system to use` | Specifies the ADLS Gen2 storage account name to use as primary storage and the file system to use.|
-    ||||
+1. Open the [Azure portal](https://portal.azure.com).
+1. Navigate to an existing ADLSGEN2 storage account
+1. Select **Access control (IAM)**.
+1. Select **Add** > **Add role assignment** to open the Add role assignment page.
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | Role | Owner and Storage Blob Data Owner |
+    | Assign access to | [USER |
+    | Members | your user name |
 
-    ![Workspace provisioning flow - Basics tab.](media/quickstart-create-synapse-workspace/create-workspace-03.png).
+    ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+1. On the left pane, select **Containers** and create a container.
+1. You can give the container any name. In this document, we'll name the container **users**.
+1. Accept the default setting **Public access level**, and then select **Create**.
 
-    The storage account can be selected from:
-    - A list of ADLS Gen2 accounts available in your subscription
-    - Entered manually using the account name
+### Configure access to the storage account from your workspace
 
-    > [!IMPORTANT]
-    > The Azure Synapse workspace needs to be able to read and write to the selected ADLS Gen2 account.
-    >
-    > Below the ADLS Gen2 selection fields, there is a note saying that the managed identity of the workspace will be assigned the **Storaqe Blob Data Contributor** role on the selected Data Lake Storage Gen2 file system granting it full access.
+Managed identities for your Azure Synapse workspace might already have access to the storage account. Follow these steps to make sure:
 
-4. (Optional) Modify any of the **Security + networking defaults** tab:
-5. (Optional) Add any tags in the **Tags** tab.
-6. The **Summary** tab will run the necessary validations to ensure that the workspace can be successfully created. Once the validation succeeds, press **Create** ![Workspace provisioning flow - confirmation tab.](media/quickstart-create-synapse-workspace/create-workspace-05.png).
-7. Once the resource provisioning process completes successfully, you'll see an entry for the created workspace in the list of Synapse workspaces. ![Listing of Synapse workspaces showing the newly provisioned workspace.](media/quickstart-create-synapse-workspace/create-workspace-07.png).
+1. Open the [Azure portal](https://portal.azure.com) and the primary storage account chosen for your workspace.
+1. Select **Access control (IAM)**.
+1. Select **Add** > **Add role assignment** to open the Add role assignment page.
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | Role | Storage Blob Data Contributor |
+    | Assign access to | MANAGEDIDENTITY |
+    | Members | myworkspace  |
 
-## Clean up resources
+    > [!NOTE]
+    > The managed identity name is also the workspace name.
 
-Follow the steps below to delete the Azure Synapse workspace.
-> [!WARNING]
-> Deleting a Azure Synapse workspace will remove the analytics engines and the data stored in the database of the contained SQL pools and workspace metadata. It will no longer be possible to connect to the SQL endpoints, Apache Spark endpoints. All code artifacts will be deleted (queries, notebooks, job definitions and pipelines).
->
-> Deleting the workspace will **not** affect the data in the Data Lake Store Gen2 linked to the workspace.
-
-If you want to delete the Azure Synapse workspace, complete the following steps:
-
-1. Navigate to the Azure Synapse workspace to delete.
-1. Press **delete** on the command bar.
- ![Azure Synapse workspace overview - delete command highlighted.](media/quickstart-create-synapse-workspace/create-workspace-10.png)
-1. Confirm the deletion, and press **Delete** button.
- ![Azure Synapse workspace overview - delete workspace confirmation dialog.](media/quickstart-create-synapse-workspace/create-workspace-11.png)
-1. When the process completes successfully, the Azure Synapse workspace will no longer be listed in the list of workspaces.
+    ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+1. Select **Save**.
 
 ## Next steps
 
-Next, you can [create SQL pools](quickstart-create-sql-pool.md) or [create Apache Spark pools](quickstart-create-apache-spark-pool.md) to start analyzing and exploring your data.
+* [Create a dedicated SQL pool](quickstart-create-sql-pool-studio.md) 
+* [Create a serverless Apache Spark pool](quickstart-create-apache-spark-pool-portal.md)
+* [Use serverless SQL pool](quickstart-sql-on-demand.md)

@@ -14,31 +14,24 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-#Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a mobile app that calls web APIs by using the Microsoft identity platform.
 ---
 
 # Scenario: Mobile application that calls web APIs
 
 Learn how to build a mobile app that calls web APIs.
 
-## Prerequisites
-
-[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
 ## Getting started
 
-Create your first mobile application and try out a quickstart.
+If you haven't already, create your first application by completing a quickstart:
 
-> [!div class="nextstepaction"]
-> [Quickstart: Acquire a token and call Microsoft Graph API from an Android app](./quickstart-v2-android.md)
->
-> [Quickstart: Acquire a token and call Microsoft Graph API from an iOS app](./quickstart-v2-ios.md)
->
-> [Quickstart: Acquire a token and call Microsoft Graph API from a Xamarin iOS and Android app](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)
+- [Quickstart: Acquire a token and call Microsoft Graph API from an Android app](./quickstart-v2-android.md)
+- [Quickstart: Acquire a token and call Microsoft Graph API from an iOS app](./quickstart-v2-ios.md)
+- [Quickstart: Acquire a token and call Microsoft Graph API from a Xamarin iOS and Android app](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) (GitHub)
 
 ## Overview
 
-A personalized, seamless user experience is essential for mobile apps.  Microsoft identity platform enables mobile developers to create that experience for iOS and Android users. Your application can sign in Azure Active Directory (Azure AD) users, personal Microsoft account users, and Azure AD B2C users. It can also acquire tokens to call a web API on their behalf. To implement these flows, we'll use Microsoft Authentication Library (MSAL). MSAL implements the industry standard [OAuth2.0 authorization code flow](v2-oauth2-auth-code-flow.md).
+A personalized, seamless user experience is essential for mobile apps. The Microsoft identity platform enables mobile developers to create that experience for iOS and Android users. Your application can sign in Azure Active Directory (Azure AD) users, personal Microsoft account users, and Azure AD B2C users. It can also acquire tokens to call a web API on their behalf. To implement these flows, we'll use the Microsoft Authentication Library (MSAL). MSAL implements the industry standard [OAuth2.0 authorization code flow](v2-oauth2-auth-code-flow.md).
 
 ![Daemon apps](./media/scenarios/mobile-app.svg)
 
@@ -57,7 +50,11 @@ Keep in mind the following considerations when you build a mobile app on Microso
 - On iOS and Android, MSAL might use an external browser to sign in users. The external browser might appear on top of your app.
 - Never use a secret in a mobile application. In these applications, secrets are accessible to all users.
 
+## Recommended reading
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [App registration](scenario-mobile-app-registration.md)
+Move on to the next article in this scenario,
+[App registration](scenario-mobile-app-registration.md).

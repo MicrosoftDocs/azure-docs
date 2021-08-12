@@ -38,6 +38,8 @@ landingContent:
             url: container-registry-get-started-azure-cli.md
           - text: Create container registry - Portal
             url: container-registry-get-started-portal.md
+          - text: Create container registry - ARM template
+            url: container-registry-get-started-geo-replication-template.md
           - text: Push and pull image with Docker
             url: container-registry-get-started-docker-cli.md
     - linkListType: concept
@@ -47,7 +49,7 @@ landingContent:
     - linkListType: learn 
       links:
           - text: Build and store container images with Azure Container Registry
-            url: https://docs.microsoft.com/learn/modules/build-and-store-container-images/         
+            url: /learn/modules/build-and-store-container-images/
     - linkListType: video
       links:
           - text: Azure Container Registry videos
@@ -74,7 +76,7 @@ landingContent:
           - text: Best practices
             url: container-registry-best-practices.md
           - text: FAQ
-            url: container-registry-faq.md
+            url: container-registry-faq.yml
   # Card (optional)
   - title: ACR Tasks
     linkLists:

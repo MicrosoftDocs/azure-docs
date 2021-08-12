@@ -7,19 +7,19 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 02/27/2020
+ms.date: 10/08/2020
 ---
 
 # Exchange AS2 messages for B2B enterprise integration in Azure Logic Apps with Enterprise Integration Pack
 
 > [!IMPORTANT]
-> The original AS2 connector is being deprecated, so make sure that you use the **AS2 (v2)** connector instead. 
-> This version provides the same capabilities as the original version, is native to the Logic Apps runtime, and provides 
-> significant performance improvements in terms of throughput and message size. Also, the native v2 connector doesn't 
-> require that you create a connection to your integration account. Instead, as described in the prerequisites, 
-> make sure that you link your integration account to the logic app where you plan to use the connector.
+> The original AS2 connector is being deprecated, so unless you need tracking capabilities, use the **AS2 (v2)** connector instead. 
+> Except for tracking, the v2 connector provides the same capabilities as the original version, is native to the Logic Apps runtime, 
+> and has significant performance improvements in message size, throughput, and latency. Also, the v2 connector doesn't require that 
+> you create a connection to your integration account. Instead, as described in the prerequisites, make sure that you link your 
+> integration account to the logic app where you plan to use the connector.
 
-To work with AS2 messages in Azure Logic Apps, you can use the AS2 connector, which provides triggers and actions for managing AS2 communication. For example, to establish security and reliability when transmitting messages, you can use these actions:
+To work with AS2 messages in Azure Logic Apps, you can use the AS2 connector, which provides triggers and actions that support and manage AS2 (version 1.2) communication. For example, to establish security and reliability when transmitting messages, you can use these actions:
 
 * [**AS2 Encode** action](#encode) for providing encryption, digital signing, and acknowledgments through Message Disposition Notifications (MDN), which help support non-repudiation. For example, this action applies AS2/HTTP headers and performs these tasks when configured:
 
@@ -115,15 +115,15 @@ This article shows how to add the AS2 encoding and decoding actions to an existi
 
 ## Sample
 
-To try deploying a fully operational logic app and sample AS2 scenario, see the [AS2 logic app template and scenario](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/).
+To try deploying a fully operational logic app and sample AS2 scenario, see the [AS2 logic app template and scenario](https://azure.microsoft.com/resources/templates/logic-app-as2-send-receive/).
 
 ## Connector reference
 
-For more technical details about this connector, such as actions and limits as described by the connector's Swagger file, see the [connector's reference page](https://docs.microsoft.com/connectors/as2/). 
+For more technical details about this connector, such as actions and limits as described by the connector's Swagger file, see the [connector's reference page](/connectors/as2/). 
 
 > [!NOTE]
 > For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
-> this connector's original ISE-labeled version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
+> this connector's ISE-labeled version uses the [B2B message limits for ISE](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits).
 
 ## Next steps
 

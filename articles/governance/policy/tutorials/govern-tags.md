@@ -1,18 +1,19 @@
 ---
 title: "Tutorial: Manage tag governance"
 description: In this tutorial, you use the Modify effect of Azure Policy to create and enforce a tag governance model on new and existing resources.
-ms.date: 11/25/2019
+ms.date: 03/31/2021
 ms.topic: tutorial
 ---
 # Tutorial: Manage tag governance with Azure Policy
 
-[Tags](../../../azure-resource-manager/management/tag-resources.md) are a crucial part of
-organizing your Azure resources into a taxonomy. When following
+[Tags](../../../azure-resource-manager/management/tag-resources.md) are a crucial part of organizing
+your Azure resources into a taxonomy. When following
 [best practices for tag management](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources),
 tags can be the basis for applying your business policies with Azure Policy or
-[tracking costs with Cost Management](../../../cost-management-billing/costs/cost-mgt-best-practices.md#organize-and-tag-your-resources).
+[tracking costs with Cost Management](../../../cost-management-billing/costs/cost-mgt-best-practices.md#tag-shared-resources).
 No matter how or why you use tags, it's important that you can quickly add, change, and remove those
-tags on your Azure resources.
+tags on your Azure resources. To see whether your Azure resource supports tagging, see
+[Tag support](../../../azure-resource-manager/management/tag-support.md).
 
 Azure Policy's [Modify](../concepts/effects.md#modify) effect is designed to aid in the governance
 of tags no matter what stage of resource governance you are in. **Modify** helps when:
@@ -49,7 +50,7 @@ following items are our business requirements:
 ## Configure the CostCenter tag
 
 In terms specific to an Azure environment managed by Azure Policy, the _CostCenter_ tag requirements
-call for the following:
+call for the following outcomes:
 
 - Deny resource groups missing the _CostCenter_ tag
 - Modify resources to add the _CostCenter_ tag from the parent resource group when missing
@@ -123,7 +124,7 @@ parent resource group.
 ## Configure the Env tag
 
 In terms specific to an Azure environment managed by Azure Policy, the _Env_ tag requirements call
-for the following:
+for the following outcomes:
 
 - Modify the _Env_ tag on the resource group based on the naming scheme of the resource group
 - Modify the _Env_ tag on all resources in the resource group to the same as the parent resource
@@ -144,7 +145,12 @@ your Azure environment. The Modify policy for each looks something like this pol
         {
             "field": "name",
             "like": "prd-*"
+        },
+        {
+            "field": "tags['Env']",
+            "notEquals": "Production"
         }
+
     ]
     },
     "then": {

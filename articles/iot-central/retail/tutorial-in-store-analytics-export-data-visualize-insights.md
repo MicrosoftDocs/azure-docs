@@ -14,7 +14,6 @@ ms.date: 11/12/2019
 # Tutorial: Export data from Azure IoT Central and visualize insights in Power BI
 
 
-
 In the two previous tutorials, you created and customized an IoT Central application using the **In-store analytics - checkout** application template. In this tutorial, you configure your IoT Central application to export telemetry collected from the devices. You then use Power BI to create a custom dashboard for the store manager to visualize the insights derived from the telemetry.
 
 In this tutorial, you will learn how to:
@@ -27,7 +26,7 @@ In this tutorial, you will learn how to:
 
 To complete this tutorial, you need:
 
-* To complete the previous two tutorials, [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app.md) and [Customize the operator dashboard and manage devices in Azure IoT Central](./tutorial-in-store-analytics-customize-dashboard.md).
+* To complete the previous two tutorials, [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app.md) and [Customize the dashboard and manage devices in Azure IoT Central](./tutorial-in-store-analytics-customize-dashboard.md).
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * A Power BI account. If you don't have a Power BI account, sign up for a [free Power BI Pro trial](https://app.powerbi.com/signupredirect?pbi_source=web) before you begin.
 
@@ -405,7 +404,7 @@ To add the logic to your logic app design, select **Code view**:
     * Select the **Dwell Time 1** field, and then select **See more** next to **Parse Telemetry**. Then select **DwellTime1**.
     * Select the **Dwell Time 2** field, and then select **See more** next to **Parse Telemetry**. Then select **DwellTime2**.
     * Select **Save** to save your changes. The **Dwell Time interface** action looks like the following screenshot:
-    ![Occupancy action](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png)
+    ![Screenshot that shows the "Dwell Time interface" action.](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png)
 1. Select the **People Count interface** action, and select **Add an action**.
 1. In **Search connectors and actions**, enter **Power BI**, and then press **Enter**.
 1. Select the **Add rows to a dataset (preview)** action.
@@ -481,7 +480,7 @@ Add four card tiles to show the queue length and dwell time for the two checkout
 
 Resize and rearrange the tiles on your dashboard to look like the following screenshot:
 
-![Power BI dashboard](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard.png)
+![Screenshot that shows the Power B I dashboard with resized and rearranged tiles.](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard.png)
 
 You could add some addition graphics resources to further customize the dashboard:
 
@@ -502,6 +501,4 @@ You can delete your Power BI datasets and dashboard by deleting the workspace fr
 These three tutorials have shown you an end-to-end solution that uses the **In-store analytics - checkout** IoT Central application template. You've connected devices to the application, used IoT Central to monitor the devices, and used Power BI to build a dashboard to view insights from the device telemetry. A recommended next step is to explore one of the other IoT Central application templates:
 
 > [!div class="nextstepaction"]
-> * [Build energy solutions with IoT Central](../energy/overview-iot-central-energy.md)
-> * [Build government solutions with IoT Central](../government/overview-iot-central-government.md)
-> * [Build healthcare solutions with IoT Central](../healthcare/overview-iot-central-healthcare.md)
+> [Build energy solutions with IoT Central](../energy/overview-iot-central-energy.md)

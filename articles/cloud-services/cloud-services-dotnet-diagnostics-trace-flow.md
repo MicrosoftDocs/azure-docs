@@ -1,18 +1,20 @@
 ---
-title: Trace the flow in Cloud Services Application with Azure Diagnostics
-titleSuffix: Azure Cloud Services
+title: Trace the flow in Cloud Services (classic) Application with Azure Diagnostics
 description: Add tracing messages to an Azure application to help debugging, measuring performance, monitoring, traffic analysis, and more.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
-ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/20/2016
-ms.author: tagore
-
+ms.service: cloud-services
+ms.date: 10/14/2020
+author: hirenshah1
+ms.author: hirshah
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-# Trace the flow of a Cloud Services application with Azure Diagnostics
+
+# Trace the flow of a Cloud Services (classic) application with Azure Diagnostics
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 Tracing is a way for you to monitor the execution of your application while it is running. You can use the [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace), [System.Diagnostics.Debug](/dotnet/api/system.diagnostics.debug), and [System.Diagnostics.TraceSource](/dotnet/api/system.diagnostics.tracesource) classes to record information about errors and application execution in logs, text files, or other devices for later analysis. For more information about tracing, see [Tracing and Instrumenting Applications](/dotnet/framework/debug-trace-profile/tracing-and-instrumenting-applications).
 
 ## Use trace statements and trace switches

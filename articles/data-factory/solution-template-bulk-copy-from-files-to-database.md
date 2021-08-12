@@ -1,18 +1,17 @@
 ---
 title: Bulk copy from files to database
 description: Learn how to use a solution template to copy data in bulk from Azure Data Lake Storage Gen2 to Azure Synapse Analytics / Azure SQL Database.
-services: data-factory
-author: linda33wj
-ms.author: jingwang
+author: jianleishen
+ms.author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 01/08/2020
+ms.date: 12/09/2020
 ---
 
 # Bulk copy from files to database
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 This article describes a solution template that you can use to copy data in bulk from Azure Data Lake Storage Gen2 to Azure Synapse Analytics / Azure SQL Database.
 
@@ -50,7 +49,7 @@ The template defines the following two parameters:
     ![Review the pipeline](media/solution-template-bulk-copy-from-files-to-database/new-pipeline.png)
 
     > [!NOTE]
-    > If you chose **Azure Synapse Analytics (formerly SQL DW)** as the data destination in **step 2** mentioned above, you must enter a connection to Azure Blob storage for staging, as required by SQL Data Warehouse Polybase. As the following screenshot shows, the template will automatically generate a *Storage Path* for your Blob storage. Check if the container has been created after the pipeline run.
+    > If you chose **Azure Synapse Analytics** as the data destination in **step 2** mentioned above, you must enter a connection to Azure Blob storage for staging, as required by Azure Synapse Analytics Polybase. As the following screenshot shows, the template will automatically generate a *Storage Path* for your Blob storage. Check if the container has been created after the pipeline run.
         
     ![Polybase setting](media/solution-template-bulk-copy-from-files-to-database/staging-account.png)
 

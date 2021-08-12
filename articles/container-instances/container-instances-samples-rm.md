@@ -13,7 +13,7 @@ For deployment options, see the [Deployment](#deployment) section. If you'd like
 
 ## Sample templates
 
-| | |
+| Template | Description |
 |-|-|
 | **Applications** ||
 | [WordPress][app-wp] | Creates a WordPress website and its MySQL database in a container group. The WordPress site content and MySQL database are persisted to an Azure Files share. Also creates an application gateway to expose public network access to WordPress. |
@@ -25,7 +25,7 @@ For deployment options, see the [Deployment](#deployment) section. If you'd like
 | **Networking** ||
 | [UDP-exposed container][net-udp] | Deploys a Windows or Linux container that exposes a UDP port. |
 | [Linux container with public IP][net-publicip] | Deploys a single Linux container accessible via a public IP. |
-| [Deploy a container group with a virtual network (preview)][net-vnet] | Deploys a new virtual network, subnet, network profile, and container group. |
+| [Deploy a container group with a virtual network][net-vnet] | Deploys a new virtual network, subnet, network profile, and container group. |
 | **Azure resources** ||
 | [Create Azure Storage account and Files share][az-files] | Uses the Azure CLI in a container instance to create a storage account and an Azure Files share.
 
@@ -42,16 +42,16 @@ You have several options for deploying resources with Resource Manager templates
 [REST API][deploy-rest]
 
 <!-- LINKS - External -->
-[app-nav]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-dynamicsnav
-[app-wp]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress
-[az-files]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-storage-file-share
-[net-publicip]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-linuxcontainer-public-ip
-[net-udp]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-udp
-[net-vnet]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
+[app-nav]: https://github.com/Azure/azure-quickstart-templates/tree/master/demos/aci-dynamicsnav
+[app-wp]: https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/wordpress/aci-wordpress
+[az-files]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-storage-file-share
+[net-publicip]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-linuxcontainer-public-ip
+[net-udp]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-udp
+[net-vnet]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-vnet
 [repo]: https://github.com/Azure/azure-quickstart-templates
-[vol-emptydir]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-linuxcontainer-volume-emptydir
-[vol-gitrepo]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-linuxcontainer-volume-gitrepo
-[vol-secret]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-linuxcontainer-volume-secret
+[vol-emptydir]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-linuxcontainer-volume-emptydir
+[vol-gitrepo]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-linuxcontainer-volume-gitrepo
+[vol-secret]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-linuxcontainer-volume-secret
 
 <!-- LINKS - Internal -->
 [deploy-cli]: ../azure-resource-manager/templates/deploy-cli.md

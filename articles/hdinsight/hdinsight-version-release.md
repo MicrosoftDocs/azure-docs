@@ -1,12 +1,9 @@
 ---
 title: HDInsight 4.0 overview - Azure
 description: Compare HDInsight 3.6 to HDInsight 4.0 features, limitations, and upgrade recommendations.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 08/21/2020
 ---
 
 # Azure HDInsight 4.0 overview
@@ -33,7 +30,12 @@ Hive now supports dynamic materialized views, or pre-computation of relevant sum
 
 ### Hive transactional tables
 
-HDI 4.0 includes Apache Hive 3. Hive 3 requires atomicity, consistency, isolation, and durability compliance for transactional tables that live in the Hive warehouse. ACID-compliant tables and table data are accessed and managed by Hive. Data in create, retrieve, update, and delete (CRUD) tables must be in Optimized Row Column (ORC) file format. Insert-only tables support all file formats.
+HDI 4.0 includes Apache Hive 3. Hive 3 requires atomicity, consistency, isolation, and durability compliance for transactional tables that live in the Hive warehouse. ACID-compliant tables and table data are accessed and managed by Hive. Data in create, retrieve, update, and delete (CRUD) tables must be in Optimized Row Column (ORC) file format. Insert-only tables support all file formats. 
+
+> [!Note]
+> ACID/transactional support only works for managed tables and not external tables. Hive external tables are designed so that external parties can read and write table data, without Hive perfoming any alteration of the underlying data. For ACID tables, Hive may alter the underlying data with compactions and transactions.
+
+Some benefits of ACID tables are the following:
 
 * ACID v2 has performance improvements in both storage format and the execution engine.
 
@@ -86,12 +88,20 @@ There's no supported upgrade path from previous versions of HDInsight to HDInsig
 
 * HDInsight 4.0 doesn't support MapReduce for Apache Hive. Use Apache Tez instead. Learn more about [Apache Tez](https://tez.apache.org/).
 * HDInsight 4.0 doesn't support Apache Storm.
-* Hive View is no longer available in HDInsight 4.0.
+* HDInsight 4.0 doesn't support the ML Services cluster type.
+* Hive View is only available on HDInsight 4.0 clusters with a version number equal to or greater than 4.1. This version number is available in Ambari Admin -> Versions.
 * Shell interpreter in Apache Zeppelin isn't supported in Spark and Interactive Query clusters.
-* You can't *disable* LLAP on a Spark-LLAP cluster. You can only turn off LLAP.
-* Azure Data Lake Storage Gen2 can't save Jupyter notebooks in a Spark cluster.
+* You can't *disable* LLAP on a Spark-LLAP cluster. You can only turn LLAP off.
+* Azure Data Lake Storage Gen2 can't save Jupyter Notebooks in a Spark cluster.
+* Apache pig runs on Tez by default, However you can change it to Mapreduce
+* Spark SQL Ranger integration for row and column security is deprecated
+* Spark 2.4 and Kafka 2.1 are available in HDInsight 4.0, so Spark 2.3 and Kafka 1.1 are no longer supported. We recommend using Spark 2.4 & Kafka 2.1 and above in HDInsight 4.0.
 
 ## Next steps
 
+* [HBase migration guide](./hbase/apache-hbase-migrate-new-version.md)
+* [Hive migration guide](./interactive-query/apache-hive-migrate-workloads.md)
+* [Kafka migration guide](./kafka/migrate-versions.md)
+* [Spark migration guide](./spark/migrate-versions.md)
 * [Azure HDInsight Documentation](index.yml)
 * [Release Notes](hdinsight-release-notes.md)

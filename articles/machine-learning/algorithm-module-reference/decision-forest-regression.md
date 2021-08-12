@@ -9,12 +9,12 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
+ms.date: 04/22/2020
 ---
 
 # Decision Forest Regression module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to create a regression model based on an ensemble of decision trees.
 
@@ -63,7 +63,7 @@ For more information about the theoretical framework for this algorithm and its 
 4. For **Number of decision trees**, indicate the total number of decision trees to create in the ensemble. By creating more decision trees, you can potentially get better coverage, but training time will increase.
 
     > [!TIP]
-    > This value also controls the number of trees displayed when visualizing the trained model. if you want to see or print a single tree, you can set the value to 1; however, this means that only one tree will be produced (the tree with the initial set of parameters) and no further iterations will be performed.
+    > If you set the value to 1; however, this means that only one tree will be produced (the tree with the initial set of parameters) and no further iterations will be performed.
 
 5. For **Maximum depth of the decision trees**, type a number to limit the maximum depth of any decision tree. Increasing the depth of the tree might increase precision, at the risk of some overfitting and increased training time.
 
@@ -74,9 +74,19 @@ For more information about the theoretical framework for this algorithm and its 
      By increasing this value, you increase the threshold for creating new rules. For example, with the default value of 1, even a single case can cause a new rule to be created. If you increase the value to 5, the training data would have to contain at least five cases that meet the same conditions.
 
 
-9. Connect a labeled dataset, select a single label column containing no more than two outcomes, and connect to [Train Model](./train-model.md).
+9. Train the model:
 
-    - If you set **Create trainer mode** option to **Single Parameter**, train the model by using the [Train Model](./train-model.md) module.
+    + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](train-model.md) module.  
+  
+    + If you set **Create trainer mode** to **Parameter Range**, connect a tagged dataset and train the model by using [Tune Model Hyperparameters](tune-model-hyperparameters.md).  
+  
+    > [!NOTE]
+    > 
+    > If you pass a parameter range to [Train Model](train-model.md), it uses only the default value in the single parameter list.  
+    > 
+    > If you pass a single set of parameter values to the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module, when it expects a range of settings for each parameter, it ignores the values, and uses the default values for the learner.  
+    > 
+    > If you select the **Parameter Range** option and enter a single value for any parameter, that single value you specified is used throughout the sweep, even if other parameters change across a range of values.
 
    
 

@@ -3,8 +3,9 @@ title: Manage resource groups - Azure CLI
 description: Use Azure CLI to manage your resource groups through Azure Resource Manager. Shows how to create, list, and delete resource groups.
 author: mumian
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 01/05/2021
 ms.author: jgao
+ms.custom: devx-track-azurecli
 ---
 
 # Manage Azure Resource Manager resource groups by using Azure CLI
@@ -26,14 +27,10 @@ The resource group stores metadata about the resources. When you specify a locat
 
 ## Create resource groups
 
-The following CLI script creates a resource group, and then shows the resource group.
+The following CLI command creates a resource group.
 
 ```azurecli-interactive
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-echo "Enter the location (i.e. centralus):" &&
-read location &&
-az group create --name $resourceGroupName --location $location
+az group create --name demoResourceGroup --location westus
 ```
 
 ## List resource groups
@@ -70,7 +67,7 @@ See [Deploy resources to an existing resource group](manage-resources-cli.md#dep
 
 ## Deploy a resource group and resources
 
-You can create a resource group and deploy resources to the group by using a Resource Manager template. For more information, see [Create resource group and deploy resources](../templates/deploy-to-subscription.md#resource-group-and-resources).
+You can create a resource group and deploy resources to the group by using a Resource Manager template. For more information, see [Create resource group and deploy resources](../templates/deploy-to-subscription.md#resource-groups).
 
 ## Redeploy when deployment fails
 
@@ -82,14 +79,14 @@ You can move the resources in the group to another resource group. For more info
 
 ## Lock resource groups
 
-Locking prevents other users in your organization from accidentally deleting or modifying critical resources, such as Azure subscription, resource group, or resource. 
+Locking prevents other users in your organization from accidentally deleting or modifying critical resources, such as Azure subscription, resource group, or resource.
 
 The following script locks a resource group so the resource group can't be deleted.
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
-az lock create --name LockGroup --lock-type CanNotDelete --resource-group $resourceGroupName  
+az lock create --name LockGroup --lock-type CanNotDelete --resource-group $resourceGroupName
 ```
 
 The following script gets all locks for a resource group:
@@ -97,7 +94,7 @@ The following script gets all locks for a resource group:
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
-az lock list --resource-group $resourceGroupName  
+az lock list --resource-group $resourceGroupName
 ```
 
 The following script deletes a lock:
@@ -123,27 +120,102 @@ After setting up your resource group successfully, you may want to view the Reso
 - Automate future deployments of the solution because the template contains all the complete infrastructure.
 - Learn template syntax by looking at the JavaScript Object Notation (JSON) that represents your solution.
 
+To export all resources in a resource group, use [az group export](/cli/azure/group#az_group_export) and provide the resource group name.
+
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
-az group export --name $resourceGroupName  
+az group export --name $resourceGroupName
 ```
 
-The script displays the template on the console.  Copy the JSON, and save as a file.
+The script displays the template on the console. Copy the JSON, and save as a file.
 
-The export template feature doesn't support exporting Azure Data Factory resources. To learn about how you can export Data Factory resources, see [Copy or clone a data factory in Azure Data Factory](https://aka.ms/exportTemplateViaAdf).
+Instead of exporting all resources in the resource group, you can select which resources to export.
 
-To export resources created through classic deployment model, you must [migrate them to the Resource Manager deployment model](https://aka.ms/migrateclassicresourcetoarm).
+To export one resource, pass that resource ID.
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+echo "Enter the storage account name:" &&
+read storageAccountName &&
+storageAccount=$(az resource show --resource-group $resourceGroupName --name $storageAccountName --resource-type Microsoft.Storage/storageAccounts --query id --output tsv) &&
+az group export --resource-group $resourceGroupName --resource-ids $storageAccount
+```
+
+To export more than one resource, pass the space-separated resource IDs. To export all resources, do not specify this argument or supply "*".
+
+```azurecli-interactive
+az group export --resource-group <resource-group-name> --resource-ids $storageAccount1 $storageAccount2
+```
+
+When exporting the template, you can specify whether parameters are used in the template. By default, parameters for resource names are included but they don't have a default value. You must pass that parameter value during deployment.
+
+```json
+"parameters": {
+  "serverfarms_demoHostPlan_name": {
+    "type": "String"
+  },
+  "sites_webSite3bwt23ktvdo36_name": {
+    "type": "String"
+  }
+}
+```
+
+In the resource, the parameter is used for the name.
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2016-09-01",
+    "name": "[parameters('serverfarms_demoHostPlan_name')]",
+    ...
+  }
+]
+```
+
+If you use the `--include-parameter-default-value` parameter when exporting the template, the template parameter includes a default value that is set to the current value. You can either use that default value or overwrite the default value by passing in a different value.
+
+```json
+"parameters": {
+  "serverfarms_demoHostPlan_name": {
+    "defaultValue": "demoHostPlan",
+    "type": "String"
+  },
+  "sites_webSite3bwt23ktvdo36_name": {
+    "defaultValue": "webSite3bwt23ktvdo36",
+    "type": "String"
+  }
+}
+```
+
+If you use the `--skip-resource-name-params` parameter when exporting the template, parameters for resource names aren't included in the template. Instead, the resource name is set directly on the resource to its current value. You can't customize the name during deployment.
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2016-09-01",
+    "name": "demoHostPlan",
+    ...
+  }
+]
+```
+
+The export template feature doesn't support exporting Azure Data Factory resources. To learn about how you can export Data Factory resources, see [Copy or clone a data factory in Azure Data Factory](../../data-factory/copy-clone-data-factory.md).
+
+To export resources created through classic deployment model, you must [migrate them to the Resource Manager deployment model](../../virtual-machines/migration-classic-resource-manager-overview.md).
 
 For more information, see [Single and multi-resource export to template in Azure portal](../templates/export-template-portal.md).
 
 ## Manage access to resource groups
 
-[Role-based access control (RBAC)](../../role-based-access-control/overview.md) is the way that you manage access to resources in Azure. For more information, see [Manage access using RBAC and Azure CLI](../../role-based-access-control/role-assignments-cli.md).
+[Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) is the way that you manage access to resources in Azure. For more information, see [Add or remove Azure role assignments using Azure CLI](../../role-based-access-control/role-assignments-cli.md).
 
 ## Next steps
 
 - To learn Azure Resource Manager, see [Azure Resource Manager overview](overview.md).
-- To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](../templates/template-syntax.md).
-- To learn how to develop templates, see the [step-by-step tutorials](/azure/azure-resource-manager/).
+- To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](../templates/syntax.md).
+- To learn how to develop templates, see the [step-by-step tutorials](../index.yml).
 - To view the Azure Resource Manager template schemas, see [template reference](/azure/templates/).

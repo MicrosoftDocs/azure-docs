@@ -2,11 +2,13 @@
 title: Run shell scripts in a Linux VM on Azure
 description: This topic describes how to run scripts within an Azure Linux virtual machine by using the Run Command feature
 services: automation
-ms.service: automation
+ms.service: virtual-machines
+ms.collection: linux
 author: bobbytreed
 ms.author: robreed
 ms.date: 04/26/2019
-ms.topic: article
+ms.topic: how-to 
+ms.custom: devx-track-azurepowershell
 manager: carmonm
 ---
 # Run shell scripts in your Linux VM by using Run Command
@@ -15,7 +17,7 @@ The Run Command feature uses the virtual machine (VM) agent to run shell scripts
 
 ## Benefits
 
-You can access your virtual machines in multiple ways. Run Command can run scripts on your virtual machines remotely by using the VM agent. You use Run Command through the Azure portal, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), or [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) for Linux VMs.
+You can access your virtual machines in multiple ways. Run Command can run scripts on your virtual machines remotely by using the VM agent. You use Run Command through the Azure portal, [REST API](/rest/api/compute/virtual-machines-run-commands/run-command), or [Azure CLI](/cli/azure/vm/run-command#az_vm_run_command_invoke) for Linux VMs.
 
 This capability is useful in all scenarios where you want to run a script within a virtual machine. It's one of the only ways to troubleshoot and remediate a virtual machine that doesn't have the RDP or SSH port open because of improper network or administrative user configuration.
 
@@ -33,7 +35,7 @@ The following restrictions apply when you're using Run Command:
 * Outbound connectivity from the VM is required to return the results of the script.
 
 > [!NOTE]
-> To function correctly, Run Command requires connectivity (port 443) to Azure public IP addresses. If the extension doesn't have access to these endpoints, the scripts might run successfully but not return the results. If you're blocking traffic on the virtual machine, you can use [service tags](../../virtual-network/security-overview.md#service-tags) to allow traffic to Azure public IP addresses by using the `AzureCloud` tag.
+> To function correctly, Run Command requires connectivity (port 443) to Azure public IP addresses. If the extension doesn't have access to these endpoints, the scripts might run successfully but not return the results. If you're blocking traffic on the virtual machine, you can use [service tags](../../virtual-network/network-security-groups-overview.md#service-tags) to allow traffic to Azure public IP addresses by using the `AzureCloud` tag.
 
 ## Available commands
 
@@ -50,10 +52,10 @@ The entity was not found in this Azure location
 
 ## Azure CLI
 
-The following example uses the [az vm run-command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) command to run a shell script on an Azure Linux VM.
+The following example uses the [az vm run-command](/cli/azure/vm/run-command#az_vm_run_command_invoke) command to run a shell script on an Azure Linux VM.
 
 ```azurecli-interactive
-az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript --scripts "sudo apt-get update && sudo apt-get install -y nginx"
+az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript --scripts "apt-get update && apt-get install -y nginx"
 ```
 
 > [!NOTE]
@@ -61,7 +63,7 @@ az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript 
 
 ## Azure portal
 
-Go to a VM in the [Azure portal](https://portal.azure.com) and select **Run command** under **OPERATIONS**. You see a list of the available commands to run on the VM.
+Go to a VM in the [Azure portal](https://portal.azure.com) and select **Run command** in the left menu, under **Operations**. You see a list of the available commands to run on the VM.
 
 ![List of commands](./media/run-command/run-command-list.png)
 
@@ -76,17 +78,17 @@ After you choose the command, select **Run** to run the script. After the script
 
 ### PowerShell
 
-The following example uses the [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) cmdlet to run a PowerShell script on an Azure VM. The cmdlet expects the script referenced in the `-ScriptPath` parameter to be local to where the cmdlet is being run.
+The following example uses the [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand) cmdlet to run a PowerShell script on an Azure VM. The cmdlet expects the script referenced in the `-ScriptPath` parameter to be local to where the cmdlet is being run.
 
 ```powershell-interactive
-Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
+Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
 ```
 
 ## Limiting access to Run Command
 
-Listing the run commands or showing the details of a command requires the `Microsoft.Compute/locations/runCommands/read` permission at the subscription level. The built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) role and higher levels have this permission.
+Listing the run commands or showing the details of a command requires the `Microsoft.Compute/locations/runCommands/read` permission. The built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) role and higher levels have this permission.
 
-Running a command requires the `Microsoft.Compute/virtualMachines/runCommand/action` permission at the subscription level. The [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role and higher levels have this permission.
+Running a command requires the `Microsoft.Compute/virtualMachines/runCommand/action` permission. The [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role and higher levels have this permission.
 
 You can use one of the [built-in roles](../../role-based-access-control/built-in-roles.md) or create a [custom role](../../role-based-access-control/custom-roles.md) to use Run Command.
 

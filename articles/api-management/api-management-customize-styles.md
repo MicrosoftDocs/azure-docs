@@ -12,7 +12,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.custom: mvc
-ms.topic: tutorial
+ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 
@@ -27,7 +27,7 @@ There are three most common ways to customize the developer portal in Azure API 
 
 In this article, you learn how to customize the style of elements on pages of the legacy **developer** portal and view your changes.
 
-![customize style](./media/modify-developer-portal-style/developer_portal.png)
+![Screenshot that shows where you change your settings in the legacy Developer portal.](./media/modify-developer-portal-style/developer_portal.png)
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
@@ -45,7 +45,7 @@ In this article, you learn how to customize the style of elements on pages of th
 2. Click the **Developer portal (legacy)** button on the top of the **Overview** window.
 3. On the upper left side of the screen, you see an icon comprised of two paint brushes. Hover over this icon to open the portal customization menu.
 
-    ![customize style](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
+    ![Screenshot that highlights the icon with two paint brushes.](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
 4. Select **Styles** from the menu to open the styling customization pane.
 
     All elements that you can customize using **Styles** appear on the page

@@ -1,95 +1,155 @@
 ---
-title: Execute SSIS packages by Azure SQL Managed Instance Agent
-description: Learn how to execute SSIS packages by Azure SQL Managed Instance Agent. 
-services: data-factory
-documentationcenter: ''
+title: Run SSIS packages using Azure SQL Managed Instance Agent
+description: Learn how to run SSIS packages by using Azure SQL Managed Instance Agent. 
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.author: lle
-author: lle
+author: lrtoyou1223
 ms.date: 04/14/2020
 ---
 
-# Execute SSIS packages by Azure SQL Managed Instance Agent
-This article describes how to run a SQL Server Integration Services (SSIS) package by using Azure SQL Managed Instance Agent. This feature provides similar behaviors just like when you schedule SSIS packages by SQL Server Agent in your on-prem environment.
+# Run SSIS packages by using Azure SQL Managed Instance Agent
 
-With this feature, you can run SSIS packages that are stored in SSISDB of Azure SQL Managed Instance or File System such as Azure Files.
+This article describes how to run a SQL Server Integration Services (SSIS) package by using Azure SQL Managed Instance Agent. This feature provides behaviors that are similar to when you schedule SSIS packages by using SQL Server Agent in your on-premises environment.
+
+With this feature, you can run SSIS packages that are stored in SSISDB in a SQL Managed Instance, a file system like Azure Files, or an Azure-SSIS integration runtime package store.
 
 ## Prerequisites
-To use this feature, download and install the latest version of SSMS, which is version 18.5 or later. Download it from [this website](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
 
-And you need to provision an Azure-SSIS Integration Runtime in Azure Data Factory, which uses Azure SQL Managed Instance as endpoint server. If you have not provisioned it already, provision it by following instructions in the [tutorial](tutorial-create-azure-ssis-runtime-portal.md). 
+To use this feature, [download](/sql/ssms/download-sql-server-management-studio-ssms) and install latest SQL Server Management Studio (SSMS). Version support details as below:
 
-## Run SSIS packages in SSISDB by Azure SQL Managed Instance Agent
-In this step, you use Azure SQL Managed Instance Agent to invoke SSIS packages that is stored in SSISDB in Azure SQL Managed Instance.
-1. In the latest version of SSMS, connect to Azure SQL Managed Instance.
-2. Create a new Agent Job and a new Job step.
+- To run packages in SSISDB or file system, install SSMS version 18.5 or above.
+- To run packages in package store, install SSMS version 18.6 or above.
 
-![New Agent Job](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
+You also need to [provision an Azure-SSIS integration runtime](./tutorial-deploy-ssis-packages-azure.md) in Azure Data Factory. It uses a SQL Managed Instance as an endpoint server.
 
-3. In the **New Job Step** page, choose **SQL Server Integration Services Package** type.
+## Run an SSIS package in SSISDB
 
-![New SSIS Job step](./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png)
+In this procedure, you use SQL Managed Instance Agent to invoke an SSIS package that's stored in SSISDB.
 
-4. In the **Package** tab, choose **SSIS Catalog** as package source type.
-5. Because the SSISDB is in the same Azure SQL Managed Instance, you don't need to specify authentication.
-6. Specify an SSIS package from your SSISDB.
+1. In the latest version of SSMS, connect to a SQL Managed Instance.
+1. Create a new agent job and a new job step. Under **SQL Server Agent**, right-click the **Jobs** folder, and then select **New Job**.
 
-![Package Source Type - SSIS Catalog](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-ssisdb.png)
+   ![Selections for creating a new agent job](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
 
-7. In the **Configurations** tab, you can specify **parameter** values, override values in **Connection Managers**, override **Property** and choose **Logging level**.
+1. On the **New Job Step** page, select **SQL Server Integration Services Package** as the type.
 
-![Package Source Type - SSIS Catalog Configuration](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-ssisdb-configuration.png)
+   ![Selections for creating a new SSIS job step](./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png)
 
-8. After you finished all configuration above, click **OK** to save the Agent Job configuration.
-9. Start the Agent Job to execute the SSIS package.
+1. On the **Package** tab, select **SSIS Catalog** as the package location.
+1. Because SSISDB is in a SQL Managed Instance, you don't need to specify authentication.
+1. Specify an SSIS package from SSISDB.
 
+   ![Package tab with selections for the package source type](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-ssisdb.png)
 
-## Run SSIS packages in file system by Azure SQL managed instance agent
-In this step, you use Azure SQL Managed Instance Agent to invoke SSIS packages that is stored in File System to run.
-1. In the latest version of SSMS, connect to Azure SQL Managed Instance.
-2. Create a new Agent Job and a new Job step.
+1. On the **Configuration** tab, you can:
+  
+   - Specify parameter values under **Parameters**.
+   - Override values under **Connection Managers**.
+   - Override the property and choose the logging level under **Advanced**.
 
-   ![New Agent Job](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
+   ![Configuration tab with selections for the package source type](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-ssisdb-configuration.png)
 
-3. In the **New Job Step** page, choose **SQL Server Integration Services Package** type.
+1. Select **OK** to save the agent job configuration.
+1. Start the agent job to run the SSIS package.
 
-   ![New SSIS Job step](./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png)
+## Run an SSIS package in the file system
 
-4. In the **Package** tab, choose **File system** as package source type.
+In this procedure, you use SQL Managed Instance Agent to run an SSIS package that's stored in the file system.
 
-   ![Package Source Type - File System](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-file-system.png)
+1. In the latest version of SSMS, connect to a SQL Managed Instance.
+1. Create a new agent job and a new job step. Under **SQL Server Agent**, right-click the **Jobs** folder, and then select **New Job**.
 
-   1. If your package is uploaded to Azure File, choose **Azure file share** as file source type.
-      - The package path is **\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx**
-      - Type in the Azure file account name and account key in **Package file access credential** to access the Azure file. The domain is set as **Azure**.
-   2. If your package is uploaded to a network share, choose **Network share** as file source type.
-      - The package path is the **UNC path** of your package file with its dtsx extension.
-      - Type in corresponding **domain**, **username**, and **password** to access the network share package file.
-   3. If your package file is encrypted with password, select **Encryption password** and type in the password.
+   ![Selections for creating a new agent job](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
 
- 5. In the **Configurations** tab, type the **configuration file path** if your need a configuration file to execute the SSIS package.
- 6. In the **Execution options** tab, you can choose whether to use **windows authentication** or **32-bit runtime** to execute the SSIS package.
- 7. In the **Logging** tab, you can choose the **logging path** and corresponding logging access credential to store the log files. By default, the logging path will be the same as the package folder path and the logging access credential will be the same as the package access credential.
- 8. In the **Set values** tab, you can type in the **Property Path** and **Value** to override the package properties.
- For example, to override the value of your user variable, enter its path in the following format: **\Package.Variables[User::<variable name>].Value**.
- 9. After you finished all configuration above, click **OK** to save the Agent Job configuration.
- 10. Start the Agent Job to execute the SSIS package.
+1. On the **New Job Step** page, select **SQL Server Integration Services Package** as the type.
 
+   ![Selections for creating a new SSIS job step](./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png)
 
- ## Cancel SSIS package execution
- To cancel package execution from an Azure SQL Managed Agent job, you should follow below steps instead of directly stopping the agent job.
- 1. Find your SQL agent **jobId** from **msdb.dbo.sysjobs**.
- 2. Find corresponding SSIS **executionId** based on the job ID by below query:
-    ```sql
-    select * from ssisdb.internal.execution_parameter_values_noncatalog where  parameter_value = 'SQL_Agent_Job_{jobId}' order by execution_id desc
-    ```
- 3. Select **Active Operations** under SSIS catalog.
+1. On the **Package** tab:
 
-    ![Package Source Type - File System](./media/how-to-invoke-ssis-package-managed-instance-agent/catalog-active-operations.png)
+   1. For **Package location**, select **File system**.
 
- 4. Stop corresponding operation based on **executionId**.
+   1. For **File source type**:
+
+      - If your package is uploaded to Azure Files, select **Azure file share**.
+
+        ![Options for file source type](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-file-system.png)
+
+        The package path is **`\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`**.
+
+        Under **Package file access credential**, enter the Azure file account name and account key to access the Azure file. The domain is set as **Azure**.
+
+      - If your package is uploaded to a network share, select **Network share**.
+
+        The package path is the UNC path of your package file with its .dtsx extension.
+
+        Enter the corresponding domain, username, and password to access the network share package file.
+   1. If your package file is encrypted with a password, select **Encryption password** and enter the password.
+1. On the **Configurations** tab, enter the configuration file path if you need a configuration file to run the SSIS package.
+   If you store your configuration in Azure Files, its configuration path will be **`\\<storage account name>.file.core.windows.net\<file share name>\<configuration name>.dtsConfig`**.
+1. On the **Execution options** tab, you can choose whether to use **Windows authentication** or **32-bit runtime** to run the SSIS package.
+1. On the **Logging** tab, you can choose the logging path and corresponding logging access credential to store the log files. 
+   By default, the logging path is the same as the package folder path, and the logging access credential is the same as the package access credential.
+   If you store your logs in Azure Files, your logging path will be **`\\<storage account name>.file.core.windows.net\<file share name>\<log folder name>`**.
+1. On the **Set values** tab, you can enter the property path and value to override the package properties.
+
+   For example, to override the value of your user variable, enter its path in the following format: **`\Package.Variables[User::<variable name>].Value`**.
+1. Select **OK** to save the agent job configuration.
+1. Start the agent job to run the SSIS package.
+
+## Run an SSIS package in the package store
+
+In this procedure, you use SQL Managed Instance Agent to run an SSIS package that's stored in the  Azure-SSIS IR package store.
+
+1. In the latest version of SSMS, connect to a SQL Managed Instance.
+1. Create a new agent job and a new job step. Under **SQL Server Agent**, right-click the **Jobs** folder, and then select **New Job**.
+
+   ![Selections for creating a new agent job](./media/how-to-invoke-ssis-package-managed-instance-agent/new-agent-job.png)
+
+1. On the **New Job Step** page, select **SQL Server Integration Services Package** as the type.
+
+   ![Selections for creating a new SSIS job step](./media/how-to-invoke-ssis-package-managed-instance-agent/new-ssis-job-step.png)
+
+1. On the **Package** tab:
+
+   1. For **Package location**, select **Package Store**.
+
+   1. For **Package path**:
+
+      The package path is **`<package store name>\<folder name>\<package name>`**.
+
+      ![Options for package store type](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-package-store.png)
+
+   1. If your package file is encrypted with a password, select **Encryption password** and enter the password.
+1. On the **Configurations** tab, enter the configuration file path if you need a configuration file to run the SSIS package.
+   If you store your configuration in Azure Files, its configuration path will be **`\\<storage account name>.file.core.windows.net\<file share name>\<configuration name>.dtsConfig`**.
+1. On the **Execution options** tab, you can choose whether to use **Windows authentication** or **32-bit runtime** to run the SSIS package.
+1. On the **Logging** tab, you can choose the logging path and corresponding logging access credential to store the log files.
+   By default, the logging path is the same as the package folder path, and the logging access credential is the same as the package access credential.
+   If you store your logs in Azure Files, your logging path will be **`\\<storage account name>.file.core.windows.net\<file share name>\<log folder name>`**.
+1. On the **Set values** tab, you can enter the property path and value to override the package properties.
+
+   For example, to override the value of your user variable, enter its path in the following format: **`\Package.Variables[User::<variable name>].Value`**.
+1. Select **OK** to save the agent job configuration.
+1. Start the agent job to run the SSIS package.
+
+## Cancel SSIS package execution
+
+To cancel package execution from a SQL Managed Instance Agent job, take the following steps instead of directly stopping the agent job:
+
+1. Find your SQL agent **jobId** from **msdb.dbo.sysjobs**.
+1. Find the corresponding SSIS **executionId** based on the job ID, by using this query:
+   ```sql
+   select * from '{table for job execution}' where  parameter_value = 'SQL_Agent_Job_{jobId}' order by execution_id desc
+   ```
+   If your SSIS packages are in SSISDB, then use **ssisdb.internal.execution_parameter_values** as table for job execution. If your SSIS packages are in file system, then use **ssisdb.internal.execution_parameter_values_noncatalog**.
+1. Right-click the SSISDB catalog, and then select **Active Operations**.
+
+   !["Active Operations" on the shortcut menu for the SSISDB catalog](./media/how-to-invoke-ssis-package-managed-instance-agent/catalog-active-operations.png)
+
+1. Stop the corresponding operation based on **executionId**.
 
 ## Next steps
- You can also schedule SSIS packages using Azure Data Factory. For step-by-step instructions, see [Azure Data Factory Event Trigger](how-to-create-event-trigger.md). 
+You can also schedule SSIS packages by using Azure Data Factory. For step-by-step instructions, see [Azure Data Factory event trigger](how-to-create-event-trigger.md).

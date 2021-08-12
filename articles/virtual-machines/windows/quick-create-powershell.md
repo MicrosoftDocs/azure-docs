@@ -1,22 +1,14 @@
 ---
 title: Quickstart - Create a Windows VM with Azure PowerShell 
 description: In this quickstart, you learn how to use Azure PowerShell to create a Windows virtual machine
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machines-windows
-
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: quickstart
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Quickstart: Create a Windows virtual machine in Azure with PowerShell
@@ -34,7 +26,7 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 
 ## Create resource group
 
-Create an Azure resource group with [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed.
+Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroup -Location EastUS
@@ -42,7 +34,7 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
 ## Create virtual machine
 
-Create a VM with [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). Provide names for each of the resources and the `New-AzVM` cmdlet creates if they don't already exist.
+Create a VM with [New-AzVM](/powershell/module/az.compute/new-azvm). Provide names for each of the resources and the `New-AzVM` cmdlet creates if they don't already exist.
 
 When prompted, provide a username and password to be used as the sign-in credentials for the VM:
 
@@ -58,11 +50,13 @@ New-AzVm `
     -OpenPorts 80,3389
 ```
 
+[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
+
 ## Connect to virtual machine
 
 After the deployment has completed, RDP to the VM. To see your VM in action, the IIS web server is then installed.
 
-To see the public IP address of the VM, use the [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) cmdlet:
+To see the public IP address of the VM, use the [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) cmdlet:
 
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
@@ -96,7 +90,7 @@ With IIS installed and port 80 now open on your VM from the Internet, use a web 
 
 ## Clean up resources
 
-When no longer needed, you can use the [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) cmdlet to remove the resource group, VM, and all related resources:
+When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet to remove the resource group, VM, and all related resources:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup

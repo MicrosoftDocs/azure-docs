@@ -9,11 +9,11 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 02/24/2020
+ms.date: 07/27/2020
 ---
 # Evaluate Model module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to measure the accuracy of a trained model. You provide a dataset containing scores generated from a model, and the **Evaluate Model** module computes a set of industry-standard evaluation metrics.
   
@@ -25,43 +25,40 @@ Use this module to measure the accuracy of a trained model. You provide a datase
 
 
 > [!TIP]
-> If you are new to model evaluation, we recommend the video series by Dr. Stephen Elston, as part of the [machine learning course](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) from EdX. 
+> If you are new to model evaluation, we recommend the video series by Dr. Stephen Elston, as part of the [machine learning course](/archive/blogs/machinelearning/new-edx-course-data-science-machine-learning-essentials) from EdX. 
 
 
-There are three ways to use the **Evaluate Model** module:
+## How to use Evaluate Model
+1. Connect the **Scored dataset** output of the [Score Model](./score-model.md) or Result dataset output of the [Assign Data to Clusters](./assign-data-to-clusters.md) to the left input port of **Evaluate Model**. 
+    > [!NOTE] 
+    > If use modules like "Select Columns in Dataset" to select part of input dataset, please ensure
+    > Actual label column (used in training), 'Scored Probabilities' column and 'Scored Labels' column exist to calculate metrics like AUC, Accuracy for binary classification/anomaly detection.
+    > Actual label column, 'Scored Labels' column exist to calculate metrics for multi-class classification/regression.
+    > 'Assignments' column, columns 'DistancesToClusterCenter no.X' (X is centroid index, ranging from 0, ..., Number of centroids-1)     exist to calculate metrics for clustering.
 
-+ Generate scores over your training data, and evaluate the model based on these scores
-+ Generate scores on the model, but compare those scores to scores on a reserved testing set
-+ Compare scores for two different but related models, using the same set of data
+    > [!IMPORTANT]
+    > + To evaluate the results, the output dataset should contain specific score column names, which meet Evaluate Model module requirements.
+    > + The `Labels` column will be considered as actual labels.
+    > + For regression task, the dataset to evaluate must has one column, named `Regression Scored Labels`, which represents scored labels.
+    > + For binary classification task, the dataset to evaluate must has two columns, named `Binary Class Scored Labels`,`Binary Class Scored Probabilities`, which represent scored labels, and probabilities respectively.
+    > + For multi classification task, the dataset to evaluate must has one column, named `Multi Class Scored Labels`, which represents scored labels.
+    > If the outputs of the upstream module does not have these columns, you need to modify according to the requirements above.
 
-## Use the training data
+2. [Optional] Connect the **Scored dataset** output of the [Score Model](./score-model.md) or Result dataset output of the Assign Data to Clusters for the second model to the **right** input port of **Evaluate Model**. You can easily compare results from two different models on the same data. The two input algorithms should be the same algorithm type. Or, you might compare scores from two different runs over the same data with different parameters.
 
-To evaluate a model, you must connect a dataset that contains a set of input columns and scores.  If no other data is available, you can use your original dataset.
+    > [!NOTE]
+    > Algorithm type refers to 'Two-class Classification', 'Multi-class Classification', 'Regression', 'Clustering' under 'Machine Learning Algorithms'. 
 
-1. Connect the **Scored dataset** output of the [Score Model](./score-model.md) to the input of **Evaluate Model**. 
-2. Click **Evaluate Model** module, and run the pipeline to generate the evaluation scores.
-
-## Use testing data
-
-A common scenario in machine learning is to separate your original data set into training and testing datasets, using the [Split](./split-data.md) module, or the [Partition and Sample](./partition-and-sample.md) module. 
-
-1. Connect the **Scored dataset** output of the [Score Model](score-model.md) to the input of **Evaluate Model**. 
-2. Connect the output of the Split Data module that contains the testing data to the right-hand input of **Evaluate Model**.
-2. Click **Evaluate Model** module, and select **Run selected** to generate the evaluation scores.
-
-## Compare scores from two models
-
-You can also connect a second set of scores to **Evaluate Model**.  The scores might be a shared evaluation set that has known results, or a set of results from a different model for the same data.
-
-This feature is useful because you can easily compare results from two different models on the same data. Or, you might compare scores from two different runs over the same data with different parameters.
-
-1. Connect the **Scored dataset** output of the [Score Model](score-model.md) to the input of **Evaluate Model**. 
-2. Connect the output of the Score Model module for the second model to the right-hand input of **Evaluate Model**.
-3. Submit the pipeline.
+3. Submit the pipeline to generate the evaluation scores.
 
 ## Results
 
-After you run **Evaluate Model**, right-click the module and select **Visualize Evaluation results** to see the results.
+After you run **Evaluate Model**, select the module to open up the **Evaluate Model** navigation panel on the right.  Then, choose the **Outputs + Logs** tab, and on that tab the **Data Outputs** section has several icons. The **Visualize** icon has a bar graph icon, and is a first way to see the results.
+
+For binary-classification, after you click **Visualize** icon, you can visualize the binary confusion matrix.
+For multi-classification, you can find the confusion matrix plot file under the **Outputs + Logs** tab like following:
+> [!div class="mx-imgBorder"]
+> ![Preview of uploaded image](media/module/multi-class-confusion-matrix.png)
 
 If you connect datasets to both inputs of **Evaluate Model**, the results will contain metrics for both set of data, or both models.
 The model or data attached to the left port is presented first in the report, followed by the metrics for the dataset, or model attached on the right port.  
@@ -82,21 +79,19 @@ This section describes the metrics returned for the specific types of models sup
 
 ### Metrics for classification models
 
-The following metrics are reported when evaluating classification models.
+
+The following metrics are reported when evaluating binary classification models.
   
 -   **Accuracy** measures the goodness of a classification model as the proportion of true results to total cases.  
   
--   **Precision** is the proportion of true results over all positive results.  
+-   **Precision** is the proportion of true results over all positive results. Precision = TP/(TP+FP)  
   
--   **Recall** is the fraction of all correct results returned by the model.  
+-   **Recall** is the fraction of the total amount of relevant instances that were actually retrieved. Recall = TP/(TP+FN)  
   
--   **F-score** is computed as the weighted average of precision and recall between 0 and 1, where the ideal F-score value is 1.  
+-   **F1 score** is computed as the weighted average of precision and recall between 0 and 1, where the ideal F1 score value is 1.  
   
--   **AUC** measures the area under the curve plotted with true positives on the y axis and false positives on the x axis. This metric is useful because it provides a single number that lets you compare models of different types.  
-  
-- **Average log loss** is a single score used to express the penalty for wrong results. It is calculated as the difference between two probability distributions – the true one, and the one in the model.  
-  
-- **Training log loss** is a single score that represents the advantage of the classifier over a random prediction. The log loss measures the uncertainty of your model by comparing the probabilities it outputs to the known values (ground truth) in the labels. You want to minimize log loss for the model as a whole.
+-   **AUC** measures the area under the curve plotted with true positives on the y axis and false positives on the x axis. This metric is useful because it provides a single number that lets you compare models of different types. AUC is classification-threshold-invariant. It measures the quality of the model's predictions irrespective of what classification threshold is chosen.
+
 
 ### Metrics for regression models
  
@@ -134,13 +129,13 @@ The following metrics are reported for evaluating clustering models.
   
      If the number of data points assigned to clusters is less than the total number of data points available, it means that the data points could not be assigned to a cluster.  
   
--   The scores in the column, **Maximal Distance to Cluster Center**, represent the sum of the distances between each point and the centroid of that point’s cluster.  
+-   The scores in the column, **Maximal Distance to Cluster Center**, represent the max of the distances between each point and the centroid of that point's cluster.  
   
-     If this number is high, it can mean that the cluster is widely dispersed. You should review this statistic together with the **Average Distance to Cluster Center** to determine the cluster’s spread.   
+     If this number is high, it can mean that the cluster is widely dispersed. You should review this statistic together with the **Average Distance to Cluster Center** to determine the cluster's spread.   
 
 -   The **Combined Evaluation** score at the bottom of the each section of results lists the averaged scores for the clusters created in that particular model.  
   
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning.

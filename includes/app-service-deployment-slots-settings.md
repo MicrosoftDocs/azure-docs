@@ -17,7 +17,6 @@ When you clone configuration from another deployment slot, the cloned configurat
 * Public certificates
 * WebJobs content
 * Hybrid connections *
-* Virtual network integration *
 * Service endpoints *
 * Azure Content Delivery Network *
 
@@ -32,9 +31,15 @@ Features marked with an asterisk (*) are planned to be unswapped.
 * WebJobs schedulers
 * IP restrictions
 * Always On
-* Diagnostic log settings
+* Diagnostic settings
 * Cross-origin resource sharing (CORS)
+* Virtual network integration
+* Path mappings
+* Managed identities
+* Settings that end with the suffix _EXTENSION_VERSION
 
 > [!NOTE]
-> Certain app settings that apply to unswapped settings are also not swapped. For example, since diagnostic log settings are not swapped, related app settings like `WEBSITE_HTTPLOGGING_RETENTION_DAYS` and `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` are also not swapped, even if they don't show up as slot settings.
+> To make these settings swappable, add the app setting `WEBSITE_OVERRIDE_PRESERVE_DEFAULT_STICKY_SLOT_SETTINGS` in every slot of the app and set its value to `0` or `false`. These settings are either all swappable or not at all. You can't make just some settings swappable and not the others. Managed identities are never swapped and are not affected by this override app setting.
+
+> Certain app settings that apply to unswapped settings are also not swapped. For example, since diagnostic settings are not swapped, related app settings like `WEBSITE_HTTPLOGGING_RETENTION_DAYS` and `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS` are also not swapped, even if they don't show up as slot settings.
 >

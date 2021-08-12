@@ -1,24 +1,17 @@
 ---
-title: Set up Key Vault for Windows VMs in Azure Resource Manager 
-description: How to set up Key Vault for use with an Azure Resource Manager virtual machine.
-services: virtual-machines-windows
-documentationcenter: ''
+title: Set up Key Vault using PowerShell
+description: How to set up Key Vault for use with a virtual machine using PowerShell.
 author: mimckitt
-manager: vashan
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 33a483e2-cfbc-4c62-a588-5d9fd52491e2
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: security
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/24/2017
-ms.author: mimckitt
+ms.author: mimckitt 
+ms.custom: devx-track-azurepowershell
 
 ---
-# Set up Key Vault for virtual machines in Azure Resource Manager
+# Set up Key Vault for virtual machines using Azure PowerShell
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -35,36 +28,46 @@ To create a key vault by using PowerShell, see [Set and retrieve a secret from A
 
 For new key vaults, you can use this PowerShell cmdlet:
 
-    New-AzKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia' -EnabledForDeployment
+```azurepowershell
+New-AzKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia' -EnabledForDeployment
+```
 
 For existing key vaults, you can use this PowerShell cmdlet:
 
-    Set-AzKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
+```azurepowershell
+Set-AzKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
+```
 
 ## Use CLI to set up Key Vault
 To create a key vault by using the command-line interface (CLI), see [Manage Key Vault using CLI](../../key-vault/general/manage-with-cli2.md#create-a-key-vault).
 
 For CLI, you have to create the key vault before you assign the deployment policy. You can do this by using the following command:
 
-    az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "EastAsia"
-    
+```azurecli
+az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "EastAsia"
+```
+
 Then to enable Key Vault for use with template deployment, run the following command:
 
-    az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-deployment "true"
+```azurecli
+az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-deployment "true"
+```
 
 ## Use templates to set up Key Vault
 While you use a template, you need to set the `enabledForDeployment` property to `true` for the Key Vault resource.
 
-    {
-      "type": "Microsoft.KeyVault/vaults",
-      "name": "ContosoKeyVault",
-      "apiVersion": "2015-06-01",
-      "location": "<location-of-key-vault>",
-      "properties": {
-        "enabledForDeployment": "true",
-        ....
-        ....
-      }
-    }
+```config
+{
+  "type": "Microsoft.KeyVault/vaults",
+  "name": "ContosoKeyVault",
+  "apiVersion": "2015-06-01",
+  "location": "<location-of-key-vault>",
+  "properties": {
+    "enabledForDeployment": "true",
+    ....
+    ....
+  }
+}
+```
 
-For other options that you can configure when you create a key vault by using templates, see [Create a key vault](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
+For other options that you can configure when you create a key vault by using templates, see [Create a key vault](https://azure.microsoft.com/resources/templates/key-vault-create/).

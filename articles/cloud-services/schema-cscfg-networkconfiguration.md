@@ -1,17 +1,21 @@
 ---
-title: Azure Cloud Services NetworkConfiguration Schema | Microsoft Docs
+title: Azure Cloud Services (classic) NetworkConfiguration Schema | Microsoft Docs
 description: Learn about the child elements of the NetworkConfiguration element of the service configuration file, which specifies Virtual Network and DNS values.
-ms.custom: 
-ms.date: 12/07/2016
-services: cloud-services
+ms.topic: article
 ms.service: cloud-services
-ms.topic: reference
-caps.latest.revision: 28
-author: tgore03
-ms.author: tagore
+ms.subservice: deployment-files
+ms.date: 10/14/2020
+author: hirenshah1
+ms.author: hirshah
+ms.reviewer: mimckitt
+ms.custom: 
+---thor: tagore
 ---
 
-# Azure Cloud Services Config NetworkConfiguration Schema
+# Azure Cloud Services (classic) Config NetworkConfiguration Schema
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
 
 The `NetworkConfiguration` element of the service configuration file specifies Virtual Network and DNS values. These settings are optional for cloud services.
 
@@ -19,7 +23,7 @@ You can use the following resource to learn more about Virtual Networks and the 
 
 - [Cloud Service (classic) Configuration Schema](schema-cscfg-file.md)
 - [Cloud Service (classic) Definition Schema](schema-csdef-file.md)
-- [Create a Virtual Network (classic)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)
+- [Create a Virtual Network (classic)](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal)
 
 ## NetworkConfiguration Element
 The following example shows the `NetworkConfiguration` element and its child elements.

@@ -9,7 +9,8 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 03/31/2020
-ms.author: tamram
+ms.author: tamram 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Quickstart: Upload, download, and list blobs with PowerShell
@@ -21,6 +22,8 @@ Use the Azure PowerShell module to create and manage Azure resources. Creating o
 ## Prerequisites
 
 To access Azure Storage, you'll need an Azure subscription. If you don't already have a subscription, then create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+You will also need the Storage Blob Data Contributor role to read, write, and delete Azure Storage containers and blobs.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -48,17 +51,32 @@ To upload a file to a block blob, get a container reference, then get a referenc
 The following examples upload *Image001.jpg* and *Image002.png* from the *D:\\_TestImages* folder on the local disk to the container you created.
 
 ```powershell
-# upload a file
-Set-AzStorageBlobContent -File "D:\_TestImages\Image001.jpg" `
+# upload a file to the default account (inferred) access tier
+Set-AzStorageBlobContent -File "D:\_TestImages\Image000.jpg" `
   -Container $containerName `
   -Blob "Image001.jpg" `
   -Context $ctx 
 
-# upload another file
+# upload a file to the Hot access tier
+Set-AzStorageBlobContent -File "D:\_TestImages\Image001.jpg" `
+  -Container $containerName `
+  -Blob "Image001.jpg" `
+  -Context $ctx `
+  -StandardBlobTier Hot
+
+# upload another file to the Cool access tier
 Set-AzStorageBlobContent -File "D:\_TestImages\Image002.png" `
   -Container $containerName `
   -Blob "Image002.png" `
-  -Context $ctx
+  -Context $ctx `
+  -StandardBlobTier Cool
+
+# upload a file to a folder to the Archive access tier
+Set-AzStorageBlobContent -File "D:\_TestImages\foldername\Image003.jpg" `
+  -Container $containerName `
+  -Blob "Foldername/Image003.jpg" `
+  -Context $ctx `
+  -StandardBlobTier Archive
 ```
 
 Upload as many files as you like before continuing.
@@ -93,7 +111,7 @@ Get-AzStorageBlobContent -Blob "Image002.png" `
 
 ## Data transfer with AzCopy
 
-The AzCopy command-line utility offers high-performance, scriptable data transfer for Azure Storage. You can use AzCopy to transfer data to and from Blob storage and Azure Files. For more information about AzCopy v10, the latest version of AzCopy, see [Get started with AzCopy](../common/storage-use-azcopy-v10.md). To learn about using AzCopy v10 with Blob storage, see [Transfer data with AzCopy and Blob storage](../common/storage-use-azcopy-blobs.md).
+The AzCopy command-line utility offers high-performance, scriptable data transfer for Azure Storage. You can use AzCopy to transfer data to and from Blob storage and Azure Files. For more information about AzCopy v10, the latest version of AzCopy, see [Get started with AzCopy](../common/storage-use-azcopy-v10.md). To learn about using AzCopy v10 with Blob storage, see [Transfer data with AzCopy and Blob storage](../common/storage-use-azcopy-v10.md#transfer-data).
 
 The following example uses AzCopy to upload a local file to a blob. Remember to replace the sample values with your own values:
 
@@ -112,10 +130,10 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ## Next steps
 
-In this quickstart, you transferred files between a local disk and Azure Blob storage. To learn more about working with Blob storage by using PowerShell, continue to How-to use Azure PowerShell with Azure Storage.
+In this quickstart, you transferred files between a local file system and Azure Blob storage. To learn more about working with Blob storage by using PowerShell, explore Azure PowerShell samples for Blob storage.
 
 > [!div class="nextstepaction"]
-> [Using Azure PowerShell with Azure Storage](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [Azure PowerShell samples for Azure Blob storage](storage-samples-blobs-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 ### Microsoft Azure PowerShell Storage cmdlets reference
 

@@ -1,23 +1,22 @@
 ---
-title: Upgrade from Basic Public to Standard Public - Azure Load Balancer
+title: Upgrade from Basic Internal to Standard Public - Azure Load Balancer
 description: This article shows you how to upgrade Azure Basic Internal Load Balancer to Standard Public Load Balancer
 services: load-balancer
 author: irenehua
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
 ---
 
 # Upgrade Azure Internal Load Balancer - Outbound Connection Required
-[Azure Standard Load Balancer](load-balancer-overview.md) offers a rich set of functionality and high availability through zone redundancy. To learn more about Load Balancer SKU, see [comparison table](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus). Since Standard Internal Load Balancer does not provide outbound connection, we provide a solution to create a Standard Public Load Balancer instead.
+[Azure Standard Load Balancer](load-balancer-overview.md) offers a rich set of functionality and high availability through zone redundancy. To learn more about Load Balancer SKU, see [comparison table](./skus.md#skus). Since Standard Internal Load Balancer does not provide outbound connection, we provide a solution to create a Standard Public Load Balancer instead.
 
 There are four stages in a upgrade:
 
 1. Migrate the configuration to Standard Public Load Balancer
 2. Add VMs to backend pools of Standard Public Load Balancer
-3. Create an outbound rule on the Load Balancer for outbound connection
-4. Set up NSG rules for Subnet/VMs that should be refrained from/to the Internet
+3. Set up NSG rules for Subnet/VMs that should be refrained from/to the Internet
 
 This article covers configuration migration. Adding VMs to backend pools may vary depending on your specific environment. However, some high-level, general recommendations [are provided](#add-vms-to-backend-pools-of-standard-load-balancer).
 
@@ -27,6 +26,7 @@ An Azure PowerShell script is available that does the following:
 
 * Creates a Standard SKU Public Load Balancer in the resource group and location that you specify.
 * Seamlessly copies the configurations of the Basic SKU Internal Load Balancer to the newly create Standard Public Load Balancer.
+* Creates an outbound rule which enables egress connectivity.
 
 ### Caveats\Limitations
 
@@ -37,7 +37,7 @@ An Azure PowerShell script is available that does the following:
 
 ## Download the script
 
-Download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/1.0).
+Download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureLBUpgrade/2.0).
 ## Use the script
 
 There are two options for you depending on your local PowerShell environment setup and preferences:
@@ -53,7 +53,7 @@ To use this option, you must not have the Azure Az modules installed on your com
   
 Run the script with the following command:
 
-`Install-Script -Name AzurePublicLBUpgrade`
+`Install-Script -Name AzureLBUpgrade`
 
 This command also installs the required Az modules.  
 
@@ -79,18 +79,18 @@ To run the script:
     **Example**
 
    ```azurepowershell
-   AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newlocation "centralus" -newLbName "LBForUpgrade"
+   AzureLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newlocation "centralus" -newLbName "LBForUpgrade"
    ```
 
 ### Add VMs to backend pools of Standard Load Balancer
 
-First, double check that the script successfully created a new Standard Public Load Balancer with the exact configuration migrated over from your Basic Public Load Balancer. You can verify this from the Azure portal.
+First, double check that the script successfully created a new Standard Public Load Balancer with the exact configuration migrated over from your Basic Internal Load Balancer. You can verify this from the Azure portal.
 
 Be sure to send a small amount of traffic through the Standard Load Balancer as a manual test.
   
 Here are a few scenarios of how you add VMs to backend pools of the newly created Standard Public Load Balancer may be configured, and our recommendations for each one:
 
-* **Moving existing VMs from backend pools of old Basic Public Load Balancer to backend pools of newly created Standard Public Load Balancer**.
+* **Moving existing VMs from backend pools of old Basic Internal Load Balancer to backend pools of newly created Standard Public Load Balancer**.
     1. To do the tasks in this quickstart, sign in to the [Azure portal](https://portal.azure.com).
  
     1. Select **All resources** on the left menu, and then select the **newly created Standard Load Balancer** from the resource list.
@@ -104,16 +104,16 @@ Here are a few scenarios of how you add VMs to backend pools of the newly create
     >For VMs which have Public IPs, you will need to create Standard IP addresses first where same IP address is not guaranteed. Disassociate VMs from Basic IPs and associate them with the newly created Standard IP addresses. Then, you will be able to follow instructions to add VMs into backend pool of Standard Load Balancer. 
 
 * **Creating new VMs to add to the backend pools of the newly created Standard Public Load Balancer**.
-    * More instructions on how to create VM and associate it with Standard Load Balancer can be found [here](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines).
+    * More instructions on how to create VM and associate it with Standard Load Balancer can be found [here](./quickstart-load-balancer-standard-public-portal.md#create-virtual-machines).
 
 ### Create an outbound rule for outbound connection
 
-Follow the [instructions](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-portal#create-outbound-rule-configuration) to create an outbound rule so you can
+Follow the [instructions](./quickstart-load-balancer-standard-public-powershell.md#create-outbound-rule-configuration) to create an outbound rule so you can
 * Define outbound NAT from scratch.
 * Scale and tune the behavior of existing outbound NAT.
 
 ### Create NSG rules for VMs which to refrain communication from or to the Internet
-If you would like to refrain Internet traffic from reaching to your VMs, you can create an [NSG rule](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) on the Network Interface of the VMs.
+If you would like to refrain Internet traffic from reaching to your VMs, you can create an [NSG rule](../virtual-network/manage-network-security-group.md) on the Network Interface of the VMs.
 
 ## Common questions
 
@@ -124,10 +124,6 @@ Yes. See [Caveats/Limitations](#caveatslimitations).
 ### Does the Azure PowerShell script also switch over the traffic from my Basic Load Balancer to the newly created Standard Load Balancer?
 
 No. The Azure PowerShell script only migrates the configuration. Actual traffic migration is your responsibility and in your control.
-
-### I ran into some issues with using this script. How can I get help?
-  
-You can send an email to slbupgradesupport@microsoft.com, open a support case with Azure Support, or do both.
 
 ## Next steps
 

@@ -4,8 +4,9 @@ description: This article helps you determine which reservation you should purch
 author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 03/22/2020
+ms.subservice: reservations
+ms.topic: how-to
+ms.date: 05/25/2021
 ms.author: banders
 ---
 
@@ -13,7 +14,7 @@ ms.author: banders
 
 All reservations, except Azure Databricks, are applied on an hourly basis. You should purchase reservations based on consistent base usage. There are multiple ways to determine what to purchase and this article helps you determine which reservation you should purchase.
 
-Purchasing more capacity than your historical usage results in an underutilized reservation. You should avoid underutilization whenever possible. Unused reserved capacity doesn't carry over from one hour to next.  Usage exceeding the reserved quantity is charged using more expensive pay-as-you-go rates.
+Purchasing more capacity than your historical usage results in an underutilized reservation. You should avoid underutilization whenever possible. Unused reserved capacity doesn't carry over from one hour to next. Usage exceeding the reserved quantity is charged using more expensive pay-as-you-go rates.
 
 ## Analyze usage data
 
@@ -33,13 +34,13 @@ To narrow down to eligible VM usage, apply the following filters on your usage d
 
 Ignore resources that have less than 24 hours of usage in a day.
 
-If you want to analyze at the instance size family level, you can get the instance size flexibility values from [https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv). Combine the values with your data to do the analysis. For more information about instance size flexibility, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+If you want to analyze at the instance size family level, you can get the instance size flexibility values from [https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv). Combine the values with your data to do the analysis. For more information about instance size flexibility, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
 
-### Analyze usage for a SQL Database reserved instance purchase
+### Analyze usage for an Azure Synapse Analytics reserved instance purchase
 
-Reserved capacity applies to SQL Databases vCore compute pricing. It doesn't apply to the DTU-based pricing, SQL license cost, or any costs other than compute.
+Reserved capacity applies to Azure Synapse Analytics DWU pricing. It doesn't apply to Azure Synapse Analytics license cost or any costs other than compute.
 
-To narrow eligible SQL usage, apply follow filters on your usage data:
+To narrow eligible usage, apply follow filters on your usage data:
 
 
 - Filter **MeterCategory** for **SQL Database**.
@@ -55,22 +56,22 @@ The data informs you about the consistent usage for:
 - Generation. For example, Gen 5.
 - Resource Location
 
-### Analysis for SQL Data Warehouse
+### Analysis for Azure Synapse Analytics
 
-Reserved capacity applies to SQL Data Warehouse DWU usage and is purchased in increments on 100 DWU. To narrow eligible SQL usage, apply the follow filters on your usage data:
+Reserved capacity applies to Azure Synapse Analytics DWU usage and is purchased in increments on 100 DWU. To narrow eligible  usage, apply the follow filters on your usage data:
 
 - Filter **MeterName** for **100 DWUs**.
 - Filter **Meter Sub-Category** for **Compute Optimized Gen2**.
 
-Use the **Resource Location** field to determine the usage for SQL DW in a region.
+Use the **Resource Location** field to determine the usage for Azure Synapse Analytics in a region.
 
-SQL Data Warehouse usage can scale up and down throughout the day. Talk to the team that managed the SQL Data Warehouse instance to learn about the base usage.
+Azure Synapse Analytics usage can scale up and down throughout the day. Talk to the team that managed the Azure Synapse Analytics instance to learn about the base usage.
 
-Go to Reservations in the Azure portal and purchase SQL Data Warehouse reserved capacity in multiples of 100 DWUs.
+Go to Reservations in the Azure portal and purchase Azure Synapse Analytics reserved capacity in multiples of 100 DWUs.
 
 ## Reservation purchase recommendations
 
-Reservation purchase recommendations are calculated by analyzing your hourly usage data over last 7, 30, and 60 days. Azure calculates what your costs would have been if you had a reservation and compares it with your actual pay-as-you-go costs incurred over the time duration. The calculation is performed for every quantity that you used during the time frame. The quantity that maximizes your savings is recommended. 
+Reservation purchase recommendations are calculated by analyzing your hourly usage data over last 7, 30, and 60 days. Azure calculates what your costs would have been if you had a reservation and compares it with your actual pay-as-you-go costs incurred over the time duration. The calculation is performed for every quantity that you used during the time frame. The quantity that maximizes your savings is recommended.
 
 For example, you might use 500 VMs most of the time, but sometimes usage spikes to 700 VMs. In this example, Azure calculates your savings for both the 500 and 700 VM quantities. Since the 700 VM usage is sporadic, the recommendation calculation determines that savings are maximized for a 500 VM reservation purchase and the recommendation is provided for the 500 quantity.
 
@@ -87,9 +88,11 @@ Reservation purchases calculated by the recommendations engine are shown on the 
 
 ![Image showing recommendations](./media/determine-reservation-purchase/select-product-ri.png)
 
+Learn more about [recommendations](reserved-instance-purchase-recommendations.md#recommendations-in-the-azure-portal).
+
 ## Recommendations in the Cost Management Power BI app
 
-Enterprise Agreement and Microsoft Customer Agreement customers can use the VM RI Coverage reports for VMs and purchase recommendations. The coverage reports show you total usage and the usage that's covered by reserved instances.
+Enterprise Agreement customers can use the VM RI Coverage reports for VMs and purchase recommendations. The coverage reports show you total usage and the usage that's covered by reserved instances.
 
 1. Get the [Cost Management App](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp).
 2. Go to the VM RI Coverage report – Shared or Single scope, depending on which scope you want to purchase at.

@@ -3,7 +3,8 @@ title: Create an Azure Service Fabric cluster
 description: Learn how to set up a secure Service Fabric cluster in Azure using Azure Resource Manager.  You can create a cluster using a default template or using your own cluster template.
 
 ms.topic: conceptual
-ms.date: 08/16/2018
+ms.date: 08/16/2018 
+ms.custom: devx-track-azurepowershell
 ---
 # Create a Service Fabric cluster using Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -28,8 +29,8 @@ In this article, use the Service Fabric RM powershell or Azure CLI modules to de
 * [Azure CLI version 2.0 and above][azure-CLI]
 
 You can find the reference documentation for the Service Fabric modules here:
-* [Az.ServiceFabric](https://docs.microsoft.com/powershell/module/az.servicefabric)
-* [az SF CLI module](https://docs.microsoft.com/cli/azure/sf?view=azure-cli-latest)
+* [Az.ServiceFabric](/powershell/module/az.servicefabric)
+* [az SF CLI module](/cli/azure/sf)
 
 ### Sign in to Azure
 
@@ -51,17 +52,15 @@ Use the following commands to create a cluster secured with a system generated s
 
 ### Use the default cluster template that ships in the module
 
-Use the following command to create a cluster quickly, by specifying minimal parameters, using the default template.
+You can use either the following PowerShell or Azure CLI commands to create a cluster quickly using the default template.
 
-The template that is used is available on the [Azure Service Fabric template samples : windows template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG)
- and [Ubuntu template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
+The default template used is available here for [Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG)
+ and here for [Ubuntu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure).
 
-The following command can create either Windows or Linux clusters, you need to specify the OS accordingly. The PowerShell/CLI commands also output the certificate in the specified *CertificateOutputFolder*; however, make sure certificate folder already created. The command takes in other parameters such as VM SKU as well.
+The following commands can create either Windows or Linux clusters, depending on how specify the OS parameter. Both PowerShell/CLI commands output the certificate in the specified *CertificateOutputFolder* (make sure the certificate folder location you specify already exists before running the command!).
 
 > [!NOTE]
-> The following PowerShell command only works with the Azure PowerShell `Az` module. To check the current version of Azure Resource Manager PowerShell version, run the following PowerShell command "Get-Module Az". Follow [this link](/powershell/azure/install-Az-ps) to upgrade your Azure Resource Manager PowerShell version. 
->
->
+> The following PowerShell command only works with the Azure PowerShell `Az` module. To check the current version of Azure Resource Manager PowerShell version, run the following PowerShell command "Get-Module Az". Follow [this link](/powershell/azure/install-Az-ps) to upgrade your Azure Resource Manager PowerShell version.
 
 Deploy the cluster using PowerShell:
 
@@ -153,13 +152,14 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ## Create a new cluster using your own X.509 certificate
 
-Use the following command to create cluster, if you have a certificate that you want to use to secure your cluster with.
+You can use the following command to specify an existing certificate to create and secure a new cluster with.
 
 If this is a CA signed certificate that you will end up using for other purposes as well, then it is recommended that you provide a distinct resource group specifically for your key vault. We recommend that you put the key vault into its own resource group. This action lets you remove the compute and storage resource groups, including the resource group that contains your Service Fabric cluster, without losing your keys and secrets. **The resource group that contains your key vault *must be in the same region* as the cluster that is using it.**
 
 ### Use the default five node, one node type template that ships in the module
-The template that is used is available on the [Azure samples : Windows template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG)
- and [Ubuntu template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
+
+The default template used is available here for [Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG)
+ and here for [Ubuntu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure).
 
 Deploy the cluster using PowerShell:
 
@@ -281,7 +281,7 @@ At this point, you have a secure cluster running in Azure. Next, [connect to you
 For the JSON syntax and properties to use a template, see [Microsoft.ServiceFabric/clusters template reference](/azure/templates/microsoft.servicefabric/clusters).
 
 <!-- Links -->
-[azure-powershell]:https://docs.microsoft.com/powershell/azure/install-Az-ps
-[azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
+[azure-powershell]:/powershell/azure/install-Az-ps
+[azure-CLI]:/cli/azure/get-started-with-azure-cli
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [customize-your-cluster-template]: service-fabric-cluster-creation-create-template.md

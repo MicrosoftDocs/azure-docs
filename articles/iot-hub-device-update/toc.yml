@@ -1,0 +1,120 @@
+items:
+- name: Device Update for IoT Hub Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Device Update for IoT Hub?
+    href: understand-device-update.md
+- name: Tutorials
+  items:
+  - name: Image update on Raspberry Pi
+    href: device-update-raspberry-pi.md
+  - name: Use device update on a simulator
+    href: device-update-simulator.md
+  - name: Package update on Ubuntu Server 18.04 x64
+    href: device-update-ubuntu-agent.md
+  - name: Device Update for Azure Real-time-operating-system
+    href: device-update-azure-real-time-operating-system.md
+- name: Concepts
+  items:
+  - name: Device update account and instance
+    href: device-update-resources.md
+  - name: Device update user roles and access
+    href: device-update-control-access.md
+  - name: Device update apt manifest
+    href: device-update-apt-manifest.md
+  - name: Device update compliance
+    href: device-update-compliance.md
+  - name: Device update groups
+    href: device-update-groups.md
+  - name: How device update uses Plug and Play
+    href: device-update-plug-and-play.md
+  - name: Device update networking requirements
+    href: device-update-networking.md
+  - name: Device update agent
+    href: device-update-agent-overview.md
+  - name: Device update configuration file
+    href: device-update-configuration-file.md
+  - name: Update manifest
+    href: update-manifest.md
+  - name: How device update is secured
+    href: device-update-security.md
+  - name: Support for disconnected devices
+    href: connected-cache-disconnected-device-update.md
+  - name: Configure Microsoft Connected Cache for Device Update for IoT Hub
+    href: connected-cache-configure.md
+  - name: Device update importing
+    href: import-concepts.md
+  - name: Import-related schema
+    href: import-schema.md
+  - name: Device Update limits
+    href: device-update-limits.md
+
+- name: How-to guides
+  items:
+  - name: Create a device update account
+    href: create-device-update-account.md
+  - name: Provisioning device update agent
+    href: device-update-agent-provisioning.md
+  - name: Import an update
+    href: import-update.md
+  - name: Create a device update group
+    href: create-update-group.md
+  - name: Deploy a device update
+    href: deploy-update.md
+  - name: Single level Microsoft Connected Cache
+    href: connected-cache-single-level.md
+  - name: Nested level Microsoft Connected Cache
+    href: connected-cache-nested-level.md
+  - name: Microsoft Connected Cache for Industrial IoT (IIOT)
+    href: connected-cache-industrial-iot-nested.md
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot device updates
+      href: troubleshoot-device-update.md
+    - name: Device update client error codes
+      href: device-update-error-codes.md
+- name: Reference
+  items:
+  - name: REST API
+    href: /rest/api/deviceupdate/
+  - name: Control Plane SDK
+    items:
+      - name: .NET
+        href: /dotnet/api/overview/azure/iot/management
+      - name: Python
+        href: /python/api/azure-mgmt-deviceupdate/
+  - name: Data Plane SDK
+    items:
+      - name: .NET
+        href: /dotnet/api/azure.iot.deviceupdate?view=azure-dotnet-preview&preserve-view=true
+      - name: JavaScript
+        href: /javascript/api/@azure/iot-device-update/?view=azure-node-preview&preserve-view=true
+      - name: Java
+        href: /java/api/com.azure.iot.deviceupdate?view=azure-java-preview&preserve-view=true
+      - name: Python
+        href: /python/api/azure-mgmt-deviceupdate/azure.mgmt.deviceupdate?view=azure-python-preview&preserve-view=true
+- name: Resources
+  items:
+  - name: Support and help options
+    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-hub-device-update/toc.json&bc=/azure/iot-hub-device-update/breadcrumb/toc.json
+  - name: Azure IoT services
+    items:
+    - name: IoT Hub
+      href: ./index.yml
+    - name: IoT Hub Device Provisioning Service
+      href: ../iot-dps/index.yml
+    - name: IoT Central
+      href: /microsoft-iot-central/
+    - name: IoT Edge
+      href: ../iot-edge/index.yml
+    - name: IoT solution accelerators
+      href: ../iot-accelerators/index.yml
+    - name: IoT Plug and Play
+      href: ../iot-develop/index.yml
+    - name: Azure Maps
+      href: ../azure-maps/index.yml
+    - name: Time Series Insights
+      href: ../time-series-insights/index.yml
+  - name: Delivery Optimization
+    href: https://github.com/microsoft/do-client

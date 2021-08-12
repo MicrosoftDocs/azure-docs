@@ -3,21 +3,23 @@ title: Smooth Streaming Plugin for the Open Source Media Framework
 description: Learn how to use the Azure Media Services Smooth Streaming plugin for the Adobe Open Source Media Framework.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: 6068151f-b6b0-4507-9346-f03416d3d572
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
-
+ms.date: 3/10/2021
+ms.author: inhenkel
+ms.custom: devx-track-csharp
 ---
-# How to Use the Microsoft Smooth Streaming Plugin for the Adobe Open Source Media Framework  
+# How to Use the Microsoft Smooth Streaming Plugin for the Adobe Open Source Media Framework
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## Overview
 The Microsoft Smooth Streaming plugin for Open Source Media Framework 2.0 (SS for OSMF) extends the default capabilities of OSMF and adds Microsoft Smooth Streaming content playback to new and existing OSMF players. The plugin also adds Smooth Streaming playback capabilities to Strobe Media Playback (SMP).
 
@@ -26,7 +28,7 @@ SS for OSMF includes two versions of plugin:
 * Static Smooth Streaming plugin for OSMF (.swc)
 * Dynamic Smooth Streaming plugin for OSMF (.swf)
 
-This document assumes that the reader has a general working knowledge of OSMF and OSMF plug-ins. For more information about OSMF, please see the documentation on the [official OSMF site](http://osmf.org/).
+This document assumes that the reader has a general working knowledge of OSMF and OSMF plug-ins. For more information about OSMF, please see the documentation on the official OSMF site.
 
 ### Smooth Streaming plugin for OSMF 2.0
 The plugin supports loading and playback of on-demand Smooth Streaming content with the following features:
@@ -51,12 +53,12 @@ OSMF plugins can be loaded statically (at compile time) or dynamically (at run-t
 * Static loading: To load statically, a static library (SWC) file is required. Static plugins are added as a reference to the projects and merge inside the final output file at the compile time.
 * Dynamic loading: To load dynamically, a precompiled (SWF) file is required. Dynamic plugins are loaded in the runtime and not included in the project output. (Compiled output) Dynamic plugins can be loaded using HTTP and FILE protocols.
 
-For more information on static and dynamic loading, see the official [OSMF plugin page](http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf).
+For more information on static and dynamic loading, see the official [OSMF plugin page](https://www.ibm.com/support/knowledgecenter/SSLTBW_2.3.0/com.ibm.zos.v2r3.izua300/IZUHPINFO_PluginsPlanning.htm).
 
 ### SS for OSMF Static Loading
-The code snippet below shows how to load the SS plugin for OSMF statically and play a basic video using OSMF MediaFactory class. Before including the SS for OSMF code, please ensure that the project reference includes the "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc" static plugin.
+The code snippet below shows how to load the SS plugin for OSMF statically and play a basic video using OSMF MediaFactory class. Before including the SS for OSMF code, please ensure that the project reference includes the "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc" static plugin. 
 
-```
+```csharp
 package 
 {
 
@@ -192,6 +194,7 @@ package
 ### SS for OSMF Dynamic Loading
 The code snippet below shows how to load the SS plugin for OSMF dynamically and play a basic video using the OSMF MediaFactory class. Before including the SS for OSMF code, copy the "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" dynamic plugin to the project folder if you want to load using FILE protocol, or copy under a web server for HTTP load. There is no need to include "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc" in the project references.
 
+```csharp
 package 
 {
 
@@ -323,64 +326,69 @@ package
 
     }
 }
+```
 
 ## Strobe Media  Playback with the SS ODMF Dynamic Plugin
-The Smooth Streaming for OSMF dynamic plugin is compatible with [Strobe Media Playback (SMP)](http://osmf.org/strobe_mediaplayback.html). You can use the SS for OSMF plugin to add Smooth Streaming content playback to SMP. To do this, copy "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" under a web server for HTTP load using the following steps:
+The Smooth Streaming for OSMF dynamic plugin is compatible with [Strobe Media Playback (SMP)](https://sourceforge.net/adobe/smp/home/Strobe%20Media%20Playback/). You can use the SS for OSMF plugin to add Smooth Streaming content playback to SMP. To do this, copy "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" under a web server for HTTP load using the following steps:
 
-1. Browse the [Strobe Media Playback setup page](http://osmf.org/dev/2.0gm/setup.html). 
+1. Browse the [Strobe Media Playback setup page](http://www.koopman.me/bob3/setup.html). 
 2. Set the src to a Smooth Streaming source, (e.g. http:\//devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest) 
 3. Make the desired configuration changes and click Preview and Update.
    
    **Note** Your content web server needs a valid crossdomain.xml. 
 4. Copy and paste the code to a simple HTML page using your favorite text editor, such as in the following example:
 
-        <html>
-        <body>
-        <object width="920" height="640"> 
-        <param name="movie" value="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf"></param>
-        <param name="flashvars" value="src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest &autoPlay=true"></param>
-        <param name="allowFullScreen" value="true"></param>
-        <param name="allowscriptaccess" value="always"></param>
-        <param name="wmode" value="direct"></param>
-        <embed src="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf" 
-            type="application/x-shockwave-flash" 
-            allowscriptaccess="always" 
-            allowfullscreen="true" 
-            wmode="direct" 
-            width="920" 
-            height="640" 
-            flashvars=" src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest&autoPlay=true">
-        </embed>
-        </object>
-        </body>
-        </html>
-
+    ```html
+    <html>
+    <body>
+    <object width="920" height="640"> 
+    <param name="movie" value="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf"></param>
+    <param name="flashvars" value="src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest &autoPlay=true"></param>
+    <param name="allowFullScreen" value="true"></param>
+    <param name="allowscriptaccess" value="always"></param>
+    <param name="wmode" value="direct"></param>
+    <embed src="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf" 
+        type="application/x-shockwave-flash" 
+        allowscriptaccess="always" 
+        allowfullscreen="true" 
+        wmode="direct" 
+        width="920" 
+        height="640" 
+        flashvars=" src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest&autoPlay=true">
+    </embed>
+    </object>
+    </body>
+    </html>
+    ```
 
 
 1. Add Smooth Streaming OSMF plugin to the embed code and save.
    
-        <html>
-        <object width="920" height="640"> 
-        <param name="movie" value="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf"></param>
-        <param name="flashvars" value="src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest&autoPlay=true&plugin_AdaptiveStreamingPlugin=http://yourdomain/MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf&AdaptiveStreamingPlugin_retryLive=true&AdaptiveStreamingPlugin_retryInterval=10"></param>
-        <param name="allowFullScreen" value="true"></param>
-        <param name="allowscriptaccess" value="always"></param>
-        <param name="wmode" value="direct"></param>
-        <embed src="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf" 
-            type="application/x-shockwave-flash" 
-            allowscriptaccess="always" 
-            allowfullscreen="true" 
-            wmode="direct" 
-            width="920" 
-            height="640" 
-            flashvars="src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest&autoPlay=true&plugin_AdaptiveStreamingPlugin=http://yourdomain/MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf&AdaptiveStreamingPlugin_retryLive=true&AdaptiveStreamingPlugin_retryInterval=10">
-        </embed>
-        </object>
-        </html>
+    ```html
+    <html>
+    <object width="920" height="640"> 
+    <param name="movie" value="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf"></param>
+    <param name="flashvars" value="src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest&autoPlay=true&plugin_AdaptiveStreamingPlugin=http://yourdomain/MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf&AdaptiveStreamingPlugin_retryLive=true&AdaptiveStreamingPlugin_retryInterval=10"></param>
+    <param name="allowFullScreen" value="true"></param>
+    <param name="allowscriptaccess" value="always"></param>
+    <param name="wmode" value="direct"></param>
+    <embed src="http://osmf.org/dev/2.0gm/StrobeMediaPlayback.swf" 
+        type="application/x-shockwave-flash" 
+        allowscriptaccess="always" 
+        allowfullscreen="true" 
+        wmode="direct" 
+        width="920" 
+        height="640" 
+        flashvars="src=http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest&autoPlay=true&plugin_AdaptiveStreamingPlugin=http://yourdomain/MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf&AdaptiveStreamingPlugin_retryLive=true&AdaptiveStreamingPlugin_retryInterval=10">
+    </embed>
+    </object>
+    </html>
+    ```
+
 2. Save your HTML page and publish to a web server. Browse to the published web page using your favorite Flash&reg; Player enabled Internet browser (Internet Explorer, Chrome, Firefox, so on).
 3. Enjoy Smooth Streaming content inside Adobe&reg; Flash&reg; Player.
 
-For more information on general OSMF development, please see the official [OSMF development page](http://osmf.org/resources.html).
+For more information on general OSMF development, please see the official [OSMF development page](https://www.adobe.com/devnet/video/articles1/osmf_overview.html).
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

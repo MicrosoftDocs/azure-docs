@@ -1,42 +1,46 @@
 ---
-title: "Tutorial: Connect SQL on-demand (preview) to Power BI Desktop & create report"
-description: In this tutorial, learn how to connect SQL on-demand (preview) in Azure Synapse Analytics to Power BI desktop and create a demo report based on a view.
+title: 'Tutorial: Connect serverless SQL pool to Power BI Desktop & create report'
+description: In this tutorial, learn how to connect serverless SQL pool in Azure Synapse Analytics to Power BI desktop and create a demo report based on a view.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.subservice:
-ms.date: 04/15/2020
-ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
+ms.subservice: sql
+ms.date: 05/20/2020
+ms.author: stefanazaric
+ms.reviewer: jrasnick 
 ---
 
-# Tutorial: Connect SQL on-demand (preview) to Power BI Desktop & create report
+# Tutorial: Use serverless SQL pool with Power BI Desktop & create a report
 
-In this tutorial, you learn how to:
+In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
 >
 > - Create demo database
 > - Create view used for report
-> - Connect to Power BI Desktop
+> - Connect Power BI Desktop to serverless SQL pool
 > - Create report based on view
 
 ## Prerequisites
 
-To complete this tutorial, you need the following software:
+To complete this tutorial, you need the following prerequisites:
+
+- [Power BI Desktop](https://powerbi.microsoft.com/downloads/) - needed to visualize the data and create a report.
+- [Azure Synapse workspace](../get-started-create-workspace.md) - needed to create database, external data source, and view.
+
+Optional:
 
 - A SQL query tool, such as [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), or [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
-- [Power BI Desktop](https://powerbi.microsoft.com/downloads/).
 
 Values for the following parameters:
 
 | Parameter                                 | Description                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| SQL on-demand service endpoint address    | Used as server name                                   |
-| SQL on-demand service endpoint region     | Used to determine the storage used in the samples |
+| Serverless SQL pool service endpoint address    | Used as server name                                   |
+| Serverless SQL pool service endpoint region     | Used to determine the storage used in the samples |
 | Username and password for endpoint access | Used to access endpoint                               |
-| Database you will use to create views     | The database used as starting point in the samples       |
+| Database you'll use to create views     | The database used as starting point in the samples       |
 
 ## 1 - Create database
 
@@ -46,10 +50,7 @@ Create the demo database (and drop an existing database if necessary) by running
 
 ```sql
 -- Drop database if it exists
-IF EXISTS (SELECT * FROM sys.sysdatabases WHERE name = 'Demo')
-BEGIN
-    DROP DATABASE Demo
-END;
+DROP DATABASE IF EXISTS Demo
 GO
 
 -- Create new database
@@ -57,23 +58,16 @@ CREATE DATABASE [Demo];
 GO
 ```
 
-## 2 - Create credential
+## 2 - Create data source
 
-A credential is necessary for the SQL on-demand service to access files in storage. Create the credential for a storage account that is located in the same region as your endpoint. Although SQL on-demand can access storage accounts from different regions, having the storage and endpoint in the same region provides better performance.
+A data source is necessary for the serverless SQL pool service to access files in storage. Create the data source for a storage account that is located in the same region as your endpoint. Although serverless SQL pool can access storage accounts from different regions, having the storage and endpoint in the same region provides better performance.
 
-Create the credential by running the following Transact-SQL (T-SQL) script:
+Create the data source by running the following Transact-SQL (T-SQL) script:
 
 ```sql
-IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
-DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer];
-GO
-
--- Create credentials for Census Data container which resides in a azure open data storage account
--- There is no secret. We are using public storage account which doesn't need a secret.
-CREATE CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]
-WITH IDENTITY='SHARED ACCESS SIGNATURE',
-SECRET = '';
-GO
+-- There is no credential in data surce. We are using public storage account which doesn't need a secret.
+CREATE EXTERNAL DATA SOURCE AzureOpenData
+WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/')
 ```
 
 ## 3 - Prepare view
@@ -91,7 +85,8 @@ SELECT
     *
 FROM
     OPENROWSET(
-        BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        BULK 'censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        DATA_SOURCE = 'AzureOpenData',
         FORMAT='PARQUET'
     ) AS uspv;
 ```
@@ -125,11 +120,11 @@ Create the report for Power BI Desktop using the following steps:
 
     - Example for AAD 
   
-    ![Click Sign in.](./media/tutorial-connect-power-bi-desktop/step-2.1-select-aad-auth.png)
+        ![Click Sign in.](./media/tutorial-connect-power-bi-desktop/step-2.1-select-aad-auth.png)
 
     - Example for SQL Login - Type your User name and password.
 
-    ![Use SQL login.](./media/tutorial-connect-power-bi-desktop/step-2.2-select-sql-auth.png)
+        ![Use SQL login.](./media/tutorial-connect-power-bi-desktop/step-2.2-select-sql-auth.png)
 
 
 5. Select the view `usPopulationView`, and then select **Load**. 
@@ -158,7 +153,7 @@ Once you're done using this report, delete the resources with the following step
 1. Delete the credential for the storage account
 
    ```sql
-   DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer];
+   DROP EXTERNAL DATA SOURCE AzureOpenData
    ```
 
 2. Delete the view

@@ -3,29 +3,185 @@ title: Azure EA portal administration
 description: This article explains the common tasks that an administrator accomplishes in the Azure EA portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/01/2020
+ms.date: 06/22/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.reviewer: boalcsva
+ms.custom: contperf-fy21q1
 ---
 
 # Azure EA portal administration
 
 This article explains the common tasks that an administrator accomplishes in the Azure EA portal (https://ea.azure.com). The Azure EA portal is an online management portal that helps customers manage the cost of their Azure EA services. For introductory information about the Azure EA portal, see the [Get started with the Azure EA portal](ea-portal-get-started.md) article.
 
-## Add a new enterprise administrator
+## Activate your enrollment
 
-Enterprise administrators have the most privileges when managing an Azure EA enrollment. The initial Azure EA admin was created when the EA agreement was set up. However, you can add or remove new admins at any time. New admins are only added by existing admins. For more information about adding  additional enterprise admins, see [Create another enterprise admin](ea-portal-get-started.md#create-another-enterprise-administrator). For more information about billing profile roles and tasks, see [Billing profile roles and tasks](understand-mca-roles.md#billing-profile-roles-and-tasks).
+To activate your service, the initial enterprise administrator opens the [Azure Enterprise portal](https://ea.azure.com) and signs in using the email address from the invitation email.
 
-## Update user state from pending to active
+If you've been set up as the enterprise administrator, you don't need to receive the activation email. Go to [Azure Enterprise portal](https://ea.azure.com) and sign in with your work, school, or Microsoft account email address and password.
 
-When new Account Owners (AO) are added to an Azure EA enrollment for the first time, their status appears as _pending_. When a new account owner receives the activation welcome email, they can sign in to activate their account. Once they activate their account, the account status is updated from _pending_ to _active_. The account owner needs to read the 'Warning' message and select **Continue**. New users might get prompted enter their first and last name to create a Commerce Account. If so, they must add the required information to continue and then the account is activated.
+If you have more than one enrollment, choose one to activate. By default, only active enrollments are shown. To view enrollment history, clear the **Active** option in the top right of the Azure Enterprise portal.
 
-## Add a department Admin
+Under **Enrollment**, the status shows **Active**.
 
-After an Azure EA admin creates a department, the Azure Enterprise administrator can add department administrators and associate each one to a department. A department administrator can create new accounts. New accounts are needed for Azure EA subscriptions to get created.
+![Example showing an active enrollment](./media/ea-portal-administration/ea-enrollment-status.png)
 
-For more information about adding a department admin, see [Create an Azure EA department admin](ea-portal-get-started.md#add-a-department-administrator).
+Only existing Azure enterprise administrators can create other enterprise administrators.
+
+### Create another enterprise administrator
+
+Use one of the following options, based on your situation.
+
+#### If you're already an enterprise administrator
+
+1. Sign in to the [Azure Enterprise portal](https://ea.azure.com).
+1. Go to **Manage** > **Enrollment Detail**.
+1. Select **+ Add Administrator** at the top right.
+
+Make sure that you have the user's email address and preferred authentication method, such as a work, school, or Microsoft account.
+
+#### If you're not an enterprise administrator
+
+If you're not an enterprise administrator, contact an enterprise administrator to request that they add you to an enrollment. The enterprise administrator uses the preceding steps to add you as an enterprise administrator. After you're added to an enrollment, you receive an activation email.
+
+#### If your enterprise administrator can't help you
+
+If your enterprise administrator can't assist you, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Provide the following information:
+
+- Enrollment number
+- Email address to add, and authentication type (work, school, or Microsoft account)
+- Email approval from an existing enterprise administrator
+  - If the existing enterprise administrator isn't available, contact your partner or software advisor to request that they change the contact details through the Volume Licensing Service Center (VLSC) tool.
+
+## Create an Azure Enterprise department
+
+Enterprise administrators and department administrators use departments to organize and report on enterprise Azure services and usage by department and cost center. The enterprise administrator can:
+
+- Add or remove departments.
+- Associate an account to a department.
+- Create department administrators.
+- Allow department administrators to view price and costs.
+
+A department administrator can add new accounts to their departments. They can remove accounts from their departments, but not from the enrollment.
+
+To add a department:
+
+1. Sign in to the Azure Enterprise portal.
+1. In the left pane, select **Manage**.
+1. Select the **Department** tab, then select **+ Add Department**.
+1. Enter the information.
+   The department name is the only required field. It must be at least three characters.
+1. When complete, select **Add**.
+
+## Add a department administrator
+
+After a department is created, the enterprise administrator can add department administrators and associate each one to a department. Department administrators can perform the following actions for their departments:
+
+- Create other department administrators
+- View and edit department properties such as name or cost center
+- Add accounts
+- Remove accounts
+- Download usage details
+- View the monthly usage and charges <sup>1</sup>
+
+> <sup>1</sup> An enterprise administrator must grant these permissions. If you were given permission to view department monthly usage and charges, but can't see them, contact your partner.
+
+### To add a department administrator
+
+As an enterprise administrator:
+
+1. Sign in to the Azure Enterprise portal.
+1. In the left pane, select **Manage**.
+1. Select the **Department** tab and then select the department.
+1. Select **+ Add Administrator** and add the required information.
+1. For read-only access, set the **Read-Only** option to **Yes** and then select **Add**.
+
+![Example showing the Add Department Administrator dialog box](./media/ea-portal-administration/ea-create-add-department-admin.png)
+
+### To set read-only access
+
+You can grant read-only access to department administrators.
+
+- When you create a new department administrator, set the read-only option to **Yes**.
+
+- To edit an existing department administrator:
+   1. Select a department, and then select the pencil symbol next to the **Department Administrator** that you want to edit.
+   1. Set the read-only open to **Yes**, and then select **Save**.
+
+Enterprise administrators automatically get department administrator permissions.
+
+## Add an account
+
+The structure of accounts and subscriptions impact how they're administered and how they appear on your invoices and reports. Examples of typical organizational structures include business divisions, functional teams, and geographic locations.
+
+To add an account:
+
+1. In the Azure Enterprise portal, select **Manage** in the left navigation area.
+1. Select the **Account** tab. On the **Account** page, select **+Add Account**.
+1. Select a department, or leave it as unassigned, and then select the desired authentication type.
+1. Enter a friendly name to identify the account in reporting.
+1. Enter the **Account Owner Email** address to associate with the new account.
+1. Confirm the email address and then select **Add**.
+
+![Example showing the list of accounts and the +Add Account option](./media/ea-portal-administration/create-ea-add-an-account.png)
+
+To add another account, select **Add Another Account**, or select **Add** at the bottom-right corner of the left toolbar.
+
+To confirm account ownership:
+
+1. Sign in to the Azure Enterprise portal.
+1. View the status.
+
+   The status should change from **Pending** to **Start/End date**. The Start/End date is the date the user first signed in and the agreement end date.
+1. When the **Warning** message pops up, the account owner needs to select **Continue** to activate the account the first time they sign in to the Azure Enterprise portal.
+
+## Change Azure subscription or account ownership
+
+This section only applies when a subscription owner is being changed. Changing a subscription ownership does not require an Azure support ticket. Enterprise administrators can use the Azure Enterprise portal to transfer account ownership of selected or all subscriptions in an enrollment. They also have the option to change the subscription directory (tenant). 
+
+However, an EA admin can't transfer an account from one enrollment to another enrollment. To transfer an account from one enrollment to another, a support request is required. For information about transferring an account from one enrollment to another enrollment, see [Transfer an enterprise account to a new enrollment](ea-transfers.md#transfer-an-enterprise-account-to-a-new-enrollment).
+
+When you complete a subscription or account ownership transfer, Microsoft updates the account owner.
+
+Before performing the ownership transfer, understand these Azure role-based access control (Azure RBAC) policies:
+
+- When performing subscription or account ownership transfers between two organizational IDs within the same tenant, Azure RBAC policies, existing service administrator, and co-administrator roles are preserved.
+- Cross-tenant subscription or account ownership transfers result in losing your Azure RBAC policies and role assignments.
+- Policies and administrator roles don't transfer across different directories. Service administrators are updated to the owner of destination account.
+- To avoid loss of Azure RBAC policies and role assignments when transferring subscription between tenants, ensure that the **Move the subscriptions to the recipient’s Azure AD tenant** checkbox remains **unchecked**. This will retain the services, Azure roles, and policies on the current Azure AD tenant and only transfer the billing ownership for the account.  
+    :::image type="content" source="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Image showing unselected checkbox for moving subscriptions to Azure AD tenant" lightbox="./media/ea-portal-administration/unselected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
+
+
+Before changing an account owner:
+
+1. In the Azure Enterprise portal, view the **Account** tab and identify the source account. The source account must be active.
+1. Identify the destination account and make sure it's active.
+
+To transfer account ownership for all subscriptions:
+
+1. Sign in to the Azure Enterprise portal.
+1. In the left navigation area, select **Manage**.
+1. Select the **Account** tab and hover over an account.
+1. Select the change account owner icon on the right. The icon resembles a person.  
+    ![Image showing the Change Account Owner symbol](./media/ea-portal-administration/create-ea-create-sub-transfer-account-ownership-of-sub.png)
+1. Choose the destination account to transfer to and then select **Next**.
+1. If you want to transfer the account ownership across Azure AD tenants, select the **Move the subscriptions to the recipient's Azure AD tenant** checkbox.  
+    :::image type="content" source="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Image showing selected checkbox for moving subscriptions to Azure AD tenant" lightbox="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
+1. Confirm the transfer and select **Submit**.
+
+To transfer account ownership for a single subscription:
+
+1. Sign in to the Azure Enterprise portal.
+1. In the left navigation area, select **Manage**.
+1. Select the **Account** tab and hover over an account.
+1. Select the transfer subscriptions icon on the right. The icon resembles a page.  
+    ![Image showing the Transfer Subscriptions symbol](./media/ea-portal-administration/ea-transfer-subscriptions.png)
+1. Choose the destination account to transfer the subscription and then select **Next**.
+1. If you want to transfer the subscription ownership across Azure AD tenants, select the **Move the subscriptions to the recipient's Azure AD tenant** checkbox.  
+    :::image type="content" source="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" alt-text="Image showing selected checkbox for moving subscriptions to Azure AD tenant" lightbox="./media/ea-portal-administration/selected-checkbox-move-subscriptions-to-recipients-tenant.png" :::
+1. Confirm the transfer and then select **Submit**.
+
 
 ## Associate an account to a department
 
@@ -40,9 +196,59 @@ Enterprise Administrators can associate existing accounts to Departments under t
 1. Select the department from the drop-down menu.
 1. Select **Save**.
 
+## Associate an existing account with your Pay-As-You-Go subscription
+
+If you already have an existing Microsoft Azure account on the Azure portal, enter the associated school, work, or Microsoft account in order to associate it with your Enterprise Agreement enrollment.
+
+### Associate an existing account
+
+1. In the Azure Enterprise portal, select **Manage**.
+1. Select the **Account** tab.
+1. Select **+Add an account**.
+1. Enter the work, school, or Microsoft account associated with the existing Azure account.
+1. Confirm the account associated with the existing Azure account.
+1. Provide a name you would like to use to identify this account in reporting.
+1. Select **Add**.
+1. To add an additional account, you can select the **+Add an Account** option again or return to the homepage by selecting the **Admin** button.
+1. If you view the **Account** page, the newly added account will appear in a **Pending** status.
+
+### Confirm account ownership
+
+1. Sign into the email account associated with the work, school, or Microsoft account you provided.
+1. Open the email notification titled _"Invitation to Activate your Account on the Microsoft Azure Service from Microsoft Volume Licensing"_.
+1. Select the **Log into the Microsoft Azure Enterprise Portal** link in the invitation.
+1. Select **Sign in**.
+1. Enter your work, school, or Microsoft account and password to sign in and confirm account ownership.
+
+### Azure Marketplace
+
+Although most subscriptions can convert from the Pay-as-You-Go environment to Azure Enterprise Agreement, Azure Marketplace services do not. In order to have a single view of all subscriptions and charges, we recommend you add the Azure Marketplace services to the Azure Enterprise portal.
+
+1. Sign in to the Azure Enterprise portal.
+1. Select **Manage** on the left navigation.
+1. Select the **EnrollmentTab**.
+1. View the **Enrollment Detail** section.
+1. To the right of the Azure Marketplace field, select the pencil icon to enable it. Select **Save**.
+
+The account owner can now purchase any Azure Marketplace services that were previously owned in the Pay-As-You-Go subscription.
+
+After the new Azure Marketplace subscriptions are activated under your Azure EA enrollment, cancel the Azure Marketplace services that were created in the Pay-As-You-Go environment. This step is critical so that your Azure Marketplace subscriptions do not fall into a bad state when your Pay-As-You-Go payment instrument expires.
+
+### MSDN
+
+MSDN subscriptions are automatically converted to MSDN Dev/Test and the Azure EA offer will lose any existing monetary credit.
+
+### Azure in Open
+
+If you associate an Azure in Open subscription with an Enterprise Agreement, you forfeit any unconsumed Azure in Open credits. Thus, we recommended that you consume all credit on an Azure in Open subscription before you add the account to your Enterprise Agreement.  
+
+### Accounts with support subscriptions
+
+If your Enterprise Agreement doesn't have a support subscription and you add an existing account with a support subscription to the Azure Enterprise portal, your MOSA support subscription won't automatically transfer. You'll need to repurchase a support subscription in Azure EA during the grace period - by the end of the subsequent month.
+
 ## Department spending quotas
 
-EA customers can set or change spending quotas for each department under an enrollment. The spending quota amount is set for the current commitment term. At the end of the current commitment term, the system will extend the existing spending quota to the next commitment term unless the values are updated.
+EA customers can set or change spending quotas for each department under an enrollment. The spending quota amount is set for the current Prepayment term. At the end of the current Prepayment term, the system will extend the existing spending quota to the next Prepayment term unless the values are updated.
 
 The department administrator can view the spending quota but only the enterprise administrator can update the quota amount. The enterprise administrator and the department administrator and will receive notifications once quota has reached 50%, 75%, 90%, and 100%.
 
@@ -57,9 +263,9 @@ The department administrator can view the spending quota but only the enterprise
     - The Department Name and Cost Center can also be edited at this time.
  1. Select **Save**.
 
-The department spending quota will now be visible in the Department List view under the Department tab. At the end of the current commitment, the Azure EA Portal will maintain the spending quotas for the next commitment term.
+The department spending quota will now be visible in the Department List view under the Department tab. At the end of the current Prepayment, the Azure EA Portal will maintain the spending quotas for the next Prepayment term.
 
-The department quota amount is independent of the current monetary commitment, and the quota amount and alerts apply only to first party usage. The department spending quota is for informational purposes only and doesn't enforce spending limits.
+The department quota amount is independent of the current Azure Prepayment, and the quota amount and alerts apply only to first party usage. The department spending quota is for informational purposes only and doesn't enforce spending limits.
 
 ### Department administrator to view the quota:
 
@@ -79,13 +285,13 @@ The Azure EA portal helps you to administer your Azure EA costs and usage. There
 
 Each role has a different level of access and authority.
 
-For more information about user roles, see [Enterprise user roles](https://docs.microsoft.com/azure/billing/billing-ea-portal-get-started#enterprise-user-roles).
+For more information about user roles, see [Enterprise user roles](./understand-ea-roles.md#enterprise-user-roles).
 
 ## Add an Azure EA account
 
 The Azure EA account is an organizational unit in the Azure EA portal. It's used to administer subscriptions and it's also used for reporting. To access and use Azure services, you need to create an account or have one created for you.
 
-For more information about Azure accounts, see Add an account.
+For more information about Azure accounts, see [Add an account](#add-an-account).
 
 ## Enterprise Dev/Test Offer
 
@@ -109,107 +315,43 @@ When a user is added as an account owner through the Azure EA Portal, any Azure 
 
 The Dev/Test Offer isn't applicable to Azure Gov customers at this time.
 
-## Transfer an enterprise account to a new enrollment
+## Create a subscription
 
-An account transfer moves an account owner from one enrollment to another. All related subscriptions under the account owner will move to the target enrollment. Use an account transfer when you have multiple active enrollments and only want to move selected account owners.
+Account owners can view and manage subscriptions. You can use subscriptions to give teams in your organization access to development environments and projects. For example: test, production, development, and staging.
 
-This section is for informational purposes only as the action cannot be performed by an enterprise administrator. A support request is needed to transfer an enterprise account to a new enrollment.
+When you create different subscriptions for each application environment, you help secure each environment.
 
-Keep the following points in mind when you transfer an enterprise account to a new enrollment:
+- You can also assign a different service administrator account for each subscription.
+- You can associate subscriptions with any number of services.
+- The account owner creates subscriptions and assigns a service administrator account to each subscription in their account.
 
-- Only the accounts specified in the request are transferred. If all accounts are chosen, then they're all transferred.
-- The source enrollment keeps its status as active or extended. You can continue using the enrollment until it expires.
+### Add a subscription
 
-### Prerequisites
+Use the following information to add a subscription.
 
-When you request an account transfer, provide the following information:
+The first time you add a subscription to your account, you're asked to accept the Microsoft Online Subscription Agreement (MOSA) and a rate plan. Although they aren't applicable to Enterprise Agreement customers, the MOSA and the rate plan are required to create your subscription. Your Microsoft Azure Enterprise Agreement Enrollment Amendment supersedes the above items and your contractual relationship doesn't change. When prompted, select the box that indicates you accept the terms.
 
-- The number of the target enrollment, account name, and account owner email of account to transfer
-- For the source enrollment, the enrollment number and account to transfer
+_Microsoft Azure Enterprise_ is the default name when a subscription is created. You can change the name to differentiate it from the other subscriptions in your enrollment, and to ensure that it's recognizable in reports at the enterprise level.
 
-Other points to keep in mind before an account transfer:
+To add a subscription:
 
-- Approval from an EA Administrator is required for the target and source enrollment
-- If an account transfer doesn't meet your requirements, consider an enrollment transfer.
-- The account transfer transfers all services and subscriptions related to the specific accounts.
-- After the transfer is complete, the transferred account appears inactive under the source enrollment and appears active under the target enrollment.
-- The account shows the end date corresponding to the effective transfer date on the source enrollment and as a start date on the target enrollment.
-- Any usage occurred for the account before the effective transfer date remains under the source enrollment.
+1. In the Azure Enterprise portal, sign in to the account.
+1. Select the **Admin** tab and then select **Subscription** at the top of the page.
+1. Verify that you're signed in as the account owner of the account.
+1. Select **+Add Subscription** and then select **Purchase**.
 
+   The first time you add a subscription to an account, you must provide your contact information. When you add additional subscriptions, your contact information is added for you.
 
-## Transfer enterprise enrollment to a new one
+1. Select **Subscriptions** and then select the subscription you created.
+1. Select **Edit Subscription Details**.
+1. Edit the **Subscription Name** and the **Service Administrator** and then select the check mark.
 
-An enrollment transfer is considered when:
+   The subscription name appears on reports. It's the name of the project associated with the subscription in the development portal.
 
-- A current enrollment's commitment term has come to an end.
-- An enrollment is in expired/extended status and a new agreement is negotiated.
-- You have multiple enrollments and want to combine all the accounts and billing under a single enrollment.
+New subscriptions can take up to 24 hours to appear in the subscriptions list. After you've created a subscription, you can:
 
-This section is for informational purposes only as the action cannot be performed by an enterprise administrator. A support request is needed to transfer an enterprise enrollment to a new one.
-
-When you request to transfer an entire enterprise enrollment to an enrollment, the following actions occur:
-
-- All Azure services, subscriptions, accounts, departments, and the entire enrollment structure, including all EA department administrators, transfer to a new target enrollment.
-- The enrollment status is set to _Transferred_. The transferred enrollment is available for historic usage reporting purposes only.
-- You can't add roles or subscriptions to a transferred enrollment. Transferred status prevents additional usage against the enrollment.
-- Any remaining monetary commitment balance in the agreement is lost, including future terms.
--    If the enrollment you're transferring from has RI purchases, the RI purchasing fee will remain in the source enrollment however all RI benefits will be transferred across for utilization in the new enrollment.
--    The marketplace one-time purchase fee and any monthly fixed fees already incurred on the old enrollment will not be transferred to the new enrollment. Consumption-based marketplace charges will be transferred.
-
-### Effective transfer date
-
-The effective transfer day can be on or after the start date of the target enrollment.
-
-The source enrollment usage is charged against monetary commitment or as overage. Usage that occurs after the effective transfer date is transferred to the new enrollment and charged accordingly.
-
-### Prerequisites
-
-When you request an enrollment transfer, provide the following information:
-
-- For the source enrollment, the enrollment number.
-- For the target enrollment, the enrollment number to transfer to.
-- For the enrollment transfer effective date, it can be a date on or after the start date of the target enrollment. The chosen date can't impact usage for any overage invoice already issued.
-
-Other points to keep in mind before an enrollment transfer:
-
-- Approval from both target and source enrollment EA Administrators is required.
-- If an enrollment transfer doesn't meet your requirements, consider an account transfer.
-- The source enrollment status will be updated to transferred and will only be available for historic usage reporting purposes.
-
-### Monetary commitment
-
-Monetary commitment isn't transferrable between enrollments. Monetary commitment balances are tied contractually to the enrollment where it was ordered. Monetary commitment isn't transferred as part of the account or enrollment transfer process.
-
-### No services affected for account and enrollment transfers
-
-There's no downtime during an account or enrollment transfer. It can be completed on the same day of your request if all requisite information is provided.
-
-## Change account owner
-
-The Azure EA portal can transfer subscriptions from one account owner to another. For more information, see [Change account owner](ea-portal-get-started.md#change-account-owner).
-
-## Subscription transfer effects
-
-When an Azure subscription is transferred to an account in the same Azure Active Directory tenant, then all users, groups, and service principals that had [role-based access control (RBAC)](../../role-based-access-control/overview.md) to manage resources keep their access.
-
-To view users with RBAC access to the subscription:
-
-1. In the Azure portal, open **Subscriptions**.
-2. Select the subscription you want to view, and then select **Access control (IAM)**.
-3. Select **Role assignments**. The role assignments page lists all users who have RBAC access to the subscription.
-
-If the subscription is transferred to an account in a different Azure AD tenant, then all users, groups, and service principals that had [RBAC](../../role-based-access-control/overview.md) to manage resources _lose_ their access. Although RBAC access isn't present, access to the subscription might be available through security mechanisms, including:
-
-- Management certificates that grant the user admin rights to subscription resources. For more information, see [Create and Upload a Management Certificate for Azure](../../cloud-services/cloud-services-certs-create.md).
-- Access keys for services like Storage. For more information, see [Azure storage account overview](../../storage/common/storage-account-overview.md).
-- Remote Access credentials for services like Azure Virtual Machines.
-
-If the recipient needs to restrict,  access to their Azure resources, they should consider updating any secrets associated with the service. Most resources can be updated by using the following steps:
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. On the Hub menu, select **All resources**.
-3. Select the resource.
-4. On the resource page, select **Settings** to view and update existing secrets.
+- [Edit subscription details](https://portal.azure.com)
+- [Manage subscription services](https://portal.azure.com/#home)
 
 ## Delete subscription
 
@@ -222,7 +364,7 @@ To delete a subscription where you're the account owner:
 
 Only account administrators can cancel subscriptions.
 
-For more information, see [What happens after I cancel my subscription?](cancel-azure-subscription.md#what-happens-after-i-cancel-my-subscription).
+For more information, see [What happens after I cancel my subscription?](cancel-azure-subscription.md#what-happens-after-subscription-cancellation).
 
 ## Delete an account
 
@@ -256,60 +398,6 @@ The new notification contact is displayed in the **Notification Contact** sectio
 
 You can suppress _approaching coverage period end date_ and _disable and de-provision date approaching_ lifecycle notifications. Disabling lifecycle notifications suppresses notifications about the coverage period and agreement end date.
 
-## Manage partner administrators
-
-Each partner administrator within the Azure EA Portal has the ability to add or remove other partner administrators. Partner administrators are associated to the partner organizations of indirect enrollments and aren't associated directly to the enrollments.
-
-### Add a partner administrator
-
-To view a list of all enrollments that are associated to the same partner organization as the current user, select the **Enrollment** tab and select a desired enrollment box.
-
-1. Sign in as a partner administrator.
-1. Select **Manage** on the left navigation.
-1. Select the **Partner** tab.
-1. Select **+ Add Administrator** and fill in the email address, notification contact, and notification details.
-1. Select **Add**.
-
-### Remove a partner administrator
-
-To view a list of all enrollments that are associated to the same partner organization as the current user, select the **Enrollment** tab and select a desired enrollment box.
-
-1. Sign in as a partner administrator.
-1. Select **Manage** on the left navigation.
-1. Select the **Partner** tab.
-1. Under the Administrator section, select the appropriate row for the administrator you wish to remove.
-1. Select the X symbol on the right.
-1. Confirm that you want to delete.
-
-## Manage partner notifications
-
-Partner Administrators can manage the frequency that they receive usage notifications for their enrollments. They automatically receive weekly notifications of their unbilled balance. They can change the frequency of individual notifications to monthly, weekly, daily, or turn them off completely.
-
-If a notification isn't received by a user, verify that the user's notification settings are correct with the following steps.
-
-1. Sign in to the Azure EA portal as a Partner Administrator.
-2. Select **Manage** and then select the **Partner** tab.
-3. View the list of administrators under the Administrator section.
-4. To edit notification preferences, hover over the appropriate administrator and select the pencil symbol.
-5. Increase the notification frequency and lifecycle notifications as needed.
-6. Add a contact if needed and select **Add**.
-7. Select **Save**.
-
-![Example showing Add Contact box ](./media/ea-portal-administration/create-ea-manage-partner-notification.png)
-
-## View enrollments for partner administrators
-
-Partner administrators can see a list view of all their direct and indirect enrollments in the Azure EA Portal. Boxes containing an overview of every enrollment will be displayed with the enrollment number, enrollment name, balance, and overage amounts.
-
-### View a List of Enrollments
-
-1. Sign in as a partner administrator.
-1. Select **Manage** on the navigation on the left side of the page.
-1. Select the **Enrollment** tab.
-1. Select the box for the enrollment.
-
-A view of all enrollments remains at the top of the page, with boxes for each enrollment. Additionally, you can navigate between enrollments by selecting the current enrollment number on the navigation on the left side of the page. A pop out will appear allowing you to search enrollments or select a different enrollment by selecting the appropriate box.
-
 ## Azure sponsorship offer
 
 The Azure sponsorship offer is a limited sponsored Microsoft Azure account. It's available by e-mail invitation only to limited customers selected by Microsoft. If you're entitled to the Microsoft Azure sponsorship offer, you'll receive an e-mail invitation to your account ID.
@@ -318,7 +406,7 @@ For more information, create a [support request for sponsorship activation](http
 
 ## Conversion to work or school account authentication
 
-Azure Enterprise users can convert from a Microsoft Account (MSA or Live ID) to a Work or School Account (which uses Active Directory in Azure) authentication type.
+Azure Enterprise users can convert from a Microsoft Account (MSA or Live ID) to a Work or School Account (which uses Azure Active Directory) authentication type.
 
 To begin:
 
@@ -333,39 +421,45 @@ To begin:
 1. Now the Microsoft account should be free from any active subscriptions and can be deleted.
 1. Any deleted account will remain in view in the portal in an inactive status for historic billing reasons.  You can filter it out of the view by selecting a check box to show only active accounts.
 
-## Account subscription ownership FAQ
+## Azure EA term glossary
 
-This document answers commonly asked questions relating to account subscription ownership.
+- **Account**: An organizational unit on the Azure Enterprise portal. It is used to administer subscriptions and for reporting.
+- **Account owner**: The person who manages subscriptions and service administrators on Azure. They can view usage data on this account and its associated subscriptions.
+- **Amendment subscription**: A one-year, or coterminous subscription under the enrollment amendment.
+- **Prepayment**: Prepayment of an annual monetary amount for Azure services at a discounted Prepayment rate for usage against this prepayment.
+- **Department administrator**: The person who manages departments, creates new accounts and account owners, views usage details for the departments they manage, and can view costs when granted permissions.
+- **Enrollment number**: A unique identifier supplied by Microsoft to identify the specific enrollment associated with an Enterprise Agreement.
+- **Enterprise administrator**: The person who manages departments, department owners, accounts, and account owners on Azure. They have the ability to manage enterprise administrators as well as view usage data, billed quantities, and unbilled charges across all accounts and subscriptions associated with the enterprise enrollment.
+- **Enterprise agreement**: A Microsoft licensing agreement for customers with centralized purchasing who want to standardize their entire organization on Microsoft technology and maintain an information technology infrastructure on a standard of Microsoft software.
+- **Enterprise agreement enrollment**: An enrollment in the Enterprise Agreement program providing Microsoft products in volume at discounted rates.
+- **Microsoft account**: A web-based service that enables participating sites to authenticate a user with a single set of credentials.
+- **Microsoft Azure Enterprise Enrollment Amendment (enrollment amendment)**: An amendment signed by an enterprise, which provides them access to Azure as part of their enterprise enrollment.
+- **Azure Enterprise portal**: The portal used by our enterprise customers to manage their Azure accounts and their related subscriptions.
+- **Resource quantity consumed**: The quantity of an individual Azure service that was used in a month.
+- **Service administrator**: The person who accesses and manages subscriptions and development projects on the Azure Enterprise portal.
+- **Subscription**: Represents an Azure Enterprise portal subscription and is a container of Azure services managed by the same service administrator.
+- **Work or school account**: For organizations that have set up Azure Active Directory with federation to the cloud and all accounts are on a single tenant.
 
-### How many Azure account owners can you have per subscription?
+### Enrollment statuses
 
-Only one account owner is permitted per subscription.  Additional roles can be added using Role-Based Access or (Access Control (IAM)) in the subscription tab in the upper left corner of the page on [portal.azure.com]](https://portal.azure.com).
+- **New**: This status is assigned to an enrollment that was created within 24 hours and will be updated to a Pending status within 24 hours.
+- **Pending**: The enrollment administrator needs to sign in to the Azure Enterprise portal. Once signed in, the enrollment will switch to an Active status.
+- **Active**: The enrollment is Active and accounts and subscriptions can be created in the Azure Enterprise portal. The enrollment will remain active until the Enterprise Agreement end date.
+- **Indefinite extended term**: An indefinite extended term takes place after the Enterprise Agreement end date has passed. It enables Azure EA customers who are opted in to the extended term to continue to use Azure services indefinitely at the end of their Enterprise Agreement.
 
-### Can an Azure account owner be listed under more than one department?
+   Before the Azure EA enrollment reaches the Enterprise Agreement end date, the enrollment administrator should decide which of the following options to take:
 
-No, an account owner can only be associated to a single department. The policy helps ensure accurate monitoring and apportioning of costs and spending associated to the department it's aligned with under the EA enrollment in the Azure EA Portal.
-
-### Can an Azure account owner be listed as a security group?
-
-No, a subscription owner must be a unique Microsoft account (MSA) or Azure active directory (AAD) authentication. To account for succession within your organization, you may consider creating generic accounts and using AAD to manage subscription access.
-
-### Can an individual user own multiple subscriptions?
-
-An Azure account owner can create and manage an unlimited number of subscriptions.
-
-### How can I access/view all my organization's subscriptions?
-
-Today this must be done by policy; meaning you would need to require that for every subscription created, your account is added to a subscription role using role-based access.
-
-### Where do I go to create a subscription?
-
-Before you can create an enterprise Azure (EA) offer subscription, your account must be added to the role of account owner by your EA enrollment's administrator in the Azure EA Portal. You'll then need to sign in to the Azure EA Portal to obtain your entitlement to create EA offer type subscriptions. We recommend that your first EA subscription is created from the '+ Add Subscription' link in the subscription tab on the EA Portal.  However, once your account is entitled it may be easier to create subscriptions in portal.azure.com in the subscription tab in the upper left corner of the page, where you can both create and rename your subscription in a single step.
-
-### Who can create a subscription?
-
-To create an enterprise Azure offer type subscription, you must be entitled in the role of account owner on the [EA portal](https://ea.azure.com).
+  - Renew the enrollment by adding additional Azure Prepayment.
+  - Transfer to a new enrollment.
+  - Migrate to the Microsoft Online Subscription Program (MOSP).
+  - Confirm disablement of all services associated with the enrollment.
+- **Expired**: The Azure EA customer is opted out of the extended term, and the Azure EA enrollment has reached the Enterprise Agreement end date. The enrollment will expire, and all associated services will be disabled.
+- **Transferred**: Enrollments where all associated accounts and services have been transferred to a new enrollment appear with a transferred status.
+  >[!NOTE]
+  > Enrollments don't automatically transfer if a new enrollment number is generated at renewal. You must include your prior enrollment number in your renewal paperwork to facilitate an automatic transfer.
 
 ## Next steps
 
 - Read about how [virtual machine reservations](ea-portal-vm-reservations.md) can help save you money.
 - If you need help with troubleshooting Azure EA portal issues, see [Troubleshoot Azure EA portal access](ea-portal-troubleshoot.md).
+- Read the [Cost Management + Billing FAQ](../cost-management-billing-faq.yml) for questions about EA subscription ownership.

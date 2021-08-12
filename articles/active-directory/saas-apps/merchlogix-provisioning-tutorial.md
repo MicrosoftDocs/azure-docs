@@ -2,21 +2,15 @@
 title: 'Tutorial: Configure MerchLogix for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to MerchLogix.
 services: active-directory
-documentationcenter: ''
 author: zhchia
 writer: zhchia
-manager: beatrizd-msft
-
-ms.assetid: 9df4c7c5-9a58-478e-93b7-2f77aae12807
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
-ms.author: zhchia
-ms.collection: M365-identity-device-management
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure MerchLogix for automatic user provisioning
@@ -56,7 +50,7 @@ Before configuring MerchLogix for automatic user provisioning with Azure AD, you
 
 5. In the results panel, select **MerchLogix**, and then click the **Add** button to add MerchLogix to your list of SaaS applications.
 
-	![MerchLogix Provisioning][4]
+	![Screenshot of the Add from the galley section with the Enter a name text box called out.][4]
 
 ## Assigning users to MerchLogix
 
@@ -89,7 +83,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![MerchLogix Provisioning](./media/merchlogix-provisioning-tutorial/Merchlogix1.png)
+	![Screenshot of the MerchLogix - Prisioning section with the Provisioning option called out, the Provisioning Mode set to Automatic, and the Test Connection option called out.](./media/merchlogix-provisioning-tutorial/Merchlogix1.png)
 
 5. Under the **Admin Credentials** section:
 

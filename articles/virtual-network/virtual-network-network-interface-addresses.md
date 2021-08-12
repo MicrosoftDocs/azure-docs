@@ -3,19 +3,20 @@ title: Configure IP addresses for an Azure network interface | Microsoft Docs
 description: Learn how to add, change, and remove private and public IP addresses for a network interface.
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: asudbring
+manager: KumudD
 editor: ''
 tags: azure-resource-manager
 
 ms.assetid:
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
-ms.author: kumud
+ms.author: allensu
 ---
 
 # Add, change, or remove IP addresses for an Azure network interface
@@ -164,7 +165,7 @@ Public and private IP addresses are assigned using one of the following assignme
 Dynamic private IPv4 and IPv6 (optionally) addresses are assigned by default.
 
 - **Public only**: Azure assigns the address from a range unique to each Azure region. To learn which ranges are assigned to each region, see [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653). The address can change when a virtual machine is stopped (deallocated), then started again. You cannot assign a public IPv6 address to an IP configuration using either assignment method.
-- **Private only**: Azure reserves the first four addresses in each subnet address range, and doesn't assign the addresses. Azure assigns the next available address to a resource from the subnet address range. For example, if the subnet's address range is 10.0.0.0/16, and addresses 10.0.0.0.4-10.0.0.14 are already assigned (.0-.3 are reserved), Azure assigns 10.0.0.15 to the resource. Dynamic is the default allocation method. Once assigned, dynamic IP addresses are only released if a network interface is deleted, assigned to a different subnet within the same virtual network, or the allocation method is changed to static, and a different IP address is specified. By default, Azure assigns the previous dynamically assigned address as the static address when you change the allocation method from dynamic to static. 
+- **Private only**: Azure reserves the first four addresses in each subnet address range, and doesn't assign the addresses. Azure assigns the next available address to a resource from the subnet address range. For example, if the subnet's address range is 10.0.0.0/16, and addresses 10.0.0.4-10.0.0.14 are already assigned (.0-.3 are reserved), Azure assigns 10.0.0.15 to the resource. Dynamic is the default allocation method. Once assigned, dynamic IP addresses are only released if a network interface is deleted, assigned to a different subnet within the same virtual network, or the allocation method is changed to static, and a different IP address is specified. By default, Azure assigns the previous dynamically assigned address as the static address when you change the allocation method from dynamic to static. 
 
 ### Static
 
@@ -188,14 +189,12 @@ You can assign zero or one private [IPv6](#ipv6) address to one secondary IP con
 > [!NOTE]
 > Though you can create a network interface with an IPv6 address using the portal, you can't add an existing network interface to a new, or existing virtual machine, using the portal. Use PowerShell or the Azure CLI to create a network interface with a private IPv6 address, then attach the network interface when creating a virtual machine. You cannot attach a network interface with a private IPv6 address assigned to it to an existing virtual machine. You cannot add a private IPv6 address to an IP configuration for any network interface attached to a virtual machine using any tools (portal, CLI, or PowerShell).
 
-You can't assign a public IPv6 address to a primary or secondary IP configuration.
-
 ## SKUs
 
 A public IP address is created with the basic or standard SKU. For more information about SKU differences, see [Manage public IP addresses](virtual-network-public-ip-address.md).
 
 > [!NOTE]
-> When you assign a standard SKU public IP address to a virtual machine’s network interface, you must explicitly allow the intended traffic with a [network security group](security-overview.md#network-security-groups). Communication with the resource fails until you create and associate a network security group and explicitly allow the desired traffic.
+> When you assign a standard SKU public IP address to a virtual machine’s network interface, you must explicitly allow the intended traffic with a [network security group](./network-security-groups-overview.md#network-security-groups). Communication with the resource fails until you create and associate a network security group and explicitly allow the desired traffic.
 
 ## Next steps
 To create a virtual machine with different IP configurations, read the following articles:

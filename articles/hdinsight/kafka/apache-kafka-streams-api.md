@@ -1,9 +1,6 @@
 ---
 title: 'Tutorial: Use the Apache Kafka Streams API - Azure HDInsight '
 description: Tutorial - Learn how to use the Apache Kafka Streams API with Kafka on HDInsight. This API enables you to perform stream processing between topics in Kafka.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive
@@ -35,7 +32,7 @@ In this tutorial, you learn how to:
 
 * Complete the steps in the [Apache Kafka Consumer and Producer API](apache-kafka-producer-consumer-api.md) document. The steps in this document use the example application and topics created in this tutorial.
 
-* [Java Developer Kit (JDK) version 8](https://aka.ms/azure-jdks) or an equivalent, such as OpenJDK.
+* [Java Developer Kit (JDK) version 8](/azure/developer/java/fundamentals/java-support-on-azure) or an equivalent, such as OpenJDK.
 
 * [Apache Maven](https://maven.apache.org/download.cgi) properly [installed](https://maven.apache.org/install.html) according to Apache.  Maven is a project build system for Java projects.
 
@@ -228,19 +225,21 @@ To build and deploy the project to your Kafka on HDInsight cluster, use the foll
 
     The output is similar to the following text:
 
-        dwarfs  13635
-        ago     13664
-        snow    13636
-        dwarfs  13636
-        ago     13665
-        a       13803
-        ago     13666
-        a       13804
-        ago     13667
-        ago     13668
-        jumped  13640
-        jumped  13641
-   
+    ```output
+    dwarfs  13635
+    ago     13664
+    snow    13636
+    dwarfs  13636
+    ago     13665
+    a       13803
+    ago     13666
+    a       13804
+    ago     13667
+    ago     13668
+    jumped  13640
+    jumped  13641
+    ```
+
     The parameter `--from-beginning` configures the consumer to start at the beginning of the records stored in the topic. The count increments each time a word is encountered, so the topic contains multiple entries for each word, with an increasing count.
 
 4. Use the __Ctrl + C__ to exit the producer. Continue using __Ctrl + C__ to exit the application and the consumer.

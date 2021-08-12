@@ -2,7 +2,7 @@
 author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/04/2020
+ms.date: 10/15/2020
 ms.author: trbye
 ---
 
@@ -15,38 +15,15 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
 - The Python Speech SDK package is available for these operating systems:
   - Windows: x64 and x86
   - Mac: macOS X version 10.12 or later
-  - Linux: Ubuntu 16.04/18.04, Debian 9, RHEL 7/8, CentOS 7/8 on x64
+  - Linux; see the list of [supported Linux distributions and target architectures](~/articles/cognitive-services/speech-service/speech-sdk.md).
 
 ## Prerequisites
 
-- Supported Linux platforms will require certain libraries installed (`libssl` for secure sockets layer support and `libasound2` for sound support). Refer to your distribution below for the commands needed to install the correct versions of these libraries.
+- On Windows, you need the [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) for your platform. Installing this for the first time may require a restart.
 
-  - On Ubuntu, run the following commands to install the required packages:
+- On Linux, see the [system requirements and setup instructions](~/articles/cognitive-services/speech-service/speech-sdk.md#get-the-speech-sdk).
 
-        ```sh
-        sudo apt-get update
-        sudo apt-get install build-essential libssl1.0.0 libasound2
-        ```
-
-  - On Debian 9, run the following commands to install the required packages:
-
-        ```sh
-        sudo apt-get update
-        sudo apt-get install build-essential libssl1.0.2 libasound2
-        ```
-
-  - On RHEL/CentOS 8, run the following commands to install the required packages:
-
-        ```sh
-        sudo yum update
-        sudo yum install alsa-lib openssl python3
-        ```
-
-> [!NOTE]
-> On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
-
-- On Windows, you need the [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) for your platform. Note that installing this for the first time may require you to restart Windows before continuing with this guide.
-- And finally, you'll need [Python 3.5 to 3.8](https://www.python.org/downloads/). To check your installation, open a command prompt and type the command `python --version` and check the result. If it's installed properly, you'll get a response "Python 3.5.1" or similar.
+- And finally, you'll need [Python 3.6 to 3.9](https://www.python.org/downloads/). To check your installation, open a command prompt and type the command `python --version` and check the result. If it's installed properly, you'll get a response like "Python 3.8.8".
 
 ## Install the Speech SDK from PyPI
 
@@ -70,7 +47,7 @@ import azure.cognitiveservices.speech as speechsdk
 
 ## Install the Speech SDK using Visual Studio Code
 
-1. Download and install the latest supported version of [Python](https://www.python.org/downloads/) for your platform, 3.5 to 3.8.
+1. Download and install the latest supported version of [Python](https://www.python.org/downloads/) for your platform, 3.6 to 3.9.
    - Windows users make sure to select "Add Python to your PATH" during the installation process.
 1. Download and install [Visual Studio Code](https://code.visualstudio.com/Download).
 1. Open Visual Studio Code and install the Python extension. Select **File** > **Preferences** > **Extensions** from the menu. Search for **Python** and click **Install**.
@@ -89,7 +66,7 @@ Updates to the Speech SDK Python package are distributed via PyPI and announced 
 If a new version is available, you can update to it with the command `pip install --upgrade azure-cognitiveservices-speech`.
 Check which version is currently installed by inspecting the `azure.cognitiveservices.speech.__version__` variable.
 
-If you have a problem, or you're missing a feature, see [Support and help options](~/articles/cognitive-services/speech-service/support.md).
+If you have a problem, or you're missing a feature, see [Support and help options](../../../../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
 
 ## Next steps
 

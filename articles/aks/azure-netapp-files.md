@@ -2,10 +2,8 @@
 title: Integrate Azure NetApp Files with Azure Kubernetes Service
 description: Learn how to integrate Azure NetApp Files with Azure Kubernetes Service
 services: container-service
-author: zr-msft
 ms.topic: article
-ms.date: 09/26/2019
-ms.author: zarhoads
+ms.date: 10/23/2020
 
 #Customer intent: As a cluster operator or developer, I want to learn how to integrate ANF with AKS
 ---
@@ -27,15 +25,14 @@ You also need the Azure CLI version 2.0.59 or later installed and configured. Ru
 The following limitations apply when you use Azure NetApp Files:
 
 * Azure NetApp Files is only available [in selected Azure regions][anf-regions].
-* Before you can use Azure NetApp Files, you must be granted access to the Azure NetApp Files service. To apply for access, you can use the [Azure NetApp Files waitlist submission form][anf-waitlist]. You can't access the Azure NetApp Files service until you receive the official confirmation email from the Azure NetApp Files team.
-* Your Azure NetApp Files service must be created in the same virtual network as your AKS cluster.
+* Before you can use Azure NetApp Files, you must be granted access to the Azure NetApp Files service. To apply for access, you can use the [Azure NetApp Files waitlist submission form][anf-waitlist] or go to https://azure.microsoft.com/services/netapp/#getting-started. You can't access the Azure NetApp Files service until you receive the official confirmation email from the Azure NetApp Files team.
 * After the initial deployment of an AKS cluster, only static provisioning for Azure NetApp Files is supported.
 * To use dynamic provisioning with Azure NetApp Files, install and configure [NetApp Trident](https://netapp-trident.readthedocs.io/) version 19.07 or later.
 
 ## Configure Azure NetApp Files
 
 > [!IMPORTANT]
-> Before you can register the  *Microsoft.NetApp* resource provider, you must complete the [Azure NetApp Files waitlist submission form][anf-waitlist] for your subscription. You can't register the resource provide until you receive the official confirmation email from the Azure NetApp Files team.
+> Before you can register the  *Microsoft.NetApp* resource provider, you must complete the [Azure NetApp Files waitlist submission form][anf-waitlist] or go to https://azure.microsoft.com/services/netapp/#getting-started for your subscription. You can't register the resource provide until you receive the official confirmation email from the Azure NetApp Files team.
 
 Register the *Microsoft.NetApp* resource provider:
 
@@ -105,7 +102,7 @@ VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAM
 SUBNET_NAME=MyNetAppSubnet
 SUBNET_ID=$(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name $SUBNET_NAME --query "id" -o tsv)
 VOLUME_SIZE_GiB=100 # 100 GiB
-UNIQUE_FILE_PATH="myfilepath2" # Please note that creation token needs to be unique within all ANF Accounts
+UNIQUE_FILE_PATH="myfilepath2" # Please note that file path needs to be unique within all ANF Accounts
 
 az netappfiles volume create \
     --resource-group $RESOURCE_GROUP \
@@ -117,7 +114,7 @@ az netappfiles volume create \
     --vnet $VNET_ID \
     --subnet $SUBNET_ID \
     --usage-threshold $VOLUME_SIZE_GiB \
-    --creation-token $UNIQUE_FILE_PATH \
+    --file-path $UNIQUE_FILE_PATH \
     --protocol-types "NFSv3"
 ```
 
@@ -158,6 +155,8 @@ spec:
     storage: 100Gi
   accessModes:
     - ReadWriteMany
+  mountOptions:
+    - vers=3
   nfs:
     server: 10.0.0.4
     path: /myfilepath2
@@ -216,7 +215,7 @@ metadata:
   name: nginx-nfs
 spec:
   containers:
-  - image: nginx
+  - image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     name: nginx-nfs
     command:
     - "/bin/sh"
@@ -246,11 +245,11 @@ kubectl describe pod nginx-nfs
 Verify your volume has been mounted in the pod by using [kubectl exec][kubectl-exec] to connect to the pod then `df -h` to check if the volume is mounted.
 
 ```console
-$ kubectl exec -it nginx-nfs -- bash
+$ kubectl exec -it nginx-nfs -- sh
 ```
 
 ```output
-root@nginx-nfs:/# df -h
+/ # df -h
 Filesystem             Size  Used Avail Use% Mounted on
 ...
 10.0.0.4:/myfilepath2  100T  384K  100T   1% /mnt/azure
@@ -270,12 +269,12 @@ For more information on Azure NetApp Files, see [What is Azure NetApp Files][anf
 [anf-quickstart]: ../azure-netapp-files/
 [anf-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all
 [anf-waitlist]: https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-netappfiles-account-create]: /cli/azure/netappfiles/account?view=azure-cli-latest#az-netappfiles-account-create
-[az-netappfiles-pool-create]: /cli/azure/netappfiles/pool?view=azure-cli-latest#az-netappfiles-pool-create
-[az-netappfiles-volume-create]: /cli/azure/netappfiles/volume?view=azure-cli-latest#az-netappfiles-volume-create
-[az-netappfiles-volume-show]: /cli/azure/netappfiles/volume?view=azure-cli-latest#az-netappfiles-volume-show
-[az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-create
+[az-aks-show]: /cli/azure/aks#az_aks_show
+[az-netappfiles-account-create]: /cli/azure/netappfiles/account#az_netappfiles_account_create
+[az-netappfiles-pool-create]: /cli/azure/netappfiles/pool#az_netappfiles_pool_create
+[az-netappfiles-volume-create]: /cli/azure/netappfiles/volume#az_netappfiles_volume_create
+[az-netappfiles-volume-show]: /cli/azure/netappfiles/volume#az_netappfiles_volume_show
+[az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az_network_vnet_subnet_create
 [install-azure-cli]: /cli/azure/install-azure-cli
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe

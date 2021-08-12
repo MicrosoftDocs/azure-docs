@@ -1,21 +1,14 @@
 ---
 title: Copy data from DB2 using Azure Data Factory 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from DB2 to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-services: data-factory
-documentationcenter: ''
-author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
-
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
-
-
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 02/17/2020
-
-ms.author: jingwang
-
+ms.date: 05/26/2020
+ms.author: jianleishen
 ---
 # Copy data from DB2 by using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +28,7 @@ This DB2 database connector is supported for the following activities:
 
 You can copy data from DB2 database to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Specifically, this DB2 connector supports the following IBM DB2 platforms and versions with Distributed Relational Database Architecture (DRDA) SQL Access Manager (SQLAM) version 9, 10 and 11:
+Specifically, this DB2 connector supports the following IBM DB2 platforms and versions with Distributed Relational Database Architecture (DRDA) SQL Access Manager (SQLAM) version 9, 10 and 11.  It utilizes the DDM/DRDA protocol.
 
 * IBM DB2 for z/OS 12.1
 * IBM DB2 for z/OS 11.1
@@ -48,17 +41,17 @@ Specifically, this DB2 connector supports the following IBM DB2 platforms and ve
 * IBM DB2 for LUW 10.1
 
 >[!TIP]
->DB2 connector is built on top of Microsoft OLE DB Provider for DB2. To troubleshoot DB2 connector errors, refer to [Data Provider Error Codes](https://docs.microsoft.com/host-integration-server/db2oledbv/data-provider-error-codes#drda-protocol-errors).
+>DB2 connector is built on top of Microsoft OLE DB Provider for DB2. To troubleshoot DB2 connector errors, refer to [Data Provider Error Codes](/host-integration-server/db2oledbv/data-provider-error-codes#drda-protocol-errors).
 
 ## Prerequisites
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 The Integration Runtime provides a built-in DB2 driver, therefore you don't need to manually install any driver when copying data from DB2.
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to DB2 connector.
 
@@ -69,19 +62,70 @@ The following properties are supported for DB2 linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Db2** | Yes |
-| server |Name of the DB2 server. You can specify the port number following the server name delimited by colon e.g. `server:port`. |Yes |
+| connectionString | Specify information needed to connect to the DB2 instance.<br/> You can also put password in Azure Key Vault and pull the `password` configuration out of the connection string. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
+
+Typical properties inside the connection string:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| server |Name of the DB2 server. You can specify the port number following the server name delimited by colon e.g. `server:port`.<br>The DB2 connector utilizes the DDM/DRDA protocol, and by default uses port 50000 if not specified. The port your specific DB2 database uses might be different based on the version and your settings, e.g. for DB2 LUW the default port is 50000, for AS400 the default port is 446 or 448 when TLS enabled. Refer to the following DB2 documents on how the port is configured typically: [DB2 z/OS](https://www.ibm.com/support/knowledgecenter/SSEPGG_11.5.0/com.ibm.db2.luw.qb.dbconn.doc/doc/t0008229.html), [DB2 iSeries](https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_74/ddp/rbal1ports.htm), and [DB2 LUW](https://www.ibm.com/support/knowledgecenter/en/SSEKCU_1.1.3.0/com.ibm.psc.doc/install/psc_t_install_typical_db2_port.html). |Yes |
 | database |Name of the DB2 database. |Yes |
 | authenticationType |Type of authentication used to connect to the DB2 database.<br/>Allowed value is: **Basic**. |Yes |
 | username |Specify user name to connect to the DB2 database. |Yes |
 | password |Specify password for the user account you specified for the username. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
-| packageCollection	| Specify under where the needed packages are auto created by ADF when querying the database. | No |
+| packageCollection    | Specify under where the needed packages are auto created by ADF when querying the database. If this is not set, Data Factory uses the {username} as the default value. | No |
 | certificateCommonName | When you use Secure Sockets Layer (SSL) or Transport Layer Security (TLS) encryption, you must enter a value for Certificate common name. | No |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
 
 > [!TIP]
 > If you receive an error message that states `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`, the reason is a needed package is not created for the user. By default, ADF will try to create a the package under collection named as the user you used to connect to the DB2. Specify the package collection property to indicate under where you want ADF to create the needed packages when querying the database.
 
 **Example:**
+
+```json
+{
+    "name": "Db2LinkedService",
+    "properties": {
+        "type": "Db2",
+        "typeProperties": {
+            "connectionString": "server=<server:port>;database=<database>;authenticationType=Basic;username=<username>;password=<password>;packageCollection=<packagecollection>;certificateCommonName=<certname>;"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+**Example: store password in Azure Key Vault**
+
+```json
+{
+    "name": "Db2LinkedService",
+    "properties": {
+        "type": "Db2",
+        "typeProperties": {
+            "connectionString": "server=<server:port>;database=<database>;authenticationType=Basic;username=<username>;packageCollection=<packagecollection>;certificateCommonName=<certname>;",
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+If you were using DB2 linked service with the following payload, it is still supported as-is, while you are suggested to use the new one going forward.
+
+**Previous payload:**
 
 ```json
 {

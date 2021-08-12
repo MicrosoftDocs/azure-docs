@@ -3,7 +3,7 @@ title: Configure Microsoft authentication
 description: Learn how to configure Microsoft Account authentication as an identity provider for your App Service or Azure Functions app.
 ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
 ms.topic: article
-ms.date: 08/08/2019
+ms.date: 03/29/2021
 ms.custom: [seodec18, fasttrack-edit]
 
 ---
@@ -14,8 +14,8 @@ ms.custom: [seodec18, fasttrack-edit]
 
 This topic shows you how to configure Azure App Service or Azure Functions to use AAD to support personal Microsoft account logins.
 
-> [!NOTE]
-> Both personal Microsoft accounts and organizational accounts use the AAD identity provider. At this time, is not possible to configure this identity provider to support both types of log-ins.
+> [!IMPORTANT]
+> While the Microsoft Account provider is still supported, it is recommended that apps instead use the [Microsoft Identity Platform provider (Azure AD)](./configure-authentication-provider-aad.md). The Microsoft Identity Platform offers support for both organizational accounts and personal Microsoft accounts.
 
 ## <a name="register-microsoft-account"> </a>Register your app with Microsoft Account
 
@@ -36,12 +36,12 @@ This topic shows you how to configure Azure App Service or Azure Functions to us
 
 1. Go to your application in the [Azure portal].
 1. Select **Settings** > **Authentication / Authorization**, and make sure that **App Service Authentication** is **On**.
-1. Under **Authentication Providers**, select **Azure Active Directory**. Select **Advanced** under **Management mode**. Paste in the Application (client) ID and client secret that you obtained earlier. Use **https://login.microsoftonline.com/9188040d-6c67-4c5b-b112-36a304b66dad/v2.0** for the **Issuer Url** field.
+1. Under **Authentication Providers**, select **Azure Active Directory**. Select **Advanced** under **Management mode**. Paste in the Application (client) ID and client secret that you obtained earlier. Use **`https://login.microsoftonline.com/9188040d-6c67-4c5b-b112-36a304b66dad/v2.0`** for the **Issuer Url** field.
 1. Select **OK**.
 
    App Service provides authentication, but doesn't restrict authorized access to your site content and APIs. You must authorize users in your app code.
 
-1. (Optional) To restrict access to Microsoft account users, set **Action to take when request is not authenticated** to **Log in with Azure Active Directory**. When you set this functionality, your app requires all requests to be authenticated. It also redirects all unauthenticated requests to use AAD for authentication. Note that becuase you have configured your **Issuer Url** to use the Microsoft Account tenant, only personal acccounts will successfully authenticate.
+1. (Optional) To restrict access to Microsoft account users, set **Action to take when request is not authenticated** to **Log in with Azure Active Directory**. When you set this functionality, your app requires all requests to be authenticated. It also redirects all unauthenticated requests to use AAD for authentication. Note that because you have configured your **Issuer Url** to use the Microsoft Account tenant, only personal accounts will successfully authenticate.
 
    > [!CAUTION]
    > Restricting access in this way applies to all calls to your app, which might not be desirable for apps that have a publicly available home page, as in many single-page applications. For such applications, **Allow anonymous requests (no action)** might be preferred so that the app manually starts authentication itself. For more information, see [Authentication flow](overview-authentication-authorization.md#authentication-flow).

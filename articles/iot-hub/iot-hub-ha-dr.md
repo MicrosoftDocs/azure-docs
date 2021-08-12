@@ -11,7 +11,7 @@ ms.author: philmea
 
 # IoT Hub high availability and disaster recovery
 
-As a first step towards implementing a resilient IoT solution, architects, developers, and business owners must define the uptime goals for the solutions they're building. These goals can be defined primarily based on specific business objectives for each scenario. In this context, the article [Azure Business Continuity Technical Guidance](https://docs.microsoft.com/azure/architecture/resiliency/) describes a general framework to help you think about business continuity and disaster recovery. The [Disaster recovery and high availability for Azure applications](https://docs.microsoft.com/azure/architecture/reliability/disaster-recovery) paper provides architecture guidance on strategies for Azure applications to achieve High Availability (HA) and Disaster Recovery (DR).
+As a first step towards implementing a resilient IoT solution, architects, developers, and business owners must define the uptime goals for the solutions they're building. These goals can be defined primarily based on specific business objectives for each scenario. In this context, the article [Azure Business Continuity Technical Guidance](/azure/architecture/framework/resiliency/app-design) describes a general framework to help you think about business continuity and disaster recovery. The [Disaster recovery and high availability for Azure applications](/azure/architecture/reliability/disaster-recovery) paper provides architecture guidance on strategies for Azure applications to achieve High Availability (HA) and Disaster Recovery (DR).
 
 This article discusses the HA and DR features offered specifically by the IoT Hub service. The broad areas discussed in this article are:
 
@@ -52,12 +52,14 @@ Both these failover options offer the following recovery point objectives (RPOs)
 
 <sup>1</sup>Cloud-to-device messages and parent jobs do not get recovered as a part of manual failover.
 
-Once the failover operation for the IoT hub completes, all operations from the device and back-end applications are expected to continue working without requiring a manual intervention. This means that your device-to-cloud messages should continue to work, and the entire device registry is intact. Events emitted via Event Grid can be consumed via the same subscription(s) configured earlier as long as those Event Grid subscriptions continue to be available.
+Once the failover operation for the IoT hub completes, all operations from the device and back-end applications are expected to continue working without requiring a manual intervention. This means that your device-to-cloud messages should continue to work, and the entire device registry is intact. Events emitted via Event Grid can be consumed via the same subscription(s) configured earlier as long as those Event Grid subscriptions continue to be available. No additional handling is required for custom endpoints.
 
 > [!CAUTION]
-> - The Event Hub-compatible name and endpoint of the IoT Hub built-in Events endpoint change after failover, and configured consumer groups are removed (this is a bug that will be fixed before May 2020). When receiving telemetry messages from the built-in endpoint using either the Event Hub client or event processor host, you should [use the IoT hub connection string](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) to establish the connection. This ensures that your back-end applications continue to work without requiring manual intervention post failover. If you use the Event Hub-compatible name and endpoint in your application directly, you will need to [reconfigure the consumer group that they use and fetch the new Event Hub-compatible endpoint](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) after failover to continue operations. If you use Azure Functions or Azure Stream Analytics to connect the built-in endpoint, you might need to perform a **Restart**.
+> - The Event Hub-compatible name and endpoint of the IoT Hub built-in Events endpoint change after failover. When receiving telemetry messages from the built-in endpoint using either the Event Hub client or event processor host, you should [use the IoT hub connection string](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) to establish the connection. This ensures that your back-end applications continue to work without requiring manual intervention post failover. If you use the Event Hub-compatible name and endpoint in your application directly, you will need to [fetch the new Event Hub-compatible endpoint](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) after failover to continue operations. For more information, see [Manual failover and Event Hub](#manual-failover-and-event-hub).
 >
-> - When routing to storage, we recommend listing the blobs or files and then iterating over them, to ensure all blobs or files are read without making any assumptions of partition. The partition range could potentially change during a Microsoft-initiated failover or manual failover. You can use the [List Blobs API](https://docs.microsoft.com/rest/api/storageservices/list-blobs) to enumerate the list of blobs or [List ADLS Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list) for the list of files. 
+> - If you use Azure Functions or Azure Stream Analytics to connect the built-in Events endpoint, you might need to perform a **Restart**. This is because during failover previous offsets are no longer valid.
+>
+> - When routing to storage, we recommend listing the blobs or files and then iterating over them, to ensure all blobs or files are read without making any assumptions of partition. The partition range could potentially change during a Microsoft-initiated failover or manual failover. You can use the [List Blobs API](/rest/api/storageservices/list-blobs) to enumerate the list of blobs or [List ADLS Gen2 API](/rest/api/storageservices/datalakestoragegen2/filesystem/list) for the list of files. To learn more, see [Azure Storage as a routing endpoint](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
 
 ## Microsoft-initiated failover
 
@@ -71,7 +73,21 @@ If your business uptime goals aren't satisfied by the RTO that Microsoft initiat
 
 The manual failover option is always available for use irrespective of whether the primary region is experiencing downtime or not. Therefore, this option could potentially be used to perform planned failovers. One example usage of planned failovers is to perform periodic failover drills. A word of caution though is that a planned failover operation results in a downtime for the hub for the period defined by the RTO for this option, and also results in a data loss as defined by the RPO table above. You could consider setting up a test IoT hub instance to exercise the planned failover option periodically to gain confidence in your ability to get your end-to-end solutions up and running when a real disaster happens.
 
+Manual failover is available at no additional cost for IoT hubs created after May 18, 2017
+
 For step-by-step instructions, see [Tutorial: Perform manual failover for an IoT hub](tutorial-manual-failover.md)
+
+## Manual failover and Event Hub
+
+As noted previously in the **Caution** section, the Event Hub-compatible name and endpoint of the IoT Hub built-in Events endpoint change after manual failover. This is because the Event Hub client doesn't have visibility into IoT Hub events. The same is true for other cloud-based clients such as Functions and Azure Stream Analytics. To retrieve the endpoint and name, you can use the Azure portal or leverage an included sample.
+
+### Use the portal
+
+For more information about using the portal to retrieve the Event Hub-compatible endpoint and the Event Hub-compatible name, see [Read from the built-in endpoint](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint).
+
+### Use the included sample
+
+To use the IoT Hub connection string to recapture the Event Hub-compatible endpoint, leverage a sample located at [https://github.com/Azure/azure-sdk-for-net/tree/main/samples/iothub-connect-to-eventhubs](https://github.com/Azure/azure-sdk-for-net/tree/main/samples/iothub-connect-to-eventhubs) that shows how to use the IoT Hub connection string to recapture the EventHub compatible endpoint. The code example uses the connection string to get the new Event Hub endpoint and re-establish the connection. You must have Visual Studio installed.
 
 ### Running test drills
 
@@ -132,5 +148,5 @@ Here's a summary of the HA/DR options presented in this article that can be used
 ## Next steps
 
 * [What is Azure IoT Hub?](about-iot-hub.md)
-* [Get started with IoT Hubs (Quickstart)](quickstart-send-telemetry-dotnet.md)
+* [Get started with IoT Hubs (Quickstart)](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp)
 * [Tutorial: Perform manual failover for an IoT hub](tutorial-manual-failover.md)

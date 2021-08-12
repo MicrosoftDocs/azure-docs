@@ -4,6 +4,7 @@ description: Learn to create different Azure Functions binding expressions based
 author: craigshoemaker
 
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
 ---
@@ -33,9 +34,10 @@ App setting binding expressions are identified differently from other binding ex
 
 When a function is running locally, app setting values come from the *local.settings.json* file.
 
-Note that the `connection` property of triggers and bindings is a special case and automatically resolves values as app settings, without percent signs. 
+> [!NOTE]
+> The `connection` property of triggers and bindings is a special case and automatically resolves values as app settings, without percent signs. 
 
-The following example is an Azure Queue Storage trigger that uses an app setting `%input-queue-name%` to define the queue to trigger on.
+The following example is an Azure Queue Storage trigger that uses an app setting `%input_queue_name%` to define the queue to trigger on.
 
 ```json
 {
@@ -44,7 +46,7 @@ The following example is an Azure Queue Storage trigger that uses an app setting
       "name": "order",
       "type": "queueTrigger",
       "direction": "in",
-      "queueName": "%input-queue-name%",
+      "queueName": "%input_queue_name%",
       "connection": "MY_STORAGE_ACCT_APP_SETTING"
     }
   ]
@@ -56,7 +58,7 @@ You can use the same approach in class libraries:
 ```csharp
 [FunctionName("QueueTrigger")]
 public static void Run(
-    [QueueTrigger("%input-queue-name%")]string myQueueItem, 
+    [QueueTrigger("%input_queue_name%")]string myQueueItem, 
     ILogger log)
 {
     log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
@@ -158,6 +160,7 @@ For example, an Azure Queue storage trigger supports the following properties:
 These metadata values are accessible in *function.json* file properties. For example, suppose you use a queue trigger and the queue message contains the name of a blob you want to read. In the *function.json* file, you can use `queueTrigger` metadata property in the blob `path` property, as shown in the following example:
 
 ```json
+{
   "bindings": [
     {
       "name": "myQueueItem",
@@ -173,6 +176,7 @@ These metadata values are accessible in *function.json* file properties. For exa
       "connection": "MyStorageConnection"
     }
   ]
+}
 ```
 
 Details of metadata properties for each trigger are described in the corresponding reference article. For an example, see [queue trigger metadata](functions-bindings-storage-queue-trigger.md#message-metadata). Documentation is also available in the **Integrate** tab of the portal, in the **Documentation** section below the binding configuration area.  
@@ -253,7 +257,9 @@ module.exports = function (context, info) {
 
 ### Dot notation
 
-If some of the properties in your JSON payload are objects with properties, you can refer to those directly by using dot notation. For example, suppose your JSON looks like this:
+If some of the properties in your JSON payload are objects with properties, you can refer to those directly by using dot notation. The dot notation does not work or [Cosmos DB](./functions-bindings-cosmosdb-v2.md) or [Table storage](./functions-bindings-storage-table-output.md) bindings. 
+
+For example, suppose your JSON looks like this:
 
 ```json
 {

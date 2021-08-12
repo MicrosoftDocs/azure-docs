@@ -1,190 +1,123 @@
 ---
-title: Deployment troubleshooting guide
+title: Troubleshooting remote model deployment 
 titleSuffix: Azure Machine Learning
-description: Learn how to work around, solve, and troubleshoot the common Docker deployment errors with Azure Kubernetes Service and Azure Container Instances using  Azure Machine Learning.
+description: Learn how to work around, solve, and troubleshoot some common Docker deployment errors with Azure Kubernetes Service and Azure Container Instances.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-author: clauren42
-ms.author:  clauren
-ms.reviewer: jmartens
-ms.date: 03/05/2020
-ms.custom: seodec18
+author: gvashishtha
+ms.author:  gopalv
+ms.date: 11/25/2020
+ms.topic: troubleshooting
+ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
+#Customer intent: As a data scientist, I want to figure out why my model deployment fails so that I can fix it.
 ---
 
-# Troubleshooting Azure Machine Learning Azure Kubernetes Service and Azure Container Instances deployment
+# Troubleshooting remote model deployment 
 
-Learn how to work around or solve common Docker deployment errors with Azure Container Instances (ACI) and Azure Kubernetes Service (AKS) using Azure Machine Learning.
+Learn how to troubleshoot and solve, or work around, common errors you may encounter when deploying a model to Azure Container Instances (ACI) and Azure Kubernetes Service (AKS) using Azure Machine Learning.
 
-When deploying a model in Azure Machine Learning, the system performs a number of tasks.
-
-The recommended and the most up to date approach for model deployment is via the [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API using an [Environment](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) object as an input parameter. In this case our service will create a base docker image for you during deployment stage and mount the required models all in one call. The basic deployment tasks are:
-
-1. Register the model in the workspace model registry.
-
-2. Define Inference Configuration:
-    1. Create an [Environment](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) object based on the dependencies you specify in the environment yaml file or use one of our procured environments.
-    2. Create an inference configuration (InferenceConfig object) based on the environment and the scoring script.
-
-3. Deploy the model to Azure Container Instance (ACI) service or to Azure Kubernetes Service (AKS).
-
-Learn more about this process in the [Model Management](concept-model-management-and-deployment.md) introduction.
+> [!NOTE]
+> If you are deploying a model to Azure Kubernetes Service (AKS), we advise you enable [Azure Monitor](../azure-monitor/containers/container-insights-enable-existing-clusters.md) for that cluster. This will help you understand overall cluster health and resource usage. You might also find the following resources useful:
+>
+> * [Check for Resource Health events impacting your AKS cluster](../aks/aks-resource-health.md)
+> * [Azure Kubernetes Service Diagnostics](../aks/concepts-diagnostics.md)
+>
+> If you are trying to deploy a model to an unhealthy or overloaded cluster, it is expected to experience issues. If you need help troubleshooting AKS cluster problems please contact AKS Support.
 
 ## Prerequisites
 
-* An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
-* The [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
-* The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* An **Azure subscription**. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
+* The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).
+* The [Azure CLI](/cli/azure/install-azure-cli).
 * The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
-* To debug locally, you must have a working Docker installation on your local system.
 
-    To verify your Docker installation, use the command `docker run hello-world` from a terminal or command prompt. For information on installing Docker, or troubleshooting Docker errors, see the [Docker Documentation](https://docs.docker.com/).
+## Steps for Docker deployment of machine learning models
 
-## Before you begin
+When you deploy a model to non-local compute in Azure Machine Learning, the following things happen:
 
-If you run into any issue, the first thing to do is to break down the deployment task (previous described) into individual steps to isolate the problem.
+1. The Dockerfile you specified in your Environments object in your InferenceConfig is sent to the cloud, along with the contents of your source directory
+1. If a previously built image is not available in your container registry, a new Docker image is built in the cloud and stored in your workspace's default container registry.
+1. The Docker image from your container registry is downloaded to your compute target.
+1. Your workspace's default Blob store is mounted to your compute target, giving you access to registered models
+1. Your web server is initialized by running your entry script's `init()` function
+1. When your deployed model receives a request, your `run()` function handles that request
 
-Assuming you are using the new/recommended deployment method via [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API with an [Environment](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) object as an input parameter, your code can be broken down into three major steps:
+The main difference when using a local deployment is that the container image is built on your local machine, which is why you need to have Docker installed for a local deployment.
 
-1. Register the model. Here is some sample code:
+Understanding these high-level steps should help you understand where errors are happening.
 
-    ```python
-    from azureml.core.model import Model
+## Get deployment logs
 
+The first step in debugging errors is to get your deployment logs. First, follow the [instructions here](how-to-deploy-and-where.md#connect-to-your-workspace) to connect to your workspace.
 
-    # register a model out of a run record
-    model = best_run.register_model(model_name='my_best_model', model_path='outputs/my_model.pkl')
+# [Azure CLI](#tab/azcli)
 
-    # or, you can register a file or a folder of files as a model
-    model = Model.register(model_path='my_model.pkl', model_name='my_best_model', workspace=ws)
-    ```
+To get the logs from a deployed webservice, do:
 
-2. Define inference configuration for deployment:
+```azurecli
+az ml service get-logs --verbose --workspace-name <my workspace name> --name <service name>
+```
 
-    ```python
-    from azureml.core.model import InferenceConfig
-    from azureml.core.environment import Environment
-
-
-    # create inference configuration based on the requirements defined in the YAML
-    myenv = Environment.from_conda_specification(name="myenv", file_path="myenv.yml")
-    inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
-    ```
-
-3. Deploy the model using the inference configuration created in the previous step:
-
-    ```python
-    from azureml.core.webservice import AciWebservice
+# [Python](#tab/python)
 
 
-    # deploy the model
-    aci_config = AciWebservice.deploy_configuration(cpu_cores=1, memory_gb=1)
-    aci_service = Model.deploy(workspace=ws,
-                           name='my-service',
-                           models=[model],
-                           inference_config=inference_config,
-                           deployment_config=aci_config)
-    aci_service.wait_for_deployment(show_output=True)
-    ```
+Assuming you have an object of type `azureml.core.Workspace` called `ws`, you can do the following:
 
-Once you have broken down the deployment process into individual tasks, we can look at some of the most common errors.
+```python
+print(ws.webservices)
+
+# Choose the webservice you are interested in
+
+from azureml.core import Webservice
+
+service = Webservice(ws, '<insert name of webservice>')
+print(service.get_logs())
+```
+
+---
 
 ## Debug locally
 
-If you encounter problems deploying a model to ACI or AKS, try deploying it as a local web service. Using a local web service makes it easier to troubleshoot problems. The Docker image containing the model is downloaded and started on your local system.
+If you have problems when deploying a model to ACI or AKS, deploy it as a local web service. Using a local web service makes it easier to troubleshoot problems. To troubleshoot a deployment locally, see the [local troubleshooting article](./how-to-troubleshoot-deployment-local.md).
 
-> [!WARNING]
-> Local web service deployments are not supported for production scenarios.
+## Azure Machine learning inference HTTP server
 
-To deploy locally, modify your code to use `LocalWebservice.deploy_configuration()` to create a deployment configuration. Then use `Model.deploy()` to deploy the service. The following example deploys a model (contained in the model variable) as a local web service:
+The local inference server allows you to quickly debug your entry script (`score.py`). In case the underlying score script has a bug, the server will fail to initialize or serve the model. Instead, it will throw an exception & the location where the issues occurred. [Learn more about Azure Machine Learning inference HTTP Server](how-to-inference-server-http.md)
 
-```python
-from azureml.core.environment import Environment
-from azureml.core.model import InferenceConfig, Model
-from azureml.core.webservice import LocalWebservice
+1. Install the `azureml-inference-server-http` package from the [pypi](https://pypi.org/) feed:
 
+    ```bash
+    python -m pip install azureml-inference-server-http
+    ```
 
-# Create inference configuration based on the environment definition and the entry script
-myenv = Environment.from_conda_specification(name="env", file_path="myenv.yml")
-inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
-# Create a local deployment, using port 8890 for the web service endpoint
-deployment_config = LocalWebservice.deploy_configuration(port=8890)
-# Deploy the service
-service = Model.deploy(
-    ws, "mymodel", [model], inference_config, deployment_config)
-# Wait for the deployment to complete
-service.wait_for_deployment(True)
-# Display the port that the web service is available on
-print(service.port)
-```
+2. Start the server and set `score.py` as the entry script:
 
-Please note that if you are defining your own conda specification YAML, you must list azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service.
+    ```bash
+    azmlinfsrv --entry_script score.py
+    ```
 
-At this point, you can work with the service as normal. For example, the following code demonstrates sending data to the service:
+3. Send a scoring request to the server using `curl`:
 
-```python
-import json
+    ```bash
+    curl -p 127.0.0.1:5001/score
+    ```
 
-test_sample = json.dumps({'data': [
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
-]})
+## Container cannot be scheduled
 
-test_sample = bytes(test_sample, encoding='utf8')
+When deploying a service to an Azure Kubernetes Service compute target, Azure Machine Learning will attempt to schedule the service with the requested amount of resources. If there are no nodes available in the cluster with the appropriate amount of resources after 5 minutes, the deployment will fail. The failure message is `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00`. You can address this error by either adding more nodes, changing the SKU of your nodes, or changing the resource requirements of your service. 
 
-prediction = service.run(input_data=test_sample)
-print(prediction)
-```
-
-For more information on customizing your Python environment, see [Create and manage environments for training and deployment](how-to-use-environments.md). 
-
-### Update the service
-
-During local testing, you may need to update the `score.py` file to add logging or attempt to resolve any problems that you've discovered. To reload changes to the `score.py` file, use `reload()`. For example, the following code reloads the script for the service, and then sends data to it. The data is scored using the updated `score.py` file:
-
-> [!IMPORTANT]
-> The `reload` method is only available for local deployments. For information on updating a deployment to another compute target, see the update section of [Deploy models](how-to-deploy-and-where.md#update).
-
-```python
-service.reload()
-print(service.run(input_data=test_sample))
-```
-
-> [!NOTE]
-> The script is reloaded from the location specified by the `InferenceConfig` object used by the service.
-
-To change the model, Conda dependencies, or deployment configuration, use [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#update--args-). The following example updates the model used by the service:
-
-```python
-service.update([different_model], inference_config, deployment_config)
-```
-
-### Delete the service
-
-To delete the service, use [delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#delete--).
-
-### <a id="dockerlog"></a> Inspect the Docker log
-
-You can print out detailed Docker engine log messages from the service object. You can view the log for ACI, AKS, and Local deployments. The following example demonstrates how to print the logs.
-
-```python
-# if you already have the service object handy
-print(service.get_logs())
-
-# if you only know the name of the service (note there might be multiple services with the same name but different version number)
-print(ws.webservices['mysvc'].get_logs())
-```
+The error message will typically indicate which resource you need more of - for instance, if you see an error message indicating `0/3 nodes are available: 3 Insufficient nvidia.com/gpu` that means that the service requires GPUs and there are three nodes in the cluster that do not have available GPUs. This could be addressed by adding more nodes if you are using a GPU SKU, switching to a GPU enabled SKU if you are not or changing your environment to not require GPUs.  
 
 ## Service launch fails
 
 After the image is successfully built, the system attempts to start a container using your deployment configuration. As part of container starting-up process, the `init()` function in your scoring script is invoked by the system. If there are uncaught exceptions in the `init()` function, you might see **CrashLoopBackOff** error in the error message.
 
-Use the info in the [Inspect the Docker log](#dockerlog) section to check the logs.
+Use the info in the [Inspect the Docker log](how-to-troubleshoot-deployment-local.md#dockerlog) article.
 
 ## Function fails: get_model_path()
 
-Often, in the `init()` function in the scoring script, [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) function is called to locate a model file or a folder of model files in the container. If the model file or folder cannot be found, the function fails. The easiest way to debug this error is to run the below Python code in the Container shell:
+Often, in the `init()` function in the scoring script, [Model.get_model_path()](/python/api/azureml-core/azureml.core.model.model#get-model-path-model-name--version-none---workspace-none-) function is called to locate a model file or a folder of model files in the container. If the model file or folder cannot be found, the function fails. The easiest way to debug this error is to run the below Python code in the Container shell:
 
 ```python
 from azureml.core.model import Model
@@ -222,13 +155,16 @@ A 502 status code indicates that the service has thrown an exception or crashed 
 
 ## HTTP status code 503
 
-Azure Kubernetes Service deployments support autoscaling, which allows replicas to be added to support additional load. However, the autoscaler is designed to handle **gradual** changes in load. If you receive large spikes in requests per second, clients may receive an HTTP status code 503.
+Azure Kubernetes Service deployments support autoscaling, which allows replicas to be added to support additional load. The autoscaler is designed to handle **gradual** changes in load. If you receive large spikes in requests per second, clients may receive an HTTP status code 503. Even though the autoscaler reacts quickly, it takes AKS a significant amount of time to create additional containers.
+
+Decisions to scale up/down is based off of utilization of the current container replicas. The number of replicas that are busy (processing a request) divided by the total number of current replicas is the current utilization. If this number exceeds `autoscale_target_utilization`, then more replicas are created. If it is lower, then replicas are reduced. Decisions to add replicas are eager and fast (around 1 second). Decisions to remove replicas are conservative (around 1 minute). By default, autoscaling target utilization is set to **70%**, which means that the service can handle spikes in requests per second (RPS) of **up to 30%**.
 
 There are two things that can help prevent 503 status codes:
 
-* Change the utilization level at which autoscaling creates new replicas.
-    
-    By default, autoscaling target utilization is set to 70%, which means that the service can handle spikes in requests per second (RPS) of up to 30%. You can adjust the utilization target by setting the `autoscale_target_utilization` to a lower value.
+> [!TIP]
+> These two approaches can be used individually or in combination.
+
+* Change the utilization level at which autoscaling creates new replicas. You can adjust the utilization target by setting the `autoscale_target_utilization` to a lower value.
 
     > [!IMPORTANT]
     > This change does not cause replicas to be created *faster*. Instead, they are created at a lower utilization threshold. Instead of waiting until the service is 70% utilized, changing the value to 30% causes replicas to be created when 30% utilization occurs.
@@ -259,185 +195,31 @@ There are two things that can help prevent 503 status codes:
     > [!NOTE]
     > If you receive request spikes larger than the new minimum replicas can handle, you may receive 503s again. For example, as traffic to your service increases, you may need to increase the minimum replicas.
 
-For more information on setting `autoscale_target_utilization`, `autoscale_max_replicas`, and `autoscale_min_replicas` for, see the [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) module reference.
+For more information on setting `autoscale_target_utilization`, `autoscale_max_replicas`, and `autoscale_min_replicas` for, see the [AksWebservice](/python/api/azureml-core/azureml.core.webservice.akswebservice) module reference.
 
 ## HTTP status code 504
 
 A 504 status code indicates that the request has timed out. The default timeout is 1 minute.
 
-You can increase the timeout or try to speed up the service by modifying the score.py to remove unnecessary calls. If these actions do not correct the problem, use the information in this article to debug the score.py file. The code may be in a hung state or an infinite loop.
+You can increase the timeout or try to speed up the service by modifying the score.py to remove unnecessary calls. If these actions do not correct the problem, use the information in this article to debug the score.py file. The code may be in a non-responsive state or an infinite loop.
+
+## Other error messages
+
+Take these actions for the following errors:
+
+|Error  | Resolution  |
+|---------|---------|
+|Image building failure when deploying web service     |  Add "pynacl==1.2.1" as a pip dependency to Conda file for image configuration       |
+|`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Change the SKU for VMs used in your deployment to one that has more memory. |
+|FPGA failure     |  You will not be able to deploy models on FPGAs until you have requested and been approved for FPGA quota. To request access, fill out the quota request form: https://aka.ms/aml-real-time-ai       |
 
 ## Advanced debugging
 
-In some cases, you may need to interactively debug the Python code contained in your model deployment. For example, if the entry script is failing and the reason cannot be determined by additional logging. By using Visual Studio Code and the Python Tools for Visual Studio (PTVSD), you can attach to the code running inside the Docker container.
+You may need to interactively debug the Python code contained in your model deployment. For example, if the entry script is failing and the reason cannot be determined by additional logging. By using Visual Studio Code and the debugpy, you can attach to the code running inside the Docker container.
 
-> [!IMPORTANT]
-> This method of debugging does not work when using `Model.deploy()` and `LocalWebservice.deploy_configuration` to deploy a model locally. Instead, you must create an image using the [Model.package()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-) method.
+For more information, visit the [interactive debugging in VS Code guide](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-deployments).
 
-Local web service deployments require a working Docker installation on your local system. For more information on using Docker, see the [Docker Documentation](https://docs.docker.com/).
-
-### Configure development environment
-
-1. To install the Python Tools for Visual Studio (PTVSD) on your local VS Code development environment, use the following command:
-
-    ```
-    python -m pip install --upgrade ptvsd
-    ```
-
-    For more information on using PTVSD with VS Code, see [Remote Debugging](https://code.visualstudio.com/docs/python/debugging#_remote-debugging).
-
-1. To configure VS Code to communicate with the Docker image, create a new debug configuration:
-
-    1. From VS Code, select the __Debug__ menu and then select __Open configurations__. A file named __launch.json__ opens.
-
-    1. In the __launch.json__ file, find the line that contains `"configurations": [`, and insert the following text after it:
-
-        ```json
-        {
-            "name": "Azure Machine Learning: Docker Debug",
-            "type": "python",
-            "request": "attach",
-            "port": 5678,
-            "host": "localhost",
-            "pathMappings": [
-                {
-                    "localRoot": "${workspaceFolder}",
-                    "remoteRoot": "/var/azureml-app"
-                }
-            ]
-        }
-        ```
-
-        > [!IMPORTANT]
-        > If there are already other entries in the configurations section, add a comma (,) after the code that you inserted.
-
-        This section attaches to the Docker container using port 5678.
-
-    1. Save the __launch.json__ file.
-
-### Create an image that includes PTVSD
-
-1. Modify the conda environment for your deployment so that it includes PTVSD. The following example demonstrates adding it using the `pip_packages` parameter:
-
-    ```python
-    from azureml.core.conda_dependencies import CondaDependencies 
-
-
-    # Usually a good idea to choose specific version numbers
-    # so training is made on same packages as scoring
-    myenv = CondaDependencies.create(conda_packages=['numpy==1.15.4',            
-                                'scikit-learn==0.19.1', 'pandas==0.23.4'],
-                                 pip_packages = ['azureml-defaults==1.0.45', 'ptvsd'])
-
-    with open("myenv.yml","w") as f:
-        f.write(myenv.serialize_to_string())
-    ```
-
-1. To start PTVSD and wait for a connection when the service starts, add the following to the top of your `score.py` file:
-
-    ```python
-    import ptvsd
-    # Allows other computers to attach to ptvsd on this IP address and port.
-    ptvsd.enable_attach(address=('0.0.0.0', 5678), redirect_output = True)
-    # Wait 30 seconds for a debugger to attach. If none attaches, the script continues as normal.
-    ptvsd.wait_for_attach(timeout = 30)
-    print("Debugger attached...")
-    ```
-
-1. Create an image based on the environment definition and pull the image to the local registry. During debugging, you may want to make changes to the files in the image without having to recreate it. To install a text editor (vim) in the Docker image, use the `Environment.docker.base_image` and `Environment.docker.base_dockerfile` properties:
-
-    > [!NOTE]
-    > This example assumes that `ws` points to your Azure Machine Learning workspace, and that `model` is the model being deployed. The `myenv.yml` file contains the conda dependencies created in step 1.
-
-    ```python
-    from azureml.core.conda_dependencies import CondaDependencies
-    from azureml.core.model import InferenceConfig
-    from azureml.core.environment import Environment
-
-
-    myenv = Environment.from_conda_specification(name="env", file_path="myenv.yml")
-    myenv.docker.base_image = None
-    myenv.docker.base_dockerfile = "FROM mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04\nRUN apt-get update && apt-get install vim -y"
-    inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
-    package = Model.package(ws, [model], inference_config)
-    package.wait_for_creation(show_output=True)  # Or show_output=False to hide the Docker build logs.
-    package.pull()
-    ```
-
-    Once the image has been created and downloaded, the image path (includes repository, name, and tag, which in this case is also its digest) is displayed in a message similar to the following:
-
-    ```text
-    Status: Downloaded newer image for myregistry.azurecr.io/package@sha256:<image-digest>
-    ```
-
-1. To make it easier to work with the image, use the following command to add a tag. Replace `myimagepath` with the location value from the previous step.
-
-    ```bash
-    docker tag myimagepath debug:1
-    ```
-
-    For the rest of the steps, you can refer to the local image as `debug:1` instead of the full image path value.
-
-### Debug the service
-
-> [!TIP]
-> If you set a timeout for the PTVSD connection in the `score.py` file, you must connect VS Code to the debug session before the timeout expires. Start VS Code, open the local copy of `score.py`, set a breakpoint, and have it ready to go before using the steps in this section.
->
-> For more information on debugging and setting breakpoints, see [Debugging](https://code.visualstudio.com/Docs/editor/debugging).
-
-1. To start a Docker container using the image, use the following command:
-
-    ```bash
-    docker run --rm --name debug -p 8000:5001 -p 5678:5678 debug:1
-    ```
-
-1. To attach VS Code to PTVSD inside the container, open VS Code and use the F5 key or select __Debug__. When prompted, select the __Azure Machine Learning: Docker Debug__ configuration. You can also select the debug icon from the side bar, the __Azure Machine Learning: Docker Debug__ entry from the Debug dropdown menu, and then use the green arrow to attach the debugger.
-
-    ![The debug icon, start debugging button, and configuration selector](./media/how-to-troubleshoot-deployment/start-debugging.png)
-
-At this point, VS Code connects to PTVSD inside the Docker container and stops at the breakpoint you set previously. You can now step through the code as it runs, view variables, etc.
-
-For more information on using VS Code to debug Python, see [Debug your Python code](https://docs.microsoft.com/visualstudio/python/debugging-python-in-visual-studio?view=vs-2019).
-
-<a id="editfiles"></a>
-### Modify the container files
-
-To make changes to files in the image, you can attach to the running container, and execute a bash shell. From there, you can use vim to edit files:
-
-1. To connect to the running container and launch a bash shell in the container, use the following command:
-
-    ```bash
-    docker exec -it debug /bin/bash
-    ```
-
-1. To find the files used by the service, use the following command from the bash shell in the container if the default directory is different than `/var/azureml-app`:
-
-    ```bash
-    cd /var/azureml-app
-    ```
-
-    From here, you can use vim to edit the `score.py` file. For more information on using vim, see [Using the Vim editor](https://www.tldp.org/LDP/intro-linux/html/sect_06_02.html).
-
-1. Changes to a container are not normally persisted. To save any changes you make, use the following command, before you exit the shell started in the step above (that is, in another shell):
-
-    ```bash
-    docker commit debug debug:2
-    ```
-
-    This command creates a new image named `debug:2` that contains your edits.
-
-    > [!TIP]
-    > You will need to stop the current container and start using the new version before changes take effect.
-
-1. Make sure to keep the changes you make to files in the container in sync with the local files that VS Code uses. Otherwise, the debugger experience will not work as expected.
-
-### Stop the container
-
-To stop the container, use the following command:
-
-```bash
-docker stop debug
-```
+## [Model deployment user forum](/answers/topics/azure-machine-learning-inference.html)
 
 ## Next steps
 
@@ -445,3 +227,4 @@ Learn more about deployment:
 
 * [How to deploy and where](how-to-deploy-and-where.md)
 * [Tutorial: Train & deploy models](tutorial-train-models-with-aml.md)
+* [How to run and debug experiments locally](./how-to-debug-visual-studio-code.md)

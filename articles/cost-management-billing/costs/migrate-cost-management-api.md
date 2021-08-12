@@ -3,9 +3,10 @@ title: Migrate EA to Microsoft Customer Agreement APIs - Azure
 description: This article helps you understand the consequences of migrating a Microsoft Enterprise Agreement (EA) to a Microsoft Customer Agreement.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 07/13/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: cost-management
 ms.reviewer: micflan
 ---
 
@@ -36,7 +37,7 @@ The following items help you transition to MCA APIs.
 - Update any programming code to [use Azure AD authentication](/rest/api/azure/#create-the-request).
 - Update any programming code to replace EA API calls with MCA API calls.
 - Update error handling to use new error codes.
-- Review additional integration offerings, like Cloudyn and Power BI, for other needed action.
+- Review additional integration offerings like Power BI for other needed action.
 
 ## EA APIs replaced with MCA APIs
 
@@ -49,7 +50,7 @@ EA APIs use an API key for authentication and authorization. MCA APIs use Azure 
 | Usage (CSV) | [/usagedetails/download](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#csv-format)[/usagedetails/submit](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#csv-format) | [Microsoft.Consumption/usageDetails/download](/rest/api/consumption/usagedetails)<sup>1</sup> |
 | Marketplace Usage (CSV) | [/marketplacecharges](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge)[/marketplacechargesbycustomdate](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) | [Microsoft.Consumption/usageDetails/download](/rest/api/consumption/usagedetails)<sup>1</sup> |
 | Billing periods | [/billingperiods](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) | Microsoft.Billing/billingAccounts/billingProfiles/invoices |
-| Price sheet | [/pricesheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) | Microsoft.Billing/billingAccounts/billingProfiles/pricesheet/default/download format=json|csv Microsoft.Billing/billingAccounts/…/billingProfiles/…/invoices/… /pricesheet/default/download format=json|csv Microsoft.Billing/billingAccounts/../billingProfiles/../providers/Microsoft.Consumption/pricesheets/download  |
+| Price sheet | [/pricesheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) | Microsoft.Billing/billingAccounts/billingProfiles/pricesheet/default/download format=json\|csv Microsoft.Billing/billingAccounts/…/billingProfiles/…/invoices/… /pricesheet/default/download format=json\|csv Microsoft.Billing/billingAccounts/../billingProfiles/../providers/Microsoft.Consumption/pricesheets/download  |
 | Reservation purchases | [/reservationcharges](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges) | Microsoft.Billing/billingAccounts/billingProfiles/transactions |
 | Reservation recommendations | [/SharedReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-shared-reserved-instance-recommendations)[/](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations)[SingleReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations) | [Microsoft.Consumption/reservationRecommendations](/rest/api/consumption/reservationrecommendations/list) |
 | Reservation usage | [/reservationdetails](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for-reserved-instance-usage-details)[/reservationsummaries](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) | [Microsoft.Consumption/reservationDetails](/rest/api/consumption/reservationsdetails)[Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries) |
@@ -72,7 +73,6 @@ If you use any existing EA APIs, you need to update them to support MCA billing 
 
 | Purpose | Old offering | New offering |
 | --- | --- | --- |
-| Cloudyn | [Cloudyn.com](https://www.cloudyn.com) | [Azure Cost Management](https://azure.microsoft.com/services/cost-management/) |
 | Power BI | [Microsoft Consumption Insights](/power-bi/desktop-connect-azure-consumption-insights) content pack and connector |  [Azure Consumption Insights connector](/power-bi/desktop-connect-azure-consumption-insights) |
 
 ## APIs to get balance and credits
@@ -509,18 +509,6 @@ To get reservation summaries with the Reservation Summaries API:
 | --- | --- |
 | GET | `https://management.azure.com/providers/Microsoft.Consumption/reservationSummaries?api-version=2019-01-01` |
 
-
-
-## Move from Cloudyn to Cost Management
-
-Organizations using [Cloudyn](https://cloudyn.com) should start using [Azure Cost Management](https://azure.microsoft.com/services/cost-management/) for any cost management needs. Cost Management is available in the Azure portal with no onboarding and an eight-hour latency. For more information, see the [Cost Management documentation](../index.yml).
-
-With Azure Cost Management, you can:
-
-- View costs over time against a predefined budget. Analyze daily cost patterns to identify and stop spending anomalies. Break down costs by tags, resource group, service, and location.
-- Create budgets to set limits on usage and costs and get notified when important thresholds are approached. Set up automation with action groups to trigger custom events and enforce hard limits on your terms.
-- Optimize cost and usage with recommendations from Azure Advisor. Discover purchase optimizations with reservations, downsize underused virtual machines, and delete unused resources to stay within budgets.
-- Schedule a cost and usage data export to publish a CSV file to your storage account daily. Automate integration with external systems to keep billing data in sync and up to date.
 
 ## Power BI integration
 

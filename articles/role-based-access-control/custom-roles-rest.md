@@ -1,6 +1,6 @@
 ---
-title: Create or update custom roles for Azure resources with the REST API
-description: Learn how to list, create, update, or delete custom roles with role-based access control (RBAC) for Azure resources using the REST API.
+title: Create or update Azure custom roles using the REST API - Azure RBAC
+description: Learn how to list, create, update, or delete Azure custom roles using the REST API and Azure role-based access control (Azure RBAC).
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -12,20 +12,20 @@ ms.service: role-based-access-control
 ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 
 ---
-# Create or update custom roles for Azure resources using the REST API
+# Create or update Azure custom roles using the REST API
 
 > [!IMPORTANT]
 > Adding a management group to `AssignableScopes` is currently in preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-If the [built-in roles for Azure resources](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. This article describes how to list, create, update, or delete custom roles using the REST API.
+If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. This article describes how to list, create, update, or delete custom roles using the REST API.
 
 ## List custom roles
 
@@ -185,7 +185,7 @@ To create a custom role, use the [Role Definitions - Create Or Update](/rest/api
 
 1. In the `notActions` property, add the operations that are excluded from the allowed `actions`.
 
-1. In the `roleName` and `description` properties, specify a unique role name and a description. For more information about the properties, see [Custom roles](custom-roles.md).
+1. In the `roleName` and `description` properties, specify a unique role name and a description. For more information about the properties, see [Azure custom roles](custom-roles.md).
 
     The following shows an example of a request body:
 
@@ -336,6 +336,6 @@ To delete a custom role, use the [Role Definitions - Delete](/rest/api/authoriza
 
 ## Next steps
 
-- [Custom roles for Azure resources](custom-roles.md)
-- [Manage access to Azure resources using RBAC and the REST API](role-assignments-rest.md)
+- [Azure custom roles](custom-roles.md)
+- [Assign Azure roles using the REST API](role-assignments-rest.md)
 - [Azure REST API Reference](/rest/api/azure/)

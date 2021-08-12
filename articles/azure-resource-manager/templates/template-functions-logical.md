@@ -1,24 +1,29 @@
 ---
 title: Template functions - logical
-description: Describes the functions to use in an Azure Resource Manager template to determine logical values.
+description: Describes the functions to use in an Azure Resource Manager template (ARM template) to determine logical values.
 ms.topic: conceptual
-ms.date: 04/15/2019
+ms.date: 05/13/2021
 ---
+
 # Logical functions for ARM templates
 
-Resource Manager provides several functions for making comparisons in your Azure Resource Manager (ARM) templates.
+Resource Manager provides several functions for making comparisons in your Azure Resource Manager template (ARM template):
 
 * [and](#and)
 * [bool](#bool)
+* [false](#false)
 * [if](#if)
 * [not](#not)
 * [or](#or)
+* [true](#true)
 
 ## and
 
 `and(arg1, arg2, ...)`
 
 Checks whether all parameter values are true.
+
+The `and` function is not supported in Bicep, use the [&& operator](../bicep/operators-logical.md#and-) instead.
 
 ### Parameters
 
@@ -38,23 +43,23 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [ ],
-    "outputs": {
-        "andExampleOutput": {
-            "value": "[and(bool('true'), bool('false'))]",
-            "type": "bool"
-        },
-        "orExampleOutput": {
-            "value": "[or(bool('true'), bool('false'))]",
-            "type": "bool"
-        },
-        "notExampleOutput": {
-            "value": "[not(bool('true'))]",
-            "type": "bool"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "andExampleOutput": {
+      "type": "bool",
+      "value": "[and(bool('true'), bool('false'))]"
+    },
+    "orExampleOutput": {
+      "type": "bool",
+      "value": "[or(bool('true'), bool('false'))]"
+    },
+    "notExampleOutput": {
+      "type": "bool",
+      "value": "[not(bool('true'))]"
     }
+  }
 }
 ```
 
@@ -79,7 +84,12 @@ Converts the parameter to a boolean.
 | arg1 |Yes |string or int |The value to convert to a boolean. |
 
 ### Return value
+
 A boolean of the converted value.
+
+### Remarks
+
+You can also use [true()](#true) and [false()](#false) to get boolean values.
 
 ### Examples
 
@@ -87,27 +97,27 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "trueString": {
-            "value": "[bool('true')]",
-            "type" : "bool"
-        },
-        "falseString": {
-            "value": "[bool('false')]",
-            "type" : "bool"
-        },
-        "trueInt": {
-            "value": "[bool(1)]",
-            "type" : "bool"
-        },
-        "falseInt": {
-            "value": "[bool(0)]",
-            "type" : "bool"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "trueString": {
+      "type": "bool",
+      "value": "[bool('true')]",
+    },
+    "falseString": {
+      "type": "bool",
+      "value": "[bool('false')]"
+    },
+    "trueInt": {
+      "type": "bool",
+      "value": "[bool(1)]"
+    },
+    "falseInt": {
+      "type": "bool",
+      "value": "[bool(0)]"
     }
+  }
 }
 ```
 
@@ -120,11 +130,53 @@ The output from the preceding example with the default values is:
 | trueInt | Bool | True |
 | falseInt | Bool | False |
 
+## false
+
+`false()`
+
+Returns false.
+
+The `false` function is not available in Bicep.  Use the `false` keyword instead.
+
+### Parameters
+
+The false function doesn't accept any parameters.
+
+### Return value
+
+A boolean that is always false.
+
+### Example
+
+The following example returns a false output value.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "falseOutput": {
+      "type": "bool",
+      "value": "[false()]"
+    }
+  }
+}
+```
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| falseOutput | Bool | False |
+
 ## if
 
 `if(condition, trueValue, falseValue)`
 
 Returns a value based on whether a condition is true or false.
+
+The `if` function is not supported in Bicep. Use the [?: operator](../bicep/operators-logical.md#conditional-expression--) instead.
 
 ### Parameters
 
@@ -140,7 +192,7 @@ Returns second parameter when first parameter is **True**; otherwise, returns th
 
 ### Remarks
 
-When the condition is **True**, only the true value is evaluated. When the condition is **False**, only the false value is evaluated. With the **if** function, you can include expressions that are only conditionally valid. For example, you can reference a resource that exists under one condition but not under the other condition. An example of conditionally evaluating expressions is shown in the following section.
+When the condition is **True**, only the true value is evaluated. When the condition is **False**, only the false value is evaluated. With the `if` function, you can include expressions that are only conditionally valid. For example, you can reference a resource that exists under one condition but not under the other condition. An example of conditionally evaluating expressions is shown in the following section.
 
 ### Examples
 
@@ -148,24 +200,24 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-    ],
-    "outputs": {
-        "yesOutput": {
-            "type": "string",
-            "value": "[if(equals('a', 'a'), 'yes', 'no')]"
-        },
-        "noOutput": {
-            "type": "string",
-            "value": "[if(equals('a', 'b'), 'yes', 'no')]"
-        },
-        "objectOutput": {
-            "type": "object",
-            "value": "[if(equals('a', 'a'), json('{\"test\": \"value1\"}'), json('null'))]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+  ],
+  "outputs": {
+    "yesOutput": {
+      "type": "string",
+      "value": "[if(equals('a', 'a'), 'yes', 'no')]"
+    },
+    "noOutput": {
+      "type": "string",
+      "value": "[if(equals('a', 'b'), 'yes', 'no')]"
+    },
+    "objectOutput": {
+      "type": "object",
+      "value": "[if(equals('a', 'a'), json('{\"test\": \"value1\"}'), json('null'))]"
     }
+  }
 }
 ```
 
@@ -181,47 +233,47 @@ The following [example template](https://github.com/krnese/AzureDeploy/blob/mast
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "vmName": {
-            "type": "string"
-        },
-        "location": {
-            "type": "string"
-        },
-        "logAnalytics": {
-            "type": "string",
-            "defaultValue": ""
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "type": "string"
     },
-    "resources": [
-        {
-            "condition": "[not(empty(parameters('logAnalytics')))]",
-            "name": "[concat(parameters('vmName'),'/omsOnboarding')]",
-            "type": "Microsoft.Compute/virtualMachines/extensions",
-            "location": "[parameters('location')]",
-            "apiVersion": "2017-03-30",
-            "properties": {
-                "publisher": "Microsoft.EnterpriseCloud.Monitoring",
-                "type": "MicrosoftMonitoringAgent",
-                "typeHandlerVersion": "1.0",
-                "autoUpgradeMinorVersion": true,
-                "settings": {
-                    "workspaceId": "[if(not(empty(parameters('logAnalytics'))), reference(parameters('logAnalytics'), '2015-11-01-preview').customerId, json('null'))]"
-                },
-                "protectedSettings": {
-                    "workspaceKey": "[if(not(empty(parameters('logAnalytics'))), listKeys(parameters('logAnalytics'), '2015-11-01-preview').primarySharedKey, json('null'))]"
-                }
-            }
-        }
-    ],
-    "outputs": {
-        "mgmtStatus": {
-            "type": "string",
-            "value": "[if(not(empty(parameters('logAnalytics'))), 'Enabled monitoring for VM!', 'Nothing to enable')]"
-        }
+    "location": {
+      "type": "string"
+    },
+    "logAnalytics": {
+      "type": "string",
+      "defaultValue": ""
     }
+  },
+  "resources": [
+    {
+      "condition": "[not(empty(parameters('logAnalytics')))]",
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "apiVersion": "2017-03-30",
+      "name": "[concat(parameters('vmName'),'/omsOnboarding')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+        "type": "MicrosoftMonitoringAgent",
+        "typeHandlerVersion": "1.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+          "workspaceId": "[if(not(empty(parameters('logAnalytics'))), reference(parameters('logAnalytics'), '2015-11-01-preview').customerId, json('null'))]"
+        },
+        "protectedSettings": {
+          "workspaceKey": "[if(not(empty(parameters('logAnalytics'))), listKeys(parameters('logAnalytics'), '2015-11-01-preview').primarySharedKey, json('null'))]"
+        }
+      }
+    }
+  ],
+  "outputs": {
+    "mgmtStatus": {
+      "type": "string",
+      "value": "[if(not(empty(parameters('logAnalytics'))), 'Enabled monitoring for VM!', 'Nothing to enable')]"
+    }
+  }
 }
 ```
 
@@ -230,6 +282,8 @@ The following [example template](https://github.com/krnese/AzureDeploy/blob/mast
 `not(arg1)`
 
 Converts boolean value to its opposite value.
+
+The `not` function is not supported in Bicep, use the [! operator](../bicep/operators-logical.md#not-) instead.
 
 ### Parameters
 
@@ -247,23 +301,23 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [ ],
-    "outputs": {
-        "andExampleOutput": {
-            "value": "[and(bool('true'), bool('false'))]",
-            "type": "bool"
-        },
-        "orExampleOutput": {
-            "value": "[or(bool('true'), bool('false'))]",
-            "type": "bool"
-        },
-        "notExampleOutput": {
-            "value": "[not(bool('true'))]",
-            "type": "bool"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "andExampleOutput": {
+      "type": "bool",
+      "value": "[and(bool('true'), bool('false'))]",
+    },
+    "orExampleOutput": {
+      "type": "bool",
+      "value": "[or(bool('true'), bool('false'))]"
+    },
+    "notExampleOutput": {
+      "type": "bool",
+      "value": "[not(bool('true'))]"
     }
+  }
 }
 ```
 
@@ -279,16 +333,17 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-    ],
-    "outputs": {
-        "checkNotEquals": {
-            "type": "bool",
-            "value": "[not(equals(1, 2))]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+  ],
+  "outputs": {
+    "checkNotEquals": {
+      "type": "bool",
+      "value": "[not(equals(1, 2))]"
     }
+  }
+}
 ```
 
 The output from the preceding example is:
@@ -302,6 +357,8 @@ The output from the preceding example is:
 `or(arg1, arg2, ...)`
 
 Checks whether any parameter value is true.
+
+The `or` function is not supported in Bicep, use the [|| operator](../bicep/operators-logical.md#or-) instead.
 
 ### Parameters
 
@@ -321,23 +378,23 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [ ],
-    "outputs": {
-        "andExampleOutput": {
-            "value": "[and(bool('true'), bool('false'))]",
-            "type": "bool"
-        },
-        "orExampleOutput": {
-            "value": "[or(bool('true'), bool('false'))]",
-            "type": "bool"
-        },
-        "notExampleOutput": {
-            "value": "[not(bool('true'))]",
-            "type": "bool"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "andExampleOutput": {
+      "value": "[and(bool('true'), bool('false'))]",
+      "type": "bool"
+    },
+    "orExampleOutput": {
+      "value": "[or(bool('true'), bool('false'))]",
+      "type": "bool"
+    },
+    "notExampleOutput": {
+      "value": "[not(bool('true'))]",
+      "type": "bool"
     }
+  }
 }
 ```
 
@@ -349,10 +406,46 @@ The output from the preceding example is:
 | orExampleOutput | Bool | True |
 | notExampleOutput | Bool | False |
 
+## true
+
+`true()`
+
+Returns true.
+
+The `true` function is not available in Bicep.  Use the `true` keyword instead.
+
+### Parameters
+
+The true function doesn't accept any parameters.
+
+### Return value
+
+A boolean that is always true.
+
+### Example
+
+The following example returns a true output value.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "trueOutput": {
+      "type": "bool",
+      "value": "[true()]"
+    }
+  }
+}
+```
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| trueOutput | Bool | True |
+
 ## Next steps
 
-* For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](template-syntax.md).
-* To merge multiple templates, see [Using linked templates with Azure Resource Manager](linked-templates.md).
-* To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](copy-resources.md).
-* To see how to deploy the template you've created, see [Deploy an application with Azure Resource Manager template](deploy-powershell.md).
-
+* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](./syntax.md).

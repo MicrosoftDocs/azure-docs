@@ -1,18 +1,23 @@
-- name: Virtual WAN Documentation
+- name: Virtual WAN documentation
   href: index.yml
 - name: Overview
   items:
-  - name: About Virtual WAN
+  - name: What is Virtual WAN?
     href: virtual-wan-about.md
-  - name: Architecture
-    items: 
-    - name: Migrate to Virtual WAN
-      href: migrate-from-hub-spoke-topology.md
-    - name: Global transit network architecture
-      href: virtual-wan-global-transit-network-architecture.md
-    - name: Interconnect with China
-      href: interconnect-china.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: ARM templates
+    expanded: true
+    items:
+    - name: Any-to-any routing
+      displayName: Resource Manager Any-to-any routing
+      href: quickstart-any-to-any-template.md
+    - name: Route to shared services VNets
+      displayName: Resource Manager route to shared services VNets
+      href: quickstart-route-shared-services-vnet-template.md
 - name: Tutorials
+  expanded: true
   items:
   - name: Create a site-to-site connection
     href: virtual-wan-site-to-site-portal.md
@@ -28,24 +33,82 @@
       href: ../networking/working-remotely-support.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
     - name: Leverage Virtual WAN
       href: work-remotely-support.md
+  - name: Virtual WAN FAQ
+    href: virtual-wan-faq.md
   - name: Locations and partners
     items:
     - name: Hub locations and partners
       href: virtual-wan-locations-partners.md
     - name: Automation guidelines for partners
       href: virtual-wan-configure-automation-providers.md
-  - name: IPsec policies
-    href: virtual-wan-ipsec.md
+  - name: Architecture
+    items: 
+    - name: Migrate to Virtual WAN
+      href: migrate-from-hub-spoke-topology.md
+    - name: Global transit network architecture
+      href: virtual-wan-global-transit-network-architecture.md
+    - name: SD-WAN connectivity architecture
+      href: sd-wan-connectivity-architecture.md
+    - name: Interconnect with China
+      href: interconnect-china.md
+  - name: Routing
+    items:
+    - name: About virtual hub routing
+      href: about-virtual-hub-routing.md
+  - name: Routing scenarios
+    items:
+    - name: Any-to-any
+      href: scenario-any-to-any.md
+    - name: Isolating VNets
+      href: scenario-isolate-vnets.md
+    - name: Isolating VNets - custom
+      href: scenario-isolate-vnets-custom.md
+    - name: Isolating virtual networks and branches
+      href: scenario-isolate-virtual-networks-branches.md
+    - name: Shared services VNets
+      href: scenario-shared-services-vnet.md
+    - name: Route through an NVA
+      href: scenario-route-through-nva.md
+    - name: Route through an NVA - custom
+      href: scenario-route-through-nvas-custom.md
+    - name: BGP peering with virtual hub
+      href: scenario-bgp-peering-hub.md
+    - name: Azure Firewall - custom
+      href: scenario-route-between-vnets-firewall.md
+    - name: Application Gateway and backend pools
+      href: scenario-secured-hub-app-gateway.md
+  - name: Site-to-site
+    items:
+    - name: About S2S IPsec policies
+      href: virtual-wan-ipsec.md
+    - name: Multiple ISP links - Azure path selection
+      href: path-selection-multiple-links.md
+  - name: Point-to-site
+    items:
+    - name: About P2S IPsec policies
+      href: point-to-site-ipsec.md
+    - name: About P2S client address pools
+      href: about-client-address-pools.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/virtual-wan-security-baseline?toc=/azure/virtual-wan/TOC.json
+  - name: Pricing concepts
+    href: pricing-concepts.md
+  - name: About NVA in a virtual hub
+    href: about-nva-hub.md
+  - name: About secured virtual hubs
+    href: ../firewall-manager/secured-virtual-hub.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
 - name: How-to guides
   items:
-  - name: Connect virtual network gateway to Virtual WAN
-    href: connect-virtual-network-gateway-vwan.md
-  - name: Configure Global VNet peering
-    href: global-peering-vnet.md
   - name: Upgrade a virtual WAN SKU
     href: upgrade-virtual-wan.md
-  - name: Configure custom IPsec policy
-    href: virtual-wan-custom-ipsec-portal.md
+  - name: Create an NVA in a virtual hub
+    href: How-to-nva-hub.md
+  - name: Connect a VNet to a virtual hub
+    href: howto-connect-vnet-hub.md
+  - name: Create a cross-tenant VNet connection
+    href: cross-tenant-vnet.md
   - name: ExpressRoute
     items:
     - name: Create an ExpressRoute connection
@@ -56,6 +119,14 @@
     items:
     - name: Create a site-to-site connection
       href: virtual-wan-site-to-site-portal.md
+    - name: Connect virtual network gateway to Virtual WAN
+      href: connect-virtual-network-gateway-vwan.md
+    - name: Perform a packet capture 
+      href: virtual-wan-site-to-site-packet-capture.md
+    - name: Configure custom IPsec policy
+      href: virtual-wan-custom-ipsec-portal.md
+    - name: Configure NAT rules
+      href: nat-rules-vpn-gateway.md
   - name: User VPN (point-to-site)
     items:
     - name: Create a User VPN connection
@@ -64,34 +135,66 @@
       href: certificates-point-to-site.md
     - name: Configure Azure AD tenant
       href: openvpn-azure-ad-tenant.md
-    - name: Client profile
-      href: about-vpn-profile-download.md
-    - name: Global and hub-based profile
-      href: global-hub-profile.md
-    - name: Configure OpenVPN clients
-      href: howto-openvpn-clients.md?
-    - name: Configure Always On VPN user tunnel
-      href: howto-always-on-user-tunnel.md
-    - name: Configure Always On VPN device tunnel
-      href: howto-always-on-device-tunnel.md
-    - name: Enable Multi-Factor Authentication(MFA)
-      href: openvpn-azure-ad-mfa.md   
-    - name: Configure Azure AD authentication
-      href: virtual-wan-point-to-site-azure-ad.md
-    - name: Configure Azure VPN Client for Windows 10
-      href: openvpn-azure-ad-client.md
-    - name: Configure Multi-application Azure AD authentication
-      href: openvpn-azure-ad-tenant-multi-app.md  
+    - name: Client profiles
+      items:
+      - name: Download global and hub-based profiles
+        href: global-hub-profile.md
+      - name: Extract and view profile information
+        href: about-vpn-profile-download.md
+      - name: Deploy profiles using Intune
+        href: vpn-profile-intune.md
+    - name: VPN clients
+      items:
+        - name: OpenVPN
+          href: howto-openvpn-clients.md?
+        - name: Azure AD authentication
+          items:
+            - name: Windows 10
+              href: openvpn-azure-ad-client.md
+            - name: macOS - Preview
+              href: openvpn-azure-ad-client-mac.md
+    - name: Configure Always-On tunnels
+      items:
+      - name: User tunnel
+        href: howto-always-on-user-tunnel.md
+      - name: Device tunnel
+        href: howto-always-on-device-tunnel.md
+    - name: Authentication
+      items:
+      - name: Multi-Factor Authentication(MFA)
+        href: openvpn-azure-ad-mfa.md   
+      - name: Azure AD authentication
+        href: virtual-wan-point-to-site-azure-ad.md
+      - name: Multi-application Azure AD authentication
+        href: openvpn-azure-ad-tenant-multi-app.md
   - name: Routing
     items:
-    - name: Route traffic from a virtual hub to an NVA
-      items:
-        - name: Azure portal
-          href: virtual-wan-route-table-portal.md
-        - name: Azure PowerShell
-          href: virtual-wan-route-table.md
+    - name: Configure virtual hub routing
+      href: how-to-virtual-hub-routing.md
     - name: View virtual hub effective routes
       href: effective-routes-virtual-hub.md
+    - name: Route traffic from a virtual hub to an NVA (legacy)
+      items:
+        - name: Azure portal
+          href: virtual-wan-route-table-nva-portal.md
+        - name: Azure PowerShell
+          href: virtual-wan-route-table-nva.md
+    - name: Configure BGP peering with virtual hub
+      href: create-bgp-peering-hub-portal.md
+  - name: Security
+    items:
+    - name: Install Azure Firewall in a hub
+      href: howto-firewall.md
+    - name: Configure Private Link connectivity
+      href: howto-private-link.md
+    - name: Manage access to resources - Spoke VNet P2S
+      href: manage-secure-access-resources-spoke-p2s.md
+  - name: Health monitoring
+    items:
+    - name: Monitoring Virtual WAN
+      href: monitor-virtual-wan.md
+    - name: Azure Monitor Insights for Virtual WAN
+      href: azure-monitor-insights.md
 - name: Reference
   items:
   - name: Azure PowerShell
@@ -99,21 +202,21 @@
   - name: REST
     href: /rest/api/azure
   - name: Azure CLI
-    href: /cli/azure/ext/virtual-wan
+    href: ./index.yml
   - name: Python SDK
     href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-mgmt-network/10.0.0/azure.mgmt.network.v2019_02_01.operations.html#azure.mgmt.network.v2019_02_01.operations.VirtualWansOperations
 - name: Resources
   items:
-  - name: FAQ
-    href: virtual-wan-faq.md
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=networking
-  - name: Blog
-    href: https://azure.microsoft.com/blog/topics/networking
-  - name: Subscription and service limits
-    href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/virtual-wan
+  - name: Subscription and service limits
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
+  - name: Networking Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=networking
+  - name: Networking blog
+    href: https://azure.microsoft.com/blog/topics/networking
+  - name: Networking update announcements
+    href: https://azure.microsoft.com/updates/?category=networking 
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: SLA

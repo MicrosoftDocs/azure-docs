@@ -1,26 +1,28 @@
 ---
 title: 'Share custom views with parameterized URLs - Azure Time Series Insights | Microsoft Docs'
-description: Learn how to create parameterized URLs to easily share customized explorer views in Azure Time Series Insights.
+description: Learn how to create parameterized URLs to easily share customized Explorer views in Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: cshankar
+author: narmeens
+ms.author: narsam
+manager: cnovak
+ms.reviewer: orspodek
 ms.topic: conceptual
 ms.workload: big-data
-ms.date: 04/15/2020
+ms.date: 10/02/2020
 ms.custom: seodec18
 ---
 
 # Share a custom view using a parameterized URL
 
-To share a custom view in Time Series Insights Explorer, you can programmatically create a parameterized URL of the custom view.
+To share a custom view in Azure Time Series Insights Explorer, you can programmatically create a parameterized URL of the custom view.
 
-The Time Series Insights Explorer supports URL query parameters to specify views in the experience directly from the URL. For example, using only the URL, you can specify a target environment, a search predicate, and desired time span. When a user selects the customized URL, the interface provides a link directly to that asset in the Time Series Insights portal. Data access policies apply.
+Azure Time Series Insights Explorer supports URL query parameters to specify views in the experience directly from the URL. For example, using only the URL, you can specify a target environment, a search predicate, and desired time span. When a user selects the customized URL, the interface provides a link directly to that asset in the Azure Time Series Insights portal. Data access policies apply.
 
 > [!TIP]
-> * View the free [Time Series Insights demo](https://insights.timeseries.azure.com/samples).
-> * Read the accompanying [Time Series Insights Explorer](./time-series-insights-explorer.md) documentation.
+>
+> * View the free [Azure Time Series Insights demo](https://insights.timeseries.azure.com/samples).
+> * Read the accompanying [Azure Time Series Insights Explorer](./time-series-insights-explorer.md) documentation.
 
 ## Environment ID
 
@@ -48,7 +50,7 @@ For a relative time value, use `relativeMillis=<value>`, where *value* is in Jav
 
 For example, `&relativeMillis=3600000` displays the most recent 60 minutes of data.
 
-Accepted values correspond to the Time Series Insights explorer **quick time** menu, and include:
+Accepted values correspond to the Azure Time Series Insights Explorer **quick time** menu, and include:
 
 * `1800000` (Last 30 mins)
 * `3600000` (Last 60 mins)
@@ -61,7 +63,7 @@ Accepted values correspond to the Time Series Insights explorer **quick time** m
 
 ### Optional parameters
 
-The `timeSeriesDefinitions=<collection of term objects>` parameter specifies predicate terms that will appear in a Time Series Insights view:
+The `timeSeriesDefinitions=<collection of term objects>` parameter specifies predicate terms that will appear in an Azure Time Series Insights view:
 
 | Parameter | URL Item | Description |
 | --- | --- | --- |
@@ -72,12 +74,12 @@ The `timeSeriesDefinitions=<collection of term objects>` parameter specifies pre
 | **useSum** | `true` | An optional parameter that specifies using sum for your measure. |
 
 > [!NOTE]
-> If `Events` is the selected **useSum** measure, count is selected by default.  
+> If `Events` is the selected **useSum** measure, count is selected by default.
 > If `Events` is not selected, average is selected by default. |
 
 * The `multiChartStack=<true/false>` key-value pair enables stacking in the chart.
-* The `multiChartSameScale=<true/false>` key-value pair enables the same Y-axis scale across terms within an optional parameter.  
-* The `timeBucketUnit=<Unit>&timeBucketSize=<integer>` enables you to adjust the interval slider to provide a more granular or smoother, more aggregated view of the chart.  
+* The `multiChartSameScale=<true/false>` key-value pair enables the same Y-axis scale across terms within an optional parameter.
+* The `timeBucketUnit=<Unit>&timeBucketSize=<integer>` enables you to adjust the interval slider to provide a more granular or smoother, more aggregated view of the chart.
 * The `timezoneOffset=<integer>` parameter enables you to set the timezone for the chart to be viewed in as an offset to UTC.
 
 | Pair(s) | Description |
@@ -93,7 +95,7 @@ The `timeSeriesDefinitions=<collection of term objects>` parameter specifies pre
 
 ### Examples
 
-To add time series definitions to a Time Series Insights environment as a URL parameter, append:
+To add time series definitions to an Azure Time Series Insights environment as a URL parameter, append:
 
 ```URL parameter
 &timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},
@@ -109,19 +111,20 @@ Use the example time series definitions for:
 You can construct the following parameterized URL for a view:
 
 ```URL
-https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
+https://insights.timeseries.azure.com/classic/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
 ```
 
-[![Time Series Insights explorer parameterized URL](media/parameterized-url/share-parameterized-url.png)](media/parameterized-url/share-parameterized-url.png#lightbox)
+[![Azure Time Series Insights Explorer parameterized URL](media/parameterized-url/share-parameterized-url.png)](media/parameterized-url/share-parameterized-url.png#lightbox)
 
 > [!TIP]
-> See the Explorer live [using the URL](https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]) example above.
+> See the Explorer live [using the URL](https://insights.timeseries.azure.com/classic/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[%7B%22name%22:%22F1PressureId%22,%22splitBy%22:%22Id%22,%22measureName%22:%22Pressure%22,%22predicate%22:%22%27Factory1%27%22%7D,%7B%22name%22:%22F2TempStation%22,%22splitBy%22:%22Station%22,%22measureName%22:%22Temperature%22,%22predicate%22:%22%27Factory2%27%22%7D,%7B%22name%22:%22F3VibrationPL%22,%22splitBy%22:%22ProductionLine%22,%22measureName%22:%22Vibration%22,%22predicate%22:%22%27Factory3%27%22%7D]
+) example above.
 
-The URL above describes and displays the parameterized Time Series Insights explorer view. 
+The URL above describes and displays the parameterized Azure Time Series Insights Explorer view.
 
 * The parameterized predicates.
 
-  [![Time Series Insights explorer parameterized predicates.](media/parameterized-url/share-parameterized-url-predicates.png)](media/parameterized-url/share-parameterized-url-predicates.png#lightbox)
+  [![Azure Time Series Insights Explorer parameterized predicates.](media/parameterized-url/share-parameterized-url-predicates.png)](media/parameterized-url/share-parameterized-url-predicates.png#lightbox)
 
 * The shared full chart view.
 
@@ -131,4 +134,4 @@ The URL above describes and displays the parameterized Time Series Insights expl
 
 * Learn how to [query data using C#](time-series-insights-query-data-csharp.md).
 
-* Learn about the [Time Series Insights Explorer](./time-series-insights-explorer.md).
+* Learn about the [Azure Time Series Insights Explorer](./time-series-insights-explorer.md).

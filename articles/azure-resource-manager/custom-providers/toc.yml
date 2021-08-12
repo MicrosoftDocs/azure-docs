@@ -9,6 +9,8 @@
   items:
   - name: Create a custom resource provider
     href: create-custom-provider.md
+  - name: Create a custom resource provider - Azure PowerShell
+    href: create-custom-provider-quickstart-powershell.md
 - name: Tutorials
   items:
   - name: Get started with custom providers
@@ -23,7 +25,7 @@
     href: tutorial-resource-onboarding.md
 - name: Concepts
   items:
-  - name: Azure policy for associations
+  - name: Azure Policy for associations
     href: concepts-built-in-policy.md
   - name: Resource onboarding
     href: concepts-resource-onboarding.md
@@ -43,6 +45,13 @@
     href: reference-custom-providers-csharp-endpoint.md
   - name: REST
     href: /rest/api/customproviders/
+  - name: Azure CLI
+    href: /cli/azure/custom-providers/
+  - name: Azure PowerShell
+    href: /powershell/module/Az.CustomProviders/
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Azure Roadmap

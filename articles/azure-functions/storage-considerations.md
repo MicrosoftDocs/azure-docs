@@ -3,7 +3,7 @@ title: Storage considerations for Azure Functions
 description: Learn about the storage requirements of Azure Functions and about encrypting stored data. 
 
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 07/27/2020
 ---
 
 # Storage considerations for Azure Functions
@@ -13,31 +13,37 @@ Azure Functions requires an Azure Storage account when you create a function app
 
 |Storage service  | Functions usage  |
 |---------|---------|
-| [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md)     | Maintain bindings state and function keys.  <br/>Also used by [task hubs in Durable Functions](durable/durable-functions-task-hubs.md). |
-| [Azure Files](../storage/files/storage-files-introduction.md)  | File share used to store and run your function app code in a [Consumption Plan](functions-scale.md#consumption-plan). |
-| [Azure Queue storage](../storage/queues/storage-queues-introduction.md)     | Used by [task hubs in Durable Functions](durable/durable-functions-task-hubs.md).   |
-| [Azure Table storage](../storage/tables/table-storage-overview.md)  |  Used by [task hubs in Durable Functions](durable/durable-functions-task-hubs.md).       |
+| [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)     | Maintain bindings state and function keys.  <br/>Also used by [task hubs in Durable Functions](durable/durable-functions-task-hubs.md). |
+| [Azure Files](../storage/files/storage-files-introduction.md)  | File share used to store and run your function app code in a [Consumption Plan](consumption-plan.md) and [Premium Plan](functions-premium-plan.md). <br/>Azure Files is set up by default, but you can [create an app without Azure Files](#create-an-app-without-azure-files) under certain conditions. |
+| [Azure Queue Storage](../storage/queues/storage-queues-introduction.md)     | Used by [task hubs in Durable Functions](durable/durable-functions-task-hubs.md).   |
+| [Azure Table Storage](../storage/tables/table-storage-overview.md)  |  Used by [task hubs in Durable Functions](durable/durable-functions-task-hubs.md).       |
 
 > [!IMPORTANT]
-> When using the Consumption hosting plan, your function code and binding configuration files are stored in Azure File storage in the main storage account. When you delete the main storage account, this content is deleted and cannot be recovered.
+> When using the Consumption/Premium hosting plan, your function code and binding configuration files are stored in Azure File storage in the main storage account. When you delete the main storage account, this content is deleted and cannot be recovered.
 
 ## Storage account requirements
 
-When creating a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. This is because Functions relies on Azure Storage for operations such as managing triggers and logging function executions. Some storage accounts don't support queues and tables. These accounts include blob-only storage accounts, Azure Premium Storage, and general-purpose storage accounts with ZRS replication. These unsupported accounts are filtered out of from the Storage Account blade when creating a function app.
+When creating a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. This is because Functions relies on Azure Storage for operations such as managing triggers and logging function executions. Some storage accounts don't support queues and tables. These accounts include blob-only storage accounts and Azure Premium Storage.
 
 To learn more about storage account types, see [Introducing the Azure Storage Services](../storage/common/storage-introduction.md#core-storage-services). 
 
-While you can use an existing storage account with your function app, you must make sure that it meets these requirements. Storage accounts created as part of the function app create flow are guaranteed to meet these storage account requirements.  
+While you can use an existing storage account with your function app, you must make sure that it meets these requirements. Storage accounts created as part of the function app create flow in the Azure portal are guaranteed to meet these storage account requirements. In the portal, unsupported accounts are filtered out when choosing an existing storage account while creating a function app. In this flow, you are only allowed to choose existing storage accounts in the same region as the function app you're creating. To learn more, see [Storage account location](#storage-account-location).
+
+<!-- JH: Does using a Premium Storage account improve perf? -->
 
 ## Storage account guidance
 
-Every function app requires a storage account to operate. If that account is deleted your function app won't run. To troubleshoot storage-related issues, see [How to troubleshoot storage-related issues](functions-recover-storage-account.md). The following additional  considerations apply to the Storage account used by function apps.
+Every function app requires a storage account to operate. If that account is deleted your function app won't run. To troubleshoot storage-related issues, see [How to troubleshoot storage-related issues](functions-recover-storage-account.md). The following additional considerations apply to the Storage account used by function apps.
+
+### Storage account location
+
+For best performance, your function app should use a storage account in the same region, which reduces latency. The Azure portal enforces this best practice. If, for some reason, you need to use a storage account in a region different than your function app, you must create your function app outside of the portal. 
 
 ### Storage account connection setting
 
 The storage account connection is maintained in the [AzureWebJobsStorage application setting](./functions-app-settings.md#azurewebjobsstorage). 
 
-The storage account connection string must be updated when you regenerate storage keys. [Read more about storage key management here](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
+The storage account connection string must be updated when you regenerate storage keys. [Read more about storage key management here](../storage/common/storage-account-create.md).
 
 ### Shared storage accounts
 
@@ -49,13 +55,32 @@ It's possible for multiple function apps to share the same storage account witho
 
 ## Storage data encryption
 
-Azure Storage encrypts all data in a storage account at rest. For more information, see [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md).
+[!INCLUDE [functions-storage-encryption](../../includes/functions-storage-encryption.md)]
 
-By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can supply customer-managed keys to use for encryption of blob and file data. These keys must be present in Azure Key Vault for Functions to be able to access the storage account. To learn more, see [Configure customer-managed keys with Azure Key Vault by using the Azure portal](../storage/common/storage-encryption-keys-portal.md).  
+### In-region data residency
 
-## Mount file shares (Linux)
+When all customer data must remain within a single region, the storage account associated with the function app must be one with [in-region redundancy](../storage/common/storage-redundancy.md). An in-region redundant storage account also must be used with [Azure Durable Functions](./durable/durable-functions-perf-and-scale.md#storage-account-selection).
 
-You can mount existing Azure Files shares to your Linux function apps. By mounting a share to your Linux function app, you can leverage existing machine learning models or other data in your functions. You can use the [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) command to mount an existing share to your Linux function app. 
+Other platform-managed customer data is only stored within the region when hosting in an internally load-balanced App Service Environment (ASE). To learn more, see [ASE zone redundancy](../app-service/environment/zone-redundancy.md#in-region-data-residency).
+
+## Create an app without Azure Files
+
+Azure Files is set up by default for Premium and non-Linux Consumption plans to serve as a shared file system in high-scale scenarios. The file system is used by the platform for some features such as log streaming, but it primarily ensures consistency of the deployed function payload. When an app is [deployed using an external package URL](./run-functions-from-deployment-package.md), the app content is served from a separate read-only file system, so Azure Files can be omitted if desired. In such cases, a writeable file system is provided, but it is not guaranteed to be shared with all function app instances.
+
+If Azure Files is not used, you must account for the following:
+
+* You must deploy from an external package URL
+* Your app cannot rely on a shared writeable file system
+* The app cannot use Functions runtime v1
+* Log streaming experiences in clients such as the Azure portal default to file system logs. You should instead rely on Application Insights logs.
+
+If the above are properly accounted for, you may create the app without Azure Files. Create the function app without specifying the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` and `WEBSITE_CONTENTSHARE` application settings.
+
+## Mount file shares
+
+_This functionality is current only available when running on Linux._ 
+
+You can mount existing Azure Files shares to your Linux function apps. By mounting a share to your Linux function app, you can leverage existing machine learning models or other data in your functions. You can use the [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az_webapp_config_storage_account_add) command to mount an existing share to your Linux function app. 
 
 In this command, `share-name` is the name of the existing Azure Files share, and `custom-id` can be any string that uniquely defines the share when mounted to the function app. Also, `mount-path` is the path from which the share is accessed in your function app. `mount-path` must be in the format `/dir-name`, and it can't start with `/home`.
 
@@ -78,5 +103,3 @@ Learn more about Azure Functions hosting options.
 
 > [!div class="nextstepaction"]
 > [Azure Functions scale and hosting](functions-scale.md)
-
-

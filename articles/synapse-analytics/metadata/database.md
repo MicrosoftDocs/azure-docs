@@ -1,52 +1,45 @@
 ---
-title: Azure Synapse Analytics shared database 
-description: Azure Synapse Analytics provides a shared metadata model where creating a database in Apache Spark will make it accessible from its SQL on-demand (preview) and SQL pool engines. 
+title: Shared database
+description: Azure Synapse Analytics provides a shared metadata model where creating a database in serverless Apache Spark pool will make it accessible from its serverless SQL pool and SQL pool engines. 
 services: synapse-analytics 
 author: MikeRys
 ms.service: synapse-analytics  
 ms.topic: overview
-ms.subservice: 
-ms.date: 04/15/2020
+ms.subservice: metadata
+ms.date: 05/01/2020
 ms.author: mrys 
 ms.reviewer: jrasnick
+ms.custom: devx-track-csharp
 ---
 
 # Azure Synapse Analytics shared database
 
-Azure Synapse Analytics allows the different computational workspace engines to share databases and tables between its Spark pools (preview), SQL on-demand (preview) engine, and SQL pools.
+Azure Synapse Analytics allows the different computational workspace engines to share databases and tables. Currently, the databases and the Parquet tables that are created on the Apache Spark pools are automatically shared with the serverless SQL pool engine.
 
-[!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
+A database created with a Spark job will become visible with that same name to all current and future Spark pools in the workspace, including the serverless SQL pool engine. You cannot add custom objects (external tables, views, procedures) directly in this replicated database using the serverless SQL pool.
 
-A database created with a Spark job will become visible with that same name to all current and future Spark pools (preview) in the workspace as well as the SQL on-demand engine.
+The Spark default database, called `default`, will also be visible in the serverless SQL pool context as a database called `default`.
 
-If there are SQL pools in the workspace that have metadata synchronization enabled, or if you create a new SQL pool with the metadata synchronization enabled, these Spark created databases are automatically mapped into special schemas in the SQL pool database. 
-
-Each schema is named after the Spark database name with an additional `$` prefix. Both the external and managed tables in the Spark-generated database are exposed as external tables in the corresponding special schema.
-
-The Spark default database, called `default`, will also be visible in the SQL on-demand context as a database called `default`, and in any of the SQL pool databases with metadata synchronization turned on as the schema `$default`.
-
-Since the databases are synchronized to SQL on-demand and the SQL pools asynchronously, there will be a delay until they appear.
+Since the databases are synchronized to serverless SQL pool asynchronously, there will be a delay until they appear.
 
 ## Manage a Spark created database
 
 Use Spark to manage Spark created databases. For example, delete it through a Spark pool job, and create tables in it from Spark.
 
-If you create objects in a Spark created database using SQL on-demand, or try to drop the database, the operation will succeed. But, the original Spark database won't be changed.
+If you create objects in a Spark created database using serverless SQL pool, or try to drop the database, the operation will succeed. But, the original Spark database won't be changed.
 
-If you try to drop the synchronized schema in a SQL pool, or try to create a table in it, Azure returns an error.
+## How name conflicts are handled
 
-## Handling of name conflicts
+If the name of a Spark database conflicts with the name of an existing serverless SQL pool database, a suffix is appended in serverless SQL pool to the Spark database. The suffix in serverless SQL pool is `_<workspace name>-ondemand-DefaultSparkConnector`.
 
-If the name of a Spark database conflicts with the name of an existing SQL on-demand database, a suffix is appended in SQL on-demand to the Spark database. The suffix in SQL on-demand is `_<workspace name>-ondemand-DefaultSparkConnector`.
-
-For example, if a Spark database called `mydb` gets created in the Azure Synapse workspace `myws` and a SQL on-demand database with that name already exists, then the Spark database in SQL on-demand will have to be referenced using the name `mydb_myws-ondemand-DefaultSparkConnector`.
+For example, if a Spark database called `mydb` gets created in the Azure Synapse workspace `myws` and a serverless SQL pool database with that name already exists, then the Spark database in serverless SQL pool will have to be referenced using the name `mydb_myws-ondemand-DefaultSparkConnector`.
 
 > [!CAUTION]
 > Caution: You should not take a dependency on this behavior.
 
 ## Security model
 
-The Spark databases and tables, along with their synchronized representations in the SQL engines will be secured at the underlying storage level.
+The Spark databases and tables, along with their synchronized representations in the SQL engine will be secured at the underlying storage level.
 
 The security principal who creates a database is considered the owner of that database, and has all the rights to the database and its objects.
 
@@ -58,15 +51,15 @@ If a security principal requires the ability to create objects or drop objects i
 
 ## Examples
 
-### Create & connect to Spark database - SQL on-demand
+### Create and connect to Spark database with serverless SQL pool
 
-First create a new Spark database named `mytestdb` using a Spark cluster you have already created in your workspace. You can achieve that, for example,  using a Spark C# Notebook with the following .NET for Spark statement:
+First create a new Spark database named `mytestdb` using a Spark cluster you have already created in your workspace. You can achieve that, for example, using a Spark C# Notebook with the following .NET for Spark statement:
 
 ```csharp
 spark.Sql("CREATE DATABASE mytestdb")
 ```
 
-After a short delay, you can see the database from SQL on-demand. For example, run the following statement from SQL on-demand.
+After a short delay, you can see the database from serverless SQL pool. For example, run the following statement from serverless SQL pool.
 
 ```sql
 SELECT * FROM sys.databases;
@@ -74,22 +67,7 @@ SELECT * FROM sys.databases;
 
 Verify that `mytestdb` is included in the results.
 
-### Exposing a Spark database in a SQL pool
-
-With the database created in the previous example, now create a SQL pool in your workspace named `mysqlpool` that enables metadata synchronization.
-
-Run the following statement against the `mysqlpool` SQL pool:
-
-```sql
-SELECT * FROM sys.schema;
-```
-
-Verify the schema for the newly created database in the results.
-
 ## Next steps
 
 - [Learn more about Azure Synapse Analytics' shared metadata](overview.md)
 - [Learn more about Azure Synapse Analytics' shared metadata Tables](table.md)
-
-<!-- - [Learn more about the Synchronization with SQL Analytics on-demand](overview.md)
-- [Learn more about the Synchronization with SQL Analytics pools](overview.md)-->

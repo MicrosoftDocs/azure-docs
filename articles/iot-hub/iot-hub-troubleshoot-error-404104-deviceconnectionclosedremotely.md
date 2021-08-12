@@ -8,7 +8,8 @@ services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
-# As a developer or operator for Azure IoT Hub, I want to resolve 404104 DeviceConnectionClosedRemotely errors.
+ms.custom: mqtt
+#Customer intent: As a developer or operator for Azure IoT Hub, I want to resolve 404104 DeviceConnectionClosedRemotely errors.
 ---
 
 # 404104 DeviceConnectionClosedRemotely
@@ -19,21 +20,21 @@ This article describes the causes and solutions for **404104 DeviceConnectionClo
 
 ### Symptom 1
 
-Devices disconnect at a regular interval (every 65 minutes, for example) and you see **404104 DeviceConnectionClosedRemotely** in IoT Hub diagnostic logs. Sometimes, you also see **401003 IoTHubUnauthorized** and a successful device connection event less than a minute later.
+Devices disconnect at a regular interval (every 65 minutes, for example) and you see **404104 DeviceConnectionClosedRemotely** in IoT Hub resource logs. Sometimes, you also see **401003 IoTHubUnauthorized** and a successful device connection event less than a minute later.
 
 ### Symptom 2
 
-Devices disconnect randomly, and you see **404104 DeviceConnectionClosedRemotely** in IoT Hub diagnostic logs.
+Devices disconnect randomly, and you see **404104 DeviceConnectionClosedRemotely** in IoT Hub resource logs.
 
 ### Symptom 3
 
-Many devices disconnect at once, you see a dip in the [connected devices metric](iot-hub-metrics.md), and there are more **404104 DeviceConnectionClosedRemotely** and [500xxx Internal errors](iot-hub-troubleshoot-error-500xxx-internal-errors.md) in diagnostic logs than usual.
+Many devices disconnect at once, you see a dip in the [Connected devices (connectedDeviceCount) metric](monitor-iot-hub-reference.md), and there are more **404104 DeviceConnectionClosedRemotely** and [500xxx Internal errors](iot-hub-troubleshoot-error-500xxx-internal-errors.md) in Azure Monitor Logs than usual.
 
 ## Causes
 
 ### Cause 1
 
-The [SAS token used to connect to IoT Hub](iot-hub-devguide-security.md#security-tokens) expired, which causes IoT Hub to disconnect the device. The connection is re-established when the token is refreshed by the device. For example, [the SAS token expires every hour by default for C SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-authentication), which can lead to regular disconnects.
+The [SAS token used to connect to IoT Hub](iot-hub-dev-guide-sas.md#security-tokens) expired, which causes IoT Hub to disconnect the device. The connection is re-established when the token is refreshed by the device. For example, [the SAS token expires every hour by default for C SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-authentication), which can lead to regular disconnects.
 
 To learn more, see [401003 IoTHubUnauthorized cause](iot-hub-troubleshoot-error-401003-iothubunauthorized.md#cause-1).
 

@@ -12,7 +12,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 03/22/2021
 ms.author: apimpm
 ---
 
@@ -30,11 +30,11 @@ This article shows you how to enable access to the developer portal for users fr
 ## Authorize developer accounts by using Azure AD
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
-2. Select ![arrow](./media/api-management-howto-aad/arrow.png).
+2. Select ![Arrow icon.](./media/api-management-howto-aad/arrow.png).
 3. Type **api** in the search box.
 4. Select **API Management services**.
 5. Select your API Management service instance.
-6. Under **Security**, select **Identities**.
+6. Under **Developer portal**, select **Identities**.
 7. Select **+Add** from the top.
 
     The **Add identity provider** pane appears on the right.
@@ -43,7 +43,15 @@ This article shows you how to enable access to the developer portal for users fr
     Controls that enable you to enter other necessary information appear in the pane. The controls include **Client ID** and **Client secret**. (You get information about these controls later in the article.)
 9. Make a note of the content of **Redirect URL**.
     
-   ![Steps for adding an identity provider in the Azure portal](./media/api-management-howto-aad/api-management-with-aad001.png)  
+
+    :::image type="content" source="media/api-management-howto-aad/api-management-with-aad001.png" alt-text="Add identity provider in Azure portal":::
+    > [!NOTE]
+    > There are two redirect URLs:<br/>
+    > **Redirect URL** - points to the latest developer portal of the API Management.<br/>
+    > **Redirect URL (deprecated portal)** - points to the deprecated developer portal of API Management.
+    >
+    > It is recommended to use the latest developer portal Redirect URL.
+   
 10. In your browser, open a different tab. 
 11. Navigate to the [Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) to register an app in Active Directory.
 12. Under **Manage**, select **App registrations**.
@@ -81,18 +89,21 @@ After the changes are saved, users in the specified Azure AD instance can sign i
 
 After you enable access for users in an Azure AD tenant, you can add Azure AD groups into API Management. As a result, you can control product visibility using Azure AD groups.
 
-To add an external Azure AD group into APIM, you must first complete the previous section. Additionally, the application you registered must be granted access to the Microsoft Graph API with `Directory.Read.All` permission by following these steps: 
+To add an external Azure AD group into APIM, you must first complete the previous section. By default, the application you registered has access to the Microsoft Graph API with the required `User.Read` Delegated permission. You must also give the application access to the Microsoft Graph API and Azure Active Directory Graph API with the `Directory.Read.All` Application permission by following these steps: 
 
-1. Go back to your App Registration that was created in the previous section.
-2. Select **API Permissions**, and then click **+Add a permission**. 
-3. In the **Request API Permissions** pane, select the **Microsoft APIs** tab, and then select the **Microsoft Graph** tile. Select **Application permissions**, search for **Directory**, and then select the **Directory.Read.All** permission. 
-4. Click **Add permissions** at the bottom of the pane, and then click **Grant admin consent for {tenantname}** so that you grant access for all users in this directory. 
+1. Go back to your app registration that was created in the previous section.
+2. Select **API Permissions**, and then select **Add a permission**. 
+3. In the **Request API Permissions** pane, select the **Microsoft APIs** tab, and then select the **Microsoft Graph** tile. Select **Application permissions** and search for **Directory**. Select the **Directory.Read.All** permission, and then select **Add permissions** at the bottom of the pane.
+4. Select **Add a permission**. 
+5. In the **Request API Permissions** pane, select the **Microsoft APIs** tab, scroll down, and then select the **Azure Active Directory Graph** tile. Select **Application permissions** and search for **Directory**. Select the **Directory.Read.All** permission, and then select **Add permissions**. 
+6. Select **Grant admin consent for {tenantname}** so that you grant access for all users in this directory. 
 
 Now you can add external Azure AD groups from the **Groups** tab of your API Management instance.
 
 1. Select the **Groups** tab.
 2. Select the **Add AAD group** button.
-    !["Add AAD group" button](./media/api-management-howto-aad/api-management-with-aad008.png)
+
+   !["Add A A D group" button](./media/api-management-howto-aad/api-management-with-aad008.png)
 3. Select the group that you want to add.
 4. Press the **Select** button.
 
@@ -100,7 +111,7 @@ After you add an external Azure AD group, you can review and configure its prope
  
 Users from the configured Azure AD instance can now sign in to the developer portal. They can view and subscribe to any groups for which they have visibility.
 
-## <a id="log_in_to_dev_portal"/> Developer portal - add Azure AD account authentication
+## <a id="log_in_to_dev_portal"></a> Developer portal - add Azure AD account authentication
 
 In the developer portal, sign-in with AAD is possible with the **Sign-in button: OAuth** widget. The widget is already included on the sign-in page of the default developer portal content.
 
@@ -138,14 +149,14 @@ Your user is now signed in to the developer portal for your API Management servi
 [api-management-complete-registration]: ./media/api-management-howto-aad/api-management-complete-registration.png
 [api-management-registration-complete]: ./media/api-management-howto-aad/api-management-registration-complete.png
 
-[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add operations to an API]: ./mock-api-responses.md
 [How to add and publish a product]: api-management-howto-add-products.md
 [Monitoring and analytics]: api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: get-started-create-service-instance.md
-[API Management policy reference]: api-management-policy-reference.md
-[Caching policies]: api-management-policy-reference.md#caching-policies
+[API Management policy reference]: ./api-management-policies.md
+[Caching policies]: ./api-management-policies.md#caching-policies
 [Create an API Management service instance]: get-started-create-service-instance.md
 
 [https://oauth.net/2/]: https://oauth.net/2/

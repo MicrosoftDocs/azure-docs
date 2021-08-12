@@ -1,22 +1,25 @@
 ---
 title: Memory and concurrency limits
-description: View the memory and concurrency limits allocated to the various performance levels and resource classes in Azure Synapse Analytics.
+description: View the memory and concurrency limits allocated to the various performance levels and resource classes for dedicated SQL pool in Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
-ms.date: 02/04/2020
+ms.subservice: sql-dw 
+ms.date: 04/04/2021
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ---
 
 
-# Memory and concurrency limits for Azure Synapse Analytics
+# Memory and concurrency limits for dedicated SQL pool in Azure Synapse Analytics
 
 View the memory and concurrency limits allocated to the various performance levels and resource classes in Azure Synapse Analytics.  
+
+> [!NOTE]
+> Workload management workload groups provide more flexibility for configuring resources per request and concurrency than dynamic or static resource classes.  See [Workload Groups](sql-data-warehouse-workload-isolation.md) and the [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql) syntax for further details.
 
 ## Data warehouse capacity settings
 
@@ -73,7 +76,7 @@ With the introduction of [workload groups](sql-data-warehouse-workload-isolation
 
 ## Concurrency maximums for resource classes
 
-To ensure each query has enough resources to execute efficiently, SQL Analytics in Azure Synapse tracks resource utilization by assigning concurrency slots to each query. The system puts queries into a queue based on importance and concurrency slots. Queries wait in the queue until enough concurrency slots are available. [Importance](sql-data-warehouse-workload-importance.md) and concurrency slots determine CPU prioritization. For more information, see [Analyze your workload](analyze-your-workload.md)
+To ensure each query has enough resources to execute efficiently, Synapse SQL tracks resource utilization by assigning concurrency slots to each query. The system puts queries into a queue based on importance and concurrency slots. Queries wait in the queue until enough concurrency slots are available. [Importance](sql-data-warehouse-workload-importance.md) and concurrency slots determine CPU prioritization. For more information, see [Analyze your workload](analyze-your-workload.md)
 
 **Static resource classes**
 
@@ -121,11 +124,13 @@ The following table shows the maximum concurrent queries and concurrency slots f
 | DW15000c      | 32                         |  600                        | 18                    | 60                     | 132                   | 420                    |
 | DW30000c      | 32                         | 1200                        | 36                    | 120                    | 264                   | 840                    |
 
-When there are not enough concurrency slots free to start query execution, queries are queued and executed based on importance.  If there is equivalent importance, queries are executed on a first-in, first-out basis.  As a queries finishes and the number of queries and slots fall below the limits, SQL Data Warehouse releases queued queries.
+When there are not enough concurrency slots free to start query execution, queries are queued and executed based on importance.  If there is equivalent importance, queries are executed on a first-in, first-out basis.  As a queries finishes and the number of queries and slots fall below the limits, Azure Synapse Analytics releases queued queries.
 
 ## Next steps
 
 To learn more about how to leverage resource classes to optimize your workload further please review the following articles:
 
+* [Workload management workload groups](sql-data-warehouse-workload-isolation.md)
+* [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql)
 * [Resource classes for workload management](resource-classes-for-workload-management.md)
 * [Analyzing your workload](analyze-your-workload.md)

@@ -1,18 +1,19 @@
 ---
 title: Troubleshoot Azure payment issues
-description: Resolving an issue when updating payment information account in the Microsoft Azure portal or account center.
+description: Resolving an issue when updating payment information account in the Microsoft Azure portal.
 author: v-miegge
 ms.reviewerr: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 03/06/2020
+ms.subservice: billing
+ms.topic: troubleshooting
+ms.date: 05/13/2021
 ms.author: jaserano
 ---
 
 # Troubleshoot Azure payment issues
 
-You may experience an issue or error when you try to update the payment information account in either the Microsoft Azure portal, or the Azure account center.
+You may experience an issue or error when you try to update the payment information account in the Microsoft Azure portal.
 
 To resolve your issue, select the topic below which most closely resembles your error.
 
@@ -24,7 +25,7 @@ To troubleshoot issues regarding a declined card, see [Troubleshoot a declined c
 
 You might be using an email ID that differs from the one that is used for the subscriptions.
 
-To troubleshoot this issue, see [No subscriptions found sign-in error for Azure portal or Azure account center](no-subscriptions-found.md).
+To troubleshoot this issue, see [No subscriptions found sign-in error for Azure portal](no-subscriptions-found.md).
 
 ## Unable to use a virtual or prepaid credit or debit card as a payment method.
 
@@ -96,4 +97,4 @@ If you have questions or need help, [create a support request](https://ms.portal
 
 ## Next steps
 
-- [Azure Billing documentation](../../billing/index.md)
+- [Azure Billing documentation](../index.yml)

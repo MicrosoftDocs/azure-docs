@@ -3,8 +3,8 @@ title: Enable diagnostics logging
 description: Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
-ms.date: 09/17/2019
-ms.custom: seodec18
+ms.date: 07/06/2021
+ms.custom: "devx-track-csharp, seodec18"
 
 ---
 # Enable diagnostics logging for apps in Azure App Service
@@ -34,16 +34,19 @@ This article uses the [Azure portal](https://portal.azure.com) and Azure CLI to 
 
 ## Enable application logging (Windows)
 
+> [!NOTE]
+> Application logging for blob storage can only use storage accounts in the same region as the App Service
+
 To enable application logging for Windows apps in the [Azure portal](https://portal.azure.com), navigate to your app and select **App Service logs**.
 
 Select **On** for either **Application Logging (Filesystem)** or **Application Logging (Blob)**, or both. 
 
-The **Filesystem** option is for temporary debugging purposes, and turns itself off in 12 hours. The **Blob** option is for long-term logging, and needs a blob storage container to write logs to.  The **Blob** option also includes additional information in the log messages, such as the ID of the origin VM instance of the log message (`InstanceId`), thread ID (`Tid`), and a more granular timestamp ([`EventTickCount`](https://docs.microsoft.com/dotnet/api/system.datetime.ticks)).
+The **Filesystem** option is for temporary debugging purposes, and turns itself off in 12 hours. The **Blob** option is for long-term logging, and needs a blob storage container to write logs to.  The **Blob** option also includes additional information in the log messages, such as the ID of the origin VM instance of the log message (`InstanceId`), thread ID (`Tid`), and a more granular timestamp ([`EventTickCount`](/dotnet/api/system.datetime.ticks)).
 
 > [!NOTE]
 > Currently only .NET application logs can be written to the blob storage. Java, PHP, Node.js, Python application logs can only be stored on the App Service file system (without code modifications to write logs to external storage).
 >
-> Also, if you [regenerate your storage account's access keys](../storage/common/storage-create-storage-account.md), you must reset the respective logging configuration to use the updated access keys. To do this:
+> Also, if you [regenerate your storage account's access keys](../storage/common/storage-account-create.md), you must reset the respective logging configuration to use the updated access keys. To do this:
 >
 > 1. In the **Configure** tab, set the respective logging feature to **Off**. Save your setting.
 > 2. Enable logging to the storage account blob again. Save your setting.
@@ -81,7 +84,7 @@ For **Web server logging**, select **Storage** to store logs on blob storage, or
 In **Retention Period (Days)**, set the number of days the logs should be retained.
 
 > [!NOTE]
-> If you [regenerate your storage account's access keys](../storage/common/storage-create-storage-account.md), you must reset the respective logging configuration to use the updated keys. To do this:
+> If you [regenerate your storage account's access keys](../storage/common/storage-account-create.md), you must reset the respective logging configuration to use the updated keys. To do this:
 >
 > 1. In the **Configure** tab, set the respective logging feature to **Off**. Save your setting.
 > 2. Enable logging to the storage account blob again. Save your setting.
@@ -96,7 +99,9 @@ To save the error page or failed request tracing for Windows apps in the [Azure 
 
 Under **Detailed Error Logging** or **Failed Request Tracing**, select **On**, then select **Save**.
 
-Both types of logs are stored in the App Service file system. Up to 50 errors (files/folders) are retained. When the number of HTML files exceed 50, the oldest 26 errors are automatically deleted.
+Both types of logs are stored in the App Service file system. Up to 50 errors (files/folders) are retained. When the number of HTML files exceeds 50, the oldest error files are automatically deleted.
+
+The Failed Request Tracing feature by default captures a log of requests that failed with HTTP status codes between 400 and 600. To specify custom rules, you can override the `<traceFailedRequests>` section in the *web.config* file.
 
 ## Add log messages in code
 
@@ -108,7 +113,7 @@ In your application code, you use the usual logging facilities to send log messa
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
     ```
 
-- By default, ASP.NET Core uses the [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) logging provider. For more information, see [ASP.NET Core logging in Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging/).
+- By default, ASP.NET Core uses the [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) logging provider. For more information, see [ASP.NET Core logging in Azure](/aspnet/core/fundamentals/logging/). For information about WebJobs SDK logging, see [Get started with the Azure WebJobs SDK](./webjobs-sdk-get-started.md#enable-console-logging)
 
 ## Stream logs
 
@@ -126,24 +131,22 @@ To stream logs in the [Azure portal](https://portal.azure.com), navigate to your
 
 To stream logs live in [Cloud Shell](../cloud-shell/overview.md), use the following command:
 
+> [!IMPORTANT]
+> This command may not work with web apps hosted in a Linux app service plan.
+
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup
 ```
 
-To filter specific events, such as errors, use the **--Filter** parameter. For example:
+To filter specific log types, such as HTTP, use the **--Provider** parameter. For example:
 
 ```azurecli-interactive
-az webapp log tail --name appname --resource-group myResourceGroup --filter Error
-```
-To filter specific log types, such as HTTP, use the **--Path** parameter. For example:
-
-```azurecli-interactive
-az webapp log tail --name appname --resource-group myResourceGroup --path http
+az webapp log tail --name appname --resource-group myResourceGroup --provider http
 ```
 
 ### In local terminal
 
-To stream logs in the local console, [install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and [sign in to your account](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Once signed in, followed the [instructions for Cloud Shell](#in-cloud-shell)
+To stream logs in the local console, [install Azure CLI](/cli/azure/install-azure-cli) and [sign in to your account](/cli/azure/authenticate-azure-cli). Once signed in, followed the [instructions for Cloud Shell](#in-cloud-shell)
 
 ## Access log files
 
@@ -163,7 +166,7 @@ For Windows apps, the ZIP file contains the contents of the *D:\Home\LogFiles* d
 | **Application logs** |*/LogFiles/Application/* | Contains one or more text files. The format of the log messages depends on the logging provider you use. |
 | **Failed Request Traces** | */LogFiles/W3SVC#########/* | Contains XML files, and an XSL file. You can view the formatted XML files in the browser. |
 | **Detailed Error Logs** | */LogFiles/DetailedErrors/* | Contains HTM error files. You can view the HTM files in the browser.<br/>Another way to view the failed request traces is to navigate to your app page in the portal. From the left menu, select **Diagnose and solve problems**, then search for **Failed Request Tracing Logs**, then click the icon to browse and view the trace you want. |
-| **Web Server Logs** | */LogFiles/http/RawLogs/* | Contains text files formatted using the [W3C extended log file format](/windows/desktop/Http/w3c-logging). This information can be read using a text editor or a utility like [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).<br/>App Service doesn't support the `s-computername`, `s-ip`, or `cs-version` fields. |
+| **Web Server Logs** | */LogFiles/http/RawLogs/* | Contains text files formatted using the [W3C extended log file format](/windows/desktop/Http/w3c-logging). This information can be read using a text editor or a utility like [Log Parser](https://www.iis.net/downloads/community/2010/04/log-parser-22).<br/>App Service doesn't support the `s-computername`, `s-ip`, or `cs-version` fields. |
 | **Deployment logs** | */LogFiles/Git/* and */deployments/* | Contain logs generated by the internal deployment processes, as well as logs for Git deployments. |
 
 ## Send logs to Azure Monitor (preview)
@@ -177,17 +180,24 @@ With the new [Azure Monitor integration](https://aka.ms/appsvcblog-azmon), you c
 
 The following table shows the supported log types and descriptions: 
 
-| Log type | Windows support | Linux (Docker) support | Description |
-|-|-|-|
-| AppServiceConsoleLogs | TBA | Yes | Standard output and standard error |
-| AppServiceHTTPLogs | Yes | Yes | Web server logs |
-| AppServiceEnvironmentPlatformLogs | Yes | Yes | App Service Environment: scaling, configuration changes, and status logs|
-| AppServiceAuditLogs | Yes | Yes | Login activity via FTP and Kudu |
-| AppServiceFileAuditLogs | Yes | TBD | File changes via FTP and Kudu |
-| AppServiceAppLogs | TBA | Java SE & Tomcat | Application logs |
+| Log type | Windows | Windows Container | Linux | Linux Container | Description |
+|-|-|-|-|-|-|
+| AppServiceConsoleLogs | Java SE & Tomcat | Yes | Yes | Yes | Standard output and standard error |
+| AppServiceHTTPLogs | Yes | Yes | Yes | Yes | Web server logs |
+| AppServiceEnvironmentPlatformLogs | Yes | N/A | Yes | Yes | App Service Environment: scaling, configuration changes, and status logs|
+| AppServiceAuditLogs | Yes | Yes | Yes | Yes | Login activity via FTP and Kudu |
+| AppServiceFileAuditLogs | Yes | Yes | TBA | TBA | File changes made to the site content; **only available for Premium tier and above** |
+| AppServiceAppLogs | ASP.NET & Tomcat <sup>1</sup> | ASP.NET & Tomcat <sup>1</sup> | Java SE & Tomcat Blessed Images <sup>2</sup> | Java SE & Tomcat Blessed Images <sup>2</sup> | Application logs |
+| AppServiceIPSecAuditLogs  | Yes | Yes | Yes | Yes | Requests from IP Rules |
+| AppServicePlatformLogs  | TBA | Yes | Yes | Yes | Container operation logs |
+| AppServiceAntivirusScanAuditLogs | Yes | Yes | Yes | Yes | [Anti-virus scan logs](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) using Microsoft Defender; **only available for Premium tier** | 
+
+<sup>1</sup> For Tomcat apps, add `TOMCAT_USE_STARTUP_BAT` to the app settings and set it to `false` or `0`. Need to be on the *latest* Tomcat version and use *java.util.logging*.
+
+<sup>2</sup> For Java SE apps, add `WEBSITE_AZMON_PREVIEW_ENABLED` to the app settings and set it to `true` or to `1`.
 
 ## <a name="nextsteps"></a> Next steps
-* [Query logs with Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+* [Query logs with Azure Monitor](../azure-monitor/logs/log-query-overview.md)
 * [How to Monitor Azure App Service](web-sites-monitor.md)
 * [Troubleshooting Azure App Service in Visual Studio](troubleshoot-dotnet-visual-studio.md)
 * [Analyze app Logs in HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

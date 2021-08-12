@@ -23,7 +23,9 @@ This article assumes that you have an existing AKS cluster. If you need an AKS c
 
 You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-The AKS cluster service principal needs permission to manage network resources if you use an existing subnet or resource group. In general, assign the *Network contributor* role to your service principal on the delegated resources. Instead of a service principal, you can use the system assigned managed identity for permissions. For more information, see [Use managed identities](use-managed-identity.md). For more information on permissions, see [Delegate AKS access to other Azure resources][aks-sp].
+The AKS cluster cluster identity needs permission to manage network resources if you use an existing subnet or resource group. For information see [Use kubenet networking with your own IP address ranges in Azure Kubernetes Service (AKS)][use-kubenet] or [Configure Azure CNI networking in Azure Kubernetes Service (AKS)][advanced-networking]. If you are configuring your load balancer to use an [IP address in a different subnet][different-subnet], ensure the the AKS cluster identity also has read access to that subnet.
+
+For more information on permissions, see [Delegate AKS access to other Azure resources][aks-sp].
 
 ## Create an internal load balancer
 
@@ -63,7 +65,7 @@ internal-app   LoadBalancer   10.0.248.59   10.240.0.7    80:30555/TCP   2m
 
 ## Specify an IP address
 
-If you would like to use a specific IP address with the internal load balancer, add the *loadBalancerIP* property to the load balancer YAML manifest. The specified IP address must reside in the same subnet as the AKS cluster and must not already be assigned to a resource.
+If you would like to use a specific IP address with the internal load balancer, add the *loadBalancerIP* property to the load balancer YAML manifest. In this scenario, the specified IP address must reside in the same subnet as the AKS cluster but can't already be assigned to a resource. For example, an IP address in the range designated for the Kubernetes subnet within the AKS cluster shouldn't be used.
 
 ```yaml
 apiVersion: v1
@@ -90,6 +92,8 @@ NAME           TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
 internal-app   LoadBalancer   10.0.184.168   10.240.0.25   80:30225/TCP   4m
 ```
 
+For more information on configuring your load balancer in a different subnet, see [Specify a different subnet][different-subnet]
+
 ## Use private networks
 
 When you create your AKS cluster, you can specify advanced networking settings. This approach lets you deploy the cluster into an existing Azure virtual network and subnets. One scenario is to deploy your AKS cluster into a private network connected to your on-premises environment and run services only accessible internally. For more information, see configure your own virtual network subnets with [Kubenet][use-kubenet] or [Azure CNI][advanced-networking].
@@ -104,7 +108,7 @@ internal-app   LoadBalancer   10.1.15.188   10.0.0.35     80:31669/TCP   1m
 ```
 
 > [!NOTE]
-> You may need to grant the service principal for your AKS cluster the *Network Contributor* role to the resource group where your Azure virtual network resources are deployed. View the service principal with [az aks show][az-aks-show], such as `az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId"`. To create a role assignment, use the [az role assignment create][az-role-assignment-create] command.
+> You may need to grant the cluster identity for your AKS cluster the *Network Contributor* role to the resource group where your Azure virtual network resources are deployed. View the cluster identity with [az aks show][az-aks-show], such as `az aks show --resource-group myResourceGroup --name myAKSCluster --query "identity"`. To create a role assignment, use the [az role assignment create][az-role-assignment-create] command.
 
 ## Specify a different subnet
 
@@ -143,11 +147,12 @@ Learn more about Kubernetes services at the [Kubernetes services documentation][
 
 <!-- LINKS - Internal -->
 [advanced-networking]: configure-azure-cni.md
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
-[azure-lb-comparison]: ../load-balancer/concepts-limitations.md#skus
+[az-aks-show]: /cli/azure/aks#az_aks_show
+[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
+[azure-lb-comparison]: ../load-balancer/skus.md
 [use-kubenet]: configure-kubenet.md
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-sp]: kubernetes-service-principal.md#delegate-access-to-other-azure-resources
+[different-subnet]: #specify-a-different-subnet

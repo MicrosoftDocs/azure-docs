@@ -1,13 +1,15 @@
 ---
 title: Alter row transformation in mapping data flow
-description: How to update database target using the alter row transformation in mapping data flow
+titleSuffix: Azure Data Factory & Azure Synapse
+description: How to update database target using the alter row transformation in the mapping data flow in Azure Data Factory and Azure Synapse Analytics pipelines.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 01/08/2020
+ms.custom: synapse
+ms.date: 05/06/2020
 ---
 
 # Alter row transformation in mapping data flow
@@ -18,7 +20,9 @@ Use the Alter Row transformation to set insert, delete, update, and upsert polic
 
 ![Alter row settings](media/data-flow/alter-row1.png "Alter Row Settings")
 
-Alter Row transformations will only operate on database or CosmosDB sinks in your data flow. The actions that you assign to rows (insert, update, delete, upsert) won't occur during debug sessions. Run an Execute Data Flow activity in a pipeline to enact the alter row policies on your database tables.
+Alter Row transformations will only operate on database, REST, or CosmosDB sinks in your data flow. The actions that you assign to rows (insert, update, delete, upsert) won't occur during debug sessions. Run an Execute Data Flow activity in a pipeline to enact the alter row policies on your database tables.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4vJYc]
 
 ## Specify a default row policy
 
@@ -43,10 +47,26 @@ For the alter row policies to work, the data stream must write to a database or 
 
 ![Alter row sink](media/data-flow/alter-row2.png "Alter Row Sink")
 
- The default behavior is to only allow inserts. To allow updates, upserts, or deletes, check the box in the sink corresponding to that condition. If updates, upserts, or, deletes are enabled, you must specify which key columns in the sink to match on.
+The default behavior is to only allow inserts. To allow updates, upserts, or deletes, check the box in the sink corresponding to that condition. If updates, upserts, or, deletes are enabled, you must specify which key columns in the sink to match on.
 
 > [!NOTE]
 > If your inserts, updates, or upserts modify the schema of the target table in the sink, the data flow will fail. To modify the target schema in your database, choose **Recreate table** as the table action. This will drop and recreate your table with the new schema definition.
+
+The sink transformation requires either a single key or a series of keys for unique row identification in your target database. For SQL sinks, set the keys in the sink settings tab. For CosmosDB, set the partition key in the settings and also set the CosmosDB system field "id" in your sink mapping. For CosmosDB, it is mandatory to include the system column "id" for updates, upserts, and deletes.
+
+## Merges and upserts with Azure SQL Database and Azure Synapse
+
+Data Flows support merges against Azure SQL Database and Azure Synapse database pool (data warehouse) with the upsert option.
+
+However, you may run into scenarios where your target database schema utilized the identity property of key columns. The service requires you to identify the keys that you will use to match the row values for updates and upserts. But if the target column has the identity property set and you are using the upsert policy, the target database will not allow you to write to the column. You may also run into errors when you try to upsert against a distributed table's distribution column.
+
+Here are ways to fix that:
+
+1. Go to the Sink transformation Settings and set "Skip writing key columns". This will tell the service to not write the column that you have selected as the key value for your mapping.
+
+2. If that key column is not the column that is causing the issue for identity columns, then you can use the Sink transformation pre-processing SQL option: ```SET IDENTITY_INSERT tbl_content ON```. Then, turn it off with the post-processing SQL property: ```SET IDENTITY_INSERT tbl_content OFF```.
+
+3. For both the identity case and the distribution column case, you can switch your logic from Upsert to using a separate update condition and a separate insert condition using a Conditional Split transformation. This way, you can set the mapping on the update path to ignore the key column mapping.
 
 ## Data flow script
 
@@ -66,7 +86,7 @@ For the alter row policies to work, the data stream must write to a database or 
 
 The below example is an alter row transformation named `CleanData` that takes an incoming stream `SpecifyUpsertConditions` and creates three alter row conditions. In the previous transformation, a column named `alterRowCondition` is calculated that determines whether or not a row is inserted, updated, or deleted in the database. If the value of the column has a string value that matches the alter row rule, it is assigned that policy.
 
-In the Data Factory UX, this transformation looks like the below image:
+In the UI, this transformation looks like the below image:
 
 ![Alter row example](media/data-flow/alter-row4.png "Alter row example")
 

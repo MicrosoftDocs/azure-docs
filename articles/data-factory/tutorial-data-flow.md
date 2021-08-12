@@ -1,23 +1,27 @@
 ---
 title: Transform data using a mapping data flow
 description:  This tutorial provides step-by-step instructions for using Azure Data Factory to transform data with mapping data flow
-author: djpmsft
-ms.author: daperlov
+author: kromerm
+ms.author: makromer
 ms.reviewer: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/07/2019
+ms.date: 06/04/2021
 ---
 
 # Transform data using mapping data flows
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
 
 In this tutorial, you'll use the Azure Data Factory user interface (UX) to create a pipeline that copies and transforms data from an Azure Data Lake Storage (ADLS) Gen2 source to an ADLS Gen2 sink using mapping data flow. The configuration pattern in this tutorial can be expanded upon when transforming data using mapping data flow
 
+ >[!NOTE]
+   >This tutorial is meant for mapping data flows in general. Data flows are available both in Azure Data Factory and Synapse Pipelines. If you are new to data flows in Azure Synapse Pipelines, please follow [Data Flow using Azure Synapse Pipelines](../synapse-analytics/concepts-data-flow-overview.md) 
+   
 In this tutorial, you do the following steps:
 
 > [!div class="checklist"]
@@ -31,14 +35,14 @@ In this tutorial, you do the following steps:
 * **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 * **Azure storage account**. You use ADLS storage as a *source* and *sink* data stores. If you don't have a storage account, see [Create an Azure storage account](../storage/common/storage-account-create.md) for steps to create one.
 
-The file that we are transforming in this tutorial is MoviesDB.csv, which can be found [here](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv). To retrieve the file from GitHub, copy the contents to a text editor of your choice to save locally as a .csv file. To upload the file to your storage account, see [Upload blobs with the Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md). The examples will be referencing a container named 'sample-data'.
+The file that we are transforming in this tutorial is MoviesDB.csv, which can be found [here](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv). To retrieve the file from GitHub, copy the contents to a text editor of your choice to save locally as a .csv file. To upload the file to your storage account, see [Upload blobs with the Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md). The examples will be referencing a container named 'sample-data'.
 
 ## Create a data factory
 
 In this step, you create a data factory and open the Data Factory UX to create a pipeline in the data factory.
 
 1. Open **Microsoft Edge** or **Google Chrome**. Currently, Data Factory UI is supported only in the Microsoft Edge and Google Chrome web browsers.
-2. On the left menu, select **Create a resource** > **Analytics** > **Data Factory**:
+2. On the left menu, select **Create a resource** > **Integration** > **Data Factory**:
 
    ![Data Factory selection in the "New" pane](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -46,7 +50,7 @@ In this step, you create a data factory and open the Data Factory UX to create a
 
    The name of the Azure data factory must be *globally unique*. If you receive an error message about the name value, enter a different name for the data factory. (for example, yournameADFTutorialDataFactory). For naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
 
-     ![New data factory](./media/doc-common-process/name-not-available-error.png)
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="New data factory error message for duplicate name.":::
 4. Select the Azure **subscription** in which you want to create the data factory.
 5. For **Resource Group**, take one of the following steps:
 
@@ -65,20 +69,20 @@ In this step, you create a data factory and open the Data Factory UX to create a
 
 In this step, you'll create a pipeline that contains a Data Flow activity.
 
-1. On the **Let's get started** page, select **Create pipeline**.
+1. On the home page of Azure Data Factory, select **Orchestrate**.
 
-   ![Create pipeline](./media/doc-common-process/get-started-page.png)
+   ![Screenshot that shows the ADF home page.](./media/doc-common-process/get-started-page.png)
 
 1. In the **General** tab for the pipeline, enter **TransformMovies** for **Name** of the pipeline.
-1. In the factory top bar, slide the **Data Flow debug** slider on. Debug mode allows for interactive testing of transformation logic against a live Spark cluster. Data Flow clusters take 5-7 minutes to warm up and users are recommended to turn on debug first if they plan to do Data Flow development. For more information, see [Debug Mode](concepts-data-flow-debug-mode.md).
-
-    ![Data Flow Activity](media/tutorial-data-flow/dataflow1.png)
 1. In the **Activities** pane, expand the **Move and Transform** accordion. Drag and drop the **Data Flow** activity from the pane to the pipeline canvas.
 
-    ![Data Flow Activity](media/tutorial-data-flow/activity1.png)
+    ![Screenshot that shows the pipeline canvas where you can drop the Data Flow activity.](media/tutorial-data-flow/activity1.png)
 1. In the **Adding Data Flow** pop-up, select **Create new Data Flow** and then name your data flow **TransformMovies**. Click Finish when done.
 
-    ![Data Flow Activity](media/tutorial-data-flow/activity2.png)
+    ![Screenshot that shows where you name your data flow when you create a new data flow.](media/tutorial-data-flow/activity2.png)
+1. In the top bar of the pipeline canvas, slide the **Data Flow debug** slider on. Debug mode allows for interactive testing of transformation logic against a live Spark cluster. Data Flow clusters take 5-7 minutes to warm up and users are recommended to turn on debug first if they plan to do Data Flow development. For more information, see [Debug Mode](concepts-data-flow-debug-mode.md).
+
+    ![Data Flow Activity](media/tutorial-data-flow/dataflow1.png)
 
 ## Build transformation logic in the data flow canvas
 
@@ -86,19 +90,19 @@ Once you create your Data Flow, you'll be automatically sent to the data flow ca
 
 1. In the data flow canvas, add a source by clicking on the **Add Source** box.
 
-    ![Data Flow Canvas](media/tutorial-data-flow/dataflow2.png)
+    ![Screenshot that shows the Add Source box.](media/tutorial-data-flow/dataflow2.png)
 1. Name your source **MoviesDB**. Click on **New** to create a new source dataset.
 
-    ![Data Flow Canvas](media/tutorial-data-flow/dataflow3.png)
+    ![Screenshot that shows where you select New after you name your source.](media/tutorial-data-flow/dataflow3.png)
 1. Choose **Azure Data Lake Storage Gen2**. Click Continue.
 
-    ![Dataset](media/tutorial-data-flow/dataset1.png)
+    ![Screenshot that shows where is the Azure Data Lake Storage Gen2 tile.](media/tutorial-data-flow/dataset1.png)
 1. Choose **DelimitedText**. Click Continue.
 
-    ![Dataset](media/tutorial-data-flow/dataset2.png)
+    ![Screenshot that shows the DelimitedText tile.](media/tutorial-data-flow/dataset2.png)
 1. Name your dataset **MoviesDB**. In the linked service dropdown, choose **New**.
 
-    ![Dataset](media/tutorial-data-flow/dataset3.png)
+    ![Screenshot that shows the Linked service dropdown list.](media/tutorial-data-flow/dataset3.png)
 1. In the linked service creation screen, name your ADLS gen2 linked service **ADLSGen2** and specify your authentication method. Then enter your connection credentials. In this tutorial, we're using Account key to connect to our storage account. You can click **Test connection** to verify your credentials were entered correctly. Click Create when finished.
 
     ![Linked Service](media/tutorial-data-flow/ls1.png)
@@ -107,16 +111,16 @@ Once you create your Data Flow, you'll be automatically sent to the data flow ca
     ![Datasets](media/tutorial-data-flow/dataset4.png)
 1. If your debug cluster has started, go to the **Data Preview** tab of the source transformation and click **Refresh** to get a snapshot of the data. You can use data preview to verify your transformation is configured correctly.
 
-    ![Data Flow Canvas](media/tutorial-data-flow/dataflow4.png)
+    ![Screenshot that shows where you can preview your data to verify your transformation is configured correctly.](media/tutorial-data-flow/dataflow4.png)
 1. Next to your source node on the data flow canvas, click on the plus icon to add a new transformation. The first transformation you're adding is a **Filter**.
 
     ![Data Flow Canvas](media/tutorial-data-flow/dataflow5.png)
 1. Name your filter transformation **FilterYears**. Click on the expression box next to **Filter on** to open the expression builder. Here you'll specify your filtering condition.
 
-    ![Filter](media/tutorial-data-flow/filter1.png)
+    ![Screenshot that shows the Filter on expression box.](media/tutorial-data-flow/filter1.png)
 1. The data flow expression builder lets you interactively build expressions to use in various transformations. Expressions can include built-in functions, columns from the input schema, and user-defined parameters. For more information on how to build expressions, see [Data Flow expression builder](concepts-data-flow-expression-builder.md).
 
-    In this tutorial, you want to filter movies of genre comedy that came out between the years 1910 and 2000. As year is currently a string, you need to convert it to an integer using the ```toInteger()``` function. Use the greater than or equals to (>=) and less than or equals to (<=) operators to compare against literal year values 1910 and 200-. Union these expressions together with the and (&&) operator. The expression comes out as:
+    In this tutorial, you want to filter movies of genre comedy that came out between the years 1910 and 2000. As year is currently a string, you need to convert it to an integer using the ```toInteger()``` function. Use the greater than or equals to (>=) and less than or equals to (<=) operators to compare against literal year values 1910 and 2000. Union these expressions together with the and (&&) operator. The expression comes out as:
 
     ```toInteger(year) >= 1910 && toInteger(year) <= 2000```
 
@@ -132,35 +136,35 @@ Once you create your Data Flow, you'll be automatically sent to the data flow ca
 
 1. Fetch a **Data Preview** to verify the filter is working correctly.
 
-    ![Filter](media/tutorial-data-flow/filter3.png)
+    ![Screenshot that shows the Data Preview that you fetched.](media/tutorial-data-flow/filter3.png)
 1. The next transformation you'll add is an **Aggregate** transformation under **Schema modifier**.
 
-    ![Aggregate](media/tutorial-data-flow/agg1.png)
+    ![Screenshot that shows the Aggregate schema modifier.](media/tutorial-data-flow/agg1.png)
 1. Name your aggregate transformation **AggregateComedyRatings**. In the **Group by** tab, select **year** from the dropdown to group the aggregations by the year the movie came out.
 
-    ![Aggregate](media/tutorial-data-flow/agg2.png)
+    ![Screenshot that shows the year option in the Group by tab under Aggregate Settings.](media/tutorial-data-flow/agg2.png)
 1. Go to the **Aggregates** tab. In the left text box, name the aggregate column **AverageComedyRating**. Click on the right expression box to enter the aggregate expression via the expression builder.
 
-    ![Aggregate](media/tutorial-data-flow/agg3.png)
+    ![Screenshot that shows the year option in the Aggregates tab under Aggregate Settings.](media/tutorial-data-flow/agg3.png)
 1. To get the average of column **Rating**, use the ```avg()``` aggregate function. As **Rating** is a string and ```avg()``` takes in a numerical input, we must convert the value to a number via the ```toInteger()``` function. This is expression looks like:
 
     ```avg(toInteger(Rating))```
 
     Click **Save and Finish** when done.
 
-    ![Aggregate](media/tutorial-data-flow/agg4.png)
+    ![Screenshot that shows the saved expression.](media/tutorial-data-flow/agg4.png)
 1. Go to the **Data Preview** tab to view the transformation output. Notice only two columns are there, **year** and **AverageComedyRating**.
 
     ![Aggregate](media/tutorial-data-flow/agg3.png)
 1. Next, you want to add a **Sink** transformation under **Destination**.
 
-    ![Sink](media/tutorial-data-flow/sink1.png)
+    ![Screenshot that shows where to add a sink transformation under Destination.](media/tutorial-data-flow/sink1.png)
 1. Name your sink **Sink**. Click **New** to create your sink dataset.
 
-    ![Sink](media/tutorial-data-flow/sink2.png)
+    ![Screenshot that shows where you can name your sink and create a new sink dataset.](media/tutorial-data-flow/sink2.png)
 1. Choose **Azure Data Lake Storage Gen2**. Click Continue.
 
-    ![Dataset](media/tutorial-data-flow/dataset1.png)
+    ![Screenshot that shows the Azure Data Lake Storage Gen2 tile you can choose.](media/tutorial-data-flow/dataset1.png)
 1. Choose **DelimitedText**. Click Continue.
 
     ![Dataset](media/tutorial-data-flow/dataset2.png)
@@ -176,13 +180,13 @@ You can debug a pipeline before you publish it. In this step, you're going to tr
 
 1. Go to the pipeline canvas. Click **Debug** to trigger a debug run.
 
-    ![Pipeline](media/tutorial-data-flow/pipeline1.png)
+    ![Screenshot that shows the pipeline canvas with Debug highlighted.](media/tutorial-data-flow/pipeline1.png)
 1. Pipeline debug of Data Flow activities uses the active debug cluster but still take at least a minute to initialize. You can track the progress via the **Output** tab. Once the run is successful, click on the eyeglasses icon to open the monitoring pane.
 
     ![Pipeline](media/tutorial-data-flow/pipeline2.png)
 1. In the monitoring pane, you can see the number of rows and time spent in each transformation step.
 
-    ![Monitoring](media/tutorial-data-flow/pipeline3.png)
+    ![Screenshot that shows the monitoring pane where you can see the number of rows and time spent in each transformation step.](media/tutorial-data-flow/pipeline3.png)
 1. Click on a transformation to get detailed information about the columns and partitioning of the data.
 
     ![Monitoring](media/tutorial-data-flow/pipeline4.png)

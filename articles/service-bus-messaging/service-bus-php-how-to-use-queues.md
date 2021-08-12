@@ -1,26 +1,19 @@
 ---
 title: How to use Azure Service Bus queues with PHP
-description: In this tutorial, you learn how to create PHP applications to send messages to and receive messages from a Service Bus queue. 
+description: In this article, you learn how to create PHP applications to send messages to and receive messages from a Service Bus queue. 
 services: service-bus-messaging
-documentationcenter: php
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.assetid: e29c829b-44c5-4350-8f2e-39e0c380a9f2
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: PHP
-ms.topic: quickstart
-ms.date: 01/24/2020
-ms.author: aschhab
-
+ms.topic: how-to
+ms.date: 07/23/2021
 ---
-# Quickstart: How to use Service Bus queues with PHP
-[!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-In this tutorial, you learn how to create PHP applications to send messages to and receive messages from a Service Bus queue. 
+# How to use Service Bus queues with PHP
+[!INCLUDE [service-bus-selector-queues](./includes/service-bus-selector-queues.md)]
+
+In this article, you learn how to create PHP applications to send messages to and receive messages from a Service Bus queue. 
+
+> [!IMPORTANT]
+> As of February 2021, the Azure SDK for PHP has entered a retirement phase and is no longer officially supported by Microsoft. For more information, see [this Announcement](https://github.com/Azure/azure-sdk-for-php#important-annoucement) on GitHub. This article will be retired soon. 
 
 ## Prerequisites
 1. An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
@@ -30,7 +23,7 @@ In this tutorial, you learn how to create PHP applications to send messages to a
     3. Get the **connection string**. 
 
         > [!NOTE]
-        > You will create a **queue** in the Service Bus namespace by using PHP in this tutorial. 
+        > You will create a **queue** in the Service Bus namespace by using PHP in this article. 
 3. [Azure SDK for PHP](https://github.com/Azure/azure-sdk-for-php)
 
 ## Create a PHP application

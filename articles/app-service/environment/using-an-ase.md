@@ -5,11 +5,14 @@ author: ccompy
 
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
-ms.date: 3/26/2020
+ms.date: 9/22/2020
 ms.author: ccompy
 ms.custom: seodec18
 ---
 # Use an App Service Environment
+> [!NOTE]
+> This article is about the App Service Environment v2 which is used with Isolated App Service plans
+> 
 
 An App Service Environment (ASE) is a deployment of Azure App Service into a subnet in a customer's Azure Virtual Network instance. An ASE consists of:
 
@@ -83,9 +86,9 @@ In an ASE, you can scale an App Service plan up to 100 instances. An ASE can hav
 
 ## IP addresses
 
-App Service can allocate a dedicated IP address to an app. This capability is available after you configure IP-based SSL, as described in [Bind an existing custom TLS/SSL certificate to Azure App Service][ConfigureSSL]. In an ILB ASE, you can't add more IP addresses to be used for IP-based SSL.
+App Service can allocate a dedicated IP address to an app. This capability is available after you configure a IP-based TLS/SSL binding, as described in [Bind an existing custom TLS/SSL certificate to Azure App Service][ConfigureSSL]. In an ILB ASE, you can't add more IP addresses to be used for the IP-based TLS/SSL binding.
 
-With an External ASE, you can configure IP-based SSL for your app in the same way as in the multitenant App Service. There's always one spare address in the ASE, up to 30 IP addresses. Each time you use one, another is added so that an address is always readily available. A time delay is required to allocate another IP address. That delay prevents adding IP addresses in quick succession.
+With an External ASE, you can configure a IP-based TLS/SSL binding for your app in the same way as in the multitenant App Service. There's always one spare address in the ASE, up to 30 IP addresses. Each time you use one, another is added so that an address is always readily available. A time delay is required to allocate another IP address. That delay prevents adding IP addresses in quick succession.
 
 ## Front-end scaling
 
@@ -117,19 +120,26 @@ The SCM URL is used to access the Kudu console or for publishing your app by usi
 
 ### DNS configuration 
 
-When you use an External ASE, apps made in your ASE are registered with Azure DNS. With an ILB ASE, you must manage your own DNS. 
+When you use an External ASE, apps made in your ASE are registered with Azure DNS. There are no additional steps then in an External ASE for your apps to be publicly available. With an ILB ASE, you must manage your own DNS. You can do this in your own DNS server or with Azure DNS private zones.
 
-To configure DNS with your ILB ASE:
+To configure DNS in your own DNS server with your ILB ASE:
 
-    create a zone for <ASE name>.appserviceenvironment.net
-    create an A record in that zone that points * to the ILB IP address
-    create an A record in that zone that points @ to the ILB IP address
-    create a zone in <ASE name>.appserviceenvironment.net named scm
-    create an A record in the scm zone that points * to the ILB IP address
+1. create a zone for &lt;ASE name&gt;.appserviceenvironment.net
+1. create an A record in that zone that points * to the ILB IP address
+1. create an A record in that zone that points @ to the ILB IP address
+1. create a zone in &lt;ASE name&gt;.appserviceenvironment.net named scm
+1. create an A record in the scm zone that points * to the ILB IP address
+
+To configure DNS in Azure DNS Private zones:
+
+1. create an Azure DNS private zone named &lt;ASE name&gt;.appserviceenvironment.net
+1. create an A record in that zone that points * to the ILB IP address
+1. create an A record in that zone that points @ to the ILB IP address
+1. create an A record in that zone that points *.scm to the ILB IP address
 
 The DNS settings for your ASE default domain suffix do not restrict your apps to only being accessible by those names. You can set a custom domain name without any validation on your apps in an ILB ASE. If you then want to create a zone named *contoso.net*, you could do so and point it to the ILB IP address. The custom domain name works for app requests but doesn't for the scm site. The scm site is only available at *&lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net*. 
 
-The zone named *.&lt;asename&gt;.appserviceenvironment.net* is globally unique. Before May 2019, customers were able to specify the domain suffix of the ILB ASE. If you wanted to use *.contoso.com* for the domain suffix, you were able do so and that would include the scm site. There were challenges with that model including; managing the default SSL certificate, lack of single sign-on with the scm site, and the requirement to use a wildcard certificate. The ILB ASE default certificate upgrade process was also disruptive and caused application restarts. To solve these problems, the ILB ASE behavior was changed to use a domain suffix based on the name of the ASE and with a Microsoft owned suffix. The change to the ILB ASE behavior only affects ILB ASEs made after May 2019. Pre-existing ILB ASEs must still manage the default certificate of the ASE and their DNS configuration.
+The zone named *.&lt;asename&gt;.appserviceenvironment.net* is globally unique. Before May 2019, customers were able to specify the domain suffix of the ILB ASE. If you wanted to use *.contoso.com* for the domain suffix, you were able do so and that would include the scm site. There were challenges with that model including; managing the default TLS/SSL certificate, lack of single sign-on with the scm site, and the requirement to use a wildcard certificate. The ILB ASE default certificate upgrade process was also disruptive and caused application restarts. To solve these problems, the ILB ASE behavior was changed to use a domain suffix based on the name of the ASE and with a Microsoft owned suffix. The change to the ILB ASE behavior only affects ILB ASEs made after May 2019. Pre-existing ILB ASEs must still manage the default certificate of the ASE and their DNS configuration.
 
 ## Publishing
 
@@ -151,7 +161,7 @@ The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE 
 
 ## Storage
 
-An ASE has 1 TB of storage for all the apps in the ASE. An App Service plan in the Isolated pricing SKU has a limit of 250 GB by default. If you have five or more App Service plans, be careful not to exceed the 1-TB limit of the ASE. If you need more than the 250-GB limit in one App Service plan, contact support to adjust the App Service plan limit to a maximum of 1 TB. When the plan limit is adjusted, there's still a limit of 1 TB across all the App Service plans in the ASE.
+An ASE has 1 TB of storage for all the apps in the ASE. An App Service plan in the Isolated pricing SKU has a limit of 250 GB. In an ASE, 250 GB of storage is added per App Service plan up to the 1 TB limit. You can have more App Service plans than just four, but there is no more storage added beyond the 1 TB limit.
 
 ## Logging
 
@@ -184,7 +194,7 @@ If you integrate with Log Analytics, you can see the logs by selecting **Logs** 
 
 **Creating an alert**
 
-To create an alert against your logs, follow the instructions in [Create, view, and manage log alerts using Azure Monitor][logalerts]. In brief:
+To create an alert against your logs, follow the instructions in [Create, view, and manage log alerts using Azure Monitor](../../azure-monitor/alerts/alerts-log.md). In brief:
 
 * Open the Alerts page in your ASE portal
 * Select **New alert rule**
@@ -240,6 +250,30 @@ To delete an ASE:
 
 1. Select **OK**.
 
+## ASE CLI
+
+There are command line capabilities to administer to an ASE.  The az cli commands are noted below.
+
+```azurecli
+C:\>az appservice ase --help
+
+Group
+    az appservice ase : Manage App Service Environments v2.
+        This command group is in preview. It may be changed/removed in a future release.
+Commands:
+    create         : Create app service environment.
+    delete         : Delete app service environment.
+    list           : List app service environments.
+    list-addresses : List VIPs associated with an app service environment.
+    list-plans     : List app service plans associated with an app service environment.
+    show           : Show details of an app service environment.
+    update         : Update app service environment.
+
+For more specific examples, use: az find "az appservice ase"
+```
+
+
+
 <!--Image references-->
 [1]: ./media/using_an_app_service_environment/usingase-appcreate.png
 [2]: ./media/using_an_app_service_environment/usingase-pricingtiers.png
@@ -256,7 +290,7 @@ To delete an ASE:
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/security-overview.md
+[NSGs]: ../../virtual-network/network-security-groups-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [Functions]: ../../azure-functions/index.yml
@@ -266,5 +300,5 @@ To delete an ASE:
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
-[AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
-[logalerts]: ../../azure-monitor/platform/alerts-log.md
+[AppGW]: ../../web-application-firewall/ag/ag-overview.md
+[logalerts]: ../../azure-monitor/alerts/alerts-log.md

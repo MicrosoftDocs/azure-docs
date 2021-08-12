@@ -4,20 +4,24 @@ description: This article describes how to backup and restore model metadata and
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 03/29/2021
 ms.author: owend
 ms.reviewer: minewiskan
+ms.custom: references_regions 
 
 ---
 
-# Backup and restore
+# Analysis Services database backup and restore
 
-Backing up tabular model databases in Azure Analysis Services is much the same as for on-premises Analysis Services. The primary difference is where you store your backup files. Backup files must be saved to a container in an [Azure storage account](../storage/common/storage-create-storage-account.md). You can use a storage account and container you already have, or they can be created when configuring storage settings for your server.
+Backing up tabular model databases in Azure Analysis Services is much the same as for on-premises Analysis Services. The primary difference is where you store your backup files. Backup files must be saved to a container in an [Azure storage account](../storage/common/storage-account-create.md). You can use a storage account and container you already have, or they can be created when configuring storage settings for your server.
 
 > [!NOTE]
 > Creating a storage account can result in a new billable service. To learn more, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 > 
 > 
+
+> [!NOTE]
+> If the storage account is in a different region, configure storage account firewall settings to allow access from **Selected networks**. In Firewall **Address range**, specify the IP address range for the region the Analysis Services server is in. Configuring storage account firewall settings to allow access from All networks is supported, however choosing Selected networks and specifying an IP address range is preferred. To learn more, see [Network connectivity FAQ](/azure/analysis-services/analysis-services-network-faq#backup-and-restore).
 
 Backups are saved with an .abf extension. For in-memory tabular models, both model data and metadata are stored. For DirectQuery tabular models, only model metadata is stored. Backups can be compressed and encrypted, depending on the options you choose.
 
@@ -67,10 +71,10 @@ Before backing up, you need to configure storage settings for your server.
 
 
 ### PowerShell
-Use [Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase) cmdlet.
+Use [Backup-ASDatabase](/powershell/module/sqlserver/backup-asdatabase) cmdlet.
 
 ## Restore
-When restoring, your backup file must be in the storage account you've configured for your server. If you need to move a backup file from an on-premises location to your storage account, use [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) or the [AzCopy](../storage/common/storage-use-azcopy.md) command-line utility. 
+When restoring, your backup file must be in the storage account you've configured for your server. If you need to move a backup file from an on-premises location to your storage account, use [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) or the [AzCopy](../storage/common/storage-use-azcopy-v10.md) command-line utility. 
 
 
 
@@ -94,11 +98,11 @@ When restoring, your backup file must be in the storage account you've configure
 
 ### PowerShell
 
-Use [Restore-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/restore-asdatabase) cmdlet.
+Use [Restore-ASDatabase](/powershell/module/sqlserver/restore-asdatabase) cmdlet.
 
 
 ## Related information
 
-[Azure storage accounts](../storage/common/storage-create-storage-account.md)  
-[High availability](analysis-services-bcdr.md)     
-[Manage Azure Analysis Services](analysis-services-manage.md)
+[Azure storage accounts](../storage/common/storage-account-create.md)  
+[High availability](analysis-services-bcdr.md)      
+[Analysis Services network connectivity FAQ](analysis-services-network-faq.yml)

@@ -1,5 +1,6 @@
 ---
-title: Write a web app that signs in/out users - Microsoft identity platform | Azure
+title: Write a web app that signs in/out users | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to build a web app that signs in/out users
 services: active-directory
 author: jmprieur
@@ -9,10 +10,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
-ms.custom: aaddev
-#Customer intent: As an application developer, I want to know how to write a web app that signs in users by using the Microsoft identity platform for developers.
+ms.custom: aaddev, devx-track-python
+#Customer intent: As an application developer, I want to know how to write a web app that signs in users by using the Microsoft identity platform.
 ---
 
 # Web app that signs in users: Sign-in and sign-out
@@ -30,20 +31,26 @@ Sign-in consists of two parts:
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-In ASP.NET Core, the sign-in button is exposed in `Views\Shared\_LoginPartial.cshtml`. It's displayed only when there's no authenticated account. That is, it's displayed when the user hasn't yet signed in or has signed out.
+In ASP.NET Core, for Microsoft identity platform applications, the **Sign in** button is exposed in `Views\Shared\_LoginPartial.cshtml` (for an MVC app) or `Pages\Shared\_LoginPartial.cshtm` (for a Razor app). It's displayed only when the user isn't authenticated. That is, it's displayed when the user hasn't yet signed in or has signed out. On the contrary, The **Sign out** button is displayed when the user is already signed-in. Note that the Account controller is defined in the **Microsoft.Identity.Web.UI** NuGet package, in the Area named **MicrosoftIdentity**
 
 ```html
-@using Microsoft.Identity.Web
-@if (User.Identity.IsAuthenticated)
-{
- // Code omitted code for clarity
-}
-else
-{
-    <ul class="nav navbar-nav navbar-right">
-        <li><a asp-area="AzureAD" asp-controller="Account" asp-action="SignIn">Sign in</a></li>
-    </ul>
-}
+<ul class="navbar-nav">
+  @if (User.Identity.IsAuthenticated)
+  {
+    <li class="nav-item">
+        <span class="navbar-text text-dark">Hello @User.Identity.Name!</span>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">Sign out</a>
+    </li>
+  }
+  else
+  {
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn">Sign in</a>
+    </li>
+  }
+</ul>
 ```
 
 # [ASP.NET](#tab/aspnet)
@@ -65,7 +72,7 @@ else
 
 # [Java](#tab/java)
 
-In our Java quickstart, the sign-in button is located in the [main/resources/templates/index.html](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/src/main/resources/templates/index.html) file.
+In our Java quickstart, the sign-in button is located in the [main/resources/templates/index.html](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/msal-java-webapp-sample/src/main/resources/templates/index.html) file.
 
 ```html
 <!DOCTYPE html>
@@ -83,6 +90,16 @@ In our Java quickstart, the sign-in button is located in the [main/resources/tem
 
 </body>
 </html>
+```
+
+# [Node.js](#tab/nodejs)
+
+In the Node.js quickstart, there's no sign-in button. The code-behind automatically prompts the user for sign-in when it's reaching the root of the web app.
+
+```javascript
+app.get('/', (req, res) => {
+    // authentication logic
+});
 ```
 
 # [Python](#tab/python)
@@ -103,10 +120,9 @@ def index():
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-In ASP.NET, selecting the **Sign-in** button in the web app triggers the `SignIn` action on the `AccountController` controller. In previous versions of the ASP.NET core templates, the `Account` controller was embedded with the web app. That's no longer the case because the controller is now part of the ASP.NET Core framework.
+In ASP.NET, selecting the **Sign-in** button in the web app triggers the `SignIn` action on the `AccountController` controller. In previous versions of the ASP.NET core templates, the `Account` controller was embedded with the web app. That's no longer the case because the controller is now part of the **Microsoft.Identity.Web.UI** NuGet package. See [AccountController.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs) for details.
 
-The code for `AccountController` is available from the ASP.NET Core repository
-in [AccountController.cs](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Controllers/AccountController.cs). The account control challenges the user by redirecting to the Microsoft identity platform endpoint. For details, see the [SignIn](https://github.com/aspnet/AspNetCore/blob/f3e6b74623d42d5164fd5f97a288792c8ad877b6/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Controllers/AccountController.cs#L23-L31) method provided as part of ASP.NET Core.
+This controller also handles the Azure AD B2C applications.
 
 # [ASP.NET](#tab/aspnet)
 
@@ -149,6 +165,43 @@ public class AuthPageController {
     }
 
     // More code omitted for simplicity
+```
+
+# [Node.js](#tab/nodejs)
+
+Unlike other platforms, here the MSAL Node takes care of letting the user sign in from the login page.
+
+```javascript
+
+// 1st leg of auth code flow: acquire a code
+app.get('/', (req, res) => {
+    const authCodeUrlParameters = {
+        scopes: ["user.read"],
+        redirectUri: REDIRECT_URI,
+    };
+
+    // get url to sign user in and consent to scopes needed for application
+    pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
+        res.redirect(response);
+    }).catch((error) => console.log(JSON.stringify(error)));
+});
+
+// 2nd leg of auth code flow: exchange code for token
+app.get('/redirect', (req, res) => {
+    const tokenRequest = {
+        code: req.query.code,
+        scopes: ["user.read"],
+        redirectUri: REDIRECT_URI,
+    };
+
+    pca.acquireTokenByCode(tokenRequest).then((response) => {
+        console.log("\nResponse: \n:", response);
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log(error);
+        res.status(500).send(error);
+    });
+});
 ```
 
 # [Python](#tab/python)
@@ -205,7 +258,7 @@ After the user has signed in to your app, you'll want to enable them to sign out
 Signing out from a web app involves more than removing the information about the signed-in account from the web app's state.
 The web app must also redirect the user to the Microsoft identity platform `logout` endpoint to sign out.
 
-When your web app redirects the user to the `logout` endpoint, this endpoint clears the user's session from the browser. If your app didn't go to the `logout` endpoint, the user will reauthenticate to your app without entering their credentials again. The reason is that they'll have a valid single sign-in session with the Microsoft identity platform endpoint.
+When your web app redirects the user to the `logout` endpoint, this endpoint clears the user's session from the browser. If your app didn't go to the `logout` endpoint, the user will reauthenticate to your app without entering their credentials again. The reason is that they'll have a valid single sign-in session with the Microsoft identity platform.
 
 To learn more, see the [Send a sign-out request](v2-protocols-oidc.md#send-a-sign-out-request) section in the [Microsoft identity platform and the OpenID Connect protocol](v2-protocols-oidc.md) documentation.
 
@@ -213,21 +266,23 @@ To learn more, see the [Send a sign-out request](v2-protocols-oidc.md#send-a-sig
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-During the application registration, you register a post-logout URI. In our tutorial, you registered `https://localhost:44321/signout-oidc` in the **Logout URL** field of the **Advanced Settings** section on the **Authentication** page. For details, see [
-Register the webApp app](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg#register-the-webapp-app-webapp).
+During the application registration, you register a front-channel logout URL. In our tutorial, you registered `https://localhost:44321/signout-oidc` in the **Front-channel logout URL** field on the **Authentication** page. For details, see [Register the webApp app](scenario-web-app-sign-user-app-registration.md#register-an-app-by-using-the-azure-portal).
 
 # [ASP.NET](#tab/aspnet)
 
-During the application registration, you register a post-logout URI. In our tutorial, you registered `https://localhost:44308/Account/EndSession` in the **Logout URL** field of the **Advanced Settings** section on the **Authentication** page. For details, see
-[Register the webApp app](https://github.com/Azure-Samples/active-directory-dotnet-web-single-sign-out#register-the-service-app-webapp-distributedsignout-dotnet).
+During the application registration, you don't need to register an extra front-channel logout URL. The app will be called back on its main URL. 
 
 # [Java](#tab/java)
 
-During the application registration, you register a post-logout URI. In our tutorial, you registered `http://localhost:8080/msal4jsample/sign_out` in the **Logout URL** field of the **Advanced Settings** section on the **Authentication** page.
+No front-channel logout URL is required in the application registration.
+
+# [Node.js](#tab/nodejs)
+
+No front-channel logout URL is required in the application registration.
 
 # [Python](#tab/python)
 
-During the application registration, you don't need to register an extra logout URL. The app will be called back on its main URL.
+During the application registration, you don't need to register an extra front-channel logout URL. The app will be called back on its main URL.
 
 ---
 
@@ -235,23 +290,26 @@ During the application registration, you don't need to register an extra logout 
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-In ASP.NET Core, the sign-out button is exposed in `Views\Shared\_LoginPartial.cshtml`. It's displayed only when there's an authenticated account. That is, it's displayed when the user has previously signed in.
+In ASP.NET, selecting the **Sign out** button in the web app triggers the `SignOut` action on the `AccountController` controller (see below)
 
 ```html
-@using Microsoft.Identity.Web
-@if (User.Identity.IsAuthenticated)
-{
-    <ul class="nav navbar-nav navbar-right">
-        <li class="navbar-text">Hello @User.GetDisplayName()!</li>
-        <li><a asp-area="AzureAD" asp-controller="Account" asp-action="SignOut">Sign out</a></li>
-    </ul>
-}
-else
-{
-    <ul class="nav navbar-nav navbar-right">
-        <li><a asp-area="AzureAD" asp-controller="Account" asp-action="SignIn">Sign in</a></li>
-    </ul>
-}
+<ul class="navbar-nav">
+  @if (User.Identity.IsAuthenticated)
+  {
+    <li class="nav-item">
+        <span class="navbar-text text-dark">Hello @User.Identity.Name!</span>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">Sign out</a>
+    </li>
+  }
+  else
+  {
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn">Sign in</a>
+    </li>
+  }
+</ul>
 ```
 
 # [ASP.NET](#tab/aspnet)
@@ -295,6 +353,10 @@ In our Java quickstart, the sign-out button is located in the main/resources/tem
 ...
 ```
 
+# [Node.js](#tab/nodejs)
+
+This sample application does not implement sign-out.
+
 # [Python](#tab/python)
 
 In the Python quickstart, the sign-out button is located in the [templates/index.html#L10](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/templates/index.html#L10) file.
@@ -320,15 +382,13 @@ In the Python quickstart, the sign-out button is located in the [templates/index
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-In ASP.NET, selecting the **Sign-out** button in the web app triggers the `SignOut` action on the `AccountController` controller. In previous versions of the ASP.NET Core templates, the `Account` controller was embedded with the web app. That's no longer the case because the controller is now part of the ASP.NET Core framework.
-
-The code for the `AccountController` is available from the ASP.NET core repository in [AccountController.cs](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Controllers/AccountController.cs). The account control:
+In previous versions of the ASP.NET core templates, the `Account` controller was embedded with the web app. That's no longer the case because the controller is now part of the **Microsoft.Identity.Web.UI** NuGet package. See [AccountController.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs) for details.
 
 - Sets an OpenID redirect URI to `/Account/SignedOut` so that the controller is called back when Azure AD has completed the sign-out.
 - Calls `Signout()`, which lets the OpenID Connect middleware contact the Microsoft identity platform `logout` endpoint. The endpoint then:
 
   - Clears the session cookie from the browser.
-  - Calls back the logout URL. By default, the logout URL displays the signed-out view page [SignedOut.html](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Pages/Account/SignedOut.cshtml). This page is also provided as part of ASP.NET Core.
+  - Calls back the post-logout redirect URI. By default, the post-logout redirect URI displays the signed-out view page [SignedOut.cshtml.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs). This page is also provided as part of Microsoft.Identity.Web.
 
 # [ASP.NET](#tab/aspnet)
 
@@ -369,6 +429,10 @@ In Java, sign-out is handled by calling the Microsoft identity platform `logout`
     }
 ```
 
+# [Node.js](#tab/nodejs)
+
+This sample application does not implement sign-out.
+
 # [Python](#tab/python)
 
 The code that signs out the user is in [app.py#L46-L52](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/48637475ed7d7733795ebeac55c5d58663714c60/app.py#L47-L48).
@@ -390,15 +454,7 @@ The post-logout URI enables applications to participate in the global sign-out.
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-The ASP.NET Core OpenID Connect middleware enables your app to intercept the call to the Microsoft identity platform `logout` endpoint by providing an OpenID Connect event named `OnRedirectToIdentityProviderForSignOut`. For an example of how to subscribe to this event (to clear the token cache), see [Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L156](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L156).
-
-```csharp
-    // Handling the global sign-out
-    options.Events.OnRedirectToIdentityProviderForSignOut = async context =>
-    {
-        // Forget about the signed-in user
-    };
-```
+The ASP.NET Core OpenID Connect middleware enables your app to intercept the call to the Microsoft identity platform `logout` endpoint by providing an OpenID Connect event named `OnRedirectToIdentityProviderForSignOut`. This is handled automatically by Microsoft.Identity.Web (which clears accounts in the case where your web app calls web apis)
 
 # [ASP.NET](#tab/aspnet)
 
@@ -421,6 +477,10 @@ public class AccountController : Controller
 
 In the Java quickstart, the post-logout redirect URI just displays the index.html page.
 
+# [Node.js](#tab/nodejs)
+
+This sample application does not implement sign-out.
+
 # [Python](#tab/python)
 
 In the Python quickstart, the post-logout redirect URI just displays the index.html page.
@@ -433,5 +493,5 @@ If you want to learn more about sign-out, read the protocol documentation that's
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Move to production](scenario-web-app-sign-user-production.md)
+Move on to the next article in this scenario,
+[Move to production](scenario-web-app-sign-user-production.md).

@@ -1,100 +1,158 @@
 ### YamlMime:Landing
 
 title: Application management documentation
-summary: Azure Active Directory provides secure and seamless access to cloud and on-premises applications. Plus, there's no need to manage passwords. Your end-users can sign in once to access Office 365 and thousands of other applications. Learn how to manage and deploy applications with our quickstarts, tutorials, and guidance.
+summary: Azure Active Directory is an Identity and Access Management (IAM) system. It provides a single place to store information about digital identities. You can configure your software applications to use Azure AD as the place where user information is stored.
 
 metadata: 
    title: Application management documentation
-   description: Azure Active Directory provides secure and seamless access to cloud and on-premises applications. Plus, there's no need to manage passwords. Your end-users can sign in once to access Office 365 and thousands of other applications. Learn how to manage and deploy applications with our quickstarts, tutorials, and guidance.
+   description: Azure AD is an Identity and Access Management (IAM) system. It provides a single place to store information about digital identities. You can configure your software applications to use Azure AD as the place where user information is stored.
    ms.service: active-directory
    ms.subservice: app-mgmt
    ms.workload: identity
    ms.topic: landing-page
-   ms.date: 10/10/2019
-   author: msmimart
-   ms.author: mimart
-   manager: celested
+   ms.date: 07/08/2021
+   author: CelesteDG
+   ms.author: CelesteDG
 
 landingContent:
-  - title: About application management
+  - title: Fundamentals
     linkLists:
       - linkListType: overview
         links:
           - text: What is application management?
             url: what-is-application-management.md
-          - text: SaaS apps tutorials
-            url: /azure/active-directory/saas-apps/
-  - title: Manage cloud apps and single sign-on
-    linkLists:
       - linkListType: concept
         links:
-          - text: Understanding single sign-on
+          - text: What type of apps does Azure AD support?
+            url: ../develop/v2-app-types.md
+          - text: What is single sign-on?
             url: what-is-single-sign-on.md
-          - text: End-user experiences
-            url: end-user-experiences.md
-      - linkListType: quickstart
-        links:
-          - text: Add a gallery app
-            url: add-application-portal.md
-      - linkListType: how-to-guide
-        links:
-          - text: Add a non-gallery app
-            url: add-non-gallery-app.md
-          - text: Configure single sign-on
-            url: configure-single-sign-on-non-gallery-applications.md
-          - text: Assign a user or group to an app
-            url: assign-user-or-group-access-portal.md
-  - title: Provision users and groups to an app
+  - title: Develop an app
     linkLists:
-      - linkListType: overview
-        links:
-          - text: What is application provisioning?
-            url: /azure/active-directory/app-provisioning/user-provisioning?context=azure/active-directory/manage-apps/context/manage-apps-context
-      - linkListType: tutorial
-        links:
-          - text: SaaS apps provisioning tutorials
-            url: /azure/active-directory/saas-apps/
-      - linkListType: how-to-guide
-        links:
-          - text: Building an app? Use SCIM for provisioning (App provisioning documentation)
-            url: /azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups
-          - text: Adding a gallery app? Configure provisioning (App provisioning documentation)
-            url: /azure/active-directory/app-provisioning/configure-automatic-user-provisioning-portal
-  - title: Publish on-premises apps with Application Proxy
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Application Proxy?
-            url: what-is-application-proxy.md
       - linkListType: concept
         links:
-          - text: Plan for Application Proxy
-            url: application-proxy-deployment-plan.md
-      - linkListType: tutorial
-        links: 
-          - text: Add an on-premises app
-            url: application-proxy-add-on-premises-application.md
+          - text: Authentication and authorization concepts
+            url: ../develop/authentication-vs-authorization.md
       - linkListType: how-to-guide
         links:
-          - text: Configure connectors with proxy servers
-            url: application-proxy-configure-connectors-with-proxy-servers.md
-          - text: Configure a custom home page
-            url: application-proxy-configure-custom-home-page.md
-      - linkListType: deploy
+          - text: Build an app using Microsoft identities or social accounts
+            url: ../develop/v2-overview.md
+  - title: Integrate an app with the tenant
+    linkLists:
+      - linkListType: how-to-guide
         links:
-          - text: Publish Remote Desktop with Application Proxy
-            url: application-proxy-integrate-with-remote-desktop-services.md
-          - text: Enable remote access to SharePoint with Azure AD Application Proxy
-            url: application-proxy-integrate-with-sharepoint-server.md
-  - title: Secure legacy apps with app delivery controllers and networks
+          - text: Get started with app integration
+            url: plan-an-application-integration.md
+          - text: Add a pre-integrated cloud application
+            url: add-application-portal.md
+          - text: Register your app
+            url: ../develop/quickstart-register-app.md
+          - text: Migrate AD FS apps to Azure AD
+            url: migrate-adfs-apps-to-azure.md
+  - title: Configure an app
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure app properties
+            url: add-application-portal-configure.md
+          - text: Assign users and groups
+            url: assign-user-or-group-access-portal.md
+          - text: Configure single sign-on
+            url: plan-sso-deployment.md
+          - text: Provision an app
+            url: ../governance/what-is-provisioning.md
+          - text: Configure My Apps
+            url: my-apps-deployment-plan.md
+  - title: Secure an app
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Set up Conditional Access
+            url: ../conditional-access/concept-conditional-access-cloud-apps.md
+          - text: Set up Multi-Factor Authentication
+            url: ../authentication/howto-mfa-getstarted.md
+          - text: Manage certificates
+            url: manage-certificates-for-federated-single-sign-on.md
+          - text: Set up tenant restrictions
+            url: tenant-restrictions.md
+          - text: Configure token encryption
+            url: howto-saml-token-encryption.md
+          - text: Use Cloud App Security
+            url: cloud-app-security.md
+          - text: Act on overprivileged and suspicious app
+            url: manage-application-permissions.md
+  - title: Manage app access
     linkLists:
       - linkListType: overview
         links:
-          - text: Secure hybrid access for legacy apps (cloud and on-premises)
-            url: secure-hybrid-access.md
+          - text: Identity governance
+            url: ../governance/identity-governance-overview.md
       - linkListType: how-to-guide
         links:
-          - text: Protect your apps using F5 Big-IP APM
-            url: https://aka.ms/f5-hybridaccessguide
-          - text: Protect your apps using Zscaler ZPA
-            url: https://aka.ms/zscaler-hybridaccessguide
+          - text: Assign roles
+            url: ../develop/howto-add-app-roles-in-azure-ad-apps.md
+          - text: Configure user consent
+            url: configure-user-consent.md
+          - text: Configure admin consent
+            url: configure-admin-consent-workflow.md
+          - text: Configure permissions classification
+            url: configure-permission-classifications.md
+          - text: Manage entitlement
+            url: ../governance/entitlement-management-scenarios.md
+  - title: Maintain an app
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: View, search, sort, filter list of apps in a tenant
+            url: view-applications-portal.md
+          - text: Troubleshoot sign-in errors
+            url: ../reports-monitoring/howto-troubleshoot-sign-in-errors.md
+          - text: Disable user sign-in for an app
+            url: disable-user-sign-in-portal.md
+          - text: Remove user access to an app
+            url: methods-for-removing-user-access.md
+          - text: Delete an app
+            url: delete-application-portal.md
+  - title: Monitor an app
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Sign in logs
+            url: ../reports-monitoring/concept-sign-ins.md
+          - text: Usage and insights report
+            url: ../reports-monitoring/concept-usage-insights-report.md
+          - text: Audit logs
+            url: ../reports-monitoring/concept-audit-logs.md
+          - text: Provisioning logs
+            url: ../reports-monitoring/concept-provisioning-logs.md
+      - linkListType: how-to-guide
+        links:
+          - text: Download logs
+            url: ../reports-monitoring/howto-download-logs.md
+          - text: Find activity report
+            url: ../reports-monitoring/howto-find-activity-reports.md
+          - text: Set up access reviews
+            url: ../governance/deploy-access-reviews.md
+  - title: Remote access to on-premises apps
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Application Proxy
+            url: ../app-proxy/application-proxy.md
+      - linkListType: how-to-guide
+        links:
+          - text: Application Proxy deployment
+            url: ../app-proxy/application-proxy-deployment-plan.md
+          - text: Set up connectors
+            url: ../app-proxy/application-proxy-connectors.md
+          - text: Configure single sign-on
+            url: ../app-proxy/application-proxy-config-sso-how-to.md
+          - text: Publish native client applications
+            url: ../app-proxy/application-proxy-configure-native-client-application.md
+          - text: Publish claims-aware applications
+            url: ../app-proxy/application-proxy-configure-for-claims-aware-applications.md
+
+
+
+
+

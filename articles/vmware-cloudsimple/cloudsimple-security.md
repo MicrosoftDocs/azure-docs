@@ -1,8 +1,8 @@
 --- 
 title: Azure VMware Solution by CloudSimple - Security for CloudSimple Services
 description: Describes the shared responsibility models for security of CloudSimple services
-author: sharaths-cs 
-ms.author: b-shsury 
+author: shortpatti 
+ms.author: v-patsho
 ms.date: 08/20/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
@@ -24,7 +24,7 @@ Azure infrastructure security considerations include the datacenters and equipme
 
 ### Datacenter security
 
-Microsoft has an entire division devoted to designing, building, and operating the physical facilities that support Azure. This team is invested in maintaining state-of-the-art physical security. For details on physical security, see [Azure facilities, premises, and physical security](../security/azure-physical-security.md).
+Microsoft has an entire division devoted to designing, building, and operating the physical facilities that support Azure. This team is invested in maintaining state-of-the-art physical security. For details on physical security, see [Azure facilities, premises, and physical security](../security/fundamentals/physical-security.md).
 
 ### Equipment location
 
@@ -44,7 +44,7 @@ For data at rest in the Private Cloud environment, you can use vSAN encryption. 
 
 ### Data Protection for data that is required to move through public networks
 
-To protect data that moves through public networks, you can create IPsec and SSL VPN tunnels for your Private Clouds. Common encryption methods are supported, including 128-byte and 256-byte AES. Data in transit (including authentication, administrative access, and customer data) is encrypted with standard encryption mechanisms (SSH, TLS 1.2, and Secure RDP). Communication that transports sensitive information  uses the standard encryption mechanisms.
+To protect data that moves through public networks, you can create IPsec and TLS VPN tunnels for your Private Clouds. Common encryption methods are supported, including 128-byte and 256-byte AES. Data in transit (including authentication, administrative access, and customer data) is encrypted with standard encryption mechanisms (SSH, TLS 1.2, and Secure RDP). Communication that transports sensitive information  uses the standard encryption mechanisms.
 
 ### Secure Disposal
 

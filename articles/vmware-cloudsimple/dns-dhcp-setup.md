@@ -1,8 +1,8 @@
 --- 
 title: Azure VMware Solution by CloudSimple - Set up workload DNS and DHCP for Private Cloud
 description: Describes how to set up DNS and DHCP for applications and workloads running in your CloudSimple Private Cloud environment
-author: sharaths-cs 
-ms.author: b-shsury 
+author: shortpatti 
+ms.author: v-patsho
 ms.date: 08/16/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
@@ -28,5 +28,5 @@ Linux offers various packages for setting up DNS servers.  Here is an [example s
 
 These Microsoft topics describe how to set up a Windows server as a DNS server and as a DHCP server.
 
-* [Windows Server as DNS Server](https://docs.microsoft.com/windows-server/networking/dns/dns-top)
-* [Windows Server as DHCP Server](https://docs.microsoft.com/windows-server/networking/technologies/dhcp/dhcp-top)
+* [Windows Server as DNS Server](/windows-server/networking/dns/dns-top)
+* [Windows Server as DHCP Server](/windows-server/networking/technologies/dhcp/dhcp-top)

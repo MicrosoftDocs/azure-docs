@@ -8,12 +8,13 @@
     href: cdn-features.md    
 - name: Quickstarts
   items:
-  - name: Create a profile and endpoint
-    href: cdn-create-new-endpoint.md
   - name: Integrate a storage account
     href: cdn-create-a-storage-account-with-cdn.md    
-  - name: Create a profile by using an Azure Resource Manager template
-    href: create-profile-resource-manager-template.md
+  - name: Create a profile and endpoint
+    href: cdn-create-new-endpoint.md
+  - name: Create profile and endpoint - ARM Template
+    displayName: Resource Manager, az group, az deployment group, New-AzResourceGroup, New-AzResourceGroupDeployment, Remove-AzResourceGroup
+    href: create-profile-endpoint-template.md
 - name: Tutorials
   items:
   - name: Add Azure CDN to a web app
@@ -26,14 +27,21 @@
     href: cdn-custom-ssl.md
   - name: Set caching rules
     href: cdn-caching-rules-tutorial.md
-  - name: Enforce HTTPS by using the Standard rules engine
-    href: cdn-standard-rules-engine.md
 - name: Samples
   items:
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=cdn
+  - name: Azure CLI
+    items:
+      - name: Create a profile and endpoint
+        displayName: az cdn profile, az cdn endpoint, az cdn origin, az cdn custom-domain, cdn origin-group      
+        href: ./scripts/cli/cdn-azure-cli-create-endpoint.md
 - name: Concepts
   items:
+  - name: Security
+    items:
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/content-delivery-network-security-baseline?toc=/azure/cdn/TOC.json
   - name: How caching works
     href: cdn-how-caching-works.md
   - name: China content delivery
@@ -63,10 +71,16 @@
       href: cdn-create-endpoint-how-to.md   
     - name: Manage by using Azure PowerShell
       href: cdn-manage-powershell.md
+    - name: Onboard a root or apex domain
+      href: onboard-apex-domain.md
     - name: Restrict access by country or region
-      href: cdn-restrict-access-by-country.md
+      href: cdn-restrict-access-by-country-region.md
     - name: Improve performance by compressing files
       href: cdn-improve-performance.md
+    - name: Endpoint multi-origin
+      href: endpoint-multiorigin.md
+    - name: Enforce HTTPS by using the Standard rules engine
+      href: cdn-standard-rules-engine.md
     - name: Control caching behavior
       items:
       - name: Control caching behavior by using caching rules
@@ -102,8 +116,8 @@
   - name: Analyze
     href: cdn-log-analysis.md
     items:
-    - name: HTTP raw logs
-      href: enable-raw-logs.md
+    - name: Monitoring, metrics, and access Logs
+      href: monitoring-and-access-log.md
     - name: Azure diagnostics logs
       href: cdn-azure-diagnostic-logs.md
     - name: Analytics tools for Azure CDN from Verizon
@@ -135,7 +149,9 @@
     - name: File compression
       href: cdn-troubleshoot-compression.md
     - name: Allowed certificate authorities
-      href: cdn-troubleshoot-allowed-ca.md      
+      href: https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT
+    - name: Subscription offers and bandwidth throttling
+      href: subscription-offerings.md      
 - name: Reference
   items:
   - name: Standard rules engine reference
@@ -162,7 +178,9 @@
       - name: X-EC-Debug headers
         href: cdn-http-debug-headers.md
   - name: Microsoft-specific HTTP headers
-    href: cdn-msft-http-debug-headers.md             
+    href: cdn-msft-http-debug-headers.md
+  - name: Azure CLI
+    href: /cli/azure/cdn                 
   - name: Azure PowerShell
     href: /powershell/module/az.cdn
   - name: .NET
@@ -178,13 +196,17 @@
     - name: POP locations by region
       href: cdn-pop-locations.md
     - name: POP locations by abbreviation
-      href: cdn-pop-abbreviations.md
+      items:
+      - name: Microsoft
+        href: microsoft-pop-abbreviations.md
+      - name: Verizon
+        href: cdn-pop-abbreviations.md
   - name: Azure Content Delivery Network billing
     href: cdn-billing.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/home?forum=azurecdn
+  - name: Microsoft Q&A question page
+    href: /answers/topics/azure-cdn.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cdn/
   - name: Pricing calculator
@@ -194,4 +216,4 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-cdn
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=cdn   
+    href: https://azure.microsoft.com/documentation/videos/index/?services=cdn

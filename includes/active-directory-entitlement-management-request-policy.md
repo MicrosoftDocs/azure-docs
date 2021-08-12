@@ -22,13 +22,13 @@ Follow these steps if you want to allow users in your directory to be able to re
 
 1. Select one of the following options:
 
-    |  |  |
+    |  | Description |
     | --- | --- |
     | **Specific users and groups** | Choose this option if you want only the users and groups in your directory that you specify to be able to request this access package. |
     | **All members (excluding guests)** | Choose this option if you want all member users in your directory to be able to request this access package. This option doesn't include any guest users you might have invited into your directory. |
     | **All users (including guests)** | Choose this option if you want all member users and guest users in your directory to be able to request this access package. |
 
-    Guest users refer to external users that have been invited into your directory with [Azure AD B2B](../articles/active-directory/b2b/what-is-b2b.md). For more information about the differences between member users and guest users, see [What are the default user permissions in Azure Active Directory?](../articles/active-directory/fundamentals/users-default-permissions.md).
+    Guest users refer to external users that have been invited into your directory with [Azure AD B2B](../articles/active-directory/external-identities/what-is-b2b.md). For more information about the differences between member users and guest users, see [What are the default user permissions in Azure Active Directory?](../articles/active-directory/fundamentals/users-default-permissions.md).
 
 1. If you selected **Specific users and groups**, click **Add users and groups**.
 
@@ -42,10 +42,10 @@ Follow these steps if you want to allow users in your directory to be able to re
 
 ## For users not in your directory
 
- **Users not in your directory** refers to users who are in another Azure AD directory or domain. These users may not have yet been invited into your directory. Azure AD directories must be configured to be allow invitations in **Collaboration restrictions**. For more information, see [Enable B2B external collaboration and manage who can invite guests](../articles/active-directory/b2b/delegate-invitations.md).
+ **Users not in your directory** refers to users who are in another Azure AD directory or domain. These users may not have yet been invited into your directory. Azure AD directories must be configured to be allow invitations in **Collaboration restrictions**. For more information, see [Enable B2B external collaboration and manage who can invite guests](../articles/active-directory/external-identities/delegate-invitations.md).
 
 > [!NOTE]
-> A guest user account will be created for a user not yet in your directory whose request is approved or auto-approved. The guest will be invited, but will not receive an invite email. Instead, they will receive an email when their access package assignment is delivered. By default, later when that guest user no longer has any access package assignments, because their last assignment has expired or been cancelled, that guest user account will be blocked from sign in and subsequently deleted. If you want to have guest users remain in your directory indefinitely, even if they have no access package assignments, you can change the settings for your entitlement management configuration. For more information about the guest user object, see [Properties of an Azure Active Directory B2B collaboration user](../articles/active-directory/b2b/user-properties.md).
+> A guest user account will be created for a user not yet in your directory whose request is approved or auto-approved. The guest will be invited, but will not receive an invite email. Instead, they will receive an email when their access package assignment is delivered. By default, later when that guest user no longer has any access package assignments, because their last assignment has expired or been cancelled, that guest user account will be blocked from sign in and subsequently deleted. If you want to have guest users remain in your directory indefinitely, even if they have no access package assignments, you can change the settings for your entitlement management configuration. For more information about the guest user object, see [Properties of an Azure Active Directory B2B collaboration user](../articles/active-directory/external-identities/user-properties.md).
 
 Follow these steps if you want to allow users not in your directory to request this access package:
 
@@ -57,7 +57,7 @@ Follow these steps if you want to allow users not in your directory to request t
 
 1. Select one of the following options:
 
-    |  |  |
+    |  | Description |
     | --- | --- |
     | **Specific connected organizations** | Choose this option if you want to select from a list of organizations that your administrator previously added. All users from the selected organizations can request this access package. |
     | **All connected organizations** | Choose this option if all users from all your connected organizations can request this access package. |
@@ -76,7 +76,7 @@ Follow these steps if you want to allow users not in your directory to request t
 1. Once you've selected all your connected organizations, click **Select**.
 
     > [!NOTE]
-    > All users from the selected connected organizations will be able to request this access package. This includes users in Azure AD from all subdomains associated with the organization, unless those domains are blocked by the Azure B2B allow or deny list. For more information, see [Allow or block invitations to B2B users from specific organizations](../articles/active-directory/b2b/allow-deny-list.md).
+    > All users from the selected connected organizations will be able to request this access package. This includes users in Azure AD from all subdomains associated with the organization, unless those domains are blocked by the Azure B2B allow or deny list. For more information, see [Allow or block invitations to B2B users from specific organizations](../articles/active-directory/external-identities/allow-deny-list.md).
 
 1. Skip down to the [Approval](#approval) section.
 
@@ -84,7 +84,7 @@ Follow these steps if you want to allow users not in your directory to request t
 
 Follow these steps if you want to bypass access requests and allow administrators to directly assign specific users to this access package. Users won't have to request the access package. You can still set lifecycle settings, but there are no request settings.
 
-1. In the **Users who can request access** section, click **None (administrator direct assignments only**.
+1. In the **Users who can request access** section, click **None (administrator direct assignments only)**.
 
     ![Access package - Requests - None administrator direct assignments only](./media/active-directory-entitlement-management-request-policy/none-admin-direct-assignments-only.png)
 
@@ -187,9 +187,11 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
 
     ![Access package - Policy - Add Alternate Approvers](./media/active-directory-entitlement-management-request-policy/alternate-approvers-add.png)
 
+    If you select Manager as approver for the First Approver, you will have an additional option, **Second level manager as alternate approver**,  available to choose in the alternate approver field. If you select this option, you need to add a fallback approver to forward the request to in case the system can't find the second level manager.
+
 1. In the **Forward to alternate approver(s) after how many days** box, put in the number of days the approvers have to approve or deny a request. If no approvers have approved or denied the request before the request duration, the request expires (timeout), and the user will have to submit another request for the access package. 
 
-    Requests can only be forwarded to alternate approvers a day after the request duration reaches half-life. In this example, the duration of the request is 14 days. So, the request duration reaches half-life at day 7. So the request can't be forwarded earlier than day 8. Also, requests can't be forwarded on the last day of the request duration. So in the example, the latest the request can be forwarded is day 13.
+    Requests can only be forwarded to alternate approvers a day after the request duration reaches half-life, and the decision of the main approver(s) has to time-out after at least 4 days. If the request time-out is less or equal than 3, there is not enough time to forward the request to alternate approver(s). In this example, the duration of the request is 14 days. So, the request duration reaches half-life at day 7. So the request can't be forwarded earlier than day 8. Also, requests can't be forwarded on the last day of the request duration. So in the example, the latest the request can be forwarded is day 13.
 
 ## Enable requests
 
@@ -199,6 +201,39 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
 
     If you selected **None (administrator direct assignments only)** and you set enable to **No**, then administrators can't directly assign this access package.
 
-    ![Access package - Policy- Enable policy setting](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
+    ![Screenshot that shows the option for enabling new requests and assignments.](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
 
 1. Click **Next**.
+
+## Add Requestor information to an access package
+
+1. Go to the **Requestor information** tab and click the **Questions** sub tab.
+ 
+1. Type in what you want to ask the requestor, also known as the display string, for the question in the **Question** box.
+
+    ![Access package - Policy- Enable Requestor information setting](./media/active-directory-entitlement-management-request-policy/add-requestor-info-question.png)
+
+1. If you would like to localize question and answer options, click **add localization**.
+    1. Once in the **Add localizations for question** pane, select the **language code** for the language in which you are localizing the question.
+    1. In the language you configured, type the question in the **Localized Text** box.
+    1. Once you have added all the localizations needed, click **Save**.
+
+    ![Access package - Policy- Configure localized text](./media/active-directory-entitlement-management-request-policy/add-localization-question.png)
+
+1. Select the **Answer format** in which you would like requestors to answer. Answer formats include: *short text*, *multiple choice*, and *long text*.
+ 
+    ![Access package - Policy- Select view and edit multiple choice answer format](./media/active-directory-entitlement-management-request-policy/answer-format-view-edit.png)
+ 
+1. If selecting multiple choice, click on the **edit and localize** button to configure the answer options.
+    1. After selecting edit and localize the **Edit/localize question** pane will open.
+    1. Type in the response options you wish to give the requestor when answering the question in the **Answer values** boxes.
+    1. Type in as many responses as you need.
+    1. If you would like to add your own localization for the multiple choice options, select the **Optional language code** for the language in which you want to localize a specific option.
+    1. In the language you configured, type the option in the Localized text box.
+    1. Once you have added all of the localizations needed for each multiple choice option, click **Save**.
+    
+    ![Access package - Policy- Enter multiple choice options](./media/active-directory-entitlement-management-request-policy/answer-multiple-choice.png)
+  
+1. To require requestors to answer this question when requesting access to an access package, click the check box under **Required**.
+
+1. Click Next

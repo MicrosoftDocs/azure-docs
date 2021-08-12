@@ -1,19 +1,12 @@
 ---
 title: Enforce security with policies on Windows VMs in Azure 
 description: How to apply a policy to an Azure Resource Manager Windows Virtual Machine
-services: virtual-machines-windows
-documentationcenter: ''
 author: mimckitt
 manager: vashan
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 0b71ba54-01db-43ad-9bca-8ab358ae141b
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: security
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/02/2017
 ms.author: mimckitt
 
@@ -33,7 +26,6 @@ To ensure that virtual machines for your organization are compatible with an app
       {
         "field": "type",
         "in": [
-          "Microsoft.Compute/disks",
           "Microsoft.Compute/virtualMachines",
           "Microsoft.Compute/VirtualMachineScaleSets"
         ]

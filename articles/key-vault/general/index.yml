@@ -7,6 +7,7 @@ metadata:
   title: Azure Key Vault documentation
   description: Learn how to use Key Vault to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
   services: key-vault
+  ms.subservice: general
   ms.service: key-vault
   ms.topic: landing-page # Required
   author: msmbaldwin
@@ -26,12 +27,14 @@ landingContent:
         links:
           - text: What is Azure Key Vault?
             url: overview.md
+          - text: Important news about soft-delete 
+            url: soft-delete-change.md
       - linkListType: concept
         links:
           - text: Basic concepts
             url: basic-concepts.md
           - text: Soft-delete
-            url: overview-soft-delete.md
+            url: soft-delete-overview.md
           - text: Throttling
             url: overview-throttling.md
 
@@ -42,30 +45,53 @@ landingContent:
         links:
           - text: Key Vault from a web application
             url: tutorial-net-create-vault-azure-web-app.md
-          - text: Key Vault with Azure Windows Virtual Machine
-            url: tutorial-net-windows-virtual-machine.md
-          - text: Key Vault with Python - Windows
-            url: tutorial-python-windows-virtual-machine.md
+          - text: Key Vault with a virtual machine in .NET
+            url: tutorial-net-virtual-machine.md
+          - text: Key Vault with a virtual machine in Python
+            url: tutorial-python-virtual-machine.md
 
   # Card
   - title: Security
     linkLists:
       - linkListType: overview
         links:
-          - text: Secure your Key Vault
-            url: secure-your-key-vault.md
-          - text: Security recommendations
-            url: security-recommendations.md
+          - text: Security features
+            url: security-features.md
           - text: Security baseline
             url: security-baseline.md
+      - linkListType: how-to-guide
+        links:
+          - text: Authenticate to Key Vault
+            url: authentication.md
+          - text: Assign access policy (CLI)
+            url: assign-access-policy-CLI.md
+          - text: Assign access policy (PowerShell)
+            url: assign-access-policy-powershell.md
+          - text: Assign access policy (Portal)
+            url: assign-access-policy-portal.md
       - linkListType: tutorial
         links:
           - text: Use private link
             url: private-link-service.md
-          - text: Use a managed identity
-            url: managed-identity.md
-          - text: Use an access policy
-            url: group-permissions-for-apps.md
+  # Card
+  - title: Client libraries
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Client libraries for Azure Key Vault
+            url: client-libraries.md
+          - text: .NET Client library
+            url: /dotnet/api/overview/azure/key-vault
+          - text: Python Client library
+            url: /python/api/overview/azure/key-vault-index
+          - text: Java Client library
+            url: https://azure.github.io/azure-sdk-for-java/keyvault.html
+          - text: Node.js Client library
+            url: /javascript/api/overview/azure/key-vault-index
+
+
+
+
 
   # Card
   - title: Microsoft Learn

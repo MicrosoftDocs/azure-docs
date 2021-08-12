@@ -8,14 +8,12 @@ manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: 'SAP'
-
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
-ms.service: virtual-machines-linux
-
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/16/2020
+ms.date: 12/12/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -79,17 +77,23 @@ Operating system, Oracle DBMS releases and Oracle functionality supported on Azu
 
 Knowing the DBMS releases that are supported with the targeted Azure infrastructure you need to check the SAP Product Availability Matrix on whether the OS releases and DBMS required are supported with your SAP product releases you intended to run. 
 
+## Oracle Linux
+Most prominent asked question around Oracle Linux is whether SAP supports the Red Hat kernel that is integral part of Oracle Linux as well. For details read [SAP support note #1565179](https://launchpad.support.sap.com/#/notes/1565179).
+
+## Other database than SAP HANA
+Support of non-HANA databases for SAP workload is documented in [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533).
+
 
 ## SAP HANA support
 In Azure there are two services, which can be used to run HANA database:
 
 - Azure Virtual Machines
-- [HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+- [HANA Large Instances](./hana-overview-architecture.md)
 
 For running SAP HANA, SAP has more and stronger conditions infrastructure needs to meet than for running NetWeaver or other SAP applications and DBMS. As a result a smaller number of Azure VMs qualify for running the SAP HANA DBMS. The list of supported Azure infrastructure supported for SAP HANA can be found in the so called [SAP HANA hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). 
 
 > [!NOTE]
-> The units starting with the letter 'S' are [HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) units. 
+> The units starting with the letter 'S' are [HANA Large Instances](./hana-overview-architecture.md) units. 
 
 > [!NOTE]
 > SAP has no specific certification dependent on the SAP HANA major releases. Contrary to common opinion, the column **Certification scenario** in the [HANA  certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure), the column makes **no statement about the HANA major or minor release certified**. You need to assume that all the units listed that can be used for HANA 1.0 and HANA 2.0 as long as the certified operating system releases for the specific units are supported by HANA 1.0 releases as well. 
@@ -133,14 +137,14 @@ SAP Datahub/Vora support in Azure Kubernetes Services (AKS) is detailed in [SAP 
 
 Support for SAP BPC 10.1 SP08 is described in [SAP support note #2451795](https://launchpad.support.sap.com/#/notes/2451795)
 
-Support for SAP Hybris Commerce Platform on Azure is detailed in the [Hybris Wiki](https://cxwiki.sap.com/display/cloudss/Using+the+hybris+Platform+with+the+Cloud). As of supported DBMS for SAP Hybris Commerce Platform, it lists like:
+Support for SAP Hybris Commerce Platform on Azure is detailed in the [Hybris Documentation](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/1811/en-US/8c71300f866910149b40c88dfc0de431.html). As of supported DBMS for SAP Hybris Commerce Platform, it lists like:
 
 - SQL Server and Oracle on the Windows operating system platform. Same minimum releases apply as for SAP NetWeaver. See [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533) for details
-- SAP HANA on Red Hat and SUSE Linux. SAP HANA certified VM types are required as documented earlier in [this document](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure#sap-hana-support). SAP (Hybris) Commerce Platform is considered OLTP workload
+- SAP HANA on Red Hat and SUSE Linux. SAP HANA certified VM types are required as documented earlier in [this document](#sap-hana-support). SAP (Hybris) Commerce Platform is considered OLTP workload
+- SQL Azure DB as of SAP (Hybris) Commerce Platform version 1811
 
 
 
 
 ## Next Steps
-Read next steps in the [Azure Virtual Machines planning and implementation for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
-
+Read next steps in the [Azure Virtual Machines planning and implementation for SAP NetWeaver](./planning-guide.md)

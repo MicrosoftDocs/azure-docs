@@ -1,13 +1,13 @@
 ---
 title: How to mount Azure Blob storage as a file system on Linux | Microsoft Docs
-description: Mount an Azure Blob storage container with FUSE on Linux
-author: rishabpoh
+description: Learn how to mount an Azure Blob storage container with blobfuse, a virtual file system driver on Linux.
+author: tamram
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
-ms.date: 2/1/2019
-ms.author: ripohane
-ms.reviewer: dineshm
+ms.topic: how-to
+ms.date: 07/06/2021
+ms.author: tamram
+ms.reviewer: twooley
 ---
 
 # How to mount Blob storage as a file system with blobfuse
@@ -18,31 +18,31 @@ ms.reviewer: dineshm
 This guide shows you how to use blobfuse, and mount a Blob storage container on Linux and access data. To learn more about blobfuse, read the details in [the blobfuse repository](https://github.com/Azure/azure-storage-fuse).
 
 > [!WARNING]
-> Blobfuse doesn't guarantee 100% POSIX compliance as it simply translates requests into [Blob REST APIs](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api). For example, rename operations are atomic in POSIX, but not in blobfuse.
+> Blobfuse doesn't guarantee 100% POSIX compliance as it simply translates requests into [Blob REST APIs](/rest/api/storageservices/blob-service-rest-api). For example, rename operations are atomic in POSIX, but not in blobfuse.
 > For a full list of differences between a native file system and blobfuse, visit [the blobfuse source code repository](https://github.com/azure/azure-storage-fuse).
 > 
 
 ## Install blobfuse on Linux
-Blobfuse binaries are available on [the Microsoft software repositories for Linux](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) for Ubuntu and RHEL distributions. To install blobfuse on those distributions, configure one of the repositories from the list. You can also build the binaries from source code following the [Azure Storage installation steps](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) if there are no binaries available for your distribution.
+Blobfuse binaries are available on [the Microsoft software repositories for Linux](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) for Ubuntu, Debian, SUSE, CentoOS, Oracle Linux and RHEL distributions. To install blobfuse on those distributions, configure one of the repositories from the list. You can also build the binaries from source code following the [Azure Storage installation steps](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) if there are no binaries available for your distribution.
 
-Blobfuse supports installation on Ubuntu 14.04, 16.04, and 18.04. Run this command to make sure that you have one of those versions deployed:
+Blobfuse is published in the Linux repo for Ubuntu versions: 16.04, 18.04, and 20.04, RHELversions: 7.5, 7.8, 8.0, 8.1, 8.2, CentOS versions: 7.0, 8.0, Debian versions: 9.0, 10.0, SUSE version: 15, OracleLinux  8.1 . Run this command to make sure that you have one of those versions deployed:
 ```
 lsb_release -a
 ```
 
 ### Configure the Microsoft package repository
-Configure the [Linux Package Repository for Microsoft Products](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software).
+Configure the [Linux Package Repository for Microsoft Products](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software).
 
-As an example, on an Enterprise Linux 6 distribution:
+As an example, on an Enterprise Linux 8 distribution:
 ```bash
-sudo rpm -Uvh https://packages.microsoft.com/config/rhel/6/packages-microsoft-prod.rpm
+sudo rpm -Uvh https://packages.microsoft.com/config/rhel/8/packages-microsoft-prod.rpm
 ```
 
 Similarly, change the URL to `.../rhel/7/...` to point to an Enterprise Linux 7 distribution.
 
-Another example on an Ubuntu 14.04 distribution:
+Another example on an Ubuntu 20.04 distribution:
 ```bash
-wget https://packages.microsoft.com/config/ubuntu/14.04/packages-microsoft-prod.deb
+wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
 ```
@@ -71,6 +71,7 @@ Blobfuse provides native-like performance by requiring a temporary path in the f
 ### (Optional) Use a ramdisk for the temporary path
 The following example creates a ramdisk of 16 GB and a directory for blobfuse. Choose the size based on your needs. This ramdisk allows blobfuse to open files up to 16 GB in size. 
 ```bash
+sudo mkdir /mnt/ramdisk
 sudo mount -t tmpfs -o size=16g tmpfs /mnt/ramdisk
 sudo mkdir /mnt/ramdisk/blobfusetmp
 sudo chown <youruser> /mnt/ramdisk/blobfusetmp
@@ -103,7 +104,7 @@ touch ~/fuse_connection.cfg
 
 Once you've created and edited this file, make sure to restrict access so no other users can read it.
 ```bash
-chmod 600 fuse_connection.cfg
+chmod 600 ~/fuse_connection.cfg
 ```
 
 > [!NOTE]
@@ -138,5 +139,4 @@ echo "hello world" > test/blob.txt
 ## Next steps
 
 * [Blobfuse home page](https://github.com/Azure/azure-storage-fuse#blobfuse)
-* [Report blobfuse issues](https://github.com/Azure/azure-storage-fuse/issues) 
-
+* [Report blobfuse issues](https://github.com/Azure/azure-storage-fuse/issues)

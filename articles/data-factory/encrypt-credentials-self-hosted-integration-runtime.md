@@ -1,20 +1,13 @@
 ---
 title: Encrypt credentials in Azure Data Factory 
 description: Learn how to encrypt and store credentials for your on-premises data stores on a machine with self-hosted integration runtime. 
-services: data-factory
-documentationcenter: ''
-author: nabhishek
-manager: anandsub
-ms.reviewer: douglasl
-
+author: lrtoyou1223
 ms.service: data-factory
-ms.workload: data-services
-
-
+ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.date: 01/15/2018
-ms.author: abnarain
-
+ms.author: lle 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Encrypt credentials for on-premises data stores in Azure Data Factory
@@ -24,7 +17,6 @@ ms.author: abnarain
 You can encrypt and store credentials for your on-premises data stores (linked services with sensitive information) on a machine with self-hosted integration runtime. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 You pass a JSON definition file with credentials to the <br/>[**New-AzDataFactoryV2LinkedServiceEncryptedCredential**](/powershell/module/az.datafactory/New-AzDataFactoryV2LinkedServiceEncryptedCredential) cmdlet to produce an output JSON definition file with the encrypted credentials. Then, use the updated JSON definition to create the linked services.
 
@@ -35,17 +27,17 @@ Replace `<servername>`, `<databasename>`, `<username>`, and `<password>` with va
 
 ```json
 {
-	"properties": {
-		"type": "SqlServer",
-		"typeProperties": {
-			"connectionString": "Server=<servername>;Database=<databasename>;User ID=<username>;Password=<password>;Timeout=60"
-		},
-		"connectVia": {
-			"type": "integrationRuntimeReference",
-			"referenceName": "<integration runtime name>"
-		},
-		"name": "SqlServerLinkedService"
-	}
+    "properties": {
+        "type": "SqlServer",
+        "typeProperties": {
+            "connectionString": "Server=<servername>;Database=<databasename>;User ID=<username>;Password=<password>;Timeout=60"
+        },
+        "connectVia": {
+            "type": "integrationRuntimeReference",
+            "referenceName": "<integration runtime name>"
+        },
+        "name": "SqlServerLinkedService"
+    }
 }
 ```
 

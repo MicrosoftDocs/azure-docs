@@ -1,22 +1,24 @@
 ---
 title: Media blueprint sample overview
 description: Overview of the Media blueprint sample. This blueprint sample helps customers assess specific Media controls.
-ms.date: 02/26/2020
+ms.date: 04/02/2021
 ms.topic: sample
 ---
 # Overview of the Media blueprint sample
 
-Media blueprint sample provides a
-set of governance guard-rails using [Azure Policy](../../../policy/overview.md) that help towards
+Media blueprint sample provides a set of governance guardrails using
+[Azure Policy](../../../policy/overview.md) that help toward
 [Media](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html)
-attestation. 
+attestation.
 
 ## Blueprint sample
 
-The blueprint sample helps customers deploy a core set of policies for any
-Azure-deployed architecture requiring accreditation or compliance with the Media
-framework. The [control mapping](./control-mapping.md) section provides details on policies included
-within this initiative and how these policies help meet various controls defined by Media framework. When assigned to an architecture, resources are evaluated by Azure Policy for compliance with assigned policies.
+The blueprint sample helps customers deploy a core set of policies for any Azure-deployed
+architecture requiring accreditation or compliance with the Media framework. The
+[control mapping](./control-mapping.md) section provides details on policies included within this
+initiative and how these policies help meet various controls defined by Media framework. When
+assigned to an architecture, resources are evaluated by Azure Policy for compliance with assigned
+policies.
 
 ## Next steps
 

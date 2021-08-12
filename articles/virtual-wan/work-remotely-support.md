@@ -1,12 +1,12 @@
 ---
 title: 'Azure Virtual WAN and working remotely'
-description: This page describes how you can leverage Azure Virtual WAN to enable working remotely due to the COVID-19 pandemic.
+description: Learn how you can leverage Azure Virtual WAN to enable working remotely due to the COVID-19 pandemic.
 services: virtual-wan
-author: reyandap
+author: cherylmc
 
 ms.service: virtual-wan
-ms.topic: article
-ms.date: 03/22/2020
+ms.topic: conceptual
+ms.date: 05/26/2021
 ms.author: cherylmc
 
 
@@ -49,11 +49,11 @@ Basic Virtual WAN provides Site-to-site VPN only. In order for remote users to c
 
 ## <a name="other considerations"></a>Additional information
 
-Virtual WAN supports one hub per region/location. For location information, see the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) article. Each hub supports up to 10,000 remote user connections, 1,000 branch connection, four ExpressRoute circuits and up to 500 Virtual Network connections. As you scale up the remote users, if you have any questions, don't hesitate to seek help by sending an email to azurevirtualwan@microsoft.com. If you require technical support, be sure to open a support ticket from the Azure portal and help will be on the way.
+Virtual WAN supports multiple hubs per region/location. For location information, see the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) article. Each hub supports up to 10,000 remote user connections, 1,000 branch connection, four ExpressRoute circuits and up to 500 Virtual Network connections. As you scale up the remote users, if you have any questions, don't hesitate to seek help by sending an email to azurevirtualwan@microsoft.com. If you require technical support, be sure to open a support ticket from the Azure portal and help will be on the way.
 
 ## <a name="faq"></a>FAQ
 
-[!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
+See the [Virtual WAN FAQ](virtual-wan-faq.md).
 
 ## Next Steps
 

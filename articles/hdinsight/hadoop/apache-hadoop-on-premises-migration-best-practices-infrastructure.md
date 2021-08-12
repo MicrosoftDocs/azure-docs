@@ -1,11 +1,8 @@
 ---
 title: 'Infrastructure: On-premises Apache Hadoop to Azure HDInsight'
 description: Learn infrastructure best practices for migrating on-premises Hadoop clusters to Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
 ---
@@ -34,7 +31,7 @@ For more information, see the article [Capacity planning for HDInsight clusters]
 
 ## Use recommended virtual machine type for cluster
 
-See [Default node configuration and virtual machine sizes for clusters](../hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) for recommended virtual machine types for each type of HDInsight cluster.
+See [Default node configuration and virtual machine sizes for clusters](../hdinsight-supported-node-configuration.md) for recommended virtual machine types for each type of HDInsight cluster.
 
 ## Check Hadoop components availability in HDInsight
 
@@ -71,7 +68,7 @@ Applications or components that were available in on-premises clusters but aren'
 |Palantir|IaaS 
 |Sailpoint|Iaas 
 
-For more information, see the article [Apache Hadoop components available with different HDInsight versions](../hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions)
+For more information, see the article [Apache Hadoop components available with different HDInsight versions](../hdinsight-component-versioning.md)
 
 ## Customize HDInsight clusters using script actions
 
@@ -104,7 +101,7 @@ For more information, see the following articles:
 
 ## Customize HDInsight configs using Bootstrap
 
-Changes to configs in the config files such as `core-site.xml`, `hive-site.xml` and `oozie-env.xml` can be made using Bootstrap. The following script is an example using the Powershell [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) cmdlet [New-AzHDInsightClusterConfig](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster):
+Changes to configs in the config files such as `core-site.xml`, `hive-site.xml` and `oozie-env.xml` can be made using Bootstrap. The following script is an example using the PowerShell [AZ module](/powershell/azure/new-azureps-module-az) cmdlet [New-AzHDInsightClusterConfig](/powershell/module/az.hdinsight/new-azhdinsightcluster):
 
 ```powershell
 # hive-site.xml configuration
@@ -163,7 +160,7 @@ Using Azure Virtual Network with HDInsight enables the following scenarios:
 - Directly accessing Hadoop services that aren't available publicly over the internet. For example, Kafka APIs or the HBase Java API.
 
 HDInsight can either be added to a new or existing Azure Virtual Network. If HDInsight is being added to an existing Virtual Network, the existing network security groups and user-defined routes need to be updated to allow unrestricted access to [several IP addresses](../hdinsight-management-ip-addresses.md)
-in the Azure data center. Also, make sure not to block traffic to the [ports](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ports), which are being used by HDInsight services.
+in the Azure data center. Also, make sure not to block traffic to the [ports](../control-network-traffic.md#required-ports), which are being used by HDInsight services.
 
 > [!Note]  
 > HDInsight does not currently support forced tunneling. Forced tunneling is a subnet setting that forces outbound Internet traffic to a device for inspection and logging. Either remove forced tunneling before installing HDInsight into a subnet or create a new subnet for HDInsight. HDInsight also does not support restricting outbound network connectivity.

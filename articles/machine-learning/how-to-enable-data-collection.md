@@ -1,30 +1,27 @@
 ---
 title: Collect data on your production models 
 titleSuffix: Azure Machine Learning
-description: Learn how to collect Azure Machine Learning input model data in Azure Blob storage.
+description: Learn how to collect data from an Azure Machine Learning model deployed on an Azure Kubernetes Service (AKS) cluster.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.reviewer: laobri
+ms.reviewer: sgilley
 ms.author: copeters
 author: lostmygithubaccount
-ms.date: 11/12/2019
-ms.custom: seodec18
+ms.date: 07/14/2020
+ms.topic: how-to
+ms.custom: data4ml
 
 ---
-# Collect data for models in production
+# Collect data from models in production
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
-
->[!IMPORTANT]
-> The Azure Machine Learning Monitoring SDK will be retired soon. The SDK is still appropriate for developers who currently use the SDK to monitor data drift in models. But for new customers, we recommend using the simplified [data monitoring with Application Insights](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights).
-
-This article shows how to collect input model data from Azure Machine Learning. It also shows how to deploy the input data into an Azure Kubernetes Service (AKS) cluster and store the output data in Azure Blob storage.
+This article shows how to collect data from an Azure Machine Learning model deployed on an Azure Kubernetes Service (AKS) cluster. The collected data is then stored in Azure Blob storage.
 
 Once collection is enabled, the data you collect helps you:
 
-* [Monitor data drifts](how-to-monitor-data-drift.md) as production data enters your model.
+* [Monitor data drifts](how-to-monitor-datasets.md) on the production data you collect.
+
+* Analyze collected data using [Power BI](#powerbi) or [Azure Databricks](#databricks)
 
 * Make better decisions about when to retrain or optimize your model.
 
@@ -56,25 +53,25 @@ The path to the output data in the blob follows this syntax:
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a
- [free account](https://aka.ms/AMLFree) before you begin.
+ [free account](https://azure.microsoft.com/free/) before you begin.
 
-- A AzureMachine Learning workspace, a local directory containing your scripts, and the Azure Machine Learning SDK for Python must be installed. To learn how to install them, see [How to configure a development environment](how-to-configure-environment.md).
+- An Azure Machine Learning workspace, a local directory containing your scripts, and the Azure Machine Learning SDK for Python must be installed. To learn how to install them, see [How to configure a development environment](how-to-configure-environment.md).
 
 - You need a trained machine-learning model to be deployed to AKS. If you don't have a model, see the [Train image classification model](tutorial-train-models-with-aml.md) tutorial.
 
 - You need an AKS cluster. For information on how to create one and deploy to it, see [How to deploy and where](how-to-deploy-and-where.md).
 
-- [Set up your environment](how-to-configure-environment.md) and install the [Azure Machine Learning Monitoring SDK](https://aka.ms/aml-monitoring-sdk).
+- [Set up your environment](how-to-configure-environment.md) and install the [Azure Machine Learning Monitoring SDK](/python/api/overview/azure/ml/install).
 
 ## Enable data collection
 
-You can enable data collection regardless of the model you deploy through Azure Machine Learning or other tools.
+You can enable [data collection](/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector) regardless of the model you deploy through Azure Machine Learning or other tools.
 
 To enable data collection, you need to:
 
 1. Open the scoring file.
 
-1. Add the [following code](https://aka.ms/aml-monitoring-sdk) at the top of the file:
+1. Add the following code at the top of the file:
 
    ```python 
    from azureml.monitoring import ModelDataCollector
@@ -84,7 +81,7 @@ To enable data collection, you need to:
 
     ```python
     global inputs_dc, prediction_dc
-    inputs_dc = ModelDataCollector("best_model", designation="inputs", feature_names=["feat1", "feat2", "feat3". "feat4", "feat5", "feat6"])
+    inputs_dc = ModelDataCollector("best_model", designation="inputs", feature_names=["feat1", "feat2", "feat3", "feat4", "feat5", "feat6"])
     prediction_dc = ModelDataCollector("best_model", designation="predictions", feature_names=["prediction1", "prediction2"])
     ```
 
@@ -98,7 +95,7 @@ To enable data collection, you need to:
     data = np.array(data)
     result = model.predict(data)
     inputs_dc.collect(data) #this call is saving our input data into Azure Blob
-    prediction_dc.collect(result) #this call is saving our input data into Azure Blob
+    prediction_dc.collect(result) #this call is saving our prediction data into Azure Blob
     ```
 
 1. Data collection is *not* automatically set to **true** when you deploy a service in AKS. Update your configuration file, as in the following example:
@@ -115,41 +112,16 @@ To enable data collection, you need to:
 
 1. To create a new image and deploy the machine learning model, see [How to deploy and where](how-to-deploy-and-where.md).
 
-If you already have a service with the dependencies installed in your environment file and scoring file, enable data collection by following these steps:
+1. Add the 'Azure-Monitoring' pip package to the conda-dependencies of the web service environment:
+  ```Python
+    env = Environment('webserviceenv')
+    env.python.conda_dependencies = CondaDependencies.create(conda_packages=['numpy'],pip_packages=['azureml-defaults','azureml-monitoring','inference-schema[numpy-support]'])
+  ```
 
-1. Go to [Azure Machine Learning](https://ml.azure.com).
-
-1. Open your workspace.
-
-1. Select **Deployments** > **Select service** > **Edit**.
-
-   ![Edit the service](././media/how-to-enable-data-collection/EditService.PNG)
-
-1. In **Advanced Settings**, select **Enable Application Insights diagnostics and data collection**.
-
-1. Select **Update** to apply the changes.
 
 ## Disable data collection
 
-You can stop collecting data at any time. Use Python code or Azure Machine Learning to disable data collection.
-
-### Option 1 - Disable data collection in Azure Machine Learning
-
-1. Sign in to [Azure Machine Learning](https://ml.azure.com).
-
-1. Open your workspace.
-
-1. Select **Deployments** > **Select service** > **Edit**.
-
-   [![Select the Edit option](././media/how-to-enable-data-collection/EditService.PNG)](./././media/how-to-enable-data-collection/EditService.PNG#lightbox)
-
-1. In **Advanced Settings**, clear **Enable Application Insights diagnostics and data collection**.
-
-1. Select **Update** to apply the change.
-
-You can also access these settings in your workspace in [Azure Machine Learning](https://ml.azure.com).
-
-### Option 2 - Use Python to disable data collection
+You can stop collecting data at any time. Use Python code to disable data collection.
 
   ```python 
   ## replace <service_name> with the name of the web service
@@ -162,7 +134,7 @@ You can choose a tool of your preference to analyze the data collected in your B
 
 ### Quickly access your blob data
 
-1. Sign in to [Azure Machine Learning](https://ml.azure.com).
+1. Sign in to [Azure portal](https://portal.azure.com).
 
 1. Open your workspace.
 
@@ -177,11 +149,11 @@ You can choose a tool of your preference to analyze the data collected in your B
    # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
    ```
 
-### Analyze model data using Power BI
+### <a id="powerbi"></a> Analyze model data using Power BI
 
 1. Download and open [Power BI Desktop](https://www.powerbi.com).
 
-1. Select **Get Data** and select [**Azure Blob Storage**](https://docs.microsoft.com/power-bi/desktop-data-sources).
+1. Select **Get Data** and select [**Azure Blob Storage**](/power-bi/desktop-data-sources).
 
     [![Power BI blob setup](./media/how-to-enable-data-collection/PBIBlob.png)](././media/how-to-enable-data-collection/PBIBlob.png#lightbox)
 
@@ -213,9 +185,9 @@ You can choose a tool of your preference to analyze the data collected in your B
 
 1. Start building your custom reports on your model data.
 
-### Analyze model data using Azure Databricks
+### <a id="databricks"></a> Analyze model data using Azure Databricks
 
-1. Create an [Azure Databricks workspace](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
+1. Create an [Azure Databricks workspace](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal).
 
 1. Go to your Databricks workspace.
 
@@ -237,3 +209,7 @@ You can choose a tool of your preference to analyze the data collected in your B
     [![Databricks setup](./media/how-to-enable-data-collection/dbsetup.png)](././media/how-to-enable-data-collection/dbsetup.png#lightbox)
 
 1. Follow the steps on the template to view and analyze your data.
+
+## Next steps
+
+[Detect data drift](how-to-monitor-datasets.md) on the data you have collected.

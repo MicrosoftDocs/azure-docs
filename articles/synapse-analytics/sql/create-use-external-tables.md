@@ -1,77 +1,159 @@
 ---
-title: Create and use external tables in SQL on-demand (preview)
-description: In this section, you'll learn how to create and use external tables in SQL on-demand (preview). External tables are useful when you want to control access to external data in SQL On-demand and if you want to use tools, such as Power BI, in conjunction with SQL on-demand.
+title: Create and use external tables in Synapse SQL pool
+description: In this section, you'll learn how to create and use external tables in Synapse SQL pool.
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice:
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ---
 
-# Create and use external tables in SQL on-demand (preview) using Azure Synapse Analytics
+# Create and use native external tables using SQL pools in Azure Synapse Analytics
 
-In this section, you'll learn how to create and use external tables in SQL on-demand (preview). External tables are useful when you want to control access to external data in SQL On-demand and if you want to use tools, such as Power BI, in conjunction with SQL on-demand.
+In this section, you'll learn how to create and use [native external tables](develop-tables-external-tables.md) in Synapse SQL pools. Native external tables have better performance when compared to external tables with `TYPE=HADOOP` in their external data source definition. This is because native external tables use native code to access external data. 
+
+External tables are useful when you want to control access to external data in Synapse SQL pool. External tables are also useful if you want to use tools, such as Power BI, in conjunction with Synapse SQL pool. External tables can access two types of storage:
+- Public storage where users access public storage files.
+- Protected storage where users access storage files using SAS credential, Azure AD identity, or Managed Identity of Synapse workspace.
+
+> [!NOTE]
+>  In dedicated SQL pools you can only use Parquet native external tables. Native Parquet external tables are in limited public preview in the dedicated SQL pools because this feature is still not available in all regions. Contact your Microsoft Technical Account Manager/Cloud Solution Architect if you want to join the public preview to check could you use the native Parquet external table in your dedicated pools. If you want to use generally available functionality in dedicated SQL pools, or you need to access CSV or ORC files use Hadoop external tables. Native external tables are generally available in serverless SQL pools.
+> Learn more about the differences between native and Hadoop external tables in [Use external tables with Synapse SQL](develop-tables-external-tables.md).
 
 ## Prerequisites
 
-Your first step is to review the articles below and make sure you've met the prerequisites for creating and using SQL on-demand external tables:
+Your first step is to create a database where the tables will be created. Then create the following objects that are used in this sample:
+- DATABASE SCOPED CREDENTIAL `sqlondemand` that enables access to SAS-protected `https://sqlondemandstorage.blob.core.windows.net` Azure storage account.
 
-- [First-time setup](query-data-storage.md#first-time-setup)
-- [Prerequisites](query-data-storage.md#prerequisites)
+    ```sql
+    CREATE DATABASE SCOPED CREDENTIAL [sqlondemand]
+    WITH IDENTITY='SHARED ACCESS SIGNATURE',  
+    SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D'
+    ```
 
-## Create an external table
+- EXTERNAL DATA SOURCE `sqlondemanddemo` that references demo storage account protected with SAS key, and EXTERNAL DATA SOURCE `nyctlc` that references publicly available Azure storage account on location `https://azureopendatastorage.blob.core.windows.net/nyctlc/`.
 
-You can create external tables the same way you create regular SQL Server external tables. The query below creates an external table that reads *population.csv* file.
+    ```sql
+    CREATE EXTERNAL DATA SOURCE SqlOnDemandDemo WITH (
+        LOCATION = 'https://sqlondemandstorage.blob.core.windows.net',
+        CREDENTIAL = sqlondemand
+    );
+    GO
+    CREATE EXTERNAL DATA SOURCE nyctlc
+    WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/nyctlc/')
+    GO
+    CREATE EXTERNAL DATA SOURCE DeltaLakeStorage
+    WITH ( location = 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/' );
+    ```
+
+- File formats `QuotedCSVWithHeaderFormat` and `ParquetFormat` that describe CSV and parquet file types.
+
+    ```sql
+    CREATE EXTERNAL FILE FORMAT QuotedCsvWithHeaderFormat
+    WITH (  
+        FORMAT_TYPE = DELIMITEDTEXT,
+        FORMAT_OPTIONS ( FIELD_TERMINATOR = ',', STRING_DELIMITER = '"', FIRST_ROW = 2   )
+    );
+    GO
+    CREATE EXTERNAL FILE FORMAT ParquetFormat WITH (  FORMAT_TYPE = PARQUET );
+    GO
+    CREATE EXTERNAL FILE FORMAT DeltaLakeFormat WITH (  FORMAT_TYPE = DELTA );
+    GO
+    ```
+
+The queries in this article will be executed on your sample database and use these objects. 
+
+## External table on a file
+
+You can create external tables that access data on an Azure storage account that allows access to users with some Azure AD identity or SAS key. You can create external tables the same way you create regular SQL Server external tables. 
+
+The following query creates an external table that reads *population.csv* file from SynapseSQL demo Azure storage account that is referenced using `sqlondemanddemo` data source and protected with database scoped credential called `sqlondemand`. 
+
+Data source and database scoped credential are created in [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql).
 
 > [!NOTE]
-> Change the first line in the query, i.e., [mydbname], so you're using the database you created. If you have not created a database, please read [First-time setup](query-data-storage.md#first-time-setup).
+> Change the first line in the query, i.e., [mydbname], so you're using the database you created. 
 
 ```sql
 USE [mydbname];
 GO
-
-CREATE EXTERNAL DATA SOURCE [CsvDataSource] WITH (
-    LOCATION = 'https://sqlondemandstorage.blob.core.windows.net/csv'
-);
-GO
-
-CREATE EXTERNAL FILE FORMAT CSVFileFormat
-WITH (  
-    FORMAT_TYPE = DELIMITEDTEXT,
-    FORMAT_OPTIONS (
-        FIELD_TERMINATOR = ',',
-        STRING_DELIMITER = '"',
-        FIRST_ROW = 2
-    )
-);
-GO
-
 CREATE EXTERNAL TABLE populationExternalTable
 (
     [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
     [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
     [year] smallint,
     [population] bigint
-);
+)
 WITH (
-    LOCATION = 'population/population.csv',
-    DATA_SOURCE = CsvDataSource,
-    FILE_FORMAT = CSVFileFormat
+    LOCATION = 'csv/population/population.csv',
+    DATA_SOURCE = sqlondemanddemo,
+    FILE_FORMAT = QuotedCSVWithHeaderFormat
 );
-GO
 ```
 
-## Use a external table
+Native CSV tables are currently available only in the serverless SQL pools.
 
-You can use external tables in your queries the same way you use them in SQL Server queries.
+## External table on a set of files
 
-The following query demonstrates using the *population* external table we created in [Create an external table](#create-an-external-table) section. It returns country names with their population in 2019 in descending order.
+You can create external tables that read data from a set of files placed on Azure storage:
+
+```sql
+CREATE EXTERNAL TABLE Taxi (
+     vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
+     pickup_datetime DATETIME2, 
+     dropoff_datetime DATETIME2,
+     passenger_count INT,
+     trip_distance FLOAT,
+     fare_amount FLOAT,
+     tip_amount FLOAT,
+     tolls_amount FLOAT,
+     total_amount FLOAT
+) WITH (
+         LOCATION = 'yellow/puYear=*/puMonth=*/*.parquet',
+         DATA_SOURCE = nyctlc,
+         FILE_FORMAT = ParquetFormat
+);
+```
+
+You can specify the pattern that the files must satisfy in order to be referenced by the external table. The pattern is required only for Parquet and CSV tables. If you are using Delta Lake format, you need to specify just a root folder, and the external table will automatically find the pattern.
 
 > [!NOTE]
-> Change the first line in the query, i.e., [mydbname], so you're using the database you created. If you have not created a database, please read [First-time setup](query-data-storage.md#first-time-setup).
+> The table is created on partitioned folder structure, but you cannot leverage some partition elimination. If you want to get better performance by skipping the files that do not satisfy some criterion (like specific year or month in this case), use [views on external data](create-use-views.md#partitioned-views).
+
+## Delta Lake external table
+
+External tables can be created on top of a Delta Lake folder. The only difference between the external tables created on a [single file](#external-table-on-a-file) or a [file set](#external-table-on-a-set-of-files) and the external tables created on a Delta Lake format is that in Delta Lake external table you need to reference a folder containing the Delta Lake structure.
+
+> [!div class="mx-imgBorder"]
+>![ECDC COVID-19 Delta Lake folder](./media/shared/covid-delta-lake-studio.png)
+
+An example of a table definition created on a Delta Lake folder is:
+
+```sql
+CREATE EXTERNAL TABLE Covid (
+     date_rep date,
+     cases int,
+     geo_id varchar(6)
+) WITH (
+        LOCATION = 'covid', --> the root folder containing the Delta Lake files
+        data_source = DeltaLakeStorage,
+        FILE_FORMAT = DeltaLakeFormat
+);
+```
+
+Delta Lake is in public preview and there are some known issues and limitations. Review the known issues on [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake).
+
+## Use an external table
+
+You can use [external tables](develop-tables-external-tables.md) in your queries the same way you use them in SQL Server queries.
+
+The following query demonstrates this using the *population* external table we created in previous section. It returns country/region names with their population in 2019 in descending order.
+
+> [!NOTE]
+> Change the first line in the query, i.e., [mydbname], so you're using the database you created.
 
 ```sql
 USE [mydbname];
@@ -86,6 +168,8 @@ ORDER BY
     [population] DESC;
 ```
 
+Performance of this query might vary depending on region. Your workspace might not be placed in the same region as the Azure storage accounts used in these samples. For production workloads, place your Synapse workspace and Azure storage in the same region.
+
 ## Next steps
 
-For information on how to store results of a query to the storage refer to the [Store query results to the storage](../sql/create-external-table-as-select.md).
+For information on how to store results of a query to storage, refer to [Store query results to the storage](../sql/create-external-table-as-select.md) article.

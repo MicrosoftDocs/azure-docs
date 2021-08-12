@@ -1,16 +1,14 @@
 ---
 title: Copy data from SAP HANA
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from SAP HANA to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-services: data-factory
-ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
+ms.author: jingwang
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 02/17/2020
+ms.custom: synapse
+ms.date: 04/22/2020
 ---
 
 # Copy data from SAP HANA using Azure Data Factory
@@ -22,7 +20,7 @@ ms.date: 02/17/2020
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from an SAP HANA database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 >[!TIP]
->To learn ADF's overall support on SAP data integration scenario, see [SAP data integration using Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) with detailed introduction, comparsion and guidance.
+>To learn ADF's overall support on SAP data integration scenario, see [SAP data integration using Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) with detailed introduction on each SAP connector, comparsion and guidance.
 
 ## Supported capabilities
 
@@ -41,7 +39,7 @@ Specifically, this SAP HANA connector supports:
 - Parallel copying from a SAP HANA source. See the [Parallel copy from SAP HANA](#parallel-copy-from-sap-hana) section for details.
 
 > [!TIP]
-> To copy data **into** SAP HANA data store, use generic ODBC connector. See [SAP HANA sink](connector-odbc.md#sap-hana-sink) with details. Note the linked services for SAP HANA connector and ODBC connector are with different type thus cannot be reused.
+> To copy data **into** SAP HANA data store, use generic ODBC connector. See [SAP HANA sink](#sap-hana-sink) section with details. Note the linked services for SAP HANA connector and ODBC connector are with different type thus cannot be reused.
 
 ## Prerequisites
 
@@ -52,7 +50,7 @@ To use this SAP HANA connector, you need to:
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to SAP HANA connector.
 
@@ -293,6 +291,34 @@ When copying data from SAP HANA, the following mappings are used from SAP HANA d
 | VARCHAR            | String                         |
 | TIMESTAMP          | DateTime                       |
 | VARBINARY          | Byte[]                         |
+
+## SAP HANA sink
+
+Currently, the SAP HANA connector is not supported as sink, while you can use generic ODBC connector with SAP HANA driver to write data into SAP HANA. 
+
+Follow the [Prerequisites](#prerequisites) to set up Self-hosted Integration Runtime and install SAP HANA ODBC driver first. Create an ODBC linked service to connect to your SAP HANA data store as shown in the following example, then create dataset and copy activity sink with ODBC type accordingly. Learn more from [ODBC connector](connector-odbc.md) article.
+
+```json
+{
+    "name": "SAPHANAViaODBCLinkedService",
+    "properties": {
+        "type": "Odbc",
+        "typeProperties": {
+            "connectionString": "Driver={HDBODBC};servernode=<HANA server>.clouddatahub-int.net:30015",
+            "authenticationType": "Basic",
+            "userName": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
 
 ## Lookup activity properties
 

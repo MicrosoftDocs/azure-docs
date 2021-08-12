@@ -1,14 +1,14 @@
 ---
 title: Networking for Azure virtual machine scale sets
 description: How to configuration some of the more advanced networking properties for Azure virtual machine scale sets.
-author: mimckitt
-tags: azure-resource-manager
-
-ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.date: 07/17/2017
-ms.author: mimckitt
+ms.subservice: networking
+ms.date: 06/25/2020
+ms.reviewer: mimckitt
+ms.custom: mimckitt, devx-track-azurepowershell
 
 ---
 # Networking for Azure virtual machine scale sets
@@ -38,26 +38,7 @@ Azure Accelerated Networking improves network performance by enabling single roo
 ```
 
 ## Azure virtual machine scale sets with Azure Load Balancer
-
-When working with virtual machine scale sets and load balancer, the following should be considered:
-
-* **Multiple virtual machine scale sets can't use the same load balancer**.
-* **Port Forwarding and inbound NAT rules**:
-  * Each virtual machine scale set must have an inbound NAT rule.
-  * After the scale set has been created, the backend port cannot be modified for a load balancing rule used by a health probe of the load balancer. To change the port, you can remove the health probe by updating the Azure virtual machine scale set, update the port and then configure the health probe again.
-  * When using the virtual machine scale set in the backend pool of the load balancer the default inbound NAT rules get created automatically.
-* **Load balancing rules**:
-  * When using the virtual machine scale set in the backend pool of the load balancer the default load balancing rule gets created automatically.
-* **Outbound rules**:
-  *  To create outbound rule for a backend pool which is already referenced by a load balancing rule, you need to first mark **"Create implicit outbound rules"** as **No** in the portal when the inbound load balancing rule is created.
-
-  :::image type="content" source="./media/vmsslb.png" alt-text="Load balancing rule creation" border="true":::
-
-The following methods can be used to deploy a virtual machine scale set with an existing Azure load balancer.
-
-* [Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure portal](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-portal).
-* [Configure a virtual machine scale set with an existing Azure Load Balancer using Azure PowerShell](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-powershell).
-* [Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure CLI](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-cli).
+See [Azure Load Balancer and Virtual Machine Scale Sets](../load-balancer/load-balancer-standard-virtual-machine-scale-sets.md) to learn more about how to configure your Standard Load Balancer with Virtual Machine Scale Sets based on your scenario.
 
 ## Create a scale set that references an Application Gateway
 To create a scale set that uses an application gateway, reference the backend address pool of the application gateway in the ipConfigurations section of your scale set as in this ARM template config:
@@ -139,12 +120,12 @@ The output, for an individual virtual machine dns name would be in the following
 ```
 
 ## Public IPv4 per virtual machine
-In general, Azure scale set virtual machines do not require their own public IP addresses. For most scenarios, it is more economical and secure to associate a public IP address to a load balancer or to an individual virtual machine (aka a jumpbox), which then routes incoming connections to scale set virtual machines as needed (for example, through inbound NAT rules).
+In general, Azure scale set virtual machines do not require their own public IP addresses. For most scenarios, it is more economical and secure to associate a public IP address to a load balancer or to an individual virtual machine (also known as a jumpbox), which then routes incoming connections to scale set virtual machines as needed (for example, through inbound NAT rules).
 
 However, some scenarios do require scale set virtual machines to have their own public IP addresses. An example is gaming, where a console needs to make a direct connection to a cloud virtual machine, which is doing game physics processing. Another example is where virtual machines need to make external connections to one another across regions in a distributed database.
 
 ### Creating a scale set with public IP per virtual machine
-To create a scale set that assigns a public IP address to each virtual machine with the CLI, add the **--public-ip-per-vm** parameter to the **vmss create** command. 
+To create a scale set that assigns a public IP address to each virtual machine with the CLI, add the **--public-ip-per-vm** parameter to the **vmss create** command.
 
 To create a scale set using an Azure template, make sure the API version of the Microsoft.Compute/virtualMachineScaleSets resource is at least **2017-03-30**, and add a **publicIpAddressConfiguration** JSON property to the scale set ipConfigurations section. For example:
 
@@ -157,7 +138,7 @@ To create a scale set using an Azure template, make sure the API version of the 
 }
 ```
 
-Example template: [201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
+Example template: [vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-public-ip-linux)
 
 ### Querying the public IP addresses of the virtual machines in a scale set
 To list the public IP addresses assigned to scale set virtual machines using the CLI, use the **az vmss list-instance-public-ips** command.
@@ -237,7 +218,7 @@ Example output from the [Azure Resource Explorer](https://resources.azure.com) a
 Every NIC attached to a VM in a scale set can have one or more IP configurations associated with it. Each configuration is assigned one private IP address. Each configuration may also have one public IP address resource associated with it. To understand how many IP addresses can be assigned to a NIC, and how many public IP addresses you can use in an Azure subscription, refer to [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## Multiple NICs per virtual machine
-You can have up to 8 NICs per virtual machine, depending on machine size. The maximum number of NICs per machine is available in the [VM size article](../virtual-machines/windows/sizes.md). All NICs connected to a VM instance must connect to the same virtual network. The NICs can connect to different subnets, but all subnets must be part of the same virtual network.
+You can have up to 8 NICs per virtual machine, depending on machine size. The maximum number of NICs per machine is available in the [VM size article](../virtual-machines/sizes.md). All NICs connected to a VM instance must connect to the same virtual network. The NICs can connect to different subnets, but all subnets must be part of the same virtual network.
 
 The following example is a scale set network profile showing multiple NIC entries, and multiple public IPs per virtual machine:
 
@@ -313,7 +294,7 @@ The following example is a scale set network profile showing multiple NIC entrie
 ```
 
 ## NSG & ASGs per scale set
-[Network Security Groups](../virtual-network/security-overview.md) allow you to filter traffic to and from Azure resources in an Azure virtual network using security rules. [Application Security Groups](../virtual-network/security-overview.md#application-security-groups) enable you to handle network security of Azure resources and group them as an extension of your application's structure.
+[Network Security Groups](../virtual-network/network-security-groups-overview.md) allow you to filter traffic to and from Azure resources in an Azure virtual network using security rules. [Application Security Groups](../virtual-network/network-security-groups-overview.md#application-security-groups) enable you to handle network security of Azure resources and group them as an extension of your application's structure.
 
 Network Security Groups can be applied directly to a scale set, by adding a reference to the network interface configuration section of the scale set virtual machine properties.
 
@@ -395,6 +376,140 @@ az vmss show \
   ]
 ]
 ```
+
+## Make networking updates to specific instances
+
+You can make networking updates to specific virtual machine scale set instances.
+
+You can `PUT` against the instance to update the network configuration. This can be used to do things like add or remove network interface cards (NICs), or remove an instance from a backend pool.
+
+```
+PUT https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
+```
+
+The following example shows how to add a second IP Configuration to your NIC.
+
+1. `GET` the details for a specific virtual machine scale set instance.
+
+    ```
+    GET https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
+    ```
+
+    *The following was simplified to show only networking parameters for this example.*
+
+    ```json
+    {
+      ...
+      "properties": {
+        ...
+        "networkProfileConfiguration": {
+          "networkInterfaceConfigurations": [
+            {
+              "name": "vmssnic-vnet-nic01",
+              "properties": {
+                "primary": true,
+                "enableAcceleratedNetworking": false,
+                "networkSecurityGroup": {
+                  "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/networkSecurityGroups/basicNsgvmssnic-vnet-nic01"
+                },
+                "dnsSettings": {
+                  "dnsServers": []
+                },
+                "enableIPForwarding": false,
+                "ipConfigurations": [
+                  {
+                    "name": "vmssnic-vnet-nic01-defaultIpConfiguration",
+                    "properties": {
+                      "publicIPAddressConfiguration": {
+                        "name": "publicIp-vmssnic-vnet-nic01",
+                        "properties": {
+                          "idleTimeoutInMinutes": 15,
+                          "ipTags": [],
+                          "publicIPAddressVersion": "IPv4"
+                        }
+                      },
+                      "primary": true,
+                      "subnet": {
+                        "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/virtualNetworks/vmssnic-vnet/subnets/default"
+                      },
+                      "privateIPAddressVersion": "IPv4"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        ...
+      }
+    }
+    ```
+
+2. `PUT` against the instance, updating to add the additional IP configuration. This is similar for adding additional `networkInterfaceConfiguration`.
+
+
+    ```
+    PUT https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
+    ```
+
+    *The following was simplified to show only networking parameters for this example.*
+
+    ```json
+      {
+      ...
+      "properties": {
+        ...
+        "networkProfileConfiguration": {
+          "networkInterfaceConfigurations": [
+            {
+              "name": "vmssnic-vnet-nic01",
+              "properties": {
+                "primary": true,
+                "enableAcceleratedNetworking": false,
+                "networkSecurityGroup": {
+                  "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/networkSecurityGroups/basicNsgvmssnic-vnet-nic01"
+                },
+                "dnsSettings": {
+                  "dnsServers": []
+                },
+                "enableIPForwarding": false,
+                "ipConfigurations": [
+                  {
+                    "name": "vmssnic-vnet-nic01-defaultIpConfiguration",
+                    "properties": {
+                      "publicIPAddressConfiguration": {
+                        "name": "publicIp-vmssnic-vnet-nic01",
+                        "properties": {
+                          "idleTimeoutInMinutes": 15,
+                          "ipTags": [],
+                          "publicIPAddressVersion": "IPv4"
+                        }
+                      },
+                      "primary": true,
+                      "subnet": {
+                        "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/virtualNetworks/vmssnic-vnet/subnets/default"
+                      },
+                      "privateIPAddressVersion": "IPv4"
+                    }
+                  },
+                  {
+                    "name": "my-second-config",
+                    "properties": {
+                      "subnet": {
+                        "id": "/subscriptions/123a1a12-a123-1ab1-12a1-12a1a1234ab1/resourceGroups/vmssnic/providers/Microsoft.Network/virtualNetworks/vmssnic-vnet/subnets/default"
+                      },
+                      "privateIPAddressVersion": "IPv4"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        ...
+      }
+    }
+    ```
 
 
 

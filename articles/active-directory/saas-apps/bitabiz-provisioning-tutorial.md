@@ -2,20 +2,15 @@
 title: 'Tutorial: Configure BitaBIZ for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to BitaBIZ.
 services: active-directory
-documentationcenter: ''
-author: zchia
-writer: zchia
-manager: beatrizd
-
-ms.assetid: d0d38abe-c041-482a-9d3f-ca340678c226
+author: twimmers
+writer: twimmers
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
-ms.author: zhchia 
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure BitaBIZ for automatic user provisioning
@@ -54,11 +49,11 @@ Before configuring BitaBIZ for automatic user provisioning with Azure AD, you wi
 
 1. Sign in to your [BitaBIZ Admin Console](https://www.bitabiz.com/login?lang=en). Click on **SETUP ADMIN**.
 
-	![BitaBIZ Admin Console](media/bitabiz-provisioning-tutorial/setup-admin.png)
+	:::image type="content" source="media/bitabiz-provisioning-tutorial/setup-admin.png" alt-text="Screenshot of the BitaBIZ Admin Console, with Setup admin highlighted." border="false":::
 
 2.  Navigate to **INTEGRATION**.
 
-	![BitaBIZ Admin Console](media/bitabiz-provisioning-tutorial/integration.png)
+	:::image type="content" source="media/bitabiz-provisioning-tutorial/integration.png" alt-text="Screenshot of the BitaBIZ Admin Console, with Integration highlighted." border="false":::
 
 2.	Navigate to **Microsoft Azure AD Provisioning**.  Select **Enabled** in Automatic user provisioning. Copy the values for **SCIM Provisioning endpoint URL** and  **Bearer Token**. These values will be entered in the Tenant URL and Secret Token fields in the Provisioning tab of your BitaBIZ application in the Azure portal.
 
@@ -92,7 +87,7 @@ To configure BitaBIZ for automatic user provisioning with Azure AD, you need to 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in BitaBIZ based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for BitaBIZ , following the instructions provided in the [BitaBIZ Single sign-on tutorial](BitaBIZ-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
+> You may also choose to enable SAML-based single sign-on for BitaBIZ, following the instructions provided in the [BitaBIZ Single sign-on tutorial](BitaBIZ-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
 
 ### To configure automatic user provisioning for BitaBIZ in Azure AD:
 
@@ -106,11 +101,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the Admin Credentials section, input the **SCIM Provisioning endpoint URL** and **Bearer Token** values retrieved earlier in Tenant URL and Secret Token respectively. Click **Test Connection** to ensure Azure AD can connect to BitaBIZ. If the connection fails, ensure your BitaBIZ account has Admin permissions and try again.
 

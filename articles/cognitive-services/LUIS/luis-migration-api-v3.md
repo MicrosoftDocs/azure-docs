@@ -1,15 +1,20 @@
 ---
 title: Prediction endpoint changes in the V3 API
 description: The query prediction endpoint V3 APIs have changed. Use this guide to understand how to migrate to version 3 endpoint APIs.
-ms.topic: conceptual
-ms.date: 04/14/2020
-ms.author: diberry
+ms.service: cognitive-services
+author: aahill
+ms.manager: nitinme
+ms.author: aahi
+ms.subservice: language-understanding
+ms.topic: how-to
+ms.date: 05/28/2021
+
 ---
 
 
 # Prediction endpoint changes for V3
 
-The query prediction endpoint V3 APIs have changed. Use this guide to understand how to migrate to version 3 endpoint APIs.
+The query prediction endpoint V3 APIs have changed. Use this guide to understand how to migrate to version 3 endpoint APIs. There is currently no date by which migration needs to be completed.
 
 **Generally available status** - this V3 API include significant JSON request and response changes from V2 API.
 
@@ -50,35 +55,23 @@ If you use Bot Framework, Bing Spell Check V7, or want to migrate your LUIS app 
 
 If you know none of your client application or integrations (Bot Framework, and Bing Spell Check V7) are impacted and you are comfortable migrating your LUIS app authoring and your prediction endpoint at the same time, begin using the V3 prediction endpoint. The V2 prediction endpoint will still be available and is a good fall-back strategy.
 
+For information on using the Bing Spell Check API, see [How to correct misspelled words](luis-tutorial-bing-spellcheck.md).
+
 
 ## Not supported
 
-### Bing Spell Check
-
-This API is not supported in V3 prediction endpoint - continue to use V2 API prediction endpoint for spelling corrections. If you need spelling correction while using V3 API, have the client application call the [Bing Spell Check](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/overview) API, and change the text to the correct spelling, prior to sending the text to the LUIS API.
-
-## Bot Framework and Azure Bot Service client applications
+### Bot Framework and Azure Bot Service client applications
 
 Continue to use the V2 API prediction endpoint until the V4.7 of the Bot Framework is released.
 
-## V2 API Deprecation
-
-The V2 prediction API will not be deprecated for at least 9 months after the V3 preview, June 8th, 2020.
 
 ## Endpoint URL changes
 
 ### Changes by slot name and version name
 
-The format of the V3 endpoint HTTP call has changed.
+The [format of the V3 endpoint HTTP](developer-reference-resource.md#rest-endpoints) call has changed.
 
 If you want to query by version, you first need to [publish via API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) with `"directVersionPublish":true`. Query the endpoint referencing the version ID instead of the slot name.
-
-|PREDICTION API VERSION|METHOD|URL|
-|--|--|--|
-|V3|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict?query=<b>{QUERY}</b>|
-|V3|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict|
-|V2|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict?query=<b>{QUERY}</b>|
-|V2|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict|
 
 |Valid values for `SLOT-NAME`|
 |--|
@@ -89,17 +82,7 @@ If you want to query by version, you first need to [publish via API](https://wes
 
 ### Query string changes
 
-The V3 API has different query string parameters.
-
-|Param name|Type|Version|Default|Purpose|
-|--|--|--|--|--|
-|`log`|boolean|V2 & V3|false|Store query in log file. Default value is false.|
-|`query`|string|V3 only|No default - it is required in the GET request|**In V2**, the utterance to be predicted is in the `q` parameter. <br><br>**In V3**, the functionality is passed in the `query` parameter.|
-|`show-all-intents`|boolean|V3 only|false|Return all intents with the corresponding score in the **prediction.intents** object. Intents are returned as objects in a parent `intents` object. This allows programmatic access without needing to find the intent in an array: `prediction.intents.give`. In V2, these were returned in an array. |
-|`verbose`|boolean|V2 & V3|false|**In V2**, when set to true, all predicted intents were returned. If you need all predicted intents, use the V3 param of `show-all-intents`.<br><br>**In V3**, this parameter only provides entity metadata details of entity prediction.  |
-|`timezoneOffset`|string|V2|-|Timezone applied to datetimeV2 entities.|
-|`datetimeReference`|string|V3|-|[Timezone](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) applied to datetimeV2 entities. Replaces `timezoneOffset` from V2.|
-
+[!INCLUDE [V3 query params](./includes/v3-prediction-query-params.md)]
 
 ### V3 POST body
 
@@ -280,10 +263,7 @@ In V3, the same result with the `verbose` flag to return entity metadata:
 
 Learn [concepts](schema-change-prediction-runtime.md) about how to extend the app at prediction runtime.
 
-## Deprecation
-
-The V2 API will not be deprecated for at least 9 months after the V3 preview.
 
 ## Next steps
 
-Use the V3 API documentation to update existing REST calls to LUIS [endpoint](https://aka.ms/luis-api-v3) APIs.
+Use the V3 API documentation to update existing REST calls to LUIS [endpoint](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a9459a1fe8fa44c28dd8) APIs.

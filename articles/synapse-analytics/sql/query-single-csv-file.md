@@ -1,19 +1,19 @@
 ---
-title: Query CSV files using SQL on-demand (preview) 
-description: In this article, you'll learn how to query single CSV files with different file formats using SQL on-demand (preview).
+title: Query CSV files using serverless SQL pool 
+description: In this article, you'll learn how to query single CSV files with different file formats using serverless SQL pool.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice:
-ms.date: 04/15/2020
-ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
+ms.subservice: sql
+ms.date: 05/20/2020
+ms.author: stefanazaric
+ms.reviewer: jrasnick 
 ---
 
 # Query CSV files
 
-In this article, you'll learn how to query a single CSV file using SQL on-demand (preview) in Azure Synapse Analytics. CSV files may have different formats: 
+In this article, you'll learn how to query a single CSV file using serverless SQL pool in Azure Synapse Analytics. CSV files may have different formats: 
 
 - With and without a header row
 - Comma and tab-delimited values
@@ -22,12 +22,89 @@ In this article, you'll learn how to query a single CSV file using SQL on-demand
 
 All of the above variations will be covered below.
 
+## Quickstart example
+
+`OPENROWSET` function enables you to read the content of CSV file by providing the URL to your file.
+
+### Read a csv file
+
+The easiest way to see to the content of your `CSV` file is to provide file URL to `OPENROWSET` function, specify csv `FORMAT`, and 2.0 `PARSER_VERSION`. If the file is publicly available or if your Azure AD identity can access this file, you should be able to see the content of the file using the query like the one shown in the following example:
+
+```sql
+select top 10 *
+from openrowset(
+    bulk 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.csv',
+    format = 'csv',
+    parser_version = '2.0',
+    firstrow = 2 ) as rows
+```
+
+Option `firstrow` is used to skip the first row in the CSV file that represents header in this case. Make sure that you can access this file. If your file is protected with SAS key or custom identity, your would need to setup [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+
+> [!IMPORTANT]
+> If your CSV file contains UTF-8 characters, make sure that you are using a UTF-8 database collation (for example `Latin1_General_100_CI_AS_SC_UTF8`).
+> A mismatch between text encoding in the file and the collation might cause unexpected conversion errors.
+> You can easily change default collation of the current database using the following T-SQL statement:
+>   `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
+
+### Data source usage
+
+Previous example uses full path to the file. As an alternative, you can create an external data source with the location that points to the root folder of the storage:
+
+```sql
+create external data source covid
+with ( location = 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases' );
+```
+
+Once you create a data source, you can use that data source and the relative path to the file in `OPENROWSET` function:
+
+```sql
+select top 10 *
+from openrowset(
+        bulk 'latest/ecdc_cases.csv',
+        data_source = 'covid',
+        format = 'csv',
+        parser_version ='2.0',
+        firstrow = 2
+    ) as rows
+```
+
+If a data source is protected with SAS key or custom identity you can configure [data source with database scoped credential](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential).
+
+### Explicitly specify schema
+
+`OPENROWSET` enables you to explicitly specify what columns you want to read from the file using `WITH` clause:
+
+```sql
+select top 10 *
+from openrowset(
+        bulk 'latest/ecdc_cases.csv',
+        data_source = 'covid',
+        format = 'csv',
+        parser_version ='2.0',
+        firstrow = 2
+    ) with (
+        date_rep date 1,
+        cases int 5,
+        geo_id varchar(6) 8
+    ) as rows
+```
+
+The numbers after a data type in the `WITH` clause represent column index in the CSV file.
+
+> [!IMPORTANT]
+> If your CSV file contains UTF-8 characters, make sure that you are explicilty specifying some UTF-8 collation (for example `Latin1_General_100_CI_AS_SC_UTF8`) for all columns in `WITH` clause or set some UTF-8 collation at database level.
+> Mismatch between text encoding in the file and collation might cause unexpected conversion errors.
+> You can easily change default collation of the current database using the following T-SQL statement:
+>   `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
+> You can easily set collation on the colum types using the following definition:
+>    `geo_id varchar(6) collate Latin1_General_100_CI_AI_SC_UTF8 8`
+
+In the following sections you can see how to query various types of CSV files.
+
 ## Prerequisites
 
-Before reading the rest of this article, review the following articles:
-
-- [First-time setup](query-data-storage.md#first-time-setup)
-- [Prerequisites](query-data-storage.md#prerequisites)
+Your first step is to **create a database** where the tables will be created. Then initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. This setup script will create the data sources, database scoped credentials, and external file formats that are used in these samples.
 
 ## Windows style new line
 
@@ -40,8 +117,9 @@ File preview:
 ```sql
 SELECT *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv',
-         FORMAT = 'CSV',
+        BULK 'csv/population/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '\n'
     )
@@ -67,8 +145,9 @@ File preview:
 ```sql
 SELECT *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix/population.csv',
-        FORMAT = 'CSV',
+        BULK 'csv/population-unix/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '0x0a'
     )
@@ -94,21 +173,15 @@ File preview:
 ```sql
 SELECT *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix-hdr/population.csv',
-        FORMAT = 'CSV',
-        FIELDTERMINATOR =',',
-        FIRSTROW = 2
-    )
-    WITH (
-        [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
-        [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
-        [year] smallint,
-        [population] bigint
+    BULK 'csv/population-unix-hdr/population.csv',
+    DATA_SOURCE = 'SqlOnDemandDemo',
+    FORMAT = 'CSV', PARSER_VERSION = '2.0',
+    FIELDTERMINATOR =',',
+    HEADER_ROW = TRUE
     ) AS [r]
-WHERE
-    country_name = 'Luxembourg'
-    AND year = 2017;
 ```
+
+Option `HEADER_ROW = TRUE` will result in reading column names from the header row in file. It is great for exploration purposes when you are not familiar with file content. For best performance see [Use appropriate data types section in Best practices](best-practices-serverless-sql-pool.md#use-appropriate-data-types). Also, you can read more about [OPENROWSET syntax here](develop-openrowset.md#syntax).
 
 ## Custom quote character
 
@@ -121,8 +194,9 @@ File preview:
 ```sql
 SELECT *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix-hdr-quoted/population.csv',
-        FORMAT = 'CSV',
+        BULK 'csv/population-unix-hdr-quoted/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '0x0a',
         FIRSTROW = 2,
@@ -142,7 +216,7 @@ WHERE
 > [!NOTE]
 > This query would return the same results if you omitted the FIELDQUOTE parameter since the default value for FIELDQUOTE is a double-quote.
 
-## Escaping characters
+## Escape characters
 
 The following query shows how to read a file with a header row, with a Unix-style new line, comma-delimited columns, and an escape char used for the field delimiter (comma) within values. Note the different location of the file as compared to the other examples.
 
@@ -153,8 +227,9 @@ File preview:
 ```sql
 SELECT *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix-hdr-escape/population.csv',
-        FORMAT = 'CSV',
+        BULK 'csv/population-unix-hdr-escape/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '0x0a',
         FIRSTROW = 2,
@@ -167,11 +242,42 @@ FROM OPENROWSET(
         [population] bigint
     ) AS [r]
 WHERE
-    country_name = 'Slov,enia';
+    country_name = 'Slovenia';
 ```
 
 > [!NOTE]
-> This query would fail if ESCAPECHAR is not specified since the comma in "Slov,enia" would be treated as field delimiter instead of part of the country name. "Slov,enia" would be treated as two columns. Therefore, the particular row would have one column more than the other rows, and one column more than you defined in the WITH clause.
+> This query would fail if ESCAPECHAR is not specified since the comma in "Slov,enia" would be treated as field delimiter instead of part of the country/region name. "Slov,enia" would be treated as two columns. Therefore, the particular row would have one column more than the other rows, and one column more than you defined in the WITH clause.
+
+### Escape quoting characters
+
+The following query shows how to read a file with a header row, with a Unix-style new line, comma-delimited columns, and an escaped double quote char within values. Note the different location of the file as compared to the other examples.
+
+File preview:
+
+![The following query shows how to read a file with a header row, with a Unix-style new line, comma-delimited columns, and an escaped double quote char within values.](./media/query-single-csv-file/population-unix-hdr-escape-quoted.png)
+
+```sql
+SELECT *
+FROM OPENROWSET(
+        BULK 'csv/population-unix-hdr-escape-quoted/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
+        FIELDTERMINATOR =',',
+        ROWTERMINATOR = '0x0a',
+        FIRSTROW = 2
+    )
+    WITH (
+        [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
+        [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
+        [year] smallint,
+        [population] bigint
+    ) AS [r]
+WHERE
+    country_name = 'Slovenia';
+```
+
+> [!NOTE]
+> The quoting character must be escaped with another quoting character. Quoting character can appear within column value only if value is encapsulated with quoting characters.
 
 ## Tab-delimited files
 
@@ -184,8 +290,9 @@ File preview:
 ```sql
 SELECT *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix-hdr-tsv/population.csv',
-        FORMAT = 'CSV',
+        BULK 'csv/population-unix-hdr-tsv/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR ='\t',
         ROWTERMINATOR = '0x0a',
         FIRSTROW = 2
@@ -201,11 +308,11 @@ WHERE
     AND year = 2017
 ```
 
-## Returning subset of columns
+## Return a subset of columns
 
 So far, you've specified the CSV file schema using WITH and listing all columns. You can only specify columns you actually need in your query by using an ordinal number for each column needed. You'll also omit columns of no interest.
 
-The following query returns the number of distinct country names in a file, specifying only the columns that are needed:
+The following query returns the number of distinct country/region names in a file, specifying only the columns that are needed:
 
 > [!NOTE]
 > Take a look at the WITH clause in the query below and note that there is "2" (without quotes) at the end of row where you define the *[country_name]* column. It means that the *[country_name]* column is the second column in the file. The query will ignore all columns in the file except the second one.
@@ -214,14 +321,15 @@ The following query returns the number of distinct country names in a file, spec
 SELECT
     COUNT(DISTINCT country_name) AS countries
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv',
-         FORMAT = 'CSV',
+        BULK 'csv/population/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '\n'
     )
 WITH (
-    --[country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
-    [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2 2
+    --[country_code] VARCHAR (5),
+    [country_name] VARCHAR (100) 2
     --[year] smallint,
     --[population] bigint
 ) AS [r]

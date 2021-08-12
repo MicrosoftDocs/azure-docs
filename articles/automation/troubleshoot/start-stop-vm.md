@@ -1,27 +1,22 @@
 ---
-title: Troubleshooting the Start/Stop VMs during off hours solution
-description: This article provides information on troubleshooting the Start/Stop VM solution.
+title: Troubleshoot Azure Automation Start/Stop VMs during off-hours issues
+description: This article tells how to troubleshoot and resolve issues arising during the use of the Start/Stop VMs during off-hours feature.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/04/2019
-ms.topic: conceptual
-manager: carmonm
+ms.topic: troubleshooting 
+ms.custom: devx-track-azurepowershell
 ---
-# Troubleshoot the Start/Stop VMs during off hours solution
 
-This article provides information on troubleshooting issues that arise while working with Start/Stop VMs during off hours solution.
+# Troubleshoot Start/Stop VMs during off-hours issues
 
->[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
+This article provides information on troubleshooting and resolving issues that arise when you deploy the Azure Automation Start/Stop VMs during off-hours feature on your VMs. 
 
-## <a name="deployment-failure"></a>Scenario: The Start/Stop VMs during off hours solution fails to properly deploy
+## <a name="deployment-failure"></a>Scenario: Start/Stop VMs during off-hours fails to properly deploy
 
 ### Issue
 
-When deploying the [Start/Stop VMs during off hours solution](../automation-solution-vm-management.md), you receive one of the following errors:
+When you deploy [Start/Stop VMs during off-hours](../automation-solution-vm-management.md), you receive one of the following errors:
 
 ```error
 Account already exists in another resourcegroup in a subscription. ResourceGroupName: [MyResourceGroup].
@@ -55,50 +50,50 @@ Start-AzureRmVm : Run Login-AzureRmAccount to login
 
 Deployments can fail because of one of the following reasons:
 
-1. There is already an Automation account with the same name in the region selected.
-2. A policy is disallowing the deployment of the Start/Stop VMs during off hours solution.
-3. The `Microsoft.OperationsManagement`, `Microsoft.Insights`, or `Microsoft.Automation` resource type is not registered.
-4. Your Log Analytics workspace is locked.
-5. You have an outdated version of the AzureRM modules or the Start/Stop VMs during off hours solution.
+- There's already an Automation account with the same name in the region selected.
+- A policy disallows the deployment of Start/Stop VMs during off-hours.
+- The `Microsoft.OperationsManagement`, `Microsoft.Insights`, or `Microsoft.Automation` resource type isn't registered.
+- Your Log Analytics workspace is locked.
+- You have an outdated version of the AzureRM modules or the Start/Stop VMs during off-hours feature.
 
 ### Resolution
 
-Review the following fixes for potential solutions to your problem:
+Review the following fixes for potential resolutions:
 
-* Automation accounts need to be unique within an Azure region, even if they are in different resource groups. Check your existing Automation accounts in the target region.
-* An existing policy prevents a resource that is required for the Start/Stop VMs during off hours solution to be deployed. Go to your policy assignments in the Azure portal and check whether you have a policy assignment that disallows the deployment of this resource. To learn more about this, see [RequestDisallowedByPolicy](../../azure-resource-manager/templates/error-policy-requestdisallowedbypolicy.md).
-* To deploy the Start/Stop VMs solution, your subscription needs to be registered to the following Azure resource namespaces:
+* Automation accounts need to be unique within an Azure region, even if they're in different resource groups. Check your existing Automation accounts in the target region.
+* An existing policy prevents a resource that's required for Start/Stop VMs during off-hours to be deployed. Go to your policy assignments in the Azure portal, and check whether you have a policy assignment that disallows the deployment of this resource. To learn more, see [RequestDisallowedByPolicy error](../../azure-resource-manager/templates/error-policy-requestdisallowedbypolicy.md).
+* To deploy Start/Stop VMs during off-hours, your subscription needs to be registered to the following Azure resource namespaces:
 
     * `Microsoft.OperationsManagement`
     * `Microsoft.Insights`
     * `Microsoft.Automation`
 
-   See [Resolve errors for resource provider registration](../../azure-resource-manager/templates/error-register-resource-provider.md) to learn more about errors when registering providers.
+   To learn more about errors when you register providers, see [Resolve errors for resource provider registration](../../azure-resource-manager/templates/error-register-resource-provider.md).
 * If you have a lock on your Log Analytics workspace, go to your workspace in the Azure portal and remove any locks on the resource.
-* If the resolutions above do not solve your issue, follow the instructions under [Update the Solution](../automation-solution-vm-management.md#update-the-solution) to re-deploy the Start/Stop solution.
+* If these resolutions don't solve your issue, follow the instructions under [Update the feature](../automation-solution-vm-management.md#update-the-feature) to redeploy Start/Stop VMs during off-hours.
 
 ## <a name="all-vms-fail-to-startstop"></a>Scenario: All VMs fail to start or stop
 
 ### Issue
 
-You've configured the Start/Stop VMs during off hours solution but it doesn't start or stop all the VMs.
+You've configured Start/Stop VMs during off-hours, but it doesn't start or stop all the VMs.
 
 ### Cause
 
 This error can be caused by one of the following reasons:
 
-1. A schedule isn't configured correctly.
-2. The Run As account might not be configured correctly.
-3. A runbook might have run into errors.
-4. The VMs might have been excluded.
+- A schedule isn't configured correctly.
+- The Run As account might not be configured correctly.
+- A runbook might have run into errors.
+- The VMs might have been excluded.
 
 ### Resolution
 
-Review the following list for potential solutions to your problem:
+Review the following list for potential resolutions:
 
-* Check that you've properly configured a schedule for the Start/Stop VMs during off hours solution. To learn how to configure a schedule, see the [Schedules](../automation-schedules.md) article.
+* Check that you've properly configured a schedule for Start/Stop VMs during off-hours. To learn how to configure a schedule, see [Schedules](../shared-resources/schedules.md).
 
-* Check the [job streams](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) to look for any errors. Look for jobs from one of the following runbooks:
+* Check the [job streams](../automation-runbook-execution.md#job-statuses) to look for any errors. Look for jobs from one of the following runbooks:
 
   * **AutoStop_CreateAlert_Child**
   * **AutoStop_CreateAlert_Parent**
@@ -110,9 +105,9 @@ Review the following list for potential solutions to your problem:
   * **ScheduledStartStop_Parent**
   * **SequencedStartStop_Parent**
 
-* Verify that your [Run As account](../manage-runas-account.md) has proper permissions to the VMs you're trying to start or stop. To learn how to check the permissions on a resource, see [Quickstart: View roles assigned to a user using the Azure portal](../../role-based-access-control/check-access.md). You'll need to provide the application ID for the service principal used by the Run As account. You can retrieve this value by going to your Automation account in the Azure portal, selecting **Run as accounts** under **Account Settings**, and clicking the appropriate Run As account.
+* Verify that your [Run As account](../automation-security-overview.md#run-as-accounts) has proper permissions to the VMs you're trying to start or stop. To learn how to check the permissions on a resource, see [Quickstart: View roles assigned to a user using the Azure portal](../../role-based-access-control/check-access.md). You'll need to provide the application ID for the service principal used by the Run As account. You can retrieve this value by going to your Automation account in the Azure portal. Select **Run as accounts** under **Account Settings**, and select the appropriate Run As account.
 
-* VMs may not be started or stopped if they're being explicitly excluded. Excluded VMs are set in the `External_ExcludeVMNames` variable in the Automation account to which the solution is deployed. The following example shows how you can query that value with PowerShell.
+* VMs might not be started or stopped if they're being explicitly excluded. Excluded VMs are set in the `External_ExcludeVMNames` variable in the Automation account to which the feature is deployed. The following example shows how you can query that value with PowerShell.
 
   ```powershell-interactive
   Get-AzAutomationVariable -Name External_ExcludeVMNames -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName> | Select-Object Value
@@ -122,62 +117,59 @@ Review the following list for potential solutions to your problem:
 
 ### Issue
 
-You've configured the Start/Stop VMs during off hours solution but it doesn't start or stop some of the VMs configured.
+You've configured Start/Stop VMs during off-hours, but it doesn't start or stop some of the VMs configured.
 
 ### Cause
 
 This error can be caused by one of the following reasons:
 
-1. In the sequence scenario, a tag might be missing or incorrect.
-2. The VM might be excluded.
-3. The Run As account might not have enough permissions on the VM.
-4. The VM can have an issue that stopped it from starting or stopping.
+- In the sequence scenario, a tag might be missing or incorrect.
+- The VM might be excluded.
+- The Run As account might not have enough permissions on the VM.
+- The VM can have an issue that stopped it from starting or stopping.
 
 ### Resolution
 
-Review the following list for potential solutions to your problem or places to look:
+Review the following list for potential resolutions:
 
-* When using the [sequence scenario](../automation-solution-vm-management.md) of the Start/Stop VMs during off hours solution, you must make sure that each VM you want to start or stop has the proper tag. Make sure the VMs that you want to start have the `sequencestart` tag and the VMs you want to stop have the `sequencestop` tag. Both tags require a positive integer value. You can use a query similar to the following example to look for all the VMs with the tags and their values.
+* When you use the [sequence scenario](../automation-solution-vm-management.md) of Start/Stop VMs during off-hours, you must make sure that each VM you want to start or stop has the proper tag. Make sure the VMs that you want to start have the `sequencestart` tag and the VMs you want to stop have the `sequencestop` tag. Both tags require a positive integer value. You can use a query similar to the following example to look for all the VMs with the tags and their values.
 
   ```powershell-interactive
   Get-AzResource | ? {$_.Tags.Keys -contains "SequenceStart" -or $_.Tags.Keys -contains "SequenceStop"} | ft Name,Tags
   ```
 
-* VMs might not be started or stopped if they're being explicitly excluded. Excluded VMs are set in the `External_ExcludeVMNames` variable in the Automation account to which the solution is deployed. The following example shows how you can query that value with PowerShell.
+* VMs might not be started or stopped if they're being explicitly excluded. Excluded VMs are set in the `External_ExcludeVMNames` variable in the Automation account to which the feature is deployed. The following example shows how you can query that value with PowerShell.
 
   ```powershell-interactive
   Get-AzAutomationVariable -Name External_ExcludeVMNames -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName> | Select-Object Value
   ```
 
-* To start and stop VMs, the Run As account for the Automation account must have appropriate permissions to the VM. To learn how to check the permissions on a resource, see [Quickstart: View roles assigned to a user using the Azure portal](../../role-based-access-control/check-access.md). You'll need to provide the application ID for the service principal used by the Run As account. You can retrieve this value by going to your Automation account in the Azure portal, selecting **Run as accounts** under **Account Settings** and clicking the appropriate Run As account.
-
-* If the VM is having a problem starting or deallocating, there might be an issue on the VM itself. For example, an update is being applied when the VM is trying to shut down, a service hangs, and more. Navigate to your VM resource and check the **Activity Logs** to see if there are any errors in the logs. You might also attempt to log into the VM to see if there are any errors in the event logs. To learn more about troubleshooting your VM, see [Troubleshooting Azure virtual machines](../../virtual-machines/troubleshooting/index.yml)
-
-* Check the [job streams](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) to look for any errors. In the portal, go to your Automation account and select **Jobs** under **Process Automation**.
+* To start and stop VMs, the Run As account for the Automation account must have appropriate permissions to the VM. To learn how to check the permissions on a resource, see [Quickstart: View roles assigned to a user using the Azure portal](../../role-based-access-control/check-access.md). You'll need to provide the application ID for the service principal used by the Run As account. You can retrieve this value by going to your Automation account in the Azure portal. Select **Run as accounts** under **Account Settings** and select the appropriate Run As account.
+* If the VM is having a problem starting or deallocating, there might be an issue on the VM itself. Examples are an update that's being applied when the VM is trying to shut down, a service that hangs, and more. Go to your VM resource, and check **Activity Logs** to see if there are any errors in the logs. You might also attempt to log in to the VM to see if there are any errors in the event logs. To learn more about troubleshooting your VM, see [Troubleshooting Azure virtual machines](/troubleshoot/azure/virtual-machines/welcome-virtual-machines).
+* Check the [job streams](../automation-runbook-execution.md#job-statuses) to look for any errors. In the portal, go to your Automation account and select **Jobs** under **Process Automation**.
 
 ## <a name="custom-runbook"></a>Scenario: My custom runbook fails to start or stop my VMs
 
 ### Issue
 
-You've authored a custom runbook or downloaded one from the PowerShell Gallery and it isn't working properly.
+You've authored a custom runbook or downloaded one from the PowerShell Gallery, and it isn't working properly.
 
 ### Cause
 
-There can be many causes for the failure. Go to your Automation account in the Azure portal and select **Jobs** under **Process Automation**. From the Jobs page, look for jobs from your runbook to view any job failures.
+There can be many causes for the failure. Go to your Automation account in the Azure portal, and select **Jobs** under **Process Automation**. From the **Jobs** page, look for jobs from your runbook to view any job failures.
 
 ### Resolution
 
-It's recommended to:
+We recommend that you:
 
-* Use the [Start/Stop VMs during off hours solution](../automation-solution-vm-management.md) to start and stop VMs in Azure Automation. This solution is authored by Microsoft. 
-
-* Be aware that Microsoft doesn't support custom runbooks. You might find a solution for your custom runbook from [runbook troubleshooting](runbooks.md). Check the [job streams](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) to look for any errors. 
+* Use [Start/Stop VMs during off-hours](../automation-solution-vm-management.md) to start and stop VMs in Azure Automation. 
+* Be aware that Microsoft doesn't support custom runbooks. You might find a resolution for your custom runbook in [Troubleshoot runbook issues](runbooks.md). Check the [job streams](../automation-runbook-execution.md#job-statuses) to look for any errors. 
 
 ## <a name="dont-start-stop-in-sequence"></a>Scenario: VMs don't start or stop in the correct sequence
 
 ### Issue
 
-The VMs that you've configured in the solution don't start or stop in the correct sequence.
+The VMs that you've enabled for the feature don't start or stop in the correct sequence.
 
 ### Cause
 
@@ -185,18 +177,17 @@ This issue is caused by incorrect tagging on the VMs.
 
 ### Resolution
 
-Take the following steps to ensure that the solution is configured correctly.
+Follow these steps to ensure that the feature is enabled correctly:
 
-1. Ensure all VMs to be started or stopped have a `sequencestart` or `sequencestop` tag, depending on your situation. These tags need a positive integer as the value. VMs are processed in ascending order based on this value.
-2. Make sure the resource groups for the VMs to be started or stopped are in the `External_Start_ResourceGroupNames` or `External_Stop_ResourceGroupNames` variables, depending on your situation.
-3. Test your changes by executing the `SequencedStartStop_Parent` runbook with the `WHATIF` parameter set to True to preview your changes.
-4. For more about using the solution to start and stop VMs in sequence, see [Start/Stop VMs in sequence](../automation-solution-vm-management.md).
+1. Ensure that all VMs to be started or stopped have a `sequencestart` or `sequencestop` tag, depending on your situation. These tags need a positive integer as the value. VMs are processed in ascending order based on this value.
+1. Make sure that the resource groups for the VMs to be started or stopped are in the `External_Start_ResourceGroupNames` or `External_Stop_ResourceGroupNames` variables, depending on your situation.
+1. Test your changes by executing the **SequencedStartStop_Parent** runbook with the `WHATIF` parameter set to True to preview your changes.
 
-## <a name="403"></a>Scenario: Start/Stop VMs during off hours job fails with 403 forbidden error
+## <a name="403"></a>Scenario: Start/Stop VMs during off-hours job fails with 403 forbidden error
 
 ### Issue
 
-You find jobs that failed with a `403 forbidden` error for Start/Stop VMs during off hours solution runbooks.
+You find jobs that failed with a `403 forbidden` error for Start/Stop VMs during off-hours runbooks.
 
 ### Cause
 
@@ -206,33 +197,33 @@ This issue can be caused by an improperly configured or expired Run As account. 
 
 To verify that your Run As account is properly configured, go to your Automation account in the Azure portal and select **Run as accounts** under **Account Settings**. If a Run As account is improperly configured or expired, the status shows the condition.
 
-If your Run As account is misconfigured, you should delete and recreate your Run As account. See [Manage Azure Automation Run As accounts](../manage-runas-account.md).
+If your Run As account is misconfigured, delete and re-create your Run As account. For more information, see [Azure Automation Run As accounts](../automation-security-overview.md#run-as-accounts).
 
-If the certificate is expired for your Run As account, see steps in [Self-signed certificate renewal](../manage-runas-account.md#cert-renewal) to renew the certificate.
+If the certificate is expired for your Run As account, follow the steps in [Self-signed certificate renewal](../manage-runas-account.md#cert-renewal) to renew the certificate.
 
-If there are missing permissions, see [Quickstart: View roles assigned to a user using the Azure portal](../../role-based-access-control/check-access.md). You must provide the application ID for the service principal used by the Run As account. You can retrieve this value by going to your Automation account in the Azure portal, selecting **Run as accounts** under **Account Settings**, and clicking the appropriate Run As account.
+If there are missing permissions, see [Quickstart: View roles assigned to a user using the Azure portal](../../role-based-access-control/check-access.md). You must provide the application ID for the service principal used by the Run As account. You can retrieve this value by going to your Automation account in the Azure portal. Select **Run as accounts** under **Account Settings**, and select the appropriate Run As account.
 
-## <a name="other"></a>Scenario: My problem isn't listed above
+## <a name="other"></a>Scenario: My problem isn't listed here
 
 ### Issue
 
-You experience an issue or unexpected result when using the Start/Stop VMs during off hours solution that isn't listed on this page.
+You experience an issue or unexpected result when you use Start/Stop VMs during off-hours that isn't listed on this page.
 
 ### Cause
 
-Many times errors can be caused by using an old and outdated version of the solution.
+Many times errors can be caused by using an old and outdated version of the feature.
 
 > [!NOTE]
-> The Start/Stop VMs during off hours solution has been tested with the Azure modules that are imported into your Automation account when you deploy the solution. The solution currently doesn't work with newer versions of the Azure module. This only affects the Automation account that you use to run the Start/Stop VMs during off hours solution. You can still use newer versions of the Azure module in your other Automation accounts, as described in [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md)
+> The Start/Stop VMs during off-hours feature has been tested with the Azure modules that are imported into your Automation account when you deploy the feature on VMs. The feature currently doesn't work with newer versions of the Azure module. This restriction only affects the Automation account that you use to run Start/Stop VMs during off-hours. You can still use newer versions of the Azure module in your other Automation accounts, as described in [Update Azure PowerShell modules](../automation-update-azure-modules.md).
 
 ### Resolution
 
-To resolve many errors, it's recommended to remove and [update the Start/Stop VMs during off hours solution](../automation-solution-vm-management.md#update-the-solution). Additionally, you can check the [job streams](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) to look for any errors. 
+To resolve many errors, remove and [update Start/Stop VMs during off-hours](../automation-solution-vm-management.md#update-the-feature). You also can check the [job streams](../automation-runbook-execution.md#job-statuses) to look for any errors. 
 
 ## Next steps
 
-If you don't see your problem above or can't resolve your issue, try one of the following channels for additional support:
+If you don't see your problem here or you can't resolve your issue, try one of the following channels for additional support:
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
-* Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
-* File an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
+* Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
+* File an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/), and select **Get Support**.

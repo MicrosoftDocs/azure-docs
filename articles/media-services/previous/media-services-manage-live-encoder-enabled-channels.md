@@ -1,24 +1,25 @@
 ---
 title: Live streaming using Azure Media Services to create multi-bitrate streams | Microsoft Docs
-description: This topic describes how to set up a Channel that receives a single bitrate live stream from an on-premises encoder and then performs live encoding to adaptive bitrate stream with Media Services. 
+description: This topic describes how to set up a Channel that receives a single bitrate live stream from an on-premises encoder and then performs live encoding to adaptive bitrate stream with Media Services.
 services: media-services
 documentationcenter: ''
-author: anilmur
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: 30ce6556-b0ff-46d8-a15d-5f10e4c360e2
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 03/10/2021
 ms.author: anilmur
 ms.reviewer: juliako
 ---
 
 # Live streaming using Azure Media Services to create multi-bitrate streams
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Starting May 12, 2018, live channels will no longer support the RTP/MPEG-2 transport stream ingest protocol. Please migrate from RTP/MPEG-2 to RTMP or fragmented MP4 (Smooth Streaming) ingest protocols.
@@ -358,11 +359,10 @@ Review Media Services learning paths.
 
 [Create channels that perform live encoding from a singe bitrate to adaptive bitrate stream with .NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 
-[Manage channels with REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
+[Manage channels with REST API](/rest/api/media/operations/channel)
 
 [Media Services Concepts](media-services-concepts.md)
 
 [Azure Media Services Fragmented MP4 Live Ingest Specification](../media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
-

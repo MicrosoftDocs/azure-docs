@@ -1,27 +1,24 @@
 ---
-title: Use Remote Desktop to a Linux VM in Azure 
+title: Use xrdp with Linux
 description: Learn how to install and configure Remote Desktop (xrdp) to connect to a Linux VM in Azure using graphical tools
-services: virtual-machines-linux
-documentationcenter: ''
+services: virtual-machines
 author: cynthn
-manager: gwallace
-editor: ''
-
-ms.assetid: 
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-
-ms.topic: article
-ms.date: 09/12/2019
+ms.topic: how-to
+ms.date: 03/03/2021
 ms.author: cynthn
 
 ---
-# Install and configure Remote Desktop to connect to a Linux VM in Azure
-Linux virtual machines (VMs) in Azure are usually managed from the command line using a secure shell (SSH) connection. When new to Linux, or for quick troubleshooting scenarios, the use of remote desktop may be easier. This article details how to install and configure a desktop environment ([xfce](https://www.xfce.org)) and remote desktop ([xrdp](http://xrdp.org)) for your Linux VM using the Resource Manager deployment model.
+# Install and configure xrdp to use Remote Desktop with Ubuntu
 
+Linux virtual machines (VMs) in Azure are usually managed from the command line using a secure shell (SSH) connection. When new to Linux, or for quick troubleshooting scenarios, the use of remote desktop may be easier. This article details how to install and configure a desktop environment ([xfce](https://www.xfce.org)) and remote desktop ([xrdp](http://xrdp.org)) for your Linux VM running Ubuntu.
+
+The article was writen and tested using an Ubuntu 18.04 VM. 
 
 ## Prerequisites
+
 This article requires an existing Ubuntu 18.04 LTS VM in Azure. If you need to create a VM, use one of the following methods:
 
 - The [Azure CLI](quick-create-cli.md)
@@ -29,6 +26,7 @@ This article requires an existing Ubuntu 18.04 LTS VM in Azure. If you need to c
 
 
 ## Install a desktop environment on your Linux VM
+
 Most Linux VMs in Azure do not have a desktop environment installed by default. Linux VMs are commonly managed using SSH connections rather than a desktop environment. There are various desktop environments in Linux that you can choose. Depending on your choice of desktop environment, it may consume one to 2 GB of disk space, and take 5 to 10 minutes to install and configure all the required packages.
 
 The following example installs the lightweight [xfce4](https://www.xfce.org/) desktop environment on an Ubuntu 18.04 LTS VM. Commands for other distributions vary slightly (use `yum` to install on Red Hat Enterprise Linux and configure appropriate `selinux` rules, or use `zypper` to install on SUSE, for example).
@@ -81,9 +79,9 @@ sudo passwd azureuser
 
 
 ## Create a Network Security Group rule for Remote Desktop traffic
-To allow Remote Desktop traffic to reach your Linux VM, a network security group rule needs to be created that allows TCP on port 3389 to reach your VM. For more information about network security group rules, see [What is a network security group?](../../virtual-network/security-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) You can also [use the Azure portal to create a network security group rule](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+To allow Remote Desktop traffic to reach your Linux VM, a network security group rule needs to be created that allows TCP on port 3389 to reach your VM. For more information about network security group rules, see [What is a network security group?](../../virtual-network/network-security-groups-overview.md) You can also [use the Azure portal to create a network security group rule](../windows/nsg-quickstart-portal.md).
 
-The following example creates a network security group rule with [az vm open-port](/cli/azure/vm#az-vm-open-port) on port *3389*. From the Azure CLI, not the SSH session to your VM, open the following network security group rule:
+The following example creates a network security group rule with [az vm open-port](/cli/azure/vm#az_vm_open_port) on port *3389*. From the Azure CLI, not the SSH session to your VM, open the following network security group rule:
 
 ```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 3389
@@ -91,9 +89,14 @@ az vm open-port --resource-group myResourceGroup --name myVM --port 3389
 
 
 ## Connect your Linux VM with a Remote Desktop client
-Open your local remote desktop client and connect to the IP address or DNS name of your Linux VM. Enter the username and password for the user account on your VM as follows:
 
-![Connect to xrdp using your Remote Desktop client](./media/use-remote-desktop/remote-desktop-client.png)
+Open your local remote desktop client and connect to the IP address or DNS name of your Linux VM. 
+
+:::image type="content" source="media/use-remote-desktop/remote-desktop.png" alt-text="Screenshot of the remote desktop client.":::
+
+Enter the username and password for the user account on your VM as follows:
+
+:::image type="content" source="media/use-remote-desktop/xrdp-login.png" alt-text="Screenshot of the xrdp log in screen.":::
 
 After authenticating, the xfce desktop environment will load and look similar to the following example:
 
@@ -130,11 +133,10 @@ tail -f /var/log/syslog
 
 Other Linux distributions such as Red Hat Enterprise Linux and SUSE may have different ways to restart services and alternate log file locations to review.
 
-If you do not receive any response in your remote desktop client and do not see any events in the system log, this behavior indicates that remote desktop traffic cannot reach the VM. Review your network security group rules to ensure that you have a rule to permit TCP on port 3389. For more information, see [Troubleshoot application connectivity issues](../windows/troubleshoot-app-connection.md).
+If you do not receive any response in your remote desktop client and do not see any events in the system log, this behavior indicates that remote desktop traffic cannot reach the VM. Review your network security group rules to ensure that you have a rule to permit TCP on port 3389. For more information, see [Troubleshoot application connectivity issues](/troubleshoot/azure/virtual-machines/troubleshoot-app-connection).
 
 
 ## Next steps
 For more information about creating and using SSH keys with Linux VMs, see [Create SSH keys for Linux VMs in Azure](mac-create-ssh-keys.md).
 
 For information on using SSH from Windows, see [How to use SSH keys with Windows](ssh-from-windows.md).
-

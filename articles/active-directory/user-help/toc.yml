@@ -1,4 +1,4 @@
-- name: User Help Documentation
+- name: User Help documentation
   href: index.yml
 - name: Two-step verification help
   items:
@@ -16,8 +16,12 @@
     href: multi-factor-authentication-end-user-app-passwords.md
   - name: How to sign in
     href: user-help-sign-in.md?toc=./toc.json
+  - name: Work or school account sign-in
+    href: multi-factor-authentication-end-user-signin.md
   - name: Get help
     href: multi-factor-authentication-end-user-troubleshoot.md
+  - name: Received code in error
+    href: multi-factor-authentication-change-sms-phone.md
 - name: Password reset help
   items:
   - name: Sign up for password reset
@@ -46,8 +50,12 @@
         href: user-help-auth-app-add-account-manual.md
   - name: Sign in using the Microsoft Authenticator app
     href: user-help-auth-app-sign-in.md 
+  - name: Android limitations in China
+    href: auth-app-android-china.md
   - name: Backup and recover your accounts
     href: user-help-auth-app-backup-recovery.md
+  - name: Import passwords into Authenticator app
+    href: user-help-authenticator-app-import-passwords.md
   - name: FAQ
     href: user-help-auth-app-faq.md
 - name: My Account portal help
@@ -66,7 +74,13 @@
     href: my-account-portal-privacy-page.md
   - name: View your recent sign-in activity
     href: my-account-portal-sign-ins-page.md
-- name: Security info (preview) help
+  - name: Change your portal settings
+    href: my-account-portal-settings.md
+  - name: Find a My Account administrator
+    href: my-account-find-administrator.md
+  - name: Switch organizations
+    href: cross-tenant-switcher.md
+- name: Security info help
   items:
   - name: Add security info during sign-in
     href: security-info-setup-signin.md
@@ -102,12 +116,12 @@
   items:
   - name: Sign in and use the My Apps portal
     href: my-apps-portal-end-user-access.md
-  - name: Update your profile and account info
-    href: my-apps-portal-end-user-update-profile.md
   - name: Update your groups info
     href: my-apps-portal-end-user-groups.md
   - name: Organize apps with collections
     href: my-applications-portal-workspaces.md
+  - name: Collections preview in My Apps
+    href: my-apps-portal-user-collections.md
   - name: Edit or revoke app permissions
     href: my-applications-portal-permissions-saved-accounts.md
   - name: Perform your own access reviews

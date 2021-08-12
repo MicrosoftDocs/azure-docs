@@ -1,13 +1,13 @@
 ---
-title: Durable Functions publishing to Azure Event Grid (preview)
+title: Durable Functions publishing to Azure Event Grid
 description: Learn how to configure automatic Azure Event Grid publishing for Durable Functions.
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 05/11/2020
 ---
 
-# Durable Functions publishing to Azure Event Grid (preview)
+# Durable Functions publishing to Azure Event Grid
 
-This article shows how to set up Durable Functions to publish orchestration lifecycle events (such as created, completed, and failed) to a custom [Azure Event Grid Topic](https://docs.microsoft.com/azure/event-grid/overview).
+This article shows how to set up Durable Functions to publish orchestration lifecycle events (such as created, completed, and failed) to a custom [Azure Event Grid Topic](../../event-grid/overview.md).
 
 Following are some scenarios where this feature is useful:
 
@@ -20,12 +20,12 @@ Following are some scenarios where this feature is useful:
 ## Prerequisites
 
 * Install [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) in your Durable Functions project.
-* Install [Azure Storage Emulator](../../storage/common/storage-use-emulator.md) (Windows only) or use an existing Azure Storage account.
-* Install [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) or use [Azure Cloud Shell](../../cloud-shell/overview.md)
+* Install an [Azure Storage Emulator](../../storage/common/storage-use-emulator.md) or use an existing Azure Storage account.
+* Install [Azure CLI](/cli/azure/) or use [Azure Cloud Shell](../../cloud-shell/overview.md)
 
 ## Create a custom Event Grid topic
 
-Create an Event Grid topic for sending events from Durable Functions. The following instructions show how to create a topic by using Azure CLI. You can also do this by [using PowerShell](../../event-grid/custom-event-quickstart-powershell.md) or by [using the Azure portal](../../event-grid/custom-event-quickstart-portal.md).
+Create an Event Grid topic for sending events from Durable Functions. The following instructions show how to create a topic by using Azure CLI. You can also create the topic by [using PowerShell](../../event-grid/custom-event-quickstart-powershell.md) or by [using the Azure portal](../../event-grid/custom-event-quickstart-portal.md).
 
 ### Create a resource group
 
@@ -78,7 +78,7 @@ Add `eventGridTopicEndpoint` and `eventGridKeySettingName` in a `durableTask` pr
 
 ### Durable Functions 2.x
 
-Add a `notifications` section to the `durableTask` property of the file, replacing `<topic_name>` with the name you chose. If the `durableTask` or `extensions` properties do not exist, create them like this example:
+Add a `notifications` section to the `durableTask` property of the file, replacing `<topic_name>` with the name you chose. If the `durableTask` or `extensions` properties don't exist, create them like this example:
 
 ```json
 {
@@ -96,24 +96,23 @@ Add a `notifications` section to the `durableTask` property of the file, replaci
 }
 ```
 
-The possible Azure Event Grid configuration properties can be found in the [host.json documentation](../functions-host-json.md#durabletask). After you configure the `host.json` file, your function app sends lifecycle events to the Event Grid topic. This works when you run your function app both locally and in Azure.
+The possible Azure Event Grid configuration properties can be found in the [host.json documentation](../functions-host-json.md#durabletask). After you configure the `host.json` file, your function app sends lifecycle events to the Event Grid topic. This action starts when you run your function app both locally and in Azure.
 
-Set the app setting for the topic key in the Function App and `local.settings.json`. The following JSON is a sample of the `local.settings.json` for local debugging. Replace `<topic_key>` with the topic key.  
+Set the app setting for the topic key in the Function App and `local.settings.json`. The following JSON is a sample of the `local.settings.json` for local debugging using an Azure Storage emulator. Replace `<topic_key>` with the topic key.  
 
 ```json
 {
     "IsEncrypted": false,
     "Values": {
         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-        "AzureWebJobsDashboard": "UseDevelopmentStorage=true",
         "EventGridKey": "<topic_key>"
     }
 }
 ```
 
-If you are using the [Storage Emulator](../../storage/common/storage-use-emulator.md) (Windows only), make sure it is working. It's a good idea to run the `AzureStorageEmulator.exe clear all` command before executing.
+If you're using the [Storage Emulator](../../storage/common/storage-use-emulator.md) instead of a real Azure Storage account, make sure it's running. It's a good idea to clear any existing storage data before executing.
 
-If you are using an existing Azure Storage account, replace `UseDevelopmentStorage=true` in `local.settings.json` with its connection string.
+If you're using a real Azure Storage account, replace `UseDevelopmentStorage=true` in `local.settings.json` with its connection string.
 
 ## Create functions that listen for events
 
@@ -121,58 +120,71 @@ Using the Azure portal, create another function app to listen for events publish
 
 ### Create an Event Grid trigger function
 
-Create a function to receive the lifecycle events. Select **Custom Function**.
+1. In your function app, select **Functions**, and then select **+ Add** 
 
-![Select a Create a custom function.](./media/durable-functions-event-publishing/functions-portal.png)
+   :::image type="content" source="./media/durable-functions-event-publishing/function-add-function.png" alt-text="Add a function in the Azure portal." border="true":::
 
-Choose Event Grid Trigger, and select a language.
+1. Search for **Event Grid**, and then select the **Azure Event Grid trigger** template. 
 
-![Select the Event Grid Trigger.](./media/durable-functions-event-publishing/eventgrid-trigger.png)
+    :::image type="content" source="./media/durable-functions-event-publishing/function-select-event-grid-trigger.png" alt-text="Select the event grid trigger template in the Azure portal." border="true":::
 
-Enter the name of the function, and then select `Create`.
+1. Name the new trigger, and then select **Create Function**.
 
-![Create the Event Grid Trigger.](./media/durable-functions-event-publishing/eventgrid-trigger-creation.png)
+    :::image type="content" source="./media/durable-functions-event-publishing/function-name-event-grid-trigger.png" alt-text="Name the event grid trigger in the Azure portal." border="true":::
 
-A function with the following code is created:
 
-# [C# Script](#tab/csharp-script)
+    A function with the following code is created:
 
-```csharp
-#r "Newtonsoft.Json"
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Microsoft.Extensions.Logging;
+    # [C# Script](#tab/csharp-script)
 
-public static void Run(JObject eventGridEvent, ILogger log)
-{
-    log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
-}
-```
+    ```csharp
+    #r "Newtonsoft.Json"
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
+    using Microsoft.Extensions.Logging;
 
-# [JavaScript](#tab/javascript)
+    public static void Run(JObject eventGridEvent, ILogger log)
+    {
+        log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
+    }
+    ```
 
-```javascript
-module.exports = async function(context, eventGridEvent) {
-    context.log(typeof eventGridEvent);
-    context.log(eventGridEvent);
-}
-```
+   # [JavaScript](#tab/javascript)
+
+   ```javascript
+   module.exports = async function(context, eventGridEvent) {
+       context.log(typeof eventGridEvent);
+       context.log(eventGridEvent);
+   }
+   ```
 
 ---
 
-Select `Add Event Grid Subscription`. This operation adds an Event Grid subscription for the Event Grid topic that you created. For more information, see [Concepts in Azure Event Grid](https://docs.microsoft.com/azure/event-grid/concepts)
+### Add an Event Grid subscription
 
-![Select the Event Grid Trigger link.](./media/durable-functions-event-publishing/eventgrid-trigger-link.png)
+You can now add an Event Grid subscription for the Event Grid topic that you created. For more information, see [Concepts in Azure Event Grid](../../event-grid/concepts.md).
 
-Select `Event Grid Topics` for **Topic Type**. Select the resource group that you created for the Event Grid topic. Then select the instance of the Event Grid topic. Press `Create`.
+1. In your new function, select **Integration** and then select **Event Grid Trigger (eventGridEvent)**. 
 
-![Create an Event Grid subscription.](./media/durable-functions-event-publishing/eventsubscription.png)
+    :::image type="content" source="./media/durable-functions-event-publishing/eventgrid-trigger-link.png" alt-text="Select the Event Grid Trigger link." border="true":::
+
+1. Select **Create Event Grid Description**.
+
+    :::image type="content" source="./media/durable-functions-event-publishing/create-event-grid-subscription.png" alt-text="Create the Event Grid subscription." border="true":::
+
+1. Name your event subscription and select the **Event Grid Topics** topic type. 
+
+1. Select the subscription. Then, select the resource group and resource that you created for the Event Grid topic. 
+
+1. Select **Create**.
+
+    :::image type="content" source="./media/durable-functions-event-publishing/event-grid-subscription-details.png" alt-text="Create an Event Grid subscription." border="true":::
 
 Now you're ready to receive lifecycle events.
 
 ## Run Durable Functions app to send the events
 
-In the Durable Functions project that you configured earlier, start debugging on your local machine and start an orchestration. The app publishes Durable Functions lifecycle events to Event Grid. Verify that Event Grid triggers the the listener function you created by checking its logs in the Azure portal.
+In the Durable Functions project that you configured earlier, start debugging on your local machine and start an orchestration. The app publishes Durable Functions lifecycle events to Event Grid. Verify that Event Grid triggers the listener function you created by checking its logs in the Azure portal.
 
 ```
 2019-04-20T09:28:21.041 [Info] Function started (Id=3301c3ef-625f-40ce-ad4c-9ba2916b162d)

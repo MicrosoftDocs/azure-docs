@@ -1,13 +1,13 @@
 ---
 title: How to use object (Blob) storage from iOS - Azure | Microsoft Docs
 description: Store unstructured data in the cloud with Azure Blob storage (object storage).
-author: mhopkins-msft
+author: twooley
 
-ms.author: mhopkins
+ms.author: twooley
 ms.date: 11/20/2018
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # How to use Blob storage from iOS
@@ -387,8 +387,8 @@ Now that you've learned how to use Blob Storage from iOS, follow these links to 
 
 - [Azure Storage Client Library for iOS](https://github.com/azure/azure-storage-ios)
 - [Azure Storage iOS Reference Documentation](https://azure.github.io/azure-storage-ios/)
-- [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-- [Azure Storage Team Blog](https://blogs.msdn.com/b/windowsazurestorage)
+- [Azure Storage Services REST API](/rest/api/storageservices/)
+- [Azure Storage Team Blog](/archive/blogs/windowsazurestorage/)
 
-If you have questions regarding this library, feel free to post to our [MSDN Azure forum](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) or [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
+If you have questions regarding this library, feel free to post to our [Microsoft Q&A question page](/answers/topics/azure-blob-storage.html) or [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
 If you have feature suggestions for Azure Storage, please post to [Azure Storage Feedback](https://feedback.azure.com/forums/217298-storage/).

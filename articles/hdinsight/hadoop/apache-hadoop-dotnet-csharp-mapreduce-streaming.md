@@ -1,13 +1,10 @@
 ---
 title: Use C# with MapReduce on Hadoop in HDInsight - Azure 
 description: Learn how to use C# to create MapReduce solutions with Apache Hadoop in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 04/15/2020
+ms.topic: how-to
+ms.custom: "hdinsightactive, seoapr2020, devx-track-csharp"
+ms.date: 04/28/2020
 ---
 
 # Use C# with MapReduce streaming on Apache Hadoop in HDInsight
@@ -18,7 +15,7 @@ Apache Hadoop streaming allows you to run MapReduce jobs using a script or execu
 
 ## .NET on HDInsight
 
-HDInsight clusters use [Mono (https://mono-project.com)](https://mono-project.com) to run .NET applications. Mono version 4.2.1 is included with HDInsight version 3.6. For more information on the version of Mono included with HDInsight, see [Apache Hadoop components available with different HDInsight versions](../hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions).
+HDInsight clusters use [Mono (https://mono-project.com)](https://mono-project.com) to run .NET applications. Mono version 4.2.1 is included with HDInsight version 3.6. For more information on the version of Mono included with HDInsight, see [Apache Hadoop components available with HDInsight versions](../hdinsight-component-versioning.md).
 
 For more information on Mono compatibility with .NET Framework versions, see [Mono compatibility](https://www.mono-project.com/docs/about-mono/compatibility/).
 
@@ -42,11 +39,11 @@ For more information on streaming, see [Hadoop Streaming](https://hadoop.apache.
 
 * A way to upload .exe files to the cluster. The steps in this document use the Data Lake Tools for Visual Studio to upload the files to primary storage for the cluster.
 
-* If using PowerShell, you'll need the [Az Module](https://docs.microsoft.com/powershell/azure/overview).
+* If using PowerShell, you'll need the [Az Module](/powershell/azure/).
 
 * An Apache Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-* The [URI scheme](../hdinsight-hadoop-linux-information.md#URI-and-scheme) for your clusters primary storage. This scheme would be `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage or Data Lake Storage Gen2, the URI would be `wasbs://` or `abfss://`, respectively  See also, [secure transfer](../../storage/common/storage-require-secure-transfer.md).
+* The URI scheme for your clusters primary storage. This scheme would be `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage or Data Lake Storage Gen2, the URI would be `wasbs://` or `abfss://`, respectively.
 
 ## Create the mapper
 
@@ -148,7 +145,7 @@ Next, you need to upload the *mapper* and *reducer* applications to HDInsight st
 
 1. Expand the HDInsight cluster that you wish to deploy this application to. An entry with the text **(Default Storage Account)** is listed.
 
-   ![Storage account, HDInsight cluster, Server Explorer, Visual Studio](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-storage-account.png)
+   :::image type="content" source="./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-storage-account.png" alt-text="Storage account, HDInsight cluster, Server Explorer, Visual Studio" border="true":::
 
    * If the **(Default Storage Account)** entry can be expanded, you're using an **Azure Storage Account** as default storage for the cluster. To view the files on the default storage for the cluster, expand the entry and then double-click **(Default Container)**.
 
@@ -158,7 +155,7 @@ Next, you need to upload the *mapper* and *reducer* applications to HDInsight st
 
     * If you're using an **Azure Storage Account**, select the **Upload Blob** icon.
 
-        ![HDInsight upload icon for mapper, Visual Studio](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png)
+        :::image type="content" source="./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png" alt-text="HDInsight upload icon for mapper, Visual Studio" border="true":::
 
         In the **Upload New File** dialog box, under **File name**, select **Browse**. In the **Upload Blob** dialog box, go to the *bin\debug* folder for the *mapper* project, and then choose the *mapper.exe* file. Finally, select **Open** and then **OK** to complete the upload.
 
@@ -264,8 +261,6 @@ youth   17
 
 ## Next steps
 
-For more information on using MapReduce with HDInsight, see [Use MapReduce in Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md).
-
-For information on using C# with Hive and Pig, see [Use a C# user-defined function with Apache Hive and Apache Pig](apache-hadoop-hive-pig-udf-dotnet-csharp.md).
-
-For information on using C# with Storm on HDInsight, see [Develop C# topologies for Apache Storm on HDInsight](../storm/apache-storm-develop-csharp-visual-studio-topology.md).
+* [Use MapReduce in Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md).
+* [Use a C# user-defined function with Apache Hive and Apache Pig](apache-hadoop-hive-pig-udf-dotnet-csharp.md).
+* [Develop Java MapReduce programs](apache-hadoop-develop-deploy-java-mapreduce-linux.md)

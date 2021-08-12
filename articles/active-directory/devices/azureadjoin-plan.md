@@ -5,7 +5,7 @@ description: Explains the steps that are required to implement Azure AD joined d
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 
 ms.author: joflore
@@ -23,21 +23,20 @@ This article provides you with the information you need to plan your Azure AD jo
  
 ## Prerequisites
 
-This article assumes that you are familiar with the [Introduction to device management in Azure Active Directory](../device-management-introduction.md).
+This article assumes that you are familiar with the [Introduction to device management in Azure Active Directory](./overview.md).
 
 ## Plan your implementation
 
 To plan your Azure AD join implementation, you should familiarize yourself with:
 
-|   |   |
-|---|---|
-|![Check][1]|Review your scenarios|
-|![Check][1]|Review your identity infrastructure|
-|![Check][1]|Assess your device management|
-|![Check][1]|Understand considerations for applications and resources|
-|![Check][1]|Understand your provisioning options|
-|![Check][1]|Configure enterprise state roaming|
-|![Check][1]|Configure Conditional Access|
+> [!div class="checklist"]
+> - Review your scenarios
+> - Review your identity infrastructure
+> - Assess your device management
+> - Understand considerations for applications and resources
+> - Understand your provisioning options
+> - Configure enterprise state roaming
+> - Configure Conditional Access
 
 ## Review your scenarios 
 
@@ -56,7 +55,7 @@ Azure AD join works with both, managed and federated environments.
 
 ### Managed environment
 
-A managed environment can be deployed either through [Password Hash Sync](/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) or [Pass Through Authentication](/azure/active-directory/hybrid/how-to-connect-pta-quick-start) with Seamless Single Sign On.
+A managed environment can be deployed either through [Password Hash Sync](../hybrid/how-to-connect-password-hash-synchronization.md) or [Pass Through Authentication](../hybrid/how-to-connect-pta-quick-start.md) with Seamless Single Sign On.
 
 These scenarios don't require you to configure a federation server for authentication.
 
@@ -89,10 +88,12 @@ You can't use smartcards or certificate-based authentication to join devices to 
 
 If you create users in your:
 
-- **On-premises Active Directory**, you need to synchronize them to Azure AD using [Azure AD Connect](/azure/active-directory/hybrid/how-to-connect-sync-whatis). 
+- **On-premises Active Directory**, you need to synchronize them to Azure AD using [Azure AD Connect](../hybrid/how-to-connect-sync-whatis.md). 
 - **Azure AD**, no additional setup is required.
 
 On-premises UPNs that are different from Azure AD UPNs are not supported on Azure AD joined devices. If your users use an on-premises UPN, you should plan to switch to using their primary UPN in Azure AD.
+
+UPN changes are only supported starting Windows 10 2004 update. Users on devices with this update will not have any issues after changing their UPNs. For devices prior to Windows 10 2004 update, users would have SSO and Conditional Access issues on their devices. They need to sign in to Windows through the "Other user" tile using their new UPN to resolve this issue. 
 
 ## Assess your device management
 
@@ -102,7 +103,7 @@ Azure AD join:
 
 - Is only applicable to Windows 10 devices. 
 - Is not applicable to previous versions of Windows or other operating systems. If you have Windows 7/8.1 devices, you must upgrade to Windows 10 to deploy Azure AD join.
-- Is not supported on devices with TPM in FIPS mode.
+- Is supported for FIPS-compliant TPM 2.0 but not supported for TPM 1.2. If your devices have FIPS-compliant TPM 1.2, you must disable them before proceeding with Azure AD join. Microsoft does not provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Please contact your hardware OEM for support.
  
 **Recommendation:** Always use the latest Windows 10 release to take advantage of updated features.
 
@@ -118,7 +119,7 @@ There are two approaches for managing Azure AD joined devices:
 - **MDM-only** - A device is exclusively managed by an MDM provider like Intune. All policies are delivered as part of the MDM enrollment process. For Azure AD Premium or EMS customers, MDM enrollment is an automated step that is part of an Azure AD join.
 - **Co-management** -  A device is managed by an MDM provider and SCCM. In this approach, the SCCM agent is installed on an MDM-managed device to administer certain aspects.
 
-If you are using group policies, evaluate your MDM policy parity by using the [MDM Migration Analysis Tool (MMAT)](https://github.com/WindowsDeviceManagement/MMAT). 
+If you are using Group Policies, evaluate your GPO and MDM policy parity by using [Group Policy analytics](/mem/intune/configuration/group-policy-analytics) in Microsoft Endpoint Manager. 
 
 Review supported and unsupported policies to determine whether you can use an MDM solution instead of Group policies. For unsupported policies, consider the following:
 
@@ -162,17 +163,18 @@ If you use AD FS, see [Verify and manage single sign-on with AD FS](/previous-ve
 
 Users get SSO from Azure AD joined devices if the device has access to a domain controller. 
 
-**Recommendation:** Deploy [Azure AD App proxy](/azure/active-directory/manage-apps/application-proxy) to enable secure access for these applications.
+> [!NOTE]
+> Azure AD joined devices can seamlessly provide access to both, on-premises and cloud applications. For more information, see [How SSO to on-premises resources works on Azure AD joined devices](azuread-join-sso.md).
+
+**Recommendation:** Deploy [Azure AD App proxy](../app-proxy/application-proxy.md) to enable secure access for these applications.
 
 ### On-premises network shares
 
-Your users have SSO from Azure AD joined devices when a device has access to an on-premises domain controller.
+Your users have SSO from Azure AD joined devices when a device has access to an on-premises domain controller. [Learn how this works](azuread-join-sso.md)
 
 ### Printers
 
-For printers, you need to deploy [hybrid cloud print](/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) for discovering printers on Azure AD joined devices. 
-
-While printers can't be automatically discovered in a cloud only environment, your users can also use the printers’ UNC path to directly add them. 
+We recommend deploying [Universal Print](/universal-print/fundamentals/universal-print-whatis) to have a cloud based print management solution without any on-premises dependencies. 
 
 ###	On-premises applications relying on machine authentication
 
@@ -184,17 +186,25 @@ Azure AD joined devices don't support on-premises applications relying on machin
 
 Remote desktop connection to an Azure AD joined devices requires the host machine to be either Azure AD joined or Hybrid Azure AD joined. Remote desktop from an unjoined or non-Windows device is not supported. For more information, see [Connect to remote Azure AD joined pc](/windows/client-management/connect-to-remote-aadj-pc)
 
+Starting Windows 10 2004 update, users can also use remote desktop from an Azure AD registered Windows 10 device to an Azure AD joined device. 
+
+### RADIUS and Wi-Fi authentication
+
+Currently, Azure AD joined devices do not support RADIUS authentication for connecting to Wi-Fi access points, since RADIUS relies on presence of an on-premises computer object. As an alternative, you can use certificates pushed via Intune or user credentials to authenticate to Wi-Fi. 
+
+
 ## Understand your provisioning options
+**Note**: Azure AD joined devices cannot be deployed using  System Preparation Tool (Sysprep) or similar imaging tools
 
 You can provision Azure AD join using the following approaches:
 
-- **Self-service in OOBE/Settings** - In the self-service mode, users go through the Azure AD join process either during Windows Out of Box Experience (OOBE) or from Windows Settings. For more information, see [Join your work device to your organization's network](/azure/active-directory/user-help/user-help-join-device-on-network). 
+- **Self-service in OOBE/Settings** - In the self-service mode, users go through the Azure AD join process either during Windows Out of Box Experience (OOBE) or from Windows Settings. For more information, see [Join your work device to your organization's network](../user-help/user-help-join-device-on-network.md). 
 - **Windows Autopilot** - Windows Autopilot enables pre-configuration of devices for a smoother experience in OOBE to perform an Azure AD join. For more information, see the [Overview of Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot). 
 - **Bulk enrollment** - Bulk enrollment enables an administrator driven Azure AD join by using a bulk provisioning tool to configure devices. For more information, see [Bulk enrollment for Windows devices](/intune/windows-bulk-enroll).
  
 Here’s a comparison of these three approaches 
  
-|   | Self-service setup | Windows Autopilot | Bulk enrollment |
+| Element | Self-service setup | Windows Autopilot | Bulk enrollment |
 | --- | --- | --- | --- |
 | Require user interaction to set up | Yes | Yes | No |
 | Require IT effort | No | Yes | Yes |
@@ -216,7 +226,7 @@ Choose your deployment approach or approaches by reviewing the table above and r
 
 ## Configure your device settings
 
-The Azure portal allows you to control the deployment of Azure AD joined devices in your organization. To configure the related settings, on the **Azure Active Directory page**, select `Devices > Device settings`.
+The Azure portal allows you to control the deployment of Azure AD joined devices in your organization. To configure the related settings, on the **Azure Active Directory page**, select `Devices > Device settings`. [Learn more](device-management-azure-portal.md)
 
 ### Users may join devices to Azure AD
 
@@ -230,11 +240,13 @@ Choose **Selected** and selects the users you want to add to the local administr
 
 ![Additional local administrators on Azure AD joined devices](./media/azureadjoin-plan/02.png)
 
-### Require multi-factor Auth to join devices
+### Require multi-factor authentication (MFA) to join devices
 
-Select **“Yes** if you require users to perform MFA while joining devices to Azure AD. For the users joining devices to Azure AD using MFA, the device itself becomes a 2nd factor.
+Select **“Yes** if you require users to perform MFA while joining devices to Azure AD.
 
 ![Require multi-factor Auth to join devices](./media/azureadjoin-plan/03.png)
+
+**Recommendation:** Use the user action [Register or join devices](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions) in Conditional Access for enforcing MFA for joining devices.
 
 ## Configure your mobility settings
 
@@ -246,7 +258,7 @@ Before you can configure your mobility settings, you may have to add an MDM prov
 1. Click **Add application**.
 1. Select your MDM provider from the list.
 
-   ![Add an application](./media/azureadjoin-plan/04.png)
+   :::image type="content" source="./media/azureadjoin-plan/04.png" alt-text="Screenshot of the Azure Active Directory Add an application page. Several M D M providers are listed." border="false":::
 
 Select your MDM provider to configure the related settings. 
 
@@ -269,7 +281,7 @@ There are three URLs that are related to your MDM configuration:
 - MDM discovery URL 
 - MDM compliance URL
 
-![Add an application](./media/azureadjoin-plan/06.png)
+:::image type="content" source="./media/azureadjoin-plan/06.png" alt-text="Screenshot of part of the Azure Active Directory M D M configuration section, with U R L fields for M D M terms of use, discovery, and compliance." border="false":::
 
 Each URL has a predefined default value. If these fields are empty, please contact your MDM provider for more information.
 
@@ -295,7 +307,7 @@ You can use this implementation to [require managed devices for cloud app access
 
 > [!div class="nextstepaction"]
 > [Join a new Windows 10 device with Azure AD during a first run](azuread-joined-devices-frx.md)
-> [Join your work device to your organization's network](/azure/active-directory/user-help/user-help-join-device-on-network)
+> [Join your work device to your organization's network](../user-help/user-help-join-device-on-network.md)
 
 <!--Image references-->
 [1]: ./media/azureadjoin-plan/12.png

@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
-ms.date: 04/02/2020
-
+ms.date: 04/09/2020
+ms.custom: data4ml
 # Customer intent: As a project administrator, I want to manage the process of labeling images so they can be used in machine learning models.
 # THIS ARTICLE SHOWS A SAS TOKEN THAT EXPIRES IN 2025
 ---
 
 # Tutorial: Create a labeling project for multi-class image classification 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 This tutorial shows you how to manage the process of labeling (also referred to as tagging) images to be used as data for building machine learning models. Data labeling in Azure Machine Learning is in public preview.
 
@@ -34,13 +34,13 @@ In this tutorial, you'll use images of cats and dogs.  Since each image is eithe
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLFree).
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 
 ## Create a workspace
 
 An Azure Machine Learning workspace is a foundational resource in the cloud that you use to experiment, train, and deploy machine learning models. It ties your Azure subscription and resource group to an easily consumed object in the service.
 
-You create a workspace via the Azure portal, a web-based console for managing your Azure resources.
+There are many [ways to create a workspace](how-to-manage-workspace.md). In this tutorial, you create a workspace via the Azure portal, a web-based console for managing your Azure resources.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
@@ -73,27 +73,15 @@ Azure Machine Learning datastores are used to store connection information, like
 
 1. Select **Create** to create the datastore.
 
-### Add labelers to workspace
-
-Set up your workspace to include all the people who will label data for any of your projects.  Later you'll add these labelers to your specific labeling project.
-
-1. On the left side, select **Data labeling**.
-
-1. At the top of the page, select **Labelers**.
-
-1. Select **Add labeler** to add the email address of a labeler.
-
-1. Continue to add more labelers until you're done.
-
 ### Create a labeling project
 
-Now that you have your list of labelers and access to the data you want to have labeled, create your labeling project.
+Now that you have access to the data you want to have labeled, create your labeling project.
 
 1. At the top of the page, select **Projects**.
 
 1. Select **+ Add project**.
 
-    ![Create a project](media/tutorial-labeling/create-project.png)
+    :::image type="content" source="media/tutorial-labeling/create-project.png" alt-text="Create a project":::
 
 ### Project details
 
@@ -113,12 +101,19 @@ Now that you have your list of labelers and access to the data you want to have 
 1. Use the following input for the **Create dataset from datastore** form:
 
     1. On the **Basic info** form, add a name, here we'll use **images-for-tutorial**.  Add a description if you wish.  Then select **Next**.
-    1. On the **Datastore selection** form, use the dropdown to select your **Previously created datastore**, for example **tutorial_images (Azure Blob Storage)**
+    1. On the **Datastore selection** form, select **Previously created datastore**, then click on the datastore name and select **Select datastore**.
+    1. On the next page, verify that the currently selected datastore is correct. If not, select **Previously created datastore** and repeat the prior step.
     1. Next, still on the **Datastore selection** form, select **Browse** and then select **MultiClass - DogsCats**.  Select **Save** to use **/MultiClass - DogsCats** as the path.
     1. Select **Next** to confirm details and then **Create** to create the dataset.
     1. Select the circle next to the dataset name in the list, for example **images-for-tutorial**.
 
 1. Select **Next** to continue creating the project.
+
+### Incremental refresh
+
+If you plan to add new images to your dataset,  incremental refresh will find these new images and add them to your project.  When you enable this feature, the project will periodically check for new images.  You won't be adding new images to the datastore for this tutorial, so leave this feature unchecked.
+
+Select **Next** to continue.
 
 ### Label classes
 
@@ -134,57 +129,25 @@ Now that you have your list of labelers and access to the data you want to have 
 
 1. Select **Next**.
 
-1. On the **ML assisted labeling** form, leave the checkbox unchecked. ML assisted labeling requires more data than you'll be using in this tutorial.
+1. In the **ML assisted labeling** section, leave the checkbox unchecked. ML assisted labeling requires more data than you'll be using in this tutorial.
 
 1. Select **Create project**.
 
 This page doesn't automatically refresh. After a pause, manually refresh the page until the project's status changes to **Created**.
 
-### Add labelers to your project
-
-Add some or all of your labelers to this project.
-
-1. Select the project name to open the project.  
-
-1. At the top of the page, select **Teams**.
-
-1. Select the **labeling_tutorial Default Team** link.
-
-1. Now use **Assign labelers** to add the labelers you want to participate in this project. 
-
-1. Select from the list of labelers you created earlier.  Once you've selected all the labelers you wish to use, select **Assign labelers** to add them to your default project team.
-
 ## Start labeling
 
 You have now set up your Azure resources, and configured a data labeling project. It's time to add labels to your data.
 
-### Notify labelers
+### Tag the images
 
-If you have lots of images to label, hopefully you also have lots of labelers to complete the task.  You'll now want to send them instructions so they can access the data and start labeling.
+In this part of the tutorial, you'll switch roles from the *project administrator* to that of a *labeler*.  Anyone who has contributor access to your workspace can become a labeler.
 
 1. In [Machine Learning studio](https://ml.azure.com), select **Data labeling** on the left-hand side to find your project.  
 
-1. Select the project name link.
+1. Select **Label link** for the project.
 
-1. At the top of the page, select **Details**.  You see a summary of your project.
-
-    ![Project details](media/tutorial-labeling/project-details.png)
-
-1. Copy the **Labeling portal URL** link to send to your labelers.
-
-1. Now select **Team** at the top to find your labeling team.  
-
-1. Select the team name link.
-
-1. At the top of the page, select **Email team** to start your email.  Paste in the labeling portal URL you just copied.  
-
-Each time a labeler goes to the portal URL, they'll be presented with more images to label, until the queue is empty.  
-
-### Tag the images
-
-In this part of the tutorial, you'll switch roles from the *project administrator* to that of a *labeler*.  Use the URL you sent to the team.  This URL brings you to the labeling portal for your project.  If you had added instructions, you'd see them here when you arrive on the page.
-
-1. At the top of the page, select **Tasks** to start labeling.
+1. Read the instructions, then select **Tasks**.
 
 1. Select a thumbnail image on the right to display the number of images you wish to label in one go. You must label all these images before you can move on. Only switch layouts when you have a fresh page of unlabeled data. Switching layouts clears the page's in-progress tagging work.
 
@@ -243,7 +206,5 @@ Image labels can be exported in [COCO format](http://cocodataset.org/#format-dat
 
 ## Next steps
 
-In this tutorial, you labeled images.  Now use your labeled data:
-
 > [!div class="nextstepaction"]
-> [Train a machine learning image recognition model](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/labeled-datasets/labeled-datasets.ipynb).
+> [Train a machine learning image recognition model](how-to-use-labeled-dataset.md).

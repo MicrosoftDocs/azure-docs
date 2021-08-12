@@ -1,15 +1,17 @@
 ---
 title: Create a graphical runbook in Azure Automation
-description: Tutorial showing how to create, test, and publish a simple graphical runbook in Azure Automation.
-keywords: runbook, runbook template, runbook automation, azure runbook
+description: This article teaches you to create, test, and publish a graphical runbook in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/19/2020
-ms.topic: tutorial
+ms.date: 07/16/2021
+ms.topic: tutorial 
+ms.custom: devx-track-azurepowershell
+# Customer intent: As an administrator, I want to utilize Runbooks to automate certain aspects of my environment.
 ---
+
 # Tutorial: Create a graphical runbook
 
-This tutorial walks you through the creation of a [graphical runbook](../automation-runbook-types.md#graphical-runbooks) in Azure Automation. You can create and edit graphical and graphical PowerShell Workflow runbooks using the graphical editor in the Azure portal. 
+This tutorial walks you through the creation of a [graphical runbook](../automation-runbook-types.md#graphical-runbooks) in Azure Automation. You can create and edit graphical PowerShell Workflow runbooks using the graphical editor in the Azure portal.
 
 In this tutorial, you learn how to:
 
@@ -19,337 +21,424 @@ In this tutorial, you learn how to:
 > * Run and track the status of the runbook job
 > * Update the runbook to start an Azure virtual machine, with runbook parameters and conditional links
 
->[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-To complete this tutorial, you need the following:
+* [Automation account](../index.yml) with an [Azure Run as account](../create-run-as-account.md) to hold the runbook and authenticate to Azure resources. This account must have permission to start and stop the virtual machine.
+* PowerShell modules **Az.Accounts** and **Az.Compute** for the Automation Account. For more information, see [Manage modules in Azure Automation](../shared-resources/modules.md).
+* An [Azure virtual machine](../../virtual-machines/windows/quick-create-portal.md) (VM). Since you stop and start this machine, it shouldn't be a production VM. Begin with the VM **stopped**.
 
-* Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Automation account](../automation-offering-get-started.md) to hold the runbook and authenticate to Azure resources. This account must have permission to start and stop the virtual machine.
-* An Azure virtual machine. Since you stop and start this machine, it shouldn't be a production VM.
-
-## Step 1 - Create runbook
+## Create runbook
 
 Start by creating a simple runbook that outputs the text `Hello World`.
 
-1. In the Azure portal, open your Automation account. 
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-    The Automation account page gives you a quick view of the resources in this account. You should already have some assets. Most of those assets are the modules automatically included in a new Automation account. You should also have the Credential asset associated with your subscription.
+1. In the Azure portal, navigate to your Automation account.
 
-2. Select **Runbooks** under **Process Automation** to open the list of runbooks.
+1. Under **Process Automation**, select **Runbooks** to open the **Runbooks** page.
 
-3. Create a new runbook by selecting **Create a runbook**.
+1. Select **Create a runbook** to open the **Create a runbook** page.
 
-4. Give the runbook the name **MyFirstRunbook-Graphical**.
+1. Name the runbook `MyFirstRunbook-Graphical`.
 
-5. In this case, you're going to create a [graphical runbook](../automation-graphical-authoring-intro.md). Select **Graphical** for **Runbook type**.<br> ![New runbook](../media/automation-tutorial-runbook-graphical/create-new-runbook.png)<br>
+1. From the **Runbook type** drop-down menu, select **Graphical**.
 
-6. Click **Create** to create the runbook and open the graphical editor.
+   :::image type="content" source="../media/automation-tutorial-runbook-graphical/create-graphical-runbook.png" alt-text="Create a runbook input page.":::
 
-## Step 2 - Add activities
+1. Select **Create** to create the runbook and open the graphical editor, the **Edit Graphical Runbook** page.
 
-The Library control on the left side of the editor allows you to select activities to add to your runbook. You're going to add a `Write-Output` cmdlet to output text from the runbook.
+## Add activities
 
-1. In the Library control, click in the search field and type `write-output`. Search results are shown in the following image. <br> ![Microsoft.PowerShell.Utility](../media/automation-tutorial-runbook-graphical/search-powershell-cmdlet-writeoutput.png)
+The left-side of the editor is the **Library control**. The center is the **Canvas**. The right-side is the **Configuration control**. The **Library control**  allows you to select activities to add to your runbook. You're going to add a `Write-Output` cmdlet to output text from the runbook.
 
-2. Scroll down to the bottom of the list. Right-click **Write-Output** and select **Add to canvas**. Alternatively, you can click the ellipsis (...) next to the cmdlet name and then select **Add to canvas**.
+1. In the **Library control** search field, enter `Write-Output`.
 
-3. Click the **Write-Output** activity on the canvas. This action opens the Configuration control page, which allows you to configure the activity.
+    ![Microsoft.PowerShell.Utility](../media/automation-tutorial-runbook-graphical/search-powershell-cmdlet-writeoutput.png)
 
-4. The **Label** field defaults to the name of the cmdlet, but you can change it to something more friendly. Change it to `Write Hello World to output`.
+1. Scroll down to the bottom of the list. Right-click **Write-Output** and select **Add to canvas**. You could also select the ellipsis (...) next to the cmdlet name and then select **Add to canvas**.
 
-5. Click **Parameters** to provide values for the cmdlet's parameters.
+1. From **Canvas**, select the **Write-Output** activity. This action populates the **Configuration control** page, which allows you to configure the activity.
+
+1. From **Configuration control**, the **Label** field defaults to the name of the cmdlet, but you can change it to something more friendly. Change it to `Write Hello World to output`.
+
+1. Select **Parameters** to provide values for the cmdlet's parameters.
 
    Some cmdlets have multiple parameter sets, and you need to select which one to use. In this case, `Write-Output` has only one parameter set.
 
-6. Select the `InputObject` parameter. This is the parameter that you use to specify the text to send to the output stream.
+1. From the **Activity Parameter Configuration** page, select the `INPUTOBJECT` parameter to open the **Parameter Value** page. You use this parameter to specify the text to send to the output stream.
 
-7. The **Data source** dropdown menu provides sources that you can use to populate a parameter value. In this menu, select **PowerShell expression**. 
+1. The **Data source** drop-down menu provides sources that you can use to populate a parameter value. In this menu, select **PowerShell expression**.
 
-   You can use output from such sources as another activity, an Automation asset, or a PowerShell expression. In this case, the output is just `Hello World`. You can use a PowerShell expression and specify a string.<br>
+   You can use output from such sources as another activity, an Automation asset, or a PowerShell expression. In this case, the output is just `Hello World`. You can use a PowerShell expression and specify a string.
 
-8. In the **Expression** field, type `Hello World` and then click **OK** twice to return to the canvas.
+1. In the **Expression** text box, enter `"Hello World"` and then select **OK** twice to return to the graphical editor.
 
-9. Save the runbook by clicking **Save**.
+1. Select **Save** to save the runbook.
 
-## Step 3 - Test the runbook
+## Test the runbook
 
 Before you publish the runbook to make it available in production, you should test it to make sure that it works properly. Testing a runbook runs its Draft version and allows you to view its output interactively.
 
-1. Select **Test pane** to open the Test pane.
+1. From the graphical editor, select **Test pane** to open the **Test** pane.
 
-2. Click **Start** to start the test. This should be the only enabled option.
+1. Select **Start** to start the test.
 
-3. Note that a [runbook job](../automation-runbook-execution.md) is created and its status is displayed in the pane.
+   A [runbook job](../automation-runbook-execution.md) is created and its status is displayed in the pane. The job status starts as `Queued`, indicating that the job is waiting for a runbook worker in the cloud to become available. The status changes to `Starting` when a worker claims the job. Finally, the status becomes `Running` when the runbook actually starts to run.
 
-   The job status starts as `Queued`, indicating that the job is waiting for a runbook worker in the cloud to become available. The status changes to `Starting` when a worker claims the job. Finally, the status becomes `Running` when the runbook actually starts to run.
+   When the runbook job completes, the Test pane displays its output. In this case, you see `Hello World`.
 
-4. When the runbook job completes, the Test pane displays its output. In this case, you see `Hello World`.
+   :::image type="content" source="../media/automation-tutorial-runbook-graphical/runbook-test-results.png" alt-text="Hello World runbook output.":::
 
-    ![Hello World](../media/automation-tutorial-runbook-graphical/runbook-test-results.png)
+1. Select **X** in the top-right corner to close the **Test** pane and return to the graphical editor.
 
-5. Close the Test pane to return to the canvas.
+## Publish and start the runbook
 
-## Step 4 - Publish and start the runbook
+The runbook that you've created is still in Draft mode and must be published before you can run it in production. When you publish a runbook, you overwrite the existing Published version with the Draft version.
 
-The runbook that you have created is still in Draft mode. It needs to be published before you can run it in production. When you publish a runbook, you overwrite the existing Published version with the Draft version. In this case, you don't have a Published version yet because you just created the runbook.
+1. From the graphical editor, select **Publish** to publish the runbook and then **Yes** when prompted. You're returned to the **Runbook** Overview page.
 
-1. Select **Publish** to publish the runbook and then **Yes** when prompted.
+1. From the **Runbook** Overview page, the **Status** value is **Published**.
 
-2. Scroll left to view the runbook on the Runbooks page, and note that the **Authoring Status** value is set to **Published**.
+1. Select **Start** and then **Yes** when prompted to start the runbook and open the **Job** page.
 
-3. Scroll back to the right to view the page for **MyFirstRunbook-Graphical**.
+   The options across the top allow you to: start the runbook now, schedule a future start time, or create a [webhook](../automation-webhooks.md) so that the runbook can be started through an HTTP call.
 
-   The options across the top allow you to start the runbook now, schedule a future start time, or create a [webhook](../automation-webhooks.md) so that the runbook can be started through an HTTP call.
+   :::image type="content" source="../media/automation-tutorial-runbook-graphical/published-status.png" alt-text="Overview page and published status.":::
 
-4. Select **Start** and then **Yes** when prompted to start the runbook.
+1. From the **Job** page, verify that the **Status** field shows **Completed**.
 
-5. A Job pane is opened for the runbook job that has been created. Verify that the **Job status** field shows **Completed**.
+1. Select **Output** to see `Hello World` displayed.
 
-6. Click **Output** to open the Output page, where you can see `Hello World` displayed.
+1. Select **All Logs** to view the streams for the runbook job and select the only entry to open the **Job stream details** page. You should only see `Hello World`.
 
-7. Close the Output page.
+    **All Logs** can show other streams for a runbook job, such as Verbose and Error streams, if the runbook writes to them.
 
-8. Click **All Logs** to open the Streams pane for the runbook job. You should only see `Hello World` in the output stream. 
+1. Close the **Job stream details** page and then the **Job** page to return to the **Runbook** Overview page.
 
-    Note that the Streams pane can show other streams for a runbook job, such as Verbose and Error streams, if the runbook writes to them.
+1. Under **Resources**, select **Jobs** to view all jobs for the runbook. The Jobs page lists all the jobs created by your runbook. You should see only one job listed, since you have only run the job once.
 
-9. Close the Streams pane and the Job pane to return to the MyFirstRunbook-Graphical page.
+1. Select the job to open the same **Job** page that you viewed when you started the runbook.
 
-10. To view all the jobs for the runbook, select **Jobs** under **Resources**. The Jobs page lists all the jobs created by your runbook. You should see only one job listed, since you have only run the job once.
+1. Close the **Job** page, and then from the left menu, select **Overview**.
 
-11. Click the job name to open the same Job pane that you viewed when you started the runbook. Use this pane to view the details of any job created for the runbook.
-
-## Step 5 - Create variable assets
+## Create variable assets
 
 You've tested and published your runbook, but so far it doesn't do anything useful to manage Azure resources. Before configuring the runbook to authenticate, you must create a variable to hold the subscription ID, set up an activity to authenticate, and then reference the variable. Including a reference to the subscription context allows you to easily work with multiple subscriptions.
 
-1. Copy your subscription ID from the **Subscriptions** option on the Navigation pane.
+1. From **Overview**, select the **Copy to clipboard** icon next to **Subscription ID**.
 
-2. In the Automation Accounts page, select **Variables** under **Shared Resources**.
+1. Close the **Runbook** page to return to the **Automation Account** page.
 
-3. Select **Add a variable**.
+1. Under **Shared Resources**, select **Variables**.
 
-4. On the New variable page, make the following settings in the fields provided.
+1. Select **Add a variable** to open the **New Variable** page.
 
-    * **Name** -- enter `AzureSubscriptionId`.
-    * **Value** -- enter your subscription ID. 
-    * **Type** -- keep string selected.
-    * **Encryption** -- use the default value.
+1. On the **New Variable** page, set the following values:
 
-5. Click **Create** to create the variable.
+    | Field| Value|
+    |---|---|
+    |Value|Press <kbd>CTRL+V</kbd> to paste in your subscription ID.|
+    |Name |Enter `AzureSubscriptionId`.|
+    |Type|Keep the default value, **String**.|
+    |Encrypted|Keep the default value, **No**.|
 
-## Step 6 - Add authentication
+1. Select **Create** to create the variable and return to the **Variables** page.
 
-Now that you have a variable to hold the subscription ID, you can configure the runbook to authenticate with the Run As credentials for your subscription. Do this by adding the Azure Run As connection as an asset. You also must add the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/Connect-AzAccount?view=azps-3.5.0) cmdlet and the [Set-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/Set-AzContext?view=azps-3.5.0) cmdlet to the canvas.
+1. Under **Process Automation**, select **Runbooks** and then your runbook, **MyFirstRunbook-Graphical**.
 
->[!NOTE]
->For PowerShell runbooks, `Add-AzAccount` and `Add-AzureRMAccount` are aliases for `Connect-AzAccount`. Note that these aliases are not available for your graphical runbooks. A graphical runbook can only use `Connect-AzAccount`itself.
+## Add authentication
 
-1. Navigate to your runbook and select **Edit** on the MyFirstRunbook-Graphical page.
+Now that you have a variable to hold the subscription ID, you can configure the runbook to authenticate with the Run As credentials for your subscription. Configure authentication by adding the Azure Run As connection as an asset. You also must add the [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) cmdlet and the [Set-AzContext](/powershell/module/az.accounts/Set-AzContext) cmdlet to the canvas.
 
-2. You don't need the `Write Hello World to output` entry any more. Just click the ellipsis and select **Delete**.
+> [!NOTE]
+> For PowerShell runbooks, `Add-AzAccount` and `Add-AzureRMAccount` are aliases for `Connect-AzAccount`. These aliases are not available for your graphical runbooks. A graphical runbook can only use `Connect-AzAccount`.
 
-3. In the Library control, expand **ASSETS**, then **Connections**. Add `AzureRunAsConnection` to the canvas by selecting **Add to canvas**.
+1. From your **Runbook** page, select **Edit** to return to the graphical editor.
 
-4. Rename `AzureRunAsConnection` to `Get Run As Connection`.
+1. You don't need the `Write Hello World to output` activity anymore. Select the activity and an ellipsis will appear in the top-right corner of the activity. The ellipsis may be difficult to see. Select the ellipsis and then select **Delete**.
 
-5. In the Library control, type `Connect-AzAccount` in the search field.
+1. From **Library control**, navigate to **ASSETS** > **Connections** > **AzureRunAsConnection**. Select the  ellipsis and then select **Add to canvas**.
 
-6. Add `Connect-AzAccount` to the canvas.
+1. From **Configuration control**, change the **Label** value from `Get-AutomationConnection` to `Get Run As Connection`.
 
-7. Hover over `Get Run As Connection` until a circle appears on the bottom of the shape. Click the circle and drag the arrow to `Connect-AzAccount` to form a link. The runbook starts with `Get Run As Connection` and then runs `Connect-AzAccount`.<br> ![Create link between activities](../media/automation-tutorial-runbook-graphical/runbook-link-auth-activities.png)
+1. From the **Library control** search field, enter `Connect-AzAccount`.
 
-8. On the canvas, select `Connect-AzAccount`. In the Configuration control pane, type **Login to Azure** in the **Label** field.
+1. Add `Connect-AzAccount` to the canvas, and drag the activity below `Get Run As Connection`.
 
-9. Click **Parameters**, and the Activity Parameter Configuration page appears.
+1. Hover over `Get Run As Connection` until a circle appears on the bottom of the shape. Select and hold the circle and an arrow will appear. Drag the arrow to `Connect-AzAccount` to form a link. The runbook starts with `Get Run As Connection` and then runs `Connect-AzAccount`.
 
-10. The `Connect-AzAccount` cmdlet has multiple parameter sets, and you need to select one before providing parameter values. Click **Parameter Set** and then select **ServicePrincipalCertificateWithSubscriptionId**.
+    ![Create link between activities](../media/automation-tutorial-runbook-graphical/runbook-link-auth-activities.png)
 
-11. The parameters for this parameter set are displayed on the Activity Parameter Configuration page. Click **APPLICATIONID**.<br> ![Add Azure account parameters](../media/automation-tutorial-runbook-graphical/Add-AzureRmAccount-params.png)
+1. From **Canvas**, select `Connect-AzAccount`.
 
-12. On the Parameter Value page, make the following settings and then click **OK**.
+1. From **Configuration control**, change **Label** from `Connect-AzAccount` to `Login to Azure`.
 
-   * **Data source** -- select **Activity output**.
-   * Data source list -- select **Get Automation Connection**.
-   * **Field path** -- type `ApplicationId`. You're specifying the name of the property for the field path because the activity outputs an object with multiple properties.
+1. Select **Parameters** to open the **Activity Parameter Configuration** page.
 
-13. Click **CERTIFICATETHUMBPRINT**, and on the Parameter Value page, make the following settings and then click **OK**.
+1. The `Connect-AzAccount` cmdlet has multiple parameter sets, and you need to select one before providing parameter values. Select **Parameter Set** and then select **ServicePrincipalCertificateWithSubscriptionId**. Be careful to not select **ServicePrincipalCertificateFileWithSubscriptionId**, as the names are similar
 
-    * **Data source** -- select **Activity output**.
-    * Data source list -- select **Get Automation Connection**.
-    * **Field path** -- type `CertificateThumbprint`.
+   The parameters for this parameter set are displayed on the **Activity Parameter Configuration** page.
 
-14. Click **SERVICEPRINCIPAL**, and on the Parameter Value page, select **ConstantValue** for the **Data source** field; click the option **True**; and then click **OK**.
+    ![Add Azure account parameters](../media/automation-tutorial-runbook-graphical/Add-AzureRmAccount-params.png)
 
-15. Click **TENANTID**, and make the following settings on the Parameter Value page. When finished, click **OK** twice.
+1. Select **CERTIFICATETHUMBPRINT** to open the **Parameter Value** page.
+    1. From the **Data source** drop-down menu, select **Activity output**.
+    1. From **Select data**, select **Get Run As Connection**.
+    1. In the **Field path** text box, enter `CertificateThumbprint`.
+    1. Select **OK** to return to the **Activity Parameter Configuration** page.
 
-    * **Data source** -- select **Activity output**. 
-    * Data source list -- select **Get Automation Connection**.
-    * **Field path** -- type `TenantId`. 
+1. Select **SERVICEPRINCIPAL** to open the **Parameter Value** page.
+    1. From the **Data source** drop-down menu, select **Constant value**.
+    1. Select the option **True**.
+    1. Select **OK** to return to the **Activity Parameter Configuration** page.
 
-16. In the Library control, type `Set-AzContext` in the search field.
+1. Select **TENANT** to open the **Parameter Value** page.
+    1. From the **Data source** drop-down menu, select **Activity output**.
+    1. From **Select data**, select **Get Run As Connection**.
+    1. In the **Field path** text box, enter `TenantId`.
+    1. Select **OK** to return to the **Activity Parameter Configuration** page.
 
-17. Add `Set-AzContext` to the canvas.
+1. Select **APPLICATIONID** to open the **Parameter Value** page.
+    1. From the **Data source** drop-down menu, select **Activity output**.
+    1. From **Select data**, select **Get Run As Connection**.
+    1. In the **Field path** text box, enter `ApplicationId`.
+    1. Select **OK** to return to the **Activity Parameter Configuration** page.
 
-18. Select `Set-AzContext` on the canvas. In the Configuration control pane, enter `Specify Subscription Id` in the **Label** field.
+1. Select **OK** to return to the graphical editor.
 
-19. Click **Parameters** and the Activity Parameter Configuration page appears.
+1. From the **Library control** search field, enter `Set-AzContext`.
 
-20. The `Set-AzContext` cmdlet has multiple parameter sets, and you need to select one before providing parameter values. Click **Parameter Set** and then select **SubscriptionId**.
+1. Add `Set-AzContext` to the canvas, and drag the activity below `Login to Azure`.
 
-21. The parameters for this parameter set are displayed on the Activity Parameter Configuration page. Click **SubscriptionID**.
+1. From **Configuration control**, change **Label** from `Set-AzContext` to `Specify Subscription Id`.
 
-22. On the Parameter Value page, select **Variable Asset** for the **Data source** field and select **AzureSubscriptionId** from the source list. When finished, click **OK** twice.
+1. Select **Parameters** to open the **Activity Parameter Configuration** page.
 
-23. Hover over `Login to Azure` until a circle appears on the bottom of the shape. Click the circle and drag the arrow to `Specify Subscription Id`. Your runbook should look like the following at this point.
+1. The `Set-AzContext` cmdlet has multiple parameter sets, and you need to select one before providing parameter values. Select **Parameter Set** and then select **Subscription**. The parameters for this parameter set are displayed on the **Activity Parameter Configuration** page.
 
-    ![Runbook authentication configuration](../media/automation-tutorial-runbook-graphical/runbook-auth-config.png)
+1. Select **SUBSCRIPTION** to open the **Parameter Value** page.
+    1. From the **Data source** drop-down menu, select **Variable asset**.
+    1. From the list of variables, select **AzureSubscriptionId**.
+    1. Select **OK** to return to the **Activity Parameter Configuration** page.
 
-## Step 7 - Add activity to start a virtual machine
+1. Select **OK** to return to the graphical editor.
 
-Now you must add a `Start-AzVM` activity to start a virtual machine. You can pick any VM in your Azure subscription, and for now you are hardcoding its name into the [Start-AzVM](https://docs.microsoft.com/powershell/module/az.compute/start-azvm?view=azps-3.5.0) cmdlet.
+1. Form a link between  `Login to Azure` and `Specify Subscription Id`. Your runbook should look like the following at this point.
 
-1. In the Library control, type `Start-Az` in the search field.
+    :::image type="content" source="../media/automation-tutorial-runbook-graphical/runbook-auth-config.png" alt-text="Screenshot of the runbook after dragging the arrow to 'Specify Subscription ID'.":::
 
-2. Add `Start-AzVM` to the canvas and then click and drag it underneath `Specify Subscription Id`.
+## Add activity to start a virtual machine
 
-3. Hover over `Specify Subscription Id` until a circle appears on the bottom of the shape. Click the circle and drag the arrow to `Start-AzVM`.
+Now you must add a `Start-AzVM` activity to start a virtual machine. You can pick any VM in your Azure subscription, and for now you're hard-coding its name into the [Start-AzVM](/powershell/module/az.compute/start-azvm) cmdlet.
 
-4. Select `Start-AzVM`. Click **Parameters** and then **Parameter Set** to view the sets for the activity.
+1. From the **Library control** search field, enter `Start-AzVM`.
 
-5. Select **ResourceGroupNameParameterSetName** for the parameter set. The fields **ResourceGroupName** and **Name** have exclamation marks next to them to indicate that they are required parameters. Note that both fields expect string values.
+1. Add `Start-AzVM` to the canvas, and drag the activity below `Specify Subscription Id`.
 
-6. Select **Name**. Choose **PowerShell expression** for the **Data source** field. For the VM that you use to start this runbook, type in the machine name surrounded with double quotes. Click **OK**.
+1. From **Configuration control**, select **Parameters** to open the **Activity Parameter Configuration** page.
 
-7. Select **ResourceGroupName**. Use the value **PowerShell expression** for the **Data source** field, and type in the name of the resource group surrounded with double quotes. Click **OK**.
+1. Select **Parameter Set** and then select **ResourceGroupNameParameterSetName**. The parameters for this parameter set are displayed on the **Activity Parameter Configuration** page. The parameters **RESOURCEGROUPNAME** and **NAME** have exclamation marks next to them to indicate that they're required parameters. Both fields expect string values.
 
-8. Click **Test pane** so that you can test the runbook.
+1. Select **RESOURCEGROUPNAME** to open the **Parameter Value** page.
+    1. From the **Data source** drop-down menu, select **PowerShell expression**.
+    1. In the **Expression** text box, enter the name of your resource group in double quotes.
+    1. Select **OK** to return to the **Activity Parameter Configuration** page.
 
-9. Click **Start** to begin the test. Once it completes, make sure that the VM has started. Your runbook should look like the following at this point.
+1. Select **NAME** to open the **Parameter Value** page.
+    1. From the **Data source** drop-down menu, select **PowerShell expression**.
+    1. In the **Expression** text box, enter the name of your virtual machine in double quotes.
+    1. Select **OK** to return to the **Activity Parameter Configuration** page.
 
-    ![Runbook authentication configuration](../media/automation-tutorial-runbook-graphical/runbook-startvm.png)
+1. Select **OK** to return to the graphical editor.
 
-## Step 8 - Add additional input parameters
+1. Form a link between `Specify Subscription Id` and `Start-AzVM`. Your runbook should look like the following at this point.
+
+    ![Runbook Start-AzVM output](../media/automation-tutorial-runbook-graphical/runbook-startvm.png)
+
+1. Select **Test pane** so that you can test the runbook.
+
+1. Select **Start** to begin the test.
+
+1. Once it completes, make sure that the VM has started. Then stop the VM for later steps.
+
+1. Return to the graphical editor for your runbook.
+
+## Add input parameters
 
 Your runbook currently starts the VM in the resource group that you specified for the `Start-AzVM` cmdlet. The runbook will be more useful if you specify both name and resource group when the runbook is started. Let's add input parameters to the runbook to provide that functionality.
 
-1. Open the graphical editor by clicking **Edit** on the MyFirstRunbook-Graphical page.
+1. From the graphical editor top menu bar, select **Input and output**.
 
-2. Select **Input and output** and then **Add input** to open the Runbook Input Parameter pane.
+1. Select **Add input** to open the **Runbook Input Parameter** page.
 
-3. Make the following settings in the provided fields and then click **OK**.
-   * **Name** -- specify `VMName`.
-   * **Type** -- keep the string setting.
-   * **Mandatory** -- change the value to **Yes**.
+1. On the **Runbook Input Parameter** page, set the following values:
 
-4. Create a second mandatory input parameter called `ResourceGroupName` and then click **OK** to close the Input and Output pane.<br> ![Runbook Input Parameters](../media/automation-tutorial-runbook-graphical/start-azurermvm-params-outputs.png)
+    | Field| Value|
+    |---|---|
+    |Name| Enter `VMName`.|
+    |Type|Keep the default value, **String**.|
+    |Mandatory|Change the value to **Yes**.|
 
-5. Select the `Start-AzVM` activity and then click **Parameters**.
+1. Select **OK** to return to the **Input and Output** page
 
-6. Change the **Data source** field for **Name** to **Runbook input**. Then select **VMName**.
+1. Select **Add input** to re-open the **Runbook Input Parameter** page.
 
-7. Change the **Data source** field for **ResourceGroupName** to **Runbook input** and then select **ResourceGroupName**.<br> ![Start-AzVM Parameters](../media/automation-tutorial-runbook-graphical/start-azurermvm-params-runbookinput.png)
+1. On the **Runbook Input Parameter** page, set the following values:
 
-8. Save the runbook and open the Test pane. You can now provide values for the two input variables that you use in the test.
+    | Field| Value|
+    |---|---|
+    |Name| Enter `ResourceGroupName`.|
+    |Type|Keep the default value, **String**.|
+    |Mandatory|Change the value to **Yes**.|
 
-9. Close the Test pane.
+1. Select **OK** to return to the **Input and Output** page. The page may look similar to the following:
 
-10. Click **Publish** to publish the new version of the runbook.
+    ![Runbook Input Parameters](../media/automation-tutorial-runbook-graphical/start-azurermvm-params-outputs.png)
 
-11. Stop the VM that you started previously.
+1. Select **OK** to return to the graphical editor.
 
-12. Click **Start** to start the runbook. Type in the values for `VMName` and `ResourceGroupName` for the VM that you're going to start.
+1. The new inputs may not be immediately available. Select **Save**, close the graphical editor, and then re-open the graphical editor. The new inputs should now be available.
 
-13. When the runbook completes, ensure that the VM has been started.
+1. Select the `Start-AzVM` activity and then select **Parameters** to open the **Activity Parameter Configuration** page.
 
-## Step 9 - Create a conditional link
+1. For the previously configured parameter, **RESOURCEGROUPNAME**, change the **Data source** to **Runbook input**, and then select **ResourceGroupName**. Select **OK**.
 
-You can now modify the runbook so that it only attempts to start the VM if it is not already started. Do this by adding a [Get-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Get-AzVM?view=azps-3.5.0) cmdlet that retrieves the instance-level status of the VM. Then you can add a PowerShell Workflow code module called `Get Status` with a snippet of PowerShell code to determine if the VM state is running or stopped. A conditional link from the `Get Status` module only runs `Start-AzVM` if the current running state is stopped. At the end of this procedure, your runbook uses the `Write-Output` cmdlet to output a message to inform you if the VM was successfully started.
+1. For the previously configured parameter, **NAME**, change the **Data source** to **Runbook input**, and then select **VMName**. Select **OK**. The page may look similar to the following:
 
-1. Open **MyFirstRunbook-Graphical** in the graphical editor.
+    ![Start-AzVM Parameters](../media/automation-tutorial-runbook-graphical/start-azurermvm-params-runbookinput.png)
 
-2. Remove the link between `Specify Subscription Id` and `Start-AzVM` by clicking on it and then pressing **Delete**.
+1. Select **OK** to return to the graphical editor.
 
-3. In the Library control, type `Get-Az` in the search field.
+1. Select **Save** and then **Test pane**. Observe that you can now provide values for the two input variables you created.
 
-4. Add `Get-AzVM` to the canvas.
+1. Close the **Test** page to return to the graphical editor.
 
-5. Select `Get-AzVM` and then click **Parameter Set** to view the sets for the cmdlet. 
+1. Select **Publish** and then **Yes** when you're prompted to publish the new version of the runbook. You're returned to the **Runbook** Overview page.
 
-6. Select the **GetVirtualMachineInResourceGroupNameParamSet** parameter set. The **ResourceGroupName** and **Name** fields have exclamation marks next to them, indicating that they specify required parameters. Note that both fields expect string values.
+1. Select **Start** to open the **Start Runbook** page.
 
-7. Under **Data source** for **Name**, select **Runbook input**, then **VMName**. Click **OK**.
+1. Enter appropriate values for the parameters `VMNAME` and `RESOURCEGROUPNAME`. Then select **OK**. The **Job** page then opens.
 
-8. Under **Data source** for **ResourceGroupName**, select **Runbook input**, then **ResourceGroupName**. Click **OK**.
+1. Monitor the job and verify the VM started after the **Status** turns to **Complete**. Then stop the VM for later steps.
 
-9. Under **Data source** for **Status**, select **Constant value**, then **True**. Click **OK**.
+1. Return to the graphical editor for your runbook.
 
-10. Create a link from `Specify Subscription Id` to `Get-AzVM`.
+## Create a conditional link
 
-11. In the Library control, expand **Runbook Control** and add **Code** to the canvas.  
+You can now modify the runbook so that it only attempts to start the VM if it's not already started. Do this by adding a [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM) cmdlet that retrieves the instance-level status of the VM. Then you can add a PowerShell Workflow code module called `Get Status` with a snippet of PowerShell code to determine if the VM state is running or stopped. A conditional link from the `Get Status` module only runs `Start-AzVM` if the current running state is stopped. At the end of this procedure, your runbook uses the `Write-Output` cmdlet to output a message to inform you if the VM was successfully started.
 
-12. Create a link from `Get-AzVM` to `Code`.  
+1. From the graphical editor, right-click the link between `Specify Subscription Id` and `Start-AzVM` and select **Delete**.
 
-13. Click `Code` and, in the Configuration pane, change the label to **Get Status**.
+1. From the **Library control** search field, enter `Get-AzVM`.
 
-14. Select `Code` and the Code Editor page appears.  
+1. Add `Get-AzVM` to the canvas, and drag the activity below `Specify Subscription Id`.
 
-15. Paste the following code snippet into the editor page.
+1. From **Configuration control**, select **Parameters** to open the **Activity Parameter Configuration** page.
 
-    ```powershell-interactive
-     $StatusesJson = $ActivityOutput['Get-AzVM'].StatusesText
-     $Statuses = ConvertFrom-Json $StatusesJson
-     $StatusOut =""
-     foreach ($Status in $Statuses){
-     if($Status.Code -eq "Powerstate/running"){$StatusOut = "running"}
-     elseif ($Status.Code -eq "Powerstate/deallocated") {$StatusOut = "stopped"}
-     }
-     $StatusOut
-     ```
+   Select **Parameter Set** and then select **GetVirtualMachineInResourceGroupParamSet**. The parameters for this parameter set are displayed on the **Activity Parameter Configuration** page. The parameters **RESOURCEGROUPNAME** and **NAME** have exclamation marks next to them to indicate that they're required parameters. Both fields expect string values.
 
-16. Create a link from `Get Status` to `Start-AzVM`.
+1. Select **RESOURCEGROUPNAME** to open the **Parameter Value** page.
+    1. From the **Data source** drop-down menu, select **Runbook input**.
+    1. Select the parameter **ResourceGroupName**.
+    1. Select **OK** to return to the **Activity Parameter Configuration** page.
+
+1. Select **NAME** to open the **Parameter Value** page.
+    1. From the **Data source** drop-down menu, select **Runbook input**.
+    1. Select the parameter **VMName**.
+    1. Select **OK** to return to the **Activity Parameter Configuration** page.
+
+1. Select **STATUS** to open the **Parameter Value** page.
+    1. From the **Data source** drop-down menu, select **Constant value**.
+    1. Select the option **True**.
+    1. Select **OK** to return to the **Activity Parameter Configuration** page.
+
+1. Select **OK** to return to the graphical editor.
+
+1. Form a link between `Specify Subscription Id` and `Get-AzVM`.
+
+1. Clear the **Library control** search field, and then navigate to **RUNBOOK CONTROL** > **Code**. Select the ellipsis and then **Add to canvas**. Drag the activity below `Get-AzVM`.
+
+1. From **Configuration control**, change **Label** from `Code` to `Get Status`.
+
+1. From **Configuration control**, select **Code** to open the **Code Editor** page.
+
+1. Paste the following code snippet into the **PowerShell code** text box.
+
+    ```powershell
+    $Statuses = $ActivityOutput['Get-AzVM'].Statuses
+    $StatusOut = ""
+    foreach ($Status in $Statuses) {
+      if($Status.Code -eq "Powerstate/running")
+        {$StatusOut = "running"}
+      elseif ($Status.Code -eq "Powerstate/deallocated")
+        {$StatusOut = "stopped"}
+    }
+    $StatusOut
+    ```
+
+1. Select **OK** to return to the graphical editor.
+
+1. Form a link between `Get-AzVM` and `Get Status`.
+
+1. Form a link between `Get Status` and `Start-AzVM`. Your runbook should look like the following at this point.
 
     ![Runbook with Code Module](../media/automation-tutorial-runbook-graphical/runbook-startvm-get-status.png)  
 
-17. Select the link and, in the Configuration pane, change **Apply condition** to **Yes**. Note that the link becomes a dashed line, indicating that the target activity only runs if the condition resolves to true.  
+1. Select the link between `Get Status` and `Start-AzVM`.
 
-18. For **Condition expression**, type `$ActivityOutput['Get Status'] -eq "Stopped"`. `Start-AzVM` now only runs if the VM is stopped.
+1. From **Configuration control**, change **Apply condition** to **Yes**. The link becomes a dashed line, indicating that the target activity only runs if the condition resolves to true.  
 
-19. In the Library control, expand **Cmdlets** and then **Microsoft.PowerShell.Utility**.
+1. For **Condition expression**, enter `$ActivityOutput['Get Status'] -eq "Stopped"`. `Start-AzVM` now only runs if the VM is stopped.
 
-20. Add `Write-Output` to the canvas twice.
+1. From the **Library control** search field, enter `Write-Output`.
 
-21. For the first `Write-Output` control, click **Parameters** and change the **Label** value to **Notify VM Started**.
+1. Add `Write-Output` to the canvas, and drag the activity below `Start-AzVM`.
 
-22. For **InputObject**, change **Data source** to **PowerShell expression**, and type in the expression `$VMName successfully started.`.
+1. Select the activity ellipsis and select **Duplicate**. Drag the duplicate activity to the right of the first activity.
 
-23. On the second `Write-Output` control, click **Parameters** and change the **Label** value to **Notify VM Start Failed**.
+1. Select the first `Write-Output` activity.
+    1. From **Configuration control**, change **Label** from `Write-Output` to `Notify VM Started`.
+    1. Select **Parameters** to open the **Activity Parameter Configuration** page.
+    1. Select **INPUTOBJECT** to open the **Parameter Value** page.
+    1. From the **Data source** drop-down menu, select **PowerShell expression**.
+    1. In the **Expression** text box, enter `"$VMName successfully started."`.
+    1. Select **OK** to return to the **Activity Parameter Configuration** page.
+    1. Select **OK** to return to the graphical editor.
 
-24. For **InputObject**, change **Data source** to **PowerShell expression**, and type in the expression `$VMName could not start`.
+1. Select the first `Write-Output1` activity.
+    1. From **Configuration control**, change **Label** from `Write-Output1` to `Notify VM Start Failed`.
+    1. Select **Parameters** to open the **Activity Parameter Configuration** page.
+    1. Select **INPUTOBJECT** to open the **Parameter Value** page.
+    1. From the **Data source** drop-down menu, select **PowerShell expression**.
+    1. In the **Expression** text box, enter `"$VMName could not start."`.
+    1. Select **OK** to return to the **Activity Parameter Configuration** page.
+    1. Select **OK** to return to the graphical editor.
 
-25. Create links from `Start-AzVM` to `Notify VM Started` and `Notify VM Start Failed`.
+1. Form a link between `Start-AzVM` and `Notify VM Started`.
 
-26. Select the link to `Notify VM Started` and change **Apply condition** to true.
+1. Form a link between `Start-AzVM` and `Notify VM Start Failed`.
 
-27. For the **Condition expression**, type `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -eq $true`. This `Write-Output` control now only runs if the VM starts successfully.
+1. Select the link to `Notify VM Started` and change **Apply condition** to **Yes**.
 
-28. Select the link to `Notify VM Start Failed` and change **Apply condition** to true.
+1. For the **Condition expression**, type `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -eq $true`. This `Write-Output` control now only runs if the VM starts successfully.
 
-29. For the **Condition expression** field, type `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -ne $true`. This `Write-Output` control now only runs if the VM is not successfully started. Your runbook should look like the following image.
+1. Select the link to `Notify VM Start Failed`.
+
+1. From the **Control page**, for **Apply condition**, select **Yes**.
+
+1. In the **Condition expression** text box, enter `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -ne $true`. This `Write-Output` control now only runs if the VM isn't successfully started. Your runbook should look like the following image.
 
     ![Runbook with Write-Output](../media/automation-tutorial-runbook-graphical/runbook-startazurermvm-complete.png)
 
-30. Save the runbook and open the Test pane.
+1. Save the runbook and open the Test pane.
 
-31. Start the runbook with the VM stopped, and the machine should start.
+1. Start the runbook with the VM stopped, and the machine should start.
 
 ## Next steps
 
-* To learn more about graphical authoring, see [Graphical authoring in Azure Automation](../automation-graphical-authoring-intro.md).
+* To learn more about graphical authoring, see [Author a graphical runbook in Azure Automation](../automation-graphical-authoring-intro.md).
 * To get started with PowerShell runbooks, see [Create a PowerShell runbook](automation-tutorial-runbook-textual-powershell.md).
 * To get started with PowerShell Workflow runbooks, see [Create a PowerShell workflow runbook](automation-tutorial-runbook-textual.md).
-* For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation).

@@ -1,18 +1,18 @@
 ---
 title: Prepare and customize a master VHD image - Azure
-description: How to prepare, customize and upload a Windows Virtual Desktop master image to Azure.
-services: virtual-desktop
+description: How to prepare, customize and upload a Azure Virtual Desktop master image to Azure.
 author: Heidilohr
-
-ms.service: virtual-desktop
-ms.topic: conceptual
-ms.date: 10/14/2019
+ms.topic: how-to
+ms.date: 01/19/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Prepare and customize a master VHD image
 
-This article tells you how to prepare a master virtual hard disk (VHD) image for upload to Azure, including how to create virtual machines (VMs) and install software on them. These instructions are for a Windows Virtual Desktop-specific configuration that can be used with your organization's existing processes.
+This article tells you how to prepare a master virtual hard disk (VHD) image for upload to Azure, including how to create virtual machines (VMs) and install software on them. These instructions are for a Azure Virtual Desktop-specific configuration that can be used with your organization's existing processes.
+
+>[!IMPORTANT]
+>We recommend you use an image from the Azure Image Gallery. However, if you do need to use a customized image, make sure you don't already have the Azure Virtual Desktop Agent installed on your VM. Using a customized image with the Azure Virtual Desktop Agent can cause problems with the image, such as blocking registration and preventing user session connections.  
 
 ## Create a VM
 
@@ -32,11 +32,13 @@ To create a VM with the copied VHD:
 
 2. On the Specify Generation page, select **Generation 1**.
 
-    ![A screenshot of the Specify Generation page. The "Generation 1" option is selected.](media/a41174fd41302a181e46385e1e701975.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the Specify Generation page. The "Generation 1" option is selected.](media/a41174fd41302a181e46385e1e701975.png)
 
 3. Under Checkpoint Type, disable checkpoints by unchecking the check box.
 
-    ![A screenshot of the Checkpoint Type section of the Checkpoints page.](media/20c6dda51d7cafef33251188ae1c0c6a.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the Checkpoint Type section of the Checkpoints page.](media/20c6dda51d7cafef33251188ae1c0c6a.png)
 
 You can also run the following cmdlet in PowerShell to disable checkpoints.
 
@@ -48,19 +50,20 @@ Set-VM -Name <VMNAME> -CheckpointType Disabled
 
 If you create a VM from an existing VHD, it creates a dynamic disk by default. It can be changed to a fixed disk by selecting **Edit Disk...** as shown in the following image. For more detailed instructions, see [Prepare a Windows VHD or VHDX to upload to Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
 
-![A screenshot of the Edit Disk option.](media/35772414b5a0f81f06f54065561d1414.png)
+> [!div class="mx-imgBorder"]
+> ![A screenshot of the Edit Disk option.](media/35772414b5a0f81f06f54065561d1414.png)
 
 You can also run the following PowerShell cmdlet to change the disk to a fixed disk.
 
 ```powershell
-Convert-VHD –Path c:\\test\\MY-VM.vhdx –DestinationPath c:\\test\\MY-NEW-VM.vhd -VHDType Fixed
+Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd -VHDType Fixed
 ```
 
 ## Software preparation and installation
 
-This section covers how to prepare and install FSLogix and Windows Defender, as well as some basic configuration options for apps and your image's registry. 
+This section covers how to prepare and install FSLogix and Windows Defender, as well as some basic configuration options for apps and your image's registry.
 
-If you're installing Office 365 ProPlus and OneDrive on your VM, go to [Install Office on a master VHD image](install-office-on-wvd-master-image.md) and follow the instructions there to install the apps. After you're done, return to this article.
+If you're installing Microsoft 365 Apps for enterprise and OneDrive on your VM, go to [Install Office on a master VHD image](install-office-on-wvd-master-image.md) and follow the instructions there to install the apps. After you're done, return to this article.
 
 If your users need to access certain LOB applications, we recommend you install them after completing this section's instructions.
 
@@ -87,7 +90,7 @@ To disable Automatic Updates via local Group Policy:
 
 You can also run the following command on a command prompt to disable Automatic Updates.
 
-```batch
+```cmd
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v NoAutoUpdate /t REG_DWORD /d 1 /f
 ```
 
@@ -95,7 +98,7 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v NoAutoUpd
 
 Run this command to specify a Start layout for Windows 10 PCs.
 
-```batch
+```cmd
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoamingOverrideAllowed /t REG_DWORD /d 1 /f
 ```
 
@@ -113,19 +116,20 @@ To redirect time zones:
 
 You can also run this command on the master image to redirect time zones:
 
-```batch
+```cmd
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnableTimeZoneRedirection /t REG_DWORD /d 1 /f
 ```
 
 ### Disable Storage Sense
 
-For Windows Virtual Desktop session host that use Windows 10 Enterprise or Windows 10 Enterprise multi-session, we recommend disabling Storage Sense. You can disable Storage Sense in the Settings menu under **Storage**, as shown in the following screenshot:
+For Azure Virtual Desktop session host that use Windows 10 Enterprise or Windows 10 Enterprise multi-session, we recommend disabling Storage Sense. You can disable Storage Sense in the Settings menu under **Storage**, as shown in the following screenshot:
 
-![A screenshot of the Storage menu under Settings. The "Storage sense" option is turned off.](media/storagesense.png)
+> [!div class="mx-imgBorder"]
+> ![A screenshot of the Storage menu under Settings. The "Storage sense" option is turned off.](media/storagesense.png)
 
 You can also change the setting with the registry by running the following command:
 
-```batch
+```cmd
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy" /v 01 /t REG_DWORD /d 0 /f
 ```
 
@@ -146,19 +150,19 @@ This section covers application and operating system configuration. All configur
 
 For feedback hub collection of telemetry data on Windows 10 Enterprise multi-session, run this command:
 
-```batch
+```cmd
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /v AllowTelemetry /t REG_DWORD /d 3 /f
 ```
 
 Run the following command to fix Watson crashes:
 
-```batch
+```cmd
 remove CorporateWerServer* from Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting
 ```
 
 Enter the following commands into the registry editor to fix 5k resolution support. You must run the commands before you can enable the side-by-side stack.
 
-```batch
+```cmd
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MaxMonitors /t REG_DWORD /d 4 /f
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MaxXResolution /t REG_DWORD /d 5120 /f
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MaxYResolution /t REG_DWORD /d 2880 /f
@@ -178,28 +182,33 @@ After preparing the image for upload, make sure the VM remains in the off or dea
 
 This section only applies when the master image was created locally.
 
-The following instructions will tell you how to upload your master image into an Azure storage account. If you don't already have an Azure storage account, follow the instructions in [this article](/azure/javascript/tutorial-vscode-static-website-node-03) to create one.
+The following instructions will tell you how to upload your master image into an Azure storage account. If you don't already have an Azure storage account, follow the instructions in [this article](../storage/common/storage-account-create.md) to create one.
 
 1. Convert the VM image (VHD) to Fixed if you haven't already. If you don't convert the image to Fixed, you can't successfully create the image.
 
-2. Upload the VHD to a blob container in your storage account. You can upload quickly with the [Storage Explorer tool](https://azure.microsoft.com/features/storage-explorer/). To learn more about the Storage Explorer tool, see [this article](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
+2. Upload the VHD to a blob container in your storage account. You can upload quickly with the [Storage Explorer tool](https://azure.microsoft.com/features/storage-explorer/). To learn more about the Storage Explorer tool, see [this article](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows).
 
-    ![A screenshot of the Microsoft Azure Storage Explorer Tool's search window. The "Upload .vhd or vhdx files as page blobs (recommended)" check box is selected.](media/897aa9a9b6acc0aa775c31e7fd82df02.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the Microsoft Azure Storage Explorer Tool's search window. The "Upload .vhd or vhdx files as page blobs (recommended)" check box is selected.](media/897aa9a9b6acc0aa775c31e7fd82df02.png)
 
 3. Next, go to the Azure portal in your browser and search for "Images." Your search should lead you to the **Create image** page, as shown in the following screenshot:
 
-    ![A screenshot of the Create image page of the Azure portal, filled with example values for the image.](media/d3c840fe3e2430c8b9b1f44b27d2bf4f.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the Create image page of the Azure portal, filled with example values for the image.](media/d3c840fe3e2430c8b9b1f44b27d2bf4f.png)
 
 4. Once you've created the image, you should see a notification like the one in the following screenshot:
 
-    ![A screenshot of the "successfully created image" notification.](media/1f41b7192824a2950718a2b7bb9e9d69.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the "successfully created image" notification.](media/1f41b7192824a2950718a2b7bb9e9d69.png)
 
 ## Next steps
 
 Now that you have an image, you can create or update host pools. To learn more about how to create and update host pools, see the following articles:
 
-- [Create a host pool with an Azure Resource Manager template](create-host-pools-arm-template.md)
+- [Create a host pool with an Azure Resource Manager template](./virtual-desktop-fall-2019/create-host-pools-arm-template.md)
 - [Tutorial: Create a host pool with Azure Marketplace](create-host-pools-azure-marketplace.md)
 - [Create a host pool with PowerShell](create-host-pools-powershell.md)
 - [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md)
-- [Configure the Windows Virtual Desktop load-balancing method](configure-host-pool-load-balancing.md)
+- [Configure the Azure Virtual Desktop load-balancing method](configure-host-pool-load-balancing.md)
+
+If you encountered a connectivity problem after preparing or customizing your VHD image, check out the [troubleshooting guide](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) for help.

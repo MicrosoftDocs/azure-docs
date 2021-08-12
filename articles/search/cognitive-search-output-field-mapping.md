@@ -3,25 +3,38 @@ title: Map input to output fields
 titleSuffix: Azure Cognitive Search
 description: Extract and enrich source data fields, and map to output fields in an Azure Cognitive Search index.
 
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 08/10/2021
 ---
 
 # How to map AI-enriched fields to a searchable index
 
-In this article, you learn how to map enriched input fields to output fields in a searchable index. Once you have [defined a skillset](cognitive-search-defining-skillset.md), you must map the output fields of any skill that directly contributes values to a given field in your search index. 
+![Indexer Stages](./media/cognitive-search-output-field-mapping/indexer-stages-output-field-mapping.png "indexer stages")
 
-Output Field Mappings are required for moving content from enriched documents into the index.  The enriched document is really a tree of information, and even though there is support for complex types in the index, sometimes you may want to transform the information from the enriched tree into a more simple type (for instance, an array of strings). Output field mappings allow you to perform data shape transformations by flattening information.
+In this article, you learn how to map enriched input fields to output fields in a searchable index. Once you have [defined a skillset](cognitive-search-defining-skillset.md), you must map the output fields of any skill that directly contributes values to a given field in your search index.
+
+Output Field Mappings are required for moving content from enriched documents into the index.  The enriched document is really a tree of information, and even though there is support for complex types in the index, sometimes you may want to transform the information from the enriched tree into a more simple type (for instance, an array of strings). Output field mappings allow you to perform data shape transformations by flattening information. Output field mappings always occur after skillset execution, although it is possible for this stage to run even if no skillset is defined.
+
+Examples of output field mappings:
+
+* As part of your skillset, you extracted the names of organizations mentioned in each of the pages of your document. Now you want to map each of those organization names into a field in your index of type Edm.Collection(Edm.String).
+
+* As part of your skillset, you produced a new node called “document/translated_text”. You would like to map the information on this node to a specific field in your index.
+
+* You don’t have a skillset but are indexing a complex type from a Cosmos DB database. You would like to get to a node on that complex type and map it into a field in your index.
+
+> [!NOTE]
+> Output field mappings apply to search indexes only. For indexers that create [knowledge stores](knowledge-store-concept-intro.md), output field mappings are ignored.
 
 ## Use outputFieldMappings
+
 To map fields, add `outputFieldMappings` to your indexer definition as shown below:
 
 ```http
-PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -46,7 +59,10 @@ The body of the request is structured as follows:
     "outputFieldMappings": [
         {
             "sourceFieldName": "/document/content/organizations/*/description",
-            "targetFieldName": "descriptions"
+            "targetFieldName": "descriptions",
+            "mappingFunction": {
+                "name": "base64Decode"
+            }
         },
         {
             "sourceFieldName": "/document/content/organizations",
@@ -60,7 +76,7 @@ The body of the request is structured as follows:
 }
 ```
 
-For each output field mapping, set the location of the data in the enriched document tree (sourceFieldName), and the name of the field as referenced in the index (targetFieldName).
+For each output field mapping, set the location of the data in the enriched document tree (sourceFieldName), and the name of the field as referenced in the index (targetFieldName). Assign any [mapping functions](search-indexer-field-mappings.md#field-mapping-functions) that you require to transform the content of a field before it's stored in the index.
 
 ## Flattening Information from Complex Types 
 

@@ -4,22 +4,23 @@ titlesuffix: Azure Virtual Network
 description: Learn how to assign multiple IP addresses to a virtual machine using the Azure command-line interface (CLI).
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: asudbring
+manager: KumudD
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
-ms.author: kumud
+ms.author: allensu
 
 ---
 # Assign multiple IP addresses to virtual machines using the Azure CLI
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 
-This article explains how to create a virtual machine (VM) through the Azure Resource Manager deployment model using the Azure CLI. Multiple IP addresses cannot be assigned to resources created through the classic deployment model. To learn more about Azure deployment models, read the [Understand deployment models](../resource-manager-deployment-model.md) article.
+This article explains how to create a virtual machine (VM) through the Azure Resource Manager deployment model using the Azure CLI. Multiple IP addresses cannot be assigned to resources created through the classic deployment model. To learn more about Azure deployment models, read the [Understand deployment models](../azure-resource-manager/management/deployment-models.md) article.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
@@ -32,7 +33,7 @@ The steps that follow explain how to create an example virtual machine with mult
 3. From a command shell, login with the command `az login` and select the subscription you're using.
 4. Create the VM by executing the script that follows on a Linux or Mac computer. The script creates a resource group, one virtual network (VNet), one NIC with three IP configurations, and a VM with the two NICs attached to it. The NIC, public IP address, virtual network, and VM resources must all exist in the same location and subscription. Though the resources don't all have to exist in the same resource group, in the following script they do.
 
-```bash
+```azurecli
 	
 #!/bin/sh
 	
@@ -119,7 +120,7 @@ az network nic ip-config create \
 VmName="myVm"
 
 # Replace the value for the following **VmSize** variable with a value from the
-# https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes article. The script fails if the VM size
+# https://docs.microsoft.com/azure/virtual-machines/sizes article. The script fails if the VM size
 # is not supported in the location you select. Run the `azure vm sizes --location eastcentralus` command to get a full list
 # of VMs in US West Central, for example.
 
@@ -222,11 +223,13 @@ You can add additional private and public IP addresses to an existing Azure netw
 
 		Returned output:
 	
-			Name        PublicIpAddressId
-			
-			ipconfig1   /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP1
-			IPConfig-2  /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP2
-			IPConfig-3
+        ```output
+		Name        PublicIpAddressId
+		
+		ipconfig1   /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP1
+		IPConfig-2  /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP2
+		IPConfig-3
+        ```
 
 		Since the **PublicIpAddressId** column for *IpConfig-3* is blank in the output, no public IP address resource is currently associated to it. You can add an existing public IP address resource to IpConfig-3, or enter the following command to create one:
 
@@ -259,14 +262,15 @@ You can add additional private and public IP addresses to an existing Azure netw
     ```
 
 	Returned output: <br>
-	
-		Name        PrivateIpAddress    PrivateIpAllocationMethod   PublicIpAddressId
-		
-		ipconfig1   10.0.0.4            Static                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP1
-		IPConfig-2  10.0.0.5            Static                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP2
-		IPConfig-3  10.0.0.6            Static                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP3
-	
 
+    ```output
+	Name        PrivateIpAddress    PrivateIpAllocationMethod   PublicIpAddressId
+	
+	ipconfig1   10.0.0.4            Static                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP1
+	IPConfig-2  10.0.0.5            Static                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP2
+	IPConfig-3  10.0.0.6            Static                      /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP3
+    ```
+	
 4. Add the private IP addresses you added to the NIC to the VM operating system by following the instructions in the [Add IP addresses to a VM operating system](#os-config) section of this article. Do not add the public IP addresses to the operating system.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]

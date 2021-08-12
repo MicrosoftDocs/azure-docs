@@ -1,21 +1,17 @@
 ---
 title: Troubleshoot OpenShift Container Platform 3.11 deployment in Azure 
 description: Troubleshoot OpenShift Container Platform 3.11 deployment in Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: haroldwongms
 manager: mdotson
-editor: 
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machines-linux
-
-ms.topic: article
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
+ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
+ms.custom: devx-track-ansible
 ---
 
 # Troubleshoot OpenShift Container Platform 3.11 deployment in Azure
