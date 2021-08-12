@@ -316,12 +316,8 @@ In the following example, we'll create a resource group called `MyResourceGroup`
     New-AzResourceGroup -Name MyResourceGroup -Location westus
     New-AzResourceGroupDeployment -Name deployment -ResourceGroupName MyResourceGroup -TemplateFile AzureDeploy.json
 ```
-After deployment, your clusters virtual network will be dual-stack and also include IPv6 config on the Load Balancer frontend, associated subnet with unique IPv6 NSG, and IPv6 addresses on the VMs. 
-> [!NOTE]
-> Anything we need to call out? Test and find out. Do I need to manage the different IP Protocols uniquely?
+After deployment, your clusters virtual network and resources will be dual-stack. This means the Load Balancer frontend will have an IPv6 address, a unique dns address created e.g. `mycluster-ipv6.southcentralus.cloudapp.azure.com` and associated to the IPv6 address, and IPv6 addresses on the VMs. 
 
-TODO:Screenshots/CLI output?
-TODO:Talk about v4 and v6 ip's on Load Balancers and NSG differences.
 
 <a id="byovnet"></a>
 ## Bring your own virtual network
@@ -389,7 +385,7 @@ Or you can add the role assignment by using an ARM Template configured with prop
 ```JSON
       "type": "Microsoft.Authorization/roleAssignments",
       "apiVersion": "2020-04-01-preview",
-      "name": "[parameters('vnetRoleAssignmentID')]",
+      "name": "MyRoleAssignmentName",
       "scope": "[concat('Microsoft.Network/virtualNetworks/', parameters('vnetName'), '/subnets/', parameters('subnetName'))]",
       "dependsOn": [
         "[concat('Microsoft.Network/virtualNetworks/', parameters('vnetName'))]"
@@ -400,7 +396,7 @@ Or you can add the role assignment by using an ARM Template configured with prop
       }
 ```
 > [!NOTE]
-> vnetRoleAssignmentID should be a valid GUID. If you deploy again the same template including this role assignment, make sure the GUID is the same as the one originally used or remove this resource as it just needs to be created once.
+> MyRoleAssignmentName will be used as the GUID(TODO). If you deploy again the same template including this role assignment, make sure the GUID is the same as the one originally used or remove this resource as it just needs to be created once.
 
 Here is a full sample [ARM Template that creates a VNet subnet and does role assignment](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/SF-Managed-Standard-SKU-2-NT-BYOVNET/SFMC-VNet-RoleAssign.json) you can use for this step.
 
@@ -436,13 +432,13 @@ Managed clusters create an Azure Load Balancer and fully qualified domain name w
 
 * Use a pre-configured Load Balancer static IP address for either private or public traffic
 * Map a Load Balancer to a specific node type
-* Configure NSG rules per node type
+* Configure NSG rules per node type because each node type is deployed in its own VNET
 * Maintain existing policies and controls you may have in place
 
 > [!NOTE]
 > You can not switch from default to custom after cluster deployment for a node type, but you can modify custom load balancer configuration post-deployment.
 
-* Feature Requirements
+**Feature Requirements**
  * Basic and Standard SKU Azure Load Balancer types are supported
  * You must have backend and NAT pools configured on the existing Azure Load Balancer. See full [create and assign role sample here](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/SF-Managed-Standard-SKU-2-NT-BYOLB/createlb-and-assign-role) for an example. 
 
