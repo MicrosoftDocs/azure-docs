@@ -41,7 +41,7 @@ The [free App Service managed certificate](#create-a-free-managed-certificate) a
 
 * Exported as a [password-protected PFX file](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions), encrypted using triple DES.
 * Contains private key at least 2048 bits long
-* Contains all intermediate certificates in the certificate chain
+* Contains all intermediate certificates the root one in the certificate chain.
 
 To secure a custom domain in a TLS binding, the certificate has additional requirements:
 
