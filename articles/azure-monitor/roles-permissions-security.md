@@ -106,7 +106,7 @@ Monitoring data—particularly log files—can contain sensitive information, su
 - Resource logs, which are logs emitted by a resource
 - Metrics, which are emitted by resources
 
-All three of these data types can be stored in a storage account or streamed to an event hub, both of which are general-purpose Azure resources. Because these are general-purpose resources, creating, deleting, and accessing them is a privileged operation reserved for an administrator. We suggest that you use the following practices for monitoring-related resources to prevent misuse:
+All these data types can be stored in a storage account or streamed to an event hub, both of which are general-purpose Azure resources. Because these are general-purpose resources, creating, deleting, and accessing them is a privileged operation reserved for an administrator. We suggest that you use the following practices for monitoring-related resources to prevent misuse:
 
 * Use a single, dedicated storage account for monitoring data. If you need to separate monitoring data into multiple storage accounts, never share usage of a storage account between monitoring and non-monitoring data. Sharing usage in that way might inadvertently give access to non-monitoring data to organizations that need to access only monitoring data. For example, a third-party organization for security information and event management (SIEM) should need only access to monitoring data.
 * Use a single, dedicated service bus or event hub namespace across all diagnostic settings for the same reason described in the previous point.

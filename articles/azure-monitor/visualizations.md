@@ -30,7 +30,7 @@ Advantages of a workbook include:
 
 
 ## Azure Dashboards
-[Azure dashboards](../azure-portal/azure-portal-dashboards.md) are the primary dashboarding technology for Azure. They're particularly useful in providing a single pane of glass over your Azure infrastructure and services, so you can quickly identify important issues.
+[Azure dashboards](../azure-portal/azure-portal-dashboards.md) are the primary dashboarding technology for Azure. They're useful in providing a single pane of glass over your Azure infrastructure and services, so you can quickly identify important issues.
 
 ![Screenshot that shows an example of an Azure dashboard with customizable information.](media/visualizations/dashboard.png)
 
@@ -61,7 +61,7 @@ Limitations include:
 
 
 ## Power BI
-[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) is particularly useful for creating business-centric dashboards and reports, along with reports that analyze long-term KPI trends. You can [import the results of a log query](visualize/powerbi.md) into a Power BI dataset and then take advantage of its features, such as combining data from different sources and sharing reports on the web and mobile devices.
+[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) is useful for creating business-centric dashboards and reports, along with reports that analyze long-term KPI trends. You can [import the results of a log query](visualize/powerbi.md) into a Power BI dataset and then take advantage of its features, such as combining data from different sources and sharing reports on the web and mobile devices.
 
 ![Screenshot that shows an example Power B I report for I T operations.](media/visualizations/power-bi.png)
 
@@ -83,7 +83,7 @@ Limitations include:
 
 
 ## Grafana
-[Grafana](https://grafana.com/) is an open platform that excels in operational dashboards. It's particularly useful for detecting, isolating, and triaging operational incidents. You can add the [Azure Monitor data source plug-in for Grafana](visualize/grafana-plugin.md) to your Azure subscription to have it visualize your Azure metric data.
+[Grafana](https://grafana.com/) is an open platform that excels in operational dashboards. It's useful for detecting, isolating, and triaging operational incidents. You can add the [Azure Monitor data source plug-in for Grafana](visualize/grafana-plugin.md) to your Azure subscription to have it visualize your Azure metric data.
 
 ![Screenshot that shows Grafana visualizations.](media/visualizations/grafana.png)
 

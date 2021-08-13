@@ -134,7 +134,7 @@ For details on creating an initiative, see [Create and assign an initiative defi
 ![Screenshot that shows settings for initiative definition.](media/deploy-scale/initiative-definition.png)
 
 ### Assignment 
-Assign the initiative to an Azure management group, subscription, or resource group, depending on the scope of your resources to monitor. A [management group](../governance/management-groups/overview.md) is particularly useful for scoping policy, especially if your organization has multiple subscriptions.
+Assign the initiative to an Azure management group, subscription, or resource group, depending on the scope of your resources to monitor. A [management group](../governance/management-groups/overview.md) is useful for scoping policy, especially if your organization has multiple subscriptions.
 
 ![Screenshot of the settings for the Basics tab in the Assign initiative section of the Diagnostic settings to Log Analytics workspace in the Azure portal.](media/deploy-scale/initiative-assignment.png)
 
@@ -170,7 +170,7 @@ For details of this process, see [Enable VM insights by using Azure Policy](./vm
 ![Screenshot that shows a VM insights policy.](media/deploy-scale/vminsights-policy.png)
 
 ### Virtual machine scale sets
-To use Azure Policy to enable monitoring for virtual machine scale sets, assign the **Enable Azure Monitor for Virtual Machine Scale Sets** initiative to an Azure management group, subscription, or resource group, depending on the scope of your resources to monitor. A [management group](../governance/management-groups/overview.md) is particularly useful for scoping policy, especially if your organization has multiple subscriptions.
+To use Azure Policy to enable monitoring for virtual machine scale sets, assign the **Enable Azure Monitor for Virtual Machine Scale Sets** initiative to an Azure management group, subscription, or resource group, depending on the scope of your resources to monitor. A [management group](../governance/management-groups/overview.md) is useful for scoping policy, especially if your organization has multiple subscriptions.
 
 ![Screenshot of the Assign initiative page in Azure portal. Initiative definition is set to Enable Azure Monitor for Virtual Machine Scale Sets.](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
 
