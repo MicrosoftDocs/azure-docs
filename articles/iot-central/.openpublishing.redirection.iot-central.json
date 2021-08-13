@@ -1192,7 +1192,22 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/government/how-to-configure-connected-field-services.md",
-      "redirect_url": "/azure/iot-central/government/concepts-connectedwastemanagement-architecture#business-applications",
+      "redirect_url": "/azure/iot-central/government/tutorial-connected-waste-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/government/concepts-connectedwastemanagement-architecture.md",
+      "redirect_url": "/azure/iot-central/government/tutorial-connected-waste-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/government/concepts-waterconsumptionmonitoring-architecture.md",
+      "redirect_url": "/azure/iot-central/government/tutorial-water-consumption-monitoring",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/government/concepts-waterqualitymonitoring-architecture.md",
+      "redirect_url": "/azure/iot-central/government/tutorial-water-quality-monitoring",
       "redirect_document_id": false
     },
     {

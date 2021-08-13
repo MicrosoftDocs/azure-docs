@@ -117,7 +117,7 @@ Set the feature flag on the portal URL to work with the preview roles: Search Se
 
 ### [**PowerShell**](#tab/rbac-powershell)
 
-When [using PowerShell to assign roles](/azure/role-based-access-control/role-assignments-powershell), call [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment), providing the Azure user or group name, and the scope of the assignment.
+When [using PowerShell to assign roles](../role-based-access-control/role-assignments-powershell.md), call [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment), providing the Azure user or group name, and the scope of the assignment.
 
 Before you start, make sure you load the Azure and AzureAD modules and connect to Azure:
 
