@@ -4,13 +4,13 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to develop and customize Custom Commands applications. These voice-command apps are best suited for task completion or command-and-control scenarios.
 services: cognitive-services
 
-author: nitinme
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/15/2020
-ms.author: nitinme
+ms.author: lajanuar
 ---
 
 # Develop Custom Commands applications
