@@ -58,16 +58,16 @@ You may experience throttling of pull or push operations when the registry deter
 
 Throttling could occur temporarily when you generate a burst of image pull or push operations in a very short period, even when the average rate of read and write operations is within registry limits. You may need to implement retry logic with some backoff in your code or reduce the maximum rate of requests to the registry.
 
-## Show regisry usage
+## Show registry usage
 
 Use the [az acr show-usage](/cli/az/acr#az_acr_show_usage) command, or the [List Usages](/rest/api/containerregstry/registries/list-usages) REST API, to get a snapshot of your registry's current consumption of storage and other resources, compared with the limits for that registry's service tier. Storage usage also appears on the registry's **Overview** page in the portal.
 
-Usage information helps you make decisions about [changing the service tier](#changing-tiers) when your registry nears a limit. This information also helps you [manage consumption](container-registry-best-practices#maintain-registry-size). 
+Usage information helps you make decisions about [changing the service tier](#changing-tiers) when your registry nears a limit. This information also helps you [manage consumption](container-registry-best-practices.md#maintain-registry-size). 
 
 > [!NOTE]
 > The registry's storage usage should only be used as a guide and may not reflect recent registry operations. Monitor the registry's [StorageUsed metric](monitor-service-reference.md#container-registry-metrics) for up-to-date data. 
 
-Regisry usage information includes the following:
+Registry usage information includes the following:
 
 * Storage consumed in bytes<sup>1</sup>
 * Number of [webhooks](container-registry-webhook.md)
@@ -76,7 +76,7 @@ Regisry usage information includes the following:
 * Number of [IP access rules](container-registry-access-selected-networks.md)
 * Number of [virtual network rules](container-registry-vnet.md)
 
-<sup>1</sup>In a geo-replicated registry, storage usage is shown for the home region. Multiply by the number of replications for total registry storage consumed.
+<sup>1</sup>In a geo-replicated registry, storage usage is shown for the home region. Multiply by the number of replications for total storage consumed.
 
 ## Changing tiers
 
