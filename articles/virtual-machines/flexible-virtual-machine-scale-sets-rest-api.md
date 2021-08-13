@@ -444,7 +444,7 @@ az network public-ip list \
 
 Enter the public IP address of the load balancer in to a web browser in the format *http:\//publicIpAddress:9000/do_work*. The load balancer distributes traffic to one of your VM instances, as shown in the following example:
 
-![Default web page in NGINX](media/virtual-machine-scale-sets-create-template/running-python-app.png)
+![Default web page in NGINX](../virtual-machine-scale-sets/media/virtual-machine-scale-sets-create-template/running-python-app.png)
 
 ## Clean up resources
 
