@@ -37,7 +37,7 @@ This article describes how to configure a hosted test drive for Dynamics 365 for
 	        1. Open the **PowerApps portal** page and sign in.
             2. Select **Apps** and then the ellipses at the app.
             4. Select **Details**.
-            5. Copy the **Web link** from the Details Tab:
+            5. Copy the **Web link** from the **Details** tab:
 
                 :::image type="content" source="./media/test-drive/testdrive-canvas-app.png" alt-text="Shows the TestDrive Canvas App window.":::
 
