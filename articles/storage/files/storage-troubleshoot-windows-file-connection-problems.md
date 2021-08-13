@@ -186,10 +186,10 @@ Azure Files provides two ways to prevent accidental modification or deletion of 
 
 Since resource locks and leases may interfere with intended administrator operations on your storage account/Azure file shares, you may wish to remove any resource locks/leases that may have been put on your resources manually or automatically by value-added services such as Azure Backup. The following script will remove all resource locks and leases. Remember to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment.
 
-To run the following script, you must [install the 3.10.1-preview version](https://www.powershellgallery.com/packages/Az.Storage/3.7.1-preview) of the Azure Storage PowerShell module.
+To run the following script, you must [install the 3.10.1-preview version](https://www.powershellgallery.com/packages/Az.Storage/3.10.1-preview) of the Azure Storage PowerShell module.
 
 > [!Important]  
-> Value-added services that take resource locks and share/share snapshot leases on your Azure Files resources may periodically reapply resources. Modifying or deleting locked resources by value-added services may impact regular operation of those services, such as deleting share snapshots that were managed by Azure Backup.
+> Value-added services that take resource locks and share/share snapshot leases on your Azure Files resources may periodically reapply locks and leases. Modifying or deleting locked resources by value-added services may impact regular operation of those services, such as deleting share snapshots that were managed by Azure Backup.
 
 ```PowerShell
 # Parameters for storage account resource
