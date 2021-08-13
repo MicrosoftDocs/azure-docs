@@ -1,20 +1,20 @@
 ---
 title: Perform Azure Table storage operations with PowerShell | Microsoft Docs
-description: Perform Azure Table storage operations with PowerShell.
-services: cosmos-db
+description: Learn how to run common tasks such as creating, querying, deleting data from Azure Table storage account by using PowerShell.
 author: roygara
 
-ms.service: cosmos-db
+ms.service: storage
 ms.topic: article
 ms.date: 04/05/2019
 ms.author: rogarana
-ms.subservice: cosmosdb-table
+ms.subservice: tables 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Perform Azure Table storage operations with Azure PowerShell 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
-Azure Table storage is a NoSQL datastore that you can use to store and query huge sets of structured, non-relational data. The main components of the service are tables, entities, and properties. A table is a collection of entities. An entity is a set of properties. Each entity can have up to 252 properties, which are all name-value pairs. This article assumes that you are already familiar with the Azure Table Storage Service concepts. For detailed information, see [Understanding the Table Service Data Model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) and [Get started with Azure Table storage using .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md).
+Azure Table storage is a NoSQL datastore that you can use to store and query huge sets of structured, non-relational data. The main components of the service are tables, entities, and properties. A table is a collection of entities. An entity is a set of properties. Each entity can have up to 252 properties, which are all name-value pairs. This article assumes that you are already familiar with the Azure Table Storage Service concepts. For detailed information, see [Understanding the Table Service Data Model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) and [Get started with Azure Table storage using .NET](../../cosmos-db/tutorial-develop-table-dotnet.md).
 
 This how-to article covers common Azure Table storage operations. You learn how to: 
 
@@ -114,7 +114,7 @@ $storageTable = Get-AzStorageTable –Name $tableName –Context $ctx
 ## Reference CloudTable property of a specific table
 
 > [!IMPORTANT]
-> Usage of CloudTable is mandatory when working with **AzTable** PowerShell module. Call the **Get-AzTableTable** command to get the reference to this object. This command also creates the table if it does not already exist.
+> Usage of CloudTable is mandatory when working with **AzTable** PowerShell module. Call the **Get-AzStorageTable** command to get the reference to this object. This command also creates the table if it does not already exist.
 
 To perform operations on a table using **AzTable**, you need a reference to CloudTable property of a specific table.
 

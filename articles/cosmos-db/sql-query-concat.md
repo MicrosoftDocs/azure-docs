@@ -1,14 +1,17 @@
 ---
 title: CONCAT in Azure Cosmos DB query language
-description: Learn about SQL system function CONCAT in Azure Cosmos DB.
+description: Learn about how the CONCAT SQL system function in Azure Cosmos DB returns a string that is the result of concatenating two or more string values
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ---
 # CONCAT (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns a string that is the result of concatenating two or more string values.  
   
 ## Syntax
@@ -40,6 +43,9 @@ SELECT CONCAT("abc", "def") AS concat
 [{"concat": "abcdef"}]  
 ```  
   
+## Remarks
+
+This system function will not utilize the index.
 
 ## Next steps
 

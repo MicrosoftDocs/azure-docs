@@ -1,19 +1,17 @@
 ---
-title: Call logic apps with Azure Functions - Azure Logic Apps
-description: Create Azure functions that call or trigger logic apps by listening to Azure Service Bus
+title: Call logic apps with Azure Functions
+description: Call or trigger logic apps by using Azure Functions and Azure Service Bus
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: jehollan, klam, LADocs
+ms.reviewer: jehollan, klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
+ms.custom: devx-track-csharp
 ---
 
 # Call or trigger logic apps by using Azure Functions and Azure Service Bus
 
-You can use [Azure Functions](../azure-functions/functions-overview.md) to trigger a logic app when you need to deploy a long-running listener or task. For example, you can create an Azure function that listens in on an [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) queue and immediately fires a logic app as a push trigger.
+You can use [Azure Functions](../azure-functions/functions-overview.md) to trigger a logic app when you need to deploy a long-running listener or task. For example, you can create a function that listens in on an [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) queue and immediately fires a logic app as a push trigger.
 
 ## Prerequisites
 
@@ -21,7 +19,7 @@ You can use [Azure Functions](../azure-functions/functions-overview.md) to trigg
 
 * An Azure Service Bus namespace. If you don't have a namespace, [create your namespace first](../service-bus-messaging/service-bus-create-namespace-portal.md).
 
-* An Azure function app, which is a container for Azure functions. If you don't have a function app, [create your function app first](../azure-functions/functions-create-first-azure-function.md), and make sure that you select .NET as the runtime stack.
+* A function app, which is a container for your functions. If you don't have a function app, [create your function app first](../azure-functions/functions-get-started.md), and make sure that you select .NET as the runtime stack.
 
 * Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -91,7 +89,7 @@ For this scenario, you have a function running each logic app that you want to t
 
    ![Generated callback URL for trigger](./media/logic-apps-scenario-function-sb-trigger/callback-URL-for-trigger.png)
 
-## Create Azure function
+## Create a function
 
 Next, create the function that acts as the trigger and listens to the queue.
 
@@ -117,13 +115,13 @@ Next, create the function that acts as the trigger and listens to the queue.
 
    * This example uses the `application/json` message content type, but you can change this type as necessary.
    
-   * Due to possible concurrently running functions, high volumes, or heavy loads, avoid instantiating the [HTTPClient class](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) with the `using` statement and directly creating HTTPClient instances per request. For more information, see [Use HttpClientFactory to implement resilient HTTP requests](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net-core).
+   * Due to possible concurrently running functions, high volumes, or heavy loads, avoid instantiating the [HTTPClient class](/dotnet/api/system.net.http.httpclient) with the `using` statement and directly creating HTTPClient instances per request. For more information, see [Use HttpClientFactory to implement resilient HTTP requests](/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net-core).
    
    * If possible, reuse the instance of HTTP clients. For more information, see [Manage connections in Azure Functions](../azure-functions/manage-connections.md).
 
-   This example uses the [`Task.Run` method](https://docs.microsoft.com/dotnet/api/system.threading.tasks.task.run) in [asynchronous](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/async) mode. For more information, see [Asynchronous programming with async and await](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/).
+   This example uses the [`Task.Run` method](/dotnet/api/system.threading.tasks.task.run) in [asynchronous](/dotnet/csharp/language-reference/keywords/async) mode. For more information, see [Asynchronous programming with async and await](/dotnet/csharp/programming-guide/concepts/async/).
 
-   ```CSharp
+   ```csharp
    using System;
    using System.Threading.Tasks;
    using System.Net.Http;

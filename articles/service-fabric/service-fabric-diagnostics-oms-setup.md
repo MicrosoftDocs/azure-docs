@@ -1,21 +1,9 @@
 ---
-title: Azure Service Fabric - Set up monitoring with Azure Monitor logs | Microsoft Docs
+title: Set up monitoring with Azure Monitor logs 
 description: Learn how to set up Azure Monitor logs for visualizing and analyzing events to monitor your Azure Service Fabric clusters.
-services: service-fabric
-documentationcenter: .net
-author: srrengar
-manager: chackdan
-editor: ''
-
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 02/20/2019
-ms.author: srrengar
-
+ms.date: 02/20/2019 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Set up Azure Monitor logs for a cluster
@@ -97,7 +85,7 @@ Azure Resource Manager detects that this command is an update to an existing res
 
 ## Deploy Azure Monitor logs with Azure PowerShell
 
-You can also deploy your log analytics resource via PowerShell by using the `New-AzOperationalInsightsWorkspace` command. To use this method, make sure you have installed [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Use this script to create a new Log Analytics workspace and add the Service Fabric solution to it: 
+You can also deploy your log analytics resource via PowerShell by using the `New-AzOperationalInsightsWorkspace` command. To use this method, make sure you have installed [Azure PowerShell](/powershell/azure/install-az-ps). Use this script to create a new Log Analytics workspace and add the Service Fabric solution to it: 
 
 ```powershell
 
@@ -125,9 +113,9 @@ Set-AzOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup -Wor
 
 When you're done, follow the steps in the preceding section to connect Azure Monitor logs to the appropriate storage account.
 
-You can also add other solutions or make other modifications to your Log Analytics workspace by using PowerShell. To learn more, see [Manage Azure Monitor logs using PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md).
+You can also add other solutions or make other modifications to your Log Analytics workspace by using PowerShell. To learn more, see [Manage Azure Monitor logs using PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md).
 
 ## Next steps
 * [Deploy the Log Analytics agent](service-fabric-diagnostics-oms-agent.md) onto your nodes to gather performance counters and collect docker stats and logs for your containers
-* Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Azure Monitor logs
-* [Use View Designer to create custom views in Azure Monitor logs](../azure-monitor/platform/view-designer.md)
+* Get familiarized with the [log search and querying](../azure-monitor/logs/log-query-overview.md) features offered as part of Azure Monitor logs
+* [Use View Designer to create custom views in Azure Monitor logs](../azure-monitor/visualize/view-designer.md)

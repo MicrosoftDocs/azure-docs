@@ -1,16 +1,16 @@
 ### YamlMime:Landing
 
 title: Azure Stream Analytics documentation
-summary: Azure Stream Analytics is a fully managed, real-time analytics service designed to help you analyze and process fast moving streams of data that can be used to trigger alerts and actions. Learn how to use Azure Stream Analytics with our quickstarts, tutorials, and samples.
+summary: Azure Stream Analytics is a fully managed, real-time analytics service designed to help you analyze and process fast moving streams of data that can be used to get insights, build reports or trigger alerts and actions. Learn how to use Azure Stream Analytics with our quickstarts, tutorials, and samples.
 
 metadata:
   title: Azure Stream Analytics documentation
-  description: Azure Stream Analytics is a fully managed, real-time analytics service designed to help you analyze and process fast moving streams of data that can be used to trigger alerts and actions. Learn how to use Azure Stream Analytics with our quickstarts, tutorials, and samples.
+  description: Azure Stream Analytics is a fully managed, real-time analytics service designed to help you analyze and process fast moving streams of data that can be used to get insights, build reports or trigger alerts and actions. Learn how to use Azure Stream Analytics with our quickstarts, tutorials, and samples.
   services: service
   ms.service: stream-analytics
   ms.topic: landing-page
-  author: mamccrea
-  ms.author: mamccrea
+  author: sidram
+  ms.author: sidram
   ms.date: 09/16/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -94,7 +94,7 @@ landingContent:
             url: stream-analytics-monitor-jobs.md
           - text: Monitor and manage jobs from Visual Studio
             url: stream-analytics-monitor-jobs-use-vs.md
-          - text: Troubleshoot using diagnostic logs
+          - text: Troubleshoot using resource logs
             url: stream-analytics-job-diagnostic-logs.md
           - text: Debug using the job diagram
             url: stream-analytics-job-diagram-with-metrics.md
@@ -142,16 +142,16 @@ landingContent:
             url: stream-analytics-machine-learning-anomaly-detection.md
           - text: Perform sentiment analysis with Azure Machine Learning Studio (classic)
             url: stream-analytics-machine-learning-integration-tutorial.md
-          - text: Scale jobs with Machine Learning Studio functions
+          - text: Scale jobs with Azure Machine Learning Studio (classic) functions
             url: stream-analytics-scale-with-machine-learning-functions.md
   - title: Create and manage jobs with developer tools
     linkLists:
       - linkListType: how-to-guide
         links:
         - text: Explore jobs with Visual Studio Code
-          url: vscode-local-run.md
+          url: visual-studio-code-explore-jobs.md
         - text: Test queries with sample data in Visual Studio Code
-          url: vscode-local-run.md
+          url: visual-studio-code-local-run.md
         - text: Install tools for Visual Studio
           url: stream-analytics-tools-for-visual-studio-install.md
         - text: Test queries with sample data in Visual Studio
@@ -162,12 +162,16 @@ landingContent:
           url: stream-analytics-tools-for-visual-studio-edge-jobs.md
         - text: Develop an IoT Edge job in Visual Studio
           url: stream-analytics-tools-for-visual-studio-edge-jobs.md
+      - linkListType: video
+        links:
+        - text: Author, manage and test with Visual Studio Code
+          url: https://www.youtube.com/watch?v=N9ak_9ZaHms
   - title: Try Stream Analytics tutorials and solutions 
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Create and manage a job
-            url: stream-analytics-manage-job.md
+          - text: Real-time fraud detection
+            url: stream-analytics-real-time-fraud-detection.md
           - text: Trigger an Azure Function
             url: stream-analytics-with-azure-functions.md
       - linkListType: how-to-guide
@@ -178,8 +182,6 @@ landingContent:
             url: stream-analytics-edge.md
           - text: Build a sentiment analysis solution
             url: stream-analytics-twitter-sentiment-analysis-trends.md 
-          - text: Real-time fraud detection
-            url: stream-analytics-real-time-fraud-detection.md
           - text: Build an IoT solution
             url: stream-analytics-build-an-iot-solution-using-stream-analytics.md
           - text: High-frequency trading simulation
@@ -188,14 +190,10 @@ landingContent:
             url: stream-analytics-threshold-based-rules.md
   - title: Deploy Stream Analytics jobs
     linkLists:
-      - linkListType: tutorial
-        links:
-        - text: Deploy a job with CI/CD using Azure Pipelines
-          url: stream-analytics-tools-visual-studio-cicd-vsts.md
       - linkListType: how-to-guide
         links:
         - text: Set up a CI/CD pipeline with Visual Studio Code
-          url: setup-cicd-vs-code.md
+          url: ./cicd-overview.md
         - text: Set up a CI/CD pipeline with Visual Studio
           url: stream-analytics-tools-for-visual-studio-cicd.md
         - text: Use REST APIs to set up CI/CD for IoT Edge jobs
@@ -212,5 +210,4 @@ landingContent:
             url: stream-analytics-scale-jobs.md
           - text: Optimize processing by repartitioning
             url: repartition.md
-          
           

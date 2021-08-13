@@ -1,5 +1,6 @@
 ---
-title: Accessing Azure VMware Solution by CloudSimple from on-premises 
+title: Access Azure VMware Solution by CloudSimple from on-premises 
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Accessing your Azure VMware Solution by CloudSimple from your on-premises network through a firewall
 author: sharaths-cs 
 ms.author: dikamath 
@@ -29,7 +30,7 @@ To access your Private Cloud vCenter and NSX-T manager, ports defined in the tab
 
 ## Ports required for using on-premises active directory as an identity source
 
-To configure on-premises active directory as an identity source on Private Cloud vCenter, ports defined in the table must be opened.  See [Use Azure AD as an identity provider for vCenter on CloudSimple Private Cloud](https://docs.azure.cloudsimple.com/azure-ad/) for configuration steps.
+To configure on-premises active directory as an identity source on Private Cloud vCenter, ports defined in the table must be opened.  See [Use Azure AD as an identity provider for vCenter on CloudSimple Private Cloud](./azure-ad.md) for configuration steps.
 
 | Port         | Source                           | Destination                                         | Purpose                                                                                                                                          |
 |--------------|----------------------------------|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -37,7 +38,7 @@ To configure on-premises active directory as an identity source on Private Cloud
 | 389 (TCP/UDP) | Private Cloud management network | On-premises active directory domain controllers     | Required for LDAP communication from Private Cloud vCenter server to active directory domain controllers for user authentication.                |
 | 636 (TCP)     | Private Cloud management network | On-premises active directory domain controllers     | Required for secure LDAP (LDAPS) communication from Private Cloud vCenter server to active directory domain controllers for user authentication. |
 | 3268 (TCP)    | Private Cloud management network | On-premises active directory global catalog servers | Required for LDAP communication in a multi-domain controller deployments.                                                                        |
-| 3269 (TCP)    | Private Cloud management network | On-premises active directory global catalog servers | Required for LDAPS communication in a multi-domain controller deployments.                                                                       |                                           |
+| 3269 (TCP)    | Private Cloud management network | On-premises active directory global catalog servers | Required for LDAPS communication in a multi-domain controller deployments.                                                                       |
 
 ## Common ports required for accessing workload virtual machines
 
@@ -54,6 +55,6 @@ Access workload virtual machines running on Private Cloud requires ports to be o
 
 ## Next steps
 
-* [Create and manage VLANs and Subnets](https://docs.azure.cloudsimple.com/create-vlan-subnet/)
-* [Connect to on-premises network using Azure ExpressRoute](https://docs.azure.cloudsimple.com/on-premises-connection/)
-* [Setup Site-to-Site VPN from on-premises](https://docs.azure.cloudsimple.com/vpn-gateway/)
+* [Create and manage VLANs and Subnets](./create-vlan-subnet.md)
+* [Connect to on-premises network using Azure ExpressRoute](./on-premises-connection.md)
+* [Setup Site-to-Site VPN from on-premises](./vpn-gateway.md)

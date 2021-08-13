@@ -22,7 +22,7 @@ For an Ingress resource to be observed by AGIC, it **must be annotated** with `k
 | Annotation Key | Value Type | Default Value | Allowed Values
 | -- | -- | -- | -- |
 | [appgw.ingress.kubernetes.io/backend-path-prefix](#backend-path-prefix) | `string` | `nil` | |
-| [appgw.ingress.kubernetes.io/ssl-redirect](#ssl-redirect) | `bool` | `false` | |
+| [appgw.ingress.kubernetes.io/ssl-redirect](#tls-redirect) | `bool` | `false` | |
 | [appgw.ingress.kubernetes.io/connection-draining](#connection-draining) | `bool` | `false` | |
 | [appgw.ingress.kubernetes.io/connection-draining-timeout](#connection-draining) | `int32` (seconds) | `30` | |
 | [appgw.ingress.kubernetes.io/cookie-based-affinity](#cookie-based-affinity) | `bool` | `false` | |
@@ -65,12 +65,12 @@ In the example above, we have defined an ingress resource named `go-server-ingre
 > [!NOTE] 
 > In the above example we have only one rule defined. However, the annotations are applicable to the entire ingress resource, so if a user had defined multiple rules, the backend path prefix would be set up for each of the paths specified. Thus, if a user wants different rules with different path prefixes (even for the same service) they would need to define different ingress resources.
 
-## SSL Redirect
+## TLS Redirect
 
-Application Gateway [can be configured](https://docs.microsoft.com/azure/application-gateway/application-gateway-redirect-overview)
+Application Gateway [can be configured](./redirect-overview.md)
 to automatically redirect HTTP URLs to their HTTPS counterparts. When this
 annotation is present and TLS is properly configured, Kubernetes Ingress
-controller will create a [routing rule with a redirection configuration](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal#add-a-routing-rule-with-a-redirection-configuration)
+controller will create a [routing rule with a redirection configuration](./redirect-http-to-https-portal.md#add-a-routing-rule-with-a-redirection-configuration)
 and apply the changes to your Application Gateway. The redirect created will be HTTP `301 Moved Permanently`.
 
 ### Usage

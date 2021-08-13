@@ -1,28 +1,30 @@
 ---
-title: Create a user delegation SAS for a container or blob with PowerShell (preview) - Azure Storage
-description: Learn how to create a shared access signature (SAS) using Azure Active Directory credentials in Azure Storage using PowerShell.
+title: Use PowerShell to create a user delegation SAS for a container or blob
+titleSuffix: Azure Storage
+description: Learn how to create a user delegation SAS with Azure Active Directory credentials by using PowerShell.
 services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: conceptual
-ms.date: 08/29/2019
+ms.topic: how-to
+ms.date: 12/18/2019
 ms.author: tamram
-ms.reviewer: cbrooks
-ms.subservice: blobs
+ms.reviewer: dineshm
+ms.subservice: blobs 
+ms.custom: devx-track-azurepowershell
 ---
 
-# Create a user delegation SAS for a container or blob with PowerShell (preview)
+# Create a user delegation SAS for a container or blob with PowerShell
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-This article shows how to use Azure Active Directory (Azure AD) credentials to create a user delegation SAS for a container or blob with Azure PowerShell (preview).
+This article shows how to use Azure Active Directory (Azure AD) credentials to create a user delegation SAS for a container or blob with Azure PowerShell.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
-## Install the preview module
+## Install the PowerShell module
 
-To use PowerShell to create a user delegation SAS, you must first install the Az.Storage 1.3.1-preview module. Follow these steps to install the module:
+To create a user delegation SAS with PowerShell, install version 1.10.0 or later of the Az.Storage module. Follow these steps to install the latest version of the module:
 
 1. Uninstall any previous installations of Azure PowerShell:
 
@@ -32,7 +34,7 @@ To use PowerShell to create a user delegation SAS, you must first install the Az
 1. Make sure that you have the latest version of PowerShellGet installed. Open a Windows PowerShell window, and run the following command to install the latest version:
 
     ```powershell
-    Install-Module PowerShellGet –Repository PSGallery –Force
+    Install-Module PowerShellGet -Repository PSGallery -Force
     ```
 
 1. Close and reopen the PowerShell window after installing PowerShellGet.
@@ -40,26 +42,21 @@ To use PowerShell to create a user delegation SAS, you must first install the Az
 1. Install the latest version of Azure PowerShell:
 
     ```powershell
-    Install-Module Az –Repository PSGallery –AllowClobber
+    Install-Module Az -Repository PSGallery -AllowClobber
     ```
 
-1. Install an Azure Storage preview module that supports user delegation SAS:
+1. Make sure that you have installed Azure PowerShell version 3.2.0 or later. Run the following command to install the latest version of the Azure Storage PowerShell module:
 
     ```powershell
-    Install-Module Az.Storage `
-        –Repository PSGallery `
-        -RequiredVersion 1.3.1-preview `
-        –AllowPrerelease `
-        –AllowClobber `
-        –Force
+    Install-Module -Name Az.Storage -Repository PSGallery -Force
     ```
 
 1. Close and reopen the PowerShell window.
 
-Because PowerShell loads the latest Az.Storage module by default, you may need to explicitly load the 1.3.1-preview module when you start the console. To explicitly load the preview module, run the [Import-Module](/powershell/module/microsoft.powershell.core/import-module) command:
+To check which version of the Az.Storage module is installed, run the following command:
 
 ```powershell
-Import-Module Az.Storage -RequiredVersion 1.3.1
+Get-Module -ListAvailable -Name Az.Storage -Refresh
 ```
 
 For more information about installing Azure PowerShell, see [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-az-ps).
@@ -74,11 +71,11 @@ Connect-AzAccount
 
 For more information about signing in with PowerShell, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
-## Assign permissions with RBAC
+## Assign permissions with Azure RBAC
 
-To create a user delegation SAS from Azure PowerShell, the Azure AD account used to sign into PowerShell must be assigned a role that includes the **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** action. This permission enables that Azure AD account to request the *user delegation key*. The user delegation key is used to sign the user delegation SAS. The role providing the **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** action must be assigned at the level of the storage account, the resource group, or the subscription. For more information about RBAC permissions for creating a user delegation SAS, see the **Assign permissions with RBAC** section in [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas).
+To create a user delegation SAS from Azure PowerShell, the Azure AD account used to sign into PowerShell must be assigned a role that includes the **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** action. This permission enables that Azure AD account to request the *user delegation key*. The user delegation key is used to sign the user delegation SAS. The role providing the **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** action must be assigned at the level of the storage account, the resource group, or the subscription. For more information about Azure RBAC permissions for creating a user delegation SAS, see the **Assign permissions with Azure RBAC** section in [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas).
 
-If you do not have sufficient permissions to assign RBAC roles to an Azure AD security principal, you may need to ask the account owner or administrator to assign the necessary permissions.
+If you do not have sufficient permissions to assign Azure roles to an Azure AD security principal, you may need to ask the account owner or administrator to assign the necessary permissions.
 
 The following example assigns the **Storage Blob Data Contributor** role, which includes the **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** action. The role is scoped at the level of the storage account.
 
@@ -90,7 +87,7 @@ New-AzRoleAssignment -SignInName <email> `
     -Scope  "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>"
 ```
 
-For more information about the built-in roles that include the **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** action, see [Built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md).
+For more information about the built-in roles that include the **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** action, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
 ## Use Azure AD credentials to secure a SAS
 
@@ -121,7 +118,7 @@ New-AzStorageContainerSASToken -Context $ctx `
 
 The user delegation SAS token returned will be similar to:
 
-```
+```output
 ?sv=2018-11-09&sr=c&sig=<sig>&skoid=<skoid>&sktid=<sktid>&skt=2019-08-05T22%3A24%3A36Z&ske=2019-08-07T07%3A
 00%3A00Z&sks=b&skv=2018-11-09&se=2019-08-07T07%3A00%3A00Z&sp=rwdl
 ```
@@ -143,7 +140,7 @@ New-AzStorageBlobSASToken -Context $ctx `
 
 The user delegation SAS URI returned will be similar to:
 
-```
+```output
 https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?sv=2018-11-09&sr=b&sig=<sig>&skoid=<skoid>&sktid=<sktid>&skt=2019-08-06T21%3A16%3A54Z&ske=2019-08-07T07%3A00%3A00Z&sks=b&skv=2018-11-09&se=2019-08-07T07%3A00%3A00Z&sp=racwd
 ```
 
@@ -162,7 +159,7 @@ Revoke-AzStorageAccountUserDelegationKeys -ResourceGroupName <resource-group> `
 ```
 
 > [!IMPORTANT]
-> Both the user delegation key and RBAC role assignments are cached by Azure Storage, so there may be a delay between when you initiate the process of revocation and when an existing user delegation SAS becomes invalid.
+> Both the user delegation key and Azure role assignments are cached by Azure Storage, so there may be a delay between when you initiate the process of revocation and when an existing user delegation SAS becomes invalid.
 
 ## Next steps
 

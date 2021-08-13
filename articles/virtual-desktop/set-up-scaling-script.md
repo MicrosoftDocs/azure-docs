@@ -1,133 +1,326 @@
 ---
-title: Dynamic scale Windows Virtual Desktop session hosts - Azure
-description: Describes how to set up the automatic scaling script for Windows Virtual Desktop session hosts.
-services: virtual-desktop
+title: Scale session hosts Azure Automation - Azure
+description: How to automatically scale Azure Virtual Desktop session hosts with Azure Automation.
 author: Heidilohr
-
-ms.service: virtual-desktop
-ms.topic: conceptual
-ms.date: 10/02/2019
+ms.topic: how-to
+ms.date: 03/09/2021
 ms.author: helohr
+manager: femila
 ---
-# Scale session hosts dynamically
+# Scale session hosts using Azure Automation
 
-For many Windows Virtual Desktop deployments in Azure, the virtual machine costs represent significant portion of the total Windows Virtual Desktop deployment cost. To reduce costs, it's best to shut down and deallocate session host virtual machines (VMs) during off-peak usage hours, then restart them during peak usage hours.
+You can reduce your total Azure Virtual Desktop deployment cost by scaling your virtual machines (VMs). This means shutting down and deallocating session host VMs during off-peak usage hours, then turning them back on and reallocating them during peak hours.
 
-This article uses a simple scaling script to automatically scale session host virtual machines in your Windows Virtual Desktop environment. To learn more about how the scaling script works, see the [How the scaling script works](#how-the-scaling-script-works) section.
+In this article, you'll learn about the scaling tool built with the Azure Automation account and Azure Logic App that automatically scales session host VMs in your Azure Virtual Desktop environment. To learn how to use the scaling tool, skip ahead to [Prerequisites](#prerequisites).
+
+## How the scaling tool works
+
+The scaling tool provides a low-cost automation option for customers who want to optimize their session host VM costs.
+
+You can use the scaling tool to:
+
+- Schedule VMs to start and stop based on Peak and Off-Peak business hours.
+- Scale out VMs based on number of sessions per CPU core.
+- Scale in VMs during Off-Peak hours, leaving the minimum number of session host VMs running.
+
+The scaling tool uses a combination of an Azure Automation account, a PowerShell runbook, a webhook, and the Azure Logic App to function. When the tool runs, Azure Logic App calls a webhook to start the Azure Automation runbook. The runbook then creates a job.
+
+During peak usage time, the job checks the current number of sessions and the VM capacity of the current running session host for each host pool. It uses this information to calculate if the running session host VMs can support existing sessions based on the *SessionThresholdPerCPU* parameter defined for the **CreateOrUpdateAzLogicApp.ps1** file. If the session host VMs can't support existing sessions, the job starts additional session host VMs in the host pool.
+
+>[!NOTE]
+>*SessionThresholdPerCPU* doesn't restrict the number of sessions on the VM. This parameter only determines when new VMs need to be started to load-balance the connections. To restrict the number of sessions, you need to follow the instructions [Update-AzWvdHostPool](configure-host-pool-load-balancing.md#configure-breadth-first-load-balancing) to configure the *MaxSessionLimit* parameter accordingly.
+
+During the off-peak usage time, the job determines how many session host VMs should be shut down based on the *MinimumNumberOfRDSH* parameter. If you set the *LimitSecondsToForceLogOffUser* parameter to a non-zero positive value, the job will set the session host VMs to drain mode to prevent new sessions from connecting to the hosts. The job will then notify any currently signed in users to save their work, wait the configured amount of time, and then force the users to sign out. Once all user sessions on the session host VM have been signed out, the job will shut down the VM. After the VM shuts down, the job will reset its session host drain mode.
+
+>[!NOTE]
+>If you manually set the session host VM to drain mode, the job won't manage the session host VM. If the session host VM is running and set to drain mode, it will be treated as unavailable, which will make the job start additional VMs to handle the load. We recommend you tag any Azure VMs before you manually set them to drain mode. You can name the tag with the *MaintenanceTagName* parameter when you create Azure Logic App Scheduler later. Tags will help you distinguish these VMs from the ones the scaling tool manages. Setting the maintenance tag also prevents the scaling tool from making changes to the VM until you remove the tag.
+
+If you set the *LimitSecondsToForceLogOffUser* parameter to zero, the job allows the session configuration setting in specified group policies to handle signing off user sessions. To see these group policies, go to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Session Time Limits**. If there are any active sessions on a session host VM, the job will leave the session host VM running. If there aren't any active sessions, the job will shut down the session host VM.
+
+During any time, the job also takes host pool's *MaxSessionLimit* into account to determine if the current number of sessions is more than 90% of the maximum capacity. If it is, the job will start additional session host VMs.
+
+The job runs periodically based on a set recurrence interval. You can change this interval based on the size of your Azure Virtual Desktop environment, but remember that starting and shutting down VMs can take some time, so remember to account for the delay. We recommend setting the recurrence interval to every 15 minutes.
+
+However, the tool also has the following limitations:
+
+- This solution applies only to pooled multi-session session host VMs.
+- This solution manages VMs in any region, but can only be used in the same subscription as your Azure Automation account and Azure Logic App.
+- The maximum runtime of a job in the runbook is 3 hours. If starting or stopping the VMs in the host pool takes longer than that, the job will fail. For more details, see [Shared resources](../automation/automation-runbook-execution.md#fair-share).
+- At least one VM or session host needs to be turned on for the scaling algorithm to work properly.
+- The scaling tool doesn't support scaling based on CPU or memory.
+- Scaling only works with existing hosts in the host pool. The scaling tool doesn't support scaling new session hosts.
+
+>[!NOTE]
+>The scaling tool controls the load balancing mode of the host pool it's currently scaling. The tool uses breadth-first load balancing mode for both peak and off-peak hours.
 
 ## Prerequisites
 
-The environment where you run the script must have the following things:
+Before you start setting up the scaling tool, make sure you have the following things ready:
 
-- A Windows Virtual Desktop tenant and account or a service principal with permissions to query that tenant (such as RDS Contributor).
-- Session host pool VMs configured and registered with the Windows Virtual Desktop service.
-- An additional virtual machine that runs the scheduled task via Task Scheduler and has network access to session hosts. This will be referred to later in the document as scaler VM.
-- The [Microsoft Azure Resource Manager PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) installed on the VM running the scheduled task.
-- The [Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) installed on the VM running the scheduled task.
+- An [Azure Virtual Desktop host pool](create-host-pools-azure-marketplace.md)
+- Session host pool VMs configured and registered with the Azure Virtual Desktop service
+- A user with [Contributor access](../role-based-access-control/role-assignments-portal.md) on Azure subscription
 
-## Recommendations and limitations
+The machine you use to deploy the tool must have:
 
-When running the scaling script, keep the following things in mind:
+- Windows PowerShell 5.1 or later
+- The Microsoft Az PowerShell module
 
-- This scaling script can only handle one host pool per instance of the scheduled task that is running the scaling script.
-- The scheduled tasks that run scaling scripts must be on a VM that is always on.
-- Create a separate folder for each instance of the scaling script and its configuration.
-- This script doesn't support signing in as an admin to Windows Virtual Desktop with Azure AD user accounts that require multi-factor authentication. We recommend you use service principals to access the Windows Virtual Desktop service and Azure. Follow [this tutorial](create-service-principal-role-powershell.md) to create a service principal and a role assignment with PowerShell.
-- Azure's SLA guarantee applies only to VMs in an availability set. The current version of the document describes an environment with a single VM doing the scaling, which may not meet availability requirements.
+If you have everything ready, then let's get started.
 
-## Deploy the scaling script
+## Create or update an Azure Automation account
 
-The following procedures will tell you how to deploy the scaling script.
+>[!NOTE]
+>If you already have an Azure Automation account with a runbook running an older version of the scaling script, all you need to do is follow the instructions below to make sure it's updated.
 
-### Prepare your environment for the scaling script
+First, you'll need an Azure Automation account to run the PowerShell runbook. The process this section describes is valid even if you have an existing Azure Automation account that you want to use to set up the PowerShell runbook. Here's how to set it up:
 
-First, prepare your environment for the scaling script:
+1. Open Windows PowerShell.
 
-1. Sign in to the VM (scaler VM) that will run the scheduled task with a domain administrative account.
-2. Create a folder on the scaler VM to hold the scaling script and its configuration (for example, **C:\\scaling-HostPool1**).
-3. Download the **basicScale.ps1**, **Config.xml**, and **Functions-PSStoredCredentials.ps1** files, and the **PowershellModules** folder from the [scaling script repository](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) and copy them to the folder you created in step 2. There are two primary ways to obtain the files before copying them to the scaler VM:
-    - Clone the git repository to your local machine.
-    - View the **Raw** version of each file, copy and paste the content of each file to a text editor, then save the files with the corresponding file name and file type. 
-
-### Create securely stored credentials
-
-Next, you'll need to create the securely stored credentials:
-
-1. Open PowerShell ISE as an administrator.
-2. Import the RDS PowerShell module by running the following cmdlet:
+2. Run the following cmdlet to sign in to your Azure account.
 
     ```powershell
-    Install-Module Microsoft.RdInfra.RdPowershell
+    Login-AzAccount
     ```
-    
-3. Open the edit pane and load the **Function-PSStoredCredentials.ps1** file, then run the whole script (F5)
-4. Run the following cmdlet:
-    
+
+    >[!NOTE]
+    >Your account must have contributor rights on the Azure subscription where you want to deploy the scaling tool.
+
+3. Run the following cmdlet to download the script for creating the Azure Automation account:
+
     ```powershell
-    Set-Variable -Name KeyPath -Scope Global -Value <LocalScalingScriptFolder>
+    New-Item -ItemType Directory -Path "C:\Temp" -Force
+    Set-Location -Path "C:\Temp"
+    $Uri = "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-scaling-script/CreateOrUpdateAzAutoAccount.ps1"
+    # Download the script
+    Invoke-WebRequest -Uri $Uri -OutFile ".\CreateOrUpdateAzAutoAccount.ps1"
     ```
-    
-    For example, **Set-Variable -Name KeyPath -Scope Global -Value "c:\\scaling-HostPool1"**
-5. Run the **New-StoredCredential -KeyPath \$KeyPath** cmdlet. When prompted, enter your Windows Virtual Desktop credentials with permissions to query the host pool (the host pool is specified in the **config.xml**).
-    - If you use different service principals or standard account, run the **New-StoredCredential -KeyPath \$KeyPath** cmdlet once for each account to create local stored credentials.
-6. Run **Get-StoredCredential -List** to confirm the credentials were created successfully.
 
-### Configure the config.xml file
+4. Run the following cmdlet to execute the script and create the Azure Automation account. You can either fill in values for the parameters or comment them to use their defaults.
 
-Enter the relevant values into the following fields to update the scaling script settings in config.xml:
+    ```powershell
+    $Params = @{
+         "AADTenantId"           = "<Azure_Active_Directory_tenant_ID>"   # Optional. If not specified, it will use the current Azure context
+         "SubscriptionId"        = "<Azure_subscription_ID>"              # Optional. If not specified, it will use the current Azure context
+         "UseARMAPI"             = $true
+         "ResourceGroupName"     = "<Resource_group_name>"                # Optional. Default: "WVDAutoScaleResourceGroup"
+         "AutomationAccountName" = "<Automation_account_name>"            # Optional. Default: "WVDAutoScaleAutomationAccount"
+         "Location"              = "<Azure_region_for_deployment>"
+         "WorkspaceName"         = "<Log_analytics_workspace_name>"       # Optional. If specified, Log Analytics will be used to configure the custom log table that the runbook PowerShell script can send logs to
+    }
 
-| Field                     | Description                    |
-|-------------------------------|------------------------------------|
-| AADTenantId                   | Azure AD Tenant ID that associates the subscription where the session host VMs run     |
-| AADApplicationId              | Service principal application ID                                                       |
-| AADServicePrincipalSecret     | This can be entered during the testing phase but is to be kept empty once you create credentials with **Functions-PSStoredCredentials.ps1**    |
-| currentAzureSubscriptionId    | The ID of the Azure subscription where the session host VMs run                        |
-| tenantName                    | Windows Virtual Desktop tenant name                                                    |
-| hostPoolName                  | Windows Virtual Desktop host pool name                                                 |
-| RDBroker                      | URL to the WVD service, default value https:\//rdbroker.wvd.microsoft.com             |
-| Username                      | The service principal application ID (it’s possible to have the same service principal as in AADApplicationId) or standard user without multi-factor authentication |
-| isServicePrincipal            | Accepted values are **true** or **false**. Indicates whether the second set of credentials being used is a service principal or a standard account. |
-| BeginPeakTime                 | When peak usage time begins                                                            |
-| EndPeakTime                   | When peak usage time ends                                                              |
-| TimeDifferenceInHours         | Time difference between local time and UTC, in hours                                   |
-| SessionThresholdPerCPU        | Maximum number of sessions per CPU threshold used to determine when a new session host VM needs to be started during peak hours.  |
-| MinimumNumberOfRDSH           | Minimum number of host pool VMs to keep running during off-peak usage time             |
-| LimitSecondsToForceLogOffUser | Number of seconds to wait before forcing users to sign out. If set to 0, users aren’t forced to sign out.  |
-| LogOffMessageTitle            | Title of the message sent to a user before they’re forced to sign out                  |
-| LogOffMessageBody             | Body of the warning message sent to users before they’re signed out. For example, "This machine will shut down in X minutes. Please save your work and sign out.” |
+    .\CreateOrUpdateAzAutoAccount.ps1 @Params
+    ```
 
-### Configure the Task Scheduler
+5. The cmdlet's output will include a webhook URI. Make sure to keep a record of the URI because you'll use it as a parameter when you set up the execution schedule for the Azure Logic App.
 
-After configuring the configuration .xml file, you'll need to configure the Task Scheduler to run the basicScaler.ps1 file at a regular interval.
+6. If you specified the parameter **WorkspaceName** for Log Analytics, the cmdlet's output will also include the Log Analytics Workspace ID and its Primary Key. Make sure to remember URI because you'll need to use it again later as a parameter when you set up the execution schedule for the Azure Logic App.
 
-1. Start **Task Scheduler**.
-2. In the **Task Scheduler** window, select **Create Task…**
-3. In **the Create Task** dialog, select the **General** tab, enter a **Name** (for example, “Dynamic RDSH”), select **Run whether user is logged on or not** and **Run with highest privileges**.
-4. Go to the **Triggers** tab, then select **New…**
-5. In the **New Trigger** dialog, under **Advanced settings**, check **Repeat task every** and select the appropriate period and duration (for example, **15 minutes** or **Indefinitely**).
-6. Select the **Actions** tab and **New…**
-7. In the **New Action** dialog, enter **powershell.exe** into the **Program/script** field, then enter **C:\\scaling\\basicScale.ps1** into the **Add arguments (optional)** field.
-8. Go to the **Conditions** and **Settings** tabs and select **OK** to accept the default settings for each.
-9. Enter the password for the administrative account where you plan to run the scaling script.
+7. After you've set up your Azure Automation account, sign in to your Azure subscription and check to make sure your Azure Automation account and the relevant runbook have appeared in your specified resource group, as shown in the following image:
 
-## How the scaling script works
+    >[!div class="mx-imgBorder"]
+    >![An image of the Azure overview page showing the newly created Azure Automation account and runbook.](media/automation-account.png)
 
-This scaling script reads settings from a config.xml file, including the start and end of the peak usage period during the day.
+    To check if your webhook is where it should be, select the name of your runbook. Next, go to your runbook's Resources section and select **Webhooks**.
 
-During peak usage time, the script checks the current number of sessions and the current running RDSH capacity for each host pool. It calculates if the running session host VMs have enough capacity to support existing sessions based on the SessionThresholdPerCPU parameter defined in the config.xml file. If not, the script starts additional session host VMs in the host pool.
+## Create an Azure Automation Run As account
 
-During the off-peak usage time, the script determines which session host VMs should shut down based on the MinimumNumberOfRDSH parameter in the config.xml file. The script will set the session host VMs to drain mode to prevent new sessions connecting to the hosts. If you set the **LimitSecondsToForceLogOffUser** parameter in the config.xml file to a non-zero positive value, the script will notify any currently signed in users to save work, wait the configured amount of time, and then force the users to sign out. Once all user sessions have been signed off on a session host VM, the script will shut down the server.
+Now that you have an Azure Automation account, you'll also need to create an Azure Automation Run As account if you don't have one already. This account will let the tool access your Azure resources.
 
-If you set the **LimitSecondsToForceLogOffUser** parameter in the config.xml file to zero, the script will allow the session configuration setting in the host pool properties to handle signing off user sessions. If there are any sessions on a session host VM, it will leave the session host VM running. If there aren't any sessions, the script will shut down the session host VM.
+An [Azure Automation Run As account](../automation/manage-runas-account.md) provides authentication for managing resources in Azure with Azure cmdlets. When you create a Run As account, it creates a new service principal user in Azure Active Directory and assigns the Contributor role to the service principal user at the subscription level. An Azure Run As account is a great way to authenticate securely with certificates and a service principal name without needing to store a username and password in a credential object. To learn more about Run As account authentication, see [Limit Run As account permissions](../automation/manage-runas-account.md#limit-run-as-account-permissions).
 
-The script is designed to run periodically on the scaler VM server using Task Scheduler. Select the appropriate time interval based on the size of your Remote Desktop Services environment, and remember that starting and shutting down virtual machines can take some time. We recommend running the scaling script every 15 minutes.
+Any user who's a member of the Subscription Admins role and coadministrator of the subscription can create a Run As account.
 
-## Log files
+To create a Run As account in your Azure Automation account:
 
-The scaling script creates two log files, **WVDTenantScale.log** and **WVDTenantUsage.log**. The **WVDTenantScale.log** file will log the events and errors (if any) during each execution of the scaling script.
+1. In the Azure portal, select **All services**. In the list of resources, enter and select **Automation accounts**.
 
-The **WVDTenantUsage.log** file will record the active number of cores and active number of virtual machines each time you execute the scaling script. You can use this information to estimate the actual usage of Microsoft Azure VMs and the cost. The file is formatted as comma-separated values, with each item containing the following information:
+2. On the **Automation accounts** page, select the name of your Azure Automation account.
 
->time, host pool, cores, VMs
+3. In the pane on the left side of the window, select **Run As accounts** under the **Account Settings** section.
 
-The file name can also be modified to have a .csv extension, loaded into Microsoft Excel, and analyzed.
+4. Select **Azure Run As account**. When the **Add Azure Run As account** pane appears, review the overview information, and then select **Create** to start the account creation process.
+
+5. Wait a few minutes for Azure to create the Run As account. You can track the creation progress in the menu under Notifications.
+
+6. When the process finishes, it will create an asset named **AzureRunAsConnection** in the specified Azure Automation account. Select **Azure Run As account**. The connection asset holds the application ID, tenant ID, subscription ID, and certificate thumbprint. You can also find the same information on the **Connections** page. To go to this page, in the pane on the left side of the window, select **Connections** under the **Shared Resources** section and click on the connection asset named **AzureRunAsConnection**.
+
+## Create the Azure Logic App and execution schedule
+
+Finally, you'll need to create the Azure Logic App and set up an execution schedule for your new scaling tool. First, download and import the [Desktop Virtualization PowerShell module](powershell-module.md) to use in your PowerShell session if you haven't already.
+
+1. Open Windows PowerShell.
+
+2. Run the following cmdlet to sign in to your Azure account.
+
+    ```powershell
+    Login-AzAccount
+    ```
+
+3. Run the following cmdlet to download the script for creating the Azure Logic App.
+
+    ```powershell
+    New-Item -ItemType Directory -Path "C:\Temp" -Force
+    Set-Location -Path "C:\Temp"
+    $Uri = "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-scaling-script/CreateOrUpdateAzLogicApp.ps1"
+    # Download the script
+    Invoke-WebRequest -Uri $Uri -OutFile ".\CreateOrUpdateAzLogicApp.ps1"
+    ```
+
+4. Run the following PowerShell script to create the Azure Logic App and execution schedule for your host pool
+
+    >[!NOTE]
+    >You'll need to run this script for each host pool you want to autoscale, but you need only one Azure Automation account.
+
+    ```powershell
+    $AADTenantId = (Get-AzContext).Tenant.Id
+
+    $AzSubscription = Get-AzSubscription | Out-GridView -OutputMode:Single -Title "Select your Azure Subscription"
+    Select-AzSubscription -Subscription $AzSubscription.Id
+
+    $ResourceGroup = Get-AzResourceGroup | Out-GridView -OutputMode:Single -Title "Select the resource group for the new Azure Logic App"
+
+    $WVDHostPool = Get-AzResource -ResourceType "Microsoft.DesktopVirtualization/hostpools" | Out-GridView -OutputMode:Single -Title "Select the host pool you'd like to scale"
+
+    $LogAnalyticsWorkspaceId = Read-Host -Prompt "If you want to use Log Analytics, enter the Log Analytics Workspace ID returned by when you created the Azure Automation account, otherwise leave it blank"
+    $LogAnalyticsPrimaryKey = Read-Host -Prompt "If you want to use Log Analytics, enter the Log Analytics Primary Key returned by when you created the Azure Automation account, otherwise leave it blank"
+    $RecurrenceInterval = Read-Host -Prompt "Enter how often you'd like the job to run in minutes, e.g. '15'"
+    $BeginPeakTime = Read-Host -Prompt "Enter the start time for peak hours in local time, e.g. 9:00"
+    $EndPeakTime = Read-Host -Prompt "Enter the end time for peak hours in local time, e.g. 18:00"
+    $TimeDifference = Read-Host -Prompt "Enter the time difference between local time and UTC in hours, e.g. +5:30"
+    $SessionThresholdPerCPU = Read-Host -Prompt "Enter the maximum number of sessions per CPU that will be used as a threshold to determine when new session host VMs need to be started during peak hours"
+    $MinimumNumberOfRDSH = Read-Host -Prompt "Enter the minimum number of session host VMs to keep running during off-peak hours"
+    $MaintenanceTagName = Read-Host -Prompt "Enter the name of the Tag associated with VMs you don't want to be managed by this scaling tool"
+    $LimitSecondsToForceLogOffUser = Read-Host -Prompt "Enter the number of seconds to wait before automatically signing out users. If set to 0, any session host VM that has user sessions, will be left untouched"
+    $LogOffMessageTitle = Read-Host -Prompt "Enter the title of the message sent to the user before they are forced to sign out"
+    $LogOffMessageBody = Read-Host -Prompt "Enter the body of the message sent to the user before they are forced to sign out"
+
+    $AutoAccount = Get-AzAutomationAccount | Out-GridView -OutputMode:Single -Title "Select the Azure Automation account"
+    $AutoAccountConnection = Get-AzAutomationConnection -ResourceGroupName $AutoAccount.ResourceGroupName -AutomationAccountName $AutoAccount.AutomationAccountName | Out-GridView -OutputMode:Single -Title "Select the Azure RunAs connection asset"
+
+    $WebhookURIAutoVar = Get-AzAutomationVariable -Name 'WebhookURIARMBased' -ResourceGroupName $AutoAccount.ResourceGroupName -AutomationAccountName $AutoAccount.AutomationAccountName
+
+    $Params = @{
+         "AADTenantId"                   = $AADTenantId                             # Optional. If not specified, it will use the current Azure context
+         "SubscriptionID"                = $AzSubscription.Id                       # Optional. If not specified, it will use the current Azure context
+         "ResourceGroupName"             = $ResourceGroup.ResourceGroupName         # Optional. Default: "WVDAutoScaleResourceGroup"
+         "Location"                      = $ResourceGroup.Location                  # Optional. Default: "West US2"
+         "UseARMAPI"                     = $true
+         "HostPoolName"                  = $WVDHostPool.Name
+         "HostPoolResourceGroupName"     = $WVDHostPool.ResourceGroupName           # Optional. Default: same as ResourceGroupName param value
+         "LogAnalyticsWorkspaceId"       = $LogAnalyticsWorkspaceId                 # Optional. If not specified, script will not log to the Log Analytics
+         "LogAnalyticsPrimaryKey"        = $LogAnalyticsPrimaryKey                  # Optional. If not specified, script will not log to the Log Analytics
+         "ConnectionAssetName"           = $AutoAccountConnection.Name              # Optional. Default: "AzureRunAsConnection"
+         "RecurrenceInterval"            = $RecurrenceInterval                      # Optional. Default: 15
+         "BeginPeakTime"                 = $BeginPeakTime                           # Optional. Default: "09:00"
+         "EndPeakTime"                   = $EndPeakTime                             # Optional. Default: "17:00"
+         "TimeDifference"                = $TimeDifference                          # Optional. Default: "-7:00"
+         "SessionThresholdPerCPU"        = $SessionThresholdPerCPU                  # Optional. Default: 1
+         "MinimumNumberOfRDSH"           = $MinimumNumberOfRDSH                     # Optional. Default: 1
+         "MaintenanceTagName"            = $MaintenanceTagName                      # Optional.
+         "LimitSecondsToForceLogOffUser" = $LimitSecondsToForceLogOffUser           # Optional. Default: 1
+         "LogOffMessageTitle"            = $LogOffMessageTitle                      # Optional. Default: "Machine is about to shutdown."
+         "LogOffMessageBody"             = $LogOffMessageBody                       # Optional. Default: "Your session will be logged off. Please save and close everything."
+         "WebhookURI"                    = $WebhookURIAutoVar.Value
+    }
+
+    .\CreateOrUpdateAzLogicApp.ps1 @Params
+    ```
+
+    After you run the script, the Azure Logic App should appear in a resource group, as shown in the following image.
+
+    >[!div class="mx-imgBorder"]
+    >![An image of the overview page for an example Azure Logic App.](media/logic-app.png)
+
+    To make changes to the execution schedule, such as changing the recurrence interval or time zone, go to the Azure Logic App autoscale scheduler and select **Edit** to go to the Azure Logic App Designer.
+
+    >[!div class="mx-imgBorder"]
+    >![An image of the Azure Logic App Designer. The Recurrence and webhook menus that let the user edit recurrence times and the webhook file are open.](media/logic-apps-designer.png)
+
+## Manage your scaling tool
+
+Now that you've created your scaling tool, you can access its output. This section describes a few features you might find helpful.
+
+### View job status
+
+You can view a summarized status of all runbook jobs or view a more in-depth status of a specific runbook job in the Azure portal.
+
+On the right of your selected Azure Automation account, under "Job Statistics," you can view a list of summaries of all runbook jobs. Opening the **Jobs** page on the left side of the window shows current job statuses, start times, and completion times.
+
+>[!div class="mx-imgBorder"]
+>![A screenshot of the job status page.](media/jobs-status.png)
+
+### View logs and scaling tool output
+
+You can view the logs of scale-out and scale-in operations by opening your runbook and selecting the job.
+
+Navigate to the runbook in your resource group hosting the Azure Automation account and select **Overview**. On the overview page, select a job under **Recent Jobs** to view its scaling tool output, as shown in the following image.
+
+>[!div class="mx-imgBorder"]
+>![An image of the output window for the scaling tool.](media/tool-output.png)
+
+### Check the runbook script version number
+
+You can check which version of the runbook script you're using by opening the runbook file in your Azure Automation account and selecting **View**. A script for the runbook will appear on the right side of the screen. In the script, you'll see the version number in the format `v#.#.#` under the `SYNOPSIS` section. You can find the latest version number [here](https://github.com/Azure/RDS-Templates/blob/master/wvd-templates/wvd-scaling-script/ARM_based/basicScale.ps1#L1). If you don't see a version number in your runbook script, that means you're running an earlier version of the script and you should update it right away. If you need to update your runbook script, follow the instructions in [Create or update an Azure Automation account](#create-or-update-an-azure-automation-account).
+
+### Reporting issues
+
+When you report an issue, you'll need to provide the following information to help us troubleshoot:
+
+- A complete log from the **All Logs** tab in the job that caused the issue. To learn how to get the log, follow the instructions in [View logs and scaling tool output](#view-logs-and-scaling-tool-output). If there's any sensitive or private information in the log, you can remove it before submitting the issue to us.
+
+- The version of the runbook script you're using. To find out how to get the version number, see [Check the runbook script version number](#check-the-runbook-script-version-number)
+
+- The version number of each of the following PowerShell modules installed in your Azure Automation account. To find these modules, open Azure Automation account, select **Modules** under the **Shared Resources** section in the pane on the left side of the window, and then search for the module's name.
+    - Az.Accounts
+    - Az.Compute
+    - Az.Resources
+    - Az.Automation
+    - OMSIngestionAPI
+    - Az.DesktopVirtualization
+
+- The expiration date for your [Run As account](#create-an-azure-automation-run-as-account). To find this, open your Azure Automation account, then select **Run As accounts** under **Account Settings** in the pane on the left side of the window. The expiration date should be under **Azure Run As account**.
+
+### Log Analytics
+
+If you decided to use Log Analytics, you can view all the log data in a custom log named **WVDTenantScale_CL** under **Custom Logs** in the **Logs** view of your Log Analytics Workspace. We've listed some sample queries you might find helpful.
+
+- To see all logs for a host pool, enter the following query
+
+    ```Kusto
+    WVDTenantScale_CL
+    | where hostpoolName_s == "<host_pool_name>"
+    | project TimeStampUTC = TimeGenerated, TimeStampLocal = TimeStamp_s, HostPool = hostpoolName_s, LineNumAndMessage = logmessage_s, AADTenantId = TenantId
+    ```
+
+- To view the total number of currently running session host VMs and active user sessions in your host pool, enter the following query
+
+    ```Kusto
+    WVDTenantScale_CL
+    | where logmessage_s contains "Number of running session hosts:"
+         or logmessage_s contains "Number of user sessions:"
+         or logmessage_s contains "Number of user sessions per Core:"
+    | where hostpoolName_s == "<host_pool_name>"
+    | project TimeStampUTC = TimeGenerated, TimeStampLocal = TimeStamp_s, HostPool = hostpoolName_s, LineNumAndMessage = logmessage_s, AADTenantId = TenantId
+    ```
+
+- To view the status of all session host VMs in a host pool, enter the following query
+
+    ```Kusto
+    WVDTenantScale_CL
+    | where logmessage_s contains "Session host:"
+    | where hostpoolName_s == "<host_pool_name>"
+    | project TimeStampUTC = TimeGenerated, TimeStampLocal = TimeStamp_s, HostPool = hostpoolName_s, LineNumAndMessage = logmessage_s, AADTenantId = TenantId
+    ```
+
+- To view any errors and warnings, enter the following query
+
+    ```Kusto
+    WVDTenantScale_CL
+    | where logmessage_s contains "ERROR:" or logmessage_s contains "WARN:"
+    | project TimeStampUTC = TimeGenerated, TimeStampLocal = TimeStamp_s, HostPool = hostpoolName_s, LineNumAndMessage = logmessage_s, AADTenantId = TenantId
+    ```
+
+## Report issues
+
+Issue reports for the scaling tool are currently being handled by Microsoft Support. When you make an issue report, make sure to follow the instructions in [Reporting issues](#reporting-issues). If you have feedback about the tool or want to request new features, open a GitHub issue labeled "4-WVD-scaling-tool" on the [RDS GitHub page](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4-WVD-scaling-tool).

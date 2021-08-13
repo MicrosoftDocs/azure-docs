@@ -1,16 +1,16 @@
 ---
-title: How to investigate risks in Azure Active Directory Identity Protection
+title: Investigate risk Azure Active Directory Identity Protection
 description: Learn how to investigate risky users, detections, and sign-ins in Azure Active Directory Identity Protection
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: conceptual
-ms.date: 10/18/2019
+ms.topic: how-to
+ms.date: 06/05/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sahandle
 
 ms.collection: M365-identity-device-management
@@ -27,7 +27,7 @@ The three reports are found in the **Azure portal** > **Azure Active Directory**
 
 ## Navigating the reports
 
-Each report launches with a list of all detections for the period shown at the top of the report. Each report allows for the addition or removal of columns based on administrator preference. Administrators can choose to download the data in .CSV format. Reports can be filtered using the filters across the top of the report.
+Each report launches with a list of all detections for the period shown at the top of the report. Each report allows for the addition or removal of columns based on administrator preference. Administrators can choose to download the data in .CSV or .JSON format. Reports can be filtered using the filters across the top of the report.
 
 Selecting individual entries may enable additional entries at the top of the report such as the ability to confirm a sign-in as compromised or safe, confirm a user as compromised, or dismiss user risk.
 
@@ -41,7 +41,7 @@ With the information provided by the risky users report, administrators can find
 
 - Which users are at risk, have had risk remediated, or have had risk dismissed?
 - Details about detections
-- History of risky sign-ins
+- History of all risky sign-ins
 - Risk history
  
 Administrators can then choose to take action on these events. Administrators can choose to:
@@ -72,6 +72,9 @@ Administrators can then choose to take action on these events. Administrators ca
 - Confirm sign-in compromise
 - Confirm sign-in safe
 
+> [!NOTE] 
+> Identity Protection evaluates risk for all authentication flows, whether it be interactive or non-interactive. However, the sign-in report shows only the interactive sign-ins. You may see risky sign-ins that occurred on non-interactive sign-ins, but the sign-in will not show up in the Azure AD sign-ins report.
+
 ## Risk detections
 
 The risk detections report contains filterable data for up to the past 90 days (3 months).
@@ -84,6 +87,10 @@ With the information provided by the risk detections report, administrators can 
 - Link out to more detail from Microsoft Cloud App Security (MCAS).
 
 Administrators can then choose to return to the user's risk or sign-ins report to take actions based on information gathered.
+
+> [!NOTE] 
+> Our system may detect that the risk event that contributed to the risk user risk score was a false positives or the user risk was remediated with policy enforcement such as completing an MFA prompt or secure password change. Therefore our system will dismiss the risk state and a risk detail of “AI confirmed sign-in safe” will surface and it will no longer contribute to the user’s risk. 
+
 
 ## Next steps
 

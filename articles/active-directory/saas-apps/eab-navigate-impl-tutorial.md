@@ -1,92 +1,95 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with EAB Navigate IMPL | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and EAB Navigate IMPL.
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with EAB Implementation | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and EAB Implementation.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 51460c55-2239-49b6-8a5e-7c8baacad518
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/22/2019
+ms.date: 03/26/2021
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with EAB Navigate IMPL
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with EAB Implementation
 
-In this tutorial, you'll learn how to integrate EAB Navigate IMPL with Azure Active Directory (Azure AD). When you integrate EAB Navigate IMPL with Azure AD, you can:
+In this tutorial, you'll learn how to integrate EAB Implementation with Azure Active Directory (Azure AD). When you integrate EAB Implementation with Azure AD, you can:
 
-* Control in Azure AD who has access to EAB Navigate IMPL.
-* Enable your users to be automatically signed-in to EAB Navigate IMPL with their Azure AD accounts.
+* Control in Azure AD who has access to EAB Implementation.
+* Enable your users to be automatically signed-in to EAB Implementation with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## Prerequisites
 
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* EAB Navigate IMPL single sign-on (SSO) enabled subscription.
+* EAB Implementation single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* EAB Navigate IMPL supports **SP** initiated SSO
+* EAB Implementation supports **SP** initiated SSO.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
-## Adding EAB Navigate IMPL from the gallery
+## Adding EAB Implementation from the gallery
 
-To configure the integration of EAB Navigate IMPL into Azure AD, you need to add EAB Navigate IMPL from the gallery to your list of managed SaaS apps.
+To configure the integration of EAB Implementation into Azure AD, you need to add EAB Implementation from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
-1. In the **Add from the gallery** section, type **EAB Navigate IMPL** in the search box.
-1. Select **EAB Navigate IMPL** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. In the **Add from the gallery** section, type **EAB Implementation** in the search box.
+1. Select **EAB Implementation** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on for EAB Navigate IMPL
+## Configure and test Azure AD SSO for EAB Implementation
 
-Configure and test Azure AD SSO with EAB Navigate IMPL using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in EAB Navigate IMPL.
+Configure and test Azure AD SSO with EAB Implementation using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in EAB Implementation.
 
-To configure and test Azure AD SSO with EAB Navigate IMPL, complete the following building blocks:
+To configure and test Azure AD SSO with EAB Implementation, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure EAB Navigate IMPL SSO](#configure-eab-navigate-impl-sso)** - to configure the single sign-on settings on application side.
-    * **[Create EAB Navigate IMPL test user](#create-eab-navigate-impl-test-user)** - to have a counterpart of B.Simon in EAB Navigate IMPL that is linked to the Azure AD representation of user.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure EAB Implementation SSO](#configure-eab-implementation-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create EAB Implementation test user](#create-eab-implementation-test-user)** - to have a counterpart of B.Simon in EAB Implementation that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **EAB Navigate IMPL** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the Azure portal, on the **EAB Implementation** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:
+    a. In the **Identifier (Entity ID)** text box, enter exactly the following value:
+    `https://impl.bouncer.eab.com`
+    
+    b. In the **Reply URL (Assertion Consumer Service URL)** text box, enter both the following values as separate rows:
+    
+    | Reply URL|
+    | -------------- |
+    | `https://impl.bouncer.eab.com/sso/saml2/acs` |
+    | `https://impl.bouncer.eab.com/sso/saml2/acs/` |
+    |
+    
+    c. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.navigate.impl.eab.com/`
 
 	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [EAB Navigate IMPL Client support team](mailto:jmahoney@eab.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the actual Sign-On URL. Contact [EAB Implementation Client support team](mailto:EABTechSupport@eab.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
@@ -106,42 +109,35 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to EAB Navigate IMPL.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to EAB Implementation.
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **EAB Navigate IMPL**.
+1. In the applications list, select **EAB Implementation**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-
-   ![The "Users and groups" link](common/users-groups-blade.png)
-
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-
-	![The Add User link](common/add-assign-user.png)
-
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-## Configure EAB Navigate IMPL SSO
+## Configure EAB Implementation SSO
 
-To configure single sign-on on **EAB Navigate IMPL** side, you need to send the **App Federation Metadata Url** to [EAB Navigate IMPL support team](mailto:jmahoney@eab.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **EAB Implementation** side, you need to send the **App Federation Metadata Url** to [EAB Implementation support team](mailto:EABTechSupport@eab.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
-### Create EAB Navigate IMPL test user
+### Create EAB Implementation test user
 
-In this section, you create a user called B.Simon in EAB Navigate IMPL. Work with [EAB Navigate IMPL support team](mailto:jmahoney@eab.com) to add the users in the EAB Navigate IMPL platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in EAB Implementation. Work with [EAB Implementation support team](mailto:EABTechSupport@eab.com) to add the users in the EAB Implementation platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-When you click the EAB Navigate IMPL tile in the Access Panel, you should be automatically signed in to the EAB Navigate IMPL for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Click on **Test this application** in Azure portal. This will redirect to EAB Implementation Sign-on URL where you can initiate the login flow. 
 
-## Additional resources
+* Go to EAB Implementation Sign-on URL directly and initiate the login flow from there.
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* You can use Microsoft My Apps. When you click the EAB Implementation tile in the My Apps, this will redirect to EAB Implementation Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+## Next steps
 
-- [Try EAB Navigate IMPL with Azure AD](https://aad.portal.azure.com/)
+Once you configure EAB Implementation you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

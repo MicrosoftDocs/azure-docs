@@ -1,18 +1,19 @@
 ---
-title: Evaluate the impact of a new Azure policy
-description: Understand the process to follow when introducing a new policy into your Azure environment.
-ms.date: 09/23/2019
+title: Evaluate the impact of a new Azure Policy definition
+description: Understand the process to follow when introducing a new policy definition into your Azure environment.
+ms.date: 03/31/2021
 ms.topic: conceptual
 ---
-# Evaluate the impact of a new Azure policy
+# Evaluate the impact of a new Azure Policy definition
 
 Azure Policy is a powerful tool for managing your Azure resources to business standards and to meet
 compliance needs. When people, processes, or pipelines create or update resources, Azure Policy
-reviews the request. When the policy definition effect is [Append](./effects.md#deny) or [DeployIfNotExists](./effects.md#deployifnotexists),
-Policy alters the request or adds to it. When the policy definition effect is [Audit](./effects.md#audit)
-or [AuditIfNotExists](./effects.md#auditifnotexists), Policy causes an Activity log entry to be
-created. And when the policy definition effect is [Deny](./effects.md#deny), Policy stops the
-creation or alteration of the request.
+reviews the request. When the policy definition effect is [Modify](./effects.md#modify),
+[Append](./effects.md#deny), or [DeployIfNotExists](./effects.md#deployifnotexists), Policy alters
+the request or adds to it. When the policy definition effect is [Audit](./effects.md#audit) or
+[AuditIfNotExists](./effects.md#auditifnotexists), Policy causes an Activity log entry to be created
+for new and updated resources. And when the policy definition effect is [Deny](./effects.md#deny),
+Policy stops the creation or alteration of the request.
 
 These outcomes are exactly as desired when you know the policy is defined correctly. However, it's
 important to validate a new policy works as intended before allowing it to change or block work. The
@@ -45,9 +46,10 @@ and the properties you need to evaluate for compliance as possible.
 ## Audit existing resources
 
 Before looking to manage new or updated resources with your new policy definition, it's best to see
-how it evaluates a limited subset of existing resources, such as a test resource group. Use the [enforcement mode](./assignment-structure.md#enforcement-mode)
-_Disabled_ (DoNotEnforce) on your policy assignment to prevent the [effect](./effects.md) from
-triggering or activity log entries from being created.
+how it evaluates a limited subset of existing resources, such as a test resource group. Use the
+[enforcement mode](./assignment-structure.md#enforcement-mode) _Disabled_ (DoNotEnforce) on your
+policy assignment to prevent the [effect](./effects.md) from triggering or activity log entries from
+being created.
 
 This step gives you a chance to evaluate the compliance results of the new policy on existing
 resources without impacting work flow. Check that no compliant resources are marked as non-compliant
@@ -65,14 +67,14 @@ _DeployIfNotExists_.
 Once you've validated your new policy definition is reporting correctly on existing resources, it's
 time to look at the impact of the policy when resources get created or updated. If the policy
 definition supports effect parameterization, use [Audit](./effects.md#audit). This configuration
-allows you to monitor the creation and updating of resources to see if the new policy definition
-triggers an entry in Azure Activity log for a resource that is non-compliant without impacting
-existing work or requests.
+allows you to monitor the creation and updating of resources to see whether the new policy
+definition triggers an entry in Azure Activity log for a resource that is non-compliant without
+impacting existing work or requests.
 
 It's recommended to both update and create new resources that match your policy definition to see
 that the _Audit_ effect is correctly being triggered when expected. Be on the lookout for resource
-requests that shouldn't be impacted by the new policy definition that trigger the _Audit_ effect.
-These impacted resources are another example of _false positives_ and must be fixed in the policy
+requests that shouldn't be affected by the new policy definition that trigger the _Audit_ effect.
+These affected resources are another example of _false positives_ and must be fixed in the policy
 definition before full implementation.
 
 In the event the policy definition is changed at this stage of testing, it's recommended to begin
@@ -102,12 +104,14 @@ security and compliance organizations to ensure there are no gaps in coverage.
 
 ## Monitor your policy and compliance
 
-Implementing and assigning your policy definition isn't the final step. Continuously monitor the [compliance](../how-to/get-compliance-data.md)
-level of resources to your new policy definition and setup appropriate [Azure Monitor alerts and notifications](../../../azure-monitor/platform/alerts-overview.md)
-for when non-compliant devices are identified. It's also recommended to evaluate the policy
-definition and related assignments on a scheduled basis to validate the policy definition is meeting
-business policy and compliance needs. Policies should be removed if no longer needed. Policies also
-need updating from time to time as the underlying Azure resources evolve and add new properties and
+Implementing and assigning your policy definition isn't the final step. Continuously monitor the
+[compliance](../how-to/get-compliance-data.md) level of resources to your new policy definition and
+setup appropriate
+[Azure Monitor alerts and notifications](../../../azure-monitor/alerts/alerts-overview.md) for
+when non-compliant devices are identified. It's also recommended to evaluate the policy definition
+and related assignments on a scheduled basis to validate the policy definition is meeting business
+policy and compliance needs. Policies should be removed if no longer needed. Policies also need
+updating from time to time as the underlying Azure resources evolve and add new properties and
 capabilities.
 
 ## Next steps
@@ -115,6 +119,7 @@ capabilities.
 - Learn about the [policy definition structure](./definition-structure.md).
 - Learn about the [policy assignment structure](./assignment-structure.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
-- Learn how to [get compliance data](../how-to/getting-compliance-data.md).
+- Learn how to [get compliance data](../how-to/get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
-- Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).
+- Review what a management group is with
+  [Organize your resources with Azure management groups](../../management-groups/overview.md).

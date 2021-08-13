@@ -1,43 +1,61 @@
 ---
-title: Azure Data Factory data flow graphs
-description: How to work with data factory data flow graphs
+title: Managing the mapping data flow graph
+titleSuffix: Azure Data Factory & Azure Synapse
+description: How to effectively manage and edit the mapping data flow graph
 author: kromerm
 ms.author: makromer
+ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.custom: synapse
+ms.date: 09/02/2020
 ---
 
-# Mapping data flow graphs
+# Managing the mapping data flow graph
 
-The mapping data flows design surface is a "construction" surface where you build data flows top-down, left-to-right. There is a toolbox attached to each transform with a plus (+) symbol. Concentrate on your business logic instead of connecting nodes via edges in a free-form DAG environment.
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Below are built-in mechanisms to manage the data flow graph.
+Mapping data flows are authored using a design surface know as the data flow graph. In the graph, transformation logic is built left-to-right and additional data streams are added top-down. To add a new transformation, select the plus sign on the lower right of an existing transformation.
 
-## Move nodes
+![Canvas](media/data-flow/canvas-2.png)
 
-![Aggregate Transformation options](media/data-flow/agghead.png "aggregator header")
+As your data flows get more complex, use the following mechanisms to effectively navigate and manage the data flow graph. 
 
-Without a drag-and-drop paradigm, the way to "move" a transformation node, is to change the incoming stream. Instead, you will move transforms around by changing the "incoming stream".
+## Moving transformations
 
-## Streams of data inside of data flow
+In mapping data flows, a set of connected transformation logic is known as a **stream**. The **Incoming stream** field dictates which data stream is feeding the current transformation. Each transformation has one or two incoming streams depending on its function and represents an output stream. The output schema of the incoming streams determines which column metadata can be referenced by the current transformation.
 
-In Azure Data Factory Data Flow, streams represent the flow of data. On the transformation settings pane, you will see an "Incoming Stream" field. This tells you which incoming data stream is feeding that transformation. You can change the physical location of your transform node on the graph by clicking the Incoming Stream name and selecting another data stream. The current transformation along with all subsequent transforms on that stream will then move to the new location.
+![Move node](media/data-flow/move-nodes.png "move node")
 
-If you are moving a transformation with one or more transformations after it, then the new location in the data flow will be joined via a new branch.
-
-If you have no subsequent transformations after the node you've selected, then only that transform will move to the new location.
+Unlike the pipeline canvas, data flow transformations aren't edited using a drag and drop model. To change the incoming stream of or "move" a transformation, choose a different value from the **Incoming stream** dropdown. When you do this, all downstream transformations will move alongside the edited transformation. The graph will automatically update to show the new logical flow. If you change the incoming stream to a transformation that already has downstream transformation, a new branch or parallel data stream will be created. Learn more about [new branches in mapping data flow](data-flow-new-branch.md).
 
 ## Hide graph and show graph
 
-There is a button on the far-right of the bottom configuration pane where you can expand the bottom pane to full screen when working on transformation configurations. This will allow you to use "previous" and "next" buttons to navigate through the graph's configurations. To move back to graph view, click the down button and return to split screen.
+When editing your transformation, you can expand the configuration panel to take up the entire canvas, hiding the graph. Click on the upward-facing chevron located on the right side of the canvas.
 
-## Search graph
+![Hide graph](media/data-flow/hide-graph.png "hide graph")
 
-You can search the graph with the search button on the design surface.
+When the graph is hidden, you can move between transformations within a stream by clicking **Next** or **Previous**. Click the downward-facing chevron to show the graph.
 
-![Search](media/data-flow/search001.png "Search graph")
+![Show graph](media/data-flow/show-graph.png "show graph")
+
+## Searching for transformations
+
+To quickly find a transformation in your graph, click on the **Search** icon above the zoom setting.
+
+![Screenshot shows the Search button.](media/data-flow/search-1.png "Search graph")
+
+You can search by transformation name or description to locate a transformation.
+
+![Screenshot shows the search text box.](media/data-flow/search-2.png "Search graph")
+
+## Hide reference nodes
+
+If your data flow has any join, lookup, exists, or union transformations, data flow shows reference nodes to all incoming streams. If you wish to minimize the amount of vertical space taken, you can minimize your reference nodes. To do so, right click on the canvas and select **Hide reference nodes**.
+
+![Hide reference nodes](media/data-flow/hide-reference-nodes.png "Hide reference nodes")
 
 ## Next steps
 
-After completing your Data Flow design, turn the debug button on and test it out in debug mode either directly in the [data flow designer](concepts-data-flow-debug-mode.md) or [pipeline debug](control-flow-execute-data-flow-activity.md).
+After completing your data flow logic, turn on [debug mode](concepts-data-flow-debug-mode.md) and test it out in a data preview.

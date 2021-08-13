@@ -1,12 +1,10 @@
 ---
 title: 'Azure HDInsight: Python samples'
 description: Find Python examples on GitHub for common tasks using the HDInsight SDK for Python.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 11/08/2019
+ms.custom: devx-track-python
 ---
 
 # Azure HDInsight: Python samples
@@ -17,6 +15,9 @@ ms.date: 11/08/2019
 > * [Java Examples](hdinsight-sdk-java-samples.md)
 <!-- * [Go Examples](hdinsight-sdk-go-samples.md)-->
 
+> [!Important]
+> Python 2.7 will be deprecated on January 1st 2020. If you are still using Python 2.7, upgrade to 3.7 in order to use the HDInsight Python SDK.  
+
 This article provides:
 
 * Links to samples for cluster creation tasks.
@@ -26,7 +27,7 @@ This article provides:
 
 ## Prerequisites
 
-[Azure HDInsight SDK for Python](https://docs.microsoft.com/python/api/overview/azure/hdinsight#sdk-installation)
+[Azure HDInsight SDK for Python](/python/api/overview/azure/hdinsight#sdk-installation)
 
 ## Cluster management - creation
 
@@ -37,6 +38,6 @@ This article provides:
 
 You can get these samples for Python by cloning the [hdinsight-python-sdk-samples](https://github.com/Azure-Samples/hdinsight-python-sdk-samples) GitHub repository.
 
-[!INCLUDE [hdinsight-sdk-additional-functionality](../../includes/hdinsight-sdk-additional-functionality.md)]
+[!INCLUDE [hdinsight-sdk-additional-functionality](includes/hdinsight-sdk-additional-functionality.md)]
 
-Code snippets for this additional SDK functionality can be found in the [HDInsight SDK for Python reference documentation](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python).
+Code snippets for this additional SDK functionality can be found in the [HDInsight SDK for Python reference documentation](/python/api/overview/azure/hdinsight).

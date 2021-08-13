@@ -1,21 +1,9 @@
 ---
-title: Package an existing executable to Azure Service Fabric | Microsoft Docs
+title: Package an existing executable to Azure Service Fabric 
 description: Learn about packaging an existing application as a guest executable, so it can be deployed to a Service Fabric cluster.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
 
-ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: na
 ms.date: 03/15/2018
-ms.author: atsenthi
-
 ---
 # Deploy an existing executable to Service Fabric
 You can run any type of code, such as Node.js, Java, or C++ in Azure Service Fabric as a service. Service Fabric refers to these types of services as guest executables.
@@ -74,8 +62,7 @@ The ApplicationPackageRoot contains the ApplicationManifest.xml file that define
 ## Next steps
 See the following articles for related information and tasks.
 * [Deploy a guest executable](service-fabric-deploy-existing-app.md)
-* [Deploy multiple guest executables](service-fabric-deploy-multiple-apps.md)
+* [Deploy multiple guest executables](./service-fabric-deploy-existing-app.md)
 * [Create your first guest executable application using Visual Studio](quickstart-guest-app.md)
 * [Sample for packaging and deploying a guest executable](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started), including a link to the prerelease of the packaging tool
 * [Sample of two guest executables (C# and nodejs) communicating via the Naming service using REST](https://github.com/Azure-Samples/service-fabric-containers)
-

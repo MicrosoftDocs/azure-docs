@@ -1,20 +1,14 @@
 ---
-title: Exporting Azure Resource Groups that contain VM extensions | Microsoft Docs
+title: Exporting Azure Resource Groups that contain VM extensions 
 description: Export Resource Manager templates that include virtual machine extensions.
-services: virtual-machines-windows
-documentationcenter: ''
-author: axayjo
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 7f4e2ca6-f1c7-4f59-a2cc-8f63132de279
-ms.service: virtual-machines-windows
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: windows
 ms.date: 12/05/2016
-ms.author: akjosh
+
 ---
 
 # Exporting Resource Groups that contain VM extensions
@@ -29,18 +23,7 @@ Many Virtual Machine extensions are available. Not all extensions can be exporte
 
 The following extensions can be exported with the automation script feature.
 
-| Extension ||||
-|---|---|---|---|
-| Acronis Backup | Datadog Windows Agent | OS Patching For Linux | VM Snapshot Linux
-| Acronis Backup Linux | Docker Extension | Puppet Agent |
-| Bg Info | DSC Extension | Site 24x7 Apm Insight |
-| BMC CTM Agent Linux | Dynatrace Linux | Site 24x7 Linux Server |
-| BMC CTM Agent Windows | Dynatrace Windows | Site 24x7 Windows Server |
-| Chef Client | HPE Security Application Defender | Trend Micro DSA |
-| Custom Script | IaaS Antimalware | Trend Micro DSA Linux |
-| Custom Script Extension | IaaS Diagnostics | VM Access For Linux |
-| Custom Script for Linux | Linux Chef Client | VM Access For Linux |
-| Datadog Linux Agent | Linux Diagnostic | VM Snapshot |
+> Acronis Backup, Acronis Backup Linux, Bg Info, BMC CTM Agent Linux, BMC CTM Agent Windows, Chef Client, Custom Script, Custom Script Extension, Custom Script for Linux, Datadog Linux Agent, Datadog Windows Agent, Docker Extension, DSC Extension, Dynatrace Linux, Dynatrace Windows, HPE Security Application Defender, IaaS Antimalware, IaaS Diagnostics, Linux Chef Client, Linux Diagnostic, OS Patching For Linux, Puppet Agent, Site 24x7 Apm Insight, Site 24x7 Linux Server, Site 24x7 Windows Server, Trend Micro DSA, Trend Micro DSA Linux, VM Access For Linux, VM Access For Linux, VM Snapshot, VM Snapshot Linux
 
 ## Export the Resource Group
 
@@ -144,7 +127,7 @@ The final extension resource looks similar to the following JSON example:
 }
 ```
 
-If using template parameters to provide property values, these need to be created. When creating template parameters for protected setting values, make sure to use the `SecureString` parameter type so that sensitive values are secured. For more information on using parameters, see [Authoring Azure Resource Manager templates](../../resource-group-authoring-templates.md).
+If using template parameters to provide property values, these need to be created. When creating template parameters for protected setting values, make sure to use the `SecureString` parameter type so that sensitive values are secured. For more information on using parameters, see [Authoring Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md).
 
 In the example of the `IaasDiagnostic` extension, the following parameters would be created in the parameters section of the Resource Manager template.
 

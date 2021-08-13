@@ -1,22 +1,17 @@
 ---
-title: Azure Active Directory authentication with Azure Database for PostgreSQL - Single Server
+title: Active Directory authentication - Azure Database for PostgreSQL - Single Server
 description: Learn about the concepts of Azure Active Directory for authentication with Azure Database for PostgreSQL - Single Server
-author: lfittl
-ms.author: lufittl
+author: sunilagarwal 
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 07/23/2020
 ---
 
 # Use Azure Active Directory for authenticating with PostgreSQL
 
 Microsoft Azure Active Directory (Azure AD) authentication is a mechanism of connecting to Azure Database for PostgreSQL using identities defined in Azure AD.
 With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
-
-> [!IMPORTANT]
-> Azure AD authentication for Azure Database for PostgreSQL is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Benefits of using Azure AD include:
 
@@ -66,8 +61,11 @@ Azure Active Directory authentication supports the following methods of connecti
 - Azure Active Directory Integrated
 - Azure Active Directory Universal with MFA
 - Using Active Directory Application certificates or client secrets
+- [Managed Identity](howto-connect-with-managed-identity.md)
 
 Once you have authenticated against the Active Directory, you then retrieve a token. This token is your password for logging in.
+
+Please note that management operations, such as adding new users, are only supported for Azure AD user roles at this point.
 
 > [!NOTE]
 > For more details on how to connect with an Active Directory token, see [Configure and sign in with Azure AD for Azure Database for PostgreSQL](howto-configure-sign-in-aad-authentication.md).

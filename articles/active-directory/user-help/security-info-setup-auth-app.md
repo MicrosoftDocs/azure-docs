@@ -1,21 +1,20 @@
 ---
-title: Set up security info (preview) for an auth app - Azure AD
-description: How to set up your security info to verify your identity using the Microsoft Authenticator app.
+title: Set up the Microsoft Authenticator app as your verification method - Azure AD
+description: How to set up your Security info (preview) page to verify your identity using the Microsoft Authenticator app as your verification method.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: sahenry
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
-ms.date: 02/13/2019
-ms.author: lizross
-ms.collection: M365-identity-device-management
+ms.topic: end-user-help
+ms.date: 06/10/2021
+ms.author: curtand
 ---
 
-# Set up security info (preview) to use an authenticator app
+# Set up the Microsoft Authenticator app as your verification method
 
 You can follow these steps to add your two-factor verification and password reset methods. After you've set this up the first time, you can return to the **Security info** page to add, update, or delete your security information.
 
@@ -24,19 +23,37 @@ If you're prompted to set this up immediately after you sign in to your work or 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Note]
->If you don't see an authenticator app option, it's possible that your organization doesn't allow you to use an authentication app for verification. In this case, you'll need to choose another method or contact your administrator for more help.
+> If you don't see the authenticator app option, it's possible that your organization doesn't allow you to use this option for verification. In this case, you'll need to choose another method or contact your organization's help desk for more assistance.
+
+## Security vs password reset verification
+
+Security info methods are used for both two-factor security verification and for password reset. However, not all methods can be used for both.
+
+| Method | Used for |
+| ------ | -------- |
+| Authenticator app | Two-factor verification and password reset authentication. |
+| Text messages | Two-factor verification and password reset authentication. |
+| Phone calls | Two-factor verification and password reset authentication. |
+| Security key | Two-factor verification and password reset authentication. |
+| Email account | Password reset authentication only. You'll need to choose another method for two-factor verification. |
+| Security questions | Password reset authentication only. You'll need to choose another method for two-factor verification. |
 
 ## Set up the Microsoft Authenticator app from the Security info page
 
 Depending on your organization’s settings, you might be able to use an authentication app as one of your security info methods. You aren't required to use the Microsoft Authenticator app, and you can choose a different app during the set up process. However, this article uses the Microsoft Authenticator app.
 
+> [!IMPORTANT]
+> If you have set up the Microsoft Authenticator app on five different devices or if you've used five hardware tokens, you won't be able to set up a sixth one, and you might see the following error message:
+> 
+> **You can't set up Microsoft Authenticator because you already have five authenticator apps or hardware tokens. Please contact your administrator to delete one of your authenticator apps or hardware tokens.**
+
 ### To set up the Microsoft Authenticator app
 
-1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
+1. Sign in to your work or school account and then go to your https://myaccount.microsoft.com/ page.
 
     ![My Profile page, showing highlighted Security info links](media/security-info/securityinfo-myprofile-page.png)
 
-2. Select **Security info** from the left navigation pane or from the link in the **Security info** block, and then select **Add method** from the **Security info** page.
+2. Select **Security info** in the left menu or by using the link in the **Security info** pane. If you have already registered, you'll be prompted for two-factor verification. Then, select **Add method** in the **Security info** pane.
 
     ![Security info page with highlighted Add method option](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
@@ -108,6 +125,9 @@ If you no longer want to use your authenticator app as a security info method, y
 ## Change your default security info method
 
 If you want the authenticator app to be the default method used when you sign-in to your work or school account using two-factor verification or for password reset requests, you can set it from the Security **info** page.
+
+>[!NOTE]
+>If your default sign-in method is a text or call to your phone number, then the SMS code or voice call is sent automatically during multifactor authentication. As of June 2021, some apps will ask users to choose **Text** or **Call** first. This option prevents sending too many security codes for different apps. If your default sign-in method is the Microsoft Authenticator app ([which we highly recommend](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752)), then the app notification is sent automatically.
 
 ### To change your default security info method
 

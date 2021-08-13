@@ -1,17 +1,17 @@
 ﻿### YamlMime:Landing
 
 title: Azure Cognitive Search documentation # < 60 chars
-summary: Cloud search over private heterogenous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form.
+summary: Cloud search over private heterogeneous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form.
 metadata:
   title: Azure Cognitive Search documentation
-  description: Cloud search over private heterogenous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form. 
+  description: Cloud search over private heterogeneous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form. 
   services: search
   ms.service: service #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required
   ms.collection: collection
   author: HeidiSteen #Required; your GitHub user alias, with correct capitalization.
   ms.author: heidist #Required; microsoft alias of author; optional team alias.
-  ms.date: 09/20/2019 #Required; mm/dd/yyyy format.
+  ms.date: 03/02/2021 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -25,14 +25,38 @@ landingContent:
         links:
           - text: What is Azure Cognitive Search?
             url: search-what-is-azure-search.md
-      - linkListType: architecture
-        links:
-          - text: How full text search works in Cognitive Search
-            url: search-lucene-query-architecture.md
+          - text: What is semantic search?
+            url: semantic-search-overview.md
+          - text: What is AI enrichment?
+            url: cognitive-search-concept-intro.md
+          - text: What is an indexer?
+            url: search-indexer-overview.md
+          - text: What are Azure Applied AI Services?
+            url: ../applied-ai-services/what-are-applied-ai-services.md
       - linkListType: video
         links:
-          - text: What is Cognitive Search (1 min 27 sec)
-            url: https://channel9.msdn.com/Blogs/Azure/What-is-Azure-Search/player
+          - text: Use AI in search solutions
+            url: https://youtu.be/M4Rf1s0WcWQ?t=19
+
+  # Card
+  - title: Index data
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Data source gallery
+            url: search-data-sources-gallery.md
+          - text: Creating indexes
+            url: search-what-is-an-index.md
+          - text: Importing data
+            url: search-what-is-data-import.md
+      - linkListType: how-to-guide
+        links:
+          - text: Index from Azure Blob Storage
+            url: search-blob-storage-integration.md
+          - text: Index from Azure SQL Database
+            url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
+          - text: Index from Cosmos DB
+            url: search-howto-index-cosmosdb.md
 
   # Card
   - title: Get started
@@ -43,69 +67,46 @@ landingContent:
             url: search-create-service-portal.md
           - text: Create an index
             url: search-get-started-portal.md
-          - text: Create an enrichment pipeline
+          - text: Create a demo app
+            url: search-create-app-portal.md
+          - text: Extract text from images and app files
             url: cognitive-search-quickstart-blob.md
+            
+  # Card
+  - title: Develop apps
+    linkLists:
       - linkListType: tutorial
         links:
-          - text: Create an app
-            url: tutorial-csharp-create-first-app.md
-      - linkListType: learn
-        links:
-          - text: Introduction to Azure Cognitive Search
-            url: https://docs.microsoft.com/learn/modules/intro-to-azure-search/
-
-  # Card
-  - title: Use with Blob storage
-    linkLists:
+          - text: Add search to web apps
+            url: tutorial-csharp-overview.md
       - linkListType: how-to-guide
         links:
-          - text: Use AI to understand blob data
-            url: search-blob-ai-integration.md
-          - text: Search your blob content
-            url: search-blob-storage-integration.md
-          - text: Store AI enrichments
-            url: knowledge-store-concept-intro.md
-      - linkListType: tutorial
-        links:
-          - text: Index semi-structured blob data
-            url: search-semi-structured-data.md
-
-  # Card
-  - title: Index your data
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Defining an index
-            url: search-what-is-an-index.md
-          - text: Importing data
-            url: search-what-is-data-import.md
-          - text: Use an indexer
-            url: search-indexer-overview.md
-      - linkListType: how-to-guide
-        links:
-          - text: Index from Azure SQL Database
-            url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-          - text: Index from Cosmos DB data
-            url: search-howto-index-cosmosdb.md
+          - text: Develop in .NET
+            url: search-howto-dotnet-sdk.md
+          - text: Call REST APIs in VS Code
+            url: search-get-started-vs-code.md
+          - text: Call REST APIs in Postman
+            url: search-get-started-rest.md
       - linkListType: reference
         links:
-          - text: Create Index (REST)
-            url: https://docs.microsoft.com/rest/api/searchservice/create-index
-          - text: Create Indexer (REST)
-            url: https://docs.microsoft.com/rest/api/searchservice/create-indexer
+          - text: Azure SDK for .NET
+            url: /dotnet/api/overview/azure/search.documents-readme
+          - text: Azure SDK for Python
+            url: /python/api/overview/azure/search-documents-readme
+          - text: REST API Reference
+            url: /rest/api/searchservice/index
+
   # Card
-  - title: Enrich your data
+  - title: Enrich with AI
     linkLists:
       - linkListType: concept
         links:
-          - text: AI enrichment pipeline
-            url: cognitive-search-concept-intro.md
           - text: Skillsets
             url: cognitive-search-defining-skillset.md
           - text: Knowledge stores
             url: knowledge-store-concept-intro.md
           - text: Projections
-            url: knowledge-store-projection-overview.md
+            url: knowledge-store-projections-examples.md
       - linkListType: how-to-guide
         links:
           - text: Attach Cognitive Services
@@ -118,13 +119,13 @@ landingContent:
         links:
           - text: Built-in skills
             url: cognitive-search-predefined-skills.md
-
+         
   # Card
-  - title: Query your data
+  - title: Query data
     linkLists:
       - linkListType: concept
         links:
-          - text: Overview
+          - text: Query types and composition
             url: search-query-overview.md
           - text: Simple syntax (default)
             url: query-simple-syntax.md
@@ -133,7 +134,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create a simple query
-            url: search-query-simple-examples.md
+            url: search-query-create.md
           - text: Use full syntax
             url: search-query-lucene-examples.md
       - linkListType: reference
@@ -141,7 +142,7 @@ landingContent:
           - text: OData language reference
             url: query-odata-filter-orderby-syntax.md
           - text: Search Documents (REST)
-            url: https://docs.microsoft.com/rest/api/searchservice/search-documents
+            url: /rest/api/searchservice/search-documents
 
   # Card
   - title: Help and feedback
@@ -149,7 +150,7 @@ landingContent:
       - linkListType: reference
         links: 
           - text: FAQ
-            url: search-faq-frequently-asked-questions.md
+            url: search-faq-frequently-asked-questions.yml
           - text: Ask questions on Stack Overflow
             url: https://stackoverflow.com/questions/tagged/azure-search
           - text: Request a feature

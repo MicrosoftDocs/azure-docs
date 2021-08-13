@@ -1,14 +1,13 @@
 ---
-title: AS2 message settings - Azure Logic Apps
+title: AS2 message settings
 description: Reference guide for AS2 send and receive settings in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 04/22/2019
+ms.date: 07/20/2021
 ---
 
 # Reference for AS2 message settings in Azure Logic Apps with Enterprise Integration Pack
@@ -45,7 +44,7 @@ properties based on your agreement with the partner that exchanges messages with
 | Property | Required | Description |
 |----------|----------|-------------|
 | **Enable message signing** | No | Specifies whether all outgoing messages must be digitally signed. If you require signing, select these values: <p>- From the **Signing Algorithm** list, select the algorithm to use for signing messages. <br>- From the **Certificate** list, select an existing host partner private certificate for signing messages. If you don't have a certificate, learn more about [adding certificates](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
-| **Enable message encryption** | No | Specifies whether all outgoing messages must be encrypted. If you require encryption, select these values: <p>- From the **Encryption Algorithm** list, select the guest partner public certificate algorithm to use for encrypting messages. <br>- From the **Certificate** list, select an existing guest partner private certificate for encrypting outgoing messages. If you don't have a certificate, learn more about [adding certificates](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
+| **Enable message encryption** | No | Specifies whether all outgoing messages must be encrypted. If you require encryption, select these values: <p>- From the **Encryption Algorithm** list, select the guest partner public certificate algorithm to use for encrypting messages. <br>- From the **Certificate** list, select an existing guest partner public certificate for encrypting outgoing messages. If you don't have a certificate, learn more about [adding certificates](../logic-apps/logic-apps-enterprise-integration-certificates.md). |
 | **Enable message compression** | No | Specifies whether all outgoing messages must be compressed. |
 | **Unfold HTTP headers** | No | Puts the HTTP `content-type` header onto a single line. |
 | **Transmit file name in MIME header** | No | Specifies whether to include the file name in the MIME header. |

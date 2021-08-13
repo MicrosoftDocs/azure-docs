@@ -1,12 +1,8 @@
 ---
-title: CAF Foundation blueprint sample - Deploy steps
-description: Deploy steps of the CAF Foundation blueprint sample.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 08/20/2019
+title: Deploy CAF Foundation blueprint sample
+description: Deploy steps for the CAF Foundation blueprint sample including blueprint artifact parameter details.
+ms.date: 03/12/2021
 ms.topic: sample
-ms.service: blueprints
-ms.custom: fasttrack-new
 ---
 # Deploy the Microsoft Cloud Adoption Framework for Azure Foundation blueprint sample
 
@@ -94,7 +90,8 @@ to make each deployment of the copy of the blueprint sample unique.
 
    - Lock Assignment
 
-     Select the blueprint lock setting for your environment. For more information, see [blueprints resource locking](../../concepts/resource-locking.md).
+     Select the blueprint lock setting for your environment. For more information, see
+     [blueprints resource locking](../../concepts/resource-locking.md).
 
    - Managed Identity
 
@@ -109,7 +106,7 @@ to make each deployment of the copy of the blueprint sample unique.
      - **Organization**: Enter your organization name, such as Contoso, must be unique.
      - **Azure Region**: Select the Azure Region for Deployment.
      - **Allowed locations**: Which Azure Regions will you allow resources to be built in?
-     
+
    - Artifact parameters
 
      The parameters defined in this section apply to the artifact under which it's defined. These
@@ -123,8 +120,9 @@ to make each deployment of the copy of the blueprint sample unique.
 
 > [!WARNING]
 > The Azure Blueprints service and the built-in blueprint samples are **free of cost**. Azure
-> resources are [priced by product](https://azure.microsoft.com/pricing/). Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/)
-> to estimate the cost of running resources deployed by this blueprint sample.
+> resources are [priced by product](https://azure.microsoft.com/pricing/). Use the
+> [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the cost of
+> running resources deployed by this blueprint sample.
 
 ## Artifact parameters table
 

@@ -1,389 +1,505 @@
 ---
-title: 'Use Java to connect to Azure Database for MySQL'
-description: This quickstart provides a Java code sample you can use to connect and query data from an Azure Database for MySQL database.
-author: ajlam
-ms.author: andrela
+title: 'Quickstart: Use Java and JDBC with Azure Database for MySQL'
+description: Learn how to use Java and JDBC with an Azure Database for MySQL database.
+author: jdubois
+ms.author: judubois
 ms.service: mysql
-ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019
+ms.custom: mvc, devcenter, devx-track-azurecli
 ms.topic: quickstart
 ms.devlang: java
-ms.date: 08/08/2019
+ms.date: 08/17/2020
 ---
 
-# Quickstart: Use Java to connect to and query data in Azure Database for MySQL
+# Quickstart: Use Java and JDBC with Azure Database for MySQL
 
-This quickstart demonstrates how to connect to an Azure Database for MySQL by using a Java application and the JDBC driver [MariaDB Connector/J](https://mariadb.com/kb/en/library/mariadb-connector-j/). It shows how to use SQL statements to query, insert, update, and delete data in the database. This article assumes that you are familiar with developing using Java and that you are new to working with Azure Database for MySQL.
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
+This topic demonstrates creating a sample application that uses Java and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) to store and retrieve information in [Azure Database for MySQL](./index.yml).
+
+JDBC is the standard Java API to connect to traditional relational databases.
 
 ## Prerequisites
-1. This quickstart uses the resources created in either of these guides as a starting point:
-   - [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
-   - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
-2. Ensure your Azure Database for MySQL connection security is configured with the firewall opened and SSL settings adjusted for your application to connect successfully.
+- An Azure account. If you don't have one, [get a free trial](https://azure.microsoft.com/free/).
+- [Azure Cloud Shell](../cloud-shell/quickstart.md) or [Azure CLI](/cli/azure/install-azure-cli). We recommend Azure Cloud Shell so you'll be logged in automatically and have access to all the tools you'll need.
+- A supported [Java Development Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8 (included in Azure Cloud Shell).
+- The [Apache Maven](https://maven.apache.org/) build tool.
 
-3. Obtain the MariaDB Connector/J connector using one of the following approaches:
-   - Use the Maven package [mariadb-java-client](https://search.maven.org/search?q=a:mariadb-java-client) to include the [mariadb-java-client dependency](https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client) in the POM file for your project.
-   - Download the JDBC driver [MariaDB Connector/J](https://downloads.mariadb.org/connector-java/) and include the JDBC jar file (for example mariadb-java-client-2.4.3.jar) into your application classpath. If you have trouble with classpaths, consult your environment's documentation for class path specifics, such as [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) or [Java SE](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
+## Prepare the working environment
 
-## Get connection information
-Get the connection information needed to connect to the Azure Database for MySQL. You need the fully qualified server name and login credentials.
+We are going to use environment variables to limit typing mistakes, and to make it easier for you to customize the following configuration for your specific needs.
 
-1. Log in to the [Azure portal](https://portal.azure.com/).
-2. From the left-hand menu in Azure portal, select **All resources**, and then search for the server you have created (such as **mydemoserver**).
-3. Select the server name.
-4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
- ![Azure Database for MySQL server name](./media/connect-java/azure-database-mysql-server-name.png)
+Set up those environment variables by using the following commands:
 
-## Connect, create table, and insert data
-Use the following code to connect and load the data using the function with an **INSERT** SQL statement. The [getConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager) method is used to connect to MySQL. Methods [createStatement()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#creating-a-table-on-a-mariadb-or-mysql-server) and execute() are used to drop and create the table. The prepareStatement object is used to build the insert commands, with setString() and setInt() to bind the parameter values. Method executeUpdate() runs the command for each set of parameters to insert the values. 
-
-Replace the host, database, user, and password parameters with the values that you specified when you created your own server and database.
-
-```java
-import java.sql.*;
-import java.util.Properties;
-
-public class CreateTableInsertRows {
-
-	public static void main (String[] args)  throws Exception
-	{
-		// Initialize connection variables.	
-		String host = "mydemoserver.mysql.database.azure.com";
-		String database = "quickstartdb";
-		String user = "myadmin@mydemoserver";
-		String password = "<server_admin_password>";
-
-		// check that the driver is installed
-		try
-		{
-			Class.forName("org.mariadb.jdbc");
-		}
-		catch (ClassNotFoundException e)
-		{
-			throw new ClassNotFoundException("MariaDB JDBC driver NOT detected in library path.", e);
-		}
-
-		System.out.println("MariaDB JDBC driver detected in library path.");
-
-		Connection connection = null;
-
-		// Initialize connection object
-		try
-		{
-			String url = String.format("jdbc:mariadb://%s/%s", host, database);
-
-			// Set connection properties.
-			Properties properties = new Properties();
-			properties.setProperty("user", user);
-			properties.setProperty("password", password);
-			properties.setProperty("useSSL", "true");
-			properties.setProperty("verifyServerCertificate", "true");
-			properties.setProperty("requireSSL", "false");
-
-			// get connection
-			connection = DriverManager.getConnection(url, properties);
-		}
-		catch (SQLException e)
-		{
-			throw new SQLException("Failed to create connection to database.", e);
-		}
-		if (connection != null) 
-		{ 
-			System.out.println("Successfully created connection to database.");
-		
-			// Perform some SQL queries over the connection.
-			try
-			{
-				// Drop previous table of same name if one exists.
-				Statement statement = connection.createStatement();
-				statement.execute("DROP TABLE IF EXISTS inventory;");
-				System.out.println("Finished dropping table (if existed).");
-	
-				// Create table.
-				statement.execute("CREATE TABLE inventory (id serial PRIMARY KEY, name VARCHAR(50), quantity INTEGER);");
-				System.out.println("Created table.");
-				
-				// Insert some data into table.
-				int nRowsInserted = 0;
-				PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO inventory (name, quantity) VALUES (?, ?);");
-				preparedStatement.setString(1, "banana");
-				preparedStatement.setInt(2, 150);
-				nRowsInserted += preparedStatement.executeUpdate();
-
-				preparedStatement.setString(1, "orange");
-				preparedStatement.setInt(2, 154);
-				nRowsInserted += preparedStatement.executeUpdate();
-
-				preparedStatement.setString(1, "apple");
-				preparedStatement.setInt(2, 100);
-				nRowsInserted += preparedStatement.executeUpdate();
-				System.out.println(String.format("Inserted %d row(s) of data.", nRowsInserted));
-	
-				// NOTE No need to commit all changes to database, as auto-commit is enabled by default.
-	
-			}
-			catch (SQLException e)
-			{
-				throw new SQLException("Encountered an error when executing given sql statement.", e);
-			}		
-		}
-		else {
-			System.out.println("Failed to create connection to database.");
-		}
-		System.out.println("Execution finished.");
-	}
-}
-
+```bash
+AZ_RESOURCE_GROUP=database-workshop
+AZ_DATABASE_NAME=<YOUR_DATABASE_NAME>
+AZ_LOCATION=<YOUR_AZURE_REGION>
+AZ_MYSQL_USERNAME=demo
+AZ_MYSQL_PASSWORD=<YOUR_MYSQL_PASSWORD>
+AZ_LOCAL_IP_ADDRESS=<YOUR_LOCAL_IP_ADDRESS>
 ```
 
-## Read data
-Use the following code to read the data with a **SELECT** SQL statement. The [getConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager) method is used to connect to MySQL. Methods [createStatement()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#creating-a-table-on-a-mariadb-or-mysql-server) and executeQuery() are used to connect and run the select statement. The results are processed using a ResultSet object. 
+Replace the placeholders with the following values, which are used throughout this article:
 
-Replace the host, database, user, and password parameters with the values that you specified when you created your own server and database.
+- `<YOUR_DATABASE_NAME>`: The name of your MySQL server. It should be unique across Azure.
+- `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can have the full list of available regions by entering `az account list-locations`.
+- `<YOUR_MYSQL_PASSWORD>`: The password of your MySQL database server. That password should have a minimum of eight characters. The characters should be from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
+- `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Java application. One convenient way to find it is to point your browser to [whatismyip.akamai.com](http://whatismyip.akamai.com/).
 
-```java
-import java.sql.*;
-import java.util.Properties;
+Next, create a resource group:
 
-public class ReadTable {
-
-	public static void main (String[] args)  throws Exception
-	{
-		// Initialize connection variables.
-		String host = "mydemoserver.mysql.database.azure.com";
-		String database = "quickstartdb";
-		String user = "myadmin@mydemoserver";
-		String password = "<server_admin_password>";
-
-		// check that the driver is installed
-		try
-		{
-			Class.forName("org.mariadb.jdbc");
-		}
-		catch (ClassNotFoundException e)
-		{
-			throw new ClassNotFoundException("MariaDB JDBC driver NOT detected in library path.", e);
-		}
-
-		System.out.println("MariaDB JDBC driver detected in library path.");
-
-		Connection connection = null;
-
-		// Initialize connection object
-		try
-		{
-			String url = String.format("jdbc:mariadb://%s/%s", host, database);
-
-			// Set connection properties.
-			Properties properties = new Properties();
-			properties.setProperty("user", user);
-			properties.setProperty("password", password);
-			properties.setProperty("useSSL", "true");
-			properties.setProperty("verifyServerCertificate", "true");
-			properties.setProperty("requireSSL", "false");
-			
-			// get connection
-			connection = DriverManager.getConnection(url, properties);
-		}
-		catch (SQLException e)
-		{
-			throw new SQLException("Failed to create connection to database", e);
-		}
-		if (connection != null) 
-		{ 
-			System.out.println("Successfully created connection to database.");
-		
-			// Perform some SQL queries over the connection.
-			try
-			{
-	
-				Statement statement = connection.createStatement();
-				ResultSet results = statement.executeQuery("SELECT * from inventory;");
-				while (results.next())
-				{
-					String outputString = 
-						String.format(
-							"Data row = (%s, %s, %s)",
-							results.getString(1),
-							results.getString(2),
-							results.getString(3));
-					System.out.println(outputString);
-				}
-			}
-			catch (SQLException e)
-			{
-				throw new SQLException("Encountered an error when executing given sql statement", e);
-			}		
-		}
-		else {
-			System.out.println("Failed to create connection to database.");	
-		}
-		System.out.println("Execution finished.");
-	}
-}
+```azurecli
+az group create \
+    --name $AZ_RESOURCE_GROUP \
+    --location $AZ_LOCATION \
+    | jq
 ```
 
-## Update data
-Use the following code to change the data with an **UPDATE** SQL statement. The [getConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager) method is used to connect to MySQL. The methods [prepareStatement()](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) and executeUpdate() are used to prepare and run the update statement. 
+> [!NOTE]
+> We use the `jq` utility, which is installed by default on [Azure Cloud Shell](https://shell.azure.com/) to display JSON data and make it more readable.
+> If you don't like that utility, you can safely remove the `| jq` part of all the commands we'll use.
 
-Replace the host, database, user, and password parameters with the values that you specified when you created your own server and database.
+## Create an Azure Database for MySQL instance
+
+The first thing we'll create is a managed MySQL server.
+
+> [!NOTE]
+> You can read more detailed information about creating MySQL servers in [Create an Azure Database for MySQL server by using the Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md).
+
+In [Azure Cloud Shell](https://shell.azure.com/), run the following script:
+
+```azurecli
+az mysql server create \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --name $AZ_DATABASE_NAME \
+    --location $AZ_LOCATION \
+    --sku-name B_Gen5_1 \
+    --storage-size 5120 \
+    --admin-user $AZ_MYSQL_USERNAME \
+    --admin-password $AZ_MYSQL_PASSWORD \
+    | jq
+```
+
+This command creates a small MySQL server.
+
+### Configure a firewall rule for your MySQL server
+
+Azure Database for MySQL instances are secured by default. They have a firewall that doesn't allow any incoming connection. To be able to use your database, you need to add a firewall rule that will allow the local IP address to access the database server.
+
+Because you configured our local IP address at the beginning of this article, you can open the server's firewall by running:
+
+```azurecli
+az mysql server firewall-rule create \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --name $AZ_DATABASE_NAME-database-allow-local-ip \
+    --server $AZ_DATABASE_NAME \
+    --start-ip-address $AZ_LOCAL_IP_ADDRESS \
+    --end-ip-address $AZ_LOCAL_IP_ADDRESS \
+    | jq
+```
+
+### Configure a MySQL database
+
+The MySQL server that you created earlier is empty. It doesn't have any database that you can use with the Java application. Create a new database called `demo`:
+
+```azurecli
+az mysql db create \
+    --resource-group $AZ_RESOURCE_GROUP \
+    --name demo \
+    --server-name $AZ_DATABASE_NAME \
+    | jq
+```
+
+### Create a new Java project
+
+Using your favorite IDE, create a new Java project, and add a `pom.xml` file in its root directory:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example</groupId>
+    <artifactId>demo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>demo</name>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.20</version>
+        </dependency>
+    </dependencies>
+</project>
+```
+
+This file is an [Apache Maven](https://maven.apache.org/) that configures our project to use:
+
+- Java 8
+- A recent MySQL driver for Java
+
+### Prepare a configuration file to connect to Azure Database for MySQL
+
+Create a *src/main/resources/application.properties* file, and add:
+
+```properties
+url=jdbc:mysql://$AZ_DATABASE_NAME.mysql.database.azure.com:3306/demo?serverTimezone=UTC
+user=demo@$AZ_DATABASE_NAME
+password=$AZ_MYSQL_PASSWORD
+```
+
+- Replace the two `$AZ_DATABASE_NAME` variables with the value that you configured at the beginning of this article.
+- Replace the `$AZ_MYSQL_PASSWORD` variable with the value that you configured at the beginning of this article.
+
+> [!NOTE]
+> We append `?serverTimezone=UTC` to the configuration property `url`, to tell the JDBC driver to use the UTC date format (or Coordinated Universal Time) when connecting to the database. Otherwise, our Java server would not use the same date format as the database, which would result in an error.
+
+### Create an SQL file to generate the database schema
+
+We will use a *src/main/resources/`schema.sql`* file in order to create a database schema. Create that file, with the following content:
+
+```sql
+DROP TABLE IF EXISTS todo;
+CREATE TABLE todo (id SERIAL PRIMARY KEY, description VARCHAR(255), details VARCHAR(4096), done BOOLEAN);
+```
+
+## Code the application
+
+### Connect to the database
+
+Next, add the Java code that will use JDBC to store and retrieve data from your MySQL server.
+
+Create a *src/main/java/DemoApplication.java* file, that contains:
 
 ```java
+package com.example.demo;
+
+import com.mysql.cj.jdbc.AbandonedConnectionCleanupThread;
+
 import java.sql.*;
-import java.util.Properties;
+import java.util.*;
+import java.util.logging.Logger;
 
-public class UpdateTable {
-	public static void main (String[] args)  throws Exception
-	{
-		// Initialize connection variables.	
-		String host = "mydemoserver.mysql.database.azure.com";
-		String database = "quickstartdb";
-		String user = "myadmin@mydemoserver";
-		String password = "<server_admin_password>";
+public class DemoApplication {
 
-		// check that the driver is installed
-		try
-		{
-			Class.forName("org.mariadb.jdbc");
-		}
-		catch (ClassNotFoundException e)
-		{
-			throw new ClassNotFoundException("MariaDB JDBC driver NOT detected in library path.", e);
-		}
+    private static final Logger log;
 
-		System.out.println("MariaDB JDBC driver detected in library path.");
+    static {
+        System.setProperty("java.util.logging.SimpleFormatter.format", "[%4$-7s] %5$s %n");
+        log =Logger.getLogger(DemoApplication.class.getName());
+    }
 
-		Connection connection = null;
+    public static void main(String[] args) throws Exception {
+        log.info("Loading application properties");
+        Properties properties = new Properties();
+        properties.load(DemoApplication.class.getClassLoader().getResourceAsStream("application.properties"));
 
-		// Initialize connection object
-		try
-		{
-			String url = String.format("jdbc:mariadb://%s/%s", host, database);
-			
-			// set up the connection properties
-			Properties properties = new Properties();
-			properties.setProperty("user", user);
-			properties.setProperty("password", password);
-			properties.setProperty("useSSL", "true");
-			properties.setProperty("verifyServerCertificate", "true");
-			properties.setProperty("requireSSL", "false");
+        log.info("Connecting to the database");
+        Connection connection = DriverManager.getConnection(properties.getProperty("url"), properties);
+        log.info("Database connection test: " + connection.getCatalog());
 
-			// get connection
-			connection = DriverManager.getConnection(url, properties);
-		}
-		catch (SQLException e)
-		{
-			throw new SQLException("Failed to create connection to database.", e);
-		}
-		if (connection != null) 
-		{ 
-			System.out.println("Successfully created connection to database.");
-		
-			// Perform some SQL queries over the connection.
-			try
-			{
-				// Modify some data in table.
-				int nRowsUpdated = 0;
-				PreparedStatement preparedStatement = connection.prepareStatement("UPDATE inventory SET quantity = ? WHERE name = ?;");
-				preparedStatement.setInt(1, 200);
-				preparedStatement.setString(2, "banana");
-				nRowsUpdated += preparedStatement.executeUpdate();
-				System.out.println(String.format("Updated %d row(s) of data.", nRowsUpdated));
-	
-				// NOTE No need to commit all changes to database, as auto-commit is enabled by default.
-			}
-			catch (SQLException e)
-			{
-				throw new SQLException("Encountered an error when executing given sql statement.", e);
-			}		
-		}
-		else {
-			System.out.println("Failed to create connection to database.");
-		}
-		System.out.println("Execution finished.");
-	}
+        log.info("Create database schema");
+        Scanner scanner = new Scanner(DemoApplication.class.getClassLoader().getResourceAsStream("schema.sql"));
+        Statement statement = connection.createStatement();
+        while (scanner.hasNextLine()) {
+            statement.execute(scanner.nextLine());
+        }
+
+		/*
+		Todo todo = new Todo(1L, "configuration", "congratulations, you have set up JDBC correctly!", true);
+        insertData(todo, connection);
+        todo = readData(connection);
+        todo.setDetails("congratulations, you have updated data!");
+        updateData(todo, connection);
+        deleteData(todo, connection);
+		*/
+
+        log.info("Closing database connection");
+        connection.close();
+        AbandonedConnectionCleanupThread.uncheckedShutdown();
+    }
 }
 ```
 
-## Delete data
-Use the following code to remove data with a **DELETE** SQL statement. The [getConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager) method is used to connect to MySQL.  The methods [prepareStatement()](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) and executeUpdate() are used to prepare and run the delete statement. 
+This Java code will use the *application.properties* and the *schema.sql* files that we created earlier, in order to connect to the MySQL server and create a schema that will store our data.
 
-Replace the host, database, user, and password parameters with the values that you specified when you created your own server and database.
+In this file, you can see that we commented methods to insert, read, update and delete data: we will code those methods in the rest of this article, and you will be able to uncomment them one after each other.
+
+> [!NOTE]
+> The database credentials are stored in the *user* and *password* properties of the *application.properties* file. Those credentials are used when executing `DriverManager.getConnection(properties.getProperty("url"), properties);`, as the properties file is passed as an argument.
+
+> [!NOTE]
+> The `AbandonedConnectionCleanupThread.uncheckedShutdown();` line at the end is a MySQL driver specific command to destroy an internal thread when shutting down the application.
+> It can be safely ignored. 
+
+You can now execute this main class with your favorite tool:
+
+- Using your IDE, you should be able to right-click on the *DemoApplication* class and execute it.
+- Using Maven, you can run the application by executing: `mvn exec:java -Dexec.mainClass="com.example.demo.DemoApplication"`.
+
+The application should connect to the Azure Database for MySQL, create a database schema, and then close the connection, as you should see in the console logs:
+
+```
+[INFO   ] Loading application properties 
+[INFO   ] Connecting to the database 
+[INFO   ] Database connection test: demo 
+[INFO   ] Create database schema 
+[INFO   ] Closing database connection 
+```
+
+### Create a domain class
+
+Create a new `Todo` Java class, next to the `DemoApplication` class, and add the following code:
 
 ```java
-import java.sql.*;
-import java.util.Properties;
+package com.example.demo;
 
-public class DeleteTable {
-	public static void main (String[] args)  throws Exception
-	{
-		// Initialize connection variables.
-		String host = "mydemoserver.mysql.database.azure.com";
-		String database = "quickstartdb";
-		String user = "myadmin@mydemoserver";
-		String password = "<server_admin_password>";
-		
-		// check that the driver is installed
-		try
-		{
-			Class.forName("org.mariadb.jdbc");
-		}
-		catch (ClassNotFoundException e)
-		{
-			throw new ClassNotFoundException("MariaDB JDBC driver NOT detected in library path.", e);
-		}
+public class Todo {
 
-		System.out.println("MariaDB JDBC driver detected in library path.");
+    private Long id;
+    private String description;
+    private String details;
+    private boolean done;
 
-		Connection connection = null;
+    public Todo() {
+    }
 
-		// Initialize connection object
-		try
-		{
-			String url = String.format("jdbc:mariadb://%s/%s", host, database);
-			
-			// set up the connection properties
-			Properties properties = new Properties();
-			properties.setProperty("user", user);
-			properties.setProperty("password", password);
-			properties.setProperty("useSSL", "true");
-			properties.setProperty("verifyServerCertificate", "true");
-			properties.setProperty("requireSSL", "false");
-			
-			// get connection
-			connection = DriverManager.getConnection(url, properties);
-		}
-		catch (SQLException e)
-		{
-			throw new SQLException("Failed to create connection to database", e);
-		}
-		if (connection != null) 
-		{ 
-			System.out.println("Successfully created connection to database.");
-		
-			// Perform some SQL queries over the connection.
-			try
-			{
-				// Delete some data from table.
-				int nRowsDeleted = 0;
-				PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM inventory WHERE name = ?;");
-				preparedStatement.setString(1, "orange");
-				nRowsDeleted += preparedStatement.executeUpdate();
-				System.out.println(String.format("Deleted %d row(s) of data.", nRowsDeleted));
-	
-				// NOTE No need to commit all changes to database, as auto-commit is enabled by default.
-			}
-			catch (SQLException e)
-			{
-				throw new SQLException("Encountered an error when executing given sql statement.", e);
-			}		
-		}
-		else {
-			System.out.println("Failed to create connection to database.");
-		}
-		System.out.println("Execution finished.");
-	}
+    public Todo(Long id, String description, String details, boolean done) {
+        this.id = id;
+        this.description = description;
+        this.details = details;
+        this.done = done;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
+    }
+
+    public boolean isDone() {
+        return done;
+    }
+
+    public void setDone(boolean done) {
+        this.done = done;
+    }
+
+    @Override
+    public String toString() {
+        return "Todo{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", details='" + details + '\'' +
+                ", done=" + done +
+                '}';
+    }
 }
+```
+
+This class is a domain model mapped on the `todo` table that you created when executing the *schema.sql* script.
+
+### Insert data into Azure Database for MySQL
+
+In the *src/main/java/DemoApplication.java* file, after the main method, add the following method to insert data into the database:
+
+```java
+private static void insertData(Todo todo, Connection connection) throws SQLException {
+    log.info("Insert data");
+    PreparedStatement insertStatement = connection
+            .prepareStatement("INSERT INTO todo (id, description, details, done) VALUES (?, ?, ?, ?);");
+
+    insertStatement.setLong(1, todo.getId());
+    insertStatement.setString(2, todo.getDescription());
+    insertStatement.setString(3, todo.getDetails());
+    insertStatement.setBoolean(4, todo.isDone());
+    insertStatement.executeUpdate();
+}
+```
+
+You can now uncomment the two following lines in the `main` method:
+
+```java
+Todo todo = new Todo(1L, "configuration", "congratulations, you have set up JDBC correctly!", true);
+insertData(todo, connection);
+```
+
+Executing the main class should now produce the following output:
+
+```
+[INFO   ] Loading application properties 
+[INFO   ] Connecting to the database 
+[INFO   ] Database connection test: demo 
+[INFO   ] Create database schema 
+[INFO   ] Insert data 
+[INFO   ] Closing database connection
+```
+
+### Reading data from Azure Database for MySQL
+
+Let's read the data previously inserted, to validate that our code works correctly.
+
+In the *src/main/java/DemoApplication.java* file, after the `insertData` method, add the following method to read data from the database:
+
+```java
+private static Todo readData(Connection connection) throws SQLException {
+    log.info("Read data");
+    PreparedStatement readStatement = connection.prepareStatement("SELECT * FROM todo;");
+    ResultSet resultSet = readStatement.executeQuery();
+    if (!resultSet.next()) {
+        log.info("There is no data in the database!");
+        return null;
+    }
+    Todo todo = new Todo();
+    todo.setId(resultSet.getLong("id"));
+    todo.setDescription(resultSet.getString("description"));
+    todo.setDetails(resultSet.getString("details"));
+    todo.setDone(resultSet.getBoolean("done"));
+    log.info("Data read from the database: " + todo.toString());
+    return todo;
+}
+```
+
+You can now uncomment the following line in the `main` method:
+
+```java
+todo = readData(connection);
+```
+
+Executing the main class should now produce the following output:
+
+```
+[INFO   ] Loading application properties 
+[INFO   ] Connecting to the database 
+[INFO   ] Database connection test: demo 
+[INFO   ] Create database schema 
+[INFO   ] Insert data 
+[INFO   ] Read data 
+[INFO   ] Data read from the database: Todo{id=1, description='configuration', details='congratulations, you have set up JDBC correctly!', done=true} 
+[INFO   ] Closing database connection 
+```
+
+### Updating data in Azure Database for MySQL
+
+Let's update the data we previously inserted.
+
+Still in the *src/main/java/DemoApplication.java* file, after the `readData` method, add the following method to update data inside the database:
+
+```java
+private static void updateData(Todo todo, Connection connection) throws SQLException {
+    log.info("Update data");
+    PreparedStatement updateStatement = connection
+            .prepareStatement("UPDATE todo SET description = ?, details = ?, done = ? WHERE id = ?;");
+
+    updateStatement.setString(1, todo.getDescription());
+    updateStatement.setString(2, todo.getDetails());
+    updateStatement.setBoolean(3, todo.isDone());
+    updateStatement.setLong(4, todo.getId());
+    updateStatement.executeUpdate();
+    readData(connection);
+}
+```
+
+You can now uncomment the two following lines in the `main` method:
+
+```java
+todo.setDetails("congratulations, you have updated data!");
+updateData(todo, connection);
+```
+
+Executing the main class should now produce the following output:
+
+```
+[INFO   ] Loading application properties 
+[INFO   ] Connecting to the database 
+[INFO   ] Database connection test: demo 
+[INFO   ] Create database schema 
+[INFO   ] Insert data 
+[INFO   ] Read data 
+[INFO   ] Data read from the database: Todo{id=1, description='configuration', details='congratulations, you have set up JDBC correctly!', done=true} 
+[INFO   ] Update data 
+[INFO   ] Read data 
+[INFO   ] Data read from the database: Todo{id=1, description='configuration', details='congratulations, you have updated data!', done=true} 
+[INFO   ] Closing database connection 
+```
+
+### Deleting data in Azure Database for MySQL
+
+Finally, let's delete the data we previously inserted.
+
+Still in the *src/main/java/DemoApplication.java* file, after the `updateData` method, add the following method to delete data inside the database:
+
+```java
+private static void deleteData(Todo todo, Connection connection) throws SQLException {
+    log.info("Delete data");
+    PreparedStatement deleteStatement = connection.prepareStatement("DELETE FROM todo WHERE id = ?;");
+    deleteStatement.setLong(1, todo.getId());
+    deleteStatement.executeUpdate();
+    readData(connection);
+}
+```
+
+You can now uncomment the following line in the `main` method:
+
+```java
+deleteData(todo, connection);
+```
+
+Executing the main class should now produce the following output:
+
+```
+[INFO   ] Loading application properties 
+[INFO   ] Connecting to the database 
+[INFO   ] Database connection test: demo 
+[INFO   ] Create database schema 
+[INFO   ] Insert data 
+[INFO   ] Read data 
+[INFO   ] Data read from the database: Todo{id=1, description='configuration', details='congratulations, you have set up JDBC correctly!', done=true} 
+[INFO   ] Update data 
+[INFO   ] Read data 
+[INFO   ] Data read from the database: Todo{id=1, description='configuration', details='congratulations, you have updated data!', done=true} 
+[INFO   ] Delete data 
+[INFO   ] Read data 
+[INFO   ] There is no data in the database! 
+[INFO   ] Closing database connection 
+```
+
+## Clean up resources
+
+Congratulations! You've created a Java application that uses JDBC to store and retrieve data from Azure Database for MySQL.
+
+To clean up all resources used during this quickstart, delete the resource group using the following command:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## Next steps

@@ -1,16 +1,19 @@
 ---
-title: Monitor an Azure Cloud Service | Microsoft Docs
+title: Monitor an Azure Cloud Service (classic) | Microsoft Docs
 description: Describes what monitoring an Azure Cloud Service involves and what some of your options are.
-services: cloud-services
-documentationcenter: ''
-author: georgewallace
-ms.service: cloud-services
 ms.topic: article
-ms.date: 01/29/2018
-ms.author: gwallace
+ms.service: cloud-services
+ms.date: 10/14/2020
+author: hirenshah1
+ms.author: hirshah
+ms.reviewer: mimckitt
+ms.custom: 
 ---
 
-# Introduction to Cloud Service Monitoring
+# Introduction to Cloud Service (classic) Monitoring
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
 
 You can monitor key performance metrics for any cloud service. Every cloud service role collects minimal data: CPU usage, network usage, and disk utilization. If the cloud service has the `Microsoft.Azure.Diagnostics` extension applied to a role, that role can collect additional points of data. This article provides an introduction to Azure Diagnostics for Cloud Services.
 
@@ -47,7 +50,7 @@ As each role is created, Visual Studio adds the Azure Diagnostics extension to i
 
 ## Setup diagnostics extension
 
-First, if you don't have a **classic** storage account, [create one](../storage/common/storage-quickstart-create-account.md). Make sure the storage account is created with the **Classic deployment model** specified.
+First, if you don't have a **classic** storage account, [create one](../storage/common/storage-account-create.md). Make sure the storage account is created with the **Classic deployment model** specified.
 
 Next, navigate to the **Storage account (classic)** resource. Select **Settings** > **Access keys** and copy the **Primary connection string** value. You need this value for the cloud service. 
 
@@ -91,4 +94,7 @@ Note that while you can use Application Insights to display the performance coun
 
 - [Learn about Application Insights with Cloud Services](../azure-monitor/app/cloudservices.md)
 - [Set up performance counters](diagnostics-performance-counters.md)
+
+
+
 

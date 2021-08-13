@@ -11,18 +11,16 @@ ms.devlang: java
 ms.topic: conceptual
 ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
-ms.date: 06/19/2019
+ms.date: 03/18/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 06/19/2019
+ms.custom: "devx-track-java, devx-track-csharp"
 ---
 
-# Deprecated: Get started with Notification Hubs using Baidu
+# Get started with Notification Hubs using Baidu
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
-
-> [!IMPORTANT]
-> This tutorial is deprecated. 
 
 Baidu cloud push is a Chinese cloud service that you can use to send push notifications to mobile devices.
 
@@ -38,63 +36,10 @@ This tutorial requires:
 > [!NOTE]
 > To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F).
 
-## Create a Baidu account
+To get started, do the following:
 
-To use Baidu, you must have a Baidu account. If you already have one, log in to the [Baidu portal] and skip to the next step. Otherwise, see the following instructions on how to create a Baidu account.  
-
-1. Go to the [Baidu portal] and click the **登录** (**Login**) link. Click **立即注册** (**Register Now**) to start the account registration process.
-
-    ![Baidu Registration](./media/notification-hubs-baidu-get-started/BaiduRegistration.png)
-
-2. Enter the required details—phone/email address, password, and verification code—and click 注册 (**Signup**).
-
-    ![Baidu Registration Input](./media/notification-hubs-baidu-get-started/BaiduRegistrationInput.png)
-
-3. You are sent an email to the email address that you entered with a link to activate your Baidu account.
-
-    ![Baidu Registration Confirmation](./media/notification-hubs-baidu-get-started/BaiduConfirmation.png)
-
-4. Log in to your email account, open the Baidu activation mail, and click the activation link to activate your Baidu account.
-
-    ![Baidu Activation e-mail](./media/notification-hubs-baidu-get-started/BaiduActivationEmail.png)
-
-Once you have an activated Baidu account, log in to the [Baidu portal].
-
-## Create a Baidu cloud push project
-
-When you create a Baidu cloud push project, you receive your app ID, API key, and secret key.
-
-1. Once you have logged in to the [Baidu portal], click **更多>>** (**more**).
-
-    ![Registration - More](./media/notification-hubs-baidu-get-started/BaiduRegistrationMore.png)
-
-2. Scroll down in the **站长与开发者服务** (**Webmaster and Developer Services**) section and click **百度云推送** (**Baidu Cloud Push**).
-
-    ![Baidu Open Cloud Platform](./media/notification-hubs-baidu-get-started/BaiduOpenCloudPlatform.png)
-
-3. On the next page, click **登录** (**Login**) on the top-right corner.
-
-    ![Baidu Login](./media/notification-hubs-baidu-get-started/BaiduLogin.png)
-
-4. Then, click **创建应用** (**Create Application**) on this page.
-
-    ![Baidu Create Application](./media/notification-hubs-baidu-get-started/BaiduCreateApplication.png)
-
-5. On the next page, click 创建新应用 (**Create New Application**).
-
-    ![Baidu Create New Application](./media/notification-hubs-baidu-get-started/BaiduCreateNewApplication.png)
-
-6. Enter an application name and click 创建 (**Create**).
-
-    ![](./media/notification-hubs-baidu-get-started/BaiduCreateApplicationDoCreate.png)
-
-7. Upon successful creation of a Baidu cloud push project, you see a page with **AppID**, **API Key**, and **Secret Key**. Make a note of the API key and secret key, which we use later.
-
-    ![Baidu Push Secrets](./media/notification-hubs-baidu-get-started/BaiduGetSecrets.png)
-
-8. Configure the project for push notifications by clicking 创建通知 (**Create Notification**)  on the left pane.
-
-    ![](./media/notification-hubs-baidu-get-started/BaiduCreateNotification.png)
+1. Create a Baidu account.
+2. Create a Baidu cloud push project, and make a note of the API key and secret key.
 
 ## Configure a new notification hub
 
@@ -186,7 +131,7 @@ Make a note of the `DefaultListenSharedAccessSignature` and `DefaultFullSharedAc
     <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
     <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
     !! <uses-permission android:name="baidu.push.permission.WRITE_PUSHINFOPROVIDER.YOURPACKAGENAME" />
-    !!<permission android:name="baidu.push.permission.WRITE_PUSHINFOPROVIDER.YOURPACKAGENAME"android:protectionLevel="normal" />
+    !!<permission android:name="baidu.push.permission.WRITE_PUSHINFOPROVIDER.YOURPACKAGENAME" android:protectionLevel="normal" />
 
     ```
 
@@ -468,8 +413,8 @@ Make a note of the `DefaultListenSharedAccessSignature` and `DefaultFullSharedAc
 
 You can quickly test receiving notifications from the [Azure portal]: use the **Send** button in the notification hub configuration screen, as shown in the following screens:
 
-![](./media/notification-hubs-baidu-get-started/BaiduTestSendButton.png)
-![](./media/notification-hubs-baidu-get-started/BaiduTestSend.png)
+![Screenshot of the Azure Portal with the Test Send option outlined in red and a red arrow pointing to it.](./media/notification-hubs-baidu-get-started/BaiduTestSendButton.png)
+![Screenshot to the Baidu Test Send page in the Azure portal.](./media/notification-hubs-baidu-get-started/BaiduTestSend.png)
 
 Push notifications are normally sent in a back-end service like Mobile Services or ASP.NET using a compatible library. If a library is not available for your back-end, you can use the REST API directly to send notification messages.
 
@@ -477,10 +422,10 @@ For simplicity, this tutorial uses a console app as a demonstration on how to se
 
 Here are different approaches for sending notifications:
 
-* **REST Interface**:  You can support notification on any backend platform using  the [REST interface](https://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
+* **REST Interface**:  You can support notification on any backend platform using  the [REST interface](/previous-versions/azure/reference/dn223264(v=azure.100)).
 * **Microsoft Azure Notification Hubs .NET SDK**: In the Nuget Package Manager for Visual Studio, run [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 * **Node.js**: [How to use Notification Hubs from Node.js](notification-hubs-nodejs-push-notification-tutorial.md).
-* **Mobile Apps**: For an example of how to send notifications from an Azure App Service Mobile Apps backend that's integrated with Notification Hubs, see [Add push notifications to your mobile app](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).
+* **Mobile Apps**: For an example of how to send notifications from an Azure App Service Mobile Apps backend that's integrated with Notification Hubs, see [Add push notifications to your mobile app](/previous-versions/azure/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push).
 * **Java / PHP**: For an example of how to send notifications by using the REST APIs, see "How to use Notification Hubs from Java/PHP" ([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md)).
 
 ## (Optional) Send notifications from a .NET console app.
@@ -489,7 +434,7 @@ In this section, we show sending a notification using a .NET console app.
 
 1. Create a new Visual C# console application:
 
-    ![](./media/notification-hubs-baidu-get-started/ConsoleProject.png)
+    ![Screenshot of the New Project dialog box with the Console Application Visual C# option highlighted.](./media/notification-hubs-baidu-get-started/ConsoleProject.png)
 
 2. In the Package Manager Console window, set the **Default project** to your new console application project, and then in the console window, execute the following command:
 
@@ -499,7 +444,7 @@ In this section, we show sending a notification using a .NET console app.
 
     This instruction adds a reference to the Azure Notification Hubs SDK using the [Microsoft.Azure.Notification Hubs NuGet package](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
+    ![Screenshot of the Package Manager Console dialog box with the Send To Notification Hub option circled in red.](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 
 3. Open the file `Program.cs` and add the following using statement:
 

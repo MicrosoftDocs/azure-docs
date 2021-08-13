@@ -1,92 +1,160 @@
 ---
-title: Web app that calls web APIs (calling a web API) - Microsoft identity platform
-description: Learn how to build a Web app that calls web APIs (calling a web API)
+title: Call a web api from a web app | Azure
+titleSuffix: Microsoft identity platform
+description: Learn how to build a web app that calls web APIs (calling a protected web API)
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to know how to write a Web app that calls web APIs using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
+#Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform.
 ---
 
-# Web app that calls web APIs - call a web API
+# A web app that calls web APIs: Call a web API
 
-Now that you have a token, you can call a protected web API.
+Now that you have a token, you can call a protected web API. You usually call a downstream API from the controller or pages of your web app.
+
+## Call a protected web API
+
+Calling a protected web API depends on your language and framework of choice:
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-Here is a simplified code of the action of the `HomeController`. This code gets a token to call the Microsoft Graph. This time code was added, showing how to call Microsoft Graph as a REST API. The URL for the graph API is provided in the `appsettings.json` file and read in a variable named `webOptions`:
+When you use *Microsoft.Identity.Web*, you have three usage options for calling an API:
 
-```JSon
+- [Option 1: Call Microsoft Graph with the Microsoft Graph SDK](#option-1-call-microsoft-graph-with-the-sdk)
+- [Option 2: Call a downstream web API with the helper class](#option-2-call-a-downstream-web-api-with-the-helper-class)
+- [Option 3: Call a downstream web API without the helper class](#option-3-call-a-downstream-web-api-without-the-helper-class)
+
+#### Option 1: Call Microsoft Graph with the SDK
+
+You want to call Microsoft Graph. In this scenario, you've added `AddMicrosoftGraph` in *Startup.cs* as specified in [Code configuration](scenario-web-app-call-api-app-configuration.md#option-1-call-microsoft-graph), and you can directly inject the `GraphServiceClient` in your controller or page constructor for use in the actions. The following example Razor page displays the photo of the signed-in user.
+
+```csharp
+[Authorize]
+[AuthorizeForScopes(Scopes = new[] { "user.read" })]
+public class IndexModel : PageModel
 {
-  "AzureAd": {
-    "Instance": "https://login.microsoftonline.com/",
-    ...
-  },
-  ...
-  "GraphApiUrl": "https://graph.microsoft.com"
+ private readonly GraphServiceClient _graphServiceClient;
+
+ public IndexModel(GraphServiceClient graphServiceClient)
+ {
+    _graphServiceClient = graphServiceClient;
+ }
+
+ public async Task OnGet()
+ {
+  var user = await _graphServiceClient.Me.Request().GetAsync();
+  try
+  {
+   using (var photoStream = await _graphServiceClient.Me.Photo.Content.Request().GetAsync())
+   {
+    byte[] photoByte = ((MemoryStream)photoStream).ToArray();
+    ViewData["photo"] = Convert.ToBase64String(photoByte);
+   }
+   ViewData["name"] = user.DisplayName;
+  }
+  catch (Exception)
+  {
+   ViewData["photo"] = null;
+  }
+ }
 }
 ```
 
-```CSharp
+#### Option 2: Call a downstream web API with the helper class
+
+You want to call a web API other than Microsoft Graph. In that case, you've added `AddDownstreamWebApi` in *Startup.cs* as specified in [Code configuration](scenario-web-app-call-api-app-configuration.md#option-2-call-a-downstream-web-api-other-than-microsoft-graph), and you can directly inject an `IDownstreamWebApi` service in your controller or page constructor and use it in the actions:
+
+```csharp
+[Authorize]
+[AuthorizeForScopes(ScopeKeySection = "TodoList:Scopes")]
+public class TodoListController : Controller
+{
+  private IDownstreamWebApi _downstreamWebApi;
+  private const string ServiceName = "TodoList";
+
+  public TodoListController(IDownstreamWebApi downstreamWebApi)
+  {
+    _downstreamWebApi = downstreamWebApi;
+  }
+
+  public async Task<ActionResult> Details(int id)
+  {
+    var value = await _downstreamWebApi.CallWebApiForUserAsync(
+      ServiceName,
+      options =>
+      {
+        options.RelativePath = $"me";
+      });
+      return View(value);
+  }
+}
+```
+
+The `CallWebApiForUserAsync` also has strongly typed generic overrides that enable you to directly receive an object. For example, the following method receives a `Todo` instance, which is a strongly typed representation of the JSON returned by the web API.
+
+```csharp
+    // GET: TodoList/Details/5
+    public async Task<ActionResult> Details(int id)
+    {
+        var value = await _downstreamWebApi.CallWebApiForUserAsync<object, Todo>(
+            ServiceName,
+            null,
+            options =>
+            {
+                options.HttpMethod = HttpMethod.Get;
+                options.RelativePath = $"api/todolist/{id}";
+            });
+        return View(value);
+    }
+   ```
+
+#### Option 3: Call a downstream web API without the helper class
+
+You've decided to acquire a token manually using the `ITokenAcquisition` service, and you now need to use the token. In that case, the following code continues the example code shown in [A web app that calls web APIs: Acquire a token for the app](scenario-web-app-call-api-acquire-token.md). The code is called in the actions of the web app controllers.
+
+After you've acquired the token, use it as a bearer token to call the downstream API, in this case Microsoft Graph.
+
+```csharp
 public async Task<IActionResult> Profile()
 {
- var application = BuildConfidentialClientApplication(HttpContext, HttpContext.User);
- string accountIdentifier = claimsPrincipal.GetMsalAccountId();
- string loginHint = claimsPrincipal.GetLoginHint();
+  // Acquire the access token.
+  string[] scopes = new string[]{"user.read"};
+  string accessToken = await tokenAcquisition.GetAccessTokenForUserAsync(scopes);
 
- // Get the account
- IAccount account = await application.GetAccountAsync(accountIdentifier);
+  // Use the access token to call a protected web API.
+  HttpClient httpClient = new HttpClient();
+  httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 
- // Special case for guest users as the Guest iod / tenant id are not surfaced.
- if (account == null)
- {
-  var accounts = await application.GetAccountsAsync();
-  account = accounts.FirstOrDefault(a => a.Username == loginHint);
- }
+  var response = await httpClient.GetAsync($"{webOptions.GraphApiUrl}/beta/me");
 
- AuthenticationResult result;
- result = await application.AcquireTokenSilent(new []{"user.read"}, account)
-                            .ExecuteAsync();
- var accessToken = result.AccessToken;
+  if (response.StatusCode == HttpStatusCode.OK)
+  {
+    var content = await response.Content.ReadAsStringAsync();
 
- // Calls the web API (here the graph)
- HttpClient httpClient = new HttpClient();
- httpClient.DefaultRequestHeaders.Authorization =
-     new AuthenticationHeaderValue(Constants.BearerAuthorizationScheme,accessToken);
- var response = await httpClient.GetAsync($"{webOptions.GraphApiUrl}/beta/me");
+    dynamic me = JsonConvert.DeserializeObject(content);
+    ViewData["Me"] = me;
+  }
 
- if (response.StatusCode == HttpStatusCode.OK)
- {
-  var content = await response.Content.ReadAsStringAsync();
-
-  dynamic me = JsonConvert.DeserializeObject(content);
-  return me;
- }
-
- ViewData["Me"] = me;
- return View();
+  return View();
 }
 ```
 
 > [!NOTE]
 > You can use the same principle to call any web API.
 >
-> Most Azure web APIs provide an SDK that simplifies calling it. This is also the case of the Microsoft Graph. You'll learn in the next article where to find a tutorial illustrating these aspects.
+> Most Azure web APIs provide an SDK that simplifies calling the API as is the case for Microsoft Graph. See, for instance, [Create a web application that authorizes access to Blob storage with Azure AD](../../storage/common/storage-auth-aad-app.md?tabs=dotnet&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) for an example of a web app using Microsoft.Identity.Web and using the Azure Storage SDK.
 
 # [Java](#tab/java)
 
-```Java
+```java
 private String getUserInfoFromGraph(String accessToken) throws Exception {
     // Microsoft Graph user endpoint
     URL url = new URL("https://graph.microsoft.com/v1.0/me");
@@ -107,18 +175,17 @@ private String getUserInfoFromGraph(String accessToken) throws Exception {
     JSONObject responseObject = HttpClientHelper.processResponse(responseCode, response);
     return responseObject.toString();
 }
-
 ```
 
 # [Python](#tab/python)
 
-```Python
+```python
 @app.route("/graphcall")
 def graphcall():
     token = _get_token_from_cache(app_config.SCOPE)
     if not token:
         return redirect(url_for("login"))
-    graph_data = requests.get(  # Use token to call downstream service
+    graph_data = requests.get(  # Use token to call downstream service.
         app_config.ENDPOINT,
         headers={'Authorization': 'Bearer ' + token['access_token']},
         ).json()
@@ -129,5 +196,5 @@ def graphcall():
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Move to production](scenario-web-app-call-api-production.md)
+Move on to the next article in this scenario,
+[Move to production](scenario-web-app-call-api-production.md).

@@ -1,21 +1,16 @@
 ---
-title: OpenShift Container Platform 3.11 in Azure post-deployment tasks | Microsoft Docs
+title: OpenShift Container Platform 3.11 in Azure post-deployment tasks 
 description: Additional tasks for after an OpenShift Container Platform 3.11 cluster has been deployed. 
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: haroldwongms
 manager: mdotson
-editor: 
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machines-linux
-
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
+ms.custom: devx-track-ansible, devx-track-azurecli
 ---
 
 # Post-deployment tasks
@@ -36,9 +31,9 @@ To use Azure Active Directory for authentication, first you need to create an Az
 These steps use the Azure CLI to create the app registration, and the GUI (portal) to set the permissions. To create the app registration, you need the following five pieces of information:
 
 - Display name: App registration name (for example, OCPAzureAD)
-- Home page: OpenShift console URL (for example, https://masterdns343khhde.westus.cloudapp.azure.com/console)
-- Identifier URI: OpenShift console URL (for example, https://masterdns343khhde.westus.cloudapp.azure.com/console)
-- Reply URL: Master public URL and the app registration name (for example, https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
+- Home page: OpenShift console URL (for example, `https://masterdns343khhde.westus.cloudapp.azure.com/console`)
+- Identifier URI: OpenShift console URL (for example, `https://masterdns343khhde.westus.cloudapp.azure.com/console`)
+- Reply URL: Master public URL and the app registration name (for example, `https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD`)
 - Password: Secure password (use a strong password)
 
 The following example creates an app registration by using the preceding information:
@@ -161,7 +156,7 @@ There are three ways to add the Log Analytics agent to OpenShift.
 - Enable Azure Monitor VM Extension on each OpenShift node
 - Install the Log Analytics agent as an OpenShift daemon-set
 
-Read the full [instructions](https://docs.microsoft.com/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift) for more details.
+Read the full [instructions](../../azure-monitor/containers/containers.md#configure-a-log-analytics-agent-for-red-hat-openshift) for more details.
 
 ## Configure metrics and logging
 

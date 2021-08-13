@@ -15,7 +15,7 @@ ms.date: 03/11/2019
 ms.author: apimpm
 ---
 # API Management transformation policies
-This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
+This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
 
 ##  <a name="TransformationPolicies"></a> Transformation policies
 
@@ -73,11 +73,11 @@ This topic provides a reference for the following API Management policies. For i
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
 |apply|The attribute must be set to one of the following values.<br /><br /> -   always - always apply conversion.<br />-   content-type-json - convert only if response Content-Type header indicates presence of JSON.|Yes|N/A|
-|consider-accept-header|The attribute must be set to one of the following values.<br /><br /> -   true - apply conversion if JSON is requested in request Accept header.<br />-   false -always apply conversion.|No|true|
+|consider-accept-header|The attribute must be set to one of the following values.<br /><br /> -   true - apply conversion if XML is requested in request Accept header.<br />-   false -always apply conversion.|No|true|
 |parse-date|When set to `false` date values are simply copied during transformation|No|true|
 
 ### Usage
- This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound, outbound, on-error
 
@@ -118,10 +118,10 @@ This topic provides a reference for the following API Management policies. For i
 |----------|-----------------|--------------|-------------|
 |kind|The attribute must be set to one of the following values.<br /><br /> -   javascript-friendly - the converted JSON has a form friendly to JavaScript developers.<br />-   direct - the converted JSON reflects the original XML document's structure.|Yes|N/A|
 |apply|The attribute must be set to one of the following values.<br /><br /> -   always - convert always.<br />-   content-type-xml - convert only if response Content-Type header indicates presence of XML.|Yes|N/A|
-|consider-accept-header|The attribute must be set to one of the following values.<br /><br /> -   true - apply conversion if XML is requested in request Accept header.<br />-   false -always apply conversion.|No|true|
+|consider-accept-header|The attribute must be set to one of the following values.<br /><br /> -   true - apply conversion if JSON is requested in request Accept header.<br />-   false -always apply conversion.|No|true|
 
 ### Usage
- This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound, outbound, on-error
 
@@ -156,7 +156,7 @@ This topic provides a reference for the following API Management policies. For i
 |to|The replacement string. Specify a zero length replacement string to remove the search string.|Yes|N/A|
 
 ### Usage
- This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound, outbound, backend, on-error
 
@@ -187,7 +187,7 @@ This topic provides a reference for the following API Management policies. For i
 |redirect-content-urls|Root element.|Yes|
 
 ### Usage
- This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound, outbound
 
@@ -209,7 +209,7 @@ or
 ```
 
 > [!NOTE]
-> Backend entities can be managed via management [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
+> Backend entities can be managed via [Azure portal](how-to-configure-service-fabric-backend.md), management [API](/rest/api/apimanagement), and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
 
 ### Example
 
@@ -264,7 +264,7 @@ In this example the policy routes the request to a service fabric backend, using
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
 |base-url|New backend service base URL.|One of `base-url` or `backend-id` must be present.|N/A|
-|backend-id|Identifier of the backend to route to. (Backend entities are managed via [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|One of `base-url` or `backend-id` must be present.|N/A|
+|backend-id|Identifier of the backend to route to. (Backend entities are managed via [Azure portal](how-to-configure-service-fabric-backend.md), [API](/rest/api/apimanagement), and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|One of `base-url` or `backend-id` must be present.|N/A|
 |sf-partition-key|Only applicable when the backend is a Service Fabric service and is specified using 'backend-id'. Used to resolve a specific partition from the name resolution service.|No|N/A|
 |sf-replica-type|Only applicable when the backend is a Service Fabric service and is specified using 'backend-id'. Controls if the request should go to the primary or secondary replica of a partition. |No|N/A|
 |sf-resolve-condition|Only applicable when the backend is a Service Fabric service. Condition identifying if the call to Service Fabric backend has to be repeated with new resolution.|No|N/A|
@@ -272,7 +272,7 @@ In this example the policy routes the request to a service fabric backend, using
 |sf-listener-name|Only applicable when the backend is a Service Fabric service and is specified using ‘backend-id’. Service Fabric Reliable Services allows you to create multiple listeners in a service. This attribute is used to select a specific listener when a backend Reliable Service has more than one listener. If this attribute is not specified, API Management will attempt to use a listener without a name. A listener without a name is typical for Reliable Services that have only one listener. |No|N/A|
 
 ### Usage
- This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound, backend
 
@@ -361,7 +361,7 @@ The `set-body` policy can be configured to use the [Liquid](https://shopify.gith
 > [!IMPORTANT]
 > The implementation of Liquid used in the `set-body` policy is configured in 'C# mode'. This is particularly important when doing things such as filtering. As an example, using a date filter requires the use of Pascal casing and C# date formatting e.g.:
 >
-> {{body.foo.startDateTime| Date:"yyyyMMddTHH:mm:ddZ"}}
+> {{body.foo.startDateTime| Date:"yyyyMMddTHH:mm:ssZ"}}
 
 > [!IMPORTANT]
 > In order to correctly bind to an XML body using the Liquid template, use a `set-header` policy to set Content-Type to either application/xml, text/xml (or any type ending with +xml); for a JSON body, it must be application/json, text/json (or any type ending with +json).
@@ -442,7 +442,7 @@ OriginalUrl.
 
 
 ### Usage
- This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound, outbound, backend
 
@@ -463,13 +463,20 @@ OriginalUrl.
 
 ### Examples
 
-#### Example
+#### Example - adding header, override existing
 
 ```xml
 <set-header name="some header name" exists-action="override">
     <value>20</value>
 </set-header>
 ```
+#### Example - removing header
+
+```xml
+ <set-header name="some header name" exists-action="delete" />
+```
+
+
 
 #### Forward context information to the backend service
  This example shows how to apply policy at the API level to supply context information to the backend service. For a demonstration of configuring and using this policy, see [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) and fast-forward to 10:30. At 12:10 there is a demo of calling an operation in the developer portal where you can see the policy at work.
@@ -503,7 +510,7 @@ OriginalUrl.
 |Name|Description|Required|
 |----------|-----------------|--------------|
 |set-header|Root element.|Yes|
-|value|Specifies the value of the header to be set. For multiple headers with the same name add additional `value` elements.|Yes|
+|value|Specifies the value of the header to be set. For multiple headers with the same name add additional `value` elements.|No|
 
 ### Properties
 
@@ -513,7 +520,7 @@ OriginalUrl.
 |name|Specifies name of the header to be set.|Yes|N/A|
 
 ### Usage
- This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound, outbound, backend, on-error
 
@@ -530,17 +537,12 @@ OriginalUrl.
 </set-query-parameter>
 ```
 
-### Examples
-
 #### Example
 
 ```xml
 
-<set-query-parameter>
-  <parameter name="api-key" exists-action="skip">
-    <value>12345678901</value>
-  </parameter>
-  <!-- for multiple parameters with the same name add additional value elements -->
+<set-query-parameter name="api-key" exists-action="skip">
+  <value>12345678901</value>
 </set-query-parameter>
 
 ```
@@ -573,7 +575,7 @@ OriginalUrl.
 |name|Specifies name of the query parameter to be set.|Yes|N/A|
 
 ### Usage
- This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound, backend
 
@@ -651,7 +653,7 @@ OriginalUrl.
 |copy-unmatched-params|Specifies whether query parameters in the incoming request not present in the original URL template are added to the URL defined by the re-write template|No|true|
 
 ### Usage
- This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound
 
@@ -666,18 +668,18 @@ OriginalUrl.
 <xsl-transform>
     <parameter name="User-Agent">@(context.Request.Headers.GetValueOrDefault("User-Agent","non-specified"))</parameter>
     <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    	<xsl:output method="xml" indent="yes" />
-    	<xsl:param name="User-Agent" />
-    	<xsl:template match="* | @* | node()">
-    		<xsl:copy>
-    			<xsl:if test="self::* and not(parent::*)">
-    				<xsl:attribute name="User-Agent">
-    					<xsl:value-of select="$User-Agent" />
-    				</xsl:attribute>
-    			</xsl:if>
-    			<xsl:apply-templates select="* | @* | node()" />
-    		</xsl:copy>
-    	</xsl:template>
+        <xsl:output method="xml" indent="yes" />
+        <xsl:param name="User-Agent" />
+        <xsl:template match="* | @* | node()">
+            <xsl:copy>
+                <xsl:if test="self::* and not(parent::*)">
+                    <xsl:attribute name="User-Agent">
+                        <xsl:value-of select="$User-Agent" />
+                    </xsl:attribute>
+                </xsl:if>
+                <xsl:apply-templates select="* | @* | node()" />
+            </xsl:copy>
+        </xsl:template>
     </xsl:stylesheet>
   </xsl-transform>
 ```
@@ -692,15 +694,15 @@ OriginalUrl.
   <outbound>
       <base />
       <xsl-transform>
-      	<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    		<xsl:output omit-xml-declaration="yes" method="xml" indent="yes" />
-    		<!-- Copy all nodes directly-->
-    		<xsl:template match="node()| @*|*">
-    			<xsl:copy>
-    				<xsl:apply-templates select="@* | node()|*" />
-    			</xsl:copy>
-    		</xsl:template>
-      	</xsl:stylesheet>
+          <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+            <xsl:output omit-xml-declaration="yes" method="xml" indent="yes" />
+            <!-- Copy all nodes directly-->
+            <xsl:template match="node()| @*|*">
+                <xsl:copy>
+                    <xsl:apply-templates select="@* | node()|*" />
+                </xsl:copy>
+            </xsl:template>
+          </xsl:stylesheet>
     </xsl-transform>
   </outbound>
 </policies>
@@ -715,7 +717,7 @@ OriginalUrl.
 |xsl:stylesheet|Root stylesheet element. All elements and attributes defined within follow the standard [XSLT specification](https://www.w3.org/TR/xslt)|Yes|
 
 ### Usage
- This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound, outbound
 
@@ -726,5 +728,5 @@ OriginalUrl.
 For more information, see the following topics:
 
 + [Policies in API Management](api-management-howto-policies.md)
-+ [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
-+ [Policy samples](policy-samples.md)
++ [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
++ [Policy samples](./policy-reference.md)

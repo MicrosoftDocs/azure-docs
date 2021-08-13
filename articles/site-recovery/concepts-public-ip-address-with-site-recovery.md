@@ -1,5 +1,5 @@
 ---
-title: Use public IP addresses after failover with Azure Site Recovery  | Microsoft Docs
+title: Assign public IP addresses after failover with Azure Site Recovery 
 description: Describes how to set up public IP addresses with Azure Site Recovery and Azure Traffic Manager for disaster recovery and migration
 services: site-recovery
 author: mayurigupta13
@@ -43,7 +43,7 @@ Read more about failover scenarios with Traffic Manager:
 2. [Azure to Azure failover](../site-recovery/concepts-traffic-manager-with-site-recovery.md#azure-to-azure-failover) with Traffic Manager 
 
 The setup is as follows:
-- Create a [Traffic Manager profile](../traffic-manager/traffic-manager-create-profile.md).
+- Create a [Traffic Manager profile](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 - Utilizing the **Priority** routing method, create two endpoints – **Primary** for source and **Failover** for Azure. **Primary** is assigned Priority 1 and **Failover** is assigned Priority 2.
 - The **Primary** endpoint can be [Azure](../traffic-manager/traffic-manager-endpoint-types.md#azure-endpoints) or [External](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints) depending on whether your source environment is inside or outside Azure.
 - The **Failover** endpoint is created as an **Azure** endpoint. Use a **static public IP address** as this will be external facing endpoint for Traffic Manager in the disaster event.

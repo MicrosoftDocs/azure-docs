@@ -2,12 +2,12 @@
 title: 'Internet Analyzer FAQ | Microsoft Docs'
 description: The FAQ for Azure Internet Analyzer. 
 services: internet-analyzer
-author: diego-perez-botero
+author: KumudD
 
 ms.service: internet-analyzer
 ms.topic: guide
 ms.date: 10/16/2019
-ms.author: mebeatty
+ms.author: kumud
 ---
 # Azure Internet Analyzer FAQ (Preview)
 
@@ -93,6 +93,10 @@ The following preconfigured endpoints are available during preview:
 ## How is Internet Analyzer different from other monitoring services provided by Azure?
 
 Internet Analyzer helps you understand your end users' performance and assists in making decisions to improve their performance. While other Azure monitoring tools provide insights into your Azure services, Internet Analyzer focuses on measuring end-to-end Internet performance for your users.
+
+## How is measurement data handled by Internet Analyzer?
+
+Azure has [strong security processes and meets a broad range of compliance standards](https://azure.microsoft.com/support/trust-center/). Only you and your designated team have access to your data. Microsoft staff can have restricted access to it only under specific limited circumstances with your knowledge. It's encrypted in transit and at rest.
 
 ## Next steps
 

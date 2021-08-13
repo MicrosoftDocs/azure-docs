@@ -1,14 +1,13 @@
 ---
 title: JavaScript user-defined aggregates in Azure Stream Analytics
 description: This article describes how to perform advanced query mechanics with JavaScript user-defined aggregates in Azure Stream Analytics.
-services: stream-analytics
-author: rodrigoamicrosoft
+author: rodrigoaatmicrosoft
 ms.author: rodrigoa
-manager: kfile
-ms.reviewer: mamccrea
+
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
+ms.custom: devx-track-js
 ---
 # Azure Stream Analytics JavaScript user-defined aggregates
  
@@ -115,7 +114,7 @@ For JavaScript UDA data types, refer to section **Stream Analytics and JavaScrip
 
 Below we walk through the process of creating a UDA from Portal. The example we use here is computing time weighted averages.
 
-Now let’s create a JavaScript UDA under an existing ASA job by following steps.
+Now let's create a JavaScript UDA under an existing ASA job by following steps.
 
 1. Log on to Azure portal and locate your existing Stream Analytics job.
 1. Then click on functions  link under **JOB TOPOLOGY**.
@@ -221,12 +220,12 @@ Create a local JSON file with below content, upload the file to Stream Analytics
 
 ## Get help
 
-For additional help, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+For additional help, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## Next steps
 
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics query language reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics management REST API reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics query language reference](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics management REST API reference](/rest/api/streamanalytics/)

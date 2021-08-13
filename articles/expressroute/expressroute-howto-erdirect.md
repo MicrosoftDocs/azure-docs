@@ -1,20 +1,37 @@
 ---
-title: Configure ExpressRoute Direct - Azure | Microsoft Docs
-description: This page helps you configure ExpressRoute Direct.
+title: 'Azure ExpressRoute: Configure ExpressRoute Direct'
+description: Learn how to use Azure PowerShell to configure Azure ExpressRoute Direct to connect directly to the Microsoft global network.
 services: expressroute
-author: jaredr80
+author: duongau
 
 ms.service: expressroute
-ms.topic: conceptual
-ms.date: 05/20/2019
-ms.author: jaredro
-ms.custom: seodec18
+ms.topic: how-to
+ms.date: 12/14/2020
+ms.author: duau
 
 ---
 
 # How to configure ExpressRoute Direct
 
-ExpressRoute Direct gives you the ability to connect directly into Microsoft’s global network at peering locations strategically distributed across the world. For more information, see [About ExpressRoute Direct Connect](expressroute-erdirect-about.md).
+ExpressRoute Direct gives you the ability to directly connect to Microsoft's global network through peering locations strategically distributed across the world. For more information, see [About ExpressRoute Direct](expressroute-erdirect-about.md).
+
+## Before you begin
+
+Before using ExpressRoute Direct, you must first enroll your subscription. Before using ExpressRoute Direct, you must first enroll your subscription. To enroll, please do the following via Azure PowerShell:
+1.  Sign in to Azure and select the subscription you wish to enroll.
+
+    ```azurepowershell-interactive
+    Connect-AzAccount 
+
+    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
+    ```
+
+2. Register your subscription for Public Preview using the following command:
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -FeatureName AllowExpressRoutePorts -ProviderNamespace Microsoft.Network
+    ```
+
+Once enrolled, verify that the **Microsoft.Network** resource provider is registered to your subscription. Registering a resource provider configures your subscription to work with the resource provider.
 
 ## <a name="resources"></a>Create the resource
 
@@ -25,7 +42,13 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
 
    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
    ```
-2. List all locations where ExpressRoute Direct is supported.
+   
+2. Re-register your subscription to Microsoft.Network to access the expressrouteportslocation and expressrouteport APIs.
+
+   ```powershell
+   Register-AzResourceProvider -ProviderNameSpace "Microsoft.Network"
+   ```   
+3. List all locations where ExpressRoute Direct is supported.
   
    ```powershell
    Get-AzExpressRoutePortsLocation
@@ -58,7 +81,7 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
    Contact             : support@equinix.com
    AvailableBandwidths : []
    ```
-3. Determine if a location listed above has available bandwidth
+4. Determine if a location listed above has available bandwidth
 
    ```powershell
    Get-AzExpressRoutePortsLocation -LocationName "Equinix-San-Jose-SV1"
@@ -80,7 +103,7 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
                           }
                         ]
    ```
-4. Create an ExpressRoute Direct resource based on the location chosen above
+5. Create an ExpressRoute Direct resource based on the location chosen above
 
    ExpressRoute Direct supports both QinQ and Dot1Q encapsulation. If QinQ is selected, each ExpressRoute circuit will be dynamically assigned an S-Tag and will be unique throughout the ExpressRoute Direct resource. Each C-Tag on the circuit must be unique on the circuit, but not across the ExpressRoute Direct.  
 
@@ -147,9 +170,22 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
    Circuits                   : []
    ```
 
-## <a name="state"></a>Change Admin State of links
+## <a name="authorization"></a>Generate the Letter of Authorization (LOA)
 
-  This process should be used to conduct a Layer 1 test, ensuring that each cross-connection is properly patched into each router for primary and secondary.
+Reference the recently created ExpressRoute Direct resource, input a customer name to write the LOA to and (optionally) define a file location to store the document. If a file path is not referenced, the document will download to the current directory.
+
+  ```powershell 
+   New-AzExpressRoutePortLOA -ExpressRoutePort $ERDirect -CustomerName TestCustomerName -Destination "C:\Users\SampleUser\Downloads" 
+   ```
+ **Example output**
+
+   ```powershell
+   Written Letter of Authorization To: C:\Users\SampleUser\Downloads\LOA.pdf
+   ```
+
+## <a name="state"></a>Change Admin State of links
+   
+This process should be used to conduct a Layer 1 test, ensuring that each cross-connection is properly patched into each router for primary and secondary.
 1. Get ExpressRoute Direct details.
 
    ```powershell
@@ -219,13 +255,13 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
 
 ## <a name="circuit"></a>Create a circuit
 
-By default, you can create 10 circuits in the subscription where the ExpressRoute Direct resource is. This can be increased by support. You are responsible for tracking both Provisioned and Utilized Bandwidth. Provisioned bandwidth is the sum of bandwidth of all circuits on the ExpressRoute Direct resource and utilized bandwidth is the physical usage of the underlying physical interfaces.
+By default, you can create 10 circuits in the subscription where the ExpressRoute Direct resource is. This limit can be increased by support. You are responsible for tracking both Provisioned and Utilized Bandwidth. Provisioned bandwidth is the sum of bandwidth of all circuits on the ExpressRoute Direct resource and utilized bandwidth is the physical usage of the underlying physical interfaces.
 
-There are additional circuit bandwidths that can be utilized on ExpressRoute Direct only to support the scenarios outlined above. These are: 40Gbps and 100Gbps.
+There are additional circuit bandwidths that can be utilized on ExpressRoute Direct to support only the scenarios outlined above. These bandwidths are 40 Gbps and 100 Gbps.
 
-**SkuTier** can be Local, Standard or Premium.
+**SkuTier** can be Local, Standard, or Premium.
 
-**SkuFamily** must be MeteredData only as unlimited is not supported on ExpressRoute Direct.
+**SkuFamily** can only be MeteredData. Unlimited is not supported on ExpressRoute Direct.
 
 Create a circuit on the ExpressRoute Direct resource.
 
@@ -266,7 +302,12 @@ Create a circuit on the ExpressRoute Direct resource.
   AllowClassicOperations           : False
   GatewayManagerEtag     
   ```
-
+## Delete the resource
+Prior to deleting the ExpressRoute Direct resource, you first need to delete any ExpressRoute circuits created on the ExpressRoute Direct port pair.
+You can delete the ExpressRoute Direct resource by running the following command:
+ ```powershell
+   Remove-azexpressrouteport -Name $Name -Resourcegroupname -$ResourceGroupName
+   ```
 ## Next steps
 
 For more information about ExpressRoute Direct, see the [Overview](expressroute-erdirect-about.md).

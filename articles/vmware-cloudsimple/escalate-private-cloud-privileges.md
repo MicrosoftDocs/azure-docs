@@ -1,8 +1,9 @@
 --- 
-title: Escalate private cloud privileges - Azure VMware Solution by CloudSimple
+title: Escalate private cloud privileges
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Describes how to escalate privileges on your private cloud for administrative functions in vCenter
-author: sharaths-cs
-ms.author: b-shsury
+author: shortpatti
+ms.author: v-hborys
 ms.date: 06/05/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
@@ -14,7 +15,7 @@ manager: dikamath
 
 For administrative access to your Private Cloud vCenter, you can temporarily escalate your CloudSimple privileges.  Using elevated privileges, you can install VMware solutions, add identity sources, and manage users.
 
-New users can be created on the vCenter SSO domain and given access to vCenter.  When you create new users, add them to the CloudSimple builtin groups for accessing vCenter.  For more information, see [CloudSimple Private Cloud permission model of VMware vCenter](https://docs.azure.cloudsimple.com/learn-private-cloud-permissions/).
+New users can be created on the vCenter SSO domain and given access to vCenter.  When you create new users, add them to the CloudSimple builtin groups for accessing vCenter.  For more information, see [CloudSimple Private Cloud permission model of VMware vCenter](./learn-private-cloud-permissions.md).
 
 > [!CAUTION]
 > Don’t make any configuration changes for management components. Actions taken during the escalated privileged state can adversely impact your system or can cause your system to become unavailable.
@@ -50,6 +51,9 @@ The privilege escalation begins and lasts until the end of the selected interval
 > [!IMPORTANT]
 > Only one user can have escalated privileges.  You must de-escalate the user's privileges before you can escalate another user's privileges.
 
+> [!CAUTION]
+> New users must be added only to *Cloud-Owner-Group*, *Cloud-Global-Cluster-Admin-Group*, *Cloud-Global-Storage-Admin-Group*, *Cloud-Global-Network-Admin-Group* or, *Cloud-Global-VM-Admin-Group*.  Users added to *Administrators* group will be removed automatically.  Only service accounts must be added to *Administrators* group and service accounts must not be used to sign in to vSphere web UI.
+
 ## Extend privilege escalation
 
 If you require additional time to complete your tasks, you can extend the privilege escalation period.  Choose the additional escalate time interval that allows you to complete the administrative tasks.
@@ -79,5 +83,5 @@ Once your administrative tasks are complete, you should de-escalate your privile
 
 ## Next steps
 
-* [Set up vCenter identity sources to use Active Directory](https://docs.azure.cloudsimple.com/set-vcenter-identity/)
-* Install backup solution to [backup workload virtual machines](https://docs.azure.cloudsimple.com/backup-workloads-veeam/)
+* [Set up vCenter identity sources to use Active Directory](./set-vcenter-identity.md)
+* Install backup solution to [backup workload virtual machines](./backup-workloads-veeam.md)

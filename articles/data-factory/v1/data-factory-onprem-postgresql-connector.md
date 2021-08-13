@@ -1,21 +1,11 @@
 ---
 title: Move data From PostgreSQL using Azure Data Factory 
 description: Learn about how to move data from PostgreSQL Database using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: craigg
-
-
-ms.assetid: 888d9ebc-2500-4071-b6d1-0f6bd1b5997c
+ms.author: jingwang
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: jingwang
-
 robots: noindex
 ---
 # Move data from PostgreSQL using Azure Data Factory
@@ -159,7 +149,7 @@ As a first step, set up the data management gateway. The instructions are in the
 ```
 **PostgreSQL input dataset:**
 
-The sample assumes you have created a table “MyTable” in PostgreSQL and it contains a column called “timestamp” for time series data.
+The sample assumes you have created a table "MyTable" in PostgreSQL and it contains a column called "timestamp" for time series data.
 
 Setting `"external": true` informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
 

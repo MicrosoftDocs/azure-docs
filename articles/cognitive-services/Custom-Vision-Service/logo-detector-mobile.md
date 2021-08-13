@@ -9,9 +9,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 11/23/2020
 ms.author: pafarley
+ms.custom: devx-track-csharp
 ---
+
 # Tutorial: Recognize Azure service logos in camera pictures
 
 In this tutorial, you'll explore a sample app that uses Custom Vision as part of a larger scenario. The AI Visual Provision app, a Xamarin.Forms app for mobile platforms, analyzes camera pictures of Azure service logos and then deploys the actual services to the user's Azure account. Here you'll learn how it uses Custom Vision in coordination with other components to deliver a useful end-to-end application. You can run the whole app scenario for yourself, or you can complete only the Custom Vision part of the setup and explore how the app uses it.
@@ -23,14 +25,14 @@ This tutorial will show you how to:
 > - Connect your app to Azure Computer Vision and Custom Vision.
 > - Create an Azure service principal account to deploy Azure services from the app.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin. 
 
 ## Prerequisites
 
 - [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/)
-- The Xamarin workload for Visual Studio (see [Installing Xamarin](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows))
+- The Xamarin workload for Visual Studio (see [Installing Xamarin](/xamarin/cross-platform/get-started/installation/windows))
 - An iOS or Android emulator for Visual Studio
-- The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest) (optional)
+- The [Azure CLI](/cli/azure/install-azure-cli-windows) (optional)
 
 ## Get the source code
 
@@ -88,7 +90,7 @@ To learn more about how the app handles this data, start with the **GetResources
 
 The Custom Vision portion of the tutorial is complete. If you want to run the app, you'll need to integrate the Computer Vision service as well. The app uses the Computer Vision text recognition feature to supplement the logo detection process. An Azure logo can be recognized by its appearance *or* by the text printed near it. Unlike Custom Vision models, Computer Vision is pretrained to perform certain operations on images or videos.
 
-Subscribe to the Computer Vision service to get a key and endpoint URL. For help on this step, see [How to obtain subscription keys](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe).
+Subscribe to the Computer Vision service to get a key and endpoint URL. For help on this step, see [How to obtain subscription keys](../cognitive-services-apis-create-account.md?tabs=singleservice%2Cwindows).
 
 ![The Computer Vision service in the Azure portal, with the Quickstart menu selected. A link for keys is outlined, as is the API endpoint URL](media/azure-logo-tutorial/comvis-keys.png)
 
@@ -98,11 +100,11 @@ Next, open the *Source\VisualProvision\AppSettings.cs* file and populate the `Co
 
 ## Create a service principal
 
-The app requires an Azure service principal account to deploy services to your Azure subscription. A service principal lets you delegate specific permissions to an app using role-based access control. To learn more, see the [service principals guide](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals).
+The app requires an Azure service principal account to deploy services to your Azure subscription. A service principal lets you delegate specific permissions to an app using Azure role-based access control. To learn more, see the [service principals guide](/azure-stack/operator/azure-stack-create-service-principals).
 
 You can create a service principal by using either Azure Cloud Shell or the Azure CLI, as shown here. To begin, sign in and select the subscription you want to use.
 
-```console
+```azurecli
 az login
 az account list
 az account set --subscription "<subscription name or subscription id>"
@@ -110,7 +112,7 @@ az account set --subscription "<subscription name or subscription id>"
 
 Then create your service principal. (This process might take some time to finish.)
 
-```console
+```azurecli
 az ad sp create-for-rbac --name <servicePrincipalName> --password <yourSPStrongPassword>
 ```
 
@@ -170,7 +172,7 @@ Follow these steps to run the app:
 
 If you've followed all of the steps of this scenario and used the app to deploy Azure services to your account, go to the [Azure portal](https://ms.portal.azure.com/). There, cancel the services you don't want to use.
 
-If you plan to create your own object detection project with Custom Vision, you might want to delete the logo detection project you created in this tutorial. A free trial for Custom Vision allows for only two projects. To delete the logo detection project, on the [Custom Vision website](https://customvision.ai), open **Projects** and then select the trash icon under **My New Project**.
+If you plan to create your own object detection project with Custom Vision, you might want to delete the logo detection project you created in this tutorial. A free subscription for Custom Vision allows for only two projects. To delete the logo detection project, on the [Custom Vision website](https://customvision.ai), open **Projects** and then select the trash icon under **My New Project**.
 
 ## Next steps
 

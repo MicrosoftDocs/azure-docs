@@ -1,9 +1,9 @@
 ---
 title: Azure Data Lake Storage Gen1 cross-region migration | Microsoft Docs
-description: Learn about cross-region migration for Azure Data Lake Storage Gen1.
+description: Learn what to consider as you plan and complete a migration to Azure Data Lake Storage Gen1 as it becomes available in new regions.
 services: data-lake-store
 documentationcenter: ''
-author: swums
+author: twooley
 manager: amitkul
 editor: swums
 
@@ -12,7 +12,7 @@ ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
-ms.author: stewu
+ms.author: twooley
 
 ---
 # Migrate Azure Data Lake Storage Gen1 across regions

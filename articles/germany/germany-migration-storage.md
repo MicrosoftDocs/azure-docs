@@ -1,17 +1,17 @@
 ---
-title: Migrate Azure storage resources from Azure Germany to global Azure
+title: Migrate Azure storage resource from Azure Germany to global Azure
 description: This article provides information about migrating your Azure storage resources from Azure Germany to global Azure.
+ms.topic: article
+ms.date: 10/16/2020
 author: gitralf
-services: germany
-cloud: Azure Germany
 ms.author: ralfwi 
 ms.service: germany
-ms.date: 08/15/2018
-ms.topic: article
-ms.custom: bfmigrate
+ms.custom: bfmigrate, devx-track-azurepowershell
 ---
 
 # Migrate storage resources to global Azure
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
 
 This article has information that can help you migrate Azure storage resources from Azure Germany to global Azure.
 
@@ -23,7 +23,7 @@ AzCopy is a free tool you can use to copy blobs, files, and tables. AzCopy works
 
 If you don't use managed disks for your source VM, use AzCopy to copy the .vhd files to the target environment. Otherwise, you must complete some steps in advance. For more information, see [Recommendations for managed disks](#managed-disks).
 
-The following example shows how AzCopy works. For a complete reference, see the [AzCopy documentation](../storage/common/storage-use-azcopy.md).
+The following example shows how AzCopy works. For a complete reference, see the [AzCopy documentation](../storage/common/storage-use-azcopy-v10.md).
 
 AzCopy uses the terms **Source** and **Dest**, expressed as URIs. URIs for Azure Germany always have this format:
 
@@ -67,7 +67,7 @@ To get a consistent copy of the VHD, shut down the VM before you copy the VHD. P
 
 For more information:
 
-- Review the [AzCopy documentation](../storage/common/storage-use-azcopy.md).
+- Review the [AzCopy documentation](../storage/common/storage-use-azcopy-v10.md).
 - Learn how to [create a VM from restored disks](../backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
 ## Managed Disks
@@ -130,6 +130,70 @@ For more information:
 - Learn how to export to disk [via API](/rest/api/compute/disks/grantaccess) by getting a shared access signature URI. 
 - Learn how to create a managed disk [via API](/rest/api/compute/disks/createorupdate#create-a-managed-disk-by-importing-an-unmanaged-blob-from-a-different-subscription.) from an unmanaged blob.
 
+## Tables
+
+You can migrate tables in Azure using Storage Explorer. Storage Explorer is a tool to manage your Azure cloud storage resources. Using Storage Explorer, you can connect to the source Germany storage account and copy tables to the target Azure global storage account.
+
+To begin, install [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
+
+### Connect to source
+
+You use Storage Explorer to copy tables from the source Azure Storage account. 
+
+Connect Storage Explorer to the your source table resources in Microsoft Azure Germany. You can [sign in to access resources in your subscription](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) or you can [attach to specific Storage resources](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#attach-to-an-individual-resource). 
+
+### Connect to target
+
+You use Storage Explorer to paste tables to the target Azure Storage account.
+
+Connect Storage Explorer to your target Microsoft Azure subscription or Azure Storage. You can [sign in to access resources in your subscription](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) or you can [attach to specific Storage resources](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#attach-to-an-individual-resource). 
+
+
+### Migrate tables
+
+Copy tables from Azure Germany to an Azure global using Storage Explorer. You can copy tables by right clicking the table you want to copy and choosing **Copy table** from the shortcut menu. The following example shows copying the *testmigrationtable* from an *Azure Germany subscription*.
+
+![Copy table menu selected from Azure Germany subscription](./media/germany-migration-storage/copy-table.png)
+
+Paste the table into the target Azure Storage account using Storage Explorer. You can past tables by right clicking the *Tables* node within the target Azure Storage account. The following example shows pasting the *testmigrationtable* to a connected Azure Storage account.
+ 
+![Paste table menu selected from target Azure Storage](./media/germany-migration-storage/paste-table.png)
+
+Repeat the copy and paste steps for each table you want to migrate.
+
+## File shares
+
+Use AzCopy for your migration to copy file shares directly from Azure Germany to global Azure. AzCopy is a free tool you can use to copy blobs, files, and tables.
+
+To begin, [download AzCopy](https://aka.ms/downloadazcopy) and install.
+
+AzCopy uses the terms **Source** and **Dest**, expressed as URIs. URIs for Azure Germany always have this format:
+
+```http
+https://<storageaccountname>.blob.core.cloudapi.de/<filesharename>
+```
+
+URIs for global Azure always have this format:
+
+```http
+https://<storageaccountname>.blob.core.windows.net/<filesharename>
+```
+You need a storage account SAS token to access the Azure Storage account. 
+
+The following example command copies all file shares, directories, and files from an Azure Germany storage account to a global Azure storage account. For a complete reference, see the [AzCopy documentation](../storage/common/storage-use-azcopy-v10.md).
+
+URI part | Example value
+-------- | --------------
+Source storageAccount | `migratetest`
+Source file share | `sourcefileshare`
+Target storageAccount | `migratetarget`
+Target fileshare | `targetfileshare`
+
+```cmd
+azcopy copy "https://migratetest.blob.core.cloudapi.de/sourcefileshare?<SAS-token>" "https://migratetarget.blob.core.windows.net/targetfileshare?<SAS-token>" --recursive=true
+```
+
+For more information about AzCopy, see the [AzCopy documentation](../storage/common/storage-use-azcopy-v10.md) and [Transfer data with AzCopy and file storage](../storage/common/storage-use-azcopy-files.md#copy-files-between-storage-accounts).
 
 ## Next steps
 
@@ -146,4 +210,3 @@ Learn about tools, techniques, and recommendations for migrating resources in th
 - [Security](./germany-migration-security.md)
 - [Management tools](./germany-migration-management-tools.md)
 - [Media](./germany-migration-media.md)
-

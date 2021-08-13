@@ -1,21 +1,15 @@
 ---
-title: Debug applications with Azure Application Insights in Visual Studio | Microsoft Docs
+title: Debug in Visual Studio with Azure Application Insights
 description: Web app performance analysis and diagnostics during debugging and in production.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: NumberByColors
-ms.author: daviste
-ms.date: 07/07/2017
-
-ms.reviewer: mbullwin
+ms.date: 03/17/2017
 ms.custom: vs-azure
 ---
 
 # Debug your applications with Azure Application Insights in Visual Studio
-In Visual Studio (2015 and later), you can analyze performance and diagnose issues in your ASP.NET web app both in debugging and in production, using telemetry from [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
+In Visual Studio (2015 and later), you can analyze performance and diagnose issues in your ASP.NET web app both in debugging and in production, using telemetry from [Azure Application Insights](./app-insights-overview.md).
 
-If you created your ASP.NET web app using Visual Studio 2017 or later, it already has the Application Insights SDK. Otherwise, if you haven't done so already, [add Application Insights to your app](../../azure-monitor/app/asp-net.md).
+If you created your ASP.NET web app using Visual Studio 2017 or later, it already has the Application Insights SDK. Otherwise, if you haven't done so already, [add Application Insights to your app](./asp-net.md).
 
 To monitor your app when it's in live production, you normally view the Application Insights telemetry in the [Azure portal](https://portal.azure.com), where you can set alerts and apply powerful monitoring tools. But for debugging, you can also search and analyze the telemetry in Visual Studio. You can use Visual Studio to analyze telemetry both from your production site and from debugging runs on your development machine. In the latter case, you can analyze debugging runs even if you haven't yet configured the SDK to send telemetry to the Azure portal. 
 
@@ -50,40 +44,29 @@ You can also open related items to help diagnose failed requests or exceptions.
 ![Under Request Details, scroll down to related items](./media/visual-studio/41.png)
 
 ## View exceptions and failed requests
-Exception reports show in the Search window. (In some older types of ASP.NET application, you have to [set up exception monitoring](../../azure-monitor/app/asp-net-exceptions.md) to see exceptions that are handled by the framework.)
+Exception reports show in the Search window. (In some older types of ASP.NET application, you have to [set up exception monitoring](./asp-net-exceptions.md) to see exceptions that are handled by the framework.)
 
 Click an exception to get a stack trace. If the code of the app is open in Visual Studio, you can click through from the stack trace to the relevant line of the code.
 
-![Exception stack trace](./media/visual-studio/17.png)
+![Screenshot shows the About object in a stack trace.](./media/visual-studio/17.png)
 
 ## View request and exception summaries in the code
 In the Code Lens line above each handler method, you see a count of the requests and exceptions logged by Application Insights in the past 24 h.
 
-![Exception stack trace](./media/visual-studio/21.png)
+![Screenshot shows an exception in a context dialog box.](./media/visual-studio/21.png)
 
 > [!NOTE] 
-> Code Lens shows Application Insights data only if you have [configured your app to send telemetry to the Application Insights portal](../../azure-monitor/app/asp-net.md).
+> Code Lens shows Application Insights data only if you have [configured your app to send telemetry to the Application Insights portal](./asp-net.md).
 >
 
-[More about Application Insights in Code Lens](../../azure-monitor/app/visual-studio-codelens.md)
-
-## Trends
-Trends is a tool for visualizing how your app behaves over time. 
-
-Choose **Explore Telemetry Trends** from the Application Insights toolbar button or Application Insights Search window. Choose one of five common queries to get started. You can analyze different datasets based on telemetry types, time ranges, and other properties. 
-
-To find anomalies in your data, choose one of the anomaly options under the "View Type" dropdown. The filtering options at the bottom of the window make it easy to hone in on specific subsets of your telemetry.
-
-![Trends](./media/visual-studio/51.png)
-
-[More about Trends](../../azure-monitor/app/visual-studio-trends.md).
+[More about Application Insights in Code Lens](./visual-studio-codelens.md)
 
 ## Local monitoring
 (From Visual Studio 2015 Update 2) If you haven't configured the SDK to send telemetry to the Application Insights portal (so that there is no instrumentation key in ApplicationInsights.config) then the diagnostics window displays telemetry from your latest debugging session. 
 
 This is desirable if you have already published a previous version of your app. You don't want the telemetry from your debugging sessions to be mixed up with the telemetry on the Application Insights portal from the published app.
 
-It's also useful if you have some [custom telemetry](../../azure-monitor/app/api-custom-events-metrics.md) that you want to debug before sending telemetry to the portal.
+It's also useful if you have some [custom telemetry](./api-custom-events-metrics.md) that you want to debug before sending telemetry to the portal.
 
 * *At first, I fully configured Application Insights to send telemetry to the portal. But now I'd like to see the telemetry only in Visual Studio.*
   
@@ -92,8 +75,6 @@ It's also useful if you have some [custom telemetry](../../azure-monitor/app/api
 
 
 ## Next steps
-|  |  |
-| --- | --- |
-| **[Add more data](../../azure-monitor/app/asp-net-more.md)**<br/>Monitor usage, availability, dependencies, exceptions. Integrate traces from logging frameworks. Write custom telemetry. |![Visual studio](./media/visual-studio/64.png) |
-| **[Working with the Application Insights portal](../../azure-monitor/app/overview-dashboard.md)**<br/>View dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and exported telemetry data. |![Visual studio](./media/visual-studio/62.png) |
+
+ * **[Working with the Application Insights portal](./overview-dashboard.md)**. View dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and exported telemetry data. 
 

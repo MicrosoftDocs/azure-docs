@@ -1,3 +1,4 @@
+items:
 - name: Azure HPC Cache documentation
   href: index.yml
 
@@ -7,44 +8,84 @@
     href: hpc-cache-overview.md
 
 - name: Concepts
-  items: 
+  items:
+  - name: Decide if HPC Cache is the right solution
+    href: usage-scenarios.md
   - name: Plan the aggregated namespace
     href: hpc-cache-namespace.md
-
+  - name: Understand cache usage models
+    href: cache-usage-models.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/hpc-cache-security-baseline?toc=/azure/hpc-cache/toc.json
 - name: How-to guides
   items:
   - name: Prerequisites
-    href: hpc-cache-prereqs.md
+    href: hpc-cache-prerequisites.md
   - name: Create the cache
-    href: hpc-cache-create.md  
+    href: hpc-cache-create.md
   - name: Add storage
-    items: 
+    items:
     - name: Add storage targets
       href: hpc-cache-add-storage.md
+    - name: Add namespace paths
+      href: add-namespace-paths.md
     - name: Move data to storage targets (if needed)
       items:
       - name: Preload new Blob storage
         href: hpc-cache-ingest.md
-      - name: Alternate data ingest methods 
+      - name: Alternate data ingest methods
         items:
         - name: Populate the cache with parallel copy
           href: hpc-cache-ingest-parallelcp.md
         - name: Populate the cache with msrsync
           href: hpc-cache-ingest-msrsync.md
-        - name: Populate the cache by manual file copy 
+        - name: Populate the cache by manual file copy
           href: hpc-cache-ingest-manual.md
     - name: Edit storage targets
       href: hpc-cache-edit-storage.md
+    - name: Manage storage targets
+      href: manage-storage-targets.md
   - name: Connect to the cache
     href: hpc-cache-mount.md
-  - name: Manage the cache 
+  - name: Manage the cache
     href: hpc-cache-manage.md
+  - name: Metrics and monitoring
+    href: metrics.md
+  - name: Use optional settings
+    items:
+    - name: Configure optional settings
+      href: configuration.md
+    - name: Customize access policies
+      href: access-policies.md
+    - name: Set up directory services
+      href: directory-services.md
+
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/hpc-cache
+  - name: Azure PowerShell
+    href: /powershell/module/Az.HPCCache
 
 - name: Resources
-  items: 
+  items:
   - name: Open a support ticket
     href: hpc-cache-support-ticket.md
+  - name: Set up Azure CLI for Azure HPC Cache
+    href: az-cli-prerequisites.md
+  - name: Work around Blob storage account firewall settings
+    href: hpc-cache-blob-firewall-fix.md
+  - name: Troubleshoot NFS storage target creation
+    href: troubleshoot-nas.md
+  - name: Use NFS-mounted blob storage with Azure HPC Cache
+    href: nfs-blob-considerations.md
   - name: Recover from a regional outage
     href: hpc-region-recovery.md
+  - name: Use customer-managed encryption keys
+    href: customer-keys.md
   - name: Use Azure NetApp Files with Azure HPC Cache
     href: hpc-cache-netapp.md
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?service=hpc-cache

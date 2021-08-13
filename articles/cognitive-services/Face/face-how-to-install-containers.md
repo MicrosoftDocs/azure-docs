@@ -1,27 +1,31 @@
 ---
-title: Install and run containers - FACE API
+title: Install and run Docker containers for the Face API
 titleSuffix: Azure Cognitive Services
-description: This article shows you how to download, install, and run containers for Face in this walkthrough tutorial.
+description: Use the Docker container for the Face API to detect and identify human faces in images.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 09/24/2019
-ms.author: dapine
+ms.date: 04/28/2021
+ms.author: aahi
+keywords: on-premises, Docker, container, identify
 ---
 
-# Install and run Face containers
+# Install and run Face containers (Retiring)
 
-Azure Cognitive Services Face provides a standardized Linux container for Docker that detects human faces in images. It also identifies attributes, which include face landmarks such as noses and eyes, gender, age, and other machine-predicted facial features. In addition to detection, Face can check if two faces in the same image or different images are the same by using a confidence score. Face also can compare faces against a database to see if a similar-looking or identical face already exists. It also can organize similar faces into groups by using shared visual traits.
+> [!IMPORTANT]
+> The Face container preview is no longer accepting applications and the container has been deprecated as of April 29th 2021. The Face container will be fully retired on July 26th 2021.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+Azure Cognitive Services Face API provides a Linux Docker container that detects and analyzes human faces in images. It also identifies attributes, which include face landmarks such as noses and eyes, gender, age, and other machine-predicted facial features. In addition to detection, Face can check if two faces in the same image or different images are the same by using a confidence score. Face also can compare faces against a database to see if a similar-looking or identical face already exists. It also can organize similar faces into groups by using shared visual traits.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
 
-You must meet the following prerequisites before you use the Face API containers.
+You must meet the following prerequisites before you use the Face service containers.
 
 |Required|Purpose|
 |--|--|
@@ -31,17 +35,13 @@ You must meet the following prerequisites before you use the Face API containers
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
-## Request access to the private container registry
-
-[!INCLUDE [Request access to private container registry](../../../includes/cognitive-services-containers-request-access.md)]
-
 ### The host computer
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
 ### Container requirements and recommendations
 
-The following table describes the minimum and recommended CPU cores and memory to allocate for each Face API container.
+The following table describes the minimum and recommended CPU cores and memory to allocate for each Face service container.
 
 | Container | Minimum | Recommended | Transactions per second<br>(Minimum, maximum)|
 |-----------|---------|-------------|--|
@@ -54,7 +54,7 @@ Core and memory correspond to the `--cpus` and `--memory` settings, which are us
 
 ## Get the container image with docker pull
 
-Container images for the Face API are available. 
+Container images for the Face service are available. 
 
 | Container | Repository |
 |-----------|------------|
@@ -127,23 +127,19 @@ If you run the container with an output [mount](./face-resource-container-config
 
 ## Billing
 
-The Face API containers send billing information to Azure by using a Face API resource on your Azure account. 
+The Face service containers send billing information to Azure by using a Face resource on your Azure account. 
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 For more information about these options, see [Configure containers](./face-resource-container-config.md).
 
-<!--blogs/samples/video coures -->
-
-[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
-
 ## Summary
 
-In this article, you learned concepts and workflow for how to download, install, and run Face API containers. In summary:
+In this article, you learned concepts and workflow for how to download, install, and run Face service containers. In summary:
 
 * Container images are downloaded from the Azure Container Registry.
 * Container images run in Docker.
-* You can use either the REST API or the SDK to call operations in Face API containers by specifying the host URI of the container.
+* You can use either the REST API or the SDK to call operations in Face service containers by specifying the host URI of the container.
 * You must specify billing information when you instantiate a container.
 
 > [!IMPORTANT]

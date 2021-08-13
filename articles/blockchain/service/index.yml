@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Azure Blockchain Service Documentation
+title: Azure Blockchain Service documentation
 summary: Learn how to create blockchain applications. Tutorials, API references, and other documentation show you how to use Azure Blockchain Service to create, develop, and manage blockchain applications on Azure.
 
 metadata:
-  title: Azure Blockchain Service Documentation - Tutorials, API Reference
+  title: Azure Blockchain Service documentation
   description: Learn how to create blockchain applications. Tutorials, API references, and other documentation show you how to use Azure Blockchain Service to create, develop, and manage blockchain applications on Azure.
   services: azure-blockchain
   ms.service: azure-blockchain
@@ -30,12 +30,20 @@ landingContent:
             url: develop.md
   - title: Get started
     linkLists:
+      - linkListType: learn
+        links:
+          - text: Follow the Microsoft Learn blockchain path
+            url: /learn/paths/ethereum-blockchain-development
+          - text: Watch the beginner's blockchain series
+            url: https://channel9.msdn.com/Series/Beginners-Series-to-Blockchain
       - linkListType: deploy
         links:
           - text: Create a blockchain member - Portal
             url: create-member.md
           - text: Create a blockchain member - CLI
             url: create-member-cli.md
+          - text: Create using ARM template
+            url: create-member-template.md
       - linkListType: quickstart
         links:
           - text: Use Visual Studio Code to connect to a consortium network
@@ -44,8 +52,6 @@ landingContent:
             url: connect-metamask.md
           - text: Use Geth to connect to a transaction node
             url: connect-geth.md
-          - text: Use Truffle to connect to a transaction node
-            url: connect-truffle.md
       - linkListType: tutorial
         links:
           - text: Use Visual Studio Code to create, build, and deploy smart contracts
@@ -105,4 +111,4 @@ landingContent:
       - linkListType: reference
         links:
           - text: REST API
-            url: https://docs.microsoft.com/rest/api/blockchain
+            url: /rest/api/blockchain

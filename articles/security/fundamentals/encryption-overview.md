@@ -1,21 +1,16 @@
 ---
 title: Azure encryption overview | Microsoft Docs
-description: Learn about various encryption options in Azure
+description: Learn about encryption options in Azure. See information for encryption at rest, encryption in flight, and key management with Azure Key Vault.
 services: security
-documentationcenter: na
-author: Barclayn
-manager: barbkess
-editor: TomShinder
+author: msmbaldwin
 
 ms.assetid:
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/20/2018
-ms.author: barclayn
+ms.date: 07/20/2020
+ms.author: mbaldwin
+
 ---
 # Azure encryption overview
 
@@ -23,7 +18,7 @@ This article provides an overview of how encryption is used in Microsoft Azure. 
 
 ## Encryption of data at rest
 
-Data at rest includes information that resides in persistent storage on physical media, in any digital format. The media can include files on magnetic or optical media, archived data, and data backups. Microsoft Azure offers a variety of data storage solutions to meet different needs, including file, disk, blob, and table storage. Microsoft also provides encryption to protect [Azure SQL Database](../../sql-database/sql-database-technical-overview.md), [Azure Cosmos DB](../../data-factory/introduction.md), and Azure Data Lake.
+Data at rest includes information that resides in persistent storage on physical media, in any digital format. The media can include files on magnetic or optical media, archived data, and data backups. Microsoft Azure offers a variety of data storage solutions to meet different needs, including file, disk, blob, and table storage. Microsoft also provides encryption to protect [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md), [Azure Cosmos DB](../../data-factory/introduction.md), and Azure Data Lake.
 
 Data encryption at rest is available for services across the software as a service (SaaS), platform as a service (PaaS), and infrastructure as a service (IaaS) cloud models. This article summarizes and provides resources to help you use the Azure encryption options.
 
@@ -54,9 +49,9 @@ The three server-side encryption models offer different key management character
 
 ### Azure disk encryption
 
-You can protect Windows and Linux virtual machines by using [Azure disk encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss), which uses [Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) technology and Linux [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) to protect both operating system disks and data disks with full volume encryption.
+You can protect Windows and Linux virtual machines by using [Azure disk encryption](./azure-disk-encryption-vms-vmss.md), which uses [Windows BitLocker](/previous-versions/windows/it-pro/windows-vista/cc766295(v=ws.10)) technology and Linux [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) to protect both operating system disks and data disks with full volume encryption.
 
-Encryption keys and secrets are safeguarded in your [Azure Key Vault subscription](../../key-vault/key-vault-overview.md). By using the Azure Backup service, you can back up and restore encrypted virtual machines (VMs) that use Key Encryption Key (KEK) configuration.
+Encryption keys and secrets are safeguarded in your [Azure Key Vault subscription](../../key-vault/general/overview.md). By using the Azure Backup service, you can back up and restore encrypted virtual machines (VMs) that use Key Encryption Key (KEK) configuration.
 
 ### Azure Storage Service Encryption
 
@@ -80,17 +75,17 @@ Finally, you can also use the Azure Storage Client Library for Java to perform c
 
 ### Encryption of data at rest with Azure SQL Database
 
-[Azure SQL Database](../../sql-database/sql-database-technical-overview.md) is a general-purpose relational database service in Azure that supports structures such as relational data, JSON, spatial, and XML. SQL Database supports both server-side encryption via the Transparent Data Encryption (TDE) feature and client-side encryption via the Always Encrypted feature.
+[Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md) is a general-purpose relational database service in Azure that supports structures such as relational data, JSON, spatial, and XML. SQL Database supports both server-side encryption via the Transparent Data Encryption (TDE) feature and client-side encryption via the Always Encrypted feature.
 
 #### Transparent Data Encryption
 
-[TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) is used to encrypt [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../sql-database/sql-database-technical-overview.md), and [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) data files in real time, using a Database Encryption Key (DEK), which is stored in the database boot record for availability during recovery.
+[TDE](/sql/relational-databases/security/encryption/transparent-data-encryption-tde) is used to encrypt [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md), and [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) data files in real time, using a Database Encryption Key (DEK), which is stored in the database boot record for availability during recovery.
 
 TDE protects data and log files, using AES and Triple Data Encryption Standard (3DES) encryption algorithms. Encryption of the database file is performed at the page level. The pages in an encrypted database are encrypted before they are written to disk and are decrypted when they’re read into memory. TDE is now enabled by default on newly created Azure SQL databases.
 
 #### Always Encrypted feature
 
-With the [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) feature in Azure SQL you can encrypt data within client applications prior to storing it in Azure SQL Database. You can also enable delegation of on-premises database administration to third parties and maintain separation between those who own and can view the data and those who manage it but should not have access to it.
+With the [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) feature in Azure SQL you can encrypt data within client applications prior to storing it in Azure SQL Database. You can also enable delegation of on-premises database administration to third parties and maintain separation between those who own and can view the data and those who manage it but should not have access to it.
 
 #### Cell-level or column-level encryption
 
@@ -112,9 +107,13 @@ Three types of keys are used in encrypting and decrypting data: the Master Encry
 
 Azure offers many mechanisms for keeping data private as it moves from one location to another.
 
-### TLS/SSL encryption in Azure
+### Data-link Layer encryption in Azure
 
-Microsoft uses the [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS) protocol to protect data when it’s traveling between the cloud services and customers. Microsoft datacenters negotiate a TLS connection with client systems that connect to Azure services. TLS provides strong authentication, message privacy, and integrity (enabling detection of message tampering, interception, and forgery), interoperability, algorithm flexibility, and ease of deployment and use.
+Whenever Azure Customer traffic moves between datacenters-- outside physical boundaries not controlled by Microsoft (or on behalf of Microsoft)-- a data-link layer encryption method using the [IEEE 802.1AE MAC Security Standards](https://1.ieee802.org/security/802-1ae/) (also known as MACsec) is applied from point-to-point across the underlying network hardware. The packets are encrypted and decrypted on the devices before being sent, preventing physical “man-in-the-middle” or snooping/wiretapping attacks. Because this technology is integrated on the network hardware itself, it provides line rate encryption on the network hardware with no measurable link latency increase. This MACsec encryption is on by default for all Azure traffic traveling within a region or between regions, and no action is required on customers’ part to enable. 
+
+### TLS encryption in Azure
+
+Microsoft gives customers the ability to use [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS) protocol to protect data when it’s traveling between the cloud services and customers. Microsoft datacenters negotiate a TLS connection with client systems that connect to Azure services. TLS provides strong authentication, message privacy, and integrity (enabling detection of message tampering, interception, and forgery), interoperability, algorithm flexibility, and ease of deployment and use.
 
 [Perfect Forward Secrecy](https://en.wikipedia.org/wiki/Forward_secrecy) (PFS) protects connections between customers’ client systems and Microsoft cloud services by unique keys. Connections also use RSA-based 2,048-bit encryption key lengths. This combination makes it difficult for someone to intercept and access data that is in transit.
 
@@ -122,9 +121,9 @@ Microsoft uses the [Transport Layer Security](https://en.wikipedia.org/wiki/Tran
 
 When you interact with Azure Storage through the Azure portal, all transactions take place over HTTPS. You can also use the Storage REST API over HTTPS to interact with Azure Storage. You can enforce the use of HTTPS when you call the REST APIs to access objects in storage accounts by enabling the secure transfer that's required for the storage account.
 
-Shared Access Signatures ([SAS](../../storage/common/storage-dotnet-shared-access-signature-part-1.md)), which can be used to delegate access to Azure Storage objects, include an option to specify that only the HTTPS protocol can be used when you use Shared Access Signatures. This approach ensures that anybody who sends links with SAS tokens uses the proper protocol.
+Shared Access Signatures ([SAS](../../storage/common/storage-sas-overview.md)), which can be used to delegate access to Azure Storage objects, include an option to specify that only the HTTPS protocol can be used when you use Shared Access Signatures. This approach ensures that anybody who sends links with SAS tokens uses the proper protocol.
 
-[SMB 3.0](https://technet.microsoft.com/library/dn551363(v=ws.11).aspx#BKMK_SMBEncryption), which used to access Azure Files shares, supports encryption, and it's available in Windows Server 2012 R2, Windows 8, Windows 8.1, and Windows 10. It allows cross-region access and even access on the desktop.
+[SMB 3.0](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn551363(v=ws.11)#BKMK_SMBEncryption), which used to access Azure Files shares, supports encryption, and it's available in Windows Server 2012 R2, Windows 8, Windows 8.1, and Windows 10. It allows cross-region access and even access on the desktop.
 
 Client-side encryption encrypts the data before it’s sent to your Azure Storage instance, so that it’s encrypted as it travels across the network.
 
@@ -136,11 +135,11 @@ By default, after SMB encryption is turned on for a share or server, only SMB 3.
 
 ## In-transit encryption in VMs
 
-Data in transit to, from, and between VMs that are running Windows is encrypted in a number of ways, depending on the nature of the connection.
+Data in transit to, from, and between VMs that are running Windows can be encrypted in a number of ways, depending on the nature of the connection.
 
 ### RDP sessions
 
-You can connect and sign in to a VM by using the [Remote Desktop Protocol (RDP)](https://msdn.microsoft.com/library/aa383015(v=vs.85).aspx) from a Windows client computer, or from a Mac with an RDP client installed. Data in transit over the network in RDP sessions can be protected by TLS.
+You can connect and sign in to a VM by using the [Remote Desktop Protocol (RDP)](/windows/win32/termserv/remote-desktop-protocol) from a Windows client computer, or from a Mac with an RDP client installed. Data in transit over the network in RDP sessions can be protected by TLS.
 
 You can also use Remote Desktop to connect to a Linux VM in Azure.
 
@@ -160,7 +159,7 @@ Site-to-site VPNs use [IPsec](https://en.wikipedia.org/wiki/IPsec) for transport
 
 ### Point-to-site VPNs
 
-Point-to-site VPNs allow individual client computers access to an Azure virtual network. [The Secure Socket Tunneling Protocol (SSTP)](https://technet.microsoft.com/library/2007.06.cableguy.aspx) is used to create the VPN tunnel. It can traverse firewalls (the tunnel appears as an HTTPS connection). You can use your own internal public key infrastructure (PKI) root certificate authority (CA) for point-to-site connectivity.
+Point-to-site VPNs allow individual client computers access to an Azure virtual network. [The Secure Socket Tunneling Protocol (SSTP)](/previous-versions/technet-magazine/cc162322(v=msdn.10)) is used to create the VPN tunnel. It can traverse firewalls (the tunnel appears as an HTTPS connection). You can use your own internal public key infrastructure (PKI) root certificate authority (CA) for point-to-site connectivity.
 
 You can configure a point-to-site VPN connection to a virtual network by using the Azure portal with certificate authentication or PowerShell.
 
@@ -178,7 +177,7 @@ You can configure a site-to-site VPN connection to a virtual network by using th
 
 For more information, see:
 
-[Create a site-to-site connection in the Azure portal](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+[Create a site-to-site connection in the Azure portal](../../vpn-gateway/tutorial-site-to-site-portal.md)
 
 [Create a site-to-site connection in PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 
@@ -198,9 +197,9 @@ Key Vault relieves organizations of the need to configure, patch, and maintain h
 
 ## Next steps
 
-- [Azure security overview](get-started-overview.md)
+- [Azure security overview](./overview.md)
 - [Azure network security overview](network-overview.md)
-- [Azure database security overview](database-security-overview.md)
+- [Azure database security overview](../../azure-sql/database/security-overview.md)
 - [Azure virtual machines security overview](virtual-machines-overview.md)
 - [Data encryption at rest](encryption-atrest.md)
 - [Data security and encryption best practices](data-encryption-best-practices.md)

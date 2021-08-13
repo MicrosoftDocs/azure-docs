@@ -1,58 +1,77 @@
 ---
-title: Supported features available in Azure Security Center | Microsoft Docs
-description: This document provides a list of services supported by Azure Security Center.
-services: security-center
-documentationcenter: na
+title: Azure Security Center's features according to OS, machine type, and cloud
+description: Learn about the availability of Azure Security Center features according to OS, machine type, and cloud deployment.
 author: memildin
 manager: rkarlin
-ms.assetid: 870ebc8d-1fad-435b-9bf9-c477f472ab17
 ms.service: security-center
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/24/2019
+ms.topic: overview
+ms.date: 08/05/2021
+ms.custom: references_regions
 ms.author: memildin
 ---
-# Supported features available in Azure Security Center
 
-> [!NOTE]
->Some features are only available with the Standard tier. If you have not already signed up for Security Center's Standard tier, a free trial period is available. For more information, see the [Security Center pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+# Feature coverage for machines
 
-The following sections show Security Center features that are available for their [supported platforms](security-center-os-coverage.md).
+The two tabs below show the features of Azure Security Center that are available for Windows and Linux machines.
 
-* [Virtual machines / servers](#vm-server-features)
-* [PaaS services](#paas-services)
+## Supported features for virtual machines and servers <a name="vm-server-features"></a>
+
+### [**Windows machines**](#tab/features-windows)
+
+|**Feature**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Azure Arc enabled machines**|**Azure Defender required**
+|----|:----:|:----:|:----:|:----:|
+|[Microsoft Defender for Endpoint integration](security-center-wdatp.md)|✔</br>(on supported versions)|✔</br>(on supported versions)|✔|Yes|
+|[Virtual machine behavioral analytics (and security alerts)](alerts-reference.md)|✔|✔|✔|Yes|
+|[Fileless security alerts](alerts-reference.md#alerts-windows)|✔|✔|✔|Yes|
+|[Network-based security alerts](other-threat-protections.md#network-layer)|✔|✔|-|Yes|
+|[Just-in-time VM access](security-center-just-in-time.md)|✔|-|-|Yes|
+|[Native vulnerability assessment](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|✔|Yes|
+|[File integrity monitoring](security-center-file-integrity-monitoring.md)|✔|✔|✔|Yes|
+|[Adaptive application controls](security-center-adaptive-application.md)|✔|-|✔|Yes|
+|[Network map](security-center-network-recommendations.md#network-map)|✔|✔|-|Yes|
+|[Adaptive network hardening](security-center-adaptive-network-hardening.md)|✔|-|-|Yes|
+|[Regulatory compliance dashboard & reports](security-center-compliance-dashboard.md)|✔|✔|✔|Yes|
+|[Docker host hardening](./harden-docker-hosts.md)|-|-|-|Yes|
+|Missing OS patches assessment|✔|✔|✔|Azure: No<br><br>Arc-enabled: Yes|
+|Security misconfigurations assessment|✔|✔|✔|Azure: No<br><br>Arc-enabled: Yes|
+|[Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: No<br><br>Arc-enabled: Yes|
+|Disk encryption assessment|✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|No|
+|Third-party vulnerability assessment|✔|-|✔|No|
+|[Network security assessment](security-center-network-recommendations.md)|✔|✔|-|No|
+||||||
+
+### [**Linux machines**](#tab/features-linux)
+
+| **Feature**                                                                                                               | **Azure Virtual Machines**                                                                                      | **Azure Virtual Machine Scale Sets** | **Azure Arc enabled machines** | **Azure Defender required**       |
+|---------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------:|:------------------------------------:|:------------------------------:|:---------------------------------:|
+| [Microsoft Defender for Endpoint integration](security-center-wdatp.md)                                                   | ✔                                                                                                               | -                                    | ✔                              | Yes                              |
+| [Virtual machine behavioral analytics (and security alerts)](./azure-defender.md)                                         | ✔</br>(on supported versions)                                                                                  | ✔</br>(on supported versions)        | ✔                             | Yes                               |
+| [Fileless security alerts](alerts-reference.md#alerts-windows)                                                            | -                                                                                                               | -                                    | -                              | Yes                               |
+| [Network-based security alerts](other-threat-protections.md#network-layer)                                                | ✔                                                                                                              | ✔                                    | -                              | Yes                               |
+| [Just-in-time VM access](security-center-just-in-time.md)                                                                 | ✔                                                                                                              | -                                    | -                              | Yes                               |
+| [Native vulnerability assessment](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner) | ✔                                                                                                              | -                                    | ✔                             | Yes                               |
+| [File integrity monitoring](security-center-file-integrity-monitoring.md)                                                 | ✔                                                                                                              | ✔                                    | ✔                             | Yes                               |
+| [Adaptive application controls](security-center-adaptive-application.md)                                                  | ✔                                                                                                              | -                                    | ✔                             | Yes                               |
+| [Network map](security-center-network-recommendations.md#network-map)                                                     | ✔                                                                                                              | ✔                                    | -                              | Yes                               |
+| [Adaptive network hardening](security-center-adaptive-network-hardening.md)                                               | ✔                                                                                                              | -                                    | -                              | Yes                               |
+| [Regulatory compliance dashboard & reports](security-center-compliance-dashboard.md)                                      | ✔                                                                                                              | ✔                                    | ✔                             | Yes                               |
+| [Docker host hardening](./harden-docker-hosts.md)                                                                         | ✔                                                                                                              | ✔                                    | ✔                             | Yes                               |
+| Missing OS patches assessment                                                                                             | ✔                                                                                                              | ✔                                    | ✔                             | Azure: No<br><br>Arc-enabled: Yes |
+| Security misconfigurations assessment                                                                                     | ✔                                                                                                              | ✔                                    | ✔                             | Azure: No<br><br>Arc-enabled: Yes |
+| [Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)                    | -                                                                                                               | -                                    | -                              | No                                |
+| Disk encryption assessment                                                                                                | ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)) | ✔                                    | -                              | No                                |
+| Third-party vulnerability assessment                                                                                      | ✔                                                                                                              | -                                    | ✔                             | No                                |
+| [Network security assessment](security-center-network-recommendations.md)                                                 | ✔                                                                                                              | ✔                                    | -                              | No                                |
+||||||
+
+--- 
 
 
-## Virtual machine / server supported features <a name="vm-server-features"></a>
+> [!TIP]
+>To experiment with features that are only available with Azure Defender, you can enroll in a 30-day trial. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
-> [!div class="mx-tableFixed"]
 
-|Server|Windows|||Linux|||Pricing|
-|----|----|----|----|----|----|----|----|
-|**Environment**|**Azure**||**Non-Azure**|**Azure**||**Non-Azure**||
-||**Virtual Machine**|**Virtual Machine Scale Set**||**Virtual Machine**|**Virtual Machine Scale Set**|
-|[Microsoft Defender ATP integration](https://docs.microsoft.com/azure/security-center/security-center-wdatp)|✔ (on supported versions)|✔ (on supported versions)|✔|X|X|X|Standard|
-|[Virtual Machine Behavioral Analytics threat detection alerts](https://docs.microsoft.com/azure/security-center/security-center-alerts-iaas)|✔|✔|✔|✔ (on supported versions)|✔ (on supported versions)|✔|Recommendations (Free) Threat Detection (Standard)|
-|[Fileless threat detection alerts](https://docs.microsoft.com/azure/security-center/security-center-alerts-iaas#fileless-attack-detection-)|✔|✔|✔|X|X|X|Standard|
-|[Network-based threat detection alerts](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer#azure-network-layer)|✔|✔|X|✔|✔|X|Standard|
-|[Just-In-Time VM access](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)|✔|X|X|✔|X|X|Standard|
-|[File Integrity Monitoring](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring)|✔|✔|✔|✔|✔|✔|Standard|
-|[Adaptive application controls](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)|✔|X|✔|✔|X|✔|Standard|
-|[Network map](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations#network-map)|✔|✔|X|✔|✔|X|Standard|
-|[Adaptive network hardening](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)|✔|X|X|✔|X|X|Standard|
-|Adaptive network controls|✔|✔|X|✔|✔|X|Standard|
-|[Regulatory Compliance dashboard & reports](https://docs.microsoft.com/azure/security-center/security-center-compliance-dashboard)|✔|✔|✔|✔|✔|✔|Standard|
-|Recommendations and threat detection on Docker-hosted IaaS containers|X|X|X|✔|✔|✔|Standard|
-|Missing OS patches assessment|✔|✔|✔|✔|✔|✔|Free|
-|Security misconfigurations assessment|✔|✔|✔|✔|✔|✔|Free|
-|[Endpoint protection assessment](https://docs.microsoft.com/azure/security-center/security-center-services#supported-endpoint-protection-solutions-)|✔|✔|✔|X|X|X|Free|
-|Disk encryption assessment|✔|✔|X|✔|✔|X|Free|
-|Third-party vulnerability assessment|✔|X|X|✔|X|X|Free|
-|[Network security assessment](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)|✔|✔|X|✔|✔|X|Free|
-
-### Supported endpoint protection solutions <a name="endpoint-supported"></a>
+## Supported endpoint protection solutions <a name="endpoint-supported"></a>
 
 The following table provides a matrix of:
 
@@ -61,68 +80,81 @@ The following table provides a matrix of:
 
 For information about when recommendations are generated for each of these protections, see [Endpoint Protection Assessment and Recommendations](security-center-endpoint-protection.md).
 
-| Endpoint Protection| Platforms | Security Center Installation | Security Center Discovery |
-|------|------|-----|-----|
-| Windows Defender (Microsoft Antimalware)| Windows Server 2016| No, Built in to OS| Yes |
-| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (see note below) | Via Extension | Yes |
-| Trend Micro – All versions* | Windows Server Family  | No | Yes |
-| Symantec v12.1.1100+| Windows Server Family  | No | Yes |
-| McAfee v10+ | Windows Server Family  | No | Yes |
-| McAfee v10+ | Linux Server Family  | No | Yes **\*** |
-| Sophos V9+| Linux Server Family  | No | Yes  **\***  |
-
- **\*** The coverage state and supporting data is currently only available in the Log Analytics workspace associated to your protected subscriptions. It isn't reflected in the Azure Security Center portal.
-
-> [!NOTE]
->
-> - Detection of System Center Endpoint Protection (SCEP) on a Windows Server 2008 R2 virtual machine requires SCEP to be installed after PowerShell 3.0 (or an upper version).
-> - Detection of Trend Micro protection is supported for Deep Security agents.  OfficeScan agents are not supported.
+| Solution                                                  | Supported platforms                                    | Security Center installation | Security Center discovery |
+|-----------------------------------------------------------|--------------------------------------------------------|------------------------------|---------------------------|
+| Microsoft Defender Antivirus                              | Windows Server 2016 or later                           | No (built into OS)           | Yes                       |
+| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2                                 | Via extension                | Yes                       |
+| Trend Micro – Deep Security                               | Windows Server (all)                                   | No                           | Yes                       |
+| Symantec v12.1.1100+                                      | Windows Server (all)                                   | No                           | Yes                       |
+| McAfee v10+                                               | Windows Server (all)                                   | No                           | Yes                       |
+| McAfee v10+                                               | Linux (preview)                                        | No                           | Yes                       |
+| Sophos V9+                                                | Linux (preview)                                        | No                           | Yes                       |
+|                                                           |                                                        |                              |                           |
 
 
-## PaaS services supported features <a name="paas-services"> </a>
 
-The following PaaS resources are supported by Azure Security Center:
+## Feature support in government and sovereign clouds
 
-|Service|Recommendations (Free)|Threat detection (Standard)|
-|----|----|----|
-|SQL|✔| ✔|
-|PostGreSQL*|✔| ✔|
-|MySQL*|✔| ✔|
-|CosmosDB*|X| ✔|
-|Blob storage|✔| ✔|
-|Storage account|✔| X|
-|App service|✔| ✔|
-|Function|✔| X|
-|Cloud Service|✔| X|
-|VNet|✔| X|
-|Subnet|✔| X|
-|NIC|✔| X|
-|NSG|✔| X|
-|Subscription|✔ **| ✔|
-|Batch account|✔| X|
-|Service fabric account|✔| X|
-|Automation account|✔| X|
-|Load balancer|✔| X|
-|Search|✔| X|
-|Service bus namespace|✔| X|
-|Stream analytics|✔| X|
-|Event hub namespace|✔| X|
-|Logic apps|✔| X|
-|Redis|✔| X|
-|Data Lake Analytics|✔| X|
-|Data Lake Store|✔| X|
-|Key vault|✔| X|
+| Feature/Service                                                                                                                                                             | Azure          | Azure Government               | Azure China 21Vianet   |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|--------------------------------|---------------|
+| **Security Center free features**                                                                                                                                           |                |                                |               |
+| - [Continuous export](./continuous-export.md)                                                                                                                               | GA             | GA                             | GA            |
+| - [Workflow automation](./continuous-export.md)                                                                                                                             | GA             | GA                             | GA            |
+| - [Recommendation exemption rules](./exempt-resource.md)                                                                                                                    | Public Preview | Not Available                  | Not Available |
+| - [Alert suppression rules](./alerts-suppression-rules.md)                                                                                                                  | GA             | GA                             | GA            |
+| - [Email notifications for security alerts](./security-center-provide-security-contact-details.md)                                                                          | GA             | GA                             | GA            |
+| - [Auto provisioning for agents and extensions](./security-center-enable-data-collection.md)                                                                                | GA             | GA                             | GA            |
+| - [Asset inventory](./asset-inventory.md)                                                                                                                                   | GA             | GA                             | GA            |
+| - [Azure Monitor Workbooks reports in Azure Security Center's workbooks gallery](./custom-dashboards-azure-workbooks.md)                                                    | GA             | GA                             | GA            |
+| **Azure Defender plans and extensions**                                                                                                                                     |                |                                |               |
+| - [Azure Defender for servers](./defender-for-servers-introduction.md)                                                                                    | GA             | GA                             | GA            |
+| - [Azure Defender for App Service](./defender-for-app-service-introduction.md)                                                                            | GA             | Not Available                  | Not Available |
+| - [Azure Defender for DNS](./defender-for-dns-introduction.md)                                                                                            | GA             | Not Available                  | GA            |
+| - [Azure Defender for container registries](./defender-for-container-registries-introduction.md) <sup>[1](#footnote1)</sup>                               | GA             | GA  <sup>[2](#footnote2)</sup> | GA  <sup>[2](#footnote2)</sup> |
+| - [Azure Defender for container registries scanning of images in CI/CD workflows](./defender-for-container-registries-cicd.md) <sup>[3](#footnote3)</sup> | Public Preview | Not Available                  | Not Available |
+| - [Azure Defender for Kubernetes](./defender-for-kubernetes-introduction.md) <sup>[4](#footnote4)</sup>                                                   | GA             | GA                             | GA            |
+| - [Azure Defender extension for Azure Arc enabled Kubernetes clusters](./defender-for-kubernetes-azure-arc.md) <sup>[5](#footnote5)</sup>                 | Public Preview | Not Available                  | Not Available |
+| - [Azure Defender for Azure SQL database servers](./defender-for-sql-introduction.md)                                                                     | GA             | GA                             | GA  <sup>[9](#footnote9)</sup> |
+| - [Azure Defender for SQL servers on machines](./defender-for-sql-introduction.md)                                                                        | GA             | GA                             | Not Available |
+| - [Azure Defender for open-source relational databases](./defender-for-databases-introduction.md)                                                         | GA             | Not Available                  | Not Available |
+| - [Azure Defender for Key Vault](./defender-for-key-vault-introduction.md)                                                                                | GA             | Not Available                  | Not Available |
+| - [Azure Defender for Resource Manager](./defender-for-resource-manager-introduction.md)                                                                  | GA             | GA                             | GA            |
+| - [Azure Defender for Storage](./defender-for-storage-introduction.md) <sup>[6](#footnote6)</sup>                                                         | GA             | GA                             | Not Available |
+| - [Threat protection for Cosmos DB](./other-threat-protections.md#threat-protection-for-azure-cosmos-db-preview)                                          | Public Preview | Not Available                  | Not Available |
+| - [Kubernetes workload protection](./kubernetes-workload-protections.md)                                                                                  | GA             | GA                             | GA            |
+| **Azure Defender for servers features** <sup>[7](#footnote7)</sup>                                                                                                          |                |                                |               |
+| - [Just-in-time VM access](./security-center-just-in-time.md)                                                                                             | GA             | GA                             | GA            |
+| - [File integrity monitoring](./security-center-file-integrity-monitoring.md)                                                                             | GA             | GA                             | GA            |
+| - [Adaptive application controls](./security-center-adaptive-application.md)                                                                              | GA             | GA                             | GA            |
+| - [Adaptive network hardening](./security-center-adaptive-network-hardening.md)                                                                           | GA             | Not Available                  | Not Available |
+| - [Docker host hardening](./harden-docker-hosts.md)                                                                                                       | GA             | GA                             | GA            |
+| - [Integrated vulnerability assessment for machines](./deploy-vulnerability-assessment-vm.md)                                                             | GA             | Not Available                  | Not Available |
+| - [Regulatory compliance dashboard & reports](./security-center-compliance-dashboard.md) <sup>[8](#footnote8)</sup>                                       | GA             | GA                             | GA            |
+| - [Microsoft Defender for Endpoint deployment and integrated license](./security-center-wdatp.md)                                                         | GA             | GA                             | Not Available |
+| - [Connect AWS account](./quickstart-onboard-aws.md)                                                                                                      | GA             | Not Available                  | Not Available |
+| - [Connect GCP account](./quickstart-onboard-gcp.md)                                                                                                      | GA             | Not Available                  | Not Available |
+|                                                                                                                                                                             |                |                                |
 
-\* These features are currently supported in public preview.
+<sup><a name="footnote1" /></a>1</sup> Partially GA: The ability to disable specific findings from vulnerability scans is in public preview.
 
-\*\* Azure Active Directory (Azure AD) recommendations are available only for Standard subscriptions.
+<sup><a name="footnote2" /></a>2</sup> Vulnerability scans of container registries on the Azure Government cloud can only be performed with the scan on push feature.
+
+<sup><a name="footnote3" /></a>3</sup> Requires Azure Defender for container registries.
+
+<sup><a name="footnote4" /></a>4</sup> Partially GA: Support for Arc enabled clusters is in public preview and not available on Azure Government.
+
+<sup><a name="footnote5" /></a>5</sup> Requires Azure Defender for Kubernetes.
+
+<sup><a name="footnote6" /></a>6</sup> Partially GA: Some of the threat protection alerts from Azure Defender for Storage are in public preview.
+
+<sup><a name="footnote7" /></a>7</sup> These features all require [Azure Defender for servers](./defender-for-servers-introduction.md).
+
+<sup><a name="footnote8" /></a>8</sup> There may be differences in the standards offered per cloud type.
+ 
+<sup><a name="footnote9" /></a>9</sup> Partially GA: Subset of alerts and vulnerability assessment for SQL servers. Behavioral threat protections aren't available.
 
 ## Next steps
 
-- Learn how [Security Center collects data and the Log Analytics Agent](security-center-enable-data-collection.md).
+- Learn how [Security Center collects data using the Log Analytics Agent](security-center-enable-data-collection.md).
 - Learn how [Security Center manages and safeguards data](security-center-data-security.md).
-- Learn how to [plan and understand the design considerations to adopt Azure Security Center](security-center-planning-and-operations-guide.md).
-- Review the [platforms that support security center](security-center-os-coverage.md).
-- Learn more about [threat detection for VMs & servers in Azure Security Center](security-center-alerts-iaas.md).
-- Find [frequently asked questions about using Azure Security Center](security-center-faq.md).
-- Find [blog posts about Azure security and compliance](https://blogs.msdn.com/b/azuresecurity/).
+- Review the [platforms that support Security Center](security-center-os-coverage.md).

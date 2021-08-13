@@ -17,8 +17,8 @@ The Azure Kinect DK hardware and Software Development Kits have differences from
 
 High-level differences between the Azure Kinect development kit and Kinect for Windows v2 are listed in the following table.
 
-|    |      | Azure Kinect DK |  Kinect for Windows v2 |
-|----------|---------------|--------| ------------|
+| Feature | Type | Azure Kinect DK | Kinect for Windows v2 |
+| ------- | ---- | --------------- | --------------------- |
 | **Audio** | Details  | 7-mic circular array | 4-mic linear phased array |
 | **Motion sensor** | Details | 3-axis accelerometer  3-axis gyro | 3-axis accelerometer |
 | **RGB Camera**    | Details | 3840 x 2160 px @30 fps | 1920 x 1080 px @30 fps |
@@ -41,7 +41,7 @@ The following table provides low-level device sensor access capability compariso
 
 | **Functionality**| **Azure Kinect** | **Kinect for Windows** | **Notes** |
 |---------|---------|------------|---------|
-| **Depth** | ✔️ | ✔️ |    |   |
+| **Depth** | ✔️ | ✔️ |    | 
 | **IR** | ✔️ | ✔️ |  |
 | **Color** | ✔️ | ✔️ | Color format supports differences, Azure Kinect DK supports these camera controls: Exposure, white balance, brightness, contrast, saturation, sharpness, and gain control |
 | **Audio** | ✔️ | ✔️ | Azure Kinect DK mics are accessed via Speech SDK or Windows native API |

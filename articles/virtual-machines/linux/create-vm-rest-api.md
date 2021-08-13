@@ -1,19 +1,10 @@
 ---
-title: Create a Linux virtual machine with the Azure REST API | Microsoft Docs
+title: Create a Linux VM with the REST API 
 description: Learn how to create a Linux virtual machine in Azure that uses Managed Disks and SSH authentication with Azure REST API.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machines-linux
-
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
+ms.service: virtual-machines
+ms.collection: linux
+ms.topic: how-to
 ms.date: 06/05/2018
 ms.author: cynthn
 
@@ -32,7 +23,7 @@ This article shows you how to use the REST API to create a Linux VM running Ubun
 Before you create and submit the request, you will need:
 
 * The `{subscription-id}` for your subscription
-  * If you have multiple subscriptions, see [Working with multiple subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)
+  * If you have multiple subscriptions, see [Working with multiple subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli)
 * A `{resourceGroupName}` you've created ahead of time
 * A [virtual network interface](../../virtual-network/virtual-network-network-interface.md) in the same resource group
 * An SSH key pair (you can [generate a new one](mac-create-ssh-keys.md) if you don't have one)
@@ -52,7 +43,7 @@ The following headers are required:
 | Request header   | Description |
 |------------------|-----------------|
 | *Content-Type:*  | Required. Set to `application/json`. |
-| *Authorization:* | Required. Set to a valid `Bearer` [access token](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
+| *Authorization:* | Required. Set to a valid `Bearer` [access token](/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
 For general information about working with REST API requests, see [Components of a REST API request/response](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -128,7 +119,7 @@ For a complete list of the available definitions in the request body, see [Virtu
 
 ## Sending the request
 
-You may use the client of your preference for sending this HTTP request. You may also use an [in-browser tool](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate) by clicking the **Try it** button.
+You may use the client of your preference for sending this HTTP request. You may also use an [in-browser tool](/rest/api/compute/virtualmachines/createorupdate) by clicking the **Try it** button.
 
 ### Responses
 
@@ -157,4 +148,4 @@ For more information on the Azure REST APIs or other management tools such as Az
 - [Azure Compute provider REST API](/rest/api/compute/)
 - [Get started with Azure REST API](/rest/api/azure/)
 - [Azure CLI](/cli/azure/)
-- [Azure PowerShell module](/powershell/azure/overview)
+- [Azure PowerShell module](/powershell/azure/)

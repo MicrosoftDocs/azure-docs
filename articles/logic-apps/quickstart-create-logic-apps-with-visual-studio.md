@@ -1,44 +1,40 @@
 ---
-title: Automate task workflows in Visual Studio - Azure Logic Apps
-description: Create, schedule, and run recurring workflows for enterprise integration by using Azure Logic Apps and Visual Studio
+title: Quickstart - Create integration workflows with multi-tenant Azure Logic Apps in Visual Studio
+description: Create automated integration workflows with multi-tenant Azure Logic Apps and Visual Studio Code.
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-ms.workload: azure-vs
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.manager: carmonm
+ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/08/2019
+ms.date: 05/25/2021
+
+# Customer intent: As a developer, I want to create my first automated workflow by using Azure Logic Apps while working in Visual Studio
 ---
 
-# Quickstart: Create automated tasks, processes, and workflows with Azure Logic Apps - Visual Studio
+# Quickstart: Create automated integration workflows with multi-tenant Azure Logic Apps and Visual Studio
 
-With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and Visual Studio, you can create workflows for automating tasks and processes that integrate apps, data, systems, and services across enterprises and organizations. This quickstart shows how you can design and build these workflows by creating logic apps in Visual Studio and deploying those apps to Azure. Although you can perform these tasks in the Azure portal, Visual Studio lets you add your logic apps to source control, publish different versions, and create Azure Resource Manager templates for different deployment environments.
+This quickstart shows how to design, develop, and deploy automated workflows that integrate apps, data, systems, and services across enterprises and organizations by using multi-tenant [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and Visual Studio. Although you can perform these tasks in the Azure portal, Visual Studio lets you add your logic apps to source control, publish different versions, and create Azure Resource Manager templates for different deployment environments. For more information about multi-tenant versus single-tenant model, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
 
 If you're new to Azure Logic Apps and just want the basic concepts, try the [quickstart for creating a logic app in the Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md). The Logic App Designer works similarly in both the Azure portal and Visual Studio.
 
-In this quickstart, you create the same logic app with Visual Studio as the Azure portal quickstart. This logic app monitors a website's RSS feed and sends email for each new item in that feed. Your finished logic app looks like this high-level workflow:
+In this quickstart, you create the same logic app with Visual Studio as the Azure portal quickstart. You can also learn to [create an example app in Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md), and [create and manage logic apps through the Azure Command-Line Interface (Azure CLI)](quickstart-logic-apps-azure-cli.md).This logic app monitors a website's RSS feed and sends email for each new item in that feed. Your finished logic app looks like this high-level workflow:
 
-![Finished logic app](./media/quickstart-create-logic-apps-with-visual-studio/high-level-workflow-overview.png)
+![Screenshot that shows the high-level workflow of a finished logic app.](./media/quickstart-create-logic-apps-with-visual-studio/high-level-workflow-overview.png)
 
 <a name="prerequisites"></a>
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/). If you have an Azure Government subscription, follow these additional steps to [set up Visual Studio for Azure Government Cloud](#azure-government).
 
 * Download and install these tools, if you don't have them already:
 
   * [Visual Studio 2019, 2017, or 2015 - Community edition or greater](https://aka.ms/download-visual-studio). This quickstart uses Visual Studio Community 2017.
 
     > [!IMPORTANT]
-    > When you install Visual Studio 2019 or 2017, make sure 
-    > that you select the **Azure development** workload.
+    > When you install Visual Studio 2019 or 2017, make sure that you select the **Azure development** workload.
 
-  * [Microsoft Azure SDK for .NET (2.9.1 or later)](https://azure.microsoft.com/downloads/). Learn more about [Azure SDK for .NET](https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet).
+  * [Microsoft Azure SDK for .NET (2.9.1 or later)](https://azure.microsoft.com/downloads/). Learn more about [Azure SDK for .NET](/dotnet/azure/intro).
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
@@ -50,19 +46,55 @@ In this quickstart, you create the same logic app with Visual Studio as the Azur
 
     * [Visual Studio 2015](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015)
   
-    You can either download and install Azure Logic Apps Tools directly from the Visual Studio Marketplace, or learn [how to install this extension from inside Visual Studio](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). Make sure that you restart Visual Studio after you finish installing.
+    You can either download and install Azure Logic Apps Tools directly from the Visual Studio Marketplace, or learn [how to install this extension from inside Visual Studio](/visualstudio/ide/finding-and-using-visual-studio-extensions). Make sure that you restart Visual Studio after you finish installing.
 
 * Access to the web while using the embedded Logic App Designer
 
-  The designer needs an internet connection to create resources in Azure and to read properties and data from connectors in your logic app. For example, for Dynamics CRM Online connections, the designer checks your CRM instance for default and custom properties.
+  The designer needs an internet connection to create resources in Azure and to read properties and data from connectors in your logic app.
 
-* An email account that's supported by Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, review the [connectors list here](https://docs.microsoft.com/connectors/). This example uses Office 365 Outlook. If you use a different provider, the overall steps are the same, but your UI might slightly differ.
+* An email account that's supported by Logic Apps, such as Outlook for Microsoft 365, Outlook.com, or Gmail. For other providers, review the [connectors list here](/connectors/). This example uses Office 365 Outlook. If you use a different provider, the overall steps are the same, but your UI might slightly differ.
+
+  > [!IMPORTANT]
+  > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic apps. 
+  > If you have a Gmail consumer account, you can use this connector with only specific Google-approved services, or you can 
+  > [create a Google client app to use for authentication with your Gmail connector](/connectors/gmail/#authentication-and-bring-your-own-application). 
+  > For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+
+* If your logic app needs to communicate through a firewall that limits traffic to specific IP addresses, that firewall needs to allow access for *both* the [inbound](logic-apps-limits-and-config.md#inbound) and [outbound](logic-apps-limits-and-config.md#outbound) IP addresses used by the Logic Apps service or runtime in the Azure region where your logic app exists. If your logic app also uses [managed connectors](../connectors/managed.md), such as the Office 365 Outlook connector or SQL connector, or uses [custom connectors](/connectors/custom-connectors/), the firewall also needs to allow access for *all* the [managed connector outbound IP addresses](logic-apps-limits-and-config.md#outbound) in your logic app's Azure region.
+
+<a name="azure-government"></a>
+
+## Set up Visual Studio for Azure Government
+
+### Visual Studio 2017
+
+You can use the [Azure Environment Selector Visual Studio extension](https://devblogs.microsoft.com/azuregov/introducing-the-azure-environment-selector-visual-studio-extension/), which you can download and install from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SteveMichelotti.AzureEnvironmentSelector).
+
+### Visual Studio 2019
+
+To work with Azure Government subscriptions in Azure Logic Apps, you need to [add a discovery endpoint for Azure Government Cloud to Visual Studio](../azure-government/documentation-government-connect-vs.md). However, *before you sign in to Visual Studio with your Azure Government account*, you need to rename the JSON file that's generated after you add the discovery endpoint by following these steps:
+
+1. Close Visual Studio.
+
+1. Find the generated JSON file named `Azure U.S. Government-A3EC617673C6C70CC6B9472656832A26.Configuration` at this location:
+
+   `%localappdata%\.IdentityService\AadConfigurations`
+ 
+1. Rename the JSON file to `AadProvider.Configuration.json`.
+
+1. Restart Visual Studio.
+
+1. Continue with the steps to sign in with your Azure Government account.
+
+To revert this setup, delete the JSON file at the following location, and restart Visual Studio:
+
+`%localappdata%\.IdentityService\AadConfigurations\AadProvider.Configuration.json`
 
 <a name="create-resource-group-project"></a>
 
 ## Create Azure resource group project
 
-To get started, create an [Azure Resource Group project](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). Learn more about [Azure resource groups and resources](../azure-resource-manager/resource-group-overview.md).
+To get started, create an [Azure Resource Group project](../azure-resource-manager/templates/create-visual-studio-deployment-project.md). Learn more about [Azure resource groups and resources](../azure-resource-manager/management/overview.md).
 
 1. Start Visual Studio. Sign in with your Azure account.
 
@@ -195,11 +227,11 @@ When you're done with your logic app, delete the resource group that contains yo
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with the same account used to create your logic app.
 
-1. On the main Azure menu, select **Resource groups**. Select your logic app's resource group, and select **Overview**.
+1. On the Azure portal menu, select **Resource groups**, or search for and select **Resource groups** from any page. Select your logic app's resource group.
 
 1. On the **Overview** page, select **Delete resource group**. Enter the resource group name as confirmation, and select **Delete**.
 
-   !["Resource groups" > "Overview" > "Delete resource group"](./media/quickstart-create-logic-apps-with-visual-studio/delete-resource-group.png)
+   !["Resource groups" > "Overview" > "Delete resource group"](./media/quickstart-create-logic-apps-with-visual-studio/clean-up-resources.png)
 
 1. Delete the Visual Studio solution from your local computer.
 

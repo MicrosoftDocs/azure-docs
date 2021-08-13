@@ -1,7 +1,7 @@
 ---
 title: Resize and crop image thumbnails - Bing Web Search API
 titleSuffix: Azure Cognitive Services
-description: Learn how to resize and crop thumbnails provided by the Bing Search APIs.
+description: Some answers from the Bing Search APIs include URLs to thumbnail images served by Bing, which you can resize and crop, and may contain query parameters.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -14,6 +14,11 @@ ms.author: aahi
 ---
 
 # Resize and crop thumbnail images
+
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Some answers from the Bing Search APIs include URLs to thumbnail images served by Bing, which you can resize and crop, and may contain query parameters. For example:
 

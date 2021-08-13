@@ -1,7 +1,7 @@
 ---
 title: "Convert to Dataset: Module reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Convert to Dataset module in the Azure Machine Learning service to convert data input to the internal dataset format used by Microsoft Azure Machine Learning.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Convert to Dataset module in Azure Machine Learning designer to convert data input to the internal dataset format.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,7 +14,7 @@ ms.date: 10/10/2019
 
 # Convert to Dataset
 
-This article describes how to use the Convert to Dataset module in Azure Machine Learning designer (preview) to convert any data for a pipeline to the designer's internal format.
+This article describes how to use the Convert to Dataset module in Azure Machine Learning designer to convert any data for a pipeline to the designer's internal format.
   
 Conversion is not required in most cases. Azure Machine Learning implicitly converts data to its native dataset format when any operation is performed on the data. 
 
@@ -31,7 +31,7 @@ We recommend that you use the [Edit Metadata](edit-metadata.md) module to prepar
 
 2. Connect it to any module that outputs a dataset.   
 
-    As long as the data is [tabular](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py), you can convert it to a dataset. This includes data loaded through [Import Data](import-data.md), data created through [Enter Data Manually](enter-data-manually.md), or datasets transformed through [Apply Transformation](apply-transformation.md).
+    As long as the data is [tabular](/python/api/azureml-core/azureml.data.tabulardataset), you can convert it to a dataset. This includes data loaded through [Import Data](import-data.md), data created through [Enter Data Manually](enter-data-manually.md), or datasets transformed through [Apply Transformation](apply-transformation.md).
 
 3.  In the **Action** drop-down list, indicate if you want to do any cleanup on the data before you save the dataset:  
   
@@ -47,11 +47,11 @@ We recommend that you use the [Edit Metadata](edit-metadata.md) module to prepar
     Note that the **ReplaceValues** operation applies only to exact matches. For example, these strings would not be affected: `obs.`, `obsolete`.  
  
   
-5.  Run the pipeline, or right-click the Convert to Dataset module and select **Run selected**.  
+5.  Submit the pipeline.  
 
 ## Results
 
-+  To save the resulting dataset with a new name, right-click the output of Convert to Dataset and select **Save as Dataset**.  
++  To save the resulting dataset with a new name, select on the icon **Register dataset** under the **Outputs** tab in the right panel of the module.  
   
 ## Technical notes  
 
@@ -66,4 +66,4 @@ We recommend that you use the [Edit Metadata](edit-metadata.md) module to prepar
   
 ## Next steps
 
-See the [set of modules available](module-reference.md) to the Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning.

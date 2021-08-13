@@ -1,19 +1,15 @@
-﻿---
-title: Connect to Bing Search - Azure Logic Apps
-description: Find news with Bing Search REST APIs and Azure Logic Apps
+---
+title: Connect to Bing Search
+description: Automate tasks and workflows that find results in Bing Search by using Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
 ---
 
-# Find news with Bing Search and Azure Logic Apps
+# Find results in Bing Search by using Azure Logic Apps
 
 This article shows how you can find news, videos, and other items through 
 Bing Search from inside a logic app with the Bing Search connector. 
@@ -29,7 +25,7 @@ If you're new to logic apps, review
 [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
 and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 For connector-specific technical information, see the 
-[Bing Search connector reference](https://docs.microsoft.com/connectors/bingsearch/).
+[Bing Search connector reference](/connectors/bingsearch/).
 
 ## Prerequisites
 
@@ -57,7 +53,7 @@ and starts running your app's workflow.
 create a blank logic app, which opens Logic App Designer. 
 This example uses the Azure portal.
 
-2. In the search box, enter "Bing search" as your filter. 
+2. In the search box, enter "Bing search" as your filter. 
 From the triggers list, select the trigger you want.
 
    This example uses this trigger: 
@@ -120,7 +116,7 @@ This example uses the Azure portal.
    Select the plus sign (**+**) that appears, 
    and then select **Add an action**.
 
-3. In the search box, enter "Bing search" as your filter.
+3. In the search box, enter "Bing search" as your filter.
 From the actions list, select the action you want.
 
    This example uses this action:
@@ -205,9 +201,10 @@ provide these details:
 ## Connector reference
 
 For technical details, such as triggers, actions, and limits, 
-as described by the connector's OpenAPI (formerly Swagger) file, 
+as described by the connector's Swagger file, 
 see the [connector's reference page](/connectors/bingsearch/).
 
 ## Next steps
 
 * Learn about other [Logic Apps connectors](../connectors/apis-list.md)
+

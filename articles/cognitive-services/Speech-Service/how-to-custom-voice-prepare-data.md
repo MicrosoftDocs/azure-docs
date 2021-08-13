@@ -1,51 +1,60 @@
 ---
-title: "How to prepare data for Custom Voice - Speech Service"
+title: "How to prepare data for Custom Voice - Speech service"
 titleSuffix: Azure Cognitive Services
-description: "Create a custom voice for your brand with Speech Service. You provide studio recordings and the associated scripts, the service generates a unique voice model tuned to the recorded voice. Use this voice to synthesize speech in your products, tools, and applications."
+description: "Create a custom voice for your brand with the Speech service. You provide studio recordings and the associated scripts, the service generates a unique voice model tuned to the recorded voice. Use this voice to synthesize speech in your products, tools, and applications."
 services: cognitive-services
-author: erhopf
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.author: erhopf
+ms.author: lajanuar
 ---
 
+# Prepare training data
 
-# Prepare data to create a custom voice
+When you're ready to create a custom text-to-speech voice for your application, the first step is to gather audio recordings and associated scripts to start training the voice model. The Speech service uses this data to create a unique voice tuned to match the voice in the recordings. After you've trained the voice, you can start synthesizing speech in your applications.
 
-When you're ready to create a custom text-to-speech voice for your application, the first step is to gather audio recordings and associated scripts to start training the voice model. The service uses this data to create a unique voice tuned to match the voice in the recordings. After you've trained the voice, you can start synthesizing speech in your applications.
+## Voice talent verbal statement
 
-You can start with a small amount of data to create a proof of concept. However, the more data that you provide, the more natural your custom voice will sound. Before you can train your own text-to-speech voice model, you'll need audio recordings and the associated text transcriptions. On this page, we'll review data types, how they are used, and how to manage each.
+Before you can train your own text-to-speech voice model, you'll need audio recordings and the associated text transcriptions. On this page, we'll review data types, how they are used, and how to manage each.
 
-## Data types
+> [!NOTE]
+> To train a neural voice, you must create a voice talent profile with an audio file recorded by the voice talent consenting to the usage of their speech data to train a custom voice model. When preparing your recording script, make sure you include the below sentence.
+
+> “I [state your first and last name] am aware that recordings of my voice will be used by [state the name of the company] to create and use a synthetic version of my voice.”
+This sentence will be used to verify if the training data is done by the same person that makes the consent. Read more about the [voice talent verification](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) here.
+
+> Custom Neural Voice is available with limited access. Make sure you understand the [responsible AI requirements](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) and [apply the access here](https://aka.ms/customneural). 
+
+## Types of training data
 
 A voice training dataset includes audio recordings, and a text file with the associated transcriptions. Each audio file should contain a single utterance (a single sentence or a single turn for a dialog system), and be less than 15 seconds long.
 
-In some cases, you may not have the right dataset ready and will want to test the custom voice training with available audio files, short or long, with or without transcripts. We provide tools (beta) to help you segment your audio into utterances and prepare transcripts using the [Batch Transcription API](batch-transcription.md).
+In some cases, you may not have the right dataset ready and will want to test the custom neural voice training with available audio files, short or long, with or without transcripts. We provide tools (beta) to help you segment your audio into utterances and prepare transcripts using the [Batch Transcription API](batch-transcription.md).
 
 This table lists data types and how each is used to create a custom text-to-speech voice model.
 
-| Data type | Description | When to use | Additional service required | Quantity for training a model | Locale(s) |
-| --------- | ----------- | ----------- | --------------------------- | ----------------------------- | --------- |
-| **Individual utterances + matching transcript** | A collection (.zip) of audio files (.wav) as individual utterances. Each audio file should be 15 seconds or less in length, paired with a formatted transcript (.txt). | Professional recordings with matching transcripts | Ready for training. | No hard requirement for en-US and zh-CN. More than 2,000+ distinct utterances for other locales. | [All Custom Voice locales](language-support.md#customization) |
-| **Long audio + transcript (beta)** | A collection (.zip) of long, unsegmented audio files (longer than 20 seconds), paired with a transcript (.txt) that contains all spoken words. | You have audio files and matching transcripts, but they are not segmented into utterances. | Segmentation (using batch transcription).<br>Audio format transformation where required. | No hard requirement  | [All Custom Voice locales](language-support.md#customization) |
-| **Audio only (beta)** | A collection (.zip) of audio files without a transcript. | You only have audio files available, without transcripts. | Segmentation + transcript generation (using batch transcription).<br>Audio format transformation where required.| No hard requirement | [All Custom Voice locales](language-support.md#customization) |
+| Data type | Description | When to use | Additional processing required |
+| --------- | ----------- | ----------- | --------------------------- |
+| **Individual utterances + matching transcript** | A collection (.zip) of audio files (.wav) as individual utterances. Each audio file should be 15 seconds or less in length, paired with a formatted transcript (.txt). | Professional recordings with matching transcripts | Ready for training. |
+| **Long audio + transcript (beta)** | A collection (.zip) of long, unsegmented audio files (longer than 20 seconds), paired with a collection (.zip) of transcripts that contains all spoken words. | You have audio files and matching transcripts, but they are not segmented into utterances. | Segmentation (using batch transcription).<br>Audio format transformation where required. |
+| **Audio only (beta)** | A collection (.zip) of audio files without a transcript. | You only have audio files available, without transcripts. | Segmentation + transcript generation (using batch transcription).<br>Audio format transformation where required.|
 
 Files should be grouped by type into a dataset and uploaded as a zip file. Each dataset can only contain a single data type.
 
 > [!NOTE]
-> The maximum number of datasets allowed to be imported per subscription is 10 .zip files for free subscription (F0) users and 500 for standard subscription (S0) users.
+> The maximum number of datasets allowed to be imported per subscription is 10 zip files for free subscription (F0) users and 500 for standard subscription (S0) users.
 
 ## Individual utterances + matching transcript
 
 You can prepare recordings of individual utterances and the matching transcript in two ways. Either write a script and have it read by a voice talent or use publicly available audio and transcribe it to text. If you do the latter, edit disfluencies from the audio files, such as "um" and other filler sounds, stutters, mumbled words, or mispronunciations.
 
-To produce a good voice font, create the recordings in a quiet room with a high-quality microphone. Consistent volume, speaking rate, speaking pitch, and expressive mannerisms of speech are essential.
+To produce a good voice model, create the recordings in a quiet room with a high-quality microphone. Consistent volume, speaking rate, speaking pitch, and expressive mannerisms of speech are essential.
 
 > [!TIP]
-> To create a voice for production use, we recommend you use a professional recording studio and voice talent. For more information, see [How to record voice samples for a custom voice](record-custom-voice-samples.md).
+> To create a voice for production use, we recommend you use a professional recording studio and voice talent. For more information, see [record voice samples to create a Custom Neural Voice](record-custom-voice-samples.md).
 
 ### Audio files
 
@@ -56,7 +65,7 @@ Follow these guidelines when preparing audio.
 | Property | Value |
 | -------- | ----- |
 | File format | RIFF (.wav), grouped into a .zip file |
-| Sampling rate	| At least 16,000 Hz |
+| Sampling rate	| At least 16,000 Hz. For creating a neural voice, 24,000 Hz is required. |
 | Sample format | PCM, 16-bit |
 | File name | Numeric, with .wav extension. No duplicate file names allowed. |
 | Audio length | Shorter than 15 seconds |
@@ -64,7 +73,10 @@ Follow these guidelines when preparing audio.
 | Maximum archive size | 2048 MB |
 
 > [!NOTE]
-> .wav files with a sampling rate lower than 16,000 Hz will be rejected. If a .zip file contains .wav files with different sample rates, only those equal to or higher than 16,000 Hz will be imported. The portal currently imports .zip archives up to 200 MB. However, multiple archives can be uploaded.
+> .wav files with a sampling rate lower than 16,000 Hz will be rejected. If a .zip file contains .wav files with different sample rates, only those equal to or higher than 16,000 Hz will be imported. The portal currently imports .zip archives up to 2048 MB. However, multiple archives can be uploaded.
+
+> [!NOTE]
+> The default sampling rate for a custom neural voice is 24,000 Hz.  Your .wav files with a sampling rate lower than 16,000 Hz will be up-sampled to 24,000 Hz to train a neural voice.  It’s recommended that you should use a sample rate of 24,000 Hz for your training data.
 
 ### Transcripts
 
@@ -86,12 +98,9 @@ Below is an example of how the transcripts are organized utterance by utterance 
 ```
 It’s important that the transcripts are 100% accurate transcriptions of the corresponding audio. Errors in the transcripts will introduce quality loss during the training.
 
-> [!TIP]
-> When building production text-to-speech voices, select utterances (or write scripts) that take into account both phonetic coverage and efficiency. Having trouble getting the results you want? [Contact the Custom Voice](mailto:speechsupport@microsoft.com) team to find out more about having us consult.
-
 ## Long audio + transcript (beta)
 
-In some cases, you may not have segmented audio available. We provide a service (beta) through the custom voice portal to help you segment long audio files and create transcriptions. Keep in mind, this service will be charged toward your speech-to-text subscription usage.
+In some cases, you may not have segmented audio available. We provide a service (beta) through the Speech Studio to help you segment long audio files and create transcriptions. Keep in mind, this service will be charged toward your speech-to-text subscription usage.
 
 > [!NOTE]
 > The long-audio segmentation service will leverage the batch transcription feature of speech-to-text, which only supports standard subscription (S0) users. During the processing of the segmentation, your audio files and the transcripts will also be sent to the Custom Speech service to refine the recognition model so the accuracy can be improved for your data. No data will be retained during this process. After the segmentation is done, only the utterances segmented and their mapping transcripts will be stored for your downloading and training.
@@ -107,6 +116,9 @@ Follow these guidelines when preparing audio for segmentation.
 | Audio length | Longer than 20 seconds |
 | Archive format | .zip |
 | Maximum archive size | 2048 MB |
+
+> [!NOTE]
+> The default sampling rate for a custom neural voice is 24,000 Hz.  Your .wav files with a sampling rate lower than 16,000 Hz will be up sampled to 24,000 Hz to train a neural voice.  It’s recommended that you should use a sample rate of 24,000 Hz for your training data.
 
 All audio files should be grouped into a zip file. It’s OK to put .wav files and .mp3 files into one audio zip. For example, you can upload a zip file containing an audio file named ‘kingstory.wav’, 45-second-long, and another audio named ‘queenstory.mp3’, 200-second-long. All .mp3 files will be transformed into the .wav format after processing.
 
@@ -128,7 +140,7 @@ After your dataset is successfully uploaded, we will help you segment the audio 
 
 ## Audio only (beta)
 
-If you don't have transcriptions for your audio recordings, use the **Audio only** option to upload your data. Our system can help you segment and transcribe your audio files. Keep in mind, this service will count toward your speech-to-text subscription usage.
+If you don't have transcriptions for your audio recordings, use the **Audio only** option to upload your data. Our system can help you segment and transcribe your audio files. Keep in mind, this service will be charged toward your speech-to-text subscription usage.
 
 Follow these guidelines when preparing audio.
 
@@ -143,9 +155,12 @@ Follow these guidelines when preparing audio.
 | Archive format | .zip |
 | Maximum archive size | 2048 MB |
 
+> [!NOTE]
+> The default sampling rate for a custom neural voice is 24,000 Hz.  Your .wav files with a sampling rate lower than 16,000 Hz will be up sampled to 24,000 Hz to train a neural voice.  It’s recommended that you should use a sample rate of 24,000 Hz for your training data.
+
 All audio files should be grouped into a zip file. Once your dataset is successfully uploaded, we will help you segment the audio file into utterances based on our speech batch transcription service. Unique IDs will be assigned to the segmented utterances automatically. Matching transcripts will be generated through speech recognition. All .mp3 files will be transformed into the .wav format after processing. You can check the segmented utterances and the matching transcripts by downloading the dataset.
 
 ## Next steps
 
-- [Create a Custom Voice](how-to-custom-voice-create-voice.md)
-- [Guide: Record your voice samples](record-custom-voice-samples.md)
+- [Create and use your voice model](how-to-custom-voice-create-voice.md)
+- [How to record voice samples](record-custom-voice-samples.md)

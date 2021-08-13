@@ -1,20 +1,15 @@
 ---
-title: Azure Monitor Dependency virtual machine extension for Windows | Microsoft Docs
+title: Azure Monitor Dependency virtual machine extension for Windows
 description: Deploy the Azure Monitor Dependency agent on Windows virtual machine by using a virtual machine extension.
-services: virtual-machines-windows
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machines-windows
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
-ms.date: 03/29/2019
+ms.service: virtual-machines
+ms.subservice: extensions
+author: mgoedtel
 ms.author: magoedte
+ms.collection: windows
+ms.date: 06/01/2021
+ms.custom: devx-track-azurepowershell
+
 
 ---
 # Azure Monitor Dependency virtual machine extension for Windows
@@ -23,7 +18,7 @@ The Azure Monitor for VMs Map feature gets its data from the Microsoft Dependenc
 
 ## Operating system
 
-The Azure VM Dependency agent extension for Windows can be run against the supported operating systems listed in the [Supported operating systems](../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) section of the Azure Monitor for VMs deployment article.
+The Azure VM Dependency agent extension for Windows can be run against the supported operating systems listed in the [Supported operating systems](../../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) section of the Azure Monitor for VMs deployment article.
 
 ## Extension schema
 
@@ -78,7 +73,7 @@ The following JSON shows the schema for the Azure VM Dependency agent extension 
 
 You can deploy the Azure VM extensions with Azure Resource Manager templates. You can use the JSON schema detailed in the previous section in an Azure Resource Manager template to run the Azure VM Dependency agent extension during an Azure Resource Manager template deployment.
 
-The JSON for a virtual machine extension can be nested inside the virtual machine resource. Or, you can place it at the root or top level of a Resource Manager JSON template. The placement of the JSON affects the value of the resource name and type. For more information, see [Set name and type for child resources](../../azure-resource-manager/child-resource-name-type.md).
+The JSON for a virtual machine extension can be nested inside the virtual machine resource. Or, you can place it at the root or top level of a Resource Manager JSON template. The placement of the JSON affects the value of the resource name and type. For more information, see [Set name and type for child resources](../../azure-resource-manager/templates/child-resource-name-type.md).
 
 The following example assumes the Dependency agent extension is nested inside the virtual machine resource. When you nest the extension resource, the JSON is placed in the `"resources": []` object of the virtual machine.
 
@@ -133,8 +128,22 @@ Set-AzVMExtension -ExtensionName "Microsoft.Azure.Monitoring.DependencyAgent" `
     -Publisher "Microsoft.Azure.Monitoring.DependencyAgent" `
     -ExtensionType "DependencyAgentWindows" `
     -TypeHandlerVersion 9.5 `
-    -Location WestUS 
+    -Location WestUS
 ```
+
+## Automatic extension upgrade
+A new feature to [automatically upgrade minor versions](../automatic-extension-upgrade.md) of Dependency extension is now available.
+
+To enable automatic extension upgrade for an extension, you must ensure the property `enableAutomaticUpgrade` is set to `true` and added to the extension template. This property must be enabled on every VM or VM scale set individually. Use one of the methods described in the [enablement](../automatic-extension-upgrade.md#enabling-automatic-extension-upgrade) section enable the feature for your VM or VM scale set.
+
+When automatic extension upgrade is enabled on a VM or VM scale set, the extension is upgraded automatically whenever the extension publisher releases a new version for that extension. The upgrade is applied safely following availability-first principles as described [here](../automatic-extension-upgrade.md#how-does-automatic-extension-upgrade-work).
+
+The `enableAutomaticUpgrade` attribute's functionality is different from that of the `autoUpgradeMinorVersion`. The  `autoUpgradeMinorVersion` attributes does not automatically trigger a minor version update when the extension publisher releases a new version. The `autoUpgradeMinorVersion` attribute indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+
+To keep your extension version updated, we recommend using `enableAutomaticUpgrade` with your extension deployment.
+
+> [!IMPORTANT]
+> If you add the `enableAutomaticUpgrade` to your template, make sure that you use at API version 2019-12-01 or higher.
 
 ## Troubleshoot and support
 

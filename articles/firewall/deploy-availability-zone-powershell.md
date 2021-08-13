@@ -1,12 +1,13 @@
 ---
-title: Deploy Azure Firewall with Availability Zones using Azure PowerShell
+title: Deploy Azure Firewall with Availability Zones using PowerShell
 description: In this article, you learn how to deploy an Azure Firewall with Availability Zones using the Azure PowerShell. 
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
-ms.date: 7/10/2019
-ms.author: victorh
+ms.topic: how-to
+ms.date: 11/19/2019
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Deploy an Azure Firewall with Availability Zones using Azure PowerShell
@@ -49,10 +50,10 @@ New-AzFirewall `
   -ResourceGroupName $rgName `
   -Location centralus `
   -VirtualNetwork $vnet `
-  -PublicIpAddress @($pip1)
+  -PublicIpAddress @($pip1) `
   -Zone 1,2,3
 ```
 
 ## Next steps
 
-- [Tutorial: Monitor Azure Firewall logs](./tutorial-diagnostics.md)
+- [Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md)

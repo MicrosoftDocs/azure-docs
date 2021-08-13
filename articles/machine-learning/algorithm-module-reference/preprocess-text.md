@@ -1,19 +1,19 @@
 ---
 title: "Preprocess Text: Module Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Preprocess Text module in Azure Machine Learning to clean and simplify text.
+description: Learn how to use the Preprocess Text module in Azure Machine Learning designer to clean and simplify text.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 09/01/2019
+author: likebupt
+ms.author: keli19
+ms.date: 11/16/2020
 ---
 # Preprocess Text
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use the **Preprocess Text** module to clean and simplify text. It supports these common text processing operations:
 
@@ -48,7 +48,7 @@ The **Preprocess Text** module currently only supports English.
 
     This module uses a series of three pipe characters `|||` to represent the sentence terminator.
 
-1. Perform optional find-and-replace operations using regular expressions.
+1. Perform optional find-and-replace operations using regular expressions. The regular expression will be processed at first, ahead of all other built-in options.
 
     * **Custom regular expression**: Define the text you're searching for.
     * **Custom replacement string**: Define a single replacement value.
@@ -59,7 +59,7 @@ The **Preprocess Text** module currently only supports English.
 
 1. You can also remove the following types of characters or character sequences from the processed output text:
 
-    * **Remove numbers**: Select this option to remove all numeric characters for the specified language. Identification numbers are domain-dependent and language dependent. If numeric characters are an integral part of a known word, the number might not be removed.
+    * **Remove numbers**: Select this option to remove all numeric characters for the specified language. Identification numbers are domain-dependent and language dependent. If numeric characters are an integral part of a known word, the number might not be removed. Learn more in [Technical notes](#technical-notes).
     
     * **Remove special characters**: Use this option to remove any non-alphanumeric special characters.
     
@@ -78,7 +78,26 @@ The **Preprocess Text** module currently only supports English.
 
     For example, the string `MS---WORD` would be separated into three tokens, `MS`, `-`, and `WORD`.
 
-1. Run the pipeline.
+1. Submit the pipeline.
+
+## Technical notes
+
+The **preprocess-text** module in Studio(classic) and designer use different language models. The designer uses a multi-task CNN trained model from [spaCy](https://spacy.io/models/en). Different models give different tokenizer and part-of-speech tagger, which leads to different results.
+
+Following are some examples:
+
+| Configuration | Output result |
+| --- | --- |
+|With all options selected </br> Explanation: </br> For the cases like '3test' in the 'WC-3 3test 4test', the designer remove the whole word '3test', since in this context, the part-of-speech tagger specifies this token '3test' as numeral, and according to the part-of-speech, the module removes it.| :::image type="content" source="./media/module/preprocess-text-all-options-selected.png" alt-text="With all options selected" border="True"::: |
+|With only `Removing number` selected </br> Explanation: </br> For the cases like '3test', '4-EC', the designer tokenizer dose not split these cases, and treats them as the whole tokens. So it won't remove the numbers in these words.| :::image type="content" source="./media/module/preprocess-text-removing-numbers-selected.png" alt-text="With only `Removing number` selected" border="True"::: |
+
+You can also use regular expression to output customized results:
+
+| Configuration | Output result |
+| --- | --- |
+|With all options selected </br> Custom regular expression: `(\s+)*(-|\d+)(\s+)*` </br> Custom replacement string: `\1 \2 \3`| :::image type="content" source="./media/module/preprocess-text-regular-expression-all-options-selected.png" alt-text="With all options selected and regular expression" border="True"::: |
+|With only `Removing number` selected </br> Custom regular expression: `(\s+)*(-|\d+)(\s+)*` </br> Custom replacement string: `\1 \2 \3`| :::image type="content" source="./media/module/preprocess-text-regular-expression-removing-numbers-selected.png" alt-text="With removing numbers selected and regular expression" border="True"::: |
+
 
 ## Next steps
 

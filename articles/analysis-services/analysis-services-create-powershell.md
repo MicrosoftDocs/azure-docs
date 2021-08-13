@@ -1,12 +1,16 @@
-﻿---
+---
 title: Quickstart - Create Azure Analysis Services using PowerShell Azure Analysis Services | Microsoft Docs
-description: Learn how to create an Azure Analysis Services server by using PowerShell
+description: This quickstart describes how to create an Azure Analysis Services server by using PowerShell
 author: minewiskan
-ms.service: azure-analysis-services
-ms.topic: quickstart
-ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
+ms.date: 08/31/2020
+ms.topic: quickstart
+ms.service: azure-analysis-services
+ms.custom: devx-track-azurepowershell
+  - references_regions
+  - devx-track-azurepowershell
+  - mode-api
 #Customer intent: As a BI developer, I want to create an Azure Analysis Services server by using PowerShell.
 ---
 
@@ -40,7 +44,7 @@ Connect-AzAccount
 
 ## Create a resource group
 
-An [Azure resource group](../azure-resource-manager/resource-group-overview.md) is a logical container where Azure resources are deployed and managed as a group. When you create your server, you must specify a resource group in your subscription. If you do not already have a resource group, you can create a new one by using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command. The following example creates a resource group named `myResourceGroup` in the West US region.
+An [Azure resource group](../azure-resource-manager/management/overview.md) is a logical container where Azure resources are deployed and managed as a group. When you create your server, you must specify a resource group in your subscription. If you do not already have a resource group, you can create a new one by using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command. The following example creates a resource group named `myResourceGroup` in the West US region.
 
 ```powershell
 New-AzResourceGroup -Name "myResourceGroup" -Location "WestUS"
@@ -69,5 +73,3 @@ In this quickstart, you learned how to create a server in your Azure subscriptio
 
 > [!div class="nextstepaction"]
 > [Quickstart: Configure server firewall - Portal](analysis-services-qs-firewall.md)      
-> [!div class="nextstepaction"]
-> [Tutorial: Add a sample model to your server](analysis-services-create-sample-model.md)

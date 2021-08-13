@@ -1,19 +1,25 @@
 ---
-title: Execute Azure Machine Learning pipelines in your Azure Data Factory pipelines 
+title: Execute Azure Machine Learning pipelines 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to run your Azure Machine Learning pipelines in your Azure Data Factory pipelines. 
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.subservice: tutorials
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/10/2019
-author: djpmsft
-ms.author: daperlov
+ms.author: abnarain
+author: nabhishek
+ms.date: 07/16/2020
 ---
+
 # Execute Azure Machine Learning pipelines in Azure Data Factory
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 Run your Azure Machine Learning pipelines as a step in your Azure Data Factory pipelines. The Machine Learning Execute Pipeline activity enables batch prediction scenarios such as identifying possible loan defaults, determining sentiment, and analyzing customer behavior patterns.
+
+The below video features a six-minute introduction and demonstration of this feature.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/How-to-execute-Azure-Machine-Learning-service-pipelines-in-Azure-Data-Factory/player]
 
 ## Syntax
 
@@ -41,13 +47,17 @@ Run your Azure Machine Learning pipelines as a step in your Azure Data Factory p
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | --------
 name | Name of the activity in the pipeline | String | Yes
-type | Type of activity is ‘AzureMLExecutePipeline’ | String | Yes
+type | Type of activity is 'AzureMLExecutePipeline' | String | Yes
 linkedServiceName | Linked Service to Azure Machine Learning | Linked service reference | Yes
 mlPipelineId | ID of the published Azure Machine Learning pipeline | String (or expression with resultType of string) | Yes
 experimentName | Run history experiment name of the Machine Learning pipeline run | String (or expression with resultType of string) | No
 mlPipelineParameters | Key, Value pairs to be passed to the published Azure Machine Learning pipeline endpoint. Keys must match the names of pipeline parameters defined in the published Machine Learning pipeline | Object with key value pairs (or Expression with resultType object) | No
 mlParentRunId | The parent Azure Machine Learning pipeline run ID | String (or expression with resultType of string) | No
+dataPathAssignments | Dictionary used for changing datapaths in Azure Machine learning. Enables the switching of datapaths | Object with key value pairs | No
 continueOnStepFailure | Whether to continue execution of other steps in the Machine Learning pipeline run if a step fails | boolean | No
+
+> [!NOTE]
+> To populate the dropdown items in Machine Learning pipeline name and ID, the user needs to have permission to list ML pipelines. ADF UX calls AzureMLService APIs directly using the logged in user's credentials.  
 
 ## Next steps
 See the following articles that explain how to transform data in other ways:

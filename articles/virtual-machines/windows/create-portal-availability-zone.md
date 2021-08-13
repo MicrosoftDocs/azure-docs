@@ -1,55 +1,43 @@
 ---
-title: Create a zoned Windows VM with the Azure portal | Microsoft Docs
-description: Create a Windows VM in an availability zone with the Azure portal
-services: virtual-machines-windows
+title: Create a zoned VM with the Azure portal 
+description: Create a VM in an availability zone with the Azure portal
 documentationcenter: virtual-machines
-author: cynthn
-manager: gwallace
-editor: 
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machines-windows
-
+author: mimckitt
+ms.service: virtual-machines
 ms.topic: conceptual
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
-ms.date: 03/27/2018
-ms.author: cynthn
+ms.date: 5/10/2021
+ms.author: mimckitt
+ms.reviewer: cynthn
 ms.custom: 
 ---
 
-# Create a Windows virtual machine in an availability zone with the Azure portal
+# Create a virtual machine in an availability zone using the Azure portal
 
 This article steps through using the Azure portal to create a virtual machine in an Azure availability zone. An [availability zone](../../availability-zones/az-overview.md) is a physically separate zone in an Azure region. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter.
 
-To use an availability zone, create your virtual machine in a [supported Azure region](../../availability-zones/az-overview.md#services-support-by-region).
+To use an availability zone, create your virtual machine in a [supported Azure region](../../availability-zones/az-region.md).
 
 ## Sign in to Azure 
 
-Sign in to the Azure portal at https://portal.azure.com.
+1. Sign in to the Azure portal at https://portal.azure.com.
 
-## Create virtual machine
+1. Click **Create a resource** > **Compute** > **Virtual machine**. 
 
-1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
+3. Enter the virtual machine information. The user name and password is used to sign in to the virtual machine. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.yml#what-are-the-password-requirements-when-creating-a-vm-). 
 
-2. Select **Compute**, and then select **Windows Server 2016 Datacenter**. 
+4. Choose a region such as East US 2 that supports availability zones. 
 
-3. Enter the virtual machine information. The user name and password entered here is used to sign in to the virtual machine. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.md#what-are-the-password-requirements-when-creating-a-vm). Choose a Location such as East US 2 that supports availability zones. When complete, click **OK**.
+5. Under **Availability options**, select **Availability zone** dropdown. 
 
-    ![Enter basic information about your VM in the portal blade](./media/create-portal-availability-zone/create-windows-vm-portal-basic-blade.png)
-
+1. Under **Availability zone**, select a zone from the drop-down list.
+        
 4. Choose a size for the VM. Select a recommended size, or filter based on features. Confirm the size is available in the zone you want to use.
 
-    ![Select a VM size](./media/create-portal-availability-zone/create-windows-vm-portal-sizes.png)  
+6. Finish filling in the information for your VM. When you are done, select **Review + create**.
 
-5. Under **Settings** > **High availability**, select one of the numbered zones from the **Availability zone** dropdown, keep the remaining defaults, and click **OK**.
+7. Once the information is verified, select **Create**.
 
-    ![Select an availability zone](./media/create-portal-availability-zone/create-windows-vm-portal-availability-zone.png)
-
-6. On the summary page, click **Create** to start the virtual machine deployment.
-
-7. The VM will be pinned to the Azure portal dashboard. Once the deployment has completed, the VM summary automatically opens.
+1. After the VM is created, you can see the availability zone listed in the **Essentials section** on the page for the VM.
 
 ## Confirm zone for managed disk and IP address
 
@@ -57,18 +45,11 @@ When the VM is deployed in an availability zone, a managed disk for the VM is cr
 
 You can confirm the zone settings for these resources in the portal.  
 
-1. Click **Resource groups** and then the name of the resource group for the VM, such as *myResourceGroup*.
+1. Select **Disks** from the left menu and then select the OS disk. The page for the disk includes details about the location and availability zone of the disk.
 
-2. Click the name of the Disk resource. The **Overview** page includes details about the location and availability zone of the resource.
+1. Back on the page for the VM, select the public IP address. In the left menu, select **Properties**. The properties page includes details about the location and availability zone of the public IP address.
 
-    ![Availability zone for managed disk](./media/create-portal-availability-zone/create-windows-vm-portal-disk.png)
-
-3. Click the name of the Public IP address resource. The **Overview** page includes details about the location and availability zone of the resource.
-
-    ![Availability zone for IP address](./media/create-portal-availability-zone/create-windows-vm-portal-ip.png)
-
-
-
+    
 ## Next steps
 
-In this article, you learned how to create a VM in an availability zone. Learn more about [availability](availability.md) for Azure VMs.
+In this article, you learned how to create a VM in an availability zone. Learn more about [availability](../availability.md) for Azure VMs.

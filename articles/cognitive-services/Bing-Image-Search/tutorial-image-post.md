@@ -1,20 +1,26 @@
 ---
-title: "Tutorial: Extract image details using the Bing Image Search API and C#"
+title: "Tutorial: Extract image details with the REST API and C# - Bing Image Search"
 titleSuffix: Azure Cognitive Services
-description: Use this article to create a C# application that extracts image details using the Bing Image Search API.
+description: Use this tutorial to create a C# application that extracts image details using the Bing Image Search API.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: tutorial
-ms.date: 05/15/2019
+ms.date: 12/06/2019
 ms.author: aahi
+ms.custom: devx-track-js
 ---
 
 # Tutorial: Extract image details using the Bing Image Search API and C#
 
-There are multiple [endpoints](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-endpoint) available through the Bing Image Search API. The `/details` endpoint accepts a POST request with an image, and can return a variety of details about the image. This C# application sends an image using this API, and displays the details returned by Bing, which are JSON objects, such as the following:
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+
+There are multiple [endpoints](./image-search-endpoint.md) available through the Bing Image Search API. The `/details` endpoint accepts a POST request with an image, and can return a variety of details about the image. This C# application sends an image using this API, and displays the details returned by Bing, which are JSON objects, such as the following:
 
 ![[JSON results]](media/cognitive-services-bing-images-api/jsonResult.jpg)
 
@@ -37,7 +43,7 @@ The source code for this sample is available on [GitHub](https://github.com/Azur
 
 ## Construct an image details search request
 
-The following is the `/details` endpoint, which accepts POST requests with image data in the body of the request.
+The following is the `/details` endpoint, which accepts POST requests with image data in the body of the request. You can use the global endpoint below, or the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/details
 ```
@@ -109,4 +115,4 @@ If there are identifiable people or places in the image, this request will retur
 
 ## See also
 
-* [Bing Image Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Bing Image Search API reference](/rest/api/cognitiveservices/bing-images-api-v7-reference)

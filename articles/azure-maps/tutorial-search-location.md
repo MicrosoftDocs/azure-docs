@@ -1,17 +1,17 @@
 ---
-title: Search with Azure Maps | Microsoft Docs
-description: Search nearby point of interest using Azure Maps
-author: walsehgal
-ms.author: v-musehg
-ms.date: 03/07/2019
+title: 'Tutorial: Search for nearby locations on a map | Microsoft Azure Maps'
+description: Tutorial on how to search for points of interest on a map. See how to use the Azure Maps Web SDK to add search capabilities and interactive popup boxes to a map.
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 1/15/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc
+ms.custom: mvc, devx-track-js
 ---
 
-# Search nearby points of interest using Azure Maps
+# Tutorial: Search nearby points of interest using Azure Maps
 
 This tutorial shows how to set up an account with Azure Maps, then use the Maps APIs to search for a point of interest. In this tutorial, you learn how to:
 
@@ -21,48 +21,20 @@ This tutorial shows how to set up an account with Azure Maps, then use the Maps 
 > * Create a new web page using the map control API
 > * Use the Maps search service to find a nearby point of interest
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-
-## Sign in to the Azure portal
-
-Sign in to the [Azure portal](https://portal.azure.com).
+## Prerequisites
 
 <a id="createaccount"></a>
-
-## Create an account with Azure Maps
-
-Create a new Maps account with the following steps:
-
-1. In the upper left-hand corner of the [Azure portal](https://portal.azure.com), click **Create a resource**.
-2. In the *Search the Marketplace* box, type **Maps**.
-3. From the *Results*, select **Maps**. Click **Create** button that appears below the map.
-4. On the **Create Maps Account** page, enter the following values:
-    * The *Subscription* that you want to use for this account.
-    * The *Resource group* name for this account. You may choose to *Create new* or *Use existing* resource group.
-    * The *Name* of your new account.
-    * The *Pricing tier* for this account.
-    * Read the *License* and *Privacy Statement*, and check the checkbox to accept the terms.
-    * Click the **Create** button.
-
-![Create Maps account in portal](./media/tutorial-search-location/create-account.png)
-
 <a id="getkey"></a>
 
-## Get the primary key for your account
-
-Once your Maps account is successfully created, retrieve the key that enables you to query the Maps APIs.
-
-1. Open your Maps account in the portal.
-2. In the settings section, select **Authentication**.
-3. Copy the **Primary Key** to your clipboard. Save it locally to use later in this tutorial.
-
-![Get Primary Key in portal](./media/tutorial-search-location/get-key.png)
+1. Sign in to the [Azure portal](https://portal.azure.com). If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+2. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
+3. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
 
 <a id="createmap"></a>
 
 ## Create a new map
 
-The Map Control API is a convenient client library that allows you to easily integrate Maps into your web application. It hides the complexity of the bare REST service calls and boosts your productivity with styleable and customizable components. The following steps show you how to create a static HTML page embedded with the Map Control API.
+The Map Control API is a convenient client library. This API allows you to easily integrate Maps into your web application. It hides the complexity of the bare REST service calls and boosts your productivity with customizable components. The following steps show you how to create a static HTML page embedded with the Map Control API.
 
 1. On your local machine, create a new file and name it **MapSearch.html**.
 2. Add the following HTML components to the file:
@@ -126,7 +98,7 @@ The Map Control API is a convenient client library that allows you to easily int
 
    This segment initializes the Map Control API for your Azure Maps account key. `atlas` is the namespace that contains the API and related visual components. `atlas.Map` provides the control for a visual and interactive web map.
 
-4. Save your changes to the file and open the HTML page in a browser. This is the most basic map that you can make by calling `atlas.Map` using your account key.
+4. Save your changes to the file and open the HTML page in a browser. The map shown is the most basic map that you can make by calling `atlas.Map` using your account key.
 
    ![View the map](./media/tutorial-search-location/basic-map.png)
 
@@ -156,17 +128,17 @@ The Map Control API is a convenient client library that allows you to easily int
     });
     ```
 
-   In this code segment a `ready` event is added to the map, which will fire when the map resources have been loaded and the map is ready to be accessed. In the map `ready` event handler, a data source is created to store result data. A symbol layer is created and attached to the data source. This layer specifies how the result data in the data source should be rendered, in this case with a dark blue round pin icon that is centered over the results coordinate and which allows other icons to overlap. The result layer is added to the map layers.
+   In this code segment, a `ready` event is added to the map, which will fire when the map resources have been loaded and the map is ready to be accessed. In the map `ready` event handler, a data source is created to store result data. A symbol layer is created and attached to the data source. This layer specifies how the result data in the data source should be rendered. In this case, the result is rendered with a dark blue round pin icon, centered over the results coordinate, and allows other icons to overlap. The result layer is added to the map layers.
 
 <a id="usesearch"></a>
 
 ## Add search capabilities
 
-This section shows how to use the Maps [Search API](https://docs.microsoft.com/rest/api/maps/search) to find a point of interest on your map. It's a RESTful API designed for developers to search for addresses, points of interest, and other geographical information. The Search service assigns a latitude and longitude information to a specified address. The **Service Module** explained below can be used to search for a location using the Maps Search API.
+This section shows how to use the Maps [Search API](/rest/api/maps/search) to find a point of interest on your map. It's a RESTful API designed for developers to search for addresses, points of interest, and other geographical information. The Search service assigns a latitude and longitude information to a specified address. The **Service Module** explained below can be used to search for a location using the Maps Search API.
 
 ### Service Module
 
-1. In the map `ready` event handler, construct the search service URL by adding the following Javascript code.
+1. In the map `ready` event handler, construct the search service URL by adding the following JavaScript code.
 
     ```JavaScript
    // Use SubscriptionKeyCredential with a subscription key
@@ -179,7 +151,7 @@ This section shows how to use the Maps [Search API](https://docs.microsoft.com/r
    var searchURL = new atlas.service.SearchURL(pipeline); 
    ```
 
-   The `SubscriptionKeyCredential` creates a `SubscriptionKeyCredentialPolicy` to authenticate HTTP requests to Azure Maps with the subscription key. The `atlas.service.MapsURL.newPipeline()` takes in the `SubscriptionKeyCredential` policy and creates a [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) instance. The `searchURL` represents a URL to Azure Maps [Search](https://docs.microsoft.com/rest/api/maps/search) operations.
+   The `SubscriptionKeyCredential` creates a `SubscriptionKeyCredentialPolicy` to authenticate HTTP requests to Azure Maps with the subscription key. The `atlas.service.MapsURL.newPipeline()` takes in the `SubscriptionKeyCredential` policy and creates a [Pipeline](/javascript/api/azure-maps-rest/atlas.service.pipeline) instance. The `searchURL` represents a URL to Azure Maps [Search](/rest/api/maps/search) operations.
 
 2. Next add the following script block to build the search query. It uses the Fuzzy Search Service, which is a basic search API of the Search Service. Fuzzy Search Service handles most fuzzy inputs like addresses, places, and points of interest (POI). This code searches for nearby Gasoline Stations within the specified radius of the provided latitude and longitude. A GeoJSON feature collection from the response is then extracted using the `geojson.getFeatures()` method and added to the data source, which automatically results in the data being rendered on the map via the symbol layer. The last part of the script sets the maps camera view using the bounding box of the results using the Map's [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) property.
 
@@ -208,7 +180,7 @@ This section shows how to use the Maps [Search API](https://docs.microsoft.com/r
     });
     ```
 
-3. Save the **MapSearch.html** file and refresh your browser. You should now see that the map is centered on Seattle with round-blue pins marking the locations of gasoline stations in the area.
+3. Save the **MapSearch.html** file and refresh your browser. You should see the map centered on Seattle with round-blue pins for locations of gasoline stations in the area.
 
    ![View the map with search results](./media/tutorial-search-location/pins-map.png)
 
@@ -222,9 +194,9 @@ At this point, the MapSearch page can display the locations of points of interes
 
 ## Add interactive data
 
-The map that we've made so far only looks at the longitude/latitude data for the search results. If you look at the raw JSON that the Maps Search service returns, however, you see that it contains additional information about each gas station, including the name and street address. You can incorporate that data into the map with interactive popup boxes.
+The map that we've made so far only looks at the longitude/latitude data for the search results. However, the raw JSON that the Maps Search service returns contains additional information about each gas station. Including the name and street address. You can incorporate that data into the map with interactive popup boxes.
 
-1. Add the following lines of code in the map `ready` event handler after the code to query the fuzzy search service. This will create an instance of a Popup and add a mouseover event to the symbol layer.
+1. Add the following lines of code in the map `ready` event handler after the code to query the fuzzy search service. This code will create an instance of a Popup and add a mouseover event to the symbol layer.
 
     ```JavaScript
    //Create a popup but leave it closed so we can update it and display it later.
@@ -240,7 +212,7 @@ The map that we've made so far only looks at the longitude/latitude data for the
 
     ```JavaScript
     function showPopup(e) {
-        //Get the properties and coordinates of the first shape that the event occured on.
+        //Get the properties and coordinates of the first shape that the event occurred on.
 
         var p = e.shapes[0].getProperties();
         var position = e.shapes[0].getCoordinates();
@@ -268,21 +240,13 @@ The map that we've made so far only looks at the longitude/latitude data for the
 
     ![Azure Map Control and Search Service](./media/tutorial-search-location/popup-map.png)
 
+To view the full code for this tutorial, click [here](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html). To view the live sample, click [here](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
+
+## Clean up resources
+
+There are no resources that require cleanup.
+
 ## Next steps
-
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Create an account with Azure Maps
-> * Get the primary key for your account
-> * Create new web page using Map Control API
-> * Use Search Service to find nearby point of interest
-
-> [!div class="nextstepaction"]
-> [View full source code](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html)
-
-> [!div class="nextstepaction"]
-> [View live sample](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
 
 The next tutorial demonstrates how to display a route between two locations.
 

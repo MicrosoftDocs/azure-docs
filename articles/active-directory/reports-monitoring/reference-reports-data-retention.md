@@ -14,13 +14,14 @@ ms.topic: reference
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 11/05/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
 ---
 # How long does Azure AD store reporting data?
+
 
 In this article, you learn about the data retention policies for the different activity reports in Azure Active Directory. 
 
@@ -29,7 +30,7 @@ In this article, you learn about the data retention policies for the different a
 | Azure AD Edition | Collection Start |
 | :--              | :--   |
 | Azure AD Premium P1 <br /> Azure AD Premium P2 | When you sign up for a subscription |
-| Azure AD Free <br /> Azure AD Basic | The first time you open the [Azure Active Directory blade](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) or use the [reporting APIs](https://aka.ms/aadreports)  |
+| Azure AD Free| The first time you open the [Azure Active Directory blade](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) or use the [reporting APIs](./overview-reports.md)  |
 
 ---
 
@@ -42,13 +43,7 @@ In this article, you learn about the data retention policies for the different a
 
 ### How soon can I see activities data after getting a premium license?
 
-If you already have activities data with your free license, then you can see it immediately on upgrade. If you don’t have any data, then it will take one or two days for the data to show up in the reports after you upgrade to a premium license.
-
----
-
-### Can I see last month's data after getting an Azure AD premium license?
-
-If you recently switched to a premium version (including a trial version), you can see data up to 7 days initially. When data accumulates, you can see data for the past 30 days.
+If you already have activities data with your free license, then you can see it immediately on upgrade. If you don’t have any data, then it will take up to three days for the data to show up in the reports after you upgrade to a premium license.
 
 ---
 
@@ -62,19 +57,25 @@ For security signals, the collection process starts when you opt-in to use the *
 
 **Activity reports**	
 
-| Report                 | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
-| :--                    | :--           | :--            | :--                 | :--                 |
-| Audit logs             | 7 days        |  7 days        | 30 days             | 30 days             |
-| Sign-ins               | N/A           |  N/A           | 30 days             | 30 days             |
-| Azure MFA usage        | 30 days       |  30 days       | 30 days             | 30 days             |
+| Report                 | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
+| :--                    | :--           | :--                 | :--                 |
+| Audit logs             | 7 days        | 30 days             | 30 days             |
+| Sign-ins               | 7 days        | 30 days             | 30 days             |
+| Azure AD MFA usage        | 30 days       | 30 days             | 30 days             |
 
 You can retain the audit and sign-in activity data for longer than the default retention period outlined above by routing it to an Azure storage account using Azure Monitor. For more information, see [Archive Azure AD logs to an Azure storage account](quickstart-azure-monitor-route-logs-to-storage-account.md).
 
 **Security signals**
 
-| Report         | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
-| :--            | :--           | :--            | :--                 | :--                 |
-| Users at risk  | 7 days        | 7 days         | 30 days             | 90 days             |
-| Risky sign-ins | 7 days        | 7 days         |  30 days            | 90 days             |
+| Report         | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
+| :--            | :--           | :--                 | :--                 |
+| Users at risk  | 7 days        | 30 days             | 90 days             |
+| Risky sign-ins | 7 days        | 30 days             | 90 days             |
+
+---
+
+### Can I see last month's data after getting an Azure AD premium license?
+
+**No**, you can't. Azure stores up to seven days of activity data for a free version. This means, when you switch from a free to a to a premium version, you can only see up to 7 days of data.
 
 ---

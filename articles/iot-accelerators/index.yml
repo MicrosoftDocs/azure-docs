@@ -1,0 +1,43 @@
+### YamlMime:Landing
+
+title: Azure IoT solution accelerators documentation
+summary: Azure IoT solution accelerators are complete, ready-to-deploy IoT solutions that implement common IoT scenarios such as connected factory.
+
+metadata:
+  title: Azure IoT Solution accelerators documentation
+  description: The IoT solution accelerators are complete, ready-to-deploy IoT solutions that implement common IoT scenarios. The scenarios include connected factory. When you deploy a solution accelerator, the deployment includes all the required cloud-based services along with any required application code.
+  services: iot-accelerators
+  ms.service: iot-accelerators
+  ms.topic: landing-page
+  author: dominicbetts
+  ms.author: dobett
+  
+  ms.date: 09/16/2019
+
+landingContent:
+  - title: About IoT solution accelerators
+    linkLists: 
+      - linkListType: overview
+        links: 
+          - text: What are Azure IoT solution accelerators?
+            url: about-iot-accelerators.md
+          - text: The AzureIoTSolutions.com site
+            url: iot-accelerators-permissions.md
+  - title: Get started with industrial IoT
+    linkLists: 
+      - linkListType: overview
+        links: 
+          - text: Industrial IoT overview
+            url: overview-iot-industrial.md
+          - text: OPC Twin overview
+            url: /previous-versions/azure/iot-accelerators/overview-opc-twin
+          - text: OPC Vault overview
+            url: /previous-versions/azure/iot-accelerators/overview-opc-vault
+          - text: OPC Publisher overview
+            url: /previous-versions/azure/iot-accelerators/overview-opc-publisher
+          - text: What is industrial IoT?
+            url: iot-accelerators-connected-factory-features.md
+      - linkListType: quickstart
+        links: 
+          - text: Try a cloud-based connected factory solution
+            url: quickstart-connected-factory-deploy.md

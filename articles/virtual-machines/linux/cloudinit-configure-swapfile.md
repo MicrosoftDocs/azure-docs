@@ -1,21 +1,13 @@
 ---
-title: Use cloud-init to configure a swap partition on a Linux VM | Microsoft Docs
+title: Use cloud-init to configure a swap partition on a Linux VM 
 description: How to use cloud-init to configure a swap partition in a Linux VM during creation with the Azure CLI
-services: virtual-machines-linux
-documentationcenter: ''
-author: rickstercdn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
-ms.topic: article
+author: mimckitt
+ms.service: virtual-machines
+ms.collection: linux
+ms.topic: how-to
 ms.date: 11/29/2017
-ms.author: rclaus
-
+ms.author: mimckitt
+ms.subservice: cloud-init
 ---
 # Use cloud-init to configure a swap partition on a Linux VM
 This article shows you how to use [cloud-init](https://cloudinit.readthedocs.io) to configure the swap partition on various Linux distributions. The swap partition was traditionally configured by the Linux Agent (WALA) based on which distributions required one.  This document will outline the process for building the swap partition on demand during provisioning time using cloud-init.  For more information about how cloud-init works natively in Azure and the supported Linux distros, see [cloud-init overview](using-cloud-init.md)
@@ -41,8 +33,10 @@ fs_setup:
     filesystem: swap
 mounts:
   - ["ephemeral0.1", "/mnt"]
-  - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
+  - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service", "0", "0"]
 ```
+
+The mount is created with the `nofail` option to ensure that the boot will continue even if the mount is not completed successfully.
 
 Before deploying this image, you need to create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 

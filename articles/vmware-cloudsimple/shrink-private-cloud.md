@@ -1,8 +1,8 @@
 --- 
 title: Shrink Azure VMware Solution by CloudSimple Private Cloud
-description: Describes how to shrink a CloudSimple Private Cloud.
-author: sharaths-cs 
-ms.author: b-shsury 
+description: Learn how to dynamically shrink a Private Cloud in CloudSimple by removing a node from an existing vSphere cluster or removing an entire cluster.
+author: shortpatti 
+ms.author: v-patsho
 ms.date: 07/01/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
@@ -19,7 +19,8 @@ CloudSimple provides the flexibility to dynamically shrink a Private Cloud.  A P
 Following conditions must be met for shrink of a Private Cloud.  Management cluster (first cluster) created when a Private Cloud was created cannot be deleted.
 
 * A vSphere cluster must have three nodes.  A cluster with only three nodes cannot be shrunk.
-* Total storage consumed should not exceed the total capacity after shrink of the cluster. 
+* Total storage consumed should not exceed the total capacity after shrink of the cluster.
+* Check if any Distributed Resource Scheduler (DRS) rules prevents vMotion of a virtual machine.  If rules are present, disable or delete the rules.  DRS rules include virtual machine to host affinity rules.
 
 ## Sign in to Azure
 
@@ -50,7 +51,8 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 Shrink of the Private Cloud starts.  You can monitor the progress in tasks.  The shrink process can take a few hours depending on the data, which needs to be resynced on vSAN.
 
 > [!NOTE]
-> If you shrink a private cloud by deleting the last or the only cluster in the datacenter, the datacenter will not be deleted.  
+> 1. If you shrink a private cloud by deleting the last or the only cluster in the datacenter, the datacenter will not be deleted.
+> 2. If any DRS rule violation occurs, node will not be removed from the cluster and the task description shows that removing a node will violate DRS rules on the cluster.    
 
 
 ## Next steps

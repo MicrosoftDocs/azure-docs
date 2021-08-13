@@ -2,13 +2,14 @@
 title: Get started with Azure IoT Hub device twins (Java) | Microsoft Docs
 description: How to use Azure IoT Hub device twins to add tags and then use an IoT Hub query. You use the Azure IoT device SDK for Java to implement the device app and the Azure IoT service SDK for Java to implement a service app that adds the tags and runs the IoT Hub query.
 author: wesmc7777
-manager: philmea
+
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/26/2019
+ms.custom: mqtt, devx-track-java
 ---
 
 # Get started with device twins (Java)
@@ -25,11 +26,13 @@ In this tutorial, you create two Java console apps:
 
 ## Prerequisites
 
-* [Java SE Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Make sure you select **Java 8** under **Long-term support** to get to downloads for JDK 8.
+* [Java SE Development Kit 8](/java/azure/jdk/). Make sure you select **Java 8** under **Long-term support** to get to downloads for JDK 8.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 
 * An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
+
+* Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## Create an IoT hub
 
@@ -372,7 +375,7 @@ You are now ready to run the console apps.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![Java IoT Hub service app to update tag values and run device queries](./media/iot-hub-java-java-twin-getstarted/service-app-1.png)
+    ![Screenshot that shows the output from the command to run the add tags query service app.](./media/iot-hub-java-java-twin-getstarted/service-app-1.png)
 
     You can see the **plant** and **region** tags added to the device twin. The first query returns your device, but the second does not.
 
@@ -382,7 +385,7 @@ You are now ready to run the console apps.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![The device client adds the **connectivityType** reported property](./media/iot-hub-java-java-twin-getstarted/device-app-1.png)
+    ![The device client adds the connectivity Type reported property](./media/iot-hub-java-java-twin-getstarted/device-app-1.png)
 
 3. At a command prompt in the **add-tags-query** folder, run the following command to run the **add-tags-query** service app a second time:
 
@@ -400,6 +403,6 @@ In this tutorial, you configured a new IoT hub in the Azure portal, and then cre
 
 Use the following resources to learn how to:
 
-* Send telemetry from devices with the [Get started with IoT Hub](quickstart-send-telemetry-java.md) tutorial.
+* Send telemetry from devices with the [Get started with IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java) tutorial.
 
-* Control devices interactively (such as turning on a fan from a user-controlled app) with the [Use direct methods](quickstart-control-device-java.md) tutorial.
+* Control devices interactively (such as turning on a fan from a user-controlled app) with the [Use direct methods](./quickstart-control-device.md?pivots=programming-language-java) quickstart.

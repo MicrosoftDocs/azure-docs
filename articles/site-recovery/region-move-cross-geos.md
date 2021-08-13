@@ -1,11 +1,11 @@
 ---
 title: Move Azure VMs between government and public regions with Azure Site Recovery 
 description: Use Azure Site Recovery to move Azure VMs between Azure government and public regions.
-author: rajani-janaki-ram
+author: sideeksh
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 04/16/2019
-ms.author: rajanaki
+ms.author: sideeksh
 ms.custom: MVC
 ---
 # Move Azure VMs between Azure Government and Public regions 
@@ -26,7 +26,7 @@ This tutorial shows you how to move Azure VMs between Azure Government and Publi
 > * Discard the resources in the source region
 
 > [!IMPORTANT]
-> This tutorial shows you how to move Azure VMs between Azure Government and Public regions, or between regions pairs that are not supported by the regular disaster recovery solution for Azure VMs. In case, your source and target regions pairs are [supported](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support), please refer to this [document](azure-to-azure-tutorial-migrate.md) for the move. If your requirement is to improve availability by moving VMs in an availability set to zone pinned VMs in a different region, refer to the tutorial [here](move-azure-VMs-AVset-Azone.md).
+> This tutorial shows you how to move Azure VMs between Azure Government and Public regions, or between regions pairs that are not supported by the regular disaster recovery solution for Azure VMs. In case, your source and target regions pairs are [supported](./azure-to-azure-support-matrix.md#region-support), please refer to this [document](azure-to-azure-tutorial-migrate.md) for the move. If your requirement is to improve availability by moving VMs in an availability set to zone pinned VMs in a different region, refer to the tutorial [here](move-azure-VMs-AVset-Azone.md).
 
 > [!IMPORTANT]
 > It is not advisable to use this method to configure DR between unsupported region pairs as the pairs are defined keeping data latency in mind, which is critical for a DR scenario.
@@ -47,7 +47,7 @@ This tutorial shows you how to move Azure VMs between Azure Government and Publi
 Make sure your Azure account has permissions for replication of VMs to Azure.
 
 - Review the [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) you need to replicate machines to Azure.
-- Verify and modify [role-based access](../role-based-access-control/role-assignments-portal.md) permissions. 
+- Verify and modify [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) permissions. 
 
 ### Set up an Azure network
 
@@ -59,7 +59,7 @@ Set up a the target [Azure network](../virtual-network/quick-create-portal.md).
 
 ### Set up an Azure storage account
 
-Set up an [Azure storage account](../storage/common/storage-quickstart-create-account.md).
+Set up an [Azure storage account](../storage/common/storage-account-create.md).
 
 - Site Recovery replicates on-premises machines to Azure storage. Azure VMs are created from the storage after failover occurs.
 - The storage account must be in the same region as the Recovery Services vault.
@@ -91,13 +91,13 @@ The Mobility service must be installed on each server you want to replicate. Sit
 
      Please refer to the following documents to create the most commonly used network resources relevant for you, based on the source VM configuration.
 
-    - [Network Security Groups](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [Load balancers](https://docs.microsoft.com/azure/load-balancer)
+    - [Network Security Groups](../virtual-network/manage-network-security-group.md)
+    - [Load balancers](../load-balancer/index.yml)
     - [Public IP](../virtual-network/virtual-network-public-ip-address.md)
     
-    For any other networking components, refer to the networking [documentation.](https://docs.microsoft.com/azure/#pivot=products&panel=network) 
+    For any other networking components, refer to the networking [documentation](../index.yml?pivot=products&panel=network).
 
-4. Manually [create a non-production network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) in the target region if you wish to test the configuration before you perform the final cut over to the target region. This will create minimal interference with the production and is recommended.
+4. Manually [create a non-production network](../virtual-network/quick-create-portal.md) in the target region if you wish to test the configuration before you perform the final cut over to the target region. This will create minimal interference with the production and is recommended.
 
 ## Copy data to the target region
 The below steps will guide you how to use Azure Site Recovery to copy data to the target region.
@@ -132,7 +132,7 @@ Set up the configuration server, register it in the vault, and discover VMs.
 Do the following before you start: 
 
 #### Verify time accuracy
-On the configuration server machine, make sure that the system clock is synchronized with a [Time Server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). It should match. If it's 15 minutes in front or behind, setup might fail.
+On the configuration server machine, make sure that the system clock is synchronized with a [Time Server](/windows-server/networking/windows-time-service/windows-time-service-top). It should match. If it's 15 minutes in front or behind, setup might fail.
 
 #### Verify connectivity
 Make sure the machine can access these URLs based on your environment: 

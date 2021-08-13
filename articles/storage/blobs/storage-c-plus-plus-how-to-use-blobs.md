@@ -1,40 +1,43 @@
 ---
 title: How to use object (Blob) storage from C++ - Azure | Microsoft Docs
-description: Store unstructured data in the cloud with Azure Blob (object) storage.
-author: mhopkins-msft
+description: Learn how to store unstructured data (blobs) in the cloud with Azure Blob (object) storage using C++.
+author: twooley
 
-ms.author: mhopkins
-ms.date: 03/21/2018
+ms.author: twooley
+ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # How to use Blob storage from C++
 
-This guide demonstrates how to perform common scenarios using Azure Blob storage. The examples show how to upload, list, download, and delete blobs. The samples are written in C++ and use the [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).   
-
+This guide demonstrates how to perform common scenarios using Azure Blob storage. The examples show how to upload, list, download, and delete blobs. The samples are written in C++ and use the [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).
 To learn more about Blob storage, see [Introduction to Azure Blob storage](storage-blobs-introduction.md).
 
 > [!NOTE]
-> This guide targets the Azure Storage Client Library for C++ version 1.0.0 and above. Microsoft recommends using the latest version of the Storage Client Library for C++, available via [NuGet](https://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/Azure/azure-storage-cpp).
+> This guide targets the Azure Storage Client Library for C++ version 1.0.0 and later, up until version 12.x. Microsoft recommends using the latest version of the Storage Client Library for C++, available via [GitHub](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage). For more information, see the latest [quickstart](quickstart-blobs-c-plus-plus.md).
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## Create a C++ application
-In this guide, you will use storage features which can be run within a C++ application.  
+In this guide, you will use storage features which can be run within a C++ application.
 
-To do so, you will need to install the Azure Storage Client Library for C++ and create an Azure storage account in your Azure subscription.   
+To do so, you will need to install the Azure Storage Client Library for C++ and create an Azure storage account in your Azure subscription.
 
 To install the Azure Storage Client Library for C++, you can use the following methods:
 
-* **Linux:** Follow the instructions given in the [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) page.  
-* **Windows:** In Visual Studio, click **Tools > NuGet Package Manager > Package Manager Console**. Type the following command into the [NuGet Package Manager console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) and press **ENTER**.  
-  
-     Install-Package wastorage
+- **Linux:** Follow the instructions given in the [Azure Storage Client Library for C++ README: Getting Started on Linux](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux) page.
+- **Windows:** On Windows, use [vcpkg](https://github.com/microsoft/vcpkg) as the dependency manager. Follow the [quickstart](https://github.com/microsoft/vcpkg#quick-start) to initialize vcpkg. Then, use the following command to install the library:
+
+```powershell
+.\vcpkg.exe install azure-storage-cpp
+```
+
+You can find a guide for how to build the source code and export to NuGet in the [README](https://github.com/Azure/azure-storage-cpp#download--install) file.
 
 ## Configure your application to access Blob storage
-Add the following include statements to the top of the C++ file where you want to use the Azure storage APIs to access blobs:  
+Add the following include statements to the top of the C++ file where you want to use the Azure storage APIs to access blobs:
 
 ```cpp
 #include <was/storage_account.h>
@@ -44,33 +47,33 @@ Add the following include statements to the top of the C++ file where you want t
 ```
 
 ## Setup an Azure storage connection string
-An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the storage access key for the storage account listed in the [Azure Portal](https://portal.azure.com) for the *AccountName* and *AccountKey* values. For information on storage accounts and access keys, see [About Azure Storage Accounts](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). This example shows how you can declare a static field to hold the connection string:  
+An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the storage access key for the storage account listed in the [Azure portal](https://portal.azure.com) for the *AccountName* and *AccountKey* values. For information on storage accounts and access keys, see [About Azure Storage Accounts](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). This example shows how you can declare a static field to hold the connection string:
 
 ```cpp
 // Define the connection-string with your values.
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 ```
 
-To test your application in your local Windows computer, you can use the Microsoft Azure [storage emulator](../storage-use-emulator.md) that is installed with the [Azure SDK](https://azure.microsoft.com/downloads/). The storage emulator is a utility that simulates the Blob, Queue, and Table services available in Azure on your local development machine. The following example shows how you can declare a static field to hold the connection string to your local storage emulator:
+To test your application in your local Windows computer, you can use the [Azurite storage emulator](../common/storage-use-azurite.md). Azurite is a utility that simulates the Blob, Queue, and Table services available in Azure on your local development machine. The following example shows how you can declare a static field to hold the connection string to your local storage emulator:
 
 ```cpp
-// Define the connection-string with Azure Storage Emulator.
-const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
+// Define the connection-string with Azurite.
+const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));
 ```
 
-To start the Azure storage emulator, Select the **Start** button or press the **Windows** key. Begin typing **Azure Storage Emulator**, and select **Microsoft Azure Storage Emulator** from the list of applications.  
+To start Azurite, see [Use the Azurite emulator for local Azure Storage development](../common/storage-use-azurite.md).
 
-The following samples assume that you have used one of these two methods to get the storage connection string.  
+The following samples assume that you have used one of these two methods to get the storage connection string.
 
 ## Retrieve your storage account
-You can use the **cloud_storage_account** class to represent your Storage Account information. To retrieve your storage account information from the storage connection string, you can use the **parse** method.  
+You can use the **cloud_storage_account** class to represent your storage account information. To retrieve your storage account information from the storage connection string, you can use the **parse** method.
 
 ```cpp
 // Retrieve storage account from connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 ```
 
-Next, get a reference to a **cloud_blob_client** class as it allows you to retrieve objects that represent containers and blobs stored within Blob storage. The following code creates a **cloud_blob_client** object using the storage account object we retrieved above:  
+Next, get a reference to a **cloud_blob_client** class as it allows you to retrieve objects that represent containers and blobs stored within Blob storage. The following code creates a **cloud_blob_client** object using the storage account object we retrieved above:
 
 ```cpp
 // Create the blob client.
@@ -80,7 +83,7 @@ azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blo
 ## How to: Create a container
 [!INCLUDE [storage-container-naming-rules-include](../../../includes/storage-container-naming-rules-include.md)]
 
-This example shows how to create a container if it does not already exist:  
+This example shows how to create a container if it does not already exist:
 
 ```cpp
 try
@@ -103,7 +106,7 @@ catch (const std::exception& e)
 }  
 ```
 
-By default, the new container is private and you must specify your storage access key to download blobs from this container. If you want to make the files (blobs) within the container available to everyone, you can set the container to be public using the following code:  
+By default, the new container is private and you must specify your storage access key to download blobs from this container. If you want to make the files (blobs) within the container available to everyone, you can set the container to be public using the following code:
 
 ```cpp
 // Make the blob container publicly accessible.
@@ -112,12 +115,12 @@ permissions.set_public_access(azure::storage::blob_container_public_access_type:
 container.upload_permissions(permissions);  
 ```
 
-Anyone on the Internet can see blobs in a public container, but you can modify or delete them only if you have the appropriate access key.  
+Anyone on the Internet can see blobs in a public container, but you can modify or delete them only if you have the appropriate access key.
 
 ## How to: Upload a blob into a container
-Azure Blob storage supports block blobs and page blobs. In the majority of cases, block blob is the recommended type to use.  
+Azure Blob storage supports block blobs and page blobs. In the majority of cases, block blob is the recommended type to use.
 
-To upload a file to a block blob, get a container reference and use it to get a block blob reference. Once you have a blob reference, you can upload any stream of data to it by calling the **upload_from_stream** method. This operation will create the blob if it didn't previously exist, or overwrite it if it does exist. The following example shows how to upload a blob into a container and assumes that the container was already created.  
+To upload a file to a block blob, get a container reference and use it to get a block blob reference. Once you have a blob reference, you can upload any stream of data to it by calling the **upload_from_stream** method. This operation will create the blob if it didn't previously exist, or overwrite it if it does exist. The following example shows how to upload a blob into a container and assumes that the container was already created.
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -177,10 +180,10 @@ for (auto it = container.list_blobs(); it != end_of_results; ++it)
 }
 ```
 
-For more details on listing operations, see [List Azure Storage Resources in C++](../storage-c-plus-plus-enumeration.md).
+For more details on listing operations, see [List Azure Storage Resources in C++](../common/storage-c-plus-plus-enumeration.md).
 
 ## How to: Download blobs
-To download blobs, first retrieve a blob reference and then call the **download_to_stream** method. The following example uses the **download_to_stream** method to transfer the blob contents to a stream object that you can then persist to a local file.  
+To download blobs, first retrieve a blob reference and then call the **download_to_stream** method. The following example uses the **download_to_stream** method to transfer the blob contents to a stream object that you can then persist to a local file.
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -208,7 +211,7 @@ outfile.close();
 ```
 
 Alternatively, you can use the **download_to_file** method to download the contents of a blob to a file.
-In addition, you can also use the **download_text** method to download the contents of a blob as a text string.  
+In addition, you can also use the **download_text** method to download the contents of a blob as a text string.
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -228,7 +231,7 @@ utility::string_t text = text_blob.download_text();
 ```
 
 ## How to: Delete blobs
-To delete a blob, first get a blob reference and then call the **delete_blob** method on it.  
+To delete a blob, first get a blob reference and then call the **delete_blob** method on it.
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -248,12 +251,11 @@ blockBlob.delete_blob();
 ```
 
 ## Next steps
-Now that you've learned the basics of blob storage, follow these links to learn more about Azure Storage.  
+Now that you've learned the basics of blob storage, follow these links to learn more about Azure Storage.
 
-* [How to use Queue Storage from C++](../storage-c-plus-plus-how-to-use-queues.md)
-* [How to use Table Storage from C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-* [List Azure Storage Resources in C++](../storage-c-plus-plus-enumeration.md)
-* [Storage Client Library for C++ Reference](https://azure.github.io/azure-storage-cpp)
-* [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
-* [Transfer data with the AzCopy command-line utility](../storage-use-azcopy.md)
-
+- [How to use Queue Storage from C++](../queues/storage-c-plus-plus-how-to-use-queues.md)
+- [How to use Table Storage from C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
+- [List Azure Storage Resources in C++](../common/storage-c-plus-plus-enumeration.md)
+- [Storage Client Library for C++ Reference](https://azure.github.io/azure-storage-cpp)
+- [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
+- [Transfer data with the AzCopy command-line utility](../common/storage-use-azcopy-v10.md)

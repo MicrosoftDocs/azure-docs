@@ -1,23 +1,21 @@
 ---
-title: Diagnose errors with Azure Active Directory connected service
+title: Diagnose errors with Azure AD connected service (Visual Studio)
 description: The active directory connected service detected an incompatible authentication type
 author: ghogen
 manager: jillfra
-ms.assetid: dd89ea63-4e45-4da1-9642-645b9309670a
 ms.prod: visual-studio-windows
 ms.technology: vs-azure
 ms.workload: azure-vs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.collection: M365-identity-device-management
 ---
 # Diagnosing errors with the Azure Active Directory Connected Service
 
-While detecting previous authentication code, the Azure Active Director connect server detected an incompatible authentication type.
+While detecting previous authentication code, the Azure Active Directory connected service detected an incompatible authentication type.
 
-To correctly detect previous authentication code in a project, the project must be built.  If you see this error and you don't have a previous authentication code in your project, rebuild and try again.
+To correctly detect previous authentication code in a project, the project must be rebuilt. If you see this error and you don't have a previous authentication code in your project, rebuild and try again.
 
 ## Project types
 
@@ -29,16 +27,20 @@ The connected service also checks for authentication settings that have been pre
 
 In an MVC project, the connected service checks for any of the following settings, which result from previous use of the service:
 
-    <add key="ida:ClientId" value="" />
-    <add key="ida:Tenant" value="" />
-    <add key="ida:AADInstance" value="" />
-    <add key="ida:PostLogoutRedirectUri" value="" />
+```xml
+<add key="ida:ClientId" value="" />
+<add key="ida:Tenant" value="" />
+<add key="ida:AADInstance" value="" />
+<add key="ida:PostLogoutRedirectUri" value="" />
+```
 
 Also, the connected service checks for any of the following settings in a Web API project, which result from previous use of the service:
 
-    <add key="ida:ClientId" value="" />
-    <add key="ida:Tenant" value="" />
-    <add key="ida:Audience" value="" />
+```xml
+<add key="ida:ClientId" value="" />
+<add key="ida:Tenant" value="" />
+<add key="ida:Audience" value="" />
+```
 
 ## Incompatible authentication code
 
@@ -88,4 +90,4 @@ To detect an old form of Organizational Account authentication, the connected se
 
 To change the authentication type, remove the incompatible authentication type and try adding the connected service again.
 
-For more information, see [Authentication Scenarios for Azure AD](authentication-scenarios.md).
+For more information, see [Authentication Scenarios for Azure AD](./authentication-vs-authorization.md).

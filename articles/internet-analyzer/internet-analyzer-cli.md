@@ -1,13 +1,13 @@
 ---
 title: 'Create an Internet Analyzer test using CLI | Microsoft Docs'
-description: In this article, learn how to create your first Internet Analyzer test. 
+description: In this article, learn how to create your first Internet Analyzer test by using Azure CLI. 
 services: internet-analyzer
-author: diego-perez-botero
+author: KumudD
 
 ms.service: internet-analyzer
 ms.topic: tutorial
 ms.date: 10/16/2019
-ms.author: mebeatty
+ms.author: kumud
 # Customer intent: As someone interested in migrating to Azure/ AFD/ CDN, I want to set up an Internet Analyzer test to understand the expected performance impact to my end users. 
 
 ---
@@ -34,7 +34,7 @@ The Internet Analyzer CLI exposes the following types of resources:
 
 ## Profile and Test Creation
 1. Get Internet Analyzer preview access by following the **How do I participate in the preview?** instructions from the [Azure Internet Analyzer FAQ](internet-analyzer-faq.md).
-2. [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+2. [Install the Azure CLI](/cli/azure/install-azure-cli).
 3. Run the `login` command to start a CLI session:
     ```azurecli-interactive
     az login
@@ -47,9 +47,9 @@ The Internet Analyzer CLI exposes the following types of resources:
 
 5. Select your Subscription ID that has been granted access to the Internet Analyzer public preview.
 
-    After logging in, you see a list of subscriptions associated with your Azure account. The subscription information with `isDefault: true` is the currently activated subscription after logging in. To select another subscription, use the [az account set](https://docs.microsoft.com/cli/azure/account#az-account-set) command with the subscription ID to switch to. For more information about subscription selection, see [Use multiple Azure subscriptions](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
+    After logging in, you see a list of subscriptions associated with your Azure account. The subscription information with `isDefault: true` is the currently activated subscription after logging in. To select another subscription, use the [az account set](/cli/azure/account#az_account_set) command with the subscription ID to switch to. For more information about subscription selection, see [Use multiple Azure subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli).
 
-    There are ways to sign in non-interactively, which are covered in detail in [Sign in with Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+    There are ways to sign in non-interactively, which are covered in detail in [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
 6. **[Optional]** Create a new Azure Resource Group:
     ```azurecli-interactive
@@ -129,5 +129,6 @@ The Internet Analyzer CLI exposes the following types of resources:
 
 ## Next steps
 
-* Read the [Internet Analyzer FAQ](internet-analyzer-faq.md)
-* Learn more about embedding the [Internet Analyzer Client](internet-analyzer-embed-client.md) and creating a [custom endpoint](internet-analyzer-custom-endpoint.md). 
+* Browse the [Internet Analyzer CLI reference](/cli/azure/internet-analyzer) for the full list of supported commands and usage examples.
+* Read the [Internet Analyzer FAQ](internet-analyzer-faq.md).
+* Learn more about embedding the [Internet Analyzer Client](internet-analyzer-embed-client.md) and creating a [custom endpoint](internet-analyzer-custom-endpoint.md).

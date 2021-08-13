@@ -1,13 +1,14 @@
 ---
 title: Security endpoints in IoT Device Provisioning Service | Microsoft Docs
-description: Concepts - how to control access to IoT Device Provisioning Service for backend apps. Includes information about security tokens.
+description: Concepts - how to control access to IoT Device Provisioning Service (DPS) for backend apps. Includes information about security tokens.
 author: wesmc7777
-manager: philmea
+
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: wesmc
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Control access to Azure IoT Hub Device Provisioning Service
@@ -185,5 +186,5 @@ The following table lists the permissions you can use to control access to your 
 [img-add-shared-access-policy]: ./media/how-to-control-access/how-to-add-shared-access-policy.PNG
 [lnk-sdks]: ../iot-hub/iot-hub-devguide-sdks.md
 [lnk-management-portal]: https://portal.azure.com
-[lnk-azure-resource-manager]: ../azure-resource-manager/resource-group-overview.md
-[lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iot-dps/
+[lnk-azure-resource-manager]: ../azure-resource-manager/management/overview.md
+[lnk-resource-provider-apis]: /rest/api/iot-dps/

@@ -1,27 +1,26 @@
 ---
-title: Provision a simulated X.509 device to Azure IoT Hub using Java and enrollment groups | Microsoft Docs
-description: Azure Tutorial - Create and provision a simulated X.509 device using Java device and service SDK and enrollment groups for IoT Hub Device Provisioning Service
+title: Tutorial - Provision simulated X.509 device to Azure IoT Hub using Java and enrollment groups
+description: In this tutorial, create and provision a simulated X.509 device using Java device and service SDK and enrollment groups for IoT Hub Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
-ms.date: 01/04/2018
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps 
-manager: timlt
 ms.devlang: java
-ms.custom: mvc
+ms.custom: mvc, devx-track-java
 ---
 
-# Create and provision a simulated X.509 device using Java device and service SDK and group enrollments for IoT Hub Device Provisioning Service
+# Tutorial: Create and provision a simulated X.509 device using Java device and service SDK and group enrollments for IoT Hub Device Provisioning Service
 
 These steps show how to simulate an X.509 device on your development machine running Windows OS, and use a code sample to connect this simulated device with the Device Provisioning Service and your IoT hub using enrollment groups. 
 
 Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before you proceed.
 
 
-## Prepare the environment 
+## Prerequisites
 
-1. Make sure you have [Java SE Development Kit 8](https://aka.ms/azure-jdks) installed on your machine.
+1. Make sure you have [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-support-on-azure) installed on your machine.
 
 1. Download and install [Maven](https://maven.apache.org/install.html).
 
@@ -256,4 +255,4 @@ If you plan to continue working on and exploring the device client sample, do no
 In this tutorial, you’ve created a simulated X.509 device on your Windows machine and provisioned it to your IoT hub using the Azure IoT Hub Device Provisioning Service and enrollment groups. To learn more about your X.509 device, continue to device concepts. 
 
 > [!div class="nextstepaction"]
-> [IoT Hub Device Provisioning Service device concepts](concepts-device.md)
+> [IoT Hub Device Provisioning Service concepts](concepts-service.md)

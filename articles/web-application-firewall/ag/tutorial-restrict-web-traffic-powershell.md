@@ -1,12 +1,14 @@
 ---
-title: Restrict web traffic with a Web Application Firewall - Azure PowerShell
+title: Restrict web traffic using PowerShell
+titleSuffix: Azure Web Application Firewall
 description: Learn how to restrict web traffic with a Web Application Firewall on an application gateway using Azure PowerShell.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/21/2019
+ms.date: 03/26/2021
 ms.author: victorh
-ms.topic: overview
+ms.topic: how-to 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Enable Web Application Firewall using Azure PowerShell
@@ -15,11 +17,10 @@ You can restrict traffic on an application gateway with a [Web Application Firew
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Set up the network
-> * Create an application gateway with WAF enabled
-> * Create a virtual machine scale set
-> * Create a storage account and configure diagnostics
+* Set up the network
+* Create an application gateway with WAF enabled
+* Create a virtual machine scale set
+* Create a storage account and configure diagnostics
 
 ![Web application firewall example](../media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
 
@@ -38,7 +39,8 @@ If you choose to install and use the PowerShell locally, this article requires t
 A resource group is a logical container into which Azure resources are deployed and managed. Create an Azure resource group using [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).  
 
 ```azurepowershell-interactive
-New-AzResourceGroup -Name myResourceGroupAG -Location eastus
+$location = "eastus"
+$rgname = New-AzResourceGroup -Name myResourceGroupAG -Location $location
 ```
 
 ## Create network resources 
@@ -148,9 +150,12 @@ $sku = New-AzApplicationGatewaySku `
   -Tier WAF_v2 `
   -Capacity 2
 
-$policySetting = New-AzApplicationGatewayFirewallPolicySetting -Mode Prevention -State Enabled -MaxRequestBodySizeInKb 100 -MaxFileUploadInMb 256
+$policySetting = New-AzApplicationGatewayFirewallPolicySetting `
+   -Mode Prevention -State Enabled `
+   -MaxRequestBodySizeInKb 100 -MaxFileUploadInMb 256
 
-$wafPolicy = New-AzApplicationGatewayFirewallPolicy -Name wafpolicyNew -ResourceGroup $rgname -Location $location -PolicySetting $PolicySetting
+$wafPolicy = New-AzApplicationGatewayFirewallPolicy -Name wafpolicyNew -ResourceGroup myResourceGroupAG `
+   -Location $location -PolicySetting $PolicySetting
 
 $appgw = New-AzApplicationGateway `
   -Name myAppGateway `
@@ -169,7 +174,9 @@ $appgw = New-AzApplicationGateway `
 
 ## Create a virtual machine scale set
 
-In this example, you create a virtual machine scale set to provide servers for the backend pool in the application gateway. You assign the scale set to the backend pool when you configure the IP settings.
+In this example, you create a virtual machine scale set to provide servers for the backend pool in the application gateway. You assign the scale set to the backend pool when you configure the IP settings. 
+
+Replace *\<username>* and *\<password>* with your values before you run this script.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -186,7 +193,7 @@ $backendPool = Get-AzApplicationGatewayBackendAddressPool `
 
 $ipConfig = New-AzVmssIpConfig `
   -Name myVmssIPConfig `
-  -SubnetId $vnet.Subnets[1].Id `
+  -SubnetId $vnet.Subnets[0].Id `
   -ApplicationGatewayBackendAddressPoolsId $backendPool.Id
 
 $vmssConfig = New-AzVmssConfig `
@@ -203,8 +210,8 @@ Set-AzVmssStorageProfile $vmssConfig `
   -OsDiskCreateOption FromImage
 
 Set-AzVmssOsProfile $vmssConfig `
-  -AdminUsername azureuser `
-  -AdminPassword "Azure123456!" `
+  -AdminUsername <username> `
+  -AdminPassword "<password>" `
   -ComputerNamePrefix myvmss
 
 Add-AzVmssNetworkInterfaceConfiguration `
@@ -272,7 +279,7 @@ $store = Get-AzStorageAccount `
 Set-AzDiagnosticSetting `
   -ResourceId $appgw.Id `
   -StorageAccountId $store.Id `
-  -Categories ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog, ApplicationGatewayFirewallLog `
+  -Category ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog, ApplicationGatewayFirewallLog `
   -Enabled $true `
   -RetentionEnabled $true `
   -RetentionInDays 30
@@ -298,4 +305,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 
 ## Next steps
 
-[Customize web application firewall rules](application-gateway-customize-waf-rules-portal.md)
+- [Customize web application firewall rules](application-gateway-customize-waf-rules-portal.md)

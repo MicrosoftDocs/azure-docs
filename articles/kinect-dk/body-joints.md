@@ -22,6 +22,9 @@ Joint position and orientation are estimates relative to the global depth sensor
 
 The position and orientation of each joint form its own joint coordinate system. All joint coordinate systems are absolute coordinate systems relative to the depth camera 3D coordinate system.
 
+> [!NOTE]
+> Joint coordinates are in axis orientation. Axis orientation is widely used with commercial avatars, game engines, and rendering software. Using axis orientation simplifies mirrored movements e.g. raise both arms by 20 degrees.
+
 ![Joint coordinates](./media/concepts/joint-coordinates.png)
 
 ## Joint hierarchy

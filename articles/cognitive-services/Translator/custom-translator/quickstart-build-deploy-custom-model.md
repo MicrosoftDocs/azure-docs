@@ -2,12 +2,12 @@
 title: "Quickstart: Build, deploy, and use a custom model - Custom Translator"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart you go through step-by-step process of building a translation system using the Custom Translator.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
-ms.author: swmachan
+ms.date: 12/09/2019
+ms.author: lajanuar
 ms.topic: quickstart
 #Customer intent: As a user, I want to understand how to use Custom Translator so that I can build, deploy, and use a custom model for translation.
 ---
@@ -18,16 +18,32 @@ This article provides step-by-step instructions to build a translation system wi
 ## Prerequisites
 
 1. To use the [Custom Translator](https://portal.customtranslator.azure.ai)
-    Portal, you will need a [Microsoft account](https://signup.live.com) or [Azure AD account](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
+    Portal, you will need a [Microsoft account](https://signup.live.com) or [Azure AD account](../../../active-directory/fundamentals/active-directory-whatis.md)
     (organization account hosted on Azure) to sign in.
 
-2. A subscription to the Translator Text API via the Azure portal. You will need the Translator Text API subscription key to associate with your workspace in Custom Translator. See [how to sign up for the Translator Text API](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
+2. A subscription to the Translator Text API via the Azure portal. You will need the Translator Text API subscription key to associate with your workspace in Custom Translator. See [how to sign up for the Translator Text API](../translator-how-to-signup.md).
 
 3. When you have both of the above, sign in to the
-    [Custom Translator](https://portal.customtranslator.azure.ai) portal. Once
-    on the Custom Translator portal,
-    navigate to the Settings page where you can associate your Microsoft
-    Translator Text API subscription key with your workspace.
+    [Custom Translator](https://portal.customtranslator.azure.ai) portal to create workspaces, projects, upload files and create/deploy models.
+
+You can also view a full, start to finish walkthrough video of Custom Translator on [YouTube](https://www.youtube.com/watch?v=TykB6WDTkRc&t=3s).
+
+>[!Note]
+>Custom Translator does not support creating workspace for Translator Text API resource that was created inside [Enabled VNET](../../../api-management/api-management-using-with-vnet.md).
+
+## Create a workspace
+
+If you are first time user, you will be asked to agree to the Terms of Service, to create a workspace and to associate your workspace with Microsoft Translator Text API subscription.
+
+![Create workspace](media/quickstart/terms-of-service.png)
+![Create workspace image 1](media/quickstart/create-workspace-1.png)
+![Create workspace image 2](media/quickstart/create-workspace-2.png)
+![Create workspace image 3](media/quickstart/create-workspace-3.png)
+![Create workspace image 4](media/quickstart/create-workspace-4.png)
+![Create workspace image 5](media/quickstart/create-workspace-5.png)
+![Create workspace image 6](media/quickstart/create-workspace-6.png)
+
+On subsequent visits to the Custom Translator portal, navigate to the Settings page where you can manage your workspace, create more workspaces, associate your Microsoft Translator Text API subscription key with your workspaces, add co-owners, and change a subscription key.
 
 ## Create a project
 
@@ -40,7 +56,7 @@ your project. For more details, visit [Create Project](how-to-create-project.md)
 
 ## Upload documents
 
-Next, upload [training](training-and-model.md#training-dataset-for-custom-translator), [tuning](training-and-model.md#tuning-dataset-for-custom-translator) and [testing](training-and-model.md#testing-dataset-for-custom-translator) document sets. You can upload both [parallel](what-are-parallel-documents.md) and combo documents. You can also upload [dictionary](what-is-dictionary.md).
+Next, upload [training](training-and-model.md#training-document-type-for-custom-translator), [tuning](training-and-model.md#tuning-document-type-for-custom-translator) and [testing](training-and-model.md#testing-dataset-for-custom-translator) document sets. You can upload both [parallel](what-are-parallel-documents.md) and combo documents. You can also upload [dictionary](what-is-dictionary.md).
 
 You can upload documents from either the documents tab or from a specific
 project's page.
@@ -58,8 +74,8 @@ model.
 
 Select the project you've created. You'll see all the documents you've uploaded
 that share a language pair with this project. Select the documents that you want
-included in your model. You can select [training](training-and-model.md#training-dataset-for-custom-translator),
-[tuning](training-and-model.md#tuning-dataset-for-custom-translator), and [testing](training-and-model.md#testing-dataset-for-custom-translator) data or select just
+included in your model. You can select [training](training-and-model.md#training-document-type-for-custom-translator),
+[tuning](training-and-model.md#tuning-document-type-for-custom-translator), and [testing](training-and-model.md#testing-dataset-for-custom-translator) data or select just
 training data and let Custom Translator automatically build tuning and test sets
 for your model.
 
@@ -90,12 +106,18 @@ Deployment](how-to-view-system-test-results.md#deploy-a-model)
 
 ![Deploy a trained model](media/quickstart/ct-how-to-deploy.png)
 
+## Swap deployed model
+
+To swap a deployed model with another within a project click the "Swap" button displayed next to the desired model. During the swap process, the deployed model will continue to be available to serve translation requests. 
+
+![Swap deployed model](media/quickstart/ct-how-to-swap-model.png)
+
 ## Use a deployed model
 
 Deployed models can be accessed via the Microsoft Translator [Text API V3 by
-specifying the CategoryID](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl). More information about the Translator Text API can
+specifying the CategoryID](../reference/v3-0-translate.md?tabs=curl). More information about the Translator Text API can
 be found on the [API
-Reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) webpage.
+Reference](../reference/v3-0-reference.md) webpage.
 
 ## Next steps
 

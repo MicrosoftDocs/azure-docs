@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with N2F - Expense reports | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and N2F - Expense reports.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: f56d53d7-5a08-490a-bfb9-78fefc2751ec
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with N2F - Expense reports
 
@@ -27,7 +21,7 @@ Integrating N2F - Expense reports with Azure AD provides you with the following 
 * You can enable your users to be automatically signed-in to N2F - Expense reports (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -99,11 +93,11 @@ To configure Azure AD single sign-on with N2F - Expense reports, perform the fol
 
 4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, the user does not have to perform any steps as the app is already pre-integrated with Azure.
 
-    ![N2F - Expense reports Domain and URLs single sign-on information](common/preintegrated.png)
+    ![Screenshot shows the SAML-based Sign-on page with Basic SAML Configuration.](common/preintegrated.png)
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![N2F - Expense reports Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![Screenshot shows the Integrations page where you can add Azure A D Single Sign-On.](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL:
     `https://www.n2f.com/app/`
@@ -128,23 +122,23 @@ To configure Azure AD single sign-on with N2F - Expense reports, perform the fol
 
 2. Click on **Settings** and then select **Advance Settings** from the dropdown.
 
-	![N2F - Expense reports Configuration](./media/n2f-expensereports-tutorial/configure1.png)
+	![Screenshot shows Advanced Settings selected.](./media/n2f-expensereports-tutorial/configure1.png)
 
 3. Select **Account settings** tab.
 
-	![N2F - Expense reports Configuration](./media/n2f-expensereports-tutorial/configure2.png)
+	![Screenshot shows Account settings selected.](./media/n2f-expensereports-tutorial/configure2.png)
 
 4. Select **Authentication** and then select **+ Add an authentication method** tab.
 
-	![N2F - Expense reports Configuration](./media/n2f-expensereports-tutorial/configure3.png)
+	![Screenshot shows Account Setting Authentication where you can add an authentication method.](./media/n2f-expensereports-tutorial/configure3.png)
 
 5. Select **SAML Microsoft Office 365** as Authentication method.
 
-	![N2F - Expense reports Configuration](./media/n2f-expensereports-tutorial/configure4.png)
+	![Screenshot shows Authentication method with SAML Microsoft Office 365 selected.](./media/n2f-expensereports-tutorial/configure4.png)
 
 6. On the **Authentication method** section, perform the following steps:
 
-	![N2F - Expense reports Configuration](./media/n2f-expensereports-tutorial/configure5.png)
+	![Screenshot shows Authentication method where you can enter the values described.](./media/n2f-expensereports-tutorial/configure5.png)
 
 	a. In the **Entity ID** textbox, paste the **Azure AD Identifier** value, which you have copied from the Azure portal.
 
@@ -213,19 +207,19 @@ To enable Azure AD users to log in to N2F - Expense reports, they must be provis
 
 2. Click on **Settings** and then select **Advance Settings** from the dropdown.
 
-    ![N2F - Expense Add user](./media/n2f-expensereports-tutorial/configure1.png)
+    ![Screenshot shows Advanced Settings selected.](./media/n2f-expensereports-tutorial/configure1.png)
 
 3. Select **Users** tab from left navigation panel.
 
-	![N2F - Expense reports Configuration](./media/n2f-expensereports-tutorial/user1.png)
+	![Screenshot shows Users selected.](./media/n2f-expensereports-tutorial/user1.png)
 
 4. Select **+ New user** tab.
 
-    ![N2F - Expense reports Configuration](./media/n2f-expensereports-tutorial/user2.png)
+    ![Screenshot shows the New user option.](./media/n2f-expensereports-tutorial/user2.png)
 
 5. On the **User** section, perform the following steps:
 
-	![N2F - Expense reports Configuration](./media/n2f-expensereports-tutorial/user3.png)
+	![Screenshot shows the section where you can enter the values described.](./media/n2f-expensereports-tutorial/user3.png)
 
 	a. In the **Email address** textbox, enter the email address of user like **brittasimon\@contoso.com**.
 
@@ -244,13 +238,12 @@ To enable Azure AD users to log in to N2F - Expense reports, they must be provis
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the N2F - Expense reports tile in the Access Panel, you should be automatically signed in to the N2F - Expense reports for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the N2F - Expense reports tile in the Access Panel, you should be automatically signed in to the N2F - Expense reports for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

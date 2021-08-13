@@ -1,43 +1,58 @@
 ---
-title: Azure Peering Service Preview connection telemetry
-description: Learn about Microsoft Azure Peering Service connection telemetry
+title: 'Azure Peering Service: How to access connection telemetry '
+description: In this tutorial learn how to access connection telemetry.
 services: peering-service
-author: ypitsch
+author: gthareja
 ms.service: peering-service
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Infrastructure-services
-ms.date: 11/04/2019
-ms.author: v-meravi
+ms.topic: tutorial
+ms.date: 04/06/2021
+ms.author: gatharej
+# Customer intent: Customer wants to access their connection telemetry per prefix to Microsoft services with Azure Peering Service.
 ---
-# Peering Service Preview connection telemetry
+# Tutorial: Accessing Peering Service connection telemetry
 
-Connection telemetry provides insights collected for the connectivity between the customer's location and the Microsoft network. Customers can obtain telemetry for Azure Peering Service connection by registering the connection in the Azure portal. This feature provides prefix security and insights into the network latency.
+ In this tutorial, you'll learn how to access telemetry for your Peering Service connections.
+ 
+ Connection telemetry provides insights collected for the connectivity between the customer's location and the Microsoft network. In this article, you'll learn how to view the latency report and prefix states for a specific Azure Peering Service connection. 
 
-> [!IMPORTANT]
-> Peering Service is currently in public preview.
-> This preview version is provided without a service level agreement. We don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+To access Peering Service connection telemetry, you must create a Peering Service connection in the Azure portal. To learn how to create a connection, see [Create a Peering Service connection - Azure portal](azure-portal.md).
 
-## Preview scope
 
-Connection telemetry is composed of the following scopes: 
+## View a latency report
 
-**Latency measurement**
+To view a latency report for a specific Peering Service connection, follow these steps.
 
- Latency is measured from the client to the Microsoft edge PoP for the registered prefixes.
+1. Select **All resources** in the left pane, and select the Peering Service connection. Then select **Open** under **Prefixes**. 
 
-**Route (prefix) monitoring and protection** 
+   ![Select the Peering Service connection](./media/peering-service-measure/peering-service-measure-menu.png)
 
-Routing paths are monitored for any suspicious activity that's then captured in event logs. For instance, event logs are created for some of these factors: 
+2. A latency report page for all the prefixes associated with that Peering Service connection appears. **The Peering service connections supports latency data for /24 or bigger prefixes only.**
 
-- Prefix hijacks
-- Prefix withdrawal
-- Route leaks
+      ![Latency report page](./media/peering-service-measure/peering-service-latency-report.png)
+
+3. By default, the report is updated for every hour that's displayed on this page. To view the report for different timelines, choose the appropriate option from **Show data for last**. 
+
+## View Prefix state report
+
+1. To view events for a specific prefix, select the prefix name and select **Prefix Events** in the left pane. The events that are captured are displayed.
+
+
+   ![Prefix Events](./media/peering-service-measure/peering-service-prefix-event.png)
+
+ Some of the possible events that are captured in the **Prefix Events** list are shown here.
+
+| **Prefix events** | **Event type**|**Reasoning**|
+|-----------|---------|---------|
+| PrefixAnnouncementEvent |Information|Prefix announcement was received|
+| PrefixWithdrawalEvent|Warning| Prefix withdrawal was received |
+| PrefixBackupRouteAnnouncementEvent |Information|Prefix backup route announcement was received |
+| PrefixBackupRouteWithdrawalEvent|Warning|Prefix backup route withdrawal was received |
+| PrefixActivePath |Information| Current prefix active route   |
+| PrefixBackupPath | Information|Current prefix backup route   |
+| PrefixOriginAsChangeEvent|Critical| Exact prefix received with different origin autonomous system number (for active route)| 
+| PrefixBackupRouteOriginAsChangeEvent  | Error|Prefix received with different origin autonomous system number (for backup route)  |
 
 ## Next steps
 
 - To learn about Peering Service connection, see [Peering Service connection](connection.md).
-- To onboard a Peering Service connection, see [Onboarding a Peering Service model](onboarding-model.md).
-- To measure telemetry, see [Measure connection telemetry](measure-connection-telemetry.md).
+- To learn about Peering Service connection telemetry, see [Peering Service connection telemetry](connection-telemetry.md).

@@ -1,19 +1,15 @@
 ---
 title: Azure Application Insights Data Model | Microsoft Docs
 description: Describes properties exported from continuous export in JSON, and used as filters.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/08/2019
 
 ---
 
 # Application Insights Export Data Model
-This table lists the properties of telemetry sent from the [Application Insights](../../azure-monitor/app/app-insights-overview.md) SDKs to the portal.
+This table lists the properties of telemetry sent from the [Application Insights](./app-insights-overview.md) SDKs to the portal.
 You'll see these properties in data output from [Continuous Export](export-telemetry.md).
-They also appear in property filters in [Metric Explorer](../../azure-monitor/app/metrics-explorer.md) and [Diagnostic Search](../../azure-monitor/app/diagnostic-search.md).
+They also appear in property filters in [Metric Explorer](../essentials/metrics-charts.md) and [Diagnostic Search](./diagnostic-search.md).
 
 Points to note:
 
@@ -21,86 +17,88 @@ Points to note:
 * Time durations are in tenths of a microsecond, so 10000000 == 1 second.
 * Dates and times are UTC, and are given in the ISO format `yyyy-MM-DDThh:mm:ss.sssZ`
 
-
 ## Example
-    // A server report about an HTTP request
+
+```json
+// A server report about an HTTP request
+{
+  "request": [
     {
-    "request": [
-      {
-        "urlData": { // derived from 'url'
-          "host": "contoso.org",
-          "base": "/",
-          "hashTag": ""
-        },
-        "responseCode": 200, // Sent to client
-        "success": true, // Default == responseCode<400
-        // Request id becomes the operation id of child events
-        "id": "fCOhCdCnZ9I=",  
-        "name": "GET Home/Index",
-        "count": 1, // 100% / sampling rate
-        "durationMetric": {
-          "value": 1046804.0, // 10000000 == 1 second
-          // Currently the following fields are redundant:
-          "count": 1.0,
-          "min": 1046804.0,
-          "max": 1046804.0,
-          "stdDev": 0.0,
-          "sampledValue": 1046804.0
-        },
-        "url": "/"
-      }
-    ],
-    "internal": {
-      "data": {
-        "id": "7f156650-ef4c-11e5-8453-3f984b167d05",
-        "documentVersion": "1.61"
-      }
+      "urlData": { // derived from 'url'
+        "host": "contoso.org",
+        "base": "/",
+        "hashTag": ""
+      },
+      "responseCode": 200, // Sent to client
+      "success": true, // Default == responseCode<400
+      // Request id becomes the operation id of child events
+      "id": "fCOhCdCnZ9I=",  
+      "name": "GET Home/Index",
+      "count": 1, // 100% / sampling rate
+      "durationMetric": {
+        "value": 1046804.0, // 10000000 == 1 second
+        // Currently the following fields are redundant:
+        "count": 1.0,
+        "min": 1046804.0,
+        "max": 1046804.0,
+        "stdDev": 0.0,
+        "sampledValue": 1046804.0
+      },
+      "url": "/"
+    }
+  ],
+  "internal": {
+    "data": {
+      "id": "7f156650-ef4c-11e5-8453-3f984b167d05",
+      "documentVersion": "1.61"
+    }
+  },
+  "context": {
+    "device": { // client browser
+      "type": "PC",
+      "screenResolution": { },
+      "roleInstance": "WFWEB14B.fabrikam.net"
     },
-    "context": {
-      "device": { // client browser
-        "type": "PC",
-        "screenResolution": { },
-        "roleInstance": "WFWEB14B.fabrikam.net"
-      },
-      "application": { },
-      "location": { // derived from client ip
-        "continent": "North America",
-        "country": "United States",
-        // last octagon is anonymized to 0 at portal:
-        "clientip": "168.62.177.0",
-        "province": "",
-        "city": ""
-      },
-      "data": {
-        "isSynthetic": true, // we identified source as a bot
-        // percentage of generated data sent to portal:
-        "samplingRate": 100.0,
-        "eventTime": "2016-03-21T10:05:45.7334717Z" // UTC
-      },
-      "user": {
-        "isAuthenticated": false,
-        "anonId": "us-tx-sn1-azr", // bot agent id
-        "anonAcquisitionDate": "0001-01-01T00:00:00Z",
-        "authAcquisitionDate": "0001-01-01T00:00:00Z",
-        "accountAcquisitionDate": "0001-01-01T00:00:00Z"
-      },
-      "operation": {
-        "id": "fCOhCdCnZ9I=",
-        "parentId": "fCOhCdCnZ9I=",
-        "name": "GET Home/Index"
-      },
-      "cloud": { },
-      "serverDevice": { },
-      "custom": { // set by custom fields of track calls
-        "dimensions": [ ],
-        "metrics": [ ]
-      },
-      "session": {
-        "id": "65504c10-44a6-489e-b9dc-94184eb00d86",
-        "isFirst": true
-      }
+    "application": { },
+    "location": { // derived from client ip
+      "continent": "North America",
+      "country": "United States",
+      // last octagon is anonymized to 0 at portal:
+      "clientip": "168.62.177.0",
+      "province": "",
+      "city": ""
+    },
+    "data": {
+      "isSynthetic": true, // we identified source as a bot
+      // percentage of generated data sent to portal:
+      "samplingRate": 100.0,
+      "eventTime": "2016-03-21T10:05:45.7334717Z" // UTC
+    },
+    "user": {
+      "isAuthenticated": false,
+      "anonId": "us-tx-sn1-azr", // bot agent id
+      "anonAcquisitionDate": "0001-01-01T00:00:00Z",
+      "authAcquisitionDate": "0001-01-01T00:00:00Z",
+      "accountAcquisitionDate": "0001-01-01T00:00:00Z"
+    },
+    "operation": {
+      "id": "fCOhCdCnZ9I=",
+      "parentId": "fCOhCdCnZ9I=",
+      "name": "GET Home/Index"
+    },
+    "cloud": { },
+    "serverDevice": { },
+    "custom": { // set by custom fields of track calls
+      "dimensions": [ ],
+      "metrics": [ ]
+    },
+    "session": {
+      "id": "65504c10-44a6-489e-b9dc-94184eb00d86",
+      "isFirst": true
     }
   }
+}
+```
 
 ## Context
 All types of telemetry are accompanied by a context section. Not all of these fields are transmitted with every data point.
@@ -127,53 +125,53 @@ All types of telemetry are accompanied by a context section. Not all of these fi
 | context.device.roleName |string | |
 | context.device.screenResolution |string | |
 | context.device.type |string |PC, Browser, ... |
-| context.location |object |Derived from clientip. |
-| context.location.city |string |Derived from clientip, if known |
+| context.location |object |Derived from `clientip`. |
+| context.location.city |string |Derived from `clientip`, if known |
 | context.location.clientip |string |Last octagon is anonymized to 0. |
 | context.location.continent |string | |
 | context.location.country |string | |
 | context.location.province |string |State or province |
-| context.operation.id |string |Items that have the same operation id are shown as Related Items in the portal. Usually the request id. |
+| context.operation.id |string |Items that have the same `operation id` are shown as Related Items in the portal. Usually the `request id`. |
 | context.operation.name |string |url or request name |
 | context.operation.parentId |string |Allows nested related items. |
-| context.session.id |string |Id of a group of operations from the same source. A period of 30 minutes without an operation signals the end of a session. |
+| context.session.id |string |`Id` of a group of operations from the same source. A period of 30 minutes without an operation signals the end of a session. |
 | context.session.isFirst |boolean | |
 | context.user.accountAcquisitionDate |string | |
 | context.user.accountId |string | |
 | context.user.anonAcquisitionDate |string | |
 | context.user.anonId |string | |
-| context.user.authAcquisitionDate |string |[Authenticated User](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users) |
+| context.user.authAcquisitionDate |string |[Authenticated User](./api-custom-events-metrics.md#authenticated-users) |
 | context.user.authId |string | |
 | context.user.isAuthenticated |boolean | |
 | context.user.storeRegion |string | |
 | internal.data.documentVersion |string | |
-| internal.data.id |string | Unique id that is assigned when an item is ingested to Application Insights |
+| internal.data.id |string | `Unique id` that is assigned when an item is ingested to Application Insights |
 
 ## Events
-Custom events generated by [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
+Custom events generated by [TrackEvent()](./api-custom-events-metrics.md#trackevent).
 
 | Path | Type | Notes |
 | --- | --- | --- |
-| event [0] count |integer |100/([sampling](../../azure-monitor/app/sampling.md) rate). For example 4 =&gt; 25%. |
+| event [0] count |integer |100/([sampling](./sampling.md) rate). For example 4 =&gt; 25%. |
 | event [0] name |string |Event name.  Max length 250. |
 | event [0] url |string | |
 | event [0] urlData.base |string | |
 | event [0] urlData.host |string | |
 
 ## Exceptions
-Reports [exceptions](../../azure-monitor/app/asp-net-exceptions.md) in the server and in the browser.
+Reports [exceptions](./asp-net-exceptions.md) in the server and in the browser.
 
 | Path | Type | Notes |
 | --- | --- | --- |
 | basicException [0] assembly |string | |
-| basicException [0] count |integer |100/([sampling](../../azure-monitor/app/sampling.md) rate). For example 4 =&gt; 25%. |
+| basicException [0] count |integer |100/([sampling](./sampling.md) rate). For example 4 =&gt; 25%. |
 | basicException [0] exceptionGroup |string | |
 | basicException [0] exceptionType |string | |
 | basicException [0] failedUserCodeMethod |string | |
 | basicException [0] failedUserCodeAssembly |string | |
 | basicException [0] handledAt |string | |
 | basicException [0] hasFullStack |boolean | |
-| basicException [0] id |string | |
+| basicException [0] `id` |string | |
 | basicException [0] method |string | |
 | basicException [0] message |string |Exception message. Max length 10k. |
 | basicException [0] outerExceptionMessage |string | |
@@ -190,7 +188,7 @@ Reports [exceptions](../../azure-monitor/app/asp-net-exceptions.md) in the serve
 | basicException [0] typeName |string | |
 
 ## Trace Messages
-Sent by [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace), and by the [logging adapters](../../azure-monitor/app/asp-net-trace-logs.md).
+Sent by [TrackTrace](./api-custom-events-metrics.md#tracktrace), and by the [logging adapters](./asp-net-trace-logs.md).
 
 | Path | Type | Notes |
 | --- | --- | --- |
@@ -200,17 +198,17 @@ Sent by [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#trackt
 | message [0] severityLevel |string | |
 
 ## Remote dependency
-Sent by TrackDependency. Used to report performance and usage of [calls to dependencies](../../azure-monitor/app/asp-net-dependencies.md) in the server, and AJAX calls in the browser.
+Sent by TrackDependency. Used to report performance and usage of [calls to dependencies](./asp-net-dependencies.md) in the server, and AJAX calls in the browser.
 
 | Path | Type | Notes |
 | --- | --- | --- |
 | remoteDependency [0] async |boolean | |
 | remoteDependency [0] baseName |string | |
 | remoteDependency [0] commandName |string |For example "home/index" |
-| remoteDependency [0] count |integer |100/([sampling](../../azure-monitor/app/sampling.md) rate). For example 4 =&gt; 25%. |
+| remoteDependency [0] count |integer |100/([sampling](./sampling.md) rate). For example 4 =&gt; 25%. |
 | remoteDependency [0] dependencyTypeName |string |HTTP, SQL, ... |
 | remoteDependency [0] durationMetric.value |number |Time from call to completion of response by dependency |
-| remoteDependency [0] id |string | |
+| remoteDependency [0] `id` |string | |
 | remoteDependency [0] name |string |Url. Max length 250. |
 | remoteDependency [0] resultCode |string |from HTTP dependency |
 | remoteDependency [0] success |boolean | |
@@ -221,13 +219,13 @@ Sent by TrackDependency. Used to report performance and usage of [calls to depen
 | remoteDependency [0] urlData.host |string |Max length 200 |
 
 ## Requests
-Sent by [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest). The standard modules use this to reports server response time, measured at the server.
+Sent by [TrackRequest](./api-custom-events-metrics.md#trackrequest). The standard modules use this to reports server response time, measured at the server.
 
 | Path | Type | Notes |
 | --- | --- | --- |
-| request [0] count |integer |100/([sampling](../../azure-monitor/app/sampling.md) rate). For example: 4 =&gt; 25%. |
+| request [0] count |integer |100/([sampling](./sampling.md) rate). For example: 4 =&gt; 25%. |
 | request [0] durationMetric.value |number |Time from request arriving to response. 1e7 == 1s |
-| request [0] id |string |Operation id |
+| request [0] `id` |string |`Operation id` |
 | request [0] name |string |GET/POST + url base.  Max length 250 |
 | request [0] responseCode |integer |HTTP response sent to client |
 | request [0] success |boolean |Default == (responseCode &lt; 400) |
@@ -256,11 +254,11 @@ Context values show client OS and browser version.
 | clientPerformance [0] urlData.protocol |string | |
 
 ## Page Views
-Sent by trackPageView() or [stopTrackPage](../../azure-monitor/app/api-custom-events-metrics.md#page-views)
+Sent by trackPageView() or [stopTrackPage](./api-custom-events-metrics.md#page-views)
 
 | Path | Type | Notes |
 | --- | --- | --- |
-| view [0] count |integer |100/([sampling](../../azure-monitor/app/sampling.md) rate). For example 4 =&gt; 25%. |
+| view [0] count |integer |100/([sampling](./sampling.md) rate). For example 4 =&gt; 25%. |
 | view [0] durationMetric.value |integer |Value optionally set in trackPageView() or by startTrackPage() - stopTrackPage(). Not the same as clientPerformance values. |
 | view [0] name |string |Page title.  Max length 250 |
 | view [0] url |string | |
@@ -269,13 +267,13 @@ Sent by trackPageView() or [stopTrackPage](../../azure-monitor/app/api-custom-ev
 | view [0] urlData.host |string | |
 
 ## Availability
-Reports [availability web tests](../../azure-monitor/app/monitor-web-app-availability.md).
+Reports [availability web tests](./monitor-web-app-availability.md).
 
 | Path | Type | Notes |
 | --- | --- | --- |
 | availability [0] availabilityMetric.name |string |availability |
 | availability [0] availabilityMetric.value |number |1.0 or 0.0 |
-| availability [0] count |integer |100/([sampling](../../azure-monitor/app/sampling.md) rate). For example 4 =&gt; 25%. |
+| availability [0] count |integer |100/([sampling](./sampling.md) rate). For example 4 =&gt; 25%. |
 | availability [0] dataSizeMetric.name |string | |
 | availability [0] dataSizeMetric.value |integer | |
 | availability [0] durationMetric.name |string | |
@@ -294,55 +292,62 @@ The metric value is found in context.custom.metrics[0]
 
 For example:
 
-    {
-     "metric": [ ],
-     "context": {
-     ...
-     "custom": {
-        "dimensions": [
-          { "ProcessId": "4068" }
-        ],
-        "metrics": [
-          {
-            "dispatchRate": {
-              "value": 0.001295,
-              "count": 1.0,
-              "min": 0.001295,
-              "max": 0.001295,
-              "stdDev": 0.0,
-              "sampledValue": 0.001295,
-              "sum": 0.001295
-            }
+```json
+{
+  "metric": [ ],
+  "context": {
+  ...
+    "custom": {
+      "dimensions": [
+        { "ProcessId": "4068" }
+      ],
+      "metrics": [
+        {
+          "dispatchRate": {
+            "value": 0.001295,
+            "count": 1.0,
+            "min": 0.001295,
+            "max": 0.001295,
+            "stdDev": 0.0,
+            "sampledValue": 0.001295,
+            "sum": 0.001295
           }
-         } ] }
+        }
+      ]  
     }
+  }
+}
+```
 
 ## About metric values
 Metric values, both in metric reports and elsewhere, are reported with a standard object structure. For example:
 
-      "durationMetric": {
-        "name": "contoso.org",
-        "type": "Aggregation",
-        "value": 468.71603053650279,
-        "count": 1.0,
-        "min": 468.71603053650279,
-        "max": 468.71603053650279,
-        "stdDev": 0.0,
-        "sampledValue": 468.71603053650279
-      }
+```json
+"durationMetric": {
+  "name": "contoso.org",
+  "type": "Aggregation",
+  "value": 468.71603053650279,
+  "count": 1.0,
+  "min": 468.71603053650279,
+  "max": 468.71603053650279,
+  "stdDev": 0.0,
+  "sampledValue": 468.71603053650279
+}
+```
 
 Currently - though this might change in the future - in all values reported from the standard SDK modules, `count==1` and only the `name` and `value` fields are useful. The only case where they would be different would be if you write your own TrackMetric calls in which you set the other parameters.
 
 The purpose of the other fields is to allow metrics to be aggregated in the SDK, to reduce traffic to the portal. For example, you could average several successive readings before sending each metric report. Then you would calculate the min, max, standard deviation and aggregate value (sum or average) and set count to the number of readings represented by the report.
 
-In the tables above, we have omitted the rarely-used fields count, min, max, stdDev and sampledValue.
+In the tables above, we have omitted the rarely used fields count, min, max, stdDev, and sampledValue.
 
-Instead of pre-aggregating metrics, you can use [sampling](../../azure-monitor/app/sampling.md) if you need to reduce the volume of telemetry.
+Instead of pre-aggregating metrics, you can use [sampling](./sampling.md) if you need to reduce the volume of telemetry.
 
 ### Durations
 Except where otherwise noted, durations are represented in tenths of a microsecond, so that 10000000.0 means 1 second.
 
 ## See also
-* [Application Insights](../../azure-monitor/app/app-insights-overview.md)
+* [Application Insights](./app-insights-overview.md)
 * [Continuous Export](export-telemetry.md)
 * [Code samples](export-telemetry.md#code-samples)
+

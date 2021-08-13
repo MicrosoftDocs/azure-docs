@@ -1,20 +1,21 @@
 ---
-title: Register Azure Peering Service Preview - Azure PowerShell
-description: Learn how to register Azure Peering Service by using Azure PowerShell
+title: 'Register a Peering Service connection - Azure PowerShell '
+description: In this tutorial learn how to register a Peering Service connection with PowerShell.
 services: peering-service
-author: ypitsch
+author: derekolo
 ms.service: peering-service
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Infrastructure-services
-ms.date: 11/04/2019
-ms.author: v-meravi
+ms.topic: tutorial
+ms.date: 05/18/2020
+ms.author: derekol 
+ms.custom: devx-track-azurepowershell
+# Customer intent: Customer wants to measure their connection telemetry per prefix to Microsoft services with Azure Peering Service .
 ---
 
-# Register a Peering Service Preview connection by using Azure PowerShell
+# Tutorial: Register a Peering Service connection using Azure PowerShell
 
-Azure Peering Service is a networking service that enhances customer connectivity to Microsoft cloud services such as Office 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet. In this article, you'll learn how to register a Peering Service connection by using Azure PowerShell.
+In this tutorial, you'll learn how to register Peering Service using Azure PowerShell.
+
+Azure Peering Service is a networking service that enhances customer connectivity to Microsoft cloud services such as Microsoft 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet. In this article, you'll learn how to register a Peering Service connection by using Azure PowerShell.
 
 If you don't have an Azure subscription, create an [account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
@@ -26,10 +27,6 @@ Finally, if you're running PowerShell locally, you'll also need to run `Connect-
 
 Use the Azure PowerShell module to register and manage Peering Service. You can register or manage Peering Service from the PowerShell command line or in scripts.
 
-> [!IMPORTANT]
-> Peering Service is currently in public preview.
-> This preview version is provided without a service level agreement. We don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites  
 You must have the following:
@@ -48,7 +45,7 @@ Make sure that the connectivity providers are partnered with Microsoft.
 
 Before you proceed to the steps of registering Peering Service, register your subscription with the resource provider and feature flag by using Azure PowerShell. The Azure PowerShell commands are specified here:
 
-```PowerShellCopy
+```azurepowershell-interactive
 Register-AzProviderFeature -FeatureName AllowPeeringService ProviderNamespace Microsoft.Peering 
 
 Register-AzResourceProvider -ProviderNamespace Microsoft.Peering 
@@ -61,13 +58,16 @@ Run the following commands in Azure PowerShell to acquire the location and servi
 
 Get Peering Service locations:
 
-```
+```azurepowershell-interactive
+# Gets a list of available countries
+Get-AzPeeringServiceCountry 
+# Gets a list of metro locations serviced by country
 Get-AzPeeringServiceLocation -Country "United States"
 ```
 
 Get Peering Service providers:
               
-```
+```azurepowershell-interactive
 Get-AzPeeringServiceProvider
 ```
 
@@ -75,32 +75,35 @@ Get-AzPeeringServiceProvider
 
 Register the Peering Service connection by using the following set of commands via Azure PowerShell. This example registers the Peering Service named myPeeringService.
 
-```loc = "Washington"
+```azurepowershell-interactive
+$loc = "Washington"
 $provider = "TestPeer1"
 $resourceGroup = "MyResourceGroup"
 $name = “myPeeringService”
-$peeringService = New-AzPeeringService -ResourceGroupName $resourceGroup -Name $name -PeeringLocation $loc -PeeringServiceProvider $provider 
+$peeringService = New-AzPeeringService -ResourceGroupName $resourceGroup -Name $name -PeeringLocation $loc -PeeringServiceProvider $provider
 ```
 
 ### Register the Peering Service prefix
 
 Register the prefix that's provided by the connectivity provider by executing the following commands via Azure PowerShell. This example registers the prefix named myPrefix.
 
-```$loc = "Washington"
+```azurepowershell-interactive
+$loc = "Washington"
 $provider = "TestPeer1"
 $resourceGroup = "MyResourceGroup"
 $name = “myPeeringService”
 $peeringService = New-AzPeeringService -ResourceGroupName $resourceGroup -Name $name -PeeringLocation $loc -PeeringServiceProvider $provider
 $prefixName = "myPrefix"
 $prefix = “192.168.1.0/24”
-$prefixService = $peeringService | New-AzPeeringServicePrefix -Name $prefixName -Prefix $prefix
+$serviceKey = "6f48cdd6-2c2e-4722-af89-47e27b2513af"
+$prefixService = $peeringService | New-AzPeeringServicePrefix -Name $prefixName -Prefix $prefix -ServiceKey $serviceKey
 ```
 
 ### List all the Peering Services connections
 
-To view the list of all Peering Services connections, run the following command:
+To view the list of all Peering Services, run the following command:
 
-```
+```azurepowershell-interactive
 $peeringService = Get-AzPeeringService
 ```
 
@@ -108,11 +111,11 @@ $peeringService = Get-AzPeeringService
 
 To view the list of all Peering Service prefixes, run the following command:
 
-```
+```azurepowershell-interactive
  $prefixName = "myPrefix"
 ```
 
-```
+```azurepowershell-interactive
 $prefix = Get-AzPeeringServicePrefix -PeeringServiceName "myPeeringService" -ResourceGroupName "MyResourceGroup" -Name "myPrefix"
 ```
 
@@ -120,7 +123,7 @@ $prefix = Get-AzPeeringServicePrefix -PeeringServiceName "myPeeringService" -Res
 
 To remove the Peering Service prefix, run the following command:
 
-```
+```azurepowershell-interactive
 Remove-AzPeeringServicePrefix -ResourceGroupName  "MyResourceGroup" -Name "myPrefix" -PeeringServiceName "myPeeringService"
 ```
 

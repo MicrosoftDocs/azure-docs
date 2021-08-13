@@ -1,38 +1,40 @@
 ---
-title: User retention analysis for web applications with Azure Application Insights | Microsoft docs
+title: Analyze web app user retention with Application Insights
 description: How many users return to your app?
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: NumberByColors
-ms.author: daviste
-ms.date: 05/03/2017
+author: lgayhardt
+ms.author: lagayhar
+ms.date: 07/30/2021
 
-ms.reviewer: mbullwin
 ---
 
 # User retention analysis for web applications with Application Insights
 
-The retention feature in [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) helps you analyze how many users return to your app, and how often they perform particular tasks or achieve goals. For example, if you run a game site, you could compare the numbers of users who return to the site after losing a game with the number who return after winning. This knowledge can help you improve both your user experience and your business strategy.
+The retention feature in [Application Insights](./app-insights-overview.md) helps you analyze how many users return to your app, and how often they perform particular tasks or achieve goals. For example, if you run a game site, you could compare the numbers of users who return to the site after losing a game with the number who return after winning. This knowledge can help you improve both your user experience and your business strategy.
 
 ## Get started
 
 If you don't yet see data in the retention tool in the Application Insights portal, [learn how to get started with the usage tools](usage-overview.md).
 
-## The Retention tool
+## The Retention workbook
 
-![Retention tool](./media/usage-retention/retention.png)
+To use the Retention Workbook, in your Application Insights resources navigate to **Usage** > **Retention** and select **Retention Analysis Workbook**. Or in the  **Workbooks** tab select **Public Templates** then select **User Retention Analysis** under *Usage*.
 
-1. The toolbar allows users to create new retention reports, open existing retention reports, save current retention report or save as, revert changes made to saved reports, refresh data on the report, share report via email or direct link, and access the documentation page. 
-2. By default, retention shows all users who did anything then came back and did anything else over a period. You can select different combination of events to narrow the focus on specific user activities.
-3. Add one or more filters on properties. For example, you can focus on users in a particular country or region. Click **Update** after setting the filters. 
-4. The overall retention chart shows a summary of user retention across the selected time period. 
-5. The grid shows the number of users retained according to the query builder in #2. Each row represents a cohort of users who performed any event in the time period shown. Each cell in the row shows how many of that cohort returned at least once in a later period. Some users may return in more than one period. 
-6. The insights cards show top five initiating events, and top five returned events to give users a better understanding of their retention report. 
+:::image type="content" source="./media/usage-retention/workbooks-gallery.png" alt-text="Screenshot of the workbooks gallery on public templates." lightbox="./media/usage-retention/workbooks-gallery.png":::
 
-![Retention mouse hover](./media/usage-retention/hover.png)
 
-Users can hover over cells on the retention tool to access the analytics button and tool tips explaining what the cell means. The Analytics button takes users to the Analytics tool with a pre-populated query to generate users from the cell. 
+
+### Using the workbook
+
+:::image type="content" source="./media/usage-retention/retention.png" alt-text="Screenshot of the retention workbook showing a line chart." lightbox="./media/usage-retention/retention.png":::
+
+- By default, retention shows all users who did anything then came back and did anything else over a period. You can select different combination of events to narrow the focus on specific user activities.
+- Add one or more filters on properties by selecting **Add Filters**. For example, you can focus on users in a particular country or region. 
+- The overall retention chart shows a summary of user retention across the selected time period. 
+- The grid shows the number of users retained. Each row represents a cohort of users who performed any event in the time period shown. Each cell in the row shows how many of that cohort returned at least once in a later period. Some users may return in more than one period. 
+- The insights cards show top five initiating events, and top five returned events to give users a better understanding of their retention report. 
+
+    :::image type="content" source="./media/usage-retention/retention-2.png" alt-text="Screenshot of the retention workbook, showing user return after # of weeks chart." lightbox="./media/usage-retention/retention-2.png":::
 
 ## Use business events to track retention
 
@@ -52,16 +54,15 @@ Or in ASP.NET server code:
    telemetry.TrackEvent("won game");
 ```
 
-[Learn more about writing custom events](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
+[Learn more about writing custom events](./api-custom-events-metrics.md#trackevent).
 
 
 ## Next steps
-- To enable usage experiences, start sending [custom events](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) or [page views](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- - To learn more about workbooks, visit [the workbooks overview](../visualize/workbooks-overview.md).
+- To enable usage experiences, start sending [custom events](./api-custom-events-metrics.md#trackevent) or [page views](./api-custom-events-metrics.md#page-views).
 - If you already send custom events or page views, explore the Usage tools to learn how users use your service.
     - [Users, Sessions, Events](usage-segmentation.md)
     - [Funnels](usage-funnels.md)
     - [User Flows](usage-flows.md)
-    - [Workbooks](../../azure-monitor/app/usage-workbooks.md)
-    - [Add user context](usage-send-user-context.md)
-
-
+    - [Workbooks](../visualize/workbooks-overview.md)
+    - [Add user context](./usage-overview.md)

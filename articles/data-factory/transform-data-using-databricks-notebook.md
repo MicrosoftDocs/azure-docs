@@ -1,19 +1,18 @@
-﻿---
-title: "Run a Databricks Notebook with the Databricks Notebook activity in Azure Data Factory"
-description: "Learn how you can use the Databricks Notebook Activity in an Azure data factory to run a Databricks notebook against the databricks jobs cluster."
-services: data-factory
-documentationcenter: ""
-author: nabhishek 
-manager: craigg
-
-ms.service: data-factory
-ms.workload: data-services
-ms.topic: tutorial
-ms.date: "03/12/2018"
-ms.author: abnarain
-ms.reviewer: douglasl
 ---
+title: Run a Databricks Notebook with the activity
+description: "Learn how you can use the Databricks Notebook Activity in an Azure data factory to run a Databricks notebook against the databricks jobs cluster."
+ms.service: data-factory
+ms.subservice: tutorials
+ms.topic: tutorial
+ms.author: abnarain
+author: nabhishek
+ms.custom: seo-lt-2019
+ms.date: 06/07/2021
+---
+
 # Run a Databricks notebook with the Databricks Notebook Activity in Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 In this tutorial, you use the Azure portal to create an Azure Data Factory pipeline that executes a Databricks notebook against the Databricks jobs cluster. It also passes Azure Data Factory parameters to the Databricks notebook during execution.
 
@@ -35,7 +34,7 @@ For an eleven-minute introduction and demonstration of this feature, watch the f
 
 ## Prerequisites
 
-  - **Azure Databricks workspace**. [Create a Databricks workspace](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) or use an existing one. You create a Python notebook in your Azure Databricks workspace. Then you execute the notebook and pass parameters to it using Azure Data Factory.
+  - **Azure Databricks workspace**. [Create a Databricks workspace](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal) or use an existing one. You create a Python notebook in your Azure Databricks workspace. Then you execute the notebook and pass parameters to it using Azure Data Factory.
 
 ## Create a data factory
 
@@ -47,7 +46,7 @@ For an eleven-minute introduction and demonstration of this feature, watch the f
 
 1.  In the **New data factory** pane, enter **ADFTutorialDataFactory** under **Name**.
 
-    The name of the Azure data factory must be *globally unique*. If you see the following error, change the name of the data factory. (For example, use **\<yourname\>ADFTutorialDataFactory**). For naming rules for Data Factory artifacts, see the [Data Factory - naming rules](https://docs.microsoft.com/azure/data-factory/naming-rules) article.
+    The name of the Azure data factory must be *globally unique*. If you see the following error, change the name of the data factory. (For example, use **\<yourname\>ADFTutorialDataFactory**). For naming rules for Data Factory artifacts, see the [Data Factory - naming rules](./naming-rules.md) article.
 
     ![Provide a name for the new data factory](media/transform-data-using-databricks-notebook/new-azure-data-factory.png)
 
@@ -59,7 +58,7 @@ For an eleven-minute introduction and demonstration of this feature, watch the f
     
     - Select **Create new** and enter the name of a resource group.
 
-    Some of the steps in this quickstart assume that you use the name **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+    Some of the steps in this quickstart assume that you use the name **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).
 
 1.  For **Version**, select **V2**.
 
@@ -79,9 +78,9 @@ In this section, you author a Databricks linked service. This linked service con
 
 ### Create an Azure Databricks linked service
 
-1.  On the **Let's get started** page, switch to the **Edit** tab in the left panel.
+1.  On the home page, switch to the **Manage** tab in the left panel.
 
-    ![Edit the new linked service](media/transform-data-using-databricks-notebook/get-started-page.png)
+    ![Edit the new linked service](media/doc-common-process/get-started-page-manage-button.png)
 
 1.  Select **Connections** at the bottom of the window, and then select **+ New**.
     
@@ -157,8 +156,7 @@ In this section, you author a Databricks linked service. This linked service con
            # Creating widgets for leveraging parameters, and printing the parameters
 
            dbutils.widgets.text("input", "","")
-           dbutils.widgets.get("input")
-           y = getArgument("input")
+           y = dbutils.widgets.get("input")
            print ("Param -\'input':")
            print (y)
            ```

@@ -1,37 +1,30 @@
 ---
-title: Azure Hybrid Benefit for Windows Server | Microsoft Docs
-description: Learn how to maximize your Windows Software Assurance benefits to bring on-premises licenses to Azure
-services: virtual-machines-windows
-documentationcenter: ''
+title: Azure Hybrid Benefit for Windows Server 
+description: Learn how to maximize your Windows Software Assurance benefits to bring on-premises licenses to Azure.
 author: xujing-ms
-manager: gwallace
-editor: ''
-
-ms.assetid: 332583b6-15a3-4efb-80c3-9082587828b0
-ms.service: virtual-machines-windows
-
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.service: virtual-machines
+ms.subservice: azure-hybrid-benefit
+ms.collection: windows
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
-ms.author: xujing
+ms.author: xujing 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Azure Hybrid Benefit for Windows Server
 For customers with Software Assurance, Azure Hybrid Benefit for Windows Server allows you to use your on-premises Windows Server licenses and run Windows virtual machines on Azure at a reduced cost. You can use Azure Hybrid Benefit for Windows Server to deploy new virtual machines with Windows OS. This article goes over the steps on how to deploy new VMs with Azure Hybrid Benefit for Windows Server and how you can update existing running VMs. For more information about Azure Hybrid Benefit for Windows Server licensing and cost savings, see the [Azure Hybrid Benefit for Windows Server licensing page](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
-> [!Important]
-> Each 2-processor license or each set of 16-core licenses are entitled to two instances of up to 8 cores, or one instance of up to 16 cores. The Azure Hybrid Benefit for Standard Edition licenses can only be used once either on-premises or in Azure. Datacenter Edition benefits allow for simultaneous usage both on-premises and in Azure.
->
+Each 2-processor license or each set of 16-core licenses are entitled to two instances of up to 8 cores, or one instance of up to 16 cores. The Azure Hybrid Benefit for Standard Edition licenses can only be used once either on-premises or in Azure. Datacenter Edition benefits allow for simultaneous usage both on-premises and in Azure.
 
-> [!Important]
-> Using Azure Hybrid Benefit for Windows Server with any VMs running Windows Server OS are now supported in all regions, including VMs with additional software such as SQL Server or third-party marketplace software. 
->
+Using Azure Hybrid Benefit for Windows Server with any VMs running Windows Server OS are now supported in all regions, including VMs with additional software such as SQL Server or third-party marketplace software. 
 
-> [!NOTE]
-> For classic VMs, only deploying new VM from on premises custom images is supported. To take advantage of the capabilities supported in this article, you must first migrate classic VMs to Resource Manager model.
->
 
+## Classic VMs
+
+For classic VMs, only deploying new VM from on premises custom images is supported. To take advantage of the capabilities supported in this article, you must first migrate classic VMs to Resource Manager model.
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
  
 
 ## Ways to use Azure Hybrid Benefit for Windows Server
@@ -47,10 +40,9 @@ There are few ways to use Windows virtual machines with the Azure Hybrid Benefit
 All Windows Server OS based images are supported for Azure Hybrid Benefit for Windows Server. You can use Azure platform support images or upload your own custom Windows Server images. 
 
 ### Portal
-To create a VM with Azure Hybrid Benefit for Windows Server, use the toggle under the "Save money" section.
+To create a VM with Azure Hybrid Benefit for Windows Server, scroll to the bottom of the **Basics** tab during the creation process and under **Licensing** check the box to use an existing Windows Server license. 
 
 ### PowerShell
-
 
 ```powershell
 New-AzVm `
@@ -71,7 +63,7 @@ az vm create \
 ```
 
 ### Template
-Within your Resource Manager templates, an additional parameter `licenseType` must be specified. You can read more about [authoring Azure Resource Manager templates](../../resource-group-authoring-templates.md)
+Within your Resource Manager templates, an additional parameter `licenseType` must be specified. You can read more about [authoring Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md)
 ```json
 "properties": {
     "licenseType": "Windows_Server",
@@ -195,7 +187,7 @@ You can also learn more about how to [Modify a virtual machine scale set](../../
 ## Next steps
 - Read more about [How to save money with the Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 - Read more about [Frequently asked questions for Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/faq/)
-- Learn more about [Azure Hybrid Benefit for Windows Server licensing detailed guidance](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)
+- Learn more about [Azure Hybrid Benefit for Windows Server licensing detailed guidance](/windows-server/get-started/azure-hybrid-benefit)
 - Learn more about [Azure Hybrid Benefit for Windows Server and Azure Site Recovery make migrating applications to Azure even more cost-effective](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)
-- Learn more about [Windows 10 on Azure with Multitenant Hosting Right](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
-- Learn more about [Using Resource Manager templates](../../azure-resource-manager/resource-group-overview.md)
+- Learn more about [Windows 10 on Azure with Multitenant Hosting Right](./windows-desktop-multitenant-hosting-deployment.md)
+- Learn more about [Using Resource Manager templates](../../azure-resource-manager/management/overview.md)

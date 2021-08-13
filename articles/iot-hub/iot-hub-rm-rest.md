@@ -8,13 +8,14 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
+ms.custom: devx-track-csharp
 ---
 
 # Create an IoT hub using the resource provider REST API (.NET)
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-You can use the [IoT Hub resource provider REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource) to create and manage Azure IoT hubs programmatically. This tutorial shows you how to use the IoT Hub resource provider REST API to create an IoT hub from a C# program.
+You can use the [IoT Hub resource provider REST API](/rest/api/iothub/iothubresource) to create and manage Azure IoT hubs programmatically. This tutorial shows you how to use the IoT Hub resource provider REST API to create an IoT hub from a C# program.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -24,7 +25,7 @@ To complete this tutorial, you need the following:
 
 * An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
 
-* [Azure PowerShell 1.0](https://docs.microsoft.com/powershell/azure/install-Az-ps) or later.
+* [Azure PowerShell 1.0](/powershell/azure/install-Az-ps) or later.
 
 [!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
@@ -72,7 +73,7 @@ To complete this tutorial, you need the following:
 
 ## Use the resource provider REST API to create an IoT hub
 
-Use the [IoT Hub resource provider REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource) to create an IoT hub in your resource group. You can also use the resource provider REST API to make changes to an existing IoT hub.
+Use the [IoT Hub resource provider REST API](/rest/api/iothub/iothubresource) to create an IoT hub in your resource group. You can also use the resource provider REST API to make changes to an existing IoT hub.
 
 1. Add the following method to Program.cs:
 
@@ -169,9 +170,9 @@ You can now complete the application by calling the **CreateIoTHub** method befo
 
 Now you have deployed an IoT hub using the resource provider REST API, you may want to explore further:
 
-* Read about the capabilities of the [IoT Hub resource provider REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource).
+* Read about the capabilities of the [IoT Hub resource provider REST API](/rest/api/iothub/iothubresource).
 
-* Read [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md) to learn more about the capabilities of Azure Resource Manager.
+* Read [Azure Resource Manager overview](../azure-resource-manager/management/overview.md) to learn more about the capabilities of Azure Resource Manager.
 
 To learn more about developing for IoT Hub, see the following articles:
 
@@ -181,4 +182,4 @@ To learn more about developing for IoT Hub, see the following articles:
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/quickstart-linux.md)

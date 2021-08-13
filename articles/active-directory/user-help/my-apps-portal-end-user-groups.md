@@ -2,27 +2,31 @@
 title: Update your Groups info on the My Apps portal - Azure AD
 description: Learn how to view and update your groups-related information, including viewing the groups you own, creating new groups, viewing the groups to which you're already a member, and joining any groups you aren't already part of.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 3/21/2019
-ms.author: lizross
+ms.topic: end-user-help
+ms.date: 01/19/2021
+ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: "user-help, seo-update-azuread-jan"
-ms.collection: M365-identity-device-management
 ---
 
 # Update your Groups info on the My Apps portal
 
-You can use your work or school account with the web-based **My Apps** portal, to view and start many of your organization’s cloud-based apps, to update some of your profile and account information, to see your **Groups** information, and to perform **access reviews** for your apps and groups. If you don’t have access to the **My Apps** portal, you must contact your Helpdesk for permission.
+You can use your work or school account with the web-based **My Apps** portal to view and start many of your organization’s cloud-based apps, to update some of your profile and account information, to see your **Groups** information, and to perform **access reviews** for your apps and groups. If you don’t have access to the **My Apps** portal, you must contact your Helpdesk for permission.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
->This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](https://docs.microsoft.com/azure/active-directory/manage-apps).
+>This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](../manage-apps/index.yml).
+>
+> If you see an error signing in with a personal Microsoft account, you can still sign in by using the domain name for your organization (such as contoso.com) or the **Tenant ID** of your organization from your administrator in one of the following URLs:
+>
+>   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
+>   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
 
 ## View your Groups information
 
@@ -32,21 +36,23 @@ If your administrator has given you permission to view the **Groups** tile, you 
 
 - **As a group owner.** View details, create a new group, add or remove members, or delete your group.
 
-### To view your Groups information
+### To view your groups information
 
 1. Sign in to your work or school account.
 
-2. Open your web browser and go to https://myapps.microsoft.com, or use the link provided by your organization. For example, you might be directed to a customized page for your organization, such as https://myapps.microsoft.com/contoso.com.
+2. Open your web browser and go to https://myapps.microsoft.com, or use the link provided by your organization. For example, you might be directed to a customized page for your organization, such as https://myapps.microsoft.com/contoso.com. If you are signing in with a personal Microsoft account, you can still sign in by using the domain name for your organization (such as contoso.com) or the **Tenant ID** of your organization from your administrator in one of the following URLs:
+
+   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
+   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
+
 
     The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
 
-    ![Apps page in the My Apps portal](media/my-apps-portal/my-apps-portal-apps-page-groups-tile.png)
+    ![Apps page in the My Apps portal](media/my-apps-portal-end-user-groups/my-apps-home-large.png)
 
-3. Select the **Groups** tile to see your group-related information.
+3. Pull down the **My Apps** menu and select **My Groups** to see your group-related information.
 
-    ![Groups page with both owned and member groups](media/my-apps-portal/my-apps-portal-groups-page.png)
-
-4. Based on your permissions, you can use the **Groups** page to:
+4. Based on your permissions, you can use the **My Groups** page to:
 
     - **Review the groups you own.** View information about any groups you own within your organization from the **Groups I own** area. Selecting a specific group name provides you with more details about the group, including the group type, the number of members, the join policy, and the active members list.
 
@@ -94,8 +100,6 @@ If your administrator has given you permission to view the **Groups** tile, you 
 
 After you create a group, you can edit its details, including updating any of the existing information.
 
-### To edit your details
-
 1. Select the group you want to edit from the **Groups** page, and then select **Edit details** on the *&lt;group_name&gt;* page.
 
     The **Edit details** box appears and you can update the information you added when you initially created the group.
@@ -104,9 +108,7 @@ After you create a group, you can edit its details, including updating any of th
 
 ## Add or remove a member
 
-You can add or remove members for any of your own groups.
-
-### To add or remove a member
+You can add or remove members for any groups that you own.
 
 1. Select the group you want to add members to, and then select **+** on the *&lt;group_name&gt;* page.
 
@@ -126,8 +128,6 @@ You can add or remove members for any of your own groups.
 
 If your organization allows it, you can renew an Office 365 group, extending your expiration date.
 
-### To renew a group
-
 1. Select the Office 365 group you want to renew, and then select **Renew group**.
 
     ![Renew an Office 365 group, extending the expiration date](media/my-apps-portal/my-apps-portal-renew-group-link.png)
@@ -140,8 +140,6 @@ If your organization allows it, you can renew an Office 365 group, extending you
 
 You can delete any of your own groups at any time. However, if you delete a group by mistake you'll have to create it and add members again.
 
-### To delete the group
-
 1. Select the group you want to permanently delete, and then select **Delete group** on the *&lt;group_name&gt;* page.
 
     ![<Group_name> page with the Delete group link highlighted](media/my-apps-portal/my-apps-portal-delete-group-link.png)
@@ -152,9 +150,7 @@ You can delete any of your own groups at any time. However, if you delete a grou
 
 ## Join an existing group
 
-You can join an already existing group from the **Groups** page.
-
-### To join or leave a group
+You can join or leave an already existing group from the **Groups** page.
 
 1. On the **Groups** page, select **Join group** from the **Groups I'm in** area.
 
@@ -168,12 +164,12 @@ You can join an already existing group from the **Groups** page.
 
 3. If you joined a group by mistake or if you no longer need to be part of it, you can select the group name from the **Join groups** page, and then select **Leave group**.
 
-    ![Join groups page, with Leave group button highlighted](media/my-apps-portal/my-apps-portal-leave-group-link.png)    
+    ![Join groups page, with Leave group button highlighted](media/my-apps-portal/my-apps-portal-leave-group-link.png)
 
 ## Next steps
 
 - [Access and use apps on the My Apps portal](my-apps-portal-end-user-access.md).
 
-- [Change your profile information](my-apps-portal-end-user-update-profile.md).
+- [Change your profile information](./my-account-portal-settings.md).
 
 - [Perform your own access reviews](my-apps-portal-end-user-access-reviews.md).

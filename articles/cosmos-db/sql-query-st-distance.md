@@ -3,13 +3,16 @@ title: ST_DISTANCE in Azure Cosmos DB query language
 description: Learn about SQL system function ST_DISTANCE in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 02/17/2021
 ms.author: girobins
 ms.custom: query-reference
 ---
 # ST_DISTANCE (Azure Cosmos DB)
- Returns the distance between the two GeoJSON Point, Polygon, or LineString expressions.  
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
+ Returns the distance between the two GeoJSON Point, Polygon, MultiPolygon or LineString expressions. To learn more, see the [Geospatial and GeoJSON location data](sql-query-geospatial-intro.md) article.
   
 ## Syntax
   
@@ -31,8 +34,8 @@ ST_DISTANCE (<spatial_expr>, <spatial_expr>)
   The following example shows how to return all family documents that are within 30 km of the specified location using the `ST_DISTANCE` built-in function. .  
   
 ```sql
-SELECT f.id   
-FROM Families f   
+SELECT f.id
+FROM Families f
 WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 30000  
 ```  
   
@@ -42,7 +45,11 @@ WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 3
 [{  
   "id": "WakefieldFamily"  
 }]  
-```  
+```
+
+## Remarks
+
+This system function will benefit from a [geospatial index](index-policy.md#spatial-indexes) except in queries with aggregates.
 
 ## Next steps
 

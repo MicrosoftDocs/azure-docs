@@ -3,15 +3,15 @@
   - name: Azure Resiliency feature page
     href: https://azure.microsoft.com/features/resiliency
   - name: Design resilient applications for Azure
-    href: https://docs.microsoft.com/azure/architecture/resiliency/
+    href: /azure/architecture/framework/resiliency/app-design
 - name: High Availability
   items:
-  - name: High availability for Azure applications
-    href: https://docs.microsoft.com/azure/architecture/resiliency/high-availability-azure-applications
+  - name: Regions and Availability Zones
+    href: az-overview.md
   - name: Availability Zones Documentation
     items:
-    - name: What are Availability Zones?
-      href: az-overview.md
+    - name: Azure Services that support Availability Zones
+      href: az-region.md
     - name: Virtual machines
       items:
       - name: Create a Linux VM in an Availability Zone with CLI
@@ -23,7 +23,7 @@
     - name: Managed disks
       items:
       - name: Add a managed disk in Availability Zones with CLI
-        href: ../virtual-machines/linux/add-disk.md#use-managed-disks
+        href: ../virtual-machines/linux/add-disk.md#attach-a-new-disk-to-a-vm
       - name: Add a managed disk in Availability Zones with PowerShell
         href: ../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine
     - name: Virtual machine scale sets
@@ -33,46 +33,48 @@
     - name: Load Balancer
       items:
       - name: What is Load Balancer?
-        href: ../load-balancer/load-balancer-standard-overview.md
+        href: ../load-balancer/load-balancer-overview.md
       - name: Load Balancer Standard and Availability Zones
         href: ../load-balancer/load-balancer-standard-availability-zones.md
       - name: Create a zone redundant public Standard Load Balancer
-        href: ../load-balancer/load-balancer-get-started-internet-az-portal.md
+        href: ../load-balancer/quickstart-load-balancer-standard-public-portal.md
         items:
         - name: Create a zone redundant public Standard Load Balancer (PowerShell)
-          href: ../load-balancer/load-balancer-get-started-internet-az-powershell.md
+          href: ../load-balancer/quickstart-load-balancer-standard-public-powershell.md
         - name: Create a zone redundant public Standard Load Balancer (CLI)
-          href: ../load-balancer/load-balancer-get-started-internet-az-cli.md
+          href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md
       - name: Create a zonal public Standard Load Balancer
-        href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-portal.md
+        href: ../load-balancer/quickstart-load-balancer-standard-public-portal.md
         items:
         - name: Create a zonal public Standard Load Balancer (PowerShell)
-          href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-powershell.md
+          href: ../load-balancer/quickstart-load-balancer-standard-public-powershell.md
         - name: Create a zonal redundant public Standard Load Balancer (CLI)
-          href: ../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-cli.md
+          href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md
       - name: Load balance VMs across availability zones
-        href: ../load-balancer/load-balancer-standard-public-availability-zones-portal.md
+        href: ../load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal.md
         items:
         - name: Load balance VMs across availability zones with Azure (CLI)
-          href: ../load-balancer/load-balancer-standard-public-zone-redundant-cli.md
+          href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md
     - name: Public IP address
       href: ../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address
     - name: SQL Database
       items:
-      - name: Availability zones with SQL Database
-        href: ../sql-database/sql-database-high-availability.md#zone-redundant-configuration
+      - name: Availability zones with SQL Database general purpose tier
+        href: ../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview
+      - name: Availability zones with SQL Database premium & business critical tiers
+        href: ../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability
     - name: Storage
       items:
       - name: Zone-redundant storage
-        href: ../storage/common/storage-redundancy-zrs.md
+        href: ../storage/common/storage-redundancy.md
     - name: Event Hubs
       items:
       - name: Event Hubs geo-disaster recovery
-        href: ../event-hubs/event-hubs-geo-dr.md#availability-zones-preview
+        href: ../event-hubs/event-hubs-geo-dr.md#availability-zones
     - name: Service Bus
       items:
       - name: Service Bus geo-disaster recovery
-        href: ../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview
+        href: ../service-bus-messaging/service-bus-geo-dr.md#availability-zones
     - name: VPN Gateway
       items:
       - name: Create a zone-redundant virtual network gateway
@@ -81,18 +83,26 @@
       items:
       - name: Create a zone-redundant virtual network gateway
         href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md
+    - name: Application Gateway v2
+      items:
+      - name: Autoscaling and Zone-redundant Application Gateway v2
+        href: ../application-gateway/application-gateway-autoscaling-zone-redundant.md
     - name: Identity
       items:
       - name: Create an Azure Active Directory Domain Services instance
         href: ../active-directory-domain-services/tutorial-create-instance.md
+  - name: Azure Orbital Documentation
+    items:
+    - name: What is Azure Orbital?
+      href: ../networking/azure-orbital-overview.md
 - name: Disaster Recovery
   items:
   - name: Use Azure Site Recovery
-    href: https://docs.microsoft.com/azure/site-recovery/
+    href: ../site-recovery/index.yml
 - name: Azure Backup
   items:
   - name: Use Azure Backup
-    href: https://docs.microsoft.com/azure/backup/
+    href: ../backup/index.yml
 - name: Resources
   items:
   - name: Azure Roadmap

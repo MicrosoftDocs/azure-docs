@@ -1,6 +1,6 @@
 ---
-title: 'Design a real-time dashboard with Azure Database for PostgreSQL – Hyperscale (Citus) tutorial'
-description: This tutorial shows how to create, populate, and query distributed tables on Azure Database for PostgreSQL Hyperscale (Citus).
+title: 'Tutorial: Design a real-time dashboard - Hyperscale (Citus) - Azure Database for PostgreSQL'
+description: This tutorial shows how to parallelize real-time dashboard queries with Azure Database for PostgreSQL Hyperscale (Citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -8,7 +8,7 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2019
-#Customer intent: As a developer, I want to parallelize queries so that I can make a realtime dashboard application.
+#Customer intent: As a developer, I want to parallelize queries so that I can make a real-time dashboard application.
 ---
 
 # Tutorial: Design a real-time analytics dashboard by using Azure Database for PostgreSQL – Hyperscale (Citus)
@@ -89,6 +89,8 @@ key. In psql, run these functions:
 SELECT create_distributed_table('http_request',      'site_id');
 SELECT create_distributed_table('http_request_1min', 'site_id');
 ```
+
+[!INCLUDE [azure-postgresql-hyperscale-dist-alert](../../includes/azure-postgresql-hyperscale-dist-alert.md)]
 
 ## Generate sample data
 
@@ -226,8 +228,8 @@ In the preceding steps, you created Azure resources in a server group. If you do
 
 ## Next steps
 
-In this tutorial, you learned how to provision a Hyperscale (Citus) server group. You connected to it with psql, created a schema, and distributed data. You learned to query data both in the raw form, regularly aggregate that data, query the aggregated tables, and expire old data.
+In this tutorial, you learned how to provision a Hyperscale (Citus) server group. You connected to it with psql, created a schema, and distributed data. You learned to query data in the raw form, regularly aggregate that data, query the aggregated tables, and expire old data.
 
-Next, learn about the concepts of hyperscale.
-> [!div class="nextstepaction"]
-> [Hyperscale node types](https://aka.ms/hyperscale-concepts)
+- Learn about server group [node types](./concepts-hyperscale-nodes.md)
+- Determine the best [initial
+  size](howto-hyperscale-scale-initial.md) for your server group

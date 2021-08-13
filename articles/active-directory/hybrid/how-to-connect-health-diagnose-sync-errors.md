@@ -3,14 +3,15 @@ title: Azure AD Connect Health - Diagnose duplicated attribute synchronization e
 description: This document describes the diagnosis process of duplicated attribute synchronization errors and a potential fix of the orphaned object scenarios directly from the Azure portal.
 services: active-directory
 documentationcenter: ''
-author: zhiweiwangmsft
+author: billmath
 manager: maheshu
 editor: billmath
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -53,7 +54,7 @@ The diagnose feature supports user objects with the following duplicated attribu
 | OnPremiseSecurityIdentifier |  AttributeValueMustBeUnique |
 
 >[!IMPORTANT]
-> To access this feature, **Global Admin** permission, or **Contributor** permission from the RBAC settings, is required.
+> To access this feature, **Global Admin** permission, or **Contributor** permission from Azure RBAC, is required.
 >
 
 Follow the steps from the Azure portal to narrow down the sync error details and provide more specific solutions:
@@ -130,10 +131,13 @@ The sync error will be resolved after the next sync. Connect Health will no long
 
 ## Failures and error messages
 **User with conflicting attribute is soft deleted in the Azure Active Directory. Ensure the user is hard deleted before retry.**  
-The user with conflicting attribute in Azure AD should be cleaned before you can apply fix. Check out [how to delete the user permanently in Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore) before retrying the fix. The user will also be automatically deleted permanently after 30 days in soft deleted state. 
+The user with conflicting attribute in Azure AD should be cleaned before you can apply fix. Check out [how to delete the user permanently in Azure AD](../fundamentals/active-directory-users-restore.md) before retrying the fix. The user will also be automatically deleted permanently after 30 days in soft deleted state. 
 
 **Updating source anchor to cloud-based user in your tenant is not supported.**  
 Cloud-based user in Azure AD should not have source anchor. Updating source anchor is not supported in this case. Manual fix is required from on premises. 
+
+**The fix process failed to update the values.**
+The specific settings such as [UserWriteback in Azure AD Connect](./how-to-connect-preview.md#user-writeback) is not supported. Please disable in the settings. 
 
 ## FAQ
 **Q.** What happens if execution of the **Apply Fix** fails?  
@@ -145,7 +149,7 @@ Cloud-based user in Azure AD should not have source anchor. Updating source anch
 
 
 **Q.** What permission does a user need to apply the fix?  
-**A.** **Global Admin**, or **Contributor** from the RBAC settings, has permission to access the diagnostic and troubleshooting process.
+**A.** **Global Admin**, or **Contributor** from Azure RBAC, has permission to access the diagnostic and troubleshooting process.
 
 
 **Q.** Do I have to configure Azure AD Connect or update the Azure AD Connect Health agent for this feature?  

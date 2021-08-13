@@ -1,13 +1,10 @@
 ---
-title: Support matrix for disaster recovery of VMware VMs or physical servers to a secondary VMware site with Azure Site Recovery | Microsoft Docs
+title: Support for VMware/physical disaster recovery to a secondary site with Azure Site Recovery 
 description: Summarizes the support for disaster recovery of VMware VMs and physical servers to a secondary site with Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.topic: article
-ms.date: 10/10/2019
-ms.author: raynew
+ms.topic: conceptual
+ms.date: 11/14/2019
 ---
 
 # Support matrix for disaster recovery of VMware VMs and physical servers to a secondary site
@@ -126,5 +123,5 @@ The Mobility service coordinates replication between on-premises VMware servers 
 
 Download the [InMage Scout user guide](https://aka.ms/asr-scout-user-guide)
 
-- [Replicate Hyper-V VMs in VMM clouds to a secondary site](tutorial-vmm-to-vmm.md)
-- [Replicate VMware VMs and physical servers to a secondary site](tutorial-vmware-to-vmware.md)
+- [Replicate Hyper-V VMs in VMM clouds to a secondary site](./hyper-v-vmm-disaster-recovery.md)
+- [Replicate VMware VMs and physical servers to a secondary site](./vmware-physical-secondary-disaster-recovery.md)

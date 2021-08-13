@@ -3,14 +3,19 @@ title: UPPER in Azure Cosmos DB query language
 description: Learn about SQL system function UPPER in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 04/08/2021
 ms.author: girobins
 ms.custom: query-reference
 ---
 # UPPER (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns a string expression after converting lowercase character data to uppercase.  
-  
+
+The UPPER system function does not utilize the index. If you plan to do frequent case insensitive comparisons, the UPPER system function may consume a significant amount of RU's. If this is the case, instead of using the UPPER system function to normalize data each time for comparisons, you can normalize the casing upon insertion. Then a query such as SELECT * FROM c WHERE UPPER(c.name) = 'BOB' simply becomes SELECT * FROM c WHERE c.name = 'BOB'.
+
 ## Syntax
   
 ```sql
@@ -39,6 +44,10 @@ SELECT UPPER("Abc") AS upper
 ```json
 [{"upper": "ABC"}]  
 ```
+
+## Remarks
+
+This system function will not [use indexes](index-overview.md#index-usage).
 
 ## Next steps
 

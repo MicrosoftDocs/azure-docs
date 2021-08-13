@@ -1,21 +1,17 @@
 ---
-title: How to configure Azure Active Directory access
-description: How to configure Azure Blockchain Service with Azure Active Directory Access
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: seal
-ms.date: 05/02/2019
-ms.topic: article
-ms.service: azure-blockchain
-ms.reviewer: seal
-manager: femila
+title: Configure Azure Active Directory access - Azure Blockchain Service
+description: How to configure Azure Blockchain Service with Azure Active Directory access
+ms.date: 05/11/2021
+ms.topic: how-to
+ms.reviewer: janders
 #Customer intent: As a node operator, I want to configure Azure Blockchain Service with Azure Active Directory access.
 ---
 
-# How to configure Azure Active Directory access
+# How to configure Azure Active Directory access for Azure Blockchain Service
 
 In this article, you learn how to grant access and connect to Azure Blockchain Service nodes using Azure Active Directory (Azure AD) user, group, or application IDs.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
 
 Azure AD provides cloud-based identity management and allows you to use a single identity across an entire enterprise and access applications in Azure. Azure Blockchain Service is integrated with Azure AD and offers benefits such as ID federation, single sign-on and multi-factor authentication.
 
@@ -37,7 +33,7 @@ To grant access permission at the member level.
 
     | Azure AD object | Example |
     |-----------------|---------|
-    | Azure AD user   | `frank@contoso.onmicrosoft.com` |
+    | Azure AD user   | `kim@contoso.onmicrosoft.com` |
     | Azure AD group  | `sales@contoso.onmicrosoft.com` |
     | Application ID  | `13925ab1-4161-4534-8d18-812f5ca1ab1e` |
 
@@ -47,8 +43,11 @@ To grant access permission at the member level.
 
 ### Grant node level access
 
-1. You can grant access at the node level by navigating to node security and click on the node name that you wish to grant access.
-1. Select the Blockchain Member Node Access (Preview) role and add the Azure AD ID object you wish to grant access to. 
+You can grant access at the node level by navigating to node security and click on the node name that you wish to grant access.
+
+Select the Blockchain Member Node Access (Preview) role and add the Azure AD ID object you wish to grant access to.
+
+For more information, see [Configure Azure Blockchain Service transaction nodes](configure-transaction-nodes.md#azure-active-directory-access-control).
 
 ## Connect using Azure Blockchain Connector
 
@@ -65,7 +64,7 @@ The follow the quickstart section in the **readme** to build the connector from 
 1. Run the following command to authenticate using an Azure AD user account. Replace \<myAADDirectory\> with an Azure AD domain. For example, `yourdomain.onmicrosoft.com`.
 
     ```
-    connector.exe -remote <myMemberName>.blockchain.azure.com:3200 -method aadauthcode -tenant-id <myAADDirectory> 
+    connector.exe -remote <myMemberName>.blockchain.azure.com:3200 -method aadauthcode -tenant-id <myAADDirectory>
     ```
 
 1. Azure AD prompts for credentials.
@@ -106,7 +105,4 @@ connector.exe -remote <myBlockchainEndpoint>  -method aaddevice -tenant-id <myAA
 
 ## Next steps
 
-For more information about data security in Azure Blockchain Service, see:
-
-> [!div class="nextstepaction"]
-> [Azure Blockchain Service security](data-security.md)
+For more information about data security in Azure Blockchain Service, see [Azure Blockchain Service security](data-security.md).

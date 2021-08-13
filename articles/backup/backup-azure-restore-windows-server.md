@@ -1,28 +1,23 @@
 ---
-title: Restore data in Azure to a Windows server - Azure Backup
+title: Restore files to Windows Server using the MARS Agent
 description: In this article, learn how to restore data stored in Azure to a Windows server or Windows computer with the Microsoft Azure Recovery Services (MARS) Agent.
-ms.reviewer: saurse
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.author: dacurwin
 ---
-# Restore files to Windows by using the Azure Resource Manager deployment model
+# Restore files to Windows Server using the MARS Agent
 
 This article explains how to restore data from a backup vault. To restore data, you use the Recover Data wizard in the Microsoft Azure Recovery Services (MARS) Agent. You can:
 
 * Restore data to the same machine from which the backups were taken.
 * Restore data to an alternate machine.
 
-Use the Instant Restore feature to mount a writeable recovery point snapshot as a recovery volume. You can then explore the recovery volume and copy files to a local computer, thereby selectively restoring files.
+Use the Instant Restore feature to mount a writeable recovery point snapshot as a recovery volume. You can then explore the recovery volume and copy files to a local computer, in that way selectively restoring files.
 
 > [!NOTE]
-> The [January 2017 Azure Backup update](https://support.microsoft.com/help/3216528?preview) is required if you want to use Instant Restore to restore data. Also, the backup data must be protected in vaults in locales listed in the support article. Consult the [January 2017 Azure Backup update](https://support.microsoft.com/help/3216528?preview) for the latest list of locales that support Instant Restore.
+> The [January 2017 Azure Backup update](https://support.microsoft.com/help/3216528/azure-backup-update-for-microsoft-azure-recovery-services-agent-januar) is required if you want to use Instant Restore to restore data. Also, the backup data must be protected in vaults in locales listed in the support article. Consult the [January 2017 Azure Backup update](https://support.microsoft.com/help/3216528/azure-backup-update-for-microsoft-azure-recovery-services-agent-januar) for the latest list of locales that support Instant Restore.
 >
 
-Use Instant Restore with Recovery Services vaults in the Azure portal. If you stored data in Backup vaults, they have been converted to Recovery Services vaults. If you want to use Instant Restore, download the MARS update, and follow the procedures that mention Instant Restore.
+Use Instant Restore with Recovery Services vaults in the Azure portal. If you stored data in Backup vaults, they've been converted to Recovery Services vaults. If you want to use Instant Restore, download the MARS update, and follow the procedures that mention Instant Restore.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -36,27 +31,27 @@ If you accidentally deleted a file and want to restore it to the same machine (f
 
 2. Select **Recover Data** to start the wizard.
 
-    ![Screenshot of Azure Backup, with Recover Data highlighted](./media/backup-azure-restore-windows-server/recover.png)
+    ![Screenshot of Azure Backup, with Recover Data highlighted (restore to same machine)](./media/backup-azure-restore-windows-server/recover.png)
 
 3. On the **Getting Started** page, to restore the data to the same server or computer, select **This server (`<server name>`)** > **Next**.
 
-    ![Screenshot of Recover Data Wizard Getting Started page](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
+    ![Screenshot of Recover Data Wizard Getting Started page (restore to same machine)](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
 4. On the **Select Recovery Mode** page, choose
    **Individual files and folders** > **Next**.
 
-    ![Screenshot of Recover Data Wizard Select Recovery Mode page](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
+    ![Screenshot of Recover Data Wizard Select Recovery Mode page (restore to same machine)](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
    > [!IMPORTANT]
-   > The option to restore individual files and folders requires .NET Framework 4.5.2 or later. If you do not see the **Individual files and folders** option, you must upgrade .NET Framework to version 4.5.2 or later, and try again.
- 
+   > The option to restore individual files and folders requires .NET Framework 4.5.2 or later. If you don't see the **Individual files and folders** option, you must upgrade .NET Framework to version 4.5.2 or later, and try again.
+
    > [!TIP]
-   > The **Individual files and folders** option allows for quick access to the recovery point data. It is suitable for recovering individual files, with sizes totalling not more than 80 GB, and offers transfer or copy speeds up to 6 MBps during recovery. The **Volume** option recovers all backed up data in a specified volume. This option provides faster transfer speeds (up to 60 MBps), which is ideal for recovering large-sized data or entire volumes.
+   > The **Individual files and folders** option allows for quick access to the recovery point data. It's suitable for recovering individual files, and is recommended for a total size of less than 80 GB. It offers transfer or copy speeds up to 6 MBps during recovery. The **Volume** option recovers all backed up data in a specified volume. This option provides faster transfer speeds (up to 40 MBps), and is recommended for recovering large-sized data or entire volumes.
 
 5. On the **Select Volume and Date** page, select the volume that contains the files and folders you want to restore.
 
     On the calendar, select a recovery point. Dates in **bold** indicate the availability of at least one recovery point. If multiple recovery points are available within a single date, choose the specific recovery point from the **Time** drop-down menu.
 
-    ![Screenshot of Recover Data Wizard Select Volume and Date page](./media/backup-azure-restore-windows-server/samemachine_selectvolumedate_instantrestore.png)
+    ![Screenshot of Recover Data Wizard Select Volume and Date page (restore to same machine)](./media/backup-azure-restore-windows-server/samemachine_selectvolumedate_instantrestore.png)
 
 6. After choosing the recovery point to restore, select **Mount**.
 
@@ -64,18 +59,18 @@ If you accidentally deleted a file and want to restore it to the same machine (f
 
 7. On the **Browse and Recover Files** page, select **Browse** to open Windows Explorer, and find the files and folders you want.
 
-    ![Screenshot of Recover Data Wizard Browse and Recover Files page](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
+    ![Screenshot of Recover Data Wizard Browse and Recover Files page (restore to same machine)](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
 
-8. In Windows Explorer, copy the files and folders you want to restore, and paste them to any location local to the server or computer. You can open or stream the files directly from the recovery volume, and verify that you are recovering the correct versions.
+8. In Windows Explorer, copy the files and folders you want to restore, and paste them to any location local to the server or computer. You can open or stream the files directly from the recovery volume, and verify that you're recovering the correct versions.
 
-    ![Screenshot of Windows Explorer, with Copy highlighted](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
+    ![Screenshot of Windows Explorer, with Copy highlighted (restore to same machine)](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
 
-9. When you are finished, on the **Browse and Recover Files** page, select **Unmount**. Then select **Yes** to confirm that you want to unmount the volume.
+9. When you're finished, on the **Browse and Recover Files** page, select **Unmount**. Then select **Yes** to confirm that you want to unmount the volume.
 
-    ![Screenshot of Recover Data Wizard Browse and Recover Files page](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
+    ![Screenshot of Recover Data Wizard Browse and Recover Files page (restore to same machine) - Confirm Recovery Volume Unmount](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > If you do not select **Unmount**, the recovery volume will remain mounted for 6 hours from the time when it was mounted. However, the mount time is extended up to a maximum of 24 hours in case of an ongoing file-copy. No backup operations will run while the volume is mounted. Any backup operation scheduled to run during the time when the volume is mounted will run after the recovery volume is unmounted.
+    > If you don't select **Unmount**, the recovery volume will remain mounted for 6 hours from the time when it was mounted. However, the mount time is extended to a maximum of 7 days in  case of an ongoing file-copy. No backup operations will run while the volume is mounted. Any backup operation scheduled to run during the time when the volume is mounted will run after the recovery volume is unmounted.
     >
 
 ## Use Instant Restore to restore data to an alternate machine
@@ -89,7 +84,7 @@ These steps include the following terminology:
 * *Sample vault* – The Recovery Services vault to which the source machine and target machine are registered.
 
 > [!NOTE]
-> Backups can't be restored to a target machine that is running an earlier version of the operating system. For example, a backup taken from a Windows 7 computer can be restored on a Windows 7 (or later) computer. A backup taken from a Windows 8 computer can't be restored to a Windows 7 computer.
+> Backups can't be restored to a target machine that's running an earlier version of the operating system. For example, a backup taken from a Windows 7 computer can be restored on a Windows 7 (or later) computer. A backup taken from a Windows 10 computer can't be restored to a Windows 7 computer.
 >
 >
 
@@ -99,48 +94,50 @@ These steps include the following terminology:
 
 3. Select **Recover Data** to open the **Recover Data Wizard**.
 
-    ![Screenshot of Azure Backup, with Recover Data highlighted](./media/backup-azure-restore-windows-server/recover.png)
+    ![Screenshot of Azure Backup, with Recover Data highlighted (restore to alternate machine)](./media/backup-azure-restore-windows-server/recover.png)
 
 4. On the **Getting Started** page, select **Another server**.
 
-    ![Screenshot of Recover Data Wizard Getting Started page](./media/backup-azure-restore-windows-server/alternatemachine_gettingstarted_instantrestore.png)
+    ![Screenshot of Recover Data Wizard Getting Started page (restore to alternate machine)](./media/backup-azure-restore-windows-server/alternatemachine_gettingstarted_instantrestore.png)
 
 5. Provide the vault credential file that corresponds to the sample vault, and select **Next**.
 
-    If the vault credential file is invalid (or expired), download a new vault credential file from the sample vault in the Azure portal. After you provide a valid vault credential, the name of the corresponding backup vault appears.
+    If the vault credential file is invalid (or expired), [download a new vault credential file from the sample vault](backup-azure-file-folder-backup-faq.yml#where-can-i-download-the-vault-credentials-file-) in the Azure portal. After you provide a valid vault credential, the name of the corresponding backup vault appears.
 
 6. On the **Select Backup Server** page, select the source machine from the list of displayed machines, and provide the passphrase. Then select **Next**.
 
-    ![Screenshot of Recover Data Wizard Select Backup Server page](./media/backup-azure-restore-windows-server/alternatemachine_selectmachine_instantrestore.png)
+    ![Screenshot of Recover Data Wizard Select Backup Server page (restore to alternate machine)](./media/backup-azure-restore-windows-server/alternatemachine_selectmachine_instantrestore.png)
 
 7. On the **Select Recovery Mode** page, select **Individual files and folders** > **Next**.
 
-    ![Screenshot of Recover Data Wizard Select Recovery Mode page](./media/backup-azure-restore-windows-server/alternatemachine_selectrecoverymode_instantrestore.png)
+    ![Screenshot of Recover Data Wizard Select Recovery Mode page (restore to alternate machine)](./media/backup-azure-restore-windows-server/alternatemachine_selectrecoverymode_instantrestore.png)
 
 8. On the **Select Volume and Date** page, select the volume that contains the files and folders you want to restore.
 
     On the calendar, select a recovery point. Dates in **bold** indicate the availability of at least one recovery point. If multiple recovery points are available within a single date, choose the specific recovery point from the **Time** drop-down menu.
 
-    ![Screenshot of Recover Data Wizard Select Volume and Date page](./media/backup-azure-restore-windows-server/alternatemachine_selectvolumedate_instantrestore.png)
+    ![Screenshot of Recover Data Wizard Select Volume and Date page (restore to alternate machine)](./media/backup-azure-restore-windows-server/alternatemachine_selectvolumedate_instantrestore.png)
 
 9. Select **Mount** to locally mount the recovery point as a recovery volume on your target machine.
 
 10. On the **Browse And Recover Files** page, select **Browse** to open Windows Explorer, and find the files and folders you want.
 
-    ![Screenshot of Recover Data Wizard Browse And Recover Files page](./media/backup-azure-restore-windows-server/alternatemachine_browserecover_instantrestore.png)
+    ![Screenshot of Recover Data Wizard Browse And Recover Files page (restore to alternate machine)](./media/backup-azure-restore-windows-server/alternatemachine_browserecover_instantrestore.png)
 
 11. In Windows Explorer, copy the files and folders from the recovery volume, and paste them to your target machine location. You can open or stream the files directly from the recovery volume, and verify that the correct versions are recovered.
 
-    ![Screenshot of Windows Explorer, with Copy highlighted](./media/backup-azure-restore-windows-server/alternatemachine_copy_instantrestore.png)
+    ![Screenshot of Windows Explorer, with Copy highlighted (restore to alternate machine)](./media/backup-azure-restore-windows-server/alternatemachine_copy_instantrestore.png)
 
-12. When you are finished, on the **Browse and Recover Files** page, select **Unmount**. Then select **Yes** to confirm that you want to unmount the volume.
+12. When you're finished, on the **Browse and Recover Files** page, select **Unmount**. Then select **Yes** to confirm that you want to unmount the volume.
 
-    ![Screenshot of Recover Data Wizard Browse And Recover Files page](./media/backup-azure-restore-windows-server/alternatemachine_unmount_instantrestore.png)
+    ![Unmount the volume (restore to alternate machine)](./media/backup-azure-restore-windows-server/alternatemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > If you do not select **Unmount**, the recovery volume will remain mounted for 6 hours from the time when it was mounted. However, the mount time is extended up to a maximum of 24 hours in case of an ongoing file-copy. No backup operations will run while the volume is mounted. Any backup operation scheduled to run during the time when the volume is mounted will run after the recovery volume is unmounted.
+    > If you don't select **Unmount**, the recovery volume will remain mounted for 6 hours from the time when it was mounted. However, the mount time is extended up to a maximum of 24 hours in the case of an ongoing file-copy. No backup operations will run while the volume is mounted. Any backup operation scheduled to run during the time when the volume is mounted will run after the recovery volume is unmounted.
     >
 
 ## Next steps
 
-Now that you've recovered your files and folders, you can [manage your backups](backup-azure-manage-windows-server.md).
+* Now that you've recovered your files and folders, you can [manage your backups](backup-azure-manage-windows-server.md).
+
+* Find [Common questions about backing up files and folders](backup-azure-file-folder-backup-faq.yml).

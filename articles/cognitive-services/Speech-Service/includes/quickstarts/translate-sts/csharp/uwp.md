@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Translate speech-to-speech, C# (UWP) - Speech Service'
+title: 'Quickstart: Translate speech-to-speech, C# (UWP) - Speech service'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -7,10 +7,10 @@ author: lisaweixu
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 08/19/2019
+ms.date: 04/04/2020
 ms.author: jhakulin
-ms.author: erhopf
-ms.topic: quickstart
+ms.topic: include
+ms.custom: devx-track-csharp
 ---
 
 ## Prerequisites
@@ -18,9 +18,8 @@ ms.topic: quickstart
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=uwp)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=uwp)
+> * [Create an Azure Speech Resource](../../../../overview.md#try-the-speech-service-for-free)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=uwp&pivots=programming-language-csharp)
 
 ## Add sample code
 
@@ -40,7 +39,7 @@ Now add the XAML code that defines the user interface of the application, and ad
 
 1. In the `SpeechTranslationFromMicrophone_ButtonClicked` handler in this file, find the string `YourSubscriptionKey`, and replace it with your subscription key.
 
-1. In the `SpeechTranslationFromMicrophone_ButtonClicked` handler, find the string `YourServiceRegion`, and replace it with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription. (For example, use `westus` for the free trial subscription.)
+1. In the `SpeechTranslationFromMicrophone_ButtonClicked` handler, find the string `YourServiceRegion`, and replace it with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription.
 
 1. From the menu bar, choose **File** > **Save All** to save your changes.
 

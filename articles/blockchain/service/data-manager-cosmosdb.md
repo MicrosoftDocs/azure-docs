@@ -1,20 +1,20 @@
 ---
-title: Use Blockchain Data Manager to update Azure Cosmos DB
-description: Use Blockchain Data Manager to send blockchain data to Azure Cosmos DB
-services: azure-blockchain
-author: PatAltimore
-ms.author: patricka
-ms.date: 11/04/2019
+title: Use Blockchain Data Manager to update Azure Cosmos DB - Azure Blockchain Service
+description: Use Blockchain Data Manager for Azure Blockchain Service to send blockchain data to Azure Cosmos DB
+ms.date: 03/08/2020
 ms.topic: tutorial
-ms.service: azure-blockchain
 ms.reviewer: chroyal
 #Customer intent: As a developer, I want to use Blockchain Data Manager to send blockchain data to Azure Cosmos DB
 ---
 # Tutorial: Use Blockchain Data Manager to send data to Azure Cosmos DB
 
-In this tutorial, you use Blockchain Data Manager for Azure Blockchain Service to record blockchain transaction data in Azure Cosmos DB. Blockchain Data Manager captures, transforms, and delivers blockchain ledger data to Azure Event Grid Topics. From Azure Event Grid, you use a Azure Logic App connector to create documents in an Azure Cosmos DB database. When finished with tutorial, you can explore blockchain transaction data in Azure Cosmos DB Data Explorer.
+In this tutorial, you use Blockchain Data Manager for Azure Blockchain Service to record blockchain transaction data in Azure Cosmos DB.
 
-[![Blockchain transaction detail](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
+[!INCLUDE [Retirement note](./includes/retirement.md)]
+
+Blockchain Data Manager captures, transforms, and delivers blockchain ledger data to Azure Event Grid Topics. From Azure Event Grid, you use an Azure Logic App connector to create documents in an Azure Cosmos DB database. When finished with tutorial, you can explore blockchain transaction data in Azure Cosmos DB Data Explorer.
+
+[![Screenshot shows blockchain transaction details.](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
 
 In this tutorial, you:
 
@@ -77,13 +77,15 @@ The contract ABI defines the smart contract interfaces. It describes how to inte
 
 1. Save the **abi** array as a JSON file. For example, *abi.json*. You use the file in a later step.
 
-Blockchain Data Manager requires the deployed bytecode for the smart contract. The deployed bytecode is different than the smart contract bytecode. You can get the deployed bytecode from the compiled contract metadata file.
+Blockchain Data Manager requires the deployed bytecode for the smart contract. The deployed bytecode is different than the smart contract bytecode. You use the Azure blockchain development kit extension to copy the bytecode to the clipboard.
 
-1. Open the contract metadata file contained in the **build/contracts** folder of your Solidity project. The file name is the smart contract name followed by the **.json** extension.
-1. Find the **deployedBytecode** element in the JSON file.
-1. Copy the hexadecimal value without the quotes.
+1. In the Visual Studio Code explorer pane, expand the **build/contracts** folder of your Solidity project.
+1. Right-click the contract metadata JSON file. The file name is the smart contract name followed by the **.json** extension.
+1. Select **Copy Transaction Bytecode**.
 
-    ![Visual Studio Code pane with bytecode in the metadata](./media/data-manager-portal/bytecode-metadata.png)
+    ![Visual Studio Code pane with the Copy Transaction Bytecode selection](./media/data-manager-cosmosdb/bytecode-devkit.png)
+
+    The bytecode is copied to the clipboard.
 
 1. Save the **bytecode** value as a JSON file. For example, *bytecode.json*. You use the file in a later step.
 
@@ -157,7 +159,7 @@ You can delete the Azure Storage account or use it to configure more blockchain 
 
 ## Create Azure Cosmos DB
 
-[!INCLUDE [cosmos-db-create-storage-account](../../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-storage-account](../../cosmos-db/includes/cosmos-db-create-dbaccount.md)]
 
 ### Add a database and container
 
@@ -244,17 +246,17 @@ The logic app monitors the Event Grid Topic. When a new transaction message is s
 
 ## Send a transaction
 
-Next, send a transaction to the blockchain ledger to test what you created. Use the **sendrequest.js** script you created in the prerequisite [Tutorial: Use Visual Studio Code to create, build, and deploy smart contracts](send-transaction.md).
+Next, send a transaction to the blockchain ledger to test what you created. Use the **HelloBlockchain** contract's **SendRequest** function you created in the prerequisite [Tutorial: Use Visual Studio Code to create, build, and deploy smart contracts](send-transaction.md).
 
-In VS Code's terminal pane, use Truffle to execute the script on your consortium blockchain network. In the terminal pane menu bar, select the **Terminal** tab and **PowerShell** in the dropdown.
+1. Use the Azure Blockchain Development Kit smart contract interaction page to call the **SendRequest** function. Right-click **HelloBlockchain.sol** and choose **Show Smart Contract Interaction Page** from the menu.
 
-``` PowerShell
-truffle exec sendrequest.js --network <blockchain network>
-```
+    ![Choose Show Smart Contract Interaction Page from menu](./media/data-manager-cosmosdb/contract-interaction.png)
 
-Replace \<blockchain network\> with the name of the blockchain network defined in the **truffle-config.js**.
+1. Choose **SendRequest** contract action and enter **Hello, Blockchain!** for the **requestMessage** parameter. Select **Execute** to call the **SendRequest** function via a transaction.
 
-![Send transaction](./media/data-manager-cosmosdb/send-request.png)
+    ![Execute SendRequest action](./media/data-manager-cosmosdb/sendrequest-action.png)
+
+The SendRequest function sets the **RequestMessage** and **State** fields. The current state for **RequestMessage** is the argument you passed **Hello, Blockchain**. The **State** field value remains **Request**.
 
 ## View transaction data
 
@@ -268,7 +270,7 @@ Now that you have connected your Blockchain Data Manager to Azure Cosmos DB, you
 
 1. Browse through the messages by selecting item ID and find the message with the matching transaction hash.
 
-    [![Blockchain transaction detail](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
+    [![Screenshot shows the blockchain transaction details of a selected item.](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
 
     The raw transaction message contains detail about the transaction. However, the property information is encrypted.
 

@@ -1,12 +1,11 @@
 ---
-title: Create customer insights dashboard - Azure Logic Apps
+title: Create customer insights dashboard
 description: Manage customer feedback, social media data, and more by building a customer dashboard with Azure Logic Apps and Azure Functions
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: jeffhollan
 ms.author: jehollan
-ms.reviewer: estfan, LADocs
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 03/15/2018
 ---
@@ -32,7 +31,7 @@ tweets based on predefined keywords.
 In this scenario, you create a logic app that triggers on finding feedback from customers. 
 Some connectors that help you respond to customer feedback include Outlook.com, 
 Office 365, Survey Monkey, Twitter, and an 
-[HTTP request from a web form](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/). 
+[HTTP request from a web form](/archive/blogs/logicapps/calling-a-logic-app-from-an-html-form). 
 The workflow that you create monitors a hashtag on Twitter.
 
 You can [build the entire solution in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) 
@@ -106,7 +105,7 @@ create a function app in your Azure subscription.
 Also, for your logic app to directly call a function, 
 the function must have an HTTP trigger binding, 
 for example, use the **HttpTrigger** template. 
-Learn [how to create your first function app and function in the Azure portal](../azure-functions/functions-create-first-azure-function-azure-portal.md).
+Learn [how to create your first function app and function in the Azure portal](../azure-functions/functions-get-started.md).
 
 For this scenario, use the tweet text as 
 the request body for your Azure Function. 
@@ -169,7 +168,7 @@ On your logic app's menu, choose **Overview**.
 
 After you create a logic app solution, 
 you can capture and deploy your app as an 
-[Azure Resource Manager template](../azure-resource-manager/template-deployment-overview.md) 
+[Azure Resource Manager template](../azure-resource-manager/templates/overview.md) 
 to any Azure region in the world. 
 You can use this capability both to modify parameters 
 for creating different versions of your app and for 
@@ -180,7 +179,7 @@ with all dependencies as a single template. Learn
 how to [automate logic app deployment](logic-apps-azure-resource-manager-templates-overview.md).
 
 For an example deployment template with an Azure function, 
-check the [Azure quickstart template repository](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
+check the [Azure quickstart template repository](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/function-app-create-dynamic/azuredeploy.json).
 
 ## Next steps
 

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 02/22/2021
 ms.author: alkohli
 ms.localizationpriority: high 
 ---
@@ -52,7 +52,7 @@ For Windows client, following should also be installed.
 | --- | --- |
 | Windows PowerShell |5.0 |
 | .NET Framework |4.5.1 |
-| Windows Management Framework |5.0|
+| Windows Management Framework |5.1|
 | BitLocker| - |
 
 ## Other required software for Linux clients
@@ -76,9 +76,8 @@ Here is a list of the supported storage types for the Data Box Disk.
 | General Purpose  |Standard; both V1 and V2 are supported. Both hot and cool tiers are supported. |
 | Blob storage account | |
 
->[!NOTE]
-> Azure Data Lake Storage Gen 2 accounts are not supported.
-
+> [!IMPORTANT]
+> Network File System (NFS) 3.0 protocol support in Azure Blob storage is not supported with Data Box Disk.
 
 ## Supported storage types for upload
 

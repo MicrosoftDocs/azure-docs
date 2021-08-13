@@ -1,21 +1,18 @@
 ---
-title: Use Visual Studio Code - Azure Blockchain Service
+title: Create, build, & deploy smart contracts tutorial - Azure Blockchain Service
 description: Tutorial on how to use the Azure Blockchain Development Kit for Ethereum extension in Visual Studio Code to create, build, and deploy a smart contract on Azure Blockchain Service.
-services: azure-blockchain
-
-author: PatAltimore
-ms.author: patricka
-ms.date: 10/14/2019
+ms.date: 11/30/2020
 ms.topic: tutorial
-ms.service: azure-blockchain
-ms.reviewer: chrisseg
+ms.reviewer: caleteet
 
 #Customer intent: As a developer, I want to use Azure Blockchain Service so that I can execute smart contract functions on a consortium blockchain network.
 ---
 
-# Tutorial: Use Visual Studio Code to create, build, and deploy smart contracts
+# Tutorial: Create, build, and deploy smart contracts on Azure Blockchain Service
 
-In this tutorial, use the Azure Blockchain Development Kit for Ethereum extension in Visual Studio Code to create, build, and deploy a smart contract on Azure Blockchain Service. You also use Truffle to execute a smart contract function via a transaction.
+In this tutorial, use the Azure Blockchain Development Kit for Ethereum extension in Visual Studio Code to create, build, and deploy a smart contract on Azure Blockchain Service. You also use the development kit to execute a smart contract function via a transaction.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
 
 You use Azure Blockchain Development Kit for Ethereum to:
 
@@ -23,19 +20,32 @@ You use Azure Blockchain Development Kit for Ethereum to:
 > * Create a smart contract
 > * Deploy a smart contract
 > * Execute a smart contract function via a transaction
-> * Query contract state
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
 * Complete [Quickstart: Use Visual Studio Code to connect to a Azure Blockchain Service consortium network](connect-vscode.md)
+* [Visual Studio Code](https://code.visualstudio.com/Download)
+* [Azure Blockchain Development Kit for Ethereum extension](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
+* [Node.js 10.15.x or higher](https://nodejs.org/download)
+* [Git 2.10.x or higher](https://git-scm.com)
+* [Truffle 5.0.0](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
+* [Ganache CLI 6.0.0](https://github.com/trufflesuite/ganache-cli)
+
+On Windows, an installed C++ compiler is required for the node-gyp module. You can use the MSBuild tools:
+
+* If Visual Studio 2017 is installed, configure npm to use the MSBuild tools with the command `npm config set msvs_version 2017 -g`
+* If Visual Studio 2019 is installed, set the MS build tools path for npm. For example, `npm config set msbuild_path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe"`
+* Otherwise, install the stand-alone VS Build tools using `npm install --global windows-build-tools` in an elevated *Run as administrator* command shell.
+
+For more information about node-gyp, see the [node-gyp repository on GitHub](https://github.com/nodejs/node-gyp).
 
 ## Create a smart contract
 
 The Azure Blockchain Development Kit for Ethereum uses project templates and Truffle tools to help scaffold, build, and deploy contracts. Before you begin, complete the prerequisite [Quickstart: Use Visual Studio Code to connect to a Azure Blockchain Service consortium network](connect-vscode.md). The quickstart guides you through the installation and configuration of the Azure Blockchain Development Kit for Ethereum.
 
-1. From the VS Code command palette, choose **Azure Blockchain: New Solidity Project**.
+1. From the VS Code command palette, choose **Blockchain: New Solidity Project**.
 1. Choose **Create basic project**.
 1. Create a new folder named `HelloBlockchain` and **Select new project path**.
 
@@ -52,11 +62,11 @@ Smart contracts are located in the project's **contracts** directory. You compil
 1. In the VS Code explorer sidebar, expand the **contracts** folder in your project.
 1. Right-click **HelloBlockchain.sol** and choose **Build Contracts** from the menu.
 
-    ![Build contracts](./media/send-transaction/build-contracts.png)
+    ![Choose Build contracts menu ](./media/send-transaction/build-contracts.png)
 
 Azure Blockchain Development Kit uses Truffle to compile the smart contracts.
 
-![Compile output](./media/send-transaction/compile-output.png)
+![Truffle compiler output](./media/send-transaction/compile-output.png)
 
 ## Deploy a smart contract
 
@@ -71,14 +81,13 @@ Azure Blockchain Development Kit uses Truffle to execute the migration script to
 ![Successfully deployed contract](./media/send-transaction/deploy-contract.png)
 
 ## Call a contract function
-
 The **HelloBlockchain** contract's **SendRequest** function changes the **RequestMessage** state variable. Changing the state of a blockchain network is done via a transaction. You can create a script to execute the **SendRequest** function via a transaction.
 
 1. Create a new file in the root of your Truffle project and name it `sendrequest.js`. Add the following Web3 JavaScript code to the file.
 
     ```javascript
     var HelloBlockchain = artifacts.require("HelloBlockchain");
-        
+
     module.exports = function(done) {
       console.log("Getting the deployed version of the HelloBlockchain smart contract")
       HelloBlockchain.deployed().then(function(instance) {
@@ -106,7 +115,7 @@ The **HelloBlockchain** contract's **SendRequest** function changes the **Reques
 
 Truffle executes the script on your blockchain network.
 
-![Script output](./media/send-transaction/execute-transaction.png)
+![Output showing transaction has been sent](./media/send-transaction/execute-transaction.png)
 
 When you execute a contract's function via a transaction, the transaction isn't processed until a block is created. Functions meant to be executed via a transaction return a transaction ID instead of a return value.
 
@@ -134,7 +143,7 @@ Smart contract functions can return the current value of state variables. Let's 
 
     ```javascript
     var HelloBlockchain = artifacts.require("HelloBlockchain");
-    
+
     module.exports = function(done) {
       console.log("Getting the deployed version of the HelloBlockchain smart contract")
       HelloBlockchain.deployed().then(function(instance) {
@@ -161,16 +170,15 @@ Smart contract functions can return the current value of state variables. Let's 
 
 The script queries the smart contract by calling the getMessage function. The current value of the **RequestMessage** state variable is returned.
 
-![Script output](./media/send-transaction/execute-get.png)
+![Output from getmessage query showing the current value of RequestMessage state variable](./media/send-transaction/execute-get.png)
 
-Notice the value is not **Hello, blockchain!**. Instead, the returned value is a placeholder. When you change and deploy the contract, the contract gets a new contract address and the state variables are assigned values in the smart contract constructor. The Truffle sample **2_deploy_contracts.js** migration script deploys the smart contract and passes a placeholder value as an argument. The constructor sets the **RequestMessage** state variable to the placeholder value and that's what is returned.
+Notice the value is not **Hello, blockchain!**. Instead, the returned value is a placeholder. When you change and deploy the contract, the changed contract is deployed at a new address and the state variables are assigned values in the smart contract constructor. The Truffle sample **2_deploy_contracts.js** migration script deploys the smart contract and passes a placeholder value as an argument. The constructor sets the **RequestMessage** state variable to the placeholder value and that's what is returned.
 
 1. To set the **RequestMessage** state variable and query the value, run the **sendrequest.js** and **getmessage.js** scripts again.
 
-    ![Script output](./media/send-transaction/execute-set-get.png)
+    ![Output from sendrequest and getmessage scripts showing RequestMessage has been set](./media/send-transaction/execute-set-get.png)
 
     **sendrequest.js** sets the **RequestMessage** state variable to **Hello, blockchain!** and **getmessage.js** queries the contract for value of **RequestMessage** state variable and returns **Hello, blockchain!**.
-
 ## Clean up resources
 
 When no longer needed, you can delete the resources by deleting the `myResourceGroup` resource group you created in the *Create a blockchain member* prerequisite quickstart.

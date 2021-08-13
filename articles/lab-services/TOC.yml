@@ -1,265 +1,224 @@
-- name: DevTest Labs documentation
+- name: Lab Services documentation
   href: index.yml
-- name: Switch to Lab Services documentation
-  href: classroom-labs/classroom-labs-overview.md
 - name: Overview
   items:
-  - name: About DevTest Labs 
-    href: devtest-lab-overview.md
-  - name: Azure DevTest Labs and Lab Services
+  - name: About Lab Services
     href: lab-services-overview.md
+- name: Quickstarts
+  items:
+    - name: Get started
+      href: get-started-manage-labs.md
 - name: Tutorials
   items:
-  - name: 1. Set up a lab
-    href: tutorial-create-custom-lab.md 
-  - name: 2. Access a lab
-    href: tutorial-use-custom-lab.md
-- name: Samples
-  items:
-  - name: Resource Manager templates
-    href: https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates 
-  - name: Azure PowerShell
-    href: samples-powershell.md
-  - name: Azure PowerShell - Az.DevTestLabs2 module
-    href: https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library      
-  - name: Azure CLI
-    href: samples-cli.md    
+  - name: Set up a lab account
+    href: tutorial-setup-lab-account.md
+  - name: Set up a classroom lab
+    href: tutorial-setup-classroom-lab.md 
+  - name: Access a classroom lab
+    href: tutorial-connect-virtual-machine-classroom-lab.md
+  - name: Track usage of a classroom lab
+    href: tutorial-track-usage.md            
 - name: Concepts
   items:
-  - name: DevTest Labs concepts
-    href: devtest-lab-concepts.md
-  - name: Best practices for distributed and collaborative development
-    href: best-practices-distributive-collaborative-development-environment.md    
-  - name: Integration with Azure DevOps
-    href: devtest-lab-dev-ops.md
+  - name: Labs overview
+    href: classroom-labs-overview.md 
+  - name: Labs concepts
+    href: classroom-labs-concepts.md    
+  - name: Labs architecture fundamentals
+    href: classroom-labs-fundamentals.md
+  - name: Capacity limits
+    href: capacity-limits.md  
+  - name: Cost management for labs
+    href: cost-management-guide.md        
   - name: Scenarios
-    items:
-    - name: Popular scenarios for using DevTest Labs
-      href: devtest-lab-guidance-get-started.md
-    - name: Use labs for developers
-      href: devtest-lab-developer-lab.md
-    - name: Use labs for test environments
-      href: devtest-lab-test-env.md
-    - name: Use labs for training
-      href: devtest-lab-training-lab.md
-    - name: Scenarios for using claimable VMs
-      href: devtest-lab-use-claim-capabilities.md
+    items:  
+    - name: Use Lab Services for conducting classes
+      href: classroom-labs-scenarios.md
+    - name: Use Lab Services for hackathon
+      href: hackathon-labs.md
+    - name: Lab class types
+      items:
+      - name: Class types overview
+        href: class-types.md
+      - name: Adobe Creative Cloud
+        href: class-type-adobe-creative-cloud.md
+      - name: ArcGIS
+        href: class-type-arcgis.md
+      - name: Autodesk
+        href: class-type-autodesk.md
+      - name: Big data analytics
+        href: class-type-big-data-analytics.md
+      - name: Database management
+        href: class-type-database-management.md
+      - name: Deep learning in natural language processing
+        href: class-type-deep-learning-natural-language-processing.md
+      - name: Ethical hacking with Hyper-V
+        href: class-type-ethical-hacking.md
+      - name: Ethical hacking with VirtualBox
+        href: class-type-ethical-hacking-virtualbox.md
+      - name: MATLAB
+        href: class-type-matlab.md
+      - name: Networking with GNS3
+        href: class-type-networking-gns3.md
+      - name: Project Lead the Way
+        href: class-type-pltw.md
+      - name: Python and Jupyter Notebooks
+        href: class-type-jupyter-notebook.md
+      - name: React web development
+        items:
+        - name: React (Linux)
+          href: class-type-react-linux.md
+        - name: React (Windows) 
+          href: class-type-react-windows.md
+      - name: Shell scripting on Linux
+        href: class-type-shell-scripting-linux.md
+      - name: SolidWorks computer-aided design (CAD)
+        displayName: SolidWorks CAD
+        href: class-type-solidworks.md
+      - name: Sql database management and development
+        href: class-type-sql-server.md
+    - name: Use Azure Lab Services within Teams
+      items:
+        - name: Overview 
+          displayName: labs within Teams
+          href: lab-services-within-teams-overview.md
 - name: How-to guides
   items:
-  - name: Configure a lab
-    items: 
-    - name: Create a lab
-      href: devtest-lab-create-lab.md
-    - name: Create or modify labs using Resource Manager template
-      href: devtest-lab-use-arm-and-powershell-for-lab-resources.md
-    - name: Specify resource group for lab virtual machines
-      href: resource-group-control.md
-    - name: Add support info to a lab
-      href: devtest-lab-internal-support-message.md
-    - name: Set policies and schedules
-      href: devtest-lab-set-lab-policy.md
-    - name: Configure a lab to use a remote desktop gateway
-      href: configure-lab-remote-desktop-gateway.md
-    - name: Post announcement in a lab
-      href: devtest-lab-announcements.md
-    - name: Enable browser connection on VMs
-      href: enable-browser-connection-lab-virtual-machines.md        
-    - name: Configure cost management
-      href: devtest-lab-configure-cost-management.md
-    - name: Send autoshutdown notifications
-      href: devtest-lab-auto-shutdown.md
-    - name: Scale your lab
-      href: devtest-lab-scale-lab.md
-    - name: Manage virtual machine bases
-      items:        
-      - name: Configure Azure Marketplace images
-        href: devtest-lab-configure-marketplace-images.md
-      - name: Enable a licensed image
-        href: devtest-lab-enable-licensed-images.md
-      - name: Configure a shared image gallery
-        href: configure-shared-image-gallery.md    
-    - name: Configure tags
-      href: devtest-lab-add-tag.md
-    - name: Configure access control
-      items:
-      - name: Add lab owners and users
-        href: devtest-lab-add-devtest-user.md
-      - name: Customize permissions with custom roles
-        href: devtest-lab-grant-user-permissions-to-specific-lab-policies.md
-      - name: Automate adding a lab user
-        href: automate-add-lab-user.md
-    - name: Manage virtual networks
-      items:
-      - name: Configure virtual networks
-        href: devtest-lab-configure-vnet.md
-      - name: Select IP configuration option
-        href: devtest-lab-shared-ip.md
-    - name: Delete a lab or VM in a lab
-      href: devtest-lab-delete-lab-vm.md
-    - name: Export or delete personal data
-      href: personal-data-delete-export.md
-  - name: Use VMs in a lab
-    items: 
-    - name: Create a VM - Azure portal
-      href: devtest-lab-add-vm.md
-    - name: Create a VM - Azure PowerShell
-      href: devtest-lab-vm-powershell.md
-    - name: Create a VM - Azure CLI
-      href: devtest-lab-vmcli.md        
-    - name: Create a VM - Resource Manager template
-      href: devtest-lab-use-resource-manager-template.md
-    - name: Create a VM using an image from shared image gallery
-      href: add-vm-use-shared-image.md
-    - name: Connect to your VM through a browser
-      href: connect-virtual-machine-through-browser.md           
-    - name: Start or stop a VM using PowerShell or CLI
-      href: use-command-line-start-stop-virtual-machines.md
-    - name: Restart a VM
-      href: devtest-lab-restart-vm.md
-    - name: Resize a VM
-      href: devtest-lab-resize-vm.md
-    - name: Redeploy a VM
-      href: devtest-lab-redeploy-vm.md
-    - name: Configure autoshutdown of a VM 
-      href: devtest-lab-auto-shutdown-vm.md
-    - name: Create and manage claimable VMs
-      href: devtest-lab-add-claimable-vm.md
-    - name: Configure secrets
-      href: devtest-lab-store-secrets-in-key-vault.md
-    - name: Attach and detach data disks
-      href: devtest-lab-attach-detach-data-disk.md
-    - name: Start VMs using Automation runbooks
-      href: start-machines-use-automation-runbooks.md
-    - name: Import virtual machines from another lab
-      href: import-virtual-machines-from-another-lab.md
-  - name: Use environments in a lab
+  - name: Administrator guide
+    href: administrator-guide.md
+  - name: Accelerated lab account setup guide
+    href: account-setup-guide.md
+  - name: Accelerated lab setup guide
+    href: setup-guide.md
+  - name: Create and configure lab accounts (lab account owner)
     items:
-    - name: Create an environment
-      href: devtest-lab-create-environment-from-arm.md
-    - name: Use Platform-as-a-Service (PaaS) services
-      href: use-paas-services.md
-    - name: Public environments
+    - name: Create and manage lab accounts
+      href: how-to-manage-lab-accounts.md
+    - name: Manage labs in a lab account
+      href: manage-labs.md
+    - name: Configure auto-shutdown of VMs for a lab account
+      href: how-to-configure-lab-accounts.md
+    - name: Add a lab creator
+      href: add-lab-creator.md
+    - name: Allow lab creator to pick lab location
+      href: allow-lab-creator-pick-lab-location.md
+    - name: Connect to a peer virtual network
+      href: how-to-connect-peer-virtual-network.md
+    - name: How to create a lab with a shared resource
+      href: how-to-create-a-lab-with-shared-resource.md
+    - name: Use shared image gallery for custom images
       items:
-      - name: Configure and use public environments
-        href: devtest-lab-configure-use-public-environments.md        
-      - name: Create an environment with Service Fabric cluster
-        href: create-environment-service-fabric-cluster.md
-    - name: Connect an environment to your lab's virtual network
-      href: connect-environment-lab-virtual-network.md
-    - name: Configure test environments with nested templates
-      href: deploy-nested-template-environments.md
-    - name: Use Azure managed identities to deploy environments
-      href: use-managed-identities-environments.md
-  - name: Manage reusable templates
-    items: 
-    - name: Custom images vs. formulas
-      href: devtest-lab-comparing-vm-base-image-types.md
-    - name: Manage environment templates
+      - name: Attach or detach a shared image gallery
+        href: how-to-attach-detach-shared-image-gallery.md
+      - name: Create custom images for labs
+        href: approaches-for-custom-image-creation.md
+      - name: Windows
+        items:
+          - name: Bring a custom image from an Azure VM
+            href: how-to-bring-custom-windows-image-azure-vm.md
+          - name: Bring a custom image from a physical environment
+            href: upload-custom-image-shared-image-gallery.md
+      - name: Linux
+        items:
+          - name: Bring a custom image from an Azure VM
+            href: how-to-bring-custom-linux-image-azure-vm.md
+          - name: Bring a custom image from a physical environment
+            href: how-to-bring-custom-linux-image-vhd.md
+    - name: Add additional owners to a classroom lab
+      href: how-to-add-user-lab-owner.md
+    - name: Configure firewall settings
+      href: how-to-configure-firewall-settings.md
+    - name: Specify Marketplace images for labs 
+      href: specify-marketplace-images.md
+    - name: Specify support information (lab account owner)
+      href: lab-account-owner-support-information.md
+ 
+  - name: Create and configure labs (educator)
+    items:        
+    - name: Create and manage labs
+      href: how-to-manage-classroom-labs.md
+    - name: Use dashboard
+      href: use-dashboard.md
+    - name: Set up, customize, and publish templates
+      href: how-to-create-manage-template.md
+    - name: Set up and manage virtual machine pool 
+      href: how-to-set-virtual-machine-passwords.md
+    - name: Add and manage lab users
+      href: how-to-configure-student-usage.md      
+    - name: Create and manage schedules
+      href: how-to-create-schedules.md
+    - name: Use a shared image gallery
+      href: how-to-use-shared-image-gallery.md            
+    - name: Enable remote desktop connection for Linux
+      href: how-to-enable-remote-desktop-linux.md
+    - name: Configure auto-shutdown of VMs for a lab
+      href: how-to-enable-shutdown-disconnect.md       
+    - name: Enable nested virtualization on a template VM
       items:
-      - name: Add a Git repository for artifacts and templates
-        href: devtest-lab-add-artifact-repo.md
-    - name: Manage custom images
-      items:
-      - name: Create custom image from a VM
-        href: devtest-lab-create-custom-image-from-vm-using-portal.md
-      - name: Create custom image from a VHD - Azure portal
-        href: devtest-lab-create-template.md
-      - name: Create custom image from a VHD - PowerShell
-        href: devtest-lab-create-custom-image-from-vhd-using-powershell.md
-      - name: Upload VHD file using AzCopy
-        href: devtest-lab-upload-vhd-using-azcopy.md
-      - name: Upload VHD file using PowerShell
-        href: devtest-lab-upload-vhd-using-powershell.md
-      - name: Upload VHD file using Storage Explorer
-        href: devtest-lab-upload-vhd-using-storage-explorer.md
-    - name: Manage formulas
-      href: devtest-lab-manage-formulas.md
-    - name: Create an image factory
-      href: image-factory-create.md
-      items:
-      - name: Run an image factory from Azure DevOps
-        href: image-factory-set-up-devops-lab.md
-      - name: Save custom images and distribute to multiple labs
-        href: image-factory-save-distribute-custom-images.md
-      - name: Set retention policy and run cleanup scripts
-        href: image-factory-set-retention-policy-cleanup.md
-  - name: Manage artifacts
-    items: 
-    - name: Add artifacts to a VM
-      href: add-artifact-vm.md
-    - name: Create custom artifacts
-      href: devtest-lab-artifact-author.md
-    - name: Add an artifact repository to a lab
-      href: add-artifact-repository.md
-    - name: Specify mandatory artifacts 
-      href: devtest-lab-mandatory-artifacts.md
-  - name: Integrate with CI/CD
+      - name: Enable nested virtualization on a template VM overview
+        href: how-to-enable-nested-virtualization-template-vm.md
+      - name: Enable nested virtualization on a template VM using the UI
+        href: how-to-enable-nested-virtualization-template-vm-ui.md 
+      - name: Enable nested virtualization on a template VM using a script
+        href: how-to-enable-nested-virtualization-template-vm-using-script.md
+    - name: Set up a lab with GPUs
+      href: how-to-setup-lab-gpu.md
+    - name: Prepare a Windows template VM
+      href: how-to-prepare-windows-template.md
+    - name: Use external file storage
+      href: how-to-attach-external-storage.md
+    - name: Control Windows shutdown behavior
+      href: how-to-windows-shutdown.md
+    - name: View support information (educator)
+      href: lab-creator-support-information.md
+    - name: Access student VMs from educator view
+      href: instructor-access-virtual-machines.md      
+  - name: Connect to VMs in labs (student)
+    items:        
+    - name: Access labs
+      href: how-to-use-classroom-lab.md
+    - name: Connect to Linux VMs
+      href: how-to-use-remote-desktop-linux-student.md                
+    - name: Connect to a VM from Mac using RDP
+      href: connect-virtual-machine-mac-remote-desktop.md
+    - name: Connect to a VM from Chromebook using RDP
+      href: connect-virtual-machine-chromebook-remote-desktop.md
+    - name: Set or reset passwords for virtual machines 
+      href: how-to-set-virtual-machine-passwords-student.md 
+    - name: View support information (student)
+      href: lab-user-support-information.md        
+  - name: Use labs within Teams
     items:
-    - name: Integrate labs into your Azure Pipelines CI/CD pipeline
-      href: devtest-lab-integrate-ci-cd.md
-    - name: Integrate environments into your Azure Pipelines CI/CD pipeline
-      href: integrate-environments-devops-pipeline.md
-    - name: Use DevTest Labs in Azure Pipelines build and release pipelines
-      href: use-devtest-labs-build-release-pipelines.md
-  - name: Extend DevTest Labs
-    items:
-    - name: Use Azure Functions to extend DevTest Labs
-      href: extend-devtest-labs-azure-functions.md
-  - name: Report usage of labs
-    href: report-usage-across-multiple-labs-subscriptions.md        
-  - name: DevTest Labs in the enterprise
-    items:
-    - name: DevTest Labs at enterprise scale
-      href: devtest-lab-guidance-prescriptive-adoption.md
-    - name: Reference architecture
-      href: devtest-lab-reference-architecture.md
-    - name: Deliver proof of concept
-      href: deliver-proof-concept.md
-    - name: Scale up your DevTest Labs deployment
-      href: devtest-lab-guidance-scale.md
-    - name: Orchestrate the implementation of DevTest Labs
-      href: devtest-lab-guidance-orchestrate-implementation.md
-    - name: Governance of DevTest Labs infrastructure
-      items: 
-      - name: Resources
-        href: devtest-lab-guidance-governance-resources.md
-      - name: Cost and ownership
-        href: devtest-lab-guidance-governance-cost-ownership.md
-      - name: Policy and compliance
-        href: devtest-lab-guidance-governance-policy-compliance.md
-      - name: Application migration and integration
-        href: devtest-lab-guidance-governance-application-migration-integration.md
-  - name: Test your app in Azure
-    href: test-app-azure.md
-  - name: Troubleshoot
-    items:
-    - name: Troubleshoot VM and environment creation failures
-      href: troubleshoot-vm-environment-creation-failures.md
-    - name: Troubleshoot artifact failures
-      href: devtest-lab-troubleshoot-artifact-failure.md
+      - name: Create a lab from Teams
+        href: how-to-get-started-create-lab-within-teams.md
+      - name: Manage user lists
+        href: how-to-manage-user-lists-within-teams.md
+      - name: Manage VM pool
+        href: how-to-manage-vm-pool-within-teams.md
+      - name: Delete labs
+        href: how-to-delete-lab-within-teams.md
+      - name: Schedules and settings
+        href: how-to-create-schedules-within-teams.md
+      - name: Access a VM (student view)
+        href: how-to-access-vm-for-students-within-teams.md
+      
 - name: Reference
   items:
-  - name: CLI
-    href: /cli/azure/lab
-  - name: PowerShell
-    href: /powershell/module/az.devtestlabs
-  - name: PowerShell - sample Az.DevTestLabs2 module
-    href: https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library
   - name: REST API
-    href: https://docs.microsoft.com/rest/api/dtl/
-  - name: Resource Manager template
-    href: /azure/templates/microsoft.devtestlab/allversions
+    href: /rest/api/labservices/
+  - name: Az.LabServices PowerShell module (preview)
+    href: reference-powershell-module.md
+  - name: Azure CLI
+    href: https://github.com/Azure/azure-cli-extensions/tree/main/src/hack
 - name: Resources
   items:
+  - name: Azure Lab Services Blog
+    href: https://aka.ms/azlabs-blog
   - name: Azure updates
-    href: https://azure.microsoft.com/updates/?product=devtest-lab
-  - name: Pricing 
-    href: https://azure.microsoft.com/pricing/details/devtest-lab/
-  - name: MSDN Forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-devtest-labs
-  - name: Videos
-    href: https://azure.microsoft.com/resources/videos/index/?services=devtest-lab
+    href: https://azure.microsoft.com/updates/?product=lab-services
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/lab-services/
+  - name: Tech community forum
+    href: https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices
   - name: Frequently asked questions
-    href: devtest-lab-faq.md
+    href: classroom-labs-faq.yml

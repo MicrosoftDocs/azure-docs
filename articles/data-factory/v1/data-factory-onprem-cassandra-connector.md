@@ -1,21 +1,11 @@
 ---
 title: Move data from Cassandra using Data Factory 
 description: Learn about how to move data from an on-premises Cassandra database using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: craigg
-
-
-ms.assetid: 085cc312-42ca-4f43-aa35-535b35a102d5
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 # Move data from an on-premises Cassandra database using Azure Data Factory
@@ -74,7 +64,7 @@ The following table provides description for JSON elements specific to Cassandra
 | encryptedCredential |Credential encrypted by the gateway. |No |
 
 >[!NOTE]
->Currently connection to Cassandra using SSL is not supported.
+>Currently connection to Cassandra using TLS is not supported.
 
 ## Dataset properties
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
@@ -289,14 +279,14 @@ See [RelationalSource type properties](#copy-activity-properties) for the list o
 Azure Data Factory uses a built-in ODBC driver to connect to and copy data from your Cassandra database. For collection types including map, set and list, the driver renormalizes the data into corresponding virtual tables. Specifically, if a table contains any collection columns, the driver generates the following virtual tables:
 
 * A **base table**, which contains the same data as the real table except for the collection columns. The base table uses the same name as the real table that it represents.
-* A **virtual table** for each collection column, which expands the nested data. The virtual tables that represent collections are named using the name of the real table, a separator “*vt*” and the name of the column.
+* A **virtual table** for each collection column, which expands the nested data. The virtual tables that represent collections are named using the name of the real table, a separator "*vt*" and the name of the column.
 
 Virtual tables refer to the data in the real table, enabling the driver to access the denormalized data. See Example section for details. You can access the content of Cassandra collections by querying and joining the virtual tables.
 
 You can use the [Copy Wizard](data-factory-data-movement-activities.md#create-a-pipeline-with-copy-activity) to intuitively view the list of tables in Cassandra database including the virtual tables, and preview the data inside. You can also construct a query in the Copy Wizard and validate to see the result.
 
 ### Example
-For example, the following “ExampleTable” is a Cassandra database table that contains an integer primary key column named “pk_int”, a text column named value, a list column, a map column, and a set column (named “StringSet”).
+For example, the following "ExampleTable" is a Cassandra database table that contains an integer primary key column named "pk_int", a text column named value, a list column, a map column, and a set column (named "StringSet").
 
 | pk_int | Value | List | Map | StringSet |
 | --- | --- | --- | --- | --- |
@@ -305,16 +295,16 @@ For example, the following “ExampleTable” is a Cassandra database table that
 
 The driver would generate multiple virtual tables to represent this single table. The foreign key columns in the virtual tables reference the primary key columns in the real table, and indicate which real table row the virtual table row corresponds to.
 
-The first virtual table is the base table named “ExampleTable” is shown in the following table. The base table contains the same data as the original database table except for the collections, which are omitted from this table and expanded in other virtual tables.
+The first virtual table is the base table named "ExampleTable" is shown in the following table. The base table contains the same data as the original database table except for the collections, which are omitted from this table and expanded in other virtual tables.
 
 | pk_int | Value |
 | --- | --- |
 | 1 |"sample value 1" |
 | 3 |"sample value 3" |
 
-The following tables show the virtual tables that renormalize the data from the List, Map, and StringSet columns. The columns with names that end with “_index” or “_key” indicate the position of the data within the original list or map. The columns with names that end with “_value” contain the expanded data from the collection.
+The following tables show the virtual tables that renormalize the data from the List, Map, and StringSet columns. The columns with names that end with "_index" or "_key" indicate the position of the data within the original list or map. The columns with names that end with "_value" contain the expanded data from the collection.
 
-#### Table “ExampleTable_vt_List”:
+#### Table "ExampleTable_vt_List":
 | pk_int | List_index | List_value |
 | --- | --- | --- |
 | 1 |0 |1 |
@@ -325,14 +315,14 @@ The following tables show the virtual tables that renormalize the data from the 
 | 3 |2 |102 |
 | 3 |3 |103 |
 
-#### Table “ExampleTable_vt_Map”:
+#### Table "ExampleTable_vt_Map":
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
 | 1 |S1 |A |
 | 1 |S2 |b |
 | 3 |S1 |t |
 
-#### Table “ExampleTable_vt_StringSet”:
+#### Table "ExampleTable_vt_StringSet":
 | pk_int | StringSet_value |
 | --- | --- |
 | 1 |A |

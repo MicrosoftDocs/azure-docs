@@ -1,66 +1,48 @@
 ---
-title: 'About point-to-site VPN client profiles: Azure VPN Gateway| Microsoft Docs'
-description: This helps you work with the client profile file
+title: 'About Point-to-Site VPN client profiles'
+titleSuffix: Azure VPN Gateway
+description: Learn about P2S VPN client profile files.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
-ms.topic: article
-ms.date: 11/04/2019
+ms.topic: how-to
+ms.date: 02/08/2021
 ms.author: cherylmc
 
 ---
-# About P2S VPN client profiles
+# Working with P2S VPN client profile files
 
-The downloaded profile file contains information that is necessary to configure a VPN connection. This article will help you obtain and understand the information necessary for a VPN client profile.
+Profile files contain information that is necessary to configure a VPN connection. This article will help you obtain and understand the information necessary for a VPN client profile.
 
-## 1. Download the file
+## Generate and download profile
 
-Run the following commands. Copy the result URL to your browser in order to download the profile zip file.
+You can generate client configuration files using PowerShell, or by using the Azure portal. Either method returns the same zip file.
 
-```azurepowershell-interactive
-$profile = New-AzVpnClientConfiguration -ResourceGroupName AADAuth -Name AADauthGW -AuthenticationMethod "EapTls"
-   
-$PROFILE.VpnProfileSASUrl
-```
+### Portal
 
-## 2. Extract the zip file
+1. In the Azure portal, navigate to the virtual network gateway for the virtual network that you want to connect to.
+1. On the virtual network gateway page, select **Point-to-site configuration**.
+1. At the top of the Point-to-site configuration page, select **Download VPN client**. It takes a few minutes for the client configuration package to generate.
+1. Your browser indicates that a client configuration zip file is available. It is named the same name as your gateway. Unzip the file to view the folders.
 
-Extract the zip file. The file contains the following folders:
+### PowerShell
 
-* AzureVPN
-* Generic
-* OpenVPN (If you enabled the OpenVPN and Azure AD authentication settings on the gateway. See [Create a tenant](openvpn-azure-ad-tenant.md).)
+To generate using PowerShell, you can use the following example:
 
-## 3. Retrieve information
+1. When generating VPN client configuration files, the value for '-AuthenticationMethod' is 'EapTls'. Generate the VPN client configuration files using the following command:
 
-In the **AzureVPN** folder, navigate to the ***azurevpnconfig.xml*** file and open it with Notepad. Make a note of the text between the following tags.
+   ```azurepowershell-interactive
+   $profile=New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls"
 
-```
-<audience>          </audience>
-<issuer>            </issuer>
-<tennant>           </tennant>
-<fqdn>              </fqdn>
-<serversecret>      </serversecret>
-```
+   $profile.VPNProfileSASUrl
+   ```
 
-## Profile details
+1. Copy the URL to your browser to download the zip file, then unzip the file to view the folders.
 
-When you add a connection, use the information you collected in the previous step for the profile details page. The fields correspond to the following information:
+[!INCLUDE [client profiles](../../includes/vpn-gateway-vwan-vpn-profile-download.md)]
 
-   * **Audience:** Identifies the recipient resource the token is intended for
-   * **Issuer:** Identifies the Security Token Service (STS) that emitted the token as well as the Azure AD tenant
-   * **Tenant:** Contains an immutable, unique identifier of the directory tenant that issued the token
-   * **FQDN:** The fully qualified domain name (FQDN) on the Azure VPN gateway
-   * **ServerSecret:** The VPN gateway preshared key
-
-## Folder contents
-
-* The **OpenVPN folder** contains the *ovpn* profile that needs to be modified to include the key and the certificate. For more information, see [Configure OpenVPN clients for Azure VPN Gateway](vpn-gateway-howto-openvpn-clients.md#windows).
-
-* The **generic folder** contains the public server certificate and the VpnSettings.xml file. The VpnSettings.xml file contains information needed to configure a generic client.
-
-* The downloaded zip file may also contain **WindowsAmd64** and **WindowsX86** folders. These folders contain the installer for SSTP and IKEv2 for Windows clients. You need admin rights on the client to install them.
+* The **OpenVPN folder** contains the *ovpn* profile that needs to be modified to include the key and the certificate. For more information, see [Configure OpenVPN clients for Azure VPN Gateway](vpn-gateway-howto-openvpn-clients.md#windows). If Azure AD authentication is selected on the VPN gateway, this folder is not present in the zip file. Instead, navigate to the AzureVPN folder and locate azurevpnconfig.xml.
 
 ## Next steps
 

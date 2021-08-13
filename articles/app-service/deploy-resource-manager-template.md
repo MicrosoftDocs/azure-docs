@@ -1,17 +1,12 @@
-﻿---
-title: Guidance on deploying apps with templates - Azure App Service | Microsoft Docs 
-description: Recommendations for creating Azure Resource Manager templates to deploy web apps.
-services: app-service
-documentationcenter: app-service
+---
+title: Deploy apps with templates
+description: Find guidance on creating Azure Resource Manager templates to provision and deploy App Service apps.
 author: tfitzmac
 
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 
 ---
 # Guidance on deploying web apps by using Azure Resource Manager templates
@@ -42,7 +37,7 @@ You deploy resources in the following order:
 **Tier 3**
 * Source control--depends on the web app.
 * MSDeploy site extension--depends on the web app.
-* Application Insights instance that targets the server farm--depends on the web app.
+* Azure Application Insights instance that targets the web app--depends on the web app.
 
 **Tier 4**
 * App Service certificate--depends on source control or MSDeploy if either is present. Otherwise, it depends on the web app.
@@ -54,7 +49,7 @@ You deploy resources in the following order:
 
 Typically, your solution includes only some of these resources and tiers. For missing tiers, map lower resources to the next-higher tier.
 
-The following example shows part of a template. The value of the connection string configuration depends on the MSDeploy extension. The MSDeploy extension depends on the web app and database. 
+The following example shows part of a template. The value of the connection string configuration depends on the MSDeploy extension. The MSDeploy extension depends on the web app and database.
 
 ```json
 {
@@ -83,7 +78,7 @@ The following example shows part of a template. The value of the connection stri
 }
 ```
 
-For a ready-to-run sample that uses the code above, see [Template: Build a simple Umbraco Web App](https://github.com/Azure/azure-quickstart-templates/tree/master/umbraco-webapp-simple).
+For a ready-to-run sample that uses the code above, see [Template: Build a simple Umbraco Web App](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/umbraco/umbraco-webapp-simple).
 
 ## Find information about MSDeploy errors
 
@@ -91,11 +86,11 @@ If your Resource Manager template uses MSDeploy, the deployment error messages c
 
 1. Go to the site's [Kudu console](https://github.com/projectkudu/kudu/wiki/Kudu-console).
 2. Browse to the folder at D:\home\LogFiles\SiteExtensions\MSDeploy.
-3. Look for the appManagerStatus.xml and appManagerLog.xml files. The first file logs the status. The second file logs information about the error. If the error isn't clear to you, you can include it when you're asking for help on the forum.
+3. Look for the appManagerStatus.xml and appManagerLog.xml files. The first file logs the status. The second file logs information about the error. If the error isn't clear to you, you can include it when you're asking for help on the [forum](/answers/topics/azure-webapps.html).
 
 ## Choose a unique web app name
 
-The name for your web app must be globally unique. You can use a naming convention that's likely to be unique, or you can use the [uniqueString function](../azure-resource-manager/resource-group-template-functions-string.md#uniquestring) to assist with generating a unique name.
+The name for your web app must be globally unique. You can use a naming convention that's likely to be unique, or you can use the [uniqueString function](../azure-resource-manager/templates/template-functions-string.md#uniquestring) to assist with generating a unique name.
 
 ```json
 {
@@ -110,7 +105,7 @@ The name for your web app must be globally unique. You can use a naming conventi
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-If your template includes a [Microsoft.Web/certificates](/azure/templates/microsoft.web/certificates) resource for SSL binding, and the certificate is stored in a Key Vault, you must make sure the App Service identity can access the certificate.
+If your template includes a [Microsoft.Web/certificates](/azure/templates/microsoft.web/certificates) resource for TLS/SSL binding, and the certificate is stored in a Key Vault, you must make sure the App Service identity can access the certificate.
 
 In global Azure, the App Service service principal has the ID of **abfa0a7c-a6b6-4736-8310-5855508787cd**. To grant access to Key Vault for the App Service service principal, use:
 
@@ -130,7 +125,7 @@ In your Key Vault, select **Certificates** and **Generate/Import** to upload the
 
 In your template, provide the name of the certificate for the `keyVaultSecretName`.
 
-For an example template, see [Deploy a Web App certificate from Key Vault secret and use it for creating SSL binding](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault).
+For an example template, see [Deploy a Web App certificate from Key Vault secret and use it for creating SSL binding](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-certificate-from-key-vault).
 
 ## Next steps
 

@@ -1,23 +1,11 @@
 ---
-title: 'Quickstart: Send and receive events using the .NET Framework - Azure Event Hubs'
+title: 'Azure Event Hubs - Send/receive events using the .NET Framework'
 description: 'Quickstart: This article provides a walkthrough for creating a .NET Framework application that sends events to Azure Event Hubs.'
-services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
-
-ms.assetid: c4974bd3-2a79-48a1-aa3b-8ee2d6655b28
-ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.custom: seodec18
-ms.date: 11/05/2019
-ms.author: shvija
-
+ms.date: 06/23/2020
+ms.custom: devx-track-csharp
 ---
+
 # Quickstart: Send events to or receive events from Azure Event Hubs using .NET Framework
 Azure Event Hubs is a Big Data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. For detailed overview of Event Hubs, see [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md).
 
@@ -36,7 +24,7 @@ This section shows you how to create a .NET Framework console application to sen
 
 In Visual Studio, create a new Visual C# Desktop App project using the **Console Application** project template. Name the project **Sender**.
    
-![Create console application](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp1.png)
+![Screenshot that shows "New Project" window with "Console App (.NET Framework)" selected, and the project name "Sender" and "OK" button highlighted.](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp1.png)
 
 ### Add the Event Hubs NuGet package
 
@@ -101,7 +89,7 @@ In Visual Studio, create a new Visual C# Desktop App project using the **Console
 ## Receive events
 In this section, you write a .NET Framework console application that receives messages from an event hub using the [Event Processor Host](event-hubs-event-processor-host.md). The [Event Processor Host](event-hubs-event-processor-host.md) is a .NET class that simplifies receiving events from event hubs by managing persistent checkpoints and parallel receives from those event hubs. Using the Event Processor Host, you can split events across multiple receivers, even when hosted in different nodes. 
 
-[!INCLUDE [event-hubs-create-storage](../../includes/event-hubs-create-storage.md)]
+[!INCLUDE [event-hubs-create-storage](./includes/event-hubs-create-storage.md)]
 
 ### Create a console application
 
@@ -215,7 +203,7 @@ Read the following articles:
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)
 - [Features and terminology in Azure Event Hubs](event-hubs-features.md).
-- [Event Hubs FAQ](event-hubs-faq.md)
+- [Event Hubs FAQ](event-hubs-faq.yml)
 
 
 <!-- Links -->

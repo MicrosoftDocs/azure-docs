@@ -19,14 +19,22 @@
   - name: Create durable function - JavaScript
     displayName: get started, chaining
     href: quickstart-js-vscode.md
+  - name: Create durable function - Python
+    displayName: get started, chaining
+    href: quickstart-python-vscode.md
+  - name: Create durable function - PowerShell
+    displayName: get started, chaining
+    href: quickstart-powershell-vscode.md
 - name: Tutorials
   items:
   - name: Function chaining
     href: durable-functions-sequence.md
-  - name: Fan-in/fan-out
+  - name: Fan-out/fan-in
     href: durable-functions-cloud-backup.md
-  - name: Monitors
+  - name: Monitors (C#, JavaScript)
     href: durable-functions-monitor.md
+  - name: Monitors (Python)
+    href: durable-functions-monitor-python.md
   - name: Human interaction
     href: durable-functions-phone-verification.md
   - name: Publish to Event Grid
@@ -69,10 +77,14 @@
     href: durable-functions-instance-management.md
   - name: Versioning
     href: durable-functions-versioning.md
+  - name: Storage providers
+    href: durable-functions-storage-providers.md
   - name: Performance and scale
     href: durable-functions-perf-and-scale.md
   - name: High availability
     href: durable-functions-disaster-recovery-geo-distribution.md
+  - name: Data persistence and serialization
+    href: durable-functions-serialization-and-persistence.md
 - name: Reference
   items:
   - name: Host.json settings
@@ -82,7 +94,11 @@
   - name: HTTP API
     href: durable-functions-http-api.md
   - name: .NET API
-    href: /dotnet/api/microsoft.azure.webjobs.extensions.durabletask?view=azure-dotnet
+    href: /dotnet/api/microsoft.azure.webjobs.extensions.durabletask
+  - name: Node.js API
+    href: /javascript/api/durable-functions/
+  - name: Python API
+    href: /python/api/azure-functions-durable/azure.durable_functions
 - name: How-to guides
   items:
   - name: Develop
@@ -129,8 +145,8 @@
     href: https://azure.microsoft.com/regions/services/
   - name: Videos
     href: https://www.youtube.com/c/AzureFunctions
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions
+  - name: Microsoft Q&A question page
+    href: /answers/topics/azure-functions.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-functions
   - name: Twitter

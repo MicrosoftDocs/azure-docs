@@ -3,12 +3,12 @@ title: What is a workspace and project? - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: This article will explain the differences between a workspace and a project as well as project categories and labels for the Custom Translator service.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
-ms.author: swmachan
+ms.date: 08/17/2020
+ms.author: lajanuar
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to concept of a project, so that I can use it efficiently.
 ---
@@ -25,7 +25,7 @@ automatically includes all documents that are uploaded into that workspace that
 have the correct language pair. For example, if you have both an English to
 Spanish project and a Spanish to English project, the same documents will be
 included in both projects. Each project has a CategoryID associated with it
-that is used when querying the [V3 API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl) for translations. CategoryID is parameter used to get translations from a customized system built with Custom Translator.
+that is used when querying the [V3 API](../reference/v3-0-translate.md?tabs=curl) for translations. CategoryID is parameter used to get translations from a customized system built with Custom Translator.
 
 ## Project categories
 

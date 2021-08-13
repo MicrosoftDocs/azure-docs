@@ -1,17 +1,16 @@
 ---
-title: Complete an access review of Azure AD roles in PIM - Azure Active Directory | Microsoft Docs
+title: Finish access review of Azure AD roles in PIM - Azure AD | Microsoft Docs
 description: Learn how to complete an access review of Azure AD roles in Azure AD Privileged Identity Management (PIM) and view the results
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
-
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/22/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management

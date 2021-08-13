@@ -2,12 +2,10 @@
 title: Customize CoreDNS for Azure Kubernetes Service (AKS)
 description: Learn how to customize CoreDNS to add subdomains or extend custom DNS endpoints using Azure Kubernetes Service (AKS)
 services: container-service
-author: jnoller
-
-ms.service: container-service
+author: palma21
 ms.topic: article
 ms.date: 03/15/2019
-ms.author: jenoller
+ms.author: jpalma
 
 #Customer intent: As a cluster operator or developer, I want to learn how to customize the CoreDNS configuration to add sub domains or extend to custom DNS endpoints within my network
 ---
@@ -27,6 +25,8 @@ This article shows you how to use ConfigMaps for basic customization options of 
 
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
+When creating a configuration like the examples below, your names in the *data* section must end in either *.server* or *.override*. This naming convention is defined in the default AKS CoreDNS Configmap which you can view using the `kubectl get configmaps --namespace=kube-system coredns -o yaml` command.
+
 ## What is supported/unsupported
 
 All built-in CoreDNS plugins are supported. No add-on/third party plugins are supported.
@@ -42,14 +42,21 @@ metadata:
   name: coredns-custom
   namespace: kube-system
 data:
-  test.server: |
+  test.server: | # you may select any name here, but it must end with the .server file extension
     <domain to be rewritten>.com:53 {
         errors
         cache 30
         rewrite name substring <domain to be rewritten>.com default.svc.cluster.local
-        forward .  /etc/resolv.conf # you can redirect this to a specific DNS server such as 10.0.0.10
+        kubernetes cluster.local in-addr.arpa ip6.arpa {
+          pods insecure
+          fallthrough in-addr.arpa ip6.arpa
+        }
+        forward .  /etc/resolv.conf # you can redirect this to a specific DNS server such as 10.0.0.10, but that server must be able to resolve the rewritten domain name
     }
 ```
+
+> [!IMPORTANT]
+> If you redirect to a DNS server, such as the CoreDNS service IP, that DNS server must be able to resolve the rewritten domain name.
 
 Create the ConfigMap using the [kubectl apply configmap][kubectl-apply] command and specify the name of your YAML manifest:
 
@@ -109,7 +116,7 @@ metadata:
   name: coredns-custom
   namespace: kube-system
 data:
-  puglife.server: |
+  puglife.server: | # you may select any name here, but it must end with the .server file extension
     puglife.local:53 {
         errors
         cache 30
@@ -135,7 +142,7 @@ metadata:
   name: coredns-custom
   namespace: kube-system
 data:
-  test.server: |
+  test.server: | # you may select any name here, but it must end with the .server file extension
     abc.com:53 {
         errors
         cache 30
@@ -167,11 +174,36 @@ metadata:
   name: coredns-custom # this is the name of the configmap you can overwrite with your changes
   namespace: kube-system
 data:
-    test.override: |
-          hosts example.hosts example.org { # example.hosts must be a file
-              10.0.0.1 example.org
+    test.override: | # you may select any name here, but it must end with the .override file extension
+          hosts { 
+              10.0.0.1 example1.org
+              10.0.0.2 example2.org
+              10.0.0.3 example3.org
               fallthrough
           }
+```
+
+## Troubleshooting
+
+For general CoreDNS troubleshooting steps, such as checking the endpoints or resolution, see [Debugging DNS Resolution][coredns-troubleshooting].
+
+To enable DNS query logging, apply the following configuration in your coredns-custom ConfigMap:
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: coredns-custom
+  namespace: kube-system
+data:
+  log.override: | # you may select any name here, but it must end with the .override file extension
+        log
+```
+
+After you apply the configuration changes, use the `kubectl logs` command to view the CoreDNS debug logging. For example:
+
+```console
+kubectl logs --namespace kube-system --selector k8s-app=kube-dns
 ```
 
 ## Next steps
@@ -189,6 +221,7 @@ To learn more about core network concepts, see [Network concepts for application
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [coredns hosts]: https://coredns.io/plugins/hosts/
+[coredns-troubleshooting]: https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/
 
 <!-- LINKS - internal -->
 [concepts-network]: concepts-network.md

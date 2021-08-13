@@ -1,83 +1,135 @@
 ---
-title: What is Form Recognizer?
-titleSuffix: Azure Cognitive Services
-description: The Azure Cognitive Services Form Recognizer allows you to identify and extract key/value pairs and table data from form documents.
-author: PatrickFarley
+title: What is Azure Form Recognizer?
+titleSuffix: Azure Applied AI Services
+description: The Azure Form Recognizer service allows you to identify and extract key/value pairs and table data from your form documents, as well as extract major information from sales receipts and business cards.
+author: laujan
 manager: nitinme
-
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 07/25/2019
-ms.author: pafarley
+ms.date: 03/15/2021
+ms.author: lajanuar
+ms.custom: cog-serv-seo-aug-2020
+keywords: automated data processing, document processing, automated data entry, forms processing
 #Customer intent: As a developer of form-processing software, I want to learn what the Form Recognizer service does so I can determine if I should use it.
 ---
 
-# What is Form Recognizer?
+# What is Azure Form Recognizer?
 
-Azure Form Recognizer is a cognitive service that uses machine learning technology to identify and extract key/value pairs and table data from form documents. It then outputs structured data that includes the relationships in the original file. You can call your custom Form Recognizer model by using a simple REST API to reduce complexity and easily integrate it into your workflow or application. To get started, you just need five filled-in form documents or two filled-in forms plus an empty form of the same type as your input material. You quickly get accurate results that are tailored to your specific content without heavy manual intervention or extensive data science expertise.
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-## Custom models
+Azure Form Recognizer is a part of [Azure Applied AI Services](../../applied-ai-services/index.yml) that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, tables, and structure from your documents&mdash;the service outputs structured data that includes the relationships in the original file, bounding boxes, confidence and more. You quickly get accurate results that are tailored to your specific content without heavy manual intervention or extensive data science expertise. Use Form Recognizer to automate data entry in your applications and enrich your documents search capabilities.
 
-The Form Recognizer custom model trains to your own data, and you only need five sample input forms to start. When you submit your input data, the algorithm clusters the forms by type, discovers what keys and tables are present, and associates values to keys and entries to tables. It then outputs structured data that includes the relationships in the original file. After you train the model, you can test and retrain it and eventually use it to reliably extract data from more forms according to your needs.
+Form Recognizer is composed of custom document processing models, prebuilt models for invoices, receipts, IDs and business cards, and the layout model. You can call Form Recognizer models by using a REST API or client library SDKs to reduce complexity and integrate it into your workflow or application.
 
-Unsupervised learning allows the model to understand the layout and relationships between fields and entries without manual data labeling or intensive coding and maintenance. By contrast, pre-trained machine learning models require standardized data. They're less accurate with input material that deviates from traditional formats, like industry-specific forms.
+This documentation contains the following article types:
 
-## Prebuilt receipt model
+* [**Concepts**](concept-layout.md) provide in-depth explanations of the service functionality and features.
+* [**Quickstarts**](quickstarts/client-library.md) are getting-started instructions to guide you through making requests to the service.
+* [**How-to guides**](build-training-data-set.md) contain instructions for using the service in more specific or customized ways.
+* [**Tutorials**](tutorial-ai-builder.md) are longer guides that show you how to use the service as a component in broader business solutions.
 
-Form Recognizer also includes a model for reading sales receipts. This model extracts key information such as the time and date of the transaction, merchant information, amounts of taxes and totals and more. In addition, the prebuilt receipt model is trained to recognize and return all of the text on a receipt.
+## Form Recognizer features
 
-## What it includes
+With Form Recognizer, you can easily extract and analyze document data with these features:
 
-Form Recognizer is available as a REST API. You can create, train, and score a custom model or access the prebuilt model by invoking these APIs. If you want, you can train and run custom models in a local Docker container.
+### [Layout](concept-layout.md)
+
+Extract text, selection marks, and tables structures, along with their bounding box coordinates, from documents.
+
+Form Recognizer can extract text, selection marks, and table structure (the row and column numbers associated with the text) using high-definition optical character recognition (OCR) and an enhanced deep learning  model from documents.
+
+:::image type="content" source="./media/tables-example.jpg" alt-text="tables example" lightbox="./media/tables-example.jpg":::
+
+### [Custom models](concept-custom.md)
+
+Extract text, key/value pairs, selection marks, and table data from forms. These models are trained with your own data, so they're tailored to your forms.
+
+Form Recognizer custom models train to your own data, and you only need five sample input forms to start. A trained document processing model can output structured data that includes the relationships in the original form document. After you train the model, you can test and retrain it and eventually use it to reliably extract data from more forms according to your needs.
+
+You have the following options when you train custom models: training with labeled data and without labeled data.
+
+#### Train without labels
+
+Form Recognizer uses unsupervised learning to understand the layout and relationships between fields and entries in your forms. When you submit your input forms, the algorithm clusters the forms by type, discovers what keys and tables are present, and associates values to keys and entries to tables. Training without labels doesn't require manual data labeling or intensive coding and maintenance, and we recommend you try this method first.
+
+See [Build a training data set](./build-training-data-set.md) for tips on how to collect your training documents.
+
+#### Train with labels
+
+When you train with labeled data, the model uses supervised learning to extract values of interest, using the labeled forms you provide. Labeled data results in better-performing models and can produce models that work with complex forms or forms containing values without keys.
+
+Form Recognizer uses the [Layout](#layout) API to learn the expected sizes and positions of printed and handwritten text elements and extract tables. Then it uses user-specified labels to learn the key/value associations and tables in the documents. We recommend that you use five manually labeled forms of the same type (same structure) to get started when training a new model and add more labeled data as needed to improve the model accuracy. Form Recognizer enables training a model to extract key value pairs and tables using supervised learning capabilities.
+
+[Get started with Train with labels](label-tool.md)
+
+> [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
+
+
+### Prebuilt models
+
+ Form Recognizer also includes Prebuilt models for automated data processing of receipts, business cards, invoices, and identity documents.
+
+### [Receipts](concept-receipts.md)
+
+The Prebuilt Receipt model is used for reading English sales receipts from Australia, Canada, Great Britain, India, and the United States&mdash;the type used by restaurants, gas stations, retail, and so on. This model extracts key information such as the time and date of the transaction, merchant information, amounts of taxes, line items, totals and more. In addition, the prebuilt receipt model is trained to analyze and return all of the text on a receipt.
+
+:::image type="content" source="./media/overview-receipt.jpg" alt-text="sample receipt" lightbox="./media/overview-receipt.jpg":::
+
+### [Business cards](concept-business-cards.md)
+
+The Business Cards model enables you to extract information such as the person's name, job title, address, email, company, and phone numbers from business cards in English.
+
+:::image type="content" source="./media/overview-business-card.jpg" alt-text="sample business card" lightbox="./media/overview-business-card.jpg":::
+
+### [Invoices](concept-invoices.md)
+
+The Prebuilt Invoice model extracts data from invoices in various formats and returns structured data. This model extracts key information such as the invoice ID, customer details, vendor details, ship to, bill to, total, tax, subtotal, line items and more. In addition, the prebuilt invoice model is trained to analyze and return all of the text and tables on the invoice.
+
+:::image type="content" source="./media/overview-invoices.jpg" alt-text="sample invoice" lightbox="./media/overview-invoices.jpg":::
+
+### [Identity documents](concept-identification-cards.md)
+
+The Identity documents  (ID) model enables you to extract key information from world-wide passports and US driver licenses. It extracts data such as the document ID, expiration date of birth, date of expiration, name, country, region, machine-readable zone and more.
+
+:::image type="content" source="./media/id-example-drivers-license.jpg" alt-text="sample identification card" lightbox="./media/overview-id.jpg":::
+
+## Get started
+
+Use the Sample Form Recognizer Tool to try out Layout, Pre-built models and train a custom model for your documents. You will need an Azure subscription ([**create one for free**](https://azure.microsoft.com/free/cognitive-services)) and a [**Form Recognizer resource**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer service.
+
+>
+> [!div class="nextstepaction"]
+> [Try Form Recognizer](https://aka.ms/fott-2.1-ga/)
+>
+
+Follow the [client library / REST API quickstart](./quickstarts/client-library.md) to get started extracting data from your documents. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
+
+Explore the [REST API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) to learn more. If you're familiar with a previous version of the API, see the [What's new](./whats-new.md) article to learn about recent changes.
 
 ## Input requirements
-### Custom model
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
 
-### Prebuilt receipt model
+## Service availability and redundancy
 
-The input requirements for the receipt model are slightly different.
+### Is Form Recognizer service zone-resilient?
 
-* Format must be JPEG, PNG, BMP, PDF (text or scanned) or TIFF.
-* File size must be less than 20 MB.
-* Image dimensions must be between 50 x 50 pixels and 10000 x 10000 pixels. 
-* PDF dimensions must be at most 17 x 17 inches, corresponding to Legal or A3 paper sizes and smaller.
-* For PDF and TIFF, only the first 200 pages are processed (with a free tier subscription, only the first two pages are processed).
+Yes. The Form Recognizer service is zone-resilient by default.
 
-## Request access
+### How do I configure the Form Recognizer service to be zone-resilient?
 
-Form Recognizer is available in a limited-access preview. To get access to the preview, fill out and submit the [Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form. The form requests information about you, your company, and the user scenario for which you'll use Form Recognizer. If your request is approved by the Azure Cognitive Services team, you'll receive an email with instructions for accessing the service.
-
-## Where do I start?
-
-**Step 1:** Create a Form Recognizer resource in the Azure portal.
-
-**Step 2:** Follow a quickstart to use the REST API:
-* [Quickstart: Train a Form Recognizer model and extract form data by using the REST API with cURL](quickstarts/curl-train-extract.md)
-* [Quickstart: Train a Form Recognizer model and extract form data by using the REST API with Python](quickstarts/python-train-extract.md)
-* [Quickstart: Extract receipt data using cURL](quickstarts/curl-receipts.md)
-* [Quickstart: Extract receipt data using Python](quickstarts/python-receipts.md)
-
-We recommend that you use the free service when you're learning the technology. Keep in mind that the number of free pages is limited to 500 per month.
-
-**Step 3:** Review the REST APIs
-
-You use the following APIs to train and extract structured data from forms.
-
-|||
-|---|---|
-| Train Model| Train a new model to analyze your forms by using five forms of the same type. Or, train with an empty form and two filled-in forms.  |
-| Analyze Form |Analyze a single document passed in as a stream to extract key/value pairs and tables from the form with your custom model.  |
-| Analyze Receipt |Analyze a single receipt document to extract key information and other receipt text.|
-
-Explore the [REST API reference documentation](https://aka.ms/form-recognizer/api) to learn more. 
+No customer configuration is necessary to enable zone-resiliency. Zone-resiliency for Form Recognizer resources is available by default and managed by the service itself.
 
 ## Data privacy and security
 
-This service is offered as a [preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) of an Azure service under the [Online Service Terms](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31). As with all the cognitive services, developers using the Form Recognizer service should be aware of Microsoft policies on customer data. See the [Cognitive Services page](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center to learn more.
+* As with all the cognitive services, developers using the Form Recognizer service should be aware of Microsoft policies on customer data. See the [Cognitive Services page](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center to learn more.
+
+* Form Recognizer doesn't store or process customer data outside the region where the customer deploys the service instance.
 
 ## Next steps
 
-Complete a [quickstart](quickstarts/curl-train-extract.md) to get started with the [Form Recognizer APIs](https://aka.ms/form-recognizer/api).
+Try our online tool and quickstart to learn more about the Form Recognizer service.
+
+* [**Form Recognizer tool**](https://aka.ms/fott-2.1-ga)
+* [**Client library and REST API quickstart**](quickstarts/client-library.md)

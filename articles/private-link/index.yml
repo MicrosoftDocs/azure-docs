@@ -8,8 +8,8 @@ metadata:
   ms.service: private-link
   ms.topic: landing-page
   ms.collection: collection
-  author: KumudD
-  ms.author: kumud
+  author: malopMSFT
+  ms.author: allensu
   ms.date: 09/16/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -24,6 +24,11 @@ landingContent:
         links:
           - text: What is Private Link?
             url: private-link-overview.md
+      - linkListType: video
+        links:
+          - text: Secure Azure PaaS resources using Private Link
+            url: https://www.youtube.com/watch?v=AZ0iFcyPDkc
+
 
   # Card (optional)
   - title: Connect to an Azure service
@@ -32,6 +37,8 @@ landingContent:
         links:
           - text: What is a Private Endpoint?
             url: private-endpoint-overview.md
+          - text: Private Endpoints DNS integration
+            url: private-endpoint-dns.md            
       - linkListType: quickstart
         links:
           - text: Create a Private Endpoint
@@ -60,7 +67,7 @@ landingContent:
           - text: Azure PowerShell
             url: /powershell/module/az.network
           - text: REST
-            url: /rest/api/virtualnetwork/privatelinkservices           
-                
+            url: /rest/api/virtualnetwork/privatelinkservices
+
 
 

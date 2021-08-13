@@ -1,28 +1,27 @@
 ---
 title: Azure API Management caching policies | Microsoft Docs
-description: Learn about the caching policies available for use in Azure API Management.
+description: Learn about the caching policies available for use in Azure API Management. See examples and view additional available resources.
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: erikre
-editor: ''
 
-ms.assetid: 8147199c-24d8-439f-b2a9-da28a70a890c
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 03/08/2021
 ms.author: apimpm
 ---
 # API Management caching policies
-This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
+
+This article provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
+
+> [!IMPORTANT]
+> Built-in cache is volatile and is shared by all units in the same region in the same API Management service.
 
 ## <a name="CachingPolicies"></a> Caching policies
 
 - Response caching policies
-    - [Get from cache](api-management-caching-policies.md#GetFromCache) - Perform cache look up and return a valid cached responses when available.
-    - [Store to cache](api-management-caching-policies.md#StoreToCache) - Caches responses according to the specified cache control configuration.
+    - [Get from cache](#GetFromCache) - Perform cache look up and return a valid cached responses when available.
+    - [Store to cache](#StoreToCache) - Caches responses according to the specified cache control configuration.
 - Value caching policies
     - [Get value from cache](#GetFromCacheByKey) - Retrieve a cached item by key.
     - [Store value in cache](#StoreToCacheByKey) - Store an item in the cache by key.
@@ -32,7 +31,7 @@ This topic provides a reference for the following API Management policies. For i
 Use the `cache-lookup` policy to perform cache look up and return a valid cached response when available. This policy can be applied in cases where response content remains static over a period of time. Response caching reduces bandwidth and processing requirements imposed on the backend web server and lowers latency perceived by API consumers.
 
 > [!NOTE]
-> This policy must have a corresponding [Store to cache](api-management-caching-policies.md#StoreToCache) policy.
+> This policy must have a corresponding [Store to cache](#StoreToCache) policy.
 
 ### Policy statement
 
@@ -50,6 +49,9 @@ Use the `cache-lookup` policy to perform cache look up and return a valid cached
   <!-- optional, can repeated several times -->
 </cache-lookup>
 ```
+
+> [!NOTE]
+> When using `vary-by-query-parameter`, you might want to declare the parameters in the rewrite-uri template or set the attribute `copy-unmatched-params` to `false`. By deactivating this flag, parameters that aren't declared are sent to the back end.
 
 ### Examples
 
@@ -109,11 +111,11 @@ For more information, see [Policy expressions](api-management-policy-expressions
 | caching-type               | Choose between the following values of the attribute:<br />- `internal` to use the built-in API Management cache,<br />- `external` to use the external cache as described in [Use an external Azure Cache for Redis in Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` to use external cache if configured or internal cache otherwise. | No       | `prefer-external` |
 | downstream-caching-type        | This attribute must be set to one of the following values.<br /><br /> -   none - downstream caching is not allowed.<br />-   private - downstream private caching is allowed.<br />-   public - private and shared downstream caching is allowed.                                                                                                          | No       | none              |
 | must-revalidate                | When downstream caching is enabled this attribute turns on or off  the `must-revalidate` cache control directive in gateway responses.                                                                                                                                                                                                                      | No       | true              |
-| vary-by-developer              | Set to `true` to cache responses per [subscription key](https://docs.microsoft.com/azure/api-management/api-management-subscriptions).                                                                                                                                                                                                                                                                                                         | Yes      |         False          |
-| vary-by-developer-groups       | Set to `true` to cache responses per [user group](https://docs.microsoft.com/azure/api-management/api-management-howto-create-groups).                                                                                                                                                                                                                                                                                                             | Yes      |       False            |
+| vary-by-developer              | Set to `true` to cache responses per developer account that owns [subscription key](./api-management-subscriptions.md) included in the request.                                                                                                                                                                                                                                                                                                  | Yes      |         False          |
+| vary-by-developer-groups       | Set to `true` to cache responses per [user group](./api-management-howto-create-groups.md).                                                                                                                                                                                                                                                                                                             | Yes      |       False            |
 
 ### Usage
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 - **Policy sections:** inbound
 - **Policy scopes:** all scopes
@@ -127,7 +129,7 @@ The `cache-store` policy caches responses according to the specified cache setti
 ### Policy statement
 
 ```xml
-<cache-store duration="seconds" />
+<cache-store duration="seconds" cache-response="true | false" />
 ```
 
 ### Examples
@@ -182,10 +184,11 @@ For more information, see [Policy expressions](api-management-policy-expressions
 
 | Name             | Description                                                                                                                                                                                                                                                                                                                                                 | Required | Default           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
-| duration         | Time-to-live of the cached entries, specified in seconds.                                                                                                                                                                                                                                                                                                   | Yes      | N/A               |
+| duration         | Time-to-live of the cached entries, specified in seconds.     | Yes      | N/A               |
+| cache-response         | Set to true to cache the current HTTP response. If the attribute is omitted or set to false, only HTTP responses with the status code `200 OK` are cached.                           | No      | false               |
 
 ### Usage
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 - **Policy sections:** outbound
 - **Policy scopes:** all scopes
@@ -206,7 +209,7 @@ Use the `cache-lookup-value` policy to perform cache lookup by key and return a 
 ```
 
 ### Example
-For more information and examples of this policy, see [Custom caching in Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-cache-by-key/).
+For more information and examples of this policy, see [Custom caching in Azure API Management](./api-management-sample-cache-by-key.md).
 
 ```xml
 <cache-lookup-value
@@ -228,10 +231,10 @@ For more information and examples of this policy, see [Custom caching in Azure A
 | caching-type | Choose between the following values of the attribute:<br />- `internal` to use the built-in API Management cache,<br />- `external` to use the external cache as described in [Use an external Azure Cache for Redis in Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` to use external cache if configured or internal cache otherwise. | No       | `prefer-external` |
 | default-value    | A value that will be assigned to the variable if the cache key lookup resulted in a miss. If this attribute is not specified, `null` is assigned.                                                                                                                                                                                                           | No       | `null`            |
 | key              | Cache key value to use in the lookup.                                                                                                                                                                                                                                                                                                                       | Yes      | N/A               |
-| variable-name    | Name of the [context variable](api-management-policy-expressions.md#ContextVariables) the looked up value will be assigned to, if lookup is successful. If lookup results in a miss, the variable will be assigned the value of the `default-value` attribute or `null`, if the `default-value` attribute is omitted.                                       | Yes      | N/A               |
+| variable-name    | Name of the [context variable](api-management-policy-expressions.md#ContextVariables) the looked up value will be assigned to, if lookup is successful. If lookup results in a miss, the variable will not be set.                                       | Yes      | N/A               |
 
 ### Usage
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 - **Policy sections:** inbound, outbound, backend, on-error
 - **Policy scopes:** all scopes
@@ -240,7 +243,7 @@ This policy can be used in the following policy [sections](https://azure.microso
 The `cache-store-value` performs cache storage by key. The key can have an arbitrary string value and is typically provided using a policy expression.
 
 > [!NOTE]
-> This policy must have a corresponding [Get value from cache](#GetFromCacheByKey) policy.
+> The operation of storing the value in cache performed by this policy is asynchronous. The stored value can be retrieved using [Get value from cache](#GetFromCacheByKey) policy. However, the stored value may not be immediately available for retrieval since the asynchronous operation that stores the value in cache may still be in progress. 
 
 ### Policy statement
 
@@ -249,7 +252,7 @@ The `cache-store-value` performs cache storage by key. The key can have an arbit
 ```
 
 ### Example
-For more information and examples of this policy, see [Custom caching in Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-cache-by-key/).
+For more information and examples of this policy, see [Custom caching in Azure API Management](./api-management-sample-cache-by-key.md).
 
 ```xml
 <cache-store-value
@@ -273,12 +276,12 @@ For more information and examples of this policy, see [Custom caching in Azure A
 | key              | Cache key the value will be stored under.                                                                                                                                                                                                                                                                                                                   | Yes      | N/A               |
 | value            | The value to be cached.                                                                                                                                                                                                                                                                                                                                     | Yes      | N/A               |
 ### Usage
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 - **Policy sections:** inbound, outbound, backend, on-error
 - **Policy scopes:** all scopes
 
-### <a name="RemoveCacheByKey"></a> Remove value from cache
+## <a name="RemoveCacheByKey"></a> Remove value from cache
 The `cache-remove-value` deletes a cached item identified by its key. The key can have an arbitrary string value and is typically provided using a policy expression.
 
 #### Policy statement
@@ -311,7 +314,7 @@ The `cache-remove-value` deletes a cached item identified by its key. The key ca
 | key              | The key of the previously cached value to be removed from the cache.                                                                                                                                                                                                                                                                                        | Yes      | N/A               |
 
 #### Usage
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes) .
 
 - **Policy sections:** inbound, outbound, backend, on-error
 - **Policy scopes:** all scopes
@@ -322,5 +325,5 @@ For more information working with policies, see:
 
 + [Policies in API Management](api-management-howto-policies.md)
 + [Transform APIs](transform-api.md)
-+ [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
-+ [Policy samples](policy-samples.md)
++ [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
++ [Policy samples](./policy-reference.md)

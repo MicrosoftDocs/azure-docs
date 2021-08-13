@@ -1,17 +1,24 @@
 ---
-title: Filter transformation in Azure Data Factory mapping data flow 
+title: Filter transformation in mapping data flow 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Filter out rows using the filter transformation in Azure Data Factory mapping data flow
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.custom: synapse
+ms.date: 05/26/2020
 ---
 
 # Filter transformation in mapping data flow
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 The Filter transforms allows row filtering based upon a condition. The output stream includes all rows that matching the filtering condition. The filter transformation is similar to a WHERE clause in SQL.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4xnxN]
 
 ## Configuration
 
@@ -32,7 +39,7 @@ Use the data flow expression builder to enter an expression for the filter condi
 
 ### Example
 
-The below example is a conditional split transformation named `FilterBefore1960` that takes in incoming stream `CleanData`. The filter condition is the expression `year <= 1960`.
+The below example is a filter transformation named `FilterBefore1960` that takes in incoming stream `CleanData`. The filter condition is the expression `year <= 1960`.
 
 In the Data Factory UX, this transformation looks like the below image:
 

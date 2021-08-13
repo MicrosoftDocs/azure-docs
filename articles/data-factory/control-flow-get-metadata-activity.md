@@ -1,67 +1,69 @@
 ---
-title: Get Metadata activity in Azure Data Factory 
-description: Learn how to use the Get Metadata activity in a Data Factory pipeline.
-services: data-factory
-documentationcenter: ''
-author: linda33wj
-manager: craigg
-ms.reviewer: 
-
-ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
+title: Get Metadata activity
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to use the Get Metadata activity in an Azure Data Factory or Azure Synapse Analytics pipeline.
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/12/2019
-ms.author: jingwang
-
+ms.date: 02/25/2021
+ms.author: jianleishen
 ---
-# Get Metadata activity in Azure Data Factory
 
-You can use the Get Metadata activity to retrieve the metadata of any data in Azure Data Factory. You can use this activity in the following scenarios:
+# Get Metadata activity in Azure Data Factory or Azure Synapse Analytics
 
-- Validate the metadata of any data.
-- Trigger a pipeline when data is ready/available.
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-The following functionality is available in the control flow:
+You can use the Get Metadata activity to retrieve the metadata of any data in Azure Data Factory or a Synapse pipeline. You can use the output from the Get Metadata activity in conditional expressions to perform validation, or consume the metadata in subsequent activities.
 
-- You can use the output from the Get Metadata activity in conditional expressions to perform validation.
-- You can trigger a pipeline when a condition is satisfied via Do Until looping.
+## Supported capabilities
 
-## Capabilities
-
-The Get Metadata activity takes a dataset as an input and returns metadata information as output. Currently, the following connectors and corresponding retrievable metadata are supported. The maximum size of returned metadata is 1 MB.
-
->[!NOTE]
->If you run the Get Metadata activity on a self-hosted integration runtime, the latest capabilities are supported on version 3.6 or later.
+The Get Metadata activity takes a dataset as an input and returns metadata information as output. Currently, the following connectors and the corresponding retrievable metadata are supported. The maximum size of returned metadata is **4 MB**.
 
 ### Supported connectors
 
 **File storage**
 
-| Connector/Metadata | itemName<br>(file/folder) | itemType<br>(file/folder) | size<br>(file) | created<br>(file/folder) | lastModified<br>(file/folder) |childItems<br>(folder) |contentMD5<br>(file) | structure<br/>(file) | columnCount<br>(file) | exists<br>(file/folder) |
+| Connector/Metadata | itemName<br>(file/folder) | itemType<br>(file/folder) | size<br>(file) | created<br>(file/folder) | lastModified<sup>1</sup><br>(file/folder) |childItems<br>(folder) |contentMD5<br>(file) | structure<sup>2</sup><br/>(file) | columnCount<sup>2</sup><br>(file) | exists<sup>3</sup><br>(file/folder) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| [Azure Blob storage](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
+| [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Oracle Cloud Storage](connector-oracle-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Azure Blob storage](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
-| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
 | [Azure Files](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | [File system](connector-file-system.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
-| [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x	| √/√ | √ | x | √ | √ | √/√ |
+| [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x	| x/x | √ | x | √ | √ | √/√ |
 
-- For Amazon S3 and Google Cloud Storage, `lastModified` applies to the bucket and the key but not to the virtual folder, and `exists` applies to the bucket and the key but not to the prefix or virtual folder.
+<sup>1</sup> Metadata `lastModified`:
+- For Amazon S3, Amazon S3 Compatible Storage, Google Cloud Storage and Oracle Cloud Storage, `lastModified` applies to the bucket and the key but not to the virtual folder, and `exists` applies to the bucket and the key but not to the prefix or virtual folder. 
 - For Azure Blob storage, `lastModified` applies to the container and the blob but not to the virtual folder.
+
+<sup>2</sup> Metadata `structure` and `columnCount` are not supported when getting metadata from Binary, JSON, or XML files.
+
+<sup>3</sup> Metadata `exists`: For Amazon S3, Amazon S3 Compatible Storage, Google Cloud Storage and Oracle Cloud Storage, `exists` applies to the bucket and the key but not to the prefix or virtual folder.
+
+Note the following:
+
+- When using Get Metadata activity against a folder, make sure you have LIST/EXECUTE permission to the given folder.
+- Wildcard filter on folders/files is not supported for Get Metadata activity.
+- `modifiedDatetimeStart` and `modifiedDatetimeEnd` filter set on connector:
+
+    - These two properties are used to filter the child items when getting metadata from a folder. It does not apply when getting metadata from a file.
+    - When such filter is used, the `childItems` in output includes only the files that are modified within the specified range but not folders.
+    - To apply such filter, GetMetadata activity will enumerate all the files in the specified folder and check the modified time. Avoid pointing to a folder with a large number of files even if the expected qualified file count is small. 
 
 **Relational database**
 
 | Connector/Metadata | structure | columnCount | exists |
 |:--- |:--- |:--- |:--- |
 | [Azure SQL Database](connector-azure-sql-database.md) | √ | √ | √ |
-| [Azure SQL Database managed instance](connector-azure-sql-database-managed-instance.md) | √ | √ | √ |
-| [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md) | √ | √ | √ |
+| [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) | √ | √ | √ |
+| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) | √ | √ | √ |
 | [SQL Server](connector-sql-server.md) | √ | √ | √ |
 
 ### Metadata options
@@ -79,13 +81,16 @@ You can specify the following metadata types in the Get Metadata activity field 
 | contentMD5 | MD5 of the file. Applicable only to files. |
 | structure | Data structure of the file or relational database table. Returned value is a list of column names and column types. |
 | columnCount | Number of columns in the file or relational table. |
-| exists| Whether a file, folder, or table exists. Note that if `exists` is specified in the Get Metadata field list, the activity won't fail even if the file, folder, or table doesn't exist. Instead, `exists: false` is returned in the output. |
+| exists| Whether a file, folder, or table exists. If `exists` is specified in the Get Metadata field list, the activity won't fail even if the file, folder, or table doesn't exist. Instead, `exists: false` is returned in the output. |
 
->[!TIP]
->When you want to validate that a file, folder, or table exists, specify `exists` in the Get Metadata activity field list. You can then check the `exists: true/false` result in the activity output. If `exists` isn't specified in the field list, the Get Metadata activity will fail if the object isn't found.
+> [!TIP]
+> When you want to validate that a file, folder, or table exists, specify `exists` in the Get Metadata activity field list. You can then check the `exists: true/false` result in the activity output. If `exists` isn't specified in the field list, the Get Metadata activity will fail if the object isn't found.
 
->[!NOTE]
->When you get metadata from file stores and configure `modifiedDatetimeStart` or `modifiedDatetimeEnd`, the `childItems` in output will include only files in the given path that have a last modified time within the specified range. In won’t include items in subfolders.
+> [!NOTE]
+> When you get metadata from file stores and configure `modifiedDatetimeStart` or `modifiedDatetimeEnd`, the `childItems` in the output includes only files in the specified path that have a last modified time within the specified range. Items in subfolders are not included.
+
+> [!NOTE]
+> For the **Structure** field list to provide the actual data structure for delimited text and Excel format datasets, you must enable the `First Row as Header` property, which is supported only for these data sources.
 
 ## Syntax
 
@@ -93,15 +98,38 @@ You can specify the following metadata types in the Get Metadata activity field 
 
 ```json
 {
-	"name": "MyActivity",
-	"type": "GetMetadata",
-	"typeProperties": {
-		"fieldList" : ["size", "lastModified", "structure"],
-		"dataset": {
-			"referenceName": "MyDataset",
-			"type": "DatasetReference"
-		}
-	}
+    "name":"MyActivity",
+    "type":"GetMetadata",
+    "dependsOn":[
+
+    ],
+    "policy":{
+        "timeout":"7.00:00:00",
+        "retry":0,
+        "retryIntervalInSeconds":30,
+        "secureOutput":false,
+        "secureInput":false
+    },
+    "userProperties":[
+
+    ],
+    "typeProperties":{
+        "dataset":{
+            "referenceName":"MyDataset",
+            "type":"DatasetReference"
+        },
+        "fieldList":[
+            "size",
+            "lastModified",
+            "structure"
+        ],
+        "storeSettings":{
+            "type":"AzureBlobStorageReadSettings"
+        },
+        "formatSettings":{
+            "type":"JsonReadSettings"
+        }
+    }
 }
 ```
 
@@ -109,21 +137,25 @@ You can specify the following metadata types in the Get Metadata activity field 
 
 ```json
 {
-	"name": "MyDataset",
-	"properties": {
-	"type": "AzureBlob",
-		"linkedService": {
-			"referenceName": "StorageLinkedService",
-			"type": "LinkedServiceReference"
-		},
-		"typeProperties": {
-			"folderPath":"container/folder",
-			"filename": "file.json",
-			"format":{
-				"type":"JsonFormat"
-			}
-		}
-	}
+    "name":"MyDataset",
+    "properties":{
+        "linkedServiceName":{
+            "referenceName":"AzureStorageLinkedService",
+            "type":"LinkedServiceReference"
+        },
+        "annotations":[
+
+        ],
+        "type":"Json",
+        "typeProperties":{
+            "location":{
+                "type":"AzureBlobStorageLocation",
+                "fileName":"file.json",
+                "folderPath":"folder",
+                "container":"container"
+            }
+        }
+    }
 }
 ```
 
@@ -134,7 +166,7 @@ Currently, the Get Metadata activity can return the following types of metadata 
 Property | Description | Required
 -------- | ----------- | --------
 fieldList | The types of metadata information required. For details on supported metadata, see the [Metadata options](#metadata-options) section of this article. | Yes 
-dataset | The reference dataset whose metadata is to be retrieved by the Get Metadata activity. See the [Capabilities](#capabilities) section for information on supported connectors. Refer to the specific connector topics for dataset syntax details. | Yes
+dataset | The reference dataset whose metadata is to be retrieved by the Get Metadata activity. See the [Capabilities](#supported-capabilities) section for information on supported connectors. Refer to the specific connector topics for dataset syntax details. | Yes
 formatSettings | Apply when using format type dataset. | No
 storeSettings | Apply when using format type dataset. | No
 
@@ -190,7 +222,7 @@ The Get Metadata results are shown in the activity output. Following are two sam
 ```
 
 ## Next steps
-Learn about other control flow activities supported by Data Factory:
+Learn about other supported control flow activities:
 
 - [Execute Pipeline activity](control-flow-execute-pipeline-activity.md)
 - [ForEach activity](control-flow-for-each-activity.md)

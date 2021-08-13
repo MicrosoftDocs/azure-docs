@@ -1,203 +1,221 @@
 ---
-title: Azure CDN from Microsoft Standard Rules Engine match conditions | Microsoft Docs
-description: Reference documentation for Azure Content Delivery Network from Microsoft Standard Rules Engine match conditions.
+title: Match conditions in the Standard rules engine for Azure CDN | Microsoft Docs
+description: Reference documentation for match conditions in the Standard rules engine for Azure Content Delivery Network (Azure CDN).
 services: cdn
-author: mdgattuso
+author: asudbring
 
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 11/01/2019
-ms.author: magattus
+ms.author: allensu
 
 ---
 
-# Azure CDN from Microsoft Standard Rules Engine match conditions
+# Match conditions in the Standard rules engine for Azure CDN
 
-This article lists detailed descriptions of the available match conditions for the Azure Content Delivery Network (CDN) from Microsoft [Standard Rules Engine](cdn-standard-rules-engine.md).
+In the [Standard rules engine](cdn-standard-rules-engine.md) for Azure Content Delivery Network (Azure CDN), a rule consists of one or more match conditions and an action. This article provides detailed descriptions of the match conditions you can use in the Standard rules engine for Azure CDN.
 
-The first part of a rule is a set of match conditions. Each rule may have up to 4 match conditions. A match condition identifies specific types of requests for which the actions defined in the rule will be performed. If you use multiple match conditions, they will be grouped together using AND logic.
+The first part of a rule is a match condition or set of match conditions. In the Standard rules engine for Azure CDN, each rule can have up to four match conditions. A match condition identifies specific types of requests for which defined actions are performed. If you use multiple match conditions, the match conditions are grouped together by using AND logic.
 
 For example, you can use a match condition to:
 
-- Filter requests generated from a particular IP address or country/region.
+- Filter requests based on a specific IP address, country, or region.
 - Filter requests by header information.
-- Filter requests from Mobile or Desktop devices.
+- Filter requests from mobile devices or desktop devices.
 
-## Match Conditions
+## Match conditions
 
-The following match conditions are available to use. 
+The following match conditions are available to use in the Standard rules engine for Azure CDN. 
 
 ### Device type 
 
-The Device type match condition identifies requests made from a mobile or desktop device based on its properties.  
+Identifies requests made from a mobile device or desktop device.  
 
-**Required fields**
+#### Required fields
 
-Operator | Supported Value
+Operator | Supported values
 ---------|----------------
 Equals, Not equals | Mobile, Desktop
 
+### HTTP version
 
-### HTTP Version
+Identifies requests based on the HTTP version of the request.
 
-The HTTP Version match condition identifies requests based on the HTTP version the request arrives with.
+#### Required fields
 
-**Required fields**
-
-Operator | Supported Value
+Operator | Supported values
 ---------|----------------
 Equals, Not equals | 2.0, 1.1, 1.0, 0.9, All
 
-
 ### Request cookies
 
-The Request cookies match condition identifies requests based on cookie information in the incoming request.
+Identifies requests based on cookie information in the incoming request.
 
-**Required fields**
+#### Required fields
 
-Cookie Name | Operator | Cookie Value | Case Transform
+Cookie name | Operator | Cookie value | Case transform
 ------------|----------|--------------|---------------
 String | [Standard operator list](#standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
 
-Key information
-- Wildcard values, including asterisks (*), are not supported when specifying a cookie name, only exact cookie name matches are eligible for comparison.
-- Only a single cookie name can be specified per instance of this match condition.
+#### Key information
+
+- You can't use wildcard values (including asterisks (\*)) when you specify a cookie name; you must use an exact cookie name.
+- You can specify only a single cookie name per instance of this match condition.
 - Cookie name comparisons are case-insensitive.
-- Specify multiple cookie values by delimiting each one with a single space. 
+- To specify multiple cookie values, use a single space between each cookie value. 
 - Cookie values can take advantage of wildcard values.
-- If a wildcard value has not been specified, only an exact match will satisfy this match condition. For example, specifying "Value" will match "Value", but not "Value1". 
+- If a wildcard value hasn't been specified, only an exact match satisfies this match condition. For example, "Value" will match "Value" but not "Value1". 
 
-### Post Argument
+### Post argument
 
-**Required fields**
+Identifies requests based on arguments defined for the POST request method that's used in the request. 
 
-Argument Name | Operator | Argument Value | Case Transform
+#### Required fields
+
+Argument name | Operator | Argument value | Case transform
 --------------|----------|----------------|---------------
 String | [Standard operator list](#standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
 
-### Query String
+### Query string
 
-The Query String match conditions identifies requests containing a specified query string parameter. This parameter is set to a value that matches a specified pattern. Query string parameters (for example, parameter=value) in the request URL determine whether this condition is met. This match condition identifies a query string parameter by its name and accepts one or more values for the parameter value.
+Identifies requests that contain a specific query string parameter. This parameter is set to a value that matches a specific pattern. Query string parameters (for example, **parameter=value**) in the request URL determine whether this condition is met. This match condition identifies a query string parameter by its name and accepts one or more values for the parameter value.
 
-**Required fields**
+#### Required fields
 
-Operator | Query String | Case Transform
+Operator | Query string | Case Transform
 ---------|--------------|---------------
 [Standard operator list](#standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
 
-### Remote Address
+### Remote address
 
-The Remote address match condition identify requests based on the requester's location or IP address.
+Identifies requests based on the requester's location or IP address.
 
-**Required fields**
+#### Required fields
 
-Operator | Supported Values
+Operator | Supported values
 ---------|-----------------
 Any | N/A
-Geo Match | Country codes
-IP Match | IP addresses (space seperated)
+Geo Match | Country code
+IP Match | IP address (space-separated)
 Not Any | N/A
-Not Geo Match | Country codes
-Not IP Match | IP addresses (space seperated)
+Not Geo Match | Country code
+Not IP Match | IP address (space-separated)
 
-Key information:
+#### Key information
 
 - Use CIDR notation.
-- Specify multiple IP addresses and/or IP address blocks by delimiting each one with a single space. For example:
-  - **IPv4 example**: 1.2.3.4 10.20.30.40 matches any requests that arrive from either address 1.2.3.4 or 10.20.30.40.
-  - **IPv6 example**: 1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80 matches any requests that arrive from either address 1:2:3:4:5:6:7:8 or 10:20:30:40:50:60:70:80.
+- To specify multiple IP addresses and IP address blocks, use a single space between the values:
+  - **IPv4 example**: *1.2.3.4 10.20.30.40* matches any requests that arrive from either address 1.2.3.4 or 10.20.30.40.
+  - **IPv6 example**: *1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80* matches any requests that arrive from either address 1:2:3:4:5:6:7:8 or 10:20:30:40:50:60:70:80.
 - The syntax for an IP address block is the base IP address followed by a forward slash and the prefix size. For example:
-  - **IPv4 example**: 5.5.5.64/26 matches any requests that arrive from addresses 5.5.5.64 through 5.5.5.127.
-  - **IPv6 example**: 1:2:3:/48 matches any requests that arrive from addresses 1:2:3:0:0:0:0:0 through 1:2:3:ffff:ffff:ffff:ffff:ffff.
+  - **IPv4 example**: *5.5.5.64/26* matches any requests that arrive from addresses 5.5.5.64 through 5.5.5.127.
+  - **IPv6 example**: *1:2:3:/48* matches any requests that arrive from addresses 1:2:3:0:0:0:0:0 through 1:2:3:ffff:ffff:ffff:ffff:ffff.
 
-### Request Body
+### Request body
 
-**Required fields**
+Identifies requests based on specific text that appears in the body of the request.
 
-Operator | Request Body | Case Transform
+#### Required fields
+
+Operator | Request body | Case transform
 ---------|--------------|---------------
 [Standard operator list](#standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
 
-### Request Header
+### Request header
 
-**Required fields**
-Header Name | Operator | Header Value | Case Transform
+Identifies requests that use a specific header in the request.
+
+#### Required fields
+
+Header name | Operator | Header value | Case transform
 ------------|----------|--------------|---------------
 String | [Standard operator list](#standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
 
-### Request Method
+### Request method
 
-**Required fields**
+Identifies requests that use the specified request method.
 
-Operator | Supported Value
+#### Required fields
+
+Operator | Supported values
 ---------|----------------
 Equals, Not equals | GET, POST, PUT, DELETE, HEAD, OPTIONS, TRACE
 
-Key information:
+#### Key information
 
-- Only the GET request method can generate cached content on the CDN. All other request methods are proxied through the network. 
+- Only the GET request method can generate cached content in Azure CDN. All other request methods are proxied through the network. 
 
-### Request Protocol
+### Request protocol
 
-**Required fields**
+Identifies requests that use the specified protocol used.
 
-Operator | Supported Value
+#### Required fields
+
+Operator | Supported values
 ---------|----------------
 Equals, Not equals | HTTP, HTTPS
 
 ### Request URL
 
-**Required fields**
+Identifies requests that match the specified URL.
 
-Operator | Request URL | Case Transform
+#### Required fields
+
+Operator | Request URL | Case transform
 ---------|-------------|---------------
 [Standard operator list](#standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
 
-Key information:
+#### Key information
 
-- When entering Request URL, ensure you include protocol information. For example "https://www.[yourdomain].com"
+- When you use this rule condition, be sure to include protocol information. For example: *https://www.\<yourdomain\>.com*.
 
-### URL File Extension
+### URL file extension
 
-**Required fields**
+Identifies requests that include the specified file extension in the file name in the requesting URL.
 
-Operator | Extension | Case Transform
+#### Required fields
+
+Operator | Extension | Case transform
 ---------|-----------|---------------
 [Standard operator list](#standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
 
-Key information:
+#### Key information
 
-- For extension, do not include a leading period; for example, use html instead of .html.
+- For extension, don't include a leading period; for example, use *html* instead of *.html*.
 
-### URL File Name
+### URL file name
 
-**Required fields**
+Identifies requests that include the specified file name in the requesting URL.
 
-Operator | File name | Case Transform
+#### Required fields
+
+Operator | File name | Case transform
 ---------|-----------|---------------
 [Standard operator list](#standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
 
-Key information:
+#### Key information
 
 - To specify multiple file names, separate each file name with a single space. 
 
-### URL Path
+### URL path
 
-**Required fields**
+Identifies requests that include the specified path in the requesting URL.
+
+#### Required fields
 
 Operator | Value | Case Transform
 ---------|-------|---------------
 [Standard operator list](#standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
 
-Key information:
+#### Key information
 
 - A file name value can take advantage of wildcard values. For example, each file name pattern can consist of one or more asterisks (*), where each asterisk matches a sequence of one or more characters.
 
 ## Reference for rules engine match conditions
 
-### Standard Operator List
+### Standard operator list
 
-For rules that contain the standard operator list, the following operators are valid:
+For rules that accept values from the standard operator list, the following operators are valid:
 
 - Any
 - Equals 
@@ -217,17 +235,11 @@ For rules that contain the standard operator list, the following operators are v
 - Not greater than
 - Not greater than or equals
 
-For numeric operators, like "Less than" or "Greater than or equals", the comparison used will based on length. In this case, the value in the match condition should be an Integer, equal to the length you would like to compare. 
-
----
-
-[Back to top](#match-conditions)
-
-</br>
+For numeric operators like *Less than* and *Greater than or equals*, the comparison used is based on length. In this case, the value in the match condition should be an integer that's equal to the length you want to compare. 
 
 ## Next steps
 
-- [Azure Content Delivery Network overview](cdn-overview.md)
-- [Rules engine reference](cdn-standard-rules-engine-reference.md)
-- [Rules engine actions](cdn-standard-rules-engine-actions.md)
-- [Enforce HTTPS using the Standard Rules Engine](cdn-standard-rules-engine.md)
+- [Azure CDN overview](cdn-overview.md)
+- [Standard rules engine reference](cdn-standard-rules-engine-reference.md)
+- [Actions in the Standard rules engine](cdn-standard-rules-engine-actions.md)
+- [Enforce HTTPS by using the Standard rules engine](cdn-standard-rules-engine.md)

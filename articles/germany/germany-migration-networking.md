@@ -1,23 +1,23 @@
 ---
-title: Migrate Azure network resources from Azure Germany to global Azure
+title: Migrate Azure network resource from Azure Germany to global Azure
 description: This article provides information about migrating your Azure network resources from Azure Germany to global Azure.
+ms.topic: article
+ms.date: 10/16/2020
 author: gitralf
-services: germany
-cloud: Azure Germany
 ms.author: ralfwi 
 ms.service: germany
-ms.date: 08/15/2018
-ms.topic: article
-ms.custom: bfmigrate
+ms.custom: bfmigrate, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Migrate network resources to global Azure
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
 
 Most networking services don't support migration from Azure Germany to global Azure. However, you can connect your networks in both cloud environments by using a site-to-site VPN. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-The steps you take to set up a site-to-site VPN between clouds are similar to the steps you take to deploy a site-to-site VPN between your on-premises network and Azure. Define a gateway in both clouds, and then tell the VPNs how to communicate with each other. [Create a site-to-site connection in the Azure portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) describes the steps you complete to deploy a site-to-site VPN. Here's a summary of the steps:
+The steps you take to set up a site-to-site VPN between clouds are similar to the steps you take to deploy a site-to-site VPN between your on-premises network and Azure. Define a gateway in both clouds, and then tell the VPNs how to communicate with each other. [Create a site-to-site connection in the Azure portal](../vpn-gateway/tutorial-site-to-site-portal.md) describes the steps you complete to deploy a site-to-site VPN. Here's a summary of the steps:
 
 1. Define a virtual network.
 1. Define address space.
@@ -45,7 +45,7 @@ Migrating virtual networks from Azure Germany to global Azure isn't supported at
 
 For more information:
 
-- Refresh your knowledge by completing the [Azure Virtual Network tutorials](https://docs.microsoft.com/azure/virtual-network).
+- Refresh your knowledge by completing the [Azure Virtual Network tutorials](../virtual-network/index.yml).
 - Review the [virtual networks overview](../virtual-network/virtual-networks-overview.md).
 - Learn how to [plan virtual networks](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 
@@ -62,8 +62,8 @@ Get-AzNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg
 
 For more information:
 
-- Refresh your [knowledge about network security groups](../virtual-network/security-overview.md#network-security-groups).
-- Review the [network security overview](../virtual-network/security-overview.md)
+- Refresh your [knowledge about network security groups](../virtual-network/network-security-groups-overview.md#network-security-groups).
+- Review the [network security overview](../virtual-network/network-security-groups-overview.md)
 - Learn how to [manage network security groups](../virtual-network/manage-network-security-group.md).
 
 ## ExpressRoute
@@ -72,7 +72,7 @@ Migrating an Azure ExpressRoute instance from Azure Germany to global Azure isn'
 
 For more information:
 
-- Refresh your knowledge by completing the [ExpressRoute tutorials](https://docs.microsoft.com/azure/expressroute).
+- Refresh your knowledge by completing the [ExpressRoute tutorials](../expressroute/index.yml).
 - Learn how to [create a new ExpressRoute gateway](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md).
 - Learn about [ExpressRoute locations and service providers](../expressroute/expressroute-locations.md).
 - Read about [virtual network gateways for ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md).
@@ -87,10 +87,10 @@ Make sure that you update your on-premises configuration. Also, delete any exist
 
 For more information:
 
-- Refresh your knowledge by completing the [VPN Gateway tutorials](https://docs.microsoft.com/azure/vpn-gateway).
-- Learn how to [create a site-to-site connection](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+- Refresh your knowledge by completing the [VPN Gateway tutorials](../vpn-gateway/index.yml).
+- Learn how to [create a site-to-site connection](../vpn-gateway/tutorial-site-to-site-portal.md).
 - Review the [Get-AzVirtualNetworkGateway](/powershell/module/az.network/get-azvirtualnetworkgateway) PowerShell cmdlets.
-- Read the blog post [Create a site-to-site connection](https://blogs.technet.microsoft.com/ralfwi/2017/02/02/connecting-clouds/).
+- Read the blog post [Create a site-to-site connection](/archive/blogs/ralfwi/connecting-clouds).
  
 ## Application Gateway
 
@@ -100,7 +100,7 @@ You can collect information about your current gateway configuration by using th
 
 For more information:
 
-- Refresh your knowledge by completing the [Application Gateway tutorials](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-portal).
+- Refresh your knowledge by completing the [Application Gateway tutorials](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md).
 - Learn how to [create an application gateway](../application-gateway/quick-create-portal.md).
 - Review the [Get-AzApplicationGateway](/powershell/module/az.network/get-azapplicationgateway) PowerShell cmdlets.
 
@@ -144,7 +144,7 @@ az network dns record-set ns list -g <resource group> -z --output json
 
 For more information:
 
-- Refresh your knowledge by completing the [Azure DNS tutorials](https://docs.microsoft.com/azure/dns).
+- Refresh your knowledge by completing the [Azure DNS tutorials](../dns/index.yml).
 - Review the [Azure DNS overview](../dns/dns-overview.md).
 - Learn more about [Azure DNS import and export](../dns/dns-import-export.md).
 
@@ -154,7 +154,7 @@ Migrating an Azure Network Watcher instance from Azure Germany to global Azure i
 
 For more information:
 
-- Refresh your knowledge by completing the [Network Watcher tutorials](https://docs.microsoft.com/azure/network-watcher).
+- Refresh your knowledge by completing the [Network Watcher tutorials](../network-watcher/index.yml).
 - Review the [Network Watcher overview](../network-watcher/network-watcher-monitoring-overview.md).
 - Learn more about [network security group flow logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md).
 - Read about [Connection Monitor](../network-watcher/connection-monitor.md).
@@ -175,9 +175,9 @@ You can define additional endpoints in the target environment by using Traffic M
 
 For more information:
 
-- Refresh your knowledge by completing the [Traffic Manager tutorials](https://docs.microsoft.com/azure/traffic-manager).
+- Refresh your knowledge by completing the [Traffic Manager tutorials](../traffic-manager/index.yml).
 - Review the [Traffic Manager overview](../traffic-manager/traffic-manager-overview.md).
-- Learn how to [create a Traffic Manager profile](../traffic-manager/traffic-manager-create-profile.md).
+- Learn how to [create a Traffic Manager profile](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 
 ## Load Balancer
 
@@ -185,7 +185,7 @@ Migrating an Azure Load Balancer instance from Azure Germany to global Azure isn
 
 For more information:
 
-- Refresh your knowledge by completing the [Load Balancer tutorials](https://docs.microsoft.com/azure/load-balancer).
+- Refresh your knowledge by completing the [Load Balancer tutorials](../load-balancer/index.yml).
 - Review the [Load Balancer overview](../load-balancer/load-balancer-overview.md).
 - Learn how to [create a new load balancer](../load-balancer/quickstart-load-balancer-standard-public-portal.md).
 

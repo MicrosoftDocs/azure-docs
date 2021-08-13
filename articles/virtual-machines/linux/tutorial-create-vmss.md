@@ -1,22 +1,15 @@
 ---
-title: Tutorial - Create a virtual machine scale set for Linux in Azure | Microsoft Docs
-description: In this tutorial, you learn how to use the Azure CLI to create and deploy a highly available application on Linux VMs using a virtual machine scale set
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: ''
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: azurecli
+title: "Tutorial: Create a Linux virtual machine scale set" 
+description: Learn how to use the Azure CLI to create and deploy a highly available application on Linux VMs using a virtual machine scale set
+author: ju-shim
+ms.author: jushiman
 ms.topic: tutorial
+ms.service: virtual-machine-scale-sets
+ms.subservice: availability
+ms.collection: linux
 ms.date: 06/01/2018
-ms.author: cynthn
-ms.custom: mvc
+ms.reviewer: mimckitt
+ms.custom: mimckitt, devx-track-js, devx-track-azurecli
 
 #Customer intent: As an IT administrator, I want to learn about autoscaling VMs in Azure so that I can deploy a highly-available and scalable infrastructure.
 ---
@@ -33,7 +26,7 @@ A virtual machine scale set allows you to deploy and manage a set of identical, 
 > * View connection info for scale set instances
 > * Use data disks in a scale set
 
-This tutorial uses the CLI within the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), which is constantly updated to the latest version. To open the Cloud Shell, select **Try it** from the top of any code block.
+This tutorial uses the CLI within the [Azure Cloud Shell](../../cloud-shell/overview.md), which is constantly updated to the latest version. To open the Cloud Shell, select **Try it** from the top of any code block.
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -96,13 +89,13 @@ runcmd:
 
 
 ## Create a scale set
-Before you can create a scale set, create a resource group with [az group create](/cli/azure/group#az-group-create). The following example creates a resource group named *myResourceGroupScaleSet* in the *eastus* location:
+Before you can create a scale set, create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroupScaleSet* in the *eastus* location:
 
 ```azurecli-interactive
 az group create --name myResourceGroupScaleSet --location eastus
 ```
 
-Now create a virtual machine scale set with [az vmss create](/cli/azure/vmss#az-vmss-create). The following example creates a scale set named *myScaleSet*, uses the cloud-init file to customize the VM, and generates SSH keys if they do not exist:
+Now create a virtual machine scale set with [az vmss create](/cli/azure/vmss#az_vmss_create). The following example creates a scale set named *myScaleSet*, uses the cloud-init file to customize the VM, and generates SSH keys if they do not exist:
 
 ```azurecli-interactive
 az vmss create \
@@ -121,7 +114,7 @@ It takes a few minutes to create and configure all the scale set resources and V
 ## Allow web traffic
 A load balancer was created automatically as part of the virtual machine scale set. The load balancer distributes traffic across a set of defined VMs using load balancer rules. You can learn more about load balancer concepts and configuration in the next tutorial, [How to load balance virtual machines in Azure](tutorial-load-balancer.md).
 
-To allow traffic to reach the web app, create a rule with [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create). The following example creates a rule named *myLoadBalancerRuleWeb*:
+To allow traffic to reach the web app, create a rule with [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create). The following example creates a rule named *myLoadBalancerRuleWeb*:
 
 ```azurecli-interactive
 az network lb rule create \
@@ -136,7 +129,7 @@ az network lb rule create \
 ```
 
 ## Test your app
-To see your Node.js app on the web, obtain the public IP address of your load balancer with [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). The following example obtains the IP address for *myScaleSetLBPublicIP* created as part of the scale set:
+To see your Node.js app on the web, obtain the public IP address of your load balancer with [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). The following example obtains the IP address for *myScaleSetLBPublicIP* created as part of the scale set:
 
 ```azurecli-interactive
 az network public-ip show \
@@ -157,7 +150,7 @@ To see the scale set in action, you can force-refresh your web browser to see th
 Throughout the lifecycle of the scale set, you may need to run one or more management tasks. Additionally, you may want to create scripts that automate various lifecycle-tasks. The Azure CLI provides a quick way to do those tasks. Here are a few common tasks.
 
 ### View VMs in a scale set
-To view a list of VMs running in your scale set, use [az vmss list-instances](/cli/azure/vmss#az-vmss-list-instances) as follows:
+To view a list of VMs running in your scale set, use [az vmss list-instances](/cli/azure/vmss#az_vmss_list_instances) as follows:
 
 ```azurecli-interactive
 az vmss list-instances \
@@ -177,7 +170,7 @@ The output is similar to the following example:
 
 
 ### Manually increase or decrease VM instances
-To see the number of instances you currently have in a scale set, use [az vmss show](/cli/azure/vmss#az-vmss-show) and query on *sku.capacity*:
+To see the number of instances you currently have in a scale set, use [az vmss show](/cli/azure/vmss#az_vmss_show) and query on *sku.capacity*:
 
 ```azurecli-interactive
 az vmss show \
@@ -187,7 +180,7 @@ az vmss show \
     --output table
 ```
 
-You can then manually increase or decrease the number of virtual machines in the scale set with [az vmss scale](/cli/azure/vmss#az-vmss-scale). The following example sets the number of VMs in your scale set to *3*:
+You can then manually increase or decrease the number of virtual machines in the scale set with [az vmss scale](/cli/azure/vmss#az_vmss_scale). The following example sets the number of VMs in your scale set to *3*:
 
 ```azurecli-interactive
 az vmss scale \
@@ -197,7 +190,7 @@ az vmss scale \
 ```
 
 ### Get connection info
-To obtain connection information about the VMs in your scale sets, use [az vmss list-instance-connection-info](/cli/azure/vmss#az-vmss-list-instance-connection-info). This command outputs the public IP address and port for each VM that allows you to connect with SSH:
+To obtain connection information about the VMs in your scale sets, use [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info). This command outputs the public IP address and port for each VM that allows you to connect with SSH:
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
@@ -210,7 +203,7 @@ az vmss list-instance-connection-info \
 You can create and use data disks with scale sets. In a previous tutorial, you learned how to [Manage Azure disks](tutorial-manage-disks.md) that outlines the best practices and performance improvements for building apps on data disks rather than the OS disk.
 
 ### Create scale set with data disks
-To create a scale set and attach data disks, add the `--data-disk-sizes-gb` parameter to the [az vmss create](/cli/azure/vmss#az-vmss-create) command. The following example creates a scale set with *50*Gb data disks attached to each instance:
+To create a scale set and attach data disks, add the `--data-disk-sizes-gb` parameter to the [az vmss create](/cli/azure/vmss#az_vmss_create) command. The following example creates a scale set with *50*Gb data disks attached to each instance:
 
 ```azurecli-interactive
 az vmss create \
@@ -227,7 +220,7 @@ az vmss create \
 When instances are removed from a scale set, any attached data disks are also removed.
 
 ### Add data disks
-To add a data disk to instances in your scale set, use [az vmss disk attach](/cli/azure/vmss/disk#az-vmss-disk-attach). The following example adds a *50*Gb disk to each instance:
+To add a data disk to instances in your scale set, use [az vmss disk attach](/cli/azure/vmss/disk#az_vmss_disk_attach). The following example adds a *50*Gb disk to each instance:
 
 ```azurecli-interactive
 az vmss disk attach \
@@ -238,7 +231,7 @@ az vmss disk attach \
 ```
 
 ### Detach data disks
-To remove a data disk to instances in your scale set, use [az vmss disk detach](/cli/azure/vmss/disk#az-vmss-disk-detach). The following example removes the data disk at LUN *2* from each instance:
+To remove a data disk to instances in your scale set, use [az vmss disk detach](/cli/azure/vmss/disk#az_vmss_disk_detach). The following example removes the data disk at LUN *2* from each instance:
 
 ```azurecli-interactive
 az vmss disk detach \

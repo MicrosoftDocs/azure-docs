@@ -1,51 +1,44 @@
 ---
-title: Troubleshoot domain and SSL certificates - Azure App Service | Microsoft Docs
-description: Troubleshoot domain and SSL certificate problems in Azure App Service
-services: app-service\web
-documentationcenter: ''
+title: Troubleshoot domain and TLS/SSL certificates
+description: Find solutions to the common problems that you might encounter when you configure a domain or TLS/SSL certificate in Azure App Service.
 author: genlin
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue
 
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 
 ---
-# Troubleshoot domain and SSL certificate problems in Azure App Service
+# Troubleshoot domain and TLS/SSL certificate problems in Azure App Service
 
-This article lists common problems that you might encounter when you configure a domain or SSL certificate for your web apps in Azure App Service. It also describes possible causes and solutions for these problems.
+This article lists common problems that you might encounter when you configure a domain or TLS/SSL certificate for your web apps in Azure App Service. It also describes possible causes and solutions for these problems.
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
-
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Certificate problems
 
-### You can't add an SSL certificate binding to an app 
+### You can't add a TLS/SSL certificate binding to an app 
 
 #### Symptom
 
-When you add an SSL binding, you receive the following error message:
+When you add a TLS binding, you receive the following error message:
 
 "Failed to add SSL binding. Cannot set certificate for existing VIP because another VIP already uses that certificate."
 
 #### Cause
 
-This problem can occur if you have multiple IP-based SSL bindings for the same IP address across multiple apps. For example, app A has an IP-based SSL with an old certificate. App B has an IP-based SSL with a new certificate for the same IP address. When you update the app SSL binding with the new certificate, it fails with this error because the same IP address is being used for another app. 
+This problem can occur if you have multiple IP-based TLS/SSL bindings for the same IP address across multiple apps. For example, app A has an IP-based TLS/SSL binding with an old certificate. App B has an IP-based TLS/SSL binding with a new certificate for the same IP address. When you update the app TLS binding with the new certificate, it fails with this error because the same IP address is being used for another app. 
 
 #### Solution 
 
 To fix this problem, use one of the following methods:
 
-- Delete the IP-based SSL binding on the app that uses the old certificate. 
-- Create a new IP-based SSL binding that uses the new certificate.
+- Delete the IP-based TLS/SSL binding on the app that uses the old certificate. 
+- Create a new IP-based TLS/SSL binding that uses the new certificate.
 
 ### You can't delete a certificate 
 
@@ -53,7 +46,7 @@ To fix this problem, use one of the following methods:
 
 When you try to delete a certificate, you receive the following error message:
 
-"Unable to delete the certificate because it is currently being used in an SSL binding. The SSL binding must be removed before you can delete the certificate."
+"Unable to delete the certificate because it is currently being used in a TLS/SSL binding. The TLS binding must be removed before you can delete the certificate."
 
 #### Cause
 
@@ -61,7 +54,7 @@ This problem might occur if another app uses the certificate.
 
 #### Solution
 
-Remove the SSL binding for that certificate from the apps. Then try to delete the certificate. If you still can't delete the certificate, clear the internet browser cache and reopen the Azure portal in a new browser window. Then try to delete the certificate.
+Remove the TLS binding for that certificate from the apps. Then try to delete the certificate. If you still can't delete the certificate, clear the internet browser cache and reopen the Azure portal in a new browser window. Then try to delete the certificate.
 
 ### You can't purchase an App Service certificate 
 
@@ -71,7 +64,7 @@ You can't purchase an [Azure App Service certificate](./configure-ssl-certificat
 #### Cause and solution
 This problem can occur for any of the following reasons:
 
-- The App Service plan is Free or Shared. These pricing tiers don't support SSL. 
+- The App Service plan is Free or Shared. These pricing tiers don't support TLS. 
 
     **Solution**: Upgrade the App Service plan for app to Standard.
 
@@ -112,7 +105,7 @@ The custom domain that you configured is missing a CNAME or A record.
 
 **Solution for cause 1**
 
-- If you added an A record, make sure that a TXT record is also added. For more information, see [Create the A record](./app-service-web-tutorial-custom-domain.md#create-the-a-record).
+- If you added an A record, make sure that a TXT record is also added. For more information, see [Create the A record](./app-service-web-tutorial-custom-domain.md#4-create-the-dns-records).
 - If you don't have to use the root domain for your app, we recommend that you use a CNAME record instead of an A record.
 - Don't use both a CNAME record and an A record for the same domain. This issue can cause a conflict and prevent the domain from being resolved. 
 
@@ -122,7 +115,7 @@ The internet browser might still be caching the old IP address for your domain.
 
 **Solution for Cause 2**
 
-Clear the browser. For Windows devices, you can run the command `ipconfig /flushdns`. Use [WhatsmyDNS.net](https://www.whatsmydns.net/) to verify that your domain points to the app's IP address. 
+Clear the browser. For Windows devices, you can run the command `ipconfig /flushdns`. Use [WhatsmyDNS.net](https://www.whatsmydns.net/) to verify that your domain points to the app's IP address.
 
 ### You can't add a subdomain 
 
@@ -133,7 +126,7 @@ You can't add a new host name to an app to assign a subdomain.
 #### Solution
 
 - Check with subscription administrator to make sure that you have permissions to add a host name to the app.
-- If you need more subdomains, we recommend that you change the domain hosting to Azure Domain Name Service (DNS). By using Azure DNS, you can add 500 host names to your app. For more information, see [Add a subdomain](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/).
+- If you need more subdomains, we recommend that you change the domain hosting to Azure Domain Name Service (DNS). By using Azure DNS, you can add 500 host names to your app. For more information, see [Add a subdomain](/archive/blogs/waws/mapping-a-custom-subdomain-to-an-azure-website).
 
 ### DNS can't be resolved
 
@@ -167,7 +160,7 @@ If your domain was deleted fewer than seven days ago, the domain has not yet sta
 
 ## Domain problems
 
-### You purchased an SSL certificate for the wrong domain
+### You purchased a TLS/SSL certificate for the wrong domain
 
 #### Symptom
 
@@ -187,7 +180,7 @@ The App Service certificate was renewed, but the app that uses the App Service c
 
 #### Cause 
 App Service automatically syncs your certificate within 48 hours. When you rotate or update a certificate, sometimes the application is still retrieving the old certificate and not the newly updated certificate. The reason is that the job to sync the certificate resource hasn't run yet. Click Sync. The sync operation automatically updates the hostname bindings for the certificate in App Service without causing any downtime to your apps.
- 
+
 #### Solution
 
 You can force a sync of the certificate:
@@ -203,17 +196,17 @@ The App Service certificate requires domain verification before the certificate 
 
 #### Solution
 Manually verify your domain by adding a TXT record:
- 
-1.	Go to the Domain Name Service (DNS) provider that hosts your domain name.
-2.	Add a TXT record for your domain that uses the value of the domain token that's shown in the Azure portal. 
+
+1. Go to the Domain Name Service (DNS) provider that hosts your domain name.
+1. Add a TXT record for your domain that uses the value of the domain token that's shown in the Azure portal. 
 
 Wait a few minutes for DNS propagation to run, and then select the **Refresh** button to trigger the verification. 
 
 As an alternative, you can use the HTML webpage method to manually verify your domain. This method allows the certificate authority to confirm the domain ownership of the domain that the certificate is issued for.
 
-1.	Create an HTML file that's named {domain verification token}.html. The content of this file should be the value of domain verification token.
-3.	Upload this file at the root of the web server that's hosting your domain.
-4.	Select **Refresh** to check the certificate status. It might take few minutes for verification to finish.
+1. Create an HTML file that's named {domain verification token}.html. The content of this file should be the value of domain verification token.
+1. Upload this file at the root of the web server that's hosting your domain.
+1. Select **Refresh** to check the certificate status. It might take few minutes for verification to finish.
 
 For example, if you're buying a standard certificate for azure.com with the domain verification token 1234abcd, a web request made to https://azure.com/1234abcd.html should return 1234abcd. 
 
@@ -290,7 +283,7 @@ If you have auto-renew enabled, you do not need to take any action. The notice e
 
 The initial cost of domain purchase applies to domain registration only. In addition to the registration cost, there are incurring charges for Azure DNS based on your usage. For more information, see [Azure DNS pricing](https://azure.microsoft.com/pricing/details/dns/) for more details.
 
-**I purchased my domain earlier from the Azure portal and want to move from GoDaddy hosting to Azure DNS hosting. How can I do this？**
+**I purchased my domain earlier from the Azure portal and want to move from GoDaddy hosting to Azure DNS hosting. How can I do this?**
 
 It is not mandatory to migrate to Azure DNS hosting. If you do want to migrate to Azure DNS, the domain management experience in the Azure portal about provides information on steps necessary to move to Azure DNS. If the domain was purchased through App Service, migration from GoDaddy hosting to Azure DNS is relatively seamless procedure.
 
@@ -308,11 +301,11 @@ When you purchase a domain, you are not charged for a period of five days, durin
 
 **Can I use the domain in another Azure App Service app in my subscription?**
 
-Yes. When you access the Custom Domains and SSL blade in the Azure portal, you see the domains that you have purchased. You can configure your app to use any of those domains.
+Yes. When you access the Custom Domains and TLS blade in the Azure portal, you see the domains that you have purchased. You can configure your app to use any of those domains.
 
 **Can I transfer a domain from one subscription to another subscription?**
 
-You can move a domain to another subscription/resource group using the [Move-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Move-azResource) PowerShell cmdlet.
+You can move a domain to another subscription/resource group using the [Move-AzResource](/powershell/module/az.Resources/Move-azResource) PowerShell cmdlet.
 
 **How can I manage my custom domain if I don’t currently have an Azure App Service app?**
 
@@ -320,6 +313,6 @@ You can manage your domain even if you don’t have an App Service Web App. Doma
 
 **Can I move a web app with a custom domain to another subscription or from App Service Environment v1 to V2?**
 
-Yes, you can move your web app across subscriptions. Follow the guidance in [How to move resources in Azure](../azure-resource-manager/resource-group-move-resources.md). There are a few limitations when moving the web app. For more information, see [Limitations for moving App Service resources](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
+Yes, you can move your web app across subscriptions. Follow the guidance in [How to move resources in Azure](../azure-resource-manager/management/move-resource-group-and-subscription.md). There are a few limitations when moving the web app. For more information, see [Limitations for moving App Service resources](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md).
 
 After moving the web app, the host name bindings of the domains within the custom domains setting should remain the same. No additional steps are required to configure the host name bindings.

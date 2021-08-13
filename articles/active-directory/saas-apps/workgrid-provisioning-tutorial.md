@@ -2,20 +2,15 @@
 title: 'Tutorial: Configure Workgrid  for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Workgrid.
 services: active-directory
-documentationcenter: ''
-author: zchia
-writer: zchia
-manager: beatrizd
-
-ms.assetid: fb48deae-4653-448a-ba2f-90258edab3a7
+author: twimmers
+writer: twimmers
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/17/2019
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Workgrid  for automatic user provisioning
@@ -23,7 +18,7 @@ ms.author: Zhchia
 The objective of this tutorial is to demonstrate the steps to be performed in Workgrid  and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Workgrid.
 
 > [!NOTE]
-> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
+> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > This connector is currently in Public Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -54,15 +49,15 @@ Before configuring Workgrid  for automatic user provisioning with Azure AD, you 
 
 1. Log in into Workgrid. Navigate to **Users > User Provisioning**.
 
-	![Workgrid](media/Workgrid-provisioning-tutorial/user.png)
+	![Screenshot of the Workgrid U I with the Users and User Provisioning options called out.](media/Workgrid-provisioning-tutorial/user.png)
 
 2. Under **Account Management API**, click **Create Credentials**.
 
-	![Workgrid](media/Workgrid-provisioning-tutorial/scim.png)
+	![Screenshot of the Account Management A P I section with the Create Credentials option called out.](media/Workgrid-provisioning-tutorial/scim.png)
 
 3. Copy the **SCIM Endpoint** and **Access Token** values. These will be entered in the **Tenant URL** and **Secret Token** field in the Provisioning tab of your Workgrid application in the Azure portal.
 
-	![Workgrid](media/Workgrid-provisioning-tutorial/token.png)
+	![Screenshot of the Account Management A P I section with S C I M Endpoint and Access Token called out.](media/Workgrid-provisioning-tutorial/token.png)
 
 
 ## Add Workgrid  from the gallery
@@ -92,7 +87,7 @@ To configure Workgrid  for automatic user provisioning with Azure AD, you need t
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Workgrid  based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Workgrid  , following the instructions provided in the [Workgrid  Single sign-on tutorial](Workgrid-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
+> You may also choose to enable SAML-based single sign-on for Workgrid , following the instructions provided in the [Workgrid  Single sign-on tutorial](Workgrid-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
 
 ### To configure automatic user provisioning for Workgrid  in Azure AD:
 
@@ -106,11 +101,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the Admin Credentials section, input the **SCIM Endpoint** and **Access Token** values retrieved earlier in **Tenant URL** and **Secret Token** respectively. Click **Test Connection** to ensure Azure AD can connect to Workgrid. If the connection fails, ensure your Workgrid account has Admin permissions and try again.
 
@@ -124,7 +119,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Workgrid**.
 
-	![Workgrid User Mappings](media/Workgrid-provisioning-tutorial/usermapping.png)
+	![Screenshot of the Mappings section with the Synchronize Azure Active Directory Users to Workgrid option called out.](media/Workgrid-provisioning-tutorial/usermapping.png)
 
 9. Review the user attributes that are synchronized from Azure AD to Workgrid  in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Workgrid  for update operations. Select the **Save** button to commit any changes.
 
@@ -132,13 +127,13 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Workgrid**
 
-	![Workgrid User Mappings](media/Workgrid-provisioning-tutorial/groupmapping.png)
+	![Screenshot of the Mappings section with the Synchronize Azure Active Directory Groups to Workgrid option called out.](media/Workgrid-provisioning-tutorial/groupmapping.png)
 
 12. Review the group attributes that are synchronized from Azure AD to Workgrid  in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Workgrid  for update operations. Select the **Save** button to commit any changes.
 
-	![Workgrid User Mappings](media/Workgrid-provisioning-tutorial/groupattribute.png)
+	![Screenshot of the Attribute Mappings section with three mappings displayed.](media/Workgrid-provisioning-tutorial/groupattribute.png)
 
-13. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+13. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 14. To enable the Azure AD provisioning service for Workgrid, change the **Provisioning Status** to **On** in the **Settings** section.
 
@@ -152,15 +147,15 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs. For more information on how long it will take for users and/or groups to provision, see [How long will it take to provision users](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
+This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs. For more information on how long it will take for users and/or groups to provision, see [How long will it take to provision users](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
-You can use the **Current Status** section to monitor progress and follow links to your provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Workgrid. For more information, see [Check the status of user provisioning](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md). To read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
+You can use the **Current Status** section to monitor progress and follow links to your provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Workgrid. For more information, see [Check the status of user provisioning](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). To read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## Additional resources
 
-* [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
+* [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)

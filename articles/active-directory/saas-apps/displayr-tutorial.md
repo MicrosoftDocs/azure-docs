@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Displayr | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Displayr.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-
-ms.assetid: b739b4e3-1a37-4e3c-be89-c3945487f4c1
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate Displayr with Azure Active Directory
@@ -28,18 +21,18 @@ In this tutorial, you'll learn how to integrate Displayr with Azure Active Direc
 * Enable your users to be automatically signed-in to Displayr with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Displayr single sign-on (SSO) enabled subscription.
+* Displayr single sign-on (SSO) enabled company.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment. Displayr supports **SP** initiated SSO.
+In this tutorial, you will learn to configure Azure AD SSO in your Displayr company. Displayr supports **SP** initiated SSO.
 
 ## Adding Displayr from the gallery
 
@@ -52,17 +45,13 @@ To configure the integration of Displayr into Azure AD, you need to add Displayr
 1. In the **Add from the gallery** section, type **Displayr** in the search box.
 1. Select **Displayr** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on
+## Configure Azure AD single sign-on
 
-Configure and test Azure AD SSO with Displayr using a test user called **Britta Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Displayr.
-
-To configure and test Azure AD SSO with Displayr, complete the following building blocks:
+To configure Azure AD SSO with Displayr, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
 2. **[Configure Displayr](#configure-displayr)** to configure the SSO settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create Displayr test user](#create-displayr-test-user)** to have a counterpart of Britta Simon in Displayr that is linked to the Azure AD representation of user.
+4. **[Restrict access to specific users](#restrict-access-to-specific-users)** to restrict which of your Azure AD users can sign in to Displayr.
 6. **[Test SSO](#test-sso)** to verify whether the configuration works.
 
 ### Configure Azure AD SSO
@@ -81,6 +70,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<YOURDOMAIN>.displayr.com`
 
 	b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:`<YOURDOMAIN>.displayr.com`
+	
+	c. In the **Reply URL** text box, type `https://app.displayr.com/Login/ProcessSamlResponse`.
+	
+	d. Click **Save**.
 
 	>[!NOTE]
 	>These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Displayr Client support team](mailto:support@displayr.com) to get these values. You can also refer to the patterns shown in the Basic SAML Configuration section in the Azure portal.
@@ -91,25 +84,19 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Displayr application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
-	![image](common/edit-attribute.png)
+   ![Screenshot that shows the "User Attributes" section with the "Edit" icon highlighted.](common/edit-attribute.png)
 
 1. In addition to above, Displayr application expects few more attributes to be passed back in SAML response. In the **User Attributes & Claims** section on the **Group Claims (Preview)** dialog, perform the following steps:
 
-	a. Click the **pen** next to **Groups returned in claim**.
+   a. Click **Add a group claim**.
 
-	![image](./media/displayr-tutorial/config04.png)
+      ![Screenshot that shows the "Group Claims (Preview) window with settings selected.](./media/displayr-tutorial/config05.png)
 
-	![image](./media/displayr-tutorial/config05.png)
+   b. Select **All Groups** from the radio list.
 
-	b. Select **All Groups** from the radio list.
+   c. Select **Source Attribute** of **Group ID**.
 
-	c. Select **Source Attribute** of **Group ID**.
-
-	d. Check **Customize the name of the group claim**.
-
-	e. Check **Emit groups as role claims**.
-
-	f. Click **Save**.
+   f. Click **Save**.
 
 1. On the **Set-up Displayr** section, copy the appropriate URL(s) based on your requirement.
 
@@ -127,13 +114,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 3. If you want to set up Displayr manually, open a new web browser window and sign into your Displayr company site as an administrator and perform the following steps:
 
-4. Click on **Settings** then navigate to **Account**.
+4. Click on the **User** icon, then navigate to **Account settings**.
 
-	![Configuration](./media/displayr-tutorial/config01.png)
+	![Screenshot that shows the "Settings" icon and "Account" selected.](./media/displayr-tutorial/config01.png)
 
-5. Switch to **Settings** from the top menu and scroll down the page for clicking **Configure Single Sign On (SAML)**.
+5. Switch to **Settings** from the top menu and scroll down the page to click on **Configure Single Sign On (SAML)**.
 
-	![Configuration](./media/displayr-tutorial/config02.png)
+	![Screenshot that shows the "Settings" tab selected and the "Configure Single Sign On (S A M L)" action selected.](./media/displayr-tutorial/config02.png)
 
 6. On the **Single Sign On (SAML)** page, perform the following steps:
 
@@ -153,72 +140,18 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	g. Click **Save**.	
 
-### Create an Azure AD test user
+### Restrict access to specific users
 
-In this section, you'll create a test user in the Azure portal called Britta Simon.
-
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
-1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `Britta Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `BrittaSimon@contoso.com`.
-   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
-
-### Assign the Azure AD test user
-
-In this section, you'll enable Britta Simon to use Azure single sign-on by granting access to Displayr.
-
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **Displayr**.
-1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-
-   ![The "Users and groups" link](common/users-groups-blade.png)
-
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-
-	![The Add User link](common/add-assign-user.png)
-
-1. In the **Users and groups** dialog, select **Britta Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
-1. In the **Add Assignment** dialog, click the **Assign** button.
-
-### Create Displayr test user
-
-To enable Azure AD users, sign in to Displayr, they must be provisioned into Displayr. In Displayr, provisioning is a manual task.
-
-**To provision a user account, perform the following steps:**
-
-1. Sign in to Displayr as an Administrator.
-
-2. Click on **Settings** then navigate to **Account**.
-
-	![Displayr Configuration](./media/displayr-tutorial/config01.png)
-
-3. Switch to **Settings** from the top menu and scroll down the page, until **Users** section then click on **New User**.
-
-	![Displayr Configuration](./media/displayr-tutorial/config07.png)
-
-4. On the **New User** page, perform the following steps:
-
-	![Displayr Configuration](./media/displayr-tutorial/config06.png)
-
-	a. In **Name** text box, enter the name of user like **Brittasimon**.
-
-	b. In **Email** text box, enter the email of user like `Brittasimon@contoso.com`.
-
-	c. Select your appropriate **Group membership**.
-
-	d. Click **Save**.
+By default, all users in the tenant where you added the Displayr application can log in to Displayr by using SSO. If you want to restrict access to specific users or groups, see [Restrict your Azure AD app to a set of users in an Azure AD tenant](../develop/howto-restrict-your-app-to-a-set-of-users.md).
 
 ### Test SSO
 
-When you select the Displayr tile in the Access Panel, you should be automatically signed in to the Displayr for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the Displayr tile in the Access Panel, you should be automatically signed in to the Displayr company for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

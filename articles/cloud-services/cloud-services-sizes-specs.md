@@ -1,20 +1,25 @@
 ---
-title: Virtual machine sizes for Azure Cloud services | Microsoft Docs
+title: Virtual machine sizes for Azure Cloud services (classic) | Microsoft Docs
 description: Lists the different virtual machine sizes (and IDs) for Azure cloud service web and worker roles.
-services: cloud-services
-documentationcenter: ''
-author: georgewallace
-ms.service: cloud-services
 ms.topic: article
-ms.date: 07/18/2017
-ms.author: gwallace
-
+ms.service: cloud-services
+ms.subservice: deployment-files
+ms.date: 10/14/2020
+author: hirenshah1
+ms.author: hirshah
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-# Sizes for Cloud Services
+
+# Sizes for Cloud Services (classic)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 This topic describes the available sizes and options for Cloud Service role instances (web roles and worker roles). It also provides deployment considerations to be aware of when planning to use these resources. Each size has an ID that you put in your [service definition file](cloud-services-model-and-package.md#csdef). Prices for each size are available on the [Cloud Services Pricing](https://azure.microsoft.com/pricing/details/cloud-services/) page.
 
 > [!NOTE]
-> To see related Azure limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)
+> To see related Azure limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-resource-manager/management/azure-subscription-service-limits.md)
 >
 >
 
@@ -31,7 +36,7 @@ The size of the virtual machine affects the pricing. The size also affects the p
 
 The following considerations might help you decide on a size:
 
-* The A8-A11 and H-series sizes are also known as *compute-intensive instances*. The hardware that runs these sizes is designed and optimized for compute-intensive and network-intensive applications, including high-performance computing (HPC) cluster applications, modeling, and simulations. The A8-A11 series uses Intel Xeon E5-2670 @ 2.6 GHZ and the H-series uses Intel Xeon E5-2667 v3 @ 3.2 GHz. For detailed information and considerations about using these sizes, see [High performance compute VM sizes](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* The A8-A11 and H-series sizes are also known as *compute-intensive instances*. The hardware that runs these sizes is designed and optimized for compute-intensive and network-intensive applications, including high-performance computing (HPC) cluster applications, modeling, and simulations. The A8-A11 series uses Intel Xeon E5-2670 @ 2.6 GHZ and the H-series uses Intel Xeon E5-2667 v3 @ 3.2 GHz. For detailed information and considerations about using these sizes, see [High performance compute VM sizes](../virtual-machines/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Dv3-series, Dv2-series, D-series, G-series, are ideal for applications that demand faster CPUs, better local disk performance, or have higher memory demands. They offer a powerful combination for many enterprise-grade applications.
 * Some of the physical hosts in Azure data centers may not support larger virtual machine sizes, such as A5 – A11. As a result, you may see the error message **Failed to configure virtual machine {machine name}** or **Failed to create virtual machine {machine name}** when resizing an existing virtual machine to a new size; creating a new virtual machine in a virtual network created before April 16, 2013; or adding a new virtual machine to an existing cloud service. See [Error: “Failed to configure virtual machine”](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) on the support forum for workarounds for each deployment scenario.
 * Your subscription might also limit the number of cores you can deploy in certain size families. To increase a quota, contact Azure Support.
@@ -54,7 +59,7 @@ We have created the concept of the Azure Compute Unit (ACU) to provide a way of 
 | [A8-A11](#a-series) |225* |
 | [A v2](#av2-series) |100 |
 | [D](#d-series) |160 |
-| [D v2](#dv2-series) |160 - 190* |
+| [D v2](#dv2-series) |210 - 250* |
 | [D v3](#dv3-series) |160 - 190* |
 | [E v3](#ev3-series) |160 - 190* |
 | [G](#g-series) |180 - 240* |
@@ -83,7 +88,7 @@ The following tables show the sizes and the capacities they provide.
 | A7              | 8         | 56           | 2040                 | 4 / high |
 
 ## A-series - compute-intensive instances
-For information and considerations about using these sizes, see [High performance compute VM sizes](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+For information and considerations about using these sizes, see [High performance compute VM sizes](../virtual-machines/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 | Size            | CPU cores | Memory: GiB  | Temporary Storage: GiB       | Max NICs / Network bandwidth |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
@@ -142,6 +147,7 @@ For information and considerations about using these sizes, see [High performanc
 | Standard_D8_v3  | 8         | 32            | 200                  | 4 / high |
 | Standard_D16_v3 | 16        | 64            | 400                  | 8 / extremely high |
 | Standard_D32_v3 | 32        | 128           | 800                  | 8 / extremely high |
+| Standard_D48_v3 | 48        | 192           | 1200                 | 8 / extremely high |
 | Standard_D64_v3 | 64        | 256           | 1600                 | 8 / extremely high |
 
 ## Ev3-series
@@ -153,6 +159,7 @@ For information and considerations about using these sizes, see [High performanc
 | Standard_E8_v3  | 8         | 64            | 200                  | 4 / high |
 | Standard_E16_v3 | 16        | 128           | 400                  | 8 / extremely high |
 | Standard_E32_v3 | 32        | 256           | 800                  | 8 / extremely high |
+| Standard_E48_v3 | 48        | 384           | 1200                 | 8 / extremely high |
 | Standard_E64_v3 | 64        | 432           | 1600                 | 8 / extremely high |
 
 
@@ -209,5 +216,5 @@ Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceS
 ```
 
 ## Next steps
-* Learn about [azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
-* Learn more [about high performance compute VM sizes](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for HPC workloads.
+* Learn about [azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
+* Learn more [about high performance compute VM sizes](../virtual-machines/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for HPC workloads.

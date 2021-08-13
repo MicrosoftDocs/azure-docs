@@ -1,12 +1,9 @@
 ---
 title: Monitor the Azure Site Recovery process server
-description: This article describes how to monitor Azure Site Recovery process server.
-author: rayne-wiselman
-manager: carmonm
+description: This article describes how to monitor Azure Site Recovery process server used for VMware VM/physical server disaster recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/05/2019
-ms.author: raynew
+ms.date: 11/14/2019
 
 ---
 # Monitor the process server
@@ -91,7 +88,7 @@ You can also monitor process servers in the vault under **Site Recovery Infrastr
 ## Next steps
 
 - If you have any process servers issues, follow our [troubleshooting guidance](vmware-physical-azure-troubleshoot-process-server.md)
-- If you need more help, post your question in the [Azure Site Recovery forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). 
+- If you need more help, post your question in the [Microsoft Q&A question page for Azure Site Recovery](/answers/topics/azure-site-recovery.html). 
 
 [green]: ./media/vmware-physical-azure-monitor-process-server/green.png
 [yellow]: ./media/vmware-physical-azure-monitor-process-server/yellow.png

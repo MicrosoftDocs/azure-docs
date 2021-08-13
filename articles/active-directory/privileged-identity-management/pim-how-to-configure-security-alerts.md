@@ -1,17 +1,17 @@
 ---
-title: Configure security alerts for Azure AD roles in PIM - Azure Active Directory | Microsoft Docs
-description: Learn how to configure security alerts for Azure AD roles in Azure AD Privileged Identity Management (PIM).
+title: Security alerts for Azure AD roles in PIM - Azure AD | Microsoft Docs
+description: Configure security alerts for Azure AD roles Privileged Identity Management in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/22/2019
+ms.date: 06/30/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 Privileged Identity Management (PIM) generates alerts when there is suspicious or unsafe activity in your Azure Active Directory (Azure AD) organization. When an alert is triggered, it shows up on the Privileged Identity Management dashboard. Select the alert to see a report that lists the users or roles that triggered the alert.
 
-![Azure AD roles - Alert pane listing alerts and the severity](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
+![Screenshot that shows the "Alerts" page with a list of alerts and their severity.](./media/pim-how-to-configure-security-alerts/view-alerts.png)
 
 ## Security alerts
 
@@ -32,9 +32,10 @@ This section lists all the security alerts for Azure AD roles, along with how to
 
 ### Administrators aren't using their privileged roles
 
-| | |
+Severity: **Low**
+
+| | Description |
 | --- | --- |
-| **Severity** | Low |
 | **Why do I get this alert?** | Users that have been assigned privileged roles they don't need increases the chance of an attack. It is also easier for attackers to remain unnoticed in accounts that are not actively being used. |
 | **How to fix?** | Review the users in the list and remove them from privileged roles that they do not need. |
 | **Prevention** | Assign privileged roles only to users who have a business justification. </br>Schedule regular [access reviews](pim-how-to-start-security-review.md) to verify that users still need their access. |
@@ -44,61 +45,67 @@ This section lists all the security alerts for Azure AD roles, along with how to
 
 ### Roles don't require multi-factor authentication for activation
 
-| | |
+Severity: **Low**
+
+| | Description |
 | --- | --- |
-| **Severity** | Low |
 | **Why do I get this alert?** | Without multi-factor authentication, compromised users can activate privileged roles. |
 | **How to fix?** | Review the list of roles and [require multi-factor authentication](pim-how-to-change-default-settings.md) for every role. |
 | **Prevention** | [Require MFA](pim-how-to-change-default-settings.md) for every role.  |
 | **In-portal mitigation action** | Makes multi-factor authentication required for activation of the privileged role. |
 
-### The tenant doesn't have Azure AD Premium P2
+### The organization doesn't have Azure AD Premium P2
 
-| | |
+Severity: **Low**
+
+| | Description |
 | --- | --- |
-| **Severity** | Low |
-| **Why do I get this alert?** | The current tenant does not have Azure AD Premium P2. |
+| **Why do I get this alert?** | The current Azure AD organization does not have Azure AD Premium P2. |
 | **How to fix?** | Review information about [Azure AD editions](../fundamentals/active-directory-whatis.md). Upgrade to Azure AD Premium P2. |
 
 ### Potential stale accounts in a privileged role
 
-| | |
+Severity: **Medium**
+
+| | Description |
 | --- | --- |
-| **Severity** | Medium |
 | **Why do I get this alert?** | Accounts in a privileged role have not changed their password in the past 90 days. These accounts might be service or shared accounts that aren't being maintained and are vulnerable to attackers. |
 | **How to fix?** | Review the accounts in the list. If they no longer need access, remove them from their privileged roles. |
 | **Prevention** | Ensure that accounts that are shared are rotating strong passwords when there is a change in the users that know the password. </br>Regularly review accounts with privileged roles using [access reviews](pim-how-to-start-security-review.md) and remove role assignments that are no longer needed. |
 | **In-portal mitigation action** | Removes the account from their privileged role. |
-| **Best practices** | Shared, service, and emergency access accounts that authenticate using a password and are assigned to highly privileged administrative roles such as Global administrator or Security administrator should have their passwords rotated for the following cases:<ul><li>After a security incident involving misuse or compromise of administrative access rights</li><li>After any user's privileges are changed so that they are no longer an administrator (for example, after an employee who was an administrator leaves IT or leaves the organization)</li><li>At regular intervals (for example, quarterly or yearly), even if there was no known breach or change to IT staffing</li></ul>Since multiple people have access to these accounts' credentials, the credentials should be rotated to ensure that people that have left their roles can no longer access the accounts. [Learn more](https://aka.ms/breakglass) |
+| **Best practices** | Shared, service, and emergency access accounts that authenticate using a password and are assigned to highly privileged administrative roles such as Global administrator or Security administrator should have their passwords rotated for the following cases:<ul><li>After a security incident involving misuse or compromise of administrative access rights</li><li>After any user's privileges are changed so that they are no longer an administrator (for example, after an employee who was an administrator leaves IT or leaves the organization)</li><li>At regular intervals (for example, quarterly or yearly), even if there was no known breach or change to IT staffing</li></ul>Since multiple people have access to these accounts' credentials, the credentials should be rotated to ensure that people that have left their roles can no longer access the accounts. [Learn more about securing accounts](../roles/security-planning.md) |
 
 ### Roles are being assigned outside of Privileged Identity Management
 
-| | |
+Severity: **High**
+
+| | Description |
 | --- | --- |
-| **Severity** | High |
 | **Why do I get this alert?** | Privileged role assignments made outside of Privileged Identity Management are not properly monitored and may indicate an active attack. |
-| **How to fix?** | Review the users in the list and remove them from privileged roles assigned outside of Privileged Identity Management. |
+| **How to fix?** | Review the users in the list and remove them from privileged roles assigned outside of Privileged Identity Management. You can also enable or disable both the alert and its accompanying email notification in the alert settings. |
 | **Prevention** | Investigate where users are being assigned privileged roles outside of Privileged Identity Management and prohibit future assignments from there. |
 | **In-portal mitigation action** | Removes the user from their privileged role. |
 
 ### There are too many global administrators
 
-| | |
+Severity: **Low**
+
+| | Description |
 | --- | --- |
-| **Severity** | Low |
 | **Why do I get this alert?** | Global administrator is the highest privileged role. If a Global Administrator is compromised, the attacker gains access to all of their permissions, which puts your whole system at risk. |
 | **How to fix?** | Review the users in the list and remove any that do not absolutely need the Global administrator role. </br>Assign lower privileged roles to these users instead. |
 | **Prevention** | Assign users the least privileged role they need. |
 | **In-portal mitigation action** | Removes the account from their privileged role. |
-| **Trigger** | Triggered if two different criteria are met, and you can configure both of them. First, you need to reach a certain threshold of Global administrators. Second, a certain percentage of your total role assignments must be Global administrators. If you only meet one of these measurements, the alert does not appear. |
-| **Minimum number of Global Administrators** | This setting specifies the number of Global administrators, from 2 to 100, that you consider to be too few for your Azure AD organization. |
+| **Trigger** | Triggered if two different criteria are met, and you can configure both of them. First, you need to reach a certain threshold of Global administrator role assignments. Second, a certain percentage of your total role assignments must be Global administrators. If you only meet one of these measurements, the alert does not appear. |
+| **Minimum number of Global Administrators** | This setting specifies the number of Global Administrator role assignments, from 2 to 100, that you consider to be too few for your Azure AD organization. |
 | **Percentage of Global Administrators** | This setting specifies the minimum percentage of administrators who are Global administrators, from 0% to 100%, below which you do not want your Azure AD organization to dip. |
 
 ### Roles are being activated too frequently
 
-| | |
+Severity: **Low**
+
+| | Description |
 | --- | --- |
-| **Severity** | Low |
 | **Why do I get this alert?** | Multiple activations to the same privileged role by the same user is a sign of an attack. |
 | **How to fix?** | Review the users in the list and ensure that the [activation duration](pim-how-to-change-default-settings.md) for their privileged role is set long enough for them to perform their tasks. |
 | **Prevention** | Ensure that the [activation duration](pim-how-to-change-default-settings.md) for privileged roles is set long enough for users to perform their tasks.</br>[Require multi-factor authentication](pim-how-to-change-default-settings.md) for privileged roles that have accounts shared by multiple administrators. |
@@ -107,21 +114,15 @@ This section lists all the security alerts for Azure AD roles, along with how to
 | **Activation renewal timeframe** | This setting specifies in days, hours, minutes, and second the time period you want to use to track suspicious renewals. |
 | **Number of activation renewals** | This setting specifies the number of activations, from 2 to 100, at which you would like to be notified, within the timeframe you chose. You can change this setting by moving the slider, or typing a number in the text box. |
 
-## Configure security alert settings
+## Customize security alert settings
 
-You can customize some of the security alerts in Privileged Identity Management to work with your organization's needs and security goals. Follow these steps to open the security alert settings:
+On the **Alerts** page, select **Setting**.
 
-1. Open **Privileged Identity Management** in Azure AD.
+![Alerts page with Settings highlighted](media/pim-how-to-configure-security-alerts/alert-settings.png)
 
-1. Select **Azure AD roles**.
+Customize settings on the different alerts to work with your environment and security goals.
 
-1. Select **Settings** and then **Alerts**.
-
-    ![Azure AD roles - Settings with Alerts selected](./media/pim-how-to-configure-security-alerts/settings-alerts.png)
-
-1. Select an alert name to configure the setting for that alert.
-
-    ![For the selected alert, security alert settings pane](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
+![Setting page for an alert to enable and configure settings](media/pim-how-to-configure-security-alerts/security-alert-settings.png)
 
 ## Next steps
 

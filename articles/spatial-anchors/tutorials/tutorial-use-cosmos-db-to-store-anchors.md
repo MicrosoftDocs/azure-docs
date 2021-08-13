@@ -1,30 +1,28 @@
 ---
-title: Tutorial - Share Azure Spatial Anchors across sessions and devices with an Azure Cosmos DB back end | Microsoft Docs
+title: 'Tutorial: Share anchors with Azure Cosmos DB'
 description: In this tutorial, you learn how to share Azure Spatial Anchors identifiers across Android/iOS devices in Unity with a back-end service and Azure Cosmos DB.
-author: ramonarguelles
-manager: vicenterivera
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
-ms.author: rgarcia
-ms.date: 02/24/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-# ms.reviewer: MSFT-alias-of-reviewer
-#Customer intent: As a mixed reality developer, I want to learn how to share Azure Spatial Anchors identifiers among devices in Unity with a back-end service and Azure Cosmos DB.
 ---
 # Tutorial: Sharing Azure Spatial Anchors across sessions and devices with an Azure Cosmos DB back end
 
-This tutorial is a continuation of [sharing Azure Spatial Anchors across sessions and devices.](../../../articles/spatial-anchors/tutorials/tutorial-share-anchors-across-devices.md) It will guide you through the process of adding a few more capabilities to make Azure Cosmos DB serve as the back-end storage while sharing azure spatial anchors across sessions and devices.
+This tutorial is a continuation of [sharing Azure Spatial Anchors across sessions and devices.](../../../articles/spatial-anchors/tutorials/tutorial-share-anchors-across-devices.md) It will guide you through the process of adding a few more capabilities to make Azure Cosmos DB serve as the back-end storage while sharing Azure spatial anchors across sessions and devices.
 
 ![GIF illustrating object persistence](./media/persistence.gif)
 
-It's worth noting that, though you'll be using Unity and Azure Cosmos DB in this tutorial, it's just to give you an example of how to share Spatial Anchors identifiers across devices. You can user other languages and back-end technologies to achieve the same goal. Also, the ASP.NET Core web app used in this tutorial requires the .NET Core 2.2 SDK. It runs fine on Web Apps for Windows, but it won't currently run on Web Apps for Linux.
+It's worth noting that, though you'll be using Unity and Azure Cosmos DB in this tutorial, it's just to give you an example of how to share Spatial Anchors identifiers across devices. You can user other languages and back-end technologies to achieve the same goal.
 
 ## Create a database account
 
-Add an Azure Cosmos Database to the resource group you created earlier. 
+Add an Azure Cosmos Database to the resource group you created earlier.
 
-[!INCLUDE [cosmos-db-create-dbaccount-table](../../../includes/cosmos-db-create-dbaccount-table.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-table](../../cosmos-db/includes/cosmos-db-create-dbaccount-table.md)]
 
 Copy the `Connection String` because you'll need it.
 
@@ -39,8 +37,6 @@ In **Solution Explorer**, open `SharingService\appsettings.json`.
 Locate the `StorageConnectionString` property, and set the value to be the same as the `Connection String` value that you copied in the [create a database account step](#create-a-database-account). Save the file.
 
 You can publish the Sharing Service again and run the sample app.
-
-[!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
 ## Next steps
 

@@ -1,24 +1,26 @@
 ---
-title: Diagnose a virtual machine network traffic filter problem - quickstart - Azure PowerShell | Microsoft Docs
-description:  In this quickstart, you learn how to diagnose a virtual machine network traffic filter problem using the IP flow verify  capability of Azure Network Watcher.
+title: 'Quickstart: Diagnose a VM network traffic filter problem - Azure PowerShell'
+titleSuffix: Azure Network Watcher
+description: Learn how to use Azure PowerShell to diagnose a virtual machine network traffic filter problem using the IP flow verify  capability of Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
-author: KumudD
-manager: twooley
-editor: ''
-tags: azure-resource-manager
-Customer intent: I need to diagnose a virtual machine (VM) network traffic filter problem that prevents communication to and from a VM.
-
+author: damendo
+ms.author: damendo
+editor: 
+ms.date: 01/07/2021
 ms.assetid: 
-ms.service: network-watcher
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: network-watcher
+ms.service: network-watcher
 ms.workload: infrastructure
-ms.date: 04/20/2018
-ms.author: kumud
-ms.custom: mvc
-
+ms.tgt_pltfrm: network-watcher
+ms.devlang: na
+tags:
+  - azure-resource-manager
+ms.custom: devx-track-azurepowershell
+  - mvc
+  - devx-track-azurepowershell
+  - mode-api
+# Customer intent: I need to diagnose a virtual machine (VM) network traffic filter problem that prevents communication to and from a VM.
 ---
 
 # Quickstart: Diagnose a virtual machine network traffic filter problem - Azure PowerShell
@@ -244,6 +246,6 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## Next steps
 
-In this quickstart, you created a VM and diagnosed inbound and outbound network traffic filters. You learned that network security group rules allow or deny traffic to and from a VM. Learn more about [security rules](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and how to [create security rules](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
+In this quickstart, you created a VM and diagnosed inbound and outbound network traffic filters. You learned that network security group rules allow or deny traffic to and from a VM. Learn more about [security rules](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and how to [create security rules](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
 
 Even with the proper network traffic filters in place, communication to a VM can still fail, due to routing configuration. To learn how to diagnose VM network routing problems, see [Diagnose VM routing problems](diagnose-vm-network-routing-problem-powershell.md) or, to diagnose outbound routing, latency, and traffic filtering problems, with one tool, see [Connection troubleshoot](network-watcher-connectivity-powershell.md).

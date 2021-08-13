@@ -10,7 +10,7 @@ ms.date: 10/18/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sahandle
 
 ms.collection: M365-identity-device-management
@@ -42,7 +42,7 @@ A risk detection status set manually by an Identity Protection user, indicating 
 A person or entity that must be verified by means of authentication, based on criteria such as password or a certificate.
 
 ### Identity risk detection
-AAD event that was flagged as anomalous by Identity Protection, and may indicate that an identity has been compromised.
+Azure AD event that was flagged as anomalous by Identity Protection, and may indicate that an identity has been compromised.
 
 ### Ignored (risk detection)
 A risk detection status set manually by an Identity Protection user, indicating that the risk detection is closed without taking a remediation action.
@@ -157,4 +157,4 @@ A configuration or condition in Azure Active Directory, which makes the director
 
 ## See also
 
-- [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
+- [Azure Active Directory Identity Protection](./overview-identity-protection.md)

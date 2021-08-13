@@ -46,7 +46,7 @@
   - name: Move data between on-premises and cloud
     href: data-factory-move-data-between-onprem-and-cloud.md
   - name: FAQ
-    href: data-factory-faq.md      
+    href: data-factory-faq.yml      
 - name: How To
   items: 
   - name: Move data
@@ -80,7 +80,7 @@
         href: data-factory-azure-search-connector.md
       - name: Azure SQL Database
         href: data-factory-azure-sql-connector.md
-      - name: Azure SQL Data Warehouse
+      - name: Azure Synapse Analytics
         href: data-factory-azure-sql-data-warehouse-connector.md
       - name: Azure Table Storage
         href: data-factory-azure-table-connector.md
@@ -139,9 +139,9 @@
       href: data-factory-hadoop-streaming-activity.md
     - name: HDInsight Spark Activity
       href: data-factory-spark.md
-    - name: Machine Learning Batch Execution Activity
+    - name: Azure Machine Learning Studio (classic) Batch Execution Activity
       href: data-factory-azure-ml-batch-execution-activity.md
-    - name: Machine Learning Update Resource Activity
+    - name: Azure Machine Learning Studio (classic) Update Resource Activity
       href: data-factory-azure-ml-update-resource-activity.md
     - name: Stored Procedure Activity
       href: data-factory-stored-proc-activity.md
@@ -150,9 +150,9 @@
     - name: .NET custom activity
       href: data-factory-use-custom-activities.md
     - name: Invoke R scripts
-      href: https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample
+      href: https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample
     - name: Reprocess models in Azure Analysis Services
-      href: https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample
+      href: https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/AzureAnalysisServicesProcessSample
     - name: Compute Linked Services
       href: data-factory-compute-linked-services.md
   - name: Develop
@@ -199,10 +199,8 @@
     href: https://azure.microsoft.com/roadmap/
   - name: Case Studies
     href: data-factory-customer-case-studies.md
-  - name: Learning path
-    href: https://azure.microsoft.com/documentation/learning-paths/data-factory
-  - name: MSDN Forum
-    href: https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory
+  - name: Microsoft Q&A question page
+    href: /answers/topics/azure-data-factory.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/data-factory/
   - name: Pricing calculator

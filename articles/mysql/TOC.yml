@@ -1,233 +1,637 @@
-- name: Azure DB for MySQL Docs
+- name: Azure Database for MySQL documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: What is Azure DB for MySQL?
     href: overview.md
   - name: Which MySQL option should I choose?
     href: select-right-deployment-type.md
-- name: Quickstarts
-  expanded: true
+  - name: What's new in Single Server?
+    href: single-server-whats-new.md
+  - name: What's new in Flexible Server?
+    href: flexible-server/whats-new.md
+  - name: Version support policy
+    href: concepts-version-policy.md
+    displayName: version policy
+- name: Single Server
   items:
-  - name: Create DB - Portal
-    href: quickstart-create-mysql-server-database-using-azure-portal.md
-  - name: Create DB - Azure CLI
-    href: quickstart-create-mysql-server-database-using-azure-cli.md
-  - name: Create DB - Azure CLI up command
-    href: quickstart-create-server-up-azure-cli.md
-  - name: Connect & query
+  - name: Single Server documentation
+    href: single-server/index.yml
+    displayName: single server
+  - name: Overview
     items:
-    - name: PHP
-      href: connect-php.md
-    - name: Java
-      href: connect-java.md
-    - name: .Net
-      href: connect-csharp.md    
-    - name: Python
-      href: connect-python.md
-    - name: Node.js
-      href: connect-nodejs.md
-    - name: Ruby
-      href: connect-ruby.md
-    - name: C++
-      href: connect-cpp.md
-    - name: Go
-      href: connect-go.md
-    - name: MySQL Workbench
-      href: connect-workbench.md
-- name: Tutorials
-  items:
-  - name: 1 - Design a Database
-    items:
-    - name: Azure portal
-      href: tutorial-design-database-using-portal.md
-    - name: Azure CLI
-      href: tutorial-design-database-using-cli.md
-    - name: Azure Resource Manager template
-      href: tutorial-provision-mysql-server-using-Azure-Resource-Manager-templates.md
-  - name: 2 - Create a Web App
-    items:
-    - name: Wordpress in containers with MySQL
-      href: ../app-service/containers/tutorial-multi-container-app.md
-      maintainContext: true
-    - name: PHP with MySQL
-      href: ../app-service/app-service-web-tutorial-php-mysql.md
-      maintainContext: true
-- name: Samples
-  items:
-  - name: Azure CLI
-    href: sample-scripts-azure-cli.md
-  - name: Java connection pooling
-    href: sample-scripts-java-connection-pooling.md
-- name: Concepts
-  items:
-  - name: DB & Servers
-    items:
-    - name: Servers
-      href: concepts-servers.md
+    - name: What is Single Server?
+      href: single-server-overview.md
     - name: Supported versions
       href: concepts-supported-versions.md
-    - name: High availability
-      href: concepts-high-availability.md
-  - name: Resources
-    items:
-    - name: Pricing tiers
-      href: concepts-pricing-tiers.md
-    - name: Prepay for reserved capacity
-      href: concept-reserved-pricing.md        
-    - name: Limits
-      href: concepts-limits.md
-  - name: Data access & security
-    items:
-    - name: Firewall rules
-      href: concepts-firewall-rules.md
-    - name: Configuring SSL
-      href: concepts-ssl-connection-security.md
-    - name: Advanced Threat Protection
-      href: concepts-data-access-and-security-threat-protection.md
-    - name: Virtual Network
-      href: concepts-data-access-and-security-vnet.md
-    - name: Connectivity architecture
-      href: concepts-connectivity-architecture.md      
-  - name: Business continuity
-    items:
-    - name: Business continuity intro
-      displayName: backup, restore, backups, restores, georestore, geo-restore, outage
-      href: concepts-business-continuity.md
-    - name: Backup and restore
-      href: concepts-backup.md
-  - name: Monitor and tune
-    items:
-    - name: Monitor and tune
-      href: concepts-monitoring.md
-    - name: Slow query logs
-      href: concepts-server-logs.md
-    - name: Audit logs
-      href: concepts-audit-logs.md
-    - name: Query Store
-      href: concepts-query-store.md
-    - name: Query Performance Insight
-      href: concepts-query-performance-insight.md
-    - name: Performance Recommendations
-      href: concepts-performance-recommendations.md
-  - name: Development
-    items:
-    - name: Drivers and tools compatibility
-      href: concepts-compatibility.md
-    - name: Application development
-      href: concepts-database-application-development.md
-    - name: Connection resiliency
-      href: concepts-connectivity.md
-    - name: Develop with Azure Kubernetes Service (AKS)
-      href: concepts-aks.md
-    - name: Java
+    - name: Pricing Tiers
       items:
-      - name: Configure Spring Data JDBC
-        href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-mysql
-      - name: Configure Spring Data JPA
-        href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-mysql
-  - name: Replication
+      - name: Pricing tiers
+        href: concepts-pricing-tiers.md
+      - name: Prepay for reserved capacity
+        href: concept-reserved-pricing.md
+  - name: Quickstarts
+    expanded: true
     items:
-    - name: Data-in replication
-      href: concepts-data-in-replication.md
-    - name: Read replicas
-      href: concepts-read-replicas.md  
-- name: How-to guides
-  items:
-  - name: Manage a server
-    items:
-    - name: Azure portal
-      href: howto-create-manage-server-portal.md
-  - name: Firewall rules
-    items:
-    - name: Azure portal
-      href: howto-manage-firewall-using-portal.md
-    - name: Azure CLI
-      href: howto-manage-firewall-using-cli.md
-  - name: Restore a server
-    items:
-    - name: Azure portal
-      href: howto-restore-server-portal.md
-    - name: Azure CLI
-      href: howto-restore-server-cli.md
-  - name: Migrate a database
-    items:
-    - name: Dump & restore
-      href: concepts-migrate-dump-restore.md
-    - name: Import & export
-      href: concepts-migrate-import-export.md
-    - name: Minimal-downtime migration
-      href: howto-migrate-online.md
-  - name: Connect applications
-    items:
-    - name: Create users
-      href: howto-create-users.md
-    - name: Connection strings
-      href: howto-connection-string.md
+    - name: Create a MySQL Single Server
+      items:
+       - name: Azure portal
+         href: quickstart-create-mysql-server-database-using-azure-portal.md
+         displayName: portal, create, server
+       - name: Azure CLI
+         href: quickstart-create-mysql-server-database-using-azure-cli.md
+         displayName: cli, create, server
+       - name: Azure CLI up command
+         href: quickstart-create-server-up-azure-cli.md
+         displayName: cli, up command, create, server
+       - name: Azure PowerShell
+         href: quickstart-create-mysql-server-database-using-azure-powershell.md
+         displayName: powershell, create, server
+       - name: ARM template
+         href: quickstart-create-mysql-server-database-using-arm-template.md
+         displayName: deploy azure resource manager template
+    - name: Connect and query
+      items:
+       - name: Connect and query guide
+         href: how-to-connect-overview-single-server.md
+         displayName: connect , query , libraries, TLS, runtime
+       - name: MySQL Workbench
+         href: connect-workbench.md
+       - name: Azure App Service
+         href: howto-connect-webapp.md
+         displayName: azure web app, security, web app, app service
+       - name: PHP
+         href: connect-php.md
+       - name: Java
+         href: connect-java.md
+       - name: Java with Spring Data JDBC
+         href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-mysql?toc=/azure/mysql/toc.json&bc=/azure/bread/toc.json
+       - name: Java with Spring Data JPA
+         href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-mysql?toc=/azure/mysql/toc.json&bc=/azure/bread/toc.json
+       - name: Java with Spring Data R2DBC
+         href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-mysql?toc=/azure/mysql/toc.json&bc=/azure/bread/toc.json
+       - name: .NET
+         href: connect-csharp.md
+       - name: Python
+         href: connect-python.md
+       - name: Node.js
+         href: connect-nodejs.md
+       - name: Ruby
+         href: connect-ruby.md
+       - name: C++
+         href: connect-cpp.md
+       - name: Go
+         href: connect-go.md
+       - name: Troubleshoot connection errors
+         href: howto-troubleshoot-common-connection-issues.md
+         displayName: debug, connection issues, connectivity, cannot connect
     - name: Configure SSL
       href: howto-configure-ssl.md
-    - name: Web apps
-      href: howto-connect-webapp.md
-  - name: Configure server parameters
-    items:
-    - name: Azure portal
-      href: howto-server-parameters.md
-    - name: Azure CLI
-      href: howto-configure-server-parameters-using-cli.md
-  - name: Auto grow storage
-    items:
-    - name: Azure portal
-      href: howto-auto-grow-storage-portal.md
-    - name: Azure CLI
-      href: howto-auto-grow-storage-cli.md
-  - name: Access server logs
-    items:
-    - name: Slow query logs
-      items: 
+      displayName: ssl, security, application
+    - name: Configure Firewall rules
+      items:
+      - name: Concepts
+        href: concepts-firewall-rules.md
+      - name: Configure Firewall rules using Azure portal
+        href: howto-manage-firewall-using-portal.md
+        displayName: firewall
+      - name: Configure Firewall rules using Azure CLI
+        href: howto-manage-firewall-using-cli.md
+        displayName: firewall
+    - name: Configure server parameters
+      items:
       - name: Azure portal
-        href: howto-configure-server-logs-in-portal.md
+        href: howto-server-parameters.md
+        displayName: server parameters
       - name: Azure CLI
-        href: howto-configure-server-logs-in-cli.md
-    - name: Audit logs
-      items: 
-      - name: Azure portal
+        href: howto-configure-server-parameters-using-cli.md
+        displayName: server parameters, cli
+      - name: Azure PowerShell
+        href: howto-configure-server-parameters-using-powershell.md
+        displayName: server parameters, powershell
+    - name: Create databases and users
+      href: howto-create-users.md
+      displayName: users
+    - name: Monitor Server
+      items:
+      - name: Create alerts on metrics
+        href: howto-alert-on-metric.md
+        displayName: debug, monitor, alerts, metrics
+  - name: Concepts
+    items:
+    - name: Application Development
+      items:
+      - name: Drivers and tools compatibility
+        href: concepts-compatibility.md
+        displayName: drivers, tools
+      - name: Connection resiliency
+        href: concepts-connectivity.md
+        displayName: connection, resiliency
+    - name: Networking
+      items:
+      - name: Virtual Network Service Endpoints
+        href: concepts-data-access-and-security-vnet.md 
+      - name: Private link
+        href: concepts-data-access-security-private-link.md
+    - name: Security
+      items:
+      - name: Security overview
+        href: concepts-security.md
+      - name: Security baseline
+        href: /security/benchmark/azure/baselines/mysql-security-baseline?toc=/azure/mysql/TOC.json
+      - name: Azure AD authentication
+        href: concepts-azure-ad-authentication.md
+      - name: Network Security (Encryption in motion)
+        items:
+        - name: Configuring SSL
+          href: concepts-ssl-connection-security.md
+      - name: Threat protection with Azure Defender
+        href: ../security-center/defender-for-databases-usage.md?toc=/azure/mysql/toc.json&bc=/azure/mysql/breadcrumb/toc.json
+      - name: Encryption at rest
+        items:
+        - name: Data Encryption
+          href: concepts-data-encryption-mysql.md
+        - name: Infrastructure double encryption
+          href: concepts-infrastructure-double-encryption.md
+      - name: Server Audit
+        items:
+        - name: Concepts
+          href: concepts-audit-logs.md
+          displayName: monitor, alerts, audit log
+      - name: Compliance
+        href: ./security-controls-policy.md
+        displayName: regulatory, compliance, standards, domains
+    - name: High Availability
+      items:
+      - name: Business continuity intro
+        displayName: backup, restore, backups, restores, georestore, geo-restore, outage
+        href: concepts-business-continuity.md
+      - name: High availability
+        href: concepts-high-availability.md
+        displayName: backup, restore,high availability
+    - name: Server Management 
+      items:
+      - name: Servers
+        href: concepts-servers.md
+      - name: Server Limitations
+        href: concepts-limits.md
+      - name: Server parameters
+        href: concepts-server-parameters.md
+        displayName: server parameters
+    - name: Backup & Restore
+      href: concepts-backup.md
+      displayName: backup, restore, backups, restores, georestore, geo-restore, outage
+    - name: Replication
+      items:
+      - name: Data-in replication
+        href: concepts-data-in-replication.md
+        displayName: replication, read replica
+      - name: Read replicas
+        href: concepts-read-replicas.md
+        displayName: replication, read replica
+    - name: Service Maintenance
+      items:
+      - name: Planned maintenance
+        href: concepts-planned-maintenance-notification.md
+      - name: Gateway maintenance
+        href: concepts-connectivity-architecture.md
+      - name: SSL root certificate expiring
+        href: concepts-certificate-rotation.md
+    - name: Monitor and tune
+      items:
+      - name: Monitoring overview
+        href: concepts-monitoring.md
+        displayName: monitor, alerts, audit log, slow query log
+      - name: Slow query logs
+        href: concepts-server-logs.md
+        displayName: monitor, slow query log, alert
+      - name: Query Store
+        href: concepts-query-store.md
+        displayName: performance, query store
+      - name: Query performance insights
+        href: concepts-query-performance-insight.md
+        displayName: query performance insights
+      - name: Performance recommendations
+        href: concepts-performance-recommendations.md
+        displayName:  recommendation
+      - name: Azure Advisor recommendations
+        href: concepts-azure-advisor-recommendations.md
+    - name: Best Practices
+      items:
+      - name: Monitoring best practices
+        href: concept-monitoring-best-practices.md
+      - name: Performance best practices
+        href: concept-performance-best-practices.md
+      - name: Application Development best practices
+        href: app-development-best-practices.md
+        displayName: application
+      - name: Operational best practices
+        href: concept-operation-excellence-best-practices.md
+  - name: Tutorials
+    items:
+    - name: Application Development
+      items:
+      - name: Design a database
+        items:
+        - name: Azure portal
+          href: tutorial-design-database-using-portal.md
+        - name: Azure CLI
+          href: tutorial-design-database-using-cli.md
+        - name: Azure PowerShell
+          href: tutorial-design-database-using-powershell.md
+        - name: Azure Resource Manager template
+          href: tutorial-provision-mysql-server-using-Azure-Resource-Manager-templates.md
+      - name: Build a PHP web app with MySQL
+        items:
+        - name: Wordpress in containers with MySQL
+          href: ../app-service/tutorial-multi-container-app.md
+          maintainContext: true
+        - name: PHP with MySQL
+          href: ../app-service/tutorial-php-mysql-app.md
+          maintainContext: true
+      - name: Connect with redirection
+        href: howto-redirection.md
+        displayName: development, redirection , php
+    - name: Database deployment
+      items:
+      - name: GitHub Actions
+        href: quickstart-mysql-github-actions.md
+    - name: Networking
+      items:
+      - name: Configure VNet Service Endpoints using Azure portal
+        href: howto-manage-vnet-using-portal.md
+        displayName: vnet, virtual network, service endpoint
+      - name: Configure VNet Service Endpoints using Azure CLI
+        href: howto-manage-vnet-using-cli.md
+        displayName: vnet, virtual network, service endpoint
+      - name: Configure Private Link using Azure portal
+        href: howto-configure-privatelink-portal.md
+        displayName: private link, private endpoint
+      - name: Configure Private Link using Azure CLI
+        href: howto-configure-privatelink-cli.md
+        displayName: private link, private endpoint
+    - name: Security
+      items:
+      - name: Configure Azure AD integration
+        href: howto-configure-sign-in-azure-ad-authentication.md
+        displayName:  active directory
+      - name: Connect with Managed identity
+        href: howto-connect-with-managed-identity.md
+        displayName: managed identity, msi
+      - name: Configure TLS
+        href: howto-tls-configurations.md
+        displayName: TLS, security, development
+      - name: Deny Public Network Access
+        href: howto-deny-public-network-access.md
+        displayName: security, public access
+      - name: Configuring encryption with customer managed keys using Azure portal
+        href: howto-data-encryption-portal.md
+        displayName: encryption, security
+      - name: Configuring encryption with customer managed keys using Azure CLI
+        href: howto-data-encryption-cli.md
+        displayName: encryption, security
+      - name: Data encryption validation
+        href: howto-data-encryption-validation.md
+        displayName: encryption, security
+      - name: Configure infrastructure double encryption
+        href: howto-double-encryption.md
+        displayName: infrastructure encryption, security
+      - name: Configuring Audit Logs using Azure portal
         href: howto-configure-audit-logs-portal.md
-  - name: Monitor
+        displayName: debug, audit log
+      - name: Configuring Audit Logs using Azure CLI
+        href: howto-configure-audit-logs-cli.md
+        displayName: debug, audit log
+    - name: Server Management 
+      items:
+      - name: Manage and scale a server
+        items:
+        - name: Using Azure portal
+          href: howto-create-manage-server-portal.md
+          displayName: manage, reset password, scale
+        - name: Using Azure CLI
+          href: how-to-manage-single-server-cli.md
+          displayName: manage, reset password, scale
+      - name: Stop/Start MySQL server
+        href: how-to-stop-start-server.md
+      - name: Major version upgrade
+        href: how-to-major-version-upgrade.md
+      - name: Auto grow storage
+        items:
+        - name: Using Azure portal
+          href: howto-auto-grow-storage-portal.md
+          displayName: storage, business continuity , downtime, portal
+        - name: Using Azure CLI
+          href: howto-auto-grow-storage-cli.md
+          displayName: storage, business continuity , downtime, cli
+        - name: Using Azure PowerShell
+          href: howto-auto-grow-storage-powershell.md
+          displayName: storage, business continuity , downtime, powershell
+      - name: Restart server
+        items:
+        - name: Using Azure portal
+          href: howto-restart-server-portal.md
+          displayName: restart
+        - name: Using Azure CLI
+          href: howto-restart-server-cli.md
+          displayName: restart
+        - name: Using Azure PowerShell
+          href: howto-restart-server-powershell.md
+          displayName: restart
+      - name: Move Servers between regions
+        href: howto-move-regions-portal.md
+        displayName: move servers across regions
+    - name: Backup & Restore
+      items:
+      - name: Restore a server
+        items:
+        - name: Using Azure portal
+          href: howto-restore-server-portal.md
+          displayName: restore server,backup
+        - name: Using Azure CLI
+          href: howto-restore-server-cli.md
+          displayName: restore server, backup
+        - name: Using Azure PowerShell
+          href: howto-restore-server-powershell.md
+          displayName: restore server, backup, geo-restore powershell
+      - name: Restore a deleted server
+        href: howto-restore-dropped-server.md
+        displayName: restore server,dropped, recover
+    - name: Replication
+      items:
+      - name: Configure data-in replication
+        href: howto-data-in-replication.md
+        displayName: data-in replication, replica, failover
+      - name: Create read replicas
+        items:
+        - name: Using Azure portal
+          href: howto-read-replicas-portal.md
+          displayName: data-in replication, replica, failover
+        - name: Using Azure CLI, REST API
+          href: howto-read-replicas-cli.md
+          displayName: data-in replication, replica, failover
+        - name: Using Azure PowerShell
+          href: howto-read-replicas-powershell.md
+          displayName: data-in replication, replica, failover
+    - name: Monitor and tune
+      items:
+      - name: Configuring slow query logs
+        items:
+        - name: Using Azure portal
+          href: howto-configure-server-logs-in-portal.md
+          displayName: debug, slow query log , performance
+        - name: Using Azure CLI
+          href: howto-configure-server-logs-in-cli.md
+          displayName: debug, slow query log , performance
+  - name: Samples
     items:
-    - name: Create alerts on metrics
-      href: howto-alert-on-metric.md
-  - name: Replication
+    - name: Configure Java connection pooling
+      href: sample-scripts-java-connection-pooling.md    
+- name: Flexible Server (Preview)
+  items:
+  - name: Flexible Server documentation
+    href: flexible-server/index.yml
+  - name: Overview
     items:
-    - name: Configure data-in replication
-      href: howto-data-in-replication.md
-    - name: Create read replicas Azure portal
-      href: howto-read-replicas-portal.md
-    - name: Create read replicas Azure CLI, REST API
-      href: howto-read-replicas-cli.md
-  - name: Troubleshoot
+    - name: What is Flexible Server?
+      href: flexible-server/overview.md
+    - name: Compute and storage
+      href: flexible-server/concepts-compute-storage.md
+  - name: Quickstarts
+    expanded: true
     items:
-    - name: Troubleshoot connection errors
-      href: howto-troubleshoot-common-connection-issues.md
-    - name: Troubleshoot query performance
-      href: howto-troubleshoot-query-performance.md
-    - name: How to use views in sys schema
-      href: howto-troubleshoot-sys-schema.md
-  - name: Advanced Threat Protection
+      - name: Create a MySQL Flexible Server
+        items:
+          - name: Azure portal
+            href: flexible-server/quickstart-create-server-portal.md
+          - name: Azure CLI
+            href: flexible-server/quickstart-create-server-cli.md
+          - name: ARM template
+            displayName: Resource Manager
+            href: flexible-server/quickstart-create-arm-template.md
+      - name: Connect and query
+        items:          
+          - name: Azure CLI
+            href: flexible-server/connect-azure-cli.md
+          - name: PHP
+            href: flexible-server/connect-php.md
+          - name: MySQL Workbench
+            href: flexible-server/connect-workbench.md
+          - name: Python
+            href: flexible-server/connect-python.md
+          - name: Java
+            href: flexible-server/connect-java.md
+          - name: .NET
+            href: flexible-server/connect-csharp.md
+          - name: Connect to server in VNET 
+            href: flexible-server/quickstart-create-connect-server-vnet.md
+      - name: Connect using TLS/SSL
+        href: flexible-server/how-to-connect-tls-ssl.md
+      - name: Configure server parameters
+        items:
+          - name: Azure portal
+            href: flexible-server/how-to-configure-server-parameters-portal.md
+            displayName: server parameters
+          - name: Azure CLI
+            href: flexible-server/how-to-configure-server-parameters-cli.md
+            displayName: server parameters, cli
+      - name: Create databases and users
+        href: howto-create-users.md
+        displayName: users
+      - name: Monitor Server
+        href: flexible-server/how-to-alert-on-metric.md
+  - name: Concepts
     items:
-    - name: Azure portal
-      href: howto-database-threat-protection-portal.md
-  - name: Virtual Network
+    - name: Server Management
+      items:
+      - name: Servers
+        href: flexible-server/concept-servers.md 
+      - name: Server parameters
+        href: flexible-server/concepts-server-parameters.md
+      - name: Limitations
+        href: flexible-server/concepts-limitations.md
+    - name: Networking
+      items:
+      - name: Networking concepts 
+        href: flexible-server/concepts-networking.md
+        displayName: virtual network, IP address, public access
+      - name: Private Access 
+        href: flexible-server/concepts-networking-vnet.md
+        displayName: virtual network
+      - name: Public Access 
+        href: flexible-server/concepts-networking-public.md
+        displayName: Public access,
+    - name: Service Maintenance
+      items:
+      - name: Scheduled Maintenance
+        href: flexible-server/concepts-maintenance.md
+    - name: High Availability
+      items:
+      - name: Business continuity overview
+        href: flexible-server/concepts-business-continuity.md
+      - name: High availability
+        href: flexible-server/concepts-high-availability.md
+    - name: Monitoring & Logs
+      items:
+      - name: Monitoring overview
+        href: flexible-server/concepts-monitoring.md
+      - name: Slow query Logs
+        href: flexible-server/concepts-slow-query-logs.md
+      - name: Audit logs
+        href: flexible-server/concepts-audit-logs.md    
+    - name: Replication
+      items:
+      - name: Data-in replication
+        href: flexible-server/concepts-data-in-replication.md
+        displayName: replication, read replica
+      - name: Read replicas
+        href: flexible-server/concepts-read-replicas.md
+    - name: Backup & Restore
+      items:
+      - name: Backup & Restore concepts
+        href: flexible-server/concepts-backup-restore.md    
+  - name: Tutorials
     items:
-    - name: Azure portal
-      href: howto-manage-vnet-using-portal.md
-    - name: Azure CLI
-      href: howto-manage-vnet-using-cli.md
-  - name: Restart server
-    items:
-    - name: Azure portal
-      href: howto-restart-server-portal.md
-    - name: Azure CLI
-      href: howto-restart-server-cli.md
+    - name: Application Development
+      items:
+      - name: WordPress on Azure Kubernetes
+        href: flexible-server/tutorial-deploy-wordpress-on-aks.md
+      - name: Build PHP (Laravel) app with database
+        href: flexible-server/tutorial-php-database-app.md
+      - name: Connect with private web app
+        href: flexible-server/tutorial-webapp-server-vnet.md
+    - name: Server Management
+      items:
+      - name: Manage a server
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-manage-server-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-manage-server-cli.md
+      - name: Stop/start server
+        items: 
+        - name: Azure portal
+          href: flexible-server/how-to-stop-start-server-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-restart-stop-start-server-cli.md
+      - name: Restart server 
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-restart-server-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-restart-stop-start-server-cli.md
+    - name: Networking
+      items:
+      - name: Configure Private access (VNet Integration)
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-manage-virtual-network-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-manage-virtual-network-cli.md
+      - name: Configure Public access (allowed IP addresses)
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-manage-firewall-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-manage-firewall-cli.md
+    - name: Service Maintenance
+      items:
+      - name: Configure Scheduled Maintenance using Azure portal
+        href: flexible-server/how-to-maintenance-portal.md
+    - name: High Availability
+      items:
+      - name: Configure Zone redundant high availability
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-configure-high-availability.md
+        - name: Azure CLI
+          href: flexible-server/how-to-configure-high-availability-cli.md
+    - name: Monitoring & Logs
+      items:
+      - name: Configure slow query logs 
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-configure-slow-query-logs-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-configure-slow-query-log-cli.md
+      - name: Configure Audit logs
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-configure-audit-logs-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-configure-audit-log-cli.md
+    - name: Replication
+      items:
+      - name: Configure data-in replication
+        href: flexible-server/how-to-data-in-replication.md
+        displayName: data-in replication, replica, failover
+      - name: Create read replicas
+        items:
+        - name: Azure portal
+          href: flexible-server/how-to-read-replicas-portal.md
+        - name: Azure CLI
+          href: flexible-server/how-to-read-replicas-cli.md
+    - name: Backup & Restore
+      items:
+      - name: Restore a server 
+        items: 
+        - name: Azure portal
+          href: flexible-server/how-to-restore-server-portal.md  
+        - name: Azure CLI
+          href: flexible-server/how-to-restore-server-cli.md
+    - name: Troubleshooting
+      items:
+      - name: Troubleshoot Connection errors
+        href: flexible-server/how-to-troubleshoot-common-connection-issues.md
+- name: Migration
+  items:
+  - name: Migrate data from MySQL on-premises to Azure Database for MySQL >
+    href: migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md
+  - name: Migrate data with mysqldump or phpmyadmin
+    href: concepts-migrate-dump-restore.md
+    displayName: migrate, mysqldump
+  - name: Migrate large databases to Azure Database for MySQL using mydumper/myloader
+    href: concepts-migrate-mydumper-myloader.md
+    displayName: migrate, mydumper/myloader
+  - name: Migrate data with dbForge Studio for MySQL
+    href: concepts-migrate-dbforge-studio-for-mysql.md
+    displayName: migrate, dbforge
+  - name: Migrate data with MySQL Workbench
+    href: concepts-migrate-import-export.md
+    displayName: import , migrate, export
+  - name: Migrate RDS MySQL data with MySQL Workbench
+    href: how-to-migrate-rds-mysql-workbench.md
+    displayName: import , migrate, export
+  - name: Migrate Azure DB for MySQL – Single Server to Azure DB for MySQL – Flexible Server
+    href: howto-migrate-single-flexible-minimum-downtime.md
+    displayName: migrate, Single to Flexible
+  - name: Minimal downtime migration with DMS
+    href: howto-migrate-online.md
+    displayName: migrate, dms, database migration service
+  - name: Troubleshoot common errors
+    href: howto-troubleshoot-common-errors.md
+    displayName: SUPER privilege, DBA role, Access is denied
+- name: Troubleshooting
+  items:
+  - name: Troubleshoot migration errors
+    href: howto-troubleshoot-common-errors.md
+    displayName: SUPER privilege, DBA role, Access is denied
+  - name: Troubleshoot query performance
+    href: howto-troubleshoot-query-performance.md
+    displayName: debug, performance issues, query performance
+  - name: How to use views in sys schema
+    href: howto-troubleshoot-sys-schema.md
+    displayName: sys schema, views
+  - name: Troubleshoot data encryption
+    href: howto-data-encryption-troubleshoot.md
+    displayName: encryption, security
+  - name: Troubleshoot replication latency
+    href: howto-troubleshoot-replication-latency.md
+    displayName: replication, latency, monitor
+  - name: Troubleshoot database corruption
+    href: how-to-fix-corrupt-database.md
+    displayName: corrupt data
 - name: Reference
   items:
   - name: Azure CLI
@@ -238,6 +642,9 @@
     href: /azure/templates/microsoft.dbformysql/allversions
   - name: Management stored procedures
     href: reference-stored-procedures.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Deployment templates
@@ -246,8 +653,8 @@
     href: https://azure.microsoft.com/roadmap/?category=databases
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/mysql/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDatabaseforMySQL
+  - name: Microsoft Q&A question page
+    href: /answers/topics/azure-database-mysql.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-database-mysql
   - name: Videos
@@ -262,8 +669,6 @@
         href: https://aka.ms/mysql-migrate-vid
       - name: Build and deploy Web Apps
         href: https://aka.ms/mysql-webapps-vid
-      - name: Connect containers using OSBA
-        href: https://aka.ms/mysql-osba-vid
   - name: Request a feature
     href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
   - name: Region availability

@@ -1,22 +1,22 @@
 ---
-title: "Execute R Script: Module Reference"
+title: "Execute R Script: Module reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Execute R Script module in Azure Machine Learning to run R code.
+description: Learn how to use the Execute R Script module in Azure Machine Learning designer to run custom R code.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: peterlu
-ms.date: 06/01/2019
+author: likebupt
+ms.author: keli19
+ms.date: 12/17/2020
 ---
 
-# Execute R Script
+# Execute R Script module
 
-This article describes how to use the **Execute R Script** module to run R code in your Azure Machine Learning designer (preview) pipeline.
+This article describes how to use the Execute R Script module to run R code in your Azure Machine Learning designer pipeline.
 
-With R, you can perform tasks that aren't currently supported by existing modules such as: 
+With R, you can do tasks that aren't supported by existing modules, such as: 
 - Create custom data transformations
 - Use your own metrics to evaluate predictions
 - Build models using algorithms that aren't implemented as standalone modules in the designer
@@ -27,9 +27,9 @@ Azure Machine Learning designer uses the CRAN (Comprehensive R Archive Network) 
 
 ## Supported R packages
 
-The R environment is pre-installed with over 100 packages. For a complete list, see the section [Pre-installed R packages](#pre-installed-r-packages).
+The R environment is preinstalled with more than 100 packages. For a complete list, see the section [Preinstalled R packages](#preinstalled-r-packages).
 
-You can also add the following code to any **Execute R Script** module and to see the installed packages.
+You can also add the following code to any Execute R Script module, to see the installed packages.
 
 ```R
 azureml_main <- function(dataframe1, dataframe2){
@@ -38,113 +38,176 @@ azureml_main <- function(dataframe1, dataframe2){
   return(list(dataset1=dataframe1, dataset2=dataframe2))
 }
 ```
+> [!NOTE]
+> If your pipeline contains multiple Execute R Script modules that need packages that aren't in the preinstalled list, install the packages in each module. 
 
 ## Installing R packages
-To install additional R packages, use the `install.packages()` method. Be sure to specify the CRAN repository. Packages are installed for each **Execute R Script** module, and aren't shared across other **Execute R Script** modules.
+To install additional R packages, use the `install.packages()` method. Packages are installed for each Execute R Script module. They aren't shared across other Execute R Script modules.
+
+> [!NOTE]
+> It's **NOT** recommended to install R package from the script bundle. It's recommended to install packages directly in the script editor.
+> Specify the CRAN repository when you're installing packages, such as `install.packages("zoo",repos = "https://cloud.r-project.org")`.
+
+> [!WARNING]
+> Excute R Script module does not support installing packages that require native compilation, like `qdap` package which requires JAVA and `drc` package which requires C++. This is because this module is executed in a pre-installed environment with non-admin permission.
+> Do not install packages which are pre-built on/for Windows, since the designer modules are running on Ubuntu. To check whether a package is pre-built on windows, you could go to [CRAN](https://cran.r-project.org/) and search your package, download one binary file according to your OS, and check **Built:** part in the **DESCRIPTION** file. Following is an example:
+> :::image type="content" source="media/module/r-package-description.png" alt-text="R package description" lightbox="media/module/r-package-page.png":::
 
 This sample shows how to install Zoo:
 ```R
 # R version: 3.5.1
-# The script MUST contain a function named azureml_main
+# The script MUST contain a function named azureml_main,
 # which is the entry point for this module.
 
-# The entry point function can contain up to two input arguments:
+# Note that functions dependent on the X11 library,
+# such as "View," are not supported because the X11 library
+# is not preinstalled.
+
+# The entry point function MUST have two input arguments.
+# If the input port is not connected, the corresponding
+# dataframe argument will be null.
 #   Param<dataframe1>: a R DataFrame
 #   Param<dataframe2>: a R DataFrame
 azureml_main <- function(dataframe1, dataframe2){
   print("R script run.")
   
-  if(!require(zoo)) install.packages("zoo",repos = "http://cran.us.r-project.org")
+  if(!require(zoo)) install.packages("zoo",repos = "https://cloud.r-project.org")
   library(zoo)
   # Return datasets as a Named List
   return(list(dataset1=dataframe1, dataset2=dataframe2))
 }
 ```
  > [!NOTE]
-  > Please check if the package already exists before install it to avoid repeat installing. Like `  if(!require(zoo)) install.packages("zoo",repos = "http://cran.us.r-project.org")`  in above sample code. Repeat installing may cause web service request timeout.     
+ > Before you install a package, check if it already exists so you don't repeat an installation. Repeat installations might cause web service requests to time out.     
 
-## How to configure Execute R Script
+## Access to registered dataset
 
-The **Execute R Script** module contains sample code that you can use as a starting point. To configure the **Execute R Script** module, provide a set of inputs and code to execute.
+You can refer to the following sample code to access to the [registered datasets](../how-to-create-register-datasets.md) in your workspace:
 
-![R-module](media/module/execute-r-script.png)
-
-Datasets stored in the designer are automatically converted to an R data frame when loaded with this module.
-
-1.  Add the **Execute R Script** module to your pipeline.
-
-  
-
-1. Connect any inputs needed by the script. Inputs are optional and can include data and additional R code.
-
-    * **Dataset1**: Reference the first input as `dataframe1`. The input dataset must be formatted as a CSV, TSV, ARFF, or you can connect an Azure Machine Learning dataset.
-
-    * **Dataset2**: Reference the second input as `dataframe2`. This dataset also must be formatted as a CSV, TSV, ARFF file, or as an Azure Machine Learning dataset.
-
-    * **Script Bundle**: The third input accepts ZIP files. The zipped file can contain multiple files and multiple file types.
-
-1. In the **R script** text box, type or paste valid R script.
-
-    To help you get started, the **R Script** text box is pre-populated with sample code, which you can edit or replace.
-    
 ```R
-# R version: 3.5.1
-# The script MUST contain a function named azureml_main
-# which is the entry point for this module.
-
-# The entry point function can contain up to two input arguments:
-#   Param<dataframe1>: a R DataFrame
-#   Param<dataframe2>: a R DataFrame
 azureml_main <- function(dataframe1, dataframe2){
   print("R script run.")
-
-  # If a zip file is connected to the third input port, it is
-  # unzipped under "./Script Bundle". This directory is added
-  # to sys.path.
-
+  run = get_current_run()
+  ws = run$experiment$workspace
+  dataset = azureml$core$dataset$Dataset$get_by_name(ws, "YOUR DATASET NAME")
+  dataframe2 <- dataset$to_pandas_dataframe()
   # Return datasets as a Named List
   return(list(dataset1=dataframe1, dataset2=dataframe2))
 }
 ```
 
- * The script must contain a function named `azureml_main`, which is the entry point for this module.
 
- * The entry point function can contain up to two input arguments: `Param<dataframe1>` and `Param<dataframe2>`
- 
-   > [!NOTE]
-    > The data passed to the **Execute R Script** module is referenced as `dataframe1` and `dataframe2`, which is different from Azure Machine Learning designer (the designer reference as `dataset1`, `dataset2`). Please check to make sure input data is referneced correctly in your script.  
+## How to configure Execute R Script
+
+The Execute R Script module contains sample code as a starting point.
+
+![Diagram of inputs for an R module](media/module/execute-r-script.png)
+
+Datasets stored in the designer are automatically converted to an R data frame when loaded with this module.
+
+1.  Add the **Execute R Script** module to your pipeline.  
+
+1. Connect any inputs that the script needs. Inputs are optional and can include data and additional R code.
+
+    * **Dataset1**: Reference the first input as `dataframe1`. The input dataset must be formatted as a CSV, TSV, or ARFF file. Or you can connect an Azure Machine Learning dataset.
+
+    * **Dataset2**: Reference the second input as `dataframe2`. This dataset also must be formatted as a CSV, TSV, or ARFF file, or as an Azure Machine Learning dataset.
+
+    * **Script Bundle**: The third input accepts .zip files. A zipped file can contain multiple files and multiple file types.
+
+1. In the **R script** text box, type or paste valid R script.
+
+    > [!NOTE]
+    > Be careful when writing your script. Make sure there are no syntax errors, such as using undeclared variables or unimported modules or functions. Pay extra attention to the preinstalled package list at the end of this article. To use packages that aren't listed, install them in your script. An example is `install.packages("zoo",repos = "https://cloud.r-project.org")`.
+    
+    To help you get started, the **R Script** text box is prepopulated with sample code, which you can edit or replace.
+    
+    ```R
+    # R version: 3.5.1
+    # The script MUST contain a function named azureml_main,
+    # which is the entry point for this module.
+
+    # Note that functions dependent on the X11 library,
+    # such as "View," are not supported because the X11 library
+    # is not preinstalled.
+    
+    # The entry point function MUST have two input arguments.
+    # If the input port is not connected, the corresponding
+    # dataframe argument will be null.
+    #   Param<dataframe1>: a R DataFrame
+    #   Param<dataframe2>: a R DataFrame
+    azureml_main <- function(dataframe1, dataframe2){
+    print("R script run.")
+
+    # If a .zip file is connected to the third input port, it's
+    # unzipped under "./Script Bundle". This directory is added
+    # to sys.path.
+
+    # Return datasets as a Named List
+    return(list(dataset1=dataframe1, dataset2=dataframe2))
+    }
+    ```
+
+    The entry point function must have the input arguments `Param<dataframe1>` and `Param<dataframe2>`, even when these arguments aren't used in the function.
+
+    > [!NOTE]
+    > The data passed to the Execute R Script module is referenced as `dataframe1` and `dataframe2`, which is different from Azure Machine Learning designer (the designer reference as `dataset1`, `dataset2`). Make sure that input data is referenced correctly in your script.  
  
     > [!NOTE]
-    >  Existing R code may need minor changes to run in a designer pipeline. For example, input data that you provide in CSV format should be explicitly converted to a dataset before you can use it in your code. Data and column types used in the R language also differ in some ways from the data and column types used in the designer.
+    > Existing R code might need minor changes to run in a designer pipeline. For example, input data that you provide in CSV format should be explicitly converted to a dataset before you can use it in your code. Data and column types used in the R language also differ in some ways from the data and column types used in the designer.
 
-1.  **Random Seed**: Type a value to use inside the R environment as the random seed value. This parameter is equivalent to calling `set.seed(value)` in R code.  
+1. If your script is larger than 16 KB, use the **Script Bundle** port to avoid errors like *CommandLine exceeds the limit of 16597 characters*. 
+    
+    1. Bundle the script and other custom resources to a zip file.
+    1. Upload the zip file as a **File Dataset** to the studio. 
+    1. Drag the dataset module from the *Datasets* list in the left module pane in the designer authoring page. 
+    1. Connect the dataset module to the **Script Bundle** port of **Execute R Script** module.
+    
+    Following is the sample code to consume the script in the script bundle:
 
-1. Run the pipeline.  
+    ```R
+    azureml_main <- function(dataframe1, dataframe2){
+    # Source the custom R script: my_script.R
+    source("./Script Bundle/my_script.R")
+
+    # Use the function that defined in my_script.R
+    dataframe1 <- my_func(dataframe1)
+
+    sample <- readLines("./Script Bundle/my_sample.txt")
+    return (list(dataset1=dataframe1, dataset2=data.frame("Sample"=sample)))
+    }
+    ```
+
+1.  For **Random Seed**, enter a value to use inside the R environment as the random seed value. This parameter is equivalent to calling `set.seed(value)` in R code.  
+
+1. Submit the pipeline.  
 
 ## Results
 
-The **Execute R Script** modules can return multiple outputs, but they must be provided as R data frames. Data frames are automatically converted to datasets in the designer for compatibility with other modules.
+Execute R Script modules can return multiple outputs, but they must be provided as R data frames. The designer automatically converts data frames to datasets for compatibility with other modules.
 
 Standard messages and errors from R are returned to the module's log.
 
+If you need to print results in the R script, you can find the printed results in **70_driver_log** under the **Outputs+logs** tab in the right panel of the module.
+
 ## Sample scripts
 
-There are many ways that you can extend your pipeline by using custom R script.  This section provides sample code for common tasks.
+There are many ways to extend your pipeline by using custom R scripts. This section provides sample code for common tasks.
 
 
-### Add R script as an input
+### Add an R script as an input
 
-The **Execute R Script** module supports arbitrary R script files as inputs. To do so, they must be uploaded to your workspace as part of the ZIP file.
+The Execute R Script module supports arbitrary R script files as inputs. To use them, you must upload them to your workspace as part of the .zip file.
 
-1. To upload a ZIP file containing R code to your workspace, click **New**, click **Dataset**, and then select **From local file** and the **Zip file** option.  
+1. To upload a .zip file that contains R code to your workspace, go to the **Datasets** asset page. Select **Create dataset**, and then select **From local file** and the **File** dataset type option.  
 
-1. Verify that the zipped file is available in the **Saved Datasets** list.
+1. Verify that the zipped file appears in **My Datasets** under the **Datasets** category in the left module tree.
 
 1.  Connect the dataset to the **Script Bundle** input port.
 
-1. All files that are contained in the ZIP file are available during pipeline run time. 
+1. All files in the .zip file are available during pipeline run time. 
 
-    If the script bundle file contained a directory structure, the structure is preserved. However, you must alter your code to prepend the directory **./Script Bundle** to the path.
+    If the script bundle file contained a directory structure, the structure is preserved. But you must alter your code to prepend the directory **./Script Bundle** to the path.
 
 ### Process data
 
@@ -152,24 +215,31 @@ The following sample shows how to scale and normalize input data:
 
 ```R
 # R version: 3.5.1
-# The script MUST contain a function named azureml_main
+# The script MUST contain a function named azureml_main,
 # which is the entry point for this module.
-# The entry point function can contain up to two input arguments:
+
+# Note that functions dependent on the X11 library,
+# such as "View," are not supported because the X11 library
+# is not preinstalled.
+
+# The entry point function MUST have two input arguments.
+# If the input port is not connected, the corresponding
+# dataframe argument will be null.
 #   Param<dataframe1>: a R DataFrame
 #   Param<dataframe2>: a R DataFrame
 azureml_main <- function(dataframe1, dataframe2){
   print("R script run.")
-  # If a zip file is connected to the third input port, it is
+  # If a .zip file is connected to the third input port, it's
   # unzipped under "./Script Bundle". This directory is added
   # to sys.path.
   series <- dataframe1$width
-  # find the maximum and minimum values of width column in dataframe1
+  # Find the maximum and minimum values of the width column in dataframe1
   max_v <- max(series)
   min_v <- min(series)
-  # calculate the scale and bias
+  # Calculate the scale and bias
   scale <- max_v - min_v
   bias <- min_v / dis
-  # apply min-max normalizing
+  # Apply min-max normalizing
   dataframe1$width <- dataframe1$width / scale - bias
   dataframe2$width <- dataframe2$width / scale - bias
   # Return datasets as a Named List
@@ -177,15 +247,15 @@ azureml_main <- function(dataframe1, dataframe2){
 }
  ```
 
-### Read a ZIP file as input
+### Read a .zip file as input
 
-This sample shows how to use a dataset in a ZIP file as an input to the **Execute R Script** module.
+This sample shows how to use a dataset in a .zip file as an input to the Execute R Script module.
 
-1. Create the data file in CSV format, and name it “mydatafile.csv”.
-1. Create a ZIP file and add the CSV file to the archive.
+1. Create the data file in CSV format, and name it **mydatafile.csv**.
+1. Create a .zip file and add the CSV file to the archive.
 1. Upload the zipped file to your Azure Machine Learning workspace. 
 1. Connect the resulting dataset to the **ScriptBundle** input of your **Execute R Script** module.
-1. Using the following code to read the CSV data from the zipped file.
+1. Use the following code to read the CSV data from the zipped file.
 
 ```R
 azureml_main <- function(dataframe1, dataframe2){
@@ -215,9 +285,9 @@ azureml_main <- function(dataframe1, dataframe2){
 
 ### Pass R objects between Execute R Script modules
 
-You can pass R objects between instances of the **Execute R Script** module by using the internal serialization mechanism. This example assumes that you want to move the R object named `A` between two **Execute R Script** modules.
+You can pass R objects between instances of the Execute R Script module by using the internal serialization mechanism. This example assumes that you want to move the R object named `A` between two Execute R Script modules.
 
-1. Add the first **Execute R Script** module to your pipeline, and type the following code in the **R Script** text box to create a serialized object `A` as a column in the module’s output Data Table:  
+1. Add the first **Execute R Script** module to your pipeline. Then enter the following code in the **R Script** text box to create a serialized object `A` as a column in the module's output data table:  
   
     ```R
     azureml_main <- function(dataframe1, dataframe2){
@@ -231,11 +301,11 @@ You can pass R objects between instances of the **Execute R Script** module by u
     }
     ```
 
-    The explicit conversion to integer type is done because the serialization function outputs data in the R `Raw` format, which isn't supported by the designer.
+    The explicit conversion to integer type is done because the serialization function outputs data in the R `Raw` format, which the designer doesn't support.
 
 1. Add a second instance of the **Execute R Script** module, and connect it to the output port of the previous module.
 
-1. Type the following code in the **R Script** text box to extract object `A` from the input Data Table. 
+1. Type the following code in the **R Script** text box to extract object `A` from the input data table. 
 
     ```R
     azureml_main <- function(dataframe1, dataframe2){
@@ -246,13 +316,12 @@ You can pass R objects between instances of the **Execute R Script** module by u
     }
     ```
 
-## Pre-installed R Packages
+## Preinstalled R packages
 
-The current list of pre-installed R Packages available to use:
+The following preinstalled R packages are currently available:
 
-|              |            | 
-|--------------|------------| 
 | Package      | Version    | 
+|--------------|------------| 
 | askpass      | 1.1        | 
 | assertthat   | 0.2.1      | 
 | backports    | 1.1.4      | 
@@ -398,4 +467,4 @@ The current list of pre-installed R Packages available to use:
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning.

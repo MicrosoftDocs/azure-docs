@@ -1,8 +1,8 @@
 --- 
 title: Azure VMware Solution by CloudSimple - Back up workload virtual machines on Private Cloud using Veeam
 description: Describes how you can back up your virtual machines that are running in an Azure-based CloudSimple Private Cloud using Veeam B&R 9.5
-author: sharaths-cs
-ms.author: b-shsury 
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/16/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
@@ -51,7 +51,7 @@ For environments with less than 30 TB to back up, CloudSimple recommends the fol
 * A Linux based primary backup repository in Azure configured as a target for backup jobs.
 * `azcopy` used to copy the data from the primary backup repository to an Azure blob container that is replicated to another region.
 
-![Basic deployment scenarios](media/veeam-basicdeployment.png)
+![Diagram that shows basic Veeam deployment scenarios.](media/veeam-basicdeployment.png)
 
 **Advanced deployment**
 
@@ -116,7 +116,7 @@ Configure infrastructure services in the Private Cloud to make it easy to manage
 
 * You can add an external identity provider as described in [Set up vCenter identity sources to use Active Directory](set-vcenter-identity.md) if any of the following apply:
 
-  * You want to identify users from your on-premise Active Directory (AD) in your Private Cloud.
+  * You want to identify users from your on-premises Active Directory (AD) in your Private Cloud.
   * You want to set up an AD in your Private Cloud for all users.
   * You want to use Azure AD.
 * To provide IP address lookup, IP address management, and name resolution services for your workloads in the Private Cloud, set up a DHCP and DNS server as described in [Set up DNS and DHCP applications and workloads in your CloudSimple Private Cloud](dns-dhcp-setup.md).
@@ -190,7 +190,7 @@ Connect your virtual network to the Private Cloud by following the instructions 
 ### Configure Azure blob storage for long term data retention
 
 1. Create a general purpose storage account (GPv2) of standard type and a blob container as described in the Microsoft video [Getting Started with Azure Storage](https://azure.microsoft.com/resources/videos/get-started-with-azure-storage).
-2. Create an Azure storage container, as described in the [Create Container](https://docs.microsoft.com/rest/api/storageservices/create-container) reference.
+2. Create an Azure storage container, as described in the [Create Container](/rest/api/storageservices/create-container) reference.
 2. Download the `azcopy` command line utility for Linux from Microsoft. You can use the following commands in the bash shell in CentOS 7.5.
 
     ```
@@ -201,7 +201,7 @@ Connect your virtual network to the Private Cloud by following the instructions 
     sudo yum -y install icu
     ```
 
-3. Use the `azcopy` command to copy backup files to and from the blob container.  See [Transfer data with AzCopy on Linux](../storage/common/storage-use-azcopy-linux.md) for detailed commands.
+3. Use the `azcopy` command to copy backup files to and from the blob container.  See [Transfer data with AzCopy on Linux](../storage/common/storage-use-azcopy-v10.md) for detailed commands.
 
 ### vCenter console of Private Cloud: Install Veeam B&R
 
@@ -217,7 +217,7 @@ Access vCenter from your Private Cloud to create a Veeam service account, instal
 5. Create the VMs for the Veeam backup and proxy servers in vCenter as per the [Veeam system requirements](https://helpcenter.veeam.com/docs/backup/vsphere/system_requirements.html?ver=95). You can use Windows 2012 R2 or Linux. For more information see [Requirements for using Linux backup repositories](https://www.veeam.com/kb2216).
 6. Mount the installable Veeam ISO as a CDROM device in the Veeam backup server VM.
 7. Using an RDP session to the Windows 2012 R2 machine (the target for the Veeam installation), [install Veeam B&R 9.5u3](https://helpcenter.veeam.com/docs/backup/vsphere/install_vbr.html?ver=95) in a Windows 2012 R2 VM.
-8. Find the internal IP address of the Veeam backup server VM and configure the IP address to be static in the DHCP server. The exact steps required to do this depend on the DHCP server. As an example, the Netgate article <a href="https://www.netgate.com/docs/pfsense/dhcp/dhcp-server.html" target="_blank">static DHCP mappings</a> explains how to configure a DHCP server using a pfSense router.
+8. Find the internal IP address of the Veeam backup server VM and configure the IP address to be static in the DHCP server. The exact steps required to do this depend on the DHCP server. As an example, the Netgate article <a href="https://docs.netgate.com/pfsense/en/latest/services/dhcp/index.html" target="_blank">static DHCP mappings</a> explains how to configure a DHCP server using a pfSense router.
 
 ### Veeam console: Install Veeam backup and recovery software
 
@@ -286,8 +286,8 @@ To de-escalate privileges, see [De-escalate privileges](escalate-private-cloud-p
 * [Create a Linux virtual machine in the Azure portal](../virtual-machines/linux/quick-create-portal.md)
 * [How to attach a managed data disk to a Windows VM in the Azure portal](../virtual-machines/windows/attach-managed-disk-portal.md)
 * [Getting Started with Azure Storage - Video](https://azure.microsoft.com/resources/videos/get-started-with-azure-storage)
-* [Create Container](https://docs.microsoft.com/rest/api/storageservices/create-container)
-* [Transfer data with AzCopy on Linux](../storage/common/storage-use-azcopy-linux.md)
+* [Create Container](/rest/api/storageservices/create-container)
+* [Transfer data with AzCopy on Linux](../storage/common/storage-use-azcopy-v10.md)
 
 ### VMware references
 
@@ -297,4 +297,4 @@ To de-escalate privileges, see [De-escalate privileges](escalate-private-cloud-p
 
 * [Create an XFS volume on the managed disk - RedHat](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/ch-xfs)
 * [How To Set Up an NFS Mount on CentOS 7 - HowToForge](https://www.howtoforge.com/nfs-server-and-client-on-centos-7)
-* [Configuring the DHCP Server - Netgate](https://www.netgate.com/docs/pfsense/dhcp/dhcp-server.html)
+* [Configuring the DHCP Server - Netgate](https://docs.netgate.com/pfsense/en/latest/services/dhcp/index.html)

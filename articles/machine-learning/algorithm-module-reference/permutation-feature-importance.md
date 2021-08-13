@@ -1,7 +1,7 @@
 ---
 title: "Permutation Feature Importance: Module reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Permutation Feature Importance module in the Azure Machine Learning service to compute the permutation feature importance scores of feature variables, given a trained model and a test dataset.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Permutation Feature Importance module in the designer to compute the permutation feature importance scores of feature variables.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,17 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
+ms.date: 02/24/2020
 ---
 # Permutation Feature Importance
 
-This article describes how to use the Permutation Feature Importance module in Azure Machine Learning designer (preview), to compute a set of feature importance scores for your dataset. You use these scores to help you determine the best features to use in a model.
+This article describes how to use the Permutation Feature Importance module in Azure Machine Learning designer, to compute a set of feature importance scores for your dataset. You use these scores to help you determine the best features to use in a model.
 
 In this module, feature values are randomly shuffled, one column at a time. The performance of the model is measured before and after. You can choose one of the standard metrics to measure performance.
 
 The scores that the module returns represent the *change* in the performance of a trained model, after permutation. Important features are usually more sensitive to the shuffling process, so they'll result in higher importance scores. 
 
-This article provides an overview of the permutation feature, its theoretical basis, and its applications in machine learning: [Permutation Feature Importance](https://blogs.technet.com/b/machinelearning/archive/2015/04/14/permutation-feature-importance.aspx).  
+This article provides an overview of the permutation feature, its theoretical basis, and its applications in machine learning: [Permutation Feature Importance](/archive/blogs/machinelearning/permutation-feature-importance).  
 
 ## How to use Permutation Feature Importance
 
@@ -41,7 +41,7 @@ Generating a set of feature scores requires that you have an already trained mod
 
     -   **Classification**
 
-        Accuracy, Precision, Recall, Average Log Loss  
+        Accuracy, Precision, Recall  
 
     -   **Regression**
 
@@ -49,7 +49,7 @@ Generating a set of feature scores requires that you have an already trained mod
 
      For a more detailed description of these evaluation metrics and how they're calculated, see [Evaluate Model](evaluate-model.md).  
 
-6.  Run the pipeline.  
+6.  Submit the pipeline.  
 
 7.  The module outputs a list of feature columns and the scores associated with them. The list is ranked in descending order of the scores.  
 
@@ -64,4 +64,4 @@ The reason for the difference is that Permutation Feature Importance doesn't mea
   
 ## Next steps
 
-See the [set of modules available](module-reference.md) to the Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning.

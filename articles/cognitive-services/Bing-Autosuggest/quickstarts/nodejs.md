@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Suggest search queries with the Bing Autosuggest REST API and Node.js"
 titleSuffix: Azure Cognitive Services
-description: Learn how to quickly start suggesting search terms in real-time with the Bing Autosuggest API.
+description: Learn how to quickly start suggesting search terms in real time with the Bing Autosuggest API and Node.js.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,13 +9,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 05/06/2020
 ms.author: aahi
+ms.custom: devx-track-js
 ---
 
 # Quickstart: Suggest search queries with the Bing Autosuggest REST API and Node.js
 
-Use this quickstart to begin making calls to the Bing Autosuggest API and getting the JSON response. This simple Node.js application sends a partial search query to the API, and returns suggestions for searches. While this application is written in JavaScript, the API is a RESTful Web service compatible with most programming languages. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingAutosuggestv7.js)
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+
+Follow this quickstart to learn how to make calls to the Bing Autosuggest API and read the JSON response. This simple Node.js application sends a partial search query to the API, and returns suggestions for searches. While this application is written in JavaScript, the API is a RESTful Web service compatible with most programming languages. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingAutosuggestv7.js)
 
 ## Prerequisites
 
@@ -33,7 +39,7 @@ Use this quickstart to begin making calls to the Bing Autosuggest API and gettin
     let https = require ('https');
     ```
 
-2. Create variables for the API endpoint host and path, your subscription key, [market code](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), and a search term.
+2. Create variables for the API endpoint host and path, your subscription key, [market code](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), and a search term. Use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```javascript
     // Replace the subscriptionKey string value with your valid subscription key.
@@ -70,17 +76,18 @@ Use this quickstart to begin making calls to the Bing Autosuggest API and gettin
     }
     ```
 
-    1. In the same function, use the request library to send your query to the API. `response_handler` will be defined in the next section.
+ 1. In the same function, use the request library to send your query to the API. `response_handler` is defined in the next section.
     
-        ```javascript
+    ```javascript
         //...
         let req = https.request(request_params, response_handler);
         req.end();
-        ```
+    ```
 
 ## Create a search handler
 
-1. define a function named `response_handler` that takes an HTTP call, `response`, as a parameter. Do the following steps within this function:
+1. Define a function named `response_handler` that takes an HTTP call, `response`, as a parameter. 
+Do the following steps within this function:
     
     1. Define a variable to contain the body of the JSON response.  
 
@@ -90,7 +97,7 @@ Use this quickstart to begin making calls to the Bing Autosuggest API and gettin
         };
         ```
 
-    2. Store the body of the response when the **data** flag is called
+    2. Store the body of the response when the `data` flag is called
         
         ```javascript
         response.on ('data', function (d) {
@@ -98,7 +105,7 @@ Use this quickstart to begin making calls to the Bing Autosuggest API and gettin
         });
         ```
 
-    3. When an **end** flag is signaled, user `JSON.parse()` and `JSON.stringify()` to print the response.
+    3. When an `end` flag is signaled, use `JSON.parse()` and `JSON.stringify()` to print the response.
     
         ```javascript
         response.on ('end', function () {
@@ -187,4 +194,4 @@ A successful response is returned in JSON, as shown in the following example:
 > [Create a single-page web app](../tutorials/autosuggest.md)
 
 - [What is Bing Autosuggest?](../get-suggested-search-terms.md)
-- [Bing Autosuggest API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)
+- [Bing Autosuggest API v7 reference](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy sync com
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
@@ -12,7 +12,7 @@ ms.reviewer: zezha-msft
 
 # azcopy sync
 
-Replicates the source location to the destination location.
+Replicates the source location to the destination location. This article provides a detailed reference for the azcopy sync command. To learn more about synchronizing blobs between source and destination locations, see [Synchronize with Azure Blob storage by using AzCopy v10](storage-use-azcopy-blobs-synchronize.md). For Azure Files, see [Synchronize files](storage-use-azcopy-files.md#synchronize-files).
 
 ## Synopsis
 
@@ -28,7 +28,14 @@ The sync command differs from the copy command in several ways:
 
 1. By default, the recursive flag is true and sync copies all subdirectories. Sync only copies the top-level files inside a directory if the recursive flag is false.
 2. When syncing between virtual directories, add a trailing slash to the path (refer to examples) if there's a blob with the same name as one of the virtual directories.
-3. If the 'deleteDestination' flag is set to true or prompt, then sync will delete files and blobs at the destination that are not present at the source.
+3. If the `deleteDestination` flag is set to true or prompt, then sync will delete files and blobs at the destination that are not present at the source.
+
+## Related conceptual articles
+
+- [Get started with AzCopy](storage-use-azcopy-v10.md)
+- [Tutorial: Migrate on-premises data to cloud storage with AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
+- [Transfer data with AzCopy and Blob storage](./storage-use-azcopy-v10.md#transfer-data)
+- [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
 
 ### Advanced
 
@@ -43,7 +50,7 @@ The built-in lookup table is small, but on Unix, it's augmented by the local sys
 On Windows, MIME types are extracted from the registry.
 
 ```azcopy
-azcopy sync [flags]
+azcopy sync <source> <destination> [flags]
 ```
 
 ## Examples
@@ -54,13 +61,13 @@ Sync a single file:
 azcopy sync "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
 ```
 
-Same as above, but this time, also compute MD5 hash of the file content and save it as the blob's Content-MD5 property:
+Same as above, but also compute an MD5 hash of the file content, and then save that MD5 hash as the blob's Content-MD5 property. 
 
 ```azcopy
 azcopy sync "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]" --put-md5
 ```
 
-Sync an entire directory including its sub-directories (note that recursive is on by default):
+Sync an entire directory including its subdirectories (note that recursive is by default on):
 
 ```azcopy
 azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]"
@@ -72,28 +79,29 @@ or
 azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --put-md5
 ```
 
-Sync only the top files inside a directory but not its sub-directories:
+Sync only the files inside of a directory but not subdirectories or the files inside of subdirectories:
 
 ```azcopy
 azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --recursive=false
 ```
 
-Sync a subset of files in a directory (For example: only jpg and pdf files, or if the file name is "exactName"):
+Sync a subset of files in a directory (For example: only jpg and pdf files, or if the file name is `exactName`):
 
 ```azcopy
-azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --include="*.jpg;*.pdf;exactName"
+azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --include-pattern="*.jpg;*.pdf;exactName"
 ```
 
-Sync an entire directory, but exclude certain files from the scope (For example: every file that starts with foo or ends with bar):
+Sync an entire directory but exclude certain files from the scope (For example: every file that starts with foo or ends with bar):
 
 ```azcopy
-azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --exclude="foo*;*bar"
+azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --exclude-pattern="foo*;*bar"
 ```
 
 Sync a single blob:
 
 ```azcopy
 azcopy sync "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
+```
 
 Sync a virtual directory:
 
@@ -118,27 +126,37 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 ## Options
 
-**--block-size-mb** float         Use this block size (specified in MiB) when uploading to Azure Storage or downloading from Azure Storage. Default is automatically calculated based on file size. Decimal fractions are allowed (For example: 0.25).
+**--block-size-mb** float    Use this block size (specified in MiB) when uploading to Azure Storage or downloading from Azure Storage. Default is automatically calculated based on file size. Decimal fractions are allowed (For example: `0.25`).
 
-**--check-md5** string            Specifies how strictly MD5 hashes should be validated when downloading. This option is only available when downloading. Available values include: NoCheck, LogOnly, FailIfDifferent, FailIfDifferentOrMissing. (default 'FailIfDifferent'). (default "FailIfDifferent")
+**--check-md5** string   Specifies how strictly MD5 hashes should be validated when downloading. This option is only available when downloading. Available values include: `NoCheck`, `LogOnly`, `FailIfDifferent`, `FailIfDifferentOrMissing`. (default `FailIfDifferent`). (default `FailIfDifferent`)
 
-**--delete-destination** string   Defines whether to delete extra files from the destination that are not present at the source. Could be set to true, false, or prompt. If set to prompt, the user will be asked a question before scheduling files and blobs for deletion. (default 'false'). (default "false")
+**--delete-destination** string   Defines whether to delete extra files from the destination that are not present at the source. Could be set to `true`, `false`, or `prompt`. If set to `prompt`, the user will be asked a question before scheduling files and blobs for deletion. (default `false`). (default `false`)
 
-**--exclude-attributes** string   (Windows only) Exclude files whose attributes match the attribute list. For example: A;S;R
+**--exclude-attributes** string   (Windows only) Excludes files whose attributes match the attribute list. For example: `A;S;R`
 
-**--exclude-pattern** string      Exclude files where the name matches the pattern list. For example: *.jpg;*.pdf;exactName
+**--exclude-path** string    Exclude these paths when comparing the source against the destination. This option does not support wildcard characters (*). Checks relative path prefix(For example: `myFolder;myFolder/subDirName/file.pdf`).
 
-**-h, --help**                        help for sync
+**--exclude-pattern** string   Exclude files where the name matches the pattern list. For example: `*.jpg;*.pdf;exactName`
 
-**--include-attributes** string   (Windows only) Include only files whose attributes match the attribute list. For example: A;S;R
+**--help**    help for sync.
 
-**--include-pattern** string      Include only files where the name matches the pattern list. For example: *.jpg;*.pdf;exactName
+**--include-attributes** string   (Windows only) Includes only files whose attributes match the attribute list. For example: `A;S;R`
 
-**--log-level** string            Define the log verbosity for the log file, available levels: INFO(all requests and responses), WARNING(slow responses), ERROR(only failed requests), and NONE(no output logs). (default INFO). (default "INFO")
+**--include-pattern** string   Include only files where the name matches the pattern list. For example: `*.jpg;*.pdf;exactName`
 
-**--put-md5**                     Create an MD5 hash of each file, and save the hash as the Content-MD5 property of the destination blob or file. (By default the hash is NOT created.) Only available when uploading.
+**--log-level** string     Define the log verbosity for the log file, available levels: `INFO`(all requests and responses), `WARNING`(slow responses), `ERROR`(only failed requests), and `NONE`(no output logs). (default `INFO`). 
 
-**--recursive**                   True by default, look into sub-directories recursively when syncing between directories. (default true). (default true)
+**--mirror-mode**          Disable last-modified-time based comparison and overwrites the conflicting files and blobs at the destination if this flag is set to `true`. Default is `false`.
+
+**--preserve-smb-info**   False by default. Preserves SMB property info (last write time, creation time, attribute bits) between SMB-aware resources (Windows and Azure Files). This flag applies to both files and folders, unless a file-only filter is specified (for example, include-pattern). The info transferred for folders is the same as that for files, except for Last Write Time that is not preserved for folders.
+
+**--preserve-smb-permissions**   False by default. Preserves SMB ACLs between aware resources (Windows and Azure Files). This flag applies to both files and folders, unless a file-only filter is specified (for example, `include-pattern`).
+
+**--put-md5**     Create an MD5 hash of each file, and save the hash as the Content-MD5 property of the destination blob or file. (By default the hash is NOT created.) Only available when uploading.
+
+**--recursive**    `True` by default, look into subdirectories recursively when syncing between directories. (default `True`). 
+
+**--s2s-preserve-access-tier**  Preserve access tier during service to service copy. Refer to [Azure Blob storage: hot, cool, and archive access tiers](../blobs/storage-blob-storage-tiers.md) to ensure destination storage account supports setting access tier. In the cases that setting access tier is not supported, please use s2sPreserveAccessTier=false to bypass copying access tier. (default `true`). 
 
 ## Options inherited from parent commands
 
@@ -146,6 +164,7 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 |---|---|
 |--cap-mbps uint32|Caps the transfer rate, in megabits per second. Moment-by-moment throughput might vary slightly from the cap. If this option is set to zero, or it is omitted, the throughput isn't capped.|
 |--output-type string|Format of the command's output. The choices include: text, json. The default value is "text".|
+|--trusted-microsoft-suffixes string   |Specifies additional domain suffixes where Azure Active Directory login tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.|
 
 ## See also
 

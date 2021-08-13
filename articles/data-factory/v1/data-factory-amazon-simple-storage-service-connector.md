@@ -1,21 +1,11 @@
 ---
 title: Move data from Amazon Simple Storage Service by using Data Factory 
 description: Learn about how to move data from Amazon Simple Storage Service (S3) by using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: craigg
-
-
-ms.assetid: 636d3179-eba8-4841-bcb4-3563f6822a26
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 # Move data from Amazon Simple Storage Service by using Azure Data Factory

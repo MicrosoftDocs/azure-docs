@@ -1,19 +1,22 @@
 ---
 title: Switch activity in Azure Data Factory 
 description: The Switch activity allows you to control the processing flow based on a condition.
-services: data-factory
-author: djpmsft
-ms.author: daperlov
-ms.reviewer: maghan
+author: chez-charlie
+ms.author: chez
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 10/08/2019
+ms.date: 06/23/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Switch activity in Azure Data Factory
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 The Switch activity provides the same functionality that a switch statement provides in programming languages. It evaluates a set of activities corresponding to a case that matches the condition evaluation.
+
 
 ## Syntax
 
@@ -231,10 +234,7 @@ The pipeline in this example copies data from an input folder to an output folde
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "value": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>",
-                "type": "SecureString"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>"
         }
     }
 }

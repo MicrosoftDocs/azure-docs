@@ -1,8 +1,8 @@
 ---
 title: Use Azure Kinect Sensor SDK to record file format
 description: Understand how to use the Azure Kinect Sensor SDK recorded file format.
-author: xthexder
-ms.author: jawirth
+author: martinekuan
+ms.author: martinek
 ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: reference
@@ -10,8 +10,7 @@ keywords: kinect, azure, sensor, sdk, depth, rgb, record, playback, matroska, mk
 ---
 # Use Azure Kinect Sensor SDK to record file format
 
-To record sensor data, the Matroska (.mkv) container format is used, which allows for multiple tracks to be stored.
-using a wide range of codecs. The recording file contains tracks for storing Color, Depth, IR images, and IMU.
+To record sensor data, the Matroska (.mkv) container format is used, which allows for multiple tracks to be stored using a wide range of codecs. The recording file contains tracks for storing Color, Depth, IR images, and IMU.
 
 Low-level details of the .mkv container format can be found on the [Matroska Website](https://www.matroska.org/index.html).
 
@@ -59,13 +58,13 @@ The list of tags below are each attached to a specific Matroska element, and can
 These tags are viewable with tools such as `ffmpeg` and `mkvinfo`.
 The full list of tags is listed on the [Record and Playback](record-playback-api.md) page.
 
-| Tag Name             | Tag Target             | Tag Value 			|
+| Tag Name             | Tag Target             | Tag Value             |
 |----------------------|------------------------|-----------------------|
-| K4A_COLOR_TRACK      | Color Track            | Matroska Track UID	|
-| K4A_DEPTH_TRACK      | Depth Track            | Matroska Track UID	|
-| K4A_IR_TRACK         | IR Track               | Matroska Track UID	|
-| K4A_IMU_TRACK        | IMU Track              | Matroska Track UID	|
-| K4A_CALIBRATION_FILE | Calibration Attachment | Attachment filename 	|
+| K4A_COLOR_TRACK      | Color Track            | Matroska Track UID    |
+| K4A_DEPTH_TRACK      | Depth Track            | Matroska Track UID    |
+| K4A_IR_TRACK         | IR Track               | Matroska Track UID    |
+| K4A_IMU_TRACK        | IMU Track              | Matroska Track UID    |
+| K4A_CALIBRATION_FILE | Calibration Attachment | Attachment filename   |
 
 ## Next steps
 

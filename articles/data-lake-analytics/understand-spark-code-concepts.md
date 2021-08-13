@@ -1,11 +1,9 @@
 ---
 title: Understand Apache Spark code concepts for Azure Data Lake Analytics U-SQL developers.
 description: This article describes Apache Spark concepts to help U-SQL developers understand Spark code concepts.
-author: guyhay
-ms.author: guyhay
 ms.reviewer: jasonh
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: Understand-apache-spark-code-concepts
 ms.date: 10/15/2019
 ---
@@ -126,9 +124,9 @@ The following table gives the equivalent types in Spark, Scala, and PySpark for 
 For more information, see:
 
 - [org.apache.spark.sql.types](https://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.types.package)
-- [Spark SQL and DataFrames Types](https://spark.apache.org/docs/latest/sql-reference.html#data-types)
+- [Spark SQL and DataFrames Types](https://spark.apache.org/docs/latest/sql-ref-datatypes.html)
 - [Scala value types](https://www.scala-lang.org/api/current/scala/AnyVal.html)
-- [pyspark.sql.types](https://spark.apache.org/docs/latest/api/python/pyspark.sql.html#module-pyspark.sql.types)
+- [pyspark.sql.types](https://spark.apache.org/docs/2.3.1/api/python/_modules/pyspark/sql/types.html#module-pyspark.sql.types)
 
 ### Treatment of NULL
 
@@ -138,7 +136,7 @@ In Spark, NULL indicates that the value is unknown. A Spark NULL value is differ
 
 This behavior is different from U-SQL, which follows C# semantics where `null` is different from any value but equal to itself.  
 
-Thus a SparkSQL `SELECT` statement that uses `WHERE column_name = NULL` returns zero rows even if there are NULL values in `column_name`, while in U-SQL, it would return the rows where `column_name` is set to `null`. Similarly, A Spark `SELECT` statement that uses `WHERE column_name != NULL` returns zero rows even if there are non-null values in `column_name`, while in U-SQL, it would return the rows that have non-null. Thus, if you want the U-SQL null-check semantics, you should use [isnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnull)) and [isnotnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnotnull) respectively (or their DSL equivalent).
+Thus a SparkSQL `SELECT` statement that uses `WHERE column_name = NULL` returns zero rows even if there are NULL values in `column_name`, while in U-SQL, it would return the rows where `column_name` is set to `null`. Similarly, A Spark `SELECT` statement that uses `WHERE column_name != NULL` returns zero rows even if there are non-null values in `column_name`, while in U-SQL, it would return the rows that have non-null. Thus, if you want the U-SQL null-check semantics, you should use [isnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnull) and [isnotnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnotnull) respectively (or their DSL equivalent).
 
 ## Transform U-SQL catalog objects
 
@@ -178,7 +176,7 @@ U-SQL also offers a variety of other features and concepts, such as federated qu
 
 ### Federated Queries against SQL Server databases/external tables
 
-U-SQL provides data source and external tables as well as direct queries against Azure SQL Database. While Spark does not offer the same object abstractions, it provides [Spark connector for Azure SQL Database](../sql-database/sql-database-spark-connector.md) that can be used to query SQL databases.
+U-SQL provides data source and external tables as well as direct queries against Azure SQL Database. While Spark does not offer the same object abstractions, it provides [Spark connector for Azure SQL Database](../azure-sql/database/spark-connector.md) that can be used to query SQL databases.
 
 ### U-SQL parameters and variables
 
@@ -211,8 +209,8 @@ Spark's cost-based query optimizer has its own capabilities to provide hints and
 ## Next steps
 
 - [Understand Spark data formats for U-SQL developers](understand-spark-data-formats.md)
-- [.NET for Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
-- [Upgrade your big data analytics solutions from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md)
+- [.NET for Apache Spark](/dotnet/spark/what-is-apache-spark-dotnet)
+- [Upgrade your big data analytics solutions from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md)
 - [Transform data using Spark activity in Azure Data Factory](../data-factory/transform-data-using-spark.md)
 - [Transform data using Hadoop Hive activity in Azure Data Factory](../data-factory/transform-data-using-hadoop-hive.md)
 - [What is Apache Spark in Azure HDInsight](../hdinsight/spark/apache-spark-overview.md)

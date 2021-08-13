@@ -1,14 +1,9 @@
 ---
-title: Set environment variables in Azure Container Instances
+title: Set environment variables in container instance
 description: Learn how to set environment variables in the containers you run in Azure Container Instances
-services: container-instances
-author: dlepow
-manager: gwallace
-
-ms.service: container-instances
 ms.topic: article
-ms.date: 04/17/2019
-ms.author: danlep
+ms.date: 04/17/2019 
+ms.custom: devx-track-azurepowershell
 ---
 # Set environment variables in container instances
 
@@ -58,8 +53,8 @@ az container logs --resource-group myResourceGroup --name mycontainer2
 
 The output of the containers show how you've modified the second container's script behavior by setting environment variables.
 
-```console
-azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name mycontainer1
+**mycontainer1**
+```output
 [('the', 990),
  ('and', 702),
  ('of', 628),
@@ -70,8 +65,10 @@ azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name myc
  ('my', 441),
  ('in', 399),
  ('HAMLET', 386)]
+```
 
-azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name mycontainer2
+**mycontainer2**
+```output
 [('CLAUDIUS', 120),
  ('POLONIUS', 113),
  ('GERTRUDE', 82),
@@ -164,7 +161,7 @@ Set a secure environment variable by specifying the `secureValue` property inste
 Create a `secure-env.yaml` file with the following snippet.
 
 ```yaml
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: securetest
 properties:
@@ -176,7 +173,7 @@ properties:
           value: 'my-exposed-value'
         - name: 'SECRET'
           secureValue: 'my-secret-value'
-      image: nginx
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
       ports: []
       resources:
         requests:
@@ -224,7 +221,7 @@ The JSON response shows both the insecure environment variable's key and value, 
 With the [az container exec][az-container-exec] command, which enables executing a command in a running container, you can verify that the secure environment variable has been set. Run the following command to start an interactive bash session in the container:
 
 ```azurecli-interactive
-az container exec --resource-group myResourceGroup --name securetest --exec-command "/bin/bash"
+az container exec --resource-group myResourceGroup --name securetest --exec-command "/bin/sh"
 ```
 
 Once you've opened an interactive shell within the container, you can access the `SECRET` variable's value:
@@ -246,10 +243,10 @@ Task-based scenarios, such as batch processing a large dataset with several cont
 [aci-wordcount]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount
 
 <!-- LINKS Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-exec]: /cli/azure/container#az-container-exec
-[az-container-logs]: /cli/azure/container#az-container-logs
-[az-container-show]: /cli/azure/container#az-container-show
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-exec]: /cli/azure/container#az_container_exec
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show
 [azure-cli-install]: /cli/azure/
 [azure-instance-log]: /powershell/module/az.containerinstance/get-azcontainerinstancelog
 [azure-powershell-install]: /powershell/azure/install-Az-ps

@@ -1,36 +1,25 @@
 ---
-title: Change FabricTransport settings in Azure Service Fabric actors | Microsoft Docs
-description: Learn about configuring Azure Service Fabric actor communication settings.
-services: Service-Fabric
-documentationcenter: .net
+title: Change FabricTransport settings
+description: Learn about configuring Azure Service Fabric actor communication settings for different actor configurations.
 author: suchiagicha
-manager: chackdan
-editor: ''
 
-ms.assetid: dbed72f4-dda5-4287-bd56-da492710cd96
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-
 ms.date: 04/20/2017
 ms.author: pepogors
-
+ms.custom: devx-track-csharp
 ---
 # Configure FabricTransport settings for Reliable Actors
 
 Here are the settings that you can configure:
 - C#:
-[FabricTransportRemotingSettings](
-https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
-- Java: [FabricTransportRemotingSettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
+[FabricTransportRemotingSettings](/dotnet/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
+- Java: [FabricTransportRemotingSettings](/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
 
 You can modify the default configuration of FabricTransport in following ways.
 
 ## Assembly attribute
 
-The [FabricTransportActorRemotingProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN) attribute needs to be applied on the actor client and actor service assemblies.
+The [FabricTransportActorRemotingProvider](/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute) attribute needs to be applied on the actor client and actor service assemblies.
 
 The following example shows how to change the default value of FabricTransport OperationTimeout settings:
 

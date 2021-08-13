@@ -1,7 +1,7 @@
 ---
 title: "Cross Validate Model: Module reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Cross-Validate Model module in the Azure Machine Learning service to cross-validate parameter estimates for classification or regression models by partitioning the data.
+titleSuffix: Azure Machine Learning
+description: Use the Cross-Validate Model module in Azure Machine Learning designer to cross-validate parameter estimates for classification or regression models.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,11 +9,11 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
+ms.date: 02/11/2020
 ---
 # Cross Validate Model
 
-This article describes how to use the Cross Validate Model module in Azure Machine Learning designer (preview). *Cross-validation* is a technique often used in machine learning to assess both the variability of a dataset and the reliability of any model trained through that data.  
+This article describes how to use the Cross Validate Model module in Azure Machine Learning designer. *Cross-validation* is a technique often used in machine learning to assess both the variability of a dataset and the reliability of any model trained through that data.  
 
 The Cross Validate Model module takes as input a labeled dataset, together with an untrained classification or regression model. It divides the dataset into some number of subsets (*folds*), builds a model on each fold, and then returns a set of accuracy statistics for each fold. By comparing the accuracy statistics for all the folds, you can interpret the quality of the data set. You can then understand whether the model is susceptible to variations in the data.  
 
@@ -57,21 +57,19 @@ In this scenario, you both train and test the model by using Cross Validate Mode
 
 2. Connect the output of any classification or regression model. 
 
-    For example, if you're using **Two Class Bayes Point Machine** for classification, configure the model with the parameters that you want. Then, drag a connector from the **Untrained model** port of the classifier to the matching port of Cross Validate Model. 
+    For example, if you're using **Two Class Boosted Decision Tree** for classification, configure the model with the parameters that you want. Then, drag a connector from the **Untrained model** port of the classifier to the matching port of Cross Validate Model. 
 
     > [!TIP] 
     > You don't have to train the model, because Cross-Validate Model automatically trains the model as part of evaluation.  
 3.  On the **Dataset** port of Cross Validate Model, connect any labeled training dataset.  
 
-4.  In the **Properties** pane of Cross Validate Model, select **Launch column selector**. Choose the single column that contains the class label, or the predictable value. 
+4.  In the right panel of Cross Validate Model, click **Edit column**. Select the single column that contains the class label, or the predictable value. 
 
 5. Set a value for the **Random seed** parameter if you want to repeat the results of cross-validation across successive runs on the same data.  
 
-6. Run the pipeline.
+6. Submit the pipeline.
 
 7. See the [Results](#results) section for a description of the reports.
-
-    To get a copy of the model for reuse later, right-click the output of the module that contains the algorithm (for example, the **Two Class Bayes Point Machine**). Then select **Save as Trained Model**.
 
 ## Results
 
@@ -81,7 +79,7 @@ After all iterations are complete, Cross Validate Model creates scores for the e
 
 The first output of the module provides the source data for each row, together with some predicted values and related probabilities. 
 
-To view these results, in the pipeline, right-click the Cross Validate Model module. Select **Scored results**, and then select **Visualize**.
+To view the results, in the pipeline, right-click the Cross Validate Model module. Select **Visualize Scored results**.
 
 | New column name      | Description                              |
 | -------------------- | ---------------------------------------- |
@@ -95,7 +93,7 @@ The second report is grouped by folds. Remember that during execution, Cross Val
 
 In this report, the folds are listed by index value, in ascending order.  To order on any other column, you can save the results as a dataset.
 
-To view these results, in the pipeline, right-click the Cross Validate Model module. Select **Evaluation results by fold**, and then select **Visualize**.
+To view the results, in the pipeline, right-click the Cross Validate Model module. Select **Visualize Evaluation results by fold**.
 
 
 |Column name| Description|
@@ -122,5 +120,5 @@ The module also includes the following metrics for each fold, depending on the t
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to the Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 
 

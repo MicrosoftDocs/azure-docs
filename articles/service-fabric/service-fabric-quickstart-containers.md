@@ -1,20 +1,11 @@
 ---
-title: Create a Windows container app on Service Fabric in Azure | Microsoft Docs
+title: Create a Windows container app on Service Fabric in Azure 
 description: In this quickstart, you create your first Windows container application on Azure Service Fabric.  
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: jpconnock
-editor: 'vturecek'
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotNet
+
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/10/2019
 ms.author: atsenthi
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Quickstart: Deploy Windows containers to Service Fabric
@@ -91,7 +82,7 @@ Also in the *ApplicationManifest.xml* file, change **PasswordEncrypted** to **fa
 
 The following sample script creates a five-node Service Fabric cluster secured with an X.509 certificate. The command creates a self-signed certificate and uploads it to a new key vault. The certificate is also copied to a local directory. You can learn more about creating a cluster using this script in [Create a Service Fabric cluster](scripts/service-fabric-powershell-create-secure-cluster-cert.md).
 
-If needed, install the Azure PowerShell using the instructions found in the [Azure PowerShell guide](/powershell/azure/overview).
+If needed, install the Azure PowerShell using the instructions found in the [Azure PowerShell guide](/powershell/azure/).
 
 Before you run the following script, in PowerShell run `Connect-AzAccount` to create a connection with Azure.
 
@@ -154,7 +145,7 @@ Open a browser and navigate to the address that you put into the **Connection En
 
 ## Clean up
 
-You continue to incur charges while the cluster is running. Consider [deleting your cluster](service-fabric-cluster-delete.md).
+You continue to incur charges while the cluster is running. Consider [deleting your cluster](./service-fabric-tutorial-delete-cluster.md).
 
 ## Next steps
 

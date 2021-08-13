@@ -1,22 +1,19 @@
 ---
-title: Copy data from Salesforce Marketing Cloud using Azure Data Factory 
+title: Copy data from Salesforce Marketing Cloud
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from Salesforce Marketing Cloud to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-services: data-factory
-documentationcenter: ''
-author: linda33wj
-manager: craigg
-ms.reviewer: douglasl
-
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 10/25/2019
-ms.author: jingwang
-
+ms.custom: synapse
+ms.date: 07/17/2020
 ---
+
 # Copy data from Salesforce Marketing Cloud using Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Salesforce Marketing Cloud. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
@@ -29,7 +26,7 @@ This Salesforce Marketing Cloud connector is supported for the following activit
 
 You can copy data from Salesforce Marketing Cloud to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-The Salesforce Marketing Cloud connector supports OAuth 2 authentication. It is built on top of the [Salesforce Marketing Cloud REST API](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.htm).
+The Salesforce Marketing Cloud connector supports OAuth 2 authentication, and it supports both legacy and enhanced package types. The connector is built on top of the [Salesforce Marketing Cloud REST API](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.htm).
 
 >[!NOTE]
 >This connector doesn't support retrieving custom objects or custom data extensions.
@@ -47,13 +44,17 @@ The following properties are supported for Salesforce Marketing Cloud linked ser
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **SalesforceMarketingCloud** | Yes |
+| connectionProperties | A group of properties that defines how to connect to Salesforce Marketing Cloud. | Yes |
+| ***Under `connectionProperties`:*** | | |
+| authenticationType | Specifies the authentication method to use. Allowed values are `Enhanced sts OAuth 2.0` or `OAuth_2.0`.<br><br>Salesforce Marketing Cloud legacy package only supports `OAuth_2.0`, while enhanced package needs `Enhanced sts OAuth 2.0`. <br>Since August 1, 2019, Salesforce Marketing Cloud has removed the ability to create legacy packages. All new packages are enhanced packages. | Yes |
+| host | For enhanced package, the host should be your [subdomain](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/your-subdomain-tenant-specific-endpoints.htm) which is represented by a 28-character string starting with the letters "mc", e.g. `mc563885gzs27c5t9-63k636ttgm`. <br>For legacy package, specify `www.exacttargetapis.com`. | Yes |
 | clientId | The client ID associated with the Salesforce Marketing Cloud application.  | Yes |
-| clientSecret | The client secret associated with the Salesforce Marketing Cloud application. You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let ADF copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
+| clientSecret | The client secret associated with the Salesforce Marketing Cloud application. You can choose to mark this field as a SecureString to store it securely in ADF, or store the secret in Azure Key Vault and let ADF copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
-| useHostVerification | Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.  | No |
-| usePeerVerification | Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.  | No |
+| useHostVerification | Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over TLS. The default value is true.  | No |
+| usePeerVerification | Specifies whether to verify the identity of the server when connecting over TLS. The default value is true.  | No |
 
-**Example:**
+**Example: using enhanced STS OAuth 2 authentication for enhanced package** 
 
 ```json
 {
@@ -61,14 +62,66 @@ The following properties are supported for Salesforce Marketing Cloud linked ser
     "properties": {
         "type": "SalesforceMarketingCloud",
         "typeProperties": {
-            "clientId" : "<clientId>",
+            "connectionProperties": {
+                "host": "<subdomain e.g. mc563885gzs27c5t9-63k636ttgm>",
+                "authenticationType": "Enhanced sts OAuth 2.0",
+                "clientId": "<clientId>",
+                "clientSecret": {
+                     "type": "SecureString",
+                     "value": "<clientSecret>"
+            	},
+                "useEncryptedEndpoints": true,
+                "useHostVerification": true,
+                "usePeerVerification": true
+            }
+        }
+    }
+}
+
+```
+
+**Example: using OAuth 2 authentication for legacy package** 
+
+```json
+{
+    "name": "SalesforceMarketingCloudLinkedService",
+    "properties": {
+        "type": "SalesforceMarketingCloud",
+        "typeProperties": {
+            "connectionProperties": {
+                "host": "www.exacttargetapis.com",
+                "authenticationType": "OAuth_2.0",
+                "clientId": "<clientId>",
+                "clientSecret": {
+                     "type": "SecureString",
+                     "value": "<clientSecret>"
+            	},
+                "useEncryptedEndpoints": true,
+                "useHostVerification": true,
+                "usePeerVerification": true
+            }
+        }
+    }
+}
+
+```
+
+If you were using Salesforce Marketing Cloud linked service with the following payload, it is still supported as-is, while you are suggested to use the new one going forward which adds enhanced package support.
+
+```json
+{
+    "name": "SalesforceMarketingCloudLinkedService",
+    "properties": {
+        "type": "SalesforceMarketingCloud",
+        "typeProperties": {
+            "clientId": "<clientId>",
             "clientSecret": {
                  "type": "SecureString",
                  "value": "<clientSecret>"
             },
-            "useEncryptedEndpoints" : true,
-            "useHostVerification" : true,
-            "usePeerVerification" : true
+            "useEncryptedEndpoints": true,
+            "useHostVerification": true,
+            "usePeerVerification": true
         }
     }
 }

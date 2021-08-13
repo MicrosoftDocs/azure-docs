@@ -3,6 +3,8 @@
   items:
   - name: About App Service Environments
     href: intro.md
+  - name: App Service Environment v3
+    href: overview.md
 - name: Quickstarts
   expanded: true
   items:
@@ -10,11 +12,13 @@
     href: create-external-ase.md
   - name: Create internal ASE
     href: create-ilb-ase.md
+  - name: Create ASEv3
+    href: creation.md
 - name: Tutorials
   items:
   - name: Integrate with a WAF
     href: app-service-app-service-environment-web-application-firewall.md
-  - name: Configure TLS
+  - name: ASE custom settings
     href: app-service-app-service-environment-custom-settings.md
 - name: Samples
   items:
@@ -28,12 +32,12 @@
     href: network-info.md
   - name: Geo-distributed scale
     href: app-service-app-service-environment-geo-distributed-scale.md
-  - name: ASEv1
-    href: app-service-app-service-environment-intro.md
   - name: Diagnostics
     href: ../overview-diagnostics.md
   - name: Certificates
     href: certificates.md
+  - name: ASEv3 networking
+    href: networking.md
 - name: How-To guides
   items:
   - name: Use an ASE
@@ -46,12 +50,18 @@
     href: forced-tunnel-support.md
   - name: Firewall integration
     href: firewall-integration.md
+  - name: Zone redundancy
+    href: zone-redundancy.md
+  - name: Using ASEv3
+    href: using.md
 - name: Reference
   items:
   - name: Management addresses
     href: management-addresses.md
   - name: ASEv1 documentation
     items:
+    - name: ASEv1
+      href: app-service-app-service-environment-intro.md
     - name: Create ASEv1
       href: app-service-web-how-to-create-an-app-service-environment.md
     - name: Configure ASEv1
@@ -83,7 +93,7 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/app-service/
   - name: Quota Information
-    href: ../../azure-subscription-service-limits.md#app-service-limits
+    href: ../../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits
   - name: Service Updates
     href: https://azure.microsoft.com/updates/?product=app-service
   - name: Best practices
@@ -117,10 +127,10 @@
     - name: FAQ
       items:
       - name: Availability, performance, and application FAQ
-        href: ../faq-availability-performance-application-issues.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        href: ../faq-availability-performance-application-issues.yml?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
       - name: Deployment FAQ
-        href: ../faq-deployment.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        href: ../faq-deployment.yml?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
       - name: Open source technologies FAQ
-        href: ../faq-open-source-technologies.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        href: ../faq-open-source-technologies.yml?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
       - name: Configuration and management FAQ
-        href: ../faq-configuration-and-management.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        href: ../faq-configuration-and-management.yml?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json

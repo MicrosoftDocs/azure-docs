@@ -1,14 +1,17 @@
 ---
 title: LTRIM in Azure Cosmos DB query language
-description: Learn about SQL system function LTRIM in Azure Cosmos DB.
+description: Learn about the LTRIM SQL system function in Azure Cosmos DB to return a string expression after it removes leading blanks
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ---
 # LTRIM (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Returns a string expression after it removes leading blanks.  
   
 ## Syntax
@@ -39,6 +42,10 @@ SELECT LTRIM("  abc") AS l1, LTRIM("abc") AS l2, LTRIM("abc   ") AS l3
 ```json
 [{"l1": "abc", "l2": "abc", "l3": "abc   "}]  
 ```  
+
+## Remarks
+
+This system function will not utilize the index.
 
 ## Next steps
 

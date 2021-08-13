@@ -1,8 +1,8 @@
 --- 
-title: Azure VMware Solution by CloudSimple - Secure Private Cloud 
-description: Describes how to secure Azure VMware Solution by CloudSimple Private Cloud 
-author: sharaths-cs 
-ms.author: b-shsury 
+title: Azure VMware Solutions by CloudSimple - Secure Private Cloud 
+description: Describes how to secure Azure VMware Solutions by CloudSimple Private Cloud 
+author: shortpatti 
+ms.author: v-patsho
 ms.date: 08/19/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
@@ -14,17 +14,17 @@ manager: dikamath
 
 Define role-based access control (RBAC) for CloudSimple Service, CloudSimple portal, and Private Cloud from Azure.  Users, groups, and roles for accessing vCenter of Private Cloud are specified using VMware SSO.  
 
-## RBAC for CloudSimple service
+## Azure RBAC for CloudSimple service
 
 Creation of CloudSimple service requires **Owner** or **Contributor** role on the Azure subscription.  By default, all owners and contributors can create a CloudSimple service and access CloudSimple portal for creating and managing Private Clouds.  Only one CloudSimple service can be created per region.  To restrict access to specific administrators, follow the procedure below.
 
 1. Create a CloudSimple Service in a new **resource group** on Azure portal
-2. Specify RBAC for the resource group.
+2. Specify Azure RBAC for the resource group.
 3. Purchase nodes and use the same resource group as CloudSimple service
 
 Only the users who have **Owner** or **Contributor** privileges on the resource group will see the CloudSimple service and launch CloudSimple portal.
 
-For more information about RBAC, see [What is role-based access control (RBAC) for Azure resources](../role-based-access-control/overview.md).
+For more information, see [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
 
 ## RBAC for Private Cloud vCenter
 
@@ -32,8 +32,8 @@ A default user `CloudOwner@cloudsimple.local` is created in the vCenter SSO doma
 
 ### Add new users to vCenter
 
-1. [Escalate privileges](escalate-private-cloud-privileges.md) for **CloudOwner@cloudsimple.local** user on the Private Cloud.
-2. Sign into vCenter using **CloudOwner@cloudsimple.local**
+1. [Escalate privileges](escalate-private-cloud-privileges.md) for **CloudOwner\@cloudsimple.local** user on the Private Cloud.
+2. Sign into vCenter using **CloudOwner\@cloudsimple.local**
 3. [Add vCenter Single Sign-On Users](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-72BFF98C-C530-4C50-BF31-B5779D2A4BBB.html).
 4. Add users to [vCenter single sign-on groups](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html).
 
@@ -46,8 +46,8 @@ You can add additional identity providers for vCenter SSO domain of your Private
 * [Use Active Directory as an identity provider](set-vcenter-identity.md) on Private Cloud vCenter.
 * [Use Azure AD as an identity provider](azure-ad.md) on Private Cloud vCenter
 
-1. [Escalate privileges](escalate-private-cloud-privileges.md) for **CloudOwner@cloudsimple.local** user on the Private Cloud.
-2. Sign into vCenter using **CloudOwner@cloudsimple.local**
+1. [Escalate privileges](escalate-private-cloud-privileges.md) for **CloudOwner\@cloudsimple.local** user on the Private Cloud.
+2. Sign into vCenter using **CloudOwner\@cloudsimple.local**
 3. Add users from the identity provider to [vCenter single sign-on groups](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html).
 
 ## Secure network on your Private Cloud environment
@@ -68,4 +68,4 @@ Firewall tables and rules control network traffic in the Private Cloud.  The fir
 
 1. Create a [firewall table](firewall.md#add-a-new-firewall-table).
 2. [Add rules](firewall.md#create-a-firewall-rule) to the firewall table.
-3. [Attach a firewall table to a VLAN/subnet](firewall.md#attach-vlanssubnet.
+3. [Attach a firewall table to a VLAN/subnet](firewall.md#attach-vlans-subnet).

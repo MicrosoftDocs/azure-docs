@@ -1,24 +1,25 @@
 ---
 title: Migrate from Windows Azure Media Encoder to Media Encoder Standard | Microsoft Docs
-description: This topic discusses how to migrate from Azure Media Encoder to the Media Encoder Standard media processor.
+description: This topic discusses how to migrate from Windows Azure Media Encoder to the Media Encoder Standard media processor.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2019
-ms.author: juliako
-
+ms.date: 3/10/2021
+ms.author: inhenkel
+ms.custom: devx-track-csharp
 ---
 # Migrate from Windows Azure Media Encoder to Media Encoder Standard
 
-This article discusses the steps for migrating from the legacy Windows Azure Media Encoder (WAME) media processor, which is being retired on Nov 30, 2019, to the Media Encoder Standard media processor.
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
+This article discusses the steps for migrating from the legacy Windows Azure Media Encoder (WAME) media processor (which is being retired) to the Media Encoder Standard media processor. For the retirement dates, see this [legacy components](legacy-components.md) topic.
 
 When encoding files with WAME, customers typically used a named preset string such as `H264 Adaptive Bitrate MP4 Set 1080p`. In order to migrate, your code needs to be updated to use the **Media Encoder Standard** media processor instead of WAME, and one of the equivalent [system presets](media-services-mes-presets-overview.md) like `H264 Multiple Bitrate 1080p`. 
 

@@ -1,7 +1,7 @@
 ---
 title: OData collection operator reference
 titleSuffix: Azure Cognitive Search
-description: OData collection operators, any and all, and lambda expressions in Azure Cognitive Search queries.
+description: When creating filter expressions in Azure Cognitive Search queries, use "any" and "all" operators in lambda expressions when the filter is on a collection or complex collection field.  
 
 manager: nitinme
 author: brjohnstmsft
@@ -62,23 +62,33 @@ A **lambda expression** in a collection filter is like the body of a loop in a p
 
 Match documents whose `tags` field contains exactly the string "wifi":
 
-    tags/any(t: t eq 'wifi')
+```text
+tags/any(t: t eq 'wifi')
+```
 
 Match documents where every element of the `ratings` field falls between 3 and 5, inclusive:
 
-    ratings/all(r: r ge 3 and r le 5)
+```text
+ratings/all(r: r ge 3 and r le 5)
+```
 
 Match documents where any of the geo coordinates in the `locations` field is within the given polygon:
 
-    locations/any(loc: geo.intersects(loc, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))'))
+```text
+locations/any(loc: geo.intersects(loc, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))'))
+```
 
 Match documents where the `rooms` field is empty:
 
-    not rooms/any()
+```text
+not rooms/any()
+```
 
 Match documents where for all rooms, the `rooms/amenities` field contains "tv" and `rooms/baseRate` is less than 100:
 
-    rooms/all(room: room/amenities/any(a: a eq 'tv') and room/baseRate lt 100.0)
+```text
+rooms/all(room: room/amenities/any(a: a eq 'tv') and room/baseRate lt 100.0)
+```
 
 ## Limitations
 
@@ -93,4 +103,4 @@ For more details on these limitations as well as examples, see [Troubleshooting 
 - [Filters in Azure Cognitive Search](search-filters.md)
 - [OData expression language overview for Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
 - [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md)
-- [Search Documents &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Search Documents &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/Search-Documents)

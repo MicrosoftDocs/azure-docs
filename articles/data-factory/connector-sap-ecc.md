@@ -1,27 +1,23 @@
 ---
-title: Copy data from SAP ECC by using Azure Data Factory 
+title: Copy data from SAP ECC
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from SAP ECC to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: craigg
-ms.reviewer: douglasl
-
-ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-
-ms.topic: conceptual
-ms.date: 09/02/2019
 ms.author: jingwang
-
+ms.service: data-factory
+ms.subservice: data-movement
+ms.topic: conceptual
+ms.custom: synapse
+ms.date: 10/28/2020
 ---
+
 # Copy data from SAP ECC by using Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the copy activity in Azure Data Factory to copy data from SAP Enterprise Central Component (ECC). For more information, see [Copy activity overview](copy-activity-overview.md).
 
 >[!TIP]
->To learn ADF's overall support on SAP data integration scenario, see [SAP data integration using Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) with detailed introduction, comparsion and guidance.
+>To learn ADF's overall support on SAP data integration scenario, see [SAP data integration using Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) with detailed introduction on each SAP connector, comparsion and guidance.
 
 ## Supported capabilities
 
@@ -44,24 +40,29 @@ Specifically, this SAP ECC connector supports:
 
 - Copying data by using basic authentication.
 
+The version 7.0 or later refers to SAP NetWeaver version instead of SAP ECC version. For example, SAP ECC 6.0 EHP 7 in general has NetWeaver version >=7.4. In case you are unsure about your environment, here are the steps to confirm the version from your SAP system:
+
+1. Use SAP GUI to connect to the SAP System. 
+2. Go to **System** -> **Status**. 
+3. Check the release of the SAP_BASIS, ensure it is equal to or larger than 701.  
+      ![Check SAP_BASIS](./media/connector-sap-table/sap-basis.png)
+
 >[!TIP]
 >To copy data from SAP ECC via an SAP table or view, use the [SAP table](connector-sap-table.md) connector, which is faster and more scalable.
 
 ## Prerequisites
 
-Generally, SAP ECC exposes entities via OData services through SAP Gateway. To use this SAP ECC connector, you need to:
+To use this SAP ECC connector, you need to expose the SAP ECC entities via OData services through SAP Gateway. More specifically:
 
 - **Set up SAP Gateway**. For servers with SAP NetWeaver versions later than 7.4, SAP Gateway is already installed. For earlier versions, you must install the embedded SAP Gateway or the SAP Gateway hub system before exposing SAP ECC data through OData services. To set up SAP Gateway, see the [installation guide](https://help.sap.com/saphelp_gateway20sp12/helpdata/en/c3/424a2657aa4cf58df949578a56ba80/frameset.htm).
 
 - **Activate and configure the SAP OData service**. You can activate the OData service through TCODE SICF in seconds. You can also configure which objects need to be exposed. For more information, see the [step-by-step guidance](https://blogs.sap.com/2012/10/26/step-by-step-guide-to-build-an-odata-service-based-on-rfcs-part-1/).
 
-## Prerequisites
-
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## Get started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define the Data Factory entities specific to the SAP ECC connector.
 
@@ -145,6 +146,8 @@ The following properties are supported in the copy activity's `source` section:
 |:--- |:--- |:--- |
 | `type` | The `type` property of the copy activity's `source` section must be set to `SapEccSource`. | Yes |
 | `query` | The OData query options to filter the data. For example:<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>The SAP ECC connector copies data from the combined URL:<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>For more information, see [OData URL components](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No |
+| `sapDataColumnDelimiter` | The single character that is used as delimiter passed to SAP RFC to split the output data. | No |
+| `httpRequestTimeout` | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to read response data. If not specified, the default value is **00:30:00** (30 minutes). | No |
 
 ### Example
 

@@ -1,21 +1,11 @@
 ---
 title: Move data from MySQL using Azure Data Factory 
 description: Learn about how to move data from MySQL database using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: craigg
-
-
-ms.assetid: 452f4fce-9eb5-40a0-92f8-1e98691bea4c
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 # Move data From MySQL using Azure Data Factory
@@ -150,9 +140,9 @@ As a first step, setup the data management gateway. The instructions are in the 
 
 **MySQL input dataset:**
 
-The sample assumes you have created a table “MyTable” in MySQL and it contains a column called “timestampcolumn” for time series data.
+The sample assumes you have created a table "MyTable" in MySQL and it contains a column called "timestampcolumn" for time series data.
 
-Setting “external”: ”true” informs the Data Factory service that the table is external to the data factory and is not produced by an activity in the data factory.
+Setting "external": "true" informs the Data Factory service that the table is external to the data factory and is not produced by an activity in the data factory.
 
 ```JSON
     {

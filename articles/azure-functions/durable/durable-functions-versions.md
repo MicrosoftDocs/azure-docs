@@ -2,16 +2,14 @@
 title: Durable Functions versions overview - Azure Functions
 description: Learn about Durable Functions versions.
 author: cgillum
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 12/23/2020
 ms.author: azfuncdf
 ---
 
 # Durable Functions versions overview
 
-*Durable Functions* is an extension of [Azure Functions](../functions-overview.md) and [Azure WebJobs](../../app-service/web-sites-create-web-jobs.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you. If you are not already familiar with Durable Functions, see the [overview documentation](durable-functions-overview.md).
+*Durable Functions* is an extension of [Azure Functions](../functions-overview.md) and [Azure WebJobs](../../app-service/webjobs-create.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you. If you are not already familiar with Durable Functions, see the [overview documentation](durable-functions-overview.md).
 
 ## New features in 2.x
 
@@ -41,7 +39,34 @@ This section describes how to migrate your existing version 1.x Durable Function
 
 ### Upgrade the extension
 
-Install version 2.x of the [Durable Functions bindings extension](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) in your project. See [Register Azure Functions binding extensions](../functions-bindings-register.md) for more information.
+Install the latest 2.x version of the Durable Functions bindings extension in your project.
+
+#### JavaScript, Python, and PowerShell
+
+Durable Functions 2.x is available in version 2.x of the [Azure Functions extension bundle](../functions-bindings-register.md#extension-bundles).
+
+Python support in Durable Functions requires Durable Functions 2.x.
+
+To update the extension bundle version in your project, open host.json and update the `extensionBundle` section to use version 2.x (`[2.*, 3.0.0)`).
+
+```json
+{
+    "version": "2.0",
+    "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle",
+        "version": "[2.*, 3.0.0)"
+    }
+}
+```
+
+> [!NOTE]
+> If Visual Studio Code is not displaying the correct templates after you change the extension bundle version, reload the window by running the *Developer: Reload Window* command (<kbd>Ctrl+R</kbd> on Windows and Linux, <kbd>Command+R</kbd> on macOS).
+
+#### .NET
+
+Update your .NET project to use the latest version of the [Durable Functions bindings extension](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask).
+
+See [Register Azure Functions binding extensions](../functions-bindings-register.md#local-csharp) for more information.
 
 ### Update your code
 
@@ -52,10 +77,14 @@ Durable Functions 2.x introduces several breaking changes. Durable Functions 1.x
 Durable Functions 2.x uses a new host.json schema. The main changes from 1.x include:
 
 * `"storageProvider"` (and the `"azureStorage"` subsection) for storage-specific configuration.
-* `"tracking"` for tracking and logging configuration.
+* `"tracing"` for tracing and logging configuration.
 * `"notifications"` (and the `"eventGrid"` subsection) for event grid notification configuration.
 
 See the [Durable Functions host.json reference documentation](durable-functions-bindings.md#durable-functions-2-0-host-json) for details.
+
+#### Default taskhub name changes
+
+In version 1.x, if a task hub name was not specified in host.json, it was defaulted to "DurableFunctionsHub". In version 2.x, the default task hub name is now derived from the name of the function app. Because of this, if you have not specified a task hub name when upgrading to 2.x, your code will be operating with new task hub, and all in-flight orchestrations will no longer have an application processing them. To work around this, you can either explicitly set your task hub name to the v1.x default of "DurableFunctionsHub", or you can follow our [zero-downtime deployment guidance](durable-functions-zero-downtime-deployment.md) for details on how to handle breaking changes for in-flight orchestrations.
 
 #### Public interface changes (.NET only)
 
@@ -75,3 +104,7 @@ In the case where an abstract base class contained virtual methods, these virtua
 #### function.json changes (JavaScript and C# Script)
 
 In Durable Functions 1.x, the orchestration client binding uses a `type` of `orchestrationClient`. Version 2.x uses `durableClient` instead.
+
+#### Raise event changes
+
+In Durable Functions 1.x, calling the [raise event](durable-functions-external-events.md#send-events) API and specifying an instance that did not exist resulted in a silent failure. Starting in 2.x, raising an event to a non-existent orchestration results in an exception.

@@ -1,21 +1,9 @@
 ---
-title: Service Fabric app upgrade tutorial| Microsoft Docs
+title: Service Fabric app upgrade tutorial
 description: This article walks through the experience of deploying a Service Fabric application, changing the code, and rolling out an upgrade by using Visual Studio.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
 
-ms.assetid: a3181a7a-9ab1-4216-b07a-05b79bd826a4
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-
 ---
 # Service Fabric application upgrade tutorial using Visual Studio
 > [!div class="op_single_selector"]
@@ -37,7 +25,7 @@ Selecting **Publish** brings up a popup, and you can set the **Target profile** 
 
 ![Publishing a Service Fabric application][image2]
 
-Now you can click **Publish** in the dialog box. You can use [Service Fabric Explorer to view the cluster and the application](service-fabric-visualizing-your-cluster.md). The Visual Objects application has a web service that you can go to by typing [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) in the address bar of your browser.  You should see 10 floating visual objects moving around on the screen.
+Now you can click **Publish** in the dialog box. You can use [Service Fabric Explorer to view the cluster and the application](service-fabric-visualizing-your-cluster.md). The Visual Objects application has a web service that you can go to by typing `http://localhost:8081/visualobjects/` in the address bar of your browser.  You should see 10 floating visual objects moving around on the screen.
 
 **NOTE:** If deploying to `Cloud.xml` profile (Azure Service Fabric), the application should then be available at **http://{ServiceFabricName}.{Region}.cloudapp.azure.com:8081/visualobjects/**. Make sure you do have `8081/TCP` configured in the Load Balancer (find the Load Balancer in the same resource group as the Service Fabric instance).
 

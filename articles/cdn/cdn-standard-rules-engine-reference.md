@@ -1,64 +1,66 @@
 ---
-title: Azure CDN Standard rules engine reference | Microsoft Docs
-description: Reference documentation for Azure CDN Standard rules engine match conditions and actions.
+title: Standard rules engine reference for Azure CDN | Microsoft Docs
+description: Reference documentation for match conditions and actions in the Standard rules engine for Azure Content Delivery Network (Azure CDN).
 services: cdn
-author: mdgattuso
+author: asudbring
 
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 11/01/2019
-ms.author: magattus
+ms.date: 07/31/2021
+ms.author: allensu
 
 ---
-# Azure CDN from Microsoft Rules Engine reference
 
-This article lists detailed descriptions of the available match conditions and features for the Azure Content Delivery Network (CDN) [Standard Rules Engine](cdn-standard-rules-engine.md).
+# Standard rules engine reference for Azure CDN
 
-The rules engine is designed to be the final authority on how specific types of requests are processed by the CDN.
+In the [Standard rules engine](cdn-standard-rules-engine.md) for Azure Content Delivery Network (Azure CDN), a rule consists of one or more match conditions and an action. This article provides detailed descriptions of the match conditions and features that are available in the Standard rules engine for Azure CDN.
 
-**Common uses**:
+The rules engine is designed to be the final authority on how specific types of requests are processed by Standard Azure CDN.
+
+**Common uses for the rules**:
 
 - Override or define a custom cache policy.
 - Redirect requests.
-- Modify HTTP request and response headers
+- Modify HTTP request and response headers.
 
 ## Terminology
 
-A rule is defined through the use of [**match conditions**](cdn-standard-rules-engine-match-conditions.md), and [**actions**](cdn-standard-rules-engine-actions.md). These elements are highlighted in the following illustration:
+To define a rule in the rules engine, set [match conditions](cdn-standard-rules-engine-match-conditions.md) and [actions](cdn-standard-rules-engine-actions.md):
 
- ![CDN rules structure](./media/cdn-standard-rules-engine-reference/cdn-rules-structure.png)
+ ![Azure CDN rules structure](./media/cdn-standard-rules-engine-reference/cdn-rules-structure.png)
 
-Each rule can have up to 4 match conditions, and 3 actions. There is a maximum of 5 rules per CDN endpoint. Additionally, there is a rule in place by default called the **Global Rule**. This is a rule with no match conditions, where the actions defined within will always trigger. This rule is included in the current 5 rule limit.
+Each rule can have up to ten match conditions and five actions. Each Azure CDN endpoint can have up to 25 rules. 
+
+Included in this limit is a default *global rule*. The global rule doesn't have match conditions; actions that are defined in a global rule always triggered.
+
+   > [!IMPORTANT]
+   > The order in which multiple rules are listed affects how rules are handled. The actions that are specified in a rule might be overwritten by a subsequent rule.
+
+## Limits and pricing 
+
+See [CDN Scale limits](../azure-resource-manager/management/azure-subscription-service-limits.md#content-delivery-network-limits) for rules limit. For rule engine pricing, see [Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/cdn/).
 
 ## Syntax
 
-The manner in which special characters are treated varies according to how a match condition or actopm handles text values. A match condition or feature may interpret text in one of the following ways:
+How special characters are treated in a rule varies based on how different match conditions and actions handle text values. A match condition or action can interpret text in one of the following ways:
 
-1. [**Literal values**](#literal-values)
-2. [**Wildcard values**](#wildcard-values)
+- [Literal values](#literal-values)
+- [Wildcard values](#wildcard-values)
 
 
 ### Literal values
 
-Text that is interpreted as a literal value treats all special characters, with the exception of the % symbol, as a part of the value that must be matched. In other words, a literal match condition set to `\'*'\` is only satisfied when that exact value (that is, `\'*'\`) is found.
+Text that's interpreted as a literal value treats all special characters *except the % symbol* as part of the value that must be matched in a rule. For example, a literal match condition set to `'*'` is satisfied only when the exact value `'*'` is found.
 
 A percent sign is used to indicate URL encoding (for example, `%20`).
 
 ### Wildcard values
 
-Text that is interpreted as a wildcard value assigns additional meaning to special characters. The following table describes how the following set of characters is interpreted:
-
-Character | Description
-----------|------------
-\ | A backslash is used to escape any of the characters specified in this table. A backslash must be specified directly before the special character that should be escaped.<br/>For example, the following syntax escapes an asterisk: `\*`
-% | A percent sign is used to indicate URL encoding (for example, `%20`).
-\* | An asterisk is a wildcard that represents one or more characters.
-Space | A space character indicates that a match condition may be satisfied by either of the specified values or patterns.
-'value' | A single quote does not have special meaning. However, a set of single quotes is used to indicate that a value should be treated as a literal value. It can be used in the following ways:<br><br/>- It allows a match condition to be satisfied whenever the specified value matches any portion of the comparison value.  For example, `'ma'` would match any of the following strings: <br/><br/>/business/**ma**rathon/asset.htm<br/>**ma**p.gif<br/>/business/template.**ma**p<br /><br />- It allows a special character to be specified as a literal character. For example, you may specify a literal space character by enclosing a space character within a set of single quotes (that is, `' '` or `'sample value'`).<br/>- It allows a blank value to be specified. Specify a blank value by specifying a set of single quotes (that is, '').<br /><br/>**Important:**<br/>- If the specified value does not contain a wildcard, then it is automatically considered a literal value, which means that it is not necessary to specify a set of single quotes.<br/>- If a backslash does not escape another character in this table, it is ignored when it is specified within a set of single quotes.<br/>- Another way to specify a special character as a literal character is to escape it using a backslash (that is, `\`).
+Currently we support the wildcard character in the **UrlPath Match Condition** in Standard Rules Engine. The \* character is a wildcard that represents one or more characters. 
 
 ## Next steps
 
-- [Standard Rules Engine match conditions](cdn-standard-rules-engine-match-conditions.md)
-- [Standard Rules Engine actions](cdn-standard-rules-engine-actions.md)
-- [Enforce HTTPS using the Standard Rules Engine](cdn-standard-rules-engine.md)
+- [Match conditions in the Standard rules engine](cdn-standard-rules-engine-match-conditions.md)
+- [Actions in the Standard rules engine](cdn-standard-rules-engine-actions.md)
+- [Enforce HTTPS by using the Standard rules engine](cdn-standard-rules-engine.md)
 - [Azure CDN overview](cdn-overview.md)

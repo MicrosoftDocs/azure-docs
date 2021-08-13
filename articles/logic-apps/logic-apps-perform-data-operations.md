@@ -1,15 +1,11 @@
 ---
-title: Perform operations on data - Azure Logic Apps
+title: Perform operations on data
 description: Convert, manage, and manipulate data outputs and formats in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 09/20/2019
+ms.date: 05/11/2021
 ---
 
 # Perform data operations in Azure Logic Apps
@@ -22,9 +18,23 @@ This article shows how you can work with data in your logic apps by adding actio
 
 If you don't find the action you want here, try browsing the many various [data manipulation functions](../logic-apps/workflow-definition-language-functions-reference.md) that Azure Logic Apps provides.
 
+## Prerequisites
+
+* An Azure subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+
+* The logic app where you need the operation for working with data
+
+  If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+
+* A [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) as the first step in your logic app 
+
+  Data operations are available only as actions, so before you can use these actions, start your logic app with a trigger and include any other actions required for creating the outputs you want.
+
+## Data operation actions
+
 These tables summarize the data operations you can use and are organized based on the source data types that the operations work on, but each description appears alphabetically.
 
-**Array actions** 
+### Array actions
 
 These actions help you work with data in arrays.
 
@@ -37,7 +47,7 @@ These actions help you work with data in arrays.
 | [**Select**](#select-action) | Create an array from the specified properties for all the items in a different array. |
 ||| 
 
-**JSON actions**
+### JSON actions
 
 These actions help you work with data in JavaScript Object Notation (JSON) format.
 
@@ -48,18 +58,6 @@ These actions help you work with data in JavaScript Object Notation (JSON) forma
 |||
 
 To create more complex JSON transformations, see [Perform advanced JSON transformations with Liquid templates](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md).
-
-## Prerequisites
-
-* An Azure subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
-
-* The logic app where you need the operation for working with data
-
-  If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
-
-* A [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) as the first step in your logic app 
-
-  Data operations are available only as actions, so before you can use these actions, start your logic app with a trigger and include any other actions required for creating the outputs you want.
 
 <a name="compose-action"></a>
 
@@ -274,6 +272,9 @@ To confirm whether the **Create CSV table** action creates the expected results,
 
    !["Output" fields for the "Create CSV table" action](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action.png)
 
+   > [!NOTE]
+    > If your table is returned with incorrect formatting, see [how to check your table data formatting](#format-table-data).
+
 1. Now, manually run your logic app. On the designer toolbar, select **Run**.
 
    Based on the email connector you used, here are the results you get:
@@ -431,6 +432,9 @@ To confirm whether the **Create HTML table** action creates the expected results
    > When including the HTML table output in an email action, make sure that you set the **Is HTML** property to **Yes** 
    > in the email action's advanced options. That way, the email action correctly formats the HTML table.
 
+   > [!NOTE]
+   > If your table is returned with incorrect formatting, see [how to check your table data formatting](#format-table-data).
+
 1. Now, manually run your logic app. On the designer toolbar, select **Run**.
 
    Based on the email connector you used, here are the results you get:
@@ -448,6 +452,9 @@ To create a smaller array that has items, which meet specific criteria, from an 
 > 
 > For actions to use the array output from the **Filter array** action, either those actions must accept arrays as input, or you might 
 > have to transform the output array into another compatible format.
+> 
+> If you call an HTTP endpoint and receive a JSON response, use the **Parse JSON** action to process the JSON response. 
+> Otherwise, the **Filter array** action can read only the response body and not the structure of the JSON payload.
 
 If you prefer working in the code view editor, you can copy the example **Filter array** and **Initialize variable** action definitions from this article into your own logic app's underlying workflow definition: [Data operation code examples - Filter array](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example)
 
@@ -711,6 +718,51 @@ To confirm whether the **Select** action creates the expected results, send your
 
    ![Email with "Select" action results](./media/logic-apps-perform-data-operations/select-email-results.png)
 
+## Troubleshooting
+
+### Format table data
+
+If your [CSV table](#create-csv-table-action) or [HTML table](#create-html-table-action) is returned with incorrect formatting, make sure your input data has line breaks between rows. 
+
+Incorrect formatting:
+
+```text
+Fruit,Number Apples,1 Oranges,2
+```
+
+Correct formatting:
+
+```text
+Fruit,Number
+Apples,1
+Oranges,2
+```
+
+To add line breaks between rows, add one of the following expressions to your table:
+
+```text
+replace(body('Create_CSV_table'),'','<br/>')
+```
+
+```text
+replace(body('Create_HTML_table'),'','<br/>')
+```
+
+For example: 
+
+```json
+{
+	"Send_an_email_": {
+		"inputs": {
+			"body": {
+				"Body": "<p>Results from Create CSV table action:<br/>\n<br/>\n<br/>\n@{replace(body('Create_CSV_table'),'\r\n','<br/>')}</p>",
+				"Subject": "Create CSV table results",
+				"To": "sophia.owen@fabrikam.com"
+			}
+		}
+	}
+}
+```
 ## Next steps
 
 * Learn about [Logic Apps connectors](../connectors/apis-list.md)

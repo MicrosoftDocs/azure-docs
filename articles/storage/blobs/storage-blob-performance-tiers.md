@@ -1,10 +1,10 @@
 ---
 title: Block blob storage performance tiers — Azure Storage
 description: Discusses the difference between premium and standard performance tiers for Azure block blob storage.
-author: mhopkins-msft
+author: normesta
 
-ms.author: mhopkins
-ms.date: 11/12/2019
+ms.author: normesta
+ms.date: 05/17/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -22,14 +22,14 @@ Azure block blob storage offers two different performance tiers:
 
 The following considerations apply to the different performance tiers:
 
-| Area |Standard performance  |Premium performance  |
-|---------|---------|---------|
-|Region availability     |   All  regions      | In [select regions](https://azure.microsoft.com/global-infrastructure/services/?products=storage)       |
-|Supported [storage account types](../common/storage-account-overview.md#types-of-storage-accounts)     |     General purpose v2, BlobStorage, General purpose v1    |    BlockBlobStorage     |
-|Supports [high throughput block blobs](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/)     |    Yes, at greater than 4 MiB PutBlock or PutBlob sizes     |    Yes, at greater than 256 KiB PutBlock or PutBlob sizes    |
-|Redundancy     |     See [Types of storage accounts](../common/storage-account-overview.md#types-of-storage-accounts)   |  Currently supports only locally-redundant storage (LRS) and zone-redudant storage (ZRS)<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>1</sup></div>     |
+| Area | Standard performance | Premium performance |
+|--|--|--|
+| Region availability | All  regions | In [select regions](https://azure.microsoft.com/global-infrastructure/services/?products=storage) |
+| Supported [storage account types](../common/storage-account-overview.md#types-of-storage-accounts) | General purpose v2, general purpose v1, legacy blob | Premium block blob |
+| Supports [high throughput block blobs](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) | Yes, at greater than 4 MiB PutBlock or PutBlob sizes | Yes, at greater than 256 KiB PutBlock or PutBlob sizes |
+| Redundancy | See [Types of storage accounts](../common/storage-account-overview.md#types-of-storage-accounts) | Currently supports only locally-redundant storage (LRS) and zone-redudant storage (ZRS)<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>1</sup></div> |
 
-<div id="zone-redundant-storage"><sup>1</sup>Zone-redundant storage (ZRS) is available in select regions for premium performance block blob storage accounts.</div>
+<div id="zone-redundant-storage"><sup>1</sup>Zone-redundant storage (ZRS) is available in select regions for premium  block blob storage accounts.</div>
 
 Regarding cost, premium performance provides optimized pricing for applications with high transaction rates to help [lower total storage cost](https://azure.microsoft.com/blog/reducing-overall-storage-costs-with-azure-premium-blob-storage/) for these workloads.
 
@@ -51,11 +51,17 @@ Premium performance storage is ideal for workloads that require fast and consist
 
 Standard performance supports different [access tiers](storage-blob-storage-tiers.md) to store data in the most cost-effective manner. It's optimized for high capacity and high throughput on large data sets.
 
+- **Backup and disaster recovery datasets**. Standard performance storage offers cost-efficient tiers, making it a perfect use case for both short-term and long-term disaster recovery datasets, secondary backups, and compliance data archiving.
+
+- **Media content**. Images and videos often are accessed frequently when first created and stored, but this content type is used less often as it gets older. Standard performance storage offers suitable tiers for media content needs. 
+
+- **Bulk data processing**. These kinds of workloads are suitable for standard storage because they require cost-effective high-throughput storage instead of consistent low latency. Large, raw datasets are staged for processing and eventually migrate to cooler tiers.
+
 ## Migrate from standard to premium
 
-You can't convert an existing standard performance storage account to a block blob storage account with premium performance. To migrate to a premium performance storage account, you must create a BlockBlobStorage account, and migrate the data to the new account. For more information, see [Create a BlockBlobStorage account](storage-blob-create-account-block-blob.md).
+You can't convert an existing standard performance storage account to a block blob storage account with premium performance. To migrate to a premium performance storage account, you must create a premium block blob account, and migrate the data to the new account. For more information, see [Create a BlockBlobStorage account](../common/storage-account-create.md).
 
-To copy blobs between storage accounts, you can use the latest version of the [AzCopy](../common/storage-use-azcopy-blobs.md) command-line tool. Other tools such as Azure Data Factory are also available for data movement and transformation.
+To copy blobs between storage accounts, you can use the latest version of the [AzCopy](../common/storage-use-azcopy-v10.md#transfer-data) command-line tool. Other tools such as Azure Data Factory are also available for data movement and transformation.
 
 ## Blob lifecycle management
 
@@ -72,7 +78,7 @@ You can't move data that's stored in a premium block blob storage account betwee
 
 Evaluate hot, cool, and archive in GPv2 and Blob storage accounts.
 
-- [Learn about rehydrating blob data from the archive tier](storage-blob-rehydration.md)
-- [Evaluate usage of your current storage accounts by enabling Azure Storage metrics](../common/storage-enable-and-view-metrics.md)
+- [Learn about rehydrating blob data from the archive tier](archive-rehydrate-overview.md)
+- [Evaluate usage of your current storage accounts by enabling Azure Storage metrics](./monitor-blob-storage.md)
 - [Check hot, cool, and archive pricing in Blob storage and GPv2 accounts by region](https://azure.microsoft.com/pricing/details/storage/)
 - [Check data transfers pricing](https://azure.microsoft.com/pricing/details/data-transfers/)

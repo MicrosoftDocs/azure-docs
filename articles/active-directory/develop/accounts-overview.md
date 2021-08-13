@@ -1,22 +1,18 @@
 ---
-title: Microsoft identity platform accounts and tenant profiles (Android) | Azure
-description: An overview of Microsoft identity platform accounts for Android
+title: Microsoft identity platform accounts & tenant profiles on Android | Azure
+description: An overview of the Microsoft identity platform accounts for Android
 services: active-directory
-documentationcenter: ''
 author: shoatman
-manager: nadima
-editor: ''
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.devlang: java
 ms.date: 09/14/2019
 ms.author: shoatman
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-java
 ms.reviewer: shoatman
-ms.collection: M365-identity-device-management
 ---
 
 # Accounts & tenant profiles (Android)
@@ -27,10 +23,10 @@ The Microsoft Authentication Library (MSAL) API replaces the term *user* with th
 
 An account in the Microsoft identity platform consists of:
 
-  - A unique identifier.
-  - One or more credentials used to demonstrate ownership/control of the account.
-  - One or more profiles consisting of attributes such as:
-    - Picture, Given Name, Family Name, Title, Office Location
+- A unique identifier.  
+- One or more credentials used to demonstrate ownership/control of the account.
+- One or more profiles consisting of attributes such as:
+  - Picture, Given Name, Family Name, Title, Office Location
 - An account has a source of authority or system of record. This is the system where the account is created and where the credentials associated with that account are stored. In multi-tenant systems like the Microsoft identity platform, the system of record is the `tenant` where the account was created. This tenant is also referred as the `home tenant`.
 - Accounts in the Microsoft identity platform have the following systems of record:
   - Azure Active Directory, including Azure Active Directory B2C.
@@ -44,7 +40,6 @@ An account in the Microsoft identity platform consists of:
   - This local record, that is the representation of the account, is bound to the original account.
   - MSAL exposes this local record as a `Tenant Profile`.
   - Tenant Profile can have different attributes that are appropriate to the local context, such as Job Title, Office Location, Contact Information, etc.
- 
 - Because an account may be present in one or more tenants, an account may have more than one profile.
 
 > [!NOTE]
@@ -52,7 +47,7 @@ An account in the Microsoft identity platform consists of:
 
 ## Account overview diagram
 
-![Account Overview Diagram](./media/accounts-overview/accounts-overview.png)
+![Account Overview Diagram](./media/accounts-overview/accounts-overview.svg)
 
 In the above diagram:
 
@@ -69,7 +64,7 @@ In the above diagram:
   - A tenant profile for `tom@live.com` exists in each of these tenants.
 - Information about Tom and Bob in other tenants may differ from that in the system of record. They may differ by attributes such as Job title, Office Location, and so on. They may be members of groups and/or roles within each organization (Azure Active Directory Tenant). We refer to this information as bob@contoso.com tenant profile.
 
-In the diagram, bob@contoso.com and tom@live.com have access to resources in different Azure Active Directory tenants. For more information, see [Add Azure Active Directory B2B collaboration users in the Azure portal](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
+In the diagram, bob@contoso.com and tom@live.com have access to resources in different Azure Active Directory tenants. For more information, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../external-identities/add-users-administrator.md).
 
 ## Accounts and single sign-on (SSO)
 
@@ -118,10 +113,10 @@ String issuer = account.getClaims().get("iss"); // The tenant specific authority
 ```
 
 > [!TIP]
-> To see a list of claims available from the account object, refer to [claims in an id_token](https://docs.microsoft.com/azure/active-directory/develop/id-tokens#claims-in-an-id_token)
+> To see a list of claims available from the account object, refer to [claims in an id_token](./id-tokens.md#claims-in-an-id-token)
 
 > [!TIP]
-> To include additional claims in your id_token, refer to the optional claims documentation in [How to: Provide optional claims to your Azure AD app](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims)
+> To include additional claims in your id_token, refer to the optional claims documentation in [How to: Provide optional claims to your Azure AD app](./active-directory-optional-claims.md)
 
 ### Access tenant profile claims
 

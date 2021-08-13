@@ -1,8 +1,8 @@
 ---
-title: Tutorial on Monitoring and Tuning in Azure Database for PostgreSQL - Single Server
+title: 'Tutorial: Monitor and tune - Azure Database for PostgreSQL - Single Server'
 description: This tutorial walks through monitoring and tuning in Azure Database for PostgreSQL - Single Server.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 5/6/2019
@@ -18,7 +18,7 @@ Azure Database for PostgreSQL has features that help you understand and improve 
 > * Analyze a database to get performance recommendations
 > * Apply performance recommendations
 
-## Before you begin
+## Prerequisites
 You need an Azure Database for PostgreSQL server with PostgreSQL version 9.6 or 10. You can follow the steps in the [Create tutorial](tutorial-design-database-using-azure-portal.md) to create a server.
 
 > [!IMPORTANT]
@@ -35,7 +35,7 @@ The [Query Store](concepts-query-store.md) captures a history of queries and wai
 
 4. Set **pg_qs.query_capture_mode** to **TOP** to start collecting query performance data. Set **pgms_wait_sampling.query_capture_mode** to **ALL** to start collecting wait statistics. Save.
    
-   ![Query Store server parameters](./media/tutorial-performance-intelligence/query-store-parameters.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-store-parameters.png" alt-text="Query Store server parameters":::
 
 5. Allow up to 20 minutes for the first batch of data to persist in the **azure_sys** database.
 
@@ -47,7 +47,7 @@ The [Query Performance Insight](concepts-query-performance-insight.md) view in t
 
 2. The **Long running queries** tab shows the top 5 queries by average duration per execution, aggregated in 15 minute intervals. 
    
-   ![Query Performance Insight landing page](./media/tutorial-performance-intelligence/query-performance-insight-landing-page.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-landing-page.png" alt-text="Query Performance Insight landing page":::
 
    You can view more queries by selecting from the **Number of Queries** drop down. The chart colors may change for a specific Query ID when you do this.
 
@@ -59,7 +59,7 @@ The [Query Performance Insight](concepts-query-performance-insight.md) view in t
 
 6. Select the **Wait Statistics** tab to view the corresponding visualizations on waits in the server.
    
-   ![Query Performance Insight wait statistics](./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png" alt-text="Query Performance Insight wait statistics":::
 
 ### Permissions
 **Owner** or **Contributor** permissions required to view the text of the queries in Query Performance Insight. **Reader** can view charts and tables but not query text.
@@ -70,7 +70,7 @@ The [Performance Recommendations](concepts-performance-recommendations.md) featu
 
 1. Open **Performance Recommendations** from the **Support + troubleshooting** section of the menu bar on the Azure portal page for your PostgreSQL server.
    
-   ![Performance Recommendations landing page](./media/tutorial-performance-intelligence/performance-recommendations-landing-page.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-landing-page.png" alt-text="Performance Recommendations landing page":::
 
 2. Select **Analyze** and choose a database. This will begin the analysis.
 
@@ -80,12 +80,18 @@ The [Performance Recommendations](concepts-performance-recommendations.md) featu
 
 5. A recommendation will show information about the relevant **Database**, **Table**, **Column**, and **Index Size**.
 
-   ![Performance Recommendations result](./media/tutorial-performance-intelligence/performance-recommendations-result.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-result.png" alt-text="Performance Recommendations result":::
 
 6. To implement the recommendation, copy the query text and run it from your client of choice.
 
 ### Permissions
 **Owner** or **Contributor** permissions required to run analysis using the Performance Recommendations feature.
 
+## Clean up resources
+
+In the preceding steps, you created Azure resources in a server group. If you don't expect to need these resources in the future, delete the server group. Press the *Delete* button in the *Overview* page for your server group. When prompted on a pop-up page, confirm the name of the server group and click the final *Delete* button.
+
 ## Next steps
-- Learn more about [monitoring and tuning](concepts-monitoring.md) in Azure Database for PostgreSQL.
+
+> [!div class="nextstepaction"]
+> Learn more about [monitoring and tuning](concepts-monitoring.md) in Azure Database for PostgreSQL.

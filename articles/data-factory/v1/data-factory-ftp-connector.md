@@ -1,21 +1,11 @@
 ---
 title: Move data from an FTP server by using Azure Data Factory 
 description: Learn about how to move data from an FTP server using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: craigg
-
-
-ms.assetid: eea3bab0-a6e4-4045-ad44-9ce06229c718
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 # Move data from an FTP server by using Azure Data Factory
@@ -72,10 +62,10 @@ The following table describes JSON elements specific to an FTP linked service.
 | gatewayName |Specify the name of the gateway in Data Management Gateway to connect to an on-premises FTP server. |No |&nbsp; |
 | port |Specify the port on which the FTP server is listening. |No |21 |
 | enableSsl |Specify whether to use FTP over an SSL/TLS channel. |No |true |
-| enableServerCertificateValidation |Specify whether to enable server SSL certificate validation when you are using FTP over SSL/TLS channel. |No |true |
+| enableServerCertificateValidation |Specify whether to enable server TLS/SSL certificate validation when you are using FTP over SSL/TLS channel. |No |true |
 
 >[!NOTE]
->The FTP connector supports accessing FTP server with either no encryption or explicit SSL/TLS encryption; it doesn’t support implicit SSL/TLS encryption.
+>The FTP connector supports accessing FTP server with either no encryption or explicit SSL/TLS encryption; it doesn't support implicit SSL/TLS encryption.
 
 ### Use Anonymous authentication
 
@@ -153,7 +143,7 @@ The **typeProperties** section is different for each type of dataset. It provide
 
 | Property | Description | Required |
 | --- | --- | --- |
-| folderPath |Subpath to the folder. Use escape character ‘ \ ’ for special characters in the string. See Sample linked service and dataset definitions for examples.<br/><br/>You can combine this property with **partitionBy** to have folder paths based on slice start and end date-times. |Yes |
+| folderPath |Subpath to the folder. Use escape character ' \ ' for special characters in the string. See Sample linked service and dataset definitions for examples.<br/><br/>You can combine this property with **partitionBy** to have folder paths based on slice start and end date-times. |Yes |
 | fileName |Specify the name of the file in the **folderPath** if you want the table to refer to a specific file in the folder. If you do not specify any value for this property, the table points to all files in the folder.<br/><br/>When **fileName** is not specified for an output dataset, the name of the generated file is in the following format: <br/><br/>`Data.<Guid>.txt` (Example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |No |
 | fileFilter |Specify a filter to be used to select a subset of files in the **folderPath**, rather than all files.<br/><br/>Allowed values are: `*` (multiple characters) and `?` (single character).<br/><br/>Example 1: `"fileFilter": "*.log"`<br/>Example 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** is applicable for an input FileShare dataset. This property is not supported with Hadoop Distributed File System (HDFS). |No |
 | partitionedBy |Used to specify a dynamic **folderPath** and **fileName** for time series data. For example, you can specify a **folderPath** that is parameterized for every hour of data. |No |

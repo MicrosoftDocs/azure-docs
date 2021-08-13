@@ -1,58 +1,64 @@
 ---
-title: Perform an access review from the My Apps portal - Azure AD
-description: Learn how to view and manage security access for your organization's apps and groups.
+title: Manage your organization's access to apps & groups - Azure AD
+description: Learn how to perform an access review to manage security access for your organization's apps and groups from the My Apps portal.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 3/21/2019
-ms.author: lizross
+ms.topic: end-user-help
+ms.date: 01/19/2021
+ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: "user-help, seo-update-azuread-jan"
-ms.collection: M365-identity-device-management
 ---
 
 # Perform an access review from the My Apps portal
 
-You can use your work or school account with the web-based **My Apps** portal, to view and start many of your organization’s cloud-based apps, to update some of your profile and account information, to see your **Groups** information, and to perform **access reviews** for your apps and groups. If you don’t have access to the **My Apps** portal, you must contact your Helpdesk for permission.
+You can use your work or school account with the web-based **My Apps** portal to perform access reviews for your apps and groups. Access reviews help you manage outdated access or changing access requirements and ensure that they are reviewed and updated.
+
+If you don’t have access to the **My Apps** portal, contact your Helpdesk for permission.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
->This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](https://docs.microsoft.com/azure/active-directory/manage-apps).
+>This content is intended for **My Apps** users. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](../manage-apps/index.yml).
+>
+> If you see an error signing in with a personal Microsoft account, you can still sign in by using the domain name for your organization (such as contoso.com) or the **Tenant ID** of your organization from your administrator in one of the following URLs:
+>
+>   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
+>   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
 
 ## Manage access reviews
 
 If your administrator has given you permission to perform your own access reviews, you can manage your groups or apps access from the **Access reviews** tile on the **My Apps** portal page.
 
 >[!Note]
->If you don't see the **Access reviews** tile it either means that you don't have permission to perform access reviews, or that you don't have any pending reviews waiting for your approval. If you think you should have access to the tile, contact your Help desk for assistance.
+>If you don't see the **Access reviews** tile, it either means that you don't have permission to perform access reviews, or that you don't have any pending reviews waiting for your approval. If you think you should have access to the tile, contact your Helpdesk for assistance.
 
-### To perform your access reviews
+## To perform your access reviews
 
 1. Sign in to your work or school account.
 
-2. Open your web browser and go to https://myapps.microsoft.com, or use the link provided by your organization. For example, you might be directed to a customized page for your organization, such as https://myapps.microsoft.com/contoso.com.
+1. Open your web browser and go to https://myapps.microsoft.com, or use the link provided by your organization. For example, you might be directed to a customized page for your organization, such as https://myapps.microsoft.com/contoso.com.
 
     The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
 
-    ![Apps page in the My Apps portal](media/my-apps-portal/my-apps-portal-apps-page-access-review-tile.png)
+    ![Apps page in the My Apps portal](media/my-apps-portal/my-apps-home.png)
 
-3. Select the **Access reviews** tile to see a list of access reviews waiting for your approval.
+1. Select the **Access reviews** tile to see a list of access reviews waiting for your approval.
 
     ![Access reviews page with pending access reviews for the organization](media/my-apps-portal/my-apps-portal-access-reviews-page.png)
 
-4. Select **Begin review** to start your access review.
+1. Select **Begin review** to start your access review.
 
 5. Review your access and determine whether it's still necessary.
 
     ![Access review page, showing the review details](media/my-apps-portal/my-apps-portal-perform-access-reviews-page.png)
 
     >[!Note]
-    >If you're an administrator, and allowed to review your organization's access to groups and apps, you'll see a different page. For more information about reviewing groups or apps for your organization, see [Review access to groups or applications in Azure AD Access Reviews](https://docs.microsoft.com/azure/active-directory/governance/perform-access-review).
+    >If you're an administrator, and allowed to review your organization's access to groups and apps, you'll see a different page. For more information about reviewing groups or apps for your organization, see [Review access to groups or applications in Azure AD Access Reviews](../governance/perform-access-review.md).
 
 6. Select **Yes** to keep your access or **No** to remove your access.
 
@@ -69,8 +75,6 @@ If your administrator has given you permission to perform your own access review
 
 ## Next steps
 
-- [Access and use apps on the My Apps portal](my-apps-portal-end-user-access.md).
-
-- [Change your profile information](my-apps-portal-end-user-update-profile.md).
-
-- [View and update your groups-related information](my-apps-portal-end-user-groups.md).
+- [Access and use apps on the My Apps portal](my-apps-portal-end-user-access.md)
+- [Change your profile information](./my-account-portal-settings.md)
+- [View and update your groups-related information](my-apps-portal-end-user-groups.md)

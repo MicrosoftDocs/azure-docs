@@ -1,15 +1,16 @@
 ---
-title: 'Quickstart: Speech SDK for Java (Android) platform setup - Speech Service'
+title: 'Quickstart: Speech SDK for Java (Android) platform setup - Speech service'
 titleSuffix: Azure Cognitive Services
-description: Use this guide to set up your platform for using Java (Android) with the Speech Services SDK.
+description: Use this guide to set up your platform for using Java (Android) with the Speech service SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 10/11/2019
-ms.author: erhopf
+ms.topic: include
+ms.date: 10/15/2020
+ms.custom: devx-track-java
+ms.author: lajanuar
 ---
 
 This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for Java on Android. The setup is based on the Speech SDK Maven Package, and Android Studio 3.3.
@@ -26,8 +27,6 @@ The Speech SDK is compatible with Android devices having 32/64-bit ARM and Intel
 ## Install the Speech SDK using Android Studio
 
 [!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-java-android-create-proj.md)]
-
-You can now move on to [Next steps](#next-steps) below.
 
 ## Next steps
 

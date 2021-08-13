@@ -1,15 +1,15 @@
 ---
-title: 'Quickstart: Speech SDK C++ (macOS) platform setup - Speech Service'
+title: 'Quickstart: Speech SDK C++ (macOS) platform setup - Speech service'
 titleSuffix: Azure Cognitive Services
-description: Use this guide to set up your platform for C++ on macOS with the Speech Services SDK.
+description: Use this guide to set up your platform for C++ on macOS with the Speech service SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 10/14/2019
-ms.author: erhopf
+ms.topic: include
+ms.date: 10/15/2020
+ms.author: lajanuar
 ---
 
 This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for C++ on macOS 10.13 and above.
@@ -48,8 +48,6 @@ macOS 10.13 and above
    ```
 
    The directory listing should contain the third-party notice and license files, as well as a `MicrosoftCognitiveServicesSpeech.framework` directory.
-
-You can now move on to [Next steps](#next-steps) below.
 
 ## Next steps
 

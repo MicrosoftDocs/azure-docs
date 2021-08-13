@@ -1,21 +1,11 @@
 ---
 title: Move data from Sybase using Azure Data Factory 
 description: Learn about how to move data from Sybase Database using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: craigg
-
-
-ms.assetid: b379ee10-0ff5-4974-8c87-c95f82f1c5c6
+ms.author: jingwang
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 02/02/2018
-ms.author: jingwang
-
 robots: noindex
 ---
 # Move data from Sybase using Azure Data Factory
@@ -145,9 +135,9 @@ As a first step, setup the data management gateway. The instructions are in the 
 
 **Sybase input dataset:**
 
-The sample assumes you have created a table “MyTable” in Sybase and it contains a column called “timestamp” for time series data.
+The sample assumes you have created a table "MyTable" in Sybase and it contains a column called "timestamp" for time series data.
 
-Setting “external”: true informs the Data Factory service that this dataset is external to the data factory and is not produced by an activity in the data factory. Notice that the **type** of the linked service is set to: **RelationalTable**.
+Setting "external": true informs the Data Factory service that this dataset is external to the data factory and is not produced by an activity in the data factory. Notice that the **type** of the linked service is set to: **RelationalTable**.
 
 ```JSON
 {

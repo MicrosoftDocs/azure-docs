@@ -1,14 +1,12 @@
 ---
-title: Transform XML between formats - Azure Logic Apps | Microsoft Docs
+title: Transform XML between formats
 description: Create transforms or maps that convert XML between formats in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: add01429-21bc-4bab-8b23-bc76ba7d0bde
 ms.date: 07/08/2016
 ---
 
@@ -33,13 +31,13 @@ After you upload the transform/map into your integration account, you can use it
 
 Now that you've taken care of the prerequisites, it's time to create your Logic app:  
 
-1. Create a Logic app and [link it to your integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md "Learn to link an integration account to a Logic app") that contains the map.
+1. Create a Logic app and [link it to your integration account](./logic-apps-enterprise-integration-create-integration-account.md "Learn to link an integration account to a Logic app") that contains the map.
 2. Add a **Request** trigger to your Logic app  
-   ![](./media/logic-apps-enterprise-integration-transforms/transform-1.png)    
+   ![Screenshot of the "Show Microsoft managed APIs" dropdown with the Request trigger selected. The dropdown is in a Logic app created using the Visual Studio Enterprise Integration SDK.](./media/logic-apps-enterprise-integration-transforms/transform-1.png)    
 3. Add the **Transform XML** action by first selecting **Add an action**   
-   ![](./media/logic-apps-enterprise-integration-transforms/transform-2.png)   
+   ![Screenshot showing the "Add an action" button selected in the Request trigger screen.](./media/logic-apps-enterprise-integration-transforms/transform-2.png)   
 4. Enter the word *transform* in the search box to filter all the actions to the one that you want to use  
-   ![](./media/logic-apps-enterprise-integration-transforms/transform-3.png)  
+   ![Screenshot showing how to search for the Transform XML action in the "Show Microsoft managed APIs" dropdown so that it can be added to the Request trigger.](./media/logic-apps-enterprise-integration-transforms/transform-3.png)  
 5. Select the **Transform XML** action   
 6. Add the XML **CONTENT** that you transform. You can use any XML data you receive in the HTTP request as the **CONTENT**. In this example, select the body of the HTTP request that triggered the Logic app.
 
@@ -52,9 +50,9 @@ Now that you've taken care of the prerequisites, it's time to create your Logic 
  
 
 7. Select the name of the **MAP** that you want to use to perform the transformation. The map must already be in your integration account. In an earlier step, you already gave your Logic app access to your integration account that contains your map.      
-   ![](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
+   ![Screenshot showing the Content and Map fields in the Transform XML screen for the Request trigger.](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
 8. Save your work  
-    ![](./media/logic-apps-enterprise-integration-transforms/transform-5.png) 
+    ![Screenshot showing the Save button in the Logic Apps Designer.](./media/logic-apps-enterprise-integration-transforms/transform-5.png) 
 
 At this point, you are finished setting up your map. In a real world application, you may want to store the transformed data in an LOB application such as SalesForce. You can easily as an action to send the output of the transform to Salesforce. 
 
@@ -96,17 +94,17 @@ The transform action also supports maps or transforms with reference to external
     <![CDATA[public double circumference(int radius){ XsltHelper helper = new XsltHelper(); return helper.circumference(radius); }]]>
   </msxsl:script>
   <xsl:template match="data">
-	 <circles>
-		<xsl:for-each select="circle">
-			<circle>
-				<xsl:copy-of select="node()"/>
-					<circumference>
-						<xsl:value-of select="user:circumference(radius)"/>
-					</circumference>
-			</circle>
-		</xsl:for-each>
-	 </circles>
-	</xsl:template>
+   <circles>
+    <xsl:for-each select="circle">
+      <circle>
+        <xsl:copy-of select="node()"/>
+          <circumference>
+            <xsl:value-of select="user:circumference(radius)"/>
+          </circumference>
+      </circle>
+    </xsl:for-each>
+   </circles>
+  </xsl:template>
     </xsl:stylesheet>
   ```
 
@@ -137,4 +135,3 @@ By default, the response from the transformation starts with the Byte Order Mark
 ## Learn more
 * [Learn more about the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
 * [Learn more about maps](../logic-apps/logic-apps-enterprise-integration-maps.md "Learn about enterprise integration maps")  
-

@@ -1,19 +1,16 @@
 ---
-title: 'Quickstart: Use the Azure portal to create Service Bus topics and subscriptions'
-description: 'Quickstart: In this quickstart, you learn how to create a Service Bus topic and subscriptions to that topic by using the Azure portal.' 
-services: service-bus-messaging
+title: Use the Azure portal to create Service Bus topics and subscriptions
+description: 'Quickstart: In this quickstart, you learn how to create a Service Bus topic and subscriptions to that topic by using the Azure portal.'
 author: spelluru
-manager: timlt
-
-ms.service: service-bus-messaging
-ms.topic: quickstart
-ms.date: 11/05/2019
 ms.author: spelluru
+ms.date: 06/23/2020
+ms.topic: quickstart
+ms.custom:
+  - mode-portal
 # Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?
-
 ---
 
-# Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions to the topic
+# Use the Azure portal to create a Service Bus topic and subscriptions to the topic
 In this quickstart, you use the Azure portal to create a Service Bus topic and then create subscriptions to that topic. 
 
 ## What are Service Bus topics and subscriptions?
@@ -27,15 +24,18 @@ register multiple subscriptions to a topic. When a message is sent to a topic, i
 
 Service Bus topics and subscriptions enable you to scale to process a large number of messages across a large number of users and applications.
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+[!INCLUDE [service-bus-create-namespace-portal](./includes/service-bus-create-namespace-portal.md)]
 
-[!INCLUDE [service-bus-create-topics-three-subscriptions-portal](../../includes/service-bus-create-topics-three-subscriptions-portal.md)]
+[!INCLUDE [service-bus-create-topics-three-subscriptions-portal](./includes/service-bus-create-topics-three-subscriptions-portal.md)]
 
 > [!NOTE]
 > You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). The Service Bus Explorer allows users to connect to a Service Bus namespace and administer messaging entities in an easy manner. The tool provides advanced features like import/export functionality or the ability to test topic, queues, subscriptions, relay services, notification hubs and events hubs. 
 
 ## Next steps
-To learn how to send messages to a topic and receive those messages via a subscription, see the following article: select the programming language in the TOC. 
+In this article, you created a Service Bus namespace, a topic in the namespace, and three subscriptions to the topic. To learn how to publish messages to the topic and subscribe for messages from a subscription, see one of the following quickstarts in the **Publish and subscribe for messages** section. 
 
-> [!div class="nextstepaction"]
-> [Publish and subscribe for messages](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [.NET](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [Java](service-bus-java-how-to-use-topics-subscriptions.md)
+- [JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions.md)
+- [Python](service-bus-python-how-to-use-topics-subscriptions.md)
+- [PHP](service-bus-php-how-to-use-topics-subscriptions.md)

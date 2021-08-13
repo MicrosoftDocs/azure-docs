@@ -1,13 +1,8 @@
 ---
-title: Common questions about VMware to Azure disaster recovery with Azure Site Recovery 
+title: Common questions about VMware disaster recovery with Azure Site Recovery
 description: Get answers to common questions about disaster recovery of on-premises VMware VMs to Azure by using Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
-services: site-recovery
-ms.date: 10/29/2019
+ms.date: 11/14/2019
 ms.topic: conceptual
-ms.author: raynew
 ---
 # Common questions about VMware to Azure replication
 
@@ -64,7 +59,7 @@ Site Recovery needs access to VMware servers to:
 
 ### Is replication data sent to Site Recovery?
 
-No, Site Recovery doesn't intercept replicated data and doesn't have any information about what's running on your VMs. Replication data is exchanged between VMware hypervisors and Azure Storage. Site Recovery has no ability to intercept that data. Only the metadata needed to orchestrate replication and failover is sent to the Site Recovery service.  
+No, Site Recovery doesn't intercept replicated data and doesn't have any information about what's running on your VMs. Replication data is exchanged between VMware hypervisors and Azure Storage. Site Recovery has no ability to intercept that data. Only the metadata needed to orchestrate replication and failover is sent to the Site Recovery service.
 
 Site Recovery is certified for ISO 27001:2013 and 27018, HIPAA, and DPA. It's in the process of SOC2 and FedRAMP JAB assessments.
 
@@ -74,7 +69,7 @@ Site Recovery is certified for ISO 27001:2013 and 27018, HIPAA, and DPA. It's in
 
 Use the [pricing calculator](https://aka.ms/asr_pricing_calculator) to estimate costs while using Site Recovery.
 
-For a detailed estimate of costs, run the deployment planner tool for [VMware](https://aka.ms/siterecovery_deployment_planner) and use the [cost estimation report](https://aka.ms/asr_DP_costreport).
+For a detailed estimate of costs, run the deployment planner tool for [VMware](./site-recovery-deployment-planner.md) and use the [cost estimation report](./site-recovery-vmware-deployment-planner-cost-estimation.md).
 
 ### Is there any difference in cost between replicating to storage or directly to managed disks?
 
@@ -95,8 +90,8 @@ The installers are in the %ProgramData%\ASR\home\svsystems\pushinstallsvc\reposi
 On each VM that you want to replicate, install the service by one of several methods:
 
 - [Push installation](vmware-physical-mobility-service-overview.md#push-installation)
-- [Manual installation](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui) from the UI or PowerShell
-- Deployment by using a deployment tool such as [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)
+- [Manual installation](vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui) from the UI or PowerShell
+- Deployment by using a deployment tool such as [Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)
 
 ## Managed disks
 
@@ -113,7 +108,7 @@ Site Recovery replicates on-premises VMware VMs and physical servers to managed 
 
 No. Beginning in March 2019, in the Azure portal, you can replicate only to Azure managed disks.
 
-Replication of new VMs to a storage account is available only by using PowerShell or the REST API (version 2018-01-10 or 2016-08-10).
+Replication of new VMs to a storage account is available only by using PowerShell ([Az.RecoveryServices module version 1.4.5](https://www.powershellgallery.com/packages/Az.RecoveryServices/1.4.5)) or the REST API (version 2018-01-10 or 2016-08-10). [Learn how](./vmware-azure-disaster-recovery-powershell.md) to setup replication using the PowerShell commands.
 
 ### What are the benefits of replicating to managed disks?
 
@@ -121,7 +116,7 @@ Replication of new VMs to a storage account is available only by using PowerShel
 
 ### Can I change the managed-disk type after a machine is protected?
 
-Yes, you can easily [change the type of managed disk](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) for ongoing replications. Before changing the type, ensure that no shared access signature URL is generated on the managed disk:
+Yes, you can easily [change the type of managed disk](../virtual-machines/windows/convert-disk-storage.md) for ongoing replications. Before changing the type, ensure that no shared access signature URL is generated on the managed disk:
 
 1. Go to the **Managed Disk** resource on the Azure portal and check whether you have a shared access signature URL banner on the **Overview** blade.
 1. If the banner is present, select it to cancel the ongoing export.
@@ -145,6 +140,10 @@ Replication is continuous when replicating VMware VMs to Azure.
 ### Can I extend replication?
 
 Extended or chained replication isn't supported. Request this feature in the [feedback forum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
+
+### How can I track progress of initial replication/synchronization?
+
+This capability has been recently to Site Recovery services. Update your Site Recovery infrastructure (configuration servers, scale-out process servers) and mobility agent to versions 9.36 or higher to get accurate details. Learn more on how to track the progress [here](vmware-azure-enable-replication.md#monitor-initial-replication).
 
 ### Can I do an offline initial replication?
 
@@ -171,21 +170,25 @@ Yes, you can add new VMs to an existing replication group when you enable replic
 
 ### Can I modify VMs that are replicating by adding or resizing disks?
 
-For VMware replication to Azure, you can modify disk size. If you want to add new disks, you must add the disk and reenable protection for the VM.
+For VMware replication to Azure, you can modify disk size of source VMs. If you want to add new disks, you must add the disk and reenable protection for the VM.
 
 ### Can I migrate on-premises machines to a new vCenter Server without impacting ongoing replication?
 
-No. A change of VMware Vcenter or migration will impact ongoing replication. Set up Site Recovery with the new vCenter Server and enable replication for machines again.
+Refer to our [guidance](vmware-azure-manage-vcenter.md#migrate-all-vms-to-a-new-server) to migrate machines to a new vCenter
 
 ### Can I replicate to a cache or target storage account that has a virtual network (with Azure Firewalls) configured on it?
 
 No, Site Recovery doesn't support replication to Azure Storage on virtual networks.
 
+### What is the frequency of generation of crash-consistent recovery points?
+
+Site Recovery generates crash-consistent recovery points every 5 minutes.
+
 ## Component upgrade
 
 ### My version of the Mobility services agent or configuration server is old, and my upgrade failed. What do I do?
 
-Site Recovery follows the N-4 support model. [Learn more](https://aka.ms/asr_support_statement) about how to upgrade from very old versions.
+Site Recovery follows the N-4 support model. [Learn more](./service-updates-how-to.md#support-statement-for-azure-site-recovery) about how to upgrade from very old versions.
 
 ### Where can I find the release notes and update rollups for Azure Site Recovery?
 
@@ -193,11 +196,11 @@ Site Recovery follows the N-4 support model. [Learn more](https://aka.ms/asr_sup
 
 ### Where can I find upgrade information for disaster recovery to Azure?
 
-[Learn about upgrading](https://aka.ms/asr_vmware_upgrades).
+[Learn about upgrading](./service-updates-how-to.md#vmware-vmphysical-server-disaster-recovery-to-azure).
 
 ## Do I need to reboot source machines for each upgrade?
 
-A reboot is recommended but not mandatory for each upgrade. [Learn more](https://aka.ms/asr_vmware_upgrades).
+A reboot is recommended but not mandatory for each upgrade. [Learn more](./service-updates-how-to.md#reboot-after-mobility-service-upgrade).
 
 ## Configuration server
 
@@ -241,7 +244,7 @@ Although it's possible, the Azure VM running the configuration server would need
 
 - You can find the latest update information on the [Azure updates page](https://azure.microsoft.com/updates/?product=site-recovery).
 - You can download the latest version from the portal. Or, you can download the latest version of the configuration server directly from the [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
-- If your version is more than four versions older than the current version, see the [support statement](https://aka.ms/asr_support_statement) for upgrade guidance.
+- If your version is more than four versions older than the current version, see the [support statement](./service-updates-how-to.md#support-statement-for-azure-site-recovery) for upgrade guidance.
 
 ### Should I back up the configuration server?
 
@@ -285,7 +288,7 @@ In the Recovery Services vault, select **Configuration Servers** in **Site Recov
 
 ### Can a single configuration server be used to protect multiple vCenter instances?
 
-Yes, a single configuration server can protect VMs accross multiple vCenters.  There is not limit on how many vCenter instances can be added to the configuration server, however the limits for how many VMs a single configuration server can protect do apply.
+Yes, a single configuration server can protect VMs across multiple vCenters.  There is not limit on how many vCenter instances can be added to the configuration server, however the limits for how many VMs a single configuration server can protect do apply.
 
 ### Can a single configuration server protect multiple clusters within vCenter?
 
@@ -300,6 +303,10 @@ Updates in versions 9.24 and later now display the [health of the process server
 ### How do I update the process server to version 9.24 or later for accurate health information?
 
 Beginning with [version 9.24](service-updates-how-to.md#links-to-currently-supported-update-rollups), more alerts have been added to indicate the health of the process server. [Update your Site Recovery components to version 9.24 or later](service-updates-how-to.md#links-to-currently-supported-update-rollups) so that all alerts are generated.
+
+### How can I ensure high availability of the process server?
+
+By configuring more than one process server, the design provides flexibility to move protected machines from an unhealthy process server to working process server. Movement of a machine from one process server to another must be initiated explicitly/manually via the defined steps here: [moving VMs between process servers](vmware-azure-manage-process-server.md#move-vms-to-balance-the-process-server-load).
 
 ## Failover and failback
 
@@ -339,9 +346,6 @@ Yes. If you failed over to Azure, you can fail back to a different location if t
 
 When you fail back from Azure, data from Azure is copied back to your on-premises VM, and private access is required.
 
-### Can I resize the Azure VM after failover?
-
-No, you can't change the size or type of the target VM after the failover.
 
 ## Automation and scripting
 

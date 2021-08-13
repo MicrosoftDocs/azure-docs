@@ -1,28 +1,23 @@
 ---
 title: List entity type - LUIS
-titleSuffix: Azure Cognitive Services
 description: List entities represent a fixed, closed set of related words along with their synonyms. LUIS does not discover additional values for list entities. Use the Recommend feature to see suggestions for new words based on the current list.
-services: cognitive-services
-author: diberry
-manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 11/11/2019
-ms.author: diberry
+ms.date: 04/14/2020
 ---
-# List entity 
+# List entity
 
-List entities represent a fixed, closed set of related words along with their synonyms. LUIS does not discover additional values for list entities. Use the **Recommend** feature to see suggestions for new words based on the current list. If there is more than one list entity with the same value, each entity is returned in the endpoint query. 
+List entities represent a fixed, closed set of related words along with their synonyms. LUIS does not discover additional values for list entities. Use the **Recommend** feature to see suggestions for new words based on the current list. If there is more than one list entity with the same value, each entity is returned in the endpoint query.
 
-A list entity isn't machine-learned. It is an exact text match. LUIS marks any match to an item in any list as an entity in the response. 
+A list entity isn't machine-learned. It is an exact text match. LUIS marks any match to an item in any list as an entity in the response.
 
 **The entity is a good fit when the text data:**
 
 * Are a known set.
-* Doesn't change often. If you need to change the list often or want the list to self-expand, a simple entity boosted with a phrase list is a better choice. 
-* The set doesn't exceed the maximum LUIS [boundaries](luis-boundaries.md) for this entity type.
-* The text in the utterance is an exact match with a synonym or the canonical name. LUIS doesn't use the list beyond exact text matches. Fuzzy matching, case-insensitivity, stemming, plurals, and other variations are not resolved with a list entity. To manage variations, consider using a [pattern](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) with the optional text syntax.
+* Doesn't change often. If you need to change the list often or want the list to self-expand, a simple entity boosted with a phrase list is a better choice.
+* The set doesn't exceed the maximum LUIS [boundaries](luis-limits.md) for this entity type.
+* The text in the utterance is a case-insensitive match with a synonym or the canonical name. LUIS doesn't use the list beyond the match. Fuzzy matching, stemming, plurals, and other variations are not resolved with a list entity. To manage variations, consider using a [pattern](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) with the optional text syntax.
 
 ![list entity](./media/luis-concept-entities/list-entity.png)
 
@@ -48,7 +43,7 @@ A list entity isn't machine-learned. It is an exact text match. LUIS marks any m
               "avacado"
           ]
       }
-  ]  
+  ]
   ```
 
 ## Example JSON response
@@ -83,7 +78,6 @@ In the previous utterance, the word `paris` is mapped to the paris item as part 
 ```
 
 #### [V3 prediction endpoint response](#tab/V3)
-
 
 This is the JSON if `verbose=false` is set in the query string:
 
@@ -124,13 +118,15 @@ This is the JSON if `verbose=true` is set in the query string:
 }
 ```
 
-* * * 
+* * *
 
 |Data object|Entity name|Value|
 |--|--|--|
 |List Entity|`Cities`|`paris`|
 
-
 ## Next steps
 
-In this [tutorial](luis-quickstart-intent-and-list-entity.md), learn how to use a **list entity** to extract exact matches of text from a list of known items. 
+Learn more about entities:
+
+* [Concepts](luis-concept-entity-types.md)
+* [How to create](luis-how-to-add-entities.md)

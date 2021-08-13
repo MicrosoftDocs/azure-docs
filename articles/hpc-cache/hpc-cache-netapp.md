@@ -3,9 +3,9 @@ title: Use Azure HPC Cache and Azure NetApp Files
 description: How to use Azure HPC Cache to improve access to data stored with Azure NetApp Files
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
-ms.date: 10/30/2019
-ms.author: rohogue
+ms.topic: how-to
+ms.date: 05/05/2021
+ms.author: v-erkel
 ---
 
 # Use Azure HPC Cache with Azure NetApp Files
@@ -45,13 +45,13 @@ Use the minimum size for the delegated subnet when creating an Azure NetApp File
 
 The minimum size, which is specified with the netmask /28, provides 16 IP addresses. In practice, Azure NetApp Files uses only three of those available IP addresses for volume access. This means that you only need to create three storage targets in your Azure HPC Cache to cover all of the volumes.
 
-If the delegated subnet is too large, it's possible for the Azure NetApp Files volumes to use more IP addresses than a single Azure HPC Cache instance can handle. A single cache can have at most ten storage targets.
+If the delegated subnet is too large, it's possible for the Azure NetApp Files volumes to use more IP addresses than a single Azure HPC Cache instance can handle. A single cache has a [limit of 10 storage targets](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets) for most cache throughput/storage size combinations, or 20 storage targets for the largest configurations.
 
 The quickstart example in Azure NetApp Files documentation uses 10.7.0.0/16 for the delegated subnet, which gives a subnet that's too large.
 
 ### Capacity pool service level
 
-When choosing the service level for your capacity pool, consider your workflow. If you frequently write data back to the Azure NetApp Files volume, the cache's performance can be restricted if the writeback time is slow. Choose a high service level for volumes that will have frequent writes.
+When choosing the [service level](../azure-netapp-files/azure-netapp-files-service-levels.md) for your capacity pool, consider your workflow. If you frequently write data back to the Azure NetApp Files volume, the cache's performance can be restricted if the writeback time is slow. Choose a high service level for volumes that will have frequent writes.
 
 Volumes with low service levels also might show some lag at the start of a task while the cache pre-fills content. After the cache is up and running with a good working set of files, the delay should become unnoticeable.
 
@@ -71,7 +71,7 @@ Follow the [mount instructions in the Azure NetApp Files documentation](../azure
 
 You also can find IP addresses with the Azure CLI:
 
-```bash
+```azurecli
 az netappfiles volume list -g ${RESOURCE_GROUP} --account-name ${ANF_ACCOUNT} --pool-name ${POOL} --query "[].mountTargets[].ipAddress" | grep -Ee '[0-9]+[.][0-9]+[.][0-9]+[.][0-9]+' | tr -d '"' | tr -d , | sort | uniq
 ```
 

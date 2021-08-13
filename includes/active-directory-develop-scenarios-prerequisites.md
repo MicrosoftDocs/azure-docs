@@ -2,26 +2,34 @@
 title: include file
 description: include file
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
-ms.devlang: na
 ms.topic: include
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: include file
 ---
 
-Before reading this article, you should be familiar with the following concepts or read the following articles:
+If you're new to identity and access management (IAM) with OAuth 2.0 and OpenID Connect, or even just new to IAM on the Microsoft identity platform, the following set of articles should be high on your reading list.
 
-- [Microsoft identity platform overview](../articles/active-directory/develop/v2-overview.md)
-- [Authentication basics](../articles/active-directory/develop/authentication-scenarios.md)
-- [Audiences](../articles/active-directory/develop/v2-supported-account-types.md)
-- [Application and service principals](../articles/active-directory/develop/app-objects-and-service-principals.md)
-- [Permissions and consent](../articles/active-directory/develop/v2-permissions-and-consent.md)
-- [ID tokens](../articles/active-directory/develop/id-tokens.md) and [access tokens](../articles/active-directory/develop/access-tokens.md)
+Although not required reading before completing your first quickstart or tutorial, they cover topics integral to the platform, and familiarity with them will help you on your path as you build more complex scenarios.
+
+:::row:::
+    :::column:::
+        **Authentication and authorization**
+
+        - [Authentication basics](../articles/active-directory/develop/authentication-vs-authorization.md)
+        - [ID tokens](../articles/active-directory/develop/id-tokens.md)
+        - [Access tokens](../articles/active-directory/develop/access-tokens.md)
+    :::column-end:::
+    :::column:::
+        **Microsoft identity platform**
+
+        - [Audiences](../articles/active-directory/develop/v2-supported-account-types.md)
+        - [Applications and service principals](../articles/active-directory/develop/app-objects-and-service-principals.md)
+        - [Permissions and consent](../articles/active-directory/develop/v2-permissions-and-consent.md)
+    :::column-end:::
+:::row-end:::

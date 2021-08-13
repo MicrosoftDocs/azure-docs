@@ -1,36 +1,37 @@
 ---
-title: Signal descriptive audio tracks with Azure Media Services v3 | Microsoft Docs
+title: Signal descriptive audio tracks with Media Services v3
 description: Follow the steps of this tutorial to upload a file, encode the video, add descriptive audio tracks, and stream your content with Media Services v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: 
-ms.topic: article
-ms.custom: 
-ms.date: 09/25/2019
-ms.author: juliako
+ms.topic: how-to
+ms.custom: devx-track-csharp
+ms.date: 08/31/2020
+ms.author: inhenkel
 ---
 
 # Signal descriptive audio tracks
 
-You can add a  narration track to your video to help visually impaired clients to follow the video recording by listening to the narration. In Media Services v3, you signal descriptive audio tracks by annotating the audio track in the manifest file.
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+
+You can add a narration track to your video to help visually impaired clients to follow the video recording by listening to the narration. In Media Services v3, you signal descriptive audio tracks by annotating the audio track in the manifest file.
 
 This article shows how to encode a video, upload an audio-only MP4 file (AAC codec) containing descriptive audio into the output asset, and edit the .ism file to include the descriptive audio.
 
 ## Prerequisites
 
-- [Create a Media Services account](create-account-cli-how-to.md).
-- Follow the steps in [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) and save the credentials. You will need to use them to access the API.
-- Review [Dynamic packaging](dynamic-packaging-overview.md).
+- [Create a Media Services account](./account-create-how-to.md).
+- Follow the steps in [Access Azure Media Services API with the Azure CLI](./access-api-howto.md) and save the credentials. You will need to use them to access the API.
+- Review [Dynamic packaging](encode-dynamic-packaging-concept.md).
 - Review the [Upload, encode, and stream videos](stream-files-tutorial-with-api.md) tutorial.
 
 ## Create an input asset and upload a local file into it 
 
-The **CreateInputAsset** function creates a new input [Asset](https://docs.microsoft.com/rest/api/media/assets) and uploads the specified local video file into it. This **Asset** is used as the input to your encoding Job. In Media Services v3, the input to a **Job** can either be an **Asset**, or it can be content that you make available to your Media Services account via HTTPS URLs. 
+The **CreateInputAsset** function creates a new input [Asset](/rest/api/media/assets) and uploads the specified local video file into it. This **Asset** is used as the input to your encoding Job. In Media Services v3, the input to a **Job** can either be an **Asset**, or it can be content that you make available to your Media Services account via HTTPS URLs. 
 
 If you want to learn how to encode from an HTTPS URL, see [this article](job-input-from-http-how-to.md) .  
 
@@ -39,7 +40,7 @@ In Media Services v3, you use Azure Storage APIs to upload files. The following 
 The following function performs these actions:
 
 * Creates an **Asset** 
-* Gets a writable [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) to the asset’s [container in storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container)
+* Gets a writable [SAS URL](../../storage/common/storage-sas-overview.md) to the asset’s [container in storage](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-a-container)
 * Uploads the file into the container in storage using the SAS URL
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
@@ -48,7 +49,7 @@ If you need to pass the name of the created input asset to other methods, make s
 
 ## Create an output asset to store the result of the encoding job
 
-The output [Asset](https://docs.microsoft.com/rest/api/media/assets) stores the result of your encoding job. The following function shows how to create an output asset.
+The output [Asset](/rest/api/media/assets) stores the result of your encoding job. The following function shows how to create an output asset.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAsset)]
 
@@ -58,7 +59,7 @@ In the case of this article, pass the `outputAsset.Name` value to the `SubmitJob
 
 ## Create a transform and a job that encodes the uploaded file
 
-When encoding or processing content in Media Services, it is a common pattern to set up the encoding settings as a recipe. You would then submit a **Job** to apply that recipe to a video. By submitting new jobs for each new video, you are applying that recipe to all the videos in your library. A recipe in Media Services is called as a **Transform**. For more information, see [Transforms and Jobs](transform-concept.md). The sample described in this tutorial defines a recipe that encodes the video in order to stream it to a variety of iOS and Android devices. 
+When encoding or processing content in Media Services, it is a common pattern to set up the encoding settings as a recipe. You would then submit a **Job** to apply that recipe to a video. By submitting new jobs for each new video, you are applying that recipe to all the videos in your library. A recipe in Media Services is called as a **Transform**. For more information, see [Transforms and Jobs](./transform-jobs-concept.md). The sample described in this tutorial defines a recipe that encodes the video in order to stream it to a variety of iOS and Android devices. 
 
 The following example creates a transform (if one does not exist).
 
@@ -74,7 +75,7 @@ The job takes some time to complete and when it does you want to be notified. We
 
 The job usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has encountered an error, you get the **Error** state. If the job is in the process of being canceled, you get **Canceling** and **Canceled** when it is done.
 
-For more information, see [Handling Event Grid events](reacting-to-media-services-events.md).
+For more information, see [Handling Event Grid events](monitoring/reacting-to-media-services-events.md).
 
 ## Upload the audio-only MP4 file
 
@@ -198,14 +199,14 @@ When your encoding job is done, the output asset will contain the files generate
 
 ## Get a streaming locator
 
-After the encoding is complete, the next step is to make the video in the output Asset available to clients for playback. You can accomplish this in two steps: first, create a [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators), and second, build the streaming URLs that clients can use. 
+After the encoding is complete, the next step is to make the video in the output Asset available to clients for playback. You can accomplish this in two steps: first, create a [Streaming Locator](/rest/api/media/streaminglocators), and second, build the streaming URLs that clients can use. 
 
 The process of creating a **Streaming Locator** is called publishing. By default, the **Streaming Locator** is valid immediately after you make the API calls, and lasts until it is deleted, unless you configure the optional start and end times. 
 
-When creating a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), you will need to specify the desired **StreamingPolicyName**. In this example, you will be streaming in-the-clear (or non-encrypted content) so the predefined clear streaming policy (**PredefinedStreamingPolicy.ClearStreamingOnly**) is used.
+When creating a [StreamingLocator](/rest/api/media/streaminglocators), you will need to specify the desired **StreamingPolicyName**. In this example, you will be streaming in-the-clear (or non-encrypted content) so the predefined clear streaming policy (**PredefinedStreamingPolicy.ClearStreamingOnly**) is used.
 
 > [!IMPORTANT]
-> When using a custom [Streaming Policy](https://docs.microsoft.com/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. Your Media Service account has a quota for the number of Streaming Policy entries. You should not be creating a new Streaming Policy for each Streaming Locator.
+> When using a custom [Streaming Policy](/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. Your Media Service account has a quota for the number of Streaming Policy entries. You should not be creating a new Streaming Policy for each Streaming Locator.
 
 The following code assumes that you are calling the function with a unique locatorName.
 
@@ -215,7 +216,7 @@ While the sample in this topic discusses streaming, you can use the same call to
 
 ### Get streaming URLs
 
-Now that the [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators) has been created, you can get the streaming URLs, as shown in **GetStreamingURLs**. To build a URL, you need to concatenate the [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) host name and the **Streaming Locator** path. In this sample, the *default* **Streaming Endpoint** is used. When you first create a Media Service account, this *default* **Streaming Endpoint** will be in a stopped state, so you need to call **Start**.
+Now that the [Streaming Locator](/rest/api/media/streaminglocators) has been created, you can get the streaming URLs, as shown in **GetStreamingURLs**. To build a URL, you need to concatenate the [Streaming Endpoint](/rest/api/media/streamingendpoints) host name and the **Streaming Locator** path. In this sample, the *default* **Streaming Endpoint** is used. When you first create a Media Service account, this *default* **Streaming Endpoint** will be in a stopped state, so you need to call **Start**.
 
 > [!NOTE]
 > In this method, you  need the locatorName that was used when creating the **Streaming Locator** for the output Asset.
@@ -239,4 +240,4 @@ Azure Media Player can be used for testing but should not be used in a productio
 
 ## Next steps
 
-[Analyze videos](analyze-videos-tutorial-with-api.md)
+[Analyze videos](analyze-videos-tutorial.md)

@@ -1,12 +1,9 @@
 ---
 title: Support matrix-Hyper-V disaster recovery to a secondary VMM site with Azure Site Recovery
 description: Summarizes support for Hyper-V VM replication in VMM clouds to a secondary site with Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
-ms.author: raynew
 ---
 
 # Support matrix for disaster recovery of Hyper-V VMs to a secondary site
@@ -15,9 +12,6 @@ This article summarizes what's supported when you use the [Azure Site Recovery](
 
 > [!NOTE]
 > You can only replicate to a secondary site when your Hyper-V hosts are managed in VMM clouds.
-
-> [!WARNING]
-> Please note that ASR support for using SCVMM configuration into account will soon be deprecated, and hence we recommend you to read the [deprecation](scvmm-site-recovery-deprecation.md) details before proceeding.
 
 
 ## Host servers
@@ -34,8 +28,8 @@ The following table summarizes operating system support for machines replicated 
 
 **Windows version** | **Hyper-V (with VMM)**
 --- | ---
-Windows Server 2016 | Any guest operating system [supported by Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Windows-guest-operating-systems-for-Hyper-V-on-Windows) on Windows Server 2016 
-Windows Server 2012 R2 | Any guest operating system [supported by Hyper-V](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792027%28v%3dws.11%29) on Windows Server 2012 R2
+Windows Server 2016 | Any guest operating system [supported by Hyper-V](/windows-server/virtualization/hyper-v/Supported-Windows-guest-operating-systems-for-Hyper-V-on-Windows) on Windows Server 2016 
+Windows Server 2012 R2 | Any guest operating system [supported by Hyper-V](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792027%28v%3dws.11%29) on Windows Server 2012 R2
 
 ## Linux machine storage
 
@@ -112,5 +106,4 @@ The Provider coordinates communications between VMM servers.
 
 ## Next steps
 
-[Replicate Hyper-V VMs in VMM clouds to a secondary site](tutorial-vmm-to-vmm.md)
-
+[Replicate Hyper-V VMs in VMM clouds to a secondary site](./hyper-v-vmm-disaster-recovery.md)

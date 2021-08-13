@@ -1,12 +1,11 @@
 ---
 title: Azure Stream Analytics Edge jobs in Visual Studio 
 description: This article describes how to author, debug, and create your Stream Analytics on IoT Edge jobs using the Stream Analytics tools for Visual Studio.
-services: stream-analytics
 author: su-jie
 ms.author: sujie
-ms.reviewer: jasonh
+
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
 ---
@@ -58,7 +57,7 @@ After the project gets created, navigate to the **Solution Explorer** to view th
  
 ## Define the transformation query
 
-Stream Analytics jobs deployed in the Stream Analytics IoT Edge environments support most of [Stream Analytics Query Language reference](https://msdn.microsoft.com/azure/stream-analytics/reference/stream-analytics-query-language-reference?f=255&MSPPError=-2147217396). However, the following operations aren't yet supported for Stream Analytics Edge jobs: 
+Stream Analytics jobs deployed in the Stream Analytics IoT Edge environments support most of [Stream Analytics Query Language reference](/stream-analytics-query/stream-analytics-query-language-reference?f=255&MSPPError=-2147217396). However, the following operations aren't yet supported for Stream Analytics Edge jobs: 
 
 
 |**Category**  | **Command**  |
@@ -119,4 +118,4 @@ The job view window provides you with operations such as refreshing the job, del
 
 * [More information on Azure IoT Edge](../iot-edge/about-iot-edge.md)
 * [ASA on IoT Edge tutorial](../iot-edge/tutorial-deploy-stream-analytics.md)
-* [Send feedback to the team using this survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 
+* [Send feedback to the team using this survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u)

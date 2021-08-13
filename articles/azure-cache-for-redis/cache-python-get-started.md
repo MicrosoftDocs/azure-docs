@@ -1,27 +1,26 @@
 ---
-title: 'Quickstart: Create a Python app that uses Azure Cache for Redis'
+title: 'Quickstart: Use Azure Cache for Redis in Python'
 description: In this quickstart, you learn how to create a Python App that uses Azure Cache for Redis.
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: v-lincan
-
-ms.assetid: f186202c-fdad-4398-af8c-aee91ec96ba3
+ms.author: yegu
+ms.date: 11/05/2019
+ms.topic: quickstart
 ms.service: cache
 ms.devlang: python
-ms.topic: conceptual
-ms.tgt_pltfrm: cache
-ms.workload: tbd
-ms.topic: quickstart
-ms.date: 11/05/2019
-ms.author: yegu
-ms.custom: [mvc, seo-python-october2019]
+ms.custom:
+  - mvc
+  - seo-python-october2019
+  - devx-track-python
+  - mode-api
 #Customer intent: As a Python developer new to Azure Cache for Redis, I want to create a new Python app that uses Azure Cache for Redis.
 ---
-# Quickstart: Create a Python app that uses Azure Cache for Redis
+# Quickstart: Use Azure Cache for Redis in Python
 
 In this article, you incorporate Azure Cache for Redis into a Python app to have access to a secure, dedicated cache that is accessible from any application within Azure.
+
+## Skip to the code on GitHub
+
+If you want to skip straight to the code, see the [Python quickstart](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/python) on GitHub.
 
 ## Prerequisites
 
@@ -56,7 +55,7 @@ b'bar'
 ```
 
 > [!IMPORTANT]
-> For Azure Cache for Redis version 3.0 or higher, SSL certificate check is enforced. ssl_ca_certs must be explicitly set when connecting to Azure Cache for Redis. For RedHat Linux, ssl_ca_certs are in the */etc/pki/tls/certs/ca-bundle.crt* certificate module.
+> For Azure Cache for Redis version 3.0 or higher, TLS/SSL certificate check is enforced. ssl_ca_certs must be explicitly set when connecting to Azure Cache for Redis. For RedHat Linux, ssl_ca_certs are in the */etc/pki/tls/certs/ca-bundle.crt* certificate module.
 
 ## Create a Python sample app
 
@@ -110,4 +109,3 @@ To delete the resource group and its Redis Cache for Azure instance:
 
 > [!div class="nextstepaction"]
 > [Create a simple ASP.NET web app that uses an Azure Cache for Redis.](./cache-web-app-howto.md)
-

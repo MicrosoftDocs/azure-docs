@@ -1,28 +1,17 @@
 ---
-title: Configure Facebook authentication - Azure App Service
-description: Learn how to configure Facebook authentication for your App Service app
-services: app-service
-documentationcenter: ''
-author: mattchenderson
-manager: syntaxc4
-editor: ''
-
+title: Configure Facebook authentication
+description: Learn how to configure Facebook authentication as an identity provider for your App Service or Azure Functions app.
 ms.assetid: b6b4f062-fcb4-47b3-b75a-ec4cb51a62fd
-ms.service: app-service-mobile
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/06/2019
-ms.author: mahender
-ms.custom: seodec18
-
+ms.date: 03/29/2021
+ms.custom: [seodec18, fasttrack-edit]
 ---
 
-# Configure your App Service app to use Facebook login
+# Configure your App Service or Azure Functions app to use Facebook login
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-This article shows how to configure Azure App Service to use Facebook as an authentication provider.
+This article shows how to configure Azure App Service or Azure Functions to use Facebook as an authentication provider.
 
 To complete the procedure in this article, you need a Facebook account that has a verified email address and a mobile phone number. To create a new Facebook account, go to [facebook.com].
 
@@ -56,29 +45,24 @@ To complete the procedure in this article, you need a Facebook account that has 
 
 ## <a name="secrets"> </a>Add Facebook information to your application
 
-1. Sign in to the [Azure portal] and navigate to your App Service app.
-1. Select **Settings** > **Authentication / Authorization**, and make sure that **App Service Authentication** is **On**.
-1. Select **Facebook**, and then paste in the App ID and App Secret values that you obtained previously. Enable any scopes needed by your application.
-1. Select **OK**.
+1. Sign in to the [Azure portal] and navigate to your app.
+1. Select **Authentication** in the menu on the left. Click **Add identity provider**.
+1. Select **Facebook** in the identity provider dropdown. Paste in the App ID and App Secret values that you obtained previously.
 
-   ![Screenshot of Mobile App Facebook Settings][0]
+    The secret will be stored as a slot-sticky [application setting](./configure-common.md#configure-app-settings) named `FACEBOOK_PROVIDER_AUTHENTICATION_SECRET`. You can update that setting later to use [Key Vault references](./app-service-key-vault-references.md) if you wish to manage the secret in Azure Key Vault.
 
-    By default, App Service provides authentication, but it doesn't restrict authorized access to your site content and APIs. You need to authorize users in your app code.
-1. (Optional) To restrict access only to users authenticated by Facebook, set **Action to take when request is not authenticated** to **Facebook**. When you set this functionality, your app requires all requests to be authenticated. It also redirects all unauthenticated requests to Facebook for authentication.
+1. If this is the first identity provider configured for the application, you will also be prompted with an **App Service authentication settings** section. Otherwise, you may move on to the next step.
+    
+    These options determine how your application responds to unauthenticated requests, and the default selections will redirect all requests to log in with this new provider. You can change customize this behavior now or adjust these settings later from the main **Authentication** screen by choosing **Edit** next to **Authentication settings**. To learn more about these options, see [Authentication flow](overview-authentication-authorization.md#authentication-flow).
 
-   > [!CAUTION]
-   > Restricting access in this way applies to all calls to your app, which might not be desirable for apps that have a publicly available home page, as in many single-page applications. For such applications, **Allow anonymous requests (no action)** might be preferred so that the app manually starts authentication itself. For more information, see [Authentication flow](overview-authentication-authorization.md#authentication-flow).
+1. (Optional) Click **Next: Scopes** and add any scopes needed by the application. These will be requested at login time for browser-based flows.
+1. Click **Add**.
 
-1. Select **Save**.
-
-You're now ready to use Facebook for authentication in your app.
+You're now ready to use Facebook for authentication in your app. The provider will be listed on the **Authentication** screen. From there, you can edit or delete this provider configuration.
 
 ## <a name="related-content"> </a>Next steps
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
-
-<!-- Images. -->
-[0]: ./media/app-service-mobile-how-to-configure-facebook-authentication/mobile-app-facebook-settings.png
 
 <!-- URLs. -->
 [Facebook Developers]: https://go.microsoft.com/fwlink/p/?LinkId=268286

@@ -1,13 +1,13 @@
 ---
-title: Azure CLI Script Sample - Create a SignalR Service with an App Service
-description: Azure CLI Script Sample - Create SignalR Service with an App Service
+title: Create SignalR Service with App Service using Azure CLI
+description: Use Azure CLI to create SignalR Service with App Service. Learn all CLI commands for Azure SignalR Service.
 author: sffamily
 ms.service: signalr
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 04/20/2018
+ms.date: 11/13/2018
 ms.author: zhshang
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Create a SignalR Service with an App Service
@@ -16,9 +16,9 @@ This sample script creates a new Azure SignalR Service resource, which is used t
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli). 
+ - This tutorial requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Sample script
 
@@ -75,12 +75,12 @@ Each command in the table links to command specific documentation. This script u
 
 | Command | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
-| [az signalr create](/cli/azure/signalr#az-signalr-create) | Creates an Azure SignalR Service resource. |
-| [az signalr key list](/cli/azure/signalr/key#az-signalr-key-list) | List the keys, which will be used by your application when pushing real-time content updates with SignalR. |
-| [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) | Creates an Azure App Service Plan for hosting web apps. |
-| [az webapp create](/cli/azure/webapp#az-webapp-create) | Creates an Azure Web app using the App Service hosting plan. |
-| [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) | Adds a new app setting for the web app. This app setting is used to store the SignalR connection string. |
+| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az signalr create](/cli/azure/signalr#az_signalr_create) | Creates an Azure SignalR Service resource. |
+| [az signalr key list](/cli/azure/signalr/key#az_signalr_key_list) | List the keys, which will be used by your application when pushing real-time content updates with SignalR. |
+| [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) | Creates an Azure App Service Plan for hosting web apps. |
+| [az webapp create](/cli/azure/webapp#az_webapp_create) | Creates an Azure Web app using the App Service hosting plan. |
+| [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | Adds a new app setting for the web app. This app setting is used to store the SignalR connection string. |
 
 ## Next steps
 

@@ -1,7 +1,7 @@
 ---
 title: OData search.in function reference
 titleSuffix: Azure Cognitive Search
-description: OData search.in function in Azure Cognitive Search queries.
+description: Syntax and reference documentation for using the search.in function in Azure Cognitive Search queries.
 
 manager: nitinme
 author: brjohnstmsft
@@ -25,11 +25,15 @@ translation.priority.mt:
 
 A common scenario in [OData filter expressions](query-odata-filter-orderby-syntax.md) is to check whether a single field in each document is equal to one of many possible values. For example, this is how some applications implement [security trimming](search-security-trimming-for-azure-search.md) -- by checking a field containing one or more principal IDs against a list of principal IDs representing the user issuing the query. One way to write a query like this is to use the [`eq`](search-query-odata-comparison-operators.md) and [`or`](search-query-odata-logical-operators.md) operators:
 
+```odata-filter-expr
     group_ids/any(g: g eq '123' or g eq '456' or g eq '789')
+```
 
 However, there is a shorter way to write this, using the `search.in` function:
 
+```odata-filter-expr
     group_ids/any(g: search.in(g, '123, 456, 789'))
+```
 
 > [!IMPORTANT]
 > Besides being shorter and easier to read, using `search.in` also provides [performance benefits](#bkmk_performance) and avoids certain [size limitations of filters](search-query-odata-filter.md#bkmk_limits) when there are hundreds or even thousands of values to include in the filter. For this reason, we strongly recommend using `search.in` instead of a more complex disjunction of equality expressions.
@@ -81,27 +85,37 @@ If you use `search.in`, you can expect sub-second response time when the second 
 
 Find all hotels with name equal to either 'Sea View motel' or 'Budget hotel'. Phrases contain spaces, which is a default delimiter. You can specify an alternative delimiter in single quotes as the third string parameter:  
 
+```odata-filter-expr
     search.in(HotelName, 'Sea View motel,Budget hotel', ',')
+```
 
 Find all hotels with name equal to either 'Sea View motel' or 'Budget hotel' separated by '|'):
 
+```odata-filter-expr
     search.in(HotelName, 'Sea View motel|Budget hotel', '|')
+```
 
 Find all hotels with rooms that have the tag 'wifi' or 'tub':
 
+```odata-filter-expr
     Rooms/any(room: room/Tags/any(tag: search.in(tag, 'wifi, tub')))
+```
 
 Find a match on phrases within a collection, such as 'heated towel racks' or 'hairdryer included' in tags.
 
+```odata-filter-expr
     Rooms/any(room: room/Tags/any(tag: search.in(tag, 'heated towel racks,hairdryer included', ','))
+```
 
 Find all hotels without the tag 'motel' or 'cabin':
 
+```odata-filter-expr
     Tags/all(tag: not search.in(tag, 'motel, cabin'))
+```
 
 ## Next steps  
 
 - [Filters in Azure Cognitive Search](search-filters.md)
 - [OData expression language overview for Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
 - [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md)
-- [Search Documents &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Search Documents &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/Search-Documents)

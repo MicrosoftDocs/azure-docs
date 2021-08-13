@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 11/04/2019
+  ms.date: 06/02/2021
 
 landingContent:
   - title: About Azure Policy
@@ -24,33 +24,53 @@ landingContent:
             url: ./concepts/effects.md
           - text: Definition structure
             url: ./concepts/definition-structure.md
+          - text: Scope
+            url: ./concepts/scope.md
           - text: Assignment structure
             url: ./concepts/assignment-structure.md
-      - linkListType: video
+          - text: Exemption structure
+            url: ./concepts/exemption-structure.md
+      - linkListType: architecture
         links:
-          - text: Azure Policy at Build 2018
-            url: https://channel9.msdn.com/events/Build/2018/THR2030
+          - text: Cloud Adoption Framework (Govern)
+            url: /azure/cloud-adoption-framework/govern/
+          - text: Enterprise-scale landing zones
+            url: /azure/cloud-adoption-framework/ready/enterprise-scale/
 
   - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Assign a policy (portal)
+          - text: Assign a policy (Portal)
             url: ./assign-policy-portal.md
-          - text: Assign a policy (PowerShell)
-            url: ./assign-policy-powershell.md
           - text: Assign a policy (Azure CLI)
             url: ./assign-policy-azurecli.md
-          - text: Assign a policy (template)
+          - text: Assign a policy (Azure PowerShell)
+            url: ./assign-policy-powershell.md
+          - text: Assign a policy (.NET)
+            url: ./assign-policy-dotnet.md
+          - text: Assign a policy (JavaScript)
+            url: ./assign-policy-javascript.md
+          - text: Assign a policy (Python)
+            url: ./assign-policy-python.md
+          - text: Assign a policy (REST)
+            url: ./assign-policy-rest-api.md
+          - text: Assign a policy (ARM template)
             url: ./assign-policy-template.md
+          - text: Assign a policy (Bicep)
+            url: ./assign-policy-bicep.md
+          - text: Assign a policy (Terraform)
+            url: ./assign-policy-terraform.md
       - linkListType: tutorial
         links:
           - text: Create and manage policies
             url: ./tutorials/create-and-manage.md
           - text: Use VS Code extension
             url: ./how-to/extension-for-vscode.md
-          - text: Design Policy as Code workflows
+          - text: Design Azure Policy as Code workflows
             url: ./concepts/policy-as-code.md
+          - text: Implement Azure Policy as Code with GitHub
+            url: ./tutorials/policy-as-code-github.md
       - linkListType: deploy
         links:
           - text: Index of policy samples
@@ -70,13 +90,15 @@ landingContent:
             url: ./how-to/programmatically-create.md
           - text: Author policies for arrays
             url: ./how-to/author-policies-for-arrays.md
+          - text: Export resources
+            url: ./how-to/export-resources.md
       - linkListType: concept
         links:
-          - text: Policy for AKS
-            url: ./concepts/rego-for-aks.md
-          - text: Policy for AKS Engine
-            url: ./concepts/aks-engine.md
-          - text: Policy for VMs
+          - text: Regulatory Compliance
+            url: ./concepts/regulatory-compliance.md
+          - text: Azure Policy for Kubernetes
+            url: ./concepts/policy-for-kubernetes.md
+          - text: Azure Policy for VMs
             url: ./concepts/guest-configuration.md
 
   - title: Review & Remediate resources
@@ -87,6 +109,8 @@ landingContent:
             url: ./how-to/get-compliance-data.md
           - text: Determine causes of non-compliance
             url: ./how-to/determine-non-compliance.md
+          - text: Exempt resources
+            url: ./concepts/exemption-structure.md
           - text: Remediate non-compliant resources
             url: ./how-to/remediate-resources.md
 
@@ -94,10 +118,12 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
+          - text: Microsoft Q&A for Azure Policy
+            url: /answers/topics/azure-policy.html
           - text: Azure Governance YouTube channel
             url: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
           - text: Request product feature
-            url: https://feedback.azure.com/forums/915958-azure-governance
+            url: https://feedback.azure.com/forums/915958-azure-governance?category_id=345055
           - text: Tech Community for Azure Governance
             url: https://techcommunity.microsoft.com/t5/Azure-Governance/bd-p/AzureGovernance
 
@@ -108,20 +134,29 @@ landingContent:
           - text: Azure CLI
             url: /cli/azure/policy
           - text: Azure PowerShell (Policy)
-            url: /powershell/module/az.resources/#policies
+            url: /powershell/module/az.resources/#policy
           - text: Azure PowerShell (Policy Insights)
-            url: /powershell/module/az.policyinsights#policy_insights
+            url: /powershell/module/az.policyinsights#policy-insights
+          - text: REST
+            url: /rest/api/policy/
+          - text: Resource Manager templates
+            url: /azure/templates/microsoft.authorization/allversions
+
+  - title: Reference (more)
+    linkLists:
+      - linkListType: reference
+        links:
           - text: Azure SDK for .NET (Assignments)
             url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
           - text: Azure SDK for .NET (Policy Definitions)
             url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
-          - text: REST (Policy Insights)
-            url: /rest/api/policy-insights/
-          - text: REST (Assignments)
-            url: /rest/api/resources/policyassignments
-          - text: REST (Definitions)
-            url: /rest/api/resources/policydefinitions
-          - text: REST (Initiatives)
-            url: /rest/api/resources/policysetdefinitions
-          - text: Resource Manager templates
-            url: /azure/templates/microsoft.authorization/allversions
+          - text: Azure SDK for JavaScript (Policy)
+            url: /javascript/api/@azure/arm-policy
+          - text: Azure SDK for JavaScript (Policy Insights)
+            url: /javascript/api/@azure/arm-policyinsights
+          - text: Azure SDK for Python (Policy)
+            url: /python/api/azure-mgmt-resource/azure.mgmt.resource.policy
+          - text: Azure SDK for Python (Policy client)
+            url: /python/api/azure-mgmt-resource/azure.mgmt.resource.policyclient
+          - text: Azure SDK for Python (Policy Insights)
+            url: /python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights

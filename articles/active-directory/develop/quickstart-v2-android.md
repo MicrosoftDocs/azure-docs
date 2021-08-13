@@ -1,118 +1,53 @@
 ---
-title: Microsoft identity platform Android quickstart | Azure
-description: Learn how Android applications can call an API that requires access tokens by Microsoft identity platform endpoint.
+title: "Quickstart: Add sign in with Microsoft to an Android app | Azure"
+titleSuffix: Microsoft identity platform
+description: In this quickstart, learn how Android applications can call an API that requires access tokens issued by the Microsoft identity platform.
 services: active-directory
-documentationcenter: dev-center-name
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/15/2019
-ms.author: twhitney
+ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
-#Customer intent: As an application developer, I want to learn how Android native apps can call protected APIs that require login and access tokens using the Microsoft identity platform endpoint.
-ms.collection: M365-identity-device-management
+#Customer intent: As an application developer, I want to learn how Android native apps can call protected APIs that require login and access tokens using the Microsoft identity platform.
 ---
 
 # Quickstart: Sign in users and call the Microsoft Graph API from an Android app
 
-This quickstart uses a code sample to demonstrate how an Android application can sign in personal, work, or school accounts using the Microsoft identity platform, and then get an access token and call the Microsoft Graph API.
+In this quickstart, you download and run a code sample that demonstrates how an Android application can sign in users and get an access token to call the Microsoft Graph API. 
 
-Applications must be represented by an app object in Azure Active Directory so that the Microsoft identity platform can share tokens with your application.
+See [How the sample works](#how-the-sample-works) for an illustration.
 
-> [!div renderon="docs"]
-> As a convenience, the code sample comes with a default `redirect_uri` preconfigured in the `AndroidManifest.xml` file so that you don't have to first register your own app object. A `redirect_uri` is partly based on your app's signing key. The sample project is preconfigured with a signing key so that the provided `redirect_uri` will work. To learn more about registering an app object and integrating it with your application, see the [Sign in users and call the Microsoft Graph from an Android app](tutorial-v2-android.md) tutorial.
+Applications must be represented by an app object in Azure Active Directory so that the Microsoft identity platform can provide tokens to your application.
 
-![Screenshot of the sample app](media/quickstart-v2-android/android-intro.svg)
+## Prerequisites
 
-> [!NOTE]
-> **Prerequisites**
-> * Android Studio 
-> * Android 16+
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Android Studio
+* Android 16+
 
 > [!div class="sxs-lookup" renderon="portal"]
-> ### Step 1: Configure your application in the Azure portal 
->  For the code sample for this quickstart to work, you need to add a redirect URI compatible with the Auth broker.
+> ### Step 1: Configure your application in the Azure portal
+> For the code sample in this quickstart to work, add a **Redirect URI** compatible with the Auth broker.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make these changes for me]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Already configured](media/quickstart-v2-android/green-check.png) Your application is configured with these attributes
 >
-> ### Step 2: Download the project 
-> * [Download the code sample](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip)
+> ### Step 2: Download the project
+> [!div class="sxs-lookup" renderon="portal"]
+> Run the project using Android Studio.
+> [!div class="sxs-lookup" renderon="portal" id="autoupdate" class="nextstepaction"]
+> [Download the code sample](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip)
 >
-> ### Step 3: Configure your project
-> 1. Extract and open the Project in Android Studio.
-> 2. Inside **app** > **src** > **main** > **res** > **raw**, open **auth_config_multiple_account.json** and replace it with the following code:
-> ```javascript 
-> {
->   "client_id" : "Enter_the_Application_Id_Here",
->   "authorization_user_agent" : "DEFAULT",
->   "redirect_uri" : "Enter_the_Redirect_Uri_Here",
->   "account_mode" : "MULTIPLE",
->   "broker_redirect_uri_registered": true,
->   "authorities" : [
->     {
->       "type": "AAD",
->       "audience": {
->         "type": "Enter_the_Audience_Info_Here",
->         "tenant_id": "Enter_the_Tenant_Info_Here"
->       }
->     }
->   ]
-> }
-> ```
-
 > [!div class="sxs-lookup" renderon="portal"]
-> 3. Inside **app** > **src** > **main** > **res** > **raw**, open **auth_config_single_account.json** and replace it with the following code:
-> ```javascript 
-> {
->   "client_id" : "Enter_the_Application_Id_Here",
->   "authorization_user_agent" : "DEFAULT",
->   "redirect_uri" : "Enter_the_Redirect_Uri_Here",
->   "account_mode" : "SINGLE",
->   "broker_redirect_uri_registered": true,
->   "authorities" : [
->     {
->       "type": "AAD",
->       "audience": {
->         "type": "Enter_the_Audience_Info_Here",
->         "tenant_id": "Enter_the_Tenant_Info_Here"
->       }
->     }
->   ]
-> }
-> ```
-
-> [!div class="sxs-lookup" renderon="portal"]
-> 4. Inside **app** > **src** > **main**, open  **AndroidManifest.xml**.
-> 5. In the **manifest\application** node, replace the **activity android:name="com.microsoft.identity.client.BrowserTabActivity"** node with the following:	
-> ```xml
-> <!--Intent filter to catch Microsoft's callback after Sign In-->
-> <activity android:name="com.microsoft.identity.client.BrowserTabActivity">
->     <intent-filter>
->         <action android:name="android.intent.action.VIEW" />
->         <category android:name="android.intent.category.DEFAULT" />
->         <category android:name="android.intent.category.BROWSABLE" />
->         <!--
->             Add in your scheme/host from registered redirect URI 
->             note that the leading "/" is required for android:path
->         -->
->         <data 
->             android:host="Enter_the_Package_Name"
->             android:path="/Enter_the_Signature_Hash"
->             android:scheme= "msauth" />
->     </intent-filter>
-> </activity>
-> ```
-> 6. Run the app!   
+> ### Step 3: Your app is configured and ready to run
+> We have configured your project with values of your app's properties and it's ready to run.
 > The sample app starts on the **Single Account Mode** screen. A default scope, **user.read**, is provided by default, which is used when reading your own profile data during the Microsoft Graph API call. The URL for the Microsoft Graph API call is provided by default. You can change both of these if you wish.
 >
 > ![MSAL sample app showing single and multiple account usage](./media/quickstart-v2-android/quickstart-sample-app.png)
@@ -128,7 +63,7 @@ Applications must be represented by an app object in Azure Active Directory so t
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > This quickstart supports Enter_the_Supported_Account_Info_Here.
+> > `Enter_the_Supported_Account_Info_Here`
 
 > [!div renderon="docs"]
 > ## Step 1: Get the sample app
@@ -153,6 +88,8 @@ Applications must be represented by an app object in Azure Active Directory so t
 > In multiple account mode, you can repeat the same steps.  Additionally, you can remove the signed-in account, which also removes the cached tokens for that account.
 
 ## How the sample works
+![Screenshot of the sample app](media/quickstart-v2-android/android-intro.svg)
+
 
 The code is organized into fragments that show how to write a single and multiple accounts MSAL app. The code files are organized as follows:
 
@@ -172,21 +109,39 @@ We'll now look at these files in more detail and call out the MSAL-specific code
 
 MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) is the library used to sign in users and request tokens used to access an API protected by Microsoft identity platform. Gradle 3.0+ installs the library when you add the following to **Gradle Scripts** > **build.gradle (Module: app)** under **Dependencies**:
 
-```gradle  
-implementation 'com.microsoft.identity.client:msal:1.0.0'
-```
-
-You can see this in the sample project in build.gradle (Module: app):
-
 ```java
 dependencies {
     ...
-    implementation 'com.microsoft.identity.client:msal:1.0.+'
+    implementation 'com.microsoft.identity.client:msal:2.+'
     ...
 }
 ```
 
 This instructs Gradle to download and build MSAL from maven central.
+
+You must also add references to maven to the **allprojects** > **repositories** portion of the **build.gradle (Module: app)** like so:
+
+```java
+allprojects {
+    repositories {
+        mavenCentral()
+        google()
+        mavenLocal()
+        maven {
+            url 'https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/maven/v1'
+        }
+        maven {
+            name "vsts-maven-adal-android"
+            url "https://identitydivision.pkgs.visualstudio.com/_packaging/AndroidADAL/maven/v1"
+            credentials {
+                username System.getenv("ENV_VSTS_MVN_ANDROIDADAL_USERNAME") != null ? System.getenv("ENV_VSTS_MVN_ANDROIDADAL_USERNAME") : project.findProperty("vstsUsername")
+                password System.getenv("ENV_VSTS_MVN_ANDROIDADAL_ACCESSTOKEN") != null ? System.getenv("ENV_VSTS_MVN_ANDROIDADAL_ACCESSTOKEN") : project.findProperty("vstsMavenAccessToken")
+            }
+        }
+        jcenter()
+    }
+}
+```
 
 ### MSAL imports
 
@@ -444,9 +399,9 @@ private void loadAccounts() {
 Some situations when the user may be prompted to select their account, enter their credentials, or consent to the permissions your app has requested are:
 
 * The first time users sign in to the application
-* If a user resets their password, they'll need to enter their credentials 
-* If consent is revoked 
-* If your app explicitly requires consent 
+* If a user resets their password, they'll need to enter their credentials
+* If consent is revoked
+* If your app explicitly requires consent
 * When your application is requesting access to a resource for the first time
 * When MFA or other Conditional Access policies are required
 
@@ -536,25 +491,11 @@ Unlike the [auth_config_single_account.json](#auth_config_single_accountjson) co
 }
 ```
 
-## Next steps
-
-### Learn the steps to create the application used in this quickstart
-
-Try out the [Sign in users and call the Microsoft Graph from an Android app](tutorial-v2-android.md) tutorial for a step-by-step guide for building an Android app that gets an access token and uses it to call the Microsoft Graph API.
-
-> [!div class="nextstepaction"]
-> [Call Graph API Android tutorial](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-android)
-
-### MSAL for Android library wiki
-
-Read more information about MSAL library for Android:
-
-> [!div class="nextstepaction"]
-> [MSAL for Android library wiki](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki)
-
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
+## Next steps
+
+Move on to the Android tutorial in which you build an Android app that gets an access token from the Microsoft identity platform and uses it to call the Microsoft Graph API.
 
 > [!div class="nextstepaction"]
-> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)
+> [Tutorial: Sign in users and call the Microsoft Graph from an Android application](tutorial-v2-android.md)

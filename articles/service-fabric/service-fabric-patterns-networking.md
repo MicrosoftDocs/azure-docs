@@ -1,21 +1,10 @@
 ---
-title: Networking patterns for Azure Service Fabric | Microsoft Docs
+title: Networking patterns for Azure Service Fabric 
 description: Describes common networking patterns for Service Fabric and how to create a cluster by using Azure networking features.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor:
 
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 01/19/2018
-ms.author: atsenthi
-
+ms.date: 01/19/2018 
+ms.custom: devx-track-azurepowershell
 ---
 # Service Fabric networking patterns
 You can integrate your Azure Service Fabric cluster with other Azure networking features. In this article, we show you how to create clusters that use the following features:
@@ -107,6 +96,8 @@ In the examples in this article, we use the Service Fabric template.json. You ca
             },*/
     ```
 
+   You also can comment out the parameter with the name "virtualNetworkName" so that it won't prompt you to enter the virtual network name twice in the cluster deployment blade in the Azure portal.
+
 2. Comment out `nicPrefixOverride` attribute of `Microsoft.Compute/virtualMachineScaleSets`, because you are using existing subnet and you have disabled this variable in step 1.
 
     ```json
@@ -178,7 +169,7 @@ In the examples in this article, we use the Service Fabric template.json. You ca
     C:>\Users\users>ping NOde1000000 -n 1
     ```
 
-For another example, see [one that is not specific to Service Fabric](https://github.com/gbowerman/azure-myriad/tree/master/existing-vnet).
+For another example, see [one that is not specific to Service Fabric](https://github.com/gbowerman/azure-myriad/tree/main/existing-vnet).
 
 
 <a id="staticpublicip"></a>
@@ -605,10 +596,9 @@ After deployment, you can see two load balancers in the resource group. If you b
 
 ## Notes for production workloads
 
-The above GitHub templates are designed to work with the default SKU for Azure Standard Load Balancer (SLB), the Basic SKU. This SLB has no SLA, so for production workloads the Standard SKU should be used. For more on this, see the [Azure Standard Load Balancer overview](/azure/load-balancer/load-balancer-standard-overview). Any Service Fabric cluster using the Standard SKU for SLB needs to ensure that each node type has a rule allowing outbound traffic on port 443. This is necessary to complete cluster setup, and any deployment without such a rule will fail. In the above example of an "internal only" load balancer, an additional external load balancer must be added to the template with a rule allowing outbound traffic for port 443.
+The above GitHub templates are designed to work with the default SKU for Azure Standard Load Balancer (SLB), the Basic SKU. This SLB has no SLA, so for production workloads the Standard SKU should be used. For more on this, see the [Azure Standard Load Balancer overview](../load-balancer/load-balancer-overview.md). Any Service Fabric cluster using the Standard SKU for SLB needs to ensure that each node type has a rule allowing outbound traffic on port 443. This is necessary to complete cluster setup, and any deployment without such a rule will fail. In the above example of an "internal only" load balancer, an additional external load balancer must be added to the template with a rule allowing outbound traffic for port 443.
 
 ## Next steps
 [Create a cluster](service-fabric-cluster-creation-via-arm.md)
 
 After deployment, you can see two load balancers in the resource group. If you browse the load balancers, you can see the public IP address and management endpoints (ports 19000 and 19080) assigned to the public IP address. You also can see the static internal IP address and application endpoint (port 80) assigned to the internal load balancer. Both load balancers use the same virtual machine scale set back-end pool.
-

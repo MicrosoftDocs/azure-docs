@@ -2,7 +2,7 @@
 title: Overview of Azure IoT Hub message enrichments
 description: This article shows message enrichments, which give the IoT Hub the ability to stamp messages with additional information before the messages are sent to the designated endpoint. 
 author: robinsh
-manager: philmea
+
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
@@ -49,11 +49,21 @@ The messages can come from any data source supported by [IoT Hub message routing
 
 You can add enrichments to messages that are going to the built-in endpoint of an IoT Hub, or messages that are being routed to custom endpoints such as Azure Blob storage, a Service Bus queue, or a Service Bus topic.
 
-You can also add enrichments to messages that are being published to Event Grid by selecting the endpoint as Event Grid. For more information, see [Iot Hub and Event Grid](iot-hub-event-grid.md).
+You can add enrichments to messages that are being published to Event Grid by selecting the endpoint as Event Grid. We create a default route in IoT Hub to device telemetry, based on your Event Grid subscription. This single route can handle all of your Event Grid subscriptions. You can configure enrichments for the event grid endpoint after you have created the event grid subscription to device telemetry. For more information, see [Iot Hub and Event Grid](iot-hub-event-grid.md).
 
 Enrichments are applied per endpoint. If you specify five enrichments to be stamped for a specific endpoint, all messages going to that endpoint are stamped with the same five enrichments.
 
-To see how to try out message enrichments, see the [message enrichments tutorial](tutorial-message-enrichments.md)
+Enrichments can be configured using the the following methods:
+
+| **Method** | **Command** |
+| ----- | -----| 
+| Portal | [Azure portal](https://portal.azure.com) See the [message enrichments tutorial](tutorial-message-enrichments.md) | 
+| Azure CLI   | [az iot hub message-enrichment](/cli/azure/iot/hub/message-enrichment) |
+| Azure PowerShell | [Add-AzIotHubMessageEnrichment](/powershell/module/az.iothub/add-aziothubmessageenrichment) |
+
+Adding message enrichments doesn't add latency to the message routing.
+
+To try out message enrichments, see the [message enrichments tutorial](tutorial-message-enrichments.md)
 
 ## Limitations
 
@@ -69,9 +79,9 @@ To see how to try out message enrichments, see the [message enrichments tutorial
 
 * Updates to a device twin can take up to five minutes to be reflected in the corresponding enrichment value.
 
-* The total message size, including the enrichments, can't exceed 256 KB. If a message size exceeds 256 KB, the IoT Hub will drop the message. You can use [IoT Hub metrics](iot-hub-metrics.md) to identify and debug errors when messages are dropped. For example, you can monitor d2c.telemetry.egress.invalid.
+* The total message size, including the enrichments, can't exceed 256 KB. If a message size exceeds 256 KB, the IoT Hub will drop the message. You can use [IoT Hub metrics](monitor-iot-hub-reference.md#metrics) to identify and debug errors when messages are dropped. For example, you can monitor the *telemetry messages incompatible* (*d2c.telemetry.egress.invalid*) metric in the [routing metrics](monitor-iot-hub-reference.md#routing-metrics). To learn more, see [Monitor IoT Hub](monitor-iot-hub.md).
 
-* Message enrichments don't apply to digital twin change events (part of the [IoT Plug and Play public preview](../iot-pnp/overview-iot-plug-and-play.md)).
+* Message enrichments don't apply to digital twin change events.
 
 ## Pricing
 

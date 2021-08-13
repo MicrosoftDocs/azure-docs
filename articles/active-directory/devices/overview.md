@@ -1,87 +1,56 @@
 ---
 title: What is device identity in Azure Active Directory?
-description: Learn how device identity management can help you to manage the devices that are accessing resources in your environment.
+description: Device identities and their use cases
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: overview
-ms.date: 06/27/2019
+ms.date: 06/09/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: sandeo
-
-#Customer intent: As an IT admin, I want to learn how to create and manage device identities in Azure AD, so that I can ensure that my users are accessing my resources from devices that meet my standards for security and compliance.
+ms.reviewer: sandeo, ravenn, spunukol, jogro, jploegert
 
 ms.collection: M365-identity-device-management
 ---
 # What is a device identity?
 
-With the proliferation of devices of all shapes and sizes and the Bring Your Own Device (BYOD) concept, IT professionals are faced with two somewhat opposing goals:
+A [device identity](/graph/api/resources/device?view=graph-rest-1.0) is an object in Azure Active Directory (Azure AD). This device object is similar to users, groups, or applications. A device identity gives administrators information they can use when making access or configuration decisions.
 
-- Allow end users to be productive wherever and whenever
-- Protect the organization's assets
+![Devices displayed in Azure AD Devices blade](./media/overview/azure-active-directory-devices-all-devices.png)
 
-To protect these assets, IT staff need to first manage the device identities. IT staff can build on the device identity with tools like Microsoft Intune to ensure standards for security and compliance are met. Azure Active Directory (Azure AD) enables single sign-on to devices, apps, and services from anywhere through these devices.
+There are three ways to get a device identity:
 
-- Your users get access to your organization's assets they need. 
-- Your IT staff get the controls they need to secure your organization.
+- Azure AD registration
+- Azure AD join
+- Hybrid Azure AD join
 
-Device identity management is the foundation for [device-based Conditional Access](../conditional-access/require-managed-devices.md). With device-based Conditional Access policies, you can ensure that access to resources in your environment is only possible with managed devices.
+Device identities are a prerequisite for scenarios like [device-based Conditional Access policies](../conditional-access/require-managed-devices.md) and [Mobile Device Management with Microsoft Endpoint Manager](/mem/endpoint-manager-overview).
 
-## Getting devices in Azure AD
+## Modern device scenario
 
-To get a device in Azure AD, you have multiple options:
+The modern device scenario focuses on two of these methods: 
 
-- **Azure AD registered**
-   - Devices that are Azure AD registered are typically personally owned or mobile devices, and are signed into with a personal Microsoft account or another local account.
-      - Windows 10
-      - iOS
-      - Android
-      - MacOS
-- **Azure AD joined**
-   - Devices that are Azure AD joined are owned by an organization, and are signed in to with an Azure AD account belonging to that organization. They exist only in the cloud.
-      - Windows 10 
-- **Hybrid Azure AD joined**
-   - Devices that are hybrid Azure AD joined are owned by an organization, and are signed in to with an Azure AD account belonging to that organization. They exist in the cloud and on-premises.
-      - Windows 7, 8.1, or 10
-      - Windows Server 2008 or newer
+- [Azure AD registration](concept-azure-ad-register.md) 
+   - Bring your own device (BYOD)
+   - Mobile device (cell phone and tablet)
+- [Azure AD join](concept-azure-ad-register.md)
+   - Windows 10 devices owned by your organization
+   - [Windows Server 2019 and newer servers in your organization running as VMs in Azure](howto-vm-sign-in-azure-ad-windows.md)
 
-![Devices displayed in Azure AD Devices blade](./media/overview/azure-ad-devices-all-devices-overview.png)
-
-## Device management
-
-Devices in Azure AD can be managed using Mobile Device Management (MDM) tools like Microsoft Intune, System Center Configuration Manager, Group Policy (hybrid Azure AD join), Mobile Application Management (MAM) tools, or other third-party tools.
+[Hybrid Azure AD join](concept-azure-ad-join-hybrid.md) is seen as an interim step on the road to Azure AD join. Hybrid Azure AD join provides organizations support for downlevel Windows versions back to Windows 7 and Server 2008. All three scenarios can coexist in a single organization.
 
 ## Resource access
 
-Registering and joining give your users Seamless Sign-on (SSO) to cloud resources and administrators the ability to apply Conditional Access policies to those resources. 
+Registering and joining devices to Azure AD gives users Seamless Sign-on (SSO) to cloud-based resources.
 
-Devices that are Azure AD joined or hybrid Azure AD joined benefit from SSO to your organization's on-premises resources as well as cloud resources. More information can be found in the article, [How SSO to on-premises resources works on Azure AD joined devices](azuread-join-sso.md).
-
-## Device security
-
-- **Azure AD registered devices** utilize an account managed by the end user, this account is either a Microsoft account or another locally managed credential secured with one or more of the following.
-   - Password
-   - PIN
-   - Pattern
-   - Windows Hello
-- **Azure AD joined or hybrid Azure AD joined devices** utilize an organizational account in Azure AD secured with one or more of the following.
-   - Password
-   - Windows Hello for Business
+Devices that are Azure AD joined benefit from [SSO to your organization's on-premises resources](azuread-join-sso.md).
 
 ## Provisioning
 
-Getting devices in to Azure AD can be done in a self-service manner or a controlled provisioning process by administrators.
-
-## Summary
-
-With device identity management in Azure AD, you can:
-
-- Simplify the process of bringing and managing devices in Azure AD
-- Provide your users with an easy to use access to your organization’s cloud-based resources
+Getting devices in to Azure AD can be done in a self-service manner or a controlled process managed by administrators.
 
 ## License requirements
 

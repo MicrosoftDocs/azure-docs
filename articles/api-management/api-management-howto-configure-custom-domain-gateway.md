@@ -5,22 +5,16 @@ description: This topic describes the steps for configuring a custom domain name
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: gwallace
-editor: ''
 
 ms.service: api-management
-ms.workload: integration
 ms.topic: article
-ms.date: 10/31/2019
+ms.date: 03/31/2020
 ms.author: apimpm
 ---
 
-# Configure a custom domain name
+# Configure a custom domain name for a self-hosted gateway
 
-When you provision a [self-hosted Azure API Management gateway](self-hosted-gateway-overview.md) it is not assigned host name and has to be referenced by its IP address. This article shows how to map an existing custom DNS name (also referred to as hostname) a self-hosted gateway.
-
-> [!NOTE]
-> Self-hosted gateway feature is in preview. During the preview, the self-hosted gateway is available only in the Developer and Premium tiers at no additional charge. Developer tier is limited to a single self-hosted gateway deployment.
+When you provision a [self-hosted Azure API Management gateway](self-hosted-gateway-overview.md), it is not assigned a host name and has to be referenced by its IP address. This article shows how to map an existing custom DNS name (also referred to as hostname) to a self-hosted gateway.
 
 ## Prerequisites
 
@@ -34,22 +28,20 @@ To perform the steps described in this article, you must have:
 - A self-hosted gateway. For more information, see [How to provision self-hosted gateway](api-management-howto-provision-self-hosted-gateway.md)
 -   A custom domain name that is owned by you or your organization. This topic does not provide instructions on how to procure a custom domain name.
 -   A DNS record hosted on a DNS server that maps the custom domain name to the self-hosted gateway's IP address. This topic does not provide instructions on how to host a DNS record.
--   You must have a valid certificate with a public and private key (.PFX). Subject or subject alternative name (SAN) has to match the domain name (this enables API Management instance to securely expose URLs over SSL).
+-   You must have a valid certificate with a public and private key (.PFX). The subject or subject alternative name (SAN) has to match the domain name (this enables the API Management instance to securely expose URLs over TLS).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## Add custom domain certificate to your API Management service
 
-1. Select **Certificates** from under **Security**.
-2. Select **+ Add**.
-3. Enter a resource name for the certificate into **Id** field.
-4. Select the file containing the certificate (.PFX) by selecting the **Certificate** field or the folder icon adjacent to it.
-5. Enter the password for the certificate into the **Password** field.
-6. Select **Create** to add the certificate to your API Management service.
+Add a custom domain certificate (.PFX) file to your API Management instance, or reference a certificate stored in Azure Key Vault. Follow steps in [Secure backend services using client certificate authentication in Azure API Management](api-management-howto-mutual-certificates.md).
+
+> [!NOTE]
+> We recommend using a key vault certificate for the self-hosted gateway domain.
 
 ## Use the Azure portal to set a custom domain name for your self-hosted gateway
 
-1. Select the **Gateways** from under **Settings**.
+1. Select the **Gateways** from under **Deployment and infrastructure**.
 2. Select the self-hosted gateway you want to configure the domain name for.
 3. Select **Hostnames** under **Settings**.
 4. Select **+ Add**

@@ -1,8 +1,6 @@
 ---
 title: Azure Monitor terminology updates | Microsoft Docs
 description: Describes recent terminology changes made to Azure monitoring services.
-ms.service:  azure-monitor
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -14,18 +12,18 @@ ms.date: 10/08/2019
 Significant changes have been made to Azure Monitor recently, with different services being consolidated in order to simplify monitoring for Azure customers. This article describes recent name and terminology changes in Azure Monitor documentation.
 
 ## October 2019 - Diagnostic Log to Resource Log
-Diagnostic logs were changed to "resource logs" to better match what is actually being collected. The term "diagnostic settings" remains the same.  
+"Diagnostic logs" were changed to "resource logs" to better match what is actually being collected. The term "diagnostic settings" remains the same.  
 
 ## February 2019 - Log Analytics terminology
 After the consolidation of different services under Azure Monitor, we're taking the next step by modifying terminology in our documentation to better describe the Azure Monitor service and its different components. 
 
 ### Log Analytics
-Azure Monitor log data is still stored in a Log Analytics workspace and is still collected and analyzed by the same Log Analytics service, but we are changing the term _Log Analytics_ in many places to _Azure Monitor logs_. This term better reflects its role in Azure Monitor and provides better consistency with [metrics in Azure Monitor](platform/data-platform-metrics.md).
+Azure Monitor log data is still stored in a Log Analytics workspace and is still collected and analyzed by the same Log Analytics service, but we are changing the term _Log Analytics_ in many places to _Azure Monitor logs_. This term better reflects its role in Azure Monitor and provides better consistency with [metrics in Azure Monitor](essentials/data-platform-metrics.md).
 
-The term _log analytics_ now primarily applies to the page in the Azure portal used to write and run queries and analyze log data. It's the functional equivalent of [metrics explorer](platform/metrics-charts.md), which is the page in the Azure portal used to analyze metric data.
+The term _log analytics_ now primarily applies to the page in the Azure portal used to write and run queries and analyze log data. It's the functional equivalent of [metrics explorer](essentials/metrics-charts.md), which is the page in the Azure portal used to analyze metric data.
 
 ### Log Analytics workspaces
-[Workspaces](platform/manage-access.md) that hold log data in Azure Monitor are still referred to as Log Analytics workspaces. The **Log Analytics** menu in the Azure portal has been renamed to **Log Analytics workspaces** and is where you [create new workspaces](learn/quick-create-workspace.md) and configure data sources. Analyze your logs and other monitoring data in **Azure Monitor** and configure your workspace in **Log Analytics workspaces**.
+[Workspaces](logs/manage-access.md) that hold log data in Azure Monitor are still referred to as Log Analytics workspaces. The **Log Analytics** menu in the Azure portal has been renamed to **Log Analytics workspaces** and is where you [create new workspaces](logs/quick-create-workspace.md) and configure data sources. Analyze your logs and other monitoring data in **Azure Monitor** and configure your workspace in **Log Analytics workspaces**.
 
 ### Management solutions
 [Management solutions](insights/solutions.md) have been renamed to _monitoring solutions_, which better describes their functionality.
@@ -56,4 +54,4 @@ Operations Management Suite (OMS) was a bundling of the following Azure manageme
 ## Next steps
 
 - Read an [overview of Azure Monitor](overview.md) that describes its different components and features.
-- Learn about the [transition of the OMS portal](../log-analytics/log-analytics-oms-portal-transition.md).
+- Learn about the [transition of the OMS portal](./logs/oms-portal-transition.md).

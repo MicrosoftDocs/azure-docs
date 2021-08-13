@@ -16,6 +16,8 @@ ms.author: pafarley
 
 # Create human reviews
 
+[!INCLUDE [deprecation notice](../includes/tool-deprecation.md)]
+
 In this guide, you'll learn how to set up [reviews](../review-api.md#reviews) on the Review tool website. Reviews store and display content for human moderators to assess. Moderators can alter the applied tags and apply their own custom tags as appropriate. When a user completes a review, the results are sent to a specified callback endpoint, and the content is removed from the site.
 
 ## Prerequisites
@@ -53,4 +55,4 @@ Text reviews function similarly to image reviews. Instead of uploading content, 
 
 ## Next steps
 
-In this guide, you learned how to set up and use reviews from the Content Moderator [Review tool](https://contentmoderator.cognitive.microsoft.com). Next, see the [REST API guide](../try-review-api-review.md) or the [.NET SDK quickstart](../dotnet-sdk-quickstart.md) to learn how to create reviews programmatically.
+In this guide, you learned how to set up and use reviews from the Content Moderator [Review tool](https://contentmoderator.cognitive.microsoft.com). Next, see the [API console guide](../try-review-api-review.md) or the [.NET SDK quickstart](../client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp) to learn how to create reviews programmatically.

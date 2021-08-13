@@ -1,23 +1,23 @@
 ---
 title: Run PowerShell scripts in a Windows VM in Azure
 description: This topic describes how to run PowerShell scripts within an Azure Windows virtual machine by using the Run Command feature
-services: automation
-ms.service: automation
+ms.service: virtual-machines
+ms.collection: windows
 author: bobbytreed
 ms.author: robreed
-ms.date: 04/26/2019
-ms.topic: article
-manager: carmonm
+ms.date: 06/22/2021
+ms.topic: how-to  
+ms.custom: devx-track-azurepowershell
+
 ---
 # Run PowerShell scripts in your Windows VM by using Run Command
 
 The Run Command feature uses the virtual machine (VM) agent to run PowerShell scripts within an Azure Windows VM. You can use these scripts for general machine or application management. They can help you to quickly diagnose and remediate VM access and network issues and get the VM back to a good state.
 
- 
 
 ## Benefits
 
-You can access your virtual machines in multiple ways. Run Command can run scripts on your virtual machines remotely by using the VM agent. You use Run Command through the Azure portal, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), or [PowerShell](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) for Windows VMs.
+You can access your virtual machines in multiple ways. Run Command can run scripts on your virtual machines remotely by using the VM agent. You use Run Command through the Azure portal, [REST API](/rest/api/compute/virtual-machines-run-commands/run-command), or [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand) for Windows VMs.
 
 This capability is useful in all scenarios where you want to run a script within a virtual machine. It's one of the only ways to troubleshoot and remediate a virtual machine that doesn't have the RDP or SSH port open because of improper network or administrative user configuration.
 
@@ -33,9 +33,12 @@ The following restrictions apply when you're using Run Command:
 * You can't cancel a running script.
 * The maximum time a script can run is 90 minutes. After that, it will time out.
 * Outbound connectivity from the VM is required to return the results of the script.
+* It is not recommended to run a script that will cause a stop or update of the VM Agent. This can let the extension in a Transitioning state, leading to a timeout.
 
 > [!NOTE]
-> To function correctly, Run Command requires connectivity (port 443) to Azure public IP addresses. If the extension doesn't have access to these endpoints, the scripts might run successfully but not return the results. If you're blocking traffic on the virtual machine, you can use [service tags](../../virtual-network/security-overview.md#service-tags) to allow traffic to Azure public IP addresses by using the `AzureCloud` tag.
+> To function correctly, Run Command requires connectivity (port 443) to Azure public IP addresses. If the extension doesn't have access to these endpoints, the scripts might run successfully but not return the results. If you're blocking traffic on the virtual machine, you can use [service tags](../../virtual-network/network-security-groups-overview.md#service-tags) to allow traffic to Azure public IP addresses by using the `AzureCloud` tag.
+> 
+> The Run Command feature doesn't work if the VM agent status is NOT READY. Check the agent status in the VM's properties in the Azure portal.
 
 ## Available commands
 
@@ -44,20 +47,25 @@ This table shows the list of commands available for Windows VMs. You can use the
 ```error
 The entity was not found in this Azure location
 ```
+<br>
 
-|**Name**|**Description**|
+| **Name** | **Description** |
 |---|---|
-|**RunPowerShellScript**|Runs a PowerShell script.|
-|**EnableRemotePS**|Configures the machine to enable remote PowerShell.|
-|**EnableAdminAccount**|Checks if the local administrator account is disabled, and if so enables it.|
-|**IPConfig**| Shows detailed information for the IP address, subnet mask, and default gateway for each adapter bound to TCP/IP.|
-|**RDPSettings**|Checks registry settings and domain policy settings. Suggests policy actions if the machine is part of a domain or modifies the settings to default values.|
-|**ResetRDPCert**|Removes the SSL certificate tied to the RDP listener and restores the RDP listener security to default. Use this script if you see any issues with the certificate.|
-|**SetRDPPort**|Sets the default or user-specified port number for Remote Desktop connections. Enables firewall rules for inbound access to the port.|
+| **RunPowerShellScript** | Runs a PowerShell script |
+| **DisableNLA** | Disable Network Level Authentication |
+| **DisableWindowsUpdate** | Disable Windows Update Automatic Updates |
+| **EnableAdminAccount** | Checks if the local administrator account is disabled, and if so enables it. |
+| **EnableEMS** | EnableS EMS |
+| **EnableRemotePS** | Configures the machine to enable remote PowerShell. |
+| **EnableWindowsUpdate** | Enable Windows Update Automatic Updates |
+| **IPConfig** | Shows detailed information for the IP address, subnet mask, and default gateway for each adapter bound to TCP/IP. |
+| **RDPSetting** | Checks registry settings and domain policy settings. Suggests policy actions if the machine is part of a domain or modifies the settings to default values. |
+| **ResetRDPCert** | Removes the TLS/SSL certificate tied to the RDP listener and restores the RDP listener security to default. Use this script if you see any issues with the certificate. |
+| **SetRDPPort** | Sets the default or user-specified port number for Remote Desktop connections. Enables firewall rules for inbound access to the port. |
 
 ## Azure CLI
 
-The following example uses the [az vm run-command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) command to run a shell script on an Azure Windows VM.
+The following example uses the [az vm run-command](/cli/azure/vm/run-command#az_vm_run_command_invoke) command to run a shell script on an Azure Windows VM.
 
 ```azurecli-interactive
 # script.ps1
@@ -73,7 +81,7 @@ az vm run-command invoke  --command-id RunPowerShellScript --name win-vm -g my-r
 
 ## Azure portal
 
-Go to a VM in the [Azure portal](https://portal.azure.com) and select **Run command** under **OPERATIONS**. You see a list of the available commands to run on the VM.
+Go to a VM in the [Azure portal](https://portal.azure.com) and select **Run command** from the left menu, under **Operations**. You see a list of the available commands to run on the VM.
 
 ![List of commands](./media/run-command/run-command-list.png)
 
@@ -88,7 +96,7 @@ After you choose the command, select **Run** to run the script. After the script
 
 ## PowerShell
 
-The following example uses the [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) cmdlet to run a PowerShell script on an Azure VM. The cmdlet expects the script referenced in the `-ScriptPath` parameter to be local to where the cmdlet is being run.
+The following example uses the [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand) cmdlet to run a PowerShell script on an Azure VM. The cmdlet expects the script referenced in the `-ScriptPath` parameter to be local to where the cmdlet is being run.
 
 ```azurepowershell-interactive
 Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
@@ -96,9 +104,9 @@ Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' 
 
 ## Limiting access to Run Command
 
-Listing the run commands or showing the details of a command requires the `Microsoft.Compute/locations/runCommands/read` permission at the subscription level. The built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) role and higher levels have this permission.
+Listing the run commands or showing the details of a command requires the `Microsoft.Compute/locations/runCommands/read` permission on Subscription Level. The built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) role and higher levels have this permission.
 
-Running a command requires the `Microsoft.Compute/virtualMachines/runCommand/action` permission at the subscription level. The [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role and higher levels have this permission.
+Running a command requires the `Microsoft.Compute/virtualMachines/runCommand/action` permission. The [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role and higher levels have this permission.
 
 You can use one of the [built-in roles](../../role-based-access-control/built-in-roles.md) or create a [custom role](../../role-based-access-control/custom-roles.md) to use Run Command.
 

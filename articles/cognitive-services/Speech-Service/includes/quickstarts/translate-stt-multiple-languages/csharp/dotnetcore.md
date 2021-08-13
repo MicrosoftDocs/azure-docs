@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Translate speech to multiple languages, C# (.NET Core Windows) - Speech Service'
+title: 'Quickstart: Translate speech to multiple languages, C# (.NET Core Windows) - Speech service'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -7,9 +7,10 @@ author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 07/05/2019
-ms.author: erhopf
+ms.topic: include
+ms.date: 04/04/2020
+ms.author: lajanuar
+ms.custom: devx-track-csharp
 ---
 
 ## Prerequisites
@@ -17,9 +18,8 @@ ms.author: erhopf
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=dotnetcore)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=dotnetcore)
+> * [Create an Azure Speech Resource](../../../../overview.md#try-the-speech-service-for-free)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=dotnetcore&pivots=programming-language-csharp)
 
 ## Add sample code
 
@@ -38,7 +38,7 @@ Before you get started, make sure to:
            public static async Task TranslateSpeechToText()
            {
                // Creates an instance of a speech translation config with specified subscription key and service region.
-               // Replace with your own subscription key and service region (e.g., "westus").
+               // Replace with your own subscription key and region identifier from here: https://aka.ms/speech/sdkregion
                var config = SpeechTranslationConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
                // Sets source and target languages.
@@ -102,7 +102,7 @@ Before you get started, make sure to:
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
 
-1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
+1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription.
 
 1. From the menu bar, choose **File** > **Save All**.
 
@@ -112,7 +112,7 @@ Before you get started, make sure to:
 
 1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the **helloworld** application.
 
-1. Speak an English phrase or sentence. The application transmits your speech to the Speech Services, which translates and transcribes to text (in this case, to French and German). The Speech Services then sends the text back to the application for display.
+1. Speak an English phrase or sentence. The application transmits your speech to the Speech service, which translates and transcribes to text (in this case, to French and German). The Speech service then sends the text back to the application for display.
 
 ````
 Say something...

@@ -2,12 +2,12 @@
 title: 'Embed Internet Analyzer Client  | Microsoft Docs'
 description: In this article, learn how to embed the Internet Analyzer JavaScript client in your application. 
 services: internet-analyzer
-author: mattcalder
+author: KumudD
 
 ms.service: internet-analyzer
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 10/16/2019
-ms.author: mebeatty
+ms.author: kumud
 # Customer intent: As someone interested in creating an Internet Analyzer resource, I want to learn how to install the JavaScript client, which is necessary to run tests. 
 
 ---
@@ -32,6 +32,7 @@ Option 1. In the Azure portal, use [this link](https://aka.ms/InternetAnalyzerPr
 
 Option 2. Using the Azure CLI, check the `scriptFileUri` Property.
 ```azurecli-interactive
+    az extension add --name internet-analyzer    
     az internet-analyzer test list --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile"
 ```
 

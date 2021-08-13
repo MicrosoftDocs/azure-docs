@@ -2,31 +2,35 @@
  title: include file
  description: include file
  services: event-grid
- author: tfitzmac
+ author: spelluru
  ms.service: event-grid
  ms.topic: include
- ms.date: 05/22/2019
- ms.author: tomfitz
+ ms.date: 02/17/2021
+ ms.author: spelluru
  ms.custom: include file
 ---
 
-The following limits apply to Azure Event Grid system topics and custom topics, *not* event domains.
+The following limits apply to Azure Event Grid **topics** (system,  custom, and partner topics). 
 
 | Resource | Limit |
 | --- | --- |
 | Custom topics per Azure subscription | 100 |
 | Event subscriptions per topic | 500 |
-| Publish rate for a custom topic (ingress) | 5,000 events per second per topic |
-| Publish requests | 250 per second |
-| Event size | Support for 64 KB in General Availability (GA). Support for 1 MB is currently in preview. |
+| Publish rate for a custom or a partner topic (ingress) | 5,000 events/sec or 5 MB/sec (whichever is met first) |
+| Event size | 1 MB  |
+| Private endpoint connections per topic  | 64 | 
+| IP Firewall rules per topic | 16 | 
 
-The following limits apply to event domains only.
+The following limits apply to Azure Event Grid **domains**. 
 
 | Resource | Limit |
 | --- | --- |
 | Topics per event domain | 100,000 |
 | Event subscriptions per topic within a domain | 500 |
 | Domain scope event subscriptions | 50 |
-| Publish rate for an event domain (ingress) | 5,000 events per second |
-| Publish requests | 250 per second |
+| Publish rate for an event domain (ingress) | 5,000 events/sec or 5 MB/sec (whichever is met first) |
 | Event Domains per Azure Subscription | 100 |
+| Private endpoint connections per domain | 64 | 
+| IP Firewall rules per domain | 16 | 
+
+

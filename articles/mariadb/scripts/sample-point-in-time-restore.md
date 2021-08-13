@@ -1,21 +1,23 @@
 ---
-title: Azure CLI script - Restore an Azure Database for MariaDB server
+title: CLI script - Restore server - Azure Database for MariaDB
 description: This sample Azure CLI script shows how to restore an Azure Database for MariaDB server and its databases to a previous point in time.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
-ms.custom: mvc
-ms.date: 11/28/2018
+ms.custom: mvc, devx-track-azurecli
+ms.date: 12/02/2019
 ---
 
 # Restore an Azure Database for MariaDB server using Azure CLI
 This sample CLI script restores a single Azure Database for MariaDB server to a previous point in time.
 
-[!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-If you choose to run the CLI locally, this article requires Azure CLI version 2.0 or later. Check the version by running `az --version`. See [Install Azure CLI]( /cli/azure/install-azure-cli) to install or upgrade your version of Azure CLI. 
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+
+- This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
 
 ## Sample script
 In this sample script, edit the highlighted lines to update the admin username and password to your own. Replace the subscription ID used in the `az monitor` commands with your own subscription ID.
@@ -30,10 +32,10 @@ This script uses the commands outlined in the following table:
 
 | **Command** | **Notes** |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
-| [az mariadb server create](/cli/azure/mariadb/server#az-mariadb-server-create) | Creates a MariaDB server that hosts the databases. |
-| [az mariadb server restore](/cli/azure/mariadb/server#az-mariadb-server-restore) | Restore a server from backup. |
-| [az group delete](/cli/azure/group#az-group-delete) | Deletes a resource group including all nested resources. |
+| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az mariadb server create](/cli/azure/mariadb/server#az_mariadb_server_create) | Creates a MariaDB server that hosts the databases. |
+| [az mariadb server restore](/cli/azure/mariadb/server#az_mariadb_server_restore) | Restore a server from backup. |
+| [az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 - Read more information on the Azure CLI: [Azure CLI documentation](/cli/azure).

@@ -1,13 +1,12 @@
 ---
 title: Updates and component upgrades in Azure Site Recovery
 description: Provides an overview of Azure Site Recovery service updates, and component upgrades.
-author: rajani-janaki-ram 
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/31/2019
-ms.author: rajanaki 
-
+ms.author: sharrai
+ms.date: 08/11/2021
 ---
 # Service updates in Site Recovery
 
@@ -85,14 +84,13 @@ In this scenario, we strongly recommend that you [enable automatic updates](azur
 - During the enable replication process.
 - By setting the extension update settings inside the vault.
 
-If you want to manually manage updates, do the following:
+If you want to manually manage updates, you may choose one of the following options:
 
-1. In the vault > **Replicated Items**, click this notification at the top of the screen: 
+1. When a new agent update is available, Site Recovery provides a notification in the vault towards the top of the page. In the vault > **Replicated Items**, click this notification at the top of the screen: 
     
-    **New Site Recovery replication agent update is available. Click to install ->**
+    **New Site Recovery replication agent update is available. Click to install ->** <br/><br/>Select the VMs for which you want to apply the update, and then click **OK**.
 
-4. Select the VMs for which you want to apply the update, and then click **OK**.
-
+2. On the VM disaster recovery overview page, you will find the 'Agent status' field which will say 'Critical Upgrade' if the agent is due to expire. Click on it and follow the subsequent instructions to manually upgrade the virtual machine.
 
 ## VMware VM/physical server disaster recovery to Azure
 

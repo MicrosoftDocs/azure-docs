@@ -1,22 +1,22 @@
 ---
 title: Use Media Encoder Standard to auto-generate a bitrate ladder - Azure | Microsoft Docs
-description: This topic shows how to use Media Encoder Standard (MES) to auto-generate a bitrate ladder based on the input resolution and bitrate. The input resolution and bitrate will never be exceeded. For example, if the input is 720p at 3Mbps, output will remain 720p at best, and will start at rates lower than 3Mbps.
+description: This topic shows how to use Media Encoder Standard (MES) to auto-generate a bitrate ladder based on the input resolution and bitrate.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2019
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
-#  Use Media Encoder Standard to auto-generate a bitrate ladder  
+#  Use Media Encoder Standard to auto-generate a bitrate ladder
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
 ## Overview
 

@@ -1,13 +1,14 @@
 ---
-title: 'Modify an ExpressRoute circuit: PowerShell: Azure classic| Microsoft Docs'
+title: 'Azure ExpressRoute: Modify a circuit: PowerShell:classic'
 description: This article walks you through the steps to check the status, update, or delete and deprovision your ExpressRoute classic deployment model circuit.
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/05/2019
-ms.author: cherylmc
+ms.author: duau 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Modify an ExpressRoute circuit using PowerShell (classic)
@@ -31,20 +32,7 @@ This article walks you through the steps to check the status, update, or delete 
 
 ## Before you begin
 
-Install the latest versions of the Azure Service Management (SM) PowerShell modules and the ExpressRoute module. You can't use the Azure CloudShell environment to run SM modules.
-
-1. Use the instructions in the [Installing the Service Management module](/powershell/azure/servicemanagement/install-azure-ps) article to install the Azure Service Management Module. If you have the Az or RM module already installed, be sure to use '-AllowClobber'.
-2. Import the installed modules. When using the following example, adjust the path to reflect the location of your installed PowerShell modules.
-
-   ```powershell
-   Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.3.0\Azure.psd1'
-   Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.3.0\ExpressRoute\ExpressRoute.psd1'
-   ```
-3. To sign in to your Azure account, open your PowerShell console with elevated rights and connect to your account. Use the following example to help you connect using the Service Management module:
-
-   ```powershell
-   Add-AzureAccount
-   ```
+[!INCLUDE [classic powershell install instructions](../../includes/expressroute-poweshell-classic-install-include.md)]
 
 ## Get the status of a circuit
 

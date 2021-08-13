@@ -1,19 +1,18 @@
 ---
-title: 'Incrementally copy data by using Azure Data Factory '
-description: 'These tutorials show you how to incrementally copy data from a source data store to a destination data store. The first one copies data from one table.'
-services: data-factory
-documentationcenter: ''
+title: Incrementally copy data from a source data store to a destination data store
+description: These tutorials show you how to incrementally copy data from a source data store to a destination data store. The first one copies data from one table.
 author: dearandyxu
-manager: craigg
-ms.reviewer: douglasl
-
-ms.service: data-factory
-ms.workload: data-services
-ms.topic: tutorial
-ms.date: 01/22/2018
 ms.author: yexu
+ms.service: data-factory
+ms.subservice: tutorials
+ms.topic: tutorial
+ms.custom: seo-lt-2019
+ms.date: 02/18/2021
 ---
+
 # Incrementally load data from a source data store to a destination data store
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In a data integration solution, incrementally (or delta) loading data after an initial full data load is a widely used scenario. The tutorials in this section show you different ways of loading data incrementally by using Azure Data Factory.
 
@@ -24,7 +23,7 @@ In this case, you define a watermark in your source database. A watermark is a c
 
 For step-by-step instructions, see the following tutorials: 
 - [Incrementally copy data from one table in Azure SQL Database to Azure Blob storage](tutorial-incremental-copy-powershell.md)
-- [Incrementally copy data from multiple tables in on-premises SQL Server to Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)
+- [Incrementally copy data from multiple tables in a SQL Server instance to Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)
 
 For templates, see the following:
 - [Delta copy with control table](solution-template-delta-copy-with-control-table.md)
@@ -40,7 +39,7 @@ For step-by-step instructions, see the following tutorial: <br/>
 - [Incrementally copy data from Azure SQL Database to Azure Blob storage by using Change Tracking technology](tutorial-incremental-copy-change-tracking-feature-powershell.md)
 
 ## Loading new and changed files only by using LastModifiedDate
-You can copy the new and changed files only by using LastModifiedDate to the destination store. ADF will scan all the files from the source store, apply the file filter by their LastModifiedDate, and only copy the new and updated file since last time to the destination store.  Please be aware if you let ADF scan huge amounts of files but only copy a few files to destination, you would still expect the long duration due to file scanning is time consuming as well.   
+You can copy the new and changed files only by using LastModifiedDate to the destination store. ADF will scan all the files from the source store, apply the file filter by their LastModifiedDate, and only copy the new and updated file since last time to the destination store.  Please be aware that if you let ADF scan huge amounts of files but you only copy a few files to the destination, this will still take a long time because of the file scanning process.   
 
 For step-by-step instructions, see the following tutorial: <br/>
 - [Incrementally copy new and changed files based on LastModifiedDate from Azure Blob storage to Azure Blob storage](tutorial-incremental-copy-lastmodified-copy-data-tool.md)

@@ -1,21 +1,11 @@
 ---
-title: Learn about creating and publishing .Net Core applications to a remote Azure Service Fabric Linux cluster | Microsoft Docs
+title: Create and Publish a.Net Core app to a remote Linux Cluster
 description: Create and publish .Net Core apps targeting a remote Linux cluster from Visual Studio
-services: service-fabric
-documentationcenter: .net
 author: peterpogorski
-manager: chackdan
-editor: 
 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: troubleshooting
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 5/20/2019
 ms.author: pepogors
-
 ---
 # Use Visual Studio to create and publish .Net Core applications targeting a remote Linux Service Fabric cluster
 With Visual Studio tooling you can develop and publish Service Fabric .Net Core applications targeting a Linux Service Fabric cluster. The SDK version must be 3.4 or above to deploy a .Net Core application targeting Linux Service Fabric clusters from Visual Studio.

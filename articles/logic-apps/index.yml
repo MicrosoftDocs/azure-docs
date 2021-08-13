@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page # Required
   author: ecfan #Required; your GitHub user alias, with correct capitalization.
   ms.author: estfan; logicappspm #Required; microsoft alias of author; optional team alias.
-  ms.date: 09/18/2019 #Required; mm/dd/yyyy format.
+  ms.date: 03/24/2021 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -25,18 +25,24 @@ landingContent:
         links:
           - text: What is Azure Logic Apps?
             url: logic-apps-overview.md
+          - text: Single-tenant versus multi-tenant and integration service environment
+            url: single-tenant-overview-compare.md
+          - text: What is Azure Arc enabled Logic Apps?
+            url: azure-arc-enabled-logic-apps-overview.md
       - linkListType: concept
         links:
-          - text: Connectors for Azure Logic Apps
-            url: /azure/connectors/apis-list
-          - text: Schedule recurring workflows
+          - text: Connectors overview for Azure Logic Apps
+            url: ../connectors/apis-list.md
+          - text: Recurrence schedules for workflows
             url: concepts-schedule-automated-recurring-tasks-workflows.md
           - text: B2B enterprise integration
             url: logic-apps-enterprise-integration-overview.md
+          - text: Resource health for logic apps
+            url: healthy-unhealthy-resource.md
       - linkListType: learn
         links:
           - text: Introduction to Azure Logic Apps
-            url: https://docs.microsoft.com/learn/modules/intro-to-logic-apps/
+            url: /learn/modules/intro-to-logic-apps/
       - linkListType: video
         links:
           - text: Introducing Azure Logic Apps
@@ -56,11 +62,11 @@ landingContent:
       - linkListType: get-started
         links:
           - text: "Template: Run timer jobs on a schedule"
-            url: https://azure.microsoft.com/resources/templates/301-logicapps-jobscheduler/
+            url: https://azure.microsoft.com/resources/templates/logicapps-jobscheduler/
       - linkListType: learn
         links:
           - text: Route and process data automatically
-            url: https://docs.microsoft.com/learn/modules/route-and-process-data-logic-apps
+            url: /learn/modules/route-and-process-data-logic-apps
       - linkListType: tutorial
         links:
           - text: Create a schedule-based workflow
@@ -80,7 +86,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: What is an on-premises data gateway?
-            url: https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem
+            url: /data-integration/gateway/service-gateway-onprem
           - text: What is an integration service environment?
             url: connect-virtual-network-vnet-isolated-environment-overview.md
       - linkListType: how-to-guide
@@ -110,11 +116,11 @@ landingContent:
       - linkListType: learn
         links:
           - text: "Sample: Connect to integration account and deploy with Azure DevOps"
-            url: https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/
+            url: https://github.com/Azure-Samples/azure-logic-apps-deployment-samples/tree/master/storage-account-connections
       - linkListType: architecture
         links:
           - text: Basic enterprise integration
-            url: https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration
+            url: /azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration
 
   # Card (optional)
   - title: Manage and secure logic apps
@@ -143,15 +149,14 @@ landingContent:
             url: logic-apps-create-azure-resource-manager-templates.md
           - text: Deploy logic app templates
             url: logic-apps-deploy-azure-resource-manager-templates.md
+          - text: Call logic apps from Power Automate and Power Apps
+            url: call-from-power-automate-power-apps.md
       - linkListType: learn
         links:
           - text: Create and deploy with Resource Manager templates
-            url: https://docs.microsoft.com/learn/modules/create-deploy-logic-apps-using-arm-templates/
-          - text: "Sample: Connect to Azure Storage and deploy with Azure DevOps"
-            url: https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/
-          - text: "Sample: Connect to Azure Service Bus and deploy with Azure DevOps"
-            url: https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/
-
+            url: /learn/modules/create-deploy-logic-apps-using-arm-templates/
+          - text: "Sample: Orchestrate Azure Pipelines by using Azure Logic Apps"
+            url: https://github.com/Azure-Samples/azure-logic-apps-pipeline-orchestration
   # Card (optional)
   - title: More information
     linkLists:
@@ -161,9 +166,11 @@ landingContent:
             url: logic-apps-limits-and-config.md
           - text: Pricing model
             url: logic-apps-pricing.md
+          - text: Available connector reference for Azure Logic Apps
+            url: /connectors/connector-reference/connector-reference-logicapps-connectors
           - text: Workflow Definition Language schema
             url: logic-apps-workflow-definition-language.md
           - text: Azure PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.logicapp/
+            url: /powershell/module/az.logicapp/
           - text: REST API
-            url: https://docs.microsoft.com/rest/api/logic/
+            url: /rest/api/logic/

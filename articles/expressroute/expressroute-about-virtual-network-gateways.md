@@ -2,17 +2,17 @@
 title: About ExpressRoute virtual network gateways - Azure| Microsoft Docs
 description: Learn about virtual network gateways for ExpressRoute. This article includes information about gateway SKUs and types.
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/14/2019
-ms.author: mialdrid
-ms.custom: seodec18
+ms.date: 04/23/2021
+ms.author: duau
 
 ---
-# ExpressRoute virtual network gateway and FastPath
-To connect your Azure virtual network and your on-premises network via ExpressRoute, you must create a virtual network gateway first. A virtual network gateway serves two purposes: exchange IP routes between the networks and route network traffic. This article explains gateway types, gateway SKUs and estimated performance by SKU. This article also explains ExpressRoute [FastPath](#fastpath), a feature that enables the network traffic from your on-premises network to bypass the virtual network gateway to improve performance.
+# About ExpressRoute virtual network gateways
+
+To connect your Azure virtual network and your on-premises network via ExpressRoute, you must create a virtual network gateway first. A virtual network gateway serves two purposes: exchange IP routes between the networks and route network traffic. This article explains gateway types, gateway SKUs, and estimated performance by SKU. This article also explains ExpressRoute [FastPath](#fastpath), a feature that enables the network traffic from your on-premises network to bypass the virtual network gateway to improve performance.
 
 ## Gateway types
 
@@ -27,16 +27,49 @@ Each virtual network can have only one virtual network gateway per gateway type.
 ## <a name="gwsku"></a>Gateway SKUs
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-If you want to upgrade your gateway to a more powerful gateway SKU, in most cases you can use the 'Resize-AzVirtualNetworkGateway' PowerShell cmdlet. This will work for upgrades to Standard and HighPerformance SKUs. However, to upgrade to the UltraPerformance SKU, you will need to recreate the gateway. Recreating a gateway incurs downtime.
+If you want to upgrade your gateway to a more powerful gateway SKU, in most cases you can use the 'Resize-AzVirtualNetworkGateway' PowerShell cmdlet. This will work for upgrades to Standard and HighPerformance SKUs. However, to upgrade a non Availability Zone (AZ) gateway to the UltraPerformance SKU, you will need to recreate the gateway. Recreating a gateway incurs downtime. You do not need to delete and recreate the gateway to upgrade an AZ-enabled SKU.
+### <a name="gatewayfeaturesupport"></a>Feature support by gateway SKU
+The following table shows the features supported across each gateway type.
+
+|**Gateway SKU**|**VPN Gateway and ExpressRoute coexistence**|**FastPath**|**Max Number of Circuit Connections**|
+| --- | --- | --- | --- |
+|**Standard SKU/ERGw1Az**|Yes|No|4|
+|**High Perf SKU/ERGw2Az**|Yes|No|8
+|**Ultra Performance SKU/ErGw3Az**|Yes|Yes|16
 
 ### <a name="aggthroughput"></a>Estimated performances by gateway SKU
-The following table shows the gateway types and the estimated performances. This table applies to both the Resource Manager and classic deployment models.
+The following table shows the gateway types and the estimated performance scale numbers. These numbers are derived from the following testing conditions and represent the max support limits. Actual performance may vary, depending on how closely traffic replicates the testing conditions.
 
-[!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
+### Testing conditions
+##### **Standard/ERGw1Az** #####
+
+- Circuit bandwidth: 1Gbps
+- Number of routes advertises by the Gateway: 500
+- Number of routes learned: 4,000
+##### **High Performance/ERGw2Az** #####
+
+- Circuit bandwidth: 1Gbps
+- Number of routes advertises by the Gateway: 500
+- Number of routes learned: 9,500
+##### **Ultra Performance/ErGw3Az** #####
+
+- Circuit bandwidth: 1Gbps
+- Number of routes advertises by the Gateway: 500
+- Number of routes learned: 9,500
+
+ This table applies to both the Resource Manager and classic deployment models.
+ 
+|**Gateway SKU**|**Connections per second**|**Mega-Bits per second**|**Packets per second**|**Supported number of VMs in the Virtual Network**|
+| --- | --- | --- | --- | --- |
+|**Standard/ERGw1Az**|7,000|1,000|100,000|2,000|
+|**High Performance/ERGw2Az**|14,000|2,000|250,000|4,500|
+|**Ultra Performance/ErGw3Az**|16,000|10,000|1,000,000|11,000|
 
 > [!IMPORTANT]
 > Application performance depends on multiple factors, such as the end-to-end latency, and the number of traffic flows the application opens. The numbers in the table represent the upper limit that the application can theoretically achieve in an ideal environment.
->
+
+>[!NOTE]
+> The maximum number of ExpressRoute circuits from the same peering location that can connect to the same virtual network is 4 for all gateways.
 >
 
 ## <a name="gwsub"></a>Gateway subnet
@@ -49,7 +82,7 @@ Before you create an ExpressRoute gateway, you must create a gateway subnet. The
 
 When you create the gateway subnet, you specify the number of IP addresses that the subnet contains. The IP addresses in the gateway subnet are allocated to the gateway VMs and gateway services. Some configurations require more IP addresses than others. 
 
-When you are planning your gateway subnet size, refer to the documentation for the configuration that you are planning to create. For example, the ExpressRoute/VPN Gateway coexist configuration requires a larger gateway subnet than most other configurations. Additionally, you may want to make sure your gateway subnet contains enough IP addresses to accommodate possible future additional configurations. While you can create a gateway subnet as small as /29, we recommend that you create a gateway subnet of /27 or larger (/27, /26 etc.) if you have the available address space to do so. This will accommodate most configurations.
+When you are planning your gateway subnet size, refer to the documentation for the configuration that you are planning to create. For example, the ExpressRoute/VPN Gateway coexist configuration requires a larger gateway subnet than most other configurations. Additionally, you may want to make sure your gateway subnet contains enough IP addresses to accommodate possible future additional configurations. While you can create a gateway subnet as small as /29, we recommend that you create a gateway subnet of /27 or larger (/27, /26 etc.) if you have the available address space to do so. If you plan on connecting 16 ExpressRoute circuits to your gateway, you **must** create a gateway subnet of /26 or larger. If you are creating a dual stack gateway subnet, we recommend that you also use an IPv6 range of /64 or larger. This will accommodate most configurations.
 
 The following Resource Manager PowerShell example shows a gateway subnet named GatewaySubnet. You can see the CIDR notation specifies a /27, which allows for enough IP addresses for most configurations that currently exist.
 
@@ -73,30 +106,31 @@ Zone-redundant gateways use specific new gateway SKUs for ExpressRoute gateway.
 
 The new gateway SKUs also support other deployment options to best match your needs. When creating a virtual network gateway using the new gateway SKUs, you also have the option to deploy the gateway in a specific zone. This is referred to as a zonal gateway. When you deploy a zonal gateway, all the instances of the gateway are deployed in the same Availability Zone.
 
+> [!IMPORTANT]
+> If you plan to use IPv6-based private peering over ExpressRoute, make sure to select an AZ SKU for the gateway you deploy in a dual stack gateway subnet.
+> 
+>
+
 ## <a name="fastpath"></a>FastPath
-ExpressRoute virtual network gateway is designed to exchange network routes and route network traffic. FastPath is designed to improve the data path performance between your on-premises network and your virtual network. When enabled, FastPath sends network traffic directly to virtual machines in the virtual network, bypassing the gateway. 
 
-FastPath is available on all ExpressRoute circuits. It still requires a virtual network gateway to be created to exchange routes between virtual network and on-premises network. The virtual network gateway must be either Ultra Performance or ErGw3AZ.
+ExpressRoute virtual network gateway is designed to exchange network routes and route network traffic. FastPath is designed to improve the data path performance between your on-premises network and your virtual network. When enabled, FastPath sends network traffic directly to virtual machines in the virtual network, bypassing the gateway.
 
-FastPath doesn't support the following features:
-* UDR on Gateway subnet: if you apply a UDR to the Gateway subnet of your virtual network the network traffic from your on-premises network will continue to be sent to the virtual network gateway.
-* VNet Peering: if you have other virtual networks peered with the one that is connected to ExpressRoute the network traffic from your on-premises network to the other virtual networks (i.e. the so-called "Spoke" VNets) will continue to be sent to the virtual network gateway. The workaround is to connect all the virtual networks to the ExpressRoute circuit directly.
-* Basic Load Balancer: if you deploy a Basic internal load balancer in your virtual network or the Azure PaaS service you deploy in your virtual network uses a Basic internal load balancer, the network traffic from your on-premises network to the virtual IPs hosted on the Basic load balancer will be sent to the virtual network gateway. The solution is to upgrade the Basic load balancer to a [Standard load balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).
-* Private Link: if you connect to a [private endpoint](../private-link/private-link-overview.md) in your virtual network from your on-premises network the connection will go through the virtual network gateway.
- 
+For more information about FastPath, including limitations and requirements, see [About FastPath](about-fastpath.md).
+
 ## <a name="resources"></a>REST APIs and PowerShell cmdlets
 For additional technical resources and specific syntax requirements when using REST APIs and PowerShell cmdlets for virtual network gateway configurations, see the following pages:
 
 | **Classic** | **Resource Manager** |
 | --- | --- |
-| [PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#azure) |[PowerShell](https://docs.microsoft.com/powershell/module/az.network#networking) |
-| [REST API](https://msdn.microsoft.com/library/jj154113.aspx) |[REST API](https://msdn.microsoft.com/library/mt163859.aspx) |
+| [PowerShell](/powershell/module/servicemanagement/azure.service/#azure) |[PowerShell](/powershell/module/az.network#networking) |
+| [REST API](/previous-versions/azure/reference/jj154113(v=azure.100)) |[REST API](/rest/api/virtual-network/) |
 
 ## Next steps
-See [ExpressRoute Overview](expressroute-introduction.md) for more information about available connection configurations.
 
-See [Create a virtual network gateway for ExpressRoute](expressroute-howto-add-gateway-resource-manager.md) for more information about creating ExpressRoute gateways.
+For more information about available connection configurations, see [ExpressRoute Overview](expressroute-introduction.md).
 
-See [Create a zone-redundant virtual network gateway](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md) for more information about configuring zone-redundant gateways.
+For more information about creating ExpressRoute gateways, see [Create a virtual network gateway for ExpressRoute](expressroute-howto-add-gateway-resource-manager.md).
 
-See [Link virtual network to ExpressRoute](expressroute-howto-linkvnet-arm.md) for more information about how to enable FastPath. 
+For more information about configuring zone-redundant gateways, see [Create a zone-redundant virtual network gateway](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md).
+
+For more information about FastPath, see [About FastPath](about-fastpath.md).

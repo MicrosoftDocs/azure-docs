@@ -1,12 +1,9 @@
 ---
 title: Authentication issues in Azure HDInsight
 description: Authentication issues in Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 11/08/2019
+ms.date: 08/24/2020
 ---
 
 # Authentication issues in Azure HDInsight
@@ -33,7 +30,7 @@ Azure AD error code 50126 means the `AllowCloudPasswordValidation` policy has no
 
 ### Resolution
 
-The Company Administrator of the Azure AD tenant should enable Azure AD to use password hashes for ADFS backed users.  Apply the `AllowCloudPasswordValidationPolicy` as shown in the article [Use Enterprise Security Package in HDInsight](../domain-joined/apache-domain-joined-architecture.md).
+The Global Administrator of the Azure AD tenant should enable Azure AD to use password hashes for ADFS backed users.  Apply the `AllowCloudPasswordValidationPolicy` as shown in the article [Use Enterprise Security Package in HDInsight](../domain-joined/apache-domain-joined-architecture.md).
 
 ---
 
@@ -77,7 +74,7 @@ Wait for 30 minutes or so, stop any applications that might be trying to authent
 
 ---
 
-## invalid_grant or unauthorized_client, 50053
+## invalid_grant or unauthorized_client, 50053 (#2)
 
 ### Issue
 
@@ -93,7 +90,7 @@ Password is expired.
 
 ### Resolution
 
-Change the password in the Azure portal (on your on-premise system) and then wait for 30 minutes for sync to catch up.
+Change the password in the Azure portal (on your on-premises system) and then wait for 30 minutes for sync to catch up.
 
 ---
 
@@ -149,7 +146,7 @@ Ways to find `sAMAccountName`:
 
 * If you can sign in to Ambari using the local Ambari admin, look at the list of users.
 
-* If you have a [domain joined windows machine](../../active-directory-domain-services/manage-domain.md), you can use the standard Windows AD tools to browse. This requires a working account in the domain.
+* If you have a [domain joined windows machine](../../active-directory-domain-services/tutorial-create-management-vm.md), you can use the standard Windows AD tools to browse. This requires a working account in the domain.
 
 * From the head node, you can use SAMBA commands to search. This requires a valid Kerberos session (successful kinit). net ads search "(userPrincipalName=bob*)"
 
@@ -203,16 +200,10 @@ This error occurs intermittently when users try to access the ADLS Gen2 using AC
 
 * For Azure Data Lake Storage Gen1, clean browser cache and log into Ambari again.
 
-* For Azure Data Lake Storage Gen2, Run `/usr/lib/hdinsight-common/scripts/RegisterKerbWithOauth.sh <upn>` for the user the user is trying to login as
+* For Azure Data Lake Storage Gen2, Run `/usr/lib/hdinsight-common/scripts/RegisterKerbTicketAndOAuth.sh <upn>` for the user the user is trying to login as
 
 ---
 
 ## Next steps
 
-If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
-
-* Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
-
-* Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience. Connecting the Azure community to the right resources: answers, support, and experts.
-
-* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

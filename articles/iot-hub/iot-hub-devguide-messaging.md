@@ -2,12 +2,13 @@
 title: Understand Azure IoT Hub messaging | Microsoft Docs
 description: Developer guide - device-to-cloud and cloud-to-device messaging with IoT Hub. Includes information about message formats and supported communications protocols.
 author: wesmc7777
-manager: philmea
+
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
+ms.custom: ['Role: Cloud Development']
 ---
 
 # Send device-to-cloud and cloud-to-device messages with IoT Hub
@@ -16,7 +17,7 @@ IoT Hub allows for bi-directional communication with your devices. Use IoT Hub m
 
 ## Sending device-to-cloud messages to IoT Hub
 
-IoT Hub has a built-in service endpoint that can be used by back-end services to read telemetry messages from your devices. This endpoint is compatible with [Event Hubs](https://docs.microsoft.com/azure/event-hubs/) and you can use standard IoT Hub SDKs to [read from this built-in endpoint](iot-hub-devguide-messages-read-builtin.md).
+IoT Hub has a built-in service endpoint that can be used by back-end services to read telemetry messages from your devices. This endpoint is compatible with [Event Hubs](../event-hubs/index.yml) and you can use standard IoT Hub SDKs to [read from this built-in endpoint](iot-hub-devguide-messages-read-builtin.md).
 
 IoT Hub also supports [custom endpoints](iot-hub-devguide-endpoints.md#custom-endpoints) that can be defined by users to send device telemetry data and events to Azure services using [message routing](iot-hub-devguide-messages-d2c.md).
 
@@ -32,9 +33,9 @@ Core properties of IoT Hub messaging functionality are the reliability and durab
 
 Use device-to-cloud messages for sending time series telemetry and alerts from your device app, and cloud-to-device messages for one-way notifications to your device app.
 
-* Refer to [Device-to-cloud communication guidance](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-d2c-guidance) to choose between device-to-cloud messages, reported properties, or file upload.
+* Refer to [Device-to-cloud communication guidance](./iot-hub-devguide-d2c-guidance.md) to choose between device-to-cloud messages, reported properties, or file upload.
 
-* Refer to [Cloud-to-device communication guidance](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-c2d-guidance) to choose between cloud-to-device messages, desired properties, or direct methods.
+* Refer to [Cloud-to-device communication guidance](./iot-hub-devguide-c2d-guidance.md) to choose between cloud-to-device messages, desired properties, or direct methods.
 
 ## Next steps
 

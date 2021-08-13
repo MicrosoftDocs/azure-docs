@@ -1,20 +1,22 @@
 ---
-title: Monitoring and logging in Azure AD Password Protection - Azure Active Directory
-description: Understand Azure AD Password Protection monitoring and logging
+title: Monitor on-premises Azure AD Password Protection
+description: Learn how to monitor and review logs for Azure AD Password Protection for an on-premises Active Directory Domain Services environment
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
-ms.date: 02/01/2019
+ms.topic: how-to
+ms.date: 11/21/2019
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: jsimmons
-ms.collection: M365-identity-device-management
+
+ms.collection: M365-identity-device-management 
+ms.custom: devx-track-azurepowershell
 ---
-# Azure AD Password Protection monitoring and logging
+# Monitor and review logs for on-premises Azure AD Password Protection environments
 
 After the deployment of Azure AD Password Protection, monitoring and reporting are essential tasks. This article goes into detail to help you understand various monitoring techniques, including where each service logs information and how to report on the use of Azure AD Password Protection.
 
@@ -59,17 +61,21 @@ Discrete events to capture these situations are logged, based around the followi
 
 The key password-validation-related events are as follows:
 
-|   |Password change |Password set|
+| Event |Password change |Password set|
 | --- | :---: | :---: |
 |Pass |10014 |10015|
 |Fail (due to customer password policy)| 10016, 30002| 10017, 30003|
 |Fail (due to Microsoft password policy)| 10016, 30004| 10017, 30005|
 |Fail (due to combined Microsoft and customer password policies)| 10016, 30026| 10017, 30027|
+|Fail (due to user name)| 10016, 30021| 10017, 30022|
 |Audit-only Pass (would have failed customer password policy)| 10024, 30008| 10025, 30007|
 |Audit-only Pass (would have failed Microsoft password policy)| 10024, 30010| 10025, 30009|
 |Audit-only Pass (would have failed combined Microsoft and customer password policies)| 10024, 30028| 10025, 30029|
+|Audit-only Pass (would have failed due to user name)| 10016, 30024| 10017, 30023|
 
 The cases in the table above that refer to "combined policies" are referring to situations where a user's password was found to contain at least one token from both the Microsoft banned password list and the customer banned password list.
+
+The cases in the table above that refer to "user name" are referring to situations where a user's password was found to contain either the user's account name and/or one of the user's friendly names. Either scenario will cause the user's password to be rejected when the policy is set to Enforce, or passed if the policy is in Audit mode.
 
 When a pair of events is logged together, both events are explicitly associated by having the same CorrelationId.
 
@@ -90,7 +96,7 @@ PasswordChangeErrors            : 0
 PasswordSetErrors               : 1
 ```
 
-The scope of the cmdlet’s reporting may be influenced using one of the –Forest, -Domain, or –DomainController parameters. Not specifying a parameter implies –Forest.
+The scope of the cmdlet's reporting may be influenced using one of the –Forest, -Domain, or –DomainController parameters. Not specifying a parameter implies –Forest.
 
 The `Get-AzureADPasswordProtectionSummaryReport` cmdlet works by querying the DC agent admin event log, and then counting the total number of events that correspond to each displayed outcome category. The following table contains the mappings between each outcome and its corresponding event ID:
 
@@ -113,7 +119,7 @@ Note that the `Get-AzureADPasswordProtectionSummaryReport` cmdlet is shipped in 
 > This cmdlet works by opening a PowerShell session to each domain controller. In order to succeed, PowerShell remote session support must be enabled on each domain controller, and the client must have sufficient privileges. For more information on PowerShell remote session requirements, run 'Get-Help about_Remote_Troubleshooting' in a PowerShell window.
 
 > [!NOTE]
-> This cmdlet works by remotely querying each DC agent service’s Admin event log. If the event logs contain large numbers of events, the cmdlet may take a long time to complete. In addition, bulk network queries of large data sets may impact domain controller performance. Therefore, this cmdlet should be used carefully in production environments.
+> This cmdlet works by remotely querying each DC agent service's Admin event log. If the event logs contain large numbers of events, the cmdlet may take a long time to complete. In addition, bulk network queries of large data sets may impact domain controller performance. Therefore, this cmdlet should be used carefully in production environments.
 
 ### Sample event log message for Event ID 10014 (successful password change)
 
@@ -261,7 +267,7 @@ HeartbeatUTC          : 2/16/2018 8:35:02 AM
 
 The various properties are updated by each DC agent service on an approximate hourly basis. The data is still subject to Active Directory replication latency.
 
-The scope of the cmdlet’s query may be influenced using either the –Forest or –Domain parameters.
+The scope of the cmdlet's query may be influenced using either the –Forest or –Domain parameters.
 
 If the HeartbeatUTC value gets stale, this may be a symptom that the Azure AD Password Protection DC Agent on that domain controller is not running, or has been uninstalled, or the machine was demoted and is no longer a domain controller.
 
@@ -353,7 +359,7 @@ HeartbeatUTC          : 12/25/2018 6:35:02 AM
 
 The various properties are updated by each Proxy service on an approximate hourly basis. The data is still subject to Active Directory replication latency.
 
-The scope of the cmdlet’s query may be influenced using either the –Forest or –Domain parameters.
+The scope of the cmdlet's query may be influenced using either the –Forest or –Domain parameters.
 
 If the HeartbeatUTC value gets stale, this may be a symptom that the Azure AD Password Protection Proxy on that machine is not running or has been uninstalled.
 

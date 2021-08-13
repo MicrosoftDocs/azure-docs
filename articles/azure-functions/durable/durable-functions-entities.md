@@ -1,13 +1,9 @@
 ---
 title: Durable entities - Azure Functions
 description: Learn what durable entities are and how to use them in the Durable Functions extension for Azure Functions.
-services: functions
 author: cgillum
-manager: jeconnoc
-keywords:
-ms.service: azure-functions
 ms.topic: overview
-ms.date: 11/02/2019
+ms.date: 12/17/2019
 ms.author: azfuncdf
 #Customer intent: As a developer, I want to learn what durable entities are and how to use them to solve distributed, stateful problems in my applications.
 ---
@@ -18,13 +14,16 @@ Entity functions define operations for reading and updating small pieces of stat
 Entities provide a means for scaling out applications by distributing the work across many entities, each with a modestly sized state.
 
 > [!NOTE]
-> Entity functions and related functionality is only available in Durable Functions 2.0 and above.
+> Entity functions and related functionality are only available in [Durable Functions 2.0](durable-functions-versions.md#migrate-from-1x-to-2x) and above. They are currently supported in .NET, JavaScript, and Python.
 
 ## General concepts
 
 Entities behave a bit like tiny services that communicate via messages. Each entity has a unique identity and an internal state (if it exists). Like services or objects, entities perform operations when prompted to do so. When an operation executes, it might update the internal state of the entity. It might also call external services and wait for a response. Entities communicate with other entities, orchestrations, and clients by using messages that are implicitly sent via reliable queues. 
 
-To prevent conflicts, all operations on a single entity are guaranteed to execute serially, that is, one after another. 
+To prevent conflicts, all operations on a single entity are guaranteed to execute serially, that is, one after another.
+
+> [!NOTE]
+> When an entity is invoked, it processes its payload to completion and then schedules a new execution to activate once future inputs arrive. As a result, your entity execution logs might show an extra execution after each entity invocation; this is expected.
 
 ### Entity ID
 Entities are accessed via a unique identifier, the *entity ID*. An entity ID is simply a pair of strings that uniquely identifies an entity instance. It consists of an:
@@ -41,6 +40,7 @@ To invoke an operation on an entity, specify the:
 * **Entity ID** of the target entity.
 * **Operation name**, which is a string that specifies the operation to perform. For example, the `Counter` entity could support `add`, `get`, or `reset` operations.
 * **Operation input**, which is an optional input parameter for the operation. For example, the add operation can take an integer amount as the input.
+* **Scheduled time**, which is an optional parameter for specifying the delivery time of the operation. For example, an operation can be reliably scheduled to run several days in the future.
 
 Operations can return a result value or an error result, such as a JavaScript error or a .NET exception. This result or error can be observed by orchestrations that called the operation.
 
@@ -48,11 +48,13 @@ An entity operation can also create, read, update, and delete the state of the e
 
 ## Define entities
 
-Currently, the two distinct APIs for defining entities are a:
+Currently, the two distinct APIs for defining entities are:
 
 **Function-based syntax**, where entities are represented as functions and operations are explicitly dispatched by the application. This syntax works well for entities with simple state, few operations, or a dynamic set of operations like in application frameworks. This syntax can be tedious to maintain because it doesn't catch type errors at compile time.
 
-**Class-based syntax**, where entities and operations are represented by classes and methods. This syntax produces more easily readable code and allows operations to be invoked in a type-safe way. The class-based syntax is a thin layer on top of the function-based syntax, so both variants can be used interchangeably in the same application.
+**Class-based syntax (.NET only)**, where entities and operations are represented by classes and methods. This syntax produces more easily readable code and allows operations to be invoked in a type-safe way. The class-based syntax is a thin layer on top of the function-based syntax, so both variants can be used interchangeably in the same application.
+
+# [C#](#tab/csharp)
 
 ### Example: Function-based syntax - C#
 
@@ -106,11 +108,13 @@ The state of this entity is an object of type `Counter`, which contains a field 
 
 For more information on the class-based syntax and how to use it, see [Defining entity classes](durable-functions-dotnet-entities.md#defining-entity-classes).
 
+# [JavaScript](#tab/javascript)
+
 ### Example: JavaScript entity
 
 Durable entities are available in JavaScript starting with version **1.3.0** of the `durable-functions` npm package. The following code is the `Counter` entity implemented as a durable function written in JavaScript.
 
-**function.json**
+**Counter/function.json**
 ```json
 {
   "bindings": [
@@ -124,7 +128,7 @@ Durable entities are available in JavaScript starting with version **1.3.0** of 
 }
 ```
 
-**index.js**
+**Counter/index.js**
 ```javascript
 const df = require("durable-functions");
 
@@ -144,6 +148,48 @@ module.exports = df.entity(function(context) {
     }
 });
 ```
+# [Python](#tab/python)
+
+### Example: Python entity
+
+The following code is the `Counter` entity implemented as a durable function written in Python.
+
+**Counter/function.json**
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "context",
+      "type": "entityTrigger",
+      "direction": "in"
+    }
+  ]
+}
+```
+
+**Counter/__init__.py**
+```Python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def entity_function(context: df.DurableEntityContext):
+    current_value = context.get_state(lambda: 0)
+    operation = context.operation_name
+    if operation == "add":
+        amount = context.get_input()
+        current_value += amount
+    elif operation == "reset":
+        current_value = 0
+    elif operation == "get":
+        context.set_result(current_value)
+    context.set_state(current_value)
+
+
+main = df.Entity.create(entity_function)
+```
+---
 
 ## Access entities
 
@@ -160,12 +206,14 @@ Entities can be accessed from within client functions, from within orchestrator 
 
 The following examples illustrate these various ways of accessing entities.
 
-> [!NOTE]
-> For simplicity, the following examples show the loosely typed syntax for accessing entities. In general, we recommend that you [access entities through interfaces](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) because it provides more type checking.
-
 ### Example: Client signals an entity
 
-To access entities from an ordinary Azure Function, which is also known as a client function, use the [entity client output binding](durable-functions-bindings.md#entity-client). The following example shows a queue-triggered function signaling an entity using this binding.
+To access entities from an ordinary Azure Function, which is also known as a client function, use the [entity client binding](durable-functions-bindings.md#entity-client). The following example shows a queue-triggered function signaling an entity using this binding.
+
+# [C#](#tab/csharp)
+
+> [!NOTE]
+> For simplicity, the following examples show the loosely typed syntax for accessing entities. In general, we recommend that you [access entities through interfaces](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) because it provides more type checking.
 
 ```csharp
 [FunctionName("AddFromQueue")]
@@ -180,21 +228,40 @@ public static Task Run(
 }
 ```
 
+# [JavaScript](#tab/javascript)
+
 ```javascript
 const df = require("durable-functions");
 
 module.exports = async function (context) {
     const client = df.getClient(context);
     const entityId = new df.EntityId("Counter", "myCounter");
-    await context.df.signalEntity(entityId, "add", 1);
+    await client.signalEntity(entityId, "add", 1);
 };
 ```
+
+# [Python](#tab/python)
+
+```Python
+from azure.durable_functions import DurableOrchestrationClient
+import azure.functions as func
+
+
+async def main(req: func.HttpRequest, starter: str, message):
+    client = DurableOrchestrationClient(starter)
+    entityId = df.EntityId("Counter", "myCounter")
+    await client.signal_entity(entityId, "add", 1)
+```
+
+---
 
 The term *signal* means that the entity API invocation is one-way and asynchronous. It's not possible for a client function to know when the entity has processed the operation. Also, the client function can't observe any result values or exceptions. 
 
 ### Example: Client reads an entity state
 
 Client functions can also query the state of an entity, as shown in the following example:
+
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("QueryCounter")]
@@ -203,10 +270,12 @@ public static async Task<HttpResponseMessage> Run(
     [DurableClient] IDurableEntityClient client)
 {
     var entityId = new EntityId(nameof(Counter), "myCounter");
-    JObject state = await client.ReadEntityStateAsync<JObject>(entityId);
-    return req.CreateResponse(HttpStatusCode.OK, state);
+    EntityStateResponse<JObject> stateResponse = await client.ReadEntityStateAsync<JObject>(entityId);
+    return req.CreateResponse(HttpStatusCode.OK, stateResponse.EntityState);
 }
 ```
+
+# [JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -214,15 +283,25 @@ const df = require("durable-functions");
 module.exports = async function (context) {
     const client = df.getClient(context);
     const entityId = new df.EntityId("Counter", "myCounter");
-    return context.df.readEntityState(entityId);
+    const stateResponse = await client.readEntityState(entityId);
+    return stateResponse.entityState;
 };
 ```
+
+# [Python](#tab/python)
+
+> [!NOTE]
+> Python does not currently support reading entity states from a client. Use an orchestrator's `callEntity` instead.
+
+---
 
 Entity state queries are sent to the Durable tracking store and return the entity's most recently persisted state. This state is always a "committed" state, that is, it's never a temporary intermediate state assumed in the middle of executing an operation. However, it's possible that this state is stale compared to the entity's in-memory state. Only orchestrations can read an entity's in-memory state, as described in the following section.
 
 ### Example: Orchestration signals and calls an entity
 
 Orchestrator functions can access entities by using APIs on the [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger). The following example code shows an orchestrator function calling and signaling a `Counter` entity.
+
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CounterOrchestration")]
@@ -241,6 +320,8 @@ public static async Task Run(
 }
 ```
 
+# [JavaScript](#tab/javascript)
+
 ```javascript
 const df = require("durable-functions");
 
@@ -249,12 +330,28 @@ module.exports = df.orchestrator(function*(context){
 
     // Two-way call to the entity which returns a value - awaits the response
     currentValue = yield context.df.callEntity(entityId, "get");
-    if (currentValue < 10) {
-        // One-way signal to the entity which updates the value - does not await a response
-        yield context.df.signalEntity(entityId, "add", 1);
-    }
 });
 ```
+
+> [!NOTE]
+> JavaScript does not currently support signaling an entity from an orchestrator. Use `callEntity` instead.
+
+# [Python](#tab/python)
+
+```Python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    entityId = df.EntityId("Counter", "myCounter")
+    current_value = yield context.call_entity(entityId, "get")
+    if current_value < 10:
+        context.signal_entity(entityId, "add", 1)
+    return state
+```
+
+---
 
 Only orchestrations are capable of calling entities and getting a response, which could be either a return value or an exception. Client functions that use the [client binding](durable-functions-bindings.md#entity-client) can only signal entities.
 
@@ -265,6 +362,8 @@ Only orchestrations are capable of calling entities and getting a response, whic
 
 An entity function can send signals to other entities, or even itself, while it executes an operation.
 For example, we can modify the previous `Counter` entity example so that it sends a "milestone-reached" signal to some monitor entity when the counter reaches the value 100.
+
+# [C#](#tab/csharp)
 
 ```csharp
    case "add":
@@ -279,6 +378,8 @@ For example, we can modify the previous `Counter` entity example so that it send
         break;
 ```
 
+# [JavaScript](#tab/javascript)
+
 ```javascript
     case "add":
         const amount = context.df.getInput();
@@ -290,7 +391,14 @@ For example, we can modify the previous `Counter` entity example so that it send
         break;
 ```
 
-## Entity coordination
+# [Python](#tab/python)
+
+> [!NOTE]
+> Python does not support entity-to-entity signals yet. Please use an orchestrator for signaling entities instead.
+
+---
+
+## <a name="entity-coordination"></a>Entity coordination (currently .NET only)
 
 There might be times when you need to coordinate operations across multiple entities. For example, in a banking application, you might have entities that represent individual bank accounts. When you transfer funds from one account to another, you must ensure that the source account has sufficient funds. You also must ensure that updates to both the source and destination accounts are done in a transactionally consistent way.
 
@@ -390,7 +498,6 @@ There are some important differences that are worth noting:
 * Request-response patterns in entities are limited to orchestrations. From within entities, only one-way messaging (also known as signaling) is permitted, as in the original actor model, and unlike grains in Orleans. 
 * Durable entities don't deadlock. In Orleans, deadlocks can occur and don't resolve until messages time out.
 * Durable entities can be used in conjunction with durable orchestrations and support distributed locking mechanisms. 
-
 
 ## Next steps
 

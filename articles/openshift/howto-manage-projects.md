@@ -4,14 +4,20 @@ description: Manage projects, templates, image-streams in an Azure Red Hat OpenS
 services: openshift
 keywords:  red hat openshift projects requests self-provisioner
 author: mjudeikis
-ms.author: b-majude
+ms.author: gwallace
 ms.date: 07/19/2019
 ms.topic: conceptual
-ms.service: container-service
+ms.service: azure-redhat-openshift
 #Customer intent: As a developer, I need to understand how to manage Openshift projects and development resources
 ---
 
-# Manage projects, templates, image-streams in an Azure Red Hat OpenShift cluster 
+# Manage projects, templates, image-streams in an Azure Red Hat OpenShift cluster
+
+> [!IMPORTANT]
+> Azure Red Hat OpenShift 3.11 will be retired 30 June 2022. Support for creation of new Azure Red Hat OpenShift 3.11 clusters continues through 30 November 2020. Following retirement, remaining Azure Red Hat OpenShift 3.11 clusters will be shut down to prevent security vulnerabilities.
+> 
+> Follow this guide to [create an Azure Red Hat OpenShift 4 cluster](tutorial-create-cluster.md).
+> If you have specific questions, [please contact us](mailto:arofeedback@microsoft.com).
 
 In an OpenShift Container Platform, projects are used to group and isolate related objects. As an administrator, you can give developers access to specific projects, allow them to create their own projects, and grant them administrative rights to individual projects.
 
@@ -63,7 +69,7 @@ You can prevent an authenticated user group from self-provisioning new projects.
 2. Edit the self-provisioners cluster role binding.
 
    ```
-   oc edit clusterrolebinding self-provisioners
+   oc edit clusterrolebinding.rbac.authorization.k8s.io self-provisioners
    ```
 
 3. Remove the role from the ARO update process by adding the following annotation: `openshift.io/reconcile-protect: "true"`.
@@ -79,7 +85,7 @@ You can prevent an authenticated user group from self-provisioning new projects.
 4. Change the cluster role binding to prevent `system:authenticated:oauth` from creating projects:
 
    ```
-   apiVersion: authorization.openshift.io/v1
+   apiVersion: rbac.authorization.k8s.io/v1
    groupNames:
    - osa-customer-admins
    kind: ClusterRoleBinding

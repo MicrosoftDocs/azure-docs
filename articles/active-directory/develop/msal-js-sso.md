@@ -1,25 +1,20 @@
 ---
-title: Single sign-on (Microsoft Authentication Library for JavaScript) 
+title: Single sign-on (MSAL.js) | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about building single sign-on experiences using the Microsoft Authentication Library for JavaScript (MSAL.js).
 services: active-directory
-documentationcenter: dev-center-name
-author: navyasric
+author: mmacy
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/24/2019
-ms.author: nacanuma
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about enabling single sign on experiences with MSAL.js library so I can decide if this platform meets my application development needs and requirements.
-ms.collection: M365-identity-device-management
 ---
 
 # Single sign-on with MSAL.js
@@ -49,7 +44,7 @@ const myMSALObj = new UserAgentApplication(config);
 
 ## SSO between apps
 
-When a user authenticates, a session cookie is set on the Azure AD domain in the browser. MSAL.js relies on this session cookie to provide SSO for the user between different applications. MSAL.js also caches the ID tokens and access tokens of the user in the browser storage per application domain. As a result, the SSO behavior varies for different cases:  
+When a user authenticates, a session cookie is set on the Azure AD domain in the browser. MSAL.js relies on this session cookie to provide SSO for the user between different applications. MSAL.js also caches the ID tokens and access tokens of the user in the browser storage per application domain. As a result, the SSO behavior varies for different cases:
 
 ### Applications on the same domain
 
@@ -78,7 +73,7 @@ var request = {
 userAgentApplication.acquireTokenSilent(request).then(function(response) {
         const token = response.accessToken
     }
-).catch(function (error) {  
+).catch(function (error) {
         //handle error
 });
 ```
@@ -134,14 +129,14 @@ var request = {
 userAgentApplication.acquireTokenSilent(request).then(function(response) {
         const token = response.accessToken
     }
-).catch(function (error) {  
+).catch(function (error) {
         //handle error
 });
 ```
 
 ## SSO in ADAL.js to MSAL.js update
 
-MSAL.js brings feature parity with ADAL.js for Azure AD authentication scenarios. To make the migration from ADAL.js to MSAL.js easy and to avoid prompting your users to sign in again, the library reads the ID token representing user’s session in ADAL.js cache, and seamlessly signs in the user in MSAL.js.  
+MSAL.js brings feature parity with ADAL.js for Azure AD authentication scenarios. To make the migration from ADAL.js to MSAL.js easy and to avoid prompting your users to sign in again, the library reads the ID token representing user’s session in ADAL.js cache, and seamlessly signs in the user in MSAL.js.
 
 To take advantage of the single sign-on (SSO) behavior when updating from ADAL.js, you will need to ensure the libraries are using `localStorage` for caching tokens. Set the `cacheLocation` to `localStorage` in both the MSAL.js and ADAL.js configuration at initialization as follows:
 

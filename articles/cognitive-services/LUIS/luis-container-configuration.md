@@ -3,14 +3,14 @@ title: Docker container settings - LUIS
 titleSuffix: Azure Cognitive Services
 description: The LUIS container runtime environment is configured using the `docker run` command arguments. LUIS has several required settings, along with a few optional settings.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 # Configure Language Understanding Docker containers 
@@ -24,7 +24,7 @@ This container has the following configuration settings:
 |Required|Setting|Purpose|
 |--|--|--|
 |Yes|[ApiKey](#apikey-setting)|Used to track billing information.|
-|No|[ApplicationInsights](#applicationinsights-setting)|Allows you to add [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) telemetry support to your container.|
+|No|[ApplicationInsights](#applicationinsights-setting)|Allows you to add [Azure Application Insights](/azure/application-insights) telemetry support to your container.|
 |Yes|[Billing](#billing-setting)|Specifies the endpoint URI of the service resource on Azure.|
 |Yes|[Eula](#eula-setting)| Indicates that you've accepted the license for the container.|
 |No|[Fluentd](#fluentd-settings)|Write log and, optionally, metric data to a Fluentd server.|
@@ -162,5 +162,5 @@ Logging:Console:LogLevel:Default=Information
 ## Next steps
 
 * Review [How to install and run containers](luis-container-howto.md)
-* Refer to [Troubleshooting](troubleshooting.md) to resolve issues related to LUIS functionality.
+* Refer to [Troubleshooting](troubleshooting.yml) to resolve issues related to LUIS functionality.
 * Use more [Cognitive Services Containers](../cognitive-services-container-support.md)

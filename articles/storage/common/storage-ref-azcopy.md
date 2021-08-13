@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy command.
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
@@ -12,7 +12,7 @@ ms.reviewer: zezha-msft
 
 # azcopy
 
-AzCopy is a command-line tool that moves data into and out of Azure Storage.
+AzCopy is a command-line tool that moves data into and out of Azure Storage. See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and learn about the ways that you can provide authorization credentials to the storage service.
 
 ## Synopsis
 
@@ -20,13 +20,22 @@ The general format of the commands is: `azcopy [command] [arguments] --[flag-nam
 
 To report issues or to learn more about the tool, see [https://github.com/Azure/azure-storage-azcopy](https://github.com/Azure/azure-storage-azcopy).
 
+## Related conceptual articles
+
+- [Get started with AzCopy](storage-use-azcopy-v10.md)
+- [Tutorial: Migrate on-premises data to cloud storage with AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
+- [Transfer data with AzCopy and Blob storage](./storage-use-azcopy-v10.md#transfer-data)
+- [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
+
 ## Options
 
-**--cap-mbps uint32**   Caps the transfer rate, in megabits per second. Moment-by-moment throughput might vary slightly from the cap. If this option is set to zero, or it is omitted, the throughput isn't capped.
+**--cap-mbps** (float)  Caps the transfer rate, in megabits per second. Moment-by-moment throughput might vary slightly from the cap. If this option is set to zero, or it is omitted, the throughput isn't capped.
 
-**-h, --help** Help for azcopy
+**--help** Help for azcopy
       
-**--output-type**  Format of the command's output. The choices include: text, json. The default value is 'text'. (default "text")
+**--output-type**  (string) Format of the command's output. The choices include: text, json. The default value is `text`. (default `text`)
+
+**--trusted-microsoft-suffixes** (string) Specifies additional domain suffixes where Azure Active Directory login tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.
 
 ## See also
 

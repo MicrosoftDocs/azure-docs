@@ -1,30 +1,25 @@
 ---
-title: Use Internet Explorer (Microsoft Authentication Library for JavaScript) 
+title: Issues on Internet Explorer (MSAL.js) | Azure
 titleSuffix: Microsoft identity platform
-description: Learn about using the Microsoft Authentication Library for JavaScript (MSAL.js) with Internet Explorer browser.
+description: Use the Microsoft Authentication Library for JavaScript (MSAL.js) with Internet Explorer browser.
 services: active-directory
-documentationcenter: dev-center-name
-author: navyasric
+author: mmacy
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/16/2019
-ms.author: nacanuma
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about issues with MSAL.js library so I can decide if this platform meets my application development needs and requirements.
-ms.collection: M365-identity-device-management
 ---
 
-# Use Internet Explorer and Microsoft Edge browsers with MSAL.js
+# Known issues on Internet Explorer browsers (MSAL.js)
 
-Microsoft Authentication Library for JavaScript (MSAL.js) is generated for [JavaScript ES5](https://fr.wikipedia.org/wiki/ECMAScript#ECMAScript_Edition_5_.28ES5.29) so that it can run in Internet Explorer. There are, however, a few things to know.
+The Microsoft Authentication Library for JavaScript (MSAL.js) is generated for [JavaScript ES5](https://fr.wikipedia.org/wiki/ECMAScript#ECMAScript_Edition_5_.28ES5.29) so that it can run in Internet Explorer. There are, however, a few things to know.
 
 ## Run an app in Internet Explorer
 If you intend to use MSAL.js in applications that can run in Internet Explorer, you will need to add a reference to a promise polyfill before referencing the MSAL.js script.
@@ -41,7 +36,7 @@ This is because Internet Explorer does not support JavaScript promises natively.
 Deploying your application to production (for instance in Azure Web apps) normally works fine, provided the end user has accepted popups. We tested it with Internet Explorer 11.
 
 ### Running locally
-If you want to run and debug locally your application running in Internet Explorer, you need to be aware of the following considerations (assume that you want to run your application as *http://localhost:1234*):
+If you want to run and debug locally your application running in Internet Explorer, be aware of the following considerations (assume that you want to run your application as *http://localhost:1234*):
 
 - Internet Explorer has a security mechanism named "protected mode", which prevents MSAL.js from working correctly. Among the symptoms, after you sign in, the page can be redirected to http://localhost:1234/null.
 

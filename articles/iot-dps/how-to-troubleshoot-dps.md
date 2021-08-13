@@ -1,18 +1,19 @@
 ---
 title: Diagnose and troubleshoot disconnects with Azure IoT Hub DPS
-description: Learn to diagnose and troubleshoot common errors with device connectivity for Azure IoT Hub DPS
+description: Learn to diagnose and troubleshoot common errors with device connectivity for Azure IoT Hub Device Provisioning Service (DPS)
 author: xujing-ms
 manager: nberdy
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 02/14/2021
 ms.author: xujing
-# As an operator for Azure IoT Hub DPS, I need to know how to find out when devices are disconnecting unexpectedly and troubleshoot resolve those issues right away
+#Customer intent: As an operator for Azure IoT Hub DPS, I need to know how to find out when devices are disconnecting unexpectedly and troubleshoot resolve those issues right away.
 ---
+
 # Troubleshooting with Azure IoT Hub Device Provisioning Service
 
-Connectivity issues for IoT devices can be difficult to troubleshoot because there are many possible points of failures such as attestation failures, registration failures etc. This article provides guidance on how to detect and troubleshoot device connectivity issues via [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
+Connectivity issues for IoT devices can be difficult to troubleshoot because there are many possible points of failures such as attestation failures, registration failures etc. This article provides guidance on how to detect and troubleshoot device connectivity issues via [Azure Monitor](../azure-monitor/overview.md).
 
 ## Using Azure Monitor to view metrics and set up alerts
 
@@ -39,7 +40,7 @@ The following procedure describes how to view and set up alert on IoT Hub Device
 
 7. Select **Add condition**, then select the desired metric and threshold by following prompts.
 
-To learn more, see [What are classic alerts in Microsoft Azure?](../azure-monitor/platform/alerts-overview.md)
+To learn more, see [alerts in Azure Monitor](../azure-monitor/alerts/alerts-overview.md).
 
 ## Using Log Analytic to view and resolve errors
 
@@ -76,5 +77,5 @@ Use this table to understand and resolve common errors.
 | 401 | The authorization token cannot be validated; for example, it is expired or does not apply to the request’s URI. This error code is also returned to devices as part of the TPM attestation flow. | 401 Unauthorized|
 | 404 | The Device Provisioning Service instance, or a resource (e.g. an enrollment) does not exist. |404 Not Found |
 | 412 | The ETag in the request does not match the ETag of the existing resource, as per RFC7232. | 412 Precondition failed |
-| 429 | Operations are being throttled by the service. For specific service limits, see [IoT Hub Device Provisioning Service limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits). | 429 Too many requests |
+| 429 | Operations are being throttled by the service. For specific service limits, see [IoT Hub Device Provisioning Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-device-provisioning-service-limits). | 429 Too many requests |
 | 500 | An internal error occurred. | 500 Internal Server Error|

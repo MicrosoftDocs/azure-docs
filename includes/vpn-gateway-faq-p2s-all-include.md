@@ -5,9 +5,9 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 05/23/2019
+ ms.date: 06/15/2021
  ms.author: cherylmc
- ms.custom: include file
+ ms.custom: include file, devx-track-azurepowershell
 ---
 ### How many VPN client endpoints can I have in my Point-to-Site configuration?
 
@@ -17,14 +17,14 @@ It depends on the gateway SKU. For more information on the number of connections
 
 The following client operating systems are supported:
 
-* Windows 7 (32-bit and 64-bit)
 * Windows Server 2008 R2 (64-bit only)
 * Windows 8.1 (32-bit and 64-bit)
 * Windows Server 2012 (64-bit only)
 * Windows Server 2012 R2 (64-bit only)
 * Windows Server 2016 (64-bit only)
+* Windows Server 2019 (64-bit only)
 * Windows 10
-* Mac OS X version 10.11 or above
+* macOS version 10.11 or above
 * Linux (StrongSwan)
 * iOS
 
@@ -52,9 +52,13 @@ Auto-reconnect and DDNS are currently not supported in Point-to-Site VPNs.
 
 Yes. For the Resource Manager deployment model, you must have a RouteBased VPN type for your gateway. For the classic deployment model, you need a dynamic gateway. We do not support Point-to-Site for static routing VPN gateways or PolicyBased VPN gateways.
 
+### Can I configure a Point-to-Site client to connect to multiple virtual network gateways at the same time?
+
+Depending on the VPN Client software used, you may be able to connect to multiple Virtual Network Gateways provided the virtual networks being connected to do not have conflicting address spaces between them or the network from with the client is connecting from.  While the Azure VPN Client supports many VPN connections, only one connection can be Connected at any given time.
+
 ### Can I configure a Point-to-Site client to connect to multiple virtual networks at the same time?
 
-No. A Point-to-Site client can only connect to resources in the VNet in which the virtual network gateway resides.
+Yes, Point-to-Site client connections to a virtual network gateway that is deployed in a VNet which is peered with other VNets may have access to other peered VNets. Point-to-Site clients will be able to connect to peered VNets as long as the peered VNets are using the UseRemoteGateway / AllowGatewayTransit features. For more information, see [About Point-to-Site routing](../articles/vpn-gateway/vpn-gateway-about-point-to-site-routing.md).
 
 ### How much throughput can I expect through Site-to-Site or Point-to-Site connections?
 
@@ -62,15 +66,21 @@ It's difficult to maintain the exact throughput of the VPN tunnels. IPsec and SS
 
 ### Can I use any software VPN client for Point-to-Site that supports SSTP and/or IKEv2?
 
-No. You can only use the native VPN client on Windows for SSTP, and the native VPN client on Mac for IKEv2. However, you can use the OpenVPN client on all platforms to connect over OpenVPN protocol. Refer to the list of supported client operating systems.
+No. You can only use the native VPN client on Windows for SSTP, and the native VPN client on Mac for IKEv2. However, you can use the OpenVPN client on all platforms to connect over OpenVPN protocol. Refer to the list of [supported client operating systems](#supportedclientos).
+
+### Can I change the authentication type for a Point-to-Site connection?
+
+Yes. In the portal, navigate to the **VPN gateway -> Point-to-site configuration** page. For **Authentication type**, select the authentication types that you want to use . Please note that after you make a change to an authentication type, current clients may not be able to connect until a new VPN client configuration profile has been generated, downloaded, and applied to each VPN client.
 
 ### Does Azure support IKEv2 VPN with Windows?
 
-IKEv2 is supported on Windows 10 and Server 2016. However, in order to use IKEv2, you must install updates and set a registry key value locally. OS versions prior to Windows 10 are not supported and can only use SSTP or **OpenVPN® Protocol**.
+IKEv2 is supported on Windows 10 and Server 2016. However, in order to use IKEv2 in certain OS versions, you must install updates and set a registry key value locally. Note that OS versions prior to Windows 10 are not supported and can only use SSTP or **OpenVPN® Protocol**.
+
+> NOTE: Windows OS builds newer than Windows 10 Version 1709 and Windows Server 2016 Version 1607 do not require these steps.
 
 To prepare Windows 10 or Server 2016 for IKEv2:
 
-1. Install the update.
+1. Install the update based on your OS version:
 
    | OS version | Date | Number/Link |
    |---|---|---|
@@ -87,8 +97,26 @@ When you configure both SSTP and IKEv2 in a mixed environment (consisting of Win
 
 ### Other than Windows and Mac, which other platforms does Azure support for P2S VPN?
 
-Azure supports Windows, Mac and Linux for P2S VPN.
+Azure supports Windows, Mac, and Linux for P2S VPN.
 
 ### I already have an Azure VPN Gateway deployed. Can I enable RADIUS and/or IKEv2 VPN on it?
 
-Yes, you can enable these new features on already deployed gateways using Powershell or the Azure portal, provided that the gateway SKU that you are using supports RADIUS and/or IKEv2. For example, the VPN gateway Basic SKU does not support RADIUS or IKEv2.
+Yes, if the gateway SKU that you are using supports RADIUS and/or IKEv2, you can enable these features on gateways that you've already deployed by using PowerShell or the Azure portal. Note that the Basic SKU does not support RADIUS or IKEv2.
+
+### <a name="removeconfig"></a>How do I remove the configuration of a P2S connection?
+
+A P2S configuration can be removed using Azure CLI and PowerShell using the following commands:
+
+#### Azure PowerShell
+
+```azurepowershell-interactive
+$gw=Get-AzVirtualNetworkGateway -name <gateway-name>`  
+$gw.VPNClientConfiguration = $null`  
+Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw`
+```
+
+#### Azure CLI
+
+```azurecli-interactive
+az network vnet-gateway update --name <gateway-name> --resource-group <resource-group name> --remove "vpnClientConfiguration"
+```

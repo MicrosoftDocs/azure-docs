@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/19/2018
 ms.subservice: hybrid
 ms.author: billmath
@@ -38,7 +38,7 @@ When a user tries to sign in to an application secured by Azure AD, and if Pass-
 8. The agent validates the username and password against Active Directory by using standard Windows APIs, which is a similar mechanism to what Active Directory Federation Services (AD FS) uses. The username can be either the on-premises default username, usually `userPrincipalName`, or another attribute configured in Azure AD Connect (known as `Alternate ID`).
 9. The on-premises Active Directory domain controller (DC) evaluates the request and returns the appropriate response (success, failure, password expired, or user locked out) to the agent.
 10. The Authentication Agent, in turn, returns this response back to Azure AD.
-11. Azure AD evaluates the response and responds to the user as appropriate. For example, Azure AD either signs the user in immediately or requests for Azure Multi-Factor Authentication.
+11. Azure AD evaluates the response and responds to the user as appropriate. For example, Azure AD either signs the user in immediately or requests for Azure AD Multi-Factor Authentication.
 12. If the user sign-in is successful, the user can access the application.
 
 The following diagram illustrates all the components and the steps involved:
@@ -50,7 +50,7 @@ The following diagram illustrates all the components and the steps involved:
 - [Quick Start](how-to-connect-pta-quick-start.md): Get up and running on Azure AD Pass-through Authentication.
 - [Migrate from AD FS to Pass-through Authentication](https://aka.ms/adfstoPTADP) - A detailed guide to migrate from AD FS (or other federation technologies) to Pass-through Authentication.
 - [Smart Lockout](../authentication/howto-password-smart-lockout.md): Configure the Smart Lockout capability on your tenant to protect user accounts.
-- [Frequently Asked Questions](how-to-connect-pta-faq.md): Find answers to frequently asked questions.
+- [Frequently Asked Questions](how-to-connect-pta-faq.yml): Find answers to frequently asked questions.
 - [Troubleshoot](tshoot-connect-pass-through-authentication.md): Learn how to resolve common problems with the Pass-through Authentication feature.
 - [Security Deep Dive](how-to-connect-pta-security-deep-dive.md): Get deep technical information on the Pass-through Authentication feature.
 - [Azure AD Seamless SSO](how-to-connect-sso.md): Learn more about this complementary feature.

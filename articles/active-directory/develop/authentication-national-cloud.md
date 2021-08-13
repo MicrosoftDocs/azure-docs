@@ -1,24 +1,19 @@
 ---
-title:  Authentication using Azure Active Directory in national clouds 
+title: Azure AD authentication & national clouds | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about app registration and authentication endpoints for national clouds.
 services: active-directory
-documentationcenter: ''
 author: negoe
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
-ms.subservice: develop    
-ms.devlang: na
+ms.subservice: develop
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: negoe
-ms.reviewer: negoe,CelesteDG
-ms.custom: aaddev
-ms.collection: M365-identity-device-management
+ms.reviewer: marsma, negoe,celested
+ms.custom: aaddev,references_regions
 ---
 
 # National clouds
@@ -56,19 +51,19 @@ The following table lists the base URLs for the Azure AD endpoints used to acqui
 |----------------|-------------------------|
 | Azure AD for US Government | `https://login.microsoftonline.us` |
 | Azure AD Germany| `https://login.microsoftonline.de` |
-| Azure AD China operated by 21Vianet | `https://login.chinacloudapi.cn` |
+| Azure AD China operated by 21Vianet | `https://login.partner.microsoftonline.cn` |
 | Azure AD (global service)| `https://login.microsoftonline.com` |
 
 You can form requests to the Azure AD authorization or token endpoints by using the appropriate region-specific base URL. For example, for Azure Germany:
 
-  - Authorization common endpoint is `https://login.microsoftonline.de/common/oauth2/authorize`.
-  - Token common endpoint is `https://login.microsoftonline.de/common/oauth2/token`.
+- Authorization common endpoint is `https://login.microsoftonline.de/common/oauth2/v2.0/authorize`.
+- Token common endpoint is `https://login.microsoftonline.de/common/oauth2/v2.0/token`.
 
 For single-tenant applications, replace "common" in the previous URLs with your tenant ID or name. An example is `https://login.microsoftonline.de/contoso.com`.
 
 ## Microsoft Graph API
 
-To learn how to call the Microsoft Graph APIs in a national cloud environment, go to [Microsoft Graph in national cloud deployments](https://developer.microsoft.com/graph/docs/concepts/deployments).
+To learn how to call the Microsoft Graph APIs in a national cloud environment, go to [Microsoft Graph in national cloud deployments](/graph/deployments).
 
 > [!IMPORTANT]
 > Certain services and features that are in specific regions of the global service might not be available in all of the national clouds. To find out what services are available, go to [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast).
@@ -77,9 +72,10 @@ To learn how to build an application by using the Microsoft identity platform, f
 
 ## Next steps
 
-Learn more about:
+Learn how to use the [Microsoft Authentication Library (MSAL) in a national cloud environment](msal-national-cloud.md).
 
-- [Azure Government](https://docs.microsoft.com/azure/azure-government/)
-- [Azure China 21Vianet](https://docs.microsoft.com/azure/china/)
-- [Azure Germany](https://docs.microsoft.com/azure/germany/)
-- [Azure AD authentication basics](authentication-scenarios.md)
+National cloud documentation:
+
+- [Azure Government](../../azure-government/index.yml)
+- [Azure China 21Vianet](/azure/china/)
+- [Azure Germany](../../germany/index.yml)
