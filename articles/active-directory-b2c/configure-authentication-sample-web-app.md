@@ -22,9 +22,9 @@ This article uses a sample ASP.NET web application to illustrate how to add Azur
 
 ## Overview
 
-OpenID Connect (OIDC) is an authentication protocol that's built on OAuth 2.0. You can use OIDC to securely sign a user in to an application. This web app sample uses [Microsoft Identity Web](https://www.nuget.org/packages/Microsoft.Identity.Web). Microsoft Identity Web is a set of ASP.NET Core libraries that simplify adding authentication and authorization support to web apps. 
+OpenID Connect (OIDC) is an authentication protocol that's built on OAuth 2.0. You can use OIDC to securely sign users in to an application. This web app sample uses [Microsoft Identity Web](https://www.nuget.org/packages/Microsoft.Identity.Web). Microsoft Identity Web is a set of ASP.NET Core libraries that simplify adding authentication and authorization support to web apps. 
 
-The sign-in flow involves following steps:
+The sign-in flow involves the following steps:
 
 1. Users go to the web app and select **Sign-in**. 
 1. The app initiates an authentication request and redirects users to Azure AD B2C.
@@ -32,7 +32,7 @@ The sign-in flow involves following steps:
 1. After users sign in successfully, Azure AD B2C returns an ID token to the app.
 1. The app validates the ID token, reads the claims, and returns a secure page to users.
 
-When the ID token is expired or the app session is invalidated, the app initiates a new authentication request and redirects users to Azure AD B2C. If the Azure AD B2C [SSO session](session-behavior.md) is active, Azure AD B2C issues an access token without prompting the user to sign in again. If the Azure AD B2C session expires or becomes invalid, the user is prompted to sign in again.
+When the ID token is expired or the app session is invalidated, the app initiates a new authentication request and redirects users to Azure AD B2C. If the Azure AD B2C [SSO session](session-behavior.md) is active, Azure AD B2C issues an access token without prompting users to sign in again. If the Azure AD B2C session expires or becomes invalid, users are prompted to sign in again.
 
 ### Sign-out
 
@@ -40,11 +40,11 @@ When the ID token is expired or the app session is invalidated, the app initiate
 
 ## Prerequisites
 
-A computer that's running either: 
+A computer that's running either of the following: 
 
 # [Visual Studio](#tab/visual-studio)
 
-* [Visual Studio 2019 16.8 or later](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) with the **ASP.NET and web development** workload
+* [Visual Studio 2019 16.8 or later](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019), with the ASP.NET and web development workload
 * [.NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet)
 
 # [Visual Studio Code](#tab/visual-studio-code)
@@ -104,7 +104,7 @@ Extract the sample file to a folder where the total length of the path is 260 or
 
 ## Step 4: Configure the sample web app
 
-In the sample folder, under the `1-WebApp-OIDC/1-5-B2C/` folder, open the **WebApp-OpenIDConnect-DotNet.csproj** project with Visual Studio or Visual Studio Code. 
+In the sample folder, under the *1-WebApp-OIDC/1-5-B2C/* folder, open the **WebApp-OpenIDConnect-DotNet.csproj** project with Visual Studio or Visual Studio Code. 
 
 Under the project root folder, open the *appsettings.json* file. This file contains information about your Azure AD B2C identity provider. Update the following app settings properties: 
 
@@ -131,13 +131,13 @@ Your final configuration file should look like the following JSON:
 
 1. Build and run the project.
 1. Go to [https://localhost:5001](https://localhost:5001). 
-1. Select **SignIn/Up**.
+1. Select **Sign Up/In**.
 
-    ![Select sign-in or sign-up](./media/configure-authentication-sample-web-app/web-app-sign-in.png)
+    ![Screenshot of the "Sign Up/In" button on the project Welcome page.](./media/configure-authentication-sample-web-app/web-app-sign-in.png)
 
 1. Complete the sign-up or sign-in process.
 
-After successful authentication, you'll see your display name in the navigation bar. To view the claims that the Azure AD B2C token returns to your app, select **Claims**.
+After successful authentication, you'll see your display name on the navigation bar. To view the claims that the Azure AD B2C token returns to your app, select **Claims**.
 
 ![Screenshot of the web app token claims.](./media/configure-authentication-sample-web-app/web-app-token-claims.png)
 
@@ -152,5 +152,5 @@ You can add and modify redirect URIs in your registered applications at any time
 
 ## Next steps
 
-* Learn more [about the code sample](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C#about-the-code).
+* Learn more about [the code sample](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C#about-the-code).
 * Learn how to [Enable authentication in your own web app by using Azure AD B2C](enable-authentication-web-application.md).
