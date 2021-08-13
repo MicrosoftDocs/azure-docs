@@ -29,11 +29,11 @@ Azure Policy consists of the objects in the following table. For a more detailed
 | Item | Description |
 |:---|:---|
 | Policy definition | This object describes resource compliance conditions and the effect to take if a condition is met. It might be all resources of a particular type or only resources that match certain properties. The effect might be to simply flag the resource for compliance or to deploy a related resource. Policy definitions are written in JSON, as described in [Azure Policy definition structure](../governance/policy/concepts/definition-structure.md). Effects are described in [Understand Azure Policy effects](../governance/policy/concepts/effects.md).
-| Policy initiative | A group of policy definitions that should be applied together is called an initiative. For example, you might have one policy definition to send resource logs to a Log Analytics workspace and another to send resource logs to event hubs. Create an initiative that includes both policy definitions, and apply the initiative to resources instead of the individual policy definitions. Initiatives are written in JSON, as described in [Azure Policy initiative structure](../governance/policy/concepts/initiative-definition-structure.md). |
+| Policy initiative | A group of policy definitions that should be applied together is called an initiative. For example, you might have one policy definition to send resource logs to a Log Analytics workspace and another to send resource logs to an event hub. Create an initiative that includes both policy definitions, and apply the initiative to resources instead of the individual policy definitions. Initiatives are written in JSON, as described in [Azure Policy initiative structure](../governance/policy/concepts/initiative-definition-structure.md). |
 | Assignment | A policy definition or initiative doesn't take effect until it's assigned to a scope. For example, assign a policy to a resource group to apply it to all resources created in that resource, or assign it to a subscription to apply it to all resources in that subscription. For more information, see [Azure Policy assignment structure](../governance/policy/concepts/assignment-structure.md). |
 
 ## Built-in policy definitions for Azure Monitor
-Azure Policy includes several prebuilt definitions related to Azure Monitor. You can assign these policy definitions to your existing subscription or use them as a basis to create your own custom definitions. For a complete list of the built-in policies in the **Monitoring** category, see [Azure Policy built-in policy definitions for Azure Monitor](.//policy-reference.md).
+Azure Policy includes several prebuilt definitions related to Azure Monitor. You can assign these policy definitions to your existing subscription or use them as a basis to create your own custom definitions. For a complete list of the built-in policies in the **Monitoring** category, see [Azure Policy built-in definitions for Azure Monitor](.//policy-reference.md).
 
 To view the built-in policy definitions related to monitoring:
 
@@ -71,7 +71,7 @@ When you create the assignment by using the Azure portal, you have the option of
 ![Screenshot that shows initiative remediation for the Azure Monitor agent.](media/deploy-scale/built-in-ama-dcr-remediation.png)
 
 ## Diagnostic settings
-[Diagnostic settings](essentials/diagnostic-settings.md) collect resource logs and metrics from Azure resources to multiple locations. A typical location is a Log Analytics workspace, which allows you to analyze the data with [log queries](logs/log-query-overview.md) and [log alerts](alerts/alerts-log.md). Use Azure Policy to automatically create a diagnostic setting each time you create a resource.
+[Diagnostic settings](essentials/diagnostic-settings.md) collect resource logs and metrics from Azure resources and route them to multiple locations. A typical location is a Log Analytics workspace, which allows you to analyze the data with [log queries](logs/log-query-overview.md) and [log alerts](alerts/alerts-log.md). Use Azure Policy to automatically create a diagnostic setting each time you create a resource.
 
 Each Azure resource type has a unique set of categories that need to be listed in the diagnostic setting. Because of this, each resource type requires a separate policy definition. Some resource types have built-in policy definitions that you can assign without modification. For other resource types, you need to create a custom definition.
 

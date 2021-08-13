@@ -71,10 +71,10 @@ If the preceding built-in roles don't meet the exact needs of your team, you can
 | Microsoft.Insights/AutoscaleSettings/[Read, Write, Delete] |Read, write, or delete autoscale settings. |
 | Microsoft.Insights/DiagnosticSettings/[Read, Write, Delete] |Read, write, or delete diagnostic settings. |
 | Microsoft.Insights/EventCategories/Read |Enumerate all categories possible in the Activity Log. Used by the Azure portal. |
-| Microsoft.Insights/eventtypes/digestevents/Read |This permission is necessary for users who need access to Activity Logs via the portal. |
+| Microsoft.Insights/eventtypes/digestevents/Read |This permission is necessary for users who need access to the Activity Log via the portal. |
 | Microsoft.Insights/eventtypes/values/Read |List Activity Log events (management events) in a subscription. This permission applies to both programmatic and portal access to the Activity Log. |
 | Microsoft.Insights/ExtendedDiagnosticSettings/[Read, Write, Delete] | Read, write, or delete diagnostic settings for network flow logs. |
-| Microsoft.Insights/LogDefinitions/Read |This permission is necessary for users who need access to Activity Logs via the portal. |
+| Microsoft.Insights/LogDefinitions/Read |This permission is necessary for users who need access to the Activity Log via the portal. |
 | Microsoft.Insights/LogProfiles/[Read, Write, Delete] |Read, write, or delete log profiles (streaming the Activity Log to an event hub or storage account). |
 | Microsoft.Insights/MetricAlerts/[Read, Write, Delete] |Read, write, or delete near-real-time metric alerts. |
 | Microsoft.Insights/MetricDefinitions/Read |Read metric definitions (list of available metric types for a resource). |
@@ -83,9 +83,9 @@ If the preceding built-in roles don't meet the exact needs of your team, you can
 | Microsoft.Insights/ScheduledQueryRules/[Read, Write, Delete] |Read, write, or delete log alerts in Azure Monitor. |
 
 > [!NOTE]
-> Access to alerts, diagnostic settings, and metrics for a resource requires that the user has read access to the resource type and scope of that resource. Creating (writing) a diagnostic setting or log profile that archives to a storage account or streams to event hubs requires the user to also have ListKeys permission on the target resource. 
+> Access to alerts, diagnostic settings, and metrics for a resource requires that the user has read access to the resource type and scope of that resource. Creating (writing) a diagnostic setting or a log profile that archives to a storage account or streams to event hubs requires the user to also have ListKeys permission on the target resource. 
 
-For example, you can use the preceding table to create an Azure custom role for an "Activity Log Reader" like this:
+For example, you can use the preceding table to create an Azure custom role for an Activity Log Reader like this:
 
 ```powershell
 $role = Get-AzRoleDefinition "Reader"
@@ -108,7 +108,7 @@ Monitoring data—particularly log files—can contain sensitive information, su
 
 All these data types can be stored in a storage account or streamed to an event hub, both of which are general-purpose Azure resources. Because these are general-purpose resources, creating, deleting, and accessing them is a privileged operation reserved for an administrator. We suggest that you use the following practices for monitoring-related resources to prevent misuse:
 
-* Use a single, dedicated storage account for monitoring data. If you need to separate monitoring data into multiple storage accounts, never share usage of a storage account between monitoring and non-monitoring data. Sharing usage in that way might inadvertently give access to non-monitoring data to organizations that need to access only monitoring data. For example, a third-party organization for security information and event management (SIEM) should need only access to monitoring data.
+* Use a single, dedicated storage account for monitoring data. If you need to separate monitoring data into multiple storage accounts, never share usage of a storage account between monitoring and non-monitoring data. Sharing usage in that way might inadvertently give access to non-monitoring data to organizations that need access to only monitoring data. For example, a third-party organization for security information and event management (SIEM) should need only access to monitoring data.
 * Use a single, dedicated service bus or event hub namespace across all diagnostic settings for the same reason described in the previous point.
 * Limit access to monitoring-related storage accounts or event hubs by keeping them in a separate resource group. [Use scope](../role-based-access-control/overview.md#scope) on your monitoring roles to limit access to only that resource group.
 * Never grant the ListKeys permission for either storage accounts or event hubs at subscription scope when a user needs only access to monitoring data. Instead, give these permissions to the user at a resource or resource group scope (if you have a dedicated monitoring resource group).
@@ -123,7 +123,7 @@ $token = New-AzStorageAccountSASToken -ResourceType Service -Service Blob -Permi
 
 You can then give the token to the entity that needs to read from that storage account. The entity can list and read from all blobs in that storage account.
 
-Alternatively, if you need to control this permission with Azure RBAC, you can grant that entity the `Microsoft.Storage/storageAccounts/listkeys/action` permission on that particular storage account. This permission is necessary for users who need to be able to set a diagnostic setting or log profile to archive to a storage account. For example, you can create the following Azure custom role for a user or application that needs to read from only one storage account:
+Alternatively, if you need to control this permission with Azure RBAC, you can grant that entity the `Microsoft.Storage/storageAccounts/listkeys/action` permission on that particular storage account. This permission is necessary for users who need to be able to set a diagnostic setting or a log profile to archive to a storage account. For example, you can create the following Azure custom role for a user or application that needs to read from only one storage account:
 
 ```powershell
 $role = Get-AzRoleDefinition "Reader"
@@ -145,7 +145,7 @@ New-AzRoleDefinition -Role $role
 You can follow a similar pattern with event hubs, but first you need to create a dedicated authorization rule for listening. If you want to grant access to an application that only needs to listen to monitoring-related event hubs, do the following:
 
 1. In the portal, create a shared access policy on the event hubs that were created for streaming monitoring data with only listening claims. For example, you might call it "monitoringReadOnly." If possible, give that key directly to the consumer and skip the next step.
-2. If the consumer needs to be able to get the key ad hoc, grant the user the ListKeys action for that event hub. This step is also necessary for users who need to be able to set a diagnostic setting or log profile to stream to event hubs. For example, you might create an Azure RBAC rule:
+2. If the consumer needs to be able to get the key ad hoc, grant the user the ListKeys action for that event hub. This step is also necessary for users who need to be able to set a diagnostic setting or a log profile to stream to event hubs. For example, you might create an Azure RBAC rule:
    
    ```powershell
    $role = Get-AzRoleDefinition "Reader"

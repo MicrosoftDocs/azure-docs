@@ -44,7 +44,7 @@ Advantages of a dashboard include:
 - Support for both metrics and logs.
 - The ability to combine data from multiple sources, including output from [Metrics Explorer](essentials/metrics-charts.md), [log queries](logs/log-query-overview.md), and [maps](app/app-map.md), and availability in [Application Insights](app/app-insights-overview.md).
 - Options for personal or shared dashboards through integration with [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
-- Automatic refresh. Metric refresh depends on the time range, with a minimum of five minutes. Logs refresh every hour. You can manually refresh on demand by clicking the **Refresh** icon on a visualization, or by refreshing the full dashboard.
+- Automatic refresh. Metric refresh depends on the time range, with a minimum of five minutes. Logs refresh every hour. You can manually refresh on demand by selecting the **Refresh** icon on a visualization, or by refreshing the full dashboard.
 - Parameterized metric dashboards with time stamps and custom parameters.
 - Flexible layout options.
 - Full-screen mode.
@@ -112,7 +112,7 @@ Limitations include:
 - Potential for additional costs.
 - The need for time to research and evaluate partner offerings.
 
-## Build your own custom application
+## Your own custom application
 You can access metric and log data in Azure Monitor through an API by using any REST client. You can then build your own custom websites and applications.
 
 Advantages of building a custom application include:
@@ -138,7 +138,7 @@ Advantages of views include:
 - The ability to export and import views, to transfer them to other resource groups and subscriptions.
 - Integration into the Azure Monitor management model, with workspaces and monitoring solutions.
 - [Filters](visualize/view-designer-filters.md) for custom parameters.
-- Interactivity, with support for multilevel drill-in (a view that drills in to another view).
+- Interactivity, with support for multilevel drill-in (a view that drills into another view).
 
 Limitations include:
 
