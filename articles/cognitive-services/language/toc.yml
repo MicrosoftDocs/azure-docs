@@ -46,6 +46,12 @@ items:
       href: custom-classification/definitions.md
     - name: Evaluation metrics
       href: custom-classification/concepts/evaluation.md
+- name: Custom text extraction
+  items:
+  - name: Overview
+    href: custom-extraction/overview.md
+  - name: Quickstart
+    href: custom-extraction/quickstart.md
 - name: Entity linking
   items:
   - name: Overview
