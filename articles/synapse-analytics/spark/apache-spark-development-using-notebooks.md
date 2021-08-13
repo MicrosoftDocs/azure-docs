@@ -470,16 +470,16 @@ Widgets are eventful python objects that have a representation in the browser, o
 
 ### To use IPython Widget
 1. You need to import `ipywidgets` module first to use the Jupyter Widget framework.
-   ```py
+   ```python
    import ipywidgets as widgets
    ```
 2. You can use top-level `display` function to render a widget, or leave a expression of **widget** type at the last line of code cell.
-   ```py
+   ```python
    slider = widgets.IntSlider()
    display(slider)
    ```
 
-   ```py
+   ```python
    slider = widgets.IntSlider()
    slider
    ```
@@ -490,7 +490,7 @@ Widgets are eventful python objects that have a representation in the browser, o
 
 4. You can use multiple `display()` calls to render the same widget instance multiple times, but they will remain in sync with each other.
 
-   ```py
+   ```python
    slider = widgets.IntSlider()
    display(slider)
    display(slider)
@@ -500,7 +500,7 @@ Widgets are eventful python objects that have a representation in the browser, o
 
 5. To render two widgets independent of each other, create two widget instances:
 
-   ```py
+   ```python
    slider1 = widgets.IntSlider()
    slider2 = widgets.IntSlider()
    display(slider1)
@@ -508,7 +508,7 @@ Widgets are eventful python objects that have a representation in the browser, o
    ```
 
 
-### We support multiple types of widgets as below:
+### Supported widgets
 
 |Widgets Type|Widgets|
 |--|--|
@@ -520,14 +520,15 @@ Widgets are eventful python objects that have a representation in the browser, o
 |Container/Layout widgets|Box, HBox, VBox, GridBox, Accordion, Tabs, Stacked|
 
 
-### Know Issue
+### Know issue
+
 The following widgets are not supported yet, you could follow workaround as below:
 
-|Widgets|Workaround|
+|Functionality|Workaround|
 |--|--|
-|Output|You can use `print()` function instead to write text into stdout.|
-|jslink|You can use `widgets.link()` function to link two similar widgets.|
-|FileUpload| Not support yet.|
+|`Output` widget|You can use `print()` function instead to write text into stdout.|
+|`widgets.jslink()`|You can use `widgets.link()` function to link two similar widgets.|
+|`FileUpload` widget| Not support yet.|
 
 
 ---
