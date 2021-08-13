@@ -110,7 +110,7 @@ Virtual machine scale sets with Flexible orchestration works as a thin orchestra
 
 1. **Autoscaling with Metrics or Schedule** 
 
-    Alternatively, you can set up autoscale rules to increase or decrease the capacity based on metrics or a schedule. See [Flexible virtual machine scale sets with Autoscaling](flexible-virtual-machine-scale-sets-autoscaling.md). 
+    Alternatively, you can set up autoscale rules to increase or decrease the capacity based on metrics or a schedule. See [Virtual machine scale sets with Autoscaling](..\virtual-machine-scale-sets\virtual-machine-scale-sets-autoscale-overview.md). 
 
 
 ## Explicit Network Outbound Connectivity required 
