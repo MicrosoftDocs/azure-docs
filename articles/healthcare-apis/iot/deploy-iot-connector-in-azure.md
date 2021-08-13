@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 08/09/2021
+ms.date: 08/13/2021
 ms.author: rabhaiya
 ---
 
@@ -20,6 +20,7 @@ In this quickstart, you'll learn how to deploy the IoT Connector in the Azure po
 
 Before getting started, you should have the following prerequisites completed before creating an IoT Connector instance in Azure Healthcare APIs.
 
+* [A free Azure subscription](https://azure.microsoft.com/free/search/?OCID=AID2100131_SEM_c4b0772dc7df1f075552174a854fd4bc:G:s&ef_id=c4b0772dc7df1f075552174a854fd4bc:G:s&msclkid=c4b0772dc7df1f075552174a854fd4bc)
 * [A workspace deployed](../workspace-overview.md)  
 * [A FHIR service deployed](../fhir/fhir-portal-quickstart.md) 
 * [A resource group created](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal)
