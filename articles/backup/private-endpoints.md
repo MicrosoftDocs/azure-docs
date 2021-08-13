@@ -113,7 +113,7 @@ See [Manual approval of private endpoints using the Azure Resource Manager Clien
 
 As described previously, you need the required DNS records in your private DNS zones or servers in order to connect privately. You can either integrate your private endpoint directly with Azure private DNS zones or use your custom DNS servers to achieve this, based on your network preferences. This will need to be done for all three services: Backup, Blobs, and Queues.
 
-Additionally, if your DNS zone or server is present in a subscription that's different than the one containing the private endpoint, also see [Creating DNS entries when the DNS server/DNS zone is present in another subscription](#create-dns-entries-when-the-dns-serverdns-zone-is-present-in-another-subscription). 
+Additionally, if your DNS zone or server is present in a subscription that's different than the one containing the private endpoint, also see [Create DNS entries when the DNS server/DNS zone is present in another subscription](#create-dns-entries-when-the-dns-serverdns-zone-is-present-in-another-subscription). 
 
 ### When integrating private endpoints with Azure private DNS zones
 
