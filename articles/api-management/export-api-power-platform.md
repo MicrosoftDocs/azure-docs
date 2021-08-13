@@ -31,7 +31,7 @@ This article walks through the steps in the Azure portal to create a custom Powe
     1. Select an API to publish to the Power Platform.
     1. Select a Power Platform environment to publish the API to. 
     1. Enter a display name, which will be used as the name of the custom connector.  
-    1. Optionally, if the API is [protected by an OAuth 2.0 server](api-management-howto-protect-backend-with-aad.md), provide details including **Client ID**, **Client secret**, **Authorization URL**, **Token URL, and **Refresh URL**.  
+    1. Optionally, if the API is [protected by an OAuth 2.0 server](api-management-howto-protect-backend-with-aad.md), provide details including **Client ID**, **Client secret**, **Authorization URL**, **Token URL**, and **Refresh URL**.  
 1. Select **Create**. 
 
     :::image type="content" source="media/export-api-power-platform/create-custom-connector.png" alt-text="Create custom connector to API in API Management":::
