@@ -22,7 +22,7 @@ In this article, we use the Language studio to demonstrate key concepts of Custo
 
 ### Create new resource from Azure portal
 
-Go to the [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new resource from Azure. If you're asked to select additional features, select **Skip this step**. When you create your resource, ensure it has the following values to call the custom text classification API.  
+Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new resource from Azure. If you're asked to select additional features, select **Skip this step**. When you create your resource, ensure it has the following values to call the custom text classification API.  
 
 |Requirement  |Required value  |
 |---------|---------|
