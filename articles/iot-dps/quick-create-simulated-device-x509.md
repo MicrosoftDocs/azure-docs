@@ -414,10 +414,10 @@ This article demonstrates an individual enrollment for a single device to be pro
      * Select an IoT hub linked with your provisioning service.
      * Enter a unique device ID. Make sure to avoid sensitive data while naming your device. 
      * Update the **Initial device twin state** with the desired initial configuration for the device.
- 
+
 ::: zone-end
 
-:::image type="content" source="./media/quick-create-simulated-device-x509/device-enrollment.png" alt-text="Add device as individual enrollment with X.509 attestation.":::
+    :::image type="content" source="./media/quick-create-simulated-device-x509/device-enrollment.png" alt-text="Add device as individual enrollment with X.509 attestation.":::
 
 7. Select **Save**. You'll be returned to **Manage enrollments**.
 
