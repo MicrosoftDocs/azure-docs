@@ -33,6 +33,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Grammarly supports **IDP** initiated SSO.
+* Grammarly supports [**automated** user provisioning and deprovisioning](grammarly-provisioning-tutorial.md) (recommended).
 * Grammarly supports **Just In Time** user provisioning.
 
 > [!NOTE]
