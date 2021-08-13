@@ -165,7 +165,6 @@
       href: runtime-troubleshoot.md
     - name: Troubleshoot a .NET upgrade
       href: dotnet-upgrade-troubleshoot.md
-  items:
   - name: What is Data Lake Analytics?
     href: data-lake-analytics-overview.md
 - name: Reference
