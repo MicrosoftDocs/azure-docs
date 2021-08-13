@@ -1,7 +1,7 @@
 ---
-title: Map input to output fields
+title: Map skill output fields
 titleSuffix: Azure Cognitive Search
-description: Extract and enrich source data fields, and map to output fields in an Azure Cognitive Search index.
+description: Export the enriched content created by an skillset by mapping output fields to fields in a search index.
 
 author: LiamCavanagh
 ms.author: liamca
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 08/10/2021
 ---
 
-# How to map AI-enriched fields to a searchable index
+# Map enrichment output to fields in a search index
 
 ![Indexer Stages](./media/cognitive-search-output-field-mapping/indexer-stages-output-field-mapping.png "indexer stages")
 
