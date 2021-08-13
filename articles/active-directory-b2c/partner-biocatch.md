@@ -195,7 +195,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
           <Metadata> 
 
-            <Item Key="ServiceUrl">https://biocatch-url.com/api/v6/score?customerID=<customerid>&amp;action=getScore&amp;uuid=<uuid>&amp;customerSessionID={clientSessionId}&amp;solution=ATO&amp;activtyType=<activity_type>&amp;brand=<brand></Item> 
+            <Item Key="ServiceUrl">https://biocatch-url.com/api/v6/score?customerID=<customerid>&amp;action=getScore&amp;uuid=<uuid>&amp;customerSessionID={clientSessionId}&amp;solution=ATO&amp;activtyType=<activity_type>&amp;brand=<brand></Item>
 
             <Item Key="SendClaimsIn">Url</Item> 
 
@@ -244,48 +244,47 @@ document.getElementById("clientSessionId").style.display = 'none';
    1. If the returned claim *risk* equals *low*, skip the step for MFA, else force user MFA
 
     ```XML
-    <OrchestrationStep Order="8" Type="ClaimsExchange"> 
+    <OrchestrationStep Order="8" Type="ClaimsExchange"> 
 
-              <ClaimsExchanges> 
+          <ClaimsExchanges> 
 
-                <ClaimsExchange Id="clientSessionIdInput" TechnicalProfileReferenceId="login-NonInteractive-clientSessionId" /> 
+            <ClaimsExchange Id="clientSessionIdInput" TechnicalProfileReferenceId="login-NonInteractive-clientSessionId" /> 
 
-              </ClaimsExchanges> 
+          </ClaimsExchanges> 
 
-            </OrchestrationStep> 
+        </OrchestrationStep> 
 
-            <OrchestrationStep Order="9" Type="ClaimsExchange"> 
+        <OrchestrationStep Order="9" Type="ClaimsExchange"> 
 
-              <ClaimsExchanges> 
+          <ClaimsExchanges> 
 
-                <ClaimsExchange Id="BcGetScore" TechnicalProfileReferenceId=" BioCatch-API-GETSCORE" /> 
+            <ClaimsExchange Id="BcGetScore" TechnicalProfileReferenceId=" BioCatch-API-GETSCORE" /> 
 
-              </ClaimsExchanges> 
+          </ClaimsExchanges> 
 
-            </OrchestrationStep> 
+        </OrchestrationStep> 
 
-            <OrchestrationStep Order="10" Type="ClaimsExchange"> 
+        <OrchestrationStep Order="10" Type="ClaimsExchange"> 
 
-              <Preconditions> 
+          <Preconditions> 
 
-                <Precondition Type="ClaimEquals" ExecuteActionsIf="true"> 
+            <Precondition Type="ClaimEquals" ExecuteActionsIf="true"> 
 
-                  <Value>riskLevel</Value> 
+              <Value>riskLevel</Value> 
 
-                  <Value>LOW</Value> 
+              <Value>LOW</Value> 
 
-                  <Action>SkipThisOrchestrationStep</Action> 
+              <Action>SkipThisOrchestrationStep</Action> 
 
-                </Precondition> 
+            </Precondition> 
 
-              </Preconditions> 
+          </Preconditions> 
 
-              <ClaimsExchanges> 
+          <ClaimsExchanges> 
 
-                <ClaimsExchange Id="PhoneFactor-Verify" TechnicalProfileReferenceId="PhoneFactor-InputOrVerify" /> 
+            <ClaimsExchange Id="PhoneFactor-Verify" TechnicalProfileReferenceId="PhoneFactor-InputOrVerify" /> 
 
-              </ClaimsExchanges>  
-
+          </ClaimsExchanges>
     ```
 
 8. Configure on relying party configuration (optional)
@@ -295,54 +294,53 @@ document.getElementById("clientSessionId").style.display = 'none';
     ```XML
     <RelyingParty> 
 
-        <DefaultUserJourney ReferenceId="SignUpOrSignInMfa" /> 
+    <DefaultUserJourney ReferenceId="SignUpOrSignInMfa" /> 
 
-        <UserJourneyBehaviors> 
+    <UserJourneyBehaviors> 
 
-          <SingleSignOn Scope="Tenant" KeepAliveInDays="30" /> 
+      <SingleSignOn Scope="Tenant" KeepAliveInDays="30" /> 
 
-          <SessionExpiryType>Absolute</SessionExpiryType> 
+      <SessionExpiryType>Absolute</SessionExpiryType> 
 
-          <SessionExpiryInSeconds>1200</SessionExpiryInSeconds> 
+      <SessionExpiryInSeconds>1200</SessionExpiryInSeconds> 
 
-          <ScriptExecution>Allow</ScriptExecution> 
+      <ScriptExecution>Allow</ScriptExecution> 
 
-        </UserJourneyBehaviors> 
+    </UserJourneyBehaviors> 
 
-        <TechnicalProfile Id="PolicyProfile"> 
+    <TechnicalProfile Id="PolicyProfile"> 
 
-          <DisplayName>PolicyProfile</DisplayName> 
+      <DisplayName>PolicyProfile</DisplayName> 
 
-          <Protocol Name="OpenIdConnect" /> 
+      <Protocol Name="OpenIdConnect" /> 
 
-          <OutputClaims> 
+      <OutputClaims> 
 
-            <OutputClaim ClaimTypeReferenceId="displayName" /> 
+        <OutputClaim ClaimTypeReferenceId="displayName" /> 
 
-            <OutputClaim ClaimTypeReferenceId="givenName" /> 
+        <OutputClaim ClaimTypeReferenceId="givenName" /> 
 
-            <OutputClaim ClaimTypeReferenceId="surname" /> 
+        <OutputClaim ClaimTypeReferenceId="surname" /> 
 
-            <OutputClaim ClaimTypeReferenceId="email" /> 
+        <OutputClaim ClaimTypeReferenceId="email" /> 
 
-            <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" /> 
+        <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" /> 
 
-            <OutputClaim ClaimTypeReferenceId="identityProvider" />                 
+        <OutputClaim ClaimTypeReferenceId="identityProvider" />                 
 
-            <OutputClaim ClaimTypeReferenceId="riskLevel" /> 
+        <OutputClaim ClaimTypeReferenceId="riskLevel" /> 
 
-            <OutputClaim ClaimTypeReferenceId="score" /> 
+        <OutputClaim ClaimTypeReferenceId="score" /> 
 
-            <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" /> 
+        <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" /> 
 
-          </OutputClaims> 
+      </OutputClaims> 
 
-          <SubjectNamingInfo ClaimType="sub" /> 
+      <SubjectNamingInfo ClaimType="sub" /> 
 
-        </TechnicalProfile> 
+    </TechnicalProfile> 
 
-      </RelyingParty> 
-
+  </RelyingParty>
     ```
 
 ## Integrate with Azure AD B2C
