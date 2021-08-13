@@ -53,7 +53,7 @@ When the workload extension or MARS agent is installed for Recovery Services vau
 
 | Service | Domain names |
 | ------- | ------------ |
-| Azure Backup  | `*. privatelink.<geo>.backup.windowsazure.com` |
+| Azure Backup  | `*.privatelink.<geo>.backup.windowsazure.com` |
 | Azure Storage | *.blob.core.windows.net <br> *.queue.core.windows.net <br> *.blob.storage.azure.net |
 
 >[!Note]
@@ -63,7 +63,7 @@ When the workload extension or MARS agent is installed for Recovery Services vau
 >- [Germany](/azure/germany/germany-developer-guide#endpoint-mapping)
 >- [US Gov](/azure/azure-government/documentation-government-developer-guide)
 
-The storage FQDNs hit in both the scenarios are same. However, for a Recovery Services vault with private endpoint setup, the name resolution for these should result in a private IP  address. This can be achieved by using private DNS zones, by creating DNS entries for storage account in host files, or by using conditional forwarders to custom DNS with the respective DNS entries. The private IP mappings for the storage account are listed in the private endpoint blade for the storage account ion the portal.
+The storage FQDNs hit in both the scenarios are same. However, for a Recovery Services vault with private endpoint setup, the name resolution for these should return a private IP address. This can be achieved by using private DNS zones, by creating DNS entries for storage account in host files, or by using conditional forwarders to custom DNS with the respective DNS entries. The private IP mappings for the storage account are listed in the private endpoint blade for the storage account ion the portal.
 
 >The private endpoints for blobs and queues follow a standard naming pattern, they start with **\<the name of the private endpoint>_ecs** or **\<the name of the private endpoint>_prot**, and are suffixed with **\_blob** and **\_queue** respectively.
 
@@ -89,7 +89,7 @@ The workload backup extension and MARS agent run on Azure VM in a VNET or on-pre
 >- [Germany](/azure/germany/germany-developer-guide#endpoint-mapping)
 >- [US Gov](/azure/azure-government/documentation-government-developer-guide)
 
-The modified URLs are specific for a vault.  See `<vault_id>` in the URL name. Only extensions and agents registered to this vault can communicate with Azure Backup via these endpoints. This restricts the access to the clients within this VNET. The extension/agent will communicate via `*. privatelink.<geo>.backup.windowsazure.com` that need to resolve to corresponding private IP in the NIC.
+The modified URLs are specific for a vault.  See `<vault_id>` in the URL name. Only extensions and agents registered to this vault can communicate with Azure Backup via these endpoints. This restricts the access to the clients within this VNET. The extension/agent will communicate via `*.privatelink.<geo>.backup.windowsazure.com` that needs to resolve the corresponding private IP in the NIC.
 
 When the private endpoint for Recovery Services vaults is created via Azure portal with the **integrate with private DNS zone** option, the required DNS entries for private IP addresses for Azure Backup services (`*.privatelink.<geo>backup.windowsazure.com`) are created automatically whenever the resource is allocated. Otherwise, you need to create the DNS entries manually for these FQDNs in the custom DNS or in the host files.
 
