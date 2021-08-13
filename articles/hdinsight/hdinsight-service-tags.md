@@ -4,7 +4,7 @@ description: Use HDInsight service tags to allow inbound traffic to your cluster
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 08/11/2020
+ms.date: 06/23/2021
 ---
 
 # NSG service tags for Azure HDInsight
@@ -54,20 +54,32 @@ If your cluster is located in a region listed in this table, you only need to ad
 | Australia | Australia East | HDInsight.AustraliaEast |
 | &nbsp; | Australia Southeast | HDInsight.AustraliaSoutheast |
 | &nbsp; | Australia Central | HDInsight.AustraliaCentral |
+| Brazil | Brazil South | HDInsight.BrazilSouth |
+| &nbsp; | Brazil Southeast | HDInsight.BrazilSoutheast |
 | China | China East 2 | HDInsight.ChinaEast2 |
 | &nbsp; | China North 2 | HDInsight.ChinaNorth2 |
-| United States | North Central US | HDInsight.NorthCentralUS |
-| &nbsp; | West US 2 | HDInsight.WestUS2 |
-| &nbsp; | West Central US | HDInsight.WestCentralUS |
-| Canada | Canada East | HDInsight.CanadaEast |
-| Brazil | Brazil South | HDInsight.BrazilSouth |
+| Japan | Japan West | HDInsight.JapanWest |
 | Korea | Korea Central | HDInsight.KoreaCentral |
 | &nbsp; | Korea South | HDInsight.KoreaSouth |
 | India | Central India | HDInsight.CentralIndia |
+| &nbsp; | JIO India West | HDInsight.JioIndiaWest |
 | &nbsp; | South India | HDInsight.SouthIndia |
-| Japan | Japan West | HDInsight.JapanWest |
+| South Africa | South Africa North | HDInsight.SouthAfricaNorth |
+| UAE | UAE North | HDInsight.UAENorth |
+| &nbsp; | UAE Central | HDInsight.UAECentral |
 | France | France Central| HDInsight.FranceCentral |
+| Germany | Germany West Central| HDInsight.GermanyWestCentral |
+| Norway | Norway East | HDInsight.NorwayEast |
+| Switzerland | Switzerland North | HDInsight.SwitzerlandNorth |
+| &nbsp; | Switzerland West | HDInsight.SwitzerlandWest |
 | UK | UK South | HDInsight.UKSouth |
+| &nbsp; | UK West | HDInsight.UKWest |
+| United States | North Central US | HDInsight.NorthCentralUS |
+| &nbsp; | West US 2 | HDInsight.WestUS2 |
+| &nbsp; | West US 3 | HDInsight.WestUS3 |
+| &nbsp; | West Central US | HDInsight.WestCentralUS |
+| Canada | Canada East | HDInsight.CanadaEast |
+| &nbsp; | Canada Central | HDInsight.CanadaCentral |
 | Azure Government | USDoD Central | HDInsight.USDoDCentral |
 | &nbsp; | USGov Texas | HDInsight.USGovTexas |
 | &nbsp; | UsDoD East | HDInsight.USDoDEast |

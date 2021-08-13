@@ -3,13 +3,13 @@ title: "Create a Custom Voice - Speech service"
 titleSuffix: Azure Cognitive Services
 description: "When you're ready to upload your data, go to the Custom Voice portal. Create or select a Custom Voice project. The project must share the right language/locale and the gender properties as the data you intend to use for your voice training."
 services: cognitive-services
-author: erhopf
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.author: erhopf
+ms.author: lajanuar
 ---
 
 # Create and use your voice model
@@ -38,9 +38,9 @@ The following steps assume you've prepared the voice talent verbal consent files
 
 1. Navigate to **Text-to-Speech** > **Custom Voice** > **select a project** > **Set up voice talent**.
 
-2. Click **Add voice talent**.
+2. Select **Add voice talent**.
 
-3. Next, to define voice characteristics, click **Target scenario** to be used. Then describe your **Voice characteristics**.
+3. Next, to define voice characteristics, select **Target scenario** to be used. Then describe your **Voice characteristics**.
 
 > [!NOTE]
 > The scenarios you provide must be consistent with what you've applied for in the application form.
@@ -50,37 +50,37 @@ The following steps assume you've prepared the voice talent verbal consent files
 > [!NOTE]
 > Make sure the verbal statement is recorded in the same settings as your training data, including the recording environment and speaking style.
 
-5. Finally, go to **Review and submit**,  you can review the settings and click **Submit**.
+5. Finally, go to **Review and create**,  you can review the settings and select **Submit**.
 
-## Upload your datasets
+## Upload your data
 
-When you're ready to upload your data, go to the **Prepare training data** tab to add your first training set and upload data.  A training set is a set of audio utterances and their mapping scripts used for training a voice model. You can use a training set to organize your training data. Data readiness checking will be done per each training set. You can import multiple datasets to a training set.
+When you're ready to upload your data, go to the **Prepare training data** tab to add your first training set and upload data.  A training set is a set of audio utterances and their mapping scripts used for training a voice model. You can use a training set to organize your training data. Data readiness checking will be done per each training set. You can import multiple data to a training set.
 
 You can do the following to create and review your training data.
 
-1. On the **Prepare training data** tab, click **Add training set** to enter **Name** and **Description** > **Create** to add a new training set.
+1. On the **Prepare training data** tab, select **Add training set** to enter **Name** and **Description** > **Create** to add a new training set.
 
    When the training set is successfully created, you can start to upload your data. 
 
-2. To upload data, click **Upload data** > **Choose data type** > **Upload data** and **Specify the target training set**  > Enter **Name** and **Description** for your dataset > review the settings and click **Upload**.
+2. To upload data, select **Upload data** > **Choose data type** > **Upload data** and **Specify the target training set**  > Enter **Name** and **Description** for your data > review the settings and select **Submit**.
 
 > [!NOTE]
->- Duplicate audio names will be removed from the training. Make sure the datasets you select don't contain the same audio names within the .zip file or across multiple .zip files. If utterance IDs (either in audio or script files) are duplicate, they'll be rejected.
->- If you've created datasets in the previous version of Speech Studio, you must specify a training set for your datasets in advance to use them. Or else, an exclamation mark will be appended to the dataset name, and the dataset could not be used.
+>- Duplicate audio names will be removed from the training. Make sure the data you select don't contain the same audio names within the .zip file or across multiple .zip files. If utterance IDs (either in audio or script files) are duplicate, they'll be rejected.
+>- If you've created data files in the previous version of Speech Studio, you must specify a training set for your data in advance to use them. Or else, an exclamation mark will be appended to the data name, and the data could not be used.
 
-Each dataset you upload must meet the requirements for the data type that you choose. It's important to correctly format your data before it's uploaded, which ensures the data will be accurately processed by the Custom Neural Voice service. Go to [Prepare training data](how-to-custom-voice-prepare-data.md) and make sure your data has been rightly formatted.
+Each data you upload must meet the requirements for the data type that you choose. It's important to correctly format your data before it's uploaded, which ensures the data will be accurately processed by the Custom Neural Voice service. Go to [Prepare training data](how-to-custom-voice-prepare-data.md) and make sure your data has been rightly formatted.
 
 > [!NOTE]
-> - Standard subscription (S0) users can upload five datasets simultaneously. If you reach the limit, wait until at least one of your datasets finishes importing. Then try again.
-> - The maximum number of datasets allowed to be imported per subscription is 10 .zip files for free subscription (F0) users and 500 for standard subscription (S0) users.
+> - Standard subscription (S0) users can upload five data files simultaneously. If you reach the limit, wait until at least one of your data files finishes importing. Then try again.
+> - The maximum number of data files allowed to be imported per subscription is 10 .zip files for free subscription (F0) users and 500 for standard subscription (S0) users.
 
-Datasets are automatically validated once you hit the **Upload** button. Data validation includes series of checks on the audio files to verify their file format, size, and sampling rate. Fix the errors if any and submit again. 
+Data files are automatically validated once you hit the **Submit** button. Data validation includes series of checks on the audio files to verify their file format, size, and sampling rate. Fix the errors if any and submit again. 
 
-Once the data is uploaded, you can check the details in the training set detail view. On the **Overview** tab, you can further check the pronunciation scores and the noise level for each of your datasets. The pronunciation score ranges from 0 to 100. A score below 70 normally indicates a speech error or script mismatch. A heavy accent can reduce your pronunciation score and impact the generated digital voice.
+Once the data is uploaded, you can check the details in the training set detail view. On the **Overview** tab, you can further check the pronunciation scores and the noise level for each of your data. The pronunciation score ranges from 0 to 100. A score below 70 normally indicates a speech error or script mismatch. A heavy accent can reduce your pronunciation score and affect the generated digital voice.
 
 A higher signal-to-noise ratio (SNR) indicates lower noise in your audio. You can typically reach a 50+ SNR by recording at professional studios. Audio with an SNR below 20 can result in obvious noise in your generated voice.
 
-Consider re-recording any utterances with low pronunciation scores or poor signal-to-noise ratios. If you can't re-record, consider excluding those utterances from your dataset.
+Consider re-recording any utterances with low pronunciation scores or poor signal-to-noise ratios. If you can't re-record, consider excluding those utterances from your data.
 
 On the **Data details**, you can check the data details of the training set. If there are any typical issues with the data, follow the instructions in the message displayed to fix them before training.
 
@@ -126,7 +126,7 @@ If the third type of errors listed in the table below aren't fixed, although the
 | Volume | Volume overflow| Overflowing volume is detected at {}s. Adjust the recording equipment to avoid the volume overflow at its peak value.|
 | Volume | Start silence issue | The first 100 ms silence isn't clean. Reduce the recording noise floor level and leave the first 100 ms at the start silent.|
 | Volume| End silence issue| The last 100 ms silence  isn't clean.  Reduce the recording noise floor level and leave the last 100 ms at the end silent.|
-| Mismatch | Script and audio mismatch|Review the script and the audio content to make sure they match and control the noise floor level. Reduce the length of long silence or split the audio into multiple utterances if it's too long.|
+| Mismatch | Low scored words|Review the script and the audio content to make sure they match and control the noise floor level. Reduce the length of long silence or split the audio into multiple utterances if it's too long.|
 | Mismatch | Start silence issue |Extra audio was heard before the first word. Review the script and the audio content to make sure they match, control the noise floor level, and make the first 100 ms silent.|
 | Mismatch | End silence issue| Extra audio was heard after the last word. Review the script and the audio content to make sure they match, control the noise floor level, and make the last 100 ms silent.|
 | Mismatch | Low signal-noise ratio | Audio SNR level is lower than 20 dB. At least 35 dB is recommended.|
@@ -134,35 +134,35 @@ If the third type of errors listed in the table below aren't fixed, although the
 
 ## Train your custom neural voice model
 
-After your dataset has been validated, you can use it to build your custom neural voice model.
+After your data files have been validated, you can use them to build your custom neural voice model.
 
-1. On the **Train model** tab, click **Train model** to create a voice model with the data you have uploaded.
+1. On the **Train model** tab, select **Train model** to create a voice model with the data you have uploaded.
 
 2. Select the neural training method for your model and target language.
 
 By default, your voice model is trained in the same language of your training data. You can also select to create a secondary language (preview) for your voice model.  Check the languages supported for custom neural voice and cross-lingual feature: [language for customization](language-support.md#customization).
 
-3. Next, choose the dataset you want to use for training, and specify a speaker file.
+3. Next, choose the data you want to use for training, and specify a speaker file.
 
 >[!NOTE]
 >- You need to select at least 300 utterances to create a custom neural voice.
 >- To train a neural voice, you must specify a voice talent profile with the audio consent file provided of the voice talent acknowledging to use his/her speech data to train a custom voice model. Custom Neural Voice is available with limited access. Make sure you understand the [responsible AI requirements](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) and [apply the access here](https://aka.ms/customneural).
->- On this page you can also select to upload your script for testing. The testing script must be a txt file, less than 1Mb. Supported encoding format includes ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE, or UTF-16-BE. Each paragraph of the utterance will result in a separate audio. If you want to combine all sentences into one audio, make them in one paragraph.
+>- On this page you can also select to upload your script for testing. The testing script must be a txt file, less than 1 Mb. Supported encoding format includes ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE, or UTF-16-BE. Each paragraph of the utterance will result in a separate audio. If you want to combine all sentences into one audio, make them in one paragraph.
 
 4. Then, enter a **Name** and **Description** to help you identify this model.
 
-Choose a name carefully. The name you enter here will be the name you use to specify the voice in your request for speech synthesis as part of the SSML input. Only letters, numbers, and a few punctuation characters such as -, \_, and (', ') are allowed. Use different names for different neural voice models.
+Choose a name carefully. The name you enter here will be the name you use to specify the voice in your request for speech synthesis as part of the SSML input. Only letters, numbers, and a few punctuation characters such as -, _, and (', ') are allowed. Use different names for different neural voice models.
 
-A common use of the **Description** field is to record the names of the datasets that were used to create the model.
+A common use of the **Description** field is to record the names of the data that were used to create the model.
 
-5. Review the settings, then click **Submit** to start training the model.
+5. Review the settings, then select **Submit** to start training the model.
 
 > [!NOTE]
-> Duplicate audio names will be removed from the training. Make sure the datasets you select don't contain the same audio names across multiple .zip files.
+> Duplicate audio names will be removed from the training. Make sure the data you select don't contain the same audio names across multiple .zip files.
 
 The **Train model** table displays a new entry that corresponds to this newly created model. The table also displays the status: Processing, Succeeded, Failed.
 
-The status that's shown reflects the process of converting your dataset to a voice model, as shown here.
+The status that's shown reflects the process of converting your data to a voice model, as shown here.
 
 | State | Meaning |
 | ----- | ------- |
@@ -187,10 +187,10 @@ After you've successfully created and tested your voice model, you deploy it in 
 
 You can do the following to create a custom neural voice endpoint.
 
-1. On the **Deploy model** tab, click **Deploy models**. 
+1. On the **Deploy model** tab, select **Deploy model**. 
 2. Next, enter a **Name** and **Description** for your custom endpoint.
 3. Then, select a voice model you would like to associate with this endpoint. 
-4. Finally, click **Deploy** to create your endpoint.
+4. Finally, select **Deploy** to create your endpoint.
 
 After you've clicked the **Deploy** button, in the endpoint table, you'll see an entry for your new endpoint. It may take a few minutes to instantiate a new endpoint. When the status of the deployment is **Succeeded**, the endpoint is ready for use.
 

@@ -91,6 +91,8 @@ Tagging threat indicators is an easy way to group them together to make them eas
 
 :::image type="content" source="media/understand-threat-intelligence/threat-intel-tagging-indicators.png" alt-text="Apply tags to threat indicators" lightbox="media/understand-threat-intelligence/threat-intel-tagging-indicators.png":::
 
+For more details on viewing and managing your threat indicators, see [Work with threat indicators in Azure Sentinel](work-with-threat-indicators.md#view-your-threat-indicators-in-azure-sentinel).
+
 ## Detect threats with threat indicator-based analytics
 
 The most important use case for threat indicators in SIEM solutions like Azure Sentinel is to power analytics rules for threat detection. These indicator-based rules compare raw events from your data sources against your threat indicators to detect security threats in your organization. In Azure Sentinel **Analytics**, you create analytics rules that run on a schedule and generate security alerts. The rules are driven by queries, along with configurations that determine how often the rule should run, what kind of query results should generate security alerts and incidents, and which if any automations to trigger in response.
@@ -101,7 +103,9 @@ You can find your enabled rule in the **Active rules** tab of the **Analytics** 
 
 According to the default settings, each time the rule runs on its schedule, any results found will generate a security alert. Security alerts in Azure Sentinel can be viewed in the **Logs** section of Azure Sentinel, in the **SecurityAlert** table under the **Azure Sentinel** group.
 
-In Azure Sentinel, the alerts generated from analytics rules also generate security incidents which can be found in **Incidents** under **Threat Management** on the Azure Sentinel menu. Incidents are what your security operations teams will triage and investigate to determine the appropriate response actions. You can find detailed information in this [Tutorial: Investigate incidents with Azure Sentinel](./tutorial-investigate-cases.md).
+In Azure Sentinel, the alerts generated from analytics rules also generate security incidents which can be found in **Incidents** under **Threat Management** on the Azure Sentinel menu. Incidents are what your security operations teams will triage and investigate to determine the appropriate response actions. You can find detailed information in this [Tutorial: Investigate incidents with Azure Sentinel](./investigate-cases.md).
+
+For more details on using threat indicators in your analytics rules, see [Work with threat indicators in Azure Sentinel](work-with-threat-indicators.md#detect-threats-with-threat-indicator-based-analytics).
 
 ## Workbooks provide insights about your threat intelligence
 
@@ -109,11 +113,14 @@ Workbooks provide powerful interactive dashboards that give you insights into al
 
 There is also a rich community of [Azure Monitor workbooks on GitHub](https://github.com/microsoft/Application-Insights-Workbooks) where you can download additional templates and contribute your own templates.
 
+For more details on using and customizing the Threat Intelligence workbook, see [Work with threat indicators in Azure Sentinel](work-with-threat-indicators.md#workbooks-provide-insights-about-your-threat-intelligence).
+
 ## Next steps
 In this document, you learned about the threat intelligence capabilities of Azure Sentinel, including the Threat Intelligence blade. For practical guidance on using Azure Sentinel's threat intelligence capabilities, see the following articles:
 
 - Connect Azure Sentinel to [STIX/TAXII threat intelligence feeds](./connect-threat-intelligence-taxii.md).
 - [Connect threat intelligence platforms](./connect-threat-intelligence-tip.md) to Azure Sentinel.
 - See which [TIP platforms, TAXII feeds, and enrichments](threat-intelligence-integration.md) can be readily integrated with Azure Sentinel.
-- Detect threats with [built-in](./tutorial-detect-threats-built-in.md) or [custom](./tutorial-detect-threats-custom.md) analytics rules in Azure Sentinel
-- [Investigate incidents](./tutorial-investigate-cases.md) in Azure Sentinel.
+- [Work with threat indicators](work-with-threat-indicators.md) throughout the Azure Sentinel experience.
+- Detect threats with [built-in](./detect-threats-built-in.md) or [custom](./detect-threats-custom.md) analytics rules in Azure Sentinel
+- [Investigate incidents](./investigate-cases.md) in Azure Sentinel.

@@ -129,8 +129,8 @@ This issue can occur if the Azure account being used to register the appliance d
 #### Remediation:
 **Steps to troubleshoot Key Vault access issues:**
 1. Make sure the Azure user account used to register the appliance has at least Contributor permissions on the subscription.
-2. Ensure that the user trying to register the appliance has access to the Key Vault and has an access policy assigned in the Key Vault>Access Policy section. [Learn more](/azure/key-vault/general/assign-access-policy-portal)
-- [Learn more](/azure/migrate/migrate-appliance#appliance---vmware) about the required Azure roles and permissions.
+2. Ensure that the user trying to register the appliance has access to the Key Vault and has an access policy assigned in the Key Vault>Access Policy section. [Learn more](../key-vault/general/assign-access-policy-portal.md)
+- [Learn more](./migrate-appliance.md#appliance---vmware) about the required Azure roles and permissions.
 
 **Steps to troubleshoot connectivity issues to the Key Vault:**
 If you have enabled the appliance for private endpoint connectivity, use the following steps to troubleshoot network connectivity issues:
@@ -181,8 +181,8 @@ If the DNS resolution is incorrect, follow these steps:
 
    ![DNS hosts file](./media/how-to-use-azure-migrate-with-private-endpoints/dns-hosts-file-1.png)
 
-2. If you use a custom DNS server, review your custom DNS settings, and validate that the DNS configuration is correct. For guidance, see [private endpoint overview: DNS configuration](/azure/private-link/private-endpoint-overview#dns-configuration).
-3. If the issue still persists, [refer to this section](/azure/migrate/troubleshoot-network-connectivity#validate-the-private-dns-zone) for further troubleshooting.
+2. If you use a custom DNS server, review your custom DNS settings, and validate that the DNS configuration is correct. For guidance, see [private endpoint overview: DNS configuration](../private-link/private-endpoint-overview.md#dns-configuration).
+3. If the issue still persists, [refer to this section](#validate-the-private-dns-zone) for further troubleshooting.
 
 After you’ve verified the connectivity, retry the registration process.
 
@@ -217,7 +217,7 @@ If you have enabled the appliance for private endpoint connectivity, use the fol
 |--- | ---|
 |*.disc.privatelink.test.migration.windowsazure.com | Azure Migrate Discovery service endpoint
 |*.asm.privatelink.test.migration.windowsazure.com  | Azure Migrate Assessment service endpoint  
-|*.hub.privatelink.test.migration.windowsazure.com  | Azure Migrate hub endpoint to receive data from other Microsoft or external [independent software vendor (ISV)](/azure/migrate/migrate-services-overview#isv-integration) offerings
+|*.hub.privatelink.test.migration.windowsazure.com  | Azure Migrate hub endpoint to receive data from other Microsoft or external [independent software vendor (ISV)](./migrate-services-overview.md#isv-integration) offerings
 |*.vault.azure.net | Key Vault endpoint
 |*.blob.core.windows.net | Storage account endpoint for dependency and performance data  
 
@@ -258,7 +258,7 @@ If the DNS resolution is incorrect, follow these steps:
 
    ![DNS hosts file](./media/how-to-use-azure-migrate-with-private-endpoints/dns-hosts-file-1.png)
 
-2. If you use a custom DNS server, review your custom DNS settings, and validate that the DNS configuration is correct. For guidance, see [private endpoint overview: DNS configuration](/azure/private-link/private-endpoint-overview#dns-configuration).
-3. If the issue still persists, [refer to this section](/azure/migrate/troubleshoot-network-connectivity#validate-the-private-dns-zone) for further troubleshooting.
+2. If you use a custom DNS server, review your custom DNS settings, and validate that the DNS configuration is correct. For guidance, see [private endpoint overview: DNS configuration](../private-link/private-endpoint-overview.md#dns-configuration).
+3. If the issue still persists, [refer to this section](#validate-the-private-dns-zone) for further troubleshooting.
 
 After you’ve verified the connectivity, retry the discovery process.

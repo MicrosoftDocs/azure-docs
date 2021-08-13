@@ -3,9 +3,9 @@ title: Connect to Azure virtual networks using an ISE
 description: Create an integration service environment (ISE) to access Azure virtual networks (VNETs) from Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: azla
+ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 08/11/2021
 ---
 
 # Connect to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)
@@ -20,6 +20,7 @@ When you create an ISE, Azure *injects* that ISE into your Azure virtual network
 > For logic apps and integration accounts to work together in an ISE, both must use the *same ISE* as their location.
 
 An ISE has increased limits on:
+
 * Run duration
 * Storage retention
 * Throughput
@@ -60,7 +61,7 @@ You can also create an ISE by using the [sample Azure Resource Manager quickstar
   You can create the subnets in advance or when you create your ISE so that you can create the subnets at the same time. However, before you create your subnets, make sure that you review the [subnet requirements](#create-subnet).
 
   * Make sure that your virtual network [enables access for your ISE](#enable-access) so that your ISE can work correctly and stay accessible.
-   
+
   * If you use a [network virtual appliance (NVA)](../virtual-network/virtual-networks-udr-overview.md#user-defined), make sure that you don't enable TLS/SSL termination or change the outbound TLS/SSL traffic. Also, make sure that you don't enable inspection for traffic that originates from your ISE's subnet. For more information, see [Virtual network traffic routing](../virtual-network/virtual-networks-udr-overview.md).
 
   * If you want to use custom Domain Name System (DNS) servers for your Azure virtual network, [set up those servers by following these steps](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) before you deploy your ISE to your virtual network. For more information about managing DNS server settings, see [Create, change, or delete a virtual network](../virtual-network/manage-virtual-network.md#change-dns-servers).
@@ -121,7 +122,8 @@ This table describes the ports that your ISE requires to be accessible and the p
 | Purpose | Source service tag or IP addresses | Source ports | Destination service tag or IP addresses | Destination ports | Notes |
 |---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
 | Intersubnet communication within virtual network | Address space for the virtual network with ISE subnets | * | Address space for the virtual network with ISE subnets | * | Required for traffic to flow *between* the subnets in your virtual network. <p><p>**Important**: For traffic to flow between the *components* in each subnet, make sure that you open all the ports within each subnet. |
-| Communication from your logic app | **VirtualNetwork** | * | Varies based on destination | Varies based on destination | Destination ports vary based on the endpoints for the external services with which your logic app needs to communicate. <p><p>For example, the destination port is 443 for a web service, port 25 for an SMTP service, port 22 for an SFTP service, and so on. |
+| Communication from your logic app | **VirtualNetwork** | * | Internet | 443, 80 | This rule is required for Secure Socket Layer (SSL) certificate verification. This check is for various internal and external sites, which is the reason that the Internet is required as the destination. |
+| Communication from your logic app | **VirtualNetwork** | * | Varies based on destination | Varies based on destination | Destination ports vary based on the endpoints for the external services with which your logic app needs to communicate. <p><p>For example, the destination port is port 25 for an SMTP service, port 22 for an SFTP service, and so on. |
 | Azure Active Directory | **VirtualNetwork** | * | **AzureActiveDirectory** | 80, 443 ||
 | Azure Storage dependency | **VirtualNetwork** | * | **Storage** | 80, 443, 445 ||
 | Connection management | **VirtualNetwork** | * | **AppService** | 443 ||
@@ -150,12 +152,12 @@ If you don't permit access for these dependencies, your ISE deployment fails and
 * User-defined routes
 
   To prevent asymmetric routing, you must define a route for each and every IP address that's listed below with **Internet** as the next hop.
-  
-  * [App Service Environment management addresses](../app-service/environment/management-addresses.md)
+
+  * [Logic Apps inbound and outbound addresses for the ISE region](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)  
   * [Azure IP addresses for connectors in the ISE region, available in this download file](https://www.microsoft.com/download/details.aspx?id=56519)
+  * [App Service Environment management addresses](../app-service/environment/management-addresses.md)  
   * [Azure Traffic Manager management addresses](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json)
-  * [Logic Apps inbound and outbound addresses for the ISE region](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)
-  * [Azure IP addresses for connectors in the ISE region, which are in this download file](https://www.microsoft.com/download/details.aspx?id=56519)
+  * [Azure API Management Control Plane IP addresses](../api-management/api-management-using-with-vnet.md#control-plane-ips)
 
 * Service endpoints
 

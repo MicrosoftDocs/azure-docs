@@ -10,7 +10,7 @@ ms.date: 03/25/2021
 
 # Azure Percept known issues
 
-Here are issues with the Azure Percept DK, Azure Percept Audio, or Azure Percept Studio that the product teams are aware of. Workarounds and troubleshooting steps are provided where possible. If you're blocked by any of these issues, you can post it as a question on [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-percept.html) or submit a customer support request in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). 
+Here are issues with the Azure Percept DK, Azure Percept Audio, or Azure Percept Studio that the product teams are aware of. Workarounds and troubleshooting steps are provided where possible. If you're blocked by any of these issues, you can post it as a question on [Microsoft Q&A](/answers/topics/azure-percept.html) or submit a customer support request in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). 
 
 |Area|Symptoms|Description of Issue|Workaround|
 |-------|---------|---------|---------|

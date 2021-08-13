@@ -1,7 +1,7 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
 ms.date: 10/20/2020
 ---
@@ -14,7 +14,7 @@ The following resources are also available:
 
 ## IoT Hub service client examples
 
-This section shows C# examples using the IoT Hub service client and the **RegistryManager** and **ServiceClient** classes. You use the **RegistryManager** class to interact with the device state using device twins. You can also use the **RegistryManager** class to [query device registrations](../articles/iot-hub/iot-hub-devguide-query-language.md) in your IoT Hub. You use the **ServiceClient** class to call commands on the device. The [DTDL](../articles/iot-pnp/concepts-digital-twin.md) model for the device defines the properties and commands the device implements. In the code snippets, the `deviceTwinId` variable holds the device ID of the IoT Plug and Play device registered with your IoT hub.
+This section shows C# examples using the IoT Hub service client and the **RegistryManager** and **ServiceClient** classes. You use the **RegistryManager** class to interact with the device state using device twins. You can also use the **RegistryManager** class to [query device registrations](../articles/iot-hub/iot-hub-devguide-query-language.md) in your IoT Hub. You use the **ServiceClient** class to call commands on the device. The [DTDL](../articles/iot-develop/concepts-digital-twin.md) model for the device defines the properties and commands the device implements. In the code snippets, the `deviceTwinId` variable holds the device ID of the IoT Plug and Play device registered with your IoT hub.
 
 ### Get the device twin and model ID
 
@@ -136,7 +136,7 @@ catch (DeviceNotFoundException)
 
 ## IoT Hub digital twin examples
 
-You use the **DigitalTwinClient** class to interact with the device state using digital twins. The [DTDL](../articles/iot-pnp/concepts-digital-twin.md) model for the device defines the properties and commands the device implements.
+You use the **DigitalTwinClient** class to interact with the device state using digital twins. The [DTDL](../articles/iot-develop/concepts-digital-twin.md) model for the device defines the properties and commands the device implements.
 
 This section shows C# examples using the Digital Twins API. The following snippets use the following classes to represent the digital twin of the thermostat and temperature controller devices:
 
@@ -348,7 +348,7 @@ catch (HttpOperationException e)
 
 IoT Plug and Play devices send the telemetry defined in the DTDL model to IoT Hub. By default, IoT Hub routes the telemetry to an Event Hubs endpoint where you can consume it. To learn more, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](../articles/iot-hub/iot-hub-devguide-messages-d2c.md).
 
-The following code snippet shows how to read the telemetry from the default Event Hubs endpoint. The code in this snippet is taken from the IoT Hub quickstart [Send telemetry from a device to an IoT hub and read it with a back-end application](../articles/iot-hub/quickstart-send-telemetry-dotnet.md):
+The following code snippet shows how to read the telemetry from the default Event Hubs endpoint. The code in this snippet is taken from the IoT Hub quickstart [Send telemetry from a device to an IoT hub and read it with a back-end application](../articles/iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp):
 
 ```csharp
 await using EventHubConsumerClient consumer = new EventHubConsumerClient(EventHubConsumerClient.DefaultConsumerGroupName, connectionString, EventHubName);

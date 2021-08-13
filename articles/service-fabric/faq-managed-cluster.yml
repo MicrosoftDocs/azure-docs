@@ -1,11 +1,11 @@
 ### YamlMime:FAQ
 metadata:
-  title: Common questions about Service Fabric managed clusters 
+  title: Service Fabric managed clusters FAQ
   description: Frequently asked questions about Service Fabric managed clusters, including capabilities, use cases, and common scenarios.
   ms.topic: troubleshooting
-  ms.author: pepogors
-  author: peterpogorski
-  ms.date: 5/10/2021
+  ms.author: micraft
+  author: craftyhouse
+  ms.date: 7/14/2021
   ms.custom: references_regions
     
 title: Service Fabric managed clusters frequently asked questions
@@ -23,7 +23,7 @@ sections:
       - question: |
           What regions are supported?
         answer: |
-          Service Fabric managed clusters are supported in all public cloud regions.
+          Service Fabric managed clusters are supported in all cloud regions.
 
       - question: |
           Can I do an in-place migration of my existing Service Fabric cluster to a managed cluster resource?
@@ -44,6 +44,11 @@ sections:
           What is the difference between a Basic, and Standard SKU cluster?
         answer: |
           A Basic SKU cluster means, most of the configurations are provided by the Service Fabric resource provider. Basic SKU clusters are intended to be used for testing and pre production environments. A Standard SKU cluster allows users to configure the cluster to specifically meet their needs. For more information, see [Service Fabric managed cluster SKUs](./overview-managed-cluster.md#service-fabric-managed-cluster-skus).
+      
+      - question: |
+          Where can I see planned features or suggest one?
+        answer: |
+          Please see our github project for [managed clusters](https://github.com/microsoft/service-fabric/projects/17)      
           
   - name: Cluster Deployment and Management
     questions:
@@ -55,7 +60,7 @@ sections:
       - question: |
           I want to have an internal-only load balancer, is that possible?
         answer: |
-          No. It isn't currently possible to have an internal-only load balancer. We recommended locking down the Network Security Group (NSG) rules to block any undesired inbound/outbound traffic.
+          It isn't currently possible to have an internal-only load balancer. We recommended locking down the Network Security Group (NSG) rules to block any undesired inbound/outbound traffic.
 
       - question: |
           Can I autoscale my cluster?
@@ -65,7 +70,7 @@ sections:
       - question: |
           Can I deploy my cluster across availability zones?
         answer: |
-          Yes, Service Fabric managed clusters which span availability zones are supported in Azure regions which support availability zones. For more information, see [Service Fabric managed clusters across availability zones](.\service-fabric-cross-availability-zones.md).
+          Yes, Service Fabric managed clusters which span availability zones are supported in Azure regions which support availability zones. For more information, see [Service Fabric managed clusters across availability zones](./how-to-managed-cluster-availability-zones.md).
           
       - question: |
           Can I deploy stateless node types on a Service Fabric managed cluster? 
@@ -91,5 +96,4 @@ sections:
           
       - question: |
           Can I deploy applications with managed identities?
-        answer: |
-          Yes, applications with managed identities can be deployed to a Service Fabric managed cluster. For more information see, [Application managed identities](./concepts-managed-identity.md).
+        answer:  Yes, applications with managed identities can be deployed to a Service Fabric managed cluster. For more information see, [Application managed identities](./concepts-managed-identity.md).

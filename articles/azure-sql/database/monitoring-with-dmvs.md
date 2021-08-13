@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: how-to
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 03/15/2021
 ---
 # Monitoring Microsoft Azure SQL Database and Azure SQL Managed Instance performance using dynamic management views
@@ -630,11 +630,11 @@ The next example shows you different ways that you can use the **sys.resource_st
 
    ```sql
     SELECT
-        (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent',
-        (COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent',
-        (COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data IO Fit Percent'
+        100*((COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name)) AS 'CPU Fit Percent',
+        100*((COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name)) AS 'Log Write Fit Percent',
+        100*((COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name)) AS 'Physical Data IO Fit Percent'
     FROM sys.resource_stats
-    WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
+    WHERE database_name = 'sample' AND start_time > DATEADD(day, -7, GETDATE());
     ```
 
     Based on your database service tier, you can decide whether your workload fits into the lower compute size. If your database workload objective is 99.9 percent and the preceding query returns values greater than 99.9 percent for all three resource dimensions, your workload likely fits into the lower compute size.
@@ -648,12 +648,12 @@ The next example shows you different ways that you can use the **sys.resource_st
     The average CPU is about a quarter of the limit of the compute size, which would fit well into the compute size of the database. But, the maximum value shows that the database reaches the limit of the compute size. Do you need to move to the next higher compute size? Look at how many times your workload reaches 100 percent, and then compare it to your database workload objective.
 
     ```sql
-    SELECT
-        (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU fit percent'
-        ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log write fit percent'
-        ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical data IO fit percent'
-        FROM sys.resource_stats
-        WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
+     SELECT
+         100*((COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name)) AS 'CPU Fit Percent',
+         100*((COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name)) AS 'Log Write Fit Percent',
+         100*((COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name)) AS 'Physical Data IO Fit Percent'
+     FROM sys.resource_stats
+     WHERE database_name = 'sample' AND start_time > DATEADD(day, -7, GETDATE());
     ```
 
     If this query returns a value less than 99.9 percent for any of the three resource dimensions, consider either moving to the next higher compute size or use application-tuning techniques to reduce the load on the database.

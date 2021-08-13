@@ -3,13 +3,13 @@ title: What is the Speech service?
 titleSuffix: Azure Cognitive Services
 description: The Speech service is the unification of speech-to-text, text-to-speech, and speech translation into a single Azure subscription. Add speech to your applications, tools, and devices with the Speech SDK, Speech Devices SDK, or REST APIs.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
 ms.date: 11/23/2020
-ms.author: trbye
+ms.author: lajanuar
 ---
 
 # What is the Speech service?
@@ -127,7 +127,7 @@ Other products offer speech models tuned for specific purposes like healthcare o
 
 | Speech Service | Platform | Description |
 | -------------- | -------- | ----------- |
-| Speech-to-Text | [Custom Speech](https://aka.ms/customspeech) | Customize speech recognition models to your needs and available data. Overcome speech recognition barriers such as speaking style, vocabulary and background noise. |
+| Speech-to-Text | [Custom Speech](./custom-speech-overview.md) | Customize speech recognition models to your needs and available data. Overcome speech recognition barriers such as speaking style, vocabulary and background noise. |
 | Text-to-Speech | [Custom Voice](https://aka.ms/customvoice) | Build a recognizable, one-of-a-kind voice for your Text-to-Speech apps with your speaking data available. You can further fine-tune the voice outputs by adjusting a set of voice parameters. |
 
 ## Deploy on premises using Docker containers

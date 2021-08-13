@@ -424,7 +424,7 @@ Do you have malicious traffic in your environment? Where is it originating from?
 - Which public IPs are conversing with my network? What is the WHOIS data and geographic location of all public IPs?
 - Which malicious IPs are sending traffic to my deployments? What is the threat type and threat description for malicious IPs?
 	- The Public IP Information section, gives a summary of all types of public IPs present in your network traffic. 
-	  Select the public IP type of interest to view details. This [schema document](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#public-ip-details-schema) defines the data fields presented.
+	  Select the public IP type of interest to view details. This [schema document](./traffic-analytics-schema.md#public-ip-details-schema) defines the data fields presented.
 	  
 	  :::image type="content" source="./media/traffic-analytics/public-ip-information.png" alt-text="Public IP information" lightbox="./media/traffic-analytics/public-ip-information.png":::
 	  

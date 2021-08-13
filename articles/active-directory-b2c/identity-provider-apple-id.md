@@ -54,7 +54,7 @@ To enable sign-in for users with an Apple ID in Azure Active Directory B2C (Azur
 1. Select **Sign In with Apple**, and then select **Configure**.
     1. Select the **Primary App ID** you want to configure Sign in with Apple with.
     1. In **Domains and Subdomains**, enter `your-tenant-name.b2clogin.com`. Replace your-tenant-name with the name of your tenant. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name`.
-    1. In **Return URLs**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-tenant-name` with the name of your tenant, and `your-domain-name` with your custom domain.
+    1. In **Return URLs**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-tenant-name` with the name of your tenant, and `your-domain-name` with your custom domain. The Return URL needs to be in all lower-case.
     1. Select **Next**, and then select **Done**.
     1. When the pop-up window is closed, select **Continue**, and then select **Save**.
 
@@ -129,7 +129,6 @@ The following json is an example of a call to the Azure function:
 ```json
 {
     "appleTeamId": "ABC123DEFG",
-    "appleKeyId": "URKEYID001",
     "appleServiceId": "com.yourcompany.app1",
     "p8key": "MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQg+s07NiAcuGEu8rxsJBG7ttupF6FRe3bXdHxEipuyK82gCgYIKoZIzj0DAQehRANCAAQnR1W/KbbaihTQayXH3tuAXA8Aei7u7Ij5OdRy6clOgBeRBPy1miObKYVx3ki1msjjG2uGqRbrc1LvjLHINWRD"
 }

@@ -1,21 +1,24 @@
 ---
-title: $validate FHIR resources against profiles on Azure API for FHIR
-description: $validate FHIR resources against profiles
+title: $validate FHIR resources against profiles on the FHIR service in Azure Healthcare APIs
+description: $validate FHIR resources against profiles in the FHIR service
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 05/06/2021
-ms.author: ginle
+ms.date: 08/03/2021
+ms.author: cavoeg
 ---
 
 # How to validate FHIR resources against profiles
+
+> [!IMPORTANT]
+> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 HL7 FHIR defines a standard and interoperable way to store and exchange healthcare data. Even within the base FHIR specification, it can be helpful to define additional rules or extensions based on the context that FHIR is being used. For such context-specific uses of FHIR, **FHIR profiles** are used for the extra layer of specifications.
 
 [FHIR profile](https://www.hl7.org/fhir/profiling.html) describes additional context, such as constraints or extensions, on a resource represented as a `StructureDefinition`. The HL7 FHIR standard defines a set of base resources, and these standard base resources have generic definitions. FHIR profile allows you to narrow down and customize resource definitions using constraints and extensions.
 
-Azure API for FHIR allows validating resources against profiles to see if the resources conform to the profiles. This article walks through the basics of FHIR profile, and how to use `$validate` for validating resources against the profiles when creating and updating resources.
+The FHIR service in the Azure Healthcare APIs (hear by called the FHIR service) allows validating resources against profiles to see if the resources conform to the profiles. This article walks through the basics of FHIR profile, and how to use `$validate` for validating resources against the profiles when creating and updating resources.
 
 ## FHIR profile: the basics
 
@@ -32,6 +35,21 @@ For example:
 - `http://hl7.org/fhir/StructureDefinition/patient-birthPlace` is a base profile that requires information on the registered address of birth of the patient.
 - `http://hl7.org/fhir/StructureDefinition/bmi` is another base profile that defines how to represent Body Mass Index (BMI) observations.
 - `http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance` is a US Core profile that sets minimum expectations for `AllergyIntolerance` resource associated with a patient, and identifies mandatory fields such as extensions and value sets.
+
+When a resource conforms to a profile, its profile is specified in a resource inside the field `profile`.
+
+```json
+{
+  "resourceType" : "Patient",
+  "id" : "ExamplePatient1",
+  "meta" : {
+    "lastUpdated" : "2020-10-30T09:48:01.8512764-04:00",
+    "source" : "Organization/PayerOrganizationExample1",
+    "profile" : [
+      "http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Patient"
+    ]
+  },
+```
 
 ### Base profile and custom profile
 
@@ -50,7 +68,7 @@ A custom profile is a set of additional constraints on top of a base profile, re
 > [!NOTE]
 > Custom profiles must build on top of the base resource and cannot conflict with the base resource. For example, if an element has a cardinality of 1..1, the custom profile cannot make it optional.
 
-Custom profiles also specified by various Implementation Guides. Some common Implementation Guides are:
+Custom profiles are also specified by various Implementation Guides. Some common Implementation Guides are:
 
 |Name |URL
 |---- |----
@@ -66,13 +84,13 @@ Argonaut |<http://www.fhir.org/guides/argonaut/pd/>
 For storing profiles to the server, you can do a `POST` request:
 
 ```rest
-POST http://<your FHIR service base URL>/{Resource}
+POST http://<your FHIR service base URL>/StructureDefinition
 ```
 
-In which the field `{Resource}` will be replaced by `StructureDefinition`, and you would have your `StructureDefinition` resource `POST`ed to the server in `JSON` or `XML` format. For example, if you would like to store `us-core-allergyintolerance` profile, you would do:
+For example, if you would like to store `us-core-allergyintolerance` profile, you would do:
 
 ```rest
-POST http://my-fhir-server.azurewebsites.net/StructureDefinition?url=http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance
+POST https://myworkspace-myfhirserver.fhir.azurehealthcareapis.com/StructureDefinition?url=http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance
 ```
 
 Where the US Core Allergy Intolerance profile would be stored and retrieved:
@@ -161,7 +179,7 @@ Where the field `{canonicalUrl}` would be replaced with the canonical URL of you
 For example, if you want to view US Core `Goal` resource profile:
 
 ```rest
-GET http://my-fhir-server.azurewebsites.net/StructureDefinition?url=http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal
+GET https://myworkspace-myfhirserver.fhir.azurehealthcareapis.com/StructureDefinition?url=http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal
 ```
 
 This will return the `StructureDefinition` resource for US Core Goal profile, that will start like this:
@@ -192,7 +210,7 @@ This will return the `StructureDefinition` resource for US Core Goal profile, th
 ...
 ```
 
-Our FHIR server does not return `StructureDefinition` instances for the base profiles, but they can be found easily on the HL7 website, such as:
+The FHIR service does not return `StructureDefinition` instances for the base profiles, but they can be found easily on the HL7 website, such as:
 
 - `http://hl7.org/fhir/Observation.profile.json.html`
 - `http://hl7.org/fhir/Patient.profile.json.html`
@@ -200,7 +218,7 @@ Our FHIR server does not return `StructureDefinition` instances for the base pro
 
 ### Profiles in the capability statement
 
-The `Capability Statement` lists all possible behaviors of your FHIR server to be used as a statement of the server functionality, such as Structure Definitions and Value Sets. Azure API for FHIR updates the capability statement with information on the uploaded and stored profiles in the forms of:
+The `Capability Statement` lists all possible behaviors of your FHIR service to be used as a statement of the server functionality, such as Structure Definitions and Value Sets. The FHIR service updates the capability statement with information on the uploaded and stored profiles in the forms of:
 
 - `CapabilityStatement.rest.resource.profile`
 - `CapabilityStatement.rest.resource.supportedProfile`
@@ -245,9 +263,9 @@ You will be returned with a `CapabilityStatement` that includes the following in
 
 ## Validating resources against the profiles
 
-FHIR resources, such as `Patient` or `Observation`, can express their conformance to specific profiles. This allows our FHIR server to **validate** given resources against the associated profiles or the specified profiles. Validating a resource against profiles means checking if your resource conforms to the profiles, including the specifications listed in `Resource.meta.profile` or in an Implementation Guide.
+FHIR resources, such as `Patient` or `Observation`, can express their conformance to specific profiles. This allows the FHIR service to **validate** given resources against the associated profiles or the specified profiles. Validating a resource against profiles means checking if your resource conforms to the profiles, including the specifications listed in `Resource.meta.profile` or in an Implementation Guide.
 
-There are two ways for you to validate your resource. First, you can use `$validate` operation against a resource that is already in the FHIR server. Second, you can `POST` it to the server as part of a resource `Update` or `Create` operation. In both cases, you can decide via your FHIR server configuration what to do when the resource does not conform to your desired profile.
+There are two ways for you to validate your resource. First, you can use `$validate` operation against a resource that is already in the FHIR service. Second, you can `POST` it to the server as part of a resource `Update` or `Create` operation. In both cases, you can decide via your FHIR service configuration what to do when the resource does not conform to your desired profile.
 
 ### Using $validate
 
@@ -269,7 +287,7 @@ GET http://<your FHIR service base URL>/{resource}/{resource ID}/$validate
 For example:
 
 ```rest
-GET http://my-fhir-server.azurewebsites.net/Patient/a6e11662-def8-4dde-9ebc-4429e68d130e/$validate
+GET https://myworkspace-myfhirserver.fhir.azurehealthcareapis.com/Patient/a6e11662-def8-4dde-9ebc-4429e68d130e/$validate
 ```
 
 In the example above, you would be validating the existing `Patient` resource `a6e11662-def8-4dde-9ebc-4429e68d130e`. If it is valid, you will get an `OperationOutcome` such as the following:
@@ -331,17 +349,10 @@ If the resource is not valid, you will get an error code and an error message wi
 
 In this example above, the resource did not conform to the provided `Patient` profile which required a patient identifier value and gender.
 
-If you would like to specify a profile as a parameter, you can specify the canonical URL for the profile to validate against, such as the following example with US Core `Patient` profile and a base profile for `heartrate`:
+If you would like to specify a profile as a parameter, you can specify the canonical URL for the profile to validate against, such as the following example for the HL7 base profile for `heartrate`:
 
 ```rest
-GET http://<your FHIR service base URL>/{Resource}/{Resource ID}/$validate?profile={canonicalUrl}
-```
-
-For example:
-
-```rest
-GET http://my-fhir-server.azurewebsites.net/Patient/a6e11662-def8-4dde-9ebc-4429e68d130e/$validate?profile=http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
-GET http://my-fhir-server.azurewebsites.net/Observation/12345678/$validate?profile=http://hl7.org/fhir/StructureDefinition/heartrate
+GET https://myworkspace-myfhirserver.fhir.azurehealthcareapis.com/Observation/12345678/$validate?profile=http://hl7.org/fhir/StructureDefinition/heartrate
 ```
 
 #### Validating a new resource
@@ -355,7 +366,7 @@ POST http://<your FHIR service base URL>/{Resource}/$validate
 For example:
 
 ```rest
-POST http://my-fhir-server.azurewebsites.net/Patient/$validate 
+POST https://myworkspace-myfhirserver.fhir.azurehealthcareapis.com/Patient/$validate 
 ```
 
 This request will create the new resource you are specifying in the request payload, whether it is in a JSON or XML format, and validate the uploaded resource. Then, it will return an `OperationOutcome` as a result of the validation on the new resource.
@@ -383,7 +394,7 @@ x-ms-profile-validation: true
 
 ## Next steps
 
-In this article, you have learned about FHIR profiles, and how to validate resources against profiles using $validate. To learn about Azure API for FHIR's other supported features, check out:
+In this article, you have learned about FHIR profiles, and how to validate resources against profiles using $validate. To learn about the FHIR service's other supported features, check out:
 
 >[!div class="nextstepaction"]
 >[FHIR supported features](fhir-features-supported.md)

@@ -1,5 +1,5 @@
 ---
-title: Configure your security solution to connect CEF data to Azure Sentinel Preview| Microsoft Docs
+title: Configure your security solution to connect CEF data to Azure Sentinel | Microsoft Docs
 description: Learn how to configure your security solution to connect CEF data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -78,5 +78,5 @@ If a connector does not exist for your specific security solution, use the follo
 In this document, you learned how to connect CEF appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 
 - Learn about [CEF and CommonSecurityLog field mapping](cef-name-mapping.md).
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](./tutorial-detect-threats-built-in.md).
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](./detect-threats-built-in.md).

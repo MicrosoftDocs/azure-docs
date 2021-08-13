@@ -2,7 +2,7 @@
 title: Deploy resources with Azure CLI and template
 description: Use Azure Resource Manager and Azure CLI to deploy resources to Azure. The resources are defined in a Resource Manager template.
 ms.topic: conceptual
-ms.date: 05/07/2021
+ms.date: 07/15/2021
 ---
 
 # Deploy resources with ARM templates and Azure CLI
@@ -230,6 +230,19 @@ az deployment group create --name addstorage  --resource-group myResourceGroup \
 ```
 
 Use double quotes around the JSON that you want to pass into the object.
+
+You can use a variable to contain the parameter values. In Bash, set the variable to all of the parameter values and add it to the deployment command.
+
+```azurecli-interactive
+params="prefix=start suffix=end"
+
+az deployment group create \
+  --resource-group testgroup \
+  --template-file <path-to-template> \
+  --parameters $params
+``` 
+
+However, if you're using Azure CLI with Windows Command Prompt (CMD) or PowerShell, set the variable to a JSON string. Escape the quotation marks: `$params = '{ \"prefix\": {\"value\":\"start\"}, \"suffix\": {\"value\":\"end\"} }'`.
 
 ### Parameter files
 

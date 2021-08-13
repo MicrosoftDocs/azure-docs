@@ -3,11 +3,11 @@ title: Restrict Azure CDN content by country/region
 description: Learn how to restrict access by country/region to your Azure CDN content by using the geo-filtering feature.
 services: cdn
 documentationcenter: ''
-author: jessie-jyy
+author: asudbring
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 07/07/2021
-ms.author: yuajia
+ms.author: allensu
 
 ---
 # Restrict Azure CDN content by country/region
@@ -105,5 +105,5 @@ In the country/region filtering rules table, select the delete icon next to a ru
 
 * Only one rule can be applied to the same relative path. That is, you can't create multiple country/region filters that point to the same relative path. However, because country/region filters are recursive, a folder can have multiple country/region filters. In other words, a subfolder of a previously configured folder can be assigned a different country/region filter.
 
-* The geo-filtering feature uses country/region codes to define the countries/regions from which a request is allowed or blocked for a secured directory. Although Akamai and Verizon profiles support most of the same country/region codes, there are a few differences. For more information, see [Azure CDN country/region codes](/previous-versions/azure/mt761717(v=azure.100)). 
+* The geo-filtering feature uses country/region codes to define the countries/regions from which a request is allowed or blocked for a secured directory.  **Azure CDN from Verizon** and **Azure CDN from Akamai** profiles use ISO 3166-1 alpha-2 country codes to define the countries from which a request will be allowed or blocked for a secured directory. 
 

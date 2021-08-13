@@ -1,7 +1,7 @@
 ---
 title: How to deploy machine learning models 
 titleSuffix: Azure Machine Learning
-description: 'Learn how and where to deploy machine learning models. Deploy to Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge, and FPGA.'
+description: 'Learn how and where to deploy machine learning models. Deploy to Azure Container Instances, Azure Kubernetes Service, and FPGA.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -32,6 +32,8 @@ The workflow is similar no matter where you deploy your model:
 1. Test the resulting web service
 
 For more information on the concepts involved in the machine learning deployment workflow, see [Manage, deploy, and monitor models with Azure Machine Learning](concept-model-management-and-deployment.md).
+
+[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
 
 ## Prerequisites
 

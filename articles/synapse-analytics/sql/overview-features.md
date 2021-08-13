@@ -26,18 +26,18 @@ Consumption models in Synapse SQL enables you to use different database objects.
 | **Tables** | [Yes](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true) | No, serverless model can query only external data placed on [Azure Storage](#storage-options) |
 | **Views** | [Yes](/sql/t-sql/statements/create-view-transact-sql?view=azure-sqldw-latest&preserve-view=true). Views can use [query language elements](#query-language) that are available in dedicated model. | [Yes](/sql/t-sql/statements/create-view-transact-sql?view=azure-sqldw-latest&preserve-view=true). Views can use [query language elements](#query-language) that are available in serverless model. |
 | **Schemas** | [Yes](/sql/t-sql/statements/create-schema-transact-sql?view=azure-sqldw-latest&preserve-view=true) | [Yes](/sql/t-sql/statements/create-schema-transact-sql?view=azure-sqldw-latest&preserve-view=true) |
-| **Temporary tables** | [Yes](../sql-data-warehouse/sql-data-warehouse-tables-temporary.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | No |
+| **Temporary tables** | [Yes](../sql-data-warehouse/sql-data-warehouse-tables-temporary.md?context=/azure/synapse-analytics/context/context) | No |
 | **Procedures** | [Yes](/sql/t-sql/statements/create-procedure-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Yes |
 | **Functions** | [Yes](/sql/t-sql/statements/create-function-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true) | Yes, only inline table-valued functions. |
 | **Triggers** | No | No |
 | **External tables** | [Yes](/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest&preserve-view=true). See supported [data formats](#data-formats). | [Yes](/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest&preserve-view=true). See supported [data formats](#data-formats). |
 | **Caching queries** | Yes, multiple forms (SSD-based caching, in-memory, resultset caching). In addition, Materialized View are supported | No |
 | **Table variables** | [No](/sql/t-sql/data-types/table-transact-sql?view=azure-sqldw-latest&preserve-view=true), use temporary tables | No |
-| **[Table distribution](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)**               | Yes | No |
-| **[Table indexes](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)**                           | Yes | No |
-| **[Table partitions](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)**                     | Yes | No |
+| **[Table distribution](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?context=/azure/synapse-analytics/context/context)**               | Yes | No |
+| **[Table indexes](../sql-data-warehouse/sql-data-warehouse-tables-index.md?context=/azure/synapse-analytics/context/context)**                           | Yes | No |
+| **[Table partitions](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?context=/azure/synapse-analytics/context/context)**                     | Yes | No |
 | **[Statistics](develop-tables-statistics.md)**            | Yes | Yes |
-| **[Workload management, resource classes, and concurrency control](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)** | Yes    | No |
+| **[Workload management, resource classes, and concurrency control](../sql-data-warehouse/resource-classes-for-workload-management.md?context=/azure/synapse-analytics/context/context)** | Yes    | No |
 | **Cost control** | Yes, using scale-up and scale-down actions. | Yes, using [the Azure portal or T-SQL procedure](./data-processed.md#cost-control). |
 
 ## Query language

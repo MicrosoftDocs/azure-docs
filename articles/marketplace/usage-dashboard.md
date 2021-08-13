@@ -4,9 +4,10 @@ description: Learn how to access all usage and metered billing metrics for offer
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 04/28/2021
-author: sayantanroy83
-ms.author: sroy
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
+ms.date: 07/15/2021
 ---
 
 # Usage dashboard in commercial marketplace analytics
@@ -117,7 +118,7 @@ _**Table 1: Dictionary of data terms**_
 | Marketplace Subscription ID | Marketplace Subscription ID | The unique identifier associated with the Azure subscription the customer used to purchase your commercial marketplace offer. ID was formerly the Azure Subscription GUID. | MarketplaceSubscriptionId |
 | MonthStartDate | Month Start Date | Month Start Date represents the month of Purchase. | MonthStartDate |
 | Offer Type | Offer Type | The type of commercial marketplace offering. | OfferType |
-| Azure License Type | Azure License Type | The type of licensing agreement used by customers to purchase Azure. Also known as the Channel. The possible values are:<ui><li>Cloud Solution Provider</li><li>Enterprise</li><li>Enterprise through Reseller</li><li>Pay as You Go</li></ul> | AzureLicenseType |
+| Azure License Type | Azure License Type | The type of licensing agreement used by customers to purchase Azure. Also known as the Channel. The possible values are:<ul><li>Cloud Solution Provider</li><li>Enterprise</li><li>Enterprise through Reseller</li><li>Pay as You Go</li></ul> | AzureLicenseType |
 | Marketplace License Type | Marketplace License Type | The billing method of the commercial marketplace offer. The possible values are:<ul><li>Billed Through Azure</li><li>Bring Your Own License</li><li>Free</li><li>Microsoft as Reseller</li></ul> | MarketplaceLicenseType |
 | SKU | SKU | The plan associated with the offer. | SKU |
 | Customer Country | Customer Country/Region | The country/region name provided by the customer. Country/region could be different than the country/region in a customer's Azure subscription. | CustomerCountry |
@@ -157,6 +158,7 @@ _**Table 1: Dictionary of data terms**_
 | Action Taken At | Action Taken At | **Applicable for offers with custom meter dimensions**.<br>Specifies the time when the publisher acknowledged the overage usage by the customer for the offer’s custom meter dimension as genuine or false.<br>_If the publisher doesn’t have offers with custom meter dimensions, and exports this column through programmatic access, then the value will be null._ | ActionTakenAt |
 | Action Taken By | Action Taken By | **Applicable for offers with custom meter dimensions**.<br>Specifies the person who acknowledged the overage usage by the customer for the offer’s custom meter dimension as genuine or false.<br>_If the publisher doesn’t have offers with custom meter dimensions, and exports this column through programmatic access, then the value will be null._ | ActionTakenBy |
 | Estimated Financial Impact (USD) | Estimated Financial Impact in USD | **Applicable for offers with custom meter dimensions**.<br>When Partner Center flags an overage usage by the customer for the offer’s custom meter dimension as anomalous, the field specifies the estimated financial impact (in USD) of the anomalous overage usage.<br>_If the publisher doesn’t have offers with custom meter dimensions, and exports this column through programmatic means, then the value will be null._ | EstimatedFinancialImpactUSD |
+| N/A | Resource Id | The fully qualified ID of the resource, including the resource name and resource type. Note that this is a data field available in download reports only.<br>Use the format:<br> /subscriptions/{guid}/resourceGroups/{resource-group-name}/{resource-provider-namespace}/{resource-type}/{resource-name} | N/A |
 |||||
 
 ### Usage page filters

@@ -182,7 +182,7 @@
   - name: Integration
     items:
     - name: API for FHIR
-      href: ../../healthcare-apis/fhir/fhir-paas-arm-template-quickstart.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: ../../healthcare-apis/fhir/fhir-service-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Event Grid
       href: ../../event-grid/blob-event-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Logic Apps
@@ -414,8 +414,12 @@
       href: test-toolkit.md
     - name: Template test cases
       href: template-test-cases.md
+    - name: Parameter file test cases
+      href: parameter-file-test-cases.md
     - name: CreateUiDefinition test cases
       href: createuidefinition-test-cases.md
+    - name: All files test cases
+      href: all-files-test-cases.md
   - name: Template specs
     items:
     - name: Create & deploy template specs
