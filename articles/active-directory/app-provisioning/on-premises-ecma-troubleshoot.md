@@ -7,7 +7,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/02/2021
+ms.date: 08/10/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -34,7 +34,7 @@ After you configure the ECMA host and provisioning agent, it's time to test conn
  1. After you assign an agent, you need to wait 10 to 20 minutes for the registration to complete. The connectivity test won't work until the registration completes.
  1. Ensure that you're using a valid certificate. Go to the **Settings** tab of the ECMA host to generate a new certificate.
  1. Restart the provisioning agent by going to the taskbar on your VM by searching for the Microsoft Azure AD Connect provisioning agent. Right-click **Stop**, and then select **Start**.
- 1. When you provide the tenant URL in the Azure portal, ensure that it follows the following pattern. You can replace `localhost` with your host name, but it isn't required. Replace `connectorName` with the name of the connector you specified in the ECMA host.
+ 1. When you provide the tenant URL in the Azure portal, ensure that it follows the following pattern. You can replace `localhost` with your host name, but it isn't required. Replace `connectorName` with the name of the connector you specified in the ECMA host. The error message 'invalid resource' generally indicates that the URL does not follow the expected format.
  
     ```
     https://localhost:8585/ecma2host_connectorName/scim
