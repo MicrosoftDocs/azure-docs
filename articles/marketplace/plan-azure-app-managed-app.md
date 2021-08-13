@@ -44,7 +44,7 @@ Use an Azure Application: Managed application plan when the following conditions
 
 **Solution templates:** The Solution Template offers are not changeable by the publisher after customer deployment. Therefore, containers and Azure Kubernetes Service (AKS) resources are not currently allowed in this offer category.
 
-**Managed Apps:** The Managed App offers allow the publisher to access and control the resources created during deployment in the customer’s subscription. Therefore, containers and Azure Kubernetes Service (AKS) resources *<u>are provisionally allowed</u>* in this offer category.
+**Managed applications:** The Managed Application offers allow the publisher to access and control the resources created during deployment in the customer’s subscription. Therefore, containers and Azure Kubernetes Service (AKS) resources *<u>are provisionally allowed</u>* in this offer category.
 
 ### Rules and Known Issues for AKS and Containers in Managed Apps Offers
 
