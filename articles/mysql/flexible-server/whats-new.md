@@ -31,7 +31,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **Private DNS zone integration**
 
-  The service now provides integration with an Azure private DNS zone. Integration with Azure private DNS zone allows seamless resolution of private DNS within the current VNet, or any peered VNet to which the private DNS Zone is linked to. [Learn more](./concepts-networking-vnet.md).
+  Azure Private DNS provides a reliable and secure DNS service(responsible for translating a service name to IP address) for your virtual network. Azure Private DNS manages and resolves domain names in the virtual network without the need to configure a custom DNS solution. The Azure Database for MySQL - Flexible Server now provides integration with an Azure private DNS zone to allow seamless resolution of private DNS within the current VNet, or any peered VNet to which the private DNS Zone is linked to. [Learn more](./concepts-networking-vnet.md).
 
 - **Point-In-Time Restore for a server in a specified virtual network**
 
