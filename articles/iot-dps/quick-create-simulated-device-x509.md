@@ -1,9 +1,9 @@
 ---
-title: Quickstart - Provision an X.509 certificate device
+title: Quickstart:Provision an X.509 certificate device
 description: Learn how to provision a device that authenticates with an X.509 certificate in the Azure IoT Hub Device Provisioning Service (DPS)
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 08/12/2021
+ms.date: 08/13/2021
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
@@ -136,8 +136,9 @@ In this section, you'll use sample code from the Azure IoT SDK to create a self-
 >
 >* Self-signed certificates are for testing only, and should not be used in production.
 >* The default expiration date for a self-signed certificate is one year.
->::: zone pivot="programming-language-csharp"
+::: zone pivot="programming-language-csharp"
 >* The device ID of the IoT device will be the subject common name on the certificate. Make sure to use a subject name that complies with the [Device ID string requirements](../iot-hub/iot-hub-devguide-identity-registry.md#device-identity-properties).
+
 ::: zone-end
 
 To create the X.509 certificate:

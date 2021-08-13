@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Provision a simulated symmetric key device
+title: Quickstart:Provision a simulated symmetric key device
 description: Learn how to provision a device that authenticates with a symmetric key in the Azure IoT Hub Device Provisioning Service (DPS)
 author: anastasia-ms
 ms.author: v-stharr
