@@ -32,6 +32,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment. 
 * Miro supports **SP and IDP** initiated SSO and supports **Just In Time** user provisioning.
+* Miro supports [**Automated** user provisioning and deprovisioning](miro-provisioning-tutorial.md) (recommended).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
