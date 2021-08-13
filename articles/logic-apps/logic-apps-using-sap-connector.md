@@ -350,7 +350,7 @@ Follow these examples to create a logic app  workflow that sends an IDoc message
 To have your logic app workflow receive IDocs from SAP, you can use the [Request trigger](../connectors/connectors-native-reqres.md).
 
 > [!TIP]
-> To receive IDocs as plain XML or as a flat file, review the section, []().
+> To receive IDocs as plain XML or as a flat file, review the section, [Receive message from SAP](#receive-message-sap).
 
 This section continues with the Request trigger, so first, create a logic app workflow with an endpoint in Azure to send *HTTP POST* requests to your workflow. When your logic app workflow receives these HTTP requests, the trigger fires and runs the next step in your workflow.
  
@@ -631,6 +631,8 @@ In the following example, a request and response pattern is generated from the `
    > If this condition happens, requests might get blocked. To help you diagnose problems, learn how you can [check and monitor your logic apps](monitor-logic-apps.md).
 
 You've now created a logic app workflow that can communicate with your SAP server. Now that you've set up an SAP connection for your logic app workflow, you can explore other available SAP actions, such as BAPI and RFC.
+
+<a name="receive-message-sap"></a>
 
 ## Receive message from SAP
 
