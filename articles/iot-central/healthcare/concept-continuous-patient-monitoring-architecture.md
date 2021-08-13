@@ -1,8 +1,8 @@
 ---
 title: Continuous patient monitoring architecture in Azure IoT Central | Microsoft Docs
 description: Tutorial - Learn about a continuous patient monitoring solution architecture.
-author: philmea
-ms.author: philmea
+author: dominicbetts 
+ms.author: dobett 
 ms.date: 12/11/2020
 ms.topic: conceptual
 ms.service: iot-central

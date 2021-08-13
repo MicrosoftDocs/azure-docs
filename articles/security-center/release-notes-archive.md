@@ -24,8 +24,8 @@ This page provides you with information about:
 
 Updates in February include:
 
-- [New security alerts page in the Azure portal released for General Availability (GA)](#new-security-alerts-page-in-the-azure-portal-released-for-general-availability-ga)
-- [Kubernetes workload protection recommendations released for General Availability (GA)](#kubernetes-workload-protection-recommendations-released-for-general-availability-ga)
+- [New security alerts page in the Azure portal released for general availability (GA)](#new-security-alerts-page-in-the-azure-portal-released-for-general-availability-ga)
+- [Kubernetes workload protection recommendations released for general availability (GA)](#kubernetes-workload-protection-recommendations-released-for-general-availability-ga)
 - [Microsoft Defender for Endpoint integration with Azure Defender now supports Windows Server 2019 and Windows 10 Virtual Desktop (WVD) (in preview)](#microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-virtual-desktop-wvd-in-preview)
 - [Direct link to policy from recommendation details page](#direct-link-to-policy-from-recommendation-details-page)
 - [SQL data classification recommendation no longer affects your secure score](#sql-data-classification-recommendation-no-longer-affects-your-secure-score)
@@ -33,7 +33,7 @@ Updates in February include:
 - [Asset inventory page enhancements](#asset-inventory-page-enhancements)
 
 
-### New security alerts page in the Azure portal released for General Availability (GA)
+### New security alerts page in the Azure portal released for general availability (GA)
 
 Azure Security Center's security alerts page has been redesigned to provide:
 
@@ -49,9 +49,9 @@ Azure Security Center's security alerts page has been redesigned to provide:
 :::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Azure Security Center's security alerts list":::
 
 
-### Kubernetes workload protection recommendations released for General Availability (GA)
+### Kubernetes workload protection recommendations released for general availability (GA)
 
-We're happy to announce the General Availability (GA) of the set of recommendations for Kubernetes workload protections.
+We're happy to announce the general availability (GA) of the set of recommendations for Kubernetes workload protections.
 
 To ensure that Kubernetes workloads are secure by default, Security Center has added Kubernetes level hardening recommendations, including enforcement options with Kubernetes admission control.
 
@@ -128,11 +128,11 @@ Learn more about how to [Explore and manage your resources with asset inventory]
 Updates in January include:
 
 - [Azure Security Benchmark is now the default policy initiative for Azure Security Center](#azure-security-benchmark-is-now-the-default-policy-initiative-for-azure-security-center)
-- [Vulnerability assessment for on-premise and multi-cloud machines is released for General Availability (GA)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga)
+- [Vulnerability assessment for on-premise and multi-cloud machines is released for general availability (GA)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga)
 - [Secure score for management groups is now available in preview](#secure-score-for-management-groups-is-now-available-in-preview)
-- [Secure score API is released for General Availability (GA)](#secure-score-api-is-released-for-general-availability-ga)
+- [Secure score API is released for general availability (GA)](#secure-score-api-is-released-for-general-availability-ga)
 - [Dangling DNS protections added to Azure Defender for App Service](#dangling-dns-protections-added-to-azure-defender-for-app-service)
-- [Multi-cloud connectors are released for General Availability (GA)](#multi-cloud-connectors-are-released-for-general-availability-ga)
+- [Multi-cloud connectors are released for general availability (GA)](#multi-cloud-connectors-are-released-for-general-availability-ga)
 - [Exempt entire recommendations from your secure score for subscriptions and management groups](#exempt-entire-recommendations-from-your-secure-score-for-subscriptions-and-management-groups)
 - [Users can now request tenant-wide visibility from their global administrator](#users-can-now-request-tenant-wide-visibility-from-their-global-administrator)
 - [35 preview recommendations added to increase coverage of Azure Security Benchmark](#35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
@@ -162,11 +162,11 @@ To learn more, see the following pages:
 - [Learn more about Azure Security Benchmark](/security/benchmark/azure/introduction)
 - [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md)
 
-### Vulnerability assessment for on-premise and multi-cloud machines is released for General Availability (GA)
+### Vulnerability assessment for on-premise and multi-cloud machines is released for general availability (GA)
 
 In October, we announced a preview for scanning Azure Arc enabled servers with [Azure Defender for servers](defender-for-servers-introduction.md)' integrated vulnerability assessment scanner (powered by Qualys).
 
-It's now released for General Availability (GA).
+It's now released for general availability (GA).
 
 When you've enabled Azure Arc on your non-Azure machines, Security Center will offer to deploy the integrated vulnerability scanner on them - manually and at-scale.
 
@@ -192,7 +192,7 @@ The secure score page now shows the aggregated secure scores for your management
 
 Learn more about [secure score and security controls in Azure Security Center](secure-score-security-controls.md).
 
-### Secure score API is released for General Availability (GA)
+### Secure score API is released for general availability (GA)
 
 You can now access your score via the [secure score API](/rest/api/securitycenter/securescores/). The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time. For example:
 
@@ -219,7 +219,7 @@ Learn more:
 - [Introduction to Azure Defender for App Service](defender-for-app-service-introduction.md)
 
 
-### Multi-cloud connectors are released for General Availability (GA)
+### Multi-cloud connectors are released for general availability (GA)
 
 With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same.
 

@@ -1,7 +1,7 @@
 ---
 title: View and manage customers and delegated resources in the Azure portal
 description: As a service provider or enterprise using Azure Lighthouse, you can view all of your delegated resources and subscriptions by going to My customers in the Azure portal. 
-ms.date: 06/21/2021
+ms.date: 08/12/2021
 ms.topic: how-to
 ---
 
@@ -36,6 +36,9 @@ You can view the following information from this page:
 - To see more details about an offer and its delegations, select the offer name.
 - To view more details about role assignments for delegated subscriptions or resource groups, select the entry in the **Delegations** column.
 
+> [!NOTE]
+> If a customer renames a subscription after it's been delegated, you'll see the updated subscription name. If they rename the tenant, you may still see the older tenant name in some places in the Azure portal.
+
 ## View and manage delegations
 
 Delegations show the subscription or resource group that has been delegated, along with the users and permissions that have access to it. To view this info, select **Delegations** on the left side of the **My customers** page.
@@ -62,20 +65,18 @@ For more information, see [View delegation changes in the Azure portal](monitor-
 
 You can work directly in the context of a delegated subscription within the Azure portal, without switching the directory you're signed in to. To do so:
 
-1. Select the **Directory + Subscription** icon near the top of the Azure portal.
-2. In the **Default subscription filter**, ensure that only the box for that delegated subscription is selected. You can use the **Current + delegated directories** drop-down box to show only subscriptions within a specific directory. (Do not use the **Switch directory** option, since that changes the directory to which you're signed in.)
+1. Select the **Directory + subscriptions** or **Settings** icon near the top of the Azure portal.
+1. In the [Directories + subscriptions settings page](../../azure-portal/set-preferences.md#directories--subscriptions), ensure that the **Advanced filters** toggle is [turned off](../../azure-portal/set-preferences.md#subscription-filters).
+1. In the **Default subscription filter** section, select the appropriate directory and subscription.
 
-If you then access a service which supports [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md), the service will default to the context of the delegated subscription that you selected. You can change this by following the steps above and checking the **Select all** box (or choosing one or more subscriptions to work in instead).
+:::image type="content" source="../media/subscription-filter-delegated.png" alt-text="Screenshot of a filter showing one delegated subscription.":::
+
+If you then access a service which supports [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md), the service will default to the context of the delegated subscription that you included in your filter. You can change this by following the steps above and checking the **Select all** box (or choosing one or more subscriptions to work in instead).
 
 > [!NOTE]
-> If you have been granted access to one or more resource groups, rather than access to an entire subscription, select the subscription to which that resource group belongs. You'll then work in the context of that subscription, but will only be able to access the designated resource groups.
+> If you have been granted access to one or more resource groups, rather than access to an entire subscription, select the subscription to which that resource group belongs. You'll then work in the context of that subscription, but will only be able to access the designated resource group(s).
 
-You can also access functionality related to delegated subscriptions or resource groups from within services that support cross-tenant management experiences by selecting the subscription or resource group from within that service.
-
-> [!TIP]
-> You can also [opt in to the new subscription filtering experience](../../azure-portal/set-preferences.md#opt-into-the-new-subscription-filtering-experience) to make your selections. If you do so, be sure that all directories and subscriptions are selected before you select the **Try it now** link, or else the new experience may not show all of the subscriptions to which you have access. If that happens, you can select **Switch back to the previous view** in the **Subscriptions + filters** pane, then repeat the opt in process with all directories and subscriptions selected.
->
-> :::image type="content" source="../media/azure-portal-subscription-filtering-opt-in-delegated.png" alt-text="Screenshot showing the opt-in selections for the new subscription filter settings.":::
+You can also access functionality related to delegated subscriptions or resource groups from within services that support cross-tenant management experiences by selecting the subscription or resource group from within an individual service.
 
 ## Cloud Solution Provider (Preview)
 
