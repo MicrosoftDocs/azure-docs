@@ -282,7 +282,7 @@ When adding node pool, reference the node subnet using `--vnet-subnet-id` and th
 az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name node2subnet --address-prefixes 10.242.0.0/16 -o none 
 az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name pod2subnet --address-prefixes 10.243.0.0/16 -o none 
 
-az aks nodepool add --cluster-name $clusterName -g $resourceGroup  -n newNodepool \
+az aks nodepool add --cluster-name $clusterName -g $resourceGroup  -n newnodepool \
   --max-pods 250 \
   --node-count 2 \
   --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/node2subnet \

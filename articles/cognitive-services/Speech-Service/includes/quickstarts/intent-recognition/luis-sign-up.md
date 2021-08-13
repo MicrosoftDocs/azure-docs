@@ -1,10 +1,10 @@
 ---
-author: trevorbye
+author: laujan
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 05/04/2021
-ms.author: trbye
+ms.author: lajanuar
 ---
 
 To complete the intent recognition quickstart, you'll need to create a LUIS account and a project using the LUIS preview portal. This quickstart requires a LUIS subscription [in a region where intent recognition is available](../../../regions.md#intent-recognition). A Speech service subscription *isn't* required.
