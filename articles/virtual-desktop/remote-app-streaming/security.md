@@ -21,7 +21,7 @@ Meanwhile, Azure Virtual Desktop manages portions of the services on the custome
 
 To keep the service flexible, the session hosts are hosted in the partner or customers' Azure subscription. This lets customers integrate the service with other Azure services and lets them connect on-premises network infrastructure with ExpressRoute or a virtual private network (VPN).
 
-Like many cloud services, there's a [shared set of security responsibilities](/azure/security/fundamentals/shared-responsibility) between you and Microsoft. When you use Azure Virtual Desktop, it's important to understand that while some parts of the service are secured for you, there are others you'll need to configure yourself according to your organization's security needs.
+Like many cloud services, there's a [shared set of security responsibilities](../../security/fundamentals/shared-responsibility.md) between you and Microsoft. When you use Azure Virtual Desktop, it's important to understand that while some parts of the service are secured for you, there are others you'll need to configure yourself according to your organization's security needs.
 
 You'll need to configure security in the following areas:
 
