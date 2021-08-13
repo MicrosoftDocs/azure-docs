@@ -768,24 +768,24 @@
           href: app/java-in-process-agent.md
         - name: Configuration options
           href: app/java-standalone-config.md
-         - name: Advanced configurations
-           items:
+        - name: Advanced configurations
+          items:
             - name: JMX metrics
               href: app/java-jmx-metrics-configuration.md
-             - name: Sampling overrides
-               href: app/java-standalone-sampling-overrides.md
-             - name: Telemetry processors
-               items:
-               - name: Overview
-                 href: app/java-standalone-telemetry-processors.md
-               - name: Examples
-                 href: app/java-standalone-telemetry-processors-examples.md
-         - name: JVM arguments setup
-           href: app/java-standalone-arguments.md
-         - name: Upgrade from 2.x SDK
-           href: app/java-standalone-upgrade-from-2x.md
-         - name: Troubleshooting
-           href: app/java-standalone-troubleshoot.md
+            - name: Sampling overrides
+              href: app/java-standalone-sampling-overrides.md
+            - name: Telemetry processors
+              items:
+              - name: Overview
+                href: app/java-standalone-telemetry-processors.md
+              - name: Examples
+                href: app/java-standalone-telemetry-processors-examples.md
+        - name: JVM arguments setup
+          href: app/java-standalone-arguments.md
+        - name: Upgrade from 2.x SDK
+          href: app/java-standalone-upgrade-from-2x.md
+        - name: Troubleshooting
+          href: app/java-standalone-troubleshoot.md
       - name: Python
         href: /app/opentelemetry-python.md
       - name: FAQ
