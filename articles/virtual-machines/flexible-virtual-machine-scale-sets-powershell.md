@@ -6,11 +6,9 @@ ms.author: fisteele
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: flexible-scale-sets
-ms.date: 05/24/2021
+ms.date: 08/05/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
-
-#May be dropping this since you can't create with PS at this moment... TBD.
 ---
 
 # Preview: Create virtual machines in a Flexible scale set using PowerShell
@@ -57,29 +55,85 @@ Feature registration can take up to 15 minutes. To check the registration status
 Get-AzProviderFeature -FeatureName VMOrchestratorMultiFD -ProviderNamespace Microsoft.Compute
 ```
 
-Once the feature has been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider.
 
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-```
+## Get started with Flexible scale sets
 
+Create a Flexible virtual machine scale set with Azure PowerShell.
 
-## Get started with Flexible orchestration mode
+### Add multiple VMs to a scale set 
 
-Create a Flexible virtual machine scale set with Azure PowerShell. The following example shows the creation of a Flexible scale set where the fault domain count is set to 1, a virtual machine is created and then added to the Flexible scale set.
+In the following example, we specify a virtual machine profile (VM type, networking configuration, storage type, etc.) and number of instances to create (sku capacity = 2). 
 
-```azurepowershell-interactive
-Connect-AzAccount
-Set-AzContext `
-    -Subscription "00000000-0000-0000-0000-000000000" 
+1. Create IP address configurations:
 
-$loc = "eastus" 
-$rgname = "myResourceGroupFlexible" 
-$vmssName = "myFlexibleVMSS" 
-$vmname = "myFlexibleVM"
-```
+    ```azurepowershell-interactive
+    $ipConfig = New-AzVmssIpConfig -Name "myIPConfig"
+    -SubnetId "${vnetid}/subnets/default" `
+    -LoadBalancerBackendAddressPoolsId $lb.BackendAddressPools[0].Id
+    ```
 
-### Create a virtual machine scale set Config with minimal parameters 
+1. Create a config object:
+
+    The config object stores the core information for creating a scale set.
+
+    ```azurepowershell-interactive
+    $vmssConfig = New-AzVmssConfig -Location $loc
+    -SkuCapacity 2 -SkuName "Standard_DS1_v2"
+    -OrchestrationMode 'Flexible' `
+    -PlatformFaultDomainCount 1
+    ```
+
+1. Reference a virtual machine image from the gallery:
+
+    ```azurepowershell-interactive
+    Set-AzVmssStorageProfile $vmssConfig -OsDiskCreateOption "FromImage"
+    -ImageReferencePublisher "Canonical" -ImageReferenceOffer "UbuntuServer"
+    -ImageReferenceSku "18.04-LTS" `
+    -ImageReferenceVersion "latest"
+    ```
+
+1. Set up information for authenticating with the virtual machine:
+
+    ```azurepowershell-interactive
+    Set-AzVmssOsProfile $vmssConfig -AdminUsername $cred.UserName
+    -AdminPassword $cred.Password -ComputerNamePrefix $vmname
+    ```
+
+1. Attach the virtual network to the config object:
+
+    ```azurepowershell-interactive
+    Add-AzVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmssConfig
+    -Name "network-config" -Primary $true
+    -IPConfiguration $ipConfig `
+    -NetworkApiVersion '2020-11-01'
+    ```
+
+1. Create the scale set with the config object:
+
+    This step might take a few minutes to complete. 
+
+    ```azurepowershell-interactive
+    New-AzVmss -ResourceGroupName $rgname
+    -Name $vmssName `
+    -VirtualMachineScaleSet $vmssConfig
+    ```
+
+### Add a single VM to a scale set
+
+The following example shows the creation of a Flexible scale set without a VM profile, where the fault domain count is set to 1. A virtual machine is created and then added to the Flexible scale set.
+
+1. Log into Azure PowerShell and specify the subscription and variables for the deployment. 
+
+    ```azurepowershell-interactive
+    Connect-AzAccount
+    Set-AzContext `
+        -Subscription "00000000-0000-0000-0000-000000000" 
+    
+    $loc = "eastus" 
+    $rgname = "myResourceGroupFlexible" 
+    $vmssName = "myFlexibleVMSS" 
+    $vmname = "myFlexibleVM"
+    ```
 
 1. Do not specify VM Profile parameters like networking or VM SKUs.
 

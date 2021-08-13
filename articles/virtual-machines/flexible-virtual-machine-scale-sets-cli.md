@@ -6,7 +6,7 @@ ms.author: fisteele
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: flexible-scale-sets
-ms.date: 05/24/2021
+ms.date: 08/05/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
 ---
@@ -50,25 +50,45 @@ Feature registration can take up to 15 minutes. To check the registration status
 az feature show --namespace Microsoft.Compute --name VMOrchestratorMultiFD
 ```
 
-Once the feature has been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider.
+
+## Get started with Flexible scale sets
+
+Create a Flexible virtual machine scale set with Azure CLI.
+
+### Add multiple VMs to a scale set
+
+In the following example, we specify a virtual machine profile (VM type, networking configuration, etc.) and number of instances to create (instance count = 2).  
 
 ```azurecli-interactive
-az provider register --namespace Microsoft.Compute
+az vmss create
+--resource-group $rg
+--name $vmssName
+--single-placement-group false
+--orchestration-mode flexible
+--platform-fault-domain-count 1
+--image UbuntuLTS
+--admin-username azureuser
+--instance-count 2
+--vm-sku 'Standard_D2s_v3'
+--network-api-version '2020-11-01'
+--computer-name-prefix $computerNamePrefix
+--vnet-name $vnetName
+--subnet $subnetName
+--public-ip-per-vm
 ```
 
+### Add a single VM to a scale set
 
-## Get started with Flexible orchestration mode
-
-Use the `group create`, `vmss create`, and `vm create` CLI commands to create a virtual machine scale set in flexible orchestration mode with Azure CLI. The following example shows the creation of a Flexible scale set where the fault domain count is set to 3, a virtual machine is created and then added to the Flexible scale set.
+The following example shows the creation of a Flexible scale set without a VM profile, where the fault domain count is set to 1. A virtual machine is created and then added to the Flexible scale set.
 
 ```azurecli-interactive
-vmssflexname="my-vmss-vmssflex"
+vmoname="my-vmss-vmo"
 vmname="myVM"
 rg="my-resource-group"
 
 az group create -n "$rg" -l $location
-az vmss create -n "$vmssflexname" -g "$rg" -l $location --orchestration-mode flexible --platform-fault-domain-count 3
-az vm create -n "$vmname" -g "$rg" -l $location --vmss $vmssflexname --image UbuntuLTS
+az vmss create -n "$vmoname" -g "$rg" -l $location --orchestration-mode vm --platform-fault-domain-count 1
+az vm create -n "$vmname" -g "$rg" -l $location --vmss $vmoname --image UbuntuLTS
 ``` 
 
 

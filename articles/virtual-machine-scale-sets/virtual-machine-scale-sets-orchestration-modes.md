@@ -5,7 +5,7 @@ author: fitzgeraldsteele
 ms.author: fisteele
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.date: 08/04/2021
+ms.date: 08/05/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex, devx-track-azurepowershell
 ---
@@ -113,7 +113,7 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 | In Guest Security Patching  | Yes  | No  | Yes  |
 | Terminate Notifications (VM scale sets)  | Yes  | Yes  | N/A  |
 | Instance Repair (VM scale sets)  | Yes  | Yes  | N/A  |
-| Accelerated networking  | Yes  | Yes  | Yes  |
+| Accelerated networking  | No  | Yes  | Yes  |
 | Spot instances and pricing   | Yes, you can have both Spot and Regular priority instances  | Yes, instances must either be all Spot or all Regular  | No, Regular priority instances only  |
 | Mix operating systems  | Yes, Linux and Windows can reside in the same Flexible scale set  | No, instances are the same operating system  | Yes, Linux and Windows can reside in the same Flexible scale set  |
 | Monitor Application Health  | Application health extension  | Application health extension or Azure Load balancer probe  | Application health extension  |

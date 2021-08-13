@@ -975,39 +975,31 @@
     - name: Portal
       displayName: proximity placement groups, ppg
       href: ./windows/proximity-placement-groups-portal.md
-  - name: Flexible virtual machine scale sets
+  - name: Virtual machine scale sets 
     items:
-    - name: Overview
+    - name: Flexible VM scale sets overview (preview) 
       displayName: Flexible orchestration mode for virtual machine scale sets 
       href: flexible-virtual-machine-scale-sets.md
-    - name: Portal
+    - name: Portal (preview) 
       displayName: Flexible orchestration mode for virtual machine scale sets 
       href: flexible-virtual-machine-scale-sets-portal.md 
-    - name: CLI
+    - name: CLI (preview) 
       displayName: Flexible orchestration mode for virtual machine scale sets 
       href: flexible-virtual-machine-scale-sets-cli.md 
-    - name: PowerShell
+    - name: PowerShell (preview) 
       displayName: Flexible orchestration mode for virtual machine scale sets 
       href: flexible-virtual-machine-scale-sets-powershell.md 
-    - name: REST API
+    - name: ARM template (preview) 
       displayName: Flexible orchestration mode for virtual machine scale sets 
-      href: flexible-virtual-machine-scale-sets-rest-api.md 
-    - name: Terraform
-      displayName: Flexible orchestration mode for virtual machine scale sets 
-      href: flexible-virtual-machine-scale-sets-terraform.md 
-    - name: Scale sets with Autoscaling
-      displayName: Flexible orchestration mode for virtual machine scale sets 
-      href: flexible-virtual-machine-scale-sets-autoscaling.md 
-  - name: Uniform virtual machine scale sets
-    items:
-    - name: Overview
-      displayName: virtual machine scale sets, VMSS, VM scale set, scale set
-      href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
+      href: flexible-virtual-machine-scale-sets-rest-api.md  
     - name: Autoscale
-      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context
-    - name: Orchestration modes
+      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context 
+    - name: Orchestration modes (preview) 
       displayName: VMSS, flex, scale set, scale, virtual machine sacle set
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
+    - name: Uniform VM scale sets overview
+      displayName: virtual machine scale sets, VMSS, VM scale set, scale set
+      href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
   - name: Understand VM reboots
     href: understand-vm-reboots.md
   - name: Azure Regions

@@ -9,11 +9,11 @@ ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-
 ---
+
 # Networking for Azure virtual machine scale sets
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
+**Applies to:** :heavy_check_mark: Uniform scale sets
 
 When you deploy an Azure virtual machine scale set through the portal, certain network properties are defaulted, for example an Azure Load Balancer with inbound NAT rules. This article describes how to use some of the more advanced networking features that you can configure with scale sets.
 
@@ -513,6 +513,24 @@ The following example shows how to add a second IP Configuration to your NIC.
     }
     ```
 
+
+## Explicit network outbound connectivity for Flexible scale sets 
+
+In order to enhance default network security, [virtual machine scale sets with Flexible orchestration](..\virtual-machines\flexible-virtual-machine-scale-sets.md) will require that instances created implicitly via the autoscaling profile have outbound connectivity defined explicitly through one of the following methods: 
+
+- For most scenarios, we recommend [NAT Gateway attached to the subnet](../virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md).
+- For scenarios with high security requirements or when using Azure Firewall or Network Virtual Appliance (NVA), you can specify a custom User Defined Route as next hop through firewall. 
+- Instances are in the backend pool of a Standard SKU Azure Load Balancer. 
+- Attach a Public IP Address to the instance network interface. 
+
+With single instance VMs and Virtual machine scale sets with Uniform orchestration, outbound connectivity is provided automatically. 
+
+Common scenarios that will require explicit outbound connectivity include: 
+
+- Windows VM activation will require that you have defined outbound connectivity from the VM instance to the Windows Activation Key Management Service (KMS). See [Troubleshoot Windows VM activation problems](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems) for more information.  
+- Access to storage accounts or Key Vault. Connectivity to Azure services can also be established via [Private Link](../private-link/private-link-overview.md). 
+
+See [Default outbound access in Azure](https://aka.ms/defaultoutboundaccess) for more details on defining secure outbound connections.
 
 
 ## Next steps
