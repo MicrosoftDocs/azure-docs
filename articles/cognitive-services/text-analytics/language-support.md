@@ -18,7 +18,7 @@ ms.author: aahi
 > [!NOTE]
 > Languages are added as new [model versions](concepts/model-versioning.md) are released for specific Text Analytics features. The current model version for Sentiment Analysis is `2020-04-01`.
 
-| Language              | Language code | v3 support | Starting v3 model version: |              Notes |
+| Language              | Language code | v3.x support | Starting v3 model version: |              Notes |
 |:----------------------|:-------------:|:----------:|:--------------------------:|-------------------:|
 | Chinese-Simplified    |   `zh-hans`   |     ✓      |         2019-10-01         | `zh` also accepted |
 | Chinese-Traditional   |   `zh-hant`   |    ✓      |         2019-10-01         |                    |
@@ -49,7 +49,7 @@ ms.author: aahi
 > * Only "Person", "Location" and "Organization" entities are returned for languages marked with *.
 > * Languages are added as new [model versions](concepts/model-versioning.md) are released for specific Text Analytics features. The current model version for NER is `2021-06-01`.
 
-| Language               | Language code | v3 support | Starting with v3 model version: |       Notes        |
+| Language               | Language code | v3.x support | Starting with v3 model version: |       Notes        |
 |:-----------------------|:-------------:|:----------:|:-------------------------------:|:------------------:|
 | Arabic                 |     `ar`      |      ✓*    |               2019-10-01        |                    |
 | Chinese-Simplified     |   `zh-hans`   |     ✓      |               2021-01-15        | `zh` also accepted |
@@ -80,7 +80,7 @@ ms.author: aahi
 > [!NOTE]
 > Languages are added as new [model versions](concepts/model-versioning.md) are released for specific Text Analytics features. The current model version for Key Phrase Extraction is `2021-06-01`.
 
-| Language              | Language code |  v3 support | Starting with v3 model version: |       Notes        |
+| Language              | Language code |  v3.x support | Starting with v3 model version: |       Notes        |
 |:----------------------|:-------------:|:----------:|:-----------------------------------------:|:------------------:|
 | Afrikaans             |     `af`      |     ✓      |                2020-07-01                 |                    |
 | Bulgarian             |     `bg`      |     ✓      |                2020-07-01                 |                    |
@@ -118,7 +118,7 @@ ms.author: aahi
 > [!NOTE]
 > Languages are added as new [model versions](concepts/model-versioning.md) are released for specific Text Analytics features. The current model version for Entity Linking is `2020-02-01`.
 
-| Language | Language code |  v3 support | Starting with v3 model version: | Notes |
+| Language | Language code |  v3.x support | Starting with v3 model version: | Notes |
 |:---------|:-------------:|:----------:|:-----------------------------------------:|:-----:|
 | English  |     `en`      |     ✓      |                2019-10-01                 |       |
 | Spanish  |     `es`      |    ✓      |                2019-10-01                 |       |
@@ -132,7 +132,7 @@ ms.author: aahi
 >    * Container: `2021-03-01`
 
 
-| Language | Language code |  v3 support | Starting with v3 model version: | Notes |
+| Language | Language code |  v3.x support | Starting with v3 model version: | Notes |
 |:---------|:-------------:|:----------:|:-----------------------------------------:|:-----:|
 | English  |     `en`      |     ✓      |                API endpoint: 2019-10-01 <br> Container: 2020-04-16                |       |
 
@@ -141,7 +141,7 @@ ms.author: aahi
 > [!NOTE]
 > Languages are added as new [model versions](concepts/model-versioning.md) are released for specific Text Analytics features. The current model version for PII is `2021-01-15`.
 
-| Language               | Language code | v3 support | Starting with v3 model version: |       Notes        |
+| Language               | Language code | v3.x support | Starting with v3 model version: |       Notes        |
 |:-----------------------|:-------------:|:----------:|:-------------------------------:|:------------------:|
 | Chinese-Simplified     |   `zh-hans`   |     ✓      |               2021-01-15        | `zh` also accepted |
 | English                |     `en`      |     ✓      |               2020-07-01        |                    |
@@ -163,7 +163,7 @@ The Text Analytics API can detect a wide range of languages, variants, dialects,
 
 If you have content expressed in a less frequently used language, you can try Language Detection to see if it returns a code. The response for languages that cannot be detected is `unknown`.
 
-| Language | Language Code | v3 support | Starting with v3 model version: |
+| Language | Language Code | v3.x support | Starting with v3 model version: |
 |:-|:-:|:-:|:-:|
 |Afrikaans|`af`|✓|    |
 |Albanian|`sq`|✓|    |
@@ -281,6 +281,21 @@ If you have content expressed in a less frequently used language, you can try La
 |Yucatec Maya| `yua` | ✓| |
 |Zulu|`zu`|✓|2021-01-05|
 
+
+#### [Text summarization](#tab/summarization)
+
+| Language | Language code |  v3.x support | Starting with v3 model version: | Notes |
+|:---------|:-------------:|:----------:|:-----------------------------------------:|:-----:|
+| Chinese-Simplified     |   `zh-hans`   |     ✓      |               2021-08-01        | `zh` also accepted |
+| English  |     `en`      |     ✓      |                2021-08-01                 |       |
+| French                 |     `fr`      |     ✓      |               2021-08-01        |                    |
+| German                 |     `de`      |     ✓      |               2021-08-01        |                    |
+| Italian               |     `it`      |     ✓       |               2021-08-01        |                    |
+| Japanese              |     `ja`      |     ✓       |               2021-08-01        |                    |
+| Korean                |     `ko`      |     ✓       |               2021-08-01        |                    |
+| Spanish               |     `es`      |     ✓       |               2021-08-01        |                    |
+| Portuguese (Brazil)   |    `pt-BR`    |     ✓       |               2021-08-01        |                    |
+| Portuguese (Portugal) |    `pt-PT`    |     ✓       |               2021-08-01        | `pt` also accepted |
 
 ---
 

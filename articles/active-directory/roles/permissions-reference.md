@@ -1732,7 +1732,7 @@ Identity Protection Center | Read all security reports and settings information 
 [Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | View security policies<br>View and investigate security threats<br>View reports
 Windows Defender ATP and EDR | View and investigate alerts. When you turn on role-based access control in Windows Defender ATP, users with read-only permissions such as the Azure AD Security Reader role lose access until they are assigned to a Windows Defender ATP role.
 [Intune](/intune/role-based-access-control) | Views user, device, enrollment, configuration, and application information. Cannot make changes to Intune.
-[Cloud App Security](/cloud-app-security/manage-admins) | Has read-only permissions and can manage alerts
+[Cloud App Security](/cloud-app-security/manage-admins) | Has read permissions and can manage alerts
 [Microsoft 365 service health](/office365/enterprise/view-service-health) | View the health of Microsoft 365 services
 
 > [!div class="mx-tableFixed"]

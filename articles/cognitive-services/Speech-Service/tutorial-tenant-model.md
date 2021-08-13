@@ -3,13 +3,13 @@ title: Create a tenant model (preview) - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Automatically generate a secure, compliant tenant model (Custom Speech with Microsoft 365 data) that uses your Microsoft 365 data to deliver optimal speech recognition for organization-specific terms.
 services: cognitive-services
-author: erhopf
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2020
-ms.author: erhopf
+ms.author: lajanuar
 ms.custom: devx-track-csharp
 ---
 

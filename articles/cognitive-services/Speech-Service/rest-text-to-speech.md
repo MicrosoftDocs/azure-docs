@@ -3,13 +3,13 @@ title: Text-to-speech API reference (REST) - Speech service
 titleSuffix: Azure Cognitive Services
 description: Learn how to use the text-to-speech REST API. In this article, you'll learn about authorization options, query options, how to structure a request and receive a response.
 services: cognitive-services
-author: nitinme
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/01/2021
-ms.author: nitinme
+ms.author: lajanuar
 ms.custom: references_regions
 ---
 

@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 05/25/2020
+ms.date: 08/03/2020
 ms.custom: fasttrack-edit
 ---
 # Azure Database for PostgreSQL versioning policy
@@ -18,14 +18,12 @@ Azure Database for PostgreSQL supports the following database versions.
 
 | Version | Single Server | Flexible Server (Preview) | Hyperscale (Citus) |
 | ----- | :------: | :----: | :----: |
-| PostgreSQL 13 |  | X  | X\* |
-| PostgreSQL 12 |  | X  | X\* |
+| PostgreSQL 13 |  | X  | X |
+| PostgreSQL 12 |  | X  | X |
 | PostgreSQL 11 | X | X | X |
 | PostgreSQL 10 | X |  |  |
 | PostgreSQL 9.6 | X |  |  |
 | *PostgreSQL 9.5 (retired)* | X |  |  |
-
-(\* PostgreSQL 12 and 13 are available as a preview feature in Hyperscale (Citus).)
 
 ## Major version support
 Each major version of PostgreSQL will be supported by Azure Database for PostgreSQL from the date on which Azure begins supporting the version until the version is retired by the PostgreSQL community, as provided in the [PostgreSQL community versioning policy](https://www.postgresql.org/support/versioning/).

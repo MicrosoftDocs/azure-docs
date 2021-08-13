@@ -24,9 +24,11 @@ keywords: facial recognition, facial recognition software, facial analysis, face
 
 The Azure Face service provides AI algorithms that detect, recognize, and analyze human faces in images. Facial recognition software is important in many different scenarios, such as identity verification, touchless access control, and face blurring for privacy.
 
-**Identity verification** checks that a new (remote) user is who they claim to be by matching their face against the photo on their identity document. It is commonly used in the gig economy, banking and online education industries.
+Identity Verification: Verifies someone’s identity against a government-issued ID card like a passport or driver’s license or other enrollment image to grant access to digital or physical services or recover an account. Specific access scenarios include opening a new account, verifying a worker, or administering an online assessment. Identity verification can be done once when a person is onboarded, and repeatedly as someone accesses a digital or physical service.
 
-**Face analysis** locates human faces in an image and returns different kinds of face-related data, such as whether the person is wearing a mask, glasses, facial hair, etc.
+Touchless Access Control: Compared to today’s methods like cards or tickets, opt-in face identification enables an enhanced access control experience while reducing the hygiene and security risks from card sharing, loss, or theft. Facial recognition assists the check-in process with a human in the loop for check-ins in airports, stadiums, theme parks, or buildings as well as reception kiosks at offices, hospitals, gyms, clubs, or schools.
+
+Face Redaction: Redact or blur detected faces of people recorded in a video to protect their privacy.
 
 This documentation contains the following types of articles:
 * The [quickstarts](./Quickstarts/client-libraries.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
