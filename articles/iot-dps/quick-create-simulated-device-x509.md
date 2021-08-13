@@ -756,7 +756,7 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
     ::: zone-end
 
 
-::: zone pivot="programming-language-csharp,programming-language-nodejs"
+::: zone pivot="programming-language-csharp,programming-language-nodejs,programming-language-python,programming-language-java"
 
 >[!IMPORTANT]
 >If you changed the *initial device twin state* from the default value in the enrollment entry for your device, it can pull the desired twin state from the hub and act accordingly. For more information, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md)
