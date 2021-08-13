@@ -1229,6 +1229,16 @@
       "source_path_from_root": "/articles/iot-central/healthcare/overview-iot-central-healthcare.md",
       "redirect_url": "/azure/iot-central/core/concepts-app-templates",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/energy/concept-iot-central-smart-meter-app.md",
+      "redirect_url": "/azure/iot-central/energy/tutorial-smart-meter-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/energy/concept-iot-central-solar-panel-app.md",
+      "redirect_url": "/azure/iot-central/energy/tutorial-solar-panel-app",
+      "redirect_document_id": false
     }
   ]
 }
