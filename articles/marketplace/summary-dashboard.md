@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 08/06/2021
+ms.date: 09/01/2021
 ---
 
 # Summary dashboard in commercial marketplace analytics
@@ -26,13 +26,40 @@ The [Summary dashboard](https://go.microsoft.com/fwlink/?linkid=2165765) present
 - Customers' usage of the offers
 - Customers' page visits in Azure Marketplace and AppSource
 
+## Access the Summary dashboard
+
+#### [Workspaces view](#tab/Workspaces-view)
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. On the Home page, select the **Insights** tile.
+
+    :::image type="content" source="./media/workspaces/partner-center-insights-tile.png" alt-text="Illustrates the Insights tile on the Partner Center Home page.":::
+
+1. In the left menu, select **Summary**.
+
+#### [Classic view](#tab/classic-view)
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. In the left-nav, select **Commercial Marketplace** > **Analyze** > **Summary**.
+
+---
+
 ## Elements of the Summary dashboard
 
 The following sections describe how to use the summary dashboard and how to read the data.
 
-To access the Summary dashboard in Partner Center, under **Commercial Marketplace** select **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** > **Summary**.
-
 ### Month range
+
+#### [Workspaces view](#tab/Workspaces-view) 
+
+You can find a month range selection at the top-right corner of each page. Customize the output of the **Summary** page graphs by selecting a month range based on the past specified number of months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
+
+[ ![Illustrates the monthly range options on the summary dashboard.](./media/summary-dashboard/summary-dashboard-workspaces.png) ](./media/summary-dashboard/summary-dashboard-workspaces.png#lightbox)
+
+> [!NOTE]
+> All metrics in the visualization widgets and export reports honor the computation period selected by the user.
+
+#### [Classic view](#tab/classic-view) 
 
 You can find a month range selection at the top-right corner of each page. Customize the output of the **Summary** page graphs by selecting a month range based on the past 3, 6, or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
 
@@ -40,6 +67,8 @@ You can find a month range selection at the top-right corner of each page. Custo
 
 > [!NOTE]
 > All metrics in the visualization widgets and export reports honor the computation period selected by the user.
+
+---
 
 ### Orders widget
 
