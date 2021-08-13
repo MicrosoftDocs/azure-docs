@@ -761,9 +761,7 @@
     - name: OpenTelemetry
       items: 
       - name: Overview
-        href: /app/opentelemetry-overview.md
-      - name: .NET
-        href: /app/opentelemetry-net.md     
+        href: /app/opentelemetry-overview.md 
       - name: Java
         items:
         - name: Overview
@@ -788,8 +786,6 @@
            href: app/java-standalone-upgrade-from-2x.md
          - name: Troubleshooting
            href: app/java-standalone-troubleshoot.md
-      - name: Javascript
-        href: /app/opentelemetry-javascript.md
       - name: Python
         href: /app/opentelemetry-python.md
       - name: FAQ
