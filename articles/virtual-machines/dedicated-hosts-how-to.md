@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.subservice: dedicated-hosts
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 07/27/2021
+ms.date: 08/13/2021
 ms.reviewer: cynthn, zivr
 
 
@@ -193,13 +193,14 @@ It will take a few minutes for your VM to be deployed.
 
 ### [CLI](#tab/cli)
 
-Create a virtual machine within a dedicated host using [az vm create](/cli/azure/vm#az_vm_create). If you specified an availability zone when creating your host group, you are required to use the same zone when creating the virtual machine.
+Create a virtual machine within a dedicated host using [az vm create](/cli/azure/vm#az_vm_create). If you specified an availability zone when creating your host group, you are required to use the same zone when creating the virtual machine. Replace the values like image and host name with your own. If you are creating a Windows VM, remove `--generate-ssh-keys` to be prompted for a password.
 
 ```azurecli-interactive
 az vm create \
    -n myVM \
-   --image debian \
+   --image myImage \
    --host-group myHostGroup \
+   --admin-username azureuser \
    --generate-ssh-keys \
    --size Standard_D4s_v3 \
    -g myDHResourceGroup \
@@ -218,14 +219,13 @@ Create a new VM on our host using [New-AzVM](/powershell/module/az.compute/new-a
 
 
 ```azurepowershell-interactive
-$cred = Get-Credential
 New-AzVM `
    -Credential $cred `
    -ResourceGroupName $rgName `
    -Location $location `
    -Name myVM `
    -HostId $dhost.Id `
-   -Image Win2016Datacenter `
+   -Image myImage `
    -Zone 1 `
    -Size Standard_D4s_v3
 ```
@@ -252,7 +252,7 @@ When you deploy a scale set, you specify the host group.
 
 ### [CLI](#tab/cli)
 
-When you deploy a scale set using [az vmss create](/cli/azure/vmss#az_vmss_create), you specify the host group using `--host-group`.
+When you deploy a scale set using [az vmss create](/cli/azure/vmss#az_vmss_create), you specify the host group using `--host-group`. In this example, we are deploying the latest Ubuntu LTS image. To deploy a Windows image, replace the value of `--image` and remove `--generate-ssh-keys` to be prompted for a password.
 
 ```azurecli-interactive
 az vmss create \
@@ -302,7 +302,7 @@ You can add an existing VM to a dedicated host, but the VM must first be Stop\De
 - The VM can't be in an availability set.
 - If the VM is in an availability zone, it must be the same availability zone as the host group. The availability zone settings for the VM and the host group must match.
 
-### [Portal](#tab/portal)
+### [Portal](#tab/portal2)
 
 Move the VM to a dedicated host using the [portal](https://portal.azure.com).
 
@@ -315,11 +315,7 @@ Move the VM to a dedicated host using the [portal](https://portal.azure.com).
 1. At the top of the page, select **Start** to restart the VM.
 
 
-### [CLI](#tab/cli)
-
-
-
-### [PowerShell](#tab/powershell)
+### [PowerShell](#tab/powershell2)
 
 Replace the values of the variables with your own information.
 
