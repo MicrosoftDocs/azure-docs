@@ -208,7 +208,7 @@ Parsing at query time also means you don't need to know your data's exact struct
 Use the data ingested into Azure Sentinel to secure your environment with any of the following processes:
 
 - [Get visibility into alerts](get-visibility.md)
-- [Visualize and monitor your data](/azure/sentinel/articles/sentinel/monitor-your-data.md)
+- [Visualize and monitor your data](monitor-your-data.md)
 - [Investigate incidents](investigate-cases.md)
 - [Detect threats](detect-threats-built-in.md)
 - [Automate threat prevention](tutorial-respond-threats-playbook.md)
