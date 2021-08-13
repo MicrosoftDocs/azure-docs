@@ -133,12 +133,28 @@ To access the Agreements page:
 
 A payout profile is the bank account to which proceeds are sent from your sales. This bank account must be in the same country or region where you registered your Partner Center account. For more information about a payout profile, see [Create and manage incentives payout and tax profiles in Partner Center](/partner-center/incentives-create-and-manage-your-payout-and-tax-profiles) and [Set up your payout account and tax forms](/partner-center/set-up-your-payout-account).
 
-To set up your payout profile:
+### To set up your payout profile
+
+#### [Workspaces view](#tab/Workspaces-view)
+
+1. Sign in to the [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/home) in Partner Center with the account you want to access.
+
+1. In the top-right, select **Settings** (gear icon), and then select **Account settings**.
+
+    :::image type="content" source="./media/manage-accounts/settings-account-workspaces.png" alt-text="Screenshot of the account settings menu in Partner Center.":::
+
+1. In the left-nav, under **Payout and tax**, select **Payout and tax profile assignment**.
+1. **Choose a payment method**: Bank account or PayPal.
+1. **Add payment information**: This may include choosing an account type (checking or savings), entering the account holder name, account number, and routing number, billing address, phone number, or PayPal email address. For more information about using PayPal as your account payment method and to find out whether it is supported in your market or region, see [PayPal info](/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
+
+#### [Classic view](#tab/classic-view)
 
 1. Go to the [commercial marketplace overview](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) page in Partner Center.
 2. In the **Profile** section, next to **Payout Profile**, select **Update**.
 3. **Choose a payment method**: Bank account or PayPal.
 4. **Add payment information**: This may include choosing an account type (checking or savings), entering the account holder name, account number, and routing number, billing address, phone number, or PayPal email address. For more information about using PayPal as your account payment method and to find out whether it is supported in your market or region, see [PayPal info](/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
+
+---
 
 > [!IMPORTANT]
 > Changing your payout account can delay your payments by up to one payment cycle. This delay occurs because we need to verify the account change, just as we do when first setting up the payout account. You'll still get paid for the full amount after your account has been verified; any payments due for the current payment cycle will be added to the next one.  
