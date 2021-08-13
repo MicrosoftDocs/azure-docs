@@ -39,7 +39,7 @@ When connecting data factory to Purview, ADF UI also tries to grant the data fac
 
 :::image type="content" source="./media/data-factory-purview/register-purview-account-warning.png" alt-text="Screenshot for warning of registering a Purview account.":::
 
-To fix the issue, go to Azure portal -> your Purview account -> Access control (IAM), check if **Purview Data Curator** role is granted to the data factory's managed identity. If not, manually add the role.
+To fix the issue, go to Azure portal -> your Purview account -> Access control (IAM), check if **Purview Data Curator** role is granted to the data factory's managed identity. If not, manually add the role assignment.
 
 ### Register Data Factory in Azure Purview
 

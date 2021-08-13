@@ -124,7 +124,7 @@ Refer to [supported data stores](how-to-lineage-sql-server-integration-services.
 
 After you run the Azure Data Factory pipeline, in the [pipeline monitoring view](.../data-factory/monitor-visually.md#monitor-pipeline-runs), you can check the lineage reporting status by clicking the following **Lineage status** button. The same information is also available in the activity output JSON -> `reportLineageToPurvew` section.
 
-:::image type="content" source="./media/how-to-link-azure-data-factory/monitor-lineage-reporting-status.png" alt-text="Monitor the lineage reporting status in pipeline monitoring view":::
+:::image type="content" source="../data-factory/media/data-factory-purview/monitor-lineage-reporting-status.png" alt-text="Monitor the lineage reporting status in pipeline monitoring view":::
 
 ## Supported lineage patterns
 

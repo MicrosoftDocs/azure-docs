@@ -48,24 +48,27 @@ After you run the pipeline, in the [pipeline monitoring view](monitor-visually.m
 :::image type="content" source="./media/data-factory-purview/monitor-lineage-reporting-status.png" alt-text="Monitor the lineage reporting status in pipeline monitoring view":::
 
 ### Step 4: View lineage information in your Purview account
-Go back to your Purview Account. In the home page, select **Browse assets**. Choose the asset you want, and click Lineage tab. You will see all the lineage information.
+
+On Purview UI, you can browse assets and choose type "Azure Data Factory". You can also search the Data Catalog using keywords.
 
 :::image type="content" source="./media/data-factory-purview/view-dataset.png" alt-text="Screenshot of Purview account":::
 
-You can see lineage data for Copy activity.
+On the activity asset, click the Lineage tab, you can see all the lineage information.
 
-:::image type="content" source="./media/data-factory-purview/copy-lineage.png" alt-text="Screenshot of Copy lineage":::
+- Copy activity:
 
-You also can see lineage data for Data Flow activity.
+    :::image type="content" source="./media/data-factory-purview/copy-lineage.png" alt-text="Screenshot of Copy lineage":::
 
-:::image type="content" source="./media/data-factory-purview/dataflow-lineage.png" alt-text="Screenshot of Dataflow lineage":::
+- Data Flow activity:
 
-> [!NOTE] 
-> For the lineage of Dataflow activity, we only support source and sink. The lineage for Dataflow transformation is not supported yet.
+    :::image type="content" source="./media/data-factory-purview/dataflow-lineage.png" alt-text="Screenshot of Dataflow lineage":::
 
-You also can see lineage data for Execute SSIS Package activity.
+    > [!NOTE] 
+    > For the lineage of Dataflow activity, we only support source and sink. The lineage for Dataflow transformation is not supported yet.
 
-:::image type="content" source="./media/data-factory-purview/ssis-lineage.png" alt-text="Screenshot of SSIS lineage":::
+- Execute SSIS Package activity:
+
+    :::image type="content" source="./media/data-factory-purview/ssis-lineage.png" alt-text="Screenshot of SSIS lineage":::
 
 > [!NOTE] 
 > For the lineage of Execute SSIS Package activity, we only support source and destination. The lineage for transformation is not supported yet.
