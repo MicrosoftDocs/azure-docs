@@ -77,7 +77,7 @@ Then continue with a "Provision a device" Quickstart that suits your device atte
 | Device attestation mechanism | Quickstart | 
 | ------------------------------- | -------------------- |
 | Symmetric key | [Provision a simulated symmetric key device](quick-create-simulated-device-symm-key.md) |
-| X.509 certificate | [C](quick-create-simulated-device-x509.md)<br>[Java](quick-create-simulated-device-x509-java.md)<br>[C#](quick-create-simulated-device-x509-csharp.md)<br>[Node.js](quick-create-simulated-device-x509-node.md)<br>[Python](quick-create-simulated-device-x509-python.md) |
+| X.509 certificate | [Provision a simulated X.509 device](quick-create-simulated-device-x509.md) |
 | Simulated Trusted Platform Module (TPM) | [C](quick-create-simulated-device.md)<br>[Java](quick-create-simulated-device-tpm-java.md)<br>[C#](quick-create-simulated-device-tpm-csharp.md)<br>[Python](quick-create-simulated-device-tpm-python.md) |
 
 

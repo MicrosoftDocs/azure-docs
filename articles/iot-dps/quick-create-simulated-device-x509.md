@@ -326,7 +326,7 @@ A test certificate file (*python-device.pem*) and private key file (*python-devi
 
 4. Copy the output of `Client Cert` to the clipboard, starting from *-----BEGIN CERTIFICATE-----* through *-----END CERTIFICATE-----*.
 
-   ![Individual certificate generator](./media/java-quick-create-simulated-device-x509/cert-generator-java.png)
+   ![Individual certificate generator](./media/quick-create-simulated-device-x509/cert-generator-java.png)
 
 5. Create a file named *_X509individual.pem_* on your Windows machine.
 
