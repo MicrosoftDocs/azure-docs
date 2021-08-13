@@ -80,8 +80,7 @@ After you've considered the planning items described above, select one of the fo
 
 | Publishing guide    | Notes  |
 | :------------------- | :-------------------|
-| [Dynamics 365 for Operations](./dynamics-365-operations-offer-setup.md) | When you're building for Enterprise Edition, first review these additional [publishing processes and guidelines](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source). |
+| [Dynamics 365 for Operations](./dynamics-365-operations-offer-setup.md) | When you're building for Enterprise Edition, first review these additional [publishing processes and guidelines](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source). Product types include Commerce, Finance, Human Resources, Project Operations, and Supply Chain Management. |
 | [Dynamics 365 for Business Central](dynamics-365-business-central-offer-setup.md) |   |
-| [Dynamics 365 for Customer Engagement & Power Apps](dynamics-365-customer-engage-offer-setup.md) | First review these additional [publishing processes and guidelines](/dynamics365/customer-engagement/developer/publish-app-appsource). |
-| [Power BI](./power-bi-app-offer-setup.md) | First review these additional [publishing processes and guidelines](/power-bi/developer/office-store). |
-|||
+| [Dynamics 365 for Customer Engagement & Power Apps](dynamics-365-customer-engage-offer-setup.md) | First review these additional [publishing processes and guidelines](/dynamics365/customer-engagement/developer/publish-app-appsource). Product types include Customer Service, Customer Voice, Project Operations, Field Service, Marketing, Mixed Reality, Power Apps, Power Automate, Power Virtual Agents, Project Service Automation, and Sales. |
+|
