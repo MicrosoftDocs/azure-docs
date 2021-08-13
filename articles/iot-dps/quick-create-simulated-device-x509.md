@@ -173,10 +173,6 @@ In this section, you'll prepare a development environment that's used to build t
 
 In this section, you'll use sample code from the Azure IoT SDK to create a self-signed X.509 certificate. This certificate will then be used to authenticate the device with its individual enrollment entry.
 
-> [!NOTE]
-> If you've already created your _root_, _intermediate_, and/or _leaf_ X.509 certificates, you may skip this step and proceed to the next section.
->
-
 It is important to note that:
 
 * Self-signed certificates are for testing only, and should not be used in production.
@@ -246,10 +242,6 @@ To create the X.509 certificate:
 ::: zone-end
 
 ::: zone pivot="programming-language-nodejs"
-
-> [!NOTE]
-> If you have already created your _root_, _intermediate_, and/or _leaf_ X.509 certificates, you may skip this these steps and proceed to the next section.
->
 
 1. Open a command prompt, and go to the certificate generator script and build the project:
 
