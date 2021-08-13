@@ -14,13 +14,14 @@ ms.author: negust
 
 # Tutorial: Prerequisites for using Cognitive Services in Azure Synapse Analytics
 
-In this tutorial, you'll learn how set up the prerequisites for securely using Azure Cognitive Services in Azure Synapse Analytics.
+In this tutorial, you'll learn how set up the prerequisites for securely using Azure Cognitive Services in Azure Synapse Analytics. Linking these Azure Cognitive Services allows you to leverage Azure Cognitive Services from various experiences in Synapse.
 
 This tutorial covers:
 > [!div class="checklist"]
 > - Create a Cognitive Services resource like Text Analytics or Anomaly Detector.
 > - Store an authentication key to Cognitive Services resources as secrets in Azure Key Vault, and configure access for an Azure Synapse Analytics workspace.
 > - Create an Azure Key Vault linked service in your Azure Synapse Analytics workspace.
+> - Create an Azure Cognitive Services linked service in your Azure Synapse Analytics workspace.
 
 If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
 
@@ -61,7 +62,7 @@ You can create an [Anomaly Detector](https://ms.portal.azure.com/#create/Microso
    ![Screenshot that shows selections for creating a secret.](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00d.png)
 
    > [!IMPORTANT]
-   > Make sure you remember or note down this secret name. You'll use it later when you connect to Cognitive Services from Synapse Studio.
+   > Make sure you remember or note down this secret name. You'll use it later when you create the Azure Cognitive Services linked service.
 
 ## Create an Azure Key Vault linked service in Azure Synapse
 
@@ -70,6 +71,15 @@ You can create an [Anomaly Detector](https://ms.portal.azure.com/#create/Microso
 3. Verify the connection by selecting the **Test connection** button. If the connection is green, select **Create** and then select **Publish all** to save your change.
 
 ![Screenshot that shows Azure Key Vault as a new linked service.](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00e.png)
+
+
+## Create an Azure Cognitive Service linked service in Azure Synapse
+
+1. Open your workspace in Synapse Studio.
+2. Go to **Manage** > **Linked Services**. Create an **Azure Cognitive Services** linked service by pointing to the Cognitive Service that you just created. 
+3. Verify the connection by selecting the **Test connection** button. If the connection is green, select **Create** and then select **Publish all** to save your change.
+
+![Screenshot that shows Azure Key Vault as a new linked service.](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-linked-service.png)
 
 You're now ready to continue with one of the tutorials for using the Azure Cognitive Services experience in Synapse Studio.
 
