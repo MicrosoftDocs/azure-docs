@@ -70,7 +70,6 @@
     - name: Failover and patching
       href: cache-failover.md
     - name: Best practices
-      href: cache-best-practices.md
       items:
        - name: Connection Resilience
          href: cache-best-practices-connection.md

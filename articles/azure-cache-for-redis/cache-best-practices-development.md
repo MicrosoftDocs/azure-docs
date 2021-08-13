@@ -10,6 +10,10 @@ ms.author: shpathak
 
 # Development
 
+- **Use Standard or Premium tier for production systems.**  The Basic tier is a single node system with no data replication and no SLA. Also, use at least a C1 cache.  C0 caches are meant for simple dev/test scenarios since they have a shared CPU core, little memory, and are prone to "noisy neighbor" issues.
+
+- **Remember that Redis is an in-memory data store.**  [This article](cache-troubleshoot-data-loss.md) outlines some scenarios where data loss can occur.
+
 ## Consider smaller keys
 
 Redis works best with smaller values, so consider dividing bigger chunks of data to spread over multiple keys. In this Redis discussion, some considerations are listed that you should consider carefully. Read this article for an example problem that can be caused by large values.
@@ -39,6 +43,10 @@ Ideally, client applications should be hosted in the same region as the cache.
 * **Use pipelining.**  Try to choose a Redis client that supports [Redis pipelining](https://redis.io/topics/pipelining). Pipelining helps make efficient use of the network and get the best throughput possible.
 
 * **Locate your cache instance and your application in the same region.**  Connecting to a cache in a different region can significantly increase latency and reduce reliability.  While you can connect from outside of Azure, it  not recommended *especially when using Redis as a cache*.  If you're using Redis as just a key/value store, latency may not be the primary concern.
+
+**Use TLS encryption** - Azure Cache for Redis requires TLS encrypted communications by default.  TLS versions 1.0, 1.1 and 1.2 are currently supported.  However, TLS 1.0 and 1.1 are on a path to deprecation industry-wide, so use TLS 1.2 if at all possible.  If your client library or tool doesn't support TLS, then enabling unencrypted connections can be done [through the Azure portal](cache-configure.md#access-ports) or [management APIs](/rest/api/redis/redis/update).  In such cases where encrypted connections aren't possible, placing your cache and client application into a virtual network would be recommended.  For more information about which ports are used in the virtual network cache scenario, see this [table](cache-how-to-premium-vnet.md#outbound-port-requirements).
+
+
 
 ## Client library specific guidance
 
