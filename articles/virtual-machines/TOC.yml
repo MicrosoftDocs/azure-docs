@@ -987,7 +987,7 @@
     - name: PowerShell (preview) 
       displayName: Flexible orchestration mode for virtual machine scale sets 
       href: flexible-virtual-machine-scale-sets-powershell.md 
-    - name: REST API (preview) 
+    - name: ARM template (preview) 
       displayName: Flexible orchestration mode for virtual machine scale sets 
       href: flexible-virtual-machine-scale-sets-rest-api.md  
     - name: Autoscale

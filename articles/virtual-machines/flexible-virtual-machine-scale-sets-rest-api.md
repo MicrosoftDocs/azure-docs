@@ -1,6 +1,6 @@
 ---
-title: Create virtual machines in a Flexible scale set using REST API
-description: Learn how to create a virtual machine scale set in Flexible orchestration mode using REST API.
+title: Create virtual machines in a Flexible scale set using an ARM template
+description: Learn how to create a virtual machine scale set in Flexible orchestration mode using an ARM template.
 author: fitzgeraldsteele
 ms.author: fisteele
 ms.topic: how-to
@@ -11,12 +11,12 @@ ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
 ---
 
-# Preview: Create virtual machines in a Flexible scale set using REST API
+# Preview: Create virtual machines in a Flexible scale set using an ARM template
 
 **Applies to:** :heavy_check_mark: Flexible scale sets
 
 
-This article steps through using the REST API to create a virtual machine scale set in Flexible orchestration mode. For more information about Flexible scale sets, see [Flexible orchestration mode for virtual machine scale sets](flexible-virtual-machine-scale-sets.md). 
+This article steps through using an ARM template to create a virtual machine scale set in Flexible orchestration mode. For more information about Flexible scale sets, see [Flexible orchestration mode for virtual machine scale sets](flexible-virtual-machine-scale-sets.md). 
 
 
 > [!IMPORTANT]
@@ -33,59 +33,12 @@ This article steps through using the REST API to create a virtual machine scale 
 
 Before you can deploy virtual machine scale sets in Flexible orchestration mode, you must first [register your subscription for the preview feature](flexible-virtual-machine-scale-sets.md#register-for-flexible-orchestration-mode). The registration may take several minutes to complete.
 
+## ARM template 
 
-## Get started with Flexible orchestration mode
+An [ARM template](../azure/azure-resource-manager/templates/overview.md) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment.
 
-1. Create an empty scale set. The following parameters are required:
-    - API version 2019-12-01 (or greater)
-    - Single placement group must be `false` when creating a Flexible scale set
+ARM templates let you deploy groups of related resources. In a single template, you can create the virtual machine scale set, install applications, and configure autoscale rules. With the use of variables and parameters, this template can be reused to update existing, or create additional, scale sets. You can deploy templates through the Azure portal, Azure CLI, or Azure PowerShell, or from continuous integration / continuous delivery (CI/CD) pipelines.
 
-	```json
-	{
-	"type": "Microsoft.Compute/virtualMachineScaleSets",
-	"name": "[parameters('virtualMachineScaleSetName')]",
-	"apiVersion": "2019-12-01",
-	"location": "[parameters('location')]",
-	"properties": {
-		"singlePlacementGroup": false,
-		"platformFaultDomainCount": "[parameters('virtualMachineScaleSetPlatformFaultDomainCount')]"
-		},
-	"zones": "[variables('selectedZone')]"
-	}
-	```
-
-2. Add virtual machines to the scale set.
-    1. Assign the `virtualMachineScaleSet` property to the scale set you have previously created. You are required to specify the `virtualMachineScaleSet` property at the time of VM creation.
-    1. You can use the **copy()** Azure Resource Manager template function to create multiple VMs at the same time. See [Resource iteration](../azure-resource-manager/templates/copy-resources.md#iteration-for-a-child-resource) in Azure Resource Manager templates.
-
-    ```json
-    {
-    "type": "Microsoft.Compute/virtualMachines",
-    "name": "[concat(parameters('virtualMachineNamePrefix'), copyIndex(1))]",
-    "apiVersion": "2019-12-01",
-    "location": "[parameters('location')]",
-    "copy": {
-    	"name": "VMcopy",
-    	"count": "[parameters('virtualMachineCount')]"
-    	},
-    "dependsOn": [
-    	"
-    	[resourceID('Microsoft.Compute/virtualMachineScaleSets', parameters('virtualMachineScaleSetName'))]",
-    	"
-    	[resourceID('Microsoft.Storage/storageAccounts', variables('diagnosticsStorageAccountName'))]",
-    	"
-    	[resourceID('Microsoft.Network/networkInterfaces', concat(parameters('virtualMachineNamePrefix'), copyIndex(1), '-NIC1'))]"
-    	],
-    "properties": {
-    	"virtualMachineScaleSet": {
-    		"id": "[resourceID('Microsoft.Compute/virtualMachineScaleSets', parameters('virtualMachineScaleSetName'))]"
-        }
-    }
-    ```
-
-See [Add multiple VMs into a Virtual Machine Scale Set](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-vmss-flexible-orchestration-mode) for a full example.
-
-### ARM template
 
 ```armasm
 {

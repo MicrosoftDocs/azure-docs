@@ -226,11 +226,55 @@ The following table lists the Flexible orchestration mode features and links to 
 | Add/remove existing VM to the group | No |
 | Service Fabric | No |
 | Azure Kubernetes Service (AKS) | No |
+| Trusted Virtual Machines (preview) | Yes |
+| Automatic Extension Updates | Yes |
 
+
+### Unsupported parameters
+
+The following virtual machine scale set parameters are not currently supported during Virtual Machine Scale Set Flexible Orchestration Public Preview:
+- Single placement group - ou must choose `singlePlacementGroup=False`.
+- Multi-zone deployment - deployments can either be regional or all VMs in a single zone
+- Deployment using Specialty SKUs: G, H, L, M, N series VM families
+- VMSS Overprovisioning
+- Image-based Automatic OS Upgrades
+- Application health via SLB health probe - use Application Health Extension on instances
+- Virtual machine scale set upgrade policy - must be null or empty
+- Deployment onto Azure Dedicated Host
+- Unmanaged disks
+- Virtual machine scale set Scale in Policy
+- Virtual machine scale set Instance Protection
+- Accelerated Networking
+- Basic Load Balancer
+- Port Forwarding via Standard Load Balancer NAT Pool - you can configure NAT rules to specific instances
 
 
 ## Troubleshoot scale sets with Flexible orchestration
 Find the right solution to your troubleshooting scenario.
+
+<!-- error -->
+### InvalidParameter. Parameter 'virtualMachineProfile' is not allowed.
+
+```
+InvalidParameter. Parameter 'virtualMachineProfile' is not allowed.
+```
+
+**Cause:** The subscription is not registered for the Flexible orchestration mode Public Preview.
+
+**Solution:** You must register the VMScaleSetPublicPreview feature for your subscription. Follow the instructions above to register for the Flexible orchestration mode Public Preview.
+
+
+<!-- error -->
+### BadRequest. Creating a Virtual Machine with a Public IP Address via NetworkInterfaceConfigurations during the Public Preview of VM NetworkInterfaceConfigurations initially requires the feature 'Microsoft.Compute/SkipPublicIpWriteRBACCheckForVMNetworkInterfaceConfigurationsPublicPreview'.
+
+```
+BadRequest. Creating a Virtual Machine with a Public IP Address via NetworkInterfaceConfigurations during the Public Preview of VM NetworkInterfaceConfigurations initially requires the feature 'Microsoft.Compute/SkipPublicIpWriteRBACCheckForVMNetworkInterfaceConfigurationsPublicPreview'.
+```
+
+**Cause:** The subscription is not registered for the Flexible orchestration mode Public Preview.
+
+**Solution:** You must register the `SkipPublicIpWriteRBACCheckForVMNetworkInterfaceConfigurationsPublicPreview` feature for your subscription. Follow the instructions above to register for the Flexible orchestration mode Public Preview.
+
 
 <!-- error -->
 ### InvalidParameter. The value 'False' of parameter 'singlePlacementGroup' is not allowed. Allowed values are: True
@@ -243,6 +287,7 @@ InvalidParameter. The value 'False' of parameter 'singlePlacementGroup' is not a
 
 **Solution:** Follow the instructions above to register for the Flexible orchestration mode Public Preview.
 
+
 <!-- error -->
 ### InvalidParameter. The specified fault domain count 2 must fall in the range 1 to 1.
 
@@ -254,6 +299,7 @@ InvalidParameter. The specified fault domain count 2 must fall in the range 1 to
 
 **Solution:** You must select a valid `platformFaultDomainCount` value. For zonal deployments, the maximum `platformFaultDomainCount` value is 1. For regional deployments where no zone is specified, the maximum `platformFaultDomainCount` varies depending on the region. See [Manage the availability of VMs for scripts](../virtual-machines/availability.md) to determine the maximum fault domain count per region.
 
+
 <!-- error -->
 ### OperationNotAllowed. Deletion of Virtual Machine Scale Set is not allowed as it contains one or more VMs. Please delete or detach the VM(s) before deleting the Virtual Machine Scale Set.
 
@@ -264,6 +310,7 @@ OperationNotAllowed. Deletion of Virtual Machine Scale Set is not allowed as it 
 **Cause:** Trying to delete a scale set in Flexible orchestration mode that is associated with one or more virtual machines.
 
 **Solution:** Delete all of the virtual machines associated with the scale set in Flexible orchestration mode, then you can delete the scale set.
+
 
 <!-- error -->
 ### InvalidParameter. The value 'True' of parameter 'singlePlacementGroup' is not allowed. Allowed values are: False.
