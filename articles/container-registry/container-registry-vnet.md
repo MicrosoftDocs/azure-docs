@@ -11,7 +11,7 @@ ms.date: 05/04/2020
 
 This article shows how to configure a container registry service endpoint (preview) in a virtual network. 
 
-Each registry supports a maximum of 100 virtaul network rules.
+Each registry supports a maximum of 100 virtual network rules.
 
 > [!IMPORTANT]
 > Azure Container Registry now supports [Azure Private Link](container-registry-private-link.md), enabling private endpoints from a virtual network to be placed on a registry. Private endpoints are accessible from within the virtual network, using private IP addresses. We recommend using private endpoints instead of service endpoints in most network scenarios.

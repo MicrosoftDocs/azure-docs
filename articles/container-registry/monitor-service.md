@@ -15,7 +15,7 @@ When you have critical applications and business processes relying on Azure reso
 
 ## Monitor overview
 
-The **Overview** page in the Azure portal for each registry includes a brief view of recent resource usage and activity, such as push and pull operations. This high-level information is useful, but only a small amount of the monitoring data is shown there. 
+The **Overview** page in the Azure portal for each registry includes a brief view of recent resource usage and activity, such as push and pull operations. This high-level information is useful, but only a small amount of data is shown there. 
 
 :::image type="content" source="media/monitor-service/metrics-overview.png" alt-text="Registry metrics overview"::: 
 
@@ -50,7 +50,7 @@ See [Create diagnostic setting to collect platform logs and metrics in Azure](..
 > [!TIP]
 > You can also create registry diagnostic settings by navigating to your registry in the portal. In the menu, select **Diagnostic settings** under **Monitoring**.
 
-The following image shows the options when you enable diagnostic setting for a registry.
+The following image shows the options when you enable diagnostic settings for a registry.
 
 :::image type="content" source="media/monitor-service/diagnostic-settings.png" alt-text="Diagnostic settings for container registry":::
 
