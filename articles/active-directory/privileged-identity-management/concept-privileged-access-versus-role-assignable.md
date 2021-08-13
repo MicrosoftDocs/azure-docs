@@ -38,9 +38,8 @@ You can set up just-in-time access to permissions and roles beyond Azure AD and 
 
 If you want to assign a group to an Azure AD or Azure Resource role and require activation via PIM, there are two ways you can achieve this result:
 
-- Assign the group as eligible for a role through PIM. Everyone in the group must activate their assignment to get access to the role. This path requires a role-assignable group for the Azure AD role, and a security group for Azure resources.
-
-- Assign the group as permanently active in a role. You then grant users eligible member access to the group in PIM. Eligible users must then activate their membership to get into the group that is permanently assigned to the role. This path requires a role-assignable group to be enabled in PIM as a privileged access group for the Azure AD role.
+- **Assign the group as permanently active in a role**. You then grant users eligible member access to the group in PIM. Eligible users must then activate their membership to get into the group that is permanently assigned to the role. This path requires a role-assignable group to be enabled in PIM as a privileged access group for the Azure AD role.
+- **Assign the group as eligible for a role** through PIM. Everyone in the group must activate their assignment to get access to the role. This path requires a role-assignable group for the Azure AD role, and a security group for Azure resources.
 
     ![Two ways to assign role using privileged access groups in PIM](./media/concept-privileged-access-versus-role-assignable/concept-privileged-access.png)
 
