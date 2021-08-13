@@ -393,7 +393,6 @@ Host.CreateDefaultBuilder(args)
     });
 ```
 
-For more information, see [Configuration in .NET](/dotnet/core/extensions/configuration).
 
 ## Logging scopes
 
