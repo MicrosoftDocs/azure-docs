@@ -75,7 +75,21 @@ Most client libraries attempt to reconnect to the cache if they're configured to
 
 ### Can I be notified in advance of a planned maintenance?
 
-Azure Cache for Redis now publishes notifications on a publish/subscribe channel called [AzureRedisEvents](https://github.com/Azure/AzureCacheForRedis/blob/main/AzureRedisEvents.md) around 30 seconds before planned updates. The notifications are runtime notifications. They're built especially for applications that can use circuit breakers to bypass the cache or buffer commands, for example, during planned updates. It's not a mechanism that can notify you days or hours in advance.
+Azure Cache for Redis publishes notifications on a publish/subscribe (pub/sub)channel called [AzureRedisEvents](https://github.com/Azure/AzureCacheForRedis/blob/main/AzureRedisEvents.md) around 30 seconds before planned updates. The notifications are runtime notifications. They're built especially for applications that can use circuit breakers to bypass the cache or buffer commands, for example, during planned updates. It's not a mechanism that can notify you days or hours in advance.
+
+The 'AzureRedisEvents' channel can notify clients of all upcoming planned server maintenance events that could affect server availability. Many popular Redis client libraries support subscribing to pub/sub channels, so receiving notifications from the 'AzureRedisEvents' channel is usually a simple addition to a Redis client application.
+
+Once your application is subscribed to AzureRedisEvents, it receives a notification 30 seconds before any node is affected by a maintenance event. The notification includes details about the upcoming event and indicates whether it affects a primary or replica node. Another notification is sent minutes later when the maintenance operation is complete and the node has rejoined the cache. 
+
+Based on the information in the notifications, your application can take action to avoid using the cache while the maintenance is being performed and potentially causing cache availability drops. For example, a cache can implement a circuit breaker pattern, where traffic is routed away from the cache for the duration of the maintenance operation. Instead, traffic is sent directly to a persistent store. Note that the notification is not intended to allow time for a person to be alerted and take manual action.
+
+In most cases, your application does not need to subscribe to AzureRedisEvents or respond to notifications. Instead, we recommend implementing connection resilience. With sufficient resilience, applications can gracefully handle any brief connection loss or cache unavailability like that experienced during node maintenance. It’s also possible that your application might sometimes lose its connection to the cache without warning from 'AzureRedisEvents', because of network errors or other unexpected events. 
+
+We only recommend subscribing to 'AzureRedisEvents' in a few exceptional cases, including:
+
+- Applications with extreme performance requirements, where even minor delays must be avoided. In such scenarios, traffic could be seamlessly re-routed to a backup cache before maintenance begins on the current cache.
+- Applications that explicitly read data from replica rather than primary nodes. During maintenance on a replica node, the application could temporarily switch to read data from primary nodes.
+- Applications that cannot risk write operations failing silently or succeeding without confirmation, which can happen as connections are being closed for maintenance. If those cases would result in dangerous data loss, the application can proactively pause or redirect write commands before the maintenance is scheduled to begin.
 
 ### Client network-configuration changes
 
