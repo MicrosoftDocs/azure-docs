@@ -8,7 +8,7 @@ ms.custom: devx-track-azurepowershell
 
 # Overview and concepts of private endpoints for Azure Backup
 
-Azure Backup allows you to securely back up and restore your data from your Recovery Services vaults using [private endpoints](../private-link/private-endpoint-overview.md). Private endpoints use one or more private IP addresses from your VNet, effectively bringing the service into your VNet.
+Azure Backup allows you to securely back up and restore your data from your Recovery Services vaults using [private endpoints](../private-link/private-endpoint-overview.md). Private endpoints use one or more private IP addresses from your Azure Virtual Network (VNet), effectively bringing the service into your VNet.
 
 This article will help you understand how private endpoints for Azure Backup work and the scenarios where using private endpoints helps maintain the security of your resources.
 
@@ -57,7 +57,7 @@ When the workload extension or MARS agent is installed for Recovery Services vau
 | Azure Storage | *.blob.core.windows.net <br> *.queue.core.windows.net <br> *.blob.storage.azure.net |
 
 >[!Note]
->In the above text, `<geo>` refers to the region code (for example, eus and ne for East US and North Europe respectively). Refer to the following lists for regions codes:
+>In the above text, `<geo>` refers to the region code (for example, **eus** for East US and **ne** for North Europe). Refer to the following lists for regions codes:
 >- [All public clouds](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
 >- [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
 >- [Germany](/azure/germany/germany-developer-guide#endpoint-mapping)
@@ -76,20 +76,20 @@ The following example shows Azure firewall used as DNS proxy to redirect the dom
 
 For more information, see [Creating and using private endpoints](private-endpoints.md).
 
-## How Azure Backup sets up network connectivity for vaults with private endpoints?
+## Network connectivity setup for vaults with private endpoints
 
-The private endpoint for recovery services is associated with a network interface (NIC) that has a private IP. For private endpoint connections to work (routing all the traffic to the service via Azure backbone and restricting service access to clients within your VNET), it’s required that all the communication traffic for the service is redirected to that network interface. This can be achieved by using DNS linked to the VNET or host file entries on the machine where extension/agent is running.
+The private endpoint for recovery services is associated with a network interface (NIC) that has a private IP. For private endpoint connections to work (routing all the traffic to the service via Azure backbone and restricting service access to clients within your VNet), it’s required that all the communication traffic for the service is redirected to that network interface. This can be achieved by using DNS linked to the VNet or host file entries on the machine where extension/agent is running.
 
-The workload backup extension and MARS agent run on Azure VM in a VNET or on-premises VM peered with VNET. When registered to a Recovery Services vault with a private endpoint joined with this VNET, the service URL of the Azure Backup cloud services for the extension and agent change from `<azure_backup_svc >.<geo>.backup.windowsazure.com` to `<vault_id>.<azure_backup_svc>.privatelink.<geo>.backup`.windowsazure.com**.
+The workload backup extension and MARS agent run on Azure VM in a VNet or on-premises VM peered with VNet. When registered to a Recovery Services vault with a private endpoint joined with this VNet, the service URL of the Azure Backup cloud services for the extension and agent change from `<azure_backup_svc >.<geo>.backup.windowsazure.com` to `<vault_id>.<azure_backup_svc>.privatelink.<geo>.backup`.windowsazure.com**.
 
 >[!Note]
->In the above text, `<geo>` refers to the region code (for example, eus and ne for East US and North Europe respectively). Refer to the following lists for regions codes:
+>In the above text, `<geo>` refers to the region code (for example, **eus** for East US and **ne** for North Europe). Refer to the following lists for regions codes:
 >- [All public clouds](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
 >- [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
 >- [Germany](/azure/germany/germany-developer-guide#endpoint-mapping)
 >- [US Gov](/azure/azure-government/documentation-government-developer-guide)
 
-The modified URLs are specific for a vault.  See `<vault_id>` in the URL name. Only extensions and agents registered to this vault can communicate with Azure Backup via these endpoints. This restricts the access to the clients within this VNET. The extension/agent will communicate via `*.privatelink.<geo>.backup.windowsazure.com` that needs to resolve the corresponding private IP in the NIC.
+The modified URLs are specific for a vault.  See `<vault_id>` in the URL name. Only extensions and agents registered to this vault can communicate with Azure Backup via these endpoints. This restricts the access to the clients within this VNet. The extension/agent will communicate via `*.privatelink.<geo>.backup.windowsazure.com` that needs to resolve the corresponding private IP in the NIC.
 
 When the private endpoint for Recovery Services vaults is created via Azure portal with the **integrate with private DNS zone** option, the required DNS entries for private IP addresses for Azure Backup services (`*.privatelink.<geo>backup.windowsazure.com`) are created automatically whenever the resource is allocated. Otherwise, you need to create the DNS entries manually for these FQDNs in the custom DNS or in the host files.
 
@@ -105,7 +105,7 @@ In addition to the connection to Azure Backup cloud services, the workload exten
 
 For a private endpoint enabled vault, Azure Backup creates private endpoint for these storage accounts that is routing the traffic for communication channel and backup data via the Azure backbone network. This prevents any network traffic related to Azure Backup from leaving the virtual network.
 
-As a pre-requisite, Recovery Services vault requires permissions for creating additional private endpoints in the same Resource Group. We also recommend providing the Recovery Services vault the permissions to create DNS entries in the private DNS zones (privatelink.blob.core.windows.net, privatelink.queue.core.windows.net). Recovery Services vault searches for private DNS zones in the Resource Groups where VNET and private endpoint are created. If it has the permissions to add DNS entries in these zones, they’ll be created by the vault, otherwise you must create them manually by the user in their custom DNS or in private DNS zone linked with the VNET.
+As a pre-requisite, Recovery Services vault requires permissions for creating additional private endpoints in the same Resource Group. We also recommend providing the Recovery Services vault the permissions to create DNS entries in the private DNS zones (privatelink.blob.core.windows.net, privatelink.queue.core.windows.net). Recovery Services vault searches for private DNS zones in the Resource Groups where VNet and private endpoint are created. If it has the permissions to add DNS entries in these zones, they’ll be created by the vault, otherwise you must create them manually by the user in their custom DNS or in private DNS zone linked with the VNet.
 
 >The private IP mappings are available in the private endpoint blade for the blobs and queues on the portal.
 
