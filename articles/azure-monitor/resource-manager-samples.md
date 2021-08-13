@@ -1,6 +1,6 @@
 ---
 title: Resource Manager template samples for Azure Monitor
-description: Deploy and configure Azure Monitor features using Resource Manager templates
+description: Deploy and configure Azure Monitor features by using Resource Manager templates.
 author: bwren
 ms.author: bwren
 services: azure-monitor
@@ -10,17 +10,16 @@ ms.custom: devx-track-azurepowershell
 ---
 # Resource Manager template samples for Azure Monitor
 
-Azure Monitor can be deployed and configured at scale using [Azure Resource Manager template](../azure-resource-manager/templates/syntax.md). The following articles provide sample templates for different Azure Monitor features. These samples can be modified for your particular requirements and deployed using any standard method for deploying Resource Manager templates. 
+You can deploy and configure Azure Monitor at scale by using [Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md). This article lists sample templates for different Azure Monitor features. You can modify these samples for your particular requirements and deploy them by using any standard method for deploying Resource Manager templates. 
 
 ## Deploying the sample templates
-The basic steps to use the samples are:
+The basic steps to use the one of the template samples are:
 
-1. Copy the template and save as a JSON file.
-2. Modify the parameters for your environment and save as a JSON file.
-4. Deploy the template using [any deployment method for Resource Manager templates](../azure-resource-manager/templates/deploy-powershell.md). 
+1. Copy the template and save it as a JSON file.
+2. Modify the parameters for your environment and save the JSON file.
+3. Deploy the template by using [any deployment method for Resource Manager templates](../azure-resource-manager/templates/deploy-powershell.md). 
 
-For example, use the following commands to deploy the template and parameters file to a resource group using PowerShell or Azure CLI.
-
+For example, use the following commands to deploy the template and parameter file to a resource group by using PowerShell or the Azure CLI:
 
 ```powershell
 Connect-AzAccount
@@ -39,20 +38,18 @@ az deployment group create \
 
 ## List of sample templates
 
-- [Agents](agents/resource-manager-agent.md) - Deploy and configure Log Analytics agent and diagnostic extension.
-- Alerts
-  - [Log alert rules](alerts/resource-manager-alerts-log.md) - Alerts from log queries and Azure activity log.
-  - [Metric alert rules](alerts/resource-manager-alerts-metric.md) - Alerts from metrics using different kinds of logic.
+- [Agents](agents/resource-manager-agent.md): Deploy and configure the Log Analytics agent and a diagnostic extension.
+- Alerts:
+  - [Log alert rules](alerts/resource-manager-alerts-log.md): Configure alerts from log queries and Azure Activity Log.
+  - [Metric alert rules](alerts/resource-manager-alerts-metric.md): Configure alerts from metrics that use different kinds of logic.
 - [Application Insights](app/resource-manager-app-resource.md)
-- [Diagnostic settings](essentials/resource-manager-diagnostic-settings.md) - Create diagnostic settings to forward logs and metrics from different resource types.
-- [Log queries](logs/resource-manager-log-queries.md) - Create saved log queries in a Log Analytics workspace.
-- [Log Analytics Workspace](logs/resource-manager-workspace.md) - Create Log Analytics workspace and configure collection of different data sources from Log Analytics agent.
-- [Workbooks](visualize/resource-manager-workbooks.md) - Create workbooks.
-- [Container insights](containers/resource-manager-container-insights.md) - Onboard clusters to Container insights.
-- [Azure Monitor for VMs](vm/resource-manager-vminsights.md) - Onboard virtual machines to Azure Monitor for VMs.
-
-
+- [Diagnostic settings](essentials/resource-manager-diagnostic-settings.md): Create diagnostic settings to forward logs and metrics from different resource types.
+- [Log queries](logs/resource-manager-log-queries.md): Create saved log queries in a Log Analytics workspace.
+- [Log Analytics workspace](logs/resource-manager-workspace.md): Create a Log Analytics workspace and configure a collection of data sources from the Log Analytics agent.
+- [Workbooks](visualize/resource-manager-workbooks.md): Create workbooks.
+- [Container insights](containers/resource-manager-container-insights.md): Onboard clusters to Container insights.
+- [Azure Monitor for VMs](vm/resource-manager-vminsights.md): Onboard virtual machines to Azure Monitor for VMs.
 
 ## Next steps
 
-- Learn more about [Resource Manager templates](../azure-resource-manager/templates/overview.md)
+- Learn more about [Resource Manager templates](../azure-resource-manager/templates/overview.md).
