@@ -35,7 +35,7 @@ To move API Management instances from one Azure region to another, use the servi
 ## Prerequisites
 
 * Review requirements and limitations of the API Management [backup and restore](api-management-howto-disaster-recovery-backup-restore.md) operations. 
-* See [What is not backed up](../api-management-howto-disaster-recovery-backup-restore.md#what-is-not-backed-up), and record settings and data that you will need to recreate manually after moving the instance.
+* See [What is not backed up](api-management-howto-disaster-recovery-backup-restore.md#what-is-not-backed-up), and record settings and data that you will need to recreate manually after moving the instance.
 * Create a [storage account](../storage/common/storage-account-create.md?tabs=azure-portal) with a blob container in the source region. You will use this account to back up the source instance. 
  
   You will need the following information from the storage account: account name, access key, and an existing target container name. 
