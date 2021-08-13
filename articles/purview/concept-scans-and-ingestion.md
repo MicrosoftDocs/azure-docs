@@ -17,7 +17,7 @@ This article provides an overview of Scanning and Ingestion features in Azure Pu
 
 After the data sources are registered in Purview account, the next step is to scan the data sources. Scanning process establishes a connection to the data source and captures technical metadata like names, file size etc., extracts schema for structure data sources, applies classifications on schemas and also applies sensitivity labels if your Purview account is connected to Microsoft 365 Security and Compliance Center (SCC) [Apply Sensitivity Label](create-sensitivity-label.md). Scanning process can be triggered to run immediately or can be scheduled to run on a periodic basis.
 
-## Scope your Scan
+## Scope your scan
 
 You have a choice to scan the entire data source or select the entities (folders/tables) you want to scan. This is determined in scope your scan section.
 
