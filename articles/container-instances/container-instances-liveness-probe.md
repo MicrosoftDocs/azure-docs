@@ -27,7 +27,7 @@ properties:
   containers:
   - name: mycontainer
     properties:
-      image: nginx
+      image: mcr.microsoft.com/oss/nginx/nginx
       command:
         - "/bin/sh"
         - "-c"
