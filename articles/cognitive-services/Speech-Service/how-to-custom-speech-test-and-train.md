@@ -185,7 +185,7 @@ Not all base models support training with audio data. If the base model does not
 
 ## Audio data for testing
 
-Audio data is optimal for testing the accuracy of Microsoft's baseline speech-to-text model or a custom model. Keep in mind, audio data is used to inspect the accuracy of speech with regards to a specific model's performance. If you're looking to quantify the accuracy of a model, use [audio + human-labeled transcription data](#audio-and-human-labeled-transcript-data).
+Audio data is optimal for testing the accuracy of Microsoft's baseline speech-to-text model or a custom model. Keep in mind, audio data is used to inspect the accuracy of speech with regard to a specific model's performance. If you're looking to quantify the accuracy of a model, use [audio + human-labeled transcription data](#audio-and-human-labeled-transcript-data).
 
 Use this table to ensure that your audio files are formatted correctly for use with Custom Speech:
 
