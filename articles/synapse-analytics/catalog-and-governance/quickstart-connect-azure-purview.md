@@ -41,7 +41,7 @@ Follow the steps to connect an Purview account:
 2. You can choose **From Azure subscription** or **Enter manually**. **From Azure subscription**, you can select the account that you have access to. 
 3. Once connected, you can see the name of the Purview account in the tab **Azure Purview account**. 
 
-When connecting Synapse workspace to Purview, Synapse also tries to grant the Synapse workspace's managed identity **Purview Data Curator** role on your Purview account. Managed identity is used to authenticate lineage push operations from Synapse to Purview. If you have **Owner** or **User Access Administrator** role on the Purview account, this operation will be done automatically. 
+When connecting Synapse workspace with Purview, Synapse also tries to grant the Synapse workspace's managed identity **Purview Data Curator** role on your Purview account. Managed identity is used to authenticate lineage push operations from Synapse to Purview. If you have **Owner** or **User Access Administrator** role on the Purview account, this operation will be done automatically. 
 
 To make sure the connection is properly set for the Synapse pipeline lineage push, go to Azure portal -> your Purview account -> Access control (IAM), check if **Purview Data Curator** role is granted to the Synapse workspace's managed identity. Manually add the role assignment as needed.
 

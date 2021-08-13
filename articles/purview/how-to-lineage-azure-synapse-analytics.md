@@ -10,9 +10,9 @@ ms.date: 08/10/2021
 ---
 # How to get lineage from Azure Synapse Analytics into Azure Purview
 
-This document explains the steps required for connecting an Azure Synapse Analytics account with an Azure Purview account to track data lineage. The document also gets into the details of the coverage scope and supported lineage capabilities.
+This document explains the steps required for connecting an Azure Synapse workspace with an Azure Purview account to track data lineage. The document also gets into the details of the coverage scope and supported lineage capabilities.
 
-## Supported Azure Synapse Analytics capabilities
+## Supported Azure Synapse capabilities
 
 Currently, Azure Purview captures runtime lineage from the following Azure Synapse pipeline activities:
 
@@ -23,15 +23,15 @@ Currently, Azure Purview captures runtime lineage from the following Azure Synap
 
 [!INCLUDE[azure-synapse-supported-activity-lineage-capabilities](includes/data-factory-common-supported-capabilities.md)]
 
-## Bring Azure Synapse Analytics lineage into Purview
+## Bring Azure Synapse lineage into Purview
 
-### Step 1: Connect Azure Synapse Analytics to your Purview account
+### Step 1: Connect Azure Synapse workspace to your Purview account
 
-You can connect an Azure Sysnpase Analytics to Purview from Synpase workspace, and the connection enables Azure Synapse to push lineage information to Purview. Follow the steps in [Connect an Azure Purview Account into Synapse](../synapse-analytics/catalog-and-governance/quickstart-connect-azure-purview.md). Multiple Azure Synapse Analytics can connect to a single Azure Purview account for holistic lineage tracking.
+You can connect an Azure Sysnpase workspace to Purview, and the connection enables Azure Synapse to push lineage information to Purview. Follow the steps in [Connect an Azure Purview Account into Synapse](../synapse-analytics/catalog-and-governance/quickstart-connect-azure-purview.md). Multiple Azure Synapse workspaces can connect to a single Azure Purview account for holistic lineage tracking.
 
-### Step 2: Run pipeline in Azure Synapse Analytics
+### Step 2: Run pipeline in Azure Synapse workspace
 
-You can create pipelines with Copy activity in Azure Synapse Analytics. You don't need any additional configuration for lineage data capture. The lineage data will automatically be captured during the activities execution.
+You can create pipelines with Copy activity in Azure Synapse workspace. You don't need any additional configuration for lineage data capture. The lineage data will automatically be captured during the activities execution.
 
 ### Step 3: Monitor lineage reporting status
 

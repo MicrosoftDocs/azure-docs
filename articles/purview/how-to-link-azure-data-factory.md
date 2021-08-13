@@ -116,7 +116,7 @@ The integration between Data Factory and Purview supports only a subset of the d
 
 Refer to [supported data stores](how-to-lineage-sql-server-integration-services.md#supported-data-stores).
 
-## Bring Azure Data Factory lineage into Purview
+## Bring Data Factory lineage into Purview
 
 For an end to end walkthrough, follow the [Tutorial: Push Data Factory lineage data to Azure Purview](../data-factory/turorial-push-lineage-to-purview.md).
 
