@@ -204,11 +204,11 @@ Then, add the following member variables into your `MainActivity` class:
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=51-55&highlight=3-5)]
 
-Next, let's add the following `initializeSession()` method inside your `mainActivity` class. Once called, it will ensure an Azure Spatial Anchors session is created and properly initialized during the startup of your app.
+Next, let's add the following `initializeSession()` method inside your `mainActivity` class. Once called, it will ensure an Azure Spatial Anchors session is created and properly initialized during the startup of your app. This code makes sure that the sceneview session passed to ASA session via the cloudSession.setSession call is not null by having early return.
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=90-104,154)]
 
-To make sure `initializeSession()` is being called once  `sceneView.getSession() != null` add the following method.
+Since `initializeSession()` could do an early return if sceneView session is not yet setup (i.e., if `sceneView.getSession()` is null), we add an onUpdate call to make sure that ASA session gets initialized once sceneView session is created.
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?name=scene_OnUpdate)]
 
 Now, let's hook your `initializeSession()` and `scene_OnUpdate(...)` method into your `onCreate()` method. Also, we'll ensure that frames from your camera feed are sent to Azure Spatial Anchors SDK for processing.

@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
     // <scene_OnUpdate>
     private void scene_OnUpdate(FrameTime frameTime) {
         if (!sessionInitialized) {
-            //retry initializing Session if it previously failed
+            //retry if initializeSession did an early return due to ARCore Session not yet available (i.e. sceneView.getSession() == null)
             initializeSession();
         }
     }
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
     // <initializeSession>
     private void initializeSession() {
         if (sceneView.getSession() == null) {
-            //ARCore Session is still being initialized, trying again next frame
+            //Early return if the ARCore Session is still being set up
             return;
         }
 
