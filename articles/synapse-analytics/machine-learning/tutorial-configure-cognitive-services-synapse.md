@@ -79,7 +79,7 @@ You can create an [Anomaly Detector](https://ms.portal.azure.com/#create/Microso
 2. Go to **Manage** > **Linked Services**. Create an **Azure Cognitive Services** linked service by pointing to the Cognitive Service that you just created. 
 3. Verify the connection by selecting the **Test connection** button. If the connection is green, select **Create** and then select **Publish all** to save your change.
 
-![Screenshot that shows Azure Key Vault as a new linked service.](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-linked-service.png)
+![Screenshot that shows Azure Cognitive Service as a new linked service.](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-linked-service.png)
 
 You're now ready to continue with one of the tutorials for using the Azure Cognitive Services experience in Synapse Studio.
 
