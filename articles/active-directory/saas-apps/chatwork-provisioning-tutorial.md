@@ -52,7 +52,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 Access the Chatwork admin screen as a user with admin rights. If you have administrator privileges, you will be able to access the User Provisioning page.
 
-The User Provisioning page contains notes and restrictions for using the user provisioning feature. Please check all the items.
+The User Provisioning page contains notes and restrictions for using the user provisioning feature. Check all the items.
 
 ![User Provisioning page](media/chatwork-provisioning-tutorial/chatwork-admin.png)
 
@@ -64,9 +64,9 @@ If you are using Azure AD and user provisioning, login to Chatwork using your Az
 
 ![Configure the SAML login settings](media/chatwork-provisioning-tutorial/chatwork-configure-saml.png)
 
-### 3. Please check the checkboxes after accepting the various items.
+### 3. Check the checkboxes after accepting the various items.
 
-Please check the checkboxes after accepting the cautions and restrictions for using the user provisioning function.
+Check the checkboxes after accepting the cautions and restrictions for using the user provisioning function.
 
 When all the items are checked, click the "Enable User Provisioning" button.
 
@@ -80,13 +80,13 @@ When the user provisioning function is enabled, a message will appear at the top
 
 
 
-Add Chatwork from the Azure AD application gallery to start managing provisioning to Chatwork. If you have previously setup Chatwork for SSO you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md).
+Add Chatwork from the Azure AD application gallery to start managing provisioning to Chatwork. If you have previously setup Chatwork for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md).
 
 ## Step 4. Define who will be in scope for provisioning 
 
 The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* When assigning users and groups to Chatwork, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add additional roles. 
+* When assigning users and groups to Chatwork, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add other roles. 
 
 * Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
@@ -113,7 +113,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab automatic](common/provisioning-automatic.png)
 
-1. In the **Admin Credentials** section, click on Authorize , make sure that you enter your Chatwork account's Admin credentials. Click **Test Connection** to ensure Azure AD can connect to Chatwork. If the connection fails , ensure your Chatwork account has Admin permissions and try again.
+1. In the **Admin Credentials** section, click on Authorize, make sure that you enter your Chatwork account's Admin credentials.. Click **Test Connection** to ensure Azure AD can connect to Chatwork. If the connection fails, ensure your Chatwork account has Admin permissions and try again.
 
    ![Token](media/chatwork-provisioning-tutorial/chatwork-authorize.png)
 1. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
