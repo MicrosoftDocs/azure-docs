@@ -13,7 +13,8 @@
 | Resource | Limit |
 | --- | --- |
 | Data throughput |30 Gbps|
-|Rule limits|10,000 unique source/destinations in network rules|
+|Network Rule limits|10,000 unique source/destinations in network rules|
+|Application Rule limits|no limit|
 |Maximum DNAT rules|250 |
 |Minimum AzureFirewallSubnet size |/26|
 |Port range in network and application rules|1 - 65535|
