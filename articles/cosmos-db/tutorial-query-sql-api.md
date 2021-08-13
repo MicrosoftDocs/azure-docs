@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
-ms.date: 11/05/2019
+ms.date: 08/12/2021
 ms.reviewer: sngun
 ---
 
