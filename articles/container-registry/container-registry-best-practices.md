@@ -2,7 +2,7 @@
 title: Registry best practices
 description: Learn how to use your Azure container registry effectively by following these best practices.
 ms.topic: article
-ms.date: 01/07/2021
+ms.date: 08/13/2021
 ---
 
 # Best practices for Azure Container Registry
@@ -69,7 +69,7 @@ Azure Container Registry supports security practices in your organization to dis
 
 The storage constraints of each [container registry service tier][container-registry-skus] are intended to align with a typical scenario: **Basic** for getting started, **Standard** for most production applications, and **Premium** for hyper-scale performance and [geo-replication][container-registry-geo-replication]. Throughout the life of your registry, you should manage its size by periodically deleting unused content.
 
-Use the Azure CLI command [az acr show-usage][az-acr-show-usage] to display the current size of your registry:
+Use the Azure CLI command [az acr show-usage][az-acr-show-usage] to display the current consumption of storage and other resources in your registry:
 
 ```azurecli
 az acr show-usage --resource-group myResourceGroup --name myregistry --output table
@@ -79,12 +79,17 @@ az acr show-usage --resource-group myResourceGroup --name myregistry --output ta
 NAME      LIMIT         CURRENT VALUE    UNIT
 --------  ------------  ---------------  ------
 Size      536870912000  185444288        Bytes
-Webhooks  100                            Count
+Webhooks  100           10               Count
+IPRules   100           1                Count
+VNetRules 100           0                Count
 ```
 
-You can also find the current storage used in the **Overview** of your registry in the Azure portal:
+You can also find the current storage usage in the **Overview** of your registry in the Azure portal:
 
 ![Registry usage information in the Azure portal][registry-overview-quotas]
+
+> [!NOTE]
+> In a [geo-replicated](container-registry-geo-replication.md) registry, storage usage is shown for the home region. Multiply by the number of replications for total registry storage consumed.
 
 ### Delete image data
 

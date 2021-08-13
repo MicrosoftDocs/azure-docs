@@ -28,6 +28,7 @@ ms.custom: include file
 | &bull; Private endpoints | N/A | N/A | 10 |
 | Public IP network rules | N/A | N/A | 100 |
 | Service endpoint VNet access | N/A | N/A | [Preview][vnet] |
+| &bull; Virtual network rules | N/A | N/A | 100 |
 | Customer-managed keys | N/A | N/A | [Supported][cmk] |
 | Repository-scoped permissions | N/A | N/A | [Preview][token]|
 | &bull; Tokens | N/A | N/A | 20,000 |

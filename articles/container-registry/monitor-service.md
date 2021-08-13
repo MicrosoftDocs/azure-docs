@@ -6,7 +6,7 @@ ms.author: danlep
 ms.topic: how-to
 ms.custom: subject-monitoring 
 ms.service: container-registry
-ms.date: 03/19/2021
+ms.date: 08/13/2021
 ---
 
 # Monitor Azure Container Registry
@@ -71,7 +71,6 @@ For reference, you can see a list of [all resource metrics supported in Azure Mo
 
 The following Azure CLI commands can be used to get information about the Azure Container Registry metrics.
 
-* [az acr show-usage](/cli/azure/acr/#az_acr_show_usage) - Show the current storage used by an Azure container registry
 * [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az_monitor_metrics_list_definitions) - List metric definitions and dimensions
 * [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) - Retrieve metric values
 
@@ -203,3 +202,4 @@ The following table lists common and recommended alert rules for Azure Container
 
 - See [Monitoring Azure Container Registry data reference](monitor-service-reference.md) for a reference of the metrics, logs, and other important values created by Azure Container Registry.
 - See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
+- See [Show registry usage](container-registry-skus.md#show-registry-usage) for information about how to get a snapshot of storage usage and other resource consumption in your registry.
