@@ -5,13 +5,13 @@ titleSuffix: Active Directory
 description: Learn how to migrate from Okta to Azure Active Directory
 services: active-directory
 
-author: gargi-sinha, dstefanMSFT
+author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 8/10/2021
-ms.author: gasinh, dstefan
+ms.author: gasinh
 ms.subservice: app-mgmt
 ---
 
