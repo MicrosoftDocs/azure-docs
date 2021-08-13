@@ -55,7 +55,7 @@ Use an Azure Application: Managed application plan when the following conditions
 - Same as with the regular Azure Managed Apps offer, it is the publisher’s responsibility to ensure that the solution deploys successfully and that all components are properly configured, secured, and operational. For example, the publisher can use their own container registry as the source of the images but are fully responsible for the container security, and ongoing vulnerability scanning.
 
 > [!NOTE]
-> The support for containers and AKS in Managed App offers may be withdrawn when an official Container Offer type is made available in Marketplace. At that time, it might be a requirement to publish all future offers using the new offer type and the existing offers may need to be migrated to the new offer type and retired.
+> The support for containers and AKS in Azure Managed Application offer may be withdrawn when an official Container Application offer type is made available in Marketplace. At that time, it might be a requirement to publish all future offers using the new offer type and the existing offers may need to be migrated to the new offer type and retired.
 
 ## Deployment package
 
