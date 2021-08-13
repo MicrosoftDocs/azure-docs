@@ -4,7 +4,7 @@ description: Learn how to monitor IoT Edge modules and devices using Azure Monit
 author: kgremban
 manager: lizross
 ms.author: kgremban
-ms.date: 08/02/2021
+ms.date: 08/13/2021
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -31,7 +31,7 @@ An IoT Edge device with the simulated temperature sensor module deployed to it. 
 
 ## Understand IoT Edge metrics
 
-Every IoT Edge device relies on two modules, the *runtime modules*, which are tasked with managing the lifecycle and communication of all the other modules on a device. These modules are called the **IoT Edge agent** and the **IoT Edge hub**. To learn more about these modules, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
+Every IoT Edge device relies on two modules, the *runtime modules*, which manage the lifecycle and communication of all the other modules on a device. These modules are called the **IoT Edge agent** and the **IoT Edge hub**. To learn more about these modules, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
 Both of the runtime modules create metrics that allow you to remotely monitor how an IoT Edge device or its individual modules are performing. The IoT Edge agent reports on the state of individual modules and the host device, so creates metrics like how long a module has been running correctly, or the amount of RAM and percent of CPU being used on the device. The IoT Edge hub reports on communications on the device, so creates metrics like the total number of messages sent and received, or the time it takes to resolve a direct method. For the full list of available metrics, see [Access built-in metrics](how-to-access-built-in-metrics.md).
 
@@ -82,6 +82,7 @@ Follow these steps to deploy and configure the collector module:
 1. The first step of deploying modules from the portal is to declare which **Modules** should be on a device. If you are using the same device that you created in the quickstart, you should already see **SimulatedTemperatureSensor** listed. If not, add it now:
 
    1. Select **Add** then choose **Marketplace Module** from the drop-down menu.
+
    1. Search for and select **SimulatedTemperatureSensor**.
 
 1. Add and configure the metrics collector module:
@@ -124,7 +125,7 @@ Azure Monitor provides three default workbook templates for IoT:
 
 ### Explore the fleet view and health snapshot workbooks
 
-Use the following steps to explore the workbook visualizations:
+The fleet view workbook shows all of your devices, and lets you select specific devices to view their health snapshots. Use the following steps to explore the workbook visualizations:
 
 1. Return to your IoT hub page in the Azure portal.
 
@@ -146,9 +147,12 @@ Use the following steps to explore the workbook visualizations:
 
 ### Explore the device details workbook
 
+The device details workbook shows performance
+details for an individual device. Use the following steps to explore the workbook visualizations:
+
 1. From the workbooks gallery, select the **IoT Edge device details** workbook.
 
-1. The first page you see in the device details workbook is the **messaging** view with the **routing** tab selected. 
+1. The first page you see in the device details workbook is the **messaging** view with the **routing** tab selected.
 
    On the left, a table displays the routes on the device, organized by endpoint. For our device, we see that the **upstream** endpoint, which is the special term used for routing to IoT Hub, is receiving messages from the **temperatureOutput** output of the simulated temperature sensor module.
 
@@ -166,7 +170,7 @@ Use the following steps to explore the workbook visualizations:
 
    :::image type="content" source="./media/tutorial-monitor-with-workbooks/device-details-modules-availability.png" alt-text="Select the modules view to see the status of each module deployed to the device.":::
 
-1. Select the **host** view to see information about the host device, including it's operating system, the IoT Edge daemon version, and resource use.
+1. Select the **host** view to see information about the host device, including its operating system, the IoT Edge daemon version, and resource use.
 
 ## View module logs
 
