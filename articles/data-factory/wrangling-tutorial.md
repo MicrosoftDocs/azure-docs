@@ -20,7 +20,9 @@ Data wrangling in data factory allows you to build interactive Power Query mash-
 
 ## Create a Power Query activity
 
-There are two ways to create a Power Query in Azure Data Factory. One way is to click the plus icon and select **Data Flow** in the factory resources pane.
+There are two ways to create a Power Query in Azure Data Factory. One way is to click the plus icon and select **Power Query** in the factory resources pane.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWJd3T]
 
 > [!NOTE]
 > Previously, the data wrangling feature was located in the data flow workflow. Now, you will build your data wrangling mash-up from ```New > Power query```
