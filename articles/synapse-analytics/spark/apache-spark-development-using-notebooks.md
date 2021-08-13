@@ -516,7 +516,7 @@ Widgets are eventful python objects that have a representation in the browser, o
 |Boolean widgets|ToggleButton, Checkbox, Valid|
 |Selection widgets|Dropdown, RadioButtons, Select, SelectionSlider, SelectionRangeSlider, ToggleButtons, SelectMultiple|
 |String Widgets|Text, Text area, Combobox, Password, Label, HTML, HTML Math, Image, Button|
-|Play (Animation) widget|Date picker, Color picker, Controller|
+|Play (Animation) widgets|Date picker, Color picker, Controller|
 |Container/Layout widgets|Box, HBox, VBox, GridBox, Accordion, Tabs, Stacked|
 
 
