@@ -89,17 +89,10 @@ Use the following Azure PowerShell script to give a user Azure RBAC access to al
 
 ```azurepowershell
 
-param (
-    [Parameter(Mandatory=$true)]
-    [string]$TenantId,
-    [Parameter(Mandatory=$true)]
-    [string]$ObjectId
-)
- 
 Import-Module Az.Accounts
 Import-Module Az.Resources
  
-Connect-AzAccount -Tenant $TenantId
+Connect-AzAccount -Tenant <TenantId>
  
 $response = Invoke-AzRestMethod -Path /providers/Microsoft.Capacity/reservations?api-version=2020-06-01 -Method GET
  
@@ -111,7 +104,7 @@ foreach ($reservation in $reservationObjects)
 {
   $reservationOrderId = $reservation.id.substring(0, 84)
   Write-Host "Assiging Owner role assignment to "$reservationOrderId
-  New-AzRoleAssignment -Scope $reservationOrderId -ObjectId $ObjectId -RoleDefinitionName Owner
+  New-AzRoleAssignment -Scope $reservationOrderId -ObjectId <ObjectId> -RoleDefinitionName Owner
 }
 ```
 
@@ -139,13 +132,10 @@ foreach ($reservation in $reservationObjects)
 Use the following Azure PowerShell script to add a Reservation Administrator role at the tenant level.
 
 ```azurepowershell
-param (
-    [string]$TenantId,
-    [string]$ObjectId)
 Import-Module Az.Accounts
 Import-Module Az.Resources
-Connect-AzAccount -Tenant $TenantId
-New-AzRoleAssignment -Scope "/providers/Microsoft.Capacity" -PrincipalId $ObjectId -RoleDefinitionName "Reservations Administrator"
+Connect-AzAccount -Tenant <TenantId>
+New-AzRoleAssignment -Scope "/providers/Microsoft.Capacity" -PrincipalId <ObjectId> -RoleDefinitionName "Reservations Administrator"
 ```
 
 ### Parameters
@@ -171,16 +161,12 @@ Use the following Azure PowerShell script to Assign the Reservation Reader role 
 
 ```azurepowershell
 
-param (
-    [string]$TenantId,
-    [string]$ObjectId)
-
 Import-Module Az.Accounts
 Import-Module Az.Resources
 
-Connect-AzAccount -Tenant $TenantId
+Connect-AzAccount -Tenant <TenantId>
 
-New-AzRoleAssignment -Scope "/providers/Microsoft.Capacity" -PrincipalId $ObjectId -RoleDefinitionName "Reservations Reader"
+New-AzRoleAssignment -Scope "/providers/Microsoft.Capacity" -PrincipalId <ObjectId> -RoleDefinitionName "Reservations Reader"
 ```
 
 ### Parameters
