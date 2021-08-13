@@ -6,7 +6,7 @@
       href: overview.md
     - name: Release notes
       href: release-notes.md
-    - name: Azure Arc validation program
+    - name: Azure Arc validated partners
       href: validation-program.md
     - name: Data collection and reporting
       href: privacy-data-collection-and-reporting.md
@@ -198,6 +198,8 @@
               href: restore-adventureworks-sample-db.md
 - name: Reference
   items:
+  - name: Release version log
+    href: version-log.md
   - name: az arcdata extension
     items:
     - name: Overview

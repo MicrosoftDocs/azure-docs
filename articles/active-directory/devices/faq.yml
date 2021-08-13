@@ -61,7 +61,7 @@ sections:
           - User disables the device from the My Apps portal. 
           - An administrator (or user) deletes or disables the device in the Azure portal or by using PowerShell
           - Hybrid Azure AD joined only: An administrator removes the devices OU out of sync scope resulting in the devices being deleted from Azure AD
-          - Upgrading Azure AD connect to the version 1.4.xx.x. [Understanding Azure AD Connect 1.4.xx.x and device disappearance](../hybrid/reference-connect-device-disappearance.md).
+          - Upgrading Azure AD connect to the version 1.4.xx.x. [Understanding Azure AD Connect 1.4.xx.x and device disappearance](/troubleshoot/azure/active-directory/reference-connect-device-disappearance).
           
           
           See below on how these actions can be rectified.
@@ -196,17 +196,6 @@ sections:
         answer: |
           Did you configure certain Conditional Access rules to require a specific device state? If the device doesn't meet the criteria, users are blocked, and they see that message. 
           Evaluate the Conditional Access policy rules. Make sure the device meets the criteria to avoid the message.
-          
-          
-          
-      - question: Why don't some of my users get Azure AD Multi-Factor Authentication prompts on Azure AD joined devices?
-        answer: |
-          A user might join or register a device with Azure AD by using Multi-Factor Authentication. Then the device itself becomes a trusted second factor for that user. Whenever the same user signs in to the device and accesses an application, Azure AD considers the device as a second factor. It enables that user to seamlessly access applications without additional Multi-Factor Authentication prompts. 
-          
-          This behavior:
-          
-          - Is applicable to Azure AD joined and Azure AD registered devices - but not for hybrid Azure AD joined devices.
-          - Is applicable to the Registered owner of the device and not to any other user who signs in to that device. So all other users who access that device get a Multi-Factor Authentication challenge. Then they can access applications that require Multi-Factor Authentication.
           
           
           

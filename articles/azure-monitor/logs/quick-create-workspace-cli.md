@@ -17,11 +17,6 @@ The Azure CLI 2.0 is used to create and manage Azure resources from the command 
 * Device collections from Configuration Manager  
 * Diagnostic or log data from Azure storage  
 
-For other sources, such as Azure VMs and Windows or Linux VMs in your environment, see the following topics:
-
-* [Collect data from Azure virtual machines](../vm/quick-collect-azurevm.md)
-* [Collect data from hybrid Linux computer](../vm/quick-collect-linux-computer.md)
-* [Collect data from hybrid Windows computer](../vm/quick-collect-windows-computer.md)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

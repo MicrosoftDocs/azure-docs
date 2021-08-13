@@ -1,40 +1,49 @@
 ---
 title: Attach Cognitive Services to a skillset
 titleSuffix: Azure Cognitive Search
-description: Learn how to attach a Cognitive Services all-in-one subscription to an AI enrichment pipeline in Azure Cognitive Search.
+description: Learn how to attach a multi-service Cognitive Services resource to an AI enrichment pipeline in Azure Cognitive Search.
 
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 08/12/2021
+
 ---
 # Attach a Cognitive Services resource to a skillset in Azure Cognitive Search
 
-When configuring a [AI enrichment pipeline](cognitive-search-concept-intro.md) in Azure Cognitive Search, you can enrich a limited number of documents free of charge. For larger and more frequent workloads, you should attach a billable "all-in-one" Cognitive Services resource. An "all-in-one" subscription references "Cognitive Services" as the offering, rather than individual services, with access granted through a single API key.
+When configuring an [AI enrichment pipeline](cognitive-search-concept-intro.md) in Azure Cognitive Search, you can enrich a limited number of documents free of charge. For larger and more frequent workloads, you should attach a billable [multi-service Cognitive Services resource](../cognitive-services/cognitive-services-apis-create-account.md). A multi-service resource references "Cognitive Services" as the offering, rather than individual services, with access granted through a single API key.
 
-An "all-in-one" Cognitive Services resource drives the [built-in skills](cognitive-search-predefined-skills.md) that you can include in a skillset:
+A multi-service resource key is specified in a skillset definition and allows Microsoft to charge you for using these APIs:
 
 + [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) for image analysis and optical character recognition (OCR)
 + [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) for language detection, entity recognition, sentiment analysis, and key phrase extraction
 + [Text Translation](https://azure.microsoft.com/services/cognitive-services/translator-text-api/)
 
-An "all-in-one" Cognitive Services key is optional in a skillset definition. When the daily transactions number less than 20 per day, the cost is absorbed. However, when transactions exceed that number, a valid resource key is required in order for processing to continue.
+The key is used for billing, but not connections. Internally, a search service connects to a Cognitive Services resource that's co-located in the same physical region. [Product availability](https://azure.microsoft.com/global-infrastructure/services/?products=search) shows regional availability side by side.
 
-Any "all-in-one" resource key is valid. Internally, a search service will use the resource that's co-located in the same physical region, even if the "all-in-one" key is for a resource in a different region. The [product availability](https://azure.microsoft.com/global-infrastructure/services/?products=search) page shows regional availability side by side.
+## Key requirements
 
-> [!NOTE]
-> If you omit built-in skills in a skillset, then Cognitive Services is not accessed, and you won't be charged, even if the skillset specifies a key.
+A key is required for billable [built-in skills](cognitive-search-predefined-skills.md) that are used more than 20 times a day on the same indexer: Entity Linking, Entity Recognition, Image Analysis, Key Phrase Extraction, Language Detection, OCR, PII Detection, Sentiment, or Text Translation.
+
+[Custom Entity Lookup](cognitive-search-skill-custom-entity-lookup.md) requires a key to unlock transactions beyond 20 per indexer, per day. Note that adding the key unblocks the number of transactions, but is not used for billing.  
+
+You can omit the key and the Cognitive Services section for skillsets that consist solely of custom skills or utility skills (Conditional, Document Extraction, Shaper, Text Merge, Text Split). You can also omit the section if your usage of billable skills is under 20 transactions per indexer per day.
 
 ## How billing works
 
 + Azure Cognitive Search uses the Cognitive Services resource key you provide on a skillset to bill for image and text enrichment. Execution of billable skills is at the [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
 
-+ Image extraction is an Azure Cognitive Search operation that occurs when documents are cracked prior to enrichment. Image extraction is billable. For image extraction pricing, see the [Azure Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/).
++ Image extraction is an Azure Cognitive Search operation that occurs when documents are cracked prior to enrichment. Image extraction is billable on all tiers, with the exception of 20 free daily extractions on the free tier. Image extraction costs apply to image files inside blobs, embedded images in other files (PDF and other app files), and for images extracted using [Document Extraction](cognitive-search-skill-document-extraction.md). For image extraction pricing, see the [Azure Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/).
 
 + Text extraction also occurs during the [document cracking](search-indexer-overview.md#document-cracking) phrase. It is not billable.
 
-+ Skills that do not call Cognitive Services, including Conditional, Shaper, Text Merge, and Text Split skills, are not billable.
++ Skills that do not call Cognitive Services, including Conditional, Shaper, Text Merge, and Text Split skills, are not billable. 
+
+  As noted, [Custom Entity Lookup](cognitive-search-skill-custom-entity-lookup.md) is a special case in that it requires a key, but is [metered by Cognitive Search](https://azure.microsoft.com/pricing/details/search/#pricing).
+
+> [!TIP]
+> To lower the cost of skillset processing, enable [incremental enrichment (preview)](cognitive-search-incremental-indexing-conceptual.md) to cache and reuse any enrichments that are unaffected by changes made to a skillset. Caching requires Azure Storage (see [pricing](/pricing/details/storage/blobs/) but the cumulative cost of skillset execution is lower if existing enrichments can be reused, especially for skillsets that use image extraction and analysis.
 
 ## Same-region requirement
 
@@ -57,9 +66,7 @@ If you are using the **Import data** wizard for AI enrichment, you'll find the "
 
 ## Use billable resources
 
-For workloads that create more than 20 enrichments per day, make sure to attach a billable Cognitive Services resource. We recommend that you always attach a billable Cognitive Services resource, even if you never intend to call Cognitive Services APIs. Attaching a resource overrides the daily limit.
-
-You're charged only for skills that call the Cognitive Services APIs. You're not billed for [custom skills](cognitive-search-create-custom-skill-example.md), or skills like [text merger](cognitive-search-skill-textmerger.md), [text splitter](cognitive-search-skill-textsplit.md), and [shaper](cognitive-search-skill-shaper.md), which aren't API-based.
+For workloads that create more than 20 billable enrichments per day, make sure to attach a Cognitive Services resource. 
 
 If you're using the **Import data** wizard, you can configure a billable resource from the **Add AI enrichment (Optional)** page.
 

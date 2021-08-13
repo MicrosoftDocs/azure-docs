@@ -38,7 +38,7 @@ The WAF protects against the following web vulnerabilities:
 
 ### OWASP CRS 3.2 (public preview)
 
-CRS 3.2 includes 15 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
+CRS 3.2 includes 13 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
 
 > [!NOTE]
 > CRS 3.2 is only available on the WAF_v2 SKU.

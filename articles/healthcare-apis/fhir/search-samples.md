@@ -1,15 +1,18 @@
 ---
-title: Search examples for Azure API for FHIR
-description: How to search using different search parameters, modifiers, and other FHIR search tools
+title: Search examples for FHIR service
+description: How to search using different search parameters, modifiers, and other search tools for FHIR
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 05/21/2021
+ms.date: 08/03/2021
 ms.author: cavoeg
 ---
 
 # FHIR search examples
+
+> [!IMPORTANT]
+> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Below are some examples of using FHIR search operations, including search parameters and modifiers, chain and reverse chain search, composite search, viewing the next entry set for search results, and searching with a `POST` request. For more information about search, see [Overview of FHIR Search](overview-of-search.md).
    
@@ -17,7 +20,7 @@ Below are some examples of using FHIR search operations, including search parame
 
 ### _include
 
-`_include` searches across resources for the ones that include the specified parameter of the resource. For example, you can search across `MedicationRequest` resources to find only the ones that include information about the prescriptions for a specific patient, which is the `reference` parameter `patient`. In the example below, this will pull all the `MedicationRequests` and all patients that are referenced from the `MedicationRequests`:
+`_include` searches for resources that include the specified parameter of the resource. For example, you can search across `MedicationRequest` resources to find only the ones that include information about the prescriptions for a specific patient, which is the `reference` parameter `patient`. In the example below, this will pull all the `MedicationRequests` and all patients that are referenced from the `MedicationRequests`:
 
 ```rest
  GET [your-fhir-server]/MedicationRequest?_include=MedicationRequest:patient
@@ -76,7 +79,7 @@ GET [your-fhir-server]/Patient?name:exact=Jon
 
 ```
 
-This request returns `Patient` resources that have the name exactly the same as `Jon`. If the resource had Patients with names such as `Jonathan` or `joN`, the search would ignore and skip the resource as it does not exactly match the specified value.
+This request returns `Patient` resources that have the name exactly the same as `Jon`. If the resource had patients with names such as `Jonathan` or `joN`, the search would ignore and skip the resource as it does not exactly match the specified value.
 
 ### :contains
 `:contains` is used for `string` parameters and searches for resources with partial matches of the specified value anywhere in the string within the field being searched. `contains` is case insensitive and allows character concatenating. For example:
@@ -144,9 +147,6 @@ GET [base]/Patient?_has:Observation:patient:_has:AuditEvent:entity:agent:Practit
 
 ``` 
 
-> [!NOTE]
-> In the Azure API for FHIR and the open-source FHIR server backed by Cosmos, the chained search and reverse chained search is an MVP implementation. To accomplish chained search on Cosmos DB, the implementation walks down the search expression and issues sub-queries to resolve the matched resources. This is done for each level of the expression. If any query returns more than 100 results, an error will be thrown.
-
 ## Composite search
 
 To search for resources that meet multiple conditions at once, use composite search that joins a sequence of single parameter values with a symbol `$`. The returned result would be the intersection of the resources that match all of the conditions specified by the joined search parameters. Such search parameters are called composite search parameters, and they define a new parameter that combines the multiple parameters in a nested structure. For example, if you want to find all `DiagnosticReport` resources that contain `Observation` with a potassium value less than or equal to 9.2:
@@ -157,6 +157,12 @@ GET [your-fhir-server]/DiagnosticReport?result.code-value-quantity=2823-3$lt9.2
 ``` 
 
 This request specifies the component containing a code of `2823-3`, which in this case would be potassium. Following the `$` symbol, it specifies the range of the value for the component using `lt` for "less than or equal to" and `9.2` for the potassium value range. 
+
+Composite search parameters can also be used to filter multiple component code value quantities with an OR. For example, to express the query to find diastolic blood pressure greater than 90 OR systolic blood pressure greater than 140:
+
+```rest
+GET [your-fhir-server]/Observation?component-code-value-quantity=http://loinc.org|8462-4$gt90,http://loinc.org|8480-6$gt140
+``` 
 
 ## Search the next entry set
 
