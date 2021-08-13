@@ -68,6 +68,24 @@ Data Map Capacity unit comes with a cap on operations throughput and storage. If
 
 - Purview Data Map’s operation throughput for the given hour is 250 Ops/Sec and storage size is 5GB. Customers are billed for 10 capacity unit.
 
+
+### Detailed billing example
+
+The Data Map billing example below shows a Data Map with growing metadata storage and variable operations per second consumption over a six-hour window from 12 PM to 6 PM. The red line in the graph below is operations per second consumption and the blue dotted line is metadata storage consumption over this six-hour window: 
+
+:::image type="content" source="./media/concept-elastic-data-map/operations-and-metadata.png" alt-text="Chart depicting number of operations and growth of metadata over time.":::
+
+Each Data Map capacity unit supports 25 operations/second and 2GB of metadata storage. The Data Map is billed on an hourly basis. You are billed for the maximum Data Map capacity unit needed within the hour. At times, you may need more operations/second within the hour, and this will increase the number of capacity units needed within that hour. At other times, your operations/second usage may be low, but you may still need a large volume of metadata storage. In this case, the metadata storage is what determines how many capacity units you need within the hour. 
+
+The table below shows the maximum number of operations/second and metadata storage used per hour for this billing example: 
+
+:::image type="content" source="./media/concept-elastic-data-map/billing-table.png" alt-text="Table depicting max number of operations and growth of metadata over time.":::
+
+Based on the Data Map operations/second and metadata storage consumption in this period, this Data Map would be billed for 20 capacity-unit hours over this six-hour period (1 + 3 + 4 + 3 + 6 + 3): 
+
+:::image type="content" source="./media/concept-elastic-data-map/billing-capacity-hours.png" alt-text="Table depicting number of CU hours over time.":::
+
+
 ## Working with elastic data map
 
 - **Elastic Data Map with auto-scale** – you will start with a Data Map as low as one capacity unit that can autoscale based on load. For most organizations, this feature will lead to increased savings and a lower price point for starting with data governance projects. This feature will impact pricing.
