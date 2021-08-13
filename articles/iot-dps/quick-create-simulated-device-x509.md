@@ -54,6 +54,14 @@ The following prerequisites are for a Windows development environment. For Linux
 
 ::: zone-end
 
+::: zone pivot="programming-language-nodejs"
+
+* Install [Node.js v4.0 or above](https://nodejs.org) or later on your machine.
+
+* Install [OpenSSL](https://www.openssl.org/) on your machine and is added to the environment variables accessible to the command window. This library can either be built and installed from source or downloaded and installed from a [third party](https://wiki.openssl.org/index.php/Binaries) such as [this](https://sourceforge.net/projects/openssl/).
+
+::: zone-end
+
 * Install the latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
 
 ## Prepare your development environment
@@ -128,9 +136,25 @@ In this section, you'll prepare a development environment that's used to build t
 
 ::: zone-end
 
+::: zone pivot="programming-language-nodejs"
+
+1. Open a Git CMD or Git Bash command line environment.
+
+2. Clone the [Azure IoT Samples for Node.js](https://github.com/Azure/azure-iot-sdk-node.git) GitHub repository using the following command:
+
+    ```cmd
+    git clone https://github.com/Azure/azure-iot-sdk-node.git
+    ```
+
+::: zone-end
+
 ## Create a self-signed X.509 device certificate
 
 In this section, you'll use sample code from the Azure IoT SDK to create a self-signed X.509 certificate. This certificate will then be used to authenticate the device with its individual enrollment entry.
+
+> [!NOTE]
+> If you've already created your _root_, _intermediate_, and/or _leaf_ X.509 certificates, you may skip this step and proceed to the next section.
+>
 
 It is important to note that:
 
@@ -200,6 +224,27 @@ To create the X.509 certificate:
 
 ::: zone-end
 
+::: zone pivot="programming-language-nodejs"
+
+> [!NOTE]
+> If you have already created your _root_, _intermediate_, and/or _leaf_ X.509 certificates, you may skip this these steps and proceed to the next section.
+>
+
+1. Go to the certificate generator script and build the project:
+
+    ```cmd/sh
+    cd azure-iot-sdk-node/provisioning/tools
+    npm install
+    ```
+
+2. Create a _leaf_ X.509 certificate by running the script using your own _certificate-name_. The leaf certificate's common name becomes the [Registration ID](./concepts-service.md#registration-id) so be sure to only use lower-case alphanumerics and hyphens.
+
+    ```cmd/sh
+    node create_test_cert.js device {certificate-name}
+    ```
+
+::: zone-end
+
 ## Create a device enrollment
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -228,9 +273,23 @@ To create the X.509 certificate:
 
     * **Mechanism:** Select **X.509** as the identity attestation *Mechanism*.
     * **Primary certificate .pem or .cer file:** Choose **Select a file** to select the certificate file, *certificate.cer* that you created in the previous section.
+    * Leave **IoT Hub Device ID:** blank. Your device will be provisioned with its device ID set to the common name (CN) in the X.509 certificate, *iothubx509device1*. This common name will also be the name used for the registration ID for the individual enrollment entry.
+    * Optionally, you can provide the following information:
+        * Select an IoT hub linked with your provisioning service.
+        * Update the **Initial device twin state** with the desired initial configuration for the device.
+
+::: zone-end
+
+::: zone pivot="programming-language-nodejs"
+
+6. In the **Add Enrollment** page, enter the following information.
+
+    * **Mechanism:** Select **X.509** as the identity attestation *Mechanism*.
+    * **Primary certificate .pem or .cer file:** Choose **Select a file** to select the certificate file, *{certificate-name}_cert.pem* that you created in the previous section.
     * Leave **IoT Hub Device ID:** blank. Your device will be provisioned with its device ID set to the common name (CN) in the X.509 certificate, **iothubx509device1**. This common name will also be the name used for the registration ID for the individual enrollment entry.
     * Optionally, you can provide the following information:
         * Select an IoT hub linked with your provisioning service.
+        * Enter a unique device ID. Make sure to avoid sensitive data while naming your device. 
         * Update the **Initial device twin state** with the desired initial configuration for the device.
 
 ::: zone-end
@@ -241,7 +300,6 @@ To create the X.509 certificate:
 
 8. Select **Individual Enrollments**. Your X.509 enrollment entry should appear in the registration table.
 
-
 ## Prepare and run the device provisioning code
 
 In this section, we'll update the sample code to send the device's boot sequence to your Device Provisioning Service instance. This boot sequence will cause the device to be recognized and assigned to an IoT hub linked to the Device Provisioning Service instance.
@@ -249,7 +307,7 @@ In this section, we'll update the sample code to send the device's boot sequence
 1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service and note the **_ID Scope_** value.
 
     :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope.png" alt-text="Copy ID Scope from the portal.":::
-    
+
 ::: zone pivot="programming-language-ansi-c"
 
 2. In Visual Studio's *Solution Explorer* window, navigate to the **Provision\_Samples** folder. Expand the sample project named **prov\_dev\_client\_sample**. Expand **Source Files**, and open **prov\_dev\_client\_sample.c**.
@@ -327,6 +385,42 @@ In this section, we'll update the sample code to send the device's boot sequence
 
 ::: zone-end
 
+::: zone pivot="programming-language-nodejs"
+
+2. Copy your _certificate_ and _key_ to the sample folder.
+
+    ```cmd/sh
+    copy .\{certificate-name}_cert.pem ..\device\samples\{certificate-name}_cert.pem
+    copy .\{certificate-name}_key.pem ..\device\samples\{certificate-name}_key.pem
+    ```
+
+3. Navigate to the device test script and build the project. 
+
+    ```cmd/sh
+    cd ..\device\samples
+    npm install
+    ```
+
+4. Edit the **register\_x509.js** file with the following changes:
+
+    * Replace `provisioning host` with the **_Global Device Endpoint_** noted in **Step 1** above.
+    * Replace `id scope` with the **_ID Scope_** noted in **Step 1** above. 
+    * Replace `registration id` with the **_Registration ID_** noted in the previous section.
+    * Replace `cert filename` and `key filename` with the files you copied in **Step 2** above.
+
+5. Save the file.
+
+6. Execute the script and verify that the device was provisioned successfully.
+
+    ```cmd/sh
+    node register_x509.js
+    ``` 
+
+>[!TIP]
+>The [Azure IoT Hub Node.js Device SDK](https://github.com/Azure/azure-iot-sdk-node) provides an easy way to simulate a device. For more information, see [Device concepts](./concepts-service.md).
+
+::: zone-end
+
 ## Confirm your device provisioning registration
 
 1. Go to the [Azure portal](https://portal.azure.com).
@@ -369,7 +463,7 @@ In this section, we'll update the sample code to send the device's boot sequence
     ::: zone-end
 
 
-::: zone pivot="programming-language-csharp"
+::: zone pivot="programming-language-csharp,programming-language-nodejs"
 
 >[!IMPORTANT]
 >If you changed the *initial device twin state* from the default value in the enrollment entry for your device, it can pull the desired twin state from the hub and act accordingly. For more information, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md)
