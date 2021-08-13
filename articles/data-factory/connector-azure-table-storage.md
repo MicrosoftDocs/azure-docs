@@ -38,7 +38,33 @@ Specifically, this Azure Table connector supports copying data by using account 
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties that are used to define Data Factory entities specific to Table storage.
+## Create an Azure Table storage linked service using UI
+
+Use the following steps to create an Azure Table storage linked service in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+
+    # [Synapse Analytics](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+
+---
+
+2. Search for Azure Table and select the Azure Table storage connector.
+
+    :::image type="content" source="media/connector-azure-table-storage/azure-table-storage-connector.png" alt-text="Select the Azure Table storage connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-azure-table-storage/configure-azure-table-storage-linked-service.png" alt-text="Configure an Azure Table storage linked service.":::
+
+## Connector configuration details
+
+The following sections provide details about properties that are used to define entities specific to Azure Table storage.
 
 ## Linked service properties
 
