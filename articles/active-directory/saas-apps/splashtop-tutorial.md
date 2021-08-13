@@ -33,6 +33,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Splashtop supports **SP** initiated SSO.
+* Splashtop supports [**automated** user provisioning and deprovisioning](splashtop-provisioning-tutorial.md) (recommended).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.

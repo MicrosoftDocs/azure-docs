@@ -79,7 +79,7 @@ items:
   - name: Asset normalization
     href: concept-asset-normalization.md
   - name: Frequently asked questions
-    href: /azure/purview/frequently-asked-questions.yml
+    href: ./frequently-asked-questions.yml
 - name: How-to guides
   items:
   - name: Create and manage collections
