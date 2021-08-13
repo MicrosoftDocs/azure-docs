@@ -50,7 +50,7 @@ Before you continue building the application, let's look into the hierarchy of r
 * Collections 
 * Documents
 
-To learn more about the hierarchy of entities, see the [Azure Cosmos DB resource model](account-databases-containers-items.md) article.
+To learn more about the hierarchy of entities, see the [Azure Cosmos DB resource model](../account-databases-containers-items.md) article.
 
 ## Install the sample app template
 
