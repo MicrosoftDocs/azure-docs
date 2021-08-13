@@ -36,7 +36,7 @@ Privileged Access groups enable users to elevate to the owner or member role of 
 
 You can set up just-in-time access to permissions and roles beyond Azure AD and Azure Resource. If you have other resources whose authorization can be connected to an Azure AD security group (for Azure Key Vault, Intune, Azure SQL, or other apps and services), you should enable privileged access on the group and assign users as eligible for membership in the group.
 
-If you want to assign a group to an Azure AD or Azure Resource role and require activation via PIM, there are two ways you can achieve this result:
+If you want to assign a group to an Azure AD or Azure Resource role and require elevation through a PIM process, there are two ways to do it:
 
 - **Assign the group persistently to a role**. You then grant users eligible member access to the group in PIM. Eligible users must then activate their membership to get into the group that is permanently assigned to the role. This path requires a role-assignable group to be enabled in PIM as a privileged access group for the Azure AD role.
 - **Assign the group as eligible for a role** through PIM. Everyone in the group must activate their assignment to get access to the role. This path requires a role-assignable group for the Azure AD role, and a security group for Azure resources.
