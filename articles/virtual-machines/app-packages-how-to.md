@@ -36,13 +36,27 @@ ms.category: sig, disks
 
 Before you get started, make sure you have the following:
 
-- Prereq 
-- Prereq
+- All files need to be byte aligned. You can do this using PowerShell:
+
+```powershell
+$inputFile = \<the file you want to pad>
+
+$fileInfo = Get-Item -Path $inputFile
+
+$remainder = $fileInfo.Length % 512
+
+if ($remainder -ne 0){
+
+$difference = 512 - $remainder
+
+$bytesToPad = \[System.Byte\[\]\]::CreateInstance(\[System.Byte\],
+$difference)
+
+Add-Content -Path $inputFile -Value $bytesToPad -Encoding Byte
+}
+```
 
 ## Register the feature
-
-<!--Optional. If you need register the feature for preview, these are some basic instructions you can use. Delete this if the feature is auto-registered.
--->
 
 For the public preview, you first need to register the feature:
 
@@ -106,33 +120,6 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 
 ---
 
-## Byte align the files
-A current limitation of VM Applications is only page blobs are
-supported. We will support block blobs in the near future, but in the
-meantime all blobs must be page aligned before uploading. Use the
-following script to byte align all three files.
-
-
-### [PowerShell](#tab/powershell)
-This example modifies the file provided, make a backup before proceeding.
-
-```azurepowershell-interactive
-$inputFile = \<the file you want to pad>
-
-$fileInfo = Get-Item -Path $inputFile
-
-$remainder = $fileInfo.Length % 512
-
-if ($remainder -ne 0){
-
-$difference = 512 - $remainder
-
-$bytesToPad = \[System.Byte\[\]\]::CreateInstance(\[System.Byte\],
-$difference)
-
-Add-Content -Path $inputFile -Value $bytesToPad -Encoding Byte
-}
-```
 
 ### [CLI](#tab/cli)
 ### [Portal](#tab/portal)
@@ -164,19 +151,66 @@ Add-Content -Path $inputFile -Value $bytesToPad -Encoding Byte
 
 ### [PowerShell](#tab/powershell2)
 
-<!-- Introduction paragraph if needed -->
+Create the application definition using `New-AzGalleryApplication`.
 
-```powershell-interactive
-
+```azurepowershell-interactive
+$galleryName = myGallery
+$rgName = myResourceGroup
+$applicationName = myApp
+New-AzGalleryApplication -ResourceGroupName $rgName -GalleryName $galleryName -Name $applicationName
 ```
 
+Create a version of your application using `New-AzGalleryApplicationVersion`.
+
+```azurepowershell-interactive
+$version = 1.0.0
+New-AzGalleryApplicationVersion -ResourceGroupName $rgName -GalleryName $galleryName -ApplicationName $applicationName -Version $version
+```
+
+To add the application to a VM, get the application version and use that to get the version ID. Use the ID to add the application to the VM configuration.
+
+```azurepowershell-interactive
+$version = Get-AzGalleryApplicationVersion -ResourceGroupName $rgname -GalleryName $galleryname -ApplicationName $applicationname -Version $version
+
+$vmapp = New-AzVmGalleryApplication -PackageReferenceId $version.Id
+
+$vm = Add-AzVmGalleryApplication -VM $vm -Id $vmapp.Id
+
+Update-AzVm -ResourceGroupName $rgname -VM $vm
+```
 
 ### [REST](#tab/rest2)
 
-<!-- Introduction paragraph if needed -->
+Creating a VM application definition.
+
 
 ```rest
+PUT
+/subscriptions/\<**subscriptionId**\>/resourceGroups/\<**resourceGroupName**\>/providers/Microsoft.Compute/galleries/\<**galleryName**\>/applications/\<**applicationName**\>?api-version=2019-03-01
 
+{
+    "location": "West US",
+    "name": "myApp",
+    "properties": {
+        "supportedOSType": "Windows | Linux",
+        "endOfLifeDate": "2020-01-01"
+    }
+}
+
+```
+
+| Field Name | Description | Limitations |
+|--|--|--|
+| name | A unique name for the VM Application within the gallery | Max length of 117 characters. Allowed characters are uppercase or lowercase letters, digits, hyphen(-), period (.), underscore (_). Names not allowed to end with period(.). |
+| supportedOSType | Whether this is a Windows or Linux application | “Windows” or “Linux” |
+| endOfLifeDate | A future end of life date for the application. Note that this is for customer reference only, and is not enforced. | Valid future date |
+
+Create a VM application version.
+
+```rest
+PUT 
+
+/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<galleryName>/applications/<applicationName>/versions/<versionName>?api-version=2019-03-01 
 ```
 
 ---
@@ -223,49 +257,7 @@ Add-Content -Path $inputFile -Value $bytesToPad -Encoding Byte
 
 -------------------------
 
-In this article, we’ll create two simple applications. The
-first will accept a text configuration file and will write the contents
-of that file to a new file. The second will depend on the first and will
-take the file the first application wrote and copy it to another
-location.
 
-## Create the installer
-
-Our installer will simply read the contents of our “config” and write
-it to a new file. Name the file MyAppInstaller.ps1.
-
-```azurepowershell-interactive
-
-$contents = Get-Content -Path .\\FirstVMApp.config
-
-$contents \| Out-File -FilePath .\\AppInstall.txt
-```
-
-Though we’re calling our files MyAppInstaller.ps1 and
-MyAppInstaller.config now, we’re referencing them as FirstVMApp and
-FirstVMApp.config in our files. This is because we currently write the
-files as {VMAppName} and {VMAppName}.config. Therefore, the names
-provided on your local disk and in the storage blob do not matter. We
-will always write them to the VM as the name of your application. In the
-near future, we will support automatically renaming these files to
-predefined names.
-
-The installer for our second app will be even simpler. You can call
-this file CopyIt.bat.
-
-```bash
-copy .\\AppInstall.txt .\\AppDidInstall.txt
-```
-
-## Step 2 – Create the default config
-
-Create a text file called MyAppInstaller.config with the following contents:
-
-```
-Hello world!
-```
-
-## Byte align all files
 
 A current limitation of VM Applications is only page blobs are supported. We will support block blobs in the near future, but in the meantime all blobs must be page aligned before uploading. Use the following script to byte align all three files.
 
@@ -600,11 +592,28 @@ Deployment Templates.
 
 ### Creating a VM Application
 
-PUT
 
+```rest
+PUT
 /subscriptions/\<**subscriptionId**\>/resourceGroups/\<**resourceGroupName**\>/providers/Microsoft.Compute/galleries/\<**galleryName**\>/applications/\<**applicationName**\>?api-version=2019-03-01
 
-![](media/image1.emf)
+{
+    "location": "West US",
+    "name": "myApp",
+    "properties": {
+        "supportedOSType": "Windows | Linux",
+        "endOfLifeDate": "2020-01-01"
+    }
+}
+
+```
+| Field Name | Description | Limitations |
+|--|--|--|
+| name | A unique name for the VM Application within the gallery | Max length of 117 characters. Allowed characters are uppercase or lowercase letters, digits, hyphen(-), period (.), underscore (_). Names not allowed to end with period(.). |
+| supportedOSType | Whether this is a Windows or Linux application | “Windows” or “Linux” |
+| endOfLifeDate | A future end of life date for the application. Note that this is for customer reference only, and is not enforced. | Valid future date |
+
+
 
 <table>
 <colgroup>
