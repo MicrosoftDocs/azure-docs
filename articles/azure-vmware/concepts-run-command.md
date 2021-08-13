@@ -12,7 +12,6 @@ In Azure VMware Solution, you'll get vCenter access with CloudAdmin role. You ca
 
 Azure VMware Solution supports the following operations:
 
-- [Install and uninstall JetStream DR solution](deploy-disaster-recovery-using-jetstream.md)
 
 - [Configure an external identity source](tutorial-configure-identity-source-vcenter.md)
 
