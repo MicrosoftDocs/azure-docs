@@ -79,8 +79,9 @@ Specific inputs are required to deploy a model on an online endpoint:
 - Settings to specify the instance type and scaling capacity.
 
 The following snippet shows the *endpoints/online/managed/simple-flow/1-create-endpoint-with-blue.yml* file, which captures all the required inputs: 
+test:
 
-:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/simple-flow/1-create-endpoint-with-blue.yml":::
+:::code language="yaml" source="~/azureml-examples-puprefresh/cli/endpoints/online/managed/simple-flow/endpoint.yml":::
 
 > [!NOTE]
 > For a full description of the YAML, see [Managed online endpoints (preview) YAML reference](reference-yaml-endpoint-managed-online.md).
