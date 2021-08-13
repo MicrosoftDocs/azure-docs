@@ -1,6 +1,6 @@
 ---
-title: OpenTelemetry Overview | Microsoft Docs
-description: Provides an overview of how to use OpenTelemetry with Azure Monitor
+title: Azure Monitor OpenTelemetry for Python | Microsoft Docs
+description: Provides guidance on how to enable Azure Monitor on Python Applications using OpenTelemetry
 ms.topic: conceptual
 ms.date: 08/12/2021
 author: mattmccleary
@@ -18,16 +18,17 @@ This article describes how to enable and configure the OpenTelemetry-based Azure
 ### Prerequisites
 - Python Application using version 3.6+
 - Azure Subscription (Free to [create](https://azure.microsoft.com/free/))
-- Application Insights Resource (Free to [create](https://docs.microsoft.com/azure/azure-monitor/app/create-workspace-resource#create-workspace-based-resource))
+- Application Insights Resource (Free to [create](create-workspace-resource#create-workspace-based-resource.md))
 
 ### Enable Azure Monitor Application Insights
 1. Install package
 
 Add code to xyz.file in your application
 
-    ```python
-    Placeholder
-    ```
+```python
+Placeholder
+```
+
 2. Add connection string
 
 Replace placeholder connection string with YOUR connection string.
@@ -49,9 +50,9 @@ You may want to enable the OTLP Exporter alongside your Azure Monitor Exporter t
 
 Add the code to xyz.file in your application.
 
-    ```python
-    Placeholder
-    ```
+```python
+Placeholder
+```
 
 > [!NOTE]
 > OTLP exporter is shown for convenience only. We do not officially support the OTLP Exporter or any components or third-party experiences downstream of it. We suggest you open an issue with the OpenTelemetry community for OpenTelemetry issues outside the Azure Support Boundary.
@@ -66,27 +67,27 @@ OpenTelemetry SDKs provide built-in sampling as a way to control data volume and
 ### Filter Telemetry
 You may use a Span Processor to filter out telemetry before leaving your application.
 
-    ```python
-    Placeholder
-    ```
+```python
+Placeholder
+```
 
 For more information, see [GitHub Repo](link).
 
 ### Set Cloud Role Name
 You may use the Resource API to set Cloud Role Name.
 
-    ```python
-    Placeholder
-    ```
+```python
+Placeholder
+```
 
 For more information, see [GitHub Repo](link).
 
 ### Add Span Attributes
 You may use X to add attributes such as business-specific dimensions.
 
-    ```python
-    Placeholder
-    ```
+```python
+Placeholder
+```
 
 For more information, see [GitHub Repo](link).
 
