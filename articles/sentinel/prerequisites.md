@@ -76,4 +76,4 @@ Before deploying Azure Sentinel, make sure that your Azure tenant has the follow
 >[On-board Azure Sentinel](quickstart-onboard.md)
 
 > [!div class="nextstepaction"]
->[Get visibility into alerts](quickstart-get-visibility.md)
+>[Get visibility into alerts](get-visibility.md)
