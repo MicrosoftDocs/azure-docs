@@ -1,6 +1,6 @@
 ---
 title: Enable web application options using Azure Active Directory B2C
-description:  Enable the use of web application options by using several ways.
+description:  This article discusses several ways to enable web application options.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -13,20 +13,26 @@ ms.subservice: B2C
 ms.custom: "b2c-support"
 ---
 
-# Configure authentication options in a web application using Azure Active Directory B2C 
+# Enable authentication options in a web app by using Azure AD B2C 
 
-This article describes ways you can customize and enhance the Azure Active Directory B2C (Azure AD B2C) authentication experience for your web application. Before you start, it is important to familiarize yourself with the following articles: [Configure authentication in a sample web application](configure-authentication-sample-web-app.md) or [Enable authentication in your own web application](enable-authentication-web-application.md).
+This article describes how to enable, customize, and enhance the Azure Active Directory B2C (Azure AD B2C) authentication experience for your web application. 
+
+Before you start, it's important to familiarize yourself with the following articles: 
+* [Configure authentication in a sample web app](configure-authentication-sample-web-app.md)
+* [Enable authentication in your own web app](enable-authentication-web-application.md).
 
 [!INCLUDE [active-directory-b2c-app-integration-custom-domain](../../includes/active-directory-b2c-app-integration-custom-domain.md)]
 
-To use a custom domain and your tenant ID in the authentication URL, follow the guidance in [Enable custom domains](custom-domain.md). Under the project root folder, open the `appsettings.json` file. This file contains information about your Azure AD B2C identity provider. 
+To use a custom domain and your tenant ID in the authentication URL, follow the guidance in [Enable custom domains](custom-domain.md). Under the project root folder, open the *appsettings.json* file. This file contains information about your Azure AD B2C identity provider.
+
+In the *appsettings.json* file, do the following:
 
 - Update the `Instance` entry with your custom domain.
 - Update the `Domain` entry with your [tenant ID](tenant-management.md#get-your-tenant-id). For more information, see [Use tenant ID](custom-domain.md#optional-use-tenant-id).
 
 The following JSON shows the app settings before the change: 
 
-```JSon
+```JSON
 "AzureAdB2C": {
   "Instance": "https://contoso.b2clogin.com",
   "Domain": "tenant-name.onmicrosoft.com",
@@ -36,7 +42,7 @@ The following JSON shows the app settings before the change:
 
 The following JSON shows the app settings after the change: 
 
-```JSon
+```JSON
 "AzureAdB2C": {
   "Instance": "https://login.contoso.com",
   "Domain": "00000000-0000-0000-0000-000000000000",
@@ -48,7 +54,7 @@ The following JSON shows the app settings after the change:
 
 The `AddMicrosoftIdentityWebAppAuthentication` method in the Microsoft identity platform API lets developers add code for advanced authentication scenarios or subscribe to OpenIdConnect events. For example, you can subscribe to OnRedirectToIdentityProvider, which allows you to customize the authentication request your app sends to Azure AD B2C.
 
-To support advanced scenarios, open the `Startup.cs`, and in the `ConfigureServices` function, replace the `AddMicrosoftIdentityWebAppAuthentication` with the following code snippet: 
+To support advanced scenarios, open the *Startup.cs* file, and in the `ConfigureServices` function, replace `AddMicrosoftIdentityWebAppAuthentication` with the following code snippet: 
 
 ```csharp
 // Configuration to sign-in users with Azure AD B2C
@@ -64,7 +70,7 @@ services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
 });
 ```
 
-The code above adds the OnRedirectToIdentityProvider event with a reference to the *OnRedirectToIdentityProviderFunc* method. Add the following code snippet to the `Startup.cs` class.
+The preceding code adds the OnRedirectToIdentityProvider event with a reference to the `OnRedirectToIdentityProviderFunc` method. Add the following code snippet to the `Startup.cs` class.
 
 ```csharp
 private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
@@ -76,14 +82,13 @@ private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
 }
 ```
 
-You can pass parameters between your controller and the *OnRedirectToIdentityProvider* function using context parameters. 
-
+You can pass parameters between your controller and the `OnRedirectToIdentityProvider` function by using context parameters. 
 
 [!INCLUDE [active-directory-b2c-app-integration-login-hint](../../includes/active-directory-b2c-app-integration-login-hint.md)]
 
-1. If you're using a custom policy, add the required input claim as described in [Set up direct sign-in](direct-signin.md#prepopulate-the-sign-in-name). 
+1. If you're using a custom policy, add the required input claim, as described in [Set up direct sign-in](direct-signin.md#prepopulate-the-sign-in-name). 
 1. Complete the [Support advanced scenarios](#support-advanced-scenarios) procedure.
-1. Add the following line of code to the *OnRedirectToIdentityProvider* function:
+1. Add the following line of code to the `OnRedirectToIdentityProvider` function:
     
     ```csharp
     private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
@@ -99,7 +104,7 @@ You can pass parameters between your controller and the *OnRedirectToIdentityPro
 
 1. Check the domain name of your external identity provider. For more information, see [Redirect sign-in to a social provider](direct-signin.md#redirect-sign-in-to-a-social-provider). 
 1. Complete the [Support advanced scenarios](#support-advanced-scenarios) procedure.
-1. In the *OnRedirectToIdentityProviderFunc* function, add the following line of code to the *OnRedirectToIdentityProvider* function:
+1. In the `OnRedirectToIdentityProviderFunc` function, add the following line of code to the `OnRedirectToIdentityProvider` function:
     
     ```csharp
     private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
@@ -114,9 +119,9 @@ You can pass parameters between your controller and the *OnRedirectToIdentityPro
 
 [!INCLUDE [active-directory-b2c-app-integration-ui-locales](../../includes/active-directory-b2c-app-integration-ui-locales.md)]
 
-1. [Configure Language customization](language-customization.md).
+1. [Configure language customization](language-customization.md).
 1. Complete the [Support advanced scenarios](#support-advanced-scenarios) procedure.
-1. Add the following line of code to the *OnRedirectToIdentityProvider* function:
+1. Add the following line of code to the `OnRedirectToIdentityProvider` function:
 
     ```csharp
     private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
@@ -132,7 +137,7 @@ You can pass parameters between your controller and the *OnRedirectToIdentityPro
 
 1. Configure the [ContentDefinitionParameters](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri) element.
 1. Complete the [Support advanced scenarios](#support-advanced-scenarios) procedure.
-1. Add the following line of code to the *OnRedirectToIdentityProvider* function:
+1. Add the following line of code to the `OnRedirectToIdentityProvider` function:
     
     ```csharp
     private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
@@ -149,7 +154,7 @@ You can pass parameters between your controller and the *OnRedirectToIdentityPro
 
 1. Complete the [Support advanced scenarios](#support-advanced-scenarios) procedure.
 1. In your custom policy, define an [ID token hint technical profile](id-token-hint.md).
-1. Add the following line of code to the *OnRedirectToIdentityProvider* function:
+1. Add the following line of code to the `OnRedirectToIdentityProvider` function:
     
     ```csharp
     private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
@@ -164,11 +169,11 @@ You can pass parameters between your controller and the *OnRedirectToIdentityPro
     
 ## Account controller
 
-If you want to customize the **Sign-in**, **Sign-up** or **Sign-out** actions, you are encouraged to create your own controller. Having your own controller allows you to pass parameters between your controller and the authentication library. The `AccountController` is part of `Microsoft.Identity.Web.UI`  NuGet package, which handles the sign-in and sign-out actions. You can find its implementation in the [Microsoft Identity Web library](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs). 
+If you want to customize the *Sign-in**, *Sign-up*, or *Sign-out* actions, you're encouraged to create your own controller. Having your own controller allows you to pass parameters between your controller and the authentication library. `AccountController` is part of `Microsoft.Identity.Web.UI` NuGet package, which handles the sign-in and sign-out actions. You can find its implementation in the [Microsoft Identity Web library](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs). 
 
 ### Add the Account controller
 
-In your Visual Studio project, right click the **Controllers** folder, and add a new **Controller**. Select **MVC - Empty Controller**, and provide the name **MyAccountController.cs**.
+In your Visual Studio project, right-click the *Controllers* folder, and then add a new **Controller**. Select **MVC - Empty Controller**, and provide the name **MyAccountController.cs**.
 
 The following code snippet demonstrates a custom `MyAccountController` with the **SignIn** action.
 
@@ -205,7 +210,7 @@ namespace mywebapp.Controllers
 }
 ```
 
-In the `_LoginPartial.cshtml` view, change the sign-in link to your controller
+In the *_LoginPartial.cshtml* view, change the sign-in link to your controller.
 
 ```html
 <form method="get" asp-area="MicrosoftIdentity" asp-controller="MyAccount" asp-action="SignIn">
@@ -235,7 +240,7 @@ public IActionResult SignUp([FromRoute] string scheme)
 }
 ```
 
-In the `_LoginPartial.cshtml` view, change the `asp-controller` value to `MyAccountController` for any other authentication links, such as sign-up or edit profile.
+In the *_LoginPartial.cshtml* view, change the `asp-controller` value to `MyAccountController` for any other authentication links, such as sign-up or edit profile.
 
 ### Pass custom parameters
 
@@ -253,7 +258,7 @@ public IActionResult SignIn([FromRoute] string scheme)
 }
 ```
 
-Complete the [Support advanced scenarios](#support-advanced-scenarios) procedure. Then in the `OnRedirectToIdentityProvider` method, read the custom parameter:
+Complete the [Support advanced scenarios](#support-advanced-scenarios) procedure and then, in the `OnRedirectToIdentityProvider` method, read the custom parameter:
 
 ```csharp
 private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
@@ -269,9 +274,12 @@ private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
 
 ## Role-based access control
 
-With [authorization in ASP.NET Core](/aspnet/core/security/authorization/introduction) you can use [role-based authorization](/aspnet/core/security/authorization/roles), [claims-based authorization](/aspnet/core/security/authorization/claims), or [policy-based authorization](/aspnet/core/security/authorization/policies) to check if the user is authorized to access a protected resource.
+With [authorization in ASP.NET Core](/aspnet/core/security/authorization/introduction) you can check to see whether users are authorized to access a protected resource by using one of the following methods: 
+* [Role-based authorization](/aspnet/core/security/authorization/roles) 
+* [Claims-based authorization](/aspnet/core/security/authorization/claims) 
+* [Policy-based authorization](/aspnet/core/security/authorization/policies)
 
-In the *ConfigureServices* method, add the *AddAuthorization* method, which adds the authorization model. The following example creates a policy named `EmployeeOnly`. The policy checks that a claim `EmployeeNumber` exists. The value of the claim must be one of the following IDs: 1, 2, 3, 4 or 5.
+In the `ConfigureServices` method, add the `AddAuthorization` method, which adds the authorization model. The following example creates a policy named `EmployeeOnly`. The policy checks to verify that a claim `EmployeeNumber` exists. The value of the claim must be one of the following IDs: 1, 2, 3, 4, or 5.
 
 ```csharp
 services.AddAuthorization(options =>
@@ -281,9 +289,9 @@ services.AddAuthorization(options =>
     });
 ```
 
-Authorization in ASP.NET Core is controlled with [AuthorizeAttribute](/aspnet/core/security/authorization/simple) and its various parameters. In its most basic form, applying the `[Authorize]` attribute to a controller, action, or Razor Page, limits access to that component's authenticated users.
+You control authorization in ASP.NET Core by using [AuthorizeAttribute](/aspnet/core/security/authorization/simple) and its various parameters. In its most basic form, applying the `[Authorize]` attribute to a controller, action, or Razor Page limits access to that component's authenticated users.
 
-Policies are applied to controllers by using the `[Authorize]` attribute with the policy name. The following code limits access to the `Claims` action to  users authorized by the `EmployeeOnly` policy:
+You apply policies to controllers by using the `[Authorize]` attribute with the policy name. The following code limits access to the `Claims` action to users who are authorized by the `EmployeeOnly` policy:
 
 ```csharp
 [Authorize(Policy = "EmployeeOnly")]
@@ -295,4 +303,4 @@ public IActionResult Claims()
 
 ## Next steps
 
-- Learn more: [Introduction to authorization in ASP.NET Core](/aspnet/core/security/authorization/introduction)
+- Learn more about authorization, see [Introduction to authorization in ASP.NET Core](/aspnet/core/security/authorization/introduction).
