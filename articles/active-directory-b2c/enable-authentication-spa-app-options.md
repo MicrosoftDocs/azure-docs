@@ -126,6 +126,7 @@ To support a secured logout redirect URI, follow the steps below:
     ```javascript
     let id_token = "";
     ```
+    
 1. In the MSAL `handleResponse` function, parse the `id_token` from the `authenticationResult` object into the `id_token` variable.
     ```javascript
     function handleResponse(response) {
@@ -137,11 +138,13 @@ To support a secured logout redirect URI, follow the steps below:
         }
     }
     ```
-1. In the `signOut` function, add the `id_token_hint` parameter to the logout request object.
+    
+1. In the `signOut` function, add the `id_token_hint` parameter to the **logoutRequest** object.
     ```javascript
     function signOut() {
         const logoutRequest = {
             postLogoutRedirectUri: msalConfig.auth.redirectUri,
+            //set id_token_hint to the id_token value
             idTokenHint : id_token,
             mainWindowRedirectUri: msalConfig.auth.redirectUri
         };
@@ -149,7 +152,7 @@ To support a secured logout redirect URI, follow the steps below:
     }
     ```
 
-In the above example, the **post_logout_redirect_uri** will be in the format: `https://your-app.com/`. This URL must be added to the Application Registration's reply URL's.
+In the above example, the **post_logout_redirect_uri** passed into the logout request will be in the format: `https://your-app.com/`. This URL must be added to the Application Registration's reply URL's.
 
 ## Enable single logout
 
