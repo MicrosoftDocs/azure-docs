@@ -33,8 +33,6 @@ landingContent:
             url: concepts-storage.md
           - text: Access and identity 
             url: concepts-identity.md
-          - text: Monitor and protection
-            url: concepts-monitor-protection.md
           - text: API Management
             url: concepts-api-management.md
           - text: Hub and spoke

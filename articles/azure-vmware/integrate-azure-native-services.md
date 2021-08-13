@@ -2,26 +2,52 @@
 title: Integrate and deploy Azure native services
 description: Learn how to integrate and deploy Microsoft Azure native tools to monitor and manage your Azure VMware Solution workloads.
 ms.topic: how-to
-ms.date: 06/15/2021
+ms.date: 08/15/2021
 ---
 
 # Integrate and deploy Azure native services
 
-Microsoft Azure native services let you monitor, manage, and protect your virtual machines (VMs) in a hybrid environment (Azure, Azure VMware Solution, and on-premises). The Azure native services that you can integrate with Azure VMware Solution include:
+Microsoft Azure native services let you monitor, manage, and protect your virtual machines (VMs) in a hybrid environment (Azure, Azure VMware Solution, and on-premises). In this article, you'll integrate Azure native services in your Azure VMware Solution private cloud. You'll also learn how to use the tools to manage your VMs throughout their lifecycle. 
 
-- **Log Analytics workspace:** Each workspace has its own data repository and configuration for storing log data. Data sources and solutions are configured to store their data in a specific workspace. Easily deploy the Log Analytics agent using Azure Arc enabled servers VM extension support for new and existing VMs. 
-- **Azure Security Center:** Unified infrastructure security management system that strengthens security of data centers, and provides advanced threat protection across hybrid workloads in the cloud or on premises. It assesses the vulnerability of Azure VMware Solution VMs and raises alerts as needed. To enable Azure Security Center, see [Integrate Azure Security Center with Azure VMware Solution](azure-security-integration.md).
-- **Azure Sentinel:** A cloud-native, security information event management (SIEM) solution. It provides security analytics, alert detection, and automated threat response across an environment. Azure Sentinel is built on top of a Log Analytics workspace.
-- **Azure Arc:** Extends Azure management to any infrastructure, including Azure VMware Solution, on-premises, or other cloud platforms. 
-- **Azure Update Management:** Manages operating system updates for your Windows and Linux machines in a hybrid environment.
-- **Azure Monitor:** Comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. It requires no deployment. 
+The Azure native services that you can integrate with Azure VMware Solution include:
 
-In this article, you'll integrate Azure native services in your Azure VMware Solution private cloud. You'll also learn how to use the tools to manage your VMs throughout their lifecycle. 
+- **Azure Arc** extends Azure management to any infrastructure, including Azure VMware Solution, on-premises, or other cloud platforms. [Azure Arc enabled servers](../azure-arc/servers/overview.md) lets you manage your Windows and Linux physical servers and virtual machines hosted *outside* of Azure, on your corporate network, or another cloud provider. You can attach a Kubernetes cluster hosted in your Azure VMware Solution environment using [Azure Arc enabled Kubernetes](../azure-arc/kubernetes/overview.md). 
+
+- **[Azure Monitor](../azure-monitor/vm/vminsights-enable-overview.md)** collects, analyzes, and acts on telemetry from your cloud and on-premises environments. It requires no deployment.  You can monitor guest operating system performance to discover and map application dependencies for Azure VMware Solution or on-premises VMs. Your Log Analytics workspace in Azure Monitor enables log collection and performance counter collection using the Log Analytics agent or extensions. 
+
+   With Azure Monitor, you can collect data from different [sources to monitor and analyze](../azure-monitor/agents/data-sources.md) and different types of [data for analysis, visualization, and alerting](../azure-monitor/data-platform.md). You can also create alert rules to identify issues in your environment, like high use of resources, missing patches, low disk space, and heartbeat of your VMs. You can set an automated response to detected events by sending an alert to IT Service Management (ITSM) tools. Alert detection notification can also be sent via email.
+
+- **Azure Security Center** strengthens data centers' security and provides advanced threat protection across hybrid workloads in the cloud or on-premises. It assesses Azure VMware Solution VMs' vulnerability, raises alerts as needed, and forwards them to Azure Monitor for resolution. For instance, it assesses missing operating system patches, security misconfigurations, and [endpoint protection](../security-center/security-center-services.md). You can also define security policies in [Azure Security Center](azure-security-integration.md).
+
+- **[Azure Update Management](../automation/update-management/overview.md)** manages operating system updates for your Windows and Linux machines in a hybrid environment in Azure Automation. It monitors patching compliance and forwards patching deviation alerts to Azure Monitor for remediation. Azure Update Management must connect to your Log Analytics workspace to use stored data to assess the status of updates on your VMs.
+
+- **Log Analytics workspace** stores log data. Each workspace has its own data repository and configuration to store data. You can monitor Azure VMware Solution VMs through the Log Analytics agent. Machines connected to the Log Analytics Workspace use the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) to collect data about changes to installed software, Microsoft services, Windows registry and files, and Linux daemons on monitored servers. When data is available, the agent sends it to Azure Monitor Logs for processing. Azure Monitor Logs applies logic to the received data, records it, and makes it available for analysis. Use the Azure Arc enabled servers [VM extensions support](../azure-arc/servers/manage-vm-extensions.md) to deploy Log Analytics agents on VMs. 
+
+
+
+
+
+
+- **Azure Sentinel** provides security analytics, alert detection, and automated threat response across an environment. It's a cloud-native, security information event management (SIEM) solution  that's built on top of a Log Analytics Workspace.
+
+
+
+
+## Topology
+
+The diagram shows the integrated monitoring architecture for Azure VMware Solution VMs.
+
+:::image type="content" source="media/concepts/integrated-azure-monitoring-architecture.png" alt-text="Diagram showing the integrated Azure monitoring architecture." border="false":::
+
+**Log Analytics agent** collects log data from Azure, Azure VMware Solution, and on-premises VMs. The log data is sent to Azure Monitor Logs and stored in a **Log Analytics Workspace**. Each workspace has its own data repository and configuration to store data.   Once the logs are collected, **Azure Security Center** assesses the vulnerability status of Azure VMware Solution VMs and raises an alert for any critical vulnerability. Once assessed, Azure Security Center forwards the vulnerability status to Azure Sentinel to create an incident and map with other threats.  Azure Security Center is connected to Azure Sentinel using Azure Security Center Connector. 
+
+
+
+
 
 
 ## Enable Azure Update Management
 
-[Azure Update Management](../automation/update-management/overview.md) in Azure Automation manages operating system updates for your Windows and Linux machines in a hybrid environment. It monitors patching compliance and forwards patching deviation alerts to Azure Monitor for remediation. Azure Update Management must connect to your Log Analytics workspace to use stored data to assess the status of updates on your VMs.
 
 1. [Create an Azure Automation account](../automation/automation-create-standalone-account.md). 
 
@@ -36,41 +62,40 @@ In this article, you'll integrate Azure native services in your Azure VMware Sol
  
 1. Once you've enabled Update Management, you can [deploy updates on VMs and review the results](../automation/update-management/deploy-updates.md). 
 
+
+
 ## Onboard VMs to Azure Arc enabled servers
 
-Azure Arc extends Azure management to any infrastructure, including Azure VMware Solution and on-premises.  [Azure Arc enabled servers](../azure-arc/servers/overview.md) lets you manage your Windows and Linux physical servers and virtual machines hosted *outside* of Azure, on your corporate network, or another cloud provider.
+
 
 For information on enabling Azure Arc enabled servers for multiple Windows or Linux VMs, see [Connect hybrid machines to Azure at scale](../azure-arc/servers/onboard-service-principal.md).
 
+
+
+
+
+
+
+
+
 ## Onboard hybrid Kubernetes clusters with Arc enabled Kubernetes
 
-[Azure Arc enabled Kubernetes](../azure-arc/kubernetes/overview.md) lets you attach a Kubernetes cluster hosted in your Azure VMware Solution environment. 
+
 
 For more information, see [Create an Azure Arc-enabled onboarding Service Principal](../azure-arc/kubernetes/create-onboarding-service-principal.md).
 
+
+
 ## Deploy the Log Analytics agent
 
-You can monitor Azure VMware Solution VMs through the Log Analytics agent. Machines connected to the Log Analytics workspace use the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) to collect data about changes to installed software, Microsoft services, Windows registry and files, and Linux daemons on monitored servers. When data is available, the agent sends it to Azure Monitor Logs for processing. Azure Monitor Logs applies logic to the received data, records it, and makes it available for analysis.
 
 Deploy the Log Analytics agent by using [Azure Arc enabled servers VM extension support](../azure-arc/servers/manage-vm-extensions.md).
 
+
+
 ## Enable Azure Monitor
 
-[Azure Monitor](../azure-monitor/overview.md) is a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. Some of the added benefits of Azure Monitor include: 
 
-   - Seamless monitoring 
-
-   - Better infrastructure visibility 
-
-   - Instant notifications 
-
-   - Automatic resolution 
-
-   - Cost efficiency 
-
-You can collect data from different sources to monitor and analyze. For more information, see [Sources of monitoring data for Azure Monitor](../azure-monitor/agents/data-sources.md).  You can also collect different types of data for analysis, visualization, and alerting. For more information, see [Azure Monitor data platform](../azure-monitor/data-platform.md). 
-
-You can monitor guest operating system performance and discover and map application dependencies for Azure VMware Solution or on-premises VMs. You can also create alert rules to identify issues in your environment, like high use of resources, missing patches, low disk space, and heartbeat of your VMs. You can set an automated response to detected events by sending an alert to IT Service Management (ITSM) tools. Alert detection notification can also be sent via email.
 
 
 1. [Design your Azure Monitor Logs deployment](../azure-monitor/logs/design-logs-deployment.md)
@@ -84,3 +109,14 @@ You can monitor guest operating system performance and discover and map applicat
    - [Create, view, and manage log alerts using Azure Monitor](../azure-monitor/alerts/alerts-log.md).
    - [Action rules](../azure-monitor/alerts/alerts-action-rules.md) to set automated actions and notifications.
    - [Connect Azure to ITSM tools using IT Service Management Connector](../azure-monitor/alerts/itsmc-overview.md).
+
+
+## Next steps
+
+Now that you've covered Azure VMware Solution network and interconnectivity concepts, you may want to learn about:
+
+- [Integrating Azure native services in Azure VMware Solution](integrate-azure-native-services.md)
+- [Integrate Azure Security Center with Azure VMware Solution](azure-security-integration.md)
+- [Automation account authentication](../automation/automation-security-overview.md)
+- [Designing your Azure Monitor Logs deployment](../azure-monitor/logs/design-logs-deployment.md) and [Azure Monitor](../azure-monitor/overview.md)
+- [Azure Security Center planning](../security-center/security-center-planning-and-operations-guide.md) and [Supported platforms for Security Center](../security-center/security-center-os-coverage.md)
