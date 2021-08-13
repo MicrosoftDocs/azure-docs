@@ -12,7 +12,7 @@ ms.date: 05/11/2021
 
 # FAQ about creating Purview accounts via portal
 
-This article answers common questions that customers and field teams often ask about creating Purview account using Azure portal [Create Purview Account](create-catalog-portal.md). I
+This article answers common questions that customers and field teams often ask about creating Purview account using Azure portal [Create Purview Account](create-catalog-portal.md).
 
 ## Common questions
 
