@@ -148,36 +148,14 @@
       href: core/concepts-app-templates.md
     - name: Industry specific application templates
       items:
-      - name: Retail
-        items:
-        - name: Overview
-          href: retail/overview-iot-central-retail.md
-        - name: Connected logistics architecture
-          href: retail/architecture-connected-logistics.md
-      - name: Energy
-        items:
-        - name: Overview
-          href: energy/overview-iot-central-energy.md
-        - name: Smart meter app architecture
-          href: energy/concept-iot-central-smart-meter-app.md
-        - name: Solar panel app architecture
-          href: energy/concept-iot-central-solar-panel-app.md
-      - name: Government
-        items:
-        - name: Overview
-          href: government/overview-iot-central-government.md
-        - name: Connected waste monitoring architecture
-          href: government/concepts-connectedwastemanagement-architecture.md 
-        - name: Water consumption monitoring architecture
-          href: government/concepts-waterconsumptionmonitoring-architecture.md 
-        - name: Water quality monitoring architecture
-          href: government/concepts-waterqualitymonitoring-architecture.md        
-      - name: Healthcare
-        items:
-        - name: Overview
-          href: healthcare/overview-iot-central-healthcare.md
-        - name: Continuous patient monitoring architecture
-          href: healthcare/concept-continuous-patient-monitoring-architecture.md
+      - name: Retail Overview
+        href: retail/overview-iot-central-retail.md
+      - name: Energy Overview
+        href: energy/overview-iot-central-energy.md
+      - name: Government Overview
+        href: government/overview-iot-central-government.md      
+      - name: Healthcare Overview
+        href: healthcare/overview-iot-central-healthcare.md
         
     - name: What are device templates?
       href: core/concepts-device-templates.md

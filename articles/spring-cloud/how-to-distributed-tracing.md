@@ -87,7 +87,7 @@ For example, *appsettings.json* would include the following properties:
   }
 ```
 
-For more information about distributed tracing in .NET Core Steeltoe apps, see [Distributed tracing](https://steeltoe.io/docs/3/tracing/distributed-tracing) in the Steeltoe documentation.
+For more information about distributed tracing in .NET Core Steeltoe apps, see [Distributed tracing](https://docs.steeltoe.io/api/v3/tracing/) in the Steeltoe documentation.
 ::: zone-end
 ::: zone pivot="programming-language-java"
 In this article, you learn how to:
@@ -165,7 +165,6 @@ To follow these procedures, you need an Azure Spring Cloud service that is alrea
            </dependency>
       </dependencies>
       ```
-
 
 1. Build and deploy again for your Azure Spring Cloud service to reflect these changes.
 

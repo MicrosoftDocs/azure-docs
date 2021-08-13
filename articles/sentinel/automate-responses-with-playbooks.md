@@ -196,7 +196,7 @@ If the alert creates an incident, the incident will trigger an automation rule w
 
 For playbooks that are triggered by alert creation and receive alerts as their inputs (their first step is “When an Azure Sentinel Alert is triggered”), attach the playbook to an analytics rule:
 
-1. Edit the [analytics rule](tutorial-detect-threats-custom.md) that generates the alert you want to define an automated response for.
+1. Edit the [analytics rule](detect-threats-custom.md) that generates the alert you want to define an automated response for.
 
 1. Under **Alert automation** in the **Automated response** tab, select the playbook or playbooks that this analytics rule will trigger when an alert is created.
 
@@ -241,7 +241,7 @@ Manual triggering is available from the Azure Sentinel portal in the following b
 
 ### Run a playbook manually on an incident
 
-Not supported yet. <!--make this a note instead? -->
+Not supported yet.
 
 ## Manage your playbooks
 

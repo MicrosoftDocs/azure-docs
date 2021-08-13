@@ -1192,7 +1192,52 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/government/how-to-configure-connected-field-services.md",
-      "redirect_url": "/azure/iot-central/government/concepts-connectedwastemanagement-architecture#business-applications",
+      "redirect_url": "/azure/iot-central/government/tutorial-connected-waste-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/government/concepts-connectedwastemanagement-architecture.md",
+      "redirect_url": "/azure/iot-central/government/tutorial-connected-waste-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/government/concepts-waterconsumptionmonitoring-architecture.md",
+      "redirect_url": "/azure/iot-central/government/tutorial-water-consumption-monitoring",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/government/concepts-waterqualitymonitoring-architecture.md",
+      "redirect_url": "/azure/iot-central/government/tutorial-water-quality-monitoring",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/retail/overview-iot-central-retail.md",
+      "redirect_url": "/azure/iot-central/core/concepts-app-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/energy/overview-iot-central-energy.md",
+      "redirect_url": "/azure/iot-central/core/concepts-app-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/government/overview-iot-central-government.md",
+      "redirect_url": "/azure/iot-central/core/concepts-app-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/healthcare/overview-iot-central-healthcare.md",
+      "redirect_url": "/azure/iot-central/core/concepts-app-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/energy/concept-iot-central-smart-meter-app.md",
+      "redirect_url": "/azure/iot-central/energy/tutorial-smart-meter-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/energy/concept-iot-central-solar-panel-app.md",
+      "redirect_url": "/azure/iot-central/energy/tutorial-solar-panel-app",
       "redirect_document_id": false
     },
     {
