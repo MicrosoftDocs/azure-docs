@@ -19,6 +19,7 @@ The Azure App Service Environment is an Azure App Service feature that provides 
 - Linux web apps
 - Docker containers
 - Functions
+- Logic Apps (Standard)
 
 App Service environments (ASEs) are appropriate for application workloads that require:
 
