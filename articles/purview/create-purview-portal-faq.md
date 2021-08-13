@@ -80,7 +80,7 @@ EventHub namespace.
        :::image type="content" source="media/create-catalog-portal/policy-assignment.png" alt-text="Screenshot showing how to create policy assignment" lightbox="./media/create-catalog-portal/policy-assignment.png":::
 
 > [!Note] 
-    > If you have **Azure Policy** and need to add exception as in **Prerequisites**, you need to add the correct tag. For example, you can add `resourceBypass` tag:
+> If you have **Azure Policy** and need to add exception as in **Prerequisites**, you need to add the correct tag. For example, you can add `resourceBypass` tag:
     > :::image type="content" source="media/create-catalog-portal/add-purview-tag.png" alt-text="Add tag to Purview account.":::
 
 ## Next steps
