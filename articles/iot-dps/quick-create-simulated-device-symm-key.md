@@ -22,14 +22,6 @@ If you're unfamiliar with the process of provisioning, review the [provisioning]
 
 This quickstart demonstrates a solution for a Windows-based workstation. However, you can also perform the procedures on Linux. For a Linux example, see [How to provision for multitenancy](how-to-provision-multitenant.md).
 
->[!NOTE]
->The Azure IoT Device Provisioning Service supports two types of enrollments:
->
->* [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
->* [Individual Enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
->
->This quickstart demonstrates individual enrollments.
-
 ## Prerequisites
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -212,6 +204,13 @@ In this section, you'll prepare a development environment that's used to build t
 ::: zone-end
 
 ## Create a device enrollment
+
+The Azure IoT Device Provisioning Service supports two types of enrollments:
+
+- [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
+- [Individual enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
+
+This article demonstrates an individual enrollment for a single device to be provisioned with an IoT hub.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
