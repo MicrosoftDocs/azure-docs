@@ -24,7 +24,7 @@ You choose the application template when you create your application. You can't 
 
 ## Custom templates
 
-If you want to create your application from scratch, choose the **Custom application** template. The custom application template id is `iotc-pnp-preview`.
+If you want to create your application from scratch, choose the **Custom application** template. The custom application template ID is `iotc-pnp-preview`.
 
 ## Industry focused templates
 
@@ -48,9 +48,9 @@ The benefits of a connected logistics solution include:
 
 The following screenshots show the out-of-the-box dashboard in the application template. The dashboard is fully customizable to meet your specific solution requirements:
 
-:::image type="content" source="media/concepts-app-templates/connected-logistics-dashboard1.png" alt-text="Screenshot that shows the top half of the connected logistics operations dashboard.":::
+:::image type="content" source="media/concepts-app-templates/connected-logistics-dashboard-1.png" alt-text="Screenshot that shows the top half of the connected logistics operations dashboard.":::
 
-:::image type="content" source="media/concepts-app-templates/connected-logistics-dashboard2.png" alt-text="Screenshot that shows the bottom half of the connected logistics operations dashboard.":::
+:::image type="content" source="media/concepts-app-templates/connected-logistics-dashboard-2.png" alt-text="Screenshot that shows the bottom half of the connected logistics operations dashboard.":::
 
 To learn more, see the [Deploy and walk through a connected logistics application template](../retail/tutorial-iot-central-connected-logistics.md) tutorial.
 
