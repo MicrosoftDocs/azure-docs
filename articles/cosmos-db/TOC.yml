@@ -1534,8 +1534,6 @@
       href: /learn/browse/?products=azure-cosmos-db
     - name: Query cheat sheet
       href: query-cheat-sheet.md
-    - name: SQL playground
-      href: https://www.documentdb.com/sql/demo
     - name: FAQ
       href: faq.yml
     - name: Whitepapers

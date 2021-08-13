@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 08/12/2021
 ms.author: tisande
 ms.custom: query-reference
 ---
@@ -72,7 +72,7 @@ RegexMatch ("abcd", "aB c", "ix") AS CaseInsensitiveAndIgnoreWhiteSpace
 ]
 ```
 
-With RegexMatch, you can use metacharacters to do more complex string searches that wouldn't otherwise be possible with the StartsWith, EndsWith, Contains, or StringEquals system functions. Here are some additional examples, which you can run using the nutrition data set available through the [Azure Cosmos DB Query Playground](https://www.documentdb.com/sql/demo). 
+With RegexMatch, you can use metacharacters to do more complex string searches that wouldn't otherwise be possible with the StartsWith, EndsWith, Contains, or StringEquals system functions. Here are some additional examples:
 
 > [!NOTE] 
 > If you need to use a metacharacter in a regular expression and don't want it to have special meaning, you should escape the metacharacter using `\`.

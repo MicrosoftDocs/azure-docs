@@ -57,14 +57,14 @@ To deploy the template, follow these steps:
 
 2. Enter Values for the following fields:
 
-- **Resource Group:** select **Create new**, enter a unique name for the **resource group**, and then select **OK**.
-- **springCloudInstanceName:** Enter the name of the Azure Spring Cloud resource.
-- **appInsightsName:** Enter the name of the Application Insights instance for Azure Spring Cloud.
-- **laWorkspaceResourceId:** Enter the resource ID of the existing Log Analytics workspace (for example, */subscriptions/\<your subscription>/resourcegroups/\<your log analytics resource group>/providers/Microsoft.OperationalInsights/workspaces/\<your log analytics workspace name>*.)
-- **springCloudAppSubnetID:** Enter the resourceID of the Azure Spring Cloud App Subnet.
-- **springCloudRuntimeSubnetID:** Enter the resourceID of the Azure Spring Cloud Runtime Subnet.
-- **springCloudServiceCidrs:** Enter a comma-separated list of IP address ranges (3 in total) in CIDR format. The IP ranges are reserved to host underlying Azure Spring Cloud infrastructure. These 3 ranges should be at least */16* unused IP ranges, and must not overlap with any routable subnet IP ranges used within the network.
-- **tags:** Enter any custom tags.
+   - **Resource Group:** select **Create new**, enter a unique name for the **resource group**, and then select **OK**.
+   - **springCloudInstanceName:** Enter the name of the Azure Spring Cloud resource.
+   - **appInsightsName:** Enter the name of the Application Insights instance for Azure Spring Cloud.
+   - **laWorkspaceResourceId:** Enter the resource ID of the existing Log Analytics workspace (for example, */subscriptions/\<your subscription>/resourcegroups/\<your log analytics resource group>/providers/Microsoft.OperationalInsights/workspaces/\<your log analytics workspace name>*.)
+   - **springCloudAppSubnetID:** Enter the resourceID of the Azure Spring Cloud App Subnet.
+   - **springCloudRuntimeSubnetID:** Enter the resourceID of the Azure Spring Cloud Runtime Subnet.
+   - **springCloudServiceCidrs:** Enter a comma-separated list of IP address ranges (3 in total) in CIDR format. The IP ranges are reserved to host underlying Azure Spring Cloud infrastructure. These 3 ranges should be at least */16* unused IP ranges, and must not overlap with any routable subnet IP ranges used within the network.
+   - **tags:** Enter any custom tags.
 
 3. Select **Review + Create** and then **Create**.
 
@@ -78,7 +78,7 @@ If you plan to continue working with subsequent quickstarts and tutorials, you m
 
 # [CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 az group delete --name $resourceGroupName &&
