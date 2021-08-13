@@ -139,7 +139,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) | &#x2705; | &#x2705; | |
 | [Azure Sphere](https://azure.microsoft.com/services/azure-sphere/) | &#x2705; | &#x2705; | |
 | [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) (incl. [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance/)) | &#x2705; | &#x2705; | |
-| [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) (formerly Azure Data Box Edge) **&ast;** | &#x2705; | &#x2705; | |
+| [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) (formerly Data Box Edge) **&ast;** | &#x2705; | &#x2705; | |
 | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) | &#x2705; | &#x2705; | |
 | [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) | &#x2705; | &#x2705; | |
 | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) | &#x2705; | &#x2705; | |
@@ -329,7 +329,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance/) | &#x2705; | &#x2705; | &#x2705; | | |
 | [Azure Stack Bridge](/azure-stack/operator/azure-stack-usage-reporting) | &#x2705; | &#x2705; | &#x2705; | | |
-| [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) (formerly Azure Data Box Edge) **&ast;** | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) (formerly Data Box Edge) **&ast;** | &#x2705; | &#x2705; | &#x2705; | | |
 | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) | &#x2705; | &#x2705; | &#x2705; | | |
 | [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) | &#x2705; | &#x2705; | &#x2705; | | |
 | [Azure Synapse Link for Dataverse](/powerapps/maker/data-platform/export-to-data-lake) | &#x2705; | | | | |
