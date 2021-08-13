@@ -368,4 +368,4 @@ Learn more about networking in AKS in the following articles:
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [network-comparisons]: concepts-network.md#compare-network-models
 [system-node-pools]: use-system-pools.md
-[prerequisites]: configure-azure-cni#prerequisites
+[prerequisites]: configure-azure-cni.md#prerequisites
