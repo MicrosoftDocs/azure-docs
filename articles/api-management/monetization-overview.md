@@ -3,7 +3,7 @@ title: Monetization with Azure API Management
 description: Learn how to set up your monetization strategy for Azure API Management in six simple stages.
 author: v-hhunter
 ms.author: v-hhunter
-ms.date: 06/17/2021
+ms.date: 08/13/2021
 ms.topic: article
 ms.service: api-management
 ---
@@ -19,7 +19,7 @@ Modern web APIs underpin the digital economy. They generate revenue by:
 
 A common theme across API success stories is a *healthy business model*. Value is created and exchanged between all parties, in a sustainable way.
 
-Typically, start-ups, established organizations, and everything in between seek to digitally transform starting with the business model. APIs allow the business model to be realized, enabling an easier and more cost-efficient way for marketing, adopting, consuming, and scaling the underlying IP.
+Start-ups, established organizations, and everything in-between typically seek to digitally transform starting with the business model. APIs allow the business model to be realized, enabling an easier and more cost-efficient way for marketing, adopting, consuming, and scaling the underlying IP.
 
 Organizations publishing their first API face a complex set of decisions. While the Azure API Management platform de-escalates risk and accelerates key elements, organizations still need to configure and build their API around their unique technical and business model.
 
@@ -156,11 +156,11 @@ Choose an appropriate solution to collect payment for usage of your APIs.  Provi
 
     Only concerned with the facilitating the payment transaction. You will need to apply your monetization strategy (like, translate API usage metrics into a payment) before calling this service.
 
-Use Azure API Management to accelerate and de-risk the implementation by using built-in capabilities provided in API Management.  For more information about the specific features in API Management, see how API Management supports monetization().
+Use Azure API Management to accelerate and de-risk the implementation by using built-in capabilities provided in API Management.  For more information about the specific features in API Management, see [how API Management supports monetization](monetization-support.md).
 
 Use the same approach as the sample project to implement a solution that builds flexibility into how you codify your monetization strategy in the underlying systems. This will enable you to respond dynamically and to minimize the risk and cost of making changes.
 
-For a description of how the sample project works from an API consumer perspective see how the sample project works in practice().
+For a description of how the sample project works from an API consumer perspective see [how the sample project works in practice].
 
 Follow the README() and Deployment and initialization() articles to implement the sample project in your own Azure subscription.
 
@@ -177,5 +177,5 @@ Remember that the monetization strategy is only one facet of a successful API im
 * Your ability to scale the API to meet the committed service levels.
 
 ## Next Steps
-> [!div class="nextstepaction"]
-> [How API Management supports monetization](./monetization-support.md)
+* [How API Management supports monetization](monetization-support.md).
+* Run the initialization and deployment processes using our [Deploy demo with Stripe] or [Deploy demo with Adyen] tutorials.
