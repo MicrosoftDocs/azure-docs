@@ -18,7 +18,7 @@ ms.custom: contperf-fy21q4
 
 # Event notifications
 
-Different events in Azure Digital Twins produce **notifications**, which allow the solution backend to be aware when different actions are happening. These are then [routed](concepts-route-events.md) to different locations inside and outside of Azure Digital Twins that can use this information to take action.
+Different events in Azure Digital Twins produce **notifications**, which allow the solution backend to be aware when different actions are happening. These notifications are then [routed](concepts-route-events.md) to different locations inside and outside of Azure Digital Twins that can use this information to take action.
 
 There are several types of notifications that can be generated, and notification messages may look different depending on which type of event generated them. This article gives detail about different types of messages, and what they might look like.
 
@@ -44,15 +44,15 @@ Services have to add a sequence number on all the notifications to indicate thei
 
 Notifications emitted by Azure Digital Twins to Event Grid will be automatically formatted to either the CloudEvents schema or EventGridEvent schema, depending on the schema type defined in the event grid topic. 
 
-Extension attributes on headers will be added as properties on the Event Grid schema inside of the payload. 
+Extension attributes on headers will be added as properties on the Event Grid schema in the payload. 
 
 ### Event notification bodies
 
-The bodies of notification messages are described here in JSON. Depending on the serialization desired for the message body (such as with JSON, CBOR, Protobuf, etc.), the message body may be serialized differently.
+The bodies of notification messages are described here in JSON. Depending on the wanted serialization type for the message body (such as with JSON, CBOR, Protobuf, and so on), the message body may be serialized differently.
 
 The set of fields that the body contains vary with different notification types.
 
-The following sections go into more detail about the different types of notifications emitted by IoT Hub and Azure Digital Twins (or other Azure IoT services). You will read about the things that trigger each notification type, and the set of fields included with each type of notification body.
+The following sections go into more detail about the different types of notifications emitted by IoT Hub and Azure Digital Twins (or other Azure IoT services). You'll read about the things that trigger each notification type, and the set of fields included with each type of notification body.
 
 ## Digital twin change notifications
 
@@ -104,11 +104,11 @@ The data in the corresponding notification (if synchronously executed by the ser
   }
 ```
 
-This is the information that will go in the `data` field of the lifecycle notification message.
+This data is the information that will go in the `data` field of the lifecycle notification message.
 
 ## Digital twin lifecycle notifications
 
-All [digital twins](concepts-twins-graph.md) emit notifications, regardless of whether they represent [IoT Hub devices in Azure Digital Twins](how-to-ingest-iot-hub-data.md) or not. This is because of **lifecycle notifications**, which are about the digital twin itself.
+Wether [digital twins](concepts-twins-graph.md) represent [IoT Hub devices in Azure Digital Twins](how-to-ingest-iot-hub-data.md) or not, they will all emit notifications. They do so because of **lifecycle notifications**, which are about the digital twin itself.
 
 Lifecycle notifications are triggered when:
 * A digital twin is created
@@ -132,7 +132,7 @@ Here are the fields in the body of a lifecycle notification.
 
 ### Body details
 
-Here is an example of a lifecycle notification message: 
+Here's an example of a lifecycle notification message: 
 
 ```json
 {
@@ -154,11 +154,11 @@ Here is an example of a lifecycle notification message:
 }
 ```
 
-Inside the message, the `data` field contains the data of the affected digital twin, represented in JSON format. The schema for this is *Digital Twins Resource 7.1*.
+Inside the message, the `data` field contains the data of the affected digital twin, represented in JSON format. The schema for this `data` field is *Digital Twins Resource 7.1*.
 
 For creation events, the `data` payload reflects the state of the twin after the resource is created, so it should include all system generated-elements just like a `GET` call.
 
-Here is an example of a the data for an [IoT Plug and Play (PnP)](../iot-develop/overview-iot-plug-and-play.md) device, with components and no top-level properties. Properties that do not make sense for devices (such as reported properties) should be omitted. This is the information that will go in the `data` field of the lifecycle notification message.
+Here's an example of the data for an [IoT Plug and Play (PnP)](../iot-develop/overview-iot-plug-and-play.md) device, with components and no top-level properties. Properties that don't make sense for devices (such as reported properties) should be omitted. The following JSON object is the information that will go in the `data` field of the lifecycle notification message:
 
 ```json
 {
@@ -191,7 +191,7 @@ Here is an example of a the data for an [IoT Plug and Play (PnP)](../iot-develop
 }
 ```
 
-Here is another example of digital twin data. This one is based on a [model](concepts-models.md), and does not support components:
+Here's another example of digital twin data. This one is based on a [model](concepts-models.md), and doesn't support components:
 
 ```json
 {
@@ -243,7 +243,7 @@ Here are the fields in the body of a relationship change notification.
 
 Inside the message, the `data` field contains the payload of a relationship, in JSON format. It uses the same format as a `GET` request for a relationship via the [DigitalTwins API](/rest/api/digital-twins/dataplane/twins). 
 
-Here is an example of the data for an update relationship notification. "Updating a relationship" means properties of the relationship have changed, so the data shows the updated property and its new value. This is the information that will go in the `data` field of the digital twin relationship notification message.
+Here's an example of the data for an update relationship notification. "Updating a relationship" means properties of the relationship have changed, so the data shows the updated property and its new value. The following JSON object is the information that will go in the `data` field of the digital twin relationship notification message:
 
 ```json
 {
@@ -258,7 +258,7 @@ Here is an example of the data for an update relationship notification. "Updatin
   }
 ```
 
-Here is an example of the data for a create or delete relationship notification. For `Relationship.Delete`, the body is the same as the `GET` request, and it gets the latest state before deletion.
+Here's an example of the data for a create or delete relationship notification. For `Relationship.Delete`, the body is the same as the `GET` request, and it gets the latest state before deletion.
 
 ```json
 {
@@ -293,7 +293,7 @@ Here are the fields in the body of a telemetry message.
 
 The body contains the telemetry measurement along with some contextual information about the device.
 
-Here is an example telemetry message body: 
+Here's an example telemetry message body: 
 
 ```json
 {

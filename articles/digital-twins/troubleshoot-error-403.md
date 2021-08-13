@@ -20,11 +20,11 @@ This error may occur on many types of service requests that require authenticati
 
 ### Cause #1
 
-Most often, this error indicates that your Azure role-based access control (Azure RBAC) permissions for the service are not set up correctly. Many actions for an Azure Digital Twins instance require you to have the *Azure Digital Twins Data Owner* role **on the instance you are trying to manage**. 
+Most often, this error indicates that your Azure role-based access control (Azure RBAC) permissions for the service aren't set up correctly. Many actions for an Azure Digital Twins instance require you to have the *Azure Digital Twins Data Owner* role **on the instance you are trying to manage**. 
 
 ### Cause #2
 
-If you are using a client app to communicate with Azure Digital Twins that is authenticating with an [app registration](./how-to-create-app-registration-portal.md), this error may happen because your app registration does not have permissions set up for the Azure Digital Twins service.
+If you're using a client app to communicate with Azure Digital Twins that's authenticating with an [app registration](./how-to-create-app-registration-portal.md), this error may happen because your app registration doesn't have permissions set up for the Azure Digital Twins service.
 
 The app registration must have access permissions configured for the Azure Digital Twins APIs. Then, when your client app authenticates against the app registration, it will be granted the permissions that the app registration has configured.
 
@@ -32,9 +32,9 @@ The app registration must have access permissions configured for the Azure Digit
 
 ### Solution #1
 
-The first solution is to verify that your Azure user has the _**Azure Digital Twins Data Owner**_ role on the instance you are trying to manage. If you do not have this role, set it up.
+The first solution is to verify that your Azure user has the _**Azure Digital Twins Data Owner**_ role on the instance you're trying to manage. If you don't have this role, set it up.
 
-Note that this role is different from...
+This role is different from...
 * the former name for this role during preview, *Azure Digital Twins Owner (Preview)* (the role is the same, but the name has changed)
 * the *Owner* role on the entire Azure subscription. *Azure Digital Twins Data Owner* is a role within Azure Digital Twins and is scoped to this individual Azure Digital Twins instance.
 * the *Owner* role in Azure Digital Twins. These are two distinct Azure Digital Twins management roles, and *Azure Digital Twins Data Owner* is the role that should be used for management.
@@ -45,7 +45,7 @@ Note that this role is different from...
 
 #### Fix issues 
 
-If you do not have this role assignment, someone with an Owner role in your **Azure subscription** should run the following command to give your Azure user the *Azure Digital Twins Data Owner* role on the **Azure Digital Twins instance**. 
+If you don't have this role assignment, someone with an Owner role in your **Azure subscription** should run the following command to give your Azure user the *Azure Digital Twins Data Owner* role on the **Azure Digital Twins instance**. 
 
 If you're an Owner on the subscription, you can run this command yourself. If you're not, contact an Owner to run this command on your behalf.
 
@@ -53,13 +53,13 @@ If you're an Owner on the subscription, you can run this command yourself. If yo
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Data Owner"
 ```
 
-For more details about this role requirement and the assignment process, see the [Set up your user's access permissions section](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) of *How-to: Set up an instance and authentication (CLI or portal)*.
+For more information about this role requirement and the assignment process, see the [Set up your user's access permissions section](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) of *How-to: Set up an instance and authentication (CLI or portal)*.
 
-If you have this role assignment already *and* you're using an Azure AD app registration to authenticate a client app, you can continue to the next solution if this solution did not resolve the 403 issue.
+If you have this role assignment already *and* you're using an Azure AD app registration to authenticate a client app, you can continue to the next solution if this solution didn't resolve the 403 issue.
 
 ### Solution #2
 
-If you're using an Azure AD app registration to authenticate a client app, the second possible solution is to verify that the app registration has permissions configured for the Azure Digital Twins service. If these are not configured, set them up.
+If you're using an Azure AD app registration to authenticate a client app, the second possible solution is to verify that the app registration has permissions configured for the Azure Digital Twins service. If these aren't configured, set them up.
 
 #### Check current setup
 
@@ -67,11 +67,11 @@ To check whether the permissions have been configured correctly, navigate to the
 
 Switch to the *All applications* tab to see all the app registrations that have been created in your subscription.
 
-You should see the app registration you just created in the list. Select it to open up its details.
+You should see the app registration you created in the list. Select it to open up its details.
 
 :::image type="content" source="media/troubleshoot-error-403/app-registrations.png" alt-text="Screenshot of the app registrations page in the Azure portal.":::
 
-First, verify that the Azure Digital Twins permissions settings were properly set on the registration. To do this, select *Manifest* from the menu bar to view the app registration's manifest code. Scroll to the bottom of the code window and look for these fields under `requiredResourceAccess`. The values should match those in the screenshot below:
+First, verify that the Azure Digital Twins permissions settings were properly set on the registration: Select *Manifest* from the menu bar to view the app registration's manifest code. Scroll to the bottom of the code window and look for these fields under `requiredResourceAccess`. The values should match the ones in the screenshot below:
 
 :::image type="content" source="media/troubleshoot-error-403/verify-manifest.png" alt-text="Screenshot of the manifest for the Azure AD app registration in the Azure portal.":::
 
