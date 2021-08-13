@@ -214,7 +214,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Storage: Blobs](https://azure.microsoft.com/services/storage/blobs/) (incl. [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md)) | &#x2705; | &#x2705; | |
 | **Service** | **DoD IL2** | **FedRAMP High** | **Planned 2021** |
 | [Storage: Data Movement)](../../storage/common/storage-use-data-movement-library.md) | &#x2705; | &#x2705; | |
-| [Storage: Disks](https://azure.microsoft.com/services/storage/disks/) incl. [Managed disks](../../virtual-machines/managed-disks-overview.md) | &#x2705; | &#x2705; | |
+| [Storage: Disks](https://azure.microsoft.com/services/storage/disks/) (incl. [managed disks](../../virtual-machines/managed-disks-overview.md)) | &#x2705; | &#x2705; | |
 | [Storage: Files](https://azure.microsoft.com/services/storage/files/) | &#x2705; | &#x2705; | |
 | [Storage: Queues](https://azure.microsoft.com/services/storage/queues/) | &#x2705; | &#x2705; | |
 | [Storage: Tables](https://azure.microsoft.com/services/storage/tables/) | &#x2705; | &#x2705; | |
@@ -395,7 +395,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Service Bus](https://azure.microsoft.com/services/service-bus/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [SQL Server Stretch Database](https://azure.microsoft.com/services/sql-server-stretch-database/) | &#x2705; | &#x2705; | &#x2705; | | |
 | [Storage: Blobs](https://azure.microsoft.com/services/storage/blobs/) (incl. [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Storage: Disks](https://azure.microsoft.com/services/storage/disks/) incl. [Managed disks](../../virtual-machines/managed-disks-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Storage: Disks](https://azure.microsoft.com/services/storage/disks/) (incl. [managed disks](../../virtual-machines/managed-disks-overview.md)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Storage: Files](https://azure.microsoft.com/services/storage/files/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | **Service** | **FR High / DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** | **ICD 503 Secret** |
 | [Storage: Queues](https://azure.microsoft.com/services/storage/queues/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
