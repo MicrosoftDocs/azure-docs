@@ -2329,6 +2329,8 @@
         href: browserstack-single-sign-on-provisioning-tutorial.md
       - name: Cerner Central
         href: cernercentral-provisioning-tutorial.md
+      - name: Chatwork
+        href: chatwork-provisioning-tutorial.md
       - name: CheckProof
         href: checkproof-provisioning-tutorial.md
       - name: Cinode
