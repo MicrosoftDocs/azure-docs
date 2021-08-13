@@ -56,13 +56,16 @@ The following prerequisites are for a Windows development environment. For Linux
 
 ::: zone pivot="programming-language-python"
 
-* [Python 3.6 or later](https://www.python.org/downloads/) or later on your machine.
+* [Python 3.6 or later](https://www.python.org/downloads/) on your machine.
 
 * Install [OpenSSL](https://www.openssl.org/) on your machine and is added to the environment variables accessible to the command window. This library can either be built and installed from source or downloaded and installed from a [third party](https://wiki.openssl.org/index.php/Binaries) such as [this](https://sourceforge.net/projects/openssl/).
 
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
+
+* Install the [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-support-on-azure) or later on your machine.
+* Download and install [Maven](https://maven.apache.org/install.html).
 
 ::: zone-end
 
@@ -166,6 +169,27 @@ In this section, you'll prepare a development environment that's used to build t
 
 ::: zone pivot="programming-language-java"
 
+1. Open a Git CMD or Git Bash command line environment.
+
+2. Clone the [Azure IoT Samples for Java](https://github.com/Azure/azure-iot-sdk-java.git) GitHub repository using the following command:
+
+    ```cmd
+    git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
+    ```
+
+3. Go to the root `azure-iot-sdk-`java` directory and build the project to download all needed packages.
+
+   ```cmd/sh
+   cd azure-iot-sdk-java
+   mvn install -DskipTests=true
+   ```
+
+4. Go to the certificate generator project and build the project.
+
+    ```cmd/sh
+    cd azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator
+    mvn clean install
+    ```
 
 ::: zone-end
 
@@ -260,10 +284,10 @@ To create the X.509 certificate:
 
 ::: zone pivot="programming-language-python"
 
-1. In thew Git Bash prompt, run the folllowing command:
+1. In the Git Bash prompt, run the following command:
 
     # [Windows](#tab/windows)
-    
+
     ```bash
     winpty openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./python-device.key.pem -out ./python-device.pem -days 365 -extensions usr_cert -subj "//CN=Python-device-01"
     ```
@@ -272,13 +296,13 @@ To create the X.509 certificate:
     > The extra forward slash given for the subject name (`//CN=Python-device-01`) is only required to escape the string with Git on Windows platforms.
 
     # [Linux](#tab/linux)
-    
+
     ```bash
     openssl req -outform PEM -x509 -sha256 -newkey rsa:4096 -keyout ./python-device.key.pem -out ./python-device.pem -days 365 -extensions usr_cert -subj "/CN=Python-device-01"
     ```
 
     ---
-    
+
 2. When asked to **Enter PEM pass phrase:**, use the pass phrase `1234`.
 
 3. When asked **Verifying - Enter PEM pass phrase:**, use the pass phrase `1234` again.
@@ -288,6 +312,29 @@ A test certificate file (*python-device.pem*) and private key file (*python-devi
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
+
+1. Using the command prompt from previous steps, go to the `target` folder.
+
+2. Run the .jar file created in the previous section.
+
+    ```cmd/sh
+    cd target
+    java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
+    ```
+
+3. Enter **N** for _Do you want to input common name_. 
+
+4. Copy the output of `Client Cert` to the clipboard, starting from *-----BEGIN CERTIFICATE-----* through *-----END CERTIFICATE-----*.
+
+   ![Individual certificate generator](./media/java-quick-create-simulated-device-x509/cert-generator-java.png)
+
+5. Create a file named *_X509individual.pem_* on your Windows machine.
+
+6. Open *_X509individual.pem_* in an editor of your choice, and copy the clipboard contents to this file. 
+
+7. Save the file and close your editor.
+
+8. In the command prompt, enter **N** for _Do you want to input Verification Code_ and keep the program output open for reference later in the quickstart. Copy the `Client Cert` and `Client Cert Private Key` values, for use in the next section.
 
 ::: zone-end
 
@@ -360,10 +407,17 @@ This article demonstrates an individual enrollment for a single device to be pro
 
 ::: zone pivot="programming-language-java"
 
-
+6. In the **Add Enrollment** panel, enter the following information:
+   * Select **X.509** as the identity attestation *Mechanism*.
+   * Under the *Primary certificate .pem or .cer file*, choose *Select a file* to select the certificate file *X509individual.pem* created in the previous steps.  
+   * Optionally, you may provide the following information:
+     * Select an IoT hub linked with your provisioning service.
+     * Enter a unique device ID. Make sure to avoid sensitive data while naming your device. 
+     * Update the **Initial device twin state** with the desired initial configuration for the device.
+ 
 ::: zone-end
 
-    :::image type="content" source="./media/quick-create-simulated-device-x509/device-enrollment.png" alt-text="Add device as individual enrollment with X.509 attestation.":::
+:::image type="content" source="./media/quick-create-simulated-device-x509/device-enrollment.png" alt-text="Add device as individual enrollment with X.509 attestation.":::
 
 7. Select **Save**. You'll be returned to **Manage enrollments**.
 
@@ -461,11 +515,11 @@ In this section, we'll update the sample code to send the device's boot sequence
 
 ::: zone pivot="programming-language-nodejs"
 
-1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service.
+1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service. 
 
-2. Copy the **_ID Scope_** value.
+2. Copy the **_ID Scope_** and **Global device endpoint** values.
 
-    :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope.png" alt-text="Copy ID Scope from the portal.":::
+    :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope-and-global-device-endpoint.png" alt-text="Copy ID Scope from the portal.":::
 
 3. Copy your _certificate_ and _key_ to the sample folder.
 
@@ -514,18 +568,20 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
 | `X509_KEY_FILE`            |  The private key filename for your device certificate |
 | `PASS_PHRASE`              |  The pass phrase you used to encrypt the certificate and private key file (`1234`). |    
 
-1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service. Copy the **_ID Scope_** and **Global device endpoint** values.
+1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service.
+
+2. Copy the **_ID Scope_** and **Global device endpoint** values.
 
     :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope-and-global-device-endpoint.png" alt-text="Copy ID Scope from the portal.":::
 
-2. In your Git Bash prompt, use the following commands to add the environment variables for the global device endpoint and ID Scope.
+3. In your Git Bash prompt, use the following commands to add the environment variables for the global device endpoint and ID Scope.
 
     ```bash
     $export PROVISIONING_HOST=global.azure-devices-provisioning.net
     $export PROVISIONING_IDSCOPE=<ID scope for your DPS resource>
     ```
 
-3. The registration ID for the IoT device must match subject name on its device certificate. If you generated a self-signed test certificate, `Python-device-01` is both the subject name and the registration ID for the device.
+4. The registration ID for the IoT device must match subject name on its device certificate. If you generated a self-signed test certificate, `Python-device-01` is both the subject name and the registration ID for the device.
 
     If you already have a device certificate, you can use `certutil` to verify the subject common name used for your device, as shown below:
 
@@ -552,13 +608,13 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
       Name Hash(md5): a62c784820daa931b9d3977739b30d12
     ```
 
-4. In the Git Bash prompt, set the environment variable for the registration ID as follows:
+5. In the Git Bash prompt, set the environment variable for the registration ID as follows:
 
     ```bash
     $export DPS_X509_REGISTRATION_ID=Python-device-01
     ```
 
-5. In the Git Bash prompt, set the environment variables for the certificate file, private key file, and pass phrase.
+6. In the Git Bash prompt, set the environment variables for the certificate file, private key file, and pass phrase.
 
     ```bash
     $export X509_CERT_FILE=./python-device.pem
@@ -566,11 +622,11 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
     $export PASS_PHRASE=1234
     ```
 
-5. Review the code for [provision_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/async-hub-scenarios/provision_x509.py). If you're not using **Python version 3.7** or later, make the [code change mentioned here](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/async-hub-scenarios#advanced-iot-hub-scenario-samples-for-the-azure-iot-hub-device-sdk) to replace `asyncio.run(main())`.
+7. Review the code for [provision_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/async-hub-scenarios/provision_x509.py). If you're not using **Python version 3.7** or later, make the [code change mentioned here](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/async-hub-scenarios#advanced-iot-hub-scenario-samples-for-the-azure-iot-hub-device-sdk) to replace `asyncio.run(main())`.
 
-6. Save your changes.
+8. Save your changes.
 
-7. Run the sample. The sample will connect, provision the device to a hub, and send some test messages to the hub.
+9. Run the sample. The sample will connect, provision the device to a hub, and send some test messages to the hub.
 
     ```bash
     $ winpty python azure-iot-sdk-python/azure-iot-device/samples/async-hub-scenarios/provision_x509.py
@@ -606,6 +662,55 @@ The Python provisioning sample, [provision_x509.py](https://github.com/Azure/azu
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
+
+1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service.
+
+2. Copy the **_ID Scope_** and **Global device endpoint** values.
+
+    :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope-and-global-device-endpoint.png" alt-text="Copy ID Scope from the portal.":::
+
+3. Open a command prompt. Navigate to the sample project folder of the Java SDK repository.
+
+    ```cmd/sh
+    cd azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-X509-sample
+    ```
+
+4. Enter the provisioning service and X.509 identity information in your code. This is used during provisioning, for attestation of the simulated device, prior to device registration:
+
+   * Edit the file `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java`, to include your _ID Scope_ and _Provisioning Service Global Endpoint_ as noted previously. Also include _Client Cert_ and _Client Cert Private Key_ as noted in the previous section.
+
+      ```java
+      private static final String idScope = "[Your ID scope here]";
+      private static final String globalEndpoint = "[Your Provisioning Service Global Endpoint here]";
+      private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
+      private static final String leafPublicPem = "<Your Public PEM Certificate here>";
+      private static final String leafPrivateKey = "<Your Private PEM Key here>";
+      ```
+
+   * Use the following format when copying/pasting your certificate and private key:
+        
+      ```java
+      private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "-----END CERTIFICATE-----\n";
+      private static final String leafPrivateKey = "-----BEGIN PRIVATE KEY-----\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXX\n" +
+            "-----END PRIVATE KEY-----\n";
+      ```
+
+5. Build the sample, and then go to the `target` folder and execute the created .jar file.
+
+    ```cmd/sh
+    mvn clean install
+    cd target
+    java -jar ./provisioning-x509-sample-{version}-with-deps.jar
+    ```
 
 ::: zone-end
 
