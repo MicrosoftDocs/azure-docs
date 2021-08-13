@@ -122,19 +122,19 @@ Open your `app\res\layout\activity_main.xml`, and replace the existing Hello Wol
 
 Let's create & place an object using your app. First, add the following imports into your `app\java\<PackageName>\MainActivity`:
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=20-22,26-32,16-17)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=21-23,27-33,17-18)]
 
 Then, add the following member variables into your `MainActivity` class:
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=46-51)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=47-52)]
 
 Next, add the following code into your `app\java\<PackageName>\MainActivity` `onCreate()` method. This code will hook up a listener, called `handleTap()`, that will detect when the user taps the screen on your device. If the tap happens to be on a real world surface that has already been recognized by ARCore's tracking, the listener will run.
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=62-68,79&highlight=6-7)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=63-69,80&highlight=6-7)]
 
 Finally, add the following `handleTap()` method, that will tie everything together. It will create a sphere, and place it on the tapped location. The sphere will initially be black, since `this.recommendedSessionProgress` is set to zero right now. This value will be adjusted later on.
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=158-166,178-179,182-191,208)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=159-167,179-180,183-192,209)]
 
 [Redeploy](#trying-it-out) your app to your device to validate it once more. This time, you can move around your device to get ARCore to start recognizing your environment. Then, tap the screen to create & place your black sphere over the surface of your choice.
 
@@ -198,26 +198,26 @@ Now, modify `app\manifests\AndroidManifest.xml` to include the following entry i
 
 Back in `app\java\<PackageName>\MainActivity`, add the following imports into it:
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=16,15,17,23,25,34,35,37&highlight=2-8)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=17,16,18,24,26,35,36,38&highlight=2-8)]
 
 Then, add the following member variables into your `MainActivity` class:
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=51-55&highlight=3-5)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=52-56&highlight=3-5)]
 
 Next, let's add the following `initializeSession()` method inside your `mainActivity` class. Once called, it will ensure an Azure Spatial Anchors session is created and properly initialized during the startup of your app. This code makes sure that the sceneview session passed to ASA session via the cloudSession.setSession call is not null by having early return.
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=90-104,154)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=92-107,155)]
 
 Since `initializeSession()` could do an early return if sceneView session is not yet setup (i.e., if `sceneView.getSession()` is null), we add an onUpdate call to make sure that ASA session gets initialized once sceneView session is created.
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?name=scene_OnUpdate)]
 
 Now, let's hook your `initializeSession()` and `scene_OnUpdate(...)` method into your `onCreate()` method. Also, we'll ensure that frames from your camera feed are sent to Azure Spatial Anchors SDK for processing.
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=62-79&highlight=9-17)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=63-80&highlight=9-17)]
 
 Finally, add the following code into your `handleTap()` method. It will attach a local Azure Spatial Anchor to the black sphere that we're placing in the real world.
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=158-166,178-191,208&highlight=12-13)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=159-167,179-192,209&highlight=12-13)]
 
 [Redeploy](#trying-it-out) your app once more. Move around your device, tap the screen, and place a black sphere. This time, though, your code will be creating and attaching a local Azure Spatial Anchor to your sphere.
 
@@ -229,15 +229,15 @@ Before proceeding any further, you'll need to create an Azure Spatial Anchors ac
 
 Once you have your Azure Spatial Anchors account Identifier, Key, and Domain, we can go back in `app\java\<PackageName>\MainActivity`, add the following imports into it:
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=37-42&highlight=3-6)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=38-43&highlight=3-6)]
 
 Then, add the following member variables into your `MainActivity` class:
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=55-60&highlight=3-6)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=56-61&highlight=3-6)]
 
 Now, add the following code into your `initializeSession()` method. First, this code will allow your app to monitor the progress that the Azure Spatial Anchors SDK makes as it collects frames from your camera feed. As it does, the color of your sphere will start changing from its original black, into grey. Then, it will turn white once enough frames are collected to submit your anchor to the cloud. Second, this code will provide the credentials needed to communicate with the cloud back-end. Here is where you'll configure your app to use your account Identifier, Key, and Domain. You copied them into a text editor when [setting up the Spatial Anchors resource](#create-a-spatial-anchors-resource).
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=90-128,150-154&highlight=17-43)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=92-130,151-155&highlight=17-43)]
 
 Next, add the following `uploadCloudAnchorAsync()` method inside your `mainActivity` class. Once called, this method will asynchronously wait until enough frames are collected from your device. As soon as that happens, it will switch the color of your sphere to yellow, and then it will start uploading your local Azure Spatial Anchor into the cloud. Once the upload finishes, the code will return an anchor identifier.
 
@@ -245,7 +245,7 @@ Next, add the following `uploadCloudAnchorAsync()` method inside your `mainActiv
 
 Finally, let's hook everything together. In your `handleTap()` method, add the following code. It will invoke your `uploadCloudAnchorAsync()` method as soon as your sphere is created. Once the method returns, the code below will perform one final update to your sphere, changing its color to blue.
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=158-166,178-208&highlight=26-39)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=159-167,179-209&highlight=26-39)]
 
 [Redeploy](#trying-it-out) your app once more. Move around your device, tap the screen, and place your sphere. This time, though, your sphere will change its color from black towards white, as camera frames are collected. Once we have enough frames, the sphere will turn into yellow, and the cloud upload will start. Make sure your phone is connected to the internet. Once the upload finishes, your sphere will turn blue. Optionally, you could also use the `Logcat` window inside Android Studio to monitor the log messages your app is sending. For example, the session progress during frame captures, and the anchor identifier that the cloud returns once the upload is completed.
 
@@ -257,7 +257,7 @@ Finally, let's hook everything together. In your `handleTap()` method, add the f
 
 Once your anchor is uploaded to the cloud, we're ready to attempt locating it again. First, let's add the following imports into your code.
 
-[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=42,43,33,36&highlight=3-4)]
+[!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=43,44,34,37&highlight=3-4)]
 
 Then, let's add the following code into your `handleTap()` method. This code will:
 

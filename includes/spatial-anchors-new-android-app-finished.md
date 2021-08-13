@@ -148,9 +148,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        this.cloudSession.getConfiguration().setAccountId("6e581514-3161-46f5-a693-41cf3b46e20e");
-        this.cloudSession.getConfiguration().setAccountKey("KMDO4cUAuaRDc2BJB9dWzAOd8NWeYqv5sFbXwAabpWI=");
-        this.cloudSession.getConfiguration().setAccountDomain("westeurope.mixedreality.azure.com");
+        this.cloudSession.getConfiguration().setAccountId(/* Copy your account Identifier in here */);
+        this.cloudSession.getConfiguration().setAccountKey(/* Copy your account Key in here */);
+        this.cloudSession.getConfiguration().setAccountDomain(/* Copy your account Domain in here */);
         this.cloudSession.start();
     }
     // </initializeSession>
