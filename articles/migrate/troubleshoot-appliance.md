@@ -121,7 +121,7 @@ This issue happens when the Azure user account that was used to log in from the 
 **Remediation**
 1. To complete the registration of the appliance, use the same Azure user account that generated the Azure Migrate project key on the portal 
    OR
-1. Assign the required roles and [permissions](./tutorial-discover-vmware.md#prepare-azure) to the other Azure user account being used for appliance registration
+1. Assign the required roles and [permissions](./tutorial-discover-vmware.md#prepare-an-azure-user-account) to the other Azure user account being used for appliance registration
 
 ## "Azure Active Directory (AAD) operation failed with status Forbidden" during appliance registration
 
@@ -131,7 +131,7 @@ You are unable to complete registration due to insufficient AAD privileges and g
 
 **Remediation**
 
-Ensure that you have the [required permissions](./tutorial-discover-vmware.md#prepare-azure) to create and manage AAD Applications in Azure. You should have the **Application Developer** role OR the user role with **User can register applications** allowed at the tenant level.
+Ensure that you have the [required permissions](./tutorial-discover-vmware.md#prepare-an-azure-user-account) to create and manage AAD Applications in Azure. You should have the **Application Developer** role OR the user role with **User can register applications** allowed at the tenant level.
 
 ## "Forbidden to access Key Vault" during appliance registration
 
