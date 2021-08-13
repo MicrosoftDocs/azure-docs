@@ -32,25 +32,25 @@ This article compares the API differences between Uniform and [Flexible orchestr
 | Uniform API | Flexible alternative |
 |-|-|
 | Virtual machine scale sets VM Lifecycle Batch Operations:  | Invoke Single VM API on specific instances: |
-| [Deallocate](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/deallocate)  | [Invoke Single VM API - Deallocate](https://docs.microsoft.com/rest/api/compute/virtualmachines/deallocate)   |
-| [Delete](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/delete)  | [Invoke Single VM API -Delete](https://docs.microsoft.com/rest/api/compute/virtualmachines/delete)  |
-| [Get Instance View](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/getinstanceview)  | [Invoke Single VM API - Instance View](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview)  |
-| [Perform Maintenance](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/performmaintenance)  | [Invoke Single VM API - Perform Maintenance](https://docs.microsoft.com/rest/api/compute/virtualmachines/performmaintenance)  |
-| [Power Off](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/poweroff)  | [Invoke Single VM API - Power Off](https://docs.microsoft.com/rest/api/compute/virtualmachines/poweroff)  |
-| [Redeploy](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/redeploy)  | [Invoke Single VM API - Redeploy](https://docs.microsoft.com/rest/api/compute/virtualmachines/redeploy)  |
-| [Reimage](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/reimage)  | [Invoke Single VM API - Reimage](https://docs.microsoft.com/rest/api/compute/virtualmachines/reimage)  |
-| [Reimage All](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/reimageall)  | Not applicable |
-| [Restart](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/restart)  | [Invoke Single VM API - Restart](https://docs.microsoft.com/rest/api/compute/virtualmachines/restart)  |
-| [simulate Eviction](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/simulateeviction) | [Invoke Single VM API - simulate Eviction](https://docs.microsoft.com/rest/api/compute/virtualmachines/simulateeviction)  |
-| [Start](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/start) | [Invoke Single VM API - Start](https://docs.microsoft.com/rest/api/compute/virtualmachines/start) |
+| [Deallocate](/rest/api/compute/virtualmachinescalesetvms/deallocate)  | [Invoke Single VM API - Deallocate](/rest/api/compute/virtualmachines/deallocate)   |
+| [Delete](/rest/api/compute/virtualmachinescalesetvms/delete)  | [Invoke Single VM API -Delete](/rest/api/compute/virtualmachines/delete)  |
+| [Get Instance View](/rest/api/compute/virtualmachinescalesetvms/getinstanceview)  | [Invoke Single VM API - Instance View](/rest/api/compute/virtualmachines/instanceview)  |
+| [Perform Maintenance](/rest/api/compute/virtualmachinescalesetvms/performmaintenance)  | [Invoke Single VM API - Perform Maintenance](/rest/api/compute/virtualmachines/performmaintenance)  |
+| [Power Off](/rest/api/compute/virtualmachinescalesetvms/poweroff)  | [Invoke Single VM API - Power Off](/rest/api/compute/virtualmachines/poweroff)  |
+| [Redeploy](/rest/api/compute/virtualmachinescalesetvms/redeploy)  | [Invoke Single VM API - Redeploy](/rest/api/compute/virtualmachines/redeploy)  |
+| [Reimage](/rest/api/compute/virtualmachinescalesetvms/reimage)  | [Invoke Single VM API - Reimage](/rest/api/compute/virtualmachines/reimage)  |
+| [Reimage All](/rest/api/compute/virtualmachinescalesetvms/reimageall)  | Not applicable |
+| [Restart](/rest/api/compute/virtualmachinescalesetvms/restart)  | [Invoke Single VM API - Restart](/rest/api/compute/virtualmachines/restart)  |
+| [simulate Eviction](/rest/api/compute/virtualmachinescalesetvms/simulateeviction) | [Invoke Single VM API - simulate Eviction](/rest/api/compute/virtualmachines/simulateeviction)  |
+| [Start](/rest/api/compute/virtualmachinescalesetvms/start) | [Invoke Single VM API - Start](/rest/api/compute/virtualmachines/start) |
 
 
 ## Get or Update 
 
 ### Uniform API
 Virtual machine scale sets VM Get or Update Instance:
-- [Get](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/get) 
-- [Update](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/update)
+- [Get](/rest/api/compute/virtualmachinescalesetvms/get) 
+- [Update](/rest/api/compute/virtualmachinescalesetvms/update)
 
 ### Flexible alternative 
 Invoke Single VM APIs:
@@ -76,16 +76,16 @@ resources
 
 ### Uniform API
 Virtual machine scale sets Operations:
-- [Update Instances](https://docs.microsoft.com/rest/api/compute/virtual-machine-scale-sets/update-instances)
-- [Deallocate](https://docs.microsoft.com/rest/api/compute/virtual-machine-scale-sets/deallocate)
-- [Perform Maintenance](https://docs.microsoft.com/rest/api/compute/virtual-machine-scale-sets/perform-maintenance)
-- [Power Off](https://docs.microsoft.com/rest/api/compute/virtual-machine-scale-sets/power-off)
-- [Redeploy](https://docs.microsoft.com/rest/api/compute/virtual-machine-scale-sets/redeploy)
-- [Reimage](https://docs.microsoft.com/rest/api/compute/virtual-machine-scale-sets/reimage)
-- [Reimage All](https://docs.microsoft.com/rest/api/compute/virtual-machine-scale-sets/reimage-all)
-- [Restart](https://docs.microsoft.com/rest/api/compute/virtual-machine-scale-sets/restart)
-- [Set Orchestration Service State](https://docs.microsoft.com/rest/api/compute/virtual-machine-scale-sets/set-orchestration-service-state)
-- [Start](https://docs.microsoft.com/rest/api/compute/virtual-machine-scale-sets/start)
+- [Update Instances](/rest/api/compute/virtual-machine-scale-sets/update-instances)
+- [Deallocate](/rest/api/compute/virtual-machine-scale-sets/deallocate)
+- [Perform Maintenance](/rest/api/compute/virtual-machine-scale-sets/perform-maintenance)
+- [Power Off](/rest/api/compute/virtual-machine-scale-sets/power-off)
+- [Redeploy](/rest/api/compute/virtual-machine-scale-sets/redeploy)
+- [Reimage](/rest/api/compute/virtual-machine-scale-sets/reimage)
+- [Reimage All](/rest/api/compute/virtual-machine-scale-sets/reimage-all)
+- [Restart](/rest/api/compute/virtual-machine-scale-sets/restart)
+- [Set Orchestration Service State](/rest/api/compute/virtual-machine-scale-sets/set-orchestration-service-state)
+- [Start](/rest/api/compute/virtual-machine-scale-sets/start)
 
 ### Flexible alternative
 Invoke operations on individual VMs.
@@ -95,11 +95,11 @@ Invoke operations on individual VMs.
 
 ### Uniform API
 Virtual machine scale sets VM Extension:
-- [Create Or Update](https://docs.microsoft.com/rest/api/compute/virtual-machine-scale-set-vm-extensions/create-or-update)
-- [Delete](https://docs.microsoft.com/rest/api/compute/virtual-machine-scale-set-vm-extensions/delete)
-- [Get](https://docs.microsoft.com/rest/api/compute/virtual-machine-scale-set-vm-extensions/get)
-- [List](https://docs.microsoft.com/rest/api/compute/virtual-machine-scale-set-vm-extensions/list)
-- [Update](https://docs.microsoft.com/rest/api/compute/virtual-machine-scale-set-vm-extensions/update) 
+- [Create Or Update](/rest/api/compute/virtual-machine-scale-set-vm-extensions/create-or-update)
+- [Delete](/rest/api/compute/virtual-machine-scale-set-vm-extensions/delete)
+- [Get](/rest/api/compute/virtual-machine-scale-set-vm-extensions/get)
+- [List](/rest/api/compute/virtual-machine-scale-set-vm-extensions/list)
+- [Update](/rest/api/compute/virtual-machine-scale-set-vm-extensions/update) 
 
 ### Flexible alternative
 Invoke operations on individual VMs.
@@ -119,8 +119,8 @@ Invoke operations on individual VMs.
 
 ### Uniform API
 Uniform virtual machine scale sets APIs:
-- [Convert To Single Placement Group](https://docs.microsoft.com/rest/api/compute/virtual-machine-scale-sets/convert-to-single-placement-group)
-- [Force Recovery Service Fabric Platform Update Domain Walk](https://docs.microsoft.com/rest/api/compute/virtual-machine-scale-sets/force-recovery-service-fabric-platform-update-domain-walk)
+- [Convert To Single Placement Group](/rest/api/compute/virtual-machine-scale-sets/convert-to-single-placement-group)
+- [Force Recovery Service Fabric Platform Update Domain Walk](/rest/api/compute/virtual-machine-scale-sets/force-recovery-service-fabric-platform-update-domain-walk)
 
 ### Flexible alternative
 Not supported on Flexible virtual machine scale sets.
