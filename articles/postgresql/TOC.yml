@@ -600,7 +600,7 @@
     items:
     - name: Create server group
       items:
-      - name: Basic tier (preview)
+      - name: Basic tier
         href: quickstart-create-hyperscale-basic-tier.md
       - name: Standard tier
         href: quickstart-create-hyperscale-portal.md
