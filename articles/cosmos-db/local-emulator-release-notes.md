@@ -22,6 +22,10 @@ This article shows the Azure Cosmos DB Emulator release notes with a list of fea
 
 ## Release notes
 
+### 2.14.2 (12 August 2021)
+
+ - This release updates the local Data Explorer content to latest Azure Portal version and resets the base for the Linux Cosmos emulator Docker image.
+
 ### 2.14.0 (15 June 2021)
 
  - This release updates the local Data Explorer content to latest Azure Portal version; in this release we addresses a known issue when importing multiple document items by using the JSON file uploading feature.
