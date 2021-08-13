@@ -145,6 +145,7 @@
     - name: Upgrade the VMware HCX appliance
       href: https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html
   - name: VMware ecosystem
+    items:
     - name: Backup solutions for VMs
       href: ecosystem-back-up-vms.md
     - name: Migration solutions for VMs
