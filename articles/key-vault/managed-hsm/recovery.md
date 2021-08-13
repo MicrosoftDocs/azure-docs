@@ -135,14 +135,12 @@ For more information, see [Managed HSM soft-delete overview](soft-delete-overvie
     Get-AzKeyVaultManagedHsm -Name "ContosoHSM"
     ```
 
-* To delete an HSM. (This action is recoverable because soft-delete is on by default.)
+* To delete an HSM:
 
     ```powershell
     Remove-AzKeyVaultManagedHsm -Name 'ContosoHSM'
     ```
-> [!NOTE]
-> Additional Managed HSM soft-delete and purge protection PowerShell commands will be enabled soon.
-
+  This action is recoverable because soft-delete is on by default.
 
 ### Keys (PowerShell)
 
