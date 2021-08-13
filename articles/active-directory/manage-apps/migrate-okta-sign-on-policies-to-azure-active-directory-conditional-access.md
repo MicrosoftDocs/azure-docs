@@ -27,7 +27,7 @@ When switching from Okta sign on to Azure AD CA, it's important to understand li
 
 Before you do any of the steps for hybrid Azure AD join, you'll need an enterprise administrator credential in the on-premises forest to configure the Service Connection Point (SCP) record.
 
-## Migration steps
+## High-level migration tasks
 
 The following are the high-level migration tasks:
 
