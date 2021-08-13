@@ -1,8 +1,8 @@
 ---
 title: Azure IoT Central administrator guide
 description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. This article provides an overview of the administrator role in IoT Central. 
-author: philmea
-ms.author: philmea
+author: dominicbetts 
+ms.author: dobett 
 ms.date: 03/25/2021
 ms.topic: conceptual
 ms.service: iot-central
@@ -70,6 +70,10 @@ An administrator can use IoT Central metrics to assess the health of connected d
 To view the metrics, an administrator can use charts in the Azure portal, a REST API, or PowerShell or Azure CLI queries.
 
 To learn more, see [Monitor application health](howto-manage-iot-central-from-portal.md#monitor-application-health).
+
+## Monitor connected IoT Edge devices
+
+To learn how to remotely monitor your IoT Edge fleet using Azure Monitor and built-in metrics integration, see [Collect and transport metrics](../../iot-edge/how-to-collect-and-transport-metrics.md).
 
 ## Tools
 

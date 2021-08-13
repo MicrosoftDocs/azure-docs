@@ -1,7 +1,7 @@
 ---
 title: Supported Azure Resource Manager resource types
 description: Provide a list of the Azure Resource Manager resource types supported by Azure Resource Graph and Change History.
-ms.date: 08/04/2021
+ms.date: 08/13/2021
 ms.topic: reference
 ms.custom: generated
 ---
@@ -110,9 +110,15 @@ For sample queries for this table, see [Resource Graph sample queries for policy
 For sample queries for this table, see [Resource Graph sample queries for resourcecontainers](../samples/samples-by-table.md#resourcecontainers).
 
 - microsoft.management/managementgroups
+  - Sample query: [Count of subscriptions per management group](../samples/samples-by-category.md#count-of-subscriptions-per-management-group)
+  - Sample query: [List all management group ancestors for a specified management group](../samples/samples-by-category.md#list-all-management-group-ancestors-for-a-specified-management-group)
 - microsoft.resources/subscriptions (Subscriptions)
+  - Sample query: [Count of subscriptions per management group](../samples/samples-by-category.md#count-of-subscriptions-per-management-group)
   - Sample query: [Key vaults with subscription name](../samples/samples-by-category.md#key-vaults-with-subscription-name)
+  - Sample query: [List all management group ancestors for a specified subscription](../samples/samples-by-category.md#list-all-management-group-ancestors-for-a-specified-subscription)
+  - Sample query: [List all subscriptions under a specified management group](../samples/samples-by-category.md#list-all-subscriptions-under-a-specified-management-group)
   - Sample query: [Remove columns from results](../samples/samples-by-category.md#remove-columns-from-results)
+  - Sample query: [Secure score per management group](../samples/samples-by-category.md#secure-score-per-management-group)
 - Microsoft.Resources/subscriptions/resourceGroups (Resource groups)
   - Sample query: [Find storage accounts with a specific case-insensitive tag on the resource group](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-insensitive-tag-on-the-resource-group)
   - Sample query: [Find storage accounts with a specific case-sensitive tag on the resource group](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-sensitive-tag-on-the-resource-group)
@@ -277,7 +283,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.compute/virtualmachines/runcommands
 - Microsoft.Compute/virtualMachineScaleSets (Virtual machine scale sets)
   - Sample query: [Get virtual machine scale set capacity and size](../samples/samples-by-category.md#get-virtual-machine-scale-set-capacity-and-size)
-- microsoft.confidentialledger/ledgers
+- Microsoft.ConfidentialLedger/ledgers (Confidential Ledgers)
 - Microsoft.Confluent/organizations (Confluent organizations)
 - Microsoft.ConnectedCache/cacheNodes (Connected Cache Resources)
 - Microsoft.ConnectedVehicle/platformAccounts (Connected Vehicle Platforms)
@@ -306,7 +312,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.customproviders/resourceproviders
 - microsoft.d365customerinsights/instances
 - Microsoft.Dashboard/grafana (Grafana Workspaces)
-- Microsoft.DataBox/jobs (Data Box)
+- Microsoft.DataBox/jobs (Azure Data Box)
 - Microsoft.DataBoxEdge/dataBoxEdgeDevices (Azure Stack Edge / Data Box Gateway)
 - Microsoft.Databricks/workspaces (Azure Databricks Services)
 - Microsoft.DataCatalog/catalogs (Data Catalog)
@@ -387,9 +393,10 @@ For sample queries for this table, see [Resource Graph sample queries for resour
   - Sample query: [List Azure Arc-enabled custom locations with VMware or SCVMM enabled](../samples/samples-by-category.md#list-azure-arc-enabled-custom-locations-with-vmware-or-scvmm-enabled)
 - microsoft.falcon/namespaces
 - Microsoft.Fidalgo/devcenters (Fidalgo DevCenters)
+- microsoft.fidalgo/machinedefinitions
 - Microsoft.Fidalgo/projects (Fidalgo Projects)
 - Microsoft.Fidalgo/projects/environments (Fidalgo Environments)
-- microsoft.fluidrelay/fluidrelayservers
+- Microsoft.FluidRelay/fluidRelayServers (FluidRelay Servers)
 - microsoft.footprintmonitoring/profiles
 - microsoft.gaming/titles
 - Microsoft.Genomics/accounts (Genomics accounts)
@@ -525,7 +532,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.mobilenetwork/packetcorecontrolplanes/packetcoredataplanes
 - microsoft.mobilenetwork/packetcorecontrolplanes/packetcoredataplanes/attacheddatanetworks
 - microsoft.mobilenetwork/sims
-- Microsoft.MobileNetwork/sims/simProfiles (Sims)
+- microsoft.mobilenetwork/sims/simprofiles
 - Microsoft.NetApp/netAppAccounts (NetApp accounts)
 - microsoft.netapp/netappaccounts/backuppolicies
 - Microsoft.NetApp/netAppAccounts/capacityPools (Capacity pools)
@@ -820,6 +827,7 @@ For sample queries for this table, see [Resource Graph sample queries for securi
 - microsoft.security/regulatorycompliancestandards/regulatorycompliancecontrols/regulatorycomplianceassessments
   - Sample query: [Regulatory compliance assessments state](../samples/samples-by-category.md#regulatory-compliance-assessments-state)
 - microsoft.security/securescores
+  - Sample query: [Secure score per management group](../samples/samples-by-category.md#secure-score-per-management-group)
   - Sample query: [Secure score per subscription](../samples/samples-by-category.md#secure-score-per-subscription)
 - microsoft.security/securescores/securescorecontrols
   - Sample query: [Controls secure score per subscription](../samples/samples-by-category.md#controls-secure-score-per-subscription)

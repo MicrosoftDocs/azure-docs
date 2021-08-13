@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: troubleshooting
-ms.date: 08/09/2021
+ms.date: 08/11/2021
 ---
 
 # Diagnose and solve issues with Azure Migrate appliance
@@ -13,6 +13,12 @@ ms.date: 08/09/2021
 The **Diagnose and solve** capability on Azure Migrate appliance helps users identify and self-assess any issues with the appliance configuration that might be blocking the initiation of discovery or issues with an ongoing Migrate operation like discovery, assessment and/or replication (*in case of VMware appliance*) from the appliance. 
 
 You can run **Diagnose and solve** at any time from the appliance configuration manager to generate a diagnostics report. The report provides information about the checks performed, their status, the issues identified and recommendation steps to solve the issues. 
+
+> [!IMPORTANT]
+> **Diagnose and solve** capability is currently in preview for Azure Migrate appliance.
+> This preview is covered by customer support and can be used for production workloads.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 ## Diagnostic checks
 

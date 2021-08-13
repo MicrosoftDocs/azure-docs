@@ -201,7 +201,7 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 
 ## Enroll in ExpressRoute FastPath features (preview)
 
-FastPath support for virtual network peering and Private Link is now in Public preview.
+FastPath support for virtual network peering is now in Public preview.
 
 ### FastPath and virtual network peering
 
@@ -215,9 +215,9 @@ Register-AzProviderFeature -FeatureName ExpressRouteVnetPeeringGatewayBypass -Pr
 
 > [!NOTE] 
 > If you already have FathPath configured and want to enroll in the preview feature, you need to do the following:
-> 1. Disable FastPath on the existing connection.
+> 1. Delete the connection that has FastPath enabled.
 > 1. Enroll in the FathPath preview feature with the Azure PowerShell command above.
-> 1. Re-enable the FathPath on the connection.
+> 1. Recreate the connection with FathPath enabled.
 >
 
 ## Clean up resources

@@ -2,7 +2,7 @@
 title: Tutorial - Test ability of X.509 certificates to authenticate devices to an Azure IoT Hub | Microsoft Docs
 description: Tutorial - Test your X.509 certificates to authenticate to Azure IoT Hub
 author: v-gpettibone
-manager: philmea
+
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
