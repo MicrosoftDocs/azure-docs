@@ -148,46 +148,6 @@
       href: core/concepts-app-templates.md
     - name: Industry specific application templates
       items:
-<<<<<<< HEAD
-      - name: Retail
-        items:
-        - name: Overview
-          href: retail/overview-iot-central-retail.md
-        - name: In-store analytics checkout architecture
-          href: retail/store-analytics-architecture.md
-        - name: Smart inventory management architecture
-          href: retail/architecture-smart-inventory-management.md
-        - name: Connected logistics architecture
-          href: retail/architecture-connected-logistics.md
-        - name: Digital distribution center
-          href: retail/architecture-digital-distribution-center.md
-        - name: Micro-fulfillment center architecture
-          href: retail/architecture-micro-fulfillment-center.md
-        - name: Video analytics - object and motion detection
-          href: retail/architecture-video-analytics.md
-      - name: Energy
-        items:
-        - name: Overview
-          href: energy/overview-iot-central-energy.md
-        - name: Smart meter app architecture
-          href: energy/concept-iot-central-smart-meter-app.md
-        - name: Solar panel app architecture
-          href: energy/concept-iot-central-solar-panel-app.md
-      - name: Government
-        items:
-        - name: Overview
-          href: government/overview-iot-central-government.md
-        - name: Connected waste monitoring architecture
-          href: government/concepts-connectedwastemanagement-architecture.md 
-        - name: Water consumption monitoring architecture
-          href: government/concepts-waterconsumptionmonitoring-architecture.md 
-        - name: Water quality monitoring architecture
-          href: government/concepts-waterqualitymonitoring-architecture.md        
-      - name: Healthcare
-        items:
-        - name: Overview
-          href: healthcare/overview-iot-central-healthcare.md
-=======
       - name: Retail Overview
         href: retail/overview-iot-central-retail.md
       - name: Energy Overview
@@ -196,7 +156,6 @@
         href: government/overview-iot-central-government.md      
       - name: Healthcare Overview
         href: healthcare/overview-iot-central-healthcare.md
->>>>>>> e2fc5eed9104280346dff5c9c28963d045a3a4c7
         
     - name: What are device templates?
       href: core/concepts-device-templates.md
