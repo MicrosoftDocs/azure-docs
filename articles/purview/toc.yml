@@ -19,7 +19,7 @@ items:
   - name: Manage Kafka notifications - .NET
     href: manage-kafka-dotnet.md
   - name: Create a Purview account - Azure portal FAQs
-    href: catalog-purview-portal-faq.md
+    href: create-purview-portal-faq.md
 - name: Tutorials
   items:
   - name: Onboarding Azure data sources at scale
