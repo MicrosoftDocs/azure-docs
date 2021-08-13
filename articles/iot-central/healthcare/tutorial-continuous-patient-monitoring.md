@@ -125,9 +125,6 @@ The **Commands** tab lets you run commands on the device.
 
 :::image type="content" source="media/knee-brace-dashboard.png" alt-text="Knee brace dashboard":::
 
-### Data export
-
-Data export lets you export your device data continuously to other Azure services, including the [Azure API for FHIR](concept-continuous-patient-monitoring-architecture.md#export-to-azure-api-for-fhir).
 
 ## Clean up resources
 
