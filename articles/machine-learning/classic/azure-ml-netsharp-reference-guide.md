@@ -15,6 +15,8 @@ ms.date: 03/01/2018
 
 **APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
+[!INCLUDE [ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)]
+
 Net# is a language developed by Microsoft that is used to define complex neural network architectures such as deep neural networks or convolutions of arbitrary dimensions. You can use complex structures to improve learning on data such as image, video, or audio.
 
 You can use a Net# architecture specification in all neural network modules in Machine Learning Studio (classic): 
