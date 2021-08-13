@@ -56,7 +56,7 @@ For more detail on the specific attributes of a public IP address during creatio
 ## View, modify settings for, or delete a public IP address
 
    - **View/List**: Review settings for a public IP, including the SKU, address, and any association. Associations can be load balancer front-ends, virtual machines, and other Azure resources.
-   - **Modify**: Modify settings using the information in [create a public IP address](#create-a-public-ip-address). Settings such as the idle timeout, DNS name label, or assignment method. For the full process of upgrading a public IP SKU from basic to standard, see [Upgrade Azure public IP addresses](./virtual-network-public-ip-address-upgrade.md).
+   - **Modify**: Modify settings using the information in [create a public IP address](#create-a-public-ip-address). Settings such as the idle timeout, DNS name label, or assignment method. For the full process of upgrading a public IP SKU from basic to standard, see [Upgrade Azure public IP addresses](./public-ip-upgrade-portal.md).
    
    >[!WARNING]
    >Remove the address from any applicable IP configurations (see **Delete** section) to change assignment for a public IP from static to dynamic. When you change the assignment method from static to dynamic, you lose the IP address that was assigned to the public IP resource. While the Azure public DNS servers maintain a mapping between static or dynamic addresses and any DNS name label (if you defined one), a dynamic IP address can change when the virtual machine is started after being in the stopped (deallocated) state. To prevent the address from changing, assign a static IP address.
@@ -92,7 +92,7 @@ Learn how to assign a public IP address to the following resources:
 - [Application Gateway](../application-gateway/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Site-to-site connection using a VPN gateway](../vpn-gateway/tutorial-site-to-site-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Virtual Machine Scale Set](../virtual-machine-scale-sets/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [NAT gateway](tutorial-create-nat-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [NAT gateway](./nat-gateway/tutorial-create-nat-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Azure Bastion](../bastion/quickstart-host-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Azure Firewall](../firewall/tutorial-firewall-deploy-portal-policy.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Cross-region load balancer](../load-balancer/tutorial-cross-region-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

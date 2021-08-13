@@ -369,14 +369,13 @@ sections:
           *I'm having trouble setting up my:*
           
           * [.NET app](app/asp-net-troubleshoot-no-data.md)
-          * [Monitoring an already-running app](app/monitor-performance-live-website-now.md#troubleshoot)
           * [Azure diagnostics](agents/diagnostics-extension-to-application-insights.md)
           * [Java web app](app/java-2x-troubleshoot.md)
           
           *I get no data from my server:*
           
           * [Set firewall exceptions](app/ip-addresses.md)
-          * [Set up an ASP.NET server](app/monitor-performance-live-website-now.md)
+          * [Set up an ASP.NET server](app/status-monitor-v2-overview.md)
           * [Set up a Java server](app/java-2x-agent.md)
           
           *How many Application Insights resources should I deploy:*
@@ -459,13 +458,6 @@ sections:
           We do not recommend using this method of populating the API version. The newest version can represent preview releases which may contain breaking changes. Even with newer non-preview releases, the API versions are not always backwards compatible with existing templates, or in some cases the API version may not be available to all subscriptions.
 
       - question: |
-          What is Status Monitor?
-        answer: |
-          A desktop app that you can use in your IIS web server to help configure Application Insights in web apps. It doesn't collect telemetry: you can stop it when you are not configuring an app.
-          
-          [Learn more](app/monitor-performance-live-website-now.md#questions).
-          
-      - question: |
           What telemetry is collected by Application Insights?
         answer: |
           From server web apps:
@@ -473,7 +465,7 @@ sections:
           * HTTP requests
           * [Dependencies](app/asp-net-dependencies.md). Calls to: SQL Databases; HTTP calls to external services; Azure Cosmos DB, table, blob storage, and queue.
           * [Exceptions](app/asp-net-exceptions.md) and stack traces.
-          * [Performance Counters](app/performance-counters.md) - If you use [Status Monitor](app/monitor-performance-live-website-now.md), [Azure monitoring for App Services](app/azure-web-apps.md), [Azure monitoring for VM or virtual machine scale set](app/azure-vm-vmss-apps.md), or the [Application Insights collectd writer](app/java-2x-collectd.md).
+          * [Performance Counters](app/performance-counters.md) - If you use [Azure Monitor Application Insights Agent](app/status-monitor-v2-overview.md), [Azure monitoring for VM or virtual machine scale set](app/azure-vm-vmss-apps.md), or the [Application Insights collectd writer](app/java-2x-collectd.md).
           * [Custom events and metrics](app/api-custom-events-metrics.md) that you code.
           * [Trace logs](app/asp-net-trace-logs.md) if you configure the appropriate collector.
           
@@ -584,8 +576,8 @@ sections:
           | What you should see | How to get it | Why you want it |
           | --- | --- | --- |
           | Availability charts |[Web tests](app/monitor-web-app-availability.md) |Know your web app is up |
-          | Server app perf: response times, ... |[Add Application Insights to your project](app/asp-net.md) or [Install AI Status Monitor on server](app/monitor-performance-live-website-now.md) (or write your own code to [track dependencies](app/api-custom-events-metrics.md#trackdependency)) |Detect perf issues |
-          | Dependency telemetry |[Install AI Status Monitor on server](app/monitor-performance-live-website-now.md) |Diagnose issues with databases or other external components |
+          | Server app perf: response times, ... |[Add Application Insights to your project](app/asp-net.md) or [Install Azure Monitor Application Insights Agent on server](app/status-monitor-v2-overview.md) (or write your own code to [track dependencies](app/api-custom-events-metrics.md#trackdependency)) |Detect perf issues |
+          | Dependency telemetry |[Install Azure Monitor Application Insights Agent on server](app/status-monitor-v2-overview.md) |Diagnose issues with databases or other external components |
           | Get stack traces from exceptions |[Insert TrackException calls in your code](app/asp-net-exceptions.md) (but some are reported automatically) |Detect and diagnose exceptions |
           | Search log traces |[Add a logging adapter](app/asp-net-trace-logs.md) |Diagnose exceptions, perf issues |
           | Client usage basics: page views, sessions, ... |[JavaScript initializer in web pages](app/javascript.md) |Usage analytics |

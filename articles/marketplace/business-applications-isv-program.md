@@ -73,8 +73,7 @@ The final step for enrollment in the Business Applications ISV Connect program i
 
 Ask your Account Manager or contact [Microsoft Partner Support](https://aka.ms/marketplacepublishersupport) for assistance with your account. For general information on the Business Applications ISV Connect Program, see:
 
-- [Business Applications for ISVs](https://partner.microsoft.com/solutions/business-applications/isv-overview) (online article)
-- [Overview of the New Program for Business Applications ISVs](https://aka.ms/BizAppsISVProgram) (PDF)
-- [Business Applications ISV Connect Program FAQ](https://assetsprod.microsoft.com/faq-using-partner-center-isv-connect.pdf) (PDF)
-- [Upcoming program for Business Applications ISVs](https://cloudblogs.microsoft.com/dynamics365/bdm/2019/04/17/upcoming-program-for-business-applications-isvs/) (blog post)
-- [ISV Connect Program Policies](https://aka.ms/bizappsisvpolicies) (PDF)
+- [Business Applications partner information](https://aka.ms/bizappsisvWeb) (website)
+- [ISV Connect program guide](https://aka.ms/bizappsisvProgram) (PDF)
+- [ISV Connect program partner FAQ](https://powerplatformpartners.transform.microsoft.com/download?assetname=assets/ISV%20Connect%20Partner%20FAQ.pdf&download=1) (PDF)
+- [ISV Connect program changes](https://cloudblogs.microsoft.com/dynamics365/bdm/2021/07/14/innovate-and-grow-with-the-simplified-business-applications-isv-connect-program/) (blog post)

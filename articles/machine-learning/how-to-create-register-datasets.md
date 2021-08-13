@@ -281,9 +281,6 @@ new_dataset = ds.partition_by(name="repartitioned_ds", partition_keys=['country'
 partition_keys = new_dataset.partition_keys # ['country']
 ```
 
->[!IMPORTANT]
-> TabularDataset partitions can also be applied in Azure Machine Learning pipelines as input to your ParallelRunStep in many models applications. See an example in the [Many Models accelerator documentation](https://github.com/microsoft/solution-accelerator-many-models/blob/master/01_Data_Preparation.ipynb).
-
 ## Explore data
 
 After you're done wrangling your data, you can [register](#register-datasets) your dataset, and then load it into your notebook for data exploration prior to model training.

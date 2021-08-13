@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 07/13/2021
 
 ms.author: baselden
 author: barbaraselden
@@ -59,7 +59,7 @@ Azure Active Directory is licensed per-user meaning each user requires an approp
 
 To compare editions and features and enable group or user-based licensing, see [Licensing requirements for Azure AD self-service password reset](./concept-sspr-licensing.md).
 
-For more information about pricing, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+For more information about pricing, see [Azure Active Directory pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ### Prerequisites
 

@@ -110,13 +110,13 @@ Applications in Microsoft identity platform rely on consent in order to gain acc
 
 In the static user consent scenario, you must specify all the permissions it needs in the app's configuration in the Azure portal. If the user (or administrator, as appropriate) has not granted consent for this app, then Microsoft identity platform will prompt the user to provide consent at this time.
 
-Static permissions also enables administrators to consent on behalf of all users in the organization.
+Static permissions also enables administrators to [consent on behalf of all users](#requesting-consent-for-an-entire-tenant) in the organization.
 
 While static permissions of the app defined in the Azure portal keep the code nice and simple, it presents some possible issues for developers:
 
 - The app needs to request all the permissions it would ever need upon the user's first sign-in. This can lead to a long list of permissions that discourages end users from approving the app's access on initial sign-in.
 
-- The app needs to know all of the resources it would ever access ahead of time. It was difficult to create apps that could access an arbitrary number of resources.
+- The app needs to know all of the resources it would ever access ahead of time. It is difficult to create apps that could access an arbitrary number of resources.
 
 ### Incremental and dynamic user consent
 

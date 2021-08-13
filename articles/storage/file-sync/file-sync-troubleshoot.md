@@ -54,19 +54,19 @@ To resolve, transfer the PDC role to another domain controller running Windows S
 <a id="parameter-is-incorrect"></a>**Accessing a volume on Windows Server 2012 R2 fails with error: The parameter is incorrect**  
 After creating a server endpoint on Windows Server 2012 R2, the following error occurs when accessing the volume:
 
-driveletter:\ is not accessible.  
+drive letter:\ is not accessible.  
 The parameter is incorrect.
 
-To resolve this issue , install [KB2919355](https://support.microsoft.com/help/2919355/windows-rt-8-1-windows-8-1-windows-server-2012-r2-update-april-2014) and restart the server. If this update will not install because a later update is already installed, go to Windows Update, install the latest updates for Windows Server 2012 R2 and restart the server.
+To resolve this issue, install [KB2919355](https://support.microsoft.com/help/2919355/windows-rt-8-1-windows-8-1-windows-server-2012-r2-update-april-2014) and restart the server. If this update will not install because a later update is already installed, go to Windows Update, install the latest updates for Windows Server 2012 R2 and restart the server.
 
 <a id="server-registration-missing-subscriptions"></a>**Server Registration does not list all Azure Subscriptions**  
 When registering a server using ServerRegistration.exe, subscriptions are missing when you click the Azure Subscription drop-down.
 
-This issue occurs because ServerRegistration.exe will only retrieve subscriptions from the first 5 Azure AD tenants. 
+This issue occurs because ServerRegistration.exe will only retrieve subscriptions from the first five Azure AD tenants. 
 
 To increase the Server Registration tenant limit on the server, create a DWORD value called ServerRegistrationTenantLimit under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync with a value greater than 5.
 
-You can also workaround this issue by using the following PowerShell commands to register the server:
+You can also work around this issue by using the following PowerShell commands to register the server:
 
 ```powershell
 Connect-AzAccount -Subscription "<guid>" -Tenant "<guid>"
@@ -162,7 +162,7 @@ This error occurs if the server endpoint path specified is not valid. Verify the
 This error occurs if the server endpoint path specified is not an NTFS volume. Verify the server endpoint path specified is a locally attached NTFS volume. Note, Azure File Sync does not support mapped drives as a server endpoint path.
 
 <a id="-2134347507"></a>**Server endpoint creation fails, with this error: "MgmtServerJobFailed" (Error code: -2134347507 or 0x80c8710d)**  
-This error occurs because Azure File Sync does not support server endpoints on volumes which have a compressed System Volume Information folder. To resolve this issue, decompress the System Volume Information folder. If the System Volume Information folder is the only folder compressed on the volume, perform the following steps:
+This error occurs because Azure File Sync does not support server endpoints on volumes, which have a compressed System Volume Information folder. To resolve this issue, decompress the System Volume Information folder. If the System Volume Information folder is the only folder compressed on the volume, perform the following steps:
 
 1. Download [PsExec](/sysinternals/downloads/psexec) tool.
 2. Run the following command from an elevated command prompt to launch a command prompt running under the system account: **PsExec.exe -i -s -d cmd**
@@ -171,7 +171,7 @@ This error occurs because Azure File Sync does not support server endpoints on v
     **compact /u /s**
 
 <a id="-2134376345"></a>**Server endpoint creation fails, with this error: "MgmtServerJobFailed" (Error code: -2134376345 or 0x80C80067)**  
-This error occurs if the server endpoints per server limit is reached. Azure File Sync currently supports up to 30 server endpoints per server. For more information, see 
+This error occurs if the limit of server endpoints per server is reached. Azure File Sync currently supports up to 30 server endpoints per server. For more information, see 
 [Azure File Sync scale targets](../files/storage-files-scale-targets.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json#azure-file-sync-scale-targets).
 
 <a id="-2134376427"></a>**Server endpoint creation fails, with this error: "MgmtServerJobFailed" (Error code: -2134376427 or 0x80c80015)**  
@@ -181,7 +181,7 @@ This error occurs if another server endpoint is already syncing the server endpo
 This error occurs if the server endpoint path contains orphaned tiered files. If a server endpoint was recently removed, wait until the orphaned tiered files cleanup has completed. An Event ID 6662 is logged to the Telemetry event log once the orphaned tiered files cleanup has started. An Event ID 6661 is logged once the orphaned tiered files cleanup has completed and a server endpoint can be recreated using the path. If the server endpoint creation fails after the tiered files cleanup has completed or if Event ID 6661 cannot be found in the Telemetry event log due to event log rollover, remove the orphaned tiered files by performing the steps documented in the [Tiered files are not accessible on the server after deleting a server endpoint](?tabs=portal1%252cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) section.
 
 <a id="-2134347757"></a>**Server endpoint deletion fails, with this error: "MgmtServerJobExpired" (Error code: -2134347757 or 0x80c87013)**  
-This error occurs if the server is offline or doesn't have network connectivity. If the server is no longer available, unregister the server in the portal which will delete the server endpoints. To delete the server endpoints, follow the steps that are described in [Unregister a server with Azure File Sync](file-sync-server-registration.md#unregister-the-server-with-storage-sync-service).
+This error occurs if the server is offline or doesn't have network connectivity. If the server is no longer available, unregister the server in the portal, which will delete the server endpoints. To delete the server endpoints, follow the steps that are described in [Unregister a server with Azure File Sync](file-sync-server-registration.md#unregister-the-server-with-storage-sync-service).
 
 ### Server endpoint health
 
@@ -211,7 +211,7 @@ On the server that is showing as "Appears offline" in the portal, look at Event 
 - If **GetNextJob completed with status: 0** is logged, the server can communicate with the Azure File Sync service. 
     - Open Task Manager on the server and verify the Storage Sync Monitor (AzureStorageSyncMonitor.exe) process is running. If the process is not running, first try restarting the server. If restarting the server does not resolve the issue, upgrade to the latest Azure File Sync [agent version](file-sync-release-notes.md). 
 
-- If **GetNextJob completed with status: -2134347756** is logged, the server is unable to communicate with the Azure File Sync service due to a firewall, proxy or TLS cipher suite order configuration. 
+- If **GetNextJob completed with status: -2134347756** is logged, the server is unable to communicate with the Azure File Sync service due to a firewall, proxy, or TLS cipher suite order configuration. 
     - If the server is behind a firewall, verify port 443 outbound is allowed. If the firewall restricts traffic to specific domains, confirm the domains listed in the Firewall [documentation](file-sync-firewall-and-proxy.md#firewall) are accessible.
     - If the server is behind a proxy, configure the machine-wide or app-specific proxy settings by following the steps in the Proxy [documentation](file-sync-firewall-and-proxy.md#proxy).
     - Use the Test-StorageSyncNetworkConnectivity cmdlet to check network connectivity to the service endpoints. To learn more, see [Test network connectivity to service endpoints](file-sync-firewall-and-proxy.md#test-network-connectivity-to-service-endpoints).
@@ -250,12 +250,12 @@ This issue is expected if you create a cloud endpoint and use an Azure file shar
 
 ### <a id="broken-sync"></a>How do I monitor sync health?
 # [Portal](#tab/portal1)
-Within each sync group, you can drill down into its individual server endpoints to see the status of the last completed sync sessions. A green Health column and a Files Not Syncing value of 0 indicate that sync is working as expected. If this is not the case, see below for a list of common sync errors and how to handle files that are not syncing. 
+Within each sync group, you can drill down into its individual server endpoints to see the status of the last completed sync sessions. A green Health column and a Files Not Syncing value of 0 indicate that sync is working as expected. If not, see below for a list of common sync errors and how to handle files that are not syncing. 
 
 ![A screenshot of the Azure portal](media/storage-sync-files-troubleshoot/portal-sync-health.png)
 
 # [Server](#tab/server)
-Go to the server's telemetry logs, which can be found in the Event Viewer at `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`. Event 9102 corresponds to a completed sync session; for the latest status of sync, look for the most recent event with ID 9102. SyncDirection tells you if it this session was an upload or download. If the HResult is 0, then the sync session was successful. A non-zero HResult means that there was an error during sync; see below for a list of common errors. If the PerItemErrorCount is greater than 0, this means that some files or folders did not sync properly. It is possible to have an HResult of 0 but a PerItemErrorCount that is greater than 0.
+Go to the server's telemetry logs, which can be found in the Event Viewer at `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`. Event 9102 corresponds to a completed sync session; for the latest status of sync, look for the most recent event with ID 9102. SyncDirection tells you if this session was an upload or download. If the `HResult` is 0, then the sync session was successful. A non-zero `HResult` means that there was an error during sync; see below for a list of common errors. If the PerItemErrorCount is greater than 0, then some files or folders did not sync properly. It is possible to have an `HResult` of 0 but a PerItemErrorCount that is greater than 0.
 
 Below is an example of a successful upload. For the sake of brevity, only some of the values contained in each 9102 event are listed below. 
 
@@ -281,13 +281,13 @@ PerItemErrorCount: 0,
 TransferredFiles: 0, TransferredBytes: 0, FailedToTransferFiles: 0, FailedToTransferBytes: 0.
 ```
 
-Sometimes sync sessions fail overall or have a non-zero PerItemErrorCount but still make forward progress, with some files syncing successfully. This can be seen in the Applied* fields (AppliedFileCount, AppliedDirCount, AppliedTombstoneCount, and AppliedSizeBytes), which tell you how much of the session is succeeding. If you see multiple sync sessions in a row that are failing but have an increasing Applied* count, then you should give sync time to try again before opening a support ticket.
+Sometimes sync sessions fail overall or have a non-zero PerItemErrorCount but still make forward progress, with some files syncing successfully. Progress can be determined by looking into the *Applied* fields (AppliedFileCount, AppliedDirCount, AppliedTombstoneCount, and AppliedSizeBytes). These fields describe how much of the session is succeeding. If you see multiple sync sessions in a row that are failing but have an increasing *Applied* count, then you should give sync time to try again before opening a support ticket.
 
 ---
 
 ### How do I monitor the progress of a current sync session?
 # [Portal](#tab/portal1)
-Within your sync group, go to the server endpoint in question and look at the Sync Activity section to see the count of files uploaded or downloaded in the current sync session. Note that this status will be delayed by about 5 minutes, and if your sync session is small enough to be completed within this period, it may not be reported in the portal. 
+Within your sync group, go to the server endpoint in question and look at the Sync Activity section to see the count of files uploaded or downloaded in the current sync session. Keep in mind that this status will be delayed by about 5 minutes, and if your sync session is small enough to be completed within this period, it may not be reported in the portal. 
 
 # [Server](#tab/server)
 Look at the most recent 9302 event in the telemetry log on the server (in the Event Viewer, go to Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry). This event indicates the state of the current sync session. TotalItemCount denotes how many files are to be synced, AppliedItemCount the number of files that have been synced so far, and PerItemErrorCount the number of files that are failing to sync (see below for how to deal with this).
@@ -314,11 +314,11 @@ For each server in a given sync group, make sure:
 # [Server](#tab/server)
 Look at the completed sync sessions, which are marked by 9102 events in the telemetry event log for each server (in the Event Viewer, go to `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`). 
 
-1. On any given server, you want to make sure the latest upload and download sessions completed successfully. To do this, check that the HResult and PerItemErrorCount are 0 for both upload and download (the SyncDirection field indicates if a given session is an upload or download session). Note that if you do not see a recently completed sync session, it is likely a sync session is currently in progress, which is to be expected if you just added or modified a large amount of data.
-2. When a server is fully up-to-date with the cloud and has no changes to sync in either direction, you will see empty sync sessions. These are indicated by upload and download events in which all the Sync* fields (SyncFileCount, SyncDirCount, SyncTombstoneCount, and SyncSizeBytes) are zero, meaning there was nothing to sync. Note that these empty sync sessions may not occur on high-churn servers as there is always something new to sync. If there is no sync activity, they should occur every 30 minutes. 
-3. If all servers are up-to-date with the cloud, meaning their recent upload and download sessions are empty sync sessions, you can say with reasonable certainty that the system as a whole is in sync. 
+1. On any given server, you want to make sure the latest upload and download sessions completed successfully. To do this, check that the `HResult` and PerItemErrorCount are 0 for both upload and download (the SyncDirection field indicates if a given session is an upload or download session). Note that if you do not see a recently completed sync session, it is likely a sync session is currently in progress, which is to be expected if you just added or modified a large amount of data.
+2. When a server is fully up to date with the cloud and has no changes to sync in either direction, you will see empty sync sessions. These are indicated by upload and download events in which all the Sync* fields (SyncFileCount, SyncDirCount, SyncTombstoneCount, and SyncSizeBytes) are zero, meaning there was nothing to sync. Note that these empty sync sessions may not occur on high-churn servers as there is always something new to sync. If there is no sync activity, they should occur every 30 minutes. 
+3. If all servers are up to date with the cloud, meaning their recent upload and download sessions are empty sync sessions, you can say with reasonable certainty that the system as a whole is in sync. 
     
-Note that if you made changes directly in your Azure file share, Azure File Sync will not detect this change until change enumeration runs, which happens once every 24 hours. It is possible that a server will say it is up-to-date with the cloud when it is in fact missing recent changes made directly in the Azure file share. 
+If you made changes directly in your Azure file share, Azure File Sync will not detect these changes until change enumeration runs, which happens once every 24 hours. It is possible that a server will say it is up to date with the cloud when it is in fact missing recent changes made directly in the Azure file share.
 
 ---
 
@@ -330,8 +330,8 @@ To see these errors, run the **FileSyncErrorsReport.ps1** PowerShell script (loc
 > [!Note]  
 > If the FileSyncErrorsReport.ps1 script returns "There were no file errors found" or does not list per-item errors for the sync group, the cause is either:
 >
->- Cause 1: The last completed sync session did not have per-item errors. The portal should be updated soon to show 0 Files Not Syncing. 
->    - Check the [Event ID 9102](?tabs=server%252cazure-portal#broken-sync) in the Telemetry event log to confirm the PerItemErrorCount is 0. 
+>- Cause 1: The last completed sync session did not have per-item errors. The portal should be updated soon to show 0 Files Not Syncing. By default, the FileSyncErrorsReport.ps1 script will only show per-item errors for the last completed sync session. To view per-item errors for all sync sessions, use the -ReportAllErrors parameter.
+>    - Check the most recent [Event ID 9102](?tabs=server%252cazure-portal#broken-sync) in the Telemetry event log to confirm the PerItemErrorCount is 0. 
 >
 >- Cause 2: The ItemResults event log on the server wrapped due to too many per-item errors and the event log no longer contains errors for this sync group.
 >    - To prevent this issue, increase the ItemResults event log size. The ItemResults event log can be found under "Applications and Services Logs\Microsoft\FileSync\Agent" in Event Viewer. 
@@ -378,7 +378,7 @@ The table below contains all of the unicode characters Azure File Sync does not 
 | 0x0000FDD0 - 0x0000FDDD (arabic presentation forms-a) | 14 |
 | <ul><li>0x00000022 (quotation mark)</li><li>0x0000002A (asterisk)</li><li>0x0000002F (forward slash)</li><li>0x0000003A (colon)</li><li>0x0000003C (less than)</li><li>0x0000003E (greater than)</li><li>0x0000003F (question mark)</li><li>0x0000005C (backslash)</li><li>0x0000007C (pipe or bar)</li></ul> | 9 |
 | <ul><li>0x0004FFFE - 0x0004FFFF = 2 (noncharacter)</li><li>0x0008FFFE - 0x0008FFFF = 2 (noncharacter)</li><li>0x000CFFFE - 0x000CFFFF = 2 (noncharacter)</li><li>0x0010FFFE - 0x0010FFFF = 2 (noncharacter)</li></ul> | 8 |
-| <ul><li>0x0000009D (osc operating system command)</li><li>0x00000090 (dcs device control string)</li><li>0x0000008F (ss3 single shift three)</li><li>0x00000081 (high octet preset)</li><li>0x0000007F (del delete)</li><li>0x0000008D (ri reverse line feed)</li></ul> | 6 |
+| <ul><li>0x0000009D (`osc` operating system command)</li><li>0x00000090 (dcs device control string)</li><li>0x0000008F (ss3 single shift three)</li><li>0x00000081 (high octet preset)</li><li>0x0000007F (del delete)</li><li>0x0000008D (ri reverse line feed)</li></ul> | 6 |
 | 0x0000FFF0, 0x0000FFFD, 0x0000FFFE, 0x0000FFFF (specials) | 4 |
 | Files or directories that end with a period | 1 |
 
@@ -530,7 +530,7 @@ This error occurs when there is a problem with the internal database used by Azu
 | **Error string** | ECS_E_AGENT_VERSION_BLOCKED |
 | **Remediation required** | Yes |
 
-This error occurs if the Azure File Sync agent version installed on the server is not supported. To resolve this issue, [upgrade]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#upgrade-paths) to a [supported agent version]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions).
+This error occurs if the Azure File Sync agent version installed on the server is not supported. To resolve this issue, [upgrade](file-sync-release-notes.md#azure-file-sync-agent-update-policy) to a [supported agent version](file-sync-release-notes.md#supported-versions).
 
 <a id="-2134351810"></a>**You reached the Azure file share storage limit.**  
 
@@ -875,10 +875,10 @@ This error can occur if the NT AUTHORITY\SYSTEM account does not have permission
 To resolve this issue, perform the following steps:
 
 1. Download [Psexec](/sysinternals/downloads/psexec) tool.
-2. Run the following command from an elevated command prompt to launch a command prompt using the system account: **PsExec.exe -i -s -d cmd** 
-3. From the command prompt running under the system account, run the following command to confirm the NT AUTHORITY\SYSTEM account does not have access to the System Volume Information folder: **cacls "drive letter:\system volume information" /T /C**
-4. If the NT AUTHORITY\SYSTEM account does not have access to the System Volume Information folder, run the following command: **cacls  "drive letter:\system volume information" /T /E /G "NT AUTHORITY\SYSTEM:F"**
-    - If step #4 fails with access denied, run the following command to take ownership of the System Volume Information folder and then repeat step #4: **takeown /A /R /F "drive letter:\System Volume Information"**
+2. Run the following command from an elevated command prompt to launch a command prompt using the system account: `PsExec.exe -i -s -d cmd`
+3. From the command prompt running under the system account, run the following command to confirm the NT AUTHORITY\SYSTEM account does not have access to the System Volume Information folder: `cacls "drive letter:\system volume information" /T /C`
+4. If the NT AUTHORITY\SYSTEM account does not have access to the System Volume Information folder, run the following command: `cacls  "drive letter:\system volume information" /T /E /G "NT AUTHORITY\SYSTEM:F"`
+    - If step #4 fails with access denied, run the following command to take ownership of the System Volume Information folder and then repeat step #4: `takeown /A /R /F "drive letter:\System Volume Information"`
 
 <a id="-2134375810"></a>**Sync failed because the Azure file share was deleted and recreated.**  
 
@@ -934,8 +934,26 @@ This error occurs if the directory used as the server endpoint path was renamed 
 
 If the directory was deleted, perform the following steps to remove the existing server endpoint and create a new server endpoint using a new path:
 
-1. Remove the server endpoint in the sync group by following the steps documented in [Remove a server endpoint](file-sync-server-endpoint.md#remove-a-server-endpoint).
-2. Create a new server endpoint in the sync group by following the steps documented in [Add a server endpoint](file-sync-server-endpoint.md#add-a-server-endpoint).
+1. Remove the server endpoint in the sync group by following the steps documented in [Remove a server endpoint](file-sync-server-endpoint-delete.md).
+1. Create a new server endpoint in the sync group by following the steps documented in [Add a server endpoint](file-sync-server-endpoint-create.md).
+
+<a id="-2134375783"></a>**Server endpoint provisioning failed due to an empty server path.**
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80C80299 |
+| **HRESULT (decimal)** | -2134375783 |
+| **Error string** | ECS_E_SYNC_AUTHORITATIVE_UPLOAD_EMPTY_SET |
+| **Remediation required** | Yes |
+
+Server endpoint provisioning fails with this error code if these conditions are met: 
+* This server endpoint was provisioned with the initial sync mode: [server authoritative](file-sync-server-endpoint-create.md#initial-sync-section)
+* Local server path is empty or contains no items recognized as able to sync.
+
+This provisioning error protects you from deleting all content that might be available in an Azure file share. Server authoritative upload is a special mode to catch up a cloud location that was already seeded, with the updates from the server location. Review this [migration guide](../files/storage-files-migration-server-hybrid-databox.md) to understand the scenario for which this mode has been built for.
+
+1. Remove the server endpoint in the sync group by following the steps documented in [Remove a server endpoint](file-sync-server-endpoint-delete.md).
+1. Create a new server endpoint in the sync group by following the steps documented in [Add a server endpoint](file-sync-server-endpoint-create.md).
 
 ### Common troubleshooting steps
 <a id="troubleshoot-storage-account"></a>**Verify the storage account exists.**  
@@ -1137,7 +1155,7 @@ If files fail to tier to Azure Files:
 | 0x80c83007 | -2134364153 | ECS_E_STORAGE_ERROR | The file failed to tier due to an Azure storage issue. | If the error persists, open a support request. |
 | 0x800703e3 | -2147023901 | ERROR_OPERATION_ABORTED | The file failed to tier because it was recalled at the same time. | No action required. The file will be tiered when the recall completes and the file is no longer in use. |
 | 0x80c80264 | -2134375836 | ECS_E_GHOSTING_FILE_NOT_SYNCED | The file failed to tier because it has not synced to the Azure file share. | No action required. The file will tier once it has synced to the Azure file share. |
-| 0x80070001 | -2147942401 | ERROR_INVALID_FUNCTION | The file failed to tier because the cloud tiering filter driver (storagesync.sys) is not running. | To resolve this issue, open an elevated command prompt and run the following command: `fltmc load storagesync`<br>If the storagesync filter driver fails to load when running the fltmc command, uninstall the Azure File Sync agent, restart the server and reinstall the Azure File Sync agent. |
+| 0x80070001 | -2147942401 | ERROR_INVALID_FUNCTION | The file failed to tier because the cloud tiering filter driver (storagesync.sys) is not running. | To resolve this issue, open an elevated command prompt and run the following command: `fltmc load storagesync`<br>If the Azure File Sync filter driver fails to load when running the fltmc command, uninstall the Azure File Sync agent, restart the server and reinstall the Azure File Sync agent. |
 | 0x80070070 | -2147024784 | ERROR_DISK_FULL | The file failed to tier due to insufficient disk space on the volume where the server endpoint is located. | To resolve this issue, free at least 100 MB of disk space on the volume where the server endpoint is located. |
 | 0x80070490 | -2147023728 | ERROR_NOT_FOUND | The file failed to tier because it has not synced to the Azure file share. | No action required. The file will tier once it has synced to the Azure file share. |
 | 0x80c80262 | -2134375838 | ECS_E_GHOSTING_UNSUPPORTED_RP | The file failed to tier because it's an unsupported reparse point. | If the file is a Data Deduplication reparse point, follow the steps in the [planning guide](file-sync-planning.md#data-deduplication) to enable Data Deduplication support. Files with reparse points other than Data Deduplication are not supported and will not be tiered.  |
@@ -1197,7 +1215,7 @@ If the above conditions are not met, restoring access is not possible as these t
 
 **Notes**
 - When tiered files are not accessible on the server, the full file should still be accessible if you access the Azure file share directly.
-- To prevent orphaned tiered files in the future, follow the steps documented in [Remove a server endpoint](file-sync-server-endpoint.md#remove-a-server-endpoint) when deleting a server endpoint.
+- To prevent orphaned tiered files in the future, follow the steps documented in [Remove a server endpoint](file-sync-server-endpoint-delete.md) when deleting a server endpoint.
 
 <a id="get-orphaned"></a>**How to get the list of orphaned tiered files** 
 
@@ -1217,8 +1235,8 @@ $orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
 This option deletes the orphaned tiered files on the Windows Server but requires removing the server endpoint if it exists due to recreation after 30 days or is connected to a different sync group. File conflicts will occur if files are updated on the Windows Server or Azure file share before the server endpoint is recreated.
 
 1. Verify Azure File Sync agent version v5.1 or later is installed.
-2. Backup the Azure file share and server endpoint location.
-3. Remove the server endpoint in the sync group (if exists) by following the steps documented in [Remove a server endpoint](file-sync-server-endpoint.md#remove-a-server-endpoint).
+2. Back up the Azure file share and server endpoint location.
+3. Remove the server endpoint in the sync group (if exists) by following the steps documented in [Remove a server endpoint](file-sync-server-endpoint-delete.md).
 
 > [!Warning]  
 > If the server endpoint is not removed prior to using the Remove-StorageSyncOrphanedTieredFiles cmdlet, deleting the orphaned tiered file on the server will delete the full file in the Azure file share. 

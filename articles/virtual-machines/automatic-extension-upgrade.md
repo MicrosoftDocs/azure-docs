@@ -6,8 +6,8 @@ ms.service: virtual-machines
 ms.subservice: automatic-extension-upgrade
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 02/12/2020
-ms.author: manayar 
+ms.date: 07/29/2020
+ms.author: manayar
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -28,7 +28,7 @@ Automatic Extension Upgrade is available in preview for Azure VMs and Azure Virt
 
 
 > [!IMPORTANT]
-> Automatic Extension Upgrade is currently in Public Preview. An opt-in procedure is needed to use the public preview functionality described below.
+> Automatic Extension Upgrade is currently in Public Preview.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -39,7 +39,7 @@ The extension upgrade process replaces the existing extension version on a VM wi
 A failed extension update is automatically retried. A retry is attempted every few days automatically without user intervention.
 
 ### Availability-first Updates
-The availability-first model for platform orchestrated updates will ensure that availability configurations in Azure are respected across multiple availability levels.
+The availability-first model for platform orchestrated updates ensures that availability configurations in Azure are respected across multiple availability levels.
 
 For a group of virtual machines undergoing an update, the Azure platform will orchestrate updates:
 
@@ -50,8 +50,8 @@ For a group of virtual machines undergoing an update, the Azure platform will or
 - The success of an update is measured by tracking the health of a VM post update. VM health is tracked through platform health indicators for the VM. For Virtual Machine Scale Sets, the VM health is tracked through application health probes or the Application Health extension, if applied to the scale set.
 
 **Within a region:**
-- VMs in different Availability Zones are not updated concurrently.
-- Single VMs not part of an availability set are batched on a best effort basis to avoid concurrent updates for all VMs in a subscription.  
+- VMs in different Availability Zones are not updated concurrently with the same update.
+- Single VMs that are not part of an availability set are batched on a best effort basis to avoid concurrent updates for all VMs in a subscription.  
 
 **Within a 'set':**
 - All VMs in a common availability set or scale set are not updated concurrently.  
@@ -77,70 +77,9 @@ The preview of Automatic Extension Upgrade supports the following extensions (an
 - [Application Health Extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md) – Windows and Linux
 
 
-## Enabling preview access
-Enabling the preview functionality requires a one-time opt-in for the feature **AutomaticExtensionUpgradePreview** per subscription, as detailed below.
-
-### REST API
-The following example describes how to enable the preview for your subscription:
-
-```
-POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/AutomaticExtensionUpgradePreview/register?api-version=2015-12-01`
-```
-
-Feature registration can take up to 15 minutes. To check the registration status:
-
-```
-GET on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/AutomaticExtensionUpgradePreview?api-version=2015-12-01`
-```
-
-Once the feature has been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider.
-
-```
-POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Compute/register?api-version=2020-06-01`
-```
-
-### Azure PowerShell
-Use the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) cmdlet to enable the preview for your subscription.
-
-```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName AutomaticExtensionUpgradePreview -ProviderNamespace Microsoft.Compute
-```
-
-Feature registration can take up to 15 minutes. To check the registration status:
-
-```azurepowershell-interactive
-Get-AzProviderFeature -FeatureName AutomaticExtensionUpgradePreview -ProviderNamespace Microsoft.Compute
-```
-
-Once the feature has been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider.
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-```
-
-### Azure CLI
-Use [az feature register](/cli/azure/feature#az_feature_register) to enable the preview for your subscription.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.Compute --name AutomaticExtensionUpgradePreview
-```
-
-Feature registration can take up to 15 minutes. To check the registration status:
-
-```azurecli-interactive
-az feature show --namespace Microsoft.Compute --name AutomaticExtensionUpgradePreview
-```
-
-Once the feature has been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-```
-
-
 ## Enabling Automatic Extension Upgrade
-To enable Automatic Extension Upgrade for an extension, you must ensure the property *enableAutomaticUpgrade* is set to *true* and added to every extension definition individually.
 
+To enable Automatic Extension Upgrade for an extension, you must ensure the property `enableAutomaticUpgrade` is set to `true` and added to every extension definition individually.
 
 ### REST API for Virtual Machines
 To enable automatic extension upgrade for an extension (in this example the Dependency Agent extension) on an Azure VM, use the following:

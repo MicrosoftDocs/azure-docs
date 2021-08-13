@@ -279,7 +279,7 @@ You will install Azure PowerShell modules on your client that will work with you
     If you used PowerShell core 7.0 and later, the example output below indicates that the Az version 1.10.0 modules were installed successfully.
     
     ```output
-    <!-- this doesn't look correct. Neeraj to provide one for PS core-->
+   
     PS C:\windows\system32> Install-Module -Name Az.BootStrapper
     PS C:\windows\system32> Use-AzProfile -Profile 2020-09-01-hybrid -Force
     Loading Profile 2020-09-01-hybrid

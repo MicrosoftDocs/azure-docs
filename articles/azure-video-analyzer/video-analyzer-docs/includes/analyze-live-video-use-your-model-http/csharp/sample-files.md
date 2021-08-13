@@ -22,7 +22,7 @@ The deployment template refers to the deployment manifest for the edge device. I
         * Invokes direct methods to clean up resources.
 1. Edit the operations.json file:
 
-    * Change the link to the pipelineTopology<br/>`"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/httpExtension/topology.json"`
-    * Under livePipelineSet, edit the name of the pipelineTopology to match the value in the preceding link:<br/>`"pipelineTopologyName" : "InferencingWithHttpExtension"`
-    * Under PipelineTopologyDelete, edit the name:<br/>`"name": "InferencingWithHttpExtension"`
+    * Change the link to the pipelineTopology<br/>`"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/motion-with-httpExtension/topology.json"`
+    * Under livePipelineSet, edit the name of the pipelineTopology to match the value in the preceding link:<br/>`"pipelineTopologyName" : "EVROnMotionPlusHttpExtension"`
+    * Under PipelineTopologyDelete, edit the name:<br/>`"name": "EVROnMotionPlusHttpExtension"`
     

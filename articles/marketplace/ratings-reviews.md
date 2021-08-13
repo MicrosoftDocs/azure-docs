@@ -17,7 +17,7 @@ This article provides information on the Ratings & Reviews dashboard in Partner 
 - Reviews are posted on the Reviews tab on the product display page of the offer in Azure Marketplace or AppSource. Customers can include their name or post anonymously.  
 
 >[!NOTE]
-> For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](analytics-faq.md).
+> For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](analytics-faq.yml).
 
 ## Access the dashboard
 

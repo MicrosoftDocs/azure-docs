@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Bpanda for automatic user provisioning with Azure Ac
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Bpanda.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 57e424f8-6fbc-4701-a312-899b562589ea
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Bpanda for automatic user provisioning

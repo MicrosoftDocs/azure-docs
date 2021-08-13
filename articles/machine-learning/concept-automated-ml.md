@@ -14,21 +14,23 @@ ms.custom: automl
 
 # What is automated machine learning (AutoML)?
 
-Automated machine learning, also referred to as automated ML or AutoML, is the process of automating the time consuming, iterative tasks of machine learning model development. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality. Automated ML in Azure Machine Learning is based on a breakthrough from our [Microsoft Research division](https://www.microsoft.com/research/project/automl/).
+Automated machine learning, also referred to as automated ML or AutoML, is the process of automating the time-consuming, iterative tasks of machine learning model development. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality. Automated ML in Azure Machine Learning is based on a breakthrough from our [Microsoft Research division](https://www.microsoft.com/research/project/automl/).
 
 Traditional machine learning model development is resource-intensive, requiring significant domain knowledge and time to produce and compare dozens of models. With automated machine learning, you'll accelerate the time it takes to get production-ready ML models with great ease and efficiency.
 
-## AutoML in Azure Machine Learning
+## Ways to use AutoML in Azure Machine Learning
 
 Azure Machine Learning offers the following two experiences for working with automated ML. See the following sections to understand [feature availability in each experience](#parity).
 
-* For code experienced customers, [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro).  Get started with [Tutorial: Use automated machine learning to predict taxi fares](tutorial-auto-train-models.md).
+* For code-experienced customers, [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro).  Get started with [Tutorial: Use automated machine learning to predict taxi fares](tutorial-auto-train-models.md).
 
-* For limited/no code experience customers, Azure Machine Learning studio at [https://ml.azure.com](https://ml.azure.com/).  Get started with these tutorials:
+* For limited/no-code experience customers, Azure Machine Learning studio at [https://ml.azure.com](https://ml.azure.com/).  Get started with these tutorials:
     * [Tutorial: Create a classification model with automated ML in Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
     *  [Tutorial: Forecast demand with automated machine learning](tutorial-automated-ml-forecast.md)
 
 <a name="parity"></a>
+
+## AutoML settings and configuration
 
 ### Experiment settings 
 
@@ -75,7 +77,7 @@ These settings allow you to review and control your experiment runs and its chil
 |**Get guardrails**| ✓|✓|
 |**Pause & resume runs**| ✓| |
 
-## When to use AutoML: classify, regression, & forecast
+## When to use AutoML: classification, regression, & forecasting
 
 Apply automated ML when you want Azure Machine Learning to train and tune a model for you using the target metric you specify. Automated ML democratizes the machine learning model development process, and empowers its users, no matter their data science expertise, to identify an end-to-end machine learning pipeline for any problem.
 
@@ -244,15 +246,6 @@ Consider these pros and cons when choosing to use local vs. remote.
 | Register and visualize experiment's info and metrics in UI | ✓      | ✓     |
 | Data guardrails                                            | ✓      | ✓     |
 
-## Many models 
-
-The [Many Models Solution Accelerator](https://aka.ms/many-models) (preview) builds on Azure Machine Learning and enables you to use automated ML to train, operate, and manage hundreds or even thousands of machine learning models.
-
-For example, building a model __for each instance or individual__ in the following scenarios can lead to improved results:
-
-* Predicting sales for each individual store
-* Predictive maintenance for hundreds of oil wells
-* Tailoring an experience for individual users.
 
 <a name="use-with-onnx"></a>
 
@@ -262,7 +255,7 @@ With Azure Machine Learning, you can use automated ML to build a Python model an
 
 See how to convert to ONNX format [in this Jupyter notebook example](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb). Learn which [algorithms are supported in ONNX](how-to-configure-auto-train.md#select-your-experiment-type).
 
-The ONNX runtime also supports C#, so you can use the model built automatically in your C# apps without any need for recoding or any of the network latencies that REST endpoints introduce. Learn more about [using an AutoML ONNX model in a .NET application with ML.NET](./how-to-use-automl-onnx-model-dotnet.md) and [inferencing ONNX models with the ONNX runtime C# API](https://github.com/plaidml/onnxruntime/blob/plaidml/docs/CSharp_API.md). 
+The ONNX runtime also supports C#, so you can use the model built automatically in your C# apps without any need for recoding or any of the network latencies that REST endpoints introduce. Learn more about [using an AutoML ONNX model in a .NET application with ML.NET](./how-to-use-automl-onnx-model-dotnet.md) and [inferencing ONNX models with the ONNX runtime C# API](https://www.onnxruntime.ai/docs/reference/api/csharp-api.html). 
 
 ## Next steps
 

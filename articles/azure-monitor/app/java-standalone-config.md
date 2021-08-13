@@ -423,7 +423,7 @@ The setting applies to all of these metrics:
 > [!NOTE]
 > Authentication feature is available starting from version 3.2.0-BETA
 
-It allows you to configure agent to generate [token credentials](https://go.microsoft.com/fwlink/?linkid=2163810) that are required for Azure Active Directory Authentication.
+It allows you to configure agent to generate [token credentials](/java/api/overview/azure/identity-readme#credentials) that are required for Azure Active Directory Authentication.
 For more information, check out the [Authentication](./azure-ad-authentication.md) documentation.
 
 ## Self-diagnostics

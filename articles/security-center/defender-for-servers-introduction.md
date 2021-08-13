@@ -23,12 +23,14 @@ For Linux, Azure Defender collects audit records from Linux machines by using **
 
 The threat detection and protection capabilities provided with Azure Defender for servers include:
 
-- **Integrated license for Microsoft Defender for Endpoint (Windows only)** - Azure Defender for servers includes  [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender). Together, they provide comprehensive endpoint detection and response (EDR) capabilities. For more information, see [Protect your endpoints](security-center-wdatp.md).
+- **Integrated license for Microsoft Defender for Endpoint** - Azure Defender for servers includes  [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender). Together, they provide comprehensive endpoint detection and response (EDR) capabilities. For more information, see [Protect your endpoints](security-center-wdatp.md).
 
     When Defender for Endpoint detects a threat, it triggers an alert. The alert is shown in Security Center. From Security Center, you can also pivot to the Defender for Endpoint console, and perform a detailed investigation to uncover the scope of the attack. Learn more about Microsoft Defender for Endpoint.
 
     > [!IMPORTANT]
-    > The **Microsoft Defender for Endpoint** sensor is automatically enabled on Windows servers that use Security Center.
+    > The **Microsoft Defender for Endpoint** sensor is automatically enabled on Windows machines that use Security Center.
+    >
+    > We're currently offering the sensor for Linux machines in preview. Learn more in [Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint](security-center-wdatp.md). 
 
 - **Vulnerability assessment scanning for VMs** - The vulnerability scanner included with Azure Security Center is powered by Qualys. 
 
@@ -42,7 +44,7 @@ The threat detection and protection capabilities provided with Azure Defender fo
 
     When you enable Azure Defender for servers, you can use FIM to validate the integrity of Windows files, your Windows registries, and Linux files. For more information, see [File integrity monitoring in Azure Security Center](security-center-file-integrity-monitoring.md).
 
-- **Adaptive application controls (AAC)** - Adaptive application controls are an intelligent and automated solution for defining allow lists of known-safe applications for your machines.
+- **Adaptive application controls (AAC)** - Adaptive application controls are an intelligent and automated solution for defining allowlists of known-safe applications for your machines.
 
     When you've enabled and configured adaptive application controls, you'll get security alerts if any application runs other than the ones you've defined as safe. For more information, see [Use adaptive application controls to reduce your machines' attack surfaces](security-center-adaptive-application.md).
 

@@ -5,6 +5,7 @@ author: shirleywangmsft
 ms.author: shwang
 ms.service: data-factory
 ms.topic: how-to
+ms.custom: subject-cost-optimization
 ms.date: 04/28/2021
 ---
 

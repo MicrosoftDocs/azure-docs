@@ -28,7 +28,7 @@ The following section details the parameters when creating a public IP prefix.
    |IP version|Yes| IP version of the prefix (v4 or v6).
    |Prefix size|Yes| The size of the prefix you need. A range with 16 IP addresses (/28 for v4 or /124 for v6) is the default.
 
-Instead, you may use the CLI and PowerShell commands below to create a public IP address prefix.
+Alternatively, you may use the CLI and PowerShell commands below to create a public IP address prefix.
 
 **Commands**
 
@@ -50,7 +50,7 @@ The following section details the parameters required when creating a static pub
    |Idle timeout (minutes)|No|How many minutes to keep a TCP or HTTP connection open without relying on clients to send keep-alive messages. |
    |DNS name label|No|Must be unique within the Azure region you create the name in (across all subscriptions and all customers). Azure automatically registers the name and IP address in its DNS so you can connect to a resource with the name. Azure appends a default subnet *location.cloudapp.azure.com* to the name you provide to create the fully qualified DNS name. For more information, see [Use Azure DNS with an Azure public IP address](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
 
-Instead you may use the CLI and PowerShell commands below with the **--public-ip-prefix (CLI)** and **-PublicIpPrefix (PowerShell)** parameters, to create a public IP address resource. 
+Alternatively, you may use the CLI and PowerShell commands below with the **--public-ip-prefix (CLI)** and **-PublicIpPrefix (PowerShell)** parameters, to create a public IP address resource from a prefix. 
 
 |Tool|Command|
 |---|---|

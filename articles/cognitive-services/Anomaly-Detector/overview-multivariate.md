@@ -33,10 +33,9 @@ To learn how to call the Anomaly Detector API (multivariate), try this [Notebook
 
 To run the Notebook, you should get a valid Anomaly Detector API **subscription key** and an **API endpoint**. In the notebook, add your valid Anomaly Detector API subscription key to the `subscription_key` variable, and change the `endpoint` variable to your endpoint.
 
-
 ## Region support
 
-The preview of Anomaly Detector multivariate is currently available in six regions: West US2, West Europe, East US2, South Central US, East US, and UK South.
+The preview of Anomaly Detector multivariate is currently available in 10 Azure regions: Southeast Asia, Australia East, Canada Central, North Europe, West Europe, East US, East US 2, South Central US, West US 2, and UK South.
 
 ## Algorithms
 

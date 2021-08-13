@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 04/27/2021
+ms.date: 07/30/2021
 tags: connectors
 ---
 
@@ -46,7 +46,7 @@ This article explains how you can access your SAP resources from Logic Apps usin
     * Set up your SAP gateway security permissions with this setting: 
     `"TP=Microsoft.PowerBI.EnterpriseGateway HOST=<gateway-server-IP-address> ACCESS=*"`
 
-    * Set up your SAP gateway security logging to help find Access Control List (ACL). For more information, see the [SAP help topic for setting up gateway logging](https://help.sap.com/erp_hcm_ias2_2015_02/helpdata/en/48/b2a710ca1c3079e10000000a42189b/frameset.htm). Otherwise, you will receive this error:
+    * Set up your SAP gateway security logging to help find Access Control List (ACL). For more information, see the [SAP help topic for setting up gateway logging](https://help.sap.com/erp_hcm_ias2_2015_02/helpdata/en/48/b2a710ca1c3079e10000000a42189b/frameset.htm). Otherwise, you might receive this error:
     `"Registration of tp Microsoft.PowerBI.EnterpriseGateway from host <host-name> not allowed"`
 
     > [!NOTE]
@@ -70,7 +70,7 @@ The SAP connector supports the following message and data integration types from
 
 The SAP connector uses the [SAP .NET Connector (NCo) library](https://support.sap.com/en/product/connectors/msnet.html). 
 
-To use the available [SAP trigger](#triggers) and [SAP actions](#actions), you need to first authenticate your connection with a username and password. The SAP connector also supports [Secure Network Communications (SNC)](https://help.sap.com/doc/saphelp_nw70/7.0.31/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true). You can use SNC for SAP NetWeaver single sign-on (SSO), or for additional security capabilities from external products. If you use SNC, see the [SNC prerequisites](#snc-prerequisites).
+To use the available [SAP trigger](#triggers) and [SAP actions](#actions), you need to first authenticate your connection. You can authenticate your connection with a username and password. The SAP connector also supports [SAP Secure Network Communications (SNC)](https://help.sap.com/doc/saphelp_nw70/7.0.31/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true) for authentication. You can use SNC for SAP NetWeaver single sign-on (SSO), or for additional security capabilities from external products. If you use SNC, see the [SNC prerequisites](#snc-prerequisites) and the [SNC prerequisites for the ISE connector](#snc-prerequisites-ise).
 
 ### Migrate to current connector
 
@@ -135,7 +135,7 @@ These prerequisites apply if you're running your logic app in a Premium-level IS
  
   1. Select **Create** to finish creating your ISE connector.
 
-1. If your SAP instance and ISE are in different virtual networks, you also need to [peer those networks](../virtual-network/tutorial-connect-virtual-networks-portal.md) so they are connected.
+1. If your SAP instance and ISE are in different virtual networks, you also need to [peer those networks](../virtual-network/tutorial-connect-virtual-networks-portal.md) so they are connected. Also see the [SNC prerequisites for the ISE connector](#snc-prerequisites-ise).
 
 ### SAP client library prerequisites
 
@@ -171,13 +171,93 @@ Note the following relationships between the SAP client library, the .NET Framew
 
 ### SNC prerequisites
 
-If you use an on-premises data gateway with optional SNC, which is only supported in multi-tenant Azure, you must configure these additional settings.
+If you use an on-premises data gateway with optional SNC, which is only supported in multi-tenant Azure, you must configure these additional settings. If you're using an ISE, see the [SNC prerequisites for the ISE connector](#snc-prerequisites-ise)
 
 If you're using SNC with SSO, make sure the data gateway service is running as a user who is mapped against the SAP user. To change the default account, select **Change account**, and enter the user credentials.
 
 ![Screenshot of On-premises data gateway settings in the Azure Portal, showing Service Settings page with button to change the gateway service account selected.](./media/logic-apps-using-sap-connector/gateway-account.png)
 
 If you're enabling SNC through an external security product, copy the SNC library or files on the same computer where your data gateway is installed. Some examples of SNC products include [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), Kerberos, and NTLM. For more information about enabling SNC for the data gateway, see [Enable Secure Network Communications](#enable-secure-network-communications).
+
+> [!TIP]
+> The version of your SNC library and its dependencies must be compatible with your SAP environment.
+> * You must use `sapgenpse.exe` specifically as the SAPGENPSE utility.
+> * If you use an on-premises data gateway, also copy these same binary files to the installation folder there.
+>  * If PSE is provided in your connection, you don't need to copy and set up PSE and SECUDIR for your on-premises data gateway.
+>  * You can also use your on-premises data gateway to troubleshoot any library compatibility issues.
+
+#### SNC prerequisites (ISE)
+
+The ISE version of the SAP connector supports SNC X.509. You can enable SNC for your SAP ISE connections as follows.
+
+> [!IMPORTANT]
+> Before you redeploy an existing SAP connector to use SNC, you must delete all connections to the old connector. Multiple logic apps can use the same connection to SAP. As such, you must delete any SAP connections from all your logic apps in the ISE. Then, you must delete the old connector.
+> 
+> When you delete an old connector, you can still keep logic apps that use this connector. After you redeploy the connector, you can then authenticate the new connection in your SAP triggers and actions in these logic apps.  
+
+First, if you have already deployed the SAP connector without the SNC or SAPGENPSE libraries, delete all the connections and the connector.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Delete all connections to your SAP connector from your logic apps.
+    1. Open your logic app resource in the Azure portal.
+    1. In your logic app's menu, under **Development Tools**, select **API connections**.
+    1. On the **API connections** page, select your SAP connection.
+    1. On the connection's page menu, select **Delete**.
+    1. Accept the confirmation prompt to delete the connection.
+    1. Wait for the portal notification that the connection has been deleted.
+1. Or, delete connections to your SAP connector from your ISE's API connections.
+    1. Open your ISE resource in the Azure portal.
+    1. In your ISE's menu, under **Settings**, select **API connections**.
+    1. On the **API connections** page, select your SAP connection.
+    1. On the connection's page menu, select **Delete**.
+    1. Accept the confirmation prompt to delete the connection.
+    1. Wait for the portal notification that the connection has been deleted.
+
+Next, delete the SAP connector from your ISE. You must delete all connections to this connector in all your logic apps before you can delete the connector. If you haven't already deleted all connections, see the previous set of steps.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Open your ISE resource in the Azure portal again.
+1. In your ISE's menu, under **Settings**, select **Managed connectors**.
+1. On the **Managed connectors** page, select the checkbox for your SAP connector.
+1. In the toolbar, select **Delete**.
+1. Accept the confirmation prompt to delete the connector.
+1. Wait for the portal notification that the connector has been deleted.
+
+Next, deploy or redeploy the SAP connector in your ISE:
+
+1. Prepare a new zip archive file to use in your SAP connector deployment. You must include the SNC library and the SAPGENPSE utility.
+    1. Copy all SNC, SAPGENPSE, and NCo libraries to the root folder of your zip archive. Don't put these binaries in subfolders.
+    1. You must use the 64-bit SNC library. There is no support for 32-bit.
+    1. Your SNC library and its dependencies must be compatible with your SAP environment. For how to check compatibility, the [ISE prerequisites](#ise-prerequisites).
+1. Follow the deployment steps in [ISE prerequisites](#ise-prerequisites) with your new zip archive.
+
+Last, create new connections that use SNC in all your logic apps that use the SAP connector. For each:
+
+1. Open your workflow in the Logic Apps Designer again.
+1. Create or edit a step that uses the SAP connector.
+1. Enter required information about your SAP connection. 
+    :::image type="content" source=".\media\logic-apps-using-sap-connector\ise-connector-settings.png" alt-text="Screenshot of Logic Apps Designer, showing SAP connection settings." lightbox=".\media\logic-apps-using-sap-connector\ise-connector-settings.png":::
+    > [!NOTE]
+    > The fields **SAP Username** and **SAP Password** are optional. If you don't provide a username and password, the connector uses the client certificate provided in a later step for authentication.
+1. Enable SNC. 
+    1. For **Use SNC**, select the checkbox.
+    1. For **SNC Library**, enter the name of your SNC library. For example, `sapcrypto.dll`.
+    1. For **SNC Partner Name**, enter the backend's SNC name. For example, `p:CN=DV3, OU=LA, O=MS, C=US`.
+    1. For **SNC Certificate**, enter your SNC client's public certificate in base64-encoded format. Don't include the PEM header or footer.
+    1. Optionally, enter SNC settings for **SNC My Name**, **SNC Quality of Protection** as needed.
+    :::image type="content" source=".\media\logic-apps-using-sap-connector\ise-connector-settings-snc.png" alt-text="Screenshot of Logic Apps Designer, showing SNC configuration settings for a new SAP connection." lightbox=".\media\logic-apps-using-sap-connector\ise-connector-settings-snc.png":::
+1. Configure PSE settings. 
+    1. For **PSE**, enter your SNC PSE as a base64-encoded binary.
+    1. The PSE must contain the private client certificate, which thumbprint matches the public client certificate that you provided in the previous step.
+    1. The PSE may contain additional client certificates. 
+    1. The PSE must have no PIN. If needed, set the PIN to empty using the SAPGENPSE utility. 
+    1. For certificate rotation, update the base64-encoded binary PSE for all connections that use SAP ISE X.509 in your ISE. Import the new certificates into your copy of the PSE. Then, encode the PSE file as a base64-encoded binary. Then, edit the API connection for your SAP connector and save the new PSE file there. The connector detects the PSE change and updates its own copy during the next connection request.
+    > [!NOTE]
+    > If you're using more than one SNC client certificate for your ISE, you must provide the same PSE for all connections. You can set the client public certificate parameter to specific the certificate for each connection used in your ISE.
+1. Select **Create** to create your connection. If the parameters are correct, the connection is created. If there's a problem with the parameters, the connection creation dialog displays an error message.
+    > [!TIP]
+    > To troubleshoot connection parameter issues, you can use an on-premises data gateway and the gateway's local logs.
+1. On the Logic Apps Designer toolbar, select **Save** to save your changes.
 
 ## Send IDoc messages to SAP server
 
@@ -726,7 +806,7 @@ To send IDocs from SAP to your logic app, you need the following minimum configu
     
     * For your **RFC Destination**, enter a name.
     
-    * On the **Technical Settings** tab, for **Activation Type**, select **Registered Server Program**. For your **Program ID**, enter a value. In SAP, your logic app's trigger will be registered by using this identifier.
+    * On the **Technical Settings** tab, for **Activation Type**, select **Registered Server Program**. For your **Program ID**, enter a value. In SAP, your logic app's trigger is registered by using this identifier.
 
     > [!IMPORTANT]
     > The SAP **Program ID** is case-sensitive. Make sure you consistently use the same case format for your **Program ID** when you configure your logic app and SAP server. Otherwise, you might receive the following errors in the tRFC Monitor (T-Code SM58) when you attempt to send an IDoc to SAP:

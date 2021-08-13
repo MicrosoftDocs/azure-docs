@@ -10,7 +10,7 @@ author: lostmygithubaccount
 ms.author: copeters
 ms.date: 06/18/2021
 ms.reviewer: laobri
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devplatv2
 ---
 
 # Train models (create jobs) with the 2.0 CLI (preview)
@@ -164,7 +164,7 @@ Create job and open in the studio:
 
 ## Distributed training
 
-You can specify the `distributed` section in a command job. Azure ML supports distributed training for PyTorch, Tensorflow, and MPI compatible frameworks. PyTorch and TensorFlow enable native distributed training for the respective frameworks, such as `tf.distributed.Strategy` APIs for TensorFlow.
+You can specify the `distribution` section in a command job. Azure ML supports distributed training for PyTorch, Tensorflow, and MPI compatible frameworks. PyTorch and TensorFlow enable native distributed training for the respective frameworks, such as `tf.distributed.Strategy` APIs for TensorFlow.
 
 Be sure to set the `compute.instance_count`, which defaults to 1, to the desired number of nodes for the job.
 

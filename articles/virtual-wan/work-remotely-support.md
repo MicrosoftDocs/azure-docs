@@ -2,7 +2,7 @@
 title: 'Azure Virtual WAN and working remotely'
 description: Learn how you can leverage Azure Virtual WAN to enable working remotely due to the COVID-19 pandemic.
 services: virtual-wan
-author: reyandap
+author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
@@ -53,7 +53,7 @@ Virtual WAN supports one hub per region/location. For location information, see 
 
 ## <a name="faq"></a>FAQ
 
-[!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
+See the [Virtual WAN FAQ](virtual-wan-faq.md).
 
 ## Next Steps
 

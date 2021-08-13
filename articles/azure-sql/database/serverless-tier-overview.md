@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: MashaMSFT, wiassaf
+ms.reviewer: mathoma, wiassaf
 ms.date: 7/29/2021
 ---
 # Azure SQL Database serverless
@@ -91,7 +91,7 @@ Unlike provisioned compute databases, memory from the SQL cache is reclaimed fro
 
 In both serverless and provisioned compute databases, cache entries may be evicted if all available memory is used.
 
-Note that when CPU utilization is low, active cache utilization can remain high depending on the usage pattern and prevent memory reclamation.  Also, there can be additional delays after user activity stops before memory reclamation occurs due to periodic background processes responding to prior user activity.  For example, delete operations and Query Store cleanup tasks generate ghost records that are marked for deletion, but are not physically deleted until the ghost cleanup process runs. Ghost cleanup may involve reading additional data pages into cache.
+When CPU utilization is low, active cache utilization can remain high depending on the usage pattern and prevent memory reclamation.  Also, there can be other delays after user activity stops before memory reclamation occurs due to periodic background processes responding to prior user activity.  For example, delete operations and Query Store cleanup tasks generate ghost records that are marked for deletion, but are not physically deleted until the ghost cleanup process runs. Ghost cleanup may involve reading additional data pages into cache.
 
 #### Cache hydration
 
@@ -155,7 +155,7 @@ If the result set is non-empty, it indicates that there are sessions currently p
 
 If the result set is empty, it is still possible that sessions were open, possibly for a short time, at some point earlier during the auto-pause delay period. To see if such activity has occurred during the delay period, you can use [Azure SQL Auditing](auditing-overview.md) and examine audit data for the relevant period.
 
-The presence of open sessions, with or without concurrent CPU utilization in the user resource pool, is the most common reason for a serverless database to not auto-pause as expected. Note that the some [features](#auto-pausing) do not support auto-pausing, but do support auto-scaling.
+The presence of open sessions, with or without concurrent CPU utilization in the user resource pool, is the most common reason for a serverless database to not auto-pause as expected. Note that some [features](#auto-pausing) don't support auto-pausing, but do support auto-scaling.
 
 ### Auto-resuming
 

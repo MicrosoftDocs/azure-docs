@@ -82,4 +82,4 @@ The [Power BI Solution for Azure IoT Central V3](https://appsource.microsoft.com
 
 ## Next steps
 
-Now that you've learned how to visualize your data in Power BI, the suggested next step is to learn [How to manage devices](howto-manage-devices.md).
+Now that you've learned how to visualize your data in Power BI, the suggested next step is to learn [How to manage devices](howto-manage-devices-individually.md).

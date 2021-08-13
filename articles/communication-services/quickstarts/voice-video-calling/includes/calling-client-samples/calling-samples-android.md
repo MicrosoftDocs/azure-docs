@@ -406,12 +406,6 @@ To see if the current microphone is muted, inspect the `muted` property:
 boolean muted = call.isMuted();
 ```
 
-To see if the current call is being recorded, inspect the `isRecordingActive` property:
-
-```java
-boolean recordingActive = call.isRecordingActive();
-```
-
 To inspect active video streams, check the `localVideoStreams` collection:
 
 ```java
@@ -427,7 +421,22 @@ Context appContext = this.getApplicationContext();
 call.mute(appContext).get();
 call.unmute(appContext).get();
 ```
+### Change the volume of the call
+	
+While you are in a call, the hardware volume keys on the phone should allow the user to change the call volume.
+This is done by using the method `setVolumeControlStream` with the stream type `AudioManager.STREAM_VOICE_CALL` on the Activity where the call is being placed.
+This allows the hardware volume keys to change the volume of the call (denoted by a phone icon or something similar on the volume slider), preventing to change the volume for other sound profiles, like alarms, media or system wide volume. For more information, you can check [Handling changes in audio output
+ | Android Developers](https://developer.android.com/guide/topics/media-apps/volume-and-earphones).
+	
+```java
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+	...
+	setVolumeControlStream(AudioManager.STREAM_VOICE_CALL);
+}
+```
 
+	
 ### Start and stop sending local video
 
 To start a video, you have to enumerate cameras using the `getCameraList` API on `deviceManager` object. Then create a new instance of `LocalVideoStream` passing the desired camera, and pass it in the `startVideo` API as an argument:
@@ -667,6 +676,95 @@ VideoStreamRendererView uiView = previewRenderer.createView(new RenderingOptions
 // Attach the uiView to a viewable location on the app at this point
 layout.addView(uiView);
 ```
+
+## Record calls
+> [!WARNING]
+> Up until version 1.1.0 and beta release version 1.1.0-beta.1 of the ACS Calling Android SDK has the `isRecordingActive` and `addOnIsRecordingActiveChangedListener` are part of the `Call` object. For new beta releases, those APIs have been moved as an extended feature of `Call` just like described below.
+
+> [!NOTE]
+> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Android SDK
+
+Call recording is an extended feature of the core `Call` API. You first need to obtain the recording feature API object:
+
+```java
+RecordingFeature callRecordingFeature = call.api(RecordingFeature.class);
+```
+
+Then, to check if the call is being recorded, inspect the `isRecordingActive` property of `callRecordingFeature`. It returns `boolean`.
+
+```java
+boolean isRecordingActive = callRecordingFeature.isRecordingActive();
+```
+
+You can also subscribe to recording changes:
+
+```java
+private void handleCallOnIsRecordingChanged(PropertyChangedEvent args) {
+	boolean isRecordingActive = callRecordingFeature.isRecordingActive();
+}
+
+callRecordingFeature.addOnIsRecordingActiveChangedListener(handleCallOnIsRecordingChanged);
+
+```
+
+If you want to start recording from your application, please first follow [Calling Recording overview](../../../../concepts/voice-video-calling/call-recording.md) for the steps to set up call recording.
+
+Once you have the call recording setup on your server, from your Android application you need to obtain the `ServerCallId` value from the call and then send it to your server to start the recording process. The `ServerCallId` value can be found using `getServerCallId()` from the `CallInfo` class, which can be found in the class object using `getInfo()`.
+
+```java
+try {
+	String serverCallId = call.getInfo().getServerCallId().get();
+	// Send serverCallId to your recording server to start the call recording.
+} catch (ExecutionException | InterruptedException e) {
+} catch (UnsupportedOperationException unsupportedOperationException) {
+}
+```
+
+When recording is started from the server, the event `handleCallOnIsRecordingChanged` will trigger and the value of `callRecordingFeature.isRecordingActive()` will be `true`.
+
+Just like starting the call recording, if you want to stop the call recording you need to get the `ServerCallId` and send it to your recording server so that it can stop the call recording.
+
+```java
+try {
+	String serverCallId = call.getInfo().getServerCallId().get();
+	// Send serverCallId to your recording server to stop the call recording.
+} catch (ExecutionException | InterruptedException e) {
+} catch (UnsupportedOperationException unsupportedOperationException) {
+}
+```
+
+When recording is stopped from the server, the event `handleCallOnIsRecordingChanged` will trigger and the value of `callRecordingFeature.isRecordingActive()` will be `false`.
+
+
+## Call transcription
+> [!WARNING]
+> Up until version 1.1.0 and beta release version 1.1.0-beta.1 of the ACS Calling Android SDK has the `isTranscriptionActive` and `addOnIsTranscriptionActiveChangedListener` are part of the `Call` object. For new beta releases, those APIs have been moved as an extended feature of `Call` just like described below.
+	
+> [!NOTE]
+> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Android SDK
+
+Call transcription is an extended feature of the core `Call` API. You first need to obtain the transcription feature API object:
+
+```java
+TranscriptionFeature callTranscriptionFeature = call.api(TranscriptionFeature.class);
+```
+
+Then, to check if the call is being transcribed, inspect the `isTranscriptionActive` property of `callTranscriptionFeature`. It returns `boolean`.
+
+```java
+boolean isTranscriptionActive = callTranscriptionFeature.isTranscriptionActive();
+```
+
+You can also subscribe to changes in transcription:
+
+```java
+private void handleCallOnIsTranscriptionChanged(PropertyChangedEvent args) {
+	boolean isTranscriptionActive = callTranscriptionFeature.isTranscriptionActive();
+}
+
+callTranscriptionFeature.addOnIsTranscriptionActiveChangedListener(handleCallOnIsTranscriptionChanged);
+
+```    
 
 ## Eventing model
 You can subscribe to most of the properties and collections to be notified when values change.

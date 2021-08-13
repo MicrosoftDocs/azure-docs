@@ -7,7 +7,7 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/06/2021
+ms.date: 07/20/2021
 ---
 
 # Sink transformation in mapping data flow
@@ -110,7 +110,7 @@ You can group sinks together by applying the same order number for a series of s
 
 ## Error row handling
 
-When writing to databases, certain rows of data may fail due to constraints set by the destination. By default, a data flow run will fail on the first error it gets. In certain connectors, you can choose to **Continue on error** that allows your data flow to complete even if individual rows have errors. Currently, this capability is only available in Azure SQL Database. For more information, see [error row handling in Azure SQL DB](connector-azure-sql-database.md#error-row-handling).
+When writing to databases, certain rows of data may fail due to constraints set by the destination. By default, a data flow run will fail on the first error it gets. In certain connectors, you can choose to **Continue on error** that allows your data flow to complete even if individual rows have errors. Currently, this capability is only available in Azure SQL Database and Synapse. For more information, see [error row handling in Azure SQL DB](connector-azure-sql-database.md#error-row-handling).
 
 Below is a video tutorial on how to use database error row handling automatically in your sink transformation.
 
