@@ -8,7 +8,7 @@ ms.date: 05/05/2021
 # Introducing StartupServices.xml in Service Fabric Application
 This feature introduces StartupServices.xml file in a Service Fabric Application design. This file hosts DefaultServices section of ApplicationManifest.xml. With this implementation, DefaultServices and Service definition-related parameters are moved from existing ApplicationManifest.xml to this new file called StartupServices.xml. This file is used in each functionalities (Build/Rebuild/F5/Ctrl+F5/Publish) in Visual Studio.
 
-Note - StartupServices.xml is not packaged as part of application package. This feature is not supported in DevOps pipeline and customer is expected to deploy individual services in Application either via ARM or through cmdlets with desired configuration. However, from Visual Studio it can published to local cluster or cloud as VS calls the script which calls individual services one by one under the hood.
+Note - StartupServices.xml is not packaged as part of application package. This feature is not supported in DevOps pipeline and customer is expected to deploy individual services in Application either via ARM or through cmdlets with desired configuration. However, from Visual Studio it can be published to local cluster or cloud as VS publishes using the script which calls individual services one by one under the hood.
 
 ## Existing Service Fabric Application Design
 For each service fabric application, ApplicationManifest.xml is the source of all service-related information for the application. ApplicationManifest.xml consists of all Parameters, ServiceManifestImport, and DefaultServices. Configuration parameters are mentioned in Cloud.xml/Local1Node.xml/Local5Node.xml files under ApplicationParameters.
