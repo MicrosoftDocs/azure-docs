@@ -37,7 +37,7 @@ To use an inline dataset, select the format you want in the **Sink type** select
 When using data flows in Azure Synapse workspaces, you will have an additional option to sink your data directly into a database type that is inside your Synapse workspace. This will alleviate the need to add linked services or datasets for those databases.
 
 > [!NOTE]
-> > The Azure Synapse Workspace DB connector is currently in public preview
+> The Azure Synapse Workspace DB connector is currently in public preview and can only work with Spark Lake databases at this time
 
 ![Screenshot that shows workspace db selected.](media/data-flow/syms-sink.png "Screenshot that shows Inline selected.")
 
