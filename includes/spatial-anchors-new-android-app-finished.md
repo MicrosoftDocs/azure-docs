@@ -5,12 +5,13 @@ services: azure-spatial-anchors
 
 ms.date: 08/05/2021
 ms.topic: include
-ms.author: pamistgel
+ms.author: pamistel
 ms.service: azure-spatial-anchors
 ---
 
 ```java
 package com.example.myfirstapp;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -78,21 +79,23 @@ public class MainActivity extends AppCompatActivity {
         initializeSession();
     }
 
-// <scene_OnUpdate>
+    // <scene_OnUpdate>
     private void scene_OnUpdate(FrameTime frameTime) {
-        if (!sessionInitialized){
+        if (!sessionInitialized) {
+            //retry initializing Session if it previously failed
             initializeSession();
         }
     }
-// </scene_OnUpdate>
-	
-// <initializeSession>
+    // </scene_OnUpdate>
+
+    // <initializeSession>
     private void initializeSession() {
-        if (sceneView.getSession() == null){
+        if (sceneView.getSession() == null) {
+            //ARCore Session is still being initialized, trying again next frame
             return;
         }
 
-        if (this.cloudSession != null){
+        if (this.cloudSession != null) {
             this.cloudSession.close();
         }
         this.cloudSession = new CloudSpatialAnchorSession();
@@ -107,8 +110,7 @@ public class MainActivity extends AppCompatActivity {
             synchronized (this.syncSessionProgress) {
                 this.recommendedSessionProgress = args.getStatus().getRecommendedForCreateProgress();
                 Log.i("ASAInfo", String.format("Session progress: %f", this.recommendedSessionProgress));
-                if (!this.scanningForUpload)
-                {
+                if (!this.scanningForUpload) {
                     return;
                 }
             }
@@ -119,42 +121,41 @@ public class MainActivity extends AppCompatActivity {
                             this.recommendedSessionProgress,
                             this.recommendedSessionProgress,
                             this.recommendedSessionProgress))
-                        .thenAccept(material -> {
-                            this.nodeRenderable.setMaterial(material);
-                        });
+                            .thenAccept(material -> {
+                                this.nodeRenderable.setMaterial(material);
+                            });
                 }
             });
         });
 
         this.cloudSession.addAnchorLocatedListener(args -> {
-            if (args.getStatus() == LocateAnchorStatus.Located)
-            {
-                runOnUiThread(()->{
+            if (args.getStatus() == LocateAnchorStatus.Located) {
+                runOnUiThread(() -> {
                     this.anchorNode = new AnchorNode();
                     this.anchorNode.setAnchor(args.getAnchor().getLocalAnchor());
                     MaterialFactory.makeOpaqueWithColor(this, new Color(android.graphics.Color.GREEN))
-                        .thenAccept(greenMaterial -> {
-                            this.nodeRenderable = ShapeFactory.makeSphere(0.1f, new Vector3(0.0f, 0.15f, 0.0f), greenMaterial);
-                            this.anchorNode.setRenderable(nodeRenderable);
-                            this.anchorNode.setParent(arFragment.getArSceneView().getScene());
+                            .thenAccept(greenMaterial -> {
+                                this.nodeRenderable = ShapeFactory.makeSphere(0.1f, new Vector3(0.0f, 0.15f, 0.0f), greenMaterial);
+                                this.anchorNode.setRenderable(nodeRenderable);
+                                this.anchorNode.setParent(arFragment.getArSceneView().getScene());
 
-                            this.anchorId = null;
-                            synchronized (this.syncTaps) {
-                                this.tapExecuted = false;
-                            }
-                        });
+                                this.anchorId = null;
+                                synchronized (this.syncTaps) {
+                                    this.tapExecuted = false;
+                                }
+                            });
                 });
             }
         });
 
-        this.cloudSession.getConfiguration().setAccountId(/* Copy your account Identifier in here */);
-        this.cloudSession.getConfiguration().setAccountKey(/* Copy your account Key in here */);
-        this.cloudSession.getConfiguration().setAccountDomain(/* Copy your account Domain in here */);
+        this.cloudSession.getConfiguration().setAccountId("6e581514-3161-46f5-a693-41cf3b46e20e");
+        this.cloudSession.getConfiguration().setAccountKey("KMDO4cUAuaRDc2BJB9dWzAOd8NWeYqv5sFbXwAabpWI=");
+        this.cloudSession.getConfiguration().setAccountDomain("westeurope.mixedreality.azure.com");
         this.cloudSession.start();
     }
-// </initializeSession>					   
-	
-// <handleTap>					   			  
+    // </initializeSession>
+
+    // <handleTap>
     protected void handleTap(HitResult hitResult, Plane plane, MotionEvent motionEvent) {
         synchronized (this.syncTaps) {
             if (this.tapExecuted) {
@@ -184,10 +185,10 @@ public class MainActivity extends AppCompatActivity {
                 this.recommendedSessionProgress,
                 this.recommendedSessionProgress,
                 this.recommendedSessionProgress))
-            .thenAccept(material -> {
-                this.nodeRenderable = ShapeFactory.makeSphere(0.1f, new Vector3(0.0f, 0.15f, 0.0f), material);
-                this.anchorNode.setRenderable(nodeRenderable);
-                this.anchorNode.setParent(arFragment.getArSceneView().getScene());
+                .thenAccept(material -> {
+                    this.nodeRenderable = ShapeFactory.makeSphere(0.1f, new Vector3(0.0f, 0.15f, 0.0f), material);
+                    this.anchorNode.setRenderable(nodeRenderable);
+                    this.anchorNode.setParent(arFragment.getArSceneView().getScene());
                 });
 
 
@@ -202,17 +203,18 @@ public class MainActivity extends AppCompatActivity {
                                     synchronized (this.syncTaps) {
                                         this.tapExecuted = false;
                                     }
-                                });				   
+                                });
                     });
                 });
     }
-// </handleTap>
+    // </handleTap>
 
-// <uploadCloudAnchorAsync>
-	 private CompletableFuture<String> uploadCloudAnchorAsync(CloudSpatialAnchor anchor) {
+    // <uploadCloudAnchorAsync>
+    private CompletableFuture<String> uploadCloudAnchorAsync(CloudSpatialAnchor anchor) {
         synchronized (this.syncSessionProgress) {
             this.scanningForUpload = true;
         }
+
 
         return CompletableFuture.runAsync(() -> {
             try {
@@ -232,9 +234,9 @@ public class MainActivity extends AppCompatActivity {
                 }
                 runOnUiThread(() -> {
                     MaterialFactory.makeOpaqueWithColor(this, new Color(android.graphics.Color.YELLOW))
-                        .thenAccept(yellowMaterial -> {
-                            this.nodeRenderable.setMaterial(yellowMaterial);
-                        });
+                            .thenAccept(yellowMaterial -> {
+                                this.nodeRenderable.setMaterial(yellowMaterial);
+                            });
                 });
 
                 this.cloudSession.createAnchorAsync(anchor).get();
@@ -244,7 +246,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }, executorService).thenApply(ignore -> anchor.getIdentifier());
     }
-// </uploadCloudAnchorAsync>
-								
+    // </uploadCloudAnchorAsync>
+
 }
 ```
