@@ -16,7 +16,7 @@ ms.custom: [contperf-fy21q1, device-developer]
 
 A device template is a blueprint that defines the characteristics and behaviors of a type of device that connects to an [Azure IoT Central application](concepts-app-templates.md).
 
-This article describes how to create a device template in IoT Central. For example, you can create a device template for a sensor that sends telemetry, such as temperature and humidity, and properties, such as location. From this device template, an operator can create and connect real devices.
+This article describes how to create a device template in IoT Central. For example, you can create a device template for a sensor that sends telemetry, such as temperature, and properties, such as location. From this device template, an operator can create and connect real devices.
 
 The following screenshot shows an example of a device template:
 
@@ -24,7 +24,7 @@ The following screenshot shows an example of a device template:
 
 The device template has the following sections:
 
-- Model - Use the model to define how your device interacts with your IoT Central application. Each model has a unique model ID and defines the capabilities of the device. Capabilities are grouped into interfaces that let you reuse components across models or use inheritance to extend the set of capabilities.
+- Model - Use the model to define how your device interacts with your IoT Central application. Each model has a unique model ID and defines the capabilities of the device. Capabilities are grouped into interfaces. Interfaces let you reuse components across models or use inheritance to extend the set of capabilities.
 - Cloud properties - Use cloud properties to define information that your IoT Central application stores about your devices. For example, a cloud property might record the date a device was last serviced.
 - Customize - Use customizations to modify capabilities. For example, specify the minimum and maximum temperature values for a property.
 - Views - Use views to visualize the data from the device, and forms to manage and control a device.
@@ -38,8 +38,8 @@ You have several options to create device templates:
 - Design the device template in the IoT Central GUI.
 - Import a device template from the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat). Optionally, customize the device template to your requirements in IoT Central.
 - When the device connects to IoT Central, have it send the model ID of the model it implements. IoT Central uses the model ID to retrieve the model from the model repository and to create a device template. Add any cloud properties, customizations, and views your IoT Central application needs to the device template.
-- When the device connects to IoT Central, let IoT Central [auto-generate a device template](#auto-generate-a-device-template) definition from the data the device sends.
-- Author a device model using the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Manually import the device model into your IoT Central application, and then add any cloud properties, customizations, and views your IoT Central application needs.
+- When the device connects to IoT Central, let IoT Central [autogenerate a device template](#autogenerate-a-device-template) definition from the data the device sends.
+- Author a device model using the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Manually import the device model into your IoT Central application. Then add the cloud properties, customizations, and views your IoT Central application needs.
 - You can also add device templates to an IoT Central application using the [REST API](/learn/modules/manage-iot-central-apps-with-rest-api/) or the [CLI](howto-manage-iot-central-from-cli.md).
 
 > [!NOTE]
@@ -53,11 +53,11 @@ This section shows you how to import a device template from the catalog and how 
 1. On the **Review** page, select **Create**.
 The name of the template you created is **Sensor Controller**. The model includes components such as **Sensor Controller**, **SensorTemp**, and **Device Information interface**. Components define the capabilities of an ESP32 device. Capabilities include the telemetry, properties, and commands.
 
-:::image type="content" source="media/howto-set-up-template/device-template.png" alt-text="Screenshot that shows a Sensor controller device template."::: 
+:::image type="content" source="media/howto-set-up-template/device-template.png" alt-text="Screenshot that shows a Sensor controller device template.":::
 
-## Auto-generate a device template
+## Autogenerate a device template
 
-You can also automatically create a device template from a connected device that hasn't yet been assigned to a device template. IoT Central generates a device template by scanning the data the device sends and inferring a model from the telemetry and property values.
+You can also automatically create a device template from a connected device that's not yet assigned to a device template. IoT Central uses the telemetry and property values the device sends to infer a device model.
 
 The following steps show how to use this feature:
 
@@ -83,7 +83,7 @@ To learn more about modifying and versioning device templates, see [Edit an exis
 
 ## Models
 
-The model defines how your device interacts with your IoT Central application. Customize your model with additional capabilities, add interfaces to inherit capabilities, or add new components that are based on other interfaces.
+The model defines how your device interacts with your IoT Central application. Customize your model with more capabilities, add interfaces to inherit capabilities, or add new components that are based on other interfaces.
 
 To create a device model, you can:
 
@@ -113,7 +113,7 @@ To view and manage the interfaces in your device model:
 
 1. To export a model or interface select **Export**.
 
-1. To view or edit DTDL for an interface, or a capability select **Edit DTDL**. 
+1. To view or edit the DTDL for an interface or a capability, select **Edit DTDL**.
 
 ### Capabilities
 
@@ -180,7 +180,7 @@ The following table shows the configuration settings for a command capability:
 | Display Name | The display name for the command used on views and forms. |
 | Name | The name of the command. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. This field needs to be alphanumeric. |
 | Capability Type | Command. |
-| Queue if offline | If enabled, you can call the command even if the device is offline. If not enabled, you can only call the command when the the device is online. |
+| Queue if offline | If enabled, you can call the command even if the device is offline. If not enabled, you can only call the command when the device is online. |
 | Comment | Any comments about the command capability. |
 | Description | A description of the command capability. |
 | Request | If enabled, a definition of the request parameter, including: name, display name, schema, unit, and display unit. |
