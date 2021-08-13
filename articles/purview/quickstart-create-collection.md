@@ -1,5 +1,5 @@
 ---
-title: Create a Collection in Azure Purview
+title: Create a collection
 description: This article describes how to create a collection and add permissions and sources in Azure Purview
 author: viseshag
 ms.author: viseshag
@@ -57,10 +57,10 @@ Now that you have a collection, you can assign permissions to this collection to
 
 All assigned roles apply to sources, assets, and other objects within the collection where the role is applied.
 
-1. **Collection admins** - can edit a collection, its details, manage access in the collection, and add subcollections.
-1. **Data source admins** - can manage data sources and data scans.
-1. **Data curators** - can create, read, modify, and delete actions on catalog data objects.
-1. **Data readers** - can access but not modify catalog data objects.
+- **Collection admins** - can edit a collection, its details, manage access in the collection, and add subcollections.
+- **Data source admins** - can manage data sources and data scans.
+- **Data curators** - can create, read, modify, and delete actions on catalog data objects.
+- **Data readers** - can access but not modify catalog data objects.
 
 ### Assign permissions
 
