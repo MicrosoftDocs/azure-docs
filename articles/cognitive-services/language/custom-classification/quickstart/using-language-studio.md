@@ -28,7 +28,6 @@ Go to the [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.Cognitive
 |---------|---------|
 |Location | "West US 2" or "West Europe"         |
 |Pricing tier     | Standard (**S**) pricing tier        |
-|Managed Identity option     | On         |
 
 > [!IMPORTANT]
 > In the **Custom Extraction & Custom Classification (Preview)** section, make sure you choose an existing storage account, or create a new one. A storage account is required to use custom text classification. While you can specify a storage account later, it's easier to do it now. 
