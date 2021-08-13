@@ -14,38 +14,35 @@ manager: eliotgra
 
 :::image type="content" source="media/cpm-architecture.png" alt-text="Continuous patient monitoring architecture":::
 
-### Bluetooth Low Energy (BLE) medical devices
+## Bluetooth Low Energy (BLE) medical devices
 
 Many medical wearables used in healthcare IoT solutions are BLE devices. These devices can't communicate directly to the cloud and need to use a gateway to exchange data with your cloud solution. This architecture uses a mobile phone application as the gateway.
 
-### Mobile phone gateway
+## Mobile phone gateway
 
 The mobile phone application's primary function is to collect BLE data from medical devices and communicate it to IoT Central. The app also guides patients through device setup and lets them view their personal health data. Other solutions could use a tablet gateway or a static gateway in a hospital room. An open-source sample mobile application is available for Android and iOS to use as a starting point for your application development. To learn more, see the [IoT Central Continuous Patient Monitoring mobile app](/samples/iot-for-all/iotc-cpm-sample/iotc-cpm-sample/).
 
-### Export to Azure API for FHIR&reg;
+## Export to Azure API for FHIR&reg;
 
 Azure IoT Central is HIPAA-compliant and HITRUST&reg; certified. You can also send patient health data to other services using the [Azure API for FHIR](../../healthcare-apis/fhir/overview.md). Azure API for FHIR is a standards-based API for clinical health data. The [Azure IoT connector for FHIR](../../healthcare-apis/fhir/iot-fhir-portal-quickstart.md) lets you use the Azure API for FHIR as a continuous data export destination from IoT Central.
 
-### Machine learning
+## Machine learning
 
 Use machine learning models with your FHIR data to generate insights and support decision making by your care team. To learn more, see the [Azure machine learning documentation](../../machine-learning/index.yml).
 
-### Provider dashboard
+## Provider dashboard
 
 Use the Azure API for FHIR data to build a patient insights dashboard or integrate it directly into an electronic medical record used by care teams. Care teams can use the dashboard to assist patients and identify early warning signs of deterioration. To learn more, see the [Build a Power BI provider dashboard](tutorial-health-data-triage.md) tutorial.
 
 In this tutorial, you learn how to:
 
-> [!div class="checklist"]
-
-> * Create an application template
-> * Walk through the application template
-
+- Create an application template
+- Walk through the application template
 
 ## Prerequisites
 
-* There are no specific prerequisites required to deploy this app.
-* You can use the free pricing plan or use an Azure subscription.
+- There are no specific prerequisites required to deploy this app.
+- You can use the free pricing plan or use an Azure subscription.
 
 ## Create Continuous Patient Monitoring application
 
@@ -84,9 +81,9 @@ You can also select **Go to remote patient dashboard** to see the Burkville Hosp
 
 If you select **Device templates**, you see the two device types in the template:
 
-* **Smart Vitals Patch**: This device represents a patch that measures various vital signs. It's used for monitoring patients in and outside the hospital. If you select the template, you see that the patch sends both device data such as battery level and device temperature, and patient health data such as respiratory rate and blood pressure.
+- **Smart Vitals Patch**: This device represents a patch that measures various vital signs. It's used for monitoring patients in and outside the hospital. If you select the template, you see that the patch sends both device data such as battery level and device temperature, and patient health data such as respiratory rate and blood pressure.
 
-* **Smart Knee Brace**: This device represents a knee brace that patients use when recovering from a knee replacement surgery. If you select this template, you see capabilities such as device data, range of motion, and acceleration.
+- **Smart Knee Brace**: This device represents a knee brace that patients use when recovering from a knee replacement surgery. If you select this template, you see capabilities such as device data, range of motion, and acceleration.
 
 :::image type="content" source="media/smart-vitals-device-template.png" alt-text="Smart patch template":::
 
@@ -100,11 +97,11 @@ If you select the device groups tab, you see a default device group for each dev
 
 If you select **Rules**, you see the three rules in the template:
 
-* **Brace temperature high**: This rule triggers when the device temperature of the smart knee brace is greater than 95&deg;F over a 5-minute window. Use this rule to alert the patient and care team, and cool the device down remotely.
+- **Brace temperature high**: This rule triggers when the device temperature of the smart knee brace is greater than 95&deg;F over a 5-minute window. Use this rule to alert the patient and care team, and cool the device down remotely.
 
-* **Fall detected**: This rule is triggers if a patient fall is detected. Use this rule to configure an action to deploy an operational team to assist the patient who has fallen.
+- **Fall detected**: This rule is triggers if a patient fall is detected. Use this rule to configure an action to deploy an operational team to assist the patient who has fallen.
 
-* **Patch battery low**: This rule is triggers when the battery level on the device goes below 10%. Use this rule to trigger a notification to the patient to charge their device.
+- **Patch battery low**: This rule is triggers when the battery level on the device goes below 10%. Use this rule to trigger a notification to the patient to charge their device.
 
 :::image type="content" source="media/brace-temp-rule.png" alt-text="Rules":::
 

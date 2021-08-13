@@ -22,13 +22,11 @@ The basic architecture will follow this structure:
 
 In this tutorial, you learn how to:
 
-> [!div class="checklist"]
-
-> * Export data from Azure IoT Central to Azure Event Hubs
-> * Set up a Power BI streaming dataset
-> * Connect your Logic App to Azure Event Hubs
-> * Stream data to Power BI from your Logic App
-> * Build a real-time dashboard for patient vitals
+- Export data from Azure IoT Central to Azure Event Hubs
+- Set up a Power BI streaming dataset
+- Connect your Logic App to Azure Event Hubs
+- Stream data to Power BI from your Logic App
+- Build a real-time dashboard for patient vitals
 
 
 ## Prerequisites
