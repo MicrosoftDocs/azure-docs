@@ -42,8 +42,10 @@ The final workflow will be:
 ![Delegation page][api-management-delegation-signin-up]
 
 4. Decide your special delegation endpoint's URL and enter it in the **Delegation endpoint URL** field. 
-5. Within the **Delegation authentication** key field, enter a secret used to compute a signature provided for verification that the request originates from API Management. 
-   * Click the **Generate** button for API Management to generate a random key for you.
+5. Within the **Delegation Validation Key** field, either:
+    * Enter a secret used to compute a signature provided for verification that the request originates from API Management. 
+    * Click the **Generate** button for API Management to generate a random key for you.
+6. Click **Save**.
 
 ### Create the delegation endpoint
 
@@ -187,11 +189,9 @@ var signature = digest.toString('base64');
 > You need to [republish the developer portal](api-management-howto-developer-portal-customize.md#publish) for the delegation changes to take effect.
 
 ## Next steps
-For more information on delegation, see the following video:
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Delegating-User-Authentication-and-Product-Subscription-to-a-3rd-Party-Site/player]
-> 
-> 
+- [Learn more about the developer portal.](api-management-howto-developer-portal.md)
+- [Authenticate using Azure AD](api-management-howto-aad.md) or with [Azure AD B2C](api-management-howto-aad-b2c.md).
+- More developer portal questions? [Find answers in our FAQ](developer-portal-faq.md).
 
 [Delegating developer sign-in and sign-up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
