@@ -33,6 +33,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Lucidchart supports **SP** initiated SSO
+* Lucidchart supports [**Automated** user provisioning and deprovisioning](lucidchart-provisioning-tutorial.md) (recommended).
 * Lucidchart supports **Just In Time** user provisioning
 
 ## Add Lucidchart from the gallery

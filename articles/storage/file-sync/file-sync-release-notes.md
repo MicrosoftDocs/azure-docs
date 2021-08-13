@@ -66,7 +66,7 @@ The following release notes are for version 13.0.0.0 of the Azure File Sync agen
 	- The Azure File Sync agent is now supported on Windows Server 2022 Preview build 20348 or later.
 
 	> [!Note]  
-	> Windows Server 2022 adds support for TLS 1.3 which is not currently supported by Azure File Sync.  If the [TLS settings](https://docs.microsoft.com/windows-server/security/tls/tls-ssl-schannel-ssp-overview) are managed via group policy, the server must be configured to support TLS 1.2. 
+	> Windows Server 2022 adds support for TLS 1.3 which is not currently supported by Azure File Sync.  If the [TLS settings](/windows-server/security/tls/tls-ssl-schannel-ssp-overview) are managed via group policy, the server must be configured to support TLS 1.2. 
 
 - Miscellaneous improvements
 	- Reliability improvements for sync, cloud tiering and cloud change enumeration.
