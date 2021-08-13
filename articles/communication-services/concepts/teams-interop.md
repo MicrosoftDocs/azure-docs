@@ -38,6 +38,15 @@ Azure Communication Services supports two types of Teams interoperability depend
 
 Applications can implement both authentication schemes and leave the choice of authentication up to the end user.
 
+## Overview
+
+Users can access the Teams calling experience via Teams clients (desktop, mobile, web) or join Teams meetings via web experience as Teams anonymous users. Teams anonymous users don't have to be Teams users. Azure Communication services allow developers to build and customize new Teams calling endpoints for both Teams users and Teams anonymous users. Developers can leverage Communication Services calling SDK and user interface library for customization and integration into any existing application or product. The following diagram shows possible scenarios for joining Teams meeting from multiple endpoints.
+![Overview of interoperability scenarios within Azure Communication Services](./media/teams-identities/teams_interop_overview.png)
+
+Endpoint based on Azure Communication Services client libraries with Teams identity acts as Teams user with Teams client. Teams user can besides joining Teams meetings also start a call to another Teams user, receive a phone call from a phone number or transfer an ongoing call to Teams call queue. The connectivity of the Communication Services endpoint with Teams identity is shown on the diagram below.
+
+![Overview of interoperability scenarios within Azure Communication Services](./media/teams-identities/teams_interop_m365_identity_interop_overview.png)
+
 ## Bring your own identity
 
 Bring your own identity (BYOI) is the common model for using Azure Communication Services and Teams interoperability. It supports any identity provider and authentication scheme. The first scenario that has been enabled allows your application to join Microsoft Teams meetings, and Teams will treat these users as anonymous external accounts, the same as users that join using the Teams anonymous web application. This is ideal for business-to-consumer applications that bring together employees (familiar with Teams) and external users (using a custom application experience) into a meeting experience. In the future we will be enabling additional scenarios including direct calling and chat which will allow your application to initiate calls and chats with Teams users outside the context of a Teams meeting.
