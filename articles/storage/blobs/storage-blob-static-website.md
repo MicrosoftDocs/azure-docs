@@ -128,11 +128,11 @@ Yes. However, there is no option to use Social Identity Providers, such as Googl
 
 ##### How do I use a custom domain with a static website?
 
-You can configure a [custom domain](./static-website-content-delivery-network.md#enable-custom-domain-and-ssl) with a static website by using [Azure Content Delivery Network (Azure CDN)](./storage-custom-domain-name.md#enable-httpsenable-https). Azure CDN provides consistent low latencies to your website from anywhere in the world. 
+You can configure a [custom domain](./static-website-content-delivery-network.md) with a static website by using [Azure Content Delivery Network (Azure CDN)](./storage-custom-domain-name.md#map-a-custom-domain-with-https-enabled). Azure CDN provides consistent low latencies to your website from anywhere in the world. 
 
 ##### How do I use a custom SSL certificate with a static website?
 
-You can configure a [custom SSL](./static-website-content-delivery-network.md#enable-custom-domain-and-ssl) certificate with a static website by using [Azure CDN](./storage-custom-domain-name.md#enable-httpsenable-https). Azure CDN provides consistent low latencies to your website from anywhere in the world.
+You can configure a [custom SSL](./static-website-content-delivery-network.md) certificate with a static website by using [Azure CDN](./storage-custom-domain-name.md#map-a-custom-domain-with-https-enabled). Azure CDN provides consistent low latencies to your website from anywhere in the world.
 
 ##### How do I add custom headers and rules with a static website?
 

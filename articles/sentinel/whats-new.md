@@ -422,7 +422,7 @@ For more information, see [Visualize and monitor your data](/azure/sentinel/arti
 
 ### New detections for Azure Firewall
 
-Several out-of-the-box detections for Azure Firewall have been added to the [Analytics](./understand-threat-intelligence.md#analytics-puts-your-threat-indicators-to-work-detecting-potential-threats) area in Azure Sentinel. These new detections allow security teams to get alerts if machines on the internal network attempt to query or connect to internet domain names or IP addresses that are associated with known IOCs, as defined in the detection rule query.
+Several out-of-the-box detections for Azure Firewall have been added to the [Analytics](./understand-threat-intelligence.md) area in Azure Sentinel. These new detections allow security teams to get alerts if machines on the internal network attempt to query or connect to internet domain names or IP addresses that are associated with known IOCs, as defined in the detection rule query.
 
 The new detections include:
 
