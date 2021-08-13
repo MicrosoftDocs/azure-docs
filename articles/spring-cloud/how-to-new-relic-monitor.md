@@ -38,25 +38,21 @@ Use the following procedure to access the agent:
 
 2. Create an application.
 
-   ```shell
-     az spring-cloud app create --name "appName" --is-public true \
-     -s "resourceName" -g "resourceGroupName"
-   ```
+    ```azurecli
+      az spring-cloud app create --name "appName" --is-public true \
+      -s "resourceName" -g "resourceGroupName"
+    ```
 
 3. Create a deployment with the New Relic agent and environment variables.
 
-   ```shell
-   az spring-cloud app deploy --name "appName" --jar-path app.jar \
-      -s "resourceName" -g "resourceGroupName" \
-      --jvm-options="-javaagent:/opt/agents/newrelic/java/newrelic-agent.jar" \
-      --env NEW_RELIC_APP_NAME=appName NEW_RELIC_LICENSE_KEY=newRelicLicenseKey
-   ```
+    ```azurecli
+    az spring-cloud app deploy --name "appName" --jar-path app.jar \
+       -s "resourceName" -g "resourceGroupName" \
+       --jvm-options="-javaagent:/opt/agents/newrelic/java/newrelic-agent.jar" \
+       --env NEW_RELIC_APP_NAME=appName NEW_RELIC_LICENSE_KEY=newRelicLicenseKey
+    ```
 
-Azure Spring Cloud pre-installs the New Relic Java agent to the following path. Customers can leverage the agent from applications' JVM options, as well as configure the agent using the [New Relic Java agent environment variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
-
-```shell
-/opt/agents/newrelic/java/newrelic-agent.jar
-```
+Azure Spring Cloud pre-installs the New Relic Java agent to */opt/agents/newrelic/java/newrelic-agent.jar*. Customers can leverage the agent from applications' **JVM options**, as well as configure the agent using the [New Relic Java agent environment variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
 
 ## Portal
 
@@ -74,7 +70,7 @@ You can also leverage this agent from portal with the following procedure.
 
    [ ![Update environment](media/new-relic-monitoring/configurations-update-environment.png) ](media/new-relic-monitoring/configurations-update-environment.png)
 
-4. Select **General settings** to add/update/delete the JVM options of the application.
+4. Select **General settings** to add/update/delete the **JVM options** of the application.
 
    [ ![Update JVM Option](media/new-relic-monitoring/update-jvm-option.png) ](media/new-relic-monitoring/update-jvm-option.png)
 
@@ -129,4 +125,5 @@ The New Relic Java agent will update/upgrade the JDK regularly. The agent update
 For a vnet injection instance of Azure Spring Cloud, you need to make sure the outbound traffic is configured correctly for the New Relic Java agent. For more information, see [Networks of New Relic](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents).
 
 ## Next steps
-*  [Distributed tracing and App Insights](how-to-distributed-tracing.md)
+
+* [Distributed tracing and App Insights](how-to-distributed-tracing.md)

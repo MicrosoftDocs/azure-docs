@@ -41,6 +41,8 @@ For this article you need,
 
     * [Understand Cross Validation in machine learning](https://towardsdatascience.com/understanding-cross-validation-419dbd47e9bd) 
 
+[!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
+
 ## Default data splits and cross-validation in machine learning
 
 Use the [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) object to define your experiment and training settings. In the following code snippet, notice that only the required parameters are defined, that is the parameters for `n_cross_validations` or `validation_data` are **not** included.

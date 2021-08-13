@@ -116,7 +116,7 @@ To deploy an Azure Spring Cloud instance in the virtual network:
 
 1. In the top search box, search for **Azure Spring Cloud**. Select **Azure Spring Cloud** from the result.
 
-1. On the **Azure Spring Cloud** page, select **+ Add**.
+1. On the **Azure Spring Cloud** page, select **Add**.
 
 1. Fill out the form on the Azure Spring Cloud **Create** page.
 
@@ -183,7 +183,6 @@ If your custom subnets do not contain route tables, Azure Spring Cloud creates t
 > [!Warning]
 > Custom rules can be added to the custom route tables and updated. However, rules are added by Azure Spring Cloud and these must not be updated or removed. Rules such as 0.0.0.0/0 must always exist on a given route table and map to the target of your internet gateway, such as an NVA or other egress gateway. Use caution when updating rules when only your custom rules are being modified.
 
-
 ### Route table requirements
 
 The route tables to which your custom vnet is associated must meet the following requirements:
@@ -196,9 +195,6 @@ The route tables to which your custom vnet is associated must meet the following
 
 ## Next steps
 
-[Deploy Application to Azure Spring Cloud in your VNet](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/02-deploy-application-to-azure-spring-cloud-in-your-vnet.md)
-
-## See also
-
+- [Deploy Application to Azure Spring Cloud in your VNet](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/02-deploy-application-to-azure-spring-cloud-in-your-vnet.md)
 - [Troubleshooting Azure Spring Cloud in VNET](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/05-troubleshooting-azure-spring-cloud-in-vnet.md)
 - [Customer Responsibilities for Running Azure Spring Cloud in VNET](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/06-customer-responsibilities-for-running-azure-spring-cloud-in-vnet.md)
