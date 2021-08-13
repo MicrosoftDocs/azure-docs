@@ -3,7 +3,7 @@ title: Define a new IoT device type in Azure IoT Central | Microsoft Docs
 description: This article shows you how to create a new Azure IoT device template in your Azure IoT Central application. You define the telemetry, state, properties, and commands for your type.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/06/2019
+ms.date: 08/13/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -16,7 +16,7 @@ ms.custom: [contperf-fy21q1, device-developer]
 
 A device template is a blueprint that defines the characteristics and behaviors of a type of device that connects to an [Azure IoT Central application](concepts-app-templates.md).
 
-This article describes how to create a device template in IoT Central. For example, you can create a device template for a sensor that sends telemetry, such as temperature and humidity, and properties, such as location. From this device template, an operator can create and connect real devices. 
+This article describes how to create a device template in IoT Central. For example, you can create a device template for a sensor that sends telemetry, such as temperature and humidity, and properties, such as location. From this device template, an operator can create and connect real devices.
 
 The following screenshot shows an example of a device template:
 
@@ -31,13 +31,14 @@ The device template has the following sections:
 
 To learn more, see [What are device templates?](concepts-device-templates.md).
 
-## Create a device template 
+## Create a device template
 
-You have several options for creating device templates:
+You have several options to create device templates:
 
 - Design the device template in the IoT Central GUI.
 - Import a device template from the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat). Optionally, customize the device template to your requirements in IoT Central.
 - When the device connects to IoT Central, have it send the model ID of the model it implements. IoT Central uses the model ID to retrieve the model from the model repository and to create a device template. Add any cloud properties, customizations, and views your IoT Central application needs to the device template.
+- When the device connects to IoT Central, let IoT Central [auto-generate a device template](#auto-generate-a-device-template) definition from the data the device sends.
 - Author a device model using the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Manually import the device model into your IoT Central application, and then add any cloud properties, customizations, and views your IoT Central application needs.
 - You can also add device templates to an IoT Central application using the [REST API](/learn/modules/manage-iot-central-apps-with-rest-api/) or the [CLI](howto-manage-iot-central-from-cli.md).
 
@@ -54,18 +55,23 @@ The name of the template you created is **Sensor Controller**. The model include
 
 :::image type="content" source="media/howto-set-up-template/device-template.png" alt-text="Screenshot that shows a Sensor controller device template."::: 
 
-## Auto-Create a device template using a connected device
+## Auto-generate a device template
 
-In addition to the above mentioned options to create a device template, you can also automatically create a device template using a connected (unassigned) device.
-The device template is created by scanning the device data and inferring the model based on the data. 
-Below are the steps to create a template using this feature 
-1. Connect a device to IoT Central, and start sending the data to IoT Central. Once you see the data in the **Raw data** view, click on **Auto-Create template** under Manage template drop down 
-:::image type="content" source="media/howto-set-up-template/infer-model-1.png" alt-text="Screenshot that shows how to auto-create template"::: 
-1. The screen with the incoming data is now presented on the Data preview screen, make changes if required to the raw data and click on **Create template** 
-:::image type="content" source="media/howto-set-up-template/infer-model-2.png" alt-text="Screenshot that shows how to auto-create template"::: 
-1. Once you click Create template, a template will be automatically created based on this data format and this device will be automatically assigned to it.You can make further edits/updates to the template.
-:::image type="content" source="media/howto-set-up-template/infer-model-3.png" alt-text="Screenshot that shows how to auto-create template"::: 
+You can also automatically create a device template from a connected device that hasn't yet been assigned to a device template. IoT Central generates a device template by scanning the data the device sends and inferring a model from the telemetry and property values.
 
+The following steps show how to use this feature:
+
+1. Connect your device to IoT Central, and start sending the data. When you see the data in the **Raw data** view, select **Auto-create template** in the **Manage template** drop-down:
+
+    :::image type="content" source="media/howto-set-up-template/infer-model-1.png" alt-text="Screenshot that shows raw data from unassigned device.":::
+
+1. On the **Data preview** page, make any required changes to the raw data, and select **Create template**:
+
+    :::image type="content" source="media/howto-set-up-template/infer-model-2.png" alt-text="Screenshot that shows data preview change that lets you edit data that IoT Central uses to generate the device template.":::
+
+1. IoT Central generates a template based on the data format shown on the **Data preview** page and assigns the device to it. You can make further changes to the device template, such as renaming it or adding capabilities, on the **Device templates** page:
+
+    :::image type="content" source="media/howto-set-up-template/infer-model-3.png" alt-text="Screenshot that shows how to rename the auto-generated device template.":::
 
 ## Manage a device template
 
@@ -283,8 +289,7 @@ Add forms to a device template to enable operators to manage a device by viewing
 
 1. Select **Save** to save your new form.
 
-:::image type="content" source="media/howto-set-up-template/form.png" alt-text="configure form"::: 
-
+:::image type="content" source="media/howto-set-up-template/form.png" alt-text="configure form":::
 
 ## Publish a device template
 
