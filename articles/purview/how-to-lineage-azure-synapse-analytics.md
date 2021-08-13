@@ -23,15 +23,15 @@ Currently, Azure Purview captures runtime lineage from the following Azure Synap
 
 [!INCLUDE[azure-synapse-supported-activity-lineage-capabilities](includes/data-factory-common-supported-capabilities.md)]
 
-## How to bring Azure Synapse Analytics lineage into Purview
+## Bring Azure Synapse Analytics lineage into Purview
 
-### Step 1: Connect Azure Synapse Analtycis to your Purview account
+### Step 1: Connect Azure Synapse Analytics to your Purview account
 
-You can connect an Azure Sysnpase Analytics to Puview from Synpase workspace, and the connection enables Azure Synapse to push lineage information to Purview. Follow the steps in [Connect an Azure Purview Account into Synapse](../synapse-analytics/catalog-and-governance/quickstart-connect-azure-purview.md). Multiple Azure Synapse Analtycis can connect to a single Azure Purview account for holistic lineage tracking.
+You can connect an Azure Sysnpase Analytics to Purview from Synpase workspace, and the connection enables Azure Synapse to push lineage information to Purview. Follow the steps in [Connect an Azure Purview Account into Synapse](../synapse-analytics/catalog-and-governance/quickstart-connect-azure-purview.md). Multiple Azure Synapse Analytics can connect to a single Azure Purview account for holistic lineage tracking.
 
 ### Step 2: Run pipeline in Azure Synapse Analytics
 
-You can create pipelines with Copy activity in Azure Synapse Analtycis. You don't need any additional configuration for lineage data capture. The lineage data will automatically be captured during the activities execution.
+You can create pipelines with Copy activity in Azure Synapse Analytics. You don't need any additional configuration for lineage data capture. The lineage data will automatically be captured during the activities execution.
 
 ### Step 3: Monitor lineage reporting status
 
@@ -47,7 +47,7 @@ In your Purview account, you can browse assets and choose type "Azure Synapse An
 
 Select the Synapse account -> pipeline -> activity, you can view the lineage information.
 
-:::image type="content" source="./media/how-to-lineage-azure-synapse-analytics/browse-azure-synapse-pipeline-lineage.png" alt-text="Browse Azure Synapse pipeline lineage in Purview"
+:::image type="content" source="./media/how-to-lineage-azure-synapse-analytics/browse-azure-synapse-pipeline-lineage.png" alt-text="Browse Azure Synapse pipeline lineage in Purview" lightbox="./media/how-to-lineage-azure-synapse-analytics/browse-azure-synapse-pipeline-lineage.png":::
 
 ## Next steps
 

@@ -81,10 +81,6 @@ To remove a data factory connection, do the following:
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Screenshot showing how to select data factories to remove connection." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
 
-## Configure a Self-hosted Integration Runtime to collect lineage
-
-Lineage for the Data Factory Copy activity is available for on-premises data stores like SQL databases. If you're running self-hosted integration runtime for the data movement with Azure Data Factory and want to capture lineage in Azure Purview, ensure the version is 5.0 or later. For more information about self-hosted integration runtime, see [Create and configure a self-hosted integration runtime](../data-factory/create-self-hosted-integration-runtime.md).
-
 ## Supported Azure Data Factory activities
 
 Azure Purview captures runtime lineage from the following Azure Data Factory activities:
@@ -116,15 +112,13 @@ The integration between Data Factory and Purview supports only a subset of the d
 
 *\* Azure Purview currently doesn't support query or stored procedure for lineage or scanning. Lineage is limited to table and view sources only.*
 
-### Data Factory Execute SSIS Package support
+### Execute SSIS Package support
 
 Refer to [supported data stores](how-to-lineage-sql-server-integration-services.md#supported-data-stores).
 
-## Monitor lineage reporting status
+## Bring Azure Data Factory lineage into Purview
 
-After you run the Azure Data Factory pipeline, in the [pipeline monitoring view](.../data-factory/monitor-visually.md#monitor-pipeline-runs), you can check the lineage reporting status by clicking the following **Lineage status** button. The same information is also available in the activity output JSON -> `reportLineageToPurvew` section.
-
-:::image type="content" source="../data-factory/media/data-factory-purview/monitor-lineage-reporting-status.png" alt-text="Monitor the lineage reporting status in pipeline monitoring view":::
+For an end to end walkthrough, follow the [Tutorial: Push Data Factory lineage data to Azure Purview](../data-factory/turorial-push-lineage-to-purview.md).
 
 ## Supported lineage patterns
 

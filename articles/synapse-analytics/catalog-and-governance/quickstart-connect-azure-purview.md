@@ -19,7 +19,7 @@ You can perform the following tasks in Synapse:
 - Understand the data based on metadata, [lineage](../../purview/catalog-lineage-user-guide.md), annotations 
 - Connect those data to your workspace with linked services or integration datasets 
 - Analyze those datasets with Synapse Apache Spark, Synapse SQL, and Data Flow 
-- Execute pipelines and [push lineage information to Purview](../../purview/how-to-connect-azure-synapse-analytics.md)
+- Execute pipelines and [push lineage information to Purview](../../purview/how-to-lineage-azure-synapse-analytics.md)
 
 ## Prerequisites 
 - [Azure Purview account](../../purview/create-catalog-portal.md) 
@@ -31,7 +31,7 @@ Go to [https://web.azuresynapse.net](https://web.azuresynapse.net) and sign 
 
 ## Permissions for connecting an Azure Purview account 
 
-- To connect an Azure Purview Account to a Synapse workspace, you need a **Contributor** role in Synapse workspace from Azure portal IAM and you need access to that Azure Purview Account. For more details, see [Azure Purview permissions](../../purview/catalog-permissions.md).
+- To connect an Azure Purview Account to a Synapse workspace, you need a **Contributor** role in Synapse workspace from Azure portal IAM and you need access to that Azure Purview Account. For more information, see [Azure Purview permissions](../../purview/catalog-permissions.md).
 
 ## Connect an Azure Purview account  
 
@@ -39,11 +39,11 @@ Follow the steps to connect an Purview account:
 
 1. In the Synapse workspace, go to **Manage** -> **Azure Purview**. Select **Connect to a Purview account**. 
 2. You can choose **From Azure subscription** or **Enter manually**. **From Azure subscription**, you can select the account that you have access to. 
-3. Once connected, you should be able to see the name of the Purview account in the tab **Azure Purview account**. 
+3. Once connected, you can see the name of the Purview account in the tab **Azure Purview account**. 
 
-When connecting Synapse workspace to Purview, Synapse also tries to grant the Synapse workspace's managed identity **Purview Data Curator** role on your Purview account. Managed identity is used to authenticate lineage push operataions from Synapse to Purview. If you have **Owner** or **User Access Administrator** role on the Purview account, this operation will be done automatically. 
+When connecting Synapse workspace to Purview, Synapse also tries to grant the Synapse workspace's managed identity **Purview Data Curator** role on your Purview account. Managed identity is used to authenticate lineage push operations from Synapse to Purview. If you have **Owner** or **User Access Administrator** role on the Purview account, this operation will be done automatically. 
 
-To make sure the connection is properly set for the Synapse pipeline lineage push, go to Azure portal -> your Purview account -> Access control (IAM), check if **Purview Data Curator** role is granted to the Synapse workspace's managed identity. Manually add the role assigement as needed.
+To make sure the connection is properly set for the Synapse pipeline lineage push, go to Azure portal -> your Purview account -> Access control (IAM), check if **Purview Data Curator** role is granted to the Synapse workspace's managed identity. Manually add the role assignment as needed.
 
 Once the connection is established, you can use the Search bar at the top center of the Synapse workspace to search for data, and the pipeline execution will push lineage information to the Purview account.
 
@@ -51,7 +51,7 @@ Once the connection is established, you can use the Search bar at the top center
 
 [Discover, connect and explore data in Synapse using Azure Purview](how-to-discover-connect-analyze-azure-purview.md)
 
-[Metadata and lineage from Azure Synapse Analytics](../../purview/how-to-connect-azure-synapse-analytics.md)
+[Metadata and lineage from Azure Synapse Analytics](../../purview/how-to-lineage-azure-synapse-analytics.md)
 
 [Register and scan Azure Synapse assets in Azure Purview](../../purview/register-scan-azure-synapse-analytics.md)
 

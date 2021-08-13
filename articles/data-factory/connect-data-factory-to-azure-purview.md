@@ -14,7 +14,7 @@ ms.date: 08/10/2021
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-[Azure Purview](../purview/overview.md) is a unified data governance service that helps you manage and govern your on-premises, multi-cloud, and software-as-a-service (SaaS) data. You can connect your data factory to Azure Purview, and the connection allows you to use Azure Purview for capturing lineage data, as well as to discover and explore the data inside the Purview catalog.
+[Azure Purview](../purview/overview.md) is a unified data governance service that helps you manage and govern your on-premises, multi-cloud, and software-as-a-service (SaaS) data. You can connect your data factory to Azure Purview. That connection allows you to use Azure Purview for capturing lineage data, as well as to discover and explore Azure Purview assets.
 
 ## Connect Data Factory to Azure Purview
 
@@ -35,7 +35,7 @@ To establish the connection, you need to have **Owner** or **Contributor** role 
 
 3. Once connected, you can see the name of the Purview account in the tab **Purview account**.
 
-When connecting data factory to Purview, ADF UI also tries to grant the data factory's managed identity **Purview Data Curator** role on your Purview account. Managed identity is used to authenticate lineage push operataions from data factory to Purview. If you have **Owner** or **User Access Administrator** role on the Purview account, this operation will be done automatically. If not, you would see warning like below:
+When connecting data factory to Purview, ADF UI also tries to grant the data factory's managed identity **Purview Data Curator** role on your Purview account. Managed identity is used to authenticate lineage push operations from data factory to Purview. If you have **Owner** or **User Access Administrator** role on the Purview account, this operation will be done automatically. If not, you would see warning like below:
 
 :::image type="content" source="./media/data-factory-purview/register-purview-account-warning.png" alt-text="Screenshot for warning of registering a Purview account.":::
 

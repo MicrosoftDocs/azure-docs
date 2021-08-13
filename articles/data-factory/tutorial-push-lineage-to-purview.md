@@ -16,7 +16,7 @@ ms.date: 08/10/2021
 
 In this tutorial, you'll use the Data Factory user interface (UI) to create a pipeline that run activities and report lineage data to Azure Purview account. Then you can view all the lineage information in your Azure Purview account. 
 
-Currently, lineage is supported for Copy, Data Flow, and Execute SSIS activities. Learn more details on the supported capabilities from [Supported Azure Data Factory activities](../purview/how-to-link-azure-data-factory.md#supported-azure-data-factory-activities)
+Currently, lineage is supported for Copy, Data Flow, and Execute SSIS activities. Learn more details on the supported capabilities from [Supported Azure Data Factory activities](../purview/how-to-link-azure-data-factory.md#supported-azure-data-factory-activities).
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ Currently, lineage is supported for Copy, Data Flow, and Execute SSIS activities
 
 ### Step 1: Connect Data Factory to your Purview account
 
-You can establish the connection between Data Factory and Purview account by following the steps in [Connect data factory to Purview](connect-data-factory-to-azure-puriew.md).
+You can establish the connection between Data Factory and Purview account by following the steps in [Connect Data Factory to Azure Purview](connect-data-factory-to-azure-purview.md).
 
 ### Step 2: Run pipeline in Data Factory
 
@@ -51,27 +51,27 @@ After you run the pipeline, in the [pipeline monitoring view](monitor-visually.m
 
 On Purview UI, you can browse assets and choose type "Azure Data Factory". You can also search the Data Catalog using keywords.
 
-:::image type="content" source="./media/data-factory-purview/view-dataset.png" alt-text="Screenshot of Purview account":::
+:::image type="content" source="./media/data-factory-purview/view-dataset.png" alt-text="Screenshot of Purview account" lightbox="./media/data-factory-purview/view-dataset.png":::
 
 On the activity asset, click the Lineage tab, you can see all the lineage information.
 
 - Copy activity:
 
-    :::image type="content" source="./media/data-factory-purview/copy-lineage.png" alt-text="Screenshot of Copy lineage":::
+    :::image type="content" source="./media/data-factory-purview/copy-lineage.png" alt-text="Screenshot of Copy lineage" lightbox="./media/data-factory-purview/copy-lineage.png":::
 
 - Data Flow activity:
 
-    :::image type="content" source="./media/data-factory-purview/dataflow-lineage.png" alt-text="Screenshot of Dataflow lineage":::
+    :::image type="content" source="./media/data-factory-purview/dataflow-lineage.png" alt-text="Screenshot of Dataflow lineage" lightbox="./media/data-factory-purview/dataflow-lineage.png":::
 
     > [!NOTE] 
     > For the lineage of Dataflow activity, we only support source and sink. The lineage for Dataflow transformation is not supported yet.
 
 - Execute SSIS Package activity:
 
-    :::image type="content" source="./media/data-factory-purview/ssis-lineage.png" alt-text="Screenshot of SSIS lineage":::
+    :::image type="content" source="./media/data-factory-purview/ssis-lineage.png" alt-text="Screenshot of SSIS lineage" lightbox="./media/data-factory-purview/ssis-lineage.png":::
 
-> [!NOTE] 
-> For the lineage of Execute SSIS Package activity, we only support source and destination. The lineage for transformation is not supported yet.
+    > [!NOTE] 
+    > For the lineage of Execute SSIS Package activity, we only support source and destination. The lineage for transformation is not supported yet.
 
 ## Next steps
 
