@@ -2,7 +2,7 @@
 title: Back up SQL Server always on availability groups
 description: In this article, learn how to back up SQL Server on availability groups.
 ms.topic: conceptual
-ms.date: 08/11/2021
+ms.date: 08/16/2021
 ---
 # Backup SQL Server always on availability groups
 
@@ -21,18 +21,18 @@ SQL AG supports Full and Differential backups only from the primary replica, so 
 
 The workload backup extension gets installed on the node when it is registered with Azure Backup service. When an AG database is configured for backup, the backup schedules are pushed to all the registered nodes of the AG. The schedules fire on all the AG nodes and the workload backup extensions on these nodes synchronize between themselves to decide which node will perform the backup. The node selection depends on the backup type and the backup preference as explained in section 1. 
 
-The selected node goes ahead with the backup job, whereas the job triggered on the other nodes bail out i.e., skip the job. Note that Azure Backup doesn’t consider backup priorities or replicas while deciding among the secondary replicas.
+The selected node proceeds with the backup job, whereas the job triggered on the other nodes bail out i.e., skip the job. Note that Azure Backup doesn’t consider backup priorities or replicas while deciding among the secondary replicas.
 
-## Registration of AG nodes to the Recovery Services vault
+## Register AG nodes to the Recovery Services vault
 
-A Recovery Services vault supports backup of databases only from VMs in the same region and subscription as that of the vault. This fact, combined with the backup preference handling result in the following pre-requisites need to be met for successfully configuring backups for AG databases:
+A Recovery Services vault supports backup of databases only from VMs in the same region and subscription as that of the vault. This fact, combined with the backup preference handling result in the following prerequisites need to be met for successfully configuring backups for AG databases:
 
 1. Primary node must be registered to the vault (otherwise, full backups cannot happen)
 1. If the backup preference is ‘secondary only’, then at least one secondary node must be registered to the vault (otherwise, log/copy-only full backups cannot happen)
 
 Configuring backups for AG databases will fail with the error code FabricSvcBackupPreferenceCheckFailedUserError if the above conditions are not met.
 
-Let’s consider the following AG deployment as reference for this article. 
+Let’s consider the following AG deployment as an example for this article. 
 
 :::image type="content" source="./media/backup-sql-server-on-availability-groups/ag-deployment.png" alt-text="Diagram for AG deployment as reference.":::
 
