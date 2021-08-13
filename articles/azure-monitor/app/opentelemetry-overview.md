@@ -9,9 +9,9 @@ ms.author: mmcc
 
 # OpenTelemetry Overview
 
-Microsoft is excited to embrace [OpenTelemetry](https://opentelemetry.io/) as the future of telemetry instrumentation. Customers are asking for vender-neutral instrumentation, and we are delighted to partner with the OpenTelemetry community to create consistent APIs/SDKs across languages.
+Microsoft is excited to embrace [OpenTelemetry](https://opentelemetry.io/) as the future of telemetry instrumentation. Customers are asking for vender-neutral instrumentation, and we're delighted to partner with the OpenTelemetry community to create consistent APIs/SDKs across languages.
 
-Microsoft played a key role in brokering an agreement between [OpenCensus](https://opencensus.io/) and [OpenTracing](https://opentracing.io/), two previously popular open-source telemetry projects to create OpenTelemetry. OpenTelemetry includes contributions from all major cloud and APM vendors and is housed by the Cloud Native Computing Foundation (CNCF) project of which Microsoft is a Platinum Member.
+Microsoft played a key role in brokering an agreement between [OpenCensus](https://opencensus.io/) and [OpenTracing](https://opentracing.io/), two previously popular open-source telemetry projects to create OpenTelemetry. OpenTelemetry includes contributions from all major cloud and APM vendors and is housed by the Cloud Native Computing Foundation (CNCF) of which Microsoft is a Platinum Member.
 
 ## Concepts
 
@@ -44,15 +44,15 @@ There are also two ways to send your data to Azure Monitor (or any vendor).
 
 A direct exporter sends telemetry in-process (from the application’s code) directly to Azure Monitor’s ingestion endpoint. The main advantage of this approach is simplicity and less moving parts.
 
-Alternatively, sending via an agent may utilize the OpenTelemetry-Collector or a vendor-specific agent, such as the Azure Monitor Agent. The main advantage of this approach is it allows users to combine receivers, exporters, and processors in a way that unlocks additional scenarios.
+Alternatively, sending via an agent may use the OpenTelemetry-Collector or a vendor-specific agent, such as the Azure Monitor Agent. The main advantage of this approach is it allows users to combine receivers, exporters, and processors in a way that unlocks more scenarios.
 
-Note that **all Azure Monitor’s currently supported offerings utilize a direct exporter**, though some customers use the OpenTelemetry-Collector even though Microsoft doesn’t officially support it. We expect to support an agent-based approach in the future, though the details and timeline are not yet available.
+**All Azure Monitor’s currently supported offerings use a direct exporter**, though some customers use the OpenTelemetry-Collector even though Microsoft doesn’t officially support it. We expect to support an agent-based approach in the future, though the details and timeline aren't available yet.
 
 ## Terms
 
 See [glossary](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/glossary.md) in OpenTelemetry's specifications.
 
-Some legacy terms in Application Insights are confusing given the industry convergence on OpenTelemetry. The table below highlights these differences. Eventually Application Insights terms will be phased out in favor of OpenTelemetry terms.
+Some legacy terms in Application Insights are confusing given the industry convergence on OpenTelemetry. The table below highlights these differences. Eventually Application Insights terms will be replaced by OpenTelemetry terms.
 
 Application Insights | OpenTelemetry
 ------ | ------
