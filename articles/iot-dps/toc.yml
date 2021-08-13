@@ -19,17 +19,7 @@
   - name: Provision a simulated symmetric key device
     href: quick-create-simulated-device-symm-key.md
   - name: Provision a simulated X.509 certificate device
-    items:
-      - name: C
-        href: quick-create-simulated-device-x509.md
-      - name: Java
-        href: quick-create-simulated-device-x509-java.md
-      - name: C#
-        href: quick-create-simulated-device-x509-csharp.md
-      - name: Node.js  
-        href: quick-create-simulated-device-x509-node.md
-      - name: Python
-        href: quick-create-simulated-device-x509-python.md
+    href: quick-create-simulated-device-x509.md
 - name: Tutorials
   items:
   - name: 1 - Provision sets of devices with enrollment groups
