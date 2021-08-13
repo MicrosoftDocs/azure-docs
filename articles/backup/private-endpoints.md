@@ -12,7 +12,7 @@ This article provides information about the process of creating [private endpoin
 
 ## Before you start
 
-Ensure that you ve read the [prerequisites](private-endpoints-overview.md#before-you-start) and the [supported scenarios](private-endpoints-overview.md#recommended-and-supported-scenarios) before proceeding to create private endpoints.
+Ensure that you've read the [prerequisites](private-endpoints-overview.md#before-you-start) and the [supported scenarios](private-endpoints-overview.md#recommended-and-supported-scenarios) before proceeding to create private endpoints.
 
 These details help you understand the limitations and conditions that need to be fulfilled before creating private endpoints for your vaults.
 
@@ -112,6 +112,8 @@ See [Manual approval of private endpoints using the Azure Resource Manager Clien
 ## Manage DNS records
 
 As described previously, you need the required DNS records in your private DNS zones or servers in order to connect privately. You can either integrate your private endpoint directly with Azure private DNS zones or use your custom DNS servers to achieve this, based on your network preferences. This will need to be done for all three services: Backup, Blobs, and Queues.
+
+Additionally, if your DNS zone or server is present in a subscription that's different than the one containing the private endpoint, also see [Creating DNS entries when the DNS server/DNS zone is present in another subscription](#create-dns-entries-when-the-dns-serverdns-zone-is-present-in-another-subscription). 
 
 ### When integrating private endpoints with Azure private DNS zones
 
@@ -533,7 +535,7 @@ The following diagram shows a setup with a proxy server whose VNet is linked to 
 
 :::image type="content" source="./media/private-endpoints/setup-with-proxy-server.png" alt-text="Diagram showing a setup with a proxy server.":::
 
-### Creating DNS entries when the DNS server/DNS zone is present in another subscription
+### Create DNS entries when the DNS server/DNS zone is present in another subscription
 
 In this section, we’ll discuss the cases where you’re using a DNS zone that’s present in a subscription, or a Resource Group that’s different from the one containing the private endpoint for the Recovery Services vault, such as a hub and spoke topology. As the managed identity used for creating private endpoints (and the DNS entries) has permissions only on the Resource Group in which the private endpoints are created, the required DNS entries are needed additionally. Use the following PowerShell scripts to create DNS entries.
   
