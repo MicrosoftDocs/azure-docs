@@ -37,7 +37,7 @@ Use an Azure Application: Managed application plan when the following conditions
 
 ## Usage of Azure Kubernetes Service (AKS) and containers in managed application
 
-### Azure Application Offers fall into two categories
+### Azure application offers fall into two categories
 
 - Solution template – not accessible by the publisher
 - Managed Apps – accessible by the publisher via pre-defined authorization that is granted by the customer at the time of deployment
