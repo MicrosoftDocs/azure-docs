@@ -14,7 +14,7 @@ ms.topic: how-to
 ---
 # REMOVED from PyTorch 
 
-This content was removed from the [Train PyTorch models at scale with Azure Machine Learning](azure-docs-sdg/articles/machine-learning/how-to-train-pytorch.md) article.  Is there anything here that should be moved to the new [Distributed training with Azure Machine Learning](azure-docs-sdg/articles/machine-learning/concept-distributed-training.md)?
+This content was removed from the [Train PyTorch models at scale with Azure Machine Learning](azure-docs-sdg/articles/machine-learning/how-to-train-pytorch.md) article.  Is there anything here that should be moved to the new [Distributed GPU training guide](how-to-train-distributed-gpu.md)?
 
 ### Horovod
 [Horovod](https://github.com/uber/horovod) is an open-source, all reduce framework for distributed training developed by Uber. It offers an easy path to writing distributed PyTorch code for training.
