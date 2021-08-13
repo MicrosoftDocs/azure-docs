@@ -32,7 +32,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * Tableau Online supports **SP** initiated SSO
-* Tableau Online supports [**Automated** user provisioning and deprovisioning](tableauonline-provisioning-tutorial.md) (recommended).
+* Tableau Online supports [**automated user provisioning and deprovisioning**](tableau-online-provisioning-tutorial.md) (recommended).
 
 ## Adding Tableau Online from the gallery
 
