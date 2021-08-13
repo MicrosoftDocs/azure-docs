@@ -404,7 +404,7 @@
         "articles/container-registry/**/*.md": "https://feedback.azure.com/forums/903958-azure-container-registry",
         "articles/containers/**/*.md": "https://feedback.azure.com/forums/602224-azure-container-instances",
         "articles/container-service/**/*.md": "https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks",
-        "articles/managed-instance-apache-cassandra/**/*.md": "https://feedback.azure.com/forums/263030-azure-cosmos-db?category_id=398548",
+        "articles/managed-instance-apache-cassandra/**/*.md": "None",
         "articles/cost-management-billing/**/*.md": "https://feedback.azure.com/forums/170030-signup-and-billing",
         "articles/cost-management-billing/costs/**/*.md": "https://feedback.azure.com/forums/906772-cost-management",
         "articles/cost-management-billing/manage/**/*.md": "https://feedback.azure.com/forums/170030-signup-and-billing",
