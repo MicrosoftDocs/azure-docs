@@ -18,7 +18,7 @@ This article describes how to enable and configure the OpenTelemetry-based Azure
 ### Prerequisites
 - Python Application using version 3.6+
 - Azure Subscription (Free to [create](https://azure.microsoft.com/free/))
-- Application Insights Resource (Free to [create](create-workspace-resource#create-workspace-based-resource.md))
+- Application Insights Resource (Free to [create](create-workspace-resource.md#create-workspace-based-resource))
 
 ### Enable Azure Monitor Application Insights
 1. Install package
