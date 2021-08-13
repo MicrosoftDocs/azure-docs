@@ -19,7 +19,7 @@ In this tutorial, you learn how to:
 
 ## Create a new Windows virtual machine
 
-1. In the resource group, select **Add**, search for and select **Microsoft Windows 10**. Then select **Create**.
+1. In the resource group, select **Add**, search for **Microsoft Windows 10** and select it. Then select **Create**.
 
    :::image type="content" source="media/tutorial-access-private-cloud/ss8-azure-w10vm-create.png" alt-text="Screenshot of how to add a new Windows 10 VM for a jump box.":::
 
