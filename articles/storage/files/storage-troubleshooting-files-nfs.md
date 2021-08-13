@@ -12,7 +12,7 @@ ms.custom: references_regions, devx-track-azurepowershell
 
 # Troubleshoot Azure NFS file share problems
 
-This article lists some common problems related to Azure NFS file shares (preview). It provides potential causes and workarounds when these problems are encountered. Also, this article also covers known issues in public preview.
+This article lists some common problems related to Azure NFS file shares (preview). It provides potential causes and workarounds when these problems are encountered. This article also covers known issues in public preview.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -174,6 +174,15 @@ On older kernels, NFS4ERR_NOT_SAME causes the client to stop enumerating (instea
 
 #### Workaround: Use latest kernel workaround while the fix reaches the region hosting your storage account
 The patch is available in kernel 5.12+.
+
+## ls hangs for large directory enumeration on some kernels
+
+### Cause: A bug was introduced in Linux kernel v5.11 and was fixed in v5.12.5.  
+Some kernel versions have a bug which causes directory listings to result in an endless READDIR sequences. Very small directories where all entries can be shipped in one call will not have the problem.
+The bug was introduced in Linux kernel v5.11 and was fixed in v5.12.5. So anything in between has the bug. RHEL 8.4 is known to have this kernel version.
+
+#### Workaround: Downgrading or upgrading the kernel
+Downgrading or upgrading the kernel to anytyhing outside the affected kernel will resolve the issue
 
 ## df and find command shows inconsistent results on clients other than where the writes happen
 This is a known issue. Microsoft is actively working to resolve it.

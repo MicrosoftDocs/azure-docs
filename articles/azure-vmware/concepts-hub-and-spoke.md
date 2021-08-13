@@ -47,9 +47,9 @@ The architecture has the following main components:
 
 - **Spoke virtual network**
 
-    - **IaaS Spoke:** An IaaS spoke hosts Azure IaaS based workloads, including VM availability sets and virtual machine scale sets, and the corresponding network components.
+    - **IaaS Spoke:** Hosts Azure IaaS based workloads, including VM availability sets and virtual machine scale sets, and the corresponding network components.
 
-    - **PaaS Spoke:** A PaaS Spoke hosts Azure PaaS services using private addressing thanks to [Private Endpoint](../private-link/private-endpoint-overview.md) and [Private Link](../private-link/private-link-overview.md).
+    - **PaaS Spoke:** Hosts Azure PaaS services using private addressing thanks to [Private Endpoint](../private-link/private-endpoint-overview.md) and [Private Link](../private-link/private-link-overview.md).
 
 - **Azure Firewall:** Acts as the central piece to segment traffic between the Spokes and Azure VMware Solution.
 
@@ -75,9 +75,9 @@ For more information on Azure VMware Solution networking and connectivity concep
 
 ### Traffic segmentation
 
-[Azure Firewall](../firewall/index.yml) is the Hub and Spoke topology's central piece, deployed on the Hub virtual network. Use Azure Firewall or another Azure supported network virtual appliance (NVA) to establish traffic rules and segment the communication between the different spokes and Azure VMware Solution workloads.
+[Azure Firewall](../firewall/index.yml) is the Hub and Spoke topology's central piece, deployed on the Hub virtual network. Use Azure Firewall, or another Azure supported network virtual appliance (NVA) to establish traffic rules and segment the communication between the different spokes and Azure VMware Solution workloads.
 
-Create route tables to direct the traffic to Azure Firewall.  For the Spoke virtual networks, create a route that sets the default route to the internal interface of Azure Firewall. This way, when a workload in the Virtual Network needs to reach the Azure VMware Solution address space, the firewall can evaluate it and apply the corresponding traffic rule to either allow or deny it.  
+Create route tables to direct the traffic to Azure Firewall.  For the Spoke virtual networks, create a route that sets the default route to the internal interface of the Azure Firewall. This way, when a workload in the Virtual Network needs to reach the Azure VMware Solution address space, the firewall can evaluate it and apply the corresponding traffic rule to either allow or deny it.  
 
 :::image type="content" source="media/hub-spoke/create-route-table-to-direct-traffic.png" alt-text="Screenshot showing the route tables to direct traffic to Azure Firewall." lightbox="media/hub-spoke/create-route-table-to-direct-traffic.png":::
 
@@ -110,7 +110,7 @@ Access Azure VMware Solution environment with a jump box, which is a Windows 10 
 >[!IMPORTANT]
 >Azure Bastion is the service recommended to connect to the jump box to prevent exposing Azure VMware Solution to the internet. You cannot use Azure Bastion to connect to Azure VMware Solution VMs since they are not Azure IaaS objects.  
 
-As a security best practice, deploy [Microsoft Azure Bastion](../bastion/index.yml) service within the Hub virtual network. Azure Bastion provides seamless RDP and SSH access to VMs deployed on Azure without the need to provision public IP addresses to those resources. Once you provision the Azure Bastion service, you can access the selected VM from the Azure portal. After establishing the connection, a new tab opens, showing the jump box desktop, and from that desktop, you can access the Azure VMware Solution private cloud management plane.
+As a security best practice, deploy [Microsoft Azure Bastion](../bastion/index.yml) service within the Hub virtual network. Azure Bastion provides seamless RDP and SSH access to VMs deployed on Azure without providing public IP addresses to those resources. Once you provision the Azure Bastion service, you can access the selected VM from the Azure portal. After establishing the connection, a new tab opens, showing the jump box desktop, and from that desktop, you can access the Azure VMware Solution private cloud management plane.
 
 > [!IMPORTANT]
 > Do not give a public IP address to the jump box VM or expose 3389/TCP port to the public internet. 
@@ -129,7 +129,7 @@ For Azure DNS resolution, there are two options available:
 
 The best approach is to combine both to provide reliable name resolution for Azure VMware Solution, on-premises, and Azure.
 
-As a general design recommendation, use the existing Azure DNS infrastructure (in this case, Active Directory-integrated DNS) deployed onto at least two Azure VMs deployed in the Hub virtual network and configured in the Spoke virtual networks to use those Azure DNS servers in the DNS settings.
+As a general design recommendation, use the existing Active Directory-integrated DNS deployed onto at least two Azure VMs in the Hub virtual network and configured in the Spoke virtual networks to use those Azure DNS servers in the DNS settings.
 
 You can use Azure Private DNS, where the Azure Private DNS zone links to the virtual network.  The DNS servers are used as hybrid resolvers with conditional forwarding to on-premises or Azure VMware Solution running DNS using customer Azure Private DNS infrastructure. 
 
