@@ -1,6 +1,6 @@
 ---
-title: Enable web application options using Azure Active Directory B2C
-description:  This article discusses several ways to enable web application options.
+title: Enable web app authentication options using Azure Active Directory B2C
+description:  This article discusses several ways to enable web app authentication options.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -54,7 +54,7 @@ The following JSON shows the app settings after the change:
 
 The `AddMicrosoftIdentityWebAppAuthentication` method in the Microsoft identity platform API lets developers add code for advanced authentication scenarios or subscribe to OpenIdConnect events. For example, you can subscribe to OnRedirectToIdentityProvider, which allows you to customize the authentication request your app sends to Azure AD B2C.
 
-To support advanced scenarios, open the *Startup.cs* file, and in the `ConfigureServices` function, replace `AddMicrosoftIdentityWebAppAuthentication` with the following code snippet: 
+To support advanced scenarios, open the *Startup.cs* file and, in the `ConfigureServices` function, replace `AddMicrosoftIdentityWebAppAuthentication` with the following code snippet: 
 
 ```csharp
 // Configuration to sign-in users with Azure AD B2C
@@ -169,13 +169,13 @@ You can pass parameters between your controller and the `OnRedirectToIdentityPro
     
 ## Account controller
 
-If you want to customize the *Sign-in**, *Sign-up*, or *Sign-out* actions, you're encouraged to create your own controller. Having your own controller allows you to pass parameters between your controller and the authentication library. `AccountController` is part of `Microsoft.Identity.Web.UI` NuGet package, which handles the sign-in and sign-out actions. You can find its implementation in the [Microsoft Identity Web library](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs). 
+If you want to customize the *SignIn*, *SignUp*, or *SignOut* actions, we encourage you to create your own controller. Having your own controller allows you to pass parameters between your controller and the authentication library. `AccountController` is part of `Microsoft.Identity.Web.UI` NuGet package, which handles the sign-in and sign-out actions. You can find its implementation in the [Microsoft Identity Web library](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs). 
 
 ### Add the Account controller
 
-In your Visual Studio project, right-click the *Controllers* folder, and then add a new **Controller**. Select **MVC - Empty Controller**, and provide the name **MyAccountController.cs**.
+In your Visual Studio project, right-click the *Controllers* folder, and then add a new **Controller**. Select **MVC - Empty Controller**, and then provide the name **MyAccountController.cs**.
 
-The following code snippet demonstrates a custom `MyAccountController` with the **SignIn** action.
+The following code snippet demonstrates a custom `MyAccountController` with the *SignIn* action.
 
 ```csharp
 using System;
@@ -289,9 +289,9 @@ services.AddAuthorization(options =>
     });
 ```
 
-You control authorization in ASP.NET Core by using [AuthorizeAttribute](/aspnet/core/security/authorization/simple) and its various parameters. In its most basic form, applying the `[Authorize]` attribute to a controller, action, or Razor Page limits access to that component's authenticated users.
+You control authorization in ASP.NET Core by using [AuthorizeAttribute](/aspnet/core/security/authorization/simple) and its various parameters. In its most basic form, applying the `Authorize` attribute to a controller, action, or Razor Page limits access to that component's authenticated users.
 
-You apply policies to controllers by using the `[Authorize]` attribute with the policy name. The following code limits access to the `Claims` action to users who are authorized by the `EmployeeOnly` policy:
+You apply policies to controllers by using the `Authorize` attribute with the policy name. The following code limits access to the `Claims` action to users who are authorized by the `EmployeeOnly` policy:
 
 ```csharp
 [Authorize(Policy = "EmployeeOnly")]
