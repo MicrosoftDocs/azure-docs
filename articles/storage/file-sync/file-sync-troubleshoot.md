@@ -542,6 +542,13 @@ This error occurs if the Azure File Sync agent version installed on the server i
 | **Error string** | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED |
 | **Remediation required** | Yes |
 
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c80249 |
+| **HRESULT (decimal)** | -2134375863 |
+| **Error string** | ECS_E_NOT_ENOUGH_REMOTE_STORAGE |
+| **Remediation required** | Yes |
+
 This error occurs when the Azure file share storage limit has been reached, which can happen if a quota is applied for an Azure file share or if the usage exceeds the limits for an Azure file share. For more information, see the [current limits for an Azure file share](../files/storage-files-scale-targets.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json).
 
 1. Navigate to the sync group within the Storage Sync Service.
