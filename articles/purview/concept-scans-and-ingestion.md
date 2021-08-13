@@ -33,6 +33,6 @@ Ingestion process is responsible for populating the data map. The tech metadata 
 
 ## Next steps
 
-To understand about resource sets, see [Resource Sets](concept-resource-sets.md).
+To understand about resource sets, see our [resource sets article](concept-resource-sets.md).
 
 
