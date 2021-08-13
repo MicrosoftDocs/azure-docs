@@ -65,7 +65,7 @@ The time range can also be adjusted from last 30 minutes to last 30 days or a cu
 
 ![Metric Modification](media/metrics/metrics-6.png)
 
-The default view includes all of an Azure Spring Cloud service's application's metrics together. Metrics of one app or instance can be filtered in the display.  Click **Add filter**, set the property to **App**, and select the target application you want to monitor in the **Values** text box.
+The default view includes all of an Azure Spring Cloud service's application's metrics together. Metrics of one app or instance can be filtered in the display. Select **Add filter**, set the property to **App**, and select the target application you want to monitor in the **Values** text box.
 
 You can use two kinds of filters (properties):
 

@@ -38,7 +38,7 @@ sections:
           
           * Some of Azure Cosmos DB's internal formats for encoding information, such as binary fields, are currently not as efficient as one might like. Therefore this can cause unexpected limitations on data size. For example, currently one couldn't use the full one Meg of a table entity to store binary data because the encoding increases the data's size.
           
-          * Entity property name 'ID' currently not supported.
+          * Entity property name 'ID', 'etag' currently not supported.
           
           * TableQuery TakeCount isn't limited to 1000.
           
