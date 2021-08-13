@@ -31,7 +31,7 @@ This documentation contains the following article types:
 
 ## Development life cycle
 
-Using the custom classification API typically involves several different steps. 
+Using the custom extraction API typically involves several different steps. 
 
 :::image type="content" source="../custom-classification/media/development-lifecycle.png" alt-text="The development lifecycle" lightbox="media/development-lifecycle.png":::
 

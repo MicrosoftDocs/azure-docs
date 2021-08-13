@@ -52,6 +52,10 @@ items:
     href: custom-extraction/overview.md
   - name: Quickstart
     href: custom-extraction/quickstart.md
+  - name: Concepts
+    items:
+      - name: Recommended practices
+        href: custom-extraction/concepts/recommended-practices.md
 - name: Entity linking
   items:
   - name: Overview
