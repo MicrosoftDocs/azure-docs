@@ -416,7 +416,27 @@ The following diagram shows the workflow for the many models solution.
 ![Many models concept diagram](./media/how-to-auto-train-forecast/many-models.svg)
 
 The following code demonstrates the key parameters users need to setup their many models run.
- 
+
+```python
+from azureml.train.automl.runtime._many_models.many_models_parameters import ManyModelsTrainParameters
+
+partition_column_names = ['Store', 'Brand']
+automl_settings = {"task" : 'forecasting',
+                   "primary_metric" : 'normalized_root_mean_squared_error',
+                   "iteration_timeout_minutes" : 10, #This needs to be changed based on the dataset. Explore how long training is taking before setting this value 
+                   "iterations" : 15,
+                   "experiment_timeout_hours" : 1,
+                   "label_column_name" : 'Quantity',
+                   "n_cross_validations" : 3,
+                   "time_column_name": 'WeekStarting',
+                   "max_horizon" : 6,
+                   "track_child_runs": False,
+                   "pipeline_fetch_max_batch_size": 15,}
+
+mm_paramters = ManyModelsTrainParameters(automl_settings=automl_settings, partition_column_names=partition_column_names)
+
+```
+
 ### Hierarchical time series forecasting
 
 In most applications, customers have a need to understand their forecasts at a macro and micro level of the busines; whether that be predicting sales of products at different geographic locations, or understanding the expected workforce demand for different organizations at a company. The ability to train a machine learning model to intelligently forecast on hierarchy data is essential. 
@@ -431,8 +451,43 @@ To further visualize this, the leaf levels of the hierarchy contain all the time
 
 The hierarchical time series solution is built on top of the Many Models Solution and share a similar configuration setup.
 
-The code below demonstrates the key parameters to setup their hierarchical time series forecasting runs. 
+The following code demonstrates the key parameters to setup your hierarchical time series forecasting runs. 
 
+```python
+
+from azureml.train.automl.runtime._hts.hts_parameters import HTSTrainParameters
+
+model_explainability = True
+
+engineered_explanations = False # Define your hierarchy. Adjust the settings below based on your dataset.
+hierarchy = ["state", "store_id", "product_category", "SKU"]
+training_level = "SKU"# Set your forecast parameters. Adjust the settings below based on your dataset.
+time_column_name = "date"
+label_column_name = "quantity"
+forecast_horizon = 7
+
+
+automl_settings = {"task" : "forecasting",
+                   "primary_metric" : "normalized_root_mean_squared_error",
+                   "label_column_name": label_column_name,
+                   "time_column_name": time_column_name,
+                   "forecast_horizon": forecast_horizon,
+                   "hierarchy_column_names": hierarchy,
+                   "hierarchy_training_level": training_level,
+                   "track_child_runs": False,
+                   "pipeline_fetch_max_batch_size": 15,
+                   "model_explainability": model_explainability,# The following settings are specific to this sample and should be adjusted according to your own needs.
+                   "iteration_timeout_minutes" : 10,
+                   "iterations" : 10,
+                   "n_cross_validations": 2}
+
+hts_parameters = HTSTrainParameters(
+    automl_settings=automl_settings,
+    hierarchy_column_names=hierarchy,
+    training_level=training_level,
+    enable_engineered_explanations=engineered_explanations
+)
+```
 ## Example notebooks
 
 See the [forecasting sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) for detailed code examples of advanced forecasting configuration including:
