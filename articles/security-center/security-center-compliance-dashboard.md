@@ -80,15 +80,15 @@ Using the information in the regulatory compliance dashboard, improve your compl
 
     The report provides a high-level summary of your compliance status for the selected standard based on Security Center assessments data. The report's organized according to the controls of that particular standard. The report can be shared with relevant stakeholders, and might provide evidence to internal and external auditors.
 
-    :::image type="content" source="./media/security-center-compliance-dashboard/download-report.png" alt-text="Download compliance report.":::
+    :::image type="content" source="./media/security-center-compliance-dashboard/download-report.png" alt-text="Using the toolbar in Security Center's regulatory compliance dashboard to download compliance reports.":::
 
 - To download Azure and Dynamics **certification reports** for the standards applied to your subscriptions, use the **Audit reports** option. 
 
-    :::image type="content" source="media/release-notes/audit-reports-regulatory-compliance-dashboard.png" alt-text="Regulatory compliance dashboard's toolbar":::
+    :::image type="content" source="media/release-notes/audit-reports-regulatory-compliance-dashboard.png" alt-text="Using the toolbar in Security Center's regulatory compliance dashboard to download Azure and Dynamics certification reports.":::
 
     Select the tab for the relevant reports types (PCI, SOC, ISO, and others) and use filters to find the specific reports you need:
 
-    :::image type="content" source="media/release-notes/audit-reports-list-regulatory-compliance-dashboard-ga.png" alt-text="Filtering the list of available Azure Audit reports.":::
+    :::image type="content" source="media/release-notes/audit-reports-list-regulatory-compliance-dashboard-ga.png" alt-text="Filtering the list of available Azure Audit reports using tabs and filters.":::
 
     For example, from the PCI tab you can download a ZIP file containing a digitally signed certificate demonstrating Microsoft Azure, Dynamics 365, and Other Online Services' compliance with ISO22301 framework, together with the necessary collateral to interpret and present the certificate. 
 

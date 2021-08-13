@@ -34,7 +34,7 @@ You should be familiar with the concepts of AI face detection and identification
 
 * [Face detection concepts](../concepts/face-detection.md)
 * [Face recognition concepts](../concepts/face-recognition.md)
-* [How to detect faces in an image](HowtoDetectFacesinImage.md)
+* [Call the detect API](HowtoDetectFacesinImage.md)
 
 ## Detect faces with specified model
 

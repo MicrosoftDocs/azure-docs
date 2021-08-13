@@ -109,7 +109,7 @@ sections:
           The integration runtime is the compute infrastructure that Azure Data Factory uses to provide the following data integration capabilities across various network environments:
           
           - **Data movement**: For data movement, the integration runtime moves the data between the source and destination data stores, while providing support for built-in connectors, format conversion, column mapping, and performant and scalable data transfer.
-          - **Data flow**: For data flow, Execute a [Data Flow](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-overview) in managed Azure compute environment.
+          - **Data flow**: For data flow, Execute a [Data Flow](./concepts-data-flow-overview.md) in managed Azure compute environment.
           - **Dispatch activities**: For transformation, the integration runtime provides capability to natively execute SSIS packages.
           - **Execute SSIS packages**: The integration runtime natively executes SSIS packages in a managed Azure compute environment. The integration runtime also supports dispatching and monitoring transformation activities running on a variety of compute services, such as Azure HDInsight, Azure Machine Learning, SQL Database, and SQL Server.
           
@@ -118,7 +118,7 @@ sections:
           An integration runtime provides the bridge between the activity and linked Services. It's referenced by the linked service or activity, and provides the compute environment where the activity either runs on or gets dispatched from. This way, the activity can be performed in the region closest possible to the target data store or compute service in the most performant way while meeting security and compliance needs.
 
           Integration runtimes can be created in the Azure Data Factory UX via the management hub and any activities, datasets, or data flows that reference them.
-          For more information, see [Integration runtime in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime).
+          For more information, see [Integration runtime in Azure Data Factory](./concepts-integration-runtime.md).
           
       - question: |
           What is the limit on the number of integration runtimes?

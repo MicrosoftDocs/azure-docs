@@ -1,6 +1,6 @@
 ---
 author: robinsh
-manager: philmea
+
 ms.author: robinsh
 ms.topic: include
 ms.date: 07/07/2021
