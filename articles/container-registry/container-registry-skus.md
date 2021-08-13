@@ -2,7 +2,7 @@
 title: Registry service tiers and features
 description: Learn about the features and limits (quotas) in the Basic, Standard, and Premium service tiers (SKUs) of Azure Container Registry.
 ms.topic: article
-ms.date: 06/24/2021
+ms.date: 08/12/2021
 ---
 
 # Azure Container Registry service tiers
@@ -57,6 +57,27 @@ Pushing a single 133 MB `nginx:latest` image to an Azure container registry requ
 You may experience throttling of pull or push operations when the registry determines the rate of requests exceeds the limits allowed for the registry's service tier. You may see an HTTP 429 error similar to `Too many requests`.
 
 Throttling could occur temporarily when you generate a burst of image pull or push operations in a very short period, even when the average rate of read and write operations is within registry limits. You may need to implement retry logic with some backoff in your code or reduce the maximum rate of requests to the registry.
+
+## Show regisry usage
+
+Use the [az acr show-usage](/cli/az/acr#az_acr_show_usage) command, or the [List Usages](/rest/api/containerregstry/registries/list-usages) REST API, to get a snapshot of your registry's current consumption of storage and other resources, compared with the limits for that registry's service tier. 
+
+This information helps you to make decisions about whether to [change service tiers](#changing-tiers) or take actions to reduce usage when your registry nears a limit.
+
+> [!NOTE]
+> The registry's storage usage should only be used as a guide and may not reflect recent registry operations. Monitor the registry's [StorageUsed metric](monitor-service-reference.md#container-registry-metrics) for up-to-date data. 
+
+Regisry usage information provided by `az acr show-usage` or the List Usages REST API includes the following.
+
+* Storage consumed in bytes<sup>1</sup>
+* Number of [webhooks](container-registry-webhook.md)
+* Number of [geo-replications](container-registry-geo-replication.md) (includes the home replica)
+* Number of [private endpoints](container-registry-private-link.md)
+* Number of IP access and virtual network [rules](container-registry-vnet.md)
+
+<sup>1</sup>In a geo-replicated registry, storage usage is shown only for the home region. Multiply by the number of replications to estimate total storage consumed.
+
+A snapshot of storage usage also appears on the registry's **Overview** page in the portal.
 
 ## Changing tiers
 
