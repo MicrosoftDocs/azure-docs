@@ -139,11 +139,10 @@ You can uninstall HCX Advanced through the portal, which removes the existing pa
 1. In your Azure VMware Solution private cloud, select **Manage** > **Add-ons**.
 
 1. Select **Get started** for **HCX Workload Mobility**, then select **Uninstall**.
-
    
 1. Enter **yes** to confirm the uninstall.
 
-At this point, HCX Advanced will no longer have the vCenter plugin, and if needed, you can reinstall it at any time.
+At this point, HCX Advanced no longer has the vCenter plugin, and if needed, you can reinstall it at any time.
 
 
 ## Next steps
