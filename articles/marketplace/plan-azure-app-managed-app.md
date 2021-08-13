@@ -35,7 +35,7 @@ Use an Azure Application: Managed application plan when the following conditions
 > [!NOTE]
 > Managed applications must be deployable through Azure Marketplace. If customer communication is a concern, reach out to interested customers after you've enabled lead sharing.
 
-## Usage of Azure Kubernetes Service (AKS) and Containers in Managed Application
+## Usage of Azure Kubernetes Service (AKS) and containers in managed application
 
 ### Azure Application Offers fall into two categories
 
