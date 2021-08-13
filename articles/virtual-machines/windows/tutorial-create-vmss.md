@@ -76,7 +76,7 @@ Add-AzVmssExtension -VirtualMachineScaleSet $vmss `
   -Name "customScript" `
   -Publisher "Microsoft.Compute" `
   -Type "CustomScriptExtension" `
-  -TypeHandlerVersion 1.8 `
+  -TypeHandlerVersion 1.10 `
   -Setting $publicSettings
 
 # Update the scale set and apply the Custom Script Extension to the VM instances
