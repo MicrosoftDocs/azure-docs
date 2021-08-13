@@ -3,7 +3,6 @@ title: Application Insights logging with .NET
 description: Learn how to use Application Insights with the ILogger interface in .NET.
 ms.topic: conceptual
 ms.date: 05/20/2021
-ms.reviewer: mbullwin
 ---
 
 # Application Insights logging with .NET
@@ -394,7 +393,7 @@ Host.CreateDefaultBuilder(args)
     });
 ```
 
-This preceding code is functionally equivalent to the previous section in *appsettings.json*. For more information, see [Configuration in .NET](/dotnet/core/extensions/configuration).
+For more information, see [Configuration in .NET](/dotnet/core/extensions/configuration).
 
 ## Logging scopes
 
