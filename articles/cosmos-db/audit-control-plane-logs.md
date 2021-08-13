@@ -4,7 +4,7 @@ description: Learn how to audit the control plane operations such as add a regio
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 08/05/2021
+ms.date: 08/13/2021
 ms.author: sngun
 
 ---
@@ -74,7 +74,7 @@ After you turn on logging, use the following steps to track down operations for 
 
 ## Identify the identity associated to a specific operation
 
-If you want to debug further, you can identify a specific operation in the **Activity log** by using the `activityId_g` or by the timestamp of the operation. Timestamp is used for some Resource Manager clients where the activity ID is not explicitly passed. The Activity log gives details about the identity with which the operation was initiated. The following screenshot shows how to use the activity ID and find the operations associated with it in the Activity log:
+If you want to debug further, you can identify a specific operation in the **Activity log** by using the `activityId_g` or by the timestamp of the operation. Timestamp is used for some Resource Manager clients where the activity ID is not explicitly passed. The Activity log gives details about the identity with which the operation was initiated. The following screenshot shows how to use the `activityId_g` to find the operations associated with it in the Activity log:
 
 :::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Use the activity ID and find the operations":::
 
