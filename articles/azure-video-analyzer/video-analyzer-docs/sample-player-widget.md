@@ -12,7 +12,7 @@ ms.date: 08/13/2021
 This sample application shows the integration of Video Analyzer's player widget with video playback, zone drawing and video clip generation features.
 
 * Clone the [AVA C# sample repository](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp)
-* Follow the instrcutions in the README in the **src/video-player** folder
+* Follow the instrcutions in the [README in the **src/video-player** folder](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp/blob/main/src/video-player/readme.md)
 
 ## Get Started
 After following the README instructions and the app is running on http://localhost:3000/
@@ -20,13 +20,13 @@ After following the README instructions and the app is running on http://localho
 2. Select a Video from the drop-down list of all of the Videos in your Video Analyzer account
 
 ## Video Player
-The Video Player page presents the typical player, as seen in the Portal
+The Video Player page presents the typical player, as seen in the Portal.  
 ![Screenshot of video player.](./media/sample-widget-player/widget-video-player.png)
 
 ## Zone Drawer
-The Zone Drawer allows you to create zones by drawing polygons and drawing lines on your video. You can also save these zones and lines to receive the coordinates of your respective zones and lines. Copying these coordinates can be done using the *Copy to clipboard* button  
+The Zone Drawer allows you to create zones by drawing polygons and drawing lines on your video. You can also save these zones and lines to receive the coordinates of your respective zones and lines. Copying these coordinates can be done using the **Copy to clipboard** button.  
   
-Example:
+**Example:**
 ```json
   {
     "@type": "#Microsoft.VideoAnalyzer.NamedLineString",
@@ -64,17 +64,15 @@ Example:
     ]
   }
 ```
-Zones and lines can be renamed and deleted.
+Zones and lines can be renamed and deleted using the three dots next to each zone and line.  
 ![Screenshot of zone drawer.](./media/sample-widget-player/widget-zone-drawer.png)
 
 ## Video Clips
 Video Clips allows you to select a start date and time along with an end date and time. You can generate the video clip by using the *Add* button.
 You can select any of your generated clips from drop-down list, where each clip is titled as the start and end dates and times.
 (Example: Format)
-Your video clip can then be viewed in the typical video player format.
+Your video clip can then be viewed in the typical video player format.  
 ![Screenshot of video clips.](./media/sample-widget-player/widget-video-clips.png)
-
-This sample app shows what is capable with the Video Analyzer player widget.
 
 ## Next Steps
 Try creating your own custom Video Analyzer player widget with these [instructions](./player-widget.md)
