@@ -1,10 +1,10 @@
 ---
-author: trevorbye
+author: laujan
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.date: 04/04/2020
 ms.topic: include
-ms.author: trbye
+ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-two
 ---
 
