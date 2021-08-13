@@ -32,7 +32,7 @@ The following prerequisites are for a Windows development environment. For Linux
 
 ::: zone pivot="programming-language-ansi-c"
 
-* If you're using a Windows development environment, install [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 with the ['Desktop development with C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) workload enabled. Visual Studio 2015 and Visual Studio 2017 are also supported. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in the SDK documentation.
+* Install [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 with the ['Desktop development with C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) workload enabled. Visual Studio 2015 and Visual Studio 2017 are also supported. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in the SDK documentation.
 
 ::: zone-end
 
@@ -65,6 +65,7 @@ The following prerequisites are for a Windows development environment. For Linux
 ::: zone pivot="programming-language-java"
 
 * Install the [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-support-on-azure) or later on your machine.
+
 * Download and install [Maven](https://maven.apache.org/install.html).
 
 ::: zone-end
@@ -414,10 +415,8 @@ This article demonstrates an individual enrollment for a single device to be pro
      * Select an IoT hub linked with your provisioning service.
      * Enter a unique device ID. Make sure to avoid sensitive data while naming your device. 
      * Update the **Initial device twin state** with the desired initial configuration for the device.
-
 ::: zone-end
-
-        :::image type="content" source="./media/quick-create-simulated-device-x509/device-enrollment.png" alt-text="Add device as individual enrollment with X.509 attestation.":::
+    :::image type="content" source="./media/quick-create-simulated-device-x509/device-enrollment.png" alt-text="Add device as individual enrollment with X.509 attestation.":::
 
 7. Select **Save**. You'll be returned to **Manage enrollments**.
 
