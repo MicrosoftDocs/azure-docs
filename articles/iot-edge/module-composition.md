@@ -2,7 +2,7 @@
 title: Deploy module & routes with deployment manifests - Azure IoT Edge
 description: Learn how a deployment manifest declares which modules to deploy, how to deploy them, and how to create message routes between them. 
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 10/08/2020
 ms.topic: conceptual

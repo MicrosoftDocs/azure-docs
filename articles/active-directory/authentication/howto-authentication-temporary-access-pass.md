@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/28/2021
+ms.date: 08/11/2021
 
 ms.author: justinha
 author: justinha
@@ -121,6 +121,7 @@ The most common use for a Temporary Access Pass is for a user to register authen
 
 The user is now signed in and can update or register a method such as FIDO2 security key. 
 Users who update their authentication methods due to losing their credentials or device should make sure they remove the old authentication methods.
+Users can also continue to sign-in by using their password; a TAP doesn’t replace a user’s password.
 
 Users can also use their Temporary Access Pass to register for Passwordless phone sign-in directly from the Authenticator app. For more information, see [Add your work or school account to the Microsoft Authenticator app](../user-help/user-help-auth-app-add-work-school-account.md).
 
