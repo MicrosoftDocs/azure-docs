@@ -343,7 +343,7 @@ Follow these examples to create a logic app  workflow that sends an IDoc message
 
 1. [Test your logic app.](#test-your-logic-app-workflow)
 
-<a name="add-http-request-trigger">
+<a name="add-http-request-trigger"></a>
 
 ### Add an HTTP request trigger
 
