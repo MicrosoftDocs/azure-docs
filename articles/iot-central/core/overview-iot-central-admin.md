@@ -78,6 +78,10 @@ To view the metrics, an administrator can use charts in the Azure portal, a REST
 
 To learn more, see [Monitor application health](howto-manage-iot-central-from-portal.md#monitor-application-health).
 
+## Monitor connected IoT Edge devices
+
+To learn how to remotely monitor your IoT Edge fleet using Azure Monitor and built-in metrics integration, see [Collect and transport metrics](../../iot-edge/how-to-collect-and-transport-metrics.md).
+
 ## Tools
 
 Many of the tools you use as an administrator are available in the **Administration** section of each IoT Central application. You can also use the following tools to complete some administrative tasks:
