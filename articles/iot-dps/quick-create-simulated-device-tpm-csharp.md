@@ -44,7 +44,7 @@ This article will demonstrate individual enrollments.
 
 ## Provision the simulated device
 
-1. Sign in to the Azure portal. Select the **All resources** button on the left-hand menu and open your Device Provisioning service. From the **Overview** blade, note the **_ID Scope_** value.
+1. Sign in to the Azure portal. Select the **All resources** button on the left-hand menu and open your Device Provisioning Service. From the **Overview** blade, note the **_ID Scope_** value.
 
     ![Copy provisioning service Scope ID from the portal blade](./media/quick-create-simulated-device-tpm-csharp/copy-scope.png) 
 
@@ -97,7 +97,7 @@ If you plan to continue working on and exploring the device client sample, do no
 
 1. Close the device client sample output window on your machine.
 1. Close the TPM simulator window on your machine.
-1. From the left-hand menu in the Azure portal, select **All resources** and then select your Device Provisioning service. At the top of the **Overview** blade, press **Delete** at the top of the pane.  
+1. From the left-hand menu in the Azure portal, select **All resources** and then select your Device Provisioning Service. At the top of the **Overview** blade, press **Delete** at the top of the pane.  
 1. From the left-hand menu in the Azure portal, select **All resources** and then select your IoT hub. At the top of the **Overview** blade, press **Delete** at the top of the pane.  
 
 ## Next steps

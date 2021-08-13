@@ -172,7 +172,7 @@ If you plan to explore the Java service sample, do not clean up the resources cr
 
 1. Close the Python sample output window on your machine.
 1. If you created a simulated TPM device, close the TPM simulator window.
-1. Navigate to your Device Provisioning service in the Azure portal, select **Manage enrollments**, and then select the **Individual Enrollments** tab. Select the check box next to the *Registration ID* for the enrollment entry you created using this quickstart, and press the **Delete** button at the top of the pane.
+1. Navigate to your Device Provisioning Service in the Azure portal, select **Manage enrollments**, and then select the **Individual Enrollments** tab. Select the check box next to the *Registration ID* for the enrollment entry you created using this quickstart, and press the **Delete** button at the top of the pane.
 
 
 ## Next steps

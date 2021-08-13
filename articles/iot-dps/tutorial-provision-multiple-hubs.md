@@ -56,7 +56,7 @@ Follow these steps to set the allocation policy:
 
 Link the Device Provisioning Service and IoT hub so that the Device Provisioning Service can register devices to that hub.
 
-1. In the **All resources** page, click the Device Provisioning service you created previously.
+1. In the **All resources** page, click the Device Provisioning Service you created previously.
 2. In the Device Provisioning Service page, click **Linked IoT hubs**.
 3. Click **Add**.
 4. In the **Add link to IoT hub** page, use the radio buttons to specify whether the linked IoT hub is located in the current subscription, or in a different subscription. Then, choose the name of the IoT hub from the **IoT hub** box.

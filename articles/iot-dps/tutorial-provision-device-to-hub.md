@@ -12,7 +12,7 @@ ms.custom: mvc
 
 # Tutorial: Provision the device to an IoT hub using the Azure IoT Hub Device Provisioning Service
 
-In the previous tutorial, you learned how to set up a device to connect to your Device Provisioning service. In this tutorial, you learn how to use this service to provision your device to a single IoT hub, using auto-provisioning and **_enrollment lists_**. This tutorial shows you how to:
+In the previous tutorial, you learned how to set up a device to connect to your Device Provisioning Service. In this tutorial, you learn how to use this service to provision your device to a single IoT hub, using auto-provisioning and **_enrollment lists_**. This tutorial shows you how to:
 
 > [!div class="checklist"]
 > * Enroll the device
@@ -53,7 +53,7 @@ There are two ways to enroll the device to the Device Provisioning Service:
 
 Now you enroll the device with your Device Provisioning Service instance, using the required security artifacts based on the device's attestation mechanism: 
 
-1. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service.
+1. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning Service.
 
 2. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select either **Individual Enrollments** tab or the **Enrollment Groups** tab as per your device setup. Click the **Add** button at the top. Select **TPM** or **X.509** as the identity attestation *Mechanism*, and enter the appropriate security artifacts as discussed previously. You may enter a new **IoT Hub device ID**. Once complete, click the **Save** button. 
 
@@ -61,7 +61,7 @@ Now you enroll the device with your Device Provisioning Service instance, using 
 
     ![Successful TPM enrollment in the portal](./media/tutorial-provision-device-to-hub/tpm-enrollment-success.png)
 
-After enrollment, the provisioning service then waits for the device to boot and connect with it at any later point in time. When your device boots for the first time, the client SDK library interacts with your chip to extract the security artifacts from the device, and verifies registration with your Device Provisioning service. 
+After enrollment, the provisioning service then waits for the device to boot and connect with it at any later point in time. When your device boots for the first time, the client SDK library interacts with your chip to extract the security artifacts from the device, and verifies registration with your Device Provisioning Service. 
 
 ## Start the IoT device
 
@@ -69,13 +69,13 @@ Your IoT device can be a real device, or a simulated device. Since the IoT devic
 
 Simulated device examples, using both TPM and X.509 attestation, are included for C, Java, C#, Node.js, and Python.  To see an example of a device using TPM attestation, see [Quickstart: Provision a simulated TPM device](quick-create-simulated-device.md). For an example of a device using X.509 attestation, see [Quickstart:Provision a simulated symmetric key device](quick-create-simulated-device-x509.md#prepare-and-run-the-device-provisioning-code)
 
-Start the device to allow your device's client application to start the registration with your Device Provisioning service.  
+Start the device to allow your device's client application to start the registration with your Device Provisioning Service.  
 
 ## Verify the device is registered
 
 Once your device boots, the following actions should take place:
 
-1. The device sends a registration request to your Device Provisioning service.
+1. The device sends a registration request to your Device Provisioning Service.
 2. For TPM devices, the Device Provisioning Service sends back a registration challenge to which your device responds. 
 3. On successful registration, the Device Provisioning Service sends the IoT hub URI, device ID, and the encrypted key back to the device. 
 4. The IoT Hub client application on the device then connects to your hub. 
