@@ -28,6 +28,9 @@ This article steps through using an ARM template to create a virtual machine sca
 > [!CAUTION]
 > The orchestration mode is defined when you create the scale set and cannot be changed or updated later.
 
+## Prerequisites
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Register for Flexible orchestration mode
 
@@ -35,170 +38,422 @@ Before you can deploy virtual machine scale sets in Flexible orchestration mode,
 
 ## ARM template 
 
-An [ARM template](../azure/azure-resource-manager/templates/overview.md) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment.
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 ARM templates let you deploy groups of related resources. In a single template, you can create the virtual machine scale set, install applications, and configure autoscale rules. With the use of variables and parameters, this template can be reused to update existing, or create additional, scale sets. You can deploy templates through the Azure portal, Azure CLI, or Azure PowerShell, or from continuous integration / continuous delivery (CI/CD) pipelines.
 
 
+## Review the template
+
 ```armasm
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "metadata": {
-    "_generator": {
-      "name": "bicep",
-      "version": "0.4.451.19169",
-      "templateHash": "8572588880309981021"
-    }
-  },
-  "parameters": {
-    "vmssname": {
-      "type": "string",
-      "defaultValue": "myVmssFlex"
-    },
-    "region": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]"
-    },
-    "zones": {
-      "type": "array",
-      "defaultValue": []
-    },
-    "vmSize": {
-      "type": "string",
-      "defaultValue": "Standard_DS1_v2"
-    },
-    "platformFaultDomainCount": {
-      "type": "int",
-      "defaultValue": 1,
-      "allowedValues": [
-        1,
-        2,
-        3,
-        5
-      ]
-    },
-    "vmCount": {
-      "type": "int",
-      "defaultValue": 3,
-      "maxValue": 500
-    },
-    "subnetId": {
-      "type": "string"
-    },
-    "adminUsername": {
-      "type": "string",
-      "defaultValue": "azureuser"
-    },
-    "authenticationType": {
-      "type": "string",
-      "defaultValue": "password",
-      "allowedValues": [
-        "password",
-        "sshPublicKey"
-      ]
-    },
-    "adminPasswordOrKey": {
-      "type": "secureString",
-      "defaultValue": "[newGuid()]"
-    }
-  },
-  "functions": [],
-  "variables": {
-    "networkApiVersion": "2020-11-01",
-    "linuxConfiguration": {
-      "disablePasswordAuthentication": true,
-      "provisionVMAgent": true,
-      "ssh": {
-        "publicKeys": [
-          {
-            "path": "[format('/home/{0}/.ssh/authorized_keys', parameters('adminUsername'))]",
-            "keyData": "[parameters('adminPasswordOrKey')]"
-          }
-        ]
-      }
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Compute/virtualMachineScaleSets",
-      "apiVersion": "2021-03-01",
-      "name": "[parameters('vmssname')]",
-      "location": "[parameters('region')]",
-      "zones": "[parameters('zones')]",
-      "sku": {
-        "name": "[parameters('vmSize')]",
-        "tier": "Standard",
-        "capacity": "[parameters('vmCount')]"
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "location": {
+        "type": "string",
+        "defaultValue": "[resourceGroup().location]",
+        "metadata": {
+          "description": "Location for all resources"
+        }
       },
-      "properties": {
-        "orchestrationMode": "Flexible",
-        "singlePlacementGroup": false,
-        "platformFaultDomainCount": "[parameters('platformFaultDomainCount')]",
-        "virtualMachineProfile": {
-          "osProfile": {
-            "computerNamePrefix": "myVm",
-            "adminUsername": "[parameters('adminUsername')]",
-            "adminPassword": "[parameters('adminPasswordOrKey')]",
-            "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), null(), variables('linuxConfiguration'))]"
-          },
-          "networkProfile": {
-            "networkApiVersion": "[variables('networkApiVersion')]",
-            "networkInterfaceConfigurations": [
-              {
-                "name": "[format('{0}NicConfig01', parameters('vmssname'))]",
-                "properties": {
-                  "primary": true,
-                  "enableAcceleratedNetworking": false,
-                  "ipConfigurations": [
-                    {
-                      "name": "[format('{0}IpConfig', parameters('vmssname'))]",
-                      "properties": {
-                        "privateIPAddressVersion": "IPv4",
-                        "subnet": {
-                          "id": "[parameters('subnetId')]"
-                        }
-                      }
-                    }
-                  ]
-                }
-              }
+      "vmSku": {
+        "type": "string",
+        "defaultValue": "Standard_D2s_v3",
+        "metadata": {
+          "description": "Size of VMs in the VM Scale Set."
+        }
+      },
+      "vmssName": {
+        "type": "string",
+        "metadata": {
+          "description": "String used as a base for naming resources (9 characters or less). A hash is prepended to this string for some resources, and resource-specific information is appended."
+        }
+      },
+      "instanceCount": {
+        "type": "int",
+        "defaultValue": 3,
+        "minValue": 1,
+        "maxValue": 100,
+        "metadata": {
+          "description": "Number of VM instances (100 or less)."
+        }
+      },
+      "adminUsername": {
+        "type": "string",
+        "metadata": {
+          "description": "Admin username on all VMs."
+        }
+      },
+      "authenticationType": {
+        "type": "string",
+        "defaultValue": "sshPublicKey",
+        "allowedValues": [
+          "sshPublicKey",
+          "password"
+        ],
+        "metadata": {
+          "description": "Type of authentication to use on the Virtual Machine. SSH key is recommended."
+        }
+      },
+      "adminPasswordOrKey": {
+        "type": "securestring",
+        "metadata": {
+          "description": "SSH Key or password for the Virtual Machine. SSH key is recommended."
+        }
+      },
+      "_artifactsLocation": {
+        "type": "string",
+        "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/application-workloads/python/vmss-bottle-autoscale/azuredeploy.json",
+        "metadata": {
+          "description": "The base URI where artifacts required by this template are located"
+        }
+      },
+      "_artifactsLocationSasToken": {
+        "type": "securestring",
+        "defaultValue": "",
+        "metadata": {
+          "description": "The sasToken required to access _artifactsLocation.  When the template is deployed using the accompanying scripts, a sasToken will be automatically generated"
+        }
+      }
+    },
+    "variables": {
+      "addressPrefix": "10.0.0.0/16",
+      "subnetPrefix": "10.0.0.0/24",
+      "networkApiVersion": "2020-11-01",
+      "virtualNetworkName": "[concat(parameters('vmssName'), 'vnet')]",
+      "networkSecurityGroupName": "[concat(parameters('vmssName'), 'nsg')]",
+      "publicIPAddressName": "[concat(parameters('vmssName'), 'pip')]",
+      "subnetName": "[concat(parameters('vmssName'), 'subnet')]",
+      "loadBalancerName": "[concat(parameters('vmssName'), 'lb')]",
+      "publicIPAddressID": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]",
+      "bePoolName": "[concat(parameters('vmssName'), 'bepool')]",
+      "nicName": "[concat(parameters('vmssName'), 'nic')]",
+      "ipConfigName": "[concat(parameters('vmssName'), 'ipconfig')]",
+      "frontEndIPConfigID": "[resourceId('Microsoft.Network/loadBalancers/frontendIPConfigurations', variables('loadBalancerName'),'loadBalancerFrontEnd')]",
+      "osType": {
+        "publisher": "Canonical",
+        "offer": "UbuntuServer",
+        "sku": "16.04-LTS",
+        "version": "latest"
+      },
+      "imageReference": "[variables('osType')]",
+      "linuxConfiguration": {
+        "disablePasswordAuthentication": true,
+        "ssh": {
+          "publicKeys": [
+            {
+              "path": "[concat('/home/', parameters('adminUsername'), '/.ssh/authorized_keys')]",
+              "keyData": "[parameters('adminPasswordOrKey')]"
+            }
+          ]
+        }
+      }
+    },
+    "resources": [
+      {
+        "type": "Microsoft.Network/virtualNetworks",
+        "apiVersion": "2020-06-01",
+        "name": "[variables('virtualNetworkName')]",
+        "location": "[parameters('location')]",
+        "dependsOn": [
+          "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
+        ],
+        "properties": {
+          "addressSpace": {
+            "addressPrefixes": [
+              "[variables('addressPrefix')]"
             ]
           },
-          "diagnosticsProfile": {
-            "bootDiagnostics": {
-              "enabled": true
-            }
-          },
-          "storageProfile": {
-            "osDisk": {
-              "osType": "Linux",
-              "createOption": "FromImage",
-              "caching": "ReadWrite",
-              "diskSizeGB": 256,
-              "managedDisk": {
-                "storageAccountType": "Premium_LRS"
+          "subnets": [
+            {
+              "name": "[variables('subnetName')]",
+              "properties": {
+                "addressPrefix": "[variables('subnetPrefix')]",
+                "networkSecurityGroup": {
+                  "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
+                }
               }
+            }
+          ]
+        }
+      },
+      {
+        "apiVersion": "2020-05-01",
+        "type": "Microsoft.Network/networkSecurityGroups",
+        "name": "[variables('networkSecurityGroupName')]",
+        "location": "[parameters('location')]",
+        "properties": {}
+      },
+      {
+        "type": "Microsoft.Network/publicIPAddresses",
+        "apiVersion": "2020-06-01",
+        "name": "[variables('publicIPAddressName')]",
+        "location": "[parameters('location')]",
+        "sku": {
+          "name": "Standard"
+        },
+        "properties": {
+          "publicIPAllocationMethod": "Static",
+          "dnsSettings": {
+            "domainNameLabel": "[parameters('vmssName')]"
+          }
+        }
+      },
+      {
+        "type": "Microsoft.Network/loadBalancers",
+        "apiVersion": "2020-06-01",
+        "name": "[variables('loadBalancerName')]",
+        "location": "[parameters('location')]",
+        "sku": {
+          "name": "Standard"
+        },
+        "dependsOn": [
+          "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddressName'))]"
+        ],
+        "properties": {
+          "frontendIPConfigurations": [
+            {
+              "name": "LoadBalancerFrontEnd",
+              "properties": {
+                "publicIPAddress": {
+                  "id": "[variables('publicIPAddressID')]"
+                }
+              }
+            }
+          ],
+          "backendAddressPools": [
+            {
+              "name": "[variables('bePoolName')]"
+            }
+          ]
+        }
+      },
+      {
+        "type": "Microsoft.Compute/virtualMachineScaleSets",
+        "apiVersion": "2021-03-01",
+        "name": "[parameters('vmssName')]",
+        "location": "[parameters('location')]",
+        "sku": {
+          "name": "[parameters('vmSku')]",
+          "tier": "Standard",
+          "capacity": "[parameters('instanceCount')]"
+        },
+        "dependsOn": [
+          "[resourceId('Microsoft.Network/loadBalancers', variables('loadBalancerName'))]",
+          "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]"
+        ],
+        "properties": {
+          "orchestrationMode": "Flexible",
+          "platformFaultDomainCount": 1,
+          "singlePlacementGroup": false,
+          "virtualMachineProfile": {
+            "storageProfile": {
+              "osDisk": {
+                "createOption": "FromImage",
+                "caching": "ReadWrite"
+              },
+              "imageReference": "[variables('imageReference')]"
             },
-            "imageReference": {
-              "publisher": "Canonical",
-              "offer": "UbuntuServer",
-              "sku": "18.04-LTS",
-              "version": "latest"
+            "osProfile": {
+              "computerNamePrefix": "[parameters('vmssName')]",
+              "adminUsername": "[parameters('adminUsername')]",
+              "adminPassword": "[parameters('adminPasswordOrKey')]",
+              "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), json('null'), variables('linuxConfiguration'))]"
+            },
+            "networkProfile": {
+              "networkApiVersion": "[variables('networkApiVersion')]",
+              "networkInterfaceConfigurations": [
+                {
+                  "name": "[variables('nicName')]",
+                  "properties": {
+                    "primary": true,
+                    "ipConfigurations": [
+                      {
+                        "name": "[variables('ipConfigName')]",
+                        "properties": {
+                          "subnet": {
+                            "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]"
+                          },
+                          "primary": true,
+                          "loadBalancerBackendAddressPools": [
+                            {
+                              "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', variables('loadBalancerName'), variables('bePoolName'))]"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "extensionProfile": {
+              "extensions": [
+                {
+                  "name": "lapextension",
+                  "properties": {
+                    "publisher": "Microsoft.Azure.Extensions",
+                    "type": "CustomScript",
+                    "typeHandlerVersion": "2.0",
+                    "autoUpgradeMinorVersion": true,
+                    "settings": {
+                      "fileUris": [
+                        "[uri(parameters('_artifactsLocation'), concat('installserver.sh', parameters('_artifactsLocationSasToken')))]",
+                        "[uri(parameters('_artifactsLocation'), concat('workserver.py', parameters('_artifactsLocationSasToken')))]"
+                      ],
+                      "commandToExecute": "bash installserver.sh"
+                    }
+                  }
+                }
+              ]
             }
           }
         }
+      },
+      {
+        "type": "Microsoft.Insights/autoscaleSettings",
+        "apiVersion": "2015-04-01",
+        "name": "[concat(parameters('vmssName'), '-autoscalehost')]",
+        "location": "[parameters('location')]",
+        "dependsOn": [
+          "[resourceId('Microsoft.Compute/virtualMachineScaleSets', parameters('vmSSName'))]"
+        ],
+        "properties": {
+          "name": "[concat(parameters('vmssName'), '-autoscalehost')]",
+          "targetResourceUri": "[resourceId('Microsoft.Compute/virtualMachineScaleSets', parameters('vmSSName'))]",
+          "enabled": true,
+          "profiles": [
+            {
+              "name": "Profile1",
+              "capacity": {
+                "minimum": "1",
+                "maximum": "10",
+                "default": "3"
+              },
+              "rules": [
+                {
+                  "metricTrigger": {
+                    "metricName": "Percentage CPU",
+                    "metricResourceUri": "[resourceId('Microsoft.Compute/virtualMachineScaleSets', parameters('vmSSName'))]",
+                    "timeGrain": "PT1M",
+                    "statistic": "Average",
+                    "timeWindow": "PT5M",
+                    "timeAggregation": "Average",
+                    "operator": "GreaterThan",
+                    "threshold": 60
+                  },
+                  "scaleAction": {
+                    "direction": "Increase",
+                    "type": "ChangeCount",
+                    "value": "1",
+                    "cooldown": "PT1M"
+                  }
+                },
+                {
+                  "metricTrigger": {
+                    "metricName": "Percentage CPU",
+                    "metricResourceUri": "[resourceId('Microsoft.Compute/virtualMachineScaleSets', parameters('vmSSName'))]",
+                    "timeGrain": "PT1M",
+                    "statistic": "Average",
+                    "timeWindow": "PT5M",
+                    "timeAggregation": "Average",
+                    "operator": "LessThan",
+                    "threshold": 30
+                  },
+                  "scaleAction": {
+                    "direction": "Decrease",
+                    "type": "ChangeCount",
+                    "value": "1",
+                    "cooldown": "PT1M"
+                  }
+                }
+              ]
+            }
+          ]
+        }
       }
-    }
-  ],
-  "outputs": {
-    "vmssid": {
-      "type": "string",
-      "value": "[resourceId('Microsoft.Compute/virtualMachineScaleSets', parameters('vmssname'))]"
-    }
+    ]
   }
-}
 ```
+
+These resources are defined in the template:
+
+- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
+- [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
+- [**Microsoft.Network/loadBalancers**](/azure/templates/microsoft.network/loadbalancers)
+- [**Microsoft.Compute/virtualMachineScaleSets**](/azure/templates/microsoft.compute/virtualmachinescalesets)
+- [**Microsoft.Insights/autoscaleSettings**](/azure/templates/microsoft.insights/autoscalesettings)
+- [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
+
+### Define a scale set
+
+To create a scale with a template, you define the appropriate resources. The core parts of the virtual machine scale set resource type are:
+
+| Property                     | Description of property                                  | Example template value                    |
+|------------------------------|----------------------------------------------------------|-------------------------------------------|
+| type                         | Azure resource type to create                            | Microsoft.Compute/virtualMachineScaleSets |
+| name                         | The scale set name                                       | myScaleSet                                |
+| location                     | The location to create the scale set                     | East US                                   |
+| sku.name                     | The VM size for each scale set instance                  | Standard_A1                               |
+| sku.capacity                 | The number of VM instances to initially create           | 2                                         |
+| imageReference               | The platform or custom image to use for the VM instances | Canonical Ubuntu Server 16.04-LTS         |
+| osProfile.computerNamePrefix | The name prefix for each VM instance                     | myvmss                                    |
+| osProfile.adminUsername      | The username for each VM instance                        | azureuser                                 |
+| osProfile.adminPassword      | The password for each VM instance                        | P@ssw0rd!                                 |
+
+To customize a scale set template, you can change the VM size or initial capacity. Another option is to use a different platform or a custom image.
+
+### Add a sample application
+
+To test your scale set, install a basic web application. When you deploy a scale set, VM extensions can provide post-deployment configuration and automation tasks, such as installing an app. Scripts can be downloaded from Azure storage or GitHub, or provided to the Azure portal at extension run-time. To apply an extension to your scale set, you add the *extensionProfile* section to the preceding resource example. The extension profile typically defines the following properties:
+
+- Extension type
+- Extension publisher
+- Extension version
+- Location of configuration or install scripts
+- Commands to execute on the VM instances
+
+The template uses the Custom Script Extension to install [Bottle](https://bottlepy.org/docs/dev/), a Python web framework, and a simple HTTP server.
+
+Two scripts are defined in **fileUris** - *installserver.sh*, and *workserver.py*. These files are downloaded from GitHub, then *commandToExecute* runs `bash installserver.sh` to install and configure the app.
+
+## Deploy the template
+
+You can also deploy a Resource Manager template by using Azure CLI:
+
+```azurecli-interactive
+# Create a resource group
+az group create --name myResourceGroup --location EastUS
+
+# Deploy template into resource group
+az deployment group create -g myResourceGroup -f azuredeploy.json --parameters _artifactsLocation=https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/application-workloads/python/vmss-bottle-autoscale/azuredeploy.json
+```
+
+Answer the prompts to provide a scale set name, instance count, and admin credentials for the VM instances. It takes a few minutes for the scale set and supporting resources to be created.
+
+## Validate the deployment
+
+To see your scale set in action, access the sample web application in a web browser. Obtain the public IP address of the load balancer with [az network public-ip list](/cli/azure/network/public-ip) as follows:
+
+```azurecli-interactive
+az network public-ip list \
+    --resource-group myResourceGroup \
+    --query [*].ipAddress -o tsv
+```
+
+Enter the public IP address of the load balancer in to a web browser in the format *http:\//publicIpAddress:9000/do_work*. The load balancer distributes traffic to one of your VM instances, as shown in the following example:
+
+![Default web page in NGINX](media/virtual-machine-scale-sets-create-template/running-python-app.png)
+
+## Clean up resources
+
+When no longer needed, you can use [az group delete](/cli/azure/group) to remove the resource group, scale set, and all related resources as follows. The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
+
+```azurecli-interactive
+az group delete --name myResourceGroup --yes --no-wait
+```
+
 
 ## Next steps
 > [!div class="nextstepaction"]
