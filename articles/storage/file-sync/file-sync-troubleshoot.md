@@ -667,6 +667,17 @@ By setting this registry value, the Azure File Sync agent will accept any locall
 
 [!INCLUDE [storage-sync-files-bad-connection](../../../includes/storage-sync-files-bad-connection.md)]
 
+<a id="-2147012721"></a>**Sync failed because the server was unable to decode the response from the Azure File Sync service**  
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80072f8f |
+| **HRESULT (decimal)** | -2147012721 |
+| **Error string** | WININET_E_DECODING_FAILED |
+| **Remediation required** | Yes |
+
+This error typically occurs if a network proxy is modifying the response from the Azure File Sync service. Please check your proxy configuration.
+
 <a id="-2134375680"></a>**Sync failed due to a problem with authentication.**  
 
 | Error | Code |
