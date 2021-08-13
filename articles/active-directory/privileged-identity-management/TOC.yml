@@ -10,14 +10,15 @@
     href: subscription-requirements.md
   - name: Privileged Access groups
     href: groups-features.md
+  - name: Role-assignable vs Privileged Access groups
+    href: concept-privileged-access-versus-role-assignable.md
   - name: Roles you can't manage with PIM 
     href: pim-roles.md
   - name: Secure privileged access in Azure AD
     href: ../roles/security-planning.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
   - name: MFA and PIM
     href: pim-how-to-require-mfa.md
-  - name: Role-assignable v. Privileged Access groups
-    href: concept-privileged-access-versus-role-assignable.md
+
   - name: Overview dashboards
     href: pim-resource-roles-overview-dashboards.md
   - name: Email notifications
