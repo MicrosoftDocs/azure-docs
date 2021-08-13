@@ -189,7 +189,7 @@ To deploy this image, you need to accept the terms and provide the purchase plan
 
 ## Accept the terms
 
-To view and accept the license terms, use the [az vm image accept-terms](/cli/azure/vm/image/terms) command. When you accept the terms, you enable programmatic deployment in your subscription. You only need to accept terms once per subscription for the image. For example:
+To view and accept the license terms, use the [az vm image terms](/cli/azure/vm/image/terms) command. When you accept the terms, you enable programmatic deployment in your subscription. You only need to accept terms once per subscription for the image. For example:
 
 ```azurecli
 az vm image terms show --urn bitnami:rabbitmq:rabbitmq:latest

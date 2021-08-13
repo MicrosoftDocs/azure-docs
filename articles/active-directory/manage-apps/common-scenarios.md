@@ -9,7 +9,7 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 03/02/2019
 ms.author: davidmu
-ms.reviewer: arvinh
+ms.reviewer: napuri
 ms.collection: M365-identity-device-management
 ---
 

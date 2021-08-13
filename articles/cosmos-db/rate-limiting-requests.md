@@ -80,9 +80,9 @@ There are some key concepts when measuring cost:
 The method to determine the cost of a request, is different for each API:
 
 * [Core API](find-request-unit-charge.md)
-* [Cassandra API](find-request-unit-charge-cassandra.md)
+* [Cassandra API](cassandra/find-request-unit-charge-cassandra.md)
 * [Gremlin API](find-request-unit-charge-gremlin.md)
-* [Mongo DB API](find-request-unit-charge-mongodb.md)
+* [Mongo DB API](mongodb/find-request-unit-charge-mongodb.md)
 * [Table API](table/find-request-unit-charge.md)
 
 ## Write requests
