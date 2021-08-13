@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 06/14/2021
 ms.author: marsma
-ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
+ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2, contperf-fy21q4
 # Customer intent: As developer, I want to know how to register my application with the Microsoft identity platform so that the security token service can issue ID and/or access tokens to client applications that request them.
 ---
 
@@ -105,7 +105,7 @@ There are some restrictions on the format of the redirect URIs you add to an app
 
 ## Add credentials
 
-Credentials are used by [confidential client applications](msal-client-applications.md) that access a web API. Examples of confidential clients are [web apps](scenario-web-app-call-api-overview.md), other [web APIs](scenario-protected-web-api-overview.md), or [service-type and daemon-type applications](scenario-daemon-overview.md). Credentials allow your application to authenticate as itself, requiring no interaction from a user at runtime.
+Credentials are used by [confidential client applications](msal-client-applications.md) that access a web API. Examples of confidential clients are web apps, other web APIs, or service-type and daemon-type applications. Credentials allow your application to authenticate as itself, requiring no interaction from a user at runtime.
 
 You can add both certificates and client secrets (a string) as credentials to your confidential client app registration.
 

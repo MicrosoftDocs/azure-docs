@@ -2,7 +2,7 @@
 title: Get notified about issues using alerts - Azure IoT Edge
 description: Use Azure Monitor alert rules to monitor at scale
 author: veyalla
-manager: philmea
+
 ms.author: veyalla
 ms.date: 06/08/2021
 ms.topic: conceptual
@@ -21,7 +21,7 @@ Use [Azure Monitor Log alerts](../azure-monitor/alerts/alerts-unified-log.md) to
 
 You can [create a log alert rule](../azure-monitor/alerts/alerts-log.md) for monitoring a broad range of conditions across your device fleet.
 
-Sample [KQL](https://aka.ms/kql) alert queries are provided under the IoT Hub resource. Queries that operate on metrics data from edge devices are prefixed with *IoT Edge:* in their title. Use these examples as-is or modify them as needed to create a query for your exact need.
+Sample [KQL](/azure/data-explorer/kusto/query/) alert queries are provided under the IoT Hub resource. Queries that operate on metrics data from edge devices are prefixed with *IoT Edge:* in their title. Use these examples as-is or modify them as needed to create a query for your exact need.
 
 To access the example alert queries, use the following steps:
 
@@ -61,4 +61,4 @@ Click the alert rule name to see more context about the alert. Clicking the devi
 
 ## Next steps
 
-Enhance your monitoring solution with [metrics from custom modules](how-to-add-custom-metrics.md). 
+Enhance your monitoring solution with [metrics from custom modules](how-to-add-custom-metrics.md).

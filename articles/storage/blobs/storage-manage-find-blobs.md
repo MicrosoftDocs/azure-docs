@@ -215,7 +215,7 @@ The following sample lifecycle management rule applies to block blobs in a conta
 
 You can authorize access to blob index tags using one of the following approaches:
 
-- Using Azure role-based access control (Azure RBAC) to grant permissions to an Azure Active Directory (Azure AD) security principal. Use Azure AD for superior security and ease of use. For more information about using Azure AD with blob operations, see [Authorize access to blobs and queues using Azure Active Directory](../common/storage-auth-aad.md).
+- Using Azure role-based access control (Azure RBAC) to grant permissions to an Azure Active Directory (Azure AD) security principal. Use Azure AD for superior security and ease of use. For more information about using Azure AD with blob operations, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md).
 - Using a shared access signature (SAS) to delegate access to blob index. For more information about shared access signatures, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md).
 - Using the account access keys to authorize operations with Shared Key. For more information, see [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key).
 
@@ -223,7 +223,7 @@ Blob index tags are a subresource to the blob data. A user with permissions or a
 
 ### Role-based access control
 
-Callers using an [Azure AD identity](../common/storage-auth-aad.md) may be granted the following permissions to operate on blob index tags.
+Callers using an [Azure AD identity](../common/authorize-data-access.md) may be granted the following permissions to operate on blob index tags.
 
 | Blob index tag operations                                          | Azure RBAC action                                                             |
 |--------------------------------------------------------------------|-------------------------------------------------------------------------------|
@@ -298,7 +298,7 @@ This section describes known issues and conditions.
 - Uploading page blobs with index tags doesn't persist the tags. Set the tags after uploading a page blob.
 - When filtering is scoped to a single container, the `@container` can only be passed if all the index tags in the filter expression are equality checks (key=value).
 - When using the range operator with the `AND` condition, you can only specify the same index tag key name (`"Age" > '013' AND "Age" < '100'`).
-- Versioning and blob index aren't supported. Blob index tags are preserved for versions but aren't passed to the blob index engine.
+- If Versioning is enabled, you can still use index tags on the current version. For previous versions, index tags are preserved for versions but aren't passed to the blob index engine. You cannot query index tags to retrieve previous versions.
 - There is no API to determine if index tags are indexed.
 - Lifecycle management only supports equality checks with blob index match.
 - `Copy Blob` doesn't copy blob index tags from the source blob to the new destination blob. You can specify the tags you want applied to the destination blob during the copy operation.

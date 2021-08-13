@@ -4,7 +4,7 @@ description: To create highly available and resilient applications in Azure, Ava
 author: prsandhu
 ms.service: azure
 ms.topic: conceptual
-ms.date: 06/15/2021
+ms.date: 08/04/2021
 ms.author: prsandhu
 ms.reviewer: cnthn
 ms.custom: fasttrack-edit, mvc, references_regions
@@ -48,14 +48,14 @@ To achieve comprehensive business continuity on Azure, build your application ar
 | Brazil South       | France Central       | South Africa North* | Australia East |
 | Canada Central     | Germany West Central |                     | Central India* |
 | Central US         | North Europe         |                     | Japan East     |
-| East US            | UK South             |                     | Korea Central* |
-| East US 2          | West Europe          |                     | Southeast Asia |
-| South   Central US |                      |                     |                |
+| East US            | Norway East*         |                     | Korea Central* |
+| East US 2          | UK South             |                     | Southeast Asia |
+| South   Central US | West Europe          |                     |                |
 | US Gov Virginia    |                      |                     |                |
 | West   US 2        |                      |                     |                |
 | West   US 3        |                      |                     |                |
 
-\* To learn more about Availability Zones and available services support in these regions, contact your Microsoft sales or customer representative. For the upcoming regions that will support Availability Zones, see [Azure geographies](https://azure.microsoft.com/en-us/global-infrastructure/geographies/).
+\* To learn more about Availability Zones and available services support in these regions, contact your Microsoft sales or customer representative. For the upcoming regions that will support Availability Zones, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 
 ## Azure Services supporting Availability Zones
@@ -118,6 +118,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 |     [App Service Environments](../app-service/environment/zone-redundancy.md)                                    | :large_blue_diamond:  |
 |     [Azure Active Directory Domain Services](../active-directory-domain-services/overview.md)                      | :large_blue_diamond:  |
 |     [Azure API Management](../api-management/zone-redundancy.md)                      | :large_blue_diamond:  |
+|     [Azure App Configuration](../azure-app-configuration/faq.yml#how-does-app-configuration-ensure-high-data-availability)   | :large_blue_diamond:  |    
 |     [Azure Bastion](../bastion/bastion-overview.md)                                               | :large_blue_diamond:  |
 |     [Azure Cache for Redis](../azure-cache-for-redis/cache-high-availability.md)                              | :large_blue_diamond:  |
 |     [Azure Cognitive Search](../search/search-performance-optimization.md#availability-zones)               | :large_blue_diamond:  |
@@ -126,11 +127,12 @@ To achieve comprehensive business continuity on Azure, build your application ar
 |     [Azure Data Factory](../data-factory/index.yml)                               | :large_blue_diamond:  |
 |     Azure Database for MySQL – [Flexible Server](../mysql/flexible-server/concepts-high-availability.md)                  | :large_blue_diamond:  |
 |     Azure Database for PostgreSQL – [Flexible Server](../postgresql/flexible-server/overview.md)             | :large_blue_diamond:  |
-|     [Azure DDoS Protection](../ddos-protection/ddos-faq.md)                                       | :large_blue_diamond:  |
+|     [Azure DDoS Protection](../ddos-protection/ddos-faq.yml)                                       | :large_blue_diamond:  |
 |     [Azure Disk Encryption](../virtual-machines/disks-redundancy.md)                                       | :large_blue_diamond:  |
 |     [Azure Firewall](../firewall/deploy-availability-zone-powershell.md)                                              | :large_blue_diamond:  |
 |     [Azure Firewall Manager](../firewall-manager/quick-firewall-policy.md)                                      | :large_blue_diamond:  |
 |     [Azure Kubernetes Service (AKS)](../aks/availability-zones.md)                              | :large_blue_diamond:  |
+|     [Azure Media Services (AMS)](../media-services/latest/concept-availability-zones.md)        | :large_blue_diamond:  |
 |     [Azure Private Link](../private-link/private-link-overview.md)                                          | :large_blue_diamond:  |
 |     [Azure Site Recovery](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md)                                         | :large_blue_diamond:  |
 |     Azure SQL: [Virtual Machine](../azure-sql/database/high-availability-sla.md)                                  | :large_blue_diamond:  |

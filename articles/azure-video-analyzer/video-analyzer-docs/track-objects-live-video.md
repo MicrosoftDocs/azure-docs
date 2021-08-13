@@ -2,7 +2,7 @@
 title: Track objects in a live video with Azure Video Analyzer
 description: This quickstart shows you how to use Azure Video Analyzer edge module to track objects in a live video feed from a (simulated) IP camera. You will see how to apply a computer vision model to detect objects in a subset of the frames in the live video feed. You can then use an object tracker node to track those objects in the other frames.
 ms.topic: quickstart
-ms.date: 05/01/2021
+ms.date: 06/01/2021
 ---
 
 # Quickstart: Track objects in a live video
@@ -100,7 +100,7 @@ Open the URL for the pipeline topology in a browser, and examine the settings fo
    }
 ```
 
-Here, `skipSamplesWithoutAnnotation` is set to `false` because the extension node needs to pass through all frames, whether or not they have inference results, to the downstream object tracker node. The object tracker is capable of tracking objects over 15 frames, approximately. If the live video is at a frame rate of 30 frames/sec, that means at least two frames in every second should be sent to the HTTP server for inferencing - hence `maximumSamplesPerSecond` is set to 2.
+Here, `skipSamplesWithoutAnnotation` is set to `false` because the extension node needs to pass through all frames, whether or not they have inference results, to the downstream object tracker node. The object tracker is capable of tracking objects over 15 frames, approximately. Your AI model has a maximum FPS for processing, which is the highest value that `maximumSamplesPerSecond` should be set to.
     
 ## Run the sample program
 

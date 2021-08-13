@@ -123,7 +123,7 @@ Result
 1.16.13
 ```
 
-If you'd like to **programmatically check the available versions**, use the [Container Service Client - List Orchestrators](/rest/api/container-service/container%20service%20client/listorchestrators) REST API. To find the available versions, look at the entries where `orchestratorType` is `Kubernetes`. The associated `orchestrationVersion` entries contain the available versions that can be **attached** to your workspace.
+If you'd like to **programmatically check the available versions**, use the [Container Service Client - List Orchestrators](/rest/api/container-service/container-service-client/list-orchestrators) REST API. To find the available versions, look at the entries where `orchestratorType` is `Kubernetes`. The associated `orchestrationVersion` entries contain the available versions that can be **attached** to your workspace.
 
 To find the default version that is used when **creating** a cluster through Azure Machine Learning, find the entry where `orchestratorType` is `Kubernetes` and `default` is `true`. The associated `orchestratorVersion` value is the default version. The following JSON snippet shows an example entry:
 
@@ -193,7 +193,7 @@ For more information on the classes, methods, and parameters used in this exampl
 az ml computetarget create aks -n myaks
 ```
 
-For more information, see the [az ml computetarget create aks](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_aks) reference.
+For more information, see the [az ml computetarget create aks](/cli/azure/ml(v1)/computetarget/create#az_ml_computetarget_create_aks) reference.
 
 # [Portal](#tab/azure-portal)
 
@@ -270,7 +270,7 @@ To attach the existing cluster to your workspace, use the following command. Rep
 az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w myworkspace
 ```
 
-For more information, see the [az ml computetarget attach aks](/cli/azure/ml/computetarget/attach#az_ml_computetarget_attach_aks) reference.
+For more information, see the [az ml computetarget attach aks](/cli/azure/ml(v1)/computetarget/attach#az_ml_computetarget_attach_aks) reference.
 
 # [Portal](#tab/azure-portal)
 

@@ -2,7 +2,7 @@
 title: Provision device with a virtual TPM on Linux VM - Azure IoT Edge
 description: Use a simulated TPM on a Linux VM to test Azure Device Provisioning Service for Azure IoT Edge
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 04/09/2021
 ms.topic: conceptual
@@ -221,6 +221,12 @@ Once the runtime is installed on your device, configure the device with the info
 :::moniker range=">=iotedge-2020-11"
 
 1. Know your DPS **ID Scope** and device **Registration ID** that were gathered in the previous sections.
+
+1. Create a configuration file for your device based on a template file that is provided as part of the IoT Edge installation.
+
+   ```bash
+   sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+   ```
 
 1. Open the configuration file on the IoT Edge device.
 

@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 09/29/2020
+ms.date: 07/27/2021
 #Customer intent: As a data scientist, I want to understand what a compute target is and why I need it.
 ---
 
@@ -20,7 +20,7 @@ In a typical model development lifecycle, you might:
 
 1. Start by developing and experimenting on a small amount of data. At this stage, use your local environment, such as a local computer or cloud-based virtual machine (VM), as your compute target.
 1. Scale up to larger data, or do distributed training by using one of these [training compute targets](#train).
-1. After your model is ready, deploy it to a web hosting environment or IoT device with one of these [deployment compute targets](#deploy).
+1. After your model is ready, deploy it to a web hosting environment with one of these [deployment compute targets](#deploy).
 
 The compute resources you use for your compute targets are attached to a [workspace](concept-workspace.md). Compute resources other than the local machine are shared by users of the workspace.
 
@@ -48,10 +48,9 @@ A managed compute resource is created and managed by Azure Machine Learning. Thi
 You can create Azure Machine Learning compute instances or compute clusters from:
 
 * [Azure Machine Learning studio](how-to-create-attach-compute-studio.md).
-* The Python SDK and CLI:
+* The Python SDK and the Azure CLI:
     * [Compute instance](how-to-create-manage-compute-instance.md).
     * [Compute cluster](how-to-create-attach-compute-cluster.md).
-* The [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (preview).
 * An Azure Resource Manager template. For an example template, see [Create an Azure Machine Learning compute cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-amlcompute).
 * A machine learning [extension for the Azure CLI](reference-azure-machine-learning-cli.md#resource-management).
 
@@ -60,7 +59,7 @@ When created, these compute resources are automatically part of your workspace, 
 
 |Capability  |Compute cluster  |Compute instance  |
 |---------|---------|---------|
-|Single- or multi-node cluster     |    **&check;**       |         |
+|Single- or multi-node cluster     |    **&check;**       |    Single node cluster     |
 |Autoscales each time you submit a run     |     **&check;**      |         |
 |Automatic cluster management and job scheduling     |   **&check;**        |     **&check;**      |
 |Support for both CPU and GPU resources     |  **&check;**         |    **&check;**       |
@@ -103,8 +102,8 @@ See the following table to learn more about supported series and restrictions.
 | [NDv2](../virtual-machines/ndv2-series.md) | Requires approval. | GPU | Compute clusters and instance |
 | [NV](../virtual-machines/nv-series.md) | None. | GPU | Compute clusters and instance |
 | [NVv3](../virtual-machines/nvv3-series.md) | Requires approval. | GPU | Compute clusters and instance |
-| [NCT4_v3](../virtual-machines/nct4-v3-series.md) | Requires approval. | GPU | Compute clusters and instance |
-| [NDA100_v4](../virtual-machines/nda100-v4-series.md) | Requires approval. | GPU | Compute clusters and instance |
+| [NCasT4_v3](../virtual-machines/nct4-v3-series.md) | Requires approval. | GPU | Compute clusters and instance |
+| [NDasrA100_v4](../virtual-machines/nda100-v4-series.md) | Requires approval. | GPU | Compute clusters and instance |
 
 
 While Azure Machine Learning supports these VM series, they might not be available in all Azure regions. To check whether VM series are available, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
@@ -148,7 +147,20 @@ To learn more about isolation, see [Isolation in the Azure public cloud](../secu
 
 ## Unmanaged compute
 
-An unmanaged compute target is *not* managed by Azure Machine Learning. You create this type of compute target outside Azure Machine Learning and then attach it to your workspace. Unmanaged compute resources can require additional steps for you to maintain or to improve performance for machine learning workloads.
+An unmanaged compute target is *not* managed by Azure Machine Learning. You create this type of compute target outside Azure Machine Learning and then attach it to your workspace. Unmanaged compute resources can require additional steps for you to maintain or to improve performance for machine learning workloads. 
+
+Azure Machine Learning supports the following unmanaged compute types:
+
+* Your local computer
+* Remote virtual machines
+* Azure HDInsight
+* Azure Batch
+* Azure Databricks
+* Azure Data Lake Analytics
+* Azure Container Instance
+* Azure Kubernetes Service & Azure Arc enabled Kubernetes (preview)
+
+For more information, see [set up compute targets for model training and deployment](how-to-attach-compute-targets.md)
 
 ## Next steps
 

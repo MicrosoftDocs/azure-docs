@@ -37,7 +37,7 @@ To create a new Azure IoT Central application:
 1. Select **Retail**.  The retail page displays several retail application templates.
 
 To create a new micro-fulfillment center application that uses preview features:  
-1. Select the **Micro-fulfillment center** application template. This template includes device templates for all devices used in the tutorial. The template also provides an operator dashboard for monitoring conditions within your fulfillment center, as well as the conditions for your robotic carriers. 
+1. Select the **Micro-fulfillment center** application template. This template includes device templates for all devices used in the tutorial. The template also provides a dashboard for monitoring conditions within your fulfillment center, as well as the conditions for your robotic carriers. 
 
     ![Screenshot of Azure IoT Central Build your IoT application page](./media/tutorial-micro-fulfillment-center-app/iotc-retail-homepage-mfc.png)
     
@@ -56,7 +56,7 @@ To create a new micro-fulfillment center application that uses preview features:
 
 ## Walk through the application 
 
-After successfully deploying the app template, you see the **Northwind Traders micro-fulfillment center dashboard**. Northwind Traders is a fictitious retailer that has a micro-fulfillment center being managed in this Azure IoT Central application. On this operator dashboard, you see information and telemetry about the devices in this template, along with a set of commands, jobs, and actions that you can take. The dashboard is logically split into two sections. On the left, you can monitor the environmental conditions within the fulfillment structure, and on the right, you can monitor the health of a robotic carrier within the facility.  
+After successfully deploying the app template, you see the **Northwind Traders micro-fulfillment center dashboard**. Northwind Traders is a fictitious retailer that has a micro-fulfillment center being managed in this Azure IoT Central application. On this dashboard, you see information and telemetry about the devices in this template, along with a set of commands, jobs, and actions that you can take. The dashboard is logically split into two sections. On the left, you can monitor the environmental conditions within the fulfillment structure, and on the right, you can monitor the health of a robotic carrier within the facility.  
 
 From the dashboard, you can:
    * See device telemetry, such as the number of picks, the number of orders processed, and properties, such as the structure system status.  

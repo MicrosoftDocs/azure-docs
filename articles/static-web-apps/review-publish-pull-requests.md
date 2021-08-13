@@ -28,7 +28,7 @@ There are many benefits of using pre-production environments. For example, you c
 - Perform sanity checks before deploying to production.
 
 > [!NOTE]
-> There is [maximum of three staging environments](quotas.md) allowed at a time.
+> Pull requests and pre-production environments are currently only supported in GitHub Actions deployments.
 
 ## Prerequisites
 
@@ -99,12 +99,16 @@ To verify the changes in production,  open your production URL to load the live 
 
 ## Limitations
 
-Staged versions of your application are currently accessible publicly by their URL, even if your GitHub repository is private.
+- Staged versions of your application are currently accessible publicly by their URL, even if your GitHub repository is private.
 
-> [!WARNING]
-> Be careful when publishing sensitive content to staged versions, as access to pre-production environments are not restricted.
+    > [!WARNING]
+    > Be careful when publishing sensitive content to staged versions, as access to pre-production environments are not restricted.
 
-The number of pre-production environments available for each app deployed with Static Web Apps depends of the SKU tier you are using. For example, with the Free tier you can have 3 pre-production environments in addition to the production environment.
+- The number of pre-production environments available for each app deployed with Static Web Apps depends of the [hosting plan](plans.md) you are using. For example, with the Free tier you can have 3 pre-production environments in addition to the production environment.
+
+- Pre-production environments are not geo-distributed.
+
+- Currently, only GitHub Actions deployments support pre-production environments.
 
 ## Next steps
 

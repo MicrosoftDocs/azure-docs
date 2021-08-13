@@ -14,7 +14,7 @@ metadata:
   author: VanMSFT
   ms.author: vanto
   ms.reviewer:
-  ms.date: 03/12/2021
+  ms.date: 07/14/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -42,9 +42,8 @@ landingContent:
             url: always-encrypted-enclaves-plan.md
           - text: Enable Intel SGX for your Azure SQL Database
             url: always-encrypted-enclaves-enable-sgx.md
-          - text: Configure Azure Attestation for your Azure SQL logical server 
+          - text: Configure attestation for Always Encrypted using Azure Attestation 
             url: always-encrypted-enclaves-configure-attestation.md
-
 
   # Card
   - title: Set up in a SQL Server on Azure VM
@@ -62,8 +61,12 @@ landingContent:
 
 
   # Card 
-  - title: Tutorials
+  - title: Samples and tutorials
     linkLists:
+      - linkListType: sample
+        links:
+          - text: Contoso HR web app sample
+            url: https://github.com/microsoft/sql-server-samples/tree/master/samples/features/security/always-encrypted-with-secure-enclaves
       - linkListType: tutorial
         links:
           - text: Getting started with Always Encrypted with secure enclaves in SQL Server
@@ -110,7 +113,7 @@ landingContent:
             url: https://youtu.be/69PrhWQorEM?t=4523
           - text: A webinar including a section on secure enclaves
             url: https://info.microsoft.com/ww-ondemand-azure-webinar-series-four-ways-to-take-your-data-security-to-the-next-level.html
-  
+            
   # Card
   - title: Query columns
     linkLists:

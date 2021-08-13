@@ -1,5 +1,5 @@
 ---
-title: "MySQL on-premises to Azure Database for MySQL migration guide Representative Use Case"
+title: "Migrate MySQL on-premises to Azure Database for MySQL: Representative Use Case"
 description: "The following use case is based on a real-world customer scenario of an enterprise who migrated their MySQL workload to Azure Database for MySQL."
 ms.service: mysql
 ms.subservice: migration-guide
@@ -8,10 +8,12 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom:
-ms.date: 06/14/2021
+ms.date: 06/21/2021
 ---
 
-# MySQL on-premises to Azure Database for MySQL migration guide Representative Use Case
+# Migrate MySQL on-premises to Azure Database for MySQL: Representative Use Case
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## Prerequisites
 
@@ -48,15 +50,17 @@ These stages include:
 
 | Stage | Name | Activities |
 |-------|------|------------|
-| 1 | Pre-migration  | Assessment, Planning, Migration Method Evaluation, Application Implications, Test Plans, Performance Baselines |
-| 2 | Migration      | Execute Migration, Execute Test Plans                                                                          |
-| 3 | Post-migration | Business Continuity, Disaster Recovery, Management, Security, Performance Optimization, Platform modernization |
+| 1 | Pre-migration | Assessment, Planning, Migration Method Evaluation, Application Implications, Test Plans, Performance Baselines |
+| 2 | Migration     | Execute Migration, Execute Test Plans                                                                          |
+| 3 | Post-migration| Business Continuity, Disaster Recovery, Management, Security, Performance Optimization, Platform modernization |
 
 WWI has several instances of MySQL running with varying versions ranging from 5.5 to 5.7. They would like to move their instances to the latest version as soon as possible but would like to ensure their applications can still work if they move to the newer versions. They're comfortable moving to the same version in the cloud and upgrading afterward, but they would prefer that path if they can accomplish two tasks at once.
 
 They would also like to ensure that their data workloads are safe and available across multiple geographic regions if there's a failure and look at the available configuration options.
 
 WWI wants to start with a simple application for the first migration and then move to more business-critical applications in a later phase. This provides the team with the knowledge and experience they need to prepare and plan for those future migrations.  
+
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Assessment](./03-assessment.md)

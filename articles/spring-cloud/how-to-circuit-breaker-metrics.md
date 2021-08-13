@@ -1,8 +1,8 @@
 ---
 title: Collect Spring Cloud Resilience4J Circuit Breaker Metrics with Micrometer
-description: How to collect Spring Cloud Resilience4J Circuit Breaker Metrics with Micrometer in Azure Spring Cloud. 
-author:  MikeDodaro
-ms.author: brendm
+description: How to collect Spring Cloud Resilience4J Circuit Breaker Metrics with Micrometer in Azure Spring Cloud.
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/15/2020
@@ -17,10 +17,8 @@ We use the [spring-cloud-circuit-breaker-demo](https://github.com/spring-cloud-s
 
 ## Prerequisites
 
-* Enable Java In-Process agent from the [Java In-Process Agent for Application Insights guide](./how-to-application-insights.md#enable-java-in-process-agent-for-application-insights). 
-
+* Enable Java In-Process agent from the [Java In-Process Agent for Application Insights guide](./how-to-application-insights.md#enable-java-in-process-agent-for-application-insights).
 * Enable dimension collection for resilience4j metrics from the [Application Insights guide](../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
-
 * Install git, Maven, and Java, if not already in use by the development computer.
 
 ## Build and deploy apps
@@ -68,6 +66,7 @@ az spring-cloud app deploy -n reactive-resilience4j \
 >       <artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
 >   </dependency>
 >   ```
+>
 > * The customer code must use the API of `CircuitBreakerFactory`, which is implemented as a `bean` automatically created when you include a Spring Cloud Circuit Breaker starter. For details see [Spring Cloud Circuit Breaker](https://spring.io/projects/spring-cloud-circuitbreaker#overview).
 >
 > * The following 2 dependencies have conflicts with resilient4j packages above.  Be sure the customer does not include them.

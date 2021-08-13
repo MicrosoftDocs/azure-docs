@@ -18,7 +18,7 @@
       href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: Microsoft 365 roles
       href: m365-workload-docs.md
-  - name: Group-based role assignments
+  - name: Use groups to manage role assignments
     href: groups-concept.md
   - name: Administrative units  
     href: administrative-units.md
@@ -40,12 +40,16 @@
     items: 
     - name: List role assignments
       href: view-assignments.md
-    - name: List role assignments for groups
+    - name: List role assignments for a user
+      href: list-role-assignments-users.md
+    - name: List role assignments for a group
       href: groups-view-assignments.md
   - name: Assign roles
     items:
     - name: Assign roles to users
       href: manage-roles-portal.md
+    - name: Assign roles to a user at different scopes
+      href: assign-roles-different-scopes.md
     - name: Create a role-assignable group
       href: groups-create-eligible.md
     - name: Assign roles to groups
@@ -87,9 +91,9 @@
   - name: Troubleshoot
     items:
     - name: Troubleshoot roles assigned to groups
-      href: groups-faq-troubleshooting.md
+      href: groups-faq-troubleshooting.yml
     - name: Troubleshoot administrative units
-      href: admin-units-faq-troubleshoot.md
+      href: admin-units-faq-troubleshoot.yml
     - name: Get support for Azure AD
       href: ../fundamentals/active-directory-troubleshooting-support-howto.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Reference

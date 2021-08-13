@@ -10,10 +10,10 @@ metadata:
    ms.subservice: app-provisioning
    ms.workload: identity
    ms.topic: landing-page
-   ms.date: 02/06/2020
-   author: msmimart
-   ms.author: mimart
-   manager: celested
+   ms.date: 08/12/2021
+   author: kenwith
+   ms.author: kenwith
+   manager: mtillman
 
 landingContent:
   - title: Provision users and groups to a cloud app

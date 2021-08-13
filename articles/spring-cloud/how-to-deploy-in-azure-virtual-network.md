@@ -1,8 +1,8 @@
 ---
 title:  "Deploy Azure Spring Cloud in a virtual network"
 description: Deploy Azure Spring Cloud in a virtual network (VNet injection).
-author:  MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 07/21/2020
@@ -17,8 +17,8 @@ This tutorial explains how to deploy an Azure Spring Cloud instance in your virt
 
 The deployment enables:
 
-* Isolation of Azure Spring Cloud apps and service runtime from the internetâ€‹ on your corporate networkâ€‹.
-* Azure Spring Cloud interaction with systems in â€‹on-premises data centers â€‹or Azure services in other virtual networks.
+* Isolation of Azure Spring Cloud apps and service runtime from the internet on your corporate network.
+* Azure Spring Cloud interaction with systems in on-premises data centers or Azure services in other virtual networks.
 * Empowerment of customers to control inbound and outbound network communications for Azure Spring Cloud.
 
 > [!Note]
@@ -83,22 +83,24 @@ Select the virtual network **azure-spring-cloud-vnet** you previously created.
 
     ![Screenshot that shows the Access control screen.](./media/spring-cloud-v-net-injection/access-control.png)
 
-1. Assign the *Owner* role to the **Azure Spring Cloud Resource Provider**. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the *Owner* role to the **Azure Spring Cloud Resource Provider**. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md#step-2-open-the-add-role-assignment-pane).
 
-You can also do this step by running the following Azure CLI command:
+    ![Screenshot that shows owner assignment to resource provider.](./media/spring-cloud-v-net-injection/assign-owner-resource-provider.png)
 
-```azurecli
-VIRTUAL_NETWORK_RESOURCE_ID=`az network vnet show \
-    --name ${NAME_OF_VIRTUAL_NETWORK} \
-    --resource-group ${RESOURCE_GROUP_OF_VIRTUAL_NETWORK} \
-    --query "id" \
-    --output tsv`
+    You can also do this step by running the following Azure CLI command:
 
-az role assignment create \
-    --role "Owner" \
-    --scope ${VIRTUAL_NETWORK_RESOURCE_ID} \
-    --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
-```
+    ```azurecli
+        VIRTUAL_NETWORK_RESOURCE_ID=`az network vnet show \
+        --name ${NAME_OF_VIRTUAL_NETWORK} \
+        --resource-group ${RESOURCE_GROUP_OF_VIRTUAL_NETWORK} \
+        --query "id" \
+        --output tsv`
+
+    az role assignment create \
+        --role "Owner" \
+        --scope ${VIRTUAL_NETWORK_RESOURCE_ID} \
+        --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
+    ```
 
 ## Deploy an Azure Spring Cloud instance
 
@@ -162,7 +164,7 @@ This table shows the maximum number of app instances Azure Spring Cloud supports
 | /25             | 128       | 120           | <p> App with 1 core:  500<br> App with 2 cores:  500<br>  App with 3 cores:  480<br>  App with 4 cores: 360</p> |
 | /24             | 256       | 248           | <p> App with 1 core:  500<br/> App with 2 cores:  500<br/>  App with 3 cores: 500<br/>  App with 4 cores: 500</p> |
 
-For subnets, five IP addresses are reserved by Azure, and at least four addresses are required by Azure Spring Cloud. At least nine IP addresses are required, so /29 and /30 are nonoperational.
+For subnets, five IP addresses are reserved by Azure, and at least three IP addresses are required by Azure Spring Cloud. At least eight IP addresses are required, so /29 and /30 are nonoperational.
 
 For a service runtime subnet, the minimum size is /28. This size has no bearing on the number of app instances.
 
@@ -172,7 +174,7 @@ Azure Spring Cloud supports using existing subnets and route tables.
 
 If your custom subnets do not contain route tables, Azure Spring Cloud creates them for each of the subnets and adds rules to them throughout the instance lifecycle. If your custom subnets contain route tables, Azure Spring Cloud acknowledges the existing route tables during instance operations and adds/updates and/or rules accordingly for operations.
 
-> [!Warning] 
+> [!Warning]
 > Custom rules can be added to the custom route tables and updated. However, rules are added by Azure Spring Cloud and these must not be updated or removed. Rules such as 0.0.0.0/0 must always exist on a given route table and map to the target of your internet gateway, such as an NVA or other egress gateway. Use caution when updating rules when only your custom rules are being modified.
 
 

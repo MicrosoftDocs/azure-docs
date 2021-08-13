@@ -20,6 +20,9 @@ You can trim or subclip a video when encoding it using a [Job](/rest/api/media/j
 
 The REST example in this topic creates a job that trims a video as it submits an encoding job. 
 
+[!INCLUDE [warning-rest-api-retry-policy.md](./includes/warning-rest-api-retry-policy.md)]
+
+
 ## Prerequisites
 
 To complete the steps described in this topic, you have to:

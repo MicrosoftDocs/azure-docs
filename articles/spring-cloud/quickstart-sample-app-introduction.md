@@ -1,8 +1,8 @@
 ---
 title:  "Quickstart - Introduction to the sample app - Azure Spring Cloud"
 description: Describes the sample app used in this series of quickstarts for deployment to Azure Spring Cloud.
-author:  MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 09/08/2020
@@ -59,7 +59,7 @@ The instructions in the following quickstarts refer to the source code as needed
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-In this quickstart, we use the microservices version of the well-known sample app [PetClinic](https://github.com/spring-petclinic/spring-petclinic-microservices) that will show you how to deploy apps to the Azure Spring Cloud service. The **Pet Clinc** sample demonstrates the microservice architecture pattern and highlights the services breakdown. You will see how services are deployed to Azure with Azure Spring Cloud capabilities, including service discovery, config server, logs, metrics, distributed tracing, and developer-friendly tooling support. 
+In this quickstart, we use the microservices version of the well-known sample app [PetClinic](https://github.com/spring-petclinic/spring-petclinic-microservices) that will show you how to deploy apps to the Azure Spring Cloud service. The **Pet Clinic** sample demonstrates the microservice architecture pattern and highlights the services breakdown. You will see how services are deployed to Azure with Azure Spring Cloud capabilities, including service discovery, config server, logs, metrics, distributed tracing, and developer-friendly tooling support. 
 
 To follow the Azure Spring Cloud deployment examples, you only need the location of the source code, which is provided as needed.
 

@@ -18,7 +18,7 @@ This article gives you an overview of the region availability and networking req
 
 ## Regional availability
 
-All regions, where ACI supports VNET SKUs, are supported for virtual nodes deployments.
+All regions, where ACI supports VNET SKUs, are supported for virtual nodes deployments. For more details, see [Resource availability for Azure Container Instances in Azure regions](../container-instances/container-instances-region-availability.md).
 
 For available CPU and Memory SKUs in each region, please check the [Azure Container Instances Resource availability for Azure Container Instances in Azure regions - Linux container groups](../container-instances/container-instances-region-availability.md#linux-container-groups)
 

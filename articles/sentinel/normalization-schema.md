@@ -103,7 +103,7 @@ Below is the schema of the network sessions table, versioned 1.0.0
 | **DstDvcDomain** | String | CONTOSO | The Domain of the destination device. | Destination,<br>Device |
 | **DstPortNumber** | Integer | 443 | The destination IP port. | Destination,<br>Port |
 | **DstGeoRegion** | Region (String) | Vermont | The region within a country associated with the destination IP address | Destination,<br>Geo |
-| **DstResourceId** | Device ID (String) |  /subscriptions/3c1bb38c-82e3-4f8d-a115-a7110ba70d05 /resourcegroups/contoso77/providers /microsoft.compute/virtualmachines /victim | The resource Id of the destination device. | Destination |
+| **DstResourceId** | Device ID (String) |  /subscriptions/3c1bb38c-82e3-4f8d-a115-a7110ba70d05 /resourcegroups/contoso77/providers /microsoft.compute/virtualmachines /victim | The resource ID of the destination device. | Destination |
 | **DstNatIpAddr** | IP address | 2::1 | If reported by an intermediary NAT device such as a firewall, the IP address used by the NAT device for communication with the source. | Destination NAT,<br>IP |
 | **DstNatPortNumber** | int | 443 | If reported by an intermediary NAT device such as a firewall, the port used by the NAT device for communication with the source. | Destination NAT,<br>Port |
 | **DstUserSid** | User SID |  S-12-1445 | The User ID of the identity associated with the session’s destination. Typically, the identity used to authenticate a server. See "data types" for details. | Destination,<br>User |
@@ -183,4 +183,16 @@ Below is the schema of the network sessions table, versioned 1.0.0
 | **ThreatId** | String | Tr.124 | The ID of a threat identified by a security system such as Web Security Gateway of an IPS and is associated with this network session. | Threat |
 | **ThreatName** | String | EICAR Test File | The name of the threat or malware identified | Threat |
 | **AdditionalFields** | Dynamic (JSON bag) | {<br>Property1: “val1”,<br>Property2: “val2”<br>} | When no respective column in the schema matches, additional fields can be stored in a JSON bag.<br>For query-time parsing it’s recommended to not use this method as packing data into a JSON will degrade query performance. Instead, it is recommended to promote additional columns.<br>For future ingestion-time parsing scenarios, additional data will of course be collected into this JSON bag column. | Custom field |
-| 
+|
+
+## Next steps
+
+For more information, see:
+
+- [Normalization in Azure Sentinel](normalization.md)
+- [Azure Sentinel authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
+- [Azure Sentinel file event normalization schema reference (Public preview)](file-event-normalization-schema.md)
+- [Azure Sentinel DNS normalization schema reference](dns-normalization-schema.md)
+- [Azure Sentinel process event normalization schema reference](process-events-normalization-schema.md)
+- [Azure Sentinel registry event normalization schema reference (Public preview)](registry-event-normalization-schema.md)
+

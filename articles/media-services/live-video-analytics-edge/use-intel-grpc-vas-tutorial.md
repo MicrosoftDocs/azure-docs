@@ -76,7 +76,7 @@ In the initial release of this inference server, you have access to the followin
 - object_tracking for person_vehicle_bike_tracking
 ![object tracking for person vehicle](./media/use-intel-openvino-tutorial/object-tracking.png)
 
-It uses Pre-loaded Object Detection, Object Classification and Object Tracking pipelines to get started quickly. In addition it comes with pre-loaded [person-vehicle-bike-detection-crossroad-0078](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/person-vehicle-bike-detection-crossroad-0078/description/person-vehicle-bike-detection-crossroad-0078.md) and [vehicle-attributes-recognition-barrier-0039 models](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/vehicle-attributes-recognition-barrier-0039/description/vehicle-attributes-recognition-barrier-0039.md).
+It uses Pre-loaded Object Detection, Object Classification and Object Tracking pipelines to get started quickly. In addition it comes with pre-loaded [person-vehicle-bike-detection-crossroad-0078](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/person-vehicle-bike-detection-crossroad-0078/README.md) and [vehicle-attributes-recognition-barrier-0039 models](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/vehicle-attributes-recognition-barrier-0039/README.md).
 
 > [!NOTE]
 > By downloading and using the Edge module: OpenVINO™ DL Streamer – Edge AI Extension from Intel, and the included software, you agree to the terms and conditions under the [License Agreement](https://www.intel.com/content/www/us/en/legal/terms-of-use.html).

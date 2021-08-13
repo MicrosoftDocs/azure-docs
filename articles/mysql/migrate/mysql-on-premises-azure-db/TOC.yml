@@ -36,19 +36,25 @@
         href: 13-security.md
       - name: Summary
         href: 14-summary.md
-   - name: Appendix
+   - name: Sample applications
      href: 15-appendix.md
    - name: Resources
      items:
-      - name: Migrate your MySQL database to Azure Database for MySQL using dump and restore
+      - name: Migrate data with mysqldump or phpmyadmin
         href: ../../concepts-migrate-dump-restore.md
-      - name: Migrate data to Azure Database for MySQL with dbForge Studio for MySQL
+        displayName: migrate, mysqldump
+      - name: Migrate data with dbForge Studio for MySQL
         href: ../../concepts-migrate-dbforge-studio-for-mysql.md
-      - name: Migrate your MySQL database by using import and export
+        displayName: migrate, dbforge
+      - name: Migrate data with MySQL Workbench
         href: ../../concepts-migrate-import-export.md
-      - name: Migrate Amazon RDS for MySQL to Azure Database for MySQL using MySQL Workbench
+        displayName: import , migrate, export
+      - name: Migrate RDS MySQL data with MySQL Workbench
         href: ../../how-to-migrate-rds-mysql-workbench.md
-      - name: Minimal-downtime migration to Azure Database for MySQL
+        displayName: import , migrate, export
+      - name: Minimal downtime migration with DMS
         href: ../../howto-migrate-online.md
-      - name: Commonly encountered errors during or post migration to Azure Database for MySQL
+        displayName: migrate, dms, database migration service
+      - name: Troubleshoot common errors
         href: ../../howto-troubleshoot-common-errors.md
+        displayName: SUPER privilege, DBA role, Access is denied

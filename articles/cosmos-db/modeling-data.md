@@ -7,7 +7,7 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 07/12/2021
 
 ---
 # Data modeling in Azure Cosmos DB
@@ -435,9 +435,11 @@ The biggest takeaways from this article are to understand that data modeling in 
 
 Just as there is no single way to represent a piece of data on a screen, there is no single way to model your data. You need to understand your application and how it will produce, consume, and process the data. Then, by applying some of the guidelines presented here you can set about creating a model that addresses the immediate needs of your application. When your applications need to change, you can leverage the flexibility of a schema-free database to embrace that change and evolve your data model easily.
 
-To learn more about Azure Cosmos DB, refer to the service's [documentation](https://azure.microsoft.com/documentation/services/cosmos-db/) page.
+* To learn more about Azure Cosmos DB, refer to the service's [documentation](https://azure.microsoft.com/documentation/services/cosmos-db/) page.
 
-To understand how to shard your data across multiple partitions, refer to [Partitioning Data in Azure Cosmos DB](partitioning-overview.md).
+* To understand how to shard your data across multiple partitions, refer to [Partitioning Data in Azure Cosmos DB](partitioning-overview.md).
 
-To learn how to model and partition data on Azure Cosmos DB using a real-world example, refer to [
+* To learn how to model and partition data on Azure Cosmos DB using a real-world example, refer to [
 Data Modeling and Partitioning - a Real-World Example](how-to-model-partition-example.md).
+
+* See the learn module on how to [Model and partition your data in Azure Cosmos DB.](/learn/modules/model-partition-data-azure-cosmos-db/)

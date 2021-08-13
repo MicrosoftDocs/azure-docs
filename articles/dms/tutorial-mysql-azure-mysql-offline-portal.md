@@ -21,8 +21,6 @@ You can use Azure Database Migration Service to perform a one-time full database
 > [!IMPORTANT]
 > For online migrations, you can use open-source tools such as [MyDumper/MyLoader](https://centminmod.com/mydumper.html) with [data-in replication](../mysql/concepts-data-in-replication.md). 
 
-[!INCLUDE [preview features callout](../../includes/dms-boilerplate-preview.md)]
-
 > [!NOTE]
 > For a PowerShell-based scriptable version of this migration experience, see [scriptable offline migration to Azure Database for MySQL](./migrate-mysql-to-azure-mysql-powershell.md).
 
@@ -127,19 +125,7 @@ GROUP BY SchemaName
 
 Run the generated drop trigger query (DropQuery column) in the result to drop triggers in the target database. The add trigger query can be saved, to be used post data migration completion.
 
-## Register the Microsoft.DataMigration resource provider
-
-Registration of the resource provider needs to be done on each Azure subscription only once. Without the registration, you will not be able to create an instance of **Azure Database Migration Service**.
-
-1. Sign in to the Azure portal, select **All services**, and then select **Subscriptions**.
-
-   ![Show portal subscriptions](media/tutorial-mysql-to-azure-mysql-offline-portal/01-dms-portal-select-subscription.png)
-
-2. Select the subscription in which you want to create the instance of Azure Database Migration Service, and then select **Resource providers**.
-
-3. Search for migration, and then to the right of **Microsoft.DataMigration**, select **Register**.
-
-    ![Register resource provider](media/tutorial-mysql-to-azure-mysql-offline-portal/02-dms-portal-register-rp.png)
+[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]
 
 ## Create a Database Migration Service instance
 
@@ -183,7 +169,7 @@ After the service is created, locate it within the Azure portal, open it, and th
     
     ![Create a new migration project](media/tutorial-mysql-to-azure-mysql-offline-portal/08-02-dms-portal-new-project.png)
 
-3. On the **New migration project** screen, specify a name for the project, in the **Source server type** selection box, select **MySQL**, in the **Target server type** selection box, select **Azure Database For MySQL** and in the **Migration activity type** selection box, select **Data migration \[preview\]**. Select **Create and run activity**.
+3. On the **New migration project** screen, specify a name for the project, in the **Source server type** selection box, select **MySQL**, in the **Target server type** selection box, select **Azure Database For MySQL** and in the **Migration activity type** selection box, select **Data migration**. Select **Create and run activity**.
 
     ![Create Database Migration Service Project](media/tutorial-mysql-to-azure-mysql-offline-portal/09-dms-portal-project-mysql-create.png)
 
@@ -200,7 +186,7 @@ After the service is created, locate it within the Azure portal, open it, and th
 
     ![Add target details screen](media/tutorial-mysql-to-azure-mysql-offline-portal/11-dms-portal-project-mysql-target.png)
 
-3. On the **Select databases** screen, map the source and the target database for migration, and select **Next : Configure migration settings>>**. You can select the **Make Source Server Readonly** option to make the source as read-only, but be cautious that this is a server level setting. If selected, it sets the entire server to read-only, not just the selected databases.
+3. On the **Select databases** screen, map the source and the target database for migration, and select **Next : Configure migration settings>>**. You can select the **Make Source Server Read Only** option to make the source as read-only, but be cautious that this is a server level setting. If selected, it sets the entire server to read-only, not just the selected databases.
     
     If the target database contains the same database name as the source database, Azure Database Migration Service selects the target database by default.
     ![Select database details screen](media/tutorial-mysql-to-azure-mysql-offline-portal/12-dms-portal-project-mysql-select-db.png)

@@ -21,15 +21,7 @@ In this how-to guide, you'll learn about how to add Amazon S3 buckets as Purview
 
 ## Purview scope for Amazon S3
 
-The following scope is specific for the registering and scanning Amazon S3 buckets as Purview data sources.
-
-|Scope  |Description  |
-|---------|---------|
-|**File types**     | The Purview scanner service currently supports the following file types: <br><br>.avro, .csv, .doc, .docm, .docx, .dot, .json, .odp, .ods, .odt, .orc, .parquet, .pdf, .pot, .pps, .ppsx, .ppt, .pptm, .pptx, .psv, .ssv, .tsv, .txt, .xlc, .xls, .xlsb, .xlsm, .xlsx, .xlt, .xml        |
-|**Regions**     | The Purview connector for the Amazon S3 service is currently deployed in specific regions only. <br><br>For more information, see [Storage and scanning regions](#storage-and-scanning-regions).   |
-|     |         |
-
-For more information, see the documented Purview limits at:
+For information about Purview limits, see:
 
 - [Manage and increase quotas for resources with Azure Purview](how-to-manage-quotas.md)
 - [Supported data sources and file types in Azure Purview](sources-and-scans.md)
@@ -37,7 +29,7 @@ For more information, see the documented Purview limits at:
 
 ### Storage and scanning regions
 
-The following table maps the regions where you data is stored to the region where it would be scanned by Azure Purview.
+The Purview connector for the Amazon S3 service is currently deployed in specific regions only. The following table maps the regions where you data is stored to the region where it would be scanned by Azure Purview.
 
 > [!IMPORTANT]
 > Customers will be charged for all related data transfer charges according to the region of their bucket.
@@ -301,7 +293,7 @@ Use this procedure if you only have a single S3 bucket that you want to register
 
     ![Launch the Purview portal.](./media/register-scan-amazon-s3/purview-portal-amazon-s3.png)
 
-1. Navigate to the Azure Purview **Sources** page, and select **Register** ![Register icon.](./media/register-scan-amazon-s3/register-button.png) > **Amazon S3** > **Continue**.
+1. Navigate to the Azure Purview **Data Map** page, and select **Register** ![Register icon.](./media/register-scan-amazon-s3/register-button.png) > **Amazon S3** > **Continue**.
 
     ![Add an Amazon AWS bucket as a Purview data source.](./media/register-scan-amazon-s3/add-s3-datasource-to-purview.png)
 
@@ -333,7 +325,7 @@ When [configuring your scan](#create-a-scan-for-one-or-more-amazon-s3-buckets), 
 
     ![Launch Connector for Amazon S3 dedicated Purview portal](./media/register-scan-amazon-s3/purview-portal-amazon-s3.png)
 
-1. Navigate to the Azure Purview **Sources** page, and select **Register** ![Register icon.](./media/register-scan-amazon-s3/register-button.png) > **Amazon accounts** > **Continue**.
+1. Navigate to the Azure Purview **Data Map** page, and select **Register** ![Register icon.](./media/register-scan-amazon-s3/register-button.png) > **Amazon accounts** > **Continue**.
 
     ![Add an Amazon account as a Purview data source.](./media/register-scan-amazon-s3/add-s3-account-to-purview.png)
 
@@ -407,7 +399,7 @@ For more information, see [Explore Purview scanning results](#explore-purview-sc
 
 ## Explore Purview scanning results
 
-Once a Purview scan is complete on your Amazon S3 buckets, drill down in the Purview **Sources** area to view the scan history.
+Once a Purview scan is complete on your Amazon S3 buckets, drill down in the Purview **Data Map**  area to view the scan history.
 
 Select a data source to view its details, and then select the **Scans** tab to view any currently running or completed scans.
 If you've added an AWS account with multiple buckets, the scan history for each bucket is shown under the account.

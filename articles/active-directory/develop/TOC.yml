@@ -27,7 +27,7 @@
     - name: JavaScript
       href: quickstart-v2-javascript-auth-code.md
     - name: React
-      href: quickstart-v2-javascript-auth-code-react.md 
+      href: quickstart-v2-javascript-auth-code-react.md
   - name: Web app
     items:
     - name: ASP.NET
@@ -137,6 +137,11 @@
     - name: Microsoft Identity Web library
       href: microsoft-identity-web.md
       displayName: auth, library, .NET Core, msal
+  - name: Authorization basics
+    displayName: AuthZ basics
+    items:
+    - name: RBAC for app developers
+      href: custom-rbac-for-developers.md
   - name: App scenarios and authentication flows
     displayName: Auth flows
     href: authentication-flows-app-scenarios.md
@@ -149,6 +154,8 @@
     items:
     - name: Best practices for least privileged access for apps
       href: secure-least-privileged-access.md
+    - name: Security best practices for Azure AD application registration
+      href: security-best-practices-for-app-registration.md
     - name: Conditional access
       href: v2-conditional-access-dev-guide.md
     - name: Authentication context
@@ -339,11 +346,17 @@
       - name: Integrate with ADFS
         href: msal-net-adfs-support.md
       - name: Migrate to MSAL.NET
-        href: msal-net-migration.md
-      - name: Migrate Xamarin Android app using broker to MSAL.NET
-        href: msal-net-migration-android-broker.md
-      - name: Migrate Xamarin iOS app using broker to MSAL.NET
-        href: msal-net-migration-ios-broker.md
+        items:
+        - name: Migrate from ADAL.NET to MSAL.NET
+          href: msal-net-migration.md
+        - name: Migrate confidential client apps to MSAL.NET
+          href: msal-net-migration-confidential-client.md
+        - name: Migrate Xamarin Android app using broker to MSAL.NET
+          href: msal-net-migration-android-broker.md
+        - name: Migrate Xamarin iOS app using broker to MSAL.NET
+          href: msal-net-migration-ios-broker.md
+        - name: Differences between ADAL.NET and MSAL.NET
+          href: msal-net-differences-adal-net.md
       - name: Web browser considerations
         href: msal-net-web-browsers.md
       - name: Handle errors and exceptions in MSAL.NET
@@ -502,6 +515,8 @@
       href: support-fido2-authentication.md
   - name: Authenticate apps and services
     items:
+    - name: Create a self-signed certificate to authenticate your app
+      href: howto-create-self-signed-certificate.md
     - name: Create a service principal using Azure PowerShell
       href: howto-authenticate-service-principal-powershell.md
     - name: Create a service principal using the Azure portal
@@ -528,7 +543,7 @@
     - name: Development Overview
       href: ../fundamentals/resilience-app-development-overview.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
     - name: Client applications
-      href: ../fundamentals/resilience-client-app.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json  
+      href: ../fundamentals/resilience-client-app.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
     - name: Daemon applications
       href: ../fundamentals/resilience-daemon-app.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
     - name: OpenID Connect metadata refresh
@@ -641,6 +656,8 @@
         href: reference-saml-tokens.md
   - name: Azure CLI
     href: /cli/azure/identity
+  - name: Azure PowerShell
+    href: /powershell/module/az.managedserviceidentity
   - name: Application types and OAuth 2.0
     displayName: App types, OAuth
     href: v2-app-types.md
@@ -686,7 +703,7 @@
     - name: Common provisioning scenarios
       href: ../app-provisioning/scim-graph-scenarios.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
     - name: Automate configuration using MS Graph
-      href: /graph/application-provisioning-configure-api?bc=%2fazure%2factive-directory%2fdevelop%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json
+      href: ../app-provisioning/application-provisioning-configuration-api.md?bc=%2fazure%2factive-directory%2fdevelop%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fdevelop%2ftoc.json
 - name: Resources
   items:
   - name: Videos

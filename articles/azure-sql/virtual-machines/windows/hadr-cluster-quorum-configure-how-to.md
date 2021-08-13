@@ -11,7 +11,7 @@ ms.subservice: hadr
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: "04/30/2021"
+ms.date: "06/01/2021"
 ms.author: chadam
 
 ---

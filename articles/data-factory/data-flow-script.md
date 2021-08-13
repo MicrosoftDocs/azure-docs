@@ -4,6 +4,7 @@ description: Overview of Data Factory's data flow script code-behind language
 author: kromerm
 ms.author: nimoolen
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2021
@@ -264,6 +265,13 @@ window(over(stocksymbol),
 	startRowOffset: -7L,
 	endRowOffset: 7L,
 	FifteenDayMovingAvg = round(avg(Close),2)) ~> Window1
+```
+
+### Distinct count of all column values
+You can use this script to identify key columns and view the cardinality of all columns in your stream with a single script snippet. Add this script as an aggregate transformation to your data flow and it will automatically provide distinct counts of all columns.
+
+```
+aggregate(each(match(true()), $$ = countDistinct($$))) ~> KeyPattern
 ```
 
 ## Next steps

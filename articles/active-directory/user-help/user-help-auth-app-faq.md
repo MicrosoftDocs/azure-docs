@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 04/30/2021
+ms.date: 06/21/2021
 ms.author: curtand
 ms.reviewer: olhaun
 ---
@@ -46,6 +46,12 @@ On Android, Microsoft recommends allowing the app to access location all the tim
 **Q**: How is my location information used and stored?
 
 **A**: The Authenticator app collects your GPS information to determine what country you are located in. The country name and location coordinates are sent back to the system to determine if you are allowed to access the protected resource. The country name is stored and reported back to your IT admin, but your actual coordinates are never saved or stored on Microsoft servers.
+
+### Notification blocks sign-in
+
+**Q**: I’m trying to sign in and I need to select the number in my app that’s displayed on the sign- in screen. However, the notification prompt from Authenticator is blocking the sign-in screen. What do I do?  
+
+**A**: Select the “Hide” option on the notification so you can see the sign-in screen and the number you need to select. The prompt will reappear after 5 seconds, and you can select the correct number then.
 
 ### Registering a device
 
@@ -89,7 +95,7 @@ On Android, Microsoft recommends allowing the app to access location all the tim
 
 **A**: The Authenticator app collects three types of information:
 
-- Account info you provide when you add your account. This data can be removed by removing your account.
+- Account info you provide when you add your account. After adding your account, depending on the features you enable for the account, your account data might sync down to the app. This data can be removed by removing your account.
 - Diagnostic log data that stays only in the app until you **Send feedback** in the app's top menu to send logs to Microsoft. These logs can contain personal data such as email addresses, server addresses, or IP addresses. They also can contain device data such as device name and operating system version. Any personal data collected is limited to info needed to help troubleshoot app issues. You can browse these log files in the app at any time to see the info being gathered. If you send your log files, Authentication app engineers will use them only to troubleshoot customer-reported issues.
 - Non-personally identifiable usage data, such "started add account flow/successfully added account," or "notification approved." This data is an integral part of our engineering decisions. Your usage helps us determine where we can improve the apps in ways that are important to you. You see a notification of  this data collection when you use the app for the first time. It informs you that it can be turned off on the app's **Settings** page. You can turn this setting on or off at any time.
 

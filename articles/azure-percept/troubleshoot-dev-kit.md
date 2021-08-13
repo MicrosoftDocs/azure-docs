@@ -1,90 +1,82 @@
 ---
-title: Troubleshoot general issues with Azure Percept DK and IoT Edge
-description: Get troubleshooting tips for some of the more common issues with Azure Percept DK
+title: Troubleshoot issues with Azure Percept DK
+description: Get troubleshooting tips for some of the more common issues with Azure Percept DK and IoT Edge
 author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/25/2021
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to 
 ---
 
 # Azure Percept DK troubleshooting
 
-See the guidance below for general troubleshooting tips for the Azure Percept DK.
+The purpose of this troubleshooting article is to help Azure Percept DK users to quickly resolve common issues with their dev kits. It also provides guidance on collecting logs for when extra support is needed.
 
-## General troubleshooting commands
+## Log collection
+In this section, you'll get guidance on which logs to collect and how to collect them.
 
-To run these commands, [SSH into the dev kit](./how-to-ssh-into-percept-dk.md) and enter the commands into the SSH client prompt.
+### How to collect logs
+1. Connect to your dev kit [over SSH](./how-to-ssh-into-percept-dk.md).
+1. Run the needed commands in the SSH terminal window. See the next section for the list of log collection commands.
+1. Redirect any output to a .txt file for further analysis, use the following syntax:
+    ```console
+    sudo [command] > [file name].txt
+    ```
+1. Change the permissions of the .txt file so it can be copied:
+    ```console
+    sudo chmod 666 [file name].txt
+    ```
+1. Copy the file to your host PC via SCP:
+    ```console
+    scp [remote username]@[IP address]:[remote file path]/[file name].txt [local host file path]
+    ```
 
-To redirect any output to a .txt file for further analysis, use the following syntax:
+    ```[local host file path]``` refers to the location on your host PC that you would like to copy the .txt file to. ```[remote username]``` is the SSH username chosen during the [setup experience](./quickstart-percept-dk-set-up.md).
 
-```console
-sudo [command] > [file name].txt
-```
+### Log types and commands
 
-Change the permissions of the .txt file so it can be copied:
+|Log purpose      |When to collect it         |Command                     |
+|-----------------|---------------------------|----------------------------|
+|*Support bundle* - provides a set of logs needed for most customer support requests.|Collect whenever requesting support.|```sudo iotedge support-bundle --since 1h``` <br><br>*"--since 1h" can be changed to any time span, for example, "6h" (6 hours), "6d" (6 days) or "6m" (6 minutes)*|
+|*OOBE logs* - records details about the setup experience.|Collect when you find issues during the setup experience.|```sudo journalctl -u oobe -b```|
+|*edgeAgent logs* - records the version numbers of all modules running on your device.|Collect when one or more modules aren't working.|```sudo iotedge logs edgeAgent```|
+|*Module container logs* - records details about specific IoT Edge module containers|Collect when you find issues with a module|```sudo iotedge logs [container name]```|
+|*Wi-Fi access point logs* - records details about the connection to the dev kit's Wi-Fi access point.|Collect when you find issues when connecting to the dev kit's Wi-Fi access point.|```sudo journalctl -u hostapd.service```|
+|*Network logs* - a set of logs covering Wi-Fi services and the network stack.|Collect when you find Wi-Fi or network issues.|```sudo journalctl -u hostapd.service -u wpa_supplicant.service -u ztpd.service -u systemd-networkd > network_log.txt```<br><br>```cat /etc/os-release && cat /etc/os-subrelease && cat /etc/adu-version && rpm -q ztpd > system_ver.txt```<br><br>Run both commands. Each command collects multiple logs and puts them into a single output.|
 
-```console
-sudo chmod 666 [file name].txt
-```
+## Troubleshooting commands
+Here's a set of commands that can be used for troubleshooting issues you may find with the dev kit. To run these commands, you must first connect to your dev kit [over SSH](./how-to-ssh-into-percept-dk.md). 
 
-After redirecting output to a .txt file, copy the file to your host PC via SCP:
+For more information on the Azure IoT Edge commands, see the [Azure IoT Edge device troubleshooting documentation](../iot-edge/troubleshoot.md). 
 
-```console
-scp [remote username]@[IP address]:[remote file path]/[file name].txt [local host file path]
-```
-
-```[local host file path]``` refers to the location on your host PC that you would like to copy the .txt file to. ```[remote username]``` is the SSH username chosen during the [setup experience](./quickstart-percept-dk-set-up.md).
-
-For additional information on the Azure IoT Edge commands, see the [Azure IoT Edge device troubleshooting documentation](../iot-edge/troubleshoot.md).
-
-|Category:         |Command:                    |Function:                  |
+|Function         |When to use                    |Command                 |
 |------------------|----------------------------|---------------------------|
-|OS                |```cat /etc/os-release```         |check Mariner image version |
-|OS                |```cat /etc/os-subrelease```      |check derivative image version |
-|OS                |```cat /etc/adu-version```        |check ADU version |
-|Temperature       |```cat /sys/class/thermal/thermal_zone0/temp``` |check temperature of devkit |
-|Wi-Fi             |```sudo journalctl -u hostapd.service``` |check SoftAP logs|
-|Wi-Fi             |```sudo journalctl -u wpa_supplicant.service``` |check Wi-Fi services logs |
-|Wi-Fi             |```sudo journalctl -u ztpd.service```  |check Wi-Fi Zero Touch Provisioning Service logs |
-|Wi-Fi             |```sudo journalctl -u systemd-networkd``` |check Mariner Network stack logs |
-|Wi-Fi             |```sudo cat /etc/hostapd/hostapd-wlan1.conf``` |check wifi access point configuration details |
-|OOBE              |```sudo journalctl -u oobe -b```       |check OOBE logs |
-|Telemetry         |```sudo azure-device-health-id```      |find unique telemetry HW_ID |
-|Azure IoT Edge          |```sudo iotedge check```          |run configuration and connectivity checks for common issues |
-|Azure IoT Edge          |```sudo iotedge logs [container name]``` |check container logs, such as speech and vision modules |
-|Azure IoT Edge          |```sudo iotedge support-bundle --since 1h``` |collect module logs, Azure IoT Edge security manager logs, container engine logs, ```iotedge check``` JSON output, and other useful debug information from the past hour |
-|Azure IoT Edge          |```sudo journalctl -u iotedge -f``` |view the logs of the Azure IoT Edge security manager |
-|Azure IoT Edge          |```sudo systemctl restart iotedge``` |restart the Azure IoT Edge security daemon |
-|Azure IoT Edge          |```sudo iotedge list```           |list the deployed Azure IoT Edge modules |
-|Other             |```df [option] [file]```          |display information on available/total space in specified file system(s) |
-|Other             |`ip route get 1.1.1.1`        |display device IP and interface information |
-|Other             |<code>ip route get 1.1.1.1 &#124; awk '{print $7}'</code> <br> `ifconfig [interface]` |display device IP address only |
+|Checks the software version on the dev kit.|Use anytime you need confirm which software version is on your dev kit.|```cat /etc/adu-version```|
+|Checks the temperature of the dev kit|Use in cases where you think the dev kit might be overheating.|```cat /sys/class/thermal/thermal_zone0/temp```|
+|Checks the dev kit's telemetry ID|Use in cases where you need to know the dev kits unique telemetry identifier.|```sudo azure-device-health-id```|
+|Checks the status of IoT Edge|Use whenever there are issues with IoT Edge modules connecting to the cloud.|```sudo iotedge check```|
+|Restarts the Azure IoT Edge security daemon|Use when IoT Edge is unresponsive or not working correctly.|```sudo systemctl restart iotedge``` |
+|Lists the deployed Azure IoT Edge modules|Uwe when you need to see all of the modules deployed on the dev kit|```sudo iotedge list``` |
+|Displays the available/total space in the specified file system(s)|Use if you need to know the available storage on the dev kit.|```df [option] [file]```|
+|Displays the dev kit's IP and interface information|Use when you need to know the dev kit's IP address.|`ip route get 1.1.1.1`        | 
+|Display dev kit's IP address only|Use when you only want the dev kit's IP address and not the other interface information.|<code>ip route get 1.1.1.1 &#124; awk '{print $7}'</code> <br> `ifconfig [interface]` |
 
-
-The ```journalctl``` Wi-Fi commands can be combined into the following single command:
-
-```console
-sudo journalctl -u hostapd.service -u wpa_supplicant.service -u ztpd.service -u systemd-networkd -b
-```
-
-## Docker troubleshooting commands
-
-|Command:                        |Function:                  |
-|--------------------------------|---------------------------|
-|```sudo docker ps``` |[shows which containers are running](https://docs.docker.com/engine/reference/commandline/ps/) |
-|```sudo docker images``` |[shows which images are on the device](https://docs.docker.com/engine/reference/commandline/images/)|
-|```sudo docker rmi [image id] -f``` |[deletes an image from the device](https://docs.docker.com/engine/reference/commandline/rmi/) |
-|```sudo docker logs -f edgeAgent``` <br> ```sudo docker logs -f [module_name]``` |[takes container logs of specified module](https://docs.docker.com/engine/reference/commandline/logs/) |
-|```sudo docker image prune``` |[removes all dangling images](https://docs.docker.com/engine/reference/commandline/image_prune/) |
-|```sudo watch docker ps``` <br> ```watch ifconfig [interface]``` |check docker container download status |
-
-## USB updates
+## USB update errors
 
 |Error:                                    |Solution:                                               |
 |------------------------------------------|--------------------------------------------------------|
-|LIBUSB_ERROR_XXX during USB flash via UUU |This error is the result of a USB connection failure during UUU updating. If the USB cable is not properly connected to the USB ports on the PC or the Percept DK carrier board, an error of this form will occur. Try unplugging and reconnecting both ends of the USB cable and jiggling the cable to ensure a secure connection. This almost always solves the issue. |
+|LIBUSB_ERROR_XXX during USB flash via UUU |This error is the result of a USB connection failure during UUU updating. If the USB cable isn't properly connected to the USB ports on the PC or the Percept DK carrier board, an error of this form will occur. Try unplugging and reconnecting both ends of the USB cable and jiggling the cable to ensure a secure connection.|
+
+## Clearing hard drive space on the Azure Percept DK
+There are two components that take up the hard drive space on the Azure Percept DK, the docker container logs and the docker containers themselves. To ensure the container logs don't take up all fo the hard space, the Azure Percept DK has log rotation built in which rotates out any old logs as new logs get generated.
+
+For situations when the number of docker containers cause hard drive space issues you can delete unused containers by following these steps:
+1. [SSH into the dev kit](./how-to-ssh-into-percept-dk.md)
+1. Run this command:
+    `docker system prune`
+
+This will remove all unused containers, networks, images and optionally, volumes. [Go to this page](https://docs.docker.com/engine/reference/commandline/system_prune/) for more details.
 
 ## Azure Percept DK carrier board LED states
 

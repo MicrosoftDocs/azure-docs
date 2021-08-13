@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 07/21/2021
 ms.custom: references_regions
 ---
 # Semantic search in Azure Cognitive Search
@@ -74,33 +74,29 @@ To use semantic capabilities in queries, you'll need to make small modifications
 
 Semantic search is a newer technology so it's important to set expectations about what it can and cannot do. It improves the quality of search results in two ways:
 
-* First, it promotes any matches are semantically closer to the intent of original query is a significant benefit.
+* First, it promotes matches that are semantically closer to the intent of original query.
 
-* Second, it makes results more easily consumable when captions, and potentially answers, are present on the page.
+* Second, it makes results easier to use when captions, and potentially answers, are present on the page.
 
-At all times, the engine is working with existing content, and the features work best on searchable content that is structured as prose. Language models used in semantic search are designed to extract an intact string from your content that looks like an answer, but won't try to compose a new string as an answer to a query, or as a caption for a matching document.
+Semantic search is not beneficial in every scenario, and before you move forward, make sure that you have content that can utilize its capabilities. The language models in semantic search work best on searchable content that is information-rich and structured as prose. For example, when evaluating your content for answers, the models scan for and extract a verbatim string that looks like an answer, but won't compose new strings as answers to a query, or as captions for a matching document. To answer the question  "what car has the best gas mileage", an index should have phrases like "Hybrid cars offer the best gas mileage of any cars on the market".
 
-Semantic search cannot correlate or infer information from different pieces of content within the document or corpus of documents. For example, given a query for "resort hotels in a desert" absent any geographical input, the engine won't produce matches for hotels located in Arizona or Nevada, even though both states have deserts. Similarly, if the query includes the clause "in the last 5 years", the engine won't calculate a time interval based on the current date to return.
-
-In Cognitive Search, mechanisms that might be helpful for the above scenarios include [synonym maps](search-synonyms.md) that allow you to build associations among terms that are outwardly different, or [date filters](search-query-odata-filter.md) specified as an OData expression.
+Semantic search cannot correlate or infer information from different pieces of content within the document or corpus of documents. For example, given a query for "resort hotels in a desert" absent any geographical input, the engine won't produce matches for hotels located in Arizona or Nevada, even though both states have deserts. Similarly, if the query includes the clause "in the last 5 years", the engine won't calculate a time interval based on the current date to return. In Cognitive Search, mechanisms that might be helpful for the above scenarios include [synonym maps](search-synonyms.md) that allow you to build associations among terms that are outwardly different, or [date filters](search-query-odata-filter.md) specified as an OData expression.
 
 ## Availability and pricing
 
-Semantic search is available through [sign-up registration](https://aka.ms/SemanticSearchPreviewSignup). Between preview launch on March 2 through early July, semantic features are offered free of charge.
+Semantic search is available through [sign-up registration](https://aka.ms/SemanticSearchPreviewSignup). There is one sign-up for both semantic search and spell check.
 
-| Feature | Tier | Region | Sign up | Projected pricing |
+| Feature | Tier | Region | Sign up | Pricing |
 |---------|------|--------|---------------------|-------------------|
-| Semantic search (captions, highlights, answers) | Standard tier (S1, S2, S3) | North Central US, West US, West US 2, East US 2, North Europe, West Europe | Required | Starting in early July, expected pricing is USD $500/month for the first 250,000 queries, and $2 for each additional 1,000 queries.  |
+| Semantic search (captions, highlights, answers) | Standard tier (S1, S2, S3) | North Central US, West US, West US 2, East US 2, North Europe, West Europe | Required | [Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/)  |
 | Spell check | Any | North Central US, West US, West US 2, East US 2, North Europe, West Europe | Required | None (free) |
 
-There is one [sign-up registration](https://aka.ms/SemanticSearchPreviewSignup) for both semantic features and spell check. 
+You can use spell check without semantic search, free of charge. Charges for semantic search are levied when query requests include `queryType=semantic` and the search string is not empty (for example, `search=pet friendly hotels in new york`. Empty search (queries where `search=*`) are not charged, even if queryType is set to `semantic`.
 
-You can use spell check without semantic search, free of charge. Charges for semantic search are levied when query requests include `queryType=semantic` and the search string is not empty (for example, `search=pet friendly hotels in new york`. Empty search (queries where `search=*`) are not charged.
-
-Final pricing information will be documented in the [Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/) and in [Estimate and manage costs](search-sku-manage-costs.md).
+If you do not want semantic search capability on your search service, you can [disable semantic search](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch) to prevent accidental usage and charges.
 
 ## Next steps
 
 [Sign-up](https://aka.ms/SemanticSearchPreviewSignup) for the preview on a search service that meets the tier and regional requirements noted in the previous section.
 
-It can take up to two business days to process the request. Once your service is ready, [create a semantic query](semantic-how-to-query-request.md) to see semantic ranking in action.
+It can take up to two business days to process the request. Once your service is ready, [create a semantic query](semantic-how-to-query-request.md) to evaluate its performance on your content.

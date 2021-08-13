@@ -188,4 +188,4 @@ As the last step, configure your DNS resource records to point to the respective
 
 ## Next steps
 - Learn more about how to combine load balancing services in Azure in [Using load-balancing services in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Learn how you can use different types of logs to manage and troubleshoot load balancer in [Azure Monitor logs for Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
+- Learn how you can use different types of logs to manage and troubleshoot load balancer in [Azure Monitor logs for Azure Load Balancer](./monitor-load-balancer.md).

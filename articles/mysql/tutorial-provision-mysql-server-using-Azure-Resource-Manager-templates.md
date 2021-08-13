@@ -4,13 +4,14 @@ description: This tutorial explains how to provision and automate Azure Database
 author: savjani
 ms.author: pariks
 ms.service: mysql
-ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Tutorial: Provision an Azure Database for MySQL server using Azure Resource Manager template
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 The [Azure Database for MySQL REST API](/rest/api/mysql/) enables DevOps engineers to automate and integrate provisioning, configuration, and operations of managed MySQL servers and databases in Azure.  The API allows the creation, enumeration, management, and deletion of MySQL servers and databases on the Azure Database for MySQL service.
 

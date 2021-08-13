@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 05/25/2021
+ms.date: 07/30/2021
 ms.author: lajanuar
 ms.custom: " devx-track-csharp"
 ---
@@ -17,11 +17,13 @@ ms.custom: " devx-track-csharp"
 <!-- markdownlint-disable MD033 -->
 > [!IMPORTANT]
 >
-> * This quickstart uses SDK version **3.1.0** and targets API version **2.1**.
+> * This quickstart uses SDK version **3.1.1** and targets API version **2.1**.
 >
 >* The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons.
 
 [Reference documentation](/dotnet/api/overview/azure/ai.formrecognizer-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/src) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
+
+ A full working sample of this C# quickstart is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/csharp-sdk-quickstart.cs).
 
 ## Prerequisites
 
@@ -61,7 +63,7 @@ Build succeeded.
 Within the application directory, install the Form Recognizer client library for .NET with the following command:
 
 ```console
-dotnet add package Azure.AI.FormRecognizer --version 3.1.0
+dotnet add package Azure.AI.FormRecognizer --version 3.1.1
 ```
 
 From the project directory, open the *Program.cs* file in your preferred editor or IDE. Add the following `using` directives:
@@ -83,7 +85,7 @@ In the application's **Main** method, add a call to the asynchronous tasks used 
 
 ## Object model
 
-With Form Recognizer, you can create two different client types. The first, `FormRecognizerClient` is used to query the service to recognized form fields and content. The second, `FormTrainingClient` is use to create and Manage custom models that you can use to improve recognition.
+With Form Recognizer, you can create two different client types. The first, `FormRecognizerClient` is used to query the service to recognized form fields and content. The second, `FormTrainingClient` is uses to create and manage custom models to improve recognition.
 
 ### FormRecognizerClient
 

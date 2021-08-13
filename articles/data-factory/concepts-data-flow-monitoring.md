@@ -1,19 +1,23 @@
 ---
 title: Monitoring mapping data flows
+titleSuffix: Azure Data Factory & Azure Synapse
 description: How to visually monitor mapping data flows in Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 06/11/2021
+ms.custom: synapse
+ms.date: 06/18/2021
 ---
 
 # Monitor Data Flows
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-After you have completed building and debugging your data flow, you want to schedule your data flow to execute on a schedule within the context of a pipeline. You can schedule the pipeline from Azure Data Factory using Triggers. Or you can use the Trigger Now option from the Azure Data Factory Pipeline Builder to execute a single-run execution to test your data flow within the pipeline context.
+After you have completed building and debugging your data flow, you want to schedule your data flow to execute on a schedule within the context of a pipeline. You can schedule the pipeline from Azure Data Factory using Triggers. For testing and debugging you data flow from a pipeline, you can use the Debug button on the toolbar ribbon or Trigger Now option from the Azure Data Factory Pipeline Builder to execute a single-run execution to test your data flow within the pipeline context.
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4P5pV]
 
 When you execute your pipeline, you can monitor the pipeline and all of the activities contained in the pipeline including the Data Flow activity. Click on the monitor icon in the left-hand Azure Data Factory UI panel. You can see a screen similar to the one below. The highlighted icons allow you to drill into the activities in the pipeline, including the Data Flow activity.
 
@@ -23,7 +27,7 @@ You see statistics at this level as well including the run times and status. The
 
 ![Screenshot shows the eyeglasses icon to see details of data flow execution.](media/data-flow/monitoring-details.png "Data Flow Monitoring")
 
-When you're in the graphical node monitoring view, you can see a simplified view-only version of your data flow graph.
+When you're in the graphical node monitoring view, you can see a simplified view-only version of your data flow graph. To see the details view with larger graph nodes that include transformation stage labels, use the zoom slider on the right side of your canvas. You can also use the search button on the right side to find parts of your data flow logic in the graph.
 
 ![Screenshot shows the view-only version of the graph.](media/data-flow/mon003.png "Data Flow Monitoring")
 
@@ -36,6 +40,12 @@ When your Data Flow is executed in Spark, Azure Data Factory determines optimal 
 * When you select the open space in the monitoring window, the stats in the bottom pane display timing and row counts for each Sink and the transformations that led to the sink data for transformation lineage.
 
 * When you select individual transformations, you receive additional feedback on the right-hand panel that shows partition stats, column counts, skewness (how evenly is the data distributed across partitions), and kurtosis (how spiky is the data).
+
+* Sorting by *processing time* will help you to identify which stages in your data flow took the most time.
+
+* To find which transformations inside each stage took the most time, sort on *highest processing time*.
+
+* The *rows written* is also sortable as a way to identify which streams inside your data flow are writing the most data.
 
 * When you select the Sink in the node view, you can see column lineage. There are three different methods that columns are accumulated throughout your data flow to land in the Sink. They are:
 

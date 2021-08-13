@@ -3,8 +3,8 @@ title: 'Tutorial: Configure SecureLogin for automatic user provisioning with Azu
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to SecureLogin.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: f37882fb-80fa-446c-8f56-d13fd905fe54
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure SecureLogin for automatic user provisioning

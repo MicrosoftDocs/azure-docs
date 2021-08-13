@@ -23,9 +23,8 @@ sections:
       - question: |
           I want to fork the built-in Docker containers that the platform provides. Where can I find those files?
         answer: |
-          You can find all Docker files on [GitHub](https://github.com/azure-app-service). You can find all Docker containers on [Docker Hub](https://hub.docker.com/u/appsvc/).
-          
-          
+          You can find all Docker files on [GitHub](https://github.com/Azure-App-Service/ImageBuilder).
+                    
       - question: |
           What are the expected values for the Startup File section when I configure the runtime stack?
         answer: |
@@ -35,7 +34,9 @@ sections:
           | Tomcat          | the location of a script to perform any necessary configurations (for example, `/home/site/deployments/tools/startup_script.sh`)          |
           | Node.js         | the PM2 configuration file or your script file                                |
           | .NET Core       | the compiled DLL name as `dotnet <myapp>.dll`                                 |
-          | Ruby            | the Ruby script that you want to initialize your app with                     |
+          | PHP             | optional [custom startup](./configure-language-php.md?pivots=platform-linux#customize-start-up) |
+          | Python          | optional [startup script](./configure-language-python.md#customize-startup-command) |
+          | Ruby            | the Ruby script that you want to initialize your app with                        |
           
           These commands or scripts are executed after the built-in Docker container is started, but before your application code is started.
           
@@ -117,6 +118,12 @@ sections:
 
   - name: Custom containers
     questions:
+    
+      - question: |
+          Can I use Managed Identities with App Service when pulling images form ACR?
+        answer: |
+          Yes, this functionality is available from the Azure CLI. You can use [system-assigned](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_system-assigned_managed_identities.md) or [user-assigned](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_user-assigned_managed_identities.md) identities. This functionality isn't currently supported in the Azure portal.
+      
       - question: |
           I'm using my own custom container. I want the platform to mount an SMB share to the `/home/` directory.
         answer: |
@@ -227,9 +234,9 @@ sections:
   - name: Other questions
     questions:
       - question: |
-          What does "Requested feature is not available in resource group" mean?
+          Can I use a file based database (like SQLight) with my Linux Webapp?
         answer: |
-          You may see this message when creating web app using Azure Resource Manager (ARM). Based on a current limitation, for the same resource group, you cannot mix Windows and Linux apps in the same region.
+          The file system of your application is a mounted network share. This is what allows for scale out scenarios where your code needs to be executed across multiple hosts. Unfortunately this blocks the use of file Based database providers like SQLite since it's not possible to acquirer exclusive locks on the database file. We recommend to use one of the fully managed database service in azure: [Azure SQL](https://azure.microsoft.com/products/azure-sql/), [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) or [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/)
 
       - question: |
           What are the supported characters in application settings names?
@@ -249,3 +256,4 @@ additionalContent: |
   - [Set up staging environments in Azure App Service](deploy-staging-slots.md)
   - [Continuous Deployment with Web App for Containers](./deploy-ci-cd-custom-container.md)
   - [Things You Should Know: Web Apps and Linux](https://techcommunity.microsoft.com/t5/apps-on-azure/things-you-should-know-web-apps-and-linux/ba-p/392472)
+  - [Environment variables and app settings reference](reference-app-settings.md)

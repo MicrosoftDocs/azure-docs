@@ -7,7 +7,7 @@ ms.date: 05/20/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ---
 
 # Implement dynamic styling for Creator indoor maps
@@ -63,33 +63,27 @@ In the next section, we'll set the occupancy *state* of office `UNIT26` to `true
 
 1. In the Postman app, select **New**.
 
-2. In the **Create New** window, select **Collection**.
+2. In the **Create New** window, select **HTTP Request**.
 
-3. Select **New** again.
+3. Enter a **Request name** for the request, such as *POST Data Upload*.
 
-4. In the **Create New** window, select **Request**.
-
-5. Enter a **Request name** for the request, such as *POST Data Upload*.
-
-6. Select the collection you previously created, and then select **Save**.
-
-7. Enter the following URL to the [Feature Update States API](/rest/api/maps/v2/feature-state/update-states) (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key and `statesetId` with the `statesetId`):
+4. Enter the following URL to the [Feature Update States API](/rest/api/maps/v2/feature-state/update-states) (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key and `statesetId` with the `statesetId`):
 
     ```http
     https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT26?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-8. Select the **Headers** tab.
+5. Select the **Headers** tab.
 
-9. In the **KEY** field, select `Content-Type`. In the **VALUE** field, select `application/json`.
+6. In the **KEY** field, select `Content-Type`. In the **VALUE** field, select `application/json`.
 
      :::image type="content" source="./media/indoor-map-dynamic-styling/stateset-header.png"alt-text="Header tab information for stateset creation.":::
 
-10. Select the **Body** tab.
+7. Select the **Body** tab.
 
-11. In the dropdown lists, select **raw** and **JSON**.
+8. In the dropdown lists, select **raw** and **JSON**.
 
-12. Copy the following JSON style, and then paste it in the **Body** window:
+9. Copy the following JSON style, and then paste it in the **Body** window:
 
     ```json
     {
@@ -106,13 +100,13 @@ In the next section, we'll set the occupancy *state* of office `UNIT26` to `true
     >[!IMPORTANT]
     >The update will be saved only if the posted time stamp is after the time stamp used in previous feature state update requests for the same feature `ID`.
 
-13. Change the URL you used in step 7 by replacing `UNIT26` with `UNIT27`:
+10. Change the URL you used in step 7 by replacing `UNIT26` with `UNIT27`:
 
     ```http
     https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT27?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-14. Copy the following JSON style, and then paste it in the **Body** window:
+11. Copy the following JSON style, and then paste it in the **Body** window:
 
     ``` json
     {

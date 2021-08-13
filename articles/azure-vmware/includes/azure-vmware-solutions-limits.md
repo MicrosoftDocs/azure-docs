@@ -3,6 +3,9 @@ title: Azure VMware Solution limits
 description: Azure VMware Solution limitations.
 ms.topic: include
 ms.date: 03/24/2021
+author: shortpatti
+ms.author: v-patsho
+ms.service: azure-vmware
 ---
 
 <!-- Used in /azure/azure-resource-manager/management/azure-subscription-service-limits.md and concepts-networking.md -->
@@ -12,9 +15,9 @@ The following table describes the maximum limits for Azure VMware Solution.
 | **Resource** | **Limit** |
 | :-- | :-- |
 | Clusters per private cloud | 12 |
-| Minimum number of nodes per cluster | 3 |
-| Maximum number of nodes per cluster | 16 |
-| Nodes per private cloud | 96 |
+| Minimum number of hosts per cluster | 3 |
+| Maximum number of hosts per cluster | 16 |
+| hosts per private cloud | 96 |
 | vCenter per private cloud | 1  |
 | HCX site pairings | 3 with Advanced edition, 10 with Enterprise edition |
 | AVS ExpressRoute max linked private clouds | 4<br />The virtual network gateway used determines the actual max linked private clouds.  For more details, see [About ExpressRoute virtual network gateways](../../expressroute/expressroute-about-virtual-network-gateways.md) | 
@@ -22,4 +25,4 @@ The following table describes the maximum limits for Azure VMware Solution.
 | Public IPs exposed via vWAN | 100 |
 | vSAN capacity limits | 75% of total usable (keep 25% available for SLA)  |
 
-For other VMware specific limits please use the [VMware configuration maximum tool!](https://configmax.vmware.com/).
+For other VMware-specific limits, use the [VMware configuration maximum tool!](https://configmax.vmware.com/).

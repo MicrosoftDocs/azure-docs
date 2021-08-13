@@ -73,9 +73,6 @@ Select **Save and run script in terminal** to run the script.
 
 You'll see the output of the script in the terminal window that opens. Close the tab and select **Terminate** to close the session.
 
-> [!div class="nextstepaction"]
-> [I ran the script locally](?success=run-local#control-script) [I ran into an issue](https://www.research.net/r/7C2NTH7?issue=run-local)
-
 ## <a name="control-script"></a> Create a control script
 
 A *control script* allows you to run your `hello.py` script on different compute resources. You use the control script to control how and where your machine learning code is run.  
@@ -144,8 +141,6 @@ Here's a description of how the control script works:
    :::column-end:::
 :::row-end:::
 
-> [!div class="nextstepaction"]
-> [I created the control script](?success=create-control-script#submit) [I ran into an issue](https://www.research.net/r/7C2NTH7?issue=create-control-script)
 
 ## <a name="submit"></a> Submit and run your code in the cloud
 
@@ -156,8 +151,6 @@ In the terminal, you may be asked to sign in to authenticate.  Copy the code and
 > [!TIP]
 > If you just finished creating the compute cluster, you may see the error "UserError: Required Docker image not found..." Wait about 5 minutes or so, and try again.  The compute cluster may need more time before it is ready to spin up nodes.
 
-> [!div class="nextstepaction"]
-> [I submitted code in the cloud](?success=submit-to-cloud#monitor) [I ran into an issue](https://www.research.net/r/7C2NTH7?issue=submit-to-cloud)
 
 ## <a name="monitor"></a>Monitor your code in the cloud in the studio
 
@@ -200,8 +193,6 @@ On line 8, you see the "Hello world!" output.
 
 The `70_driver_log.txt` file contains the standard output from a run. This file can be useful when you're debugging remote runs in the cloud.
 
-> [!div class="nextstepaction"]
-> [I saw the log in studio](?success=monitor-in-studio#next-steps) [I ran into an issue](https://www.research.net/r/7C2NTH7?issue=monitor-in-studio)
 
 ## Next steps
 

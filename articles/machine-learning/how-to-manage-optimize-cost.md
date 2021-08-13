@@ -21,6 +21,7 @@ Use the following tips to help you manage and optimize your compute resource cos
 - Set quotas on your subscription and workspaces
 - Set termination policies on your training run
 - Use low-priority virtual machines (VM)
+- Schedule compute instances to shut down and start up automatically
 - Use an Azure Reserved VM Instance
 - Train locally
 - Parallelize training
@@ -50,7 +51,7 @@ You can also configure the amount of time the node is idle before scale down. By
 + If you perform less iterative experimentation, reduce this time to save costs.
 + If you perform highly iterative dev/test experimentation, you might need to increase the time so you aren't paying for constant scaling up and down after each change to your training script or environment.
 
-AmlCompute clusters can be configured for your changing workload requirements in Azure portal, using the [AmlCompute SDK class](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute), [AmlCompute CLI](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_amlcompute), with the [REST APIs](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
+AmlCompute clusters can be configured for your changing workload requirements in Azure portal, using the [AmlCompute SDK class](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute), [AmlCompute CLI](/cli/azure/ml(v1)/computetarget/create#az_ml_v1__computetarget_create_amlcompute), with the [REST APIs](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
 
 ```azurecli
 az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 --min-nodes 0 --max-nodes 5 --idle-seconds-before-scaledown 300
@@ -81,6 +82,10 @@ Low-Priority VMs have a single quota separate from the dedicated quota value, wh
 
  Low-Priority VMs don't work for compute instances, since they need to support interactive notebook experiences.
 
+## Schedule compute instances
+
+When you create a [compute instance](concept-compute-instance.md), the VM stays on so it is available for your work.  [Set up a schedule](how-to-create-manage-compute-instance.md#schedule) to automatically start and stop the compute instance (preview) to save cost when you aren't planning to use it.
+
 ## Use reserved instances
 
 Another way to save money on compute resources is Azure Reserved VM Instance. With this offering, you commit to one-year or three-year terms. These discounts range up to 72% of the pay-as-you-go prices and are applied directly to your monthly Azure bill.
@@ -99,7 +104,7 @@ One of the key methods of optimizing cost and performance is by parallelizing th
 
 ## Set data retention & deletion policies
 
-Every time a pipeline is executed, intermediate datasets are generated at each step. Over time, these intermediate datasets take up space in your storage account. Consider setting up policies to manage your data throughout its lifecycle to archive and delete your datasets. For more information, see [optimize costs by automating Azure Blob Storage access tiers](/storage/blobs/storage-lifecycle-management-concepts.md).
+Every time a pipeline is executed, intermediate datasets are generated at each step. Over time, these intermediate datasets take up space in your storage account. Consider setting up policies to manage your data throughout its lifecycle to archive and delete your datasets. For more information, see [optimize costs by automating Azure Blob Storage access tiers](../storage/blobs/storage-lifecycle-management-concepts.md).
 
 ## Deploy resources to the same region
 

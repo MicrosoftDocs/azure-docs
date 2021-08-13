@@ -4,9 +4,10 @@ description: Copy, transform, and share data using Azure Data Factory and Azure 
 author: dcstwh
 ms.author: weetok
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 04/16/2021
+ms.date: 06/04/2021
 ---
 
 # Data integration using Azure Data Factory and Azure Data Share
@@ -55,7 +56,7 @@ In Azure Data Factory linked services define the connection information to exter
     ![Portal 3](media/lab-data-flow-data-share/portal3.png)
 1. You'll be redirected to the homepage of the ADF UX. This page contains quick-starts, instructional videos, and links to tutorials to learn data factory concepts. To start authoring, click on the pencil icon in left side-bar.
 
-    ![Portal configure](media/lab-data-flow-data-share/configure1.png)
+    ![Portal configure](./media/doc-common-process/get-started-page-author-button.png)
 
 ### Create an Azure SQL Database linked service
 

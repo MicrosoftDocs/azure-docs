@@ -4,9 +4,10 @@ description: 'Use Azure Data Factory to copy data from Azure Data Lake Storage G
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/18/2021
+ms.date: 08/06/2021
 ---
 
 # Copy data from Azure Data Lake Storage Gen1 to Gen2 with Azure Data Factory
@@ -48,124 +49,122 @@ This article shows you how to use the Data Factory copy data tool to copy data f
 3. Select **Create**.
 4. After creation is finished, go to your data factory. You see the **Data Factory** home page as shown in the following image: 
    
-   ![Data factory home page](./media/load-azure-data-lake-storage-gen2-from-gen1/data-factory-home-page.png)
+   :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
 
-5. Select the **Author & Monitor** tile to launch the Data Integration application in a separate tab.
+5. Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Data Integration application in a separate tab.
 
 ## Load data into Azure Data Lake Storage Gen2
 
-1. On the **Get started** page, select the **Copy Data** tile to launch the copy data tool. 
+1. On the home page, select the **Ingest** tile to launch the copy data tool. 
 
-   ![Copy data tool tile](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-data-tool-tile.png)
-2. On the **Properties** page, specify **CopyFromADLSGen1ToGen2** for the **Task name** field. Select **Next**.
+   ![Screenshot that shows the ADF home page.](./media/doc-common-process/get-started-page.png )
 
-    ![Properties page](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-data-tool-properties-page.png)
-3. On the **Source data store** page, select **+ Create new connection**.
+2. On the **Properties** page, choose **Built-in copy task** under **Task type**, and choose **Run once now** under **Task cadence or task schedule**, then select **Next**.
 
-    ![Source data store page](./media/load-azure-data-lake-storage-gen2-from-gen1/source-data-store-page.png)
+3. On the **Source data store** page, select **+ New connection**.
     
 4. Select **Azure Data Lake Storage Gen1** from the connector gallery, and select **Continue**.
     
     ![Source data store Azure Data Lake Storage Gen1 page](./media/load-azure-data-lake-storage-gen2-from-gen1/source-data-store-page-adls-gen1.png)
     
-5. On the **Specify Azure Data Lake Storage Gen1 connection** page, follow these steps:
-
-   a. Select your Data Lake Storage Gen1 for the account name, and specify or validate the **Tenant**.
+5. On the **New connection (Azure Data Lake Storage Gen1)** page, follow these steps:
+   1. Select your Data Lake Storage Gen1 for the account name, and specify or validate the **Tenant**.
+   1. Select **Test connection** to validate the settings. Then select **Create**.
   
-   b. Select **Test connection** to validate the settings. Then select **Finish**.
-  
-   c. You see that a new connection was created. Select **Next**.
-   
    > [!IMPORTANT]
    > In this walk-through, you use a managed identity for Azure resources to authenticate your Azure Data Lake Storage Gen1. To grant the managed identity the proper permissions in Azure Data Lake Storage Gen1, follow [these instructions](connector-azure-data-lake-store.md#managed-identity).
    
    ![Specify Azure Data Lake Storage Gen1 account](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen1-account.png)
       
-6. On the **Choose the input file or folder** page, browse to the folder and file that you want to copy over. Select the folder or file, and select **Choose**.
-
-    ![Choose input file or folder](./media/load-azure-data-lake-storage-gen2-from-gen1/choose-input-folder.png)
-
-7. Specify the copy behavior by selecting the **Copy files recursively** and **Binary copy** options. Select **Next**.
-
-    ![Screenshot shows the Choose the input file or folder where you can select Copy file recursively and Binary Copy.](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-binary-copy.png)
+6. On the **Source data store** page, complete the following steps. 
+    1. Select the newly created connection in the **Connection** section.
+    1. Under **File or folder**, browse to the folder and file that you want to copy over. Select the folder or file, and select **OK**.
+    1. Specify the copy behavior by selecting the **Recursively** and **Binary copy** options. Select **Next**.
     
-8. On the **Destination data store** page, select **+ Create new connection** > **Azure Data Lake Storage Gen2** > **Continue**.
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/source-data-store-page.png" alt-text="Screenshot showing the source data store page.":::
+    
+7. On the **Destination data store** page, select **+ New connection** > **Azure Data Lake Storage Gen2** > **Continue**.
 
-    ![Destination data store page](./media/load-azure-data-lake-storage-gen2-from-gen1/destination-data-storage-page.png)
+    ![Destination data store page](./media/load-azure-data-lake-storage-gen2-from-gen1/destination-data-store-page-adls-gen2.png)
 
-9. On the **Specify Azure Data Lake Storage Gen2 connection** page, follow these steps:
+8. On the **New connection (Azure Data Lake Storage Gen2)** page, follow these steps:
+   1. Select your Data Lake Storage Gen2 capable account from the **Storage account name** drop-down list.
+   1. Select **Create** to create the connection. 
 
-   a. Select your Data Lake Storage Gen2 capable account from the **Storage account name** drop-down list.
-   
-   b. Select **Finish** to create the connection. Then select **Next**.
-   
    ![Specify Azure Data Lake Storage Gen2 account](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
 
-10. On the **Choose the output file or folder** page, enter **copyfromadlsgen1** as the output folder name, and select **Next**. Data Factory creates the corresponding Azure Data Lake Storage Gen2 file system and subfolders during copy if they don't exist.
+9. On the **Destination data store** page, complete the following steps. 
+    1. Select the newly created connection in the **Connection** block. 
+    1. Under **Folder path**, enter **copyfromadlsgen1** as the output folder name, and select **Next**. Data Factory creates the corresponding Azure Data Lake Storage Gen2 file system and subfolders during copy if they don't exist.
 
-    ![Screenshot shows the folder path you enter.](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-path.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/destination-data-store-page.png" alt-text="Screenshot showing the destination data store page.":::
 
-11. On the **Settings** page, select **Next** to use the default settings.
+10. On the **Settings** page, specify **CopyFromADLSGen1ToGen2** for the **Task name** field, then select **Next** to use the default settings.
 
-12. On the **Summary** page, review the settings, and select **Next**.
+
+11. On the **Summary** page, review the settings, and select **Next**.
 
     ![Summary page](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-summary.png)
-13. On the **Deployment page**, select **Monitor** to monitor the pipeline.
+
+12. On the **Deployment page**, select **Monitor** to monitor the pipeline.
 
     ![Deployment page](./media/load-azure-data-lake-storage-gen2-from-gen1/deployment-page.png)
-14. Notice that the **Monitor** tab on the left is automatically selected. The **Actions** column includes links to view activity run details and to rerun the pipeline.
+
+13. Notice that the **Monitor** tab on the left is automatically selected. The **Pipeline name** column includes links to view activity run details and to rerun the pipeline.
 
     ![Monitor pipeline runs](./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-pipeline-runs.png)
 
-15. To view activity runs that are associated with the pipeline run, select the **View Activity Runs** link in the **Actions** column. There's only one activity (copy activity) in the pipeline, so you see only one entry. To switch back to the pipeline runs view, select the **Pipelines** link at the top. Select **Refresh** to refresh the list. 
+14. To view activity runs that are associated with the pipeline run, select the link in the **Pipeline name** column. There's only one activity (copy activity) in the pipeline, so you see only one entry. To switch back to the pipeline runs view, select the **All pipeline runs** link in the breadcrumb menu at the top. Select **Refresh** to refresh the list. 
 
     ![Monitor activity runs](./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-activity-runs.png)
 
-16. To monitor the execution details for each copy activity, select the **Details** link (eyeglasses image) under **Actions** in the activity monitoring view. You can monitor details like the volume of data copied from the source to the sink, data throughput, execution steps with corresponding duration, and used configurations.
+15. To monitor the execution details for each copy activity, select the **Details** link (eyeglasses image) under the **Activity name** column in the activity monitoring view. You can monitor details like the volume of data copied from the source to the sink, data throughput, execution steps with corresponding duration, and used configurations.
 
-    ![Monitor activity run details](./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-activity-run-details.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-activity-run-details.png" alt-text="Screenshot showing the activity run details.":::
 
-17. Verify that the data is copied into your Azure Data Lake Storage Gen2 account.
+16. Verify that the data is copied into your Azure Data Lake Storage Gen2 account.
 
 ## Best practices
 
 To assess upgrading from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2 in general, see [Upgrade your big data analytics solutions from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md). The following sections introduce best practices for using Data Factory for a data upgrade from Data Lake Storage Gen1 to Data Lake Storage Gen2.
 
-### Data partition for historical data copy
+### Historical data copy
 
-- If your total data size in Data Lake Storage Gen1 is less than 30 TB and the number of files is less than 1 million, you can copy all data in a single copy activity run.
-- If you have a larger amount of data to copy, or you want the flexibility to manage data migration in batches and make each of them complete within a specific time frame, partition the data. Partitioning also reduces the risk of any unexpected issue.
+#### Performance tuning by proof-of-concept
 
 Use a proof of concept to verify the end-to-end solution and test the copy throughput in your environment. Major proof-of-concept steps: 
 
-1. Create one Data Factory pipeline with a single copy activity to copy several TBs of data from Data Lake Storage Gen1 to Data Lake Storage Gen2 to get a copy performance baseline. Start with [data integration units (DIUs)](copy-activity-performance-features.md#data-integration-units) as 128. 
-2. Based on the copy throughput you get in step 1, calculate the estimated time that's required for the entire data migration. 
-3. (Optional) Create a control table and define the file filter to partition the files to be migrated. The way to partition the files is to: 
+1. Create one Data Factory pipeline with a single copy activity to copy several TBs of data from Data Lake Storage Gen1 to Data Lake Storage Gen2 to get a copy performance baseline. Start with [data integration units (DIUs)](copy-activity-performance-features.md#data-integration-units) as 128. The [Parallel copy](copy-activity-performance-features.md#parallel-copy) is suggested to be set as **empty (default)**.
+2. Based on the copy throughput you get in step 1, calculate the estimated time that's required for the entire data migration. If the copy throughput is not good for you, identify and resolve the performance bottlenecks by following the [performance tuning steps](copy-activity-performance.md#performance-tuning-steps).
+3. If you have maximized the performance of a single copy activity, but have not yet achieved the throughput upper limits of your environment, you can run multiple copy activities in parallel. Each copy activity can be configured to copy one partition at a time, so that multiple copy activities can copy data from single Data Lake Storage Gen1 account cocurrently. The way to partition the files is to use **name range- listAfter/listBefore** in [copy activity property](connector-azure-data-lake-store.md#copy-activity-properties).
 
-    - Partition by folder name or folder name with a wildcard filter. We recommend this method.
-    - Partition by a file's last modified time.
+If your total data size in Data Lake Storage Gen1 is less than 30 TB and the number of files is less than 1 million, you can copy all data in a single copy activity run. If you have a larger amount of data to copy, or you want the flexibility to manage data migration in batches and make each of them complete within a specific time frame, partition the data. Partitioning also reduces the risk of any unexpected issue. 
 
-### Network bandwidth and storage I/O 
 
-You can control the concurrency of Data Factory copy jobs that read data from Data Lake Storage Gen1 and write data to Data Lake Storage Gen2. In this way, you can manage the use on that storage I/O to avoid affecting the normal business work on Data Lake Storage Gen1 during the migration.
+#### Network bandwidth and storage I/O 
 
-### Permissions 
+If you see significant number of throttling errors from [copy activity monitoring](copy-activity-monitoring.md#monitor-visually), it indicates you have reached the capacity limit of your storage account. ADF will retry automatically to overcome each throttling error to make sure there will not be any data lost, but too many retries impact your copy throughput as well. In such case, you are encouraged to reduce the number of copy activities running cocurrently to avoid significant amounts of throttling errors. If you have been using single copy activity to copy data, then you are encouraged to reduce the number of [data integration units (DIUs)](copy-activity-performance-features.md#data-integration-units).
 
-In Data Factory, the [Data Lake Storage Gen1 connector](connector-azure-data-lake-store.md) supports service principal and managed identity for Azure resource authentications. The [Data Lake Storage Gen2 connector](connector-azure-data-lake-storage.md) supports account key, service principal, and managed identity for Azure resource authentications. To make Data Factory able to navigate and copy all the files or access control lists (ACLs) you need, grant high enough permissions for the account you provide to access, read, or write all files and set ACLs if you choose to. Grant it a super-user or owner role during the migration period. 
-
-### Preserve ACLs from Data Lake Storage Gen1
-
-If you want to replicate the ACLs along with data files when you upgrade from Data Lake Storage Gen1 to Data Lake Storage Gen2, see [Preserve ACLs from Data Lake Storage Gen1](connector-azure-data-lake-storage.md#preserve-acls). 
 
 ### Incremental copy 
 
 You can use several approaches to load only the new or updated files from Data Lake Storage Gen1:
 
 - Load new or updated files by time partitioned folder or file name. An example is /2019/05/13/*.
-- Load new or updated files by LastModifiedDate.
+- Load new or updated files by LastModifiedDate. If you are copying large amounts of files, do partitions first in order to avoid low copy throughput result from single copy activity scanning your entire Data Lake Storage Gen1 account to identify new files. 
 - Identify new or updated files by any third-party tool or solution. Then pass the file or folder name to the Data Factory pipeline via parameter or a table or file. 
 
 The proper frequency to do incremental load depends on the total number of files in Azure Data Lake Storage Gen1 and the volume of new or updated files to be loaded every time. 
+
+
+### Preserve ACLs
+
+If you want to replicate the ACLs along with data files when you upgrade from Data Lake Storage Gen1 to Data Lake Storage Gen2, see [Preserve ACLs from Data Lake Storage Gen1](connector-azure-data-lake-storage.md#preserve-acls). 
+
+### Permissions 
+
+In Data Factory, the [Data Lake Storage Gen1 connector](connector-azure-data-lake-store.md) supports service principal and managed identity for Azure resource authentications. The [Data Lake Storage Gen2 connector](connector-azure-data-lake-storage.md) supports account key, service principal, and managed identity for Azure resource authentications. To make Data Factory able to navigate and copy all the files or access control lists (ACLs) you need, grant high enough permissions for the account you provide to access, read, or write all files and set ACLs if you choose to. Grant it a super-user or owner role during the migration period. 
+
 
 ## Next steps
 

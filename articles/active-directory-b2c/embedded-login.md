@@ -103,7 +103,7 @@ window.parent.postMessage("signUp", '*');
 
 ## Configure a web application
 
-When a user selects the sign-in button, the [web app](code-samples.md#web-apps-and-apis) generates an authorization request that takes the user to Azure AD B2C sign-in experience. After sign-in is complete, Azure AD B2C returns an ID token, or authorization code, to the configured redirect URI within your application.
+When a user selects the sign-in button, the [web app](integrate-with-app-code-samples.md#web-apps-and-apis) generates an authorization request that takes the user to Azure AD B2C sign-in experience. After sign-in is complete, Azure AD B2C returns an ID token, or authorization code, to the configured redirect URI within your application.
 
 To support embedded login, the iframe **src** property points to the sign-in controller, such as `/account/SignUpSignIn`, which generates the authorization request and redirects the user to Azure AD B2C policy.
 
@@ -164,6 +164,6 @@ See the following related articles:
 - [User interface customization](customize-ui.md)
 - [RelyingParty](relyingparty.md) element reference
 - [Enable your policy for JavaScript](./javascript-and-page-layout.md)
-- [Code samples](code-samples.md)
+- [Code samples](integrate-with-app-code-samples.md)
 
 ::: zone-end

@@ -20,7 +20,10 @@ ms.custom:
 
 Virtual Network (VNet) service endpoint provides secure and direct connectivity to Azure services over an optimized route over the Azure backbone network. Endpoints allow you to secure your critical Azure service resources to only your virtual networks. Service Endpoints enables private IP addresses in the VNet to reach the endpoint of an Azure service without needing a public IP address on the VNet.
 
-This feature is available for the following Azure services and regions. The *Microsoft.\** resource is in parenthesis. Enable this resource from the subnet side while configuring service endpoints for your service:
+   >[!NOTE]
+   > Microsoft recommends use of Azure Private Link for secure and private access to services hosted on Azure platform. For more information, see [Azure Private Link](../private-link/private-link-overview.md).  
+
+Service endpoints are available for the following Azure services and regions. The *Microsoft.\** resource is in parenthesis. Enable this resource from the subnet side while configuring service endpoints for your service:
 
 **Generally available**
 
@@ -146,6 +149,6 @@ For FAQs, see [Virtual Network Service Endpoint FAQs](./virtual-networks-faq.md#
 - [Secure an Azure Storage account to a virtual network](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Secure an Azure SQL Database to a virtual network](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Secure an Azure Synapse Analytics to a virtual network](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
-- [Azure service integration in virtual networks](virtual-network-for-azure-services.md)
+- [Compare Private Endpoints and Service Endpoints](https://docs.microsoft.com/azure/virtual-network/vnet-integration-for-azure-services#compare-private-endpoints-and-service-endpoints)
 - [Virtual Network Service Endpoint Policies](./virtual-network-service-endpoint-policies-overview.md)
 - [Azure Resource Manager template](https://azure.microsoft.com/resources/templates/vnet-2subnets-service-endpoints-storage-integration)

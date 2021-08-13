@@ -15,7 +15,7 @@ ms.date: 03/05/2020
 
 The Azure Machine Learning Workbench application and some other early features were deprecated and replaced in the **September 2018** release to make way for an improved [architecture](concept-azure-machine-learning-architecture.md).
 
-To improve your experience, the release contains many significant updates prompted by customer feedback. The core functionality from experiment runs to model deployment hasn't changed. But now, you can use the robust <a href="/python/api/overview/azure/ml/intro" target="_blank">Python SDK</a>, R SDK, and the [Azure CLI](reference-azure-machine-learning-cli.md) to accomplish your machine learning tasks and pipelines.
+To improve your experience, the release contains many significant updates prompted by customer feedback. The core functionality from experiment runs to model deployment hasn't changed. But now, you can use the robust <a href="/python/api/overview/azure/ml/intro" target="_blank">Python SDK</a>, and the [Azure CLI](reference-azure-machine-learning-cli.md) to accomplish your machine learning tasks and pipelines.
 
 Most of the artifacts that were created in the earlier version of Azure Machine Learning are stored in your own local or cloud storage. These artifacts won't ever disappear.
 
@@ -79,7 +79,7 @@ The images that you created in your old image registry cannot be directly migrat
 
 Now that support for the old CLI has ended, you can no longer redeploy models or manage the web services you originally deployed with your Model Management account. However, those web services will continue to work for as long as Azure Container Service (ACS) is still supported.
 
-In the latest version, models are deployed as web services to Azure Container Instances (ACI) or Azure Kubernetes Service (AKS) clusters. You can also deploy to FPGAs and to Azure IoT Edge.
+In the latest version, models are deployed as web services to Azure Container Instances (ACI) or Azure Kubernetes Service (AKS) clusters. You can also deploy to FPGAs.
 
 Learn more in these articles:
 + [Where and how to deploy models](how-to-deploy-and-where.md)
@@ -89,7 +89,7 @@ Learn more in these articles:
 
 Learn about the [latest architecture for Azure Machine Learning](concept-azure-machine-learning-architecture.md).
 
-For an overview of the service, read [What is Azure Machine Learning?](overview-what-is-azure-ml.md).
+For an overview of the service, read [What is Azure Machine Learning?](overview-what-is-azure-machine-learning.md).
 
 Start with [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md).  Then use these resources to create your first experiment with your preferred method:
 

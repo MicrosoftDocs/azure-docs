@@ -88,24 +88,17 @@ Following configurations are required to access hive tables from Zeppelin with t
 
     | Configuration| Value|
     |---|---|
-    | livy.spark.sql.hive.hiveserver2.jdbc.url.principal | `hive/<llap-headnode>@<AAD-Domain>` |
-
-    * From a web browser, navigate to `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary` where CLUSTERNAME is the name of your Interactive Query cluster. Click on **HiveServer2 Interactive**. You will see the Fully Qualified Domain Name (FQDN) of the head node on which LLAP is running as shown in the screenshot. Replace `<llap-headnode>` with this value.
-
-        :::image type="content" source="./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png" alt-text="hive warehouse connector Head Node" border="true":::
+    | livy.spark.sql.hive.hiveserver2.jdbc.url.principal | `hive/_HOST@<AAD-Domain>` |
 
     * Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your Interactive Query cluster. Look for `default_realm` parameter in the `/etc/krb5.conf` file. Replace `<AAD-DOMAIN>` with this value as an uppercase string, otherwise the credential won't be found.
 
         :::image type="content" source="./media/apache-hive-warehouse-connector/aad-domain.png" alt-text="hive warehouse connector AAD Domain" border="true":::
 
-    * For instance, `hive/hn*.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET`.
-
 1. Save the changes and restart the Livy interpreter.
 
 If Livy interpreter isn't accessible, modify the `shiro.ini` file present within Zeppelin component in Ambari. For more information, see [Configuring Apache Zeppelin Security](https://docs.cloudera.com/HDPDocuments/HDP3/HDP-3.0.1/configuring-zeppelin-security/content/enabling_access_control_for_interpreter__configuration__and_credential_settings.html).  
 
-
-## Running Queries in Zeppelin 
+## Running Queries in Zeppelin
 
 Launch a Zeppelin notebook using Livy interpreter and execute the following
 

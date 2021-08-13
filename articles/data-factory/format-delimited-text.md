@@ -1,14 +1,17 @@
 ---
 title: Delimited text format in Azure Data Factory 
-description: 'This topic describes how to deal with delimited text format in Azure Data Factory.'
+titleSuffix: Azure Data Factory & Azure Synapse
+description: This topic describes how to deal with delimited text format in Azure Data Factory and Azure Synapse Analytics.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 03/23/2021
 ms.author: jianleishen
 ---
 
-# Delimited text format in Azure Data Factory
+# Delimited text format in Azure Data Factory and Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -83,8 +86,8 @@ Supported **delimited text read settings** under `formatSettings`:
 | type          | The type of formatSettings must be set to **DelimitedTextReadSettings**. | Yes      |
 | skipLineCount | Indicates the number of **non-empty** rows to skip when reading data from input files. <br>If both skipLineCount and firstRowAsHeader are specified, the lines are skipped first and then the header information is read from the input file. | No       |
 | compressionProperties | A group of properties on how to decompress data for a given compression codec. | No       |
-| preserveZipFileNameAsFolder<br>(*under `compressionProperties`->`type` as `ZipDeflateReadSettings`*) |  Applies when input dataset is configured with **ZipDeflate** compression. Indicates whether to preserve the source zip file name as folder structure during copy.<br>- When set to **true (default)**, Data Factory writes unzipped files to `<path specified in dataset>/<folder named as source zip file>/`.<br>- When set to **false**, Data Factory writes unzipped files directly to `<path specified in dataset>`. Make sure you don't have duplicated file names in different source zip files to avoid racing or unexpected behavior.  | No |
-| preserveCompressionFileNameAsFolder<br>(*under `compressionProperties`->`type` as `TarGZipReadSettings` or `TarReadSettings`*)  | Applies when input dataset is configured with **TarGzip**/**Tar** compression. Indicates whether to preserve the source compressed file name as folder structure during copy.<br>- When set to **true (default)**, Data Factory writes decompressed files to `<path specified in dataset>/<folder named as source compressed file>/`. <br>- When set to **false**, Data Factory writes decompressed files directly to `<path specified in dataset>`. Make sure you don't have duplicated file names in different source files to avoid racing or unexpected behavior. | No |
+| preserveZipFileNameAsFolder<br>(*under `compressionProperties`->`type` as `ZipDeflateReadSettings`*) |  Applies when input dataset is configured with **ZipDeflate** compression. Indicates whether to preserve the source zip file name as folder structure during copy.<br>- When set to **true (default)**, the service writes unzipped files to `<path specified in dataset>/<folder named as source zip file>/`.<br>- When set to **false**, the service writes unzipped files directly to `<path specified in dataset>`. Make sure you don't have duplicated file names in different source zip files to avoid racing or unexpected behavior.  | No |
+| preserveCompressionFileNameAsFolder<br>(*under `compressionProperties`->`type` as `TarGZipReadSettings` or `TarReadSettings`*)  | Applies when input dataset is configured with **TarGzip**/**Tar** compression. Indicates whether to preserve the source compressed file name as folder structure during copy.<br>- When set to **true (default)**, the service writes decompressed files to `<path specified in dataset>/<folder named as source compressed file>/`. <br>- When set to **false**, the service writes decompressed files directly to `<path specified in dataset>`. Make sure you don't have duplicated file names in different source files to avoid racing or unexpected behavior. | No |
 
 ```json
 "activities": [
@@ -151,6 +154,9 @@ The below table lists the properties supported by a delimited text source. You c
 | After completion | Delete or move the files after processing. File path starts from the container root | no | Delete: `true` or `false` <br> Move: `['<from>', '<to>']` | purgeFiles <br> moveFiles |
 | Filter by last modified | Choose to filter files based upon when they were last altered | no | Timestamp | modifiedAfter <br> modifiedBefore |
 | Allow no files found | If true, an error is not thrown if no files are found | no | `true` or `false` | ignoreNoFilesFound |
+
+> [!NOTE]
+> Data flow sources support for list of files is limited to 1024 entries in your file. To include more files, use wildcards in your file list.
 
 ### Source example
 

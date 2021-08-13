@@ -7,13 +7,13 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/11/2021
+ms.date: 08/12/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: "b2c-support"
 ---
 
-# Configure authentication in a sample web application using Azure Active Directory B2C options
+# Configure authentication options in a web application using Azure Active Directory B2C 
 
 This article describes ways you can customize and enhance the Azure Active Directory B2C (Azure AD B2C) authentication experience for your web application. Before you start, it is important to familiarize yourself with the following articles: [Configure authentication in a sample web application](configure-authentication-sample-web-app.md) or [Enable authentication in your own web application](enable-authentication-web-application.md).
 
@@ -166,7 +166,11 @@ You can pass parameters between your controller and the *OnRedirectToIdentityPro
 
 If you want to customize the **Sign-in**, **Sign-up** or **Sign-out** actions, you are encouraged to create your own controller. Having your own controller allows you to pass parameters between your controller and the authentication library. The `AccountController` is part of `Microsoft.Identity.Web.UI`  NuGet package, which handles the sign-in and sign-out actions. You can find its implementation in the [Microsoft Identity Web library](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs). 
 
-The following code snippet demonstrates a custom `MyAccountController` with the **SignIn** action. The action passes a parameter named `campaign_id` to the authentication library.
+### Add the Account controller
+
+In your Visual Studio project, right click the **Controllers** folder, and add a new **Controller**. Select **MVC - Empty Controller**, and provide the name **MyAccountController.cs**.
+
+The following code snippet demonstrates a custom `MyAccountController` with the **SignIn** action.
 
 ```csharp
 using System;
@@ -194,22 +198,62 @@ namespace mywebapp.Controllers
             scheme ??= OpenIdConnectDefaults.AuthenticationScheme;
             var redirectUrl = Url.Content("~/");
             var properties = new AuthenticationProperties { RedirectUri = redirectUrl };
-            properties.Items["campaign_id"] = "1234";
             return Challenge(properties, scheme);
         }
 
     }
 }
-
 ```
 
 In the `_LoginPartial.cshtml` view, change the sign-in link to your controller
 
-```
+```html
 <form method="get" asp-area="MicrosoftIdentity" asp-controller="MyAccount" asp-action="SignIn">
 ```
 
-In the `OnRedirectToIdentityProvider` in the `Startup.cs` calls, you can read the custom parameter:
+### Pass the Azure AD B2C policy ID
+
+The following code snippet demonstrates a custom `MyAccountController` with the **SignIn** and **SignUp** action. The action passes a parameter named `policy` to the authentication library. This allows you to provide the correct Azure AD B2C policy ID for the specific action.
+
+```csharp
+public IActionResult SignIn([FromRoute] string scheme)
+{
+    scheme ??= OpenIdConnectDefaults.AuthenticationScheme;
+    var redirectUrl = Url.Content("~/");
+    var properties = new AuthenticationProperties { RedirectUri = redirectUrl };
+    properties.Items["policy"] = "B2C_1_SignIn";
+    return Challenge(properties, scheme);
+}
+
+public IActionResult SignUp([FromRoute] string scheme)
+{
+    scheme ??= OpenIdConnectDefaults.AuthenticationScheme;
+    var redirectUrl = Url.Content("~/");
+    var properties = new AuthenticationProperties { RedirectUri = redirectUrl };
+    properties.Items["policy"] = "B2C_1_SignUp";
+    return Challenge(properties, scheme);
+}
+```
+
+In the `_LoginPartial.cshtml` view, change the `asp-controller` value to `MyAccountController` for any other authentication links, such as sign-up or edit profile.
+
+### Pass custom parameters
+
+The following code snippet demonstrates a custom `MyAccountController` with the **SignIn** action. The action passes a parameter named `campaign_id` to the authentication library.
+
+```csharp
+public IActionResult SignIn([FromRoute] string scheme)
+{
+    scheme ??= OpenIdConnectDefaults.AuthenticationScheme;
+    var redirectUrl = Url.Content("~/");
+    var properties = new AuthenticationProperties { RedirectUri = redirectUrl };
+    properties.Items["policy"] = "B2C_1_SignIn";
+    properties.Items["campaign_id"] = "1234";
+    return Challenge(properties, scheme);
+}
+```
+
+Complete the [Support advanced scenarios](#support-advanced-scenarios) procedure. Then in the `OnRedirectToIdentityProvider` method, read the custom parameter:
 
 ```csharp
 private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)

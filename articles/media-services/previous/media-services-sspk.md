@@ -105,12 +105,12 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Hisense Visual Technology Co., Ltd
 * HKC Corporation Limited
 * Hong Kong Konka Ltd
-* Innolux Corporation
 * Jinpin Electrical Company Ltd.Zhuhai.S.E.Z
 * KAONMEDIA CO., Ltd.
 * KDDI Corporation
 * K-Tronics (Suzhou) Technology Co., Ltd.
 * LG Electronics, Inc.
+* Liberty Global Technology Services BV
 * Mega Fame Electronics Co. Limited
 * MINGCAI NEW CENTURY (HK) CO., LIMITED
 * MIRC Electronics Limited
@@ -130,6 +130,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * SKARDIN INDUSTRIAL CORP
 * Sky CP Ltd
 * SMARDTV GLOBAL SAS
+* Sony Corporation
 * SoftAtHome
 * Technicolor Delivery Technologies, SAS
 * Top Victory Investments, Ltd.

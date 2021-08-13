@@ -1,5 +1,5 @@
 ---
-title: "MySQL on-premises to Azure Database for MySQL migration guide assessment"
+title: "Migrate MySQL on-premises to Azure Database for MySQL: Assessment"
 description: "Before jumping right into migrating a MySQL workload, there's a fair amount of due diligence that must be performed."
 ms.service: mysql
 ms.subservice: migration-guide
@@ -8,10 +8,12 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom:
-ms.date: 06/14/2021
+ms.date: 06/21/2021
 ---
 
-# MySQL on-premises to Azure Database for MySQL migration guide Assessment
+# Migrate MySQL on-premises to Azure Database for MySQL: Assessment
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## Prerequisites
 
@@ -44,7 +46,7 @@ Many of the other items are operational aspects that administrators should becom
 MySQL has a rich history starting in 1995. Since then, it has evolved into a widely used database management system. Azure Database for MySQL started with the support of MySQL version 5.6 and has continued to 5.7 and recently 8.0. For the latest on Azure Database for MySQL version support, reference [Supported Azure Database for MySQL server versions.](../../concepts-supported-versions.md) In the Post Migration Management section, we review how upgrades (such as 5.7.20 to 5.7.21) are applied to the MySQL instances in Azure.
 
 > [!NOTE]
-> The jump from 5.x to 8.0 was largely due to the Oracle acquisition of MySQL. To read more about MySQL history, navigate to the [MySQL wiki page. ](https://en.wikipedia.org/wiki/MySQL)
+> The jump from 5.x to 8.0 was largely due to the Oracle acquisition of MySQL. To read more about MySQL history, navigate to the [MySQL wiki page](https://en.wikipedia.org/wiki/MySQL).
 
 Knowing the source MySQL version is essential. The applications using the system may be using database objects and features that are specific to that version. Migrating a database to a lower version could cause compatibility issues and loss of functionality. It's also recommended the data and application instance are thoroughly tested before migrating to a newer version as the features introduced could break your application.
 
@@ -77,19 +79,19 @@ To find useful table information, use this query:
 
 ```dotnetcli
     SELECT 
-        tab.table_schema,   
-        tab.table_name,   
-        tab.engine as engine_type,   
-        tab.auto_increment,   
-        tab.table_rows,   
-        tab.create_time,   
-        tab.update_time,   
-        tco.constraint_type 
-    FROM information_schema.tables tab   
-    LEFT JOIN information_schema.table_constraints tco   
-        ON (tab.table_schema = tco.table_schema   
-            AND tab.table_name = tco.table_name   
-            )   
+        tab.table_schema,
+        tab.table_name,
+        tab.engine as engine_type,
+        tab.auto_increment,
+        tab.table_rows,
+        tab.create_time,
+        tab.update_time,
+        tco.constraint_type
+    FROM information_schema.tables tab
+    LEFT JOIN information_schema.table_constraints tco
+        ON (tab.table_schema = tco.table_schema
+            AND tab.table_name = tco.table_name
+            )
     WHERE  
         tab.table_schema NOT IN ('mysql', 'information_schema', 'performance_
 schema', 'sys')  
@@ -171,7 +173,7 @@ Many tools and methods can be used to assess the MySQL data workloads and enviro
 
 ### Azure migrate
 
-Although [Azure Migrate](/azure/migrate/migrate-services-overview) doesn't support migrating MySQL database workloads directly, it can be used when administrators are unsure of what users and applications are consuming the data, whether hosted in a virtual or hardware-based machine. [Dependency analysis](/azure/migrate/concepts-dependency-visualization) can be accomplished by installing and running the monitoring agent on the machine hosting the MySQL workload. The agent gathers the information over a set period, such as a month. The dependency data can be analyzed to find unknown connections being made to the database. The connection data can help identify application owners that need to be notified of the pending migration.
+Although [Azure Migrate](../../../migrate/migrate-services-overview.md) doesn't support migrating MySQL database workloads directly, it can be used when administrators are unsure of what users and applications are consuming the data, whether hosted in a virtual or hardware-based machine. [Dependency analysis](../../../migrate/concepts-dependency-visualization.md) can be accomplished by installing and running the monitoring agent on the machine hosting the MySQL workload. The agent gathers the information over a set period, such as a month. The dependency data can be analyzed to find unknown connections being made to the database. The connection data can help identify application owners that need to be notified of the pending migration.
 
 In addition to the dependency analysis of applications and user connectivity data, Azure Migrate can also be used to analyze the [Hyper-V, VMware, or physical servers](../../../migrate/migrate-appliance-architecture.md) to provide utilization patterns of the database workloads to help suggest the proper target environment.
 
@@ -185,11 +187,11 @@ Equipped with the assessment information (CPU, memory, storage, etc.), the migra
 
 There are currently three tiers:
 
-  - **Basic** : Workloads requiring light compute and I/O performance.
+  - **Basic**: Workloads requiring light compute and I/O performance.
 
-  - **General Purpose** : Most business workloads requiring balanced compute and memory with scalable I/O throughput.
+  - **General Purpose**: Most business workloads requiring balanced compute and memory with scalable I/O throughput.
 
-  - **Memory Optimized** : High-performance database workloads requiring in-memory performance for faster transaction processing and higher concurrency.
+  - **Memory Optimized**: High-performance database workloads requiring in-memory performance for faster transaction processing and higher concurrency.
 
 The tier decision can be influenced by the RTO and RPO requirements of the data workload. When the data workload requires over 4 TB of storage, an extra step is required. Review and select [a region that supports](../../concepts-pricing-tiers.md#storage) up to 16 TB of storage.
 
@@ -202,38 +204,38 @@ Typically, the decision-making focuses on the storage and IOPS, or Input/output 
 |---------|------|
 | **Basic** | Development machine, no need for high performance with less than 1 TB storage. |
 | **General Purpose** | Needs for IOPS more than what basic tier can provide, but for storage less than 16 TB, and less than 4 GB of memory. |
-| **Memory Optimized** | Data workloads that utilize high memory or high cache and buffer-related server configuration such as high concurrency innodb_buffer_pool_instances, large BLOB sizes, systems with many slaves for replication. |
+| **Memory Optimized** | Data workloads that utilize high memory or high cache and buffer-related server configuration such as high concurrency innodb_buffer_pool_instances, large BLOB sizes, systems with many replication copies. |
 
 ### Costs
 
 After evaluating the entire WWI MySQL data workloads, WWI determined they would need at least 4 vCores and 20 GB of memory and at least 100 GB of storage space with an IOP capacity of 450 IOPS. Because of the 450 IOPS requirement, they need to allocate at least 150 GB of storage because of [Azure Database for MySQL IOPs allocation method.](../../concepts-pricing-tiers.md#storage) Additionally, they require at least up to 100% of your provisioned server storage as backup storage and one read replica. They don't anticipate an outbound egress of more than 5 GB.
 
-Using the [Azure Database for MySQL pricing calculator](https://azure.microsoft.com/pricing/details/mysql/), WWI was able to determine the costs for the Azure Database for MySQL instance. As of 9/2020, the total costs of ownership (TCO) are displayed in the following table for the WWI Conference Database:
+Using the [Azure Database for MySQL pricing calculator](https://azure.microsoft.com/pricing/details/mysql/), WWI was able to determine the costs for the Azure Database for MySQL instance. As of 9/2020, the total costs of ownership (TCO) are displayed in the following table for the WWI Conference Database.
 
 | Resource | Description | Quantity | Cost |
 |----------|-------------|----------|------|
-| **Compute (General Purpose)** | 4 vCores, 20 GB                   | 1 @ $0.351/hr                                               | $3074.76 / yr |
-| **Storage**                   | 5 GB                              | 12 x 150 @ $0.115                                           | $207 / yr     |
-| **Backup**                    | Up to 100% of provisioned storage | No extra cost up to 100% of provisioned server storage      | $0.00 / yr    |
-| **Read Replica**              | 1-second region replica           | compute + storage                                           | $3281.76 / yr |
-| **Network**                   | < 5GB/month egress                | Free                                                        |               |
-| **Total**                     |                                   |                                                             | $6563.52 / yr |
+| **Compute (General Purpose)** | 4 vCores, 20 GB                  | 1 @ $0.351/hr                                              | $3074.76 / yr |
+| **Storage**                   | 5 GB                             | 12 x 150 @ $0.115                                          | $207 / yr     |
+| **Backup**                    | Up to 100% of provisioned storage| No extra cost up to 100% of provisioned server storage     | $0.00 / yr    |
+| **Read Replica**              | 1-second region replica          | compute + storage                                          | $3281.76 / yr |
+| **Network**                   | < 5GB/month egress               | Free                                                       |               |
+| **Total**                     |                                  |                                                            | $6563.52 / yr |
 
-After reviewing the initial costs, WWI's CIO confirmed they are on Azure for a period much longer than 3 years. They decided to use 3-year [reserve instances](../../concept-reserved-pricing.md) to save an extra \~$4K/yr:
+After reviewing the initial costs, WWI's CIO confirmed they are on Azure for a period much longer than 3 years. They decided to use 3-year [reserve instances](../../concept-reserved-pricing.md) to save an extra \~$4K/yr.
 
 | Resource | Description | Quantity | Cost |
 |----------|-------------|----------|------|
-| **Compute (General Purpose)** | 4 vCores                          | 1 @ $0.1375/hr                                               | $1204.5 / yr |
-| **Storage**                   | 5 GB                              | 12 x 150 @ $0.115                                            | $207 / yr    |
-| **Backup**                    | Up to 100% of provisioned storage | No extra cost up to 100% of provisioned server storage       | $0.00 / yr   |
-| **Network**                   | < 5GB/month egress                | Free                                                         |              |
-| **Read Replica**              | 1-second region replica           | compute + storage                                            | $1411.5 / yr |
-| **Total**                     |                                   |                                                              | $2823 / yr   |
+| **Compute (General Purpose)** | 4 vCores                          | 1 @ $0.1375/hr                                              | $1204.5 / yr |
+| **Storage**                   | 5 GB                              | 12 x 150 @ $0.115                                           | $207 / yr    |
+| **Backup**                    | Up to 100% of provisioned storage | No extra cost up to 100% of provisioned server storage      | $0.00 / yr   |
+| **Network**                   | < 5GB/month egress                | Free                                                        |              |
+| **Read Replica**              | 1-second region replica           | compute + storage                                           | $1411.5 / yr |
+| **Total**                     |                                   |                                                             | $2823 / yr   |
 
 As the table above shows, backups, network egress, and any read replicas must be considered in the total cost of ownership (TCO). As more databases are added, the storage and network traffic generated would be the only extra cost-based factor to consider.
 
 > [!NOTE]
-> The estimates above don't include any [ExpressRoute](/azure/expressroute/expressroute-introduction), [Azure App Gateway](/azure/application-gateway/overview), [Azure Load Balancer](/azure/load-balancer/load-balancer-overview), or [App Service](/azure/app-service/overview) costs for the application layers.
+> The estimates above don't include any [ExpressRoute](../../../expressroute/expressroute-introduction.md), [Azure App Gateway](../../../application-gateway/overview.md), [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md), or [App Service](../../../app-service/overview.md) costs for the application layers.
 >
 > The above pricing can change at any time and varies based on region.
 
@@ -250,7 +252,7 @@ Lastly, modify the server name in the application connection strings or switch t
 
 ## WWI scenario
 
-WWI started the assessment by gathering information about their MySQL data estate. They were able to compile the following:
+WWI started the assessment by gathering information about their MySQL data estate, as shown in the following table.
 
 | Name | Source | Db Engine | Size | IOPS | Version | Owner | Downtime |
 |------|--------|-----------|------|------|---------|-------|----------|
@@ -277,6 +279,8 @@ For the first phase, WWI focused solely on the ConferenceDB database. The team n
   - Understand the downtime requirements.
 
   - Be prepared to make application changes.
+
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Planning](./04-planning.md)

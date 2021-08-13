@@ -4,7 +4,7 @@ description: Learn how to use a Resource Manager template to create a log alert
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 07/12/2021
 ---
 # Create a log alert with a Resource Manager template
 
@@ -194,7 +194,7 @@ This JSON can be saved and deployed using [Azure Resource Manager in Azure porta
 
 This JSON can be saved and deployed using [Azure Resource Manager in Azure portal](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
-## Template for all resource types (from API version 2020-05-01-preview)
+## Template for all resource types (from API version 2021-02-01-preview)
 
 [Scheduled Query Rules creation](/rest/api/monitor/scheduledqueryrules/createorupdate) template for all resource types (sample data set as variables):
 
@@ -243,6 +243,20 @@ This JSON can be saved and deployed using [Azure Resource Manager in Azure porta
             "defaultValue": true,
             "metadata": {
                 "description": "Specifies whether the alert is enabled"
+            }
+        },
+        "autoMitigate": {
+            "type": "bool",
+            "defaultValue": true,
+            "metadata": {
+                "description": "Specifies whether the alert will automatically resolve"
+            }
+        },
+        "checkWorkspaceAlertsStorageConfigured": {
+            "type": "bool",
+            "defaultValue": false,
+            "metadata": {
+                "description": "Specifies whether to check linked storage and fail creation if the storage was not found"
             }
         },
         "resourceId": {
@@ -354,7 +368,7 @@ This JSON can be saved and deployed using [Azure Resource Manager in Azure porta
         },
         "muteActionsDuration": {
             "type": "string",
-            "defaultValue": "PT5M",
+            "defaultValue": null,
             "allowedValues": [
                 "PT1M",
                 "PT5M",
@@ -383,7 +397,7 @@ This JSON can be saved and deployed using [Azure Resource Manager in Azure porta
             "name": "[parameters('alertName')]",
             "type": "Microsoft.Insights/scheduledQueryRules",
             "location": "[parameters('location')]",
-            "apiVersion": "2020-05-01-preview",
+            "apiVersion": "2021-02-01-preview",
             "tags": {},
             "properties": {
                 "description": "[parameters('alertDescription')]",
@@ -410,11 +424,15 @@ This JSON can be saved and deployed using [Azure Resource Manager in Azure porta
                     ]
                 },
                 "muteActionsDuration": "[parameters('muteActionsDuration')]",
-                "actions": [
-                    {
-                        "actionGroupId": "[parameters('actionGroupId')]"
+                "autoMitigate": "[parameters('autoMitigate')]",
+                "checkWorkspaceAlertsStorageConfigured": "[parameters('checkWorkspaceAlertsStorageConfigured')]",
+                "actions": {
+                    "actionGroups": "[parameters('actionGroupId')]",
+                    "customProperties": {
+                        "key1": "value1",
+                        "key2": "value2"
                     }
-                ]
+                }
             }
         }
     ]

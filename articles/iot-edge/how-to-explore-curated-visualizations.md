@@ -2,7 +2,7 @@
 title: Explore curated visualizations - Azure IoT Edge
 description: Use Azure workbooks to visualize and explore IoT Edge built-in metrics
 author: veyalla
-manager: philmea
+
 ms.author: veyalla
 ms.date: 06/08/2021
 ms.topic: conceptual
@@ -142,7 +142,7 @@ These signals are measured against configurable thresholds to determine if a dev
 
 ## Customize workbooks
 
-[Azure Monitor workbooks](../azure-monitor/visualize/workbooks-overview.md) are very customizable. You can edit the public templates to suit your requirements. All the visualizations are driven by resource-centric [KQL](https://aka.ms/kql) queries on the [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table. See the example below that edits the health thresholds.
+[Azure Monitor workbooks](../azure-monitor/visualize/workbooks-overview.md) are very customizable. You can edit the public templates to suit your requirements. All the visualizations are driven by resource-centric [KQL](/azure/data-explorer/kusto/query/) queries on the [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table. See the example below that edits the health thresholds.
 
 To begin customizing a workbook, first enter editing mode. Select the **Edit** button in the menu bar of the workbook.
 

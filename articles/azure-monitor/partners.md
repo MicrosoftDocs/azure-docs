@@ -194,7 +194,7 @@ Moogsoft runs in your Azure real-estate with integration to monitoring and autom
 
 ![NewRelic Logo](./media/partners/newrelic.png)
 
-[Newrelic documentation](https://newrelic.com/azure)
+[Newrelic documentation](https://newrelic.com/solutions/partners/azure)
 
 ## OpsGenie
 

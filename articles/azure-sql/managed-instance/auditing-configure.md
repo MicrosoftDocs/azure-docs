@@ -12,7 +12,7 @@ f1_keywords:
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 05/26/2020
+ms.date: 06/21/2021
 ---
 # Get started with Azure SQL Managed Instance auditing
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -21,6 +21,9 @@ ms.date: 05/26/2020
 
 - Helps you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.
 - Enables and facilitates adherence to compliance standards, although it doesn't guarantee compliance. For more information about Azure programs that support standards compliance, see the [Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), where you can find the most current list of compliance certifications.
+
+> [!IMPORTANT]
+> Auditing for Azure SQL Database, Azure Synapse and Azure SQL Managed Instance is optimized for availability and performance. During very high activity, or high network load, Azure SQL Database, Azure Synapse and Azure SQL Managed Instance allow operations to proceed and may not record some audited events.
 
 ## Set up auditing for your server to Azure Storage
 
@@ -49,7 +52,7 @@ The following section describes the configuration of auditing on your managed in
       ![Create blob container configuration](./media/auditing-configure/3_create_container_config.png)
 
     > [!IMPORTANT]
-    > Customers wishing to configure an immutable log store for their server- or database-level audit events should follow the [instructions provided by Azure Storage](../../storage/blobs/storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes). (Please ensure you have selected **Allow additional appends** when you configure the immutable blob storage.)
+    > Customers wishing to configure an immutable log store for their server- or database-level audit events should follow the [instructions provided by Azure Storage](../../storage/blobs/immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes). (Please ensure you have selected **Allow additional appends** when you configure the immutable blob storage.)
   
 3. After you create the container for the audit logs, there are two ways to configure it as the target for the audit logs: [using T-SQL](#blobtsql) or [using the SQL Server Management Studio (SSMS) UI](#blobssms):
 

@@ -16,11 +16,14 @@ ms.date: 01/20/2021
 ms.author: yelevin
 ---
 
-# Connect your data from Azure Defender (formerly Azure Security Center) for IoT to Azure Sentinel 
+# Connect your data from Azure Defender (formerly Azure Security Center) for IoT to Azure Sentinel (Public preview)
 
 Use the Defender for IoT connector to stream all your Defender for IoT events into Azure Sentinel. 
 
 This integration enables organizations to quickly detect multistage attacks that often cross IT and OT boundaries. Additionally, Defender for IoT’s integration with Azure Sentinel's security orchestration, automation, and response (SOAR) capabilities enables automated response and prevention using built-in OT-optimized playbooks.
+
+> [!IMPORTANT]
+> The Azure Defender for IoT connector is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -65,6 +68,6 @@ After connecting a **Subscription**, the hub data is available in Azure Sentinel
 
 In this document, you learned how to connect Defender for IoT to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).
 - [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.

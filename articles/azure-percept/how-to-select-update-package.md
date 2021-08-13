@@ -1,5 +1,5 @@
 ---
-title: Select the best update package for your Azure Percept DK
+title: Select your Azure Percept DK update package
 description: How to identify your Azure Percept DK version and select the best update package for it 
 author: mimcco
 ms.author: mimcco
@@ -45,9 +45,9 @@ Using the **model** and **swVersion** identified in the previous section, check 
 
 |model  |swVersion  |Update method  |Download links  |Note  |
 |---------|---------|---------|---------|---------|
-|PE-101     |2020.108.101.105, <br>2020.108.114.120, <br>2020.109.101.122, <br>2020.109.116.120, <br>2021.101.106.118        |**USB only**         |[2021.105.111.112 USB update package](https://go.microsoft.com/fwlink/?linkid=2155734)         |May release (2105)         |
-|PE-101     |2021.102.108.112, <br>         |OTA or USB        |[2021.105.111.112 OTA manifest (PE-101)](https://go.microsoft.com/fwlink/?linkid=2155625)<br>[2021.105.111.112 OTA update package](https://go.microsoft.com/fwlink/?linkid=2161538)<br>[2021.105.111.112 USB update package](https://go.microsoft.com/fwlink/?linkid=2155734)          |May release (2105)         |
-|APDK-101     |All swVersions        |OTA or USB       | [2021.105.111.112 OTA manifest (APDK-101)](https://go.microsoft.com/fwlink/?linkid=2163554)<br>[2021.105.111.112 OTA update package](https://go.microsoft.com/fwlink/?linkid=2163456)<br>[2021.105.111.112 USB update package](https://go.microsoft.com/fwlink/?linkid=2163555)        |May release (2105)         |
+|PE-101     |All swVersions       |**USB only**         |[2021.107.129.116 USB update package](https://go.microsoft.com/fwlink/?linkid=2169086)         |July release (2107)         |
+|APDK-101     |Any swVersion earlier than 2021.106.111.115 |**USB only**         |[2021.107.129.116 USB update package](https://go.microsoft.com/fwlink/?linkid=2169086)         |July release (2107)         |
+|APDK-101     |2021.106.111.115        |OTA or USB       |[2021.107.129.116 OTA update package](https://go.microsoft.com/fwlink/?linkid=2169245)<br>[2021.107.129.116 USB update package](https://go.microsoft.com/fwlink/?linkid=2169086)        |July release (2107)         |
 
 
 ## Next steps

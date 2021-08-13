@@ -1,8 +1,8 @@
 ---
 title: Overview of features - Azure Event Hubs | Microsoft Docs
 description: This article provides details about features and terminology of Azure Event Hubs. 
-ms.topic: article
-ms.date: 03/15/2021
+ms.topic: overview
+ms.date: 08/03/2021
 ---
 
 # Features and terminology in Azure Event Hubs
@@ -20,7 +20,9 @@ This article builds on the information in the [overview article](./event-hubs-ab
 
 
 ## Namespace
-An Event Hubs namespace provides DNS integrated network endpoints and a range of access control and network integration management features such as [IP filtering](event-hubs-ip-filtering.md), [virtual network service endpoint](event-hubs-service-endpoints.md), and [Private Link](private-link-service.md) and is the management container for one of multiple Event Hub instances (or topics, in Kafka parlance).
+An Event Hubs namespace is a management container for event hubs (or topics, in Kafka parlance). It provides DNS integrated network endpoints and a range of access control and network integration management features such as [IP filtering](event-hubs-ip-filtering.md), [virtual network service endpoint](event-hubs-service-endpoints.md), and [Private Link](private-link-service.md) and 
+
+:::image type="content" source="./media/event-hubs-features/namespace.png" alt-text="Image showing an Event Hubs namespace":::
 
 ## Event publishers
 
@@ -97,8 +99,14 @@ You don't have to create publisher names ahead of time, but they must match the 
 
 [Event Hubs Capture](event-hubs-capture-overview.md) enables you to automatically capture the streaming data in Event Hubs and save it to your choice of either a Blob storage account, or an Azure Data Lake Service account. You can enable Capture from the Azure portal, and specify a minimum size and time window to perform the capture. Using Event Hubs Capture, you specify your own Azure Blob Storage account and container, or Azure Data Lake Service account, one of which is used to store the captured data. Captured data is written in the Apache Avro format.
 
+:::image type="content" source="./media/event-hubs-features/capture.png" alt-text="Image showing capturing of Event Hubs data into Azure Storage or Azure Data Lake Storage":::
+
+The files produced by Event Hubs Capture have the following Avro schema:
+
+:::image type="content" source="./media/event-hubs-capture-overview/event-hubs-capture3.png" alt-text="Image showing the structure of captured data":::
+
 ## Partitions
-[!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
+[!INCLUDE [event-hubs-partitions](./includes/event-hubs-partitions.md)]
 
 
 ## SAS tokens
@@ -149,7 +157,7 @@ If a reader disconnects from a partition, when it reconnects it begins reading a
 > If you are using Azure Blob Storage as the checkpoint store in an environment that supports a different version of Storage Blob SDK than those typically available on Azure, you'll need to use code to change the Storage service API version to the specific version supported by that environment. For example, if you are running [Event Hubs on an Azure Stack Hub version 2002](/azure-stack/user/event-hubs-overview), the highest available version for the Storage service is version 2017-11-09. In this case, you need to use code to target the Storage service API version to 2017-11-09. For an example on how to target a specific Storage API version, see these samples on GitHub: 
 > - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/). 
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/)
-> - [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript) or  [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript)
+> - [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/eventhubs-checkpointstore-blob/samples/v1/javascript) or  [TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/eventhubs-checkpointstore-blob/samples/v1/typescript)
 > - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/)
 
 ### Common consumer tasks

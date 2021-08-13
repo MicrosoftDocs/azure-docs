@@ -21,7 +21,7 @@
     - name: Client libraries or REST API
       href: Quickstarts/quickstart-sdk.md
 - name: Samples
-  href: https://docs.microsoft.com/samples/browse/?products=azure&term=face&terms=qna-maker
+  href: /samples/browse/?products=azure&term=face&terms=qna-maker
 - name: Responsible use of AI
   items:
   - name: Transparency notes
@@ -123,12 +123,20 @@
   items:
   - name: Create FAQ Bot with Azure Bot Service
     href: Tutorials/create-faq-bot-with-azure-bot-service.md
-  - name: Customize your bot
-    items:
-    - name: Add multiple domains to FAQ Bot
-      href: Tutorials/create-faq-bot-for-multiple-domains.md
   - name: Integrate with Power Virtual Agent
     href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
+  - name: Customize your FAQ bot
+    items:
+    - name: Create guided conversations with multi-turn prompts
+      href: Tutorials/guided-conversations.md
+    - name: Add multiple domains to bot
+      href: Tutorials/create-faq-bot-for-multiple-domains.md
+    - name: Enhance knowledge bases with active learning
+      href: Tutorials/active-learning.md
+    - name: Add knowledge bases in multiple languages
+      href: Tutorials/multiple-languages.md
+    - name: Add synonyms to improve relevance
+      href: Tutorials/adding-synonyms.md
 - name: Reference
   items:
   - name: REST API

@@ -65,6 +65,7 @@ The user should have permission to create a session as well as role SELECT\_CATA
         grant select on dba\_arguments to \[user\];\
         grant select on dba\_sequences to \[user\];\
         grant select on dba\_dependencies to \[user\];\
+        grant select on dba\_type\_attrs to \[user\];\
         grant select on V\_\$INSTANCE to \[user\];\
         grant select on v\_\$database to \[user\];
     
@@ -77,7 +78,7 @@ The only supported authentication for an Oracle source is **Basic authentication
 To register a new Oracle source in your data catalog, do the following:
 
 1.  Navigate to your Purview account.
-2.  Select **Sources** on the left navigation.
+2.  Select **Data Map** on the left navigation.
 3.  Select **Register**
 4.  On Register sources, select **Oracle**. Select **Continue**.
 
