@@ -131,7 +131,7 @@ Azure Security Center uses the Log Analytics agent – this is the same agent us
 
 ### Agent
 
-When automatic provisioning is enabled in the security policy, the Log Analytics agent (for [Windows](../azure-monitor/agents/agent-windows.md) or [Linux](../azure-monitor/vm/quick-collect-linux-computer.md)) is installed on all supported Azure VMs, and any new ones that are created. If the VM or computer already has the Log Analytics agent installed, Azure Security Center will leverage the current installed agent. The agent's process is designed to be non-invasive and have very minimal impact on VM performance.
+When automatic provisioning is enabled in the security policy, the Log Analytics agent (for [Windows](../azure-monitor/agents/agent-windows.md) or [Linux](../azure-monitor/vm/monitor-virtual-machine.md)) is installed on all supported Azure VMs, and any new ones that are created. If the VM or computer already has the Log Analytics agent installed, Azure Security Center will leverage the current installed agent. The agent's process is designed to be non-invasive and have very minimal impact on VM performance.
 
 The Log Analytics agent for Windows requires use TCP port 443. See the [Troubleshooting article](security-center-troubleshooting-guide.md) for additional details.
 

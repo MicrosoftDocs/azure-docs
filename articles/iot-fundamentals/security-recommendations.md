@@ -2,7 +2,7 @@
 title:  Security recommendations for Azure IoT | Microsoft Docs
 description: This article summarizes additional steps to ensure security in your Azure IoT Hub solution. 
 author: dsk-2015
-manager: philmea
+
 ms.service: iot-hub
 services: iot-hub
 ms.topic: article

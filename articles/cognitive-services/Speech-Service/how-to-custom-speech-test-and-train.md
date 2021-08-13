@@ -3,13 +3,13 @@ title: "Prepare data for Custom Speech - Speech service"
 titleSuffix: Azure Cognitive Services
 description: "When testing the accuracy of Microsoft speech recognition or training your custom models, you'll need audio and text data. On this page, we cover the types of data, how to use, and manage them."
 services: cognitive-services
-author: nitinme
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
-ms.author: nitinme
+ms.author: lajanuar
 ---
 
 # Prepare data for Custom Speech
@@ -148,8 +148,10 @@ Audio files can have silence at the beginning and end of the recording. If possi
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
 > [!TIP]
-> Don’t even have any real audio? You can also upload a text (.txt) file (select type **Transcript (automatic audio synthesis)** when uploading data) with some testing sentences, and audio pair for each spoken sentence will be automatically synthesized.
->
+> Don’t even have any real audio? You can also upload a text (.txt) file by selecting type **Transcript (automatic audio synthesis)** as **Testing** data to get a basic sense of current accuracy levels, and audio pair for each spoken utterance will be automatically synthesized using [Text-to-speech](text-to-speech.md). 
+> 
+> Note that the synthesized audios are typically **NOT** recommended to use as **Training** data, as the text-to-speech voices are too good to reflect the real acoustic aspects.
+> 
 > The maximum file size is 500KB. We will synthesize one audio for each line, and the maximum size of each line is 65535 bytes.
 
 > [!NOTE]

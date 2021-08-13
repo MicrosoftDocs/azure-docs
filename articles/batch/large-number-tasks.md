@@ -135,7 +135,7 @@ pip install azure-batch
 pip install azure-batch-extensions
 ```
 
-Set up a `BatchExtensionsClient` that uses the SDK extension:
+After importing the package using `import azext.batch as batch`, set up a `BatchExtensionsClient` that uses the SDK extension:
 
 ```python
 
