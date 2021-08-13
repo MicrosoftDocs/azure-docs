@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 01/18/2021
+ms.date: 08/12/2021
 ---
 
 # Power query activity in data factory
@@ -22,6 +22,14 @@ You can work directly inside of the Power Query mash-up editor to perform intera
 ## Translation to data flow script
 
 To achieve scale with your Power Query activity, Azure Data Factory translates your ```M``` script into a data flow script so that you can execute your Power Query at scale using the Azure Data Factory data flow Spark environment. Author your wrangling data flow using code-free data preparation. For the list of available functions, see [transformation functions](wrangling-functions.md).
+
+## Settings
+
+
+
+## Sink
+
+## Mapping
 
 ## Next steps
 
