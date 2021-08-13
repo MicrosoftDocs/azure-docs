@@ -65,7 +65,7 @@ This article shows you how to use the Data Factory copy data tool to copy data f
     
 4. Select **Azure Data Lake Storage Gen1** from the connector gallery, and select **Continue**.
     
-    ![Source data store Azure Data Lake Storage Gen1 page](./media/load-azure-data-lake-storage-gen2-from-gen1/source-data-store-page-adls-gen1.png)
+    ![Screenshot showing the page of selecting the Azure Data Lake Storage Gen1 connection.](./media/load-azure-data-lake-storage-gen2-from-gen1/source-data-store-page-adls-gen1.png)
     
 5. On the **New connection (Azure Data Lake Storage Gen1)** page, follow these steps:
    1. Select your Data Lake Storage Gen1 for the account name, and specify or validate the **Tenant**.
@@ -74,7 +74,7 @@ This article shows you how to use the Data Factory copy data tool to copy data f
    > [!IMPORTANT]
    > In this walk-through, you use a managed identity for Azure resources to authenticate your Azure Data Lake Storage Gen1. To grant the managed identity the proper permissions in Azure Data Lake Storage Gen1, follow [these instructions](connector-azure-data-lake-store.md#managed-identity).
    
-   ![Specify Azure Data Lake Storage Gen1 account](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen1-account.png)
+   ![Screenshot showing the configuration of the Azure Data Lake Storage Gen1 connection.](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen1-account.png)
       
 6. On the **Source data store** page, complete the following steps. 
     1. Select the newly created connection in the **Connection** section.
@@ -85,13 +85,13 @@ This article shows you how to use the Data Factory copy data tool to copy data f
     
 7. On the **Destination data store** page, select **+ New connection** > **Azure Data Lake Storage Gen2** > **Continue**.
 
-    ![Destination data store page](./media/load-azure-data-lake-storage-gen2-from-gen1/destination-data-store-page-adls-gen2.png)
+    ![Screenshot showing the page of selecting the Azure Data Lake Storage Gen2 connection.](./media/load-azure-data-lake-storage-gen2-from-gen1/destination-data-store-page-adls-gen2.png)
 
 8. On the **New connection (Azure Data Lake Storage Gen2)** page, follow these steps:
    1. Select your Data Lake Storage Gen2 capable account from the **Storage account name** drop-down list.
    1. Select **Create** to create the connection. 
 
-   ![Specify Azure Data Lake Storage Gen2 account](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
+   ![Screenshot showing the configuration of the Azure Data Lake Storage Gen2 connection.](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
 
 9. On the **Destination data store** page, complete the following steps. 
     1. Select the newly created connection in the **Connection** block. 
@@ -104,19 +104,19 @@ This article shows you how to use the Data Factory copy data tool to copy data f
 
 11. On the **Summary** page, review the settings, and select **Next**.
 
-    ![Summary page](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-summary.png)
+    ![Screenshot showing the Summary page.](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-summary.png)
 
 12. On the **Deployment page**, select **Monitor** to monitor the pipeline.
 
-    ![Deployment page](./media/load-azure-data-lake-storage-gen2-from-gen1/deployment-page.png)
+    ![Screenshot showing the Deployment page.](./media/load-azure-data-lake-storage-gen2-from-gen1/deployment-page.png)
 
 13. Notice that the **Monitor** tab on the left is automatically selected. The **Pipeline name** column includes links to view activity run details and to rerun the pipeline.
 
-    ![Monitor pipeline runs](./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-pipeline-runs.png)
+    ![Screenshot showing the page of monitoring pipeline runs.](./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-pipeline-runs.png)
 
 14. To view activity runs that are associated with the pipeline run, select the link in the **Pipeline name** column. There's only one activity (copy activity) in the pipeline, so you see only one entry. To switch back to the pipeline runs view, select the **All pipeline runs** link in the breadcrumb menu at the top. Select **Refresh** to refresh the list. 
 
-    ![Monitor activity runs](./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-activity-runs.png)
+    ![Screenshot showing the page of monitoring activity runs.](./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-activity-runs.png)
 
 15. To monitor the execution details for each copy activity, select the **Details** link (eyeglasses image) under the **Activity name** column in the activity monitoring view. You can monitor details like the volume of data copied from the source to the sink, data throughput, execution steps with corresponding duration, and used configurations.
 
