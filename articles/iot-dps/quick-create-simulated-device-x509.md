@@ -217,10 +217,6 @@ To create the X.509 certificate:
     * **Primary certificate .pem or .cer file:** Choose **Select a file** to select the certificate file, *X509testcert.pem* that you created in the previous section.
     * **IoT Hub Device ID:** Enter *test-docs-cert-device* to give the device an ID.
 
-    [![Add individual enrollment for X.509 attestation in the portal](./media/quick-create-simulated-device-x509/device-enrollment.png)](./media/quick-create-simulated-device-x509/device-enrollment.png#lightbox)
-
-    Upon successful enrollment, your X.509 device appears as **riot-device-cert** under the *Registration ID* column in the *Individual Enrollments* tab.
-
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
@@ -234,9 +230,9 @@ To create the X.509 certificate:
         * Select an IoT hub linked with your provisioning service.
         * Update the **Initial device twin state** with the desired initial configuration for the device.
 
-    [![Add individual enrollment for X.509 attestation in the portal](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png#lightbox)
-
 ::: zone-end
+
+    :::image type="content" source="./media/quick-create-simulated-device-x509/device-enrollment.png" alt-text="Add device as individual enrollment with X.509 attestation.":::
 
 7. Select **Save**. You'll be returned to **Manage enrollments**.
 
@@ -245,13 +241,13 @@ To create the X.509 certificate:
 
 ## Prepare and run the device provisioning code
 
-::: zone pivot="programming-language-ansi-c"
-
-In this section, update the sample code to send the device's boot sequence to your Device Provisioning Service instance. This boot sequence will cause the device to be recognized and assigned to an IoT hub linked to the Device Provisioning Service instance.
+In this section, we'll update the sample code to send the device's boot sequence to your Device Provisioning Service instance. This boot sequence will cause the device to be recognized and assigned to an IoT hub linked to the Device Provisioning Service instance.
 
 1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service and note the **_ID Scope_** value.
 
-    ![Extract Device Provisioning Service endpoint information from the portal blade](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
+    :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope.png" alt-text="Copy ID Scope from the portal.":::
+    
+::: zone pivot="programming-language-ansi-c"
 
 2. In Visual Studio's *Solution Explorer* window, navigate to the **Provision\_Samples** folder. Expand the sample project named **prov\_dev\_client\_sample**. Expand **Source Files**, and open **prov\_dev\_client\_sample.c**.
 
@@ -292,15 +288,12 @@ In this section, update the sample code to send the device's boot sequence to yo
 
 ::: zone pivot="programming-language-csharp"
 
-1. In the top of the left-hand menu, select **Overview**.
 
-2. Copy the value of **_ID Scope_**.
+2. Open a command prompt window.
 
-    :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope.png" alt-text="Copy the ID scope from the overview page of DPS":::
+3. Type the following command to build and run the X.509 device provisioning sample (replace the `<IDScope>` value with the ID Scope that you copied in the previous section.).
 
-2. Type the following command to build and run the X.509 device provisioning sample. Replace the `<IDScope>` value with the ID Scope for your provisioning service. 
-
-    The certificate file will default to *./certificate.pfx* and prompt for the .pfx password.  
+4. The certificate file will default to *./certificate.pfx* and prompt for the .pfx password. Type in your password.
 
     ```powershell
     dotnet run -- -s <IDScope>
@@ -312,7 +305,7 @@ In this section, update the sample code to send the device's boot sequence to yo
     dotnet run -- -s 0ne00000A0A -c certificate.pfx -p 1234
     ```
 
-3. The device will connect to DPS and be assigned to an IoT Hub. The device will send a telemetry message to the hub.
+5. The device will now connect to DPS and be assigned to an IoT Hub. Then, the device will send a telemetry message to the hub.
 
     ```output
     Loading the certificate...
@@ -343,7 +336,34 @@ In this section, update the sample code to send the device's boot sequence to yo
 
 5. If your device was provisioned successfully, the device ID should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh** at the top of the page.
 
-    :::image type="content" border="false" source="./media/quick-create-simulated-device-x509/hub-registration.png" alt-text="[Device is registered with the IoT hub":::
+   :::zone pivot="programming-language-ansi-c"
+
+    :::image type="content" source="./media/quick-create-simulated-device-x509/hub-registration.png" alt-text="Device is registered with the IoT hub":::
+
+    ::: zone-end
+    :::zone pivot="programming-language-csharp"
+
+    :::image type="content" source="./media/quick-create-simulated-device-x509/hub-registration-csharp.png" alt-text="CSharp device is registered with the IoT hub":::
+
+    ::: zone-end
+
+    :::zone pivot="programming-language-nodejs"
+
+    :::image type="content" source="./media/quick-create-simulated-device-x509/hub-registration-nodejs.png" alt-text="Node.js device is registered with the IoT hub":::
+
+    ::: zone-end
+
+    :::zone pivot="programming-language-python"
+
+    :::image type="content" source="./media/quick-create-simulated-device-x509/hub-registration-python.png" alt-text="Python device is registered with the IoT hub":::
+
+    ::: zone-end
+
+    ::: zone pivot="programming-language-java"
+
+    :::image type="content" source="./media/quick-create-simulated-device-x509/hub-registration-java.png" alt-text="Java device is registered with the IoT hub":::
+
+    ::: zone-end
 
 
 ::: zone pivot="programming-language-csharp"
