@@ -25,8 +25,8 @@ When you're creating a build, please ensure your build meets the following prere
   - Create IT_ resource group
   - Create storage account without firewall
 - Verify Azure Policy does not install unintended features on the build VM such as Azure Extensions.
--	Ensure Image Builder has the correct permissions to read/write images and to connect to Azure storage. Please review the permissions documentation for [CLI](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-permissions-cli) or [PowerShell](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-permissions-powershell).
-- Image Builder will fail the build if the script(s)/in-line commands fails with errors (non-zero exit codes), ensure you have tested and verified custom scripts run without error (exit code 0) or require user input. For more info, see the following [documentation](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-virtual-desktop#tips-for-building-windows-images).
+-	Ensure Image Builder has the correct permissions to read/write images and to connect to Azure storage. Please review the permissions documentation for [CLI](./image-builder-permissions-cli.md) or [PowerShell](./image-builder-permissions-powershell.md).
+- Image Builder will fail the build if the script(s)/in-line commands fails with errors (non-zero exit codes), ensure you have tested and verified custom scripts run without error (exit code 0) or require user input. For more info, see the following [documentation](../windows/image-builder-virtual-desktop.md#tips-for-building-windows-images).
 
 AIB failures can happen in 2 areas:
 - Image Template submission
