@@ -494,7 +494,6 @@ That's it, build it, and you're on your way!
 * Want a more complex ASP.NET MVC tutorial? See [Tutorial: Develop an ASP.NET Core MVC web application with Azure Cosmos DB by using .NET SDK](sql-api-dotnet-application.md).
 * Want to do scale and performance testing with Azure Cosmos DB? See [Performance and scale testing with Azure Cosmos DB](performance-testing.md).
 * To learn how to monitor Azure Cosmos DB requests, usage, and storage, see [Monitor performance and storage metrics in Azure Cosmos DB](./monitor-cosmos-db.md).
-* To run queries against our sample dataset, see the [Query Playground](https://www.documentdb.com/sql/demo).
 * To learn more about Azure Cosmos DB, see [Welcome to Azure Cosmos DB](./introduction.md).
 
 [cosmos-db-create-account]: create-sql-api-java.md#create-a-database-account
