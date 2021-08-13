@@ -182,6 +182,8 @@
       href: search-manage-azure-cli.md
     - name: Move service across regions
       href: search-howto-move-across-regions.md
+    - name: Troubleshoot issues with creating Shared Private Link Resource
+      href: troubleshoot-shared-private-link-resources.md
   - name: Security
     items:
     - name: Data encryption
@@ -208,8 +210,6 @@
         href: search-indexer-howto-access-trusted-service-exception.md
       - name: Data access through private endpoints
         href: search-indexer-howto-access-private.md
-      - name: Troubleshoot Shared Private Link issues
-        href: troubleshoot-shared-private-link-resources.md
     - name: Document-level security
       items:
       - name: Security filters
