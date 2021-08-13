@@ -61,7 +61,9 @@ sections:
       - question: When does metering begin and end for trial Azure VMware Solution clusters?
         answer: Trial clusters are limited to three hosts used for 30-day evaluations of Azure VMware Solution private clouds. After 30 days, clusters are automatically metered per their respective rates. If the trial clusters are deleted before the 30-day end date, the Azure VMware Solution trial will end at the time of deletion.
 
-
+      - question:  Is it necessary to procure licenses and resources other than the AV36 instance when migrating from the on-premise VM environment with L2 extension?  
+        answer: | 
+          No.    
 
 
   - name: Support
@@ -76,9 +78,7 @@ sections:
       - question: Are Red Hat solutions supported on Azure VMware Solution?
         answer: Microsoft and Red Hat share an integrated, co-located support team that provides a unified contact point for Red Hat ecosystems running on the Azure platform.  Like other Azure platform services that work with Red Hat Enterprise Linux, Azure VMware Solution falls under the Cloud Access and intergrated support umbrella. Red Hat Enterprise Linux supports running on top of Azure VMware Solution within Azure.
 
-      - question:  Is it necessary to procure licenses and resources other than the AV36 instance when migrating from the on-premise VM environment with L2 extension?  
-        answer: | 
-          No.    
+
 
  
 
@@ -99,6 +99,10 @@ sections:
     questions:
       - question: How long does it take to provision the initial three hosts in a cluster?
         answer: At the moment, the provisioning can take roughly 3-4 hours.  Adding a single node in existing/same cluster takes between 30 - 45 minutes. 
+
+
+
+
 
   - name: VMware software
     questions:
@@ -155,6 +159,9 @@ sections:
         answer: No. However, if the VM is migrated as thick, you can change policies on the individual VMs and individual vmdks through a combination of UI and PowerCLI.  
 
 
+
+
+
   - name: Compute
     questions:
 
@@ -166,6 +173,9 @@ sections:
 
       - question: Does Azure VMware Solution support running ESXi/ESX as a nested virtualization solution?
         answer: No. VMware does not officially support nested virtualization. 
+
+
+
 
 
   - name: Backup 
@@ -247,6 +257,10 @@ sections:
 
       - question: Is Windows 2008 supported as an Active Directory (AD) server or Remote Desktop Session Host (RDSH) OS in NSX-T?
         answer: No.
+
+
+
+
 
   - name: Storage
     questions:
