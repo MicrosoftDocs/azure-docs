@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Azure Machine Learning Studio (classic) documentation
+title: Machine Learning Studio (classic) documentation
 summary: Machine Learning Studio (classic) is a drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions. 
 
 metadata:
@@ -8,7 +8,7 @@ metadata:
   description: Machine Learning Studio (classic) is a drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions.
   services: machine-learning
   ms.service: machine-learning
-  ms.subservice: studio
+  ms.subservice: studio-classic
   ms.topic: landing-page
   ms.collection: collection
   ms.author: peterlu

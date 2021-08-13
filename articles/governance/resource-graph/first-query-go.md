@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Your first Go query"
 description: In this quickstart, you follow the steps to enable the Resource Graph package for Go and run your first query.
-ms.date: 10/14/2020
+ms.date: 07/09/2021
 ms.topic: quickstart
 ---
 # Quickstart: Run your first Resource Graph query using Go
@@ -44,7 +44,7 @@ Go can be used, including [bash on Windows 10](/windows/wsl/install-win10) or lo
 
    ```bash
    # Add the Resource Graph package for Go
-   go get -u github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph
+   go get -u github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2021-03-01/resourcegraph
 
    # Add the Azure auth package for Go
    go get -u github.com/Azure/go-autorest/autorest/azure/auth
@@ -58,23 +58,23 @@ Type** of each resource.
 
 1. Create the Go application and save the following source as `argQuery.go`:
 
-   ```Go
+   ```go
    package main
-   
+
    import (
       "fmt"
       "os"
       "context"
       "strconv"
-      arg "github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph"
+      arg "github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2021-03-01/resourcegraph"
       "github.com/Azure/go-autorest/autorest/azure/auth"
    )
-   
+
    func main() {
        // Get variables from command line arguments
        var query = os.Args[1]
        var subList = os.Args[2:]
-   
+
        // Create and authorize a ResourceGraph client
        argClient := arg.New()
        authorizer, err := auth.NewAuthorizerFromCLI()
@@ -83,19 +83,19 @@ Type** of each resource.
        } else {
            fmt.Printf(err.Error())
        }
-     
+
        // Set options
        RequestOptions := arg.QueryRequestOptions {
            ResultFormat: "objectArray",
        }
-     
+
        // Create the query request
        Request := arg.QueryRequest {
            Subscriptions: &subList,
            Query: &query,
            Options: &RequestOptions,
        }
-     
+
        // Run the query and get the results
        var results, queryErr = argClient.Resources(context.Background(), Request)
        if queryErr == nil {

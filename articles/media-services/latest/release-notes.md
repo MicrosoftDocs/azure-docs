@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Azure Media Services v3 release notes | Microsoft Docs
+title: Azure Media Services v3 release notes 
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Media Services v3.
 services: media-services
 documentationcenter: ''
@@ -10,16 +10,15 @@ editor: ''
 
 ms.service: media-services
 ms.workload: na
+ms.custom: references_regions
 ms.topic: article
-ms.date: 10/21/2020
+ms.date: 03/17/2021
 ms.author: inhenkel
 ---
 
 # Azure Media Services v3 release notes
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
-
->Get notified about when to revisit this page for updates by copying and pasting this URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+release+notes%22&locale=en-us` into your RSS feed reader.
 
 To stay up-to-date with the most recent developments, this article provides you with information about:
 
@@ -28,12 +27,167 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Bug fixes
 * Deprecated functionality
 
-## Known issues
 
-> [!NOTE]
-> You can use the [Azure portal](https://portal.azure.com/) to manage v3 [live events](live-events-outputs-concept.md), view v3 [assets](assets-concept.md) and jobs, get info about accessing APIs, encrypt content. For all other management tasks (for example, manage transforms and jobs), use the [REST API](/rest/api/media/accountfilters), [CLI](/cli/azure/ams), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
->
-> For details, see: [the Azure portal limitations for Media Services v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
+## June 2021
+
+### Additional Live Event ingest heartbeat properties for improved diagnostics
+
+Additional live event ingest heartbeat properties have been added to the Event Grid message. This includes the following new fields to assist with diagnosing issues during live ingest.  The **ingestDriftValue** is helpful in scenarios where you need to monitor network latency from the source ingest encoder pushing into the live event. If this value drifts out too far, it can be an indication that the network latency is too high for a successful live streaming event.
+
+See the [LiveEventIngestHeartbeat schema](./monitoring/media-services-event-schemas.md#liveeventingestheartbeat) for more details.
+
+### Private links support is now GA
+
+Support for using Media Services with [private links](../../private-link/index.yml) is now GA and available in all Azure regions including Azure Government clouds.
+Azure Private Link enables you to access Azure PaaS Services and Azure hosted customer-owned/partner services over a Private Endpoint in your virtual network.
+Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet.
+
+For details on how to use Media Services with private links, see [Create a Media Services and Storage account with a Private Link](./security-private-link-how-to.md)
+
+### New US West 3 region is GA
+
+The US West 3 region is now GA and available for customers to use when creating new Media Services accounts.
+
+### Key delivery supports IP allowlist restrictions
+
+Media Services accounts can now be configured with IP allowlist restrictions on key delivery. The new allowlist setting is available on the Media Services account resource through the SDK as well as in the portal and CLI.
+This allows operators to restrict delivery of DRM licenses and AES-128 content keys to specific IPv4 ranges.
+
+This feature can also be used to shut off all public internet delivery of DRM licenses or AES-128 keys and restrict delivery to a private network endpoint.
+
+See the article [Restrict access to DRM license and AES key delivery using IP allowlists](./drm-content-protection-key-delivery-ip-allow.md) for details.
+
+### New Samples for Python and Node.js (with Typescript)
+Updated samples for **Node.js** that use the latest Typescript support in the Azure SDK.
+
+|Sample|Description|
+|---|---|
+|[Live streaming](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/Live/index.ts)| Basic live streaming example. **WARNING**, make sure to check that all resources are cleaned up and no longer billing in portal when using live|
+|[Upload and stream HLS and DASH](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/StreamFilesSample/index.ts)| Basic example for uploading a local file or encoding from a source URL. Sample shows how to use storage SDK to download content, and shows how to stream to a player |
+|[Upload and stream HLS and DASH with Playready and Widevine DRM](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/StreamFilesWithDRMSample/index.ts)| Demonstrates how to encode and stream using Widevine and PlayReady DRM |
+|[Upload and use AI to index videos and audio](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/VideoIndexerSample/index.ts)| Example of using the Video and Audio Analyzer presets to generate metadata and insights from a video or audio file |
+
+
+New **Python** sample demonstrating how to use Azure Functions, and Event Grid to trigger Face redaction preset.
+
+|Sample|Description|
+|---|---|
+|[Face Redaction using events and functions](https://github.com/Azure-Samples/media-services-v3-python/tree/main/VideoAnalytics/FaceRedactorEventBased) | This is an example of an event-based approach that triggers an Azure Media Services Face Redactor job on a video as soon as it lands on an Azure Storage Account. It leverages Azure Media Services, Azure Function, Event Grid and Azure Storage for the solution. For the full description of the solution, see the [README.md](https://github.com/Azure-Samples/media-services-v3-python/blob/main/VideoAnalytics/FaceRedactorEventBased/README.md) |
+
+
+## May 2021
+
+### Availability Zones default support in Media Services
+
+Media Services now supports [Availability Zones](concept-availability-zones.md), providing fault-isolated locations within the same Azure region.  Media Services accounts are zone redundant by default now and there is no additional configuration or settings required. This only applies to regions that have [Availability Zones support](../../availability-zones/az-region.md#azure-regions-with-availability-zones)
+
+
+## March 2021
+
+### New language support added to the AudioAnalyzer preset
+
+Additional languages for video transcription and subtitling are available now in the AudioAnalyzer preset (both Basic and Standard modes).
+
+* English (Australia), 'en-AU'
+* French (Canada), 'fr-CA'
+* Arabic (Bahrain) modern standard, 'ar-BH'
+* Arabic (Egypt), 'ar-EG'
+* Arabic (Iraq), 'ar-IQ'
+* Arabic (Israel), 'ar-IL'
+* Arabic (Jordan), 'ar-JO'
+* Arabic (Kuwait), 'ar-KW'
+* Arabic (Lebanon), 'ar-LB'
+* Arabic (Oman), 'ar-OM'
+* Arabic (Qatar), 'ar-QA'
+* Arabic (Saudi Arabia), 'ar-SA'
+* Danish, ‘da-DK’
+* Norwegian, 'nb-NO'
+* Swedish, ‘sv-SE’
+* Finnish, ‘fi-FI’
+* Thai, ‘th-TH’
+* Turkish, ‘tr-TR’
+
+See the latest available languages in the [Analyzing Video And Audio Files concept article.](analyze-video-audio-files-concept.md)
+
+## February 2021
+
+### HEVC Encoding support in Standard Encoder
+
+The Standard Encoder now supports 8-bit HEVC (H.265) encoding support. HEVC content can be delivered and packaged through the Dynamic Packager using the 'hev1' format.  
+
+A new .NET custom encoding with HEVC sample is available in the [media-services-v3-dotnet Git Hub repository](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_HEVC).
+In addition to custom encoding, the following new built-in HEVC encoding presets are now available:
+
+- H265ContentAwareEncoding
+- H265AdaptiveStreaming
+- H265SingleBitrate720P
+- H265SingleBitrate1080p
+- H265SingleBitrate4K
+
+Customers previously using HEVC in the Premium Encoder in the v2 API should migrate to use the new HEVC encoding support in the Standard Encoder.
+
+### Azure Media Services v2 API and SDKs deprecation announcement
+
+#### Update your Azure Media Services REST API and SDKs to v3 by 29 February 2024
+
+Because version 3 of Azure Media Services REST API and client SDKs for .NET and Java offers more capabilities than version 2, we’re retiring version 2 of the Azure Media Services REST API and client SDKs for .NET and Java.
+
+We encourage you to make the switch sooner to gain the richer benefits of version 3 of Azure Media Services REST API and client SDKs for .NET and Java.
+Version 3 provides:
+ 
+- 24x7 live event support
+- ARM REST APIs, client SDKs for .NET core, Node.js, Python, Java, Go and Ruby.
+- Customer managed keys, trusted storage integration, private link support, and [more](./migrate-v-2-v-3-migration-benefits.md)
+
+#### Action Required
+
+To minimize disruption to your workloads, review the [migration guide](./migrate-v-2-v-3-migration-introduction.md) to transition your code from the version 2 API and SDKs to version 3 API and SDK before 29 February 2024.
+**After 29 February 2024**, Azure Media Services will no longer accept traffic on the version 2 REST API, the ARM account management API version 2015-10-01, or from the version 2 .NET client SDKs. This includes any 3rd party open-source client SDKS that may call the version 2 API.  
+
+See the official [Azure Updates announcement](https://azure.microsoft.com/updates/update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024/).
+
+### Standard Encoder support for v2 API features
+
+In addition to the new added support for HEVC (H.265) encoding, the following features are now available in the 2020-05-01 version of the encoding API.
+
+- Multiple Input File stitching is now supported using the new **JobInputClip** support.
+    - An example is available for .NET showing how to [stitch two assets together](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_StitchTwoAssets).
+- Audio track selection allows customers to select and map the incoming audio tracks and route them to the output for encoding
+    - See the [REST API OpenAPI for details](https://github.com/Azure/azure-rest-api-specs/blob/8d15dc681b081cca983e4d67fbf6441841d94ce4/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json#L385) on **AudioTrackDescriptor** and track selection
+- Track selection for encoding – allows customers to choose tracks from an ABR source file or live archive that has multiple bitrate tracks. Extremely helpful for generating MP4s from the live event archive files.
+    - See [VideoTrackDescriptor](https://github.com/Azure/azure-rest-api-specs/blob/8d15dc681b081cca983e4d67fbf6441841d94ce4/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json#L1562)
+- Redaction (blurring) capabilities added to FaceDetector
+    - See the [Redact](https://github.com/Azure/azure-rest-api-specs/blob/8d15dc681b081cca983e4d67fbf6441841d94ce4/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json#L634) and [Combined](https://github.com/Azure/azure-rest-api-specs/blob/8d15dc681b081cca983e4d67fbf6441841d94ce4/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json#L649) modes of the FaceDetector Preset
+
+### New client SDK releases for 2020-05-01 version of the Azure Media Services API
+
+New client SDK versions for all available languages are now available with the above features.
+Please update to the latest client SDKs in your code bases using your package manager.
+
+- [.NET SDK package 3.0.4](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/)
+- [Node.js Typescript version 8.1.0](https://www.npmjs.com/package/@azure/arm-mediaservices)
+- [Python azure-mgmt-media 3.1.0](https://pypi.org/project/azure-mgmt-media/)
+- [Java SDK 1.0.0-beta.2](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-mediaservices/1.0.0-beta.2/jar)
+
+### New Security features available in the 2020-05-01 version of the Azure Media Services API
+
+- **[Customer Managed Keys](concept-use-customer-managed-keys-byok.md)**:  Content Keys and other data stored in accounts created with the "2020-05-01" version API are encrypted with an account key. Customers can provide a key to encrypt the account key.
+
+- **[Trusted Storage](concept-trusted-storage.md)**: Media Services can be configured to access Azure Storage using a Managed Identity associated with the Media Services account. When storage accounts are accessed using a Managed Identity, customers can configure more restrictive network ACLs on the storage account without blocking Media Services scenarios.
+
+- **[Managed Identities](concept-managed-identities.md)**: Customers may enable a System Assigned Managed Identity for a Media Services account to provide access to Key Vaults (for Customer Managed Keys) and storage accounts (for Trusted Storage).
+
+### Updated Typescript Node.js Samples using isomorphic SDK for JavaScript
+
+The Node.js samples have been updated to use the latest isomorphic SDK. The samples now show use of Typescript. In addition, a new live streaming sample was added for Node.js/Typescript.
+
+See the latest samples in the **[media-services-v3-node-tutorials](https://github.com/Azure-Samples/media-services-v3-node-tutorials)** Git Hub repo.
+
+### New Live Stand-by mode to support faster startup from warm state
+
+Live Events now support a lower-cost billing mode for "stand-by". This allows customers to pre-allocate Live Events at a lower cost for the creation of "hot pools". Customers can then use the stand-by live events to transition to the Running state faster than starting from cold on creation.  This reduces the time to start the channel significantly and allows for fast hot-pool allocation of machines running in a lower price mode.
+See the latest pricing details [here](https://azure.microsoft.com/pricing/details/media-services).
+For more information on the StandBy state and the other states of Live Events see the article - [Live event states and billing.](./live-event-states-billing-concept.md)
 
 ## December 2020
 
@@ -45,17 +199,17 @@ Azure Media Services is now available in the Norway East region in the Azure por
 
 ### Basic Audio Analysis
 
-The Audio Analysis preset now includes a Basic mode pricing tier. The new Basic Audio Analyzer mode provides a low-cost option to extract speech transcription, and format output captions and subtitles. This mode performs speech-to-text transcription and generation of a VTT subtitle/caption file. The output of this mode includes an Insights JSON file including only the keywords, transcription,and timing information. Automatic language detection and speaker diarization are not included in this mode. See the list of [supported languages.](analyzing-video-audio-files-concept.md#built-in-presets)
+The Audio Analysis preset now includes a Basic mode pricing tier. The new Basic Audio Analyzer mode provides a low-cost option to extract speech transcription, and format output captions and subtitles. This mode performs speech-to-text transcription and generation of a VTT subtitle/caption file. The output of this mode includes an Insights JSON file including only the keywords, transcription,and timing information. Automatic language detection and speaker diarization are not included in this mode. See the list of [supported languages.](analyze-video-audio-files-concept.md#built-in-presets)
 
 Customers using Indexer v1 and Indexer v2 should migrate to the Basic Audio Analysis preset.
 
-For more information about the Basic Audio Analyzer mode, see [Analyzing Video and Audio files](analyzing-video-audio-files-concept.md).  To learn to use the Basic Audio Analyzer mode with the REST API, see [How to Create a Basic Audio Transform](how-to-create-basic-audio-transform.md).
+For more information about the Basic Audio Analyzer mode, see [Analyzing Video and Audio files](analyze-video-audio-files-concept.md).  To learn to use the Basic Audio Analyzer mode with the REST API, see [How to Create a Basic Audio Transform](transform-create-basic-audio-how-to.md).
 
 ### Live Events
 
 Updates to most properties are now allowed when live events are stopped. In addition, users are allowed to specify a prefix for the static hostname for the live event's input and preview URLs. VanityUrl is now called `useStaticHostName` to better reflect the intent of the property.
 
-Live events now have a StandBy state.  See [Live Events and Live Outputs in Media Services](./live-events-outputs-concept.md).
+Live events now have a StandBy state.  See [Live Events and Live Outputs in Media Services](./live-event-outputs-concept.md).
 
 A live event supports receiving various input aspect ratios. Stretch mode allows customers to specify the stretching behavior for the output.
 
@@ -69,9 +223,10 @@ Live encoding now adds the capability of outputting fixed key frame interval fra
 ## August 2020
 
 ### Dynamic Encryption
-Support for the legacy PlayReady Protected Interoperable File Format (PIFF 1.1) encryption is now available in the Dynamic Packager. This provides support for legacy Smart TV sets from Samsung and LG that implemented the early drafts of the Common Encryption standard (CENC) published by Microsoft.  The PIFF 1.1 format is also known as the encryption format that was previously supported by the Silverlight client library. Today, the only use case scenario for this encryption format is to target the legacy Smart TV market where there remains a non-trivial number of Smart TVs in some regions that only support Smooth Streaming with PIFF 1.1 encryption. 
 
-To use the new PIFF 1.1 encryption support, change the encryption value to 'piff' in the URL path of the Streaming Locator. For more details, see the [Content Protection overview.](content-protection-overview.md)
+Support for the legacy PlayReady Protected Interoperable File Format (PIFF 1.1) encryption is now available in the Dynamic Packager. This provides support for legacy Smart TV sets from Samsung and LG that implemented the early drafts of the Common Encryption standard (CENC) published by Microsoft.  The PIFF 1.1 format is also known as the encryption format that was previously supported by the Silverlight client library. Today, the only use case scenario for this encryption format is to target the legacy Smart TV market where there remains a non-trivial number of Smart TVs in some regions that only support Smooth Streaming with PIFF 1.1 encryption.
+
+To use the new PIFF 1.1 encryption support, change the encryption value to 'piff' in the URL path of the Streaming Locator. For more details, see the [Content Protection overview.](drm-content-protection-concept.md)
 For Example: `https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=piff)`|
 
 > [!NOTE]
@@ -85,11 +240,11 @@ Live Transcriptions now supports 19 languages and 8 regions.
 
 ### Protecting your content with Media Services and Azure AD
 
-We published a tutorial called [End-to-End content protection using Azure AD](./azure-ad-content-protection.md).
+We published a tutorial called [End-to-End content protection using Azure AD](./architecture-azure-ad-content-protection.md).
 
 ### High availability
 
-We published a High Availability with Media Services and Video on Demand (VOD) [overview](./media-services-high-availability-encoding.md) and [sample](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming).
+We published a High Availability with Media Services and Video on Demand (VOD) [overview](./architecture-high-availability-encoding-concept.md) and [sample](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming).
 
 ## June 2020
 
@@ -141,7 +296,7 @@ To see part of the header exchange in action, you can try the following steps:
 
 Live transcription is now in public preview and available for use in the West US 2 region.
 
-Live transcription is designed to work in conjunction with live events as an add-on capability.  It is supported on both pass-through and Standard or Premium encoding live events.  When this feature is enabled, the service uses the [Speech-To-Text](../../cognitive-services/speech-service/speech-to-text.md) feature of Cognitive Services to transcribe the spoken words in the incoming audio into text. This text is then made available for delivery along with video and audio in MPEG-DASH and HLS protocols. Billing is based on a new add-on meter that is additional cost to the live event when it is in the "Running" state.  For details on Live transcription and billing, see [Live transcription](live-transcription.md)
+Live transcription is designed to work in conjunction with live events as an add-on capability.  It is supported on both pass-through and Standard or Premium encoding live events.  When this feature is enabled, the service uses the [Speech-To-Text](../../cognitive-services/speech-service/speech-to-text.md) feature of Cognitive Services to transcribe the spoken words in the incoming audio into text. This text is then made available for delivery along with video and audio in MPEG-DASH and HLS protocols. Billing is based on a new add-on meter that is additional cost to the live event when it is in the "Running" state.  For details on Live transcription and billing, see [Live transcription](live-event-live-transcription-how-to.md)
 
 > [!NOTE]
 > Currently, live transcription is only available as a preview feature in the West US 2 region. It supports transcription of spoken words in English (en-us) only at this time.
@@ -149,7 +304,7 @@ Live transcription is designed to work in conjunction with live events as an add
 ### Content protection
 
 The *Token Replay Prevention* feature released in limited regions back in September is now available in all regions.
- Media Services customers can now set a limit on the number of times the same token can be used to request a key or a license. For more information, see [Token Replay Prevention](content-protection-overview.md#token-replay-prevention).
+ Media Services customers can now set a limit on the number of times the same token can be used to request a key or a license. For more information, see [Token Replay Prevention](drm-content-protection-concept.md#token-replay-prevention).
 
 ### New recommended live encoder partners
 
@@ -166,7 +321,7 @@ Added support for the following new recommended partner encoders for RTMP live s
 - Standard encoding now maintains a regular GOP cadence for variable frame rate  (VFR) contents during VOD encoding when using the time-based GOP setting.  This means that customer submitting mixed frame rate content that varies between 15-30 fps, for example,  should now see regular GOP distances calculated on output to adaptive bitrate streaming MP4 files. This will improve the ability to switch seamlessly between tracks when delivering over HLS or DASH. 
 -  Improved AV sync for variable frame rate (VFR) source content
 
-### Video Indexer, Video analytics
+### Azure Video Analyzer for Media, Video analytics
 
 - Keyframes extracted using the VideoAnalyzer preset are now in the original resolution of the video instead of being resized. High-resolution keyframe extraction gives you original quality images and allows you to make use of the image-based artificial intelligence models provided by the Microsoft Computer Vision and Custom Vision services to gain even more insights from your video.
 
@@ -182,9 +337,9 @@ Media Services v3 is announcing the preview of 24 hrs x 365 days of live linear 
 
 #### Deprecation of media processors
 
-We are announcing deprecation of *Azure Media Indexer* and *Azure Media Indexer 2 Preview*. For the retirement dates, see the  [legacy components](../previous/legacy-components.md) article. [Azure Media Services Video Indexer](../video-indexer/index.yml) replaces these legacy media processors.
+We are announcing deprecation of *Azure Media Indexer* and *Azure Media Indexer 2 Preview*. For the retirement dates, see the  [legacy components](../previous/legacy-components.md) article. Azure Video Analyzer for Media replaces these legacy media processors.
 
-For more information, see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Media Services Video Indexer](../previous/migrate-indexer-v1-v2.md).
+For more information, see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to **Azure Media Services Video Indexer**](../previous/migrate-indexer-v1-v2.md).
 
 ## August 2019
 
@@ -208,7 +363,7 @@ For details, see [Migrate WAME to Media Encoder Standard](../previous/migrate-wi
 
 ### Content protection
 
-When streaming content protected with token restriction, end users need to obtain a token that is sent as part of the key delivery request. The *Token Replay Prevention* feature allows Media Services customers to set a limit on how many times the same token can be used to request a key or a license. For more information, see [Token Replay Prevention](content-protection-overview.md#token-replay-prevention).
+When streaming content protected with token restriction, end users need to obtain a token that is sent as part of the key delivery request. The *Token Replay Prevention* feature allows Media Services customers to set a limit on how many times the same token can be used to request a key or a license. For more information, see [Token Replay Prevention](drm-content-protection-concept.md#token-replay-prevention).
 
 As of July, the preview feature was only available in US Central and US West Central.
 
@@ -222,8 +377,8 @@ This functionality works with any [Transform](/rest/api/media/transforms) that i
 
 See examples:
 
-* [Subclip a video with .NET](subclip-video-dotnet-howto.md)
-* [Subclip a video with REST](subclip-video-rest-howto.md)
+* [Subclip a video with .NET](transform-subclip-video-dotnet-how-to.md)
+* [Subclip a video with REST](transform-subclip-video-rest-how-to.md)
 
 ## May 2019
 
@@ -232,13 +387,13 @@ See examples:
 You can now use Azure Monitor to view telemetry data emitted by Media Services.
 
 * Use the Azure Monitor diagnostic logs to monitor requests sent by the Media Services Key Delivery endpoint. 
-* Monitor metrics emitted by Media Services [Streaming Endpoints](streaming-endpoint-concept.md).   
+* Monitor metrics emitted by Media Services [Streaming Endpoints](stream-streaming-endpoint-concept.md).   
 
-For details, see [Monitor Media Services metrics and diagnostic logs](media-services-metrics-diagnostic-logs.md).
+For details, see [Monitor Media Services metrics and diagnostic logs](monitoring/monitor-media-services-data-reference.md).
 
 ### Multi audio tracks support in Dynamic Packaging 
 
-When streaming Assets that have multiple audio tracks with multiple codecs and languages, [Dynamic Packaging](dynamic-packaging-overview.md) now supports multi audio tracks for the HLS output (version 4 or above).
+When streaming Assets that have multiple audio tracks with multiple codecs and languages, [Dynamic Packaging](encode-dynamic-packaging-concept.md) now supports multi audio tracks for the HLS output (version 4 or above).
 
 ### Korea regional pair is open for Media Services 
 
@@ -250,7 +405,7 @@ For more information, see [Clouds and regions in which Media Services v3 exists]
 
 Added updates that include Media Services performance improvements.
 
-* The maximum file size supported for processing was updated. See, [Quotas, and limits](limits-quotas-constraints.md).
+* The maximum file size supported for processing was updated. See, [Quotas, and limits](limits-quotas-constraints-reference.md).
 * [Encoding speeds improvements](concept-media-reserved-units.md).
 
 ## April 2019
@@ -258,11 +413,11 @@ Added updates that include Media Services performance improvements.
 ### New presets
 
 * [FaceDetectorPreset](/rest/api/media/transforms/createorupdate#facedetectorpreset) was added to the built-in analyzer presets.
-* [ContentAwareEncodingExperimental](/rest/api/media/transforms/createorupdate#encodernamedpreset) was added to the built-in encoder presets. For more information, see [Content-aware encoding](content-aware-encoding.md). 
+* [ContentAwareEncodingExperimental](/rest/api/media/transforms/createorupdate#encodernamedpreset) was added to the built-in encoder presets. For more information, see [Content-aware encoding](encode-content-aware-concept.md). 
 
 ## March 2019
 
-Dynamic Packaging now supports Dolby Atmos. For more information, see [Audio codecs supported by dynamic packaging](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging).
+Dynamic Packaging now supports Dolby Atmos. For more information, see [Audio codecs supported by dynamic packaging](encode-dynamic-packaging-concept.md#audio-codecs-supported-by-dynamic-packaging).
 
 You can now specify a list of asset or account filters, which would apply to your Streaming Locator. For more information, see [Associate filters with Streaming Locator](filters-concept.md#associating-filters-with-streaming-locator).
 
@@ -270,13 +425,13 @@ You can now specify a list of asset or account filters, which would apply to you
 
 Media Services v3 is now supported in Azure national clouds. Not all features are available in all clouds yet. For details, see [Clouds and regions in which Azure Media Services v3 exists](azure-clouds-regions.md).
 
-[Microsoft.Media.JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) event was added to the Azure Event Grid schemas for Media Services.
+[Microsoft.Media.JobOutputProgress](monitoring/media-services-event-schemas.md#monitoring-job-output-progress) event was added to the Azure Event Grid schemas for Media Services.
 
 ## January 2019
 
 ### Media Encoder Standard and MPI files 
 
-When encoding with Media Encoder Standard to produce MP4 file(s), a new .mpi file is generated and added to the output Asset. This MPI file is intended to improve performance for [dynamic packaging](dynamic-packaging-overview.md) and streaming scenarios.
+When encoding with Media Encoder Standard to produce MP4 file(s), a new .mpi file is generated and added to the output Asset. This MPI file is intended to improve performance for [dynamic packaging](encode-dynamic-packaging-concept.md) and streaming scenarios.
 
 You should not modify or remove the MPI file, or take any dependency in your service on the existence (or not) of such a file.
 
@@ -291,21 +446,21 @@ Updates from the GA release of the V3 API include:
 
 ## November 2018
 
-The CLI 2.0 module is now available for [Azure Media Services v3 GA](/cli/azure/ams?view=azure-cli-latest&preserve-view=true) – v 2.0.50.
+The CLI 2.0 module is now available for [Azure Media Services v3 GA](/cli/azure/ams) – v 2.0.50.
 
 ### New commands
 
-- [az ams account](/cli/azure/ams/account?view=azure-cli-latest&preserve-view=true)
-- [az ams account-filter](/cli/azure/ams/account-filter?view=azure-cli-latest&preserve-view=true)
-- [az ams asset](/cli/azure/ams/asset?view=azure-cli-latest&preserve-view=true)
-- [az ams asset-filter](/cli/azure/ams/asset-filter?view=azure-cli-latest&preserve-view=true)
-- [az ams content-key-policy](/cli/azure/ams/content-key-policy?view=azure-cli-latest&preserve-view=true)
-- [az ams job](/cli/azure/ams/job?view=azure-cli-latest&preserve-view=true)
-- [az ams live-event](/cli/azure/ams/live-event?view=azure-cli-latest&preserve-view=true)
-- [az ams live-output](/cli/azure/ams/live-output?view=azure-cli-latest&preserve-view=true)
-- [az ams streaming-endpoint](/cli/azure/ams/streaming-endpoint?view=azure-cli-latest&preserve-view=true)
-- [az ams streaming-locator](/cli/azure/ams/streaming-locator?view=azure-cli-latest&preserve-view=true)
-- [az ams account mru](/cli/azure/ams/account/mru?view=azure-cli-latest&preserve-view=true) - enables you to manage Media Reserved Units. For more information, see [Scale Media Reserved Units](media-reserved-units-cli-how-to.md).
+- [az ams account](/cli/azure/ams/account)
+- [az ams account-filter](/cli/azure/ams/account-filter)
+- [az ams asset](/cli/azure/ams/asset)
+- [az ams asset-filter](/cli/azure/ams/asset-filter)
+- [az ams content-key-policy](/cli/azure/ams/content-key-policy)
+- [az ams job](/cli/azure/ams/job)
+- [az ams live-event](/cli/azure/ams/live-event)
+- [az ams live-output](/cli/azure/ams/live-output)
+- [az ams streaming-endpoint](/cli/azure/ams/streaming-endpoint)
+- [az ams streaming-locator](/cli/azure/ams/streaming-locator)
+- [az ams account mru](/cli/azure/ams/account/mru) - enables you to manage Media Reserved Units. For more information, see [Scale Media Reserved Units](media-reserved-units-cli-how-to.md).
 
 ### New features and breaking changes
 
@@ -396,7 +551,7 @@ CMAF and 'cbcs' encryption support for Apple HLS (iOS 11+) and MPEG-DASH players
 
 ### Video Indexer
 
-Video Indexer GA release was announced in August. For new information about currently supported features, see [What is Video Indexer](../video-indexer/video-indexer-overview.md?bc=/azure/media-services/video-indexer/breadcrumb/toc.json&toc=/azure/media-services/video-indexer/toc.json). 
+Video Indexer GA release was announced in August. For new information about currently supported features, see [What is Video Indexer](../../azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview.md?bc=%2fazure%2fmedia-services%2fvideo-indexer%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fmedia-services%2fvideo-indexer%2ftoc.json). 
 
 ### Plans for changes
 
@@ -416,7 +571,7 @@ If you created Assets or Account Filters between 09/28 and 10/12 with Media Serv
 
 The following features are present in the .NET SDK:
 
-* **Transforms** and **Jobs** to encode or analyze media content. For examples, see [Stream files](stream-files-tutorial-with-api.md) and [Analyze](analyze-videos-tutorial-with-api.md).
+* **Transforms** and **Jobs** to encode or analyze media content. For examples, see [Stream files](stream-files-tutorial-with-api.md) and [Analyze](analyze-videos-tutorial.md).
 * **Streaming Locators** for publishing and streaming content to end-user devices
 * **Streaming Policies** and **Content Key Policies** to configure key delivery and content protection (DRM) when delivering content.
 * **Live Events** and **Live Outputs** to configure the ingest and archiving of live streaming content.
@@ -433,10 +588,9 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 
 ## See also
 
-[Migration guidance for moving from Media Services v2 to v3](migrate-from-v2-to-v3.md#known-issues).
+[Migration guidance for moving from Media Services v2 to v3](migrate-v-2-v-3-migration-introduction.md).
 
 ## Next steps
 
 - [Overview](media-services-overview.md)
-- [Media Services v3 Documentation updates](docs-release-notes.md)
 - [Media Services v2 release notes](../previous/media-services-release-notes.md)

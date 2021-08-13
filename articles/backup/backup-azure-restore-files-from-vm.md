@@ -29,7 +29,7 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
 3. In the Backup dashboard menu, select **File Recovery**.
 
-    ![Select File Recovery](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
+    ![Select File Recovery](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)32
 
     The **File Recovery** menu opens.
 
@@ -54,22 +54,28 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
 ## Step 2: Ensure the machine meets the requirements before executing the script
 
-After the script is successfully downloaded, make sure you have the right machine to execute this script. The VM where you are planning to execute the script, should not have any of the following unsupported configurations. If it does, then choose an alternate machine preferably from the same region that meets the requirements.  
+After the script is successfully downloaded, make sure you have the right machine to execute this script. The VM where you are planning to execute the script, should not have any of the following unsupported configurations. **If it does, then choose an alternate machine preferably from the same region that meets the requirements**.  
 
 ### Dynamic disks
 
-You can't run the executable script on the VM with any of the following characteristics:
+You can't run the executable script on the VM with any of the following characteristics: Choose an alternate machine
 
 - Volumes that span multiple disks (spanned and striped volumes).
 - Fault-tolerant volumes (mirrored and RAID-5 volumes) on dynamic disks.
 
 ### Windows Storage Spaces
 
-You cannot run the downloaded executable on the VM that is configured for Windows Storage Spaces.
+You cannot run the downloaded executable on the same backed-up VM if the backed up VM has Windows Storage Spaces. Choose an alternate machine.
 
 ### Virtual machine backups having large disks
 
 If the backed-up machine has large number of disks (>16) or large disks (> 4 TB each) it's not recommended to execute the script on the same machine for restore, since it will have a significant impact on the VM. Instead it's recommended to have a separate VM only for file recovery (Azure VM D2v3 VMs) and then shut it down when not required. 
+
+See requirements to restore files from backed-up VMs with large disk:<br>
+[Windows OS](#for-backed-up-vms-with-large-disks-windows)<br>
+[Linux OS](#for-backed-up-vms-with-large-disks-linux)
+
+After you choose the correct machine to run the ILR script, ensure that it meets the [OS requirements](#step-3-os-requirements-to-successfully-run-the-script) and [access requirements](#step-4-access-requirements-to-successfully-run-the-script). 
 
 ## Step 3: OS requirements to successfully run the script
 
@@ -115,34 +121,48 @@ The script also requires Python and bash components to execute and connect secur
 | .NET | 4.6.2 and above |
 | TLS | 1.2 should be supported  |
 
+Also, ensure that you have the [right machine to execute the ILR script](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script) and it meets the [access requirements](#step-4-access-requirements-to-successfully-run-the-script).
+
 ## Step 4: Access requirements to successfully run the script
 
 If you run the script on a computer with restricted access, ensure there's access to:
 
-- `download.microsoft.com`
-- Recovery Service URLs (GEO-NAME refers to the region where the Recovery Services vault resides)
-  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.com` (For Azure public regions)
-  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.cn` (For Azure China 21Vianet)
-  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.us` (For Azure US Government)
-  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.de` (For Azure Germany)
-- Outbound ports 53 (DNS), 443, 3260
+- `download.microsoft.com` or `AzureFrontDoor.FirstParty` service tag in NSG on port 443 (outbound)
+- Recovery Service URLs (GEO-NAME refers to the region where the Recovery Services vault resides) on port 3260 (outbound)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.com` (For Azure public regions) or `AzureBackup` service tag in NSG
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.cn` (For Azure China 21Vianet) or `AzureBackup` service tag in NSG
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.us` (For Azure US Government) or `AzureBackup` service tag in NSG
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.de` (For Azure Germany) or `AzureBackup` service tag in NSG
+- Public DNS resolution on port 53 (outbound)
 
 > [!NOTE]
 >
-> The script file you downloaded in step 1 [above](#step-1-generate-and-download-script-to-browse-and-recover-files) will have the **geo-name** in the name of the file. Use that **geo-name** to fill in the URL. The downloaded script name will begin with: \'VMname\'\_\'geoname\'_\'GUID\'.<br><br>
-> So for example, if the script filename is *ContosoVM_wcus_12345678*, the **geo-name** is *wcus* and the URL would be:<br> <https://pod01-rec2.wcus.backup.windowsazure.com>
+> In case, the backed up VM is Windows, then the geo-name will be mentioned in the password generated.<br><br>
+> For eg, if the generated password is *ContosoVM_wcus_GUID*, then then geo-name is wcus and the URL would be: <https://pod01-rec2.wcus.backup.windowsazure.com><br><br>
 >
+>
+> If the backed up VM is Linux, then the script file you downloaded in step 1 [above](#step-1-generate-and-download-script-to-browse-and-recover-files) will have the **geo-name** in the name of the file. Use that **geo-name** to fill in the URL. The downloaded script name will begin with: \'VMname\'\_\'geoname\'_\'GUID\'.<br><br>
+> So for example, if the script filename is *ContosoVM_wcus_12345678*, the **geo-name** is *wcus* and the URL would be: <https://pod01-rec2.wcus.backup.windowsazure.com><br><br>
+>
+
 
 For Linux, the script requires 'open-iscsi' and 'lshw' components to connect to the recovery point. If the components don't exist on the computer where the script is run, the script asks for permission to install the components. Provide consent to install the necessary components.
 
 The access to `download.microsoft.com` is required to download components used to build a secure channel between the machine where the script is run and the data in the recovery point.
 
+Also, ensure that you have the [right machine to execute the ILR script](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script) and it meets the [OS requirements](#step-3-os-requirements-to-successfully-run-the-script).
 
 ## Step 5: Running the script and identifying volumes
 
+> [!NOTE]
+>
+> The script is generated in English language only and is not localized. Hence it might require that the system locale is in English for the script to execute properly
+> 
+
+
 ### For Windows
 
-After you meet all the requirements listed in Step 2, Step 3 and Step 4, copy the script from the downloaded location (usually the Downloads folder), right-click the executable or script and run it with Administrator credentials. When prompted, type the password or paste the password from memory, and press Enter. Once the valid password is entered, the script connects to the recovery point.
+After you meet all the requirements listed in [Step 2](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script), [Step 3](#step-3-os-requirements-to-successfully-run-the-script) and [Step 4](#step-4-access-requirements-to-successfully-run-the-script), copy the script from the downloaded location (usually the Downloads folder), see [Step 1 to learn how to generate and download script](#step-1-generate-and-download-script-to-browse-and-recover-files). Right-click the executable file and run it with Administrator credentials. When prompted, type the password or paste the password from memory, and press Enter. Once the valid password is entered, the script connects to the recovery point.
 
   ![Executable output](./media/backup-azure-restore-files-from-vm/executable-output.png)
 
@@ -169,7 +189,7 @@ If the file recovery process hangs after you run the file-restore script (for ex
 
 ### For Linux
 
-For Linux machines, a python script is generated. Download the script and copy it to the relevant/compatible Linux server. You may have to modify the permissions to execute it with ```chmod +x <python file name>```. Then run the python file with ```./<python file name>```.
+After you meet all the requirements listed in [Step 2](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script), [Step 3](#step-3-os-requirements-to-successfully-run-the-script) and [Step 4](#step-4-access-requirements-to-successfully-run-the-script), generate a python script for Linux machines. See [Step 1 to learn how to generate and download script](#step-1-generate-and-download-script-to-browse-and-recover-files). Download the script and copy it to the relevant/compatible Linux server. You may have to modify the permissions to execute it with ```chmod +x <python file name>```. Then run the python file with ```./<python file name>```.
 
 
 In Linux, the volumes of the recovery point are mounted to the folder where the script is run. The attached disks, volumes, and the corresponding mount paths are shown accordingly. These mount paths are visible to users having root level access. Browse through the volumes mentioned in the script output.
@@ -182,7 +202,7 @@ In Linux, the volumes of the recovery point are mounted to the folder where the 
 If the file recovery process hangs after you run the file-restore script (for example, if the disks are never mounted, or they're mounted but the volumes don't appear), perform the following  steps:
 
 1. In the file /etc/iscsi/iscsid.conf, change the setting from:
-    - `node.conn[0].timeo.noop_out_timeout = 5`  to `node.conn[0].timeo.noop_out_timeout = 30`
+    - `node.conn[0].timeo.noop_out_timeout = 5`  to `node.conn[0].timeo.noop_out_timeout = 120`
 2. After making the above changes, rerun the script. If there are transient failures, ensure there is a gap of 20 to 30 minutes between reruns to avoid successive bursts of requests impacting the target preparation. This interval between re-runs will ensure the target is ready for connection from the script.
 3. After file recovery, make sure you go back to the portal and select **Unmount disks** for recovery points where you weren't able to mount volumes. Essentially, this step will clean any existing processes/sessions and increase the chance of recovery.
 

@@ -7,11 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 03/01/2021
 ms.author: alkohli
 ---
 
 # Kubernetes on your Azure Stack Edge Pro GPU device
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Kubernetes is a popular open-source platform to orchestrate containerized applications. This article provides an overview of Kubernetes and then describes how Kubernetes works on your Azure Stack Edge Pro device. 
 
@@ -39,7 +41,12 @@ The following diagram illustrates the implementation of Kubernetes on a 1-node A
 
 For more information on the Kubernetes cluster architecture, go to [Kubernetes core concepts](https://kubernetes.io/docs/concepts/architecture/).
 
+The master and the worker nodes are virtual machines that consume CPU and memory. When deploying Kubernetes workloads, it is important to understand the compute requirements for the master and worker VMs.
 
+|Kubernetes VM type|CPU and memory requirement|
+|---------|---------|
+|Master VM|4 cores, 4-GB RAM|
+|Worker VM|12 cores, 32-GB RAM|
 <!--The Kubernetes cluster control plane components make global decisions about the cluster. The control plane has:
 
 - *kubeapiserver* that is the front end of the Kubernetes API and exposes the API.
@@ -103,6 +110,16 @@ For more information on deploying applications on your Kubernetes cluster via Io
 ### Kubernetes and Azure Arc
 
 Azure Arc is a hybrid management tool that will allow you to deploy applications on your Kubernetes clusters. Azure Arc also allows you to use Azure Monitor for containers to view and monitor your clusters. For more information, go to [What is Azure-Arc enabled Kubernetes?](../azure-arc/kubernetes/overview.md). For information on Azure Arc pricing, go to [Azure Arc pricing](https://azure.microsoft.com/services/azure-arc/#pricing).
+
+Beginning March 2021, Azure Arc enabled Kubernetes will be generally available to the users and standard usage charges apply. As a valued preview customer, the Azure Arc enabled Kubernetes will be available to you at no charge for Azure Stack Edge device(s). To avail the preview offer, create a [Support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest):
+
+1. Under **Issue type**, select **Billing**.
+2. Under **Subscription**, select your subscription.
+3. Under **Service**, select **My services**, then select **Azure Stack Edge**.
+4. Under **Resource**, select your resource.
+5. Under **Summary**, type a description of your issue.
+6. Under **Problem type**, select **Unexpected Charges**.
+7. Under **Problem subtype**, select **Help me understand charges on my free trial**.
 
 
 ## Next steps

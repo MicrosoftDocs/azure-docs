@@ -1,21 +1,22 @@
 ---
-title: Get started with Azure Cloud Services and ASP.NET | Microsoft Docs
+title: Get started with Azure Cloud Services (classic) and ASP.NET | Microsoft Docs
 description: Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker role. It uses Entity Framework, SQL Database, and Azure Storage queues and blobs.
-services: cloud-services, storage
-documentationcenter: .net
-author: tgore03
-manager: carmonm
+ms.topic: article
 ms.service: cloud-services
-ms.devlang: dotnet
-ms.custom: devx-track-csharp
-ms.topic: conceptual
-ms.date: 05/15/2017
-ms.author: tagore
-
+ms.date: 10/14/2020
+author: hirenshah1
+ms.author: hirshah
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-# Get started with Azure Cloud Services and ASP.NET
+
+# Get started with Azure Cloud Services (classic) and ASP.NET
 
 ## Overview
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 This tutorial shows how to create a multi-tier .NET application with an ASP.NET MVC front-end, and deploy it to an [Azure cloud service](cloud-services-choose-me.md). The application uses [Azure SQL Database](/previous-versions/azure/ee336279(v=azure.100)), the [Azure Blob service](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage), and the [Azure Queue service](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). You can [download the Visual Studio project](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) from the MSDN Code Gallery.
 
 The tutorial shows you how to build and run the application locally, how to deploy it to Azure and run in the cloud, and how to build it from scratch. You can start by building from scratch and then do the test and deploy steps afterward if you prefer.
@@ -23,7 +24,7 @@ The tutorial shows you how to build and run the application locally, how to depl
 ## Contoso Ads application
 The application is an advertising bulletin board. Users create an ad by entering text and uploading an image. They can see a list of ads with thumbnail images, and they can see the full-size image when they select an ad to see the details.
 
-![Ad list](./media/cloud-services-dotnet-get-started/list.png)
+![Image shows Ad list](./media/cloud-services-dotnet-get-started/list.png)
 
 The application uses the [queue-centric work pattern](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) to off-load the CPU-intensive work of creating thumbnails to a back-end process.
 
@@ -55,7 +56,7 @@ If you don't have one of these, Visual Studio may be installed automatically whe
 ## Application architecture
 The app stores ads in a SQL database, using Entity Framework Code First to create the tables and access the data. For each ad, the database stores two URLs, one for the full-size image and one for the thumbnail.
 
-![Ad table](./media/cloud-services-dotnet-get-started/adtable.png)
+![This is an image of an Ad table](./media/cloud-services-dotnet-get-started/adtable.png)
 
 When a user uploads an image, the front-end running in a web role stores the image in an [Azure blob](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage), and it stores the ad information in the database with a URL that points to the blob. At the same time, it writes a message to an Azure queue. A back-end process running in a worker role periodically polls the queue for new messages. When a new message appears, the worker role creates a thumbnail for that image and updates the thumbnail URL database field for that ad. The following diagram shows how the parts of the application interact.
 
@@ -78,11 +79,11 @@ When a user uploads an image, the front-end running in a web role stores the ima
 
     The first time you run a cloud service project, it takes a minute or so for the emulators to start up. When emulator startup is finished, the default browser opens to the application home page.
 
-    ![Contoso Ads architecture](./media/cloud-services-dotnet-get-started/home.png)
+    ![Contoso Ads architecture 1](./media/cloud-services-dotnet-get-started/home.png)
 8. Click  **Create an Ad**.
 9. Enter some test data and select a *.jpg* image to upload, and then click **Create**.
 
-    ![Create page](./media/cloud-services-dotnet-get-started/create.png)
+    ![Image shows Create page](./media/cloud-services-dotnet-get-started/create.png)
 
     The app goes to the Index page, but it doesn't show a thumbnail for the new ad because that processing hasn't happened yet.
 10. Wait a moment and then refresh the Index page to see the thumbnail.
@@ -124,7 +125,7 @@ An Azure cloud service is the environment the application will run in.
 
     In the following image, a cloud service is created with the URL CSvccontosoads.cloudapp.net.
 
-    ![New Cloud Service](./media/cloud-services-dotnet-get-started/newcs.png)
+    ![Image shows New Cloud Service](./media/cloud-services-dotnet-get-started/newcs.png)
 
 ### Create a database in Azure SQL Database
 When the app runs in the cloud, it will use a cloud-based database.
@@ -225,7 +226,7 @@ Azure storage account connection strings for both the web role project and the w
 
 1. In **Solution Explorer**, right-click **ContosoAdsWeb** under **Roles** in the **ContosoAdsCloudService** project, and then click **Properties**.
 
-    ![Role properties](./media/cloud-services-dotnet-get-started/roleproperties.png)
+    ![Image shows Role properties](./media/cloud-services-dotnet-get-started/roleproperties.png)
 2. Click the **Settings** tab. In the **Service Configuration** drop-down box, choose **Cloud**.
 
     ![Cloud configuration](./media/cloud-services-dotnet-get-started/sccloud.png)
@@ -374,7 +375,8 @@ In this section, you configure Azure Storage and SQL connection strings for test
 2. Save your changes.
 3. In the ContosoAdsCloudService project, right-click ContosoAdsWeb under **Roles**, and then click **Properties**.
 
-    ![Screenshot that highlights the Properties menu option under Roles.](./media/cloud-services-dotnet-get-started/roleproperties.png)
+    ![Role properties image](./media/cloud-services-dotnet-get-started/roleproperties.png)
+
 4. In the **ContosoAdsWeb [Role]** properties window, click the **Settings** tab, and then click **Add Setting**.
 
     Leave **Service Configuration** set to **All Configurations**.

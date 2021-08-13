@@ -23,7 +23,7 @@ In this article, we provide you guidance on how to plan for and implement the RE
 
 ## Ensure correct placement of the APIs
 
-Identity experience framework (IEF) policies allow you to call an external system using a [RESTful API technical profile](https://docs.microsoft.com/azure/active-directory-b2c/restful-technical-profile). External systems are not controlled by the IEF runtime environment and are a potential failure point.
+Identity experience framework (IEF) policies allow you to call an external system using a [RESTful API technical profile](../../active-directory-b2c/restful-technical-profile.md). External systems are not controlled by the IEF runtime environment and are a potential failure point.
 
 ### How to manage external systems using APIs
 
@@ -33,11 +33,11 @@ Identity experience framework (IEF) policies allow you to call an external syste
 
 - Remove API calls from the pre-authenticated path whenever possible. If you can't, then you must place strict protections for Denial of Service (DoS) and Distributed Denial of Service (DDoS) attacks in front of your APIs. Attackers can load the sign-in page and try to flood your API with DoS attacks and cripple your application. For example, using CAPTCHA in your sign in, sign up flow can help.
 
-- Use [API connectors of built-in sign-up user flow](https://docs.microsoft.com/azure/active-directory-b2c/api-connectors-overview) wherever possible to integrate with web APIs either after signing in with an identity provider or before creating the user. Since the user flows are already extensively tested, it’s likely that you don’t have to perform user flow-level functional, performance, or scale testing. You still need to test your applications for functionality, performance, and scale.
+- Use [API connectors of built-in sign-up user flow](../../active-directory-b2c/api-connectors-overview.md) wherever possible to integrate with web APIs either After federating with an identity provider during sign-up or before creating the user. Since the user flows are already extensively tested, it’s likely that you don’t have to perform user flow-level functional, performance, or scale testing. You still need to test your applications for functionality, performance, and scale.
 
-- Azure AD RESTFul API [technical profiles](https://docs.microsoft.com/azure/active-directory-b2c/restful-technical-profile) don't provide any caching behavior. Instead, RESTFul API profile implements a retry logic and a timeout that is built into the policy.
+- Azure AD RESTFul API [technical profiles](../../active-directory-b2c/restful-technical-profile.md) don't provide any caching behavior. Instead, RESTFul API profile implements a retry logic and a timeout that is built into the policy.
 
-- For APIs that need writing data, queue up a task to have such tasks executed by a background worker. Services like [Azure queues](https://docs.microsoft.com/azure/storage/queues/storage-queues-introduction) can be used. This will make the API return efficiently increasing the policy execution performance.  
+- For APIs that need writing data, queue up a task to have such tasks executed by a background worker. Services like [Azure queues](../../storage/queues/storage-queues-introduction.md) can be used. This will make the API return efficiently increasing the policy execution performance.  
 
 ## API error handling
 
@@ -45,11 +45,11 @@ As the APIs live outside the Azure AD B2C system, it's needed to have proper err
 
 ### How to gracefully handle API errors
 
-- An API could fail for various reasons, make your application resilient to such failures. [Return an HTTP 4XX error message](https://docs.microsoft.com/azure/active-directory-b2c/restful-technical-profile#returning-validation-error-message) if the API is unable to complete the request. In the Azure AD B2C policy, try to gracefully handle the unavailability of the API and perhaps render a reduced experience.
+- An API could fail for various reasons, make your application resilient to such failures. [Return an HTTP 4XX error message](../../active-directory-b2c/restful-technical-profile.md#returning-validation-error-message) if the API is unable to complete the request. In the Azure AD B2C policy, try to gracefully handle the unavailability of the API and perhaps render a reduced experience.
 
-- [Handle transient errors gracefully](https://docs.microsoft.com/azure/active-directory-b2c/restful-technical-profile#error-handling). The RESTFul API profile allows you to configure error messages for various [circuit breakers](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker).
+- [Handle transient errors gracefully](../../active-directory-b2c/restful-technical-profile.md#error-handling). The RESTFul API profile allows you to configure error messages for various [circuit breakers](/azure/architecture/patterns/circuit-breaker).
 
-- Proactively monitor and using Continuous Integration/Continuous Delivery (CICD), rotate the API access credentials such as passwords and certificates used by the [Technical profile engine](https://docs.microsoft.com/azure/active-directory-b2c/restful-technical-profile).
+- Proactively monitor and using Continuous Integration/Continuous Delivery (CICD), rotate the API access credentials such as passwords and certificates used by the [Technical profile engine](../../active-directory-b2c/restful-technical-profile.md).
 
 ## API management - best practices
 
@@ -59,7 +59,7 @@ While you deploy the REST APIs and configure the RESTful technical profile, foll
 
 - API Management (APIM) publishes, manages, and analyzes your APIs. APIM also handles authentication to provide secure access to backend services and microservices. Use an API gateway to scale out API deployments, caching, and load balancing.
 
-- Recommendation is to get the right token at the beginning of the user journey instead of calling multiple times for each API and [secure an Azure APIM API](https://docs.microsoft.com/azure/active-directory-b2c/secure-api-management?tabs=app-reg-ga).
+- Recommendation is to get the right token at the beginning of the user journey instead of calling multiple times for each API and [secure an Azure APIM API](../../active-directory-b2c/secure-api-management.md?tabs=app-reg-ga).
 
 ## Next steps
 

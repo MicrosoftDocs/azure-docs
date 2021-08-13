@@ -1,11 +1,13 @@
 ---
-title: Analyze Live Video with Computer Vision for Spatial Analysis - Azure
-description: This tutorial shows you how to use Live Video Analytics together with Computer Vision spatial analysis AI feature from Azure Cognitive Services to analyze a live video feed from a (simulated) IP camera. 
+title: Analyze Live Video with Computer Vision for Spatial Analysis with Live Video Analytics - Azure
+description: This tutorial shows you how to use Azure Live Video Analytics together with Computer Vision spatial analysis AI feature from Azure Cognitive Services to analyze a live video feed from a (simulated) IP camera. 
 ms.topic: tutorial
 ms.date: 09/08/2020
 
 ---
-# Analyze Live Video with Computer Vision for Spatial Analysis (preview)
+# Analyze Live Video with Computer Vision for Spatial Analysis and Live Video Analytics (preview)
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 This tutorial shows you how to use Live Video Analytics together with [Computer Vision for spatial analysis AI service from Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/computer-vision/) to analyze a live video feed from a (simulated) IP camera. You'll see how this inference server enables you to analyze the streaming video to understand spatial relationships between people and movement in physical space.  A subset of the frames in the video feed is sent to this inference server, and the results are sent to IoT Edge Hub and when some conditions are met, video clips are recorded and stored as Azure Media Services assets.
 
@@ -18,7 +20,8 @@ In this tutorial you will:
 > * Monitor events.
  
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
+  > [!NOTE]
+  > You will need an Azure subscription with permissions for creating service principals (**owner role** provides this). If you do not have the right permissions, please reach out to your account administrator to grant you the right permissions. 
 ## Suggested pre-reading
 
 Read these articles before you begin:
@@ -50,12 +53,12 @@ This diagram shows how the signals flow in this tutorial. An [edge module](https
 
 The MediaGraphCognitiveServicesVisionExtension node plays the role of a proxy. It converts the video frames to the specified image type. Then it relays the image over **shared memory** to another edge module that runs AI operations behind a gRPC endpoint. In this example, that edge module is the spatial-analysis module. The MediaGraphCognitiveServicesVisionExtension processor node does two things:
 
-* It gathers the results and publishes events to the [IoT Hub sink](media-graph-concept.md#iot-hub-message-sink) node. The node then sends those events to [IoT Edge Hub](../../iot-edge/iot-edge-glossary.md#iot-edge-hub). 
+* It gathers the results and publishes events to the [IoT Hub sink](media-graph-concept.md#iot-hub-message-sink) node. The node then sends those events to [IoT Edge Hub](../../iot-fundamentals/iot-glossary.md#iot-edge-hub). 
 * It also captures a 30 second video clip from the RTSP source using a [signal gate processor](media-graph-concept.md#signal-gate-processor) and stores it as an Media Services asset.
 
 ## Create the Computer Vision resource
 
-You need to create an Azure resource of type Computer Vision either on [Azure portal](../../iot-edge/how-to-deploy-modules-portal.md) or via Azure CLI. You will be able to create the resource once your request for access to the container has been approved and your Azure Subscription ID has been registered. Go to https://aka.ms/csgate to submit your use case and your Azure Subscription ID.  You need to create the Azure resource using the same Azure subscription that has been provided on the Request for Access form.
+You need to create an Azure resource of type Computer Vision either on [Azure portal](../../iot-edge/how-to-deploy-modules-portal.md) or via Azure CLI.
 
 ### Gathering required parameters
 
@@ -104,8 +107,8 @@ Follow [these steps](../../databox-online/azure-stack-edge-gpu-deploy-prep.md) t
     AAD_TENANT_ID="<AAD Tenant ID>"  
     AAD_SERVICE_PRINCIPAL_ID="<AAD SERVICE_PRINCIPAL ID>"  
     AAD_SERVICE_PRINCIPAL_SECRET="<AAD SERVICE_PRINCIPAL ID>"  
-    INPUT_VIDEO_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input"  
-    OUTPUT_VIDEO_FOLDER_ON_DEVICE="/var/media"
+    VIDEO_INPUT_FOLDER_ON_DEVICE="/home/lvaedgeuser/samples/input"  
+    VIDEO_OUTPUT_FOLDER_ON_DEVICE="/var/media"
     APPDATA_FOLDER_ON_DEVICE="/var/local/mediaservices"
     CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>"  
     CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry password>"   
@@ -131,10 +134,10 @@ There are a few things you need to pay attention to in the deployment template f
 1. `IpcMode` in lvaEdge and spatial analysis module createOptions should be same and set to host.
 1. For the RTSP simulator to work, ensure that you have set up the Volume Bounds. For more information, see [Setup Docker Volume Mounts](deploy-azure-stack-edge-how-to.md#optional-setup-docker-volume-mounts).
 
-    1. [Connect to the SMB share](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) and copy the [sample bulldozer video file](https://lvamedia.blob.core.windows.net/public/bulldozer.mkv) to the Local share.
+    1. [Connect to the SMB share](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) and copy the [sample bulldozer video file](https://lvamedia.blob.core.windows.net/public/bulldozer.mkv) to the Local share.  
+        > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Mesi]  
     1. See that the rtspsim module has the following configuration:
-        
-        ```json
+        ```
         "createOptions": {
                             "HostConfig": {
                               "Mounts": [
@@ -154,6 +157,8 @@ There are a few things you need to pay attention to in the deployment template f
                             }
                           }
         ```
+        
+
 ## Generate and deploy the deployment manifest
 
 The deployment manifest defines what modules are deployed to an edge device. It also defines configuration settings for those modules.
@@ -196,7 +201,7 @@ Then you can find `lvaEdge`, `rtspsim`, `spatialAnalysis` and `rtspsim` modules 
 To see these events, follow these steps:
 
 1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
-1. Right click and select **Extension Settings**.
+1. Right-click and select **Extension Settings**.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Extension Settings":::

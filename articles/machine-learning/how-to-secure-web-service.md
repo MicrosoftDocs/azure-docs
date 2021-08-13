@@ -5,11 +5,11 @@ description: Learn how to enable HTTPS with TLS version 1.2 to secure a web serv
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: aashishb
-author: aashishb
-ms.date: 01/04/2021
-ms.topic: conceptual
-ms.custom: how-to
+ms.author: jhirono
+author: jhirono
+ms.date: 07/07/2021
+ms.topic: how-to
+
 ---
 
 # Use TLS to secure a web service through Azure Machine Learning
@@ -23,6 +23,8 @@ You use [HTTPS](https://en.wikipedia.org/wiki/HTTPS) to restrict access to web s
 > The Azure Machine Learning SDK uses the term "SSL" for properties that are related to secure communications. This doesn't mean that your web service doesn't use *TLS*. SSL is just a more commonly recognized term.
 >
 > Specifically, web services deployed through Azure Machine Learning support TLS version 1.2 for AKS and ACI. For ACI deployments, if you are on older TLS version, we recommend re-deploying to get the latest TLS version.
+>
+> TLS version 1.3 for Azure Machine Learning - AKS Inference is unsupported.
 
 TLS and SSL both rely on *digital certificates*, which help with encryption and identity verification. For more information on how digital certificates work, see the Wikipedia topic [Public key infrastructure](https://en.wikipedia.org/wiki/Public_key_infrastructure).
 
@@ -75,9 +77,9 @@ For ACI deployment, you can enable TLS termination at model deployment time with
 ### Deploy on Azure Kubernetes Service
 
   > [!NOTE]
-  > The information in this section also applies when you deploy a secure web service for the designer. If you aren't familiar with using the Python SDK, see [What is the Azure Machine Learning SDK for Python?](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
+  > The information in this section also applies when you deploy a secure web service for the designer. If you aren't familiar with using the Python SDK, see [What is the Azure Machine Learning SDK for Python?](/python/api/overview/azure/ml/intro).
 
-When you [create or attach an AKS cluster](how-to-create-attach-kubernetes.md) in AML workspace, you can enable TLS termination with **[AksCompute.provisioning_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueprovisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** and **[AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueattach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** configuration objects. Both method return a configuration object that has an **enable_ssl** method, and you can use **enable_ssl** method to enable TLS.
+When you [create or attach an AKS cluster](how-to-create-attach-kubernetes.md) in AML workspace, you can enable TLS termination with **[AksCompute.provisioning_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** and **[AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** configuration objects. Both methods return a configuration object that has an **enable_ssl** method, and you can use **enable_ssl** method to enable TLS.
 
 You can enable TLS either with Microsoft certificate or a custom certificate purchased from CA. 
 
@@ -90,7 +92,7 @@ You can enable TLS either with Microsoft certificate or a custom certificate pur
     provisioning_config = AksCompute.provisioning_configuration()
 
     # Leaf domain label generates a name using the formula
-    #  "<leaf-domain-label>######.<azure-region>.cloudapp.azure.net"
+    #  "<leaf-domain-label>######.<azure-region>.cloudapp.azure.com"
     #  where "######" is a random series of characters
     provisioning_config.enable_ssl(leaf_domain_label = "contoso")
 
@@ -100,7 +102,7 @@ You can enable TLS either with Microsoft certificate or a custom certificate pur
                                           cluster_name = cluster_name)
 
     # Leaf domain label generates a name using the formula
-    #  "<leaf-domain-label>######.<azure-region>.cloudapp.azure.net"
+    #  "<leaf-domain-label>######.<azure-region>.cloudapp.azure.com"
     #  where "######" is a random series of characters
     attach_config.enable_ssl(leaf_domain_label = "contoso")
     ```
@@ -127,7 +129,7 @@ You can enable TLS either with Microsoft certificate or a custom certificate pur
                                         ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
-For more information about *enable_ssl*, see [AksProvisioningConfiguration.enable_ssl()](/python/api/azureml-core/azureml.core.compute.aks.aksprovisioningconfiguration?preserve-view=true&view=azure-ml-py#&preserve-view=trueenable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-) and [AksAttachConfiguration.enable_ssl()](/python/api/azureml-core/azureml.core.compute.aks.aksattachconfiguration?preserve-view=true&view=azure-ml-py#&preserve-view=trueenable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-).
+For more information about *enable_ssl*, see [AksProvisioningConfiguration.enable_ssl()](/python/api/azureml-core/azureml.core.compute.aks.aksprovisioningconfiguration#enable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-) and [AksAttachConfiguration.enable_ssl()](/python/api/azureml-core/azureml.core.compute.aks.aksattachconfiguration#enable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-).
 
 ### Deploy on Azure Container Instances
 
@@ -146,16 +148,21 @@ For more information, see [AciWebservice.deploy_configuration()](/python/api/azu
 
 For either AKS deployment with custom certificate or ACI deployment, you must update your DNS record to point to the IP address of scoring endpoint.
 
-  > [!IMPORTANT]
-  > When you use a certificate from Microsoft for AKS deployment, you don't need to manually update the DNS value for the cluster. The value should be set automatically.
+> [!IMPORTANT]
+> When you use a certificate from Microsoft for AKS deployment, you don't need to manually update the DNS value for the cluster. The value should be set automatically.
 
 You can follow following steps to update DNS record for your custom domain name:
-* Get scoring endpoint IP address from scoring endpoint URI, which is usually in the format of *http://104.214.29.152:80/api/v1/service/<service-name>/score*. 
-* Use the tools from your domain name registrar to update the DNS record for your domain name. The record must point to the IP address of scoring endpoint.
-* After DNS record update, you can validate DNS resolution using *nslookup custom-domain-name* command. If DNS record is correctly updated, the custom domain name will point to the IP address of scoring endpoint.
-* There can be a delay of minutes or hours before clients can resolve the domain name, depending on the registrar and the "time to live" (TTL) that's configured for the domain name.
+1. Get scoring endpoint IP address from scoring endpoint URI, which is usually in the format of *http://104.214.29.152:80/api/v1/service/<service-name>/score*. In this example, the IP address is 104.214.29.152.
+1. Use the tools from your domain name registrar to update the DNS record for your domain name. The record maps the FQDN (for example, www\.contoso.com) to the IP address. The record must point to the IP address of scoring endpoint.
 
+    > [!TIP]
+    > Microsoft does is not responsible for updating the DNS for your custom DNS name or certificate. You must update it with your domain name registrar.
 
+1. After DNS record update, you can validate DNS resolution using *nslookup custom-domain-name* command. If DNS record is correctly updated, the custom domain name will point to the IP address of scoring endpoint.
+
+    There can be a delay of minutes or hours before clients can resolve the domain name, depending on the registrar and the "time to live" (TTL) that's configured for the domain name.
+
+For more information on DNS resolution with Azure Machine Learning, see [How to use your workspace with a custom DNS server](how-to-custom-dns.md).
 ## Update the TLS/SSL certificate
 
 TLS/SSL certificates expire and must be renewed. Typically this happens every year. Use the information in the following sections to update and renew your certificate for models deployed to Azure Kubernetes Service:
@@ -166,7 +173,7 @@ If the certificate was originally generated by Microsoft (when using the *leaf_d
 
 > [!IMPORTANT]
 > * If the existing certificate is still valid, use `renew=True` (SDK) or `--ssl-renew` (CLI) to force the configuration to renew it. For example, if the existing certificate is still valid for 10 days and you don't use `renew=True`, the certificate may not be renewed.
-> * When the service was originally deployed, the `leaf_domain_label` is used to create a DNS name using the pattern `<leaf-domain-label>######.<azure-region>.cloudapp.azure.net`. To preserve the existing name (including the 6 digits originally generated), use the original `leaf_domain_label` value. Do not include the 6 digits that were generated.
+> * When the service was originally deployed, the `leaf_domain_label` is used to create a DNS name using the pattern `<leaf-domain-label>######.<azure-region>.cloudapp.azure.com`. To preserve the existing name (including the 6 digits originally generated), use the original `leaf_domain_label` value. Do not include the 6 digits that were generated.
 
 **Use the SDK**
 
@@ -192,8 +199,8 @@ az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n 
 
 For more information, see the following reference docs:
 
-* [SslConfiguration](/python/api/azureml-core/azureml.core.compute.aks.sslconfiguration?preserve-view=true&view=azure-ml-py)
-* [AksUpdateConfiguration](/python/api/azureml-core/azureml.core.compute.aks.aksupdateconfiguration?preserve-view=true&view=azure-ml-py)
+* [SslConfiguration](/python/api/azureml-core/azureml.core.compute.aks.sslconfiguration)
+* [AksUpdateConfiguration](/python/api/azureml-core/azureml.core.compute.aks.aksupdateconfiguration)
 
 ### Update custom certificate
 
@@ -232,8 +239,8 @@ If the certificate was originally generated by a certificate authority, use the 
 
 For more information, see the following reference docs:
 
-* [SslConfiguration](/python/api/azureml-core/azureml.core.compute.aks.sslconfiguration?preserve-view=true&view=azure-ml-py)
-* [AksUpdateConfiguration](/python/api/azureml-core/azureml.core.compute.aks.aksupdateconfiguration?preserve-view=true&view=azure-ml-py)
+* [SslConfiguration](/python/api/azureml-core/azureml.core.compute.aks.sslconfiguration)
+* [AksUpdateConfiguration](/python/api/azureml-core/azureml.core.compute.aks.aksupdateconfiguration)
 
 ## Disable TLS
 
@@ -257,3 +264,4 @@ aks_target.update(update_config)
 Learn how to:
 + [Consume a machine learning model deployed as a web service](how-to-consume-web-service.md)
 + [Virtual network isolation and privacy overview](how-to-network-security-overview.md)
++ [How to use your workspace with a custom DNS server](how-to-custom-dns.md)

@@ -52,7 +52,7 @@ You can use troubleshooting tools to see symptomatic behavior:
 This product was written and tested using PowerShell v5.1.
 This module isn't compatible with PowerShell versions 6 or 7.
 We recommend using PowerShell v5.1 alongside newer versions. 
-For more information, see [Using PowerShell 7 side by side with PowerShell 5.1](https://docs.microsoft.com/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7.1#using-powershell-7-side-by-side-with-windows-powershell-51).
+For more information, see [Using PowerShell 7 side by side with PowerShell 5.1](/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7#using-powershell-7-side-by-side-with-windows-powershell-51).
 
 ### Conflict with IIS shared configuration
 
@@ -120,10 +120,27 @@ Review the [API reference](status-monitor-v2-api-reference.md) for a detailed de
 
 ### Troubleshooting running processes
 
-You can inspect the processes on the instrumented computer to determine if all DLLs are loaded.
+You can inspect the processes on the instrumented computer to determine if all DLLs are loaded and environment variables are set.
 If monitoring is working, at least 12 DLLs should be loaded.
 
-Use the `Get-ApplicationInsightsMonitoringStatus -InspectProcess` command to check the DLLs.
+* Use the `Get-ApplicationInsightsMonitoringStatus -InspectProcess` command to check the DLLs.
+* Use the `(Get-Process -id {PID}).StartInfo.EnvironmentVariables` command to check the environment variables. Following are the environment varibles set in the worker process or dotnet core process:
+
+```
+COR_ENABLE_PROFILING=1
+COR_PROFILER={324F817A-7420-4E6D-B3C1-143FBED6D855}
+COR_PROFILER_PATH_32=Path to MicrosoftInstrumentationEngine_x86.dll
+COR_PROFILER_PATH_64=Path to MicrosoftInstrumentationEngine_x64.dll
+MicrosoftInstrumentationEngine_Host={CA487940-57D2-10BF-11B2-A3AD5A13CBC0}
+MicrosoftInstrumentationEngine_HostPath_32=Path to Microsoft.ApplicationInsights.ExtensionsHost_x86.dll
+MicrosoftInstrumentationEngine_HostPath_64=Path to Microsoft.ApplicationInsights.ExtensionsHost_x64.dll
+MicrosoftInstrumentationEngine_ConfigPath32_Private=Path to Microsoft.InstrumentationEngine.Extensions.config
+MicrosoftInstrumentationEngine_ConfigPath64_Private=Path to Microsoft.InstrumentationEngine.Extensions.config
+MicrosoftAppInsights_ManagedHttpModulePath=Path to Microsoft.ApplicationInsights.RedfieldIISModule.dll
+MicrosoftAppInsights_ManagedHttpModuleType=Microsoft.ApplicationInsights.RedfieldIISModule.RedfieldIISModule
+ASPNETCORE_HOSTINGSTARTUPASSEMBLIES=Microsoft.ApplicationInsights.StartupBootstrapper
+DOTNET_STARTUP_HOOKS=Path to Microsoft.ApplicationInsights.StartupHook.dll
+```
 
 Review the [API reference](status-monitor-v2-api-reference.md) for a detailed description of how to use this cmdlet.
 
@@ -139,7 +156,7 @@ Review the [API reference](status-monitor-v2-api-reference.md) for a detailed de
     - **Zip**
     - **Merge**
     - **.NET Symbol Collection**
-5. Set these **Additional Providers**: `61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
+5. Set these **Additional Providers**: `61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,252e28f4-43f9-5771-197a-e8c7e750a984,f9c04365-1d1f-5177-1cdc-a0b0554b6903`
 
 
 #### Collecting logs
@@ -149,8 +166,6 @@ Review the [API reference](status-monitor-v2-api-reference.md) for a detailed de
 3. In a command console with Admin privileges, run the `iisreset /start` command to start IIS.
 4. Try to browse to your app.
 5. After your app is loaded, return to PerfView and select **Stop Collection**.
-
-
 
 ## Next steps
 

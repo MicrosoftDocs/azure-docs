@@ -63,6 +63,8 @@
     items:
     - name: Create a virtual machine scale set
       href: ./scripts/cli-sample-create-simple-scale-set.md
+    - name: Create and manage virtual machine scale set
+      href: ./scripts/cli-sample-manage-scale-set.md
     - name: Create a scale set from a custom VM image
       href: ./scripts/cli-sample-create-scale-set-from-custom-image.md
     - name: Install applications to a scale set
@@ -147,7 +149,7 @@
       href: ../virtual-machines/sizes-hpc.md
       maintainContext: true
     - name: Azure VMs with no temp disk
-      href: ../virtual-machines/azure-vms-no-temp-disk.md
+      href: ../virtual-machines/azure-vms-no-temp-disk.yml
       maintainContext: true
     - name: Azure VM sizes naming conventions
       href: ../virtual-machines/vm-naming-conventions.md
@@ -162,9 +164,16 @@
   - name: Endorsed Linux distros
     href: ../virtual-machines/linux/endorsed-distros.md
     maintainContext: true
+  - name: Orchestration modes (preview)
+    href: virtual-machine-scale-sets-orchestration-modes.md
   - name: Maintenance and updates
-    href: ../virtual-machines/maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
-    maintainContext: true
+    items:
+    - name: Overview
+      href: ../virtual-machines/maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
+      maintainContext: true
+    - name: Automatic extension upgrade 
+      href: ../virtual-machines/automatic-extension-upgrade.md
+      maintainContext: true
   - name: Disk storage
     items:
     - name: Managed Disks
@@ -182,7 +191,7 @@
     - name: Ephemeral OS disks
       href: ../virtual-machines/ephemeral-os-disks.md
     - name: Scalability targets for disks
-      href: ../virtual-machines/windows/disk-scalability-targets.md
+      href: ../virtual-machines/disks-scalability-targets.md
       maintainContext: true
     - name: Backup and disaster recovery for disks
       href: ../virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks.md
@@ -200,10 +209,10 @@
     - name: Azure Disk Encryption
       href: disk-encryption-overview.md
     - name: Azure security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/virtual-machine-scale-sets-security-baseline?toc=/azure/virtual-machine-scale-sets/TOC.json
     maintainContext: true
   - name: Monitoring
-    href: ../azure-monitor/insights/monitor-vm-azure.md
+    href: ../azure-monitor/vm/monitor-vm-azure.md
     maintainContext: true
   - name: Deployment considerations
     items:
@@ -214,7 +223,7 @@
     href: ../virtual-machines/put-calls-create-or-update.md
     maintainContext: true
   - name: Scale Set FAQ
-    href: virtual-machine-scale-sets-faq.md
+    href: virtual-machine-scale-sets-faq.yml
 - name: How To
   items:
   - name: Plan and design
@@ -297,7 +306,7 @@
       - name: Use the Azure portal
         href: virtual-machine-scale-sets-autoscale-portal.md
       - name: Advanced autoscale
-        href: ../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md
+        href: ../azure-monitor/autoscale/autoscale-virtual-machine-scale-sets.md
         maintainContext: true
       - name: Troubleshoot autoscale
         href: virtual-machine-scale-sets-troubleshoot.md
@@ -327,17 +336,20 @@
       href: virtual-machine-scale-sets-placement-groups.md
     - name: Convert a scale set template to use managed disk
       href: virtual-machine-scale-sets-convert-template-to-md.md
-    - name: Use dedicated hosts (preview)
-      href: ../virtual-machines/dedicated-hosts.md
+    - name: Use dedicated hosts
       items:
+      - name: Overview
+        href: ../virtual-machines/dedicated-hosts.md
       - name: CLI
         href: ../virtual-machines/linux/dedicated-hosts-cli.md
       - name: PowerShell
         href: ../virtual-machines/windows/dedicated-hosts-powershell.md
       - name: Portal
         href: ../virtual-machines/dedicated-hosts-portal.md
-    - name: Use spot instance
+    - name: Azure Spot Virtual Machines
       href: use-spot.md
+    - name: Azure Hybrid Benefit for Linux
+      href: azure-hybrid-benefit-linux.md
   - name: Manage
     items:
     - name: Common management tasks
@@ -391,6 +403,8 @@
       maintainContext: true
 - name: Reference
   items:
+  - name: Azure CLI
+    href: /cli/azure/vmss
   - name: Azure PowerShell
     href: /powershell/azure/
   - name: REST
@@ -399,18 +413,42 @@
     href: /azure/templates/microsoft.compute/virtualmachinescalesets
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
-    href: ./policy-reference.md
+    href: ../virtual-machines/policy-reference.md
 - name: Resources
   items:
+  - name: Cloud adoption framework
+    href: /azure/cloud-adoption-framework/get-started/
+  - name: Architecture center
+    href: /azure/architecture/
+  - name: Migration tools
+    href: /azure/cloud-adoption-framework/migrate/azure-migration-guide/?tabs=MigrationTools
+  - name: Microsoft Q&A
+    href: /answers/topics/azure-virtual-machines.html
+  - name: Azure Quickstart templates
+    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/#Linux
+  - name: Regional availability
+    href: https://azure.microsoft.com/regions/services/
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-virtual-machines
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=compute
-  - name: Pricing
-    items:
-    - name: Linux
-      href: https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/
-    - name: Windows
-      href: https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-vm-scale-set
+  - name: Common CLI commands
+    href: ../virtual-machines/linux/cli-manage.md
+  - name: Common PowerShell commands
+    href: ../virtual-machines/windows/ps-common-ref.md
+  - name: Common networking PowerShell commands
+    href: ../virtual-machines/windows/ps-common-network-ref.md
+  - name: VM template description
+    href: ../virtual-machines/windows/template-description.md
+  - name: FAQ
+    items:
+    - name: Linux
+      href: ../virtual-machines/linux/faq.yml
+    - name: Windows
+      href: ../virtual-machines/windows/faq.yml
+- name: Support and troubleshooting
+  href: vmss-support-help.md

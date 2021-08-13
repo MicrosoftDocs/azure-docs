@@ -1,9 +1,10 @@
 ---
 title: Deploy Hyperledger Fabric consortium on Azure Kubernetes Service
 description: How to deploy and configure a Hyperledger Fabric consortium network on Azure Kubernetes Service
-ms.date: 01/08/2021
+ms.date: 03/01/2021
 ms.topic: how-to
 ms.reviewer: ravastra
+ms.custom: contperf-fy21q3, devx-track-azurecli
 ---
 
 # Deploy Hyperledger Fabric consortium on Azure Kubernetes Service
@@ -14,6 +15,11 @@ After reading this article, you will:
 
 - Have a working knowledge of Hyperledger Fabric and the components that form the building blocks of a Hyperledger Fabric blockchain network.
 - Know how to deploy and configure a Hyperledger Fabric consortium network on Azure Kubernetes Service for your production scenarios.
+
+>[!IMPORTANT] 
+>
+>The template supports Azure Kubernetes Service version 1.18.x and below only. Due to the recent [update in Kubernetes](https://kubernetes.io/blog/2020/12/02/dont-panic-kubernetes-and-docker/) for underneath runtime environment from docker to "containerd", the chaincode containers will not be functional, customers will have to move to running external chaincode as a service which is possible on HLF 2.2x only. Until AKS v1.18.x is supported by Azure, one will be able to deploy this template through following the steps [here](https://github.com/Azure/Hyperledger-Fabric-on-Azure-Kubernetes-Service).
+
 
 [!INCLUDE [Preview note](./includes/preview.md)]
 
@@ -26,34 +32,6 @@ Option | Service model | Common use case
 Solution templates | IaaS | Solution templates are Azure Resource Manager templates that you can use to provision a fully configured blockchain network topology. The templates deploy and configure Microsoft Azure compute, networking, and storage services for a blockchain network type. Solution templates are provided without a service-level agreement. Use the [Microsoft Q&A page](/answers/topics/azure-blockchain-workbench.html) for support.
 [Azure Blockchain Service](../service/overview.md) | PaaS | Azure Blockchain Service Preview simplifies the formation, management, and governance of consortium blockchain networks. Use Azure Blockchain Service for solutions that require PaaS, consortium management, or contract and transaction privacy.
 [Azure Blockchain Workbench](../workbench/overview.md) | IaaS and PaaS | Azure Blockchain Workbench Preview is a collection of Azure services and capabilities that help you create and deploy blockchain applications to share business processes and data with other organizations. Use Azure Blockchain Workbench for prototyping a blockchain solution or a proof of concept for a blockchain application. Azure Blockchain Workbench is provided without a service-level agreement. Use the [Microsoft Q&A page](/answers/topics/azure-blockchain-workbench.html) for support.
-
-## Hyperledger Fabric consortium architecture
-
-To build a Hyperledger Fabric network on Azure, you need to deploy an ordering service and organization with peer nodes. By using the Hyperledger Fabric on Azure Kubernetes Service solution template, you can create order nodes or peer nodes. You need to deploy the template for each node that you want to create.
-
-The fundamental components that are created as part of the template deployment are:
-
-- **Orderer nodes**: A node that's responsible for transaction ordering in the ledger. Along with other nodes, the ordered nodes form the ordering service of the Hyperledger Fabric network.
-
-- **Peer nodes**: A node that primarily host ledgers and smart contracts, which are fundamental elements of the network.
-
-- **Fabric CA**: The certificate authority (CA) for Hyperledger Fabric. The Fabric CA allows you to initialize and start a server process that hosts the certificate authority. It allows you to manage identities and certificates. Each AKS cluster deployed as part of the template will have a Fabric CA pod by default.
-
-- **CouchDB or LevelDB**: World state databases for the peer nodes. LevelDB is the default state database embedded in the peer node. It stores chaincode data as simple key/value pairs and supports key, key range, and composite key queries only. CouchDB is an optional alternate state database that supports rich queries when chaincode data values are modeled as JSON.
-
-The template on deployment spins up various Azure resources in your subscription. The deployed Azure resources are:
-
-- **AKS cluster**: Azure Kubernetes Service cluster that's configured according to the input parameters provided by the customer. The AKS cluster has various pods configured for running the Hyperledger Fabric network components. The created pods are:
-
-  - **Fabric tools**: Tools that are responsible for configuring the Hyperledger Fabric components.
-  - **Orderer/peer pods**: The nodes of the Hyperledger Fabric network.
-  - **Proxy**: An NGNIX proxy pod through which the client applications can communicate with the AKS cluster.
-  - **Fabric CA**: The pod that runs the Fabric CA.
-- **PostgreSQL**: Database instance that maintains the Fabric CA identities.
-
-- **Key vault**: Instance of the Azure Key Vault service that's deployed to save the Fabric CA credentials and the root certificates provided by the customer. The vault is used in case of template deployment retry, to handle the mechanics of the template.
-- **Managed disk**: Instance of the Azure Managed Disks service that provides a persistent store for the ledger and for the peer node's world state database.
-- **Public IP**: Endpoint of the AKS cluster deployed for communicating with the cluster.
 
 ## Deploy the orderer and peer organization
 
@@ -80,10 +58,10 @@ To get started with the deployment of Hyperledger Fabric network components, go 
     - **Organization name**: Enter the name of the Hyperledger Fabric organization, which is required for various data plane operations. The organization name needs to be unique per deployment.
     - **Fabric network component**: Choose either **Ordering service** or **Peer nodes**, based on the blockchain network component that you want to set up.
     - **Number of nodes**: The following are the two types of nodes:
-        - **Ordering service**: Select the number of nodes to provide fault tolerance to the network. The supported order node count is 3, 5, and 7.
-        - **Peer nodes**: You can choose 1 to 10 nodes based on your requirement.
-    - **Peer node world state database**: Choose between LevelDB and CouchDB. This field is displayed when you choose **Peer nodes** in the **Fabric network component** drop-down list.
-    - **Fabric CA username**: Enter the username that's used for Fabric CA authentication.
+        - **Ordering service**: Nodes responsible for transaction ordering in the ledger. Select the number of nodes to provide fault tolerance to the network. The supported order node count is 3, 5, and 7.
+        - **Peer nodes**: Nodes that host ledgers and smart contracts. You can choose 1 to 10 nodes based on your requirement.
+    - **Peer node world state database**: World state databases for the peer nodes. LevelDB is the default state database embedded in the peer node. It stores chaincode data as simple key/value pairs and supports key, key range, and composite key queries only. CouchDB is an optional alternate state database that supports rich queries when chaincode data values are modeled as JSON. This field is displayed when you choose **Peer nodes** in the **Fabric network component** drop-down list.
+    - **Fabric CA username**: The Fabric certificate authority allows you to initialize and start a server process that hosts the certificate authority. It allows you to manage identities and certificates. Each AKS cluster deployed as part of the template will have a Fabric CA pod by default. Enter the username that's used for Fabric CA authentication.
     - **Fabric CA password**: Enter the password for Fabric CA authentication.
     - **Confirm password**: Confirm the Fabric CA password.
     - **Certificates**: If you want to use your own root certificates to initialize the Fabric CA, then choose the **Upload root certificate for Fabric CA** option. Otherwise, the Fabric CA creates self-signed certificates by default.
@@ -91,11 +69,21 @@ To get started with the deployment of Hyperledger Fabric network components, go 
     - **Root Certificate private key**: Upload the private key of the root certificate. If you have a .pem certificate, which has a combined public and private key, upload it here as well.
 
 
-6. Select the **AKS cluster Settings** tab to define the Azure Kubernetes Service cluster configuration that is the underlying infrastructure on which the Hyperledger Fabric network components will be set up.
+6. Select the **AKS cluster Settings** tab to define the Azure Kubernetes Service cluster configuration. The AKS cluster has various pods configured for running the Hyperledger Fabric network components. The deployed Azure resources are:
+
+    - **Fabric tools**: Tools that are responsible for configuring the Hyperledger Fabric components.
+    - **Orderer/peer pods**: The nodes of the Hyperledger Fabric network.
+    - **Proxy**: An NGNIX proxy pod through which the client applications can communicate with the AKS cluster.
+    - **Fabric CA**: The pod that runs the Fabric CA.
+    - **PostgreSQL**: Database instance that maintains the Fabric CA identities.
+    - **Key vault**: Instance of the Azure Key Vault service that's deployed to save the Fabric CA credentials and the root certificates provided by the customer. The vault is used in case of template deployment retry, to handle the mechanics of the template.
+    - **Managed disk**: Instance of the Azure Managed Disks service that provides a persistent store for the ledger and for the peer node's world state database.
+    - **Public IP**: Endpoint of the AKS cluster deployed for communicating with the cluster.
+
+    Enter the following details:
 
     ![Screenshot that shows the A K S cluster settings tab.](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-aks-cluster-settings-1.png)
 
-7. Enter the following details:
     - **Kubernetes cluster name**: Change the name of the AKS cluster, if necessary. This field is prepopulated based on the resource prefix that's provided.
     - **Kubernetes version**: Choose the version of Kubernetes that will be deployed on the cluster. Based on the region that you selected on the **Basics** tab, the available supported versions might change.
     - **DNS prefix**: Enter a Domain Name System (DNS) name prefix for the AKS cluster. You'll use DNS to connect to the Kubernetes API when managing containers after you create the cluster.
@@ -125,7 +113,7 @@ To build the blockchain consortium after deploying the ordering service and peer
 > The script is provided to help with demonstration, development, and test scenarios only. The channel and consortium that this script creates has basic Hyperledger Fabric policies to simplify demo, dev, and test scenarios. For production setup, we recommend updating channel/consortium Hyperledger Fabric policies in line with your organization's compliance needs by using the native Hyperledger Fabric APIs.
 
 
-All the commands to run the Azure Hyperledger Fabric script can be executed through Azure Bash command-line interface (CLI). You can sign in to Azure Cloud Shell through the ![Hyperledger Fabric on Azure Kubernetes Service Template](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) option at the upper-right corner of the Azure portal. On the command prompt, type `bash` and select the Enter key to switch to the Bash CLI, or select **Bash** from the Cloud Shell toolbar.
+All the commands to run the Azure Hyperledger Fabric script can be executed through Azure Bash command-line interface (CLI). You can sign in to Azure Cloud Shell through¯the ![Hyperledger Fabric on Azure Kubernetes Service Template](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) option at the upper-right corner of the Azure portal. On the command prompt, type `bash` and select the Enter key to switch to the Bash CLI, or select **Bash** from the Cloud Shell toolbar.
 
 See [Azure Cloud Shell](../../cloud-shell/overview.md) for more information.
 
@@ -136,7 +124,7 @@ The following image shows the step-by-step process to build a consortium between
 
 ![Diagram of the process to build a consortium.](./media/hyperledger-fabric-consortium-azure-kubernetes-service/process-to-build-consortium-flow-chart.png)
 
-After you finish the initial setup, use the client application to achieve the following operations:  
+After you finish the initial setup, use the client application to achieve the following operations:
 
 - Channel management
 - Consortium management
@@ -161,7 +149,7 @@ All environment variables follow the Azure resource naming convention.
 
 #### Set environment variables for the orderer organization's client
 
-```bash
+```azurecli
 ORDERER_ORG_SUBSCRIPTION=<ordererOrgSubscription>
 ORDERER_ORG_RESOURCE_GROUP=<ordererOrgResourceGroup>
 ORDERER_ORG_NAME=<ordererOrgName>
@@ -171,7 +159,7 @@ CHANNEL_NAME=<channelName>
 
 #### Set environment variables for the peer organization's client
 
-```bash
+```azurecli
 PEER_ORG_SUBSCRIPTION=<peerOrgSubscritpion>
 PEER_ORG_RESOURCE_GROUP=<peerOrgResourceGroup>
 PEER_ORG_NAME=<peerOrgName>
@@ -183,7 +171,7 @@ Based on the number of peer organizations in your consortium, you might be requi
 
 #### Set environment variables for an Azure storage account
 
-```bash
+```azurecli
 STORAGE_SUBSCRIPTION=<subscriptionId>
 STORAGE_RESOURCE_GROUP=<azureFileShareResourceGroup>
 STORAGE_ACCOUNT=<azureStorageAccountName>
@@ -193,7 +181,7 @@ STORAGE_FILE_SHARE=<azureFileShareName>
 
 Use the following commands to create an Azure storage account. If you already have Azure storage account, skip this step.
 
-```bash
+```azurecli
 az account set --subscription $STORAGE_SUBSCRIPTION
 az group create -l $STORAGE_LOCATION -n $STORAGE_RESOURCE_GROUP
 az storage account create -n $STORAGE_ACCOUNT -g  $STORAGE_RESOURCE_GROUP -l $STORAGE_LOCATION --sku Standard_LRS
@@ -201,14 +189,14 @@ az storage account create -n $STORAGE_ACCOUNT -g  $STORAGE_RESOURCE_GROUP -l $ST
 
 Use the following commands to create a file share in the Azure storage account. If you already have a file share, skip this step.
 
-```bash
+```azurecli
 STORAGE_KEY=$(az storage account keys list --resource-group $STORAGE_RESOURCE_GROUP  --account-name $STORAGE_ACCOUNT --query "[0].value" | tr -d '"')
 az storage share create  --account-name $STORAGE_ACCOUNT  --account-key $STORAGE_KEY  --name $STORAGE_FILE_SHARE
 ```
 
 Use the following commands to generate a connection string for an Azure file share.
 
-```bash
+```azurecli
 STORAGE_KEY=$(az storage account keys list --resource-group $STORAGE_RESOURCE_GROUP  --account-name $STORAGE_ACCOUNT --query "[0].value" | tr -d '"')
 SAS_TOKEN=$(az storage account generate-sas --account-key $STORAGE_KEY --account-name $STORAGE_ACCOUNT --expiry `date -u -d "1 day" '+%Y-%m-%dT%H:%MZ'` --https-only --permissions lruwd --resource-types sco --services f | tr -d '"')
 AZURE_FILE_CONNECTION_STRING=https://$STORAGE_ACCOUNT.file.core.windows.net/$STORAGE_FILE_SHARE?$SAS_TOKEN
@@ -221,15 +209,15 @@ Use the following commands to fetch the organization's connection profile, admin
 
 For the orderer organization:
 
-```bash
+```azurecli
 ./azhlf adminProfile import fromAzure -o $ORDERER_ORG_NAME -g $ORDERER_ORG_RESOURCE_GROUP -s $ORDERER_ORG_SUBSCRIPTION
-./azhlf connectionProfile import fromAzure -g $ORDERER_ORG_RESOURCE_GROUP -s $ORDERER_ORG_SUBSCRIPTION -o $ORDERER_ORG_NAME   
+./azhlf connectionProfile import fromAzure -g $ORDERER_ORG_RESOURCE_GROUP -s $ORDERER_ORG_SUBSCRIPTION -o $ORDERER_ORG_NAME
 ./azhlf msp import fromAzure -g $ORDERER_ORG_RESOURCE_GROUP -s $ORDERER_ORG_SUBSCRIPTION -o $ORDERER_ORG_NAME
 ```
 
 For the peer organization:
 
-```bash
+```azurecli
 ./azhlf adminProfile import fromAzure -g $PEER_ORG_RESOURCE_GROUP -s $PEER_ORG_SUBSCRIPTION -o $PEER_ORG_NAME
 ./azhlf connectionProfile import fromAzure -g $PEER_ORG_RESOURCE_GROUP -s $PEER_ORG_SUBSCRIPTION -o $PEER_ORG_NAME
 ./azhlf msp import fromAzure -g $PEER_ORG_RESOURCE_GROUP -s $PEER_ORG_SUBSCRIPTION -o $PEER_ORG_NAME
@@ -237,41 +225,41 @@ For the peer organization:
 
 ### Create a channel
 
-From the orderer organization's client, use the following command to create a channel that contains only the orderer organization.  
+From the orderer organization's client, use the following command to create a channel that contains only the orderer organization.
 
-```bash
+```azurecli
 ./azhlf channel create -c $CHANNEL_NAME -u $ORDERER_ADMIN_IDENTITY -o $ORDERER_ORG_NAME
 ```
 
 ### Add a peer organization for consortium management
 
 >[!NOTE]
-> Before you start with any consortium operation, ensure that you've finished the initial setup of the client application.  
+> Before you start with any consortium operation, ensure that you've finished the initial setup of the client application.
 
-Run the following commands in the given order to add a peer organization in a channel and consortium: 
+Run the following commands in the given order to add a peer organization in a channel and consortium:
 
-1.	From the peer organization's client, upload the peer organization's MSP on Azure Storage.
+1.    From the peer organization's client, upload the peer organization's MSP on Azure Storage.
 
-      ```bash
+      ```azurecli
       ./azhlf msp export toAzureStorage -f  $AZURE_FILE_CONNECTION_STRING -o $PEER_ORG_NAME
       ```
-2.	From the orderer organization's client, download the peer organization's MSP from Azure Storage. Then issue the command to add the peer organization in the channel and consortium.
+2.    From the orderer organization's client, download the peer organization's MSP from Azure Storage. Then issue the command to add the peer organization in the channel and consortium.
 
-      ```bash
+      ```azurecli
       ./azhlf msp import fromAzureStorage -o $PEER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
       ./azhlf channel join -c  $CHANNEL_NAME -o $ORDERER_ORG_NAME  -u $ORDERER_ADMIN_IDENTITY -p $PEER_ORG_NAME
       ./azhlf consortium join -o $ORDERER_ORG_NAME  -u $ORDERER_ADMIN_IDENTITY -p $PEER_ORG_NAME
       ```
 
-3.	From the orderer organization's client, upload the orderer's connection profile on Azure Storage so that the peer organization can connect to the orderer nodes by using this connection profile.
+3.    From the orderer organization's client, upload the orderer's connection profile on Azure Storage so that the peer organization can connect to the orderer nodes by using this connection profile.
 
-      ```bash
+      ```azurecli
       ./azhlf connectionProfile  export toAzureStorage -o $ORDERER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
       ```
 
-4.	From the peer organization's client, download the orderer's connection profile from Azure Storage. Then run the command to add peer nodes in the channel.
+4.    From the peer organization's client, download the orderer's connection profile from Azure Storage. Then run the command to add peer nodes in the channel.
 
-      ```bash
+      ```azurecli
       ./azhlf connectionProfile  import fromAzureStorage -o $ORDERER_ORG_NAME -f $AZURE_FILE_CONNECTION_STRING
       ./azhlf channel joinPeerNodes -o $PEER_ORG_NAME  -u $PEER_ADMIN_IDENTITY -c $CHANNEL_NAME --ordererOrg $ORDERER_ORG_NAME
       ```
@@ -285,7 +273,7 @@ From the peer organization's client, run the command to set anchor peers for the
 >[!NOTE]
 > Before you run this command, ensure that the peer organization is added in the channel by using consortium management commands.
 
-```bash
+```azurecli
 ./azhlf channel setAnchorPeers -c $CHANNEL_NAME -p <anchorPeersList> -o $PEER_ORG_NAME -u $PEER_ADMIN_IDENTITY --ordererOrg $ORDERER_ORG_NAME
 ```
 
@@ -297,48 +285,48 @@ From the peer organization's client, run the command to set anchor peers for the
 ## Chaincode management commands
 
 >[!NOTE]
-> Before you start with any chaincode operation, ensure that you've done the initial setup of the client application.  
+> Before you start with any chaincode operation, ensure that you've done the initial setup of the client application.
 
 ### Set the chaincode-specific environment variables
 
-```bash
+```azurecli
 # Peer organization name where the chaincode operation will be performed
 ORGNAME=<PeerOrgName>
-USER_IDENTITY="admin.$ORGNAME"  
-# If you are using chaincode_example02 then set CC_NAME=“chaincode_example02”
-CC_NAME=<chaincodeName>  
-# If you are using chaincode_example02 then set CC_VERSION=“1” for validation
+USER_IDENTITY="admin.$ORGNAME"
+# If you are using chaincode_example02 then set CC_NAME="chaincode_example02"
+CC_NAME=<chaincodeName>
+# If you are using chaincode_example02 then set CC_VERSION="1" for validation
 CC_VERSION=<chaincodeVersion>
-# Language in which chaincode is written. Supported languages are 'node', 'golang', and 'java'  
-# Default value is 'golang'  
-CC_LANG=<chaincodeLanguage>  
-# CC_PATH contains the path where your chaincode is placed.
-# If you are using chaincode_example02 to validate then CC_PATH=“/home/<username>/azhlfTool/samples/chaincode/src/chaincode_example02/go”
-CC_PATH=<chaincodePath>  
-# Channel on which chaincode will be instantiated/invoked/queried  
-CHANNEL_NAME=<channelName>  
+# Language in which chaincode is written. Supported languages are 'node', 'golang', and 'java'
+# Default value is 'golang'
+CC_LANG=<chaincodeLanguage>
+# CC_PATH contains the path where your chaincode is placed. This is the absolute path to the chaincode project root directory.
+# If you are using chaincode_example02 to validate then CC_PATH="/home/<username>/azhlfTool/samples/chaincode/src/chaincode_example02/go"
+CC_PATH=<chaincodePath>
+# Channel on which chaincode will be instantiated/invoked/queried
+CHANNEL_NAME=<channelName>
 ```
 
-### Install chaincode  
+### Install chaincode
 
-Run the following command to install chaincode on the peer organization.  
+Run the following command to install chaincode on the peer organization.
 
-```bash
-./azhlf chaincode install -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -p $CC_PATH -l $CC_LANG -v $CC_VERSION  
+```azurecli
+./azhlf chaincode install -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -p $CC_PATH -l $CC_LANG -v $CC_VERSION
 
 ```
-The command will install chaincode on all the peer nodes of the peer organization set in the `ORGNAME` environment variable. If two or more peer organizations are in your channel and you want to install chaincode on all of them, run this command separately for each peer organization.  
+The command will install chaincode on all the peer nodes of the peer organization set in the `ORGNAME` environment variable. If two or more peer organizations are in your channel and you want to install chaincode on all of them, run this command separately for each peer organization.
 
-Follow these steps:  
+Follow these steps:
 
-1.	Set `ORGNAME` and `USER_IDENTITY` according to `peerOrg1` and run the `./azhlf chaincode install` command.  
-2.	Set `ORGNAME` and `USER_IDENTITY` according to `peerOrg2` and run the `./azhlf chaincode install` command.  
+1.    Set `ORGNAME` and `USER_IDENTITY` according to `peerOrg1` and run the `./azhlf chaincode install` command.
+2.    Set `ORGNAME` and `USER_IDENTITY` according to `peerOrg2` and run the `./azhlf chaincode install` command.
 
-### Instantiate chaincode  
+### Instantiate chaincode
 
-From the peer client application, run the following command to instantiate chaincode on the channel.  
+From the peer client application, run the following command to instantiate chaincode on the channel.
 
-```bash
+```azurecli
 ./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>
 ```
 
@@ -348,7 +336,7 @@ You can also pass the collection's configuration JSON file by using the `--colle
 
 For example:
 
-```bash
+```azurecli
 ./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath>
 ./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath> -t <transientArgs>
 ```
@@ -358,34 +346,34 @@ Pass `<transientArgs>` as valid JSON in string format. Escape any special charac
 `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
 
 > [!NOTE]
-> Run the command once from any one peer organization in the channel. After the transaction is successfully submitted to the orderer, the orderer distributes this transaction to all the peer organizations in the channel. Chaincode is then instantiated on all the peer nodes on all the peer organizations in the channel.  
+> Run the command once from any one peer organization in the channel. After the transaction is successfully submitted to the orderer, the orderer distributes this transaction to all the peer organizations in the channel. Chaincode is then instantiated on all the peer nodes on all the peer organizations in the channel.
 
-### Invoke chaincode  
+### Invoke chaincode
 
-From the peer organization's client, run the following command to invoke the chaincode function:  
+From the peer organization's client, run the following command to invoke the chaincode function:
 
-```bash
-./azhlf chaincode invoke -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <invokeFunc> -a <invokeFuncArgs>  
+```azurecli
+./azhlf chaincode invoke -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <invokeFunc> -a <invokeFuncArgs>
 ```
 
-Pass the invoke function name and space-separated list of arguments in `<invokeFunction>` and `<invokeFuncArgs>` respectively. Continuing with the chaincode_example02.go chaincode example, to perform an invoke operation, set `<invokeFunction>` to `invoke` and `<invokeFuncArgs>` to `"a" "b" "10"`.  
+Pass the invoke function name and space-separated list of arguments in `<invokeFunction>` and `<invokeFuncArgs>` respectively. Continuing with the chaincode_example02.go chaincode example, to perform an invoke operation, set `<invokeFunction>` to `invoke` and `<invokeFuncArgs>` to `"a" "b" "10"`.
 
 >[!NOTE]
-> Run the command once from any one peer organization in the channel. After the transaction is successfully submitted to the orderer, the orderer distributes this transaction to all the peer organizations in the channel. The world state is then updated on all peer nodes of all the peer organizations in the channel.  
+> Run the command once from any one peer organization in the channel. After the transaction is successfully submitted to the orderer, the orderer distributes this transaction to all the peer organizations in the channel. The world state is then updated on all peer nodes of all the peer organizations in the channel.
 
 
-### Query chaincode  
+### Query chaincode
 
-Run the following command to query chaincode:  
+Run the following command to query chaincode:
 
-```bash
-./azhlf chaincode query -o $ORGNAME -p <endorsingPeers> -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs> 
+```azurecli
+./azhlf chaincode query -o $ORGNAME -p <endorsingPeers> -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs>
 ```
 Endorsing peers are peers where chaincode is installed and is called for execution of transactions. You must set `<endorsingPeers>` to contain peer node names from the current peer organization. List the endorsing peers for a given chaincode and channel combination separated by spaces. For example: `-p "peer1" "peer3"`.
 
-If you're using *azhlfTool* to install chaincode, pass any peer node names as a value to the endorsing peer argument. Chaincode is installed on every peer node for that organization. 
+If you're using *azhlfTool* to install chaincode, pass any peer node names as a value to the endorsing peer argument. Chaincode is installed on every peer node for that organization.
 
-Pass the query function name and space-separated list of arguments in `<queryFunction>` and `<queryFuncArgs>` respectively. Again taking chaincode_example02.go chaincode as a reference, to query the value of "a" in the world state, set `<queryFunction>` to `query` and `<queryArgs>` to `"a"`.  
+Pass the query function name and space-separated list of arguments in `<queryFunction>` and `<queryFuncArgs>` respectively. Again taking chaincode_example02.go chaincode as a reference, to query the value of "a" in the world state, set `<queryFunction>` to `query` and `<queryArgs>` to "a".
 
 ## Troubleshoot
 
@@ -393,7 +381,7 @@ Pass the query function name and space-separated list of arguments in `<queryF
 
 Run the following commands to find the version of your template deployment. Set environment variables according to the resource group where the template has been deployed.
 
-```bash
+```azurecli
 SWITCH_TO_AKS_CLUSTER $AKS_CLUSTER_RESOURCE_GROUP $AKS_CLUSTER_NAME $AKS_CLUSTER_SUBSCRIPTION
 kubectl describe pod fabric-tools -n tools | grep "Image:" | cut -d ":" -f 3
 ```
@@ -430,8 +418,8 @@ To provide product feedback or to request new features, post or vote for an idea
 
 Engage with Microsoft engineers and Azure Blockchain community experts:
 
-- [Microsoft Q&A page](/answers/topics/azure-blockchain-workbench.html) 
-   
+- [Microsoft Q&A page](/answers/topics/azure-blockchain-workbench.html)
+
   Engineering support for blockchain templates is limited to deployment issues.
 - [Microsoft tech community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)

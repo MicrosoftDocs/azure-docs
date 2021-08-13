@@ -1,4 +1,4 @@
-- name: User Help Documentation
+- name: User Help documentation
   href: index.yml
 - name: Two-step verification help
   items:
@@ -16,8 +16,12 @@
     href: multi-factor-authentication-end-user-app-passwords.md
   - name: How to sign in
     href: user-help-sign-in.md?toc=./toc.json
+  - name: Work or school account sign-in
+    href: multi-factor-authentication-end-user-signin.md
   - name: Get help
     href: multi-factor-authentication-end-user-troubleshoot.md
+  - name: Received code in error
+    href: multi-factor-authentication-change-sms-phone.md
 - name: Password reset help
   items:
   - name: Sign up for password reset
@@ -50,6 +54,8 @@
     href: auth-app-android-china.md
   - name: Backup and recover your accounts
     href: user-help-auth-app-backup-recovery.md
+  - name: Import passwords into Authenticator app
+    href: user-help-authenticator-app-import-passwords.md
   - name: FAQ
     href: user-help-auth-app-faq.md
 - name: My Account portal help
@@ -70,6 +76,8 @@
     href: my-account-portal-sign-ins-page.md
   - name: Change your portal settings
     href: my-account-portal-settings.md
+  - name: Find a My Account administrator
+    href: my-account-find-administrator.md
   - name: Switch organizations
     href: cross-tenant-switcher.md
 - name: Security info help

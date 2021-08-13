@@ -2,19 +2,14 @@
 title: List Azure role definitions - Azure RBAC
 description: Learn how to list Azure built-in and custom roles using Azure portal, Azure PowerShell, Azure CLI, or REST API.
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
-
-ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/17/2020
-ms.author: rolyon
-ms.reviewer: bagovind
+ms.date: 07/30/2021
+ms.author: rolyon 
+ms.custom: devx-track-azurepowershell
 ---
 
 # List Azure role definitions
@@ -37,9 +32,18 @@ Follow these steps to list all roles in the Azure portal.
 
 1. Click the **Roles** tab to see a list of all the built-in and custom roles.
 
-   You can see the number of users and groups that are assigned to each role at the current scope.
+   ![Screenshot showing Roles list using new experience.](./media/shared/roles-list.png)
 
-   ![Roles list](./media/role-definitions-list/roles-list.png)
+    > [!TIP]
+    > To see the previous roles list experience, click **Use classic experience**.
+  
+1. To see the permissions for a particular role, in the **Details** column, click the **View** link.
+
+    A permissions pane appears.
+
+1. Click the **Permissions** tab to view and search the permissions for the selected role.
+
+   ![Screenshot showing role permissions using new experience.](./media/role-definitions-list/role-permissions.png)
 
 ## Azure PowerShell
 
@@ -162,7 +166,7 @@ Microsoft.Network/loadBalancers/backendAddressPools/join/action
 
 ### List all roles
 
-To list all roles in Azure CLI, use [az role definition list](/cli/azure/role/definition#az-role-definition-list).
+To list all roles in Azure CLI, use [az role definition list](/cli/azure/role/definition#az_role_definition_list).
 
 ```azurecli
 az role definition list
@@ -225,7 +229,7 @@ az role definition list --custom-role-only false --output json --query '[].{role
 
 ### List a role definition
 
-To list details of a role, use [az role definition list](/cli/azure/role/definition#az-role-definition-list).
+To list details of a role, use [az role definition list](/cli/azure/role/definition#az_role_definition_list).
 
 ```azurecli
 az role definition list --name {roleName}
@@ -475,4 +479,4 @@ The following shows an example of the output:
 - [Azure built-in roles](built-in-roles.md)
 - [Azure custom roles](custom-roles.md)
 - [List Azure role assignments using the Azure portal](role-assignments-list-portal.md)
-- [Add or remove Azure role assignments using the Azure portal](role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](role-assignments-portal.md)

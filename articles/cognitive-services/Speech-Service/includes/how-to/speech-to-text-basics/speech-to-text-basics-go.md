@@ -22,7 +22,7 @@ Before you can do anything, you'll need to install the [Speech SDK for Go](../..
 
 ## Speech-to-text from microphone
 
-Use the following code sample to run speech recognition from your default device microphone. Replace the variables `subscription` and `region` with your subscription and region keys. Running the script will start a recognition session on your default microphone and output text.
+Use the following code sample to run speech recognition from your default device microphone. Replace the variables `subscription` and `region` with your speech key and location/region. See the [Find keys and location/region](../../../overview.md#find-keys-and-locationregion) page to find your key-location/region pair. Running the script will start a recognition session on your default microphone and output text.
 
 ```go
 package main
@@ -62,8 +62,8 @@ func cancelledHandler(event speech.SpeechRecognitionCanceledEventArgs) {
 }
 
 func main() {
-    subscription :=  "YOUR_SUBSCRIPTION_KEY"
-    region := "YOUR_SUBSCRIPTIONKEY_REGION"
+    subscription :=  "<paste-your-speech-key-here>"
+    region := "<paste-your-speech-location/region-here>"
 
 	audioConfig, err := audio.NewAudioConfigFromDefaultMicrophoneInput()
 	if err != nil {
@@ -94,7 +94,7 @@ func main() {
 }
 ```
 
-Run the following commands to create a go.mod file that links to components hosted on Github.
+Run the following commands to create a go.mod file that links to components hosted on GitHub.
 
 ```cmd
 go mod init quickstart
@@ -108,11 +108,11 @@ go build
 go run quickstart
 ```
 
-See the reference docs for detailed information on the [`SpeechConfig`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.14.0/speech#SpeechConfig) and [`SpeechRecognizer`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.14.0/speech#SpeechRecognizer) classes.
+See the reference docs for detailed information on the [`SpeechConfig`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.15.0/speech#SpeechConfig) and [`SpeechRecognizer`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.15.0/speech#SpeechRecognizer) classes.
 
 ## Speech-to-text from audio file
 
-Use the following sample to run speech recognition from an audio file. Replace the variables `subscription` and `region` with your subscription and region keys. Additionally, replace the variable `file` with a path to a .wav file. Running the script will recognize speech from the file, and output the text result.
+Use the following sample to run speech recognition from an audio file. Replace the variables `subscription` and `region` with your speech key and location/region. See the [Find keys and location/region](../../../overview.md#find-keys-and-locationregion) page to find your key-location/region pair. Additionally, replace the variable `file` with a path to a .wav file. Running the script will recognize speech from the file, and output the text result.
 
 ```go
 package main
@@ -126,8 +126,8 @@ import (
 )
 
 func main() {
-    subscription :=  "YOUR_SUBSCRIPTION_KEY"
-    region := "YOUR_SUBSCRIPTIONKEY_REGION"
+    subscription :=  "<paste-your-speech-key-here>"
+    region := "<paste-your-speech-location/region-here>"
     file := "path/to/file.wav"
 
 	audioConfig, err := audio.NewAudioConfigFromWavFileInput(file)
@@ -174,7 +174,7 @@ func main() {
 }
 ```
 
-Run the following commands to create a go.mod file that links to components hosted on Github.
+Run the following commands to create a go.mod file that links to components hosted on GitHub.
 
 ```cmd
 go mod init quickstart
@@ -188,4 +188,4 @@ go build
 go run quickstart
 ```
 
-See the reference docs for detailed information on the [`SpeechConfig`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.14.0/speech#SpeechConfig) and [`SpeechRecognizer`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.14.0/speech#SpeechRecognizer) classes.
+See the reference docs for detailed information on the [`SpeechConfig`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.15.0/speech#SpeechConfig) and [`SpeechRecognizer`](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.15.0/speech#SpeechRecognizer) classes.

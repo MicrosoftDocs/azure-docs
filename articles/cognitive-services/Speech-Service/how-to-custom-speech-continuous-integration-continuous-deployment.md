@@ -16,9 +16,9 @@ ms.author: kaprochi
 
 Implement automated training, testing, and release management to enable continuous improvement of Custom Speech models as you apply updates to training and testing data. Through effective implementation of CI/CD workflows, you can ensure that the endpoint for the best-performing Custom Speech model is always available.
 
-[Continuous integration](/azure/devops/learn/what-is-continuous-integration) (CI) is the engineering practice of frequently committing updates in a shared repository, and performing an automated build on it. CI workflows for Custom Speech train a new model from its data sources and perform automated testing on the new model to ensure that it performs better than the previous model.
+[Continuous integration](/devops/develop/what-is-continuous-integration) (CI) is the engineering practice of frequently committing updates in a shared repository, and performing an automated build on it. CI workflows for Custom Speech train a new model from its data sources and perform automated testing on the new model to ensure that it performs better than the previous model.
 
-[Continuous delivery](/azure/devops/learn/what-is-continuous-delivery) (CD) takes models from the CI process and creates an endpoint for each improved Custom Speech model. CD makes endpoints easily available to be integrated into solutions.
+[Continuous delivery](/devops/deliver/what-is-continuous-delivery) (CD) takes models from the CI process and creates an endpoint for each improved Custom Speech model. CD makes endpoints easily available to be integrated into solutions.
 
 Custom CI/CD solutions are possible, but for a robust, pre-built solution, use the [Speech DevOps template repository](https://github.com/Azure-Samples/Speech-Service-DevOps-Template), which executes CI/CD workflows using GitHub Actions.
 
@@ -68,7 +68,7 @@ Most teams require a manual review and approval process for deployment to a prod
 
 Use the following tools for CI/CD automation workflows for Custom Speech:
 
-- [Azure CLI](/cli/azure/?view=azure-cli-latest) to create an Azure service principal authentication, query Azure subscriptions, and store test results in Azure Blob.
+- [Azure CLI](/cli/azure/) to create an Azure service principal authentication, query Azure subscriptions, and store test results in Azure Blob.
 - [Azure Speech CLI](spx-overview.md) to interact with the Speech Service from the command line or an automated workflow.
 
 ## DevOps solution for Custom Speech using GitHub Actions

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/27/2020
+ms.date: 06/24/2021
 ms.author: jeedes
 ---
 
@@ -25,17 +25,17 @@ In this tutorial, you'll learn how to integrate Google Cloud (G Suite) Connector
 
 To get started, you need the following items:
 
-- An Azure AD subscription.
-- Google Cloud (G Suite) Connector single sign-on (SSO) enabled subscription.
-- A Google Apps subscription or Google Cloud Platform subscription.
+* An Azure AD subscription.
+* Google Cloud (G Suite) Connector single sign-on (SSO) enabled subscription.
+* A Google Apps subscription or Google Cloud Platform subscription.
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment. This document was created using the new user Single-Sign-on experience. If you are still using the old one, the setup will look different. You can enable the new experience in the Single Sign-on settings of G-Suite application. Go to **Azure AD, Enterprise applications**, select **Google Cloud (G Suite) Connector**, select **Single Sign-on** and then click on **Try out our new experience**.
 
 To test the steps in this tutorial, you should follow these recommendations:
 
-- Do not use your production environment, unless it is necessary.
-- If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Do not use your production environment, unless it is necessary.
+* If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 
 ## Frequently Asked Questions
 
@@ -73,9 +73,9 @@ To test the steps in this tutorial, you should follow these recommendations:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Google Cloud (G Suite) Connector supports **SP** initiated SSO
+* Google Cloud (G Suite) Connector supports **SP** initiated SSO.
 
-* Google Cloud (G Suite) Connector supports [**Automated** user provisioning](./g-suite-provisioning-tutorial.md)
+* Google Cloud (G Suite) Connector supports [**Automated** user provisioning](./g-suite-provisioning-tutorial.md).
 
 ## Adding Google Cloud (G Suite) Connector from the gallery
 
@@ -113,51 +113,55 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, if you want to configure for the **Gmail** perform the following steps:
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
+    a. In the **Identifier** textbox, type a URL using one of the following patterns:
 
-    b. In the **Identifier** textbox, type a URL using the following pattern:
+    | **Identifier** |
+    |----|
+    | `google.com/a/<yourdomain.com>` |
+    | `google.com` |
+    | `https://google.com` | 
+    | `https://google.com/a/<yourdomain.com>` |
 
-    ```http
-    google.com/a/<yourdomain.com>
-    google.com
-    https://google.com
-    https://google.com/a/<yourdomain.com>
-    ```
+    b. In the **Reply URL** textbox, type a URL using one of the following patterns: 
 
-    c. In the **Reply URL** textbox, type a URL using the following pattern: 
-
-    ```http
-    https://www.google.com
-    https://www.google.com/a/<yourdomain.com>
-    ```
+    | **Reply URL** |
+    |-----|
+    | `https://www.google.com/acs` |
+    | `https://www.google.com/a/<yourdomain.com>/acs` |
+    
+    c. In the **Sign on URL** textbox, type a URL using the following pattern: 
+    `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
 1. On the **Basic SAML Configuration** section, if you want to configure for the **Google Cloud Platform** perform the following steps:
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com`
-
-    b. In the **Identifier** textbox, type a URL using the following pattern:
+    a. In the **Identifier** textbox, type a URL using one of the following patterns:
 	
-    ```http
-    google.com/a/<yourdomain.com>
-    google.com
-    https://google.com
-    https://google.com/a/<yourdomain.com>
-    ```
+    | **Identifier** |
+    |-----|
+    | `google.com/a/<yourdomain.com>` |
+    | `google.com` |
+    | `https://google.com` |
+    | `https://google.com/a/<yourdomain.com>` |
     
-    c. In the **Reply URL** textbox, type a URL using the following pattern: 
+    b. In the **Reply URL** textbox, type a URL using one of the following patterns: 
     
-    ```http
-    https://www.google.com
-    https://www.google.com/a/<yourdomain.com>
-    ```
+    | **Reply URL** |
+    |-----|
+    | `https://www.google.com/acs` |
+    | `https://www.google.com/a/<yourdomain.com>/acs` |
+    
+    c. In the **Sign on URL** textbox, type a URL using the following pattern:
+    `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com`
 
     > [!NOTE]
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Google Cloud (G Suite) Connector doesn't provide Entity ID/Identifier value on Single Sign On configuration so when you uncheck the **domain specific issuer** option the Identifier value will be `google.com`. If you check the **domain specific issuer** option it will be `google.com/a/<yourdomainname.com>`. To check/uncheck the **domain specific issuer** option you need to go to the **Configure Google Cloud (G Suite) Connector SSO** section which is explained later in the tutorial. For more information contact [Google Cloud (G Suite) Connector Client support team](https://www.google.com/contact/).
+	> These values are not real. Update these values with the actual Identifier,Reply URL and Sign on URL. Google Cloud (G Suite) Connector doesn't provide Entity ID/Identifier value on Single Sign On configuration so when you uncheck the **domain specific issuer** option the Identifier value will be `google.com`. If you check the **domain specific issuer** option it will be `google.com/a/<yourdomainname.com>`. To check/uncheck the **domain specific issuer** option you need to go to the **Configure Google Cloud (G Suite) Connector SSO** section which is explained later in the tutorial. For more information contact [Google Cloud (G Suite) Connector Client support team](https://www.google.com/contact/).
 
 1. Your Google Cloud (G Suite) Connector application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **Unique User Identifier** is **user.userprincipalname** but Google Cloud (G Suite) Connector expects this to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
 
 	![image](common/default-attributes.png)
 
+    > [!NOTE]
+    > Ensure that the the SAML Response doesn't include any non-standard ASCII characters in the DisplayName and Surname attributes.    
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -166,6 +170,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up Google Cloud (G Suite) Connector** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
+
+    ```Logout URL
+    https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0
+    ```
 
 ### Create an Azure AD test user
 
@@ -197,30 +205,27 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Click **Security**. If you don't see the link, it may be hidden under the **More Controls** menu at the bottom of the screen.
 
-    ![Click Security.][10]
+    ![Click Security.](./media/google-apps-tutorial/gapps-security.png)
 
 3. On the **Security** page, click **Set up single sign-on (SSO).**
 
-    ![Click SSO.][11]
+    ![Click SSO.](./media/google-apps-tutorial/security-gapps.png)
 
 4. Perform the following configuration changes:
 
-    ![Configure SSO][12]
+    ![Configure SSO.](./media/google-apps-tutorial/configuration.png)
 
     a. Select **Setup SSO with third-party identity provider**.
 
     b. In the **Sign-in page URL** field in Google Cloud (G Suite) Connector, paste the value of **Login URL** which you have copied from Azure portal.
 
-    c. In the **Sign-out page URL** field in Google Cloud (G Suite) Connector, paste the value of **Login URL** which you have copied from Azure portal.
-
-    > [!NOTE]
-    > Google cloud (G Suite) is based on SAML Logout protocol. So, In the **Sign-out page URL** field we need to use the SAML Logout URL i.e. the login URL as the value for the same.
+    c. In the **Sign-out page URL** field in Google Cloud (G Suite) Connector, paste the value of **Logout URL** which you have copied from Azure portal.
 
     d. In Google Cloud (G Suite) Connector, for the **Verification certificate**, upload the certificate that you have downloaded from Azure portal.   
 
     e. Check/Uncheck the **Use a domain specific issuer** option as per the note mentioned in the above **Basic SAML Configuration** section in the Azure AD.
 
-	f. In the **Change password URL** field in Google Cloud (G Suite) Connector, paste the value of **Change password URL** which you have copied from Azure portal.
+	f. In the **Change password URL** field in Google Cloud (G Suite) Connector, enter the value as `https://account.activedirectory.windowsazure.com/changepassword.aspx`
 
     g. Click **Save**.
 
@@ -244,15 +249,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Google Cloud (G Suite) Connector Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Google Cloud (G Suite) Connector tile in the My Apps, this will redirect to Google Cloud (G Suite) Connector Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
-
+* You can use Microsoft My Apps. When you click the Google Cloud (G Suite) Connector tile in the My Apps, this will redirect to Google Cloud (G Suite) Connector Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
 Once you configure Google Cloud (G Suite) Connector you can enforce Session Control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
-
-<!--Image references-->
-
-[10]: ./media/google-apps-tutorial/gapps-security.png
-[11]: ./media/google-apps-tutorial/security-gapps.png
-[12]: ./media/google-apps-tutorial/gapps-sso-config.png

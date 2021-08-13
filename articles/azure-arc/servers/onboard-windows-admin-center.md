@@ -1,17 +1,17 @@
 ---
 title: Connect hybrid machines to Azure from Windows Admin Center
-description: In this article, you learn how to install the agent and connect machines to Azure by using Azure Arc enabled servers from  Windows Admin Center.
-ms.date: 10/12/2020
+description: In this article, you learn how to install the agent and connect machines to Azure by using Azure Arc-enabled servers from  Windows Admin Center.
+ms.date: 07/16/2021
 ms.topic: conceptual
 ---
 
 # Connect hybrid machines to Azure from Windows Admin Center
 
-You can enable Azure Arc enabled servers for one or more Windows machines in your environment by performing a set of steps manually. Or you can use [Windows Admin Center](/windows-server/manage/windows-admin-center/understand/what-is) to deploy the Connected Machine agent and register your on-premises servers without having to perform any steps outside of this tool.
+You can enable Azure Arc-enabled servers for one or more Windows machines in your environment by performing a set of steps manually. Or you can use [Windows Admin Center](/windows-server/manage/windows-admin-center/understand/what-is) to deploy the Connected Machine agent and register your on-premises servers without having to perform any steps outside of this tool.
 
 ## Prerequisites
 
-* Arc enabled servers - Review the [prerequisites](agent-overview.md#prerequisites) and verify that your subscription, your Azure account, and resources meet the requirements.
+* Arc-enabled servers - Review the [prerequisites](agent-overview.md#prerequisites) and verify that your subscription, your Azure account, and resources meet the requirements.
 
 * Windows Admin Center - Review the requirements to [prepare your environment](/windows-server/manage/windows-admin-center/deploy/prepare-environment) to deploy and [configure Azure integration ](/windows-server/manage/windows-admin-center/azure/azure-integration).
 
@@ -25,7 +25,7 @@ This deployment method requires that you have administrator rights on the target
 
 ## Deploy
 
-Perform the following steps to configure the Windows server with Arc enabled servers.
+Perform the following steps to configure the Windows server with Arc-enabled servers.
 
 1. Sign in to Windows Admin Center.
 
@@ -46,15 +46,15 @@ Perform the following steps to configure the Windows server with Arc enabled ser
     1. In the **Region** drop-down list, select the Azure region to store the servers metadata.
     1. If the machine or server is communicating through a proxy server to connect to the internet, select the option **Use proxy server**. Specify the proxy server IP address or the name, and port number that the machine will use to communicate with the proxy server.
 
-1. Select **Set up** to proceed with configuring the Windows server with Azure Arc enabled servers.
+1. Select **Set up** to proceed with configuring the Windows server with Azure Arc-enabled servers.
 
-The Windows server will connect to Azure, download the Connected Machine agent, install it and register with Azure Arc enabled servers. To track the progress, select **Notifications** in the menu.
+The Windows server will connect to Azure, download the Connected Machine agent, install it and register with Azure Arc-enabled servers. To track the progress, select **Notifications** in the menu.
 
 To confirm installation of the Connected Machine Agent, in Windows Admin Center select [**Events**](/windows-server/manage/windows-admin-center/use/manage-servers#events) from the left-hand pane to review *MsiInstaller* events in the Application Event Log.
 
 ## Verify the connection with Azure Arc
 
-After you install the agent and configure it to connect to Azure Arc enabled servers, go to the Azure portal to verify that the server has successfully connected. View your machine in the [Azure portal](https://portal.azure.com).
+After you install the agent and configure it to connect to Azure Arc-enabled servers, go to the Azure portal to verify that the server has successfully connected. View your machine in the [Azure portal](https://portal.azure.com).
 
 :::image type="content" source="./learn/media/quick-enable-hybrid-vm/enabled-machine.png" alt-text="A successful machine connection" border="false":::
 
@@ -62,6 +62,6 @@ After you install the agent and configure it to connect to Azure Arc enabled ser
 
 * Troubleshooting information can be found in the [Troubleshoot Connected Machine agent guide](troubleshoot-agent-onboard.md).
 
-* Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verifying the machine is reporting to the expected Log Analytics workspace, enable monitoring with [Azure Monitor with VMs](../../azure-monitor/insights/vminsights-enable-policy.md), and much more.
+* Review the [Planning and deployment guide](plan-at-scale-deployment.md) to plan for deploying Azure Arc-enabled servers at any scale and implement centralized management and monitoring.
 
-* Learn more about the [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md). The Log Analytics agent for Windows and Linux is required when you want to collect operating system and workload monitoring data, manage it using Automation runbooks or features like Update Management, or use other Azure services like [Azure Security Center](../../security-center/security-center-introduction.md).
+* Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verifying the machine is reporting to the expected Log Analytics workspace, enable monitoring with [VM insights](../../azure-monitor/vm/vminsights-enable-policy.md), and much more.

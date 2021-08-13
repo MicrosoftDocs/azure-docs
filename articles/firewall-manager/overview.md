@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 01/12/2021
+ms.date: 08/03/2021
 ms.author: victorh
 ---
 
@@ -61,7 +61,7 @@ Easily route traffic to your secured hub for filtering and logging without the n
 
 This feature is available only with secured virtual hub deployments.
 
-You can use third-party providers for Branch to Internet (B2I) traffic filtering, side by side with Azure Firewall for Branch to VNet (B2V), VNet to VNet (V2V) and VNet to Internet (V2I). You can also use third-party providers for V2I traffic filtering as long as Azure Firewall isn't required for B2V or V2V. 
+You can use third-party providers for Branch to Internet (B2I) traffic filtering, side by side with Azure Firewall for Branch to VNet (B2V), VNet to VNet (V2V) and VNet to Internet (V2I). 
 
 ## Region availability
 
@@ -77,16 +77,15 @@ Azure Firewall Manager has the following known issues:
 |One secured virtual hub per region|You can't have more than one secured virtual hub per region.|Create multiple virtual WANs in a region.|
 |Base policies must be in same region as local policy|Create all your local policies in the same region as the base policy. You can still apply a policy that was created in one region on a secured hub from another region.|Investigating|
 |Filtering inter-hub traffic in secure virtual hub deployments|Secured Virtual Hub to Secured Virtual Hub communication filtering isn't yet supported. However, hub to hub communication still works if private traffic filtering via Azure Firewall isn't enabled.|Investigating|
-|Spokes in different region than the virtual hub|Spokes in different region than the virtual hub aren't supported.|Investigating<br><br>Create a hub per region and peer VNets in the same region as the hub.|
 |Branch to branch traffic with private traffic filtering enabled|Branch to branch traffic isn't supported when private traffic filtering is enabled. |Investigating.<br><br>Don't secure private traffic if branch to branch connectivity is critical.|
 |All Secured Virtual Hubs sharing the same virtual WAN must be in the same resource group.|This behavior is aligned with Virtual WAN Hubs today.|Create multiple Virtual WANs to allow Secured Virtual Hubs to be created in different resource groups.|
 |Bulk IP address addition fails|The secure hub firewall goes into a failed state if you add multiple public IP addresses.|Add smaller public IP address increments. For example, add 10 at a time.|
 |DDoS Protection Standard not supported with secured virtual hubs|DDoS Protection Standard is not integrated with vWANs.|Investigating|
 |Activity logs not fully supported|Firewall policy does not currently support Activity logs.|Investigating|
-|Configuring SNAT private IP address ranges|[Private IP range settings](../firewall/snat-private-range.md) are ignored if Azure Firewall policy is configured. The default Azure Firewall behavior is used, where it doesn’t SNAT Network rules when the destination IP address is in a private IP address range per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918).|Investigating|
-|Some firewall settings are not migrated when the firewall is migrated to use Firewall Policy|Availability Zones and SNAT private addresses are not migrated when you migrate to Azure Firewall Policy.|Investigating| 
+|Azure Firewall Manager overwrites static and custom routes causing downtime in virtual WAN hub.|You should not use Azure Firewall Manager to manage your settings in deployments configured with custom or static routes. Updates from Firewall Manager can potentially overwrite static or custom route settings.|If you use static or custom routes, use the Virtual WAN page to manage security settings and avoid configuration via Azure Firewall Manager.<br><br>For more information, see [Scenario: Azure Firewall - custom](../virtual-wan/scenario-route-between-vnets-firewall.md).|
 
 ## Next steps
 
+- [Learn module: Introduction to Azure Firewall Manager](/learn/modules/intro-to-azure-firewall-manager/).
 - Review [Azure Firewall Manager deployment overview](deployment-overview.md)
 - Learn about [secured Virtual Hubs](secured-virtual-hub.md).

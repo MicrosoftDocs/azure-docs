@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 11/12/2020
+ms.date: 06/18/2021
 ms.author: aahi
 ---
 
@@ -16,29 +16,23 @@ ms.author: aahi
 There are multiple ways you can install and run the Text Analytics for health container. 
 
 - Use the [Azure portal](../how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare) to create a Text Analytics resource, and use Docker to get your container.
+- Use an Azure VM with Docker to run the container. Refer to [Docker on Azure](../../../docker/index.yml).
 - Use the following PowerShell and Azure CLI scripts to automate resource deployment and container configuration.
 
 ### Run the container locally
 
-To run the container in your own environment after downloading the container image, find its image ID:
- 
-```bash
-docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
-```
-
-Execute the following `docker run` command. Replace the placeholders below with your own values:
+To run the container in your own environment after downloading the container image, execute the following `docker run` command. Replace the placeholders below with your own values:
 
 | Placeholder | Value | Format or example |
 |-------------|-------|---|
 | **{API_KEY}** | The key for your Text Analytics resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
 | **{ENDPOINT_URI}** | The endpoint for accessing the Text Analytics API. You can find it on your resource's **Key and endpoint** page, on the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-| **{IMAGE_ID}** | The image ID for your container. | `1.1.011300001-amd64-preview` |
-| **{INPUT_DIR}** | The input directory for the container. | Windows: `C:\healthcareMount` <br> Linux/MacOS: `/home/username/input` |
 
 ```bash
 docker run --rm -it -p 5000:5000 --cpus 6 --memory 12g \
---mount type=bind,src={INPUT_DIR},target=/output {IMAGE_ID} \
+mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare:latest \
 Eula=accept \
+rai_terms=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY} \
 Logging:Disk:Format=json
@@ -46,10 +40,10 @@ Logging:Disk:Format=json
 
 This command:
 
-- Assumes that the input directory exists on the host machine
-- Runs a Text Analytics for Health container from the container image
+- Runs the *Text Analytics for health* container from the container image
 - Allocates 6 CPU core and 12 gigabytes (GB) of memory
 - Exposes TCP port 5000 and allocates a pseudo-TTY for the container
+- Accepts the end user license agreement (Eula) and responsible AI (RAI) terms
 - Automatically removes the container after it exits. The container image is still available on the host computer.
 
 ### Demo UI to visualize output
@@ -66,7 +60,7 @@ http://<serverURL>:5000/demo
 Use the example cURL request below to submit a query to the container you have deployed replacing the `serverURL` variable with the appropriate value.
 
 ```bash
-curl -X POST 'http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
+curl -X POST 'http://<serverURL>:5000/text/analytics/v3.1/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
 
 ```
 
@@ -79,7 +73,7 @@ Azure [Web App for Containers](https://azure.microsoft.com/services/app-service/
 
 Run this PowerShell script using the Azure CLI to create a Web App for Containers, using your subscription and the container image over HTTPS. Wait for the script to complete (approximately 25-30 minutes) before submitting the first request.
 
-```bash
+```azurecli
 $subscription_name = ""                    # THe name of the subscription you want you resource to be created on.
 $resource_group_name = ""                  # The name of the resource group you want the AppServicePlan
                                            #    and AppSerivce to be attached to.
@@ -90,15 +84,13 @@ $appservice_plan_name = ""                 # This is the AppServicePlan name you
 $appservice_name = ""                      # This is the AppService resource name you wish to have.
 $TEXT_ANALYTICS_RESOURCE_API_KEY = ""      # This should be taken from the Text Analytics resource.
 $TEXT_ANALYTICS_RESOURCE_API_ENDPOINT = "" # This should be taken from the Text Analytics resource.
-$DOCKER_REGISTRY_SERVER_PASSWORD = ""      # This will be provided separately.
-$DOCKER_REGISTRY_SERVER_USERNAME = ""      # This will be provided separately.
-$DOCKER_IMAGE_NAME = "containerpreview.azurecr.io/microsoft/cognitive-services-healthcare:latest"
+$DOCKER_IMAGE_NAME = "mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare:latest"
 
 az login
 az account set -s $subscription_name
 az appservice plan create -n $appservice_plan_name -g $resource_group_name --is-linux -l $resources_location --sku P3V2
-az webapp create -g $resource_group_name -p $appservice_plan_name -n $appservice_name -i $DOCKER_IMAGE_NAME -s $DOCKER_REGISTRY_SERVER_USERNAME -w $DOCKER_REGISTRY_SERVER_PASSWORD
-az webapp config appsettings set -g $resource_group_name -n $appservice_name --settings Eula=accept Billing=$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT ApiKey=$TEXT_ANALYTICS_RESOURCE_API_KEY
+az webapp create -g $resource_group_name -p $appservice_plan_name -n $appservice_name -i $DOCKER_IMAGE_NAME 
+az webapp config appsettings set -g $resource_group_name -n $appservice_name --settings Eula=accept rai_terms=accept Billing=$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT ApiKey=$TEXT_ANALYTICS_RESOURCE_API_KEY
 
 # Once deployment complete, the resource should be available at: https://<appservice_name>.azurewebsites.net
 ```
@@ -107,13 +99,13 @@ az webapp config appsettings set -g $resource_group_name -n $appservice_name --s
 
 You can also use an Azure Container Instance (ACI) to make deployment easier. ACI is a resource that allows you to run Docker containers on-demand in a managed, serverless Azure environment. 
 
-See [How to use Azure Container Instances](../how-tos/text-analytics-how-to-use-container-instances.md) for steps on deploying an ACI resource using the Azure portal. You can also use the below PowerShell script using Azure CLI, which will create a ACI on your subscription using the container image.  Wait for the script to complete (approximately 25-30 minutes) before submitting the first request.  Due to the limit on the maximum number of CPUs per ACI resource, do not select this option if you expect to submit more than 5 large documents (approximately 5000 characters each) per request.
+See [How to use Azure Container Instances](../../containers/azure-container-instance-recipe.md) for steps on deploying an ACI resource using the Azure portal. You can also use the below PowerShell script using Azure CLI, which will create a ACI on your subscription using the container image.  Wait for the script to complete (approximately 25-30 minutes) before submitting the first request.  Due to the limit on the maximum number of CPUs per ACI resource, do not select this option if you expect to submit more than 5 large documents (approximately 5000 characters each) per request.
 See the [ACI regional support](../../../container-instances/container-instances-region-availability.md) article for availability information. 
 
 > [!NOTE] 
 > Azure Container Instances don't include HTTPS support for the builtin domains. If you need HTTPS, you will need to manually configure it, including creating a certificate and registering a domain. You can find instructions to do this with NGINX below.
 
-```bash
+```azurecli
 $subscription_name = ""                    # The name of the subscription you want you resource to be created on.
 $resource_group_name = ""                  # The name of the resource group you want the AppServicePlan
                                            # and AppService to be attached to.
@@ -123,15 +115,12 @@ $resources_location = ""                   # This is the location you wish the w
 $azure_container_instance_name = ""        # This is the AzureContainerInstance name you wish to have.
 $TEXT_ANALYTICS_RESOURCE_API_KEY = ""      # This should be taken from the Text Analytics resource.
 $TEXT_ANALYTICS_RESOURCE_API_ENDPOINT = "" # This should be taken from the Text Analytics resource.
-$DOCKER_REGISTRY_SERVER_PASSWORD = ""      # This will be provided separately.
-$DOCKER_REGISTRY_SERVER_USERNAME = ""      # This will be provided separately.
 $DNS_LABEL = ""                            # This is the DNS label name you wish your ACI will have
-$DOCKER_REGISTRY_LOGIN_SERVER = "containerpreview.azurecr.io"
-$DOCKER_IMAGE_NAME = "containerpreview.azurecr.io/microsoft/cognitive-services-healthcare:latest"
+$DOCKER_IMAGE_NAME = "mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare:latest"
 
 az login
 az account set -s $subscription_name
-az container create --resource-group $resource_group_name --name $azure_container_instance_name --image $DOCKER_IMAGE_NAME --cpu 4 --memory 12 --registry-login-server $DOCKER_REGISTRY_LOGIN_SERVER --registry-username $DOCKER_REGISTRY_SERVER_USERNAME --registry-password $DOCKER_REGISTRY_SERVER_PASSWORD --port 5000 --dns-name-label $DNS_LABEL --environment-variables Eula=accept Billing=$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT ApiKey=$TEXT_ANALYTICS_RESOURCE_API_KEY
+az container create --resource-group $resource_group_name --name $azure_container_instance_name --image $DOCKER_IMAGE_NAME --cpu 4 --memory 12 --port 5000 --dns-name-label $DNS_LABEL --environment-variables Eula=accept rai_terms=accept Billing=$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT ApiKey=$TEXT_ANALYTICS_RESOURCE_API_KEY
 
 # Once deployment complete, the resource should be available at: http://<unique_dns_label>.<resource_group_region>.azurecontainer.io:5000
 ```
@@ -208,4 +197,3 @@ docker-compose up
 ```
 
 For more information, see NGINX's documentation on [NGINX SSL Termination](https://docs.nginx.com/nginx/admin-guide/security-controls/terminating-ssl-http/).
-

@@ -8,12 +8,12 @@ manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/04/2020
+ms.custom: subject-rbac-steps
+ms.date: 07/26/2021
 ms.author: radeltch
 
 ---
@@ -439,8 +439,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    >You can check the extension, by running SUSEConnect ---list-extensions.  
    >To achieve the faster failover times with Azure Fence Agent:
    > - on SLES 12 SP4 or SLES 12 SP5 install version **4.6.2** or higher of package python-azure-mgmt-compute  
-   > - on SLES 15 install version **4.6.2** or higher of package python**3**-azure-mgmt-compute 
-
+   > - on SLES 15.X install version **4.6.2** of package python**3**-azure-mgmt-compute, but not higher. Avoid version 17.0.0-6.7.1 of package python**3**-azure-mgmt-compute, as it contains changes incompatible with Azure Fence Agent    
+     
 1. **[A]** Setup host name resolution
 
    You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
@@ -581,7 +581,7 @@ The STONITH device uses a Service Principal to authorize against Microsoft Azure
 1. Select Certificates and Secrets, then click New client secret
 1. Enter a description for a new key, select "Never expires" and click Add
 1. Write down the Value. It is used as the **password** for the Service Principal
-1. Select Overview. Write down the Application ID. It is used as the username (**login ID** in the steps below) of the Service Principal
+1. Select Overview. Write down the Application ID. It is used as the username of the Service Principal
 
 ### **[1]** Create a custom role for the fence agent
 
@@ -616,29 +616,23 @@ Use the following content for the input file. You need to adapt the content to y
 
 ### **[A]** Assign the custom role to the Service Principal
 
-Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to the Service Principal. Don't use the Owner role anymore!
-
-1. Go to [https://portal.azure.com](https://portal.azure.com)
-1. Open the All resources blade
-1. Select the virtual machine of the first cluster node
-1. Click Access control (IAM)
-1. Click Add role assignment
-1. Select the role "Linux Fence Agent Role"
-1. Enter the name of the application you created above
-1. Click Save
-
-Repeat the steps above for the second cluster node.
+Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to the Service Principal. Do not use the Owner role anymore! For detailed steps, see [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.md).   
+Make sure to assign the role for both cluster nodes.    
 
 ### **[1]** Create the STONITH devices
 
 After you edited the permissions for the virtual machines, you can configure the STONITH devices in the cluster.
 
+> [!NOTE]
+> Option 'pcmk_host_map' is ONLY required in the command, if the host names and the Azure VM names are NOT identical. Specify the mapping in the format **hostname:vm-name**.
+> Refer to the bold section in the command.
+
 <pre><code>sudo crm configure property stonith-enabled=true
 crm configure property concurrent-fencing=true
-# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
+# replace the bold string with your subscription ID, resource group of the VM, tenant ID, service principal application ID and password
 sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
-  params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>" \
-  pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 \ 
+  params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>application ID</b>" passwd="<b>password</b>" \
+  pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
   op monitor interval=3600 timeout=120
 
 sudo crm configure property stonith-timeout=900
@@ -653,7 +647,7 @@ sudo crm configure property stonith-timeout=900
 
 ## Pacemaker configuration for Azure scheduled events
 
-Azure offers [scheduled events](../../linux/scheduled-events.md). Scheduled events are provided via meta-data service and allow time for the application to prepare for events like VM shutdown, VM redeployment, etc. Resource agent **[azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161)** monitors for scheduled Azure events. If events are detected, the agent will attempt to stop all resources on the impacted VM and move them to another node in the cluster. To achieve that additional Pacemaker resources must be configured. 
+Azure offers [scheduled events](../../linux/scheduled-events.md). Scheduled events are provided via meta-data service and allow time for the application to prepare for events like VM shutdown, VM redeployment, etc. Resource agent **[azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161)** monitors for scheduled Azure events. If events are detected and the resource agent determines that there is another available cluster node, the azure-events agent will place the target cluster node in standby mode, in order to force the cluster to migrate resources away from the VM with pending [Azure scheduled events](../../linux/scheduled-events.md). To achieve that additional Pacemaker resources must be configured. 
 
 1. **[A]** Make sure the package for the **azure-events** agent is already installed and up to date. 
 

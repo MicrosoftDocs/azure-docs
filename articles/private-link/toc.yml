@@ -43,20 +43,25 @@
       href: tutorial-private-endpoint-sql-cli.md
 - name: Concepts
   items:
+  - name: Availability
+    href: availability.md
   - name: Private Endpoint
     href: private-endpoint-overview.md
   - name: Private Link Service
     href: private-link-service-overview.md    
   - name: Private Endpoint DNS integration
-    href: private-endpoint-dns.md    
+    href: private-endpoint-dns.md   
+  - name: RBAC permissions
+    href: rbac-permissions.md 
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
-
+      href: /security/benchmark/azure/baselines/private-link-security-baseline?toc=/azure/private-link/toc.json
 - name: How-to
   items:
-  - name: Disable network policies for a private endpoint
+  - name: Export private endpoint DNS records
+    href: private-endpoint-export-dns.md
+  - name: Disable network policies for private endpoints
     href: disable-private-endpoint-network-policy.md
   - name: Disable network policies for a Private Link Service
     href: disable-private-link-service-network-policy.md
@@ -70,8 +75,6 @@
       href: troubleshoot-private-endpoint-connectivity.md
     - name: Troubleshoot Private Link Service connectivity problems
       href: troubleshoot-private-link-connectivity.md 
-     
-
 - name: Reference
   items:
   - name: Azure CLI
@@ -111,4 +114,4 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-virtual-network
   - name: FAQ
-    href: private-link-faq.md
+    href: private-link-faq.yml

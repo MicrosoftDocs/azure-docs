@@ -2,13 +2,13 @@
 title: Overview of Red Hat Enterprise Linux images in Azure
 description: Learn about Red Hat Enterprise Linux images in Microsoft Azure.
 author: asinn826
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: redhat
+ms.collection: linux
 ms.topic: article
 ms.date: 02/10/2020
-ms.author: alsin
+ms.author: mathapli
 ms.reviewer: cynthn
-
 
 ---
 
@@ -57,10 +57,13 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:8-LVM:lat
 ```
 
 >[!NOTE]
-> In general, the comparison of versions to determine the latest follows the rules of the [CompareTo method](/dotnet/api/system.version.compareto?view=netcore-3.1#system_version_compareto_system_version_).
-This image version comparison is done by comparing the values as a [Version](/dotnet/api/system.version.-ctor?view=netframework-4.8) object, not as a string.
+> In general, the comparison of versions to determine the latest follows the rules of the [CompareTo method](/dotnet/api/system.version.compareto#system_version_compareto_system_version_).
+This image version comparison is done by comparing the values as a [Version](/dotnet/api/system.version.-ctor) object, not as a string.
 
 ## RHEL 6 image types
+
+>[!NOTE]
+> As of December 30 2020, RHEL 6.10 entered End Of Life (EOL). For continued support please enable ELS as part of the Extended Life-cycle Support phase, see [Red Hat ELS documentation](./redhat-extended-lifecycle-support.md).
 
 For RHEL 6.x images, the image types are shown in the following table.
 
@@ -94,7 +97,7 @@ For RHEL 7.x images, there are a few different image types. The following table 
 ## RHEL 8 image types
 
 >[!NOTE]
-> Red Hat recommends using Grubby to configure kernel command line parameters in RHEL 8+. More details are available [here](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/configuring-kernel-command-line-parameters_managing-monitoring-and-updating-the-kernel).
+> Red Hat recommends using Grubby to configure kernel command line parameters in RHEL 8+. For more information, see [Chapter 5. Configuring kernel command-line parameters Red Hat Enterprise Linux 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/configuring-kernel-command-line-parameters_managing-monitoring-and-updating-the-kernel).
 
 Details for RHEL 8 image types are below.
 
@@ -102,8 +105,18 @@ Details for RHEL 8 image types are below.
 |----------|-------|------------|---------|--------
 |RedHat | RHEL | 8 | Concatenated values of the RHEL minor version and the date published (for example, 8.0.20191023) | These images are RHEL 8 LVM-partitioned images connected to standard Red Hat repositories.
 |RedHat | RHEL | 8-gen2 | Concatenated values of the RHEL minor version and the date published (for example, 8.0.20191024) | These images are Hyper-V Generation 2 RHEL 8 LVM-partitioned images connected to standard Red Hat repositories. For more information about Generation 2 VMs in Azure, see [Support for Generation 2 VMs on Azure](../../generation-2.md).
+|RedHat | RHEL | RHEL-SAP-APPS | Concatenated values of the RHEL minor version and the date published (for example, 8.1.2021012201) | These images are RHEL for SAP Applications images. They're entitled to access SAP Applications repositories and base RHEL repositories.
+|RedHat | RHEL | RHEL-SAP-HA | Concatenated values of the RHEL minor version and the date published (for example, 8.1.2021010602) | These images are RHEL for SAP with High Availability and Update Services images. They're entitled to access the SAP Solutions and Applications repositories and the High Availability repositories as well as RHEL E4S repositories. Billing includes the RHEL premium, SAP premium, and High Availability premium on top of the base compute fee.
 
-## RHEL longer support add-ons
+## RHEL Extended Support add-ons
+
+### Extended Life-cycle Support
+
+The Extended Life-cycle Support (ELS) add-on is an optional subscription that enables critical and important security fixes for releases that have reached End Of Life (EOL). More information on RHEL EUS is available in [Red Hat's documentation](https://access.redhat.com/support/policy/updates/errata#Extended_Life_Cycle_Support).
+
+ELS is currently only available for RHEL 6.10. For pay-as-you-go images, ELS can be enabled by following the steps in the [Red Hat ELS documentation](./redhat-extended-lifecycle-support.md).
+
+If you’re running on an older version, an upgrade to RHEL 6.10 is required before you can enable ELS.
 
 ### Extended Update Support
 

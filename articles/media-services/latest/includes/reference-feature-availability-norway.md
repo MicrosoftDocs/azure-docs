@@ -9,12 +9,12 @@ ms.author: inhenkel
 <!--Feature availability in region-->
 ## Norway
 
-| Feature | Norway East | Norway West |
-| --- | :---: | :---: |
-| [Azure EventGrid](../reacting-to-media-services-events.md) |![Azure EventGrid Norway East future](../media/azure-clouds-regions/planned-active.svg)  |![Azure EventGrid Norway West future](../media/azure-clouds-regions/planned-active.svg) |
-| [VideoAnalyzerPreset](../analyzing-video-audio-files-concept.md) |![VideoAnalyzerPreset Norway East future](../media/azure-clouds-regions/planned-active.svg)  | ![VideoAnalyzerPreset Norway West future](../media/azure-clouds-regions/planned-active.svg) |
-| [AudioAnalyzerPreset](../analyzing-video-audio-files-concept.md) |![AudioAnalyzerPreset Norway East future](../media/azure-clouds-regions/planned-active.svg)  | ![AudioAnalyzerPreset Norway West future](../media/azure-clouds-regions/planned-active.svg) |
-| [StandardEncoderPreset](../encoding-concept.md) |![StandardEncoderPreset Norway East future](../media/azure-clouds-regions/planned-active.svg)  | ![StandardEncoderPreset Norway West future](../media/azure-clouds-regions/planned-active.svg) |
-| [LiveEvents](../live-streaming-overview.md) |![LiveEvents Norway East future](../media/azure-clouds-regions/planned-active.svg)  | ![LiveEvents Norway West future](../media/azure-clouds-regions/planned-active.svg) |
-| [StreamingEndpoints](../streaming-endpoint-concept.md) |![StreamingEndpoints Norway East future](../media/azure-clouds-regions/planned-active.svg) | ![StreamingEndpoints Norway West future](../media/azure-clouds-regions/planned-active.svg) |
-| [LiveTranscription](../live-transcription.md) |![LiveTranscription Norway East future](../media/azure-clouds-regions/planned-active.svg) |![LiveTranscription Norway West future](../media/azure-clouds-regions/planned-active.svg) |
+| Feature | Norway East |
+| --- | :---: |
+| [Azure EventGrid](../monitoring/reacting-to-media-services-events.md) |![Azure EventGrid Norway East future](../media/azure-clouds-regions/ga.svg)  |
+| [VideoAnalyzerPreset](../analyze-video-audio-files-concept.md) |![VideoAnalyzerPreset Norway East future](../media/azure-clouds-regions/ga.svg)  |
+| [AudioAnalyzerPreset](../analyze-video-audio-files-concept.md) |![AudioAnalyzerPreset Norway East future](../media/azure-clouds-regions/ga.svg)  |
+| [StandardEncoderPreset](../encode-concept.md) |![StandardEncoderPreset Norway East future](../media/azure-clouds-regions/ga.svg)  |
+| [LiveEvents](../stream-live-streaming-concept.md) |![LiveEvents Norway East future](../media/azure-clouds-regions/ga.svg)  |
+| [StreamingEndpoints](../stream-streaming-endpoint-concept.md) |![StreamingEndpoints Norway East future](../media/azure-clouds-regions/ga.svg) |
+| [LiveTranscription](../live-event-live-transcription-how-to.md) |![LiveTranscription Norway East future](../media/azure-clouds-regions/ga.svg) |

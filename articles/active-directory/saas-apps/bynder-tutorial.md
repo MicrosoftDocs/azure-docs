@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/07/2020
+ms.date: 07/27/2021
 ms.author: jeedes
 ---
 
@@ -25,7 +25,7 @@ In this tutorial, you'll learn how to integrate Bynder with Azure Active Directo
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get one-month free trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Bynder single sign-on (SSO) enabled subscription.
 
 ## Scenario description
@@ -35,7 +35,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * Bynder supports **SP and IDP** initiated SSO
 * Bynder supports **Just In Time** user provisioning
 
-## Adding Bynder from the gallery
+## Add Bynder from the gallery
 
 To configure the integration of Bynder into Azure AD, you need to add Bynder from the gallery to your list of managed SaaS apps.
 
@@ -51,7 +51,7 @@ To configure the integration of Bynder into Azure AD, you need to add Bynder fro
 
 Configure and test Azure AD SSO with Bynder using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Bynder.
 
-To configure and test Azure AD SSO with Bynder, complete the following building blocks:
+To configure and test Azure AD SSO with Bynder, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
@@ -60,13 +60,13 @@ To configure and test Azure AD SSO with Bynder, complete the following building 
    1. **[Create Bynder test user](#create-bynder-test-user)** - to have a counterpart of Britta Simon in Bynder that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD SSO
+## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **Bynder** application integration page, find the **Manage** section and select **Single sign-on**.
 1. On the **Select a Single sign-on method** page, select **SAML**.
-1. On the **Set up Single Sign-On with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up Single Sign-On with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -75,28 +75,28 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     a. In the **Identifier** text box, type a URL using the following pattern:
     
     For a Default Domain: 
-    `https://<company name>.getbynder.com`
+    `https://<COMPANY_NAME>.bynder.com`
     
     For a Custom Domain: 
-    `https;//<subdomain>.<domain>.com`
+    `https://<SUBDOMAIN>.<DOMAIN>.com`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
     
      For a Default Domain: 
-    `https://<company name>.getbynder.com/sso/SAML/authenticate/`
+    `https://<COMPANY_NAME>.bynder.com/sso/SAML/authenticate/`
     
     For a Custom Domain: 
-    `https://<subdomain>.<domain>.com/sso/SAML/authenticate/`
+    `https://<SUBDOMAIN>.<DOMAIN>.com/sso/SAML/authenticate/`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     
      For a Default Domain: 
-    `https://<company name>.getbynder.com/login/`
+    `https://<COMPANY_NAME>.bynder.com/login/`
     
      For a Custom Domain: 
-    ` https://<subdomain>.<domain>.com/login/`
+    ` https://<SUBDOMAIN>.<DOMAIN>.com/login/`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Bynder Client support team](https://www.bynder.com/en/support/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -159,9 +159,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Bynder for which you set up the SSO 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Bynder tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Bynder for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Bynder tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Bynder for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## Next steps
 
-Once you configure Bynder you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Once you configure Bynder you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

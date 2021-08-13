@@ -1,16 +1,17 @@
 ---
 title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
-ms.date: 10/22/2020
+ms.date: 05/01/2021
 ms.topic: conceptual
 ---
 # Azure Policy definition structure
 
 Azure Policy establishes conventions for resources. Policy definitions describe resource compliance
 [conditions](#conditions) and the effect to take if a condition is met. A condition compares a
-resource property [field](#fields) or a [value](#value) to a required value. Resource property fields are accessed by
-using [aliases](#aliases). When a resource property field is an array, a special [array alias](#understanding-the--alias) can be used to select values from all array members and apply a condition to each one.
-Learn more about [conditions](#conditions).
+resource property [field](#fields) or a [value](#value) to a required value. Resource property
+fields are accessed by using [aliases](#aliases). When a resource property field is an array, a
+special [array alias](#understanding-the--alias) can be used to select values from all array members
+and apply a condition to each one. Learn more about [conditions](#conditions).
 
 By defining conventions, you can control costs and more easily manage your resources. For example,
 you can specify that only certain types of virtual machines are allowed. Or, you can require that
@@ -18,7 +19,8 @@ resources have a particular tag. Policy assignments are inherited by child resou
 assignment is applied to a resource group, it's applicable to all the resources in that resource
 group.
 
-The policy definition _policyRule_ schema is found here: [https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
+The policy definition _policyRule_ schema is found here:
+[https://schema.management.azure.com/schemas/2020-10-01/policyDefinition.json](https://schema.management.azure.com/schemas/2020-10-01/policyDefinition.json)
 
 You use JSON to create a policy definition. The policy definition contains elements for:
 
@@ -117,7 +119,7 @@ We recommend that you set **mode** to `all` in most cases. All policy definition
 the portal use the `all` mode. If you use PowerShell or Azure CLI, you can specify the **mode**
 parameter manually. If the policy definition doesn't include a **mode** value, it defaults to `all`
 in Azure PowerShell and to `null` in Azure CLI. A `null` mode is the same as using `indexed` to
-support backwards compatibility.
+support backward compatibility.
 
 `indexed` should be used when creating policies that enforce tags or locations. While not required,
 it prevents resources that don't support tags and locations from showing up as non-compliant in the
@@ -155,12 +157,13 @@ The following Resource Provider modes are currently supported as a **preview**:
 
 The optional `metadata` property stores information about the policy definition. Customers can
 define any properties and values useful to their organization in `metadata`. However, there are some
-_common_ properties used by Azure Policy and in built-ins.
+_common_ properties used by Azure Policy and in built-ins. Each `metadata` property has a limit of
+1024 characters.
 
 ### Common metadata properties
 
 - `version` (string): Tracks details about the version of the contents of a policy definition.
-- `category` (string): Determines under which category in Azure portal the policy definition is
+- `category` (string): Determines under which category in the Azure portal the policy definition is
   displayed.
 - `preview` (boolean): True or false flag for if the policy definition is _preview_.
 - `deprecated` (boolean): True or false flag for if the policy definition has been marked as
@@ -177,7 +180,7 @@ _common_ properties used by Azure Policy and in built-ins.
 ## Parameters
 
 Parameters help simplify your policy management by reducing the number of policy definitions. Think
-of parameters like the fields on a form – `name`, `address`, `city`, `state`. These parameters
+of parameters like the fields on a form - `name`, `address`, `city`, `state`. These parameters
 always stay the same, however their values change based on the individual filling out the form.
 Parameters work the same way when building policies. By including parameters in a policy definition,
 you can reuse that policy for different scenarios by using different values.
@@ -204,17 +207,17 @@ A parameter has the following properties that are used in the policy definition:
     a context aware list. For more information, see [strongType](#strongtype).
   - `assignPermissions`: (Optional) Set as _true_ to have Azure portal create role assignments
     during policy assignment. This property is useful in case you wish to assign permissions outside
-    the assignment scope. There is one role assignment per role definition in the policy (or per
-    role definition in all of the policies in the initiative). The parameter value must be a valid
+    the assignment scope. There's one role assignment per role definition in the policy (or per role
+    definition in all of the policies in the initiative). The parameter value must be a valid
     resource or scope.
 - `defaultValue`: (Optional) Sets the value of the parameter in an assignment if no value is given.
   Required when updating an existing policy definition that is assigned.
 - `allowedValues`: (Optional) Provides an array of values that the parameter accepts during
-  assignment.
+  assignment. Allowed value comparisons are case-sensitive.
 
 As an example, you could define a policy definition to limit the locations where resources can be
-deployed. A parameter for that policy definition could be **allowedLocations**. This parameter
-would be used by each assignment of the policy definition to limit the accepted values. The use of
+deployed. A parameter for that policy definition could be **allowedLocations**. This parameter would
+be used by each assignment of the policy definition to limit the accepted values. The use of
 **strongType** provides an enhanced experience when completing the assignment through the portal:
 
 ```json
@@ -252,9 +255,9 @@ properties](#parameter-properties).
 
 ### strongType
 
-Within the `metadata` property, you can use **strongType** to provide a multi-select list of options
+Within the `metadata` property, you can use **strongType** to provide a multiselect list of options
 within the Azure portal. **strongType** can be a supported _resource type_ or an allowed value. To
-determine if a _resource type_ is valid for **strongType**, use
+determine whether a _resource type_ is valid for **strongType**, use
 [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider). The format for a
 _resource type_ **strongType** is `<Resource Provider>/<Resource Type>`. For example,
 `Microsoft.Network/virtualNetworks/subnets`.
@@ -274,9 +277,9 @@ The non _resource type_ allowed values for **strongType** are:
 ## Definition location
 
 While creating an initiative or policy, it's necessary to specify the definition location. The
-definition location must be a management group or a subscription. This location determines the
-scope to which the initiative or policy can be assigned. Resources must be direct members of or
-children within the hierarchy of the definition location to target for assignment.
+definition location must be a management group or a subscription. This location determines the scope
+to which the initiative or policy can be assigned. Resources must be direct members of or children
+within the hierarchy of the definition location to target for assignment.
 
 If the definition location is a:
 
@@ -339,8 +342,7 @@ within an **allOf** operation.
 
 ### Conditions
 
-A condition evaluates whether a **field** or the **value** accessor meets certain criteria. The
-supported conditions are:
+A condition evaluates whether a value meets certain criteria. The supported conditions are:
 
 - `"equals": "stringValue"`
 - `"notEquals": "stringValue"`
@@ -367,8 +369,8 @@ For **less**, **lessOrEquals**, **greater**, and **greaterOrEquals**, if the pro
 match the condition type, an error is thrown. String comparisons are made using
 `InvariantCultureIgnoreCase`.
 
-When using the **like** and **notLike** conditions, you provide a wildcard `*` in the value.
-The value shouldn't have more than one wildcard `*`.
+When using the **like** and **notLike** conditions, you provide a wildcard `*` in the value. The
+value shouldn't have more than one wildcard `*`.
 
 When using the **match** and **notMatch** conditions, provide `#` to match a digit, `?` for a
 letter, `.` to match any character, and any other character to match that actual character. While
@@ -376,15 +378,10 @@ letter, `.` to match any character, and any other character to match that actual
 are case-insensitive. Case-insensitive alternatives are available in **matchInsensitively** and
 **notMatchInsensitively**.
 
-In an **\[\*\] alias** array field value, each element in the array is evaluated individually with
-logical **and** between elements. For more information, see [Referencing array resource properties](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
-
 ### Fields
 
-Conditions are formed by using fields. A field matches properties in the resource request payload
-and describes the state of the resource.
-
-The following fields are supported:
+Conditions that evaluate whether the values of properties in the resource request payload meet
+certain criteria can be formed using a **field** expression. The following fields are supported:
 
 - `name`
 - `fullName`
@@ -393,6 +390,8 @@ The following fields are supported:
 - `kind`
 - `type`
 - `location`
+  - Location fields are normalized to support various formats. For example, `East US 2` is
+    considered equal to `eastus2`.
   - Use **global** for resources that are location agnostic.
 - `id`
   - Returns the resource ID of the resource that is being evaluated.
@@ -416,6 +415,11 @@ The following fields are supported:
 > [!NOTE]
 > `tags.<tagName>`, `tags[tagName]`, and `tags[tag.with.dots]` are still acceptable ways of
 > declaring a tags field. However, the preferred expressions are those listed above.
+
+> [!NOTE]
+> In **field** expressions referring to **\[\*\] alias**, each element in the array is evaluated
+> individually with logical **and** between elements. For more information, see
+> [Referencing array resource properties](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
 
 #### Use tags with parameters
 
@@ -442,7 +446,7 @@ using the `resourcegroup()` lookup function.
                 "value": "[resourcegroup().tags[parameters('tagName')]]"
             }],
             "roleDefinitionIds": [
-                "/providers/microsoft.authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+                "/providers/microsoft.authorization/roleDefinitions/4a9ae827-6dc8-4573-8ac7-8239d42aa03f"
             ]
         }
     }
@@ -451,9 +455,9 @@ using the `resourcegroup()` lookup function.
 
 ### Value
 
-Conditions can also be formed using **value**. **value** checks conditions against
-[parameters](#parameters), [supported template functions](#policy-functions), or literals. **value**
-is paired with any supported [condition](#conditions).
+Conditions that evaluate whether a value meets certain criteria can be formed using a **value**
+expression. Values can be literals, the values of [parameters](#parameters), or the returned values
+of any [supported template functions](#policy-functions).
 
 > [!WARNING]
 > If the result of a _template function_ is an error, policy evaluation fails. A failed evaluation
@@ -558,14 +562,16 @@ evaluation.
 
 ### Count
 
-Conditions that count how many members of an array in the resource payload satisfy a condition
-expression can be formed using **count** expression. Common scenarios are checking whether 'at least
-one of', 'exactly one of', 'all of', or 'none of' the array members satisfy the condition. **count**
-evaluates each [\[\*\] alias](#understanding-the--alias) array member for a condition expression and
-sums the _true_ results, which is then compared to the expression operator. **Count** expressions
-may be added up to three times to a single **policyRule** definition.
+Conditions that count how many members of an array meet certain criteria can be formed using a
+**count** expression. Common scenarios are checking whether 'at least one of', 'exactly one of',
+'all of', or 'none of' the array members satisfy a condition. **Count** evaluates each array member
+for a condition expression and sums the _true_ results, which is then compared to the expression
+operator.
 
-The structure of the **count** expression is:
+#### Field count
+
+Count how many members of an array in the request payload satisfy a condition expression. The
+structure of **field count** expressions is:
 
 ```json
 {
@@ -579,13 +585,11 @@ The structure of the **count** expression is:
 }
 ```
 
-The following properties are used with **count**:
+The following properties are used with **field count**:
 
-- **count.field** (required): Contains the path to the array and must be an array alias. If the
-  array is missing, the expression is evaluated to _false_ without considering the condition
-  expression.
-- **count.where** (optional): The condition expression to individually evaluate each [\[\*\]
-  alias](#understanding-the--alias) array member of **count.field**. If this property isn't
+- **count.field** (required): Contains the path to the array and must be an array alias.
+- **count.where** (optional): The condition expression to individually evaluate for each [\[\*\]
+  alias](#understanding-the--alias) array member of `count.field`. If this property isn't
   provided, all array members with the path of 'field' are evaluated to _true_. Any
   [condition](../concepts/definition-structure.md#conditions) can be used inside this property.
   [Logical operators](#logical-operators) can be used inside this property to create complex
@@ -594,9 +598,79 @@ The following properties are used with **count**:
   **count.where** condition expression. A numeric
   [condition](../concepts/definition-structure.md#conditions) should be used.
 
-For more details on how to work with array properties in Azure Policy, including detailed explanation on how the count expression is evaluated, see [Referencing array resource properties](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
+**Field count** expressions can enumerate the same field array up to three times in a single
+**policyRule** definition.
 
-#### Count examples
+For more details on how to work with array properties in Azure Policy, including detailed
+explanation on how the **field count** expression is evaluated, see
+[Referencing array resource properties](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
+
+#### Value count
+
+Count how many members of an array satisfy a condition. The array can be a literal array or a
+[reference to array parameter](#using-a-parameter-value). The structure of **value count**
+expressions is:
+
+```json
+{
+    "count": {
+        "value": "<literal array | array parameter reference>",
+        "name": "<index name>",
+        "where": {
+            /* condition expression */
+        }
+    },
+    "<condition>": "<compare the count of true condition expression array members to this value>"
+}
+```
+
+The following properties are used with **value count**:
+
+- **count.value** (required): The array to evaluate.
+- **count.name** (required): The index name, composed of English letters and digits. Defines a name
+  for the value of the array member evaluated in the current iteration. The name is used for
+  referencing the current value inside the `count.where` condition. Optional when the **count**
+  expression isn't in a child of another **count** expression. When not provided, the index name is
+  implicitly set to `"default"`.
+- **count.where** (optional): The condition expression to individually evaluate for each array
+  member of `count.value`. If this property isn't provided, all array members are evaluated to
+  _true_. Any [condition](../concepts/definition-structure.md#conditions) can be used inside this
+  property. [Logical operators](#logical-operators) can be used inside this property to create
+  complex evaluation requirements. The value of the currently enumerated array member can be
+  accessed by calling the [current](#the-current-function) function.
+- **\<condition\>** (required): The value is compared to the number of items that met the
+  `count.where` condition expression. A numeric
+  [condition](../concepts/definition-structure.md#conditions) should be used.
+
+The following limits are enforced:
+- Up to 10 **value count** expressions can be used in a single **policyRule** definition.
+- Each **value count** expression can perform up to 100 iterations. This number includes the number
+  of iterations performed by any parent **value count** expressions.
+
+#### The current function
+
+The `current()` function is only available inside the `count.where` condition. It returns the value
+of the array member that is currently enumerated by the **count** expression evaluation.
+
+**Value count usage**
+
+- `current(<index name defined in count.name>)`. For example: `current('arrayMember')`.
+- `current()`. Allowed only when the **value count** expression isn't a child of another **count**
+  expression. Returns the same value as above.
+
+If the value returned by the call is an object, property accessors are supported. For example:
+`current('objectArrayMember').property`.
+
+**Field count usage**
+
+- `current(<the array alias defined in count.field>)`. For example,
+  `current('Microsoft.Test/resource/enumeratedArray[*]')`.
+- `current()`. Allowed only when the **field count** expression isn't a child of another **count**
+  expression. Returns the same value as above.
+- `current(<alias of a property of the array member>)`. For example,
+  `current('Microsoft.Test/resource/enumeratedArray[*].property')`.
+
+#### Field count examples
 
 Example 1: Check if an array is empty
 
@@ -682,18 +756,171 @@ expression
 }
 ```
 
-Example 6: Use `field()` function inside the `where` conditions to access the literal value of the currently evaluated array member. This condition checks that there are no security rules with an even numbered _priority_ value.
+Example 6: Use `current()` function inside the `where` conditions to access the value of the
+currently enumerated array member in a template function. This condition checks whether a virtual
+network contains an address prefix that isn't under the 10.0.0.0/24 CIDR range.
 
 ```json
 {
     "count": {
-        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "field": "Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]",
         "where": {
-          "value": "[mod(first(field('Microsoft.Network/networkSecurityGroups/securityRules[*].priority')), 2)]",
-          "equals": 0
+          "value": "[ipRangeContains('10.0.0.0/24', current('Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]'))]",
+          "equals": false
         }
     },
     "greater": 0
+}
+```
+
+Example 7: Use `field()` function inside the `where` conditions to access the value of the currently
+enumerated array member. This condition checks whether a virtual network contains an address prefix
+that isn't under the 10.0.0.0/24 CIDR range.
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]",
+        "where": {
+          "value": "[ipRangeContains('10.0.0.0/24', first(field(('Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]')))]",
+          "equals": false
+        }
+    },
+    "greater": 0
+}
+```
+
+#### Value count examples
+
+Example 1: Check if resource name matches any of the given name patterns.
+
+```json
+{
+    "count": {
+        "value": [ "prefix1_*", "prefix2_*" ],
+        "name": "pattern",
+        "where": {
+            "field": "name",
+            "like": "[current('pattern')]"
+        }
+    },
+    "greater": 0
+}
+```
+
+Example 2: Check if resource name matches any of the given name patterns. The `current()` function
+doesn't specify an index name. The outcome is the same as the previous example.
+
+```json
+{
+    "count": {
+        "value": [ "prefix1_*", "prefix2_*" ],
+        "where": {
+            "field": "name",
+            "like": "[current()]"
+        }
+    },
+    "greater": 0
+}
+```
+
+Example 3: Check if resource name matches any of the given name patterns provided by an array
+parameter.
+
+```json
+{
+    "count": {
+        "value": "[parameters('namePatterns')]",
+        "name": "pattern",
+        "where": {
+            "field": "name",
+            "like": "[current('pattern')]"
+        }
+    },
+    "greater": 0
+}
+```
+
+Example 4: Check if any of the virtual network address prefixes isn't under the list of approved
+prefixes.
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]",
+        "where": {
+            "count": {
+                "value": "[parameters('approvedPrefixes')]",
+                "name": "approvedPrefix",
+                "where": {
+                    "value": "[ipRangeContains(current('approvedPrefix'), current('Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]'))]",
+                    "equals": true
+                },
+            },
+            "equals": 0
+        }
+    },
+    "greater": 0
+}
+```
+
+Example 5: Check that all the reserved NSG rules are defined in an NSG. The properties of the
+reserved NSG rules are defined in an array parameter containing objects.
+
+Parameter value:
+
+```json
+[
+    {
+        "priority": 101,
+        "access": "deny",
+        "direction": "inbound",
+        "destinationPortRange": 22
+    },
+    {
+        "priority": 102,
+        "access": "deny",
+        "direction": "inbound",
+        "destinationPortRange": 3389
+    }
+]
+```
+
+Policy:
+
+```json
+{
+    "count": {
+        "value": "[parameters('reservedNsgRules')]",
+        "name": "reservedNsgRule",
+        "where": {
+            "count": {
+                "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+                "where": {
+                    "allOf": [
+                        {
+                            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].priority",
+                            "equals": "[current('reservedNsgRule').priority]"
+                        },
+                        {
+                            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].access",
+                            "equals": "[current('reservedNsgRule').access]"
+                        },
+                        {
+                            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].direction",
+                            "equals": "[current('reservedNsgRule').direction]"
+                        },
+                        {
+                            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].destinationPortRange",
+                            "equals": "[current('reservedNsgRule').destinationPortRange]"
+                        }
+                    ]
+                }
+            },
+            "equals": 1
+        }
+    },
+    "equals": "[length(parameters('reservedNsgRules'))]"
 }
 ```
 
@@ -708,7 +935,7 @@ Azure Policy supports the following types of effect:
 - **Deny**: generates an event in the activity log and fails the request
 - **DeployIfNotExists**: deploys a related resource if it doesn't already exist
 - **Disabled**: doesn't evaluate resources for compliance to the policy rule
-- **Modify**: adds, updates, or removes the defined tags from a resource
+- **Modify**: adds, updates, or removes the defined tags from a resource or subscription
 - **EnforceOPAConstraint** (deprecated): configures the Open Policy Agent admissions controller with
   Gatekeeper v3 for self-managed Kubernetes clusters on Azure
 - **EnforceRegoPolicy** (deprecated): configures the Open Policy Agent admissions controller with
@@ -720,8 +947,8 @@ For complete details on each effect, order of evaluation, properties, and exampl
 ### Policy functions
 
 All [Resource Manager template
-functions](../../../azure-resource-manager/templates/template-functions.md) are available to
-use within a policy rule, except the following functions and user-defined functions:
+functions](../../../azure-resource-manager/templates/template-functions.md) are available to use
+within a policy rule, except the following functions and user-defined functions:
 
 - copyIndex()
 - deployment()
@@ -750,41 +977,49 @@ The following functions are only available in policy rules:
   - **dateTime**: [Required] string - String in the Universal ISO 8601 DateTime format
     'yyyy-MM-ddTHH:mm:ss.FFFFFFFZ'
   - **numberOfDaysToAdd**: [Required] integer - Number of days to add
+
 - `field(fieldName)`
   - **fieldName**: [Required] string - Name of the [field](#fields) to retrieve
   - Returns the value of that field from the resource that is being evaluated by the If condition.
   - `field` is primarily used with **AuditIfNotExists** and **DeployIfNotExists** to reference
     fields on the resource that are being evaluated. An example of this use can be seen in the
     [DeployIfNotExists example](effects.md#deployifnotexists-example).
+
 - `requestContext().apiVersion`
   - Returns the API version of the request that triggered policy evaluation (example: `2019-09-01`).
     This value is the API version that was used in the PUT/PATCH request for evaluations on resource
     creation/update. The latest API version is always used during compliance evaluation on existing
     resources.
-- `policy()`
-  - Returns the following information about the policy that is being evaluated. Properties can be accessed from the returned object (example: `[policy().assignmentId]`).
-  
-  ```json
-  {
-    "assignmentId": "/subscriptions/ad404ddd-36a5-4ea8-b3e3-681e77487a63/providers/Microsoft.Authorization/policyAssignments/myAssignment",
-    "definitionId": "/providers/Microsoft.Authorization/policyDefinitions/34c877ad-507e-4c82-993e-3452a6e0ad3c",
-    "setDefinitionId": "/providers/Microsoft.Authorization/policySetDefinitions/42a694ed-f65e-42b2-aa9e-8052e9740a92",
-    "definitionReferenceId": "StorageAccountNetworkACLs"
-  }
-  ```
 
+- `policy()`
+  - Returns the following information about the policy that is being evaluated. Properties can be
+    accessed from the returned object (example: `[policy().assignmentId]`).
+
+    ```json
+    {
+      "assignmentId": "/subscriptions/ad404ddd-36a5-4ea8-b3e3-681e77487a63/providers/Microsoft.Authorization/policyAssignments/myAssignment",
+      "definitionId": "/providers/Microsoft.Authorization/policyDefinitions/34c877ad-507e-4c82-993e-3452a6e0ad3c",
+      "setDefinitionId": "/providers/Microsoft.Authorization/policySetDefinitions/42a694ed-f65e-42b2-aa9e-8052e9740a92",
+      "definitionReferenceId": "StorageAccountNetworkACLs"
+    }
+    ```
 
 - `ipRangeContains(range, targetRange)`
-    - **range**: [Required] string - String specifying a range of IP addresses.
-    - **targetRange**: [Required] string - String specifying a range of IP addresses.
+  - **range**: [Required] string - String specifying a range of IP addresses to check if the
+    _targetRange_ is within.
+  - **targetRange**: [Required] string - String specifying a range of IP addresses to validate as
+    included within the _range_.
+  - Returns a _boolean_ for whether the _range_ IP address range contains the _targetRange_ IP
+    address range. Empty ranges, or mixing between IP families isn't allowed and results in
+    evaluation failure.
 
-    Returns whether the given IP address range contains the target IP address range. Empty ranges, or mixing between IP families isn't allowed and results in evaluation failure.
+  Supported formats:
+  - Single IP address (examples: `10.0.0.0`, `2001:0DB8::3:FFFE`)
+  - CIDR range (examples: `10.0.0.0/24`, `2001:0DB8::/110`)
+  - Range defined by start and end IP addresses (examples: `192.168.0.1-192.168.0.9`, `2001:0DB8::-2001:0DB8::3:FFFF`)
 
-    Supported formats:
-    - Single IP address (examples: `10.0.0.0`, `2001:0DB8::3:FFFE`)
-    - CIDR range (examples: `10.0.0.0/24`, `2001:0DB8::/110`)
-    - Range defined by start and end IP addresses (examples: `192.168.0.1-192.168.0.9`, `2001:0DB8::-2001:0DB8::3:FFFF`)
-
+- `current(indexName)`
+  - Special function that may only be used inside [count expressions](#count).
 
 #### Policy function example
 
@@ -863,21 +1098,25 @@ Policy, use one of the following methods:
 
 ### Understanding the [*] alias
 
-Several of the aliases that are available have a version that appears as a 'normal' name and another that has **\[\*\]** attached to it. For example:
+Several of the aliases that are available have a version that appears as a 'normal' name and another
+that has **\[\*\]** attached to it. For example:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
-The 'normal' alias represents the field as a single value. This field is for exact match comparison scenarios when the entire set of values must be exactly as defined, no more and no less.
+The 'normal' alias represents the field as a single value. This field is for exact match comparison
+scenarios when the entire set of values must be exactly as defined, no more and no less.
 
-The **\[\*\]** alias represents a collection of values selected from the elements of an array resource property. For example:
+The **\[\*\]** alias represents a collection of values selected from the elements of an array
+resource property. For example:
 
 | Alias | Selected values |
 |:---|:---|
 | `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | The elements of the `ipRules` array. |
 | `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | The values of the `action` property from each element of the `ipRules` array. |
 
-When used in a [field](#fields) condition, the array aliases makes it possible to compare each individual array element to a target value. When used with [count](#count) expression, it is possible to:
+When used in a [field](#fields) condition, array aliases make it possible to compare each individual
+array element to a target value. When used with [count](#count) expression, it's possible to:
 
 - Check the size of an array
 - Check if all\any\none of the array elements meet a complex condition

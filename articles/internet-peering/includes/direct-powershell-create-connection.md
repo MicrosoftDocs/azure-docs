@@ -7,7 +7,8 @@ author: prmitiki
 ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
-ms.author: prmitiki
+ms.author: prmitiki 
+ms.custom: devx-track-azurepowershell
 ---
 
 The following example shows how to create a 10-Gbps Direct peering in Seattle.

@@ -2,14 +2,14 @@
 title: Configure how end-users consent to applications using Azure AD
 description: Learn how to manage how and when users can consent to applications that will have access to your organization's data.
 services: active-directory
-author: kenwith
-manager: celestedg
+author: davidmu1
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/01/2020
-ms.author: kenwith
+ms.date: 06/01/2021
+ms.author: davidmu
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
 ---
@@ -43,7 +43,7 @@ By choosing which app consent policies apply for all users, you can set limits o
 
 To configure user consent settings through the Azure portal:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator--company-administrator).
+1. Sign in to the [Azure portal](https://portal.azure.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator).
 1. Select **Azure Active Directory** > **Enterprise applications** > **Consent and permissions** > **User consent settings**.
 1. Under **User consent for applications**, select which consent setting you'd like to configure for all users.
 1. Select **Save** to save your settings.
@@ -96,7 +96,7 @@ Set-AzureADMSAuthorizationPolicy `
 
 ## Risk-based step-up consent
 
-Risk-based step-up consent helps reduce user exposure to malicious apps that make [illicit consent requests](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants). If Microsoft detects a risky end-user consent request, the request will require a "step-up" to admin consent instead. This capability is enabled by default, but it will only result in a behavior change when end-user consent is enabled.
+Risk-based step-up consent helps reduce user exposure to malicious apps that make [illicit consent requests](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants). For example, consent requests for newly registered multi-tenant apps that are not [publisher verified](../develop/publisher-verification-overview.md) and require non-basic permissions are considered risky. If Microsoft detects a risky end-user consent request, the request will require a "step-up" to admin consent instead. This capability is enabled by default, but it will only result in a behavior change when end-user consent is enabled.
 
 When a risky consent request is detected, the consent prompt will display a message indicating that admin approval is needed. If the [admin consent request workflow](configure-admin-consent-workflow.md) is enabled, the user can send the request to an admin for further review directly from the consent prompt. If it's not enabled, the following message will be displayed:
 
@@ -180,4 +180,5 @@ To learn more:
 * [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)
 
 To get help or find answers to your questions:
-* [Azure AD on StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+
+* [Azure AD on Microsoft Q&A.](/answers/topics/azure-active-directory.html)

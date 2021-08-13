@@ -5,7 +5,7 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 12/22/2020
 ms.topic: conceptual
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, devx-track-azurepowershell
 ---
 
 # Manage connections in Azure Automation
@@ -30,7 +30,7 @@ Azure Automation makes the following built-in connection types available:
 * `AzureServicePrincipal` - Represents a connection used by the Azure Run As account.
 * `AzureClassicCertificate` - Represents a connection used by the classic Azure Run As account.
 
-In most cases, you don't need to create a connection resource because it is created when you create a [Run As account](manage-runas-account.md).
+In most cases, you don't need to create a connection resource because it is created when you create a [Run As account](automation-security-overview.md).
 
 ## PowerShell cmdlets to access connections
 

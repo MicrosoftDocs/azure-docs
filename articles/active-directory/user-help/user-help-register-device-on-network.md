@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 08/31/2020
+ms.date: 05/24/2020
 ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: "user-help, seo-update-azuread-jan"
@@ -40,24 +40,27 @@ Follow these steps to register your personal device on your network.
 
     ![Accounts on the Settings screen](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
 
-2. Select **Access work or school**, and then select **Connect** from the **Access work or school** screen.
+1. Select **Access work or school**, and then select **Connect** from the **Access work or school** screen.
 
     ![Access work or school screen with Connect option highlighted](./media/user-help-register-device-on-network/register-device-access-work-school-connect.png)
 
-3. On the **Add a work or school account** screen, type in your email address for your work or school account, and then select **Next**. For example, alain@contoso.com.
+1. On the **Add a work or school account** screen, type in your email address for your work or school account, and then select **Next**. For example, alain@contoso.com.
 
-4. Sign in to your work or school account, and then select **Sign in**.
+1. Sign in to your work or school account, and then select **Sign in**.
 
-5. Complete the rest of the registration process, including approving your identity verification request (if you use two-step verification) and setting up Windows Hello (if necessary).
+1. Complete the rest of the registration process, including approving your identity verification request (if you use two-step verification) and setting up Windows Hello (if necessary).
+
+1. Restart the device.
 
 ## To verify that you're registered
+
 You can make sure that you're registered by looking at your settings.
 
 1. Open **Settings**, and then select **Accounts**.
 
     ![Accounts on the Settings screen](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
 
-2. Select **Access work or school**, and make sure you see your work or school account.
+1. Select **Access work or school**, and make sure you see your work or school account.
 
     ![Access work or school screen with connected contoso account](./media/user-help-register-device-on-network/register-device-setup-verify.png)
 

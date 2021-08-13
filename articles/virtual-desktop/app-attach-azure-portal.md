@@ -1,35 +1,27 @@
 ---
-title: Windows Virtual Desktop MSIX app attach portal preview - Azure
-description: How to set up MSIX app attach for Windows Virtual Desktop using the Azure portal.
+title: Azure Virtual Desktop MSIX app attach portal - Azure
+description: How to set up MSIX app attach for Azure Virtual Desktop using the Azure portal.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/13/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Set up MSIX app attach with the Azure portal
 
-> [!IMPORTANT]
-> MSIX app attach is currently in public preview.
-> This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-This article will walk you through how to set up MSIX app attach (preview) in a Windows Virtual Desktop environment.
+This article will walk you through how to set up MSIX app attach in a Azure Virtual Desktop environment.
 
 ## Requirements
 
->[!IMPORTANT]
->Before you get started, make sure to fill out and submit [this form](https://aka.ms/enablemsixappattach) to enable MSIX app attach in your subscription. If you don't have an approved request, MSIX app attach won't work. Approval of requests can take up to 24 hours during business days. You'll get an email when your request has been accepted and completed.
-
 Here's what you need to configure MSIX app attach:
 
-- A functioning Windows Virtual Desktop deployment. To learn how to deploy Windows Virtual Desktop (classic), see [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). To learn how to deploy Windows Virtual Desktop with Azure Resource Manager integration, see [Create a host pool with the Azure portal](./create-host-pools-azure-marketplace.md).
-- A Windows Virtual Desktop host pool with at least one active session host.
-- This host pool must be in the validation environment. 
+- A functioning Azure Virtual Desktop deployment. To learn how to deploy Azure Virtual Desktop (classic), see [Create a tenant in Azure Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). To learn how to deploy Azure Virtual Desktop with Azure Resource Manager integration, see [Create a host pool with the Azure portal](./create-host-pools-azure-marketplace.md).
+- An Azure Virtual Desktop host pool with at least one active session host.
 - The MSIX packaging tool.
 - An MSIX-packaged application expanded into an MSIX image that's uploaded into a file share.
-- A file share in your Windows Virtual Desktop deployment where the MSIX package will be stored.
+- A file share in your Azure Virtual Desktop deployment where the MSIX package will be stored.
 - The file share where you uploaded the MSIX image must also be accessible to all virtual machines (VMs) in the host pool. Users will need read-only permissions to access the image.
+- If the certificate isn't publicly trusted, follow the instructions in [Install certificates](app-attach.md#install-certificates).
 
 ## Turn off automatic updates for MSIX app attach applications
 
@@ -48,19 +40,7 @@ reg add HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager /v
 
 reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\Debug /v ContentDeliveryAllowedOverride /t REG_DWORD /d 0x2 /f
 
-rem Disable Windows Update:
-
-sc config wuauserv start=disabled
 ```
-
-After you've disabled automatic updates, you must enable Hyper-V because you'll be using the `Mount-VHD` command to stage and and Dismount-VHD to destage.
-
-```powershell
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
-```
-
->[!NOTE]
->This change will require that you restart the virtual machine.
 
 ## Configure the MSIX app attach management interface
 
@@ -68,7 +48,7 @@ Next, you'll need to download and configure the the MSIX app attach management i
 
 To set up the management interface:
 
-1. [Open the preview portal](https://preview.portal.azure.com/?feature.msixapplications=true#home).
+1. [Open the Azure portal](https://portal.azure.com).
 2. If you get a prompt asking if you consider the extension trustworthy, select **Allow**.
 
       > [!div class="mx-imgBorder"]
@@ -83,10 +63,7 @@ To add the MSIX image:
 
 1. Open the Azure portal.
 
-2. Enter **Windows Virtual Desktop** into the search bar, then select the service name.
-
-      > [!div class="mx-imgBorder"]
-      > ![A screenshot of a user selecting "Windows Virtual Desktop" from the search bar drop-down menu in the Azure portal. "Windows Virtual Desktop" is highlighted in red.](media/find-and-select.png)
+2. Enter **Azure Virtual Desktop** into the search bar, then select the service name.
 
 3. Select the host pool where you plan to put the MSIX apps.
 
@@ -115,7 +92,7 @@ host pool.
 
 7.  For **State**, select your preferred state.
     -  The **Active** status lets users interact with the package.
-    -  The **Inactive** status causes Windows Virtual Desktop to ignore the package and not deliver it to users.
+    -  The **Inactive** status causes Azure Virtual Desktop to ignore the package and not deliver it to users.
 
 8. When you're done, select **Add**.
 
@@ -127,7 +104,7 @@ If you already have an MSIX image, skip ahead to [Publish MSIX apps to an app gr
 
 To publish the apps:
 
-1. In the Windows Virtual Desktop resource provider, select the **Application groups** tab.
+1. In the Azure Virtual Desktop resource provider, select the **Application groups** tab.
 
 2. Select the application group you want to publish the apps to.
 
@@ -176,9 +153,12 @@ To publish the apps:
 
 After assigning MSIX apps to an app group, you'll need to grant users access to them. You can assign access by adding users or user groups to an app group with published MSIX applications. Follow the instructions in [Manage app groups with the Azure portal](manage-app-groups.md) to assign your users to an app group.
 
+>[!NOTE]
+>MSIX app attach remote apps may disappear from the feed when you test remote apps during public preview. The apps don't appear because the host pool you're using in the evaluation environment is being served by an RD Broker in the production environment. Because the RD Broker in the production environment doesn't register the presence of the MSIX app attach remote apps, the apps won't appear in the feed.
+
 ## Change MSIX package state
 
-Next, you'll need to change the MSIX package state to either **Active** or **Inactive**, depending on what you want to do with the package. Active packages are packages your users can interact with once they're published. Inactive packages are ignored by Windows Virtual Desktop, so your users can't interact with the apps inside.
+Next, you'll need to change the MSIX package state to either **Active** or **Inactive**, depending on what you want to do with the package. Active packages are packages your users can interact with once they're published. Inactive packages are ignored by Azure Virtual Desktop, so your users can't interact with the apps inside.
 
 ### Change state with the Applications list
 
@@ -230,11 +210,11 @@ To remove individual MSIX apps from your package:
 
 ## Next steps
 
-Ask our community questions about this feature at the [Windows Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
+Ask our community questions about this feature at the [Azure Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 
-You can also leave feedback for Windows Virtual Desktop at the [Windows Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
+You can also leave feedback for Azure Virtual Desktop at the [Azure Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
 
 Here are some other articles you might find helpful:
 
 - [MSIX app attach glossary](app-attach-glossary.md)
-- [MSIX app attach FAQ](app-attach-faq.md)
+- [MSIX app attach FAQ](app-attach-faq.yml)

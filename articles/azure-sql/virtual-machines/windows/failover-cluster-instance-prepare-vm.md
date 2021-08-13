@@ -23,6 +23,9 @@ This article describes how to prepare Azure virtual machines (VMs) to use them w
 
 To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [cluster best practices](hadr-cluster-best-practices.md). 
 
+> [!NOTE]
+> It's now possible to lift and shift your failover cluster instance solution to SQL Server on Azure VMs using Azure Migrate. See [Migrate failover cluster instance](../../migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md) to learn more. 
+
 ## Prerequisites 
 
 - A Microsoft Azure subscription. Get started for [free](https://azure.microsoft.com/free/). 
@@ -40,7 +43,7 @@ The configuration settings for your virtual machine vary depending on the storag
 
 ## Configure VM availability 
 
-The failover cluster feature requires virtual machines to be placed in an [availability set](../../../virtual-machines/linux/tutorial-availability-sets.md) or an [availability zone](../../../availability-zones/az-overview.md#availability-zones). If you choose availability sets, you can use [proximity placement groups](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) to locate the VMs closer. In fact, proximity placement groups are a prerequisite for using Azure shared disks. 
+The failover cluster feature requires virtual machines to be placed in an [availability set](../../../virtual-machines/linux/tutorial-availability-sets.md) or an [availability zone](../../../availability-zones/az-overview.md#availability-zones). If you choose availability sets, you can use [proximity placement groups](../../../virtual-machines/co-location.md#proximity-placement-groups) to locate the VMs closer. In fact, proximity placement groups are a prerequisite for using Azure shared disks. 
 
 Carefully select the VM availability option that matches your intended cluster configuration: 
 
@@ -64,7 +67,7 @@ On an Azure VM guest failover cluster, we recommend a single NIC per server (clu
 Place both virtual machines:
 
 - In the same Azure resource group as your availability set, if you're using availability sets.
-- On the same virtual network as your domain controller.
+- On the same virtual network as your domain controller or on a virtual network that has suitable connectivity to your domain controller.
 - On a subnet that has enough IP address space for both virtual machines and all FCIs that you might eventually use on the cluster.
 - In the Azure availability set or availability zone.
 
@@ -131,8 +134,10 @@ Choose one of the following guides to configure the FCI environment that's appro
 - [Configure FCI with a Premium file share](failover-cluster-instance-premium-file-share-manually-configure.md)
 - [Configure FCI with Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md)
 
-To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [supported HADR configurations](hadr-cluster-best-practices.md). 
 
-For additional information, see: 
-- [Windows cluster technologies](/windows-server/failover-clustering/failover-clustering-overview)   
-- [SQL Server failover cluster instances](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+To learn more, see:
+
+- [Windows Server Failover Cluster with SQL Server on Azure VMs](hadr-windows-server-failover-cluster-overview.md)
+- [Failover cluster instances with SQL Server on Azure VMs](failover-cluster-instance-overview.md)
+- [Failover cluster instance overview](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [HADR settings for SQL Server on Azure VMs](hadr-cluster-best-practices.md)

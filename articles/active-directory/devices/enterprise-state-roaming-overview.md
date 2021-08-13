@@ -28,7 +28,7 @@ Enterprise State Roaming is available in multiple Azure regions. You can find th
 | Article | Description |
 | --- | --- |
 | [Enable Enterprise State Roaming in Azure Active Directory](enterprise-state-roaming-enable.md) |Enterprise State Roaming is available to any organization with a Premium Azure Active Directory (Azure AD) subscription. For more information on how to get an Azure AD subscription, see the [Azure AD product](https://azure.microsoft.com/services/active-directory) page. |
-| [Settings and data roaming FAQ](enterprise-state-roaming-faqs.md) |This article answers some questions IT administrators might have about settings and app data sync. |
+| [Settings and data roaming FAQ](enterprise-state-roaming-faqs.yml) |This article answers some questions IT administrators might have about settings and app data sync. |
 | [Group policy and MDM settings for settings sync](enterprise-state-roaming-group-policy-settings.md) |Windows 10 provides Group Policy and mobile device management (MDM) policy settings to limit settings sync. |
 | [Windows 10 roaming settings reference](enterprise-state-roaming-windows-settings-reference.md) |A list of settings that will be roamed and/or backed-up in Windows 10. |
 | [Troubleshooting](enterprise-state-roaming-troubleshooting.md) |This article goes through some basic steps for troubleshooting, and contains a list of known issues. |

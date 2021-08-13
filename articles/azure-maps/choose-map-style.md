@@ -3,11 +3,11 @@ title: Change the style of the Azure Maps Web Map Control
 description: "Learn how to change a map's style and options. See how to add a style picker control to a map in Azure Maps so that users can switch between different styles."
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/27/2020
+ms.date: 04/26/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ms.custom: devx-track-js
 ---
 
@@ -100,7 +100,7 @@ The image below shows the style picker control displayed in `list` layout.
 :::image type="content" source="./media/choose-map-style/style-picker-list-layout.png" alt-text="Style picker list layout":::
 
 > [!IMPORTANT]
-> By default the style picker control lists all the styles available under the S0 pricing tier of Azure Maps. If you want to reduce the number of styles in this list, pass an array of the styles you want to appear in the list into the `mapStyle` option of the style picker. If you are using S1 and want to show all the available styles, set the `mapStyles` option of the style picker to `"all"`.
+> By default the style picker control lists all the styles available under the S0 pricing tier of Azure Maps. If you want to reduce the number of styles in this list, pass an array of the styles you want to appear in the list into the `mapStyle` option of the style picker. If you are using Gen 1 (S1) or Gen 2 pricing tier and want to show all available styles, set the `mapStyles` option of the style picker to `"all"`.
 
 The following code shows you how to override the default `mapStyles` base style list. In this example, we're setting the `mapStyles` option to list which base styles we want to be displayed by the style picker control.
 

@@ -4,7 +4,8 @@ description: This article tells how to create credential assets and use them in 
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 12/22/2020
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage credentials in Azure Automation
@@ -110,7 +111,7 @@ $securePassword = $myCredential.Password
 $password = $myCredential.GetNetworkCredential().Password
 ```
 
-You can also use a credential to authenticate to Azure with [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Under most circumstances, you should use a [Run As account](../manage-runas-account.md) and retrieve the connection with [Get-AzAutomationConnection](../automation-connections.md).
+You can also use a credential to authenticate to Azure with [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Under most circumstances, you should use a [Run As account](../automation-security-overview.md#run-as-accounts) and retrieve the connection with [Get-AzAutomationConnection](../automation-connections.md).
 
 ```powershell
 $myCred = Get-AutomationPSCredential -Name 'MyCredential'

@@ -21,7 +21,7 @@ This article shows you how to use *kubenet* networking to create and use a virtu
 * The virtual network for the AKS cluster must allow outbound internet connectivity.
 * Don't create more than one AKS cluster in the same subnet.
 * AKS clusters may not use `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`, or `192.0.2.0/24` for the Kubernetes service address range, pod address range or cluster virtual network address range.
-* The service principal used by the AKS cluster must have at least [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor) role on the subnet within your virtual network. You must also have the appropriate permissions, such as the subscription owner, to create a service principal and assign it permissions. If you wish to define a [custom role](../role-based-access-control/custom-roles.md) instead of using the built-in Network Contributor role, the following permissions are required:
+* The cluster identity used by the AKS cluster must have at least [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor) role on the subnet within your virtual network. You must also have the appropriate permissions, such as the subscription owner, to create a cluster identity and assign it permissions. If you wish to define a [custom role](../role-based-access-control/custom-roles.md) instead of using the built-in Network Contributor role, the following permissions are required:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
@@ -50,6 +50,7 @@ With *Azure CNI*, each pod receives an IP address in the IP subnet, and can dire
 * Route tables and user-defined routes are required for using kubenet, which adds complexity to operations.
 * Direct pod addressing isn't supported for kubenet due to kubenet design.
 * Unlike Azure CNI clusters, multiple kubenet clusters can't share a subnet.
+* If you provide your own subnet, you have to manage the Network Security Groups (NSG) associated with that subnet. AKS will not modify any of the NSGs associated with that subnet. You also must ensure the security rules in the NSGs allow traffic between the node and pod CIDR.
 * Features **not supported on kubenet** include:
    * [Azure network policies](use-network-policies.md#create-an-aks-cluster-and-enable-network-policy), but Calico network policies are supported on kubenet
    * [Windows node pools](./windows-faq.md)
@@ -71,7 +72,7 @@ The following basic calculations compare the difference in network models:
   - This node count could only support up to *240* pods (with a default maximum of 30 pods per node with *Azure CNI*)
 
 > [!NOTE]
-> These maximums don't take into account upgrade or scale operations. In practice, you can't run the maximum number of nodes that the subnet IP address range supports. You must leave some IP addresses available for use during scale of upgrade operations.
+> These maximums don't take into account upgrade or scale operations. In practice, you can't run the maximum number of nodes that the subnet IP address range supports. You must leave some IP addresses available for use during scale or upgrade operations.
 
 ### Virtual network peering and ExpressRoute connections
 
@@ -124,10 +125,6 @@ az ad sp create-for-rbac --skip-assignment
 ```
 
 The following example output shows the application ID and password for your service principal. These values are used in additional steps to assign a role to the service principal and then create the AKS cluster:
-
-```azurecli
-az ad sp create-for-rbac --skip-assignment
-```
 
 ```output
 {
@@ -241,10 +238,9 @@ az aks create -g MyResourceGroup -n MyManagedCluster --vnet-subnet-id MySubnetID
 
 ## Next steps
 
-With an AKS cluster deployed into your existing virtual network subnet, you can now use the cluster as normal. Get started with [building apps using Azure Dev Spaces][dev-spaces], [deploy existing apps using Helm][use-helm], or [creating new apps using Helm][develop-helm].
+With an AKS cluster deployed into your existing virtual network subnet, you can now use the cluster as normal. Get started with [creating new apps using Helm][develop-helm] or [deploy existing apps using Helm][use-helm].
 
 <!-- LINKS - External -->
-[dev-spaces]: ../dev-spaces/index.yml
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
 [Calico-network-policies]: https://docs.projectcalico.org/v3.9/security/calico-network-policy
@@ -252,13 +248,13 @@ With an AKS cluster deployed into your existing virtual network subnet, you can 
 <!-- LINKS - Internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-network-concepts]: concepts-network.md
-[az-group-create]: /cli/azure/group#az-group-create
-[az-network-vnet-create]: /cli/azure/network/vnet#az-network-vnet-create
-[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az-network-vnet-show]: /cli/azure/network/vnet#az-network-vnet-show
-[az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-show
-[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
-[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-group-create]: /cli/azure/group#az_group_create
+[az-network-vnet-create]: /cli/azure/network/vnet#az_network_vnet_create
+[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[az-network-vnet-show]: /cli/azure/network/vnet#az_network_vnet_show
+[az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet#az_network_vnet_subnet_show
+[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
+[az-aks-create]: /cli/azure/aks#az_aks_create
 [byo-subnet-route-table]: #bring-your-own-subnet-and-route-table-with-kubenet
 [develop-helm]: quickstart-helm.md
 [use-helm]: kubernetes-helm.md

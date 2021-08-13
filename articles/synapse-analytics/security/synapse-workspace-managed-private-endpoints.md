@@ -1,12 +1,12 @@
 ---
 title: Managed private endpoints
 description: An article that explains Managed private endpoints in Azure Synapse Analytics
-author: RonyMSFT
+author: ashinMSFT
 ms.service: synapse-analytics 
 ms.topic: overview
 ms.subservice: security
 ms.date: 01/12/2020
-ms.author: ronytho
+ms.author: seshin
 ms.reviewer: jrasnick
 ---
 
@@ -18,7 +18,7 @@ This article will explain Managed private endpoints in Azure Synapse Analytics.
 
 Managed private endpoints are private endpoints created in a Managed Virtual Network associated with your Azure Synapse workspace. Managed private endpoints establish a private link to Azure resources. Azure Synapse manages these private endpoints on your behalf. You can create Managed private endpoints from your Azure Synapse workspace to access Azure services (such as Azure Storage or Azure Cosmos DB) and Azure hosted customer/partner services.
 
-When you Managed private endpoints, traffic between your Azure Synapse workspace and other Azure resources traverse entirely over the Microsoft backbone network. Managed private endpoints protect against data exfiltration. A Managed private endpoint uses private IP address from your Managed Virtual Network to effectively bring the Azure service that your Azure Synapse workspace is communicating into your Virtual Network. Managed private endpoints are mapped to a specific resource in Azure and not the entire service. Customers can limit connectivity to a specific resource approved by their organization. 
+When you use Managed private endpoints, traffic between your Azure Synapse workspace and other Azure resources traverse entirely over the Microsoft backbone network. Managed private endpoints protect against data exfiltration. A Managed private endpoint uses private IP address from your Managed Virtual Network to effectively bring the Azure service that your Azure Synapse workspace is communicating into your Virtual Network. Managed private endpoints are mapped to a specific resource in Azure and not the entire service. Customers can limit connectivity to a specific resource approved by their organization. 
 
 Learn more about [private links and private endpoints](../../private-link/index.yml).
 

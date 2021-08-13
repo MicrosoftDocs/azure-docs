@@ -24,6 +24,8 @@ ms.author: yelevin
 > [!IMPORTANT]
 > The Citrix Web Application Firewall (WAF) data connector in Azure Sentinel is currently in public preview. This feature is provided without a service level agreement. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 This article explains how to connect your Citrix Web Application Firewall (WAF) appliance to Azure Sentinel. The Citrix WAF data connector allows you to easily connect your Citrix WAF logs with Azure Sentinel, to view dashboards, create custom alerts, and improve investigation. By connecting Citrix WAF CEF logs to Azure Sentinel, you can take advantage of search and correlation, alerting, and threat intelligence enrichment for each log.
 
 > [!NOTE]
@@ -48,6 +50,6 @@ To query the Citrix WAF logs in Log Analytics, enter `CommonSecurityLog` at the 
 ## Next steps
 
 In this document, you learned how to connect Citrix WAF to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).
 - [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.

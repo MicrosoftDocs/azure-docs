@@ -1,13 +1,10 @@
 ---
 title: Troubleshoot issues with Apache Spark cluster in Azure HDInsight
 description: Learn about issues related to Apache Spark clusters in Azure HDInsight and how to work around those.
-author: hrasheed-msft
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.author: hrasheed
 ---
 
 # Known issues for Apache Spark cluster on HDInsight
@@ -68,7 +65,7 @@ HDInsight Spark clusters do not support the Spark-Phoenix connector.
 
 **Mitigation:**
 
-You must use the Spark-HBase connector instead. For the instructions, see [How to use Spark-HBase connector](https://web.archive.org/web/20190112153146/https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
+You must use the Spark-HBase connector instead. For the instructions, see [How to use Spark-HBase connector](/archive/blogs/azuredatalake/hdinsight-how-to-use-spark-hbase-connector).
 
 ## Issues related to Jupyter Notebooks
 

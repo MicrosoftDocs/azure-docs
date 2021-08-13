@@ -2,7 +2,8 @@
 title: Template functions in scoped deployments
 description: Describes how template functions are resolved in scoped deployments. The scope can be a tenant, management groups, subscriptions, and resource groups.
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 10/22/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # ARM template functions in deployment scopes
@@ -35,15 +36,15 @@ When deploying to different scopes, there are some important considerations:
 * Use the [extensionResourceId()](template-functions-resource.md#extensionresourceid) function for resources that are implemented as extensions of the management group. Custom policy definitions that are deployed to the management group are extensions of the management group.
 
   To get the resource ID for a custom policy definition at the management group level, use:
-  
+
   ```json
   "policyDefinitionId": "[extensionResourceId(variables('mgScope'), 'Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
   ```
 
-* Use the [tenantResourceId](template-functions-resource.md#tenantresourceid) function to get the ID for a resource deployed at the tenant. Built-in policy definitions are tenant level resources. When assigning a built-in policy at the management group level, use the tenantResourceId function.
+* Use the [tenantResourceId()](template-functions-resource.md#tenantresourceid) function to get the ID for a resource deployed at the tenant. Built-in policy definitions are tenant level resources. When assigning a built-in policy at the management group level, use the tenantResourceId function.
 
   To get the resource ID for a built-in policy definition, use:
-  
+
   ```json
   "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
   ```
@@ -133,6 +134,6 @@ The output from the preceding example is:
 
 ## Next steps
 
-* To understand how to define parameters in your template, see [Understand the structure and syntax of Azure Resource Manager templates](template-syntax.md).
+* To understand how to define parameters in your template, see [Understand the structure and syntax of ARM templates](./syntax.md).
 * For tips on resolving common deployment errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](common-deployment-errors.md).
-* For information about deploying a template that requires a SAS token, see [Deploy private template with SAS token](secure-template-with-sas-token.md).
+* For information about deploying a template that requires a SAS token, see [Deploy private ARM template with SAS token](secure-template-with-sas-token.md).

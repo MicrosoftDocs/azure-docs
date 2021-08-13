@@ -1,9 +1,6 @@
 ---
 title: Tutorial - Apache Kafka & Enterprise Security - Azure HDInsight
 description: Tutorial - Learn how to configure Apache Ranger policies for Kafka in Azure HDInsight with Enterprise Security Package.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 05/19/2020
@@ -31,7 +28,7 @@ A [HDInsight Kafka cluster with Enterprise Security Package](./apache-domain-joi
 
 2. Sign in using your Azure Active Directory (AD) admin credentials. The Azure AD admin credentials aren't the same as HDInsight cluster credentials or Linux HDInsight node SSH credentials.
 
-   ![HDInsight Apache Ranger Admin UI](./media/apache-domain-joined-run-kafka/apache-ranger-admin-login.png)
+   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-login.png" alt-text="HDInsight Apache Ranger Admin UI" border="true":::
 
 ## Create domain users
 
@@ -59,7 +56,7 @@ Create a Ranger policy for **sales_user** and **marketing_user**.
    * ’*’ indicates zero or more occurrences of characters.
    * ’?‘ indicates single character.
 
-   ![Apache Ranger Admin UI Create Policy1](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)
+   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png" alt-text="Apache Ranger Admin UI Create Policy1" border="true":::
 
    Wait a few moments for Ranger to sync with Azure AD if a domain user is not automatically populated for **Select User**.
 
@@ -74,7 +71,7 @@ Create a Ranger policy for **sales_user** and **marketing_user**.
    |Select User  |  marketing_user1 |
    |Permissions  | publish, consume, create |
 
-   ![Apache Ranger Admin UI Create Policy2](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png)  
+   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png" alt-text="Apache Ranger Admin UI Create Policy2" border="true":::  
 
 6. Select **Add** to save the policy.
 
@@ -132,7 +129,7 @@ Based on the Ranger policies configured, **sales_user** can produce/consume topi
    export KAFKABROKERS=<brokerlist>:9092
    ```
 
-   Example: `export KAFKABROKERS=wn0-khdicl.contoso.com:9092,wn1-khdicl.contoso.com:9092`
+   Example: `export KAFKABROKERS=<brokername1>.contoso.com:9092,<brokername2>.contoso.com:9092`
 
 3. Follow Step 3 under **Build and deploy the example** in [Tutorial: Use the Apache Kafka Producer and Consumer APIs](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) to ensure that the `kafka-producer-consumer.jar` is also available to **sales_user**.
 
@@ -175,7 +172,7 @@ Based on the Ranger policies configured, **sales_user** can produce/consume topi
 
 8. View the audit access events from the Ranger UI.
 
-   ![Ranger UI policy audit access events ](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
+   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png" alt-text="Ranger UI policy audit access events " border="true":::
    
 ## Produce and consume topics in ESP Kafka by using the console
 

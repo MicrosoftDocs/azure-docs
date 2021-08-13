@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 12/30/2020
+ms.date: 02/03/2021
 ---
 
 # Create an integration service environment (ISE) by using the Logic Apps REST API
@@ -17,7 +17,7 @@ This article shows you how to create an ISE by using the Logic Apps REST API in 
 For more information about other ways to create an ISE, see these articles:
 
 * [Create an ISE by using the Azure portal](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
-* [Create an ISE by using the sample Azure Resource Manager quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-integration-service-environment)
+* [Create an ISE by using the sample Azure Resource Manager quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.logic/integration-service-environment)
 * [Create an ISE that supports using customer-managed keys for encrypting data at rest](customer-managed-keys-integration-service-environment.md)
 
 ## Prerequisites
@@ -185,17 +185,30 @@ This example request body shows the sample values:
 
 ## Add custom root certificates
 
-You often use an ISE to connect to custom services on your virtual network or on premises. These custom services are often protected by a certificate that's issued by custom root certificate authority, such as an Enterprise Certificate Authority or a self-signed certificate. For more information about using self-signed certificates, see [Secure access and data - Access for outbound calls to other services and systems](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests). For your ISE to successfully connect to these services through Transport Layer Security (TLS), your ISE needs access to these root certificates. To update your ISE with a custom trusted root certificate, make this HTTPS `PATCH` request:
+You often use an ISE to connect to custom services on your virtual network or on premises. These custom services are often protected by a certificate that's issued by custom root certificate authority, such as an Enterprise Certificate Authority or a self-signed certificate. For more information about using self-signed certificates, see [Secure access and data - Access for outbound calls to other services and systems](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests). For your ISE to successfully connect to these services through Transport Layer Security (TLS), your ISE needs access to these root certificates.
 
-`PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01`
+#### Considerations for adding custom root certificates
 
-Before you perform this operation, review these considerations:
+Before you update your ISE with a custom trusted root certificate, review these considerations:
 
 * Make sure that you upload the root certificate *and* all the intermediate certificates. The maximum number of certificates is 20.
+
+* The subject name on the certificate must match the host name for the target endpoint that you want to call from Azure Logic Apps. 
 
 * Uploading root certificates is a replacement operation where the latest upload overwrites previous uploads. For example, if you send a request that uploads one certificate, and then send another request to upload another certificate, your ISE uses only the second certificate. If you need to use both certificates, add them together in the same request.  
 
 * Uploading root certificates is an asynchronous operation that might take some time. To check the status or result, you can send a `GET` request by using the same URI. The response message has a `provisioningState` field that returns the `InProgress` value when the upload operation is still working. When `provisioningState` value is `Succeeded`, the upload operation is complete.
+
+#### Request syntax
+
+To update your ISE with a custom trusted root certificate, send the following HTTPS PATCH request to the [Azure Resource Manager URL, which differs based on your Azure environment](../azure-resource-manager/management/control-plane-and-data-plane.md#control-plane), for example:
+
+| Environment | Azure Resource Manager URL |
+|-------------|----------------------------|
+| Azure global (multi-tenant) | `PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01` |
+| Azure Government | `PATCH https://management.usgovcloudapi.net/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01` |
+| Microsoft Azure China 21Vianet | `PATCH https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01` |
+|||
 
 #### Request body syntax for adding custom root certificates
 

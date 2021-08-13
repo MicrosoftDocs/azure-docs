@@ -1,5 +1,7 @@
 - name: Azure Event Grid Documentation
   href: index.yml
+- name: Switch to Event Grid on Kubernetes documentation
+  href: kubernetes/index.yml
 - name: Switch to Event Grid on IoT Edge documentation
   href: edge/pub-sub-events-webhook-local.md
 - name: Overview
@@ -42,6 +44,8 @@
     href: ../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
   - name: Handle Azure Communication Services events
     href: ../communication-services/quickstarts/telephony-sms/handle-sms-events.md?toc=%2fazure%2fevent-grid%2ftoc.json  
+  - name: Azure Cache for Redis events 
+    href: ../azure-cache-for-redis/cache-event-grid-quickstart-portal.md?toc=%2fazure%2fevent-grid%2ftoc.json
 - name: Tutorials
   items:
   - name: Email when VM changes
@@ -52,8 +56,12 @@
     href: ensure-tags-exists-on-new-virtual-machines.md
   - name: Email when IoT Hub device disconnects
     href: publish-iot-hub-events-to-logic-apps.md
-  - name: Respond to Service Bus events
-    href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
+  - name: Handle Service Bus events via Event Grid
+    items:
+    - name: Azure Logic Apps
+      href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json      
+    - name: Azure Functions
+      href: ../service-bus-messaging/service-bus-to-event-grid-integration-function.md?toc=%2fazure%2fevent-grid%2ftoc.json
   - name: Stream data from Event Hubs
     href: event-grid-event-hubs-integration.md
   - name: Route Media Services events
@@ -108,6 +116,8 @@
       href: system-topics.md
     - name: Event sources (publishers)
       items:
+      - name: Azure API Management
+        href: event-schema-api-management.md
       - name: Azure App Configuration
         href: event-schema-app-configuration.md
       - name: Azure App Service
@@ -120,6 +130,8 @@
         href: event-schema-container-registry.md
       - name: Azure Event Hubs
         href: event-schema-event-hubs.md
+      - name: Azure FarmBeats
+        href: event-schema-farmbeats.md
       - name: Azure IoT Hub
         href: event-schema-iot-hub.md
       - name: Azure Key Vault
@@ -130,6 +142,8 @@
         href: event-schema-azure-maps.md
       - name: Azure Media Services
         href: event-schema-media-services.md
+      - name: Azure Policy
+        href: ./event-schema-policy.md
       - name: Azure resource groups
         href: event-schema-resource-groups.md        
       - name: Azure Service Bus
@@ -138,6 +152,10 @@
         href: event-schema-azure-signalr.md
       - name: Azure subscriptions
         href: event-schema-subscriptions.md
+      - name: Azure Cache for Redis
+        href: event-schema-azure-cache.md
+      - name: Azure Kubernetes Service (Preview)
+        href: event-schema-aks.md
   - name: Partner Events
     items:
     - name: Overview of Partner Events
@@ -180,6 +198,8 @@
       href: delivery-and-retry.md
     - name: Webhook event delivery
       href: webhook-event-delivery.md
+    - name: Custom delivery properties
+      href: delivery-properties.md
   - name: Disaster recovery
     items:
     - name: Geo disaster recovery
@@ -187,11 +207,19 @@
   - name: Security 
     items: 
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/event-grid-security-baseline?toc=/azure/event-grid/toc.json
+    - name: Security controls by Azure Policy
+      href: ./security-controls-policy.md
     - name: Authenticate event delivery to event handlers
       href: security-authentication.md
     - name: Authenticate publishing clients
-      href: security-authenticate-publishing-clients.md
+      items:
+      - name: Overview 
+        href: authentication-overview.md
+      - name: Authenticate using Azure Active Directory
+        href: authenticate-with-active-directory.md
+      - name: Authenticate using access key or shared access signatures
+        href: authenticate-with-access-keys-shared-access-signatures.md
     - name: Authorize access to Event Grid resources 
       href: security-authorization.md
     - name: Network security
@@ -202,6 +230,10 @@
       href: diagnostic-logs.md
     - name: Metrics
       href: metrics.md
+  - name: Use cases
+    items:
+    - name: Use cases for domains
+      href: event-domains-use-cases.md
 - name: How-to guides
   items:
   - name: Create, view, and manage system topics
@@ -250,20 +282,32 @@
       href: move-custom-topics-across-regions.md
     - name: Move domains across regions
       href: move-domains-across-regions.md
-    - name: Move partner namespaces across regions
-      href: move-partner-namespaces-across-regions.md
   - name: Secure
     items:
     - name: Publish events securely over a private link
       href: configure-private-endpoints.md
+    - name: Deliver events using managed identity
+      items:
+      - name: Enable managed identity for a custom topic or a domain
+        href: enable-identity-custom-topics-domains.md
+      - name: Enable managed identity for a system topic
+        href: enable-identity-system-topics.md
+      - name: Grant managed identity the access to Event Grid destination
+        href: add-identity-roles.md
+      - name: Create an event subscription that uses the managed identity
+        href: managed-service-identity.md
+    - name: Enforce security controls with custom Azure policies
+      href: custom-azure-policies-for-security-control.md
+    - name: Deliver events securely over a private link
+      href: consume-private-endpoints.md      
     - name: Configure IP firewall
       href: configure-firewall.md
     - name: Secure Webhook with Azure Active Directory
       href: secure-webhook-delivery.md
-    - name: Event delivery, managed identity, and private link
-      href: managed-service-identity.md
   - name: Troubleshoot
     items: 
+    - name: Troubleshoot Event Grid issues
+      href: troubleshoot-issues.md
     - name: Enable diagnostic logs
       href: enable-diagnostic-logs-topic.md
     - name: Troubleshoot errors

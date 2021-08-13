@@ -6,7 +6,7 @@ ms.date: 10/16/2020
 author: gitralf
 ms.author: ralfwi 
 ms.service: germany
-ms.custom: bfmigrate, devx-track-azurecli
+ms.custom: bfmigrate, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Migrate network resources to global Azure
@@ -17,7 +17,7 @@ Most networking services don't support migration from Azure Germany to global Az
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-The steps you take to set up a site-to-site VPN between clouds are similar to the steps you take to deploy a site-to-site VPN between your on-premises network and Azure. Define a gateway in both clouds, and then tell the VPNs how to communicate with each other. [Create a site-to-site connection in the Azure portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) describes the steps you complete to deploy a site-to-site VPN. Here's a summary of the steps:
+The steps you take to set up a site-to-site VPN between clouds are similar to the steps you take to deploy a site-to-site VPN between your on-premises network and Azure. Define a gateway in both clouds, and then tell the VPNs how to communicate with each other. [Create a site-to-site connection in the Azure portal](../vpn-gateway/tutorial-site-to-site-portal.md) describes the steps you complete to deploy a site-to-site VPN. Here's a summary of the steps:
 
 1. Define a virtual network.
 1. Define address space.
@@ -88,7 +88,7 @@ Make sure that you update your on-premises configuration. Also, delete any exist
 For more information:
 
 - Refresh your knowledge by completing the [VPN Gateway tutorials](../vpn-gateway/index.yml).
-- Learn how to [create a site-to-site connection](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+- Learn how to [create a site-to-site connection](../vpn-gateway/tutorial-site-to-site-portal.md).
 - Review the [Get-AzVirtualNetworkGateway](/powershell/module/az.network/get-azvirtualnetworkgateway) PowerShell cmdlets.
 - Read the blog post [Create a site-to-site connection](/archive/blogs/ralfwi/connecting-clouds).
  

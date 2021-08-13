@@ -3,10 +3,12 @@ title: 'Quickstart: Create an Azure Purview account in the Azure portal (preview
 description: This Quickstart describes how to create an Azure Purview account and configure permissions to begin using it.
 author: nayenama
 ms.author: nayenama
+ms.date: 10/23/2020
+ms.topic: quickstart
 ms.service: purview
 ms.subservice: purview-data-catalog
-ms.topic: quickstart
-ms.date: 10/23/2020
+ms.custom:
+  - mode-portal
 # Customer intent: As a data steward, I want create a new Azure Purview Account so that I can scan and classify my data.
 ---
 # Quickstart: Create an Azure Purview account in the Azure portal
@@ -20,7 +22,7 @@ In this quickstart, you create an Azure Purview account.
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Your own [Azure Active Directory tenant](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+* Your own [Azure Active Directory tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
 * Your account must have permission to create resources in the subscription
 
@@ -31,7 +33,7 @@ EventHub namespace.
     > You don't have to follow this step if you don't have Azure Policy or an existing Azure Policy is not blocking the creation of **Storage account** and **EventHub namespace**.
 
     1. Navigate to the Azure portal and search for **Policy**
-    1. Follow [Create a custom policy definition](https://docs.microsoft.com/azure/governance/policy/tutorials/create-custom-policy-definition) or modify existing policy to add two exceptions with `not` operator and `resourceBypass` tag:
+    1. Follow [Create a custom policy definition](../governance/policy/tutorials/create-custom-policy-definition.md) or modify existing policy to add two exceptions with `not` operator and `resourceBypass` tag:
 
         ```json
         {
@@ -79,9 +81,9 @@ EventHub namespace.
 
         :::image type="content" source="./media/create-catalog-portal/policy-definition.png" alt-text="Screenshot showing how to create policy definition.":::
 
-    1. [Create a policy assignment](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) using the custom policy created.
+    1. [Create a policy assignment](../governance/policy/assign-policy-portal.md) using the custom policy created.
 
-        [ ![Screenshot showing how to create policy assignment](./media/create-catalog-portal/policy-assignment.png)](./media/create-catalog-portal/policy-assignment.png#lightbox)
+       :::image type="content" source="./media/create-catalog-portal/policy-assignment.png" alt-text="Screenshot showing how to create policy assignment" lightbox="./media/create-catalog-portal/policy-assignment.png":::
 
 ## Sign in to Azure
 
@@ -112,12 +114,19 @@ If necessary, follow these steps to configure your subscription to enable Azure 
 
    :::image type="content" source="./media/create-catalog-portal/add-purview-instance.png" alt-text="Screenshot showing how to create an Azure Purview account instance in the Azure portal.":::
 
+    > [!Note] 
+    > Azure Purview does not support moving its account across regions. You can find out more information about this in [Move operation support for resources](../azure-resource-manager/management/move-support-resources.md).
+
 1. On the **Basics** tab, do the following:
     1. Select a **Resource group**.
     1. Enter a **Purview account name** for your catalog. Spaces and symbols aren't allowed.
     1. Choose a  **Location**, and then select **Next: Configuration**.
-1. On the **Configuration** tab, select the desired **Platform size** - the allowed values are 4 capacity units (CU) and 16 CU. Select **Next: Tags**.
-1. On the **Tags** tab, you can optionally add one or more tags. These tags are for use only in the Azure portal, not Azure Purview. 
+1. On the **Configuration** tab, select the desired **Platform size** - the allowed values are 4 capacity units (CU) and 16 CU. Optionally, provide a different name for the Azure Purview managed Resource Group. Select **Next: Tags**.
+
+    > [!Note] 
+    > The [managed Resource Group](create-catalog-portal.md#azure-purview-managed-resources) will contain a managed Storage account and an EventHub namespace dedicated and used by Azure Purview account.
+
+3. On the **Tags** tab, you can optionally add one or more tags. These tags are for use only in the Azure portal, not Azure Purview. 
 
     > [!Note] 
     > If you have **Azure Policy** and need to add exception as in **Prerequisites**, you need to add the correct tag. For example, you can add `resourceBypass` tag:
@@ -152,13 +161,20 @@ If upon clicking Add you see two choices showing both marked (disabled) then thi
 
 1. Select **Add role assignment**.
 
-1. For the Role type in **Purview Data Curator Role** or **Purview Data Source Administrator Role** depending on what the security principal is going to be used for (please see [Catalog Permissions](catalog-permissions.md) and [Application and service principal objects in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) for details).
+1. For the Role type in **Purview Data Curator Role** or **Purview Data Source Administrator Role** depending on what the security principal is going to be used for (please see [Catalog Permissions](catalog-permissions.md) and [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md) for details).
 
 1. For **Assign access to** leave the default, **User, group, or service principal**.
 
 1. For **Select** enter the name of the user, Azure Active Directory group or service principal you wish to assign and then click on their name in the results pane.
 
 1. Click on **Save**.
+
+## Azure Purview managed resources
+During the deployment of an Azure Purview account, a new managed Resource Group with a new Azure Storage Account and a new EventHub namespace are also deployed along with Azure Purview account inside your Azure subscription. You can optionally choose a different naming convention for the managed Resource Group during the deployment.
+
+These resources are essential for operation of the Azure Purview account and are used to contain temporary data until the information is ingested into Azure Purview data Catalog. 
+
+A deny assignment is automatically added to the managed Resource Group for all principals, with Azure Purview managed identity as the only exclusion to allow Azure Purview to manage the resources (storage account, event hub namespace) inside the Resource Group, therefore, you cannot remove or modify the managed Resource Group, managed resources or their content in data plane, however, the managed resource group and its content will be deleted automatically when the purview account is deleted. 
 
 ## Clean up resources
 

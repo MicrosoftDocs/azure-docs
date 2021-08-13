@@ -5,18 +5,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 07/29/2021
 ms.author: cherylmc
-Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub.
+# Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub.
 ---
-# How to create a Network Virtual Appliance in an Azure Virtual WAN hub (Preview)
+# How to create a Network Virtual Appliance in an Azure Virtual WAN hub
 
 This article shows you how to use Virtual WAN to connect to your resources in Azure through a **Network Virtual Appliance** (NVA) in Azure. This type of connection requires a VPN device located on-premises that has an externally facing public IP address assigned to it. For more information about Virtual WAN, see the [What is Virtual WAN?](virtual-wan-about.md).
 
 The steps in this article help you create a **Barracuda CloudGen WAN** Network Virtual Appliance in the Virtual WAN hub. To complete this exercise, you must have a Barracuda Cloud Premise Device (CPE) and a license for the Barracuda CloudGen WAN appliance that you deploy into the hub before you begin.
 
-For deployment documentation of **Cisco SD-WAN** within Azure Virtual WAN - Please see [Cisco Cloud OnRamp for Multi-Cloud](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701). To register your account and get the necessary Cisco SD-WAN Licenses, send email to Cisco at the following email address: vwan_public_preview@external.cisco.com
+For deployment documentation of **Cisco SD-WAN** within Azure Virtual WAN, see [Cisco Cloud OnRamp for Multi-Cloud](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701). 
 
+For deployment documentation of **VMware SD-WAN** within Azure Virtual WAN, see [Deployment Guide for VMware SD-WAN in Virtual WAN Hub](https://kb.vmware.com/s/article/82746)
 
 ## Prerequisites
 
@@ -28,7 +29,7 @@ Verify that you have met the following criteria before beginning your configurat
 
 * Your virtual network does not have any virtual network gateways. If your virtual network has a gateway (either VPN or ExpressRoute), you must remove all gateways. This configuration requires that virtual networks are connected instead, to the Virtual WAN hub gateway.
 
-* Obtain an IP address range for your hub region. The hub is a virtual network that is created and used by Virtual WAN. The address range that you specify for the hub cannot overlap with any of your existing virtual networks that you connect to. It also cannot overlap with your address ranges that you connect to on premises. If you are unfamiliar with the IP address ranges located in your on-premises network configuration, coordinate with someone who can provide those details for you.
+* Obtain an IP address range for your hub region. The hub is a virtual network that is created and used by Virtual WAN. The address range that you specify for the hub cannot overlap with any of your existing virtual networks that you connect to. It also cannot overlap with your address ranges that you connect to your on-premises sites. If you are unfamiliar with the IP address ranges located in your on-premises network configuration, coordinate with someone who can provide those details for you.
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -88,9 +89,11 @@ In this step, you will create a Network Virtual Appliance in the hub. The proced
 
 ## <a name="vnet"></a>Connect the VNet to the hub
 
+In this section, you create a connection between your hub and VNet.
+
 [!INCLUDE [Connect](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 
 ## Next steps
 
 * To learn more about Virtual WAN, see the [What is Virtual WAN?](virtual-wan-about.md) page.
-* To learn more about NVAs in a Virtual WAN hub, see [About Network Virtual Appliance in the Virtual WAN hub (Preview)](about-nva-hub.md).
+* To learn more about NVAs in a Virtual WAN hub, see [About Network Virtual Appliance in the Virtual WAN hub](about-nva-hub.md).

@@ -7,16 +7,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/05/2021
+ms.date: 08/03/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
 
 # Deploy Custom Script Extension on VMs running on your Azure Stack Edge Pro device
 
-The Custom Script Extension downloads and runs scripts or commands on virtual machines running on your Azure Stack Edge Pro devices. This article details how to install and run the Custom Script Extension by using an Azure Resource Manager template. 
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article applies to Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices.
+The Custom Script Extension downloads and runs scripts or commands on virtual machines running on your Azure Stack Edge Pro devices. This article details how to install and run the Custom Script Extension by using an Azure Resource Manager template.
 
 ## About custom script extension
 
@@ -28,7 +28,7 @@ The Custom Script Extension integrates with Azure Resource Manager templates. Yo
 
 #### Supported OS for Custom Script Extension on Windows
 
-The Custom Script Extension for Windows will run on the following OSs. Other versions may work but have not been tested in-house on VMs running on Azure Stack Edge Pro devices.
+The Custom Script Extension for Windows will run on the following OSs. Other versions may work but haven't been tested in-house on VMs running on Azure Stack Edge Pro devices.
 
 | Distribution | Version |
 |---|---|
@@ -37,7 +37,7 @@ The Custom Script Extension for Windows will run on the following OSs. Other ver
 
 #### Supported OS for Custom Script Extension on Linux
 
-The Custom Script Extension for Linux will run on the following OSs. Other versions may work but have not been tested in-house on VMs running on Azure Stack Edge Pro devices.
+The Custom Script Extension for Linux will run on the following OSs. Other versions may work but haven't been tested in-house on VMs running on Azure Stack Edge Pro devices.
 
 | Distribution | Version |
 |---|---|
@@ -59,15 +59,15 @@ If your script is on a local server, then you may still need additional firewall
 
 ## Prerequisites
 
-1. [Download the VM templates and parameters files](https://aka.ms/ase-vm-templates) to your client machine. Unzip it into a directory you’ll use as a working directory.
+1. [Download the VM templates and parameters files](https://aka.ms/ase-vm-templates) to your client machine. Unzip the download into a directory you’ll use as a working directory.
 
-1. You should have a VM created and deployed on your device. To create VMs, follow all the steps in the [Deploy VM on your Azure Stack Edge Pro using templates](azure-stack-edge-gpu-deploy-virtual-machine-templates.md).
+1. You should have a VM created and deployed on your device. To create VMs, follow all the steps in [Deploy VM on your Azure Stack Edge Pro using templates](azure-stack-edge-gpu-deploy-virtual-machine-templates.md).
 
-    If you need to download a script externally such as from GitHub or Azure Storage, while configuring compute network, enable the port that is connected to the Internet, for compute. This allows you to download the script.
+    If you need to download a script such as from GitHub or Azure Storage externally, while configuring compute network, enable the port that is connected to the Internet for compute. This allows you to download the script.
 
-    Here is an example where Port 2 was connected to the internet and was used to enable the compute network. If you've identified that Kubernetes is not needed in the earlier step, you can skip the Kubernetes node IP and external service IP assignment.    
+    In the following example, Port 2 was connected to the internet and was used to enable the compute network. If you identified that Kubernetes isn't needed in the earlier step, you can skip the Kubernetes node IP and external service IP assignment.
 
-    ![Enable compute settings on port connected to internet](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/enable-compute-network-1.png)
+    ![Screenshot of the Compute pane for an Azure Stack Edge device. Compute settings for Port 2 are highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension/enable-compute-network-1.png)
 
 ## Install Custom Script Extension
 
@@ -112,7 +112,7 @@ The file `addCSExtWindowsVM.parameters.json` takes the following parameters:
 ```
 Provide your VM name, name for the extension and the command that you want to execute.
 
-Here is a sample parameter file that was used in this article. 
+Here's the sample parameter file that was used in this article.
 
 ```powershell
 {
@@ -155,7 +155,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $tem
 > [!NOTE]
 > The extension deployment is a long running job and takes about 10 minutes to complete.
 
-Here is a sample output:
+Here's a sample output:
 
 ```powershell
 PS C:\WINDOWS\system32> $templateFile = "C:\12-09-2020\ExtensionTemplates\addCSExtensiontoVM.json"
@@ -193,7 +193,7 @@ To check the deployment state of extensions for a given VM, run the following co
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName <Name of resource group> -VMName <Name of VM> -Name <Name of the extension>
 ```
-Here is a sample output:
+Here's a sample output:
 
 ```powershell
 PS C:\WINDOWS\system32> Get-AzureRmVMExtension -ResourceGroupName myasegpuvm1 -VMName VM5 -Name CustomScriptExtension
@@ -234,7 +234,7 @@ The specified files are downloaded into the following folder on the target virtu
 ```cmd
 C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 ```
-where <n> is a decimal integer, which may change between executions of the extension. The 1.* value matches the actual, current `typeHandlerVersion` value of the extension. For example, the actual directory in this instance was `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.10.9\Downloads\0`. 
+where *n* is a decimal integer, which may change between executions of the extension. The 1.* value matches the actual, current `typeHandlerVersion` value of the extension. For example, the actual directory in this instance was `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.10.9\Downloads\0`. 
 
 
 In this instance, the command to execute for the custom extension was: `md C:\\Users\\Public\\Documents\\test`. When the extension is successfully installed, you can verify that the directory was created in the VM at the specified path in the command. 
@@ -278,7 +278,7 @@ The file `addCSExtLinuxVM.parameters.json` takes the following parameters:
 ```
 Provide your VM name, name for the extension and the command that you want to execute.
 
-Here is a sample parameter file that was used in this article:
+Here's a sample parameter file that was used in this article:
 
 ```powershell
 $templateFile = "<Path to addCSExtensionToVM.json file>"
@@ -290,7 +290,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $tem
 > [!NOTE]
 > The extension deployment is a long running job and takes about 10 minutes to complete.
 
-Here is a sample output:
+Here's a sample output:
 
 ```powershell
 PS C:\WINDOWS\system32> $templateFile = "C:\12-09-2020\ExtensionTemplates\addCSExtensionToVM.json"
@@ -339,7 +339,7 @@ Template deployment is a long running job. To check the deployment state of exte
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName <VM Name> -Name <Extension Name>
 ```
-Here is a sample output: 
+Here's a sample output: 
 
 ```powershell
 PS C:\WINDOWS\system32> Get-AzureRmVMExtension -ResourceGroupName myasegpuvm1 -VMName VM5 -Name CustomScriptExtension
@@ -378,7 +378,7 @@ To remove the Custom Script Extension, use the following command:
 
 `Remove-AzureRmVMExtension -ResourceGroupName <Resource group name> -VMName <VM name> -Name <Extension name>`
 
-Here is a sample output:
+Here's a sample output:
 
 ```powershell
 PS C:\WINDOWS\system32> Remove-AzureRmVMExtension -ResourceGroupName myasegpuvm1 -VMName VM6 -Name LinuxCustomScriptExtension
@@ -393,4 +393,4 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 
 ## Next steps
 
-[Azure Resource Manager cmdlets](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Azure Resource Manager cmdlets](/powershell/module/azurerm.resources/?view=azurermps-6.13.0&preserve-view=true)

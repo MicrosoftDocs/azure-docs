@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/16/2020
+ms.date: 06/15/2021
 ms.author: jeedes
 ---
 
@@ -35,9 +35,9 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* BIC Cloud Design supports **SP** initiated SSO
+* BIC Cloud Design supports **SP** initiated SSO.
 
-## Adding BIC Cloud Design from the gallery
+## Add BIC Cloud Design from the gallery
 
 To configure the integration of BIC Cloud Design into Azure AD, you need to add BIC Cloud Design from the gallery to your list of managed SaaS apps.
 
@@ -48,7 +48,6 @@ To configure the integration of BIC Cloud Design into Azure AD, you need to add 
 1. In the **Add from the gallery** section, type **BIC Cloud Design** in the search box.
 1. Select **BIC Cloud Design** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-
 ## Configure and test Azure AD SSO for BIC Cloud Design
 
 Configure and test Azure AD SSO with BIC Cloud Design using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in BIC Cloud Design.
@@ -56,10 +55,10 @@ Configure and test Azure AD SSO with BIC Cloud Design using a test user called *
 To configure and test Azure AD SSO with BIC Cloud Design, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure BIC Cloud Design SSO](#configure-bic-cloud-design-sso)** - to configure the single sign-on settings on application side.
-    * **[Create BIC Cloud Design test user](#create-bic-cloud-design-test-user)** - to have a counterpart of B.Simon in BIC Cloud Design that is linked to the Azure AD representation of user.
+    1. **[Create BIC Cloud Design test user](#create-bic-cloud-design-test-user)** - to have a counterpart of B.Simon in BIC Cloud Design that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -84,17 +83,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	c. After the metadata file is successfully uploaded, the **Identifier** value gets auto populated in Basic SAML Configuration section.
 
-	![BIC Cloud Design Domain and URLs single sign-on information](common/sp-identifier.png)
-
 	In the **Sign-on URL** text box, type a URL using the following pattern:
 
-    ```https
-    https://<customer-specific-name/tenant>.biccloud.com
-    https://<customer-specific-name/tenant>.biccloud.de
-    ```
-
+    | Sign-on URL |
+	|-----|
+    | `https://<CUSTOMER_SPECIFIC_NAME/TENANT>.biccloud.com` |
+    | `https://<CUSTOMER_SPECIFIC_NAME/TENANT>.biccloud.de` |
+    
 	> [!Note]
-	> If the **Identifier** value does not get auto polulated, then please fill in the value manually according to your requirement. The Sign-on URL value is not real. Update this value with the actual Sign-on URL. Contact [BIC Cloud Design Client support team](mailto:bicsupport@gbtec.de) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> If the **Identifier** value does not get auto populated, then please fill in the value manually according to your requirement. The Sign-on URL value is not real. Update this value with the actual Sign-on URL. Contact [BIC Cloud Design Client support team](mailto:bicsupport@gbtec.de) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. BIC Cloud Design application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -154,8 +151,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to BIC Cloud Design Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the BIC Cloud Design tile in the My Apps, this will redirect to BIC Cloud Design Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
-
+* You can use Microsoft My Apps. When you click the BIC Cloud Design tile in the My Apps, this will redirect to BIC Cloud Design Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 

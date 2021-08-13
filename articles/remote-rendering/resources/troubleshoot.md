@@ -11,14 +11,18 @@ ms.topic: troubleshooting
 
 This page lists common issues interfering with Azure Remote Rendering, and ways to resolve them.
 
+## Client can't connect to server
+
+Make sure that your firewalls (on device, inside routers, etc.) don't block the ports mentioned in the [System requirements](../overview/system-requirements.md#network-firewall).
+
+## Failed to load model
+
+When loading a model (e.g. via a Unity sample) fails although the blob configuration is correct, it is likely that the blob storage is not properly linked. This is explained in the [linking of a storage account](../how-tos/create-an-account.md#link-storage-accounts) chapter. Note that after correct linking it can take up to 30 minutes until the changes take effect.
+
 ## Can't link storage account to ARR account
 
 Sometimes during [linking of a storage account](../how-tos/create-an-account.md#link-storage-accounts) the Remote Rendering account isn't listed. To fix this issue, go to the ARR account in the Azure portal and select **Identity** under the **Settings** group on the left. Make sure **Status** is set to **On**.
 ![Unity frame debugger](./media/troubleshoot-portal-identity.png)
-
-## Client can't connect to server
-
-Make sure that your firewalls (on device, inside routers, etc.) don't block the ports mentioned in the [System requirements](../overview/system-requirements.md#network-firewall).
 
 ## Error '`Disconnected: VideoFormatNotAvailable`'
 
@@ -157,6 +161,8 @@ Make sure to follow the [Unity Tutorial: View remote models](../tutorials/unity/
 
 Reasons for this issue could be MSAA, HDR, or enabling post processing. Make sure that the low-quality profile is selected and set as default in the Unity. To do so go to *Edit > Project Settings... > Quality*.
 
+When using the OpenXR plugin in Unity 2020, there are versions of the URP (Universal Render Pipeline) that create this extra off-screen render target regardless of post processing being enabled. It is thus important to upgrade the URP version manually to at least 10.5.1 (or higher). This is described in the [system requirements](../overview/system-requirements.md#unity-2020).
+
 ## Unity code using the Remote Rendering API doesn't compile
 
 ### Use Debug when compiling for Unity Editor
@@ -179,17 +185,17 @@ The `AudioPluginMsHRTF.dll` for Arm64 was added to the *Windows Mixed Reality* p
 
 ## Native C++ based application does not compile
 
-### 'Library not found' error for UWP application or Dll
+### 'Library not found' error for UWP application or DLL
 
-Inside the C++ NuGet package, there is file `microsoft.azure.remoterendering.Cpp.targets` file that defines which of the binary flavor to use. To identify `UWP`, the conditions in the file check for `ApplicationType == 'Windows Store'`. So it needs to be ensured that this type is set in the project. That should be the case when creating a UWP application or Dll through Visual Studio's project wizard.
+Inside the C++ NuGet package, there is file `microsoft.azure.remoterendering.Cpp.targets` file that defines which of the binary flavor to use. To identify `UWP`, the conditions in the file check for `ApplicationType == 'Windows Store'`. So it needs to be ensured that this type is set in the project. That should be the case when creating a UWP application or DLL through Visual Studio's project wizard.
 
 ## Unstable Holograms
 
 In case rendered objects seem to be moving along with head movements, you might be encountering issues with *Late Stage Reprojection* (LSR). Refer to the section on [Late Stage Reprojection](../overview/features/late-stage-reprojection.md) for guidance on how to approach such a situation.
 
-Another reason for unstable holograms (wobbling, warping, jittering, or jumping holograms) can be poor network connectivity, in particular insufficient network bandwidth, or too high latency. A good indicator for the quality of your network connection is the [performance statistics](../overview/features/performance-queries.md) value `ARRServiceStats.VideoFramesReused`. Reused frames indicate situations where an old video frame needed to be reused on the client side because no new video frame was available – for example because of packet loss or because of variations in network latency. If `ARRServiceStats.VideoFramesReused` is frequently larger than zero, this indicates a network problem.
+Another reason for unstable holograms (wobbling, warping, jittering, or jumping holograms) can be poor network connectivity, in particular insufficient network bandwidth, or too high latency. A good indicator for the quality of your network connection is the [performance statistics](../overview/features/performance-queries.md) value `ServiceStatistics.VideoFramesReused`. Reused frames indicate situations where an old video frame needed to be reused on the client side because no new video frame was available – for example because of packet loss or because of variations in network latency. If `ServiceStatistics.VideoFramesReused` is frequently larger than zero, this indicates a network problem.
 
-Another value to look at is `ARRServiceStats.LatencyPoseToReceiveAvg`. It should consistently be below 100 ms. Seeing higher values could indicate that you are connected to a data center that is too far away.
+Another value to look at is `ServiceStatistics.LatencyPoseToReceiveAvg`. It should consistently be below 100 ms. Seeing higher values could indicate that you are connected to a data center that is too far away.
 
 For a list of potential mitigations, see the [guidelines for network connectivity](../reference/network-requirements.md#guidelines-for-network-connectivity).
 
@@ -233,7 +239,7 @@ Coplanar surfaces can have a number of different causes:
 
 * Surfaces are duplicated and flipped to appear double-sided in renderers that use front-face or back-face culling.
 
-    Import via the [model conversion](../how-tos/conversion/model-conversion.md) determines the principal sidedness of the model. Double-sidedness is assumed as the default. The surface will be rendered as a thin wall with physically correct lighting from both sides. Single-sidedness can be implied by flags in the source asset, or explicitly forced during the [model conversion](../how-tos/conversion/model-conversion.md). Additionally but optionally, the [single sided mode](../overview/features/single-sided-rendering.md) can be set to "normal".
+    Import via the [model conversion](../how-tos/conversion/model-conversion.md) determines the principal sided-ness of the model. Double-sided-ness is assumed as the default. The surface will be rendered as a thin wall with physically correct lighting from both sides. Single-sided-ness can be implied by flags in the source asset, or explicitly forced during the [model conversion](../how-tos/conversion/model-conversion.md). Additionally but optionally, the [single sided mode](../overview/features/single-sided-rendering.md) can be set to "normal".
 
 * Objects intersect in the source assets.
 
@@ -245,6 +251,39 @@ Coplanar surfaces can have a number of different causes:
 
 In some cases, custom native C++ apps that use a multi-pass stereo rendering mode for local content (rendering to the left and right eye in separate passes) after calling [**BlitRemoteFrame**](../concepts/graphics-bindings.md#render-remote-image) can trigger a driver bug. The bug results in non-deterministic rasterization glitches, causing individual triangles or parts of triangles of the local content to randomly disappear. For performance reasons, it is recommended anyway to render local content with a more modern single-pass stereo rendering technique, for example using **SV_RenderTargetArrayIndex**.
 
+## Conversion File Download Errors
+
+The Conversion service may encounter errors downloading files from blob storage because of path length limits imposed by Windows and the service. File paths and file names in your blob storage must not exceed 178 characters. For example given a `blobPrefix` of `models/Assets` which is 13 characters:
+
+`models/Assets/<any file or folder path greater than 164 characters will fail the conversion>`
+
+The Conversion service will download all files specified under the `blobPrefix`, not just the files used in the conversion. The files/folder causing issues may be less obvious in these cases so it's important to check everything contained in the storage account under `blobPrefix`. See the example inputs below for what gets downloaded.
+``` json
+{
+  "settings": {
+    "inputLocation": {
+      "storageContainerUri": "https://contosostorage01.blob.core.windows.net/arrInput",
+      "blobPrefix": "models/Assets",
+      "relativeInputAssetPath": "myAsset.fbx"
+    ...
+  }
+}
+```
+
+```
+models
+├───Assets
+│   │   myAsset.fbx                 <- Asset
+│   │
+│   └───Textures
+│   |       myTexture.png           <- Used in conversion
+│   |
+|   └───MyFiles
+|          myOtherFile.txt          <- File also downloaded under blobPrefix      
+|           
+└───OtherFiles
+        myReallyLongFileName.txt    <- Ignores files not under blobPrefix             
+```
 ## Next steps
 
 * [System requirements](../overview/system-requirements.md)

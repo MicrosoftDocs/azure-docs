@@ -59,7 +59,7 @@ To verify the app creation and data simulation, go to the **Dashboard**. If you 
 After you successfully deploy the app template, you'll want to explore the app a bit more. Notice that it comes with sample smart meter device, device model, and dashboard.
 
 Adatum is a fictitious energy company that monitors and manages solar panels. On the solar panel monitoring dashboard, you see solar panel properties, data, and sample commands. This dashboard allows you or your support team to perform the following activities proactively, before any problems require additional support:
-* Review the latest panel info and its installed location on the map.
+* Review the latest panel info and its installed [location](../core/howto-use-location-data.md) on the map.
 * Check the panel status and connection status.
 * Review the energy generation and temperature trends to catch any anomalous patterns.
 * Track the total energy generation for planning and billing purposes.
@@ -100,5 +100,4 @@ If you decide not to continue using this application, delete your application wi
  
 > [!div class="nextstepaction"]
 > [Azure IoT Central - solar panel app architecture](./concept-iot-central-solar-panel-app.md)
-* [Create solar panel application templates for free](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
-* [Azure IoT Central overview](../index.yml)
+

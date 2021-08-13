@@ -24,7 +24,7 @@ This topic describes the different methods that you can use to upgrade your Azur
 
 >[!NOTE]
 > It is important that you keep your servers current with the latest releases of Azure AD Connect. We are constantly making upgrades to AADConnect, and these upgrades include fixes to security issues and bugs, as well as serviceability, performance and scalability improvements. 
-> To see what the latest version is, and to learn what changes have been made between versions, please refer to the [release version history](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history)
+> To see what the latest version is, and to learn what changes have been made between versions, please refer to the [release version history](./reference-connect-version-history.md)
 
 >[!NOTE]
 > It is currently supported to upgrade from any version of Azure AD Connect to the current version. In-place upgrades of DirSync or ADSync are not supported and a swing migration is required.  If you want to upgrade from DirSync, see [Upgrade from Azure AD sync tool (DirSync)](how-to-dirsync-upgrade-get-started.md) or the [Swing migration](#swing-migration) section.  </br>In practice, customers on extremely old versions may encounter problems not directly related to Azure AD Connect. Servers that have been in production for several years, typically have had several patches applied to them and not all of these can be accounted for.  Generally, customers who have not upgraded in 12-18 months should consider a swing upgrade instead as this is the most conservative and least risky option.
@@ -57,7 +57,7 @@ During in-place upgrade, there may be changes introduced that require specific s
 If you are using Azure AD Connect with non-standard connector (for example, Generic LDAP Connector and Generic SQL Connector), you must refresh the corresponding connector configuration in the [Synchronization Service Manager](./how-to-connect-sync-service-manager-ui-connectors.md) after in-place upgrade. For details on how to refresh the connector configuration, refer to article section [Connector Version Release History - Troubleshooting](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#troubleshooting). If you do not refresh the configuration, import and export run steps will not work correctly for the connector. You will receive the following error in the application event log with message *"Assembly version in AAD Connector configuration ("X.X.XXX.X") is earlier than the actual version ("X.X.XXX.X") of "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll".*
 
 ## Swing migration
-If you have a complex deployment or many objects, it might be impractical to do an in-place upgrade on the live system. For some customers, this process might take multiple days--and during this time, no delta changes are processed. You can also use this method when you plan to make substantial changes to your configuration and you want to try them out before they're pushed to the cloud.
+If you have a complex deployment or many objects, or if you need to upgrade the Windows Server operating system, it might be impractical to do an in-place upgrade on the live system. For some customers, this process might take multiple days--and during this time, no delta changes are processed. You can also use this method when you plan to make substantial changes to your configuration and you want to try them out before they're pushed to the cloud.
 
 The recommended method for these scenarios is to use a swing migration. You need (at least) two servers--one active server and one staging server. The active server (shown with solid blue lines in the following picture) is responsible for the active production load. The staging server (shown with dashed purple lines) is prepared with the new release or configuration. When it's fully ready, this server is made active. The previous active server, which now has the old version or configuration installed, is made into the staging server and is upgraded.
 
@@ -134,6 +134,10 @@ There may be situations where you do not want these overrides to take place imme
    > Remember to execute the required synchronization steps at your earliest convenience. You can either manually execute these steps using the Synchronization Service Manager or add the overrides back using the Set-ADSyncSchedulerConnectorOverride cmdlet.
 
 To add the overrides for both full import and full synchronization on an arbitrary connector, run the following cmdlet:  `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
+
+## Upgrading the server Operating System
+
+If you need to upgrade the operating system of your Azure AD Connect server, do not use an in place upgrade of the OS. Instead, prepare a new server with the desired operating system and perform [a swing migration](#swing-migration).
 
 ## Troubleshooting
 The following section contains troubleshooting and information that you can use if you encounter an issue upgrading Azure AD Connect.

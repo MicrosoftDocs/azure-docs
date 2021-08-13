@@ -6,18 +6,18 @@
     href: overview-reports.md
   - name: What is Azure AD monitoring?
     href: overview-monitoring.md
-  - name: What is Sign-in Diagnostic?
+  - name: What is the sign-in diagnostic?
     href: overview-sign-in-diagnostics.md
    
 - name: Quickstarts
   expanded: true
   items:
-  - name: Download a sign-in report
-    href: quickstart-download-sign-in-report.md
-  - name: Download an audit report
-    href: quickstart-download-audit-report.md
-  - name: Configure named locations
-    href: quickstart-configure-named-locations.md
+  - name: Filter your audit log 
+    href: quickstart-filter-audit-log.md
+  - name: Analyze sign-ins 
+    href: quickstart-analyze-sign-in.md
+  - name: Access logs with the Graph API
+    href: quickstart-access-log-with-graph-api.md
   - name: Route logs to storage account
     href: quickstart-azure-monitor-route-logs-to-storage-account.md
 
@@ -32,34 +32,32 @@
 
 - name: Concepts
   items:
-  - name: Plan a reporting and monitoring deployment
-    href: plan-monitoring-and-reporting.md
   - name: Audit logs
     href: concept-audit-logs.md
   - name: New sign-in logs - preview
     href: concept-all-sign-ins.md
   - name: Sign-in logs
     href: concept-sign-ins.md
-  - name: Usage and Insights report
-    href: concept-usage-insights-report.md
-  - name: Risky sign-ins
-    href: ../identity-protection/overview-identity-protection.md
-  - name: Risk detections
-    href: ../identity-protection/overview-identity-protection.md
-  - name: Users at risk
-    href: ../identity-protection/overview-identity-protection.md
   - name: Provisioning logs
     href: concept-provisioning-logs.md
+  - name: Usage and Insights report
+    href: concept-usage-insights-report.md
   - name: Reporting APIs
     href: concept-reporting-api.md
   - name: Azure AD logs in Azure Monitor
     href: concept-activity-logs-azure-monitor.md
+  - name: Plan a reporting and monitoring deployment
+    href: plan-monitoring-and-reporting.md
+  - name: Sign-in diagnostics scenarios
+    href: concept-sign-in-diagnostics-scenarios.md
 
 - name: How-to guides
   expanded: true
   items:
   - name: Reports
     items:
+    - name: Download logs
+      href: howto-download-logs.md
     - name: Manage inactive user accounts in Azure AD
       href: howto-manage-inactive-user-accounts.md
     - name: Find activity reports
@@ -105,20 +103,16 @@
   - name: Azure AD PowerShell cmdlets for reporting
     href: reference-powershell-reporting.md
   - name: Audit logs API reference
-    href: /graph/api/resources/directoryaudit?view=graph-rest-1.0
+    href: /graph/api/resources/directoryaudit
   - name: Sign-in logs API reference
-    href: /graph/api/resources/signin?view=graph-rest-1.0
+    href: /graph/api/resources/signin
   - name: Audit activities
     href: reference-audit-activities.md
   - name: Data retention policies
     href: reference-reports-data-retention.md
   - name: Reporting latencies
     href: reference-reports-latencies.md
-  - name: Sign-in error codes
-    href: reference-sign-ins-error-codes.md
   - name: Frequently asked questions
     href: reports-faq.md
-  - name: Audit log schema
-    href: reference-azure-monitor-audit-log-schema.md
   - name: Sign-in log schema
     href: reference-azure-monitor-sign-ins-log-schema.md

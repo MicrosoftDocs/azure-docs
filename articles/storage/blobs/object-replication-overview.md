@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 05/11/2021
 ms.author: tamram
 ms.subservice: blobs 
 ms.custom: devx-track-azurepowershell
@@ -39,6 +39,8 @@ Object replication requires that the following Azure Storage features are also e
 
 Enabling change feed and blob versioning may incur additional costs. For more details, refer to the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/).
 
+Object replication is supported only for general-purpose v2 storage accounts. Both the source and destination accounts must be general-purpose v2. 
+
 ## How object replication works
 
 Object replication asynchronously copies block blobs in a container according to rules that you configure. The contents of the blob, any versions associated with the blob, and the blob's metadata and properties are all copied from the source container to the destination container.
@@ -62,7 +64,7 @@ Object replication is supported when the source and destination accounts are in 
 
 ### Immutable blobs
 
-Object replication does not support immutable blobs. If a source or destination container has a time-based retention policy or legal hold, then object replication fails. For more information about immutable blobs, see [Store business-critical blob data with immutable storage](storage-blob-immutable-storage.md).
+Object replication does not support immutable blobs. If a source or destination container has a time-based retention policy or legal hold, then object replication fails. For more information about immutable blobs, see [Store business-critical blob data with immutable storage](immutable-storage-overview.md).
 
 ## Object replication policies and rules
 
@@ -74,17 +76,31 @@ After you configure object replication, Azure Storage checks the change feed for
 
 When you configure object replication, a replication policy is created on both the source account and the destination account via the Azure Storage resource provider. The replication policy is identified by a policy ID. The policy on the source and destination accounts must have the same policy ID in order for replication to take place.
 
-A storage account can serve as the source account for up to two destination accounts. The source and destination accounts may be in the same region or in different regions. They may also reside in different subscriptions and in different Azure Active Directory (Azure AD) tenants. Only one replication policy may be created for each source account/destination account pair.
+A source account can replicate to no more than two destination accounts, with one policy for each destination account. Similarly, an account may serve as the destination account for no more than two replication policies.
+
+The source and destination accounts may be in the same region or in different regions. They may also reside in different subscriptions and in different Azure Active Directory (Azure AD) tenants. Only one replication policy may be created for each source account/destination account pair.
 
 ### Replication rules
 
-Replication rules specify how Azure Storage will replicate blobs from a source container to a destination container. You can specify up to 10 replication rules for each replication policy. Each replication rule defines a single source and destination container, and each source and destination container can be used in only one rule.
+Replication rules specify how Azure Storage will replicate blobs from a source container to a destination container. You can specify up to 10 replication rules for each replication policy. Each replication rule defines a single source and destination container, and each source and destination container can be used in only one rule, meaning that a maximum of 10 source containers and 10 destination containers may participate in a single replication policy.
 
 When you create a replication rule, by default only new block blobs that are subsequently added to the source container are copied. You can specify that both new and existing block blobs are copied, or you can define a custom copy scope that copies block blobs created from a specified time onward.
 
 You can also specify one or more filters as part of a replication rule to filter block blobs by prefix. When you specify a prefix, only blobs matching that prefix in the source container will be copied to the destination container.
 
-The source and destination containers must both exist before you can specify them in a rule. After you create the replication policy, the destination container becomes read-only. Any attempts to write to the destination container fail with error code 409 (Conflict). However, you can call the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation on a blob in the destination container to move it to the archive tier. For more information about the archive tier, see [Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md#archive-access-tier).
+The source and destination containers must both exist before you can specify them in a rule. After you create the replication policy, write operations to the  destination container are not permitted. Any attempts to write to the destination container fail with error code 409 (Conflict). To write to a destination container for which a replication rule is configured, you must either delete the rule that is configured for that container, or remove the replication policy. Read and delete operations to the destination container are permitted when the replication policy is active.
+
+You can call the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation on a blob in the destination container to move it to the archive tier. For more information about the archive tier, see [Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md#archive-access-tier).
+
+## Replication status
+
+You can check the replication status for a blob in the source account. For more information, see [Check the replication status of a blob](object-replication-configure.md#check-the-replication-status-of-a-blob).
+
+If the replication status for a blob in the source account indicates failure, then investigate the following possible causes:
+
+- Make sure that the object replication policy is configured on the destination account.
+- Verify that the destination container still exists.
+- If the source blob has been encrypted with a customer-provided key as part of a write operation, then object replication will fail. For more information about customer-provided keys, see [Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md).
 
 ## Billing
 

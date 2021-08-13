@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 05/03/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -19,6 +19,16 @@ zone_pivot_groups: b2c-policy-type
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
+In Azure Active Directory B2C (Azure AD B2C), you can enable users who are signed in with a local account to change their password without having to prove their identity through email verification. The password change flow involves following steps:
+
+1. The user signs in to their local account. If the session is still active, Azure AD B2C authorizes the user and skips to the next step.
+1. The user verifies the **Old password**, and then creates and confirms the **New password**.
+
+![Password change flow](./media/add-password-change-policy/password-change-flow.png)  
+
+> [!TIP]
+> The password change flow allows users to change their password only when the user knows their password and wants to change it. We recommend you to also enable [self-service password reset](add-password-reset-policy.md) to support cases where the user forgets their password.
+
 ::: zone pivot="b2c-user-flow"
 
 [!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-limited-to-custom-policy.md)]
@@ -27,18 +37,9 @@ zone_pivot_groups: b2c-policy-type
 
 ::: zone pivot="b2c-custom-policy"
 
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
-
-In Azure Active Directory B2C (Azure AD B2C), you can enable users who are signed in with a local account to change their password without having to prove their authenticity by email verification. The password change flow involves following steps:
-
-1. Sign-in with a local account. If the session is still active, Azure AD B2C authorizes the user, and skips to the next step.
-1. Users must verify the **old password**, create, and confirm the **new password**.
-
-![Password change flow](./media/add-password-change-policy/password-change-flow.png)
-
 ## Prerequisites
 
-* Complete the steps in [Get started with custom policies in Active Directory B2C](custom-policy-get-started.md).
+* Complete the steps in [Get started with custom policies in Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 * If you haven't already done so, [register a web application in Azure Active Directory B2C](tutorial-register-applications.md).
 
 ## Add the elements
@@ -155,7 +156,7 @@ In Azure Active Directory B2C (Azure AD B2C), you can enable users who are signe
 
 1. Open the policy that you changed. For example, *B2C_1A_profile_edit_password_change*.
 2. For **Application**, select your application that you previously registered. To see the token, the **Reply URL** should show `https://jwt.ms`.
-3. Click **Run now**. Sign in with the account that you previously created. You should now have the opportunity to change the password.
+3. Click **Run now**. In the new tab that opens, remove "&prompt=login" from the URL and refresh the tab. Then sign in with the account you previously created. You will now have the opportunity to change the password.
 
 ## Next steps
 

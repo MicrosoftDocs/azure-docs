@@ -63,11 +63,13 @@ Sign in to the [Azure portal](https://portal.azure.com).
     | Select inbound ports | Select **RDP (3389)** |
 
     > [!WARNING]
-    > Portal 3389 is selected, to enable remote access to the Windows Server virtual machine from the internet. Opening port 3389 to the internet is not recommended to manage production workloads. </br> For secure access to Azure virtual machines, see **[What is Azure Bastion?](/azure/bastion/bastion-overview)**
+    > Portal 3389 is selected, to enable remote access to the Windows Server virtual machine from the internet. Opening port 3389 to the internet is not recommended to manage production workloads. </br> For secure access to Azure virtual machines, see **[What is Azure Bastion?](../bastion/bastion-overview.md)**
    
 5. Select **Review + create**. 
   
 6. Review the settings, and then select **Create**.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## Clean up resources
 
@@ -90,7 +92,7 @@ The SKU of the virtual machine's public IP address must match the public IP SKU 
 
 You can download the list of ranges (prefixes) for the Azure [Public](https://www.microsoft.com/download/details.aspx?id=56519), [US government](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062), and [Germany](https://www.microsoft.com/download/details.aspx?id=57064) clouds.
 
-- Learn more about [static public IP addresses](virtual-network-ip-addresses-overview-arm.md#allocation-method).
-- Learn more about [public IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) in Azure.
+- Learn more about [static public IP addresses](./public-ip-addresses.md#ip-address-assignment).
+- Learn more about [public IP addresses](./public-ip-addresses.md#public-ip-addresses) in Azure.
 - Learn more about all [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).
-- Learn more about [private IP addresses](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) and assigning a [static private IP address](virtual-network-network-interface-addresses.md#add-ip-addresses) to an Azure virtual machine.
+- Learn more about [private IP addresses](./private-ip-addresses.md) and assigning a [static private IP address](virtual-network-network-interface-addresses.md#add-ip-addresses) to an Azure virtual machine.

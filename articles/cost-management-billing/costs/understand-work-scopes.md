@@ -3,7 +3,7 @@ title: Understand and work with Azure Cost Management scopes
 description: This article helps you understand billing and resource management scopes available in Azure and how to use the scopes in Cost Management and APIs.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/12/2020
+ms.date: 05/05/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -37,7 +37,7 @@ Azure supports three scopes for resource management. Each scope supports managin
 
 - [**Management groups**](../../governance/management-groups/overview.md) - Hierarchical containers, up to eight levels, to organize Azure subscriptions.
 
-    Resource type: [Microsoft.Management/managementGroups](/rest/api/resources/managementgroups)
+    Resource type: [Microsoft.Management/managementGroups](/rest/api/managementgroups/)
 
 - **Subscriptions** - Primary containers for Azure resources.
 
@@ -68,7 +68,20 @@ Cost Management Contributor is the recommended least-privilege role. The role al
 - **Schedule cost data export** – Cost Management Contributors also need access to manage storage accounts to schedule an export to copy data into a storage account. Consider granting [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) to a resource group that contains the storage account where cost data is exported.
 - **Viewing cost-saving recommendations** – Cost Management Readers and Cost Management Contributors have access to *view* cost recommendations by default. However, access to act on the cost recommendations requires access to individual resources. Consider granting a [service-specific role](../../role-based-access-control/built-in-roles.md#all) if you want to act on a cost-based recommendation.
 
-Management groups are only supported if they contain Enterprise Agreement (EA), Pay-as-you-go (PAYG), or Microsoft internal subscriptions. Management groups with any other subscription types, like Microsoft Customer Agreement or Azure Active Directory subscriptions, can't view costs. If you have a mix of subscriptions, move the unsupported subscriptions to a separate arm of the management group hierarchy to enable Cost Management for the supported subscriptions. As an example, create two management groups under the root management group: **Azure AD** and **My Org**. Move your Azure AD subscription to the **Azure AD** management group and then view and manage costs using the **My Org** management group.
+Management groups are only supported if they contain up to 3,000 Enterprise Agreement (EA), Pay-as-you-go (PAYG), or Microsoft internal subscriptions. Management groups with more than 3,000 subscriptions or subscriptions with other offer types, like Microsoft Customer Agreement or Azure Active Directory subscriptions, can't view costs. If you have a mix of subscriptions, move the unsupported subscriptions to a separate arm of the management group hierarchy to enable Cost Management for the supported subscriptions. As an example, create two management groups under the root management group: **Azure AD** and **My Org**. Move your Azure AD subscription to the **Azure AD** management group and then view and manage costs using the **My Org** management group.
+
+### Feature behavior for each role
+
+The following table shows how Cost Management features are used by each role. The behavior below is applicable to all Azure RBAC scopes.
+
+| **Feature/Role** | **Owner** | **Contributor** | **Reader** | **Cost Management Reader** | **Cost Management Contributor** |
+| --- | --- | --- | --- | --- | --- | 
+| **Cost Analysis / Forecast / Query API** | Read only | Read only | Read only | Read only | Read only |
+| **Shared views** | Create, Read, Update, Delete | Create, Read, Update, Delete | Read only | Read only |  Create, Read, Update, Delete|
+| **Budgets** | Create, Read, Update, Delete | Create, Read, Update, Delete | Read only | Read only | Create, Read, Update, Delete |
+| **Alerts** | Read, Update | Read, Update | Read only | Read only | Read, Update |
+| **Exports** | Create, Read, Update, Delete | Create, Read, Update, Delete | Read only | Read only | Create, Read, Update, Delete |
+| **Cost Allocation rules** | Feature not available for Azure RBAC scopes | Feature not available for Azure RBAC scopes | Feature not available for Azure RBAC scopes | Feature not available for Azure RBAC scopes | Feature not available for Azure RBAC scopes | 
 
 ## Enterprise Agreement scopes
 
@@ -89,10 +102,10 @@ Although governance scopes are bound to a single directory, EA billing scopes ar
 
 EA billing scopes support the following roles:
 
-- **Enterprise admin** – Can manage billing account settings and access, can view all costs, and can manage cost configuration. For example, budgets and exports. In function, the EA billing scope is the same as [Cost Management Contributor Azure role](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Enterprise read-only user** – Can view billing account settings, cost data, and cost configuration. For example, budgets and exports. In function, the EA billing scope is the same as the [Cost Management Reader Azure role](../../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Enterprise admin** – Can manage billing account settings and access, can view all costs, and can manage cost configuration. For example, budgets and exports.
+- **Enterprise read-only user** – Can view billing account settings, cost data, and cost configuration. Can manage budgets and exports.
 - **Department admin** – Can manage department settings, such as cost center, and can access, view all costs, and manage cost configuration. For example, budgets and exports.  The **DA view charges** billing account setting must be enabled for department admins and read-only users to see costs. If **DA view charges** option is disabled, department users can't see costs at any level, even if they're an account or subscription owner.
-- **Department read-only user** – Can view department settings, cost data, and cost configuration. For example, budgets and exports. If **DA view charges** option is disabled, department users can't see costs at any level, even if they are an account or subscription owner.
+- **Department read-only user** – Can view department settings, cost data, and cost configuration. Can manage budgets and exports. If **DA view charges** option is disabled, department users can't see costs at any level, even if they are an account or subscription owner.
 - **Account owner** – Can manage enrollment account settings (such as cost center), view all costs, and manage cost configuration (such as budgets and exports) for the enrollment account. The **AO view charges** billing account setting must be enabled for account owners and Azure RBAC users to see costs.
 
 EA billing account users don't have direct access to invoices. Invoices are available from an external volume licensing system.
@@ -100,6 +113,43 @@ EA billing account users don't have direct access to invoices. Invoices are avai
 Azure subscriptions are nested under enrollment accounts. Billing users have access to cost data for the subscriptions and resource groups that are under their respective scopes. They don't have access to see or manage resources in the Azure portal. Users can view costs by navigating to **Cost Management + Billing** in the Azure portal list of services. Then, they can filter costs to the specific subscriptions and resource groups they need to report on.
 
 Billing users don't have access to management groups because they don't fall explicitly under a specific billing account. Access must be granted to management groups explicitly. Management groups roll-up costs from all nested subscriptions. However, they only include usage-based purchases. They don't include purchases such as reservations and third-party Marketplace offerings. To view these costs, use the EA billing account.
+
+### Feature behavior for each role
+
+The following tables show how Cost Management features can be utilized by each role.
+
+#### Enrollment scope
+
+| **Feature/Role** | **Enterprise Admin** | **Enterprise Read-Only** |
+| --- | --- | --- |
+| **Cost Analysis / Forecast / Query API** | Read only | Read only |
+| **Shared Views** | Create, Read, Update, Delete | Create, Read, Update, Delete |
+| **Budgets** | Create, Read, Update, Delete | Create, Read, Update, Delete |
+| **Alerts** | Read, Update | Read, Update |
+| **Exports** | Create, Read, Update, Delete | Create, Read, Update, Delete |
+| **Cost Allocation Rules** | Create, Read, Update, Delete | Create, Read, Update, Delete |
+
+#### Department scope
+
+| **Feature/Role** | **Enterprise Admin** | **Enterprise Read Only** | **Department Admin (only if "DA view charges" setting is on)** | **Department Read Only (only if "DA view charges" setting is on)** |
+| --- | --- | --- | --- | --- |
+| **Cost Analysis / Forecast / Query API** | Read only | Read only | Read only | Read only |
+| **Shared Views** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
+| **Budgets** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
+| **Alerts** | Read, Update | Read, Update | Read, Update | Read, Update |
+| **Exports** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
+| **Cost Allocation Rules** | N/A – only applicable to Billing Account scope | N/A – only applicable to Billing Account scope | N/A – only applicable to Billing Account scope | N/A – only applicable to Billing Account scope |
+
+#### Account scope
+
+| **Feature/Role** | **Enterprise Admin** | **Enterprise Read Only** | **Department Admin (only if "DA view charges" is on)** | **Department Read Only (only if "DA view charges" setting is on)** | **Account Owner (only if "AO view charges" setting is on)** |
+| --- | --- | --- | --- | --- | --- |
+| **Cost Analysis / Forecast / Query API** | Read only | Read only | Read only | Read only | Read only |
+| **Shared Views** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
+| **Budgets** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
+| **Alerts** | Read, Update | Read, Update | Read, Update | Read, Update | Read, Update |
+| **Exports** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
+| **Cost Allocation Rules** | N/A – only applicable to Billing Account scope | N/A – only applicable to Billing Account scope | N/A – only applicable to Billing Account scope | N/A – only applicable to Billing Account scope | N/A – only applicable to Billing Account scope |
 
 ## Individual agreement scopes
 
@@ -110,7 +160,7 @@ Represents a single account owner for one or more Azure subscriptions. It doesn'
 
     Resource type: Not applicable
 
-Individual Azure subscription account admins can view and manage billing data, such as invoices and payments, from the [Azure Account Center](https://account.azure.com/subscriptions). However, they can't view cost data or manage resources in the Azure portal. To grant access to the account admin, use the Cost Management roles mentioned previously.
+Individual Azure subscription account admins can view and manage billing data, such as invoices and payments, from the [Azure portal](https://portal.azure.com) > **Subscriptions** > select a subscription.
 
 Unlike EA, individual Azure subscription account admins can see their invoices in the Azure portal. Keep in mind that Cost Management Reader and Cost Management Contributor roles don't provide access to invoices. For more information, see [How to grant access to invoices](../manage/manage-billing-access.md#give-read-only-access-to-billing).
 
@@ -132,7 +182,7 @@ Microsoft Customer Agreement billing accounts have the following scopes:
 
 - **Customer** - Represents a group of subscriptions that are associated to a specific customer that is onboarded to a Microsoft Customer Agreement by partner. This scope is specific to Cloud Solution Providers (CSP).
 
-Unlike EA billing scopes, Customer Agreement billing accounts _are_ bound to a single directory and can't have subscriptions across multiple Azure AD directories.
+Unlike EA billing scopes, Customer Agreement billing accounts _are_ managed by a single directory. Microsoft Customer Agreement billing accounts can have *linked* subscriptions that could be in different Azure AD directories.
 
 Customer Agreement billing scopes don't apply to partners. Partner roles and permissions are documented at [Assign users roles and permissions](/partner-center/permissions-overview).
 
@@ -140,13 +190,50 @@ Customer Agreement billing scopes support the following roles:
 
 - **Owner** – Can manage billing settings and access, view all costs, and manage cost configuration. For example, budgets and exports. In function, this Customer Agreement billing scope is the same as the [Cost Management Contributor Azure role](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
 - **Contributor** – Can manage billing settings except access, view all costs, and manage cost configuration. For example, budgets and exports. In function, this Customer Agreement billing scope is the same as the [Cost Management Contributor Azure role](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Reader** – Can view billing settings, cost data, and cost configuration. For example, budgets and exports. In function, this Customer Agreement billing scope is the same as the [Cost Management Reader Azure role](../../role-based-access-control/built-in-roles.md#cost-management-reader).
-- **Invoice manager** – Can view and pay invoices and can view cost data and configuration. For example, budgets and exports. In function, this Customer Agreement billing scope is the same as the [Cost Management Reader Azure role](../../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Reader** – Can view billing settings, cost data, and cost configuration. Can manage budgets and exports.
+- **Invoice manager** – Can view and pay invoices and can view cost data and configuration. Can manage budgets and exports.
 - **Azure subscription creator** – Can create Azure subscriptions, view costs, and manage cost configuration. For example, budgets and exports. In function, this Customer Agreement billing scope is the same as the EA enrollment account owner role.
 
 Azure subscriptions are nested under invoice sections, like how they are under EA enrollment accounts. Billing users have access to cost data for the subscriptions and resource groups that are under their respective scopes. However, they don't have access to see or manage resources in the Azure portal. Billing users can view costs by navigating to **Cost Management + Billing** in the Azure portal list of services. Then, filter costs to the specific subscriptions and resource groups they need to report on.
 
 Billing users don't have access to management groups because they don't explicitly fall under the billing account. However, when management groups are enabled for the organization, all subscription costs are rolled-up to the billing account and to the root management group because they're both constrained to a single directory. Management groups only include purchases that are usage-based. Purchases like reservations and third-party Marketplace offerings aren't included in management groups. So, the billing account and root management group may report different totals. To view these costs, use the billing account or respective billing profile.
+
+### Feature behavior for each role
+
+The following tables show how Cost Management features can be utilized by each role.
+
+#### Billing account
+
+| **Feature/Role** | **Owner** | **Contributor** | **Reader** |
+| --- | --- | --- | --- |
+| **Cost Analysis / Forecast / Query API** | Read only | Read only | Read only |
+| **Shared Views** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
+| **Budgets** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
+| **Alerts** | Read, Update | Read, Update | Read, Update |
+| **Exports** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
+| **Cost Allocation Rules** | Create, Read, Update, Delete | Create, Read, Update, Delete | Read only |
+
+#### Billing profile
+
+| **Feature/Role** | **Owner** | **Contributor** | **Reader** | **Invoice Manager** |
+| --- | --- | --- | --- | --- |
+| **Cost Analysis / Forecast / Query API** | Read only | Read only | Read only | Read only |
+| **Shared Views** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
+| **Budgets** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
+| **Alerts** | Read, Update | Read, Update | Read, Update | Create, Read, Update, Delete |
+| **Exports** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Read, Update |
+| **Cost Allocation Rules** | N/A – only applicable to Billing Account | N/A – only applicable to Billing Account | N/A – only applicable to Billing Account | N/A – only applicable to Billing Account |
+
+#### Invoice section
+
+| **Feature/Role** | **Owner** | **Contributor** | **Reader** | **Azure Subscription Creator** |
+| --- | --- | --- | --- | --- |
+| **Cost Analysis / Forecast / Query API** | Read only | Read only | Read only | Read only |
+| **Shared Views** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
+| **Budgets** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
+| **Alerts** | Read, Update | Read, Update | Read, Update | Read, Update |
+| **Exports** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
+| **Cost Allocation Rules** | N/A – only applicable to Billing Account | N/A – only applicable to Billing Account | N/A – only applicable to Billing Account | N/A – only applicable to Billing Account |
 
 ## AWS scopes
 

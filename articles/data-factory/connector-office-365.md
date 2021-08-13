@@ -1,20 +1,14 @@
 ---
 title: Copy data from Office 365 using Azure Data Factory 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from Office 365 to supported sink data stores by using copy activity in an Azure Data Factory pipeline.
-services: data-factory
-documentationcenter: ''
-author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
-
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
-
-
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 10/20/2019
-ms.author: jingwang
-
+ms.author: jianleishen
 ---
 # Copy data from Office 365 into Azure using Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -37,7 +31,7 @@ For now, within a single copy activity you can only **copy data from Office 365 
 
 To copy data from Office 365 into Azure, you need to complete the following prerequisite steps:
 
-- Your Office 365 tenant admin must complete on-boarding actions as described [here](/graph/data-connect-get-started).
+- Your Office 365 tenant admin must complete on-boarding actions as described [here](/events/build-may-2021/microsoft-365-teams/breakouts/od483/).
 - Create and configure an Azure AD web application in Azure Active Directory.  For instructions, see [Create an Azure AD application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
 - Make note of the following values, which you will use to define the linked service for Office 365:
     - Tenant ID. For instructions, see [Get tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
@@ -47,9 +41,9 @@ To copy data from Office 365 into Azure, you need to complete the following prer
 
 ## Approving new data access requests
 
-If this is the first time you are requesting data for this context (a combination of which data table is being access, which destination account is the data being loaded into, and which user identity is making the data access request), you will see the copy activity status as "In Progress", and only when you click into ["Details" link under Actions](copy-activity-overview.md#monitoring) will you see the status as “RequestingConsent”.  A member of the data access approver group needs to approve the request in the Privileged Access Management before the data extraction can proceed.
+If this is the first time you are requesting data for this context (a combination of which data table is being access, which destination account is the data being loaded into, and which user identity is making the data access request), you will see the copy activity status as "In Progress", and only when you click into ["Details" link under Actions](copy-activity-overview.md#monitoring) will you see the status as "RequestingConsent".  A member of the data access approver group needs to approve the request in the Privileged Access Management before the data extraction can proceed.
 
-Refer [here](/graph/data-connect-tips#approve-pam-requests-via-office-365-admin-portal) on how the approver can approve the data access request, and refer [here](/graph/data-connect-pam) for an explanation on the overall integration with Privileged Access Management, including how to set up the data access approver group.
+Refer [here](/graph/data-connect-faq#how-can-i-approve-pam-requests-via-microsoft-365-admin-portal) on how the approver can approve the data access request, and refer [here](/graph/data-connect-pam) for an explanation on the overall integration with Privileged Access Management, including how to set up the data access approver group.
 
 ## Policy validation
 
@@ -87,7 +81,7 @@ The following properties are supported for Office 365 linked service:
 >[!NOTE]
 > The difference between **office365TenantId** and **servicePrincipalTenantId** and the corresponding value to provide:
 >- If you are an enterprise developer developing an application against Office 365 data for your own organization's usage, then you should supply the same tenant ID for both properties, which is your organization's AAD tenant ID.
->- If you are an ISV developer developing an application for your customers, then office365TenantId will be your customer’s (application installer) AAD tenant ID and servicePrincipalTenantId will be your company’s AAD tenant ID.
+>- If you are an ISV developer developing an application for your customers, then office365TenantId will be your customer's (application installer) AAD tenant ID and servicePrincipalTenantId will be your company's AAD tenant ID.
 
 **Example:**
 

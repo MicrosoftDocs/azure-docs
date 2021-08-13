@@ -39,7 +39,7 @@ The transaction safety limits only apply to fully logged operations.
 
 The following operations are capable of being minimally logged:
 
-* CREATE TABLE AS SELECT ([CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json))
+* CREATE TABLE AS SELECT ([CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?context=/azure/synapse-analytics/context/context))
 * INSERT..SELECT
 * CREATE INDEX
 * ALTER INDEX REBUILD
@@ -79,7 +79,7 @@ Loading data into a non-empty table with a clustered index can often contain a m
 
 ## Optimize deletes
 
-DELETE is a fully logged operation.  If you need to delete a large amount of data in a table or a partition, it often makes more sense to `SELECT` the data you wish to keep, which can be run as a minimally logged operation.  To select the data, create a new table with [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  Once created, use [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to swap out your old table with the newly created table.
+DELETE is a fully logged operation.  If you need to delete a large amount of data in a table or a partition, it often makes more sense to `SELECT` the data you wish to keep, which can be run as a minimally logged operation.  To select the data, create a new table with [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?context=/azure/synapse-analytics/context/context).  Once created, use [RENAME](/sql/t-sql/statements/rename-transact-sql?view=azure-sqldw-latest&preserve-view=true) to swap out your old table with the newly created table.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -172,11 +172,11 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> Re-creating large tables can benefit from using dedicated SQL pool workload management features. For more information, see [Resource classes for workload management](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+> Re-creating large tables can benefit from using dedicated SQL pool workload management features. For more information, see [Resource classes for workload management](../sql-data-warehouse/resource-classes-for-workload-management.md?context=/azure/synapse-analytics/context/context).
 
 ## Optimize with partition switching
 
-If faced with large-scale modifications inside a [table partition](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), then a partition switching pattern makes sense. If the data modification is significant and spans multiple partitions, then iterating over the partitions achieves the same result.
+If faced with large-scale modifications inside a [table partition](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?context=/azure/synapse-analytics/context/context), then a partition switching pattern makes sense. If the data modification is significant and spans multiple partitions, then iterating over the partitions achieves the same result.
 
 The steps to perform a partition switch are as follows:
 
@@ -401,7 +401,7 @@ END
 
 ## Pause and scaling guidance
 
-Azure Synapse Analytics lets you [pause, resume, and scale](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) your dedicated SQL pool on demand. 
+Azure Synapse Analytics lets you [pause, resume, and scale](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?context=/azure/synapse-analytics/context/context) your dedicated SQL pool on demand. 
 
 When you pause or scale your dedicated SQL pool, it is important to understand that any in-flight transactions are terminated immediately; causing any open transactions to be rolled back. 
 
@@ -417,4 +417,4 @@ The best scenario is to let in flight data modification transactions complete pr
 
 ## Next steps
 
-See [Transactions in dedicated SQL pool](develop-transactions.md) to learn more about isolation levels and transactional limits.  For an overview of other Best Practices, see [SQL pool best practices](best-practices-sql-pool.md).
+See [Transactions in dedicated SQL pool](develop-transactions.md) to learn more about isolation levels and transactional limits.  For an overview of other best practices, see [Dedicated SQL pool best practices](best-practices-dedicated-sql-pool.md).

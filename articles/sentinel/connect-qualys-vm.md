@@ -24,6 +24,8 @@ ms.author: yelevin
 > This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 The Qualys Vulnerability Management (VM) connector allows you to easily connect all your [Qualys VM](https://www.qualys.com/apps/vulnerability-management/) security solution logs with Azure Sentinel, to view dashboards, create custom alerts, and improve investigation. Integration between Qualys VM and Azure Sentinel makes use of Azure Functions to pull log data using REST API.
 
 > [!NOTE]
@@ -45,12 +47,12 @@ After a successful connection is established, the data appears in Log Analytics 
 
 ## Validate connectivity
 
-It may take upwards of 20 minutes until your logs start to appear in Log Analytics.
+It may take up to 20 minutes until your logs start to appear in Log Analytics.
 
 ## Next steps
 
 In this document, you learned how to connect Qualys VM to Azure Sentinel using Azure Function Apps. To learn more about Azure Sentinel, see the following articles:
 
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).
 - [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.

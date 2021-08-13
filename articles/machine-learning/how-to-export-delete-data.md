@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 author: lobrien
 ms.author: laobri
-ms.date: 04/24/2020
-ms.topic: conceptual
-ms.custom: how-to
+ms.date: 08/05/2021
+ms.topic: how-to
+
 ---
 # Export or delete your Machine Learning service workspace data
 
@@ -27,7 +27,7 @@ In Azure Machine Learning, personal data consists of user information in run his
 
 ## Delete high-level resources using the portal
 
-When you create a workspace, Azure creates a number of resources within the resource group:
+When you create a workspace, Azure creates several resources within the resource group:
 
 - The workspace itself
 - A storage account
@@ -47,11 +47,14 @@ Run history documents, which may contain personal user information, are stored i
 
 Azure Machine Learning studio provides a unified view of your machine learning resources, such as notebooks, datasets, models, and experiments. Azure Machine Learning studio emphasizes preserving a record of your data and experiments. Computational resources such as pipelines and compute resources can be deleted using the browser. For these resources, navigate to the resource in question and choose **Delete**. 
 
-Datasets can be unregistered and Experiments can be archived, but these operations don't delete the data. To entirely remove the data, datasets and run data must be deleted at the storage level. Deleting at the storage level is done using the portal, as described previously.
+Datasets can be unregistered and Experiments can be archived, but these operations don't delete the data. To entirely remove the data, datasets and experiment data must be deleted at the storage level. Deleting at the storage level is done using the portal, as described previously. An individual Run can be deleted directly in studio. Deleting a Run deletes the Run's data. 
 
-You can download training artifacts from experimental runs using the Studio. Choose the **Experiment** and **Run** in which you are interested. Choose **Output + logs** and navigate to the specific artifacts you wish to download. Choose **...** and **Download**.
+> [!NOTE]
+> Prior to unregistering a Dataset, use its **Data source** link to find the specific Data URL to delete. 
 
-You can download a registered model by navigating to the desired **Model** and choosing **Download**. 
+You can download training artifacts from experimental runs using the Studio. Choose the **Experiment** and **Run** in which you're interested. Choose **Output + logs** and navigate to the specific artifacts you wish to download. Choose **...** and **Download**.
+
+You can download a registered model by navigating to the **Model** and choosing **Download**. 
 
 :::image type="contents" source="media/how-to-export-delete-data/model-download.png" alt-text="Screenshot of studio model page with download option highlighted":::
 
@@ -75,7 +78,7 @@ The following machine learning resources can be deleted using the Python SDK:
 
 | Type | Function Call | Notes | 
 | --- | --- | --- |
-| `Workspace` | [`delete`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete-delete-dependent-resources-false--no-wait-false-) | Use `delete-dependent-resources` to cascade the delete |
-| `Model` | [`delete`](/python/api/azureml-core/azureml.core.model%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--) | | 
-| `ComputeTarget` | [`delete`](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--) | |
-| `WebService` | [`delete`](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py) | |
+| `Workspace` | [`delete`](/python/api/azureml-core/azureml.core.workspace.workspace#delete-delete-dependent-resources-false--no-wait-false-) | Use `delete-dependent-resources` to cascade the delete |
+| `Model` | [`delete`](/python/api/azureml-core/azureml.core.model%28class%29#delete--) | | 
+| `ComputeTarget` | [`delete`](/python/api/azureml-core/azureml.core.computetarget#delete--) | |
+| `WebService` | [`delete`](/python/api/azureml-core/azureml.core.webservice%28class%29) | |

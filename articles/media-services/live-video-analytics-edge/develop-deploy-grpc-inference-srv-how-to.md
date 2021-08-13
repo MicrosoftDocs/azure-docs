@@ -1,12 +1,14 @@
 ---
-title: Develop and deploy a gRPC inference server - Azure
-description: This article provides guidance on how to develop and deploy a gRPC inference server.
+title: Develop and deploy a gRPC inference server with Live Video Analytics - Azure
+description: This article provides guidance on how to develop and deploy a gRPC inference server with Live Video Analytics.
 ms.topic: how-to
 ms.date: 12/02/2020
 
 ---
 
-# How-to-Guide – Develop and deploy a gRPC inference server
+# Develop and deploy a gRPC inference server with Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 ## Overview
 
@@ -22,9 +24,9 @@ This article shows you how you can wrap AI model(s) of your choice within a gRPC
 
 ## Prerequisites
 
-* An x86-64 or an ARM64 device running one of the [supported Linux operating systems](https://docs.microsoft.com/azure/iot-edge/support#operating-systems) or a Windows machine.
+* An x86-64 or an ARM64 device running one of the [supported Linux operating systems](../../iot-edge/support.md#operating-systems) or a Windows machine.
 * [Install Docker](https://docs.docker.com/desktop/#download-and-install) on your machine.
-* Install [IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge?tabs=linux).
+* Install [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge.md?tabs=linux).
 
 ## gRPC implementation steps
 
@@ -193,7 +195,7 @@ Now that we have configured and initialized the gRPC server port connections, le
         1. Convert the image in a byte array for processing. See method: `GetBytes(Bitmap image)`
         
             The sample processor we're using only supports JPG encoded image frame and None as pixel format. In case your custom processor supports a different encoding and/or format, update the `IsMediaFormatSupported` method of the processor class.
-        1. Using the [ColorMatrix class](https://docs.microsoft.com/dotnet/api/system.drawing.imaging.colormatrix?redirectedfrom=MSDN&view=dotnet-plat-ext-3.1&preserve-view=true), convert the image to gray scale. See method: `ToGrayScale(Image source)`.
+        1. Using the [ColorMatrix class](/dotnet/api/system.drawing.imaging.colormatrix?preserve-view=true&view=dotnet-plat-ext-3.1), convert the image to gray scale. See method: `ToGrayScale(Image source)`.
         1. Once we get the gray scale image, we then calculate the average of the gray scale bytes.
         1. If the average value < 127, then we classify the image as “dark”, else we will classify them as “light” with confidence value as 1.0. See method: `ProcessImage(List<Image> images)`.
 
@@ -209,7 +211,7 @@ Now that we have configured and initialized the gRPC server port connections, le
 
 Now that you have created your gRPC extension module, we will now create and deploy the media graph topology.
 
-1. Using Visual Studio Code, follow [these instructions](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux#build-and-push-your-solution) to sign in to Docker.
+1. Using Visual Studio Code, follow [these instructions](../../iot-edge/tutorial-develop-for-linux.md#build-and-push-your-solution) to sign in to Docker.
 1. In Visual Studio Code, go to src/edge. You see your .env file and a few deployment template files.
 
     The deployment template refers to the deployment manifest for the edge device. It includes some placeholder values. The .env file includes the values for those variables.
@@ -238,7 +240,7 @@ Now that you have created your gRPC extension module, we will now create and dep
         * Under GraphInstanceSet, edit the name of the graph topology to match the value in the preceding link:<br/>`"topologyName": "InferencingWithGrpcExtension"`
         * Under GraphTopologyDelete, edit the name:<br/>`"name": "InferencingWithGrpcExtension"`
 
-            The topology (for example, `https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/grpcExtension/topology.json`) must define an extension address:
+            The topology (for example, `https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/grpcExtensionOpenVINO/2.0/topology.json`) must define an extension address:
     * Extension address Parameter
 
         ```
@@ -305,5 +307,4 @@ At this stage, the deployment of edge modules to your IoT Edge device has starte
 ## Next steps
 
 Follow the **Prepare to monitor events** steps mentioned in the [Analyze live video with your model](use-your-model-quickstart.md) quickstart to run the sample and interpret the results. 
-Also, check out our sample gRPC topologies: [gRPCExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/grpcExtension/topology.json), [CVRWithGrpcExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/cvr-with-grpcExtension/topology.json), [EVRtoAssetsByGrpcExtension, and [EVROnMotionPlusGrpcExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/motion-with-grpcExtension/topology.json).
-
+Also, check out our sample gRPC topologies: [gRPCExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/grpcExtensionOpenVINO/2.0/topology.json), [CVRWithGrpcExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/cvr-with-grpcExtension/topology.json), [EVRtoAssetsByGrpcExtension, and [EVROnMotionPlusGrpcExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/motion-with-grpcExtension/topology.json).

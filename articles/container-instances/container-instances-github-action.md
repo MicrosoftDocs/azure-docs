@@ -8,7 +8,7 @@ ms.custom: github-actions-azure, devx-track-azurecli
 
 # Configure a GitHub action to create a container instance
 
-[GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions) is a suite of features in GitHub to automate your software development workflows in the same place you store code and collaborate on pull requests and issues.
+[GitHub Actions](https://docs.github.com/en/actions) is a suite of features in GitHub to automate your software development workflows in the same place you store code and collaborate on pull requests and issues.
 
 Use the [Deploy to Azure Container Instances](https://github.com/azure/aci-deploy) GitHub action to automate deployment of a single container to Azure Container Instances. The action allows you to set properties for a container instance similar to those in the [az container create][az-container-create] command.
 
@@ -172,7 +172,7 @@ After you commit the workflow file, the workflow is triggered. To review workflo
 
 ![View workflow progress](./media/container-instances-github-action/github-action-progress.png)
 
-See [Viewing workflow run history](https://docs.github.com/en/free-pro-team@latest/actions/managing-workflow-runs/viewing-workflow-run-history) for information about viewing the status and results of each step in your workflow. If the workflow doesn't complete, see [Viewing logs to diagnose failures](https://docs.github.com/en/free-pro-team@latest/actions/managing-workflow-runs/using-workflow-run-logs#viewing-logs-to-diagnose-failures).
+See [Viewing workflow run history](https://docs.github.com/en/actions/managing-workflow-runs/viewing-workflow-run-history) for information about viewing the status and results of each step in your workflow. If the workflow doesn't complete, see [Viewing logs to diagnose failures](https://docs.github.com/en/actions/managing-workflow-runs/using-workflow-run-logs#viewing-logs-to-diagnose-failures).
 
 When the workflow completes successfully, get information about the container instance named *aci-sampleapp* by running the [az container show][az-container-show] command. Substitute the name of your resource group: 
 
@@ -232,7 +232,7 @@ az container app up \
 
 ### Command progress
 
-* When prompted, provide your GitHub credentials or provide a [GitHub personal access token](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token) (PAT) that has *repo* and *user* scopes to authenticate with your GitHub account. If you provide GitHub credentials, the command creates a PAT for you. Follow additional prompts to configure the workflow.
+* When prompted, provide your GitHub credentials or provide a [GitHub personal access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) (PAT) that has *repo* and *user* scopes to authenticate with your GitHub account. If you provide GitHub credentials, the command creates a PAT for you. Follow additional prompts to configure the workflow.
 
 * The command creates repo secrets for the workflow:
 
@@ -253,7 +253,7 @@ Workflow succeeded
 Your app is deployed at:  http://acr-build-helloworld-node.eastus.azurecontainer.io:8080/
 ```
 
-To view the workflow status and results of each step in the GitHub UI, see [Viewing workflow run history](https://docs.github.com/en/free-pro-team@latest/actions/managing-workflow-runs/viewing-workflow-run-history).
+To view the workflow status and results of each step in the GitHub UI, see [Viewing workflow run history](https://docs.github.com/en/actions/managing-workflow-runs/viewing-workflow-run-history).
 
 ### Validate workflow
 
@@ -305,13 +305,13 @@ Browse the [GitHub Marketplace](https://github.com/marketplace?type=actions) for
 <!-- LINKS - internal -->
 
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-group-show]: /cli/azure/group#az-group-show
-[az-group-delete]: /cli/azure/group#az-group-delete
-[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
-[az-container-create]: /cli/azure/container#az-container-create
-[az-acr-show]: /cli/azure/acr#az-acr-show
-[az-container-show]: /cli/azure/container#az-container-show
-[az-container-delete]: /cli/azure/container#az-container-delete
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-container-app-up]: /cli/azure/ext/deploy-to-azure/container/app#ext-deploy-to-azure-az-container-app-up
+[az-group-show]: /cli/azure/group#az_group_show
+[az-group-delete]: /cli/azure/group#az_group_delete
+[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
+[az-container-create]: /cli/azure/container#az_container_create
+[az-acr-show]: /cli/azure/acr#az_acr_show
+[az-container-show]: /cli/azure/container#az_container_show
+[az-container-delete]: /cli/azure/container#az_container_delete
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-container-app-up]: /cli/azure/container/app#az_container_app_up

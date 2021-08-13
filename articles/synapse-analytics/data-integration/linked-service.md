@@ -2,12 +2,12 @@
 title: Secure a linked service 
 description: Learn how to provision and secure a linked service with Managed VNet 
 services: synapse-analytics 
-author: ArnoMicrosoft
+author: ashinMSFT
 ms.service: synapse-analytics 
 ms.topic: how-to
-ms.subservice: 
+ms.subservice: security
 ms.date: 04/15/2020
-ms.author: acomet
+ms.author: seshin
 ms.reviewer: jrasnick
 ---
 
@@ -18,7 +18,7 @@ In this article, you'll learn how to secure a linked service in Synapse with a p
 ## Prerequisites
 
 * **Azure subscription**: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-* **Azure Storage account**: You use Azure Data Lake Gen 2 as a *source* data store. If you don't have a storage account, see [Create an Azure Storage account](../../storage/blobs/data-lake-storage-quickstart-create-account.md) for steps to create one. Make sure that the Storage Account has the Synapse Studio IP filtering for accessing it and that you only allow **Selected networks** to access the Storage account. The setting under the blade **Firewalls and virtual networks** should look like the picture below.
+* **Azure Storage account**: You use Azure Data Lake Gen 2 as a *source* data store. If you don't have a storage account, see [Create an Azure Storage account](../../storage/common/storage-account-create.md) for steps to create one. Make sure that the Storage Account has the Synapse Studio IP filtering for accessing it and that you only allow **Selected networks** to access the Storage account. The setting under the blade **Firewalls and virtual networks** should look like the picture below.
 
 ![Secured Storage Account](./media/secure-storage-account.png)
 
@@ -26,7 +26,7 @@ In this article, you'll learn how to secure a linked service in Synapse with a p
 
 In Azure Synapse Analytics, a linked service is where you define your connection information to other services. In this section, you'll add Azure Synapse Analytics and Azure Data Lake Gen 2 as linked services.
 
-1. Open the Azure Synapse Studio and go to the **Manage** tab.
+1. Open the Synapse Studio and go to the **Manage** tab.
 1. Under **External connections**, select **Linked services**.
 1. To add a linked service, select **New**.
 1. Select the Azure Data Lake Storage Gen2 tile from the list and select **Continue**.

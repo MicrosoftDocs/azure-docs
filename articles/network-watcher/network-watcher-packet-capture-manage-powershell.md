@@ -11,7 +11,8 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 01/07/2021
-ms.author: damendo
+ms.author: damendo 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage packet captures with Azure Network Watcher using PowerShell
@@ -123,7 +124,7 @@ Once the preceding steps are complete, the packet capture agent is installed on 
 The next step is to retrieve the Network Watcher instance. This variable is passed to the `New-AzNetworkWatcherPacketCapture` cmdlet in step 4.
 
 ```powershell
-$networkWatcher = Get-AzResource -ResourceType "Microsoft.Network/networkWatchers" | Where {$_.Location -eq "WestCentralUS" }
+$networkWatcher = Get-AzNetworkWatcher  | Where {$_.Location -eq "westcentralus" }
 ```
 
 ### Step 2

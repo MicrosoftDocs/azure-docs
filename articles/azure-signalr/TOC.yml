@@ -90,7 +90,9 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/signalr-security-baseline?toc=/azure/azure-signalr/TOC.json
+    - name: Security controls by Azure Policy
+      href: ./security-controls-policy.md
 - name: How-to guides
   items:
   - name: Scale
@@ -109,6 +111,8 @@
       href: howto-private-endpoints.md
     - name: Manage network access control
       href: howto-network-access-control.md
+    - name: Secure outbound traffic through Shared Private Endpoints
+      href: howto-shared-private-endpoints.md
     - name: Use managed identity
       href: howto-use-managed-identity.md
   - name: Integrate
@@ -129,11 +133,13 @@
       href: signalr-howto-troubleshoot-guide.md
     - name: Troubleshooting methods
       href: signalr-howto-troubleshoot-method.md
+    - name: Troubleshooting with live trace tool
+      href: signalr-howto-troubleshoot-live-trace.md
 
 - name: References
   items:
   - name: Azure CLI
-    href: signalr-reference-cli.md
+    href: /cli/azure/signalr
   - name: REST API
     href: https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md
   - name: ASP.NET Core SignalR
@@ -157,7 +163,7 @@
   - name: Region availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=signalr-service
   - name: FAQs
-    href: signalr-resource-faq.md
+    href: signalr-resource-faq.yml
   - name: SignalR Service subscription level limits
     href: ../azure-resource-manager/management/azure-subscription-service-limits.md#azure-signalr-service-limits
   - name: Pricing

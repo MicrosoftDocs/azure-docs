@@ -15,11 +15,11 @@ When you create or manage Azure Kubernetes Service (AKS) clusters, you might occ
 Try the [official guide to troubleshooting Kubernetes clusters](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/).
 There's also a [troubleshooting guide](https://github.com/feiskyer/kubernetes-handbook/blob/master/en/troubleshooting/index.md), published by a Microsoft engineer for troubleshooting pods, nodes, clusters, and other features.
 
-## I'm getting a "quota exceeded" error during creation or upgrade. What should I do? 
+## I'm getting a `quota exceeded` error during creation or upgrade. What should I do? 
 
  [Request more cores](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
-## I'm getting an insufficientSubnetSize error while deploying an AKS cluster with advanced networking. What should I do?
+## I'm getting an `insufficientSubnetSize` error while deploying an AKS cluster with advanced networking. What should I do?
 
 This error indicates a subnet in use for a cluster no longer has available IPs within its CIDR for successful resource assignment. For Kubenet clusters, the requirement is sufficient IP space for each node in the cluster. For Azure CNI clusters, the requirement is sufficient IP space for each node and pod in the cluster.
 Read more about the [design of Azure CNI to assign IPs to pods](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
@@ -57,7 +57,7 @@ There might be various reasons for the pod being stuck in that mode. You might l
 * The pod itself, by using `kubectl describe pod <pod-name>`.
 * The logs, by using `kubectl logs <pod-name>`.
 
-For more information on how to troubleshoot pod problems, see [Debug applications](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
+For more information about how to troubleshoot pod problems, see [Debugging Pods](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods) in the Kubernetes documentation.
 
 ## I'm receiving `TCP timeouts` when using `kubectl` or other third-party tools connecting to the API server
 AKS has HA control planes that scale vertically according to the number of cores to ensure its Service Level Objectives (SLOs) and Service Level Agreements (SLAs). If you're experiencing connections timing out, check the below:
@@ -192,7 +192,7 @@ When a kubernetes cluster on Azure (AKS or no) does a frequent scale up/down or 
 Service returned an error. Status=429 Code=\"OperationNotAllowed\" Message=\"The server rejected the request because too many requests have been received for this subscription.\" Details=[{\"code\":\"TooManyRequests\",\"message\":\"{\\\"operationGroup\\\":\\\"HighCostGetVMScaleSet30Min\\\",\\\"startTime\\\":\\\"2020-09-20T07:13:55.2177346+00:00\\\",\\\"endTime\\\":\\\"2020-09-20T07:28:55.2177346+00:00\\\",\\\"allowedRequestCount\\\":1800,\\\"measuredRequestCount\\\":2208}\",\"target\":\"HighCostGetVMScaleSet30Min\"}] InnerError={\"internalErrorCode\":\"TooManyRequestsReceived\"}"}
 ```
 
-These throttling errors are described in detail [here](../azure-resource-manager/management/request-limits-and-throttling.md) and [here](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md)
+These throttling errors are described in detail [here](../azure-resource-manager/management/request-limits-and-throttling.md) and [here](/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors)
 
 The recommendation from AKS Engineering Team is to ensure you are running version at least 1.18.x, which contains many improvements. More details can be found on these improvements [here](https://github.com/Azure/AKS/issues/1413) and [here](https://github.com/kubernetes-sigs/cloud-provider-azure/issues/247).
 
@@ -209,6 +209,10 @@ If your cluster's provisioning status remains as *Failed* or the applications on
 ## My watch is stale or Azure AD Pod Identity NMI is returning status 500
 
 If you're using Azure Firewall like on this [example](limit-egress-traffic.md#restrict-egress-traffic-using-azure-firewall), you may encounter this issue as the long lived TCP connections via firewall using Application Rules currently have a bug (to be resolved in Q1CY21) that causes the Go `keepalives` to be terminated on the firewall. Until this issue is resolved, you can mitigate by adding a Network rule (instead of application rule) to the AKS API server IP.
+
+## When resuming my cluster after a stop operation, why is my node count not in the autoscaler min and max range?
+
+If you are using cluster autoscaler, when you start your cluster back up your current node count may not be between the min and max range values you set. This behavior is expected. The cluster starts with the number of nodes it needs to run its workloads, which isn't impacted by your autoscaler settings. When your cluster performs scaling operations, the min and max values will impact your current node count and your cluster will eventually enter and remain in that desired range until you stop your cluster.
 
 ## Azure Storage and AKS Troubleshooting
 
@@ -248,7 +252,7 @@ spec:
 ```yaml
 initContainers:
 - name: volume-mount
-  image: busybox
+  image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
   command: ["sh", "-c", "chown -R 100:100 /data"]
   volumeMounts:
   - name: <your data volume>
@@ -434,7 +438,7 @@ On Kubernetes versions **older than 1.15.0**, you may receive an error such as *
 
 ### Why do upgrades to Kubernetes 1.16 fail when using node labels with a kubernetes.io prefix
 
-As of Kubernetes [1.16](https://v1-16.docs.kubernetes.io/docs/setup/release/notes/) [only a defined subset of labels with the kubernetes.io prefix](https://v1-18.docs.kubernetes.io/docs/concepts/overview/working-with-objects/labels/) can be applied by the kubelet to nodes. AKS cannot remove active labels on your behalf without consent, as it may cause downtime to impacted workloads.
+As of Kubernetes 1.16 [only a defined subset of labels with the kubernetes.io prefix](https://v1-18.docs.kubernetes.io/docs/concepts/overview/working-with-objects/labels/) can be applied by the kubelet to nodes. AKS cannot remove active labels on your behalf without consent, as it may cause downtime to impacted workloads.
 
 As a result, to mitigate this issue you can:
 
@@ -447,5 +451,5 @@ AKS is investigating the capability to mutate active labels on a node pool to im
 
 
 <!-- LINKS - internal -->
-[view-master-logs]: view-master-logs.md
+[view-master-logs]: monitor-aks-reference.md#resource-logs
 [cluster-autoscaler]: cluster-autoscaler.md

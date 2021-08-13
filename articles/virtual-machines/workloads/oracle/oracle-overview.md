@@ -1,18 +1,19 @@
 ---
 title: Oracle solutions on Microsoft Azure | Microsoft Docs
 description: Learn about options to deploy Oracle Applications and solutions on Microsoft Azure, including running entirely on Azure infrastructure or using cross-cloud connectivity with Oracle Cloud Infrastructure (OCI).
-services: virtual-machines-linux
 documentationcenter: ''
 author: dbakevlar
 tags: azure-resource-management
 ms.assetid: 
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/05/2020
 ms.author: kegorman
+
 ---
 
 # Overview of Oracle Applications and solutions on Azure
@@ -23,9 +24,9 @@ This article introduces capabilities to run Oracle solutions using Azure infrast
 
 Run Oracle databases on Azure infrastructure using Oracle Database on Oracle Linux images available in the Azure Marketplace:
 
-* Oracle Database 12.1, 12.2, and 18.3 Enterprise Edition 
+* Oracle Database 12.2, and 18.3 Enterprise Edition 
 
-* Oracle Database 12.1, 12.2, and 18.3 Standard Edition
+* Oracle Database 12.2, and 18.3 Standard Edition
 
 * Oracle Database 19.3
 
@@ -97,4 +98,4 @@ Deployment of Oracle Applications in Azure is based on a "bring your own license
 
 * Learn more about how to [interconnect Azure with OCI](oracle-oci-overview.md).
 
-* Check out the [Oracle on Azure overview session](https://myignite.techcommunity.microsoft.com/sessions/82915) from Ignite 2019. 
+* Check out the [Oracle on Azure overview session](https://www.pluralsight.com/courses/microsoft-ignite-session-57) from Ignite 2019. 

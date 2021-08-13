@@ -1,14 +1,10 @@
 ---
 title: Create datasets in Azure Data Factory 
 description: Learn how to create datasets in Azure Data Factory, with examples that use properties such as offset and anchorDateTime.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ---
@@ -139,7 +135,7 @@ As you can see, the linked service defines how to connect to a SQL database. The
 ## <a name="Type"></a> Dataset type
 The type of the dataset depends on the data store you use. See the following table for a list of data stores supported by Data Factory. Click a data store to learn how to create a linked service and a dataset for that data store.
 
-[!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
+[!INCLUDE [data-factory-supported-data-stores](includes/data-factory-supported-data-stores.md)]
 
 > [!NOTE]
 > Data stores with * can be on-premises or on Azure infrastructure as a service (IaaS). These data stores require you to install [Data Management Gateway](data-factory-data-management-gateway.md).

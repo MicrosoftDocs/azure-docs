@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 05/25/2021
 ms.reviewer: sngun
 ---
 
@@ -210,37 +210,53 @@ The total monthly bill will be (assuming 30 days/720 hours in a month) will be c
 | | |Throughput bill for 2 additional regions: East US, North Europe (all regions are writable)  |`(1 + 1) * (70 K RU/sec /100 * $0.016) * 20 hours = $448`  |$224  |
 || |**Total Monthly Cost**  | |**$38,688**   |
 
-## Billing examples with free tier accounts
-With Azure Cosmos DB free tier, you'll get the first 400 RU/s and 5 GB of storage in your account for free, applied at the account level. Any RU/s and storage beyond 400 RU/s and 5 GB will be billed at the regular pricing rates per the pricing page. On the bill, you will not see a charge or line item for the free 400 Ru/s and 5 GB, only the RU/s and storage beyond what is covered by free tier. 
-The 400 RU/s applies to any type of RU/s - provisioned throughput, autoscale, and multi-region writes.  
+## <a id="azure-free-tier"></a>Billing examples with Azure Cosmos DB free tier accounts
+
+With Azure Cosmos DB free tier, you'll get the first 1000 RU/s and 25 GB of storage in your account for free, applied at the account level. Any RU/s and storage beyond 1000 RU/s and 25 GB will be billed at the regular pricing rates per the pricing page. On the bill, you will not see a charge or line item for the free 1000 RU/s and 25 GB, only the RU/s and storage beyond what is covered by free tier. To learn more, see how to [create a free tier account](free-tier.md) article.
 
 ### Billing example - container or database with provisioned throughput
-- Let's suppose we create a database or container in a free tier account with 400 RU/s and 5 GB of storage.
+
+- Let's suppose we create a database or container in a free tier account with 1000 RU/s and 25 GB of storage.
 - Your bill will not show any charge for this resource. Your hourly and monthly cost will be $0.
-- Now, let's suppose in the same account, we add another database or container with 1000 RU/s and 10 GB of storage.
-- Your bill will now show a charge for the 1000 RU/s and 10 GB of storage. 
+- Now, let's suppose in the same account, we add another database or container with 400 RU/s and 10 GB of storage.
+- Your bill will now show a charge for the 400 RU/s and 10 GB of storage.
 
 ### Billing example - container with autoscale throughput
-- Let's suppose in a free tier account, we create a container with autoscale enabled, with a maximum RU/s of 4000 RU/s. This resource will automatically scale between 400 RU/s - 4000 RU/s. 
-- Suppose in hour 1 through hour 10, the resource is at the minimum of 400 RU/s. During hour 11, the resource scales up to 1000 RU/s and then back down to 400 RU/s within the hour.
-- In hours 1 through 10, you will be billed $0 for throughput, as the 400 RU/s were covered by free tier. 
-- In hour 11, you will be billed for an effective 1000 RU/s - 400 RU/s = 600 RU/s, as this is the highest RU/s in the hour. This will be 6 units of 100 RU/s for the hour, so the total throughput cost for the hour will be 6 units * $0.012 = $0.072. 
-- Any storage beyond the first 5 GB will be billed at normal storage rates. 
+
+- Let's suppose in a free tier account, we create a container with autoscale enabled, with a maximum RU/s of 4000 RU/s. This resource will automatically scale between 400 RU/s - 4000 RU/s.
+- Suppose in hour 1 through hour 10, the resource is scaled to 1000 RU/s. During hour 11, the resource scales up to 1600 RU/s and then back down to 1000 RU/s within the hour.
+- In hours 1 through 10, you will be billed $0 for throughput, as the 1000 RU/s were covered by free tier.
+- In hour 11, you will be billed for an effective 1600 RU/s - 1000 RU/s = 600 RU/s, as this is the highest RU/s in the hour. This will be 6 units of 100 RU/s for the hour, so the total throughput cost for the hour will be 6 units * $0.012 = $0.072.
+- Any storage beyond the first 25 GB will be billed at normal storage rates.
 
 ### Billing example - multi-region, single write region account
+
 - Let's suppose in a free tier account, we create a database or container with 1200 RU/s and 10 GB of storage. We replicate the account to 3 regions, and we have a single write-region account.
 - In total, without free tier, we would be billed for 3 * 1200 RU/s = 3600 RU/s and 3 * 10 GB = 30 GB of storage.
-- With the free tier discount, after removing 400 RU/s and 5 GB of storage, we will be billed for an effective 3200 RU/s (32 units) of provisioned throughput at the single write region rate and 25 GB of storage.
-- The monthly cost for RU/s would be: 32 units * $0.008 * 24 hours * 31 days = $190.46. The monthly cost for storage would be: 25 GB * 0.25 / GB = $6.25. The total cost would be $190.46 + $6.25 = $196.71.
-- Note: if the unit price for RU/s or storage differs in the regions, the free tier 400 RU/s and 5 GB will reflect the rates of the region the account was created in.
+- With the free tier discount, after removing 1000 RU/s and 25 GB of storage, we will be billed for an effective 2600 RU/s (26 units) of provisioned throughput at the single write region rate and 5 GB of storage.
+- The monthly cost for RU/s would be: 26 units * $0.008 * 24 hours * 31 days = $154.75. The monthly cost for storage would be: 5 GB * 0.25 / GB = $1.25. The total cost would be $154.75 + $1.25 = $156.
+
+> [!NOTE]
+> If the unit price for RU/s or storage differs in the regions, the free tier 1000 RU/s and 25 GB will reflect the rates of the region the account was created in.
 
 ### Billing example - multi-region, account with multiple write regions
 
-This example reflects [pricing for multi-region writes](https://azure.microsoft.com/pricing/details/cosmos-db/) for accounts created after December 1, 2019. 
-- Let's suppose in a free tier account, we create a database or container with 1200 RU/s and 10 GB of storage. We replicate the account to 3 regions, and we have a multiple write regions account. 
+This example reflects [pricing for multi-region writes](https://azure.microsoft.com/pricing/details/cosmos-db/) for accounts created after December 1, 2019.
+
+- Let's suppose in a free tier account, we create a database or container with 1200 RU/s and 10 GB of storage. We replicate the account to 3 regions, and we have a multiple write regions account.
 - In total, without free tier, we would be billed for 3 * 1200 RU/s = 3600 RU/s and 3 * 10 GB = 30 GB of storage.
-- With the free tier discount, after removing 400 RU/s and 5 GB of storage, we will be billed for an effective 3200 RU/s (32 units) of provisioned throughput at the multiple write region rate and 25 GB of storage.
-- The monthly cost for RU/s would be: 32 units * $0.016 * 24 hours * 31 days = $380.93. The monthly cost for storage would be: 25 GB * 0.25 / GB = $6.25. The total cost would be $380.93 + $6.25 = $387.18.
+- With the free tier discount, after removing 1000 RU/s and 25 GB of storage, we will be billed for an effective 2600 RU/s (26 units) of provisioned throughput at the multiple write region rate and 5 GB of storage.
+- The monthly cost for RU/s would be: 26 units * $0.016 * 24 hours * 31 days = $309.50. The monthly cost for storage would be: 5 GB * 0.25 / GB = $1.25. The total cost would be $309.50 + $1.25 = $310.75.
+
+### Billing example – Azure free account
+
+Let's suppose you have an Azure free account and an Azure Cosmos DB free tier account within it. The Azure Cosmos DB account has a single write region.
+
+- You created a database or container with 2000 RU/s and 55 GB of storage.
+- For the first 12 months, your bill will not show any charge for 1400 RU/s (1000 RU/s from Azure Cosmos DB free tier and 400 RU/s from Azure free account) and 50 GB of storage (25 GB from Azure Cosmos DB free tier and 25 GB from Azure free account).
+- After removing 1400 RU/s and 50 GB of storage, we will be billed for an effective 600 RU/s (6 units) of provisioned throughput at the single write region rate and 5 GB of storage.
+- The monthly cost for RU/s would be: 6 units * $0.008 * 24 hours * 31 days = $35.72. The monthly cost for storage would be: 5 GB * 0.25 / GB = $1.25. The total cost would be $35.72+ $1.25 = $36.97.
+- After the 12 month period, the Azure free account discount is no longer applicable. With the Azure Cosmos DB free tier discount applied, you are billed for an effective 1000 RU/s (10 units) of provisioned throughput at the single write region rate and 30 GB of storage.
 
 ## Proactively estimating your monthly bill  
 

@@ -2,15 +2,15 @@
 title: 'Tutorial: Configure MediusFlow for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to MediusFlow.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/30/2020
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure MediusFlow for automatic user provisioning
@@ -150,17 +150,25 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 9. Review the user attributes that are synchronized from Azure AD to MediusFlow in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in MediusFlow for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the MediusFlow API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
-   |Attribute|Type|
-   |---|---|
-   |userName|String|
+   |Attribute|Type|Supported for filtering|
+   |---|---|---|
+   |userName|String|&check;|
    |emails[type eq "work"].value|String|
    |name.displayName|String|
    |active|Boolean|
    |name.givenName|String|
    |name.familyName|String|
    |name.formatted|String|
-   |externalID|String|
+   |externalId|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Reference|
+   |urn:ietf:params:scim:schemas:extension:medius:2.0:User:configurationFilter|String|
+   |urn:ietf:params:scim:schemas:extension:medius:2.0:User:identityProvider|String|
+   |urn:ietf:params:scim:schemas:extension:medius:2.0:User:nameIdentifier|String|
+   |urn:ietf:params:scim:schemas:extension:medius:2.0:User:customFieldText1|String|
+   |urn:ietf:params:scim:schemas:extension:medius:2.0:User:customFieldText2|String|
+   |urn:ietf:params:scim:schemas:extension:medius:2.0:User:customFieldText3|String|
+   |urn:ietf:params:scim:schemas:extension:medius:2.0:User:customFieldText4|String|
+   |urn:ietf:params:scim:schemas:extension:medius:2.0:User:customFieldText5|String|
 
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to MediusFlow**.
@@ -195,6 +203,10 @@ Once you've configured provisioning, use the following resources to monitor your
 1. Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
 2. Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
 3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).
+
+## Change log
+
+* 01/21/2021 - Custom extension attributes **configurationFilter**, **identityProvider**, **nameIdentifier**, **customFieldText1**, **customFieldText2**, **customFieldText3**, **customFieldText3** and **customFieldText5** has been added.
 
 ## Additional resources
 

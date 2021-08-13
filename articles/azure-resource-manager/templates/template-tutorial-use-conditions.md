@@ -1,10 +1,11 @@
-﻿---
+---
 title: Use condition in templates
 description: Learn how to deploy Azure resources based on conditions. Shows how to either deploy a new resource or use an existing resource.
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
-ms.author: jgao
+ms.author: jgao 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Use condition in ARM templates
@@ -26,7 +27,7 @@ This tutorial covers the following tasks:
 This tutorial only covers a basic scenario of using conditions. For more information, see:
 
 * [Template file structure: Condition](conditional-resource-deployment.md).
-* [Conditionally deploy a resource in an ARM template](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
+* [Conditionally deploy a resource in an ARM template](/azure/architecture/guide/azure-resource-manager/advanced-templates/conditional-deploy).
 * [Template function: If](./template-functions-logical.md#if).
 * [Comparison functions for ARM templates](./template-functions-comparison.md)
 
@@ -49,13 +50,13 @@ To complete this article, you need:
 
 ## Open a Quickstart template
 
-Azure Quickstart Templates is a repository for ARM templates. Instead of creating a template from scratch, you can find a sample template and customize it. The template used in this tutorial is called [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
+Azure Quickstart Templates is a repository for ARM templates. Instead of creating a template from scratch, you can find a sample template and customize it. The template used in this tutorial is called [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/vm-simple-windows/).
 
 1. From Visual Studio Code, select **File** > **Open File**.
 1. In **File name**, paste the following URL:
 
     ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
+    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/vm-simple-windows/azuredeploy.json
     ```
 
 1. Select **Open** to open the file.

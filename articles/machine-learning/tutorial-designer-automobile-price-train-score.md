@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Predict car prices with the designer'
+title: 'Tutorial: Designer - train a no-code regression model'
 titleSuffix: Azure Machine Learning
-description: Train machine learning model to predict automobile prices using linear regression. This tutorial is part one of a two-part series.
+description: Train a regression model that predicts car prices using the Azure Machine Learning designer.
 
 author: peterclu
 ms.author: peterlu
@@ -9,16 +9,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 09/28/2020
-ms.custom: designer
+ms.date: 06/11/2021
+ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4
 ---
 
-# Tutorial: Predict automobile price with the designer
+# Tutorial: Designer - train a no-code regression model
 
+Train a linear regression model that predicts car prices using the Azure Machine Learning designer. This tutorial is part one of a two-part series.
 
-In this two-part tutorial, you learn how to use the Azure Machine Learning designer to train and deploy a machine learning model that predicts the price of any car. The designer is a drag-and-drop tool that lets you create machine learning models without a single line of code.
+This tutorial uses the Azure Machine Learning designer, for more information see [What is Azure Machine Learning designer](concept-designer.md).
 
-In part one of the tutorial, you'll learn how to:
+In part one of the tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a new pipeline.
@@ -27,7 +28,7 @@ In part one of the tutorial, you'll learn how to:
 > * Train a machine learning model.
 > * Evaluate a machine learning model.
 
-In [part two](tutorial-designer-automobile-price-deploy.md) of the tutorial, you'll deploy your model as a real-time inferencing endpoint to predict the price of any car based on technical specifications you send it. 
+In [part two](tutorial-designer-automobile-price-deploy.md) of the tutorial, you deploy your model as a real-time inferencing endpoint to predict the price of any car based on technical specifications you send it. 
 
 > [!NOTE]
 >A completed version of this tutorial is available as a sample pipeline.
@@ -99,7 +100,7 @@ There are several sample datasets included in the designer for you to experiment
 
 You can visualize the data to understand the dataset that you'll use.
 
-1. Right-click the **Automobile price data (Raw)** and select **Visualize**.
+1. Right-click the **Automobile price data (Raw)** and select **Visualize** > **Dataset output**.
 
 1. Select the different columns in the data window to view information about each one.
 
@@ -172,7 +173,7 @@ Your dataset still has missing values after you remove the **normalized-losses**
 
     Your pipeline should now look something like this:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png"alt-text="Select-column":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png" alt-text="Select-column":::
 
 ## Train a machine learning model
 
@@ -191,7 +192,7 @@ Splitting data is a common task in machine learning. You will split your data in
 1. Connect the left port of the **Clean Missing Data** module to the **Split Data** module.
 
     > [!IMPORTANT]
-    > Be sure that the left output ports of **Clean Missing Data** connects to **Split Data**. The left port contains the the cleaned data. The right port contains the discarted data.
+    > Be sure that the left output ports of **Clean Missing Data** connects to **Split Data**. The left port contains the the cleaned data. The right port contains the discarded data.
 
 1. Select the **Split Data** module.
 
@@ -220,7 +221,7 @@ Train the model by giving it a dataset that includes the price. The algorithm co
     > [!IMPORTANT]
     > Be sure that the left output ports of **Split Data** connects to **Train Model**. The left port contains the the training set. The right port contains the test set.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Screenshot showing the correct configuration of the Train Model module. The Linear Regression module connects to left port of Train Model module and the Split Data module connects to right port of Train Model.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png" alt-text="Screenshot showing the correct configuration of the Train Model module. The Linear Regression module connects to left port of Train Model module and the Split Data module connects to right port of Train Model.":::
 
 1. Select the **Train Model** module.
 
@@ -235,7 +236,7 @@ Train the model by giving it a dataset that includes the price. The algorithm co
 
     Your pipeline should look like this:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Screenshot showing the correct configuration of the pipeline after adding the Train Model module.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png" alt-text="Screenshot showing the correct configuration of the pipeline after adding the Train Model module.":::
 
 ### Add the Score Model module
 
@@ -255,7 +256,7 @@ Use the **Evaluate Model** module to evaluate how well your model scored the tes
 
     The final pipeline should look something like this:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Screenshot showing the correct configuration of the pipeline.":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png" alt-text="Screenshot showing the correct configuration of the pipeline.":::
 
 ## Submit the pipeline
 
@@ -280,17 +281,17 @@ Now that your pipeline is all setup, you can submit a pipeline run to train your
 
 After the run completes, you can view the results of the pipeline run. First, look at the predictions generated by the regression model.
 
-1. Right-click the **Score Model** module, and select **Visualize** to view its output.
+1. Right-click the **Score Model** module, and select **Visualize** > **Scored dataset** to view its output.
 
     Here you can see the predicted prices and the actual prices from the testing data.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Screenshot of the output visualization highlighting the Scored Label column":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png" alt-text="Screenshot of the output visualization highlighting the Scored Label column":::
 
 ### Evaluate models
 
 Use the **Evaluate Model** to see how well the trained model performed on the test dataset.
 
-1. Right-click the **Evaluate Model** module and select **Visualize** to view its output.
+1. Right-click the **Evaluate Model** module and select **Visualize** > **Evaluation results** to view its output.
 
 The following statistics are shown for your model:
 

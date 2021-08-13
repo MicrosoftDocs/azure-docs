@@ -1,14 +1,14 @@
 ---
 title: How to create Guest Configuration policies for Windows
 description: Learn how to create an Azure Policy Guest Configuration policy for Windows.
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: how-to
 ---
 # How to create Guest Configuration policies for Windows
 
 Before creating custom policy definitions, it's a good idea to read the conceptual overview
 information at the page [Azure Policy Guest Configuration](../concepts/guest-configuration.md).
- 
+
 To learn about creating Guest Configuration policies for Linux, see the page
 [How to create Guest Configuration policies for Linux](./guest-configuration-create-linux.md)
 
@@ -26,12 +26,12 @@ non-Azure machine.
 
 > [!IMPORTANT]
 > Custom policy definitions with Guest Configuration in the Azure Government and
-> Azure China environments is a Preview feature.
+> Azure China 21Vianet environments is a Preview feature.
 >
-> The Guest Configuration extension is required to perform audits in Azure virtual machines.
-> To deploy the extension at scale across all Windows machines, assign the following policy definitions:
-> `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
-> 
+> The Guest Configuration extension is required to perform audits in Azure virtual machines. To
+> deploy the extension at scale across all Windows machines, assign the following policy
+> definitions: `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
+>
 > Don't use secrets or confidential information in custom content packages.
 
 ## Install the PowerShell module
@@ -100,9 +100,9 @@ For an overview of DSC concepts and terminology, see
 When Guest Configuration audits a machine the sequence of events is different than in Windows
 PowerShell DSC.
 
-1. The agent first runs `Test-TargetResource` to determine if the configuration is in the correct
-   state.
-1. The boolean value returned by the function determines if the Azure Resource Manager status for
+1. The agent first runs `Test-TargetResource` to determine whether the configuration is in the
+   correct state.
+1. The Boolean value returned by the function determines if the Azure Resource Manager status for
    the Guest Assignment should be Compliant/Not-Compliant.
 1. The provider runs `Get-TargetResource` to return the current state of each setting so details are
    available both about why a machine isn't compliant and to confirm that the current state is
@@ -152,7 +152,7 @@ return @{
 The Reasons property must be added to the schema MOF for the resource as an embedded class.
 
 ```mof
-[ClassVersion("1.0.0.0")] 
+[ClassVersion("1.0.0.0")]
 class Reason
 {
     [Read] String Phrase;
@@ -167,10 +167,10 @@ class ResourceName : OMI_BaseResource
 };
 ```
 
-If the resource has required properties, those must also be returned by `Get-TargetResource`
-in parallel with the `reasons` class. If `reasons` isn't included, the service includes a
-"catch-all" behavior that compares the values input to `Get-TargetResource` and the values
-returned by `Get-TargetResource`, and provides a detailed comparison as `reasons`.
+If the resource has required properties, those properties must also be returned by
+`Get-TargetResource` in parallel with the `reasons` class. If `reasons` isn't included, the service
+includes a "catch-all" behavior that compares the values input to `Get-TargetResource` and the
+values returned by `Get-TargetResource`, and provides a detailed comparison as `reasons`.
 
 ### Configuration requirements
 
@@ -227,9 +227,9 @@ package consists of:
   - DscNativeResources module
   - (Windows) DSC resource modules required by the MOF
 
-PowerShell cmdlets assist in creating the package.
-No root level folder or version folder is required.
-The package format must be a .zip file and cannot exceed a total size of 100MB when uncompressed.
+PowerShell cmdlets assist in creating the package. No root level folder or version folder is
+required. The package format must be a .zip file and can't exceed a total size of 100 MB when
+uncompressed.
 
 ### Storing Guest Configuration artifacts
 
@@ -268,14 +268,14 @@ Configuration AuditBitLocker
 }
 
 # Compile the configuration to create the MOF files
-AuditBitLocker ./Config
+AuditBitLocker
 ```
 
-Save this file with name `config.ps1` in the project folder. Run it in PowerShell by executing
-`./config.ps1` in the terminal. A new mof file is created.
+Run this script in a PowerShell terminal or save this file with name `config.ps1` in the project
+folder. Run it in PowerShell by executing `./config.ps1` in the terminal. A new MOF file is created.
 
 The `Node AuditBitlocker` command isn't technically required but it produces a file named
-`AuditBitlocker.mof` rather than the default, `localhost.mof`. Having the .mof file name follow the
+`AuditBitlocker.mof` rather than the default, `localhost.mof`. Having the .MOF file name follow the
 configuration makes it easy to organize many files when operating at scale.
 
 Once the MOF is compiled, the supporting files must be packaged together. The completed package is
@@ -295,7 +295,7 @@ Run the following command to create a package using the configuration given in t
 ```azurepowershell-interactive
 New-GuestConfigurationPackage `
   -Name 'AuditBitlocker' `
-  -Configuration './Config/AuditBitlocker.mof'
+  -Configuration './AuditBitlocker/AuditBitlocker.mof'
 ```
 
 After creating the Configuration package but before publishing it to Azure, you can test the package
@@ -325,11 +325,30 @@ The cmdlet also supports input from the PowerShell pipeline. Pipe the output of
 `New-GuestConfigurationPackage` cmdlet to the `Test-GuestConfigurationPackage` cmdlet.
 
 ```azurepowershell-interactive
-New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./Config/AuditBitlocker.mof | Test-GuestConfigurationPackage
+New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./AuditBitlocker/AuditBitlocker.mof | Test-GuestConfigurationPackage
 ```
 
-The next step is to publish the file to Azure Blob Storage. The command `Publish-GuestConfigurationPackage` requires the `Az.Storage`
-module.
+The next step is to publish the file to Azure Blob Storage. There are no special requirements for
+the storage account, but it's a good idea to host the file in a region near your machines. If you
+don't have a storage account, use the following example. The following commands, including
+`Publish-GuestConfigurationPackage`, require the `Az.Storage` module.
+
+```azurepowershell-interactive
+# Creates a new resource group, storage account, and container
+New-AzResourceGroup -name myResourceGroupName -Location WestUS
+New-AzStorageAccount -ResourceGroupName myResourceGroupName -Name myStorageAccountName -SkuName 'Standard_LRS' -Location 'WestUs' | New-AzStorageContainer -Name guestconfiguration -Permission Blob
+```
+
+Parameters of the `Publish-GuestConfigurationPackage` cmdlet:
+
+- **Path**: Location of the package to be published
+- **ResourceGroupName**: Name of the resource group where the storage account is located
+- **StorageAccountName**: Name of the storage account where the package should be published
+- **StorageContainerName**: (default: _guestconfiguration_) Name of the storage container in the
+  storage account
+- **Force**: Overwrite existing package in the storage account with the same name
+
+The following example publishes the package to a storage container name 'guestconfiguration'.
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName
@@ -341,7 +360,7 @@ package and creates a policy definition.
 
 Parameters of the `New-GuestConfigurationPolicy` cmdlet:
 
-- **ContentUri**: Public http(s) uri of Guest Configuration content package.
+- **ContentUri**: Public HTTP(s) URI of Guest Configuration content package.
 - **DisplayName**: Policy display name.
 - **Description**: Policy description.
 - **Parameter**: Policy parameters provided in hashtable format.
@@ -380,7 +399,7 @@ requirements are documented in the [Azure Policy Overview](../overview.md) page.
 role is **Resource Policy Contributor**.
 
 ```azurepowershell-interactive
-Publish-GuestConfigurationPolicy -Path '.\policyDefinitions'
+Publish-GuestConfigurationPolicy -Path '.\policies'
 ```
 
 The `Publish-GuestConfigurationPolicy` cmdlet accepts the path from the PowerShell pipeline. This
@@ -388,11 +407,11 @@ feature means you can create the policy files and publish them in a single set o
 
 ```azurepowershell-interactive
 New-GuestConfigurationPolicy `
- -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditBitLocker.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' `
+  -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditBitLocker.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' `
   -DisplayName 'Audit BitLocker service.' `
   -Description 'Audit if the BitLocker service is not enabled on Windows machine.' `
   -Path './policies' `
- | Publish-GuestConfigurationPolicy
+| Publish-GuestConfigurationPolicy
 ```
 
 With the policy created in Azure, the last step is to assign the definition. See how to assign the
@@ -434,7 +453,7 @@ An example snippet of a policy definition that filters for tags is given below.
 
 Guest Configuration supports overriding properties of a Configuration at run time. This feature
 means that the values in the MOF file in the package don't have to be considered static. The
-override values are provided through Azure Policy and don't impact how the Configurations are
+override values are provided through Azure Policy and don't change how the Configurations are
 authored or compiled.
 
 The cmdlets `New-GuestConfigurationPolicy` and `Test-GuestConfigurationPolicyPackage` include a
@@ -461,7 +480,7 @@ $PolicyParameterInfo = @(
         DisplayName = 'windows service name.'                           # Policy parameter display name (mandatory)
         Description = "Name of the windows service to be audited."      # Policy parameter description (optional)
         ResourceType = "Service"                                        # DSC configuration resource type (mandatory)
-        ResourceId = 'UserSelectedNameExample'                                   # DSC configuration resource id (mandatory)
+        ResourceId = 'UserSelectedNameExample'                          # DSC configuration resource id (mandatory)
         ResourcePropertyName = "Name"                                   # DSC configuration resource property name (mandatory)
         DefaultValue = 'winrm'                                          # Policy parameter default value (optional)
         AllowedValues = @('BDESVC','TermService','wuauserv','winrm')    # Policy parameter allowed values (optional)
@@ -472,7 +491,7 @@ New-GuestConfigurationPolicy
     -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditBitLocker.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' `
     -DisplayName 'Audit Windows Service.' `
     -Description 'Audit if a Windows Service is not enabled on Windows machine.' `
-    -Path '.\policyDefinitions' `
+    -Path '.\policies' `
     -Parameter $PolicyParameterInfo `
     -Version 1.0.0
 ```
@@ -493,7 +512,7 @@ The DSC resource requires custom development if a community solution doesn't alr
 Community solutions can be discovered by searching the PowerShell Gallery for tag
 [GuestConfiguration](https://www.powershellgallery.com/packages?q=Tags%3A%22GuestConfiguration%22).
 
-> [!Note]
+> [!NOTE]
 > Guest Configuration extensibility is a "bring your own
 > license" scenario. Ensure you have met the terms and conditions of any third
 > party tools before use.
@@ -502,126 +521,10 @@ After the DSC resource has been installed in the development environment, use th
 **FilesToInclude** parameter for `New-GuestConfigurationPackage` to include
 content for the third-party platform in the content artifact.
 
-### Step by step, creating a content artifact that uses third-party tools
-
-Only the `New-GuestConfigurationPackage` cmdlet requires a change from the step-by-step guidance for
-DSC content artifacts. For this example, use the `gcInSpec` module to extend Guest Configuration to
-audit Windows machines using the InSpec platform rather than the built-in module used on Linux. The
-community module is maintained as an
-[open source project in GitHub](https://github.com/microsoft/gcinspec).
-
-Install required modules in your development environment:
-
-```azurepowershell-interactive
-# Update PowerShellGet if needed to allow installing PreRelease versions of modules
-Install-Module PowerShellGet -Force
-
-# Install GuestConfiguration module prerelease version
-Install-Module GuestConfiguration -allowprerelease
-
-# Install commmunity supported gcInSpec module
-Install-Module gcInSpec
-```
-
-First, create the YaML file used by InSpec. The file provides basic information about the
-environment. An example is given below:
-
-```YaML
-name: wmi_service
-title: Verify WMI service is running
-maintainer: Microsoft Corporation
-summary: Validates that the Windows Service 'winmgmt' is running
-copyright: Microsoft Corporation
-license: MIT
-version: 1.0.0
-supports:
-  - os-family: windows
-```
-
-Save this file named `wmi_service.yml` in a folder named `wmi_service` in your project directory.
-
-Next, create the Ruby file with the InSpec language abstraction used to audit the machine.
-
-```Ruby
-control 'wmi_service' do
-  impact 1.0
-  title 'Verify windows service: winmgmt'
-  desc 'Validates that the service, is installed, enabled, and running'
-
-  describe service('winmgmt') do
-    it { should be_installed }
-    it { should be_enabled }
-    it { should be_running }
-  end
-end
-
-```
-
-Save this file `wmi_service.rb` in a new folder named `controls` inside the `wmi_service` directory.
-
-Finally, create a configuration, import the **GuestConfiguration** resource module, and use the
-`gcInSpec` resource to set the name of the InSpec profile.
-
-```powershell
-# Define the configuration and import GuestConfiguration
-Configuration wmi_service
-{
-    Import-DSCResource -Module @{ModuleName = 'gcInSpec'; ModuleVersion = '2.1.0'}
-    node 'wmi_service'
-    {
-        gcInSpec wmi_service
-        {
-            InSpecProfileName       = 'wmi_service'
-            InSpecVersion           = '3.9.3'
-            WindowsServerVersion    = '2016'
-        }
-    }
-}
-
-# Compile the configuration to create the MOF files
-wmi_service -out ./Config
-```
-
-You should now have a project structure as below:
-
-```file
-/ wmi_service
-    / Config
-        wmi_service.mof
-    / wmi_service
-        wmi_service.yml
-        / controls
-            wmi_service.rb 
-```
-
-The supporting files must be packaged together. The completed package is used by Guest Configuration
-to create the Azure Policy definitions.
-
-The `New-GuestConfigurationPackage` cmdlet creates the package. For third-party content, use the
-**FilesToInclude** parameter to add the InSpec content to the package. You don't need to specify the
-**ChefProfilePath** as for Linux packages.
-
-- **Name**: Guest Configuration package name.
-- **Configuration**: Compiled configuration document full path.
-- **Path**: Output folder path. This parameter is optional. If not specified, the package is created
-  in current directory.
-- **FilesoInclude**: Full path to InSpec profile.
-
-Run the following command to create a package using the configuration given in
-the previous step:
-
-```azurepowershell-interactive
-New-GuestConfigurationPackage `
-  -Name 'wmi_service' `
-  -Configuration './Config/wmi_service.mof' `
-  -FilesToInclude './wmi_service'  `
-  -Path './package' 
-```
-
 ## Policy lifecycle
 
-If you would like to release an update to the policy, make the change for both the Guest Configuration
-package and the Azure Policy definition details.
+If you would like to release an update to the policy, make the change for both the Guest
+Configuration package and the Azure Policy definition details.
 
 > [!NOTE]
 > The `version` property of the Guest Configuration assignment only effects packages that
@@ -629,12 +532,12 @@ package and the Azure Policy definition details.
 > the version in the file name.
 
 First, when running `New-GuestConfigurationPackage`, specify a name for the package that makes it
-unique from previous versions. You can include a version number in the name such as `PackageName_1.0.0`.
-The number in this example is only used to make the package unique, not to specify that the package
-should be considered newer or older than other packages.
+unique from previous versions. You can include a version number in the name such as
+`PackageName_1.0.0`. The number in this example is only used to make the package unique, not to
+specify that the package should be considered newer or older than other packages.
 
 Second, update the parameters used with the `New-GuestConfigurationPolicy` cmdlet following each of
-the explanations below.
+the following explanations.
 
 - **Version**: When you run the `New-GuestConfigurationPolicy` cmdlet, you must specify a version
   number greater than what is currently published.
@@ -678,7 +581,7 @@ Certificate Authorities" on Windows machines and in the path
 `/usr/local/share/ca-certificates/extra` on Linux machines. For the node to verify signed content,
 install the certificate public key on the machine before applying the custom policy. This process
 can be done using any technique inside the VM or by using Azure Policy. An example template is
-[provided here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows).
+[provided here](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-push-certificate-windows).
 The Key Vault access policy must allow the Compute resource provider to access certificates during
 deployments. For detailed steps, see
 [Set up Key Vault for virtual machines in Azure Resource Manager](../../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault).

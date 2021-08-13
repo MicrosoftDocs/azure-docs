@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a management group with the Azure CLI"
 description: In this quickstart, you use the Azure CLI to create a management group to organize your resources into a resource hierarchy.
-ms.date: 08/31/2020
+ms.date: 05/01/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
 ---

@@ -4,8 +4,7 @@ description: In this tutorial, you learn how to configure an Azure Container Reg
 ms.topic: tutorial
 ms.date: 11/24/2020
 ms.custom: "seodec18, mvc, devx-track-azurecli"
-# Customer intent: As a developer or devops engineer, I want to trigger
-# container image builds automatically when I commit code to a Git repo.
+# Customer intent: As a developer or devops engineer, I want to trigger container image builds automatically when I commit code to a Git repo.
 ---
 
 # Tutorial: Automate container image builds in the cloud when you commit source code
@@ -42,14 +41,16 @@ GIT_USER=<github-username>      # Your GitHub user account name
 GIT_PAT=<personal-access-token> # The PAT you generated in the previous section
 ```
 
-Now, create the task by executing the following [az acr task create][az-acr-task-create] command:
+Now, create the task by executing the following [az acr task create][az-acr-task-create] command.
+
+[!INCLUDE [pull-image-dockerfile-include](../../includes/pull-image-dockerfile-include.md)]
 
 ```azurecli
 az acr task create \
     --registry $ACR_NAME \
     --name taskhelloworld \
     --image helloworld:{{.Run.ID}} \
-    --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
+    --context https://github.com/$GIT_USER/acr-build-helloworld-node.git#main \
     --file Dockerfile \
     --git-access-token $GIT_PAT
 ```
@@ -79,7 +80,7 @@ Output from a successful [az acr task create][az-acr-task-create] command is sim
   "step": {
     "arguments": [],
     "baseImageDependencies": null,
-    "contextPath": "https://github.com/gituser/acr-build-helloworld-node",
+    "contextPath": "https://github.com/gituser/acr-build-helloworld-node#main",
     "dockerFilePath": "Dockerfile",
     "imageNames": [
       "helloworld:{{.Run.ID}}"
@@ -101,7 +102,7 @@ Output from a successful [az acr task create][az-acr-task-create] command is sim
         "name": "defaultSourceTriggerName",
         "sourceRepository": {
           "branch": "main",
-          "repositoryUrl": "https://github.com/gituser/acr-build-helloworld-node",
+          "repositoryUrl": "https://github.com/gituser/acr-build-helloworld-node#main",
           "sourceControlAuthProperties": null,
           "sourceControlType": "GitHub"
         },
@@ -249,10 +250,7 @@ In this tutorial, you learned how to use a task to automatically trigger contain
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
 [az-acr-task]: /cli/azure/acr/task
-[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
-[az-acr-task-list-runs]: /cli/azure/acr/task#az-acr-task-list-runs
-[az-login]: /cli/azure/reference-index#az-login
-
-
-
+[az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
+[az-acr-task-run]: /cli/azure/acr/task#az_acr_task_run
+[az-acr-task-list-runs]: /cli/azure/acr/task#az_acr_task_list_runs
+[az-login]: /cli/azure/reference-index#az_login

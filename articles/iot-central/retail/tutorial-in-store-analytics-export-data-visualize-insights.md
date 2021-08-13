@@ -26,7 +26,7 @@ In this tutorial, you will learn how to:
 
 To complete this tutorial, you need:
 
-* To complete the previous two tutorials, [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app.md) and [Customize the operator dashboard and manage devices in Azure IoT Central](./tutorial-in-store-analytics-customize-dashboard.md).
+* To complete the previous two tutorials, [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app.md) and [Customize the dashboard and manage devices in Azure IoT Central](./tutorial-in-store-analytics-customize-dashboard.md).
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * A Power BI account. If you don't have a Power BI account, sign up for a [free Power BI Pro trial](https://app.powerbi.com/signupredirect?pbi_source=web) before you begin.
 
@@ -501,6 +501,4 @@ You can delete your Power BI datasets and dashboard by deleting the workspace fr
 These three tutorials have shown you an end-to-end solution that uses the **In-store analytics - checkout** IoT Central application template. You've connected devices to the application, used IoT Central to monitor the devices, and used Power BI to build a dashboard to view insights from the device telemetry. A recommended next step is to explore one of the other IoT Central application templates:
 
 > [!div class="nextstepaction"]
-> * [Build energy solutions with IoT Central](../energy/overview-iot-central-energy.md)
-> * [Build government solutions with IoT Central](../government/overview-iot-central-government.md)
-> * [Build healthcare solutions with IoT Central](../healthcare/overview-iot-central-healthcare.md)
+> [Build energy solutions with IoT Central](../energy/overview-iot-central-energy.md)

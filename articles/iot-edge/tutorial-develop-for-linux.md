@@ -2,7 +2,7 @@
 title: 'Tutorial - Develop module for Linux devices using Azure IoT Edge'
 description: This tutorial walks through setting up your development machine and cloud resources to develop IoT Edge modules using Linux containers for Linux devices 
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 07/30/2020
 ms.topic: tutorial
@@ -11,11 +11,13 @@ services: iot-edge
 ms.custom: mvc
 ---
 
-# Tutorial: Develop IoT Edge modules for Linux devices
+# Tutorial: Develop IoT Edge modules with Linux containers
 
-Use Visual Studio Code to develop and deploy code to Linux devices running IoT Edge.
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-In the quickstart, you created an IoT Edge device using a Linux virtual machine and deployed a module from the Azure Marketplace. This tutorial walks through developing and deploying your own code to an IoT Edge device. This article is a useful prerequisite for the other tutorials, which go into more detail about specific programming languages or Azure services.
+Use Visual Studio Code to develop and deploy code to devices running IoT Edge.
+
+In the quickstart, you created an IoT Edge device and deployed a module from the Azure Marketplace. This tutorial walks through developing and deploying your own code to an IoT Edge device. This article is a useful prerequisite for the other tutorials, which go into more detail about specific programming languages or Azure services.
 
 This tutorial uses the example of deploying a **C# module to a Linux device**. This example was chosen because it's the most common developer scenario for IoT Edge solutions. Even if you plan on using a different language or deploying an Azure service, this tutorial is still useful to learn about the development tools and concepts. Complete this introduction to the development process, then choose your preferred language or Azure service to dive into the details.
 
@@ -37,9 +39,9 @@ A development machine:
 * Most operating systems that can run a container engine can be used to develop IoT Edge modules for Linux devices. This tutorial uses a Windows computer, but points out known differences on macOS or Linux.
 * Install [Git](https://git-scm.com/), to pull module template packages later in this tutorial.  
 * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-* [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
+* [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1).
 
-An Azure IoT Edge device on Linux:
+An Azure IoT Edge device:
 
 * We recommend that you don't run IoT Edge on your development machine, but instead use a separate device. This distinction between development machine and IoT Edge device more accurately mirrors a true deployment scenario, and helps to keep the different concepts straight.
 * If you don't have a second device available, use the quickstart article to create an IoT Edge device in Azure with a [Linux virtual machine](quickstart-linux.md).
@@ -56,7 +58,10 @@ This tutorial walks through the development of an IoT Edge module. An *IoT Edge 
 
 When developing IoT Edge modules, it's important to understand the difference between the development machine and the target IoT Edge device where the module will eventually be deployed. The container that you build to hold your module code must match the operating system (OS) of the *target device*. For example, the most common scenario is someone developing a module on a Windows computer intending to target a Linux device running IoT Edge. In that case, the container operating system would be Linux. As you go through this tutorial, keep in mind the difference between the *development machine OS* and the *container OS*.
 
-This tutorial targets Linux devices running IoT Edge. You can use your preferred operating system as long as your development machine runs Linux containers. We recommend using Visual Studio Code to develop for Linux devices, so that's what this tutorial will use. You can use Visual Studio as well, although there are differences in support between the two tools.
+>[!TIP]
+>If you're using [IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md), then the *target device* in your scenario is the Linux virtual machine, not the Windows host.
+
+This tutorial targets devices running IoT Edge with Linux containers. You can use your preferred operating system as long as your development machine runs Linux containers. We recommend using Visual Studio Code to develop with Linux containers, so that's what this tutorial will use. You can use Visual Studio as well, although there are differences in support between the two tools.
 
 The following table lists the supported development scenarios for **Linux containers** in Visual Studio Code and Visual Studio.
 
@@ -147,13 +152,16 @@ Once your new solution loads in the Visual Studio Code window, take a moment to 
 The environment file stores the credentials for your container registry and shares them with the IoT Edge runtime. The runtime needs these credentials to pull your container images onto the IoT Edge device.
 
 >[!NOTE]
->If you didn't replace the **localhost:5000** value with the login server value from your Azure container registry, in the [**Create a project template**](#create-a-project-template) step, the **.env** file and the registryCredentials section of the deployment manifest will be missing. 
+>If you didn't replace the **localhost:5000** value with the login server value from your Azure container registry, in the [**Create a project template**](#create-a-project-template) step, the **.env** file and the registryCredentials section of the deployment manifest will be missing.
 
 The IoT Edge extension tries to pull your container registry credentials from Azure and populate them in the environment file. Check to see if your credentials are already included. If not, add them now:
 
 1. Open the **.env** file in your module solution.
 2. Add the **username** and **password** values that you copied from your Azure container registry.
 3. Save your changes to the .env file.
+
+>[!NOTE]
+>This tutorial uses admin login credentials for Azure Container Registry, which are convenient for development and test scenarios. When you're ready for production scenarios, we recommend a least-privilege authentication option like service principals. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
 
 ### Select your target architecture
 
@@ -216,10 +224,10 @@ Provide your container registry credentials to Docker so that it can push your c
    ```
 
    You may receive a security warning recommending the use of `--password-stdin`. While that best practice is recommended for production scenarios, it's outside the scope of this tutorial. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) reference.
-   
+
 3. Log in to Azure Container Registry
 
-   ```cmd/sh
+   ```azurecli
    az acr login -n <ACR registry name>
    ```
 

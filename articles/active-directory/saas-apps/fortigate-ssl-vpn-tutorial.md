@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/26/2020
+ms.date: 06/30/2021
 ms.author: jeedes
 ---
 
@@ -72,7 +72,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
 1. On the **Set up Single Sign-On with SAML** page, enter the following values:
 
     a. In the **Sign on URL** box, enter a URL in the pattern
-    `https://<FQDN>/remote/login`.
+    `https://<FQDN>/remote/saml/login`.
 
     b. In the **Identifier** box, enter a URL in the pattern
     `https://<FQDN>/remote/saml/metadata`.
@@ -202,6 +202,7 @@ To complete these steps, you'll need the values you recorded earlier:
    ```console
     config user saml
     edit azure
+    set cert <FortiGate VPN Server Certificate Name>
     set entity-id <Entity ID>
     set single-sign-on-url <Reply URL>
     set single-logout-url <Logout URL>
@@ -259,7 +260,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to FortiGate VPN Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the FortiGate VPN tile in the My Apps, this will redirect to FortiGate VPN Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* You can use Microsoft My Apps. When you click the FortiGate VPN tile in the My Apps, this will redirect to FortiGate VPN Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## Next steps

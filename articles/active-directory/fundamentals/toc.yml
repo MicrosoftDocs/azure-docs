@@ -24,7 +24,27 @@
   expanded: true
   items:
   - name: Security
-    items:
+    items: 
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/aad-security-baseline?toc=/azure/active-directory/fundamentals/toc.json
+    - name: Security operations guide
+      items: 
+      - name: Security operations overview
+        href: security-operations-introduction.md
+      - name: Security operations for user accounts
+        href: security-operations-user-accounts.md
+      - name: Security operations for privileged accounts
+        href: security-operations-privileged-accounts.md
+      - name: Security operations for PIM
+        href: security-operations-privileged-identity-management.md 
+      - name: Security operations for applications
+        href: security-operations-applications.md  
+      - name: Security operations for devices
+        href: security-operations-devices.md
+      - name: Security operations for Infrastructure
+        href: security-operations-infrastructure.md
+    - name: Protect Microsoft 365 from on-premises attacks 
+      href: protect-m365-from-on-premises-attacks.md    
     - name: Secure external collaboration
       items:
       - name: Secure external access overview 
@@ -47,8 +67,28 @@
         href: 8-secure-access-sensitivity-labels.md
       - name: 9 Secure access to Teams, SharePoint, and OneDrive
         href: 9-secure-access-teams-sharepoint.md
-    - name: Protect Microsoft 365 from on-premises attacks 
-      href: protect-m365-from-on-premises-attacks.md
+    - name: Secure service accounts
+      items:
+      - name: Introduction to Azure service accounts
+        href: service-accounts-introduction-azure.md
+      - name: Secure managed identities
+        href: service-accounts-managed-identities.md
+      - name: Secure service principals
+        href: service-accounts-principal.md
+      - name: Govern Azure service accounts
+        href: service-accounts-governing-azure.md       
+      - name: Introduction to on-premises service accounts
+        href: service-accounts-on-premises.md
+      - name: Secure group MSAs
+        href: service-accounts-group-managed.md
+      - name: Secure standalone MSAs
+        href: service-accounts-standalone-managed.md
+      - name: Secure computer accounts
+        href: service-accounts-computer.md
+      - name: Secure on-premises user service accounts
+        href: service-accounts-user-on-premises.md
+      - name: Govern on-premises user service accounts
+        href: service-accounts-govern-on-premises.md
     - name: Enable MFA
       href: concept-fundamentals-mfa-get-started.md
     - name: Security defaults
@@ -140,9 +180,13 @@
         - name: Development overview
           href: resilience-app-development-overview.md
         - name: Client applications
-          href: resilience-client-app.md
+          href: resilience-client-app.md  
         - name: Daemon applications
           href: resilience-daemon-app.md
+        - name: OpenID Connect metadata refresh
+          href: ../develop/howto-build-services-resilient-to-metadata-refresh.md
+      - name: Monitor application health for resilience
+        href: monitor-sign-in-health-for-resilience.md
     - name: Certificate authorities used in Azure
       href: certificate-authorities.md
   - name: Deployment guide
@@ -151,12 +195,16 @@
       href: active-directory-deployment-checklist-p2.md
     - name: Azure Active Directory deployment plans
       href: active-directory-deployment-plans.md
+    - name: Azure Active Directory B2C deployment plans
+      href: azure-active-directory-b2c-deployment-plans.md
   - name: Data storage
     items:
     - name: Identity data storage for Europe
       href: active-directory-data-storage-eu.md
     - name: Identity data storage for Australia and New Zealand
       href: active-directory-data-storage-australia-newzealand.md
+  - name: Frontline worker management
+    href: frontline-worker-management.md
   - name: Azure AD Operations reference
     items:
     - name: Introduction
@@ -225,5 +273,4 @@
   items:
   - name: Get support for Azure Active Directory
     href: active-directory-troubleshooting-support-howto.md
-  - name: Azure Active Directory FAQ
-    href: active-directory-faq.md
+

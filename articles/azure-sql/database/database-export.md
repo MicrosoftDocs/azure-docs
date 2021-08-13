@@ -5,9 +5,9 @@ description: Export a database to a BACPAC file using the Azure portal.
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: data-movement
-author: stevestein
+author: cawrites
 ms.custom: sqldbrb=2
-ms.author: sstein
+ms.author: chadam
 ms.reviewer: 
 ms.date: 01/11/2021
 ms.topic: how-to
@@ -57,7 +57,7 @@ Exporting a BACPAC of a database from [Azure SQL Managed Instance](../managed-in
 
 ## SQLPackage utility
 
-To export a database in SQL Database using the [SqlPackage](/sql/tools/sqlpackage) command-line utility, see [Export parameters and properties](/sql/tools/sqlpackage#export-parameters-and-properties). The SQLPackage utility ships with the latest versions of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) and [SQL Server Data Tools for Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt), or you can download the latest version of [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) directly from the Microsoft download center.
+To export a database in SQL Database using the [SqlPackage](/sql/tools/sqlpackage) command-line utility, see [Export parameters and properties](/sql/tools/sqlpackage#export-parameters-and-properties). The SQLPackage utility ships with the latest versions of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) and [SQL Server Data Tools for Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt), or you can download the latest version of [SqlPackage](/sql/tools/sqlpackage/sqlpackage-download?view=sql-server-ver15) directly from the Microsoft download center.
 
 We recommend the use of the SQLPackage utility for scale and performance in most production environments. For a SQL Server Customer Advisory Team blog about migrating using BACPAC files, see [Migrating from SQL Server to Azure SQL Database using BACPAC Files](/archive/blogs/sqlcat/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files).
 
@@ -97,6 +97,14 @@ while ($exportStatus.Status -eq "InProgress")
 }
 [Console]::WriteLine("")
 $exportStatus
+```
+## Cancel the export request
+
+Use the [Database Operations - Cancel API](/rest/api/sql/databaseoperations/cancel)
+or the Powershell [Stop-AzSqlDatabaseActivity command](/powershell/module/az.sql/Stop-AzSqlDatabaseActivity), here an example of powershell command.
+
+```cmd
+Stop-AzSqlDatabaseActivity -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -OperationId $Operation.OperationId
 ```
 
 ## Next steps

@@ -6,25 +6,22 @@ author: surajmb
 ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
-ms.author: surmb
+ms.author: surmb 
+ms.custom: devx-track-azurepowershell
 ---
 
-Troubleshoot backend health issues in Application Gateway
-==================================================
+# Troubleshoot backend health issues in Application Gateway
 
-Overview
---------
+## Overview
+
 
 By default, Azure Application Gateway probes backend servers to check their health status and to check whether they're ready to serve requests. Users can also create custom probes to mention the host name, the path to be probed, and the status codes to be accepted as Healthy. In each case, if the backend server doesn't respond successfully, Application Gateway marks the server as Unhealthy and stops forwarding requests to the server. After the server starts responding
 successfully, Application Gateway resumes forwarding the requests.
 
-> [!NOTE]
-> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
-
 ### How to check backend health
 
 To check the health of your backend pool, you can use the
-**Backend Health** page on the Azure portal. Or, you can use [Azure PowerShell](/powershell/module/az.network/get-azapplicationgatewaybackendhealth?view=azps-2.6.0), [CLI](/cli/azure/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-show-backend-health), or [REST API](/rest/api/application-gateway/applicationgateways/backendhealth).
+**Backend Health** page on the Azure portal. Or, you can use [Azure PowerShell](/powershell/module/az.network/get-azapplicationgatewaybackendhealth), [CLI](/cli/azure/network/application-gateway#az_network_application_gateway_show_backend_health), or [REST API](/rest/api/application-gateway/applicationgateways/backendhealth).
 
 The status retrieved by any of these methods can be any one of the following:
 
@@ -39,8 +36,7 @@ to that server. But if the backend
 health for all the servers in a backend pool is Unhealthy or unknown, you might encounter problems when you try to access
 applications. This article describes the symptoms, cause, and resolution for each of the errors shown.
 
-Backend health status: Unhealthy
--------------------------------
+## Backend health status: Unhealthy
 
 If the backend health status is Unhealthy, the portal view will resemble the following screenshot:
 
@@ -79,6 +75,7 @@ BackendAddressPoolsText : [
                             }
                         ]
 ```
+
 After you receive an Unhealthy backend server status for all the servers in a backend pool, requests aren't forwarded to the servers, and Application Gateway returns a "502 Bad Gateway" error to the requesting client. To troubleshoot this issue, check the **Details** column on the **Backend Health** tab.
 
 The message displayed in the **Details** column provides more detailed insights about the issue, and based on those, you can start troubleshooting the issue.
@@ -87,9 +84,10 @@ The message displayed in the **Details** column provides more detailed insights 
 > The default probe request is sent in the format of
 \<protocol\>://127.0.0.1:\<port\>/. For example, http://127.0.0.1:80 for an http probe on port 80. Only HTTP status codes of 200 through 399 are considered healthy. The protocol and destination port are inherited from the HTTP settings. If you want Application Gateway to probe on a different protocol, host name, or path and to recognize a different status code as Healthy, configure a custom probe and associate it with the HTTP settings.
 
-Error messages
-------------------------
-#### Backend server timeout
+## Error messages
+
+
+### Backend server timeout
 
 **Message:** Time taken by the backend to respond to application gateway\'s health probe is more than the timeout threshold in the probe setting.
 
@@ -111,7 +109,7 @@ To increase the timeout value, follow these steps:
 
 1.  Save the custom probe settings and check whether the backend health shows as Healthy now.
 
-#### DNS resolution error
+### DNS resolution error
 
 **Message:** Application Gateway could not create a probe for this
 backend. This usually happens when the FQDN of the backend has not been
@@ -136,12 +134,12 @@ this message is displayed, it suggests that Application Gateway couldn't success
 
 1.  If the domain is private or internal, try to resolve it from a VM in the same virtual network. If you can resolve it, restart
     Application Gateway and check again. To restart Application Gateway, you need to
-    [stop](/powershell/module/azurerm.network/stop-azurermapplicationgateway?view=azurermps-6.13.0)
+    [stop](/powershell/module/azurerm.network/stop-azurermapplicationgateway)
     and
-    [start](/powershell/module/azurerm.network/start-azurermapplicationgateway?view=azurermps-6.13.0)
+    [start](/powershell/module/azurerm.network/start-azurermapplicationgateway)
     by using the PowerShell commands described in these linked resources.
 
-#### TCP connect error
+### TCP connect error
 
 **Message:** Application Gateway could not connect to the backend.
 Please check that the backend responds on the port used for the probe.
@@ -207,18 +205,18 @@ here:
 
 | **Error** | **Actions** |
 | --- | --- |
-| Probe status code mismatch: Received 401 | Check whether the backend server requires authentication. Application Gateway probes can't pass credentials for authentication. Either allow \"HTTP 401\" in a probe status code match or probe to a path where the server doesn't require authentication. | |
-| Probe status code mismatch: Received 403 | Access forbidden. Check whether access to the path is allowed on the backend server. | |
-| Probe status code mismatch: Received 404 | Page not found. Check whether the host name path is accessible on the backend server. Change the host name or path parameter to an accessible value. | |
-| Probe status code mismatch: Received 405 | The probe requests for Application Gateway use the HTTP GET method. Check whether your server allows this method. | |
-| Probe status code mismatch: Received 500 | Internal server error. Check the backend server's health and whether the services are running. | |
-| Probe status code mismatch: Received 503 | Service unavailable. Check the backend server's health and whether the services are running. | |
+| Probe status code mismatch: Received 401 | Check whether the backend server requires authentication. Application Gateway probes can't pass credentials for authentication. Either allow \"HTTP 401\" in a probe status code match or probe to a path where the server doesn't require authentication. |
+| Probe status code mismatch: Received 403 | Access forbidden. Check whether access to the path is allowed on the backend server. |
+| Probe status code mismatch: Received 404 | Page not found. Check whether the host name path is accessible on the backend server. Change the host name or path parameter to an accessible value. |
+| Probe status code mismatch: Received 405 | The probe requests for Application Gateway use the HTTP GET method. Check whether your server allows this method. |
+| Probe status code mismatch: Received 500 | Internal server error. Check the backend server's health and whether the services are running. |
+| Probe status code mismatch: Received 503 | Service unavailable. Check the backend server's health and whether the services are running. |
 
 Or, if you think the response is legitimate and you want Application Gateway to accept other status codes as Healthy, you can create a custom probe. This approach is useful in situations where the backend website needs authentication. Because the probe requests don't carry any user credentials, they will fail, and an HTTP 401 status code will be returned by the backend server.
 
 To create a custom probe, follow [these steps](./application-gateway-create-probe-portal.md).
 
-#### HTTP response body mismatch
+### HTTP response body mismatch
 
 **Message:** Body of the backend\'s HTTP response did not match the
 probe setting. Received response body does not contain {string}.
@@ -243,7 +241,7 @@ Learn more about [Application Gateway probe matching](./application-gateway-prob
 > For all TLS related error messages, to learn more about SNI behavior and differences between the v1 and v2 SKU, check the [TLS overview](ssl-overview.md) page.
 
 
-#### Backend server certificate invalid CA
+### Backend server certificate invalid CA
 
 **Message:** The server certificate used by the backend is not signed by
 a well-known Certificate Authority (CA). Allow the backend on the Application Gateway by uploading the root certificate of the server certificate used by the backend.
@@ -281,12 +279,12 @@ Alternatively, you can export the root certificate from a client machine by dire
 For more information about how to extract and upload Trusted Root Certificates in Application Gateway, see
 [Export trusted root certificate (for v2 SKU)](./certificates-for-backend-authentication.md#export-trusted-root-certificate-for-v2-sku).
 
-#### Trusted root certificate mismatch
+### Trusted root certificate mismatch
 
 **Message:** The root certificate of the server certificate used by the
 backend does not match the trusted root certificate added to the
 application gateway. Ensure that you add the correct root certificate to
-whitelist the backend
+allowlist the backend.
 
 **Cause:** End-to-end SSL with Application Gateway v2 requires the
 backend server's certificate to be verified in order to deem the server Healthy.
@@ -302,6 +300,7 @@ Follow steps 1-11 in the preceding method to upload the correct trusted root cer
 
 For more information about how to extract and upload Trusted Root Certificates in Application Gateway, see
 [Export trusted root certificate (for v2 SKU)](./certificates-for-backend-authentication.md#export-trusted-root-certificate-for-v2-sku).
+
 > [!NOTE]
 > This error can also occur if the backend server doesn't exchange the complete chain of the cert, including the Root > Intermediate (if applicable) > Leaf during the TLS handshake. To verify, you can use OpenSSL commands from any client and connect to the backend server by using the configured settings in the Application Gateway probe.
 
@@ -309,6 +308,7 @@ For example:
 ```
 OpenSSL> s_client -connect 10.0.0.4:443 -servername www.example.com -showcerts
 ```
+
 If the output doesn't show the complete chain of the certificate being returned, export the certificate again with the complete chain, including the root certificate. Configure that certificate on your backend server. 
 
 ```
@@ -328,7 +328,7 @@ If the output doesn't show the complete chain of the certificate being returned,
   \-----END CERTIFICATE-----
 ```
 
-#### Backend certificate invalid common name (CN)
+### Backend certificate invalid common name (CN)
 
 **Message:** The Common Name (CN) of the backend certificate does not match the host header of the probe.
 
@@ -370,7 +370,7 @@ For Linux using OpenSSL:
 
 2.  From the properties displayed, find the CN of the certificate and enter the same in the host name field of the http settings. If that's not the desired host name for your website, you must get a certificate for that domain or enter the correct host name in the custom probe or HTTP setting configuration.
 
-#### Backend certificate is invalid
+### Backend certificate is invalid
 
 **Message:** Backend certificate is invalid. Current date is not within the \"Valid from\" and \"Valid to\" date range on the certificate.
 
@@ -387,7 +387,7 @@ certificate. If it's a self-signed certificate, you must generate a valid certif
 
 1.  Remove the old certificate by using the **Delete** icon next to the certificate, and then select **Save**.
 
-#### Certificate verification failed
+### Certificate verification failed
 
 **Message:** The validity of the backend certificate could not be
 verified. To find out the reason, check OpenSSL diagnostics for the
@@ -397,8 +397,8 @@ message associated with error code {errorCode}
 
 **Solution:** To resolve this issue, verify that the certificate on your server was created properly. For example, you can use [OpenSSL](https://www.openssl.org/docs/man1.0.2/man1/verify.html) to verify the certificate and its properties and then try reuploading the certificate to the Application Gateway HTTP settings.
 
-Backend health status: unknown
--------------------------------
+## Backend health status: unknown
+
 If the backend health is shown as Unknown, the portal view will resemble the following screenshot:
 
 ![Application Gateway backend health - Unknown](./media/application-gateway-backend-health-troubleshooting/appgwunknown.png)
@@ -449,7 +449,6 @@ This behavior can occur for one or more of the following reasons:
 
 1.	To verify that Application Gateway is healthy and running, go to the **Resource Health** option in the portal and verify that the state is **Healthy**. If you see an **Unhealthy** or **Degraded** state, [contact support](https://azure.microsoft.com/support/options/).
 
-Next steps
-----------
+## Next steps
 
 Learn more about [Application Gateway diagnostics and logging](./application-gateway-diagnostics.md).

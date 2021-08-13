@@ -179,7 +179,7 @@ The above code will disable adaptive sampling. Follow the steps below to add sam
 Use extension methods of `TelemetryProcessorChainBuilder` as shown below to customize sampling behavior.
 
 > [!IMPORTANT]
-> If you use this method to configure sampling, please make sure to set the `aiOptions.EnableAdaptiveSampling` property to `false` when calling `AddApplicationInsightsTelemetry()`.
+> If you use this method to configure sampling, please make sure to set the `aiOptions.EnableAdaptiveSampling` property to `false` when calling `AddApplicationInsightsTelemetry()`. After making this change, you then need to follow the instructions in the code block below **exactly** in order to re-enable adaptive sampling with your customizations in place. Failure to do so can result in excess data ingestion. Always test post changing sampling settings, and set an appropriate [daily data cap](pricing.md#set-the-daily-cap) to help control your costs.
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility
@@ -315,14 +315,14 @@ By default no sampling is enabled in the Java agent and SDK. Currently it only s
 ```json
 {
   "sampling": {
-    "percentage": 10 //this is just an example that shows you how to enable only only 10% of transaction 
+    "percentage": 10 //this is just an example that shows you how to enable only 10% of transaction 
   }
 }
 ```
 
-#### Configuring Java SDK
+#### Configuring Java 2.x SDK
 
-1. Download and configure your web application with the latest [Application Insights Java SDK](./java-get-started.md).
+1. Download and configure your web application with the latest [Application Insights Java SDK](./java-2x-get-started.md).
 
 2. **Enable the fixed-rate sampling module** by adding the following snippet to `ApplicationInsights.xml` file:
 
@@ -473,7 +473,7 @@ If the conditions to use the other forms of sampling do not apply, we recommend 
 
 ## Knowing whether sampling is in operation
 
-To discover the actual sampling rate no matter where it has been applied, use an [Analytics query](../log-query/log-query-overview.md) such as this:
+To discover the actual sampling rate no matter where it has been applied, use an [Analytics query](../logs/log-query-overview.md) such as this:
 
 ```kusto
 union requests,dependencies,pageViews,browserTimings,exceptions,traces

@@ -7,9 +7,10 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/28/2020
+ms.date: 01/29/2021
 ms.author: tamram
-ms.subservice: blobs
+ms.subservice: blobs 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Perform a point-in-time restore on block blob data
@@ -19,7 +20,7 @@ You can use point-in-time restore to restore one or more sets of block blobs to 
 To learn more about point-in-time restore, see [Point-in-time restore for block blobs](point-in-time-restore-overview.md).
 
 > [!CAUTION]
-> Point-in-time restore supports restoring operations on block blobs only. Operations on containers cannot be restored. If you delete a container from the storage account by calling the [Delete Container](/rest/api/storageservices/delete-container) operation, that container cannot be restored with a restore operation. Rather than deleting an entire container, delete individual blobs if you may want to restore them later.
+> Point-in-time restore supports restoring operations on block blobs only. Operations on containers cannot be restored. If you delete a container from the storage account by calling the [Delete Container](/rest/api/storageservices/delete-container) operation, that container cannot be restored with a restore operation. Rather than deleting an entire container, delete individual blobs if you may want to restore them later. Also, Microsoft recommends enabling soft delete for containers and blobs to protect against accidental deletion. For more information, see [Soft delete for containers](soft-delete-container-overview.md) and [Soft delete for blobs](soft-delete-blob-overview.md).
 
 ## Enable and configure point-in-time restore
 
@@ -48,19 +49,16 @@ The following image shows a storage account configured for point-in-time restore
 
 # [PowerShell](#tab/powershell)
 
-To configure point-in-time restore with PowerShell, first install the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module version 2.6.0 or later. Then call the Enable-AzStorageBlobRestorePolicy command to enable point-in-time restore for the storage account.
+To configure point-in-time restore with PowerShell, first install the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module version 2.6.0 or later. Then call the [Enable-AzStorageBlobRestorePolicy](/powershell/module/az.storage/enable-azstorageblobrestorepolicy) command to enable point-in-time restore for the storage account.
 
-The following example enables soft delete and sets the soft-delete retention period, enables change feed and versioning, and then enables point-in-time restore.    When running the example, remember to replace the values in angle brackets with your own values:
+The following example enables soft delete and sets the soft-delete retention period, enables change feed and versioning, and then enables point-in-time restore. When running the example, remember to replace the values in angle brackets with your own values:
 
 ```powershell
-# Sign in to your Azure account.
-Connect-AzAccount
-
 # Set resource group and account variables.
 $rgName = "<resource-group>"
 $accountName = "<storage-account>"
 
-# Enable soft delete with a retention of 14 days.
+# Enable blob soft delete with a retention of 14 days.
 Enable-AzStorageBlobDeleteRetentionPolicy -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
     -RetentionDays 14
@@ -83,11 +81,33 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
     -StorageAccountName $accountName
 ```
 
+# [Azure CLI](#tab/azure-cli)
+
+To configure point-in-time restore with Azure CLI, first install the Azure CLI version 2.2.0 or later. Then call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) command to enable point-in-time restore and the other required data protection settings for the storage account.
+
+The following example enables soft delete and sets the soft-delete retention period to 14 days, enables change feed and versioning, and enables point-in-time restore with a restore period of 7 days. When running the example, remember to replace the values in angle brackets with your own values:
+
+```azurecli
+az storage account blob-service-properties update \
+    --resource-group <resource_group> \
+    --account-name <storage-account> \
+    --enable-delete-retention true \
+    --delete-retention-days 14 \
+    --enable-versioning true \
+    --enable-change-feed true \
+    --enable-restore-policy true \
+    --restore-days 7
+```
+
 ---
 
-## Perform a restore operation
+## Choose a restore point
 
-When you perform a restore operation, you must specify the restore point as a UTC **DateTime** value. Containers and blobs will be restored to their state at that day and time. The restore operation may take several minutes to complete.
+The restore point is the date and time to which the data is restored. Azure Storage always uses a UTC date/time value as the restore point. However, the Azure portal allows you to specify the restore point in local time, and then converts that date/time value to a UTC date/time value to perform the restore operation.
+
+When you perform a restore operation with PowerShell or Azure CLI, you should specify the restore point as a UTC date/time value. If the restore point is specified with a local time value instead of a UTC time value, the restore operation may still behave as expected in some cases. For example, if your local time is UTC minus five hours, then specifying a local time value results in a restore point that is five hours earlier that the value that you provided. If no changes were made to the data in the range to be restored during that five-hour period, then the restore operation will produce the same results regardless of which time value was provided. Specifying a UTC time for the restore point is recommended to avoid unexpected results.
+
+## Perform a restore operation
 
 You can restore all containers in the storage account, or you can restore a range of blobs in one or more containers. A range of blobs is defined lexicographically, meaning in dictionary order. Up to ten lexicographical ranges are supported per restore operation. The start of the range is inclusive, and the end of the range is exclusive.
 
@@ -124,7 +144,7 @@ To restore all containers and blobs in the storage account with the Azure portal
 
 # [PowerShell](#tab/powershell)
 
-To restore all containers and blobs in the storage account with PowerShell, call the **Restore-AzStorageBlobRange** command. By default, the **Restore-AzStorageBlobRange** command runs asynchronously, and returns an object of type **PSBlobRestoreStatus** that you can use to check the status of the restore operation.
+To restore all containers and blobs in the storage account with PowerShell, call the **Restore-AzStorageBlobRange** command and provide the restore point as a UTC date/time value. By default, the **Restore-AzStorageBlobRange** command runs asynchronously, and returns an object of type **PSBlobRestoreStatus** that you can use to check the status of the restore operation.
 
 The following example asynchronously restores containers in the storage account to their state 12 hours before the present moment, and checks some of the properties of the restore operation:
 
@@ -132,7 +152,7 @@ The following example asynchronously restores containers in the storage account 
 # Specify -TimeToRestore as a UTC value
 $restoreOperation = Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
-    -TimeToRestore (Get-Date).AddHours(-12)
+    -TimeToRestore (Get-Date).ToUniversalTime().AddHours(-12)
 
 # Get the status of the restore operation.
 $restoreOperation.Status
@@ -149,6 +169,33 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
     -TimeToRestore (Get-Date).AddHours(-12) -WaitForComplete
 ```
+
+# [Azure CLI](#tab/azure-cli)
+
+To restore all containers and blobs in the storage account with Azure CLI, call the [az storage blob restore](/cli/azure/storage/blob#az_storage_blob_restore) command and provide the restore point as a UTC date/time value.
+
+The following example asynchronously restores all containers in the storage account to their state 12 hours before a specified date and time. To check the status of the restore operation, call [az storage account show](/cli/azure/storage/account#az_storage_account_show):
+
+```azurecli
+az storage blob restore \
+    --resource-group <resource_group> \
+    --account-name <storage-account> \
+    --time-to-restore 2021-01-14T06:31:22Z \
+    --no-wait
+```
+
+To check the properties of a restore operation, call [az storage account show](/cli/azure/storage/account#az_storage_account_show) and expand the **blobRestoreStatus** property. The following example shows how to check the **status** property.
+
+```azurecli
+az storage account show \
+    --name <storage-account> \
+    --resource-group <resource_group> \ 
+    --expand blobRestoreStatus \
+    --query blobRestoreStatus.status \
+    --output tsv
+```
+
+To run the **az storage blob restore** command synchronously and block on execution until the restore operation is complete, omit the `--no-wait` parameter.
 
 ---
 
@@ -240,6 +287,25 @@ $restoreOperation.Parameters.BlobRanges
 ```
 
 To run the restore operation synchronously and block on execution until it is complete, include the **-WaitForComplete** parameter on the command.
+
+# [Azure CLI](#tab/azure-cli)
+
+To restore a range of blobs, call the [az storage blob restore](/cli/azure/storage/blob#az_storage_blob_restore) command and specify a lexicographical range of container and blob names for the `--blob-range` parameter. To specify multiple ranges, provide the `--blob-range` parameter for each distinct range.
+
+For example, to restore the blobs in a single container named *container1*, you can specify a range that starts with *container1* and ends with *container2*. There is no requirement for the containers named in the start and end ranges to exist. Because the end of the range is exclusive, even if the storage account includes a container named *container2*, only the container named *container1* will be restored.
+
+To specify a subset of blobs in a container to restore, use a forward slash (/) to separate the container name from the blob prefix pattern. The example shown below asynchronously restores a range of blobs in a container whose names begin with the letters `d` through `f`.
+
+```azurecli
+az storage blob restore \
+    --account-name <storage-account> \
+    --time-to-restore 2021-01-14T06:31:22Z \
+    --blob-range container1 container2
+    --blob-range container3/d container3/g
+    --no-wait
+```
+
+To run the **az storage blob restore** command synchronously and block on execution until the restore operation is complete, omit the `--no-wait` parameter.
 
 ---
 

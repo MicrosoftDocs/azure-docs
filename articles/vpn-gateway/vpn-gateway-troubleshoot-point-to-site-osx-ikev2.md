@@ -1,12 +1,13 @@
 ---
-title: 'Azure VPN Gateway: Troubleshoot Point-to-Site connections: Mac OS X clients'
+title: 'Troubleshoot Point-to-Site connections: Mac OS X clients'
+titleSuffix: Azure VPN Gateway
 description: Learn how to troubleshoot point-to-site connectivity issues from Mac OS X using the native VPN client and IKEv2.
 services: vpn-gateway
 author: anzaman
 
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 03/27/2018
+ms.date: 02/10/2021
 ms.author: alzam
 ---
 

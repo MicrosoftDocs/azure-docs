@@ -1,8 +1,9 @@
 ---
-title: Deploy Azure dedicated hosts using the Azure portal 
+title: Deploy Azure dedicated hosts using the Azure portal
 description: Deploy VMs and scale sets to dedicated hosts using the Azure portal.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: dedicated-hosts
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 12/07/2020
@@ -11,9 +12,9 @@ ms.author: cynthn
 #Customer intent: As an IT administrator, I want to learn about more about using a dedicated host for my Azure virtual machines
 ---
 
-# Deploy VMs and scale sets to dedicated hosts using the portal 
+# Deploy VMs and scale sets to dedicated hosts using the portal
 
-This article guides you through how to create an Azure [dedicated host](dedicated-hosts.md) to host your virtual machines (VMs). 
+This article guides you through how to create an Azure [dedicated host](dedicated-hosts.md) to host your virtual machines (VMs).
 
 
 ## Limitations
@@ -22,18 +23,18 @@ This article guides you through how to create an Azure [dedicated host](dedicate
 
 ## Create a host group
 
-A **host group** is a resource that represents a collection of dedicated hosts. You create a host group in a region and an availability zone, and add hosts to it. When planning for high availability, there are additional options. You can use one or both of the following options with your dedicated hosts: 
+A **host group** is a resource that represents a collection of dedicated hosts. You create a host group in a region and an availability zone, and add hosts to it. When planning for high availability, there are additional options. You can use one or both of the following options with your dedicated hosts:
 - Span across multiple availability zones. In this case, you are required to have a host group in each of the zones you wish to use.
-- Span across multiple fault domains which are mapped to physical racks. 
- 
-In either case, you are need to provide the fault domain count for your host group. If you do not want to span fault domains in your group, use a fault domain count of 1. 
+- Span across multiple fault domains which are mapped to physical racks.
 
-You can also decide to use both availability zones and fault domains. 
+In either case, you are need to provide the fault domain count for your host group. If you do not want to span fault domains in your group, use a fault domain count of 1.
 
-In this example, we will create a host group using 1 availability zone and 2 fault domains. 
+You can also decide to use both availability zones and fault domains.
+
+In this example, we will create a host group using 1 availability zone and 2 fault domains.
 
 
-1. Open the Azure [portal](https://portal.azure.com). 
+1. Open the Azure [portal](https://portal.azure.com).
 1. Select **Create a resource** in the upper left corner.
 1. Search for **Host group** and then select **Host Groups** from the results.
 1. In the **Host Groups** page, select **Create**.
@@ -56,7 +57,7 @@ Now create a dedicated host in the host group. In addition to a name for the hos
 
 For more information about the host SKUs and pricing, see [Azure Dedicated Host pricing](https://aka.ms/ADHPricing).
 
-If you set a fault domain count for your host group, you will be asked to specify the fault domain for your host.  
+If you set a fault domain count for your host group, you will be asked to specify the fault domain for your host.
 
 1. Select **Create a resource** in the upper left corner.
 1. Search for **Dedicated host** and then select **Dedicated hosts** from the results.
@@ -72,7 +73,7 @@ If you set a fault domain count for your host group, you will be asked to specif
 
 1. Choose **Create a resource** in the upper left corner of the Azure portal.
 1. In the search box above the list of Azure Marketplace resources, search for and select the image you want use, then choose **Create**.
-1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then select *myDedicatedHostsRG* as the **Resource group**. 
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then select *myDedicatedHostsRG* as the **Resource group**.
 1. Under **Instance details**, type *myVM* for the **Virtual machine name** and choose *East US* for your **Location**.
 1. In **Availability options** select **Availability zone**, select *1* from the drop-down.
 1. For the size, select **Change size**. In the list of available sizes, choose one from the Esv3 series, like **Standard E2s v3**. You may need to clear the filter in order to see all of the available sizes.
@@ -84,7 +85,7 @@ If you set a fault domain count for your host group, you will be asked to specif
 
 It will take a few minutes for your VM to be deployed.
 
-## Create a scale set 
+## Create a scale set
 
 When you deploy a scale set, you specify the host group.
 
@@ -94,11 +95,11 @@ When you deploy a scale set, you specify the host group.
 1. On the **Advanced** tab, for **Spreading algorithm** select **Max spreading**.
 1. In **Host group**, select the host group from the drop-down. If you recently created the group, it might take a minute to get added to the list.
 
-## Add an existing VM 
+## Add an existing VM
 
 You can add an exiting VM to a dedicated host, but the VM must first be Stop\Deallocated. Before you move a VM to a dedicated host, make sure that the VM configuration is supported:
 
-- The VM size must be in the same size family as the dedicated host. For example, if your dedicated host is DSv3, then the VM size could be Standard_D4s_v3, but it could not be a Standard_A4_v2. 
+- The VM size must be in the same size family as the dedicated host. For example, if your dedicated host is DSv3, then the VM size could be Standard_D4s_v3, but it could not be a Standard_A4_v2.
 - The VM needs to be located in same region as the dedicated host.
 - The VM can't be part of a proximity placement group. Remove the VM from the proximity placement group before moving it to a dedicated host. For more information, see [Move a VM out of a proximity placement group](./windows/proximity-placement-groups.md#move-an-existing-vm-out-of-a-proximity-placement-group)
 - The VM can't be in an availability set.
@@ -118,6 +119,6 @@ Move the VM to a dedicated host using the [portal](https://portal.azure.com).
 
 - For more information, see the [Dedicated hosts](dedicated-hosts.md) overview.
 
-- There is sample template, found [here](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), that uses both zones and fault domains for maximum resiliency in a region.
+- There is sample template, available at [Azure quickstart templates](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md), that uses both zones and fault domains for maximum resiliency in a region.
 
 - You can also deploy a dedicated host using the [Azure CLI](./linux/dedicated-hosts-cli.md) or [PowerShell](./windows/dedicated-hosts-powershell.md).

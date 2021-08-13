@@ -3,13 +3,13 @@ title: Data Sync Agent for SQL Data Sync
 description: Learn how to install and run the Data Sync Agent for SQL Data Sync in Azure to sync data with SQL Server databases
 services: sql-database
 ms.service: sql-database
-ms.subservice: data-movement
+ms.subservice: sql-data-sync
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: MaraSteiu 
+ms.author: masteiu
+ms.reviewer: mathoma
 ms.date: 12/20/2018
 ---
 # Data Sync Agent for SQL Data Sync
@@ -73,6 +73,14 @@ If you want to run the local agent from a different computer than it is currentl
 3. Use the new agent's UI to submit the new agent key.
 4. Wait while the client agent downloads the list of on-premises databases that were registered earlier.
 5. Provide database credentials for all databases that display as unreachable. These databases must be reachable from the new computer on which the agent is installed.
+
+### How do I delete the Sync metadata database if the Sync agent is still associated with it
+
+In order to delete a Sync metadata database that has a Sync agent associated with it, you must first delete the Sync agent. To delete the agent, do the following things: 
+
+1. Select the Sync database. 
+2. Go to the **Sync to other databases** page.
+3. Select the Sync agent and click on **Delete**. 
 
 ## <a name="agent-tshoot"></a> Troubleshoot Data Sync Agent issues
 

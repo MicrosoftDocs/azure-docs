@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 01/25/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sahandle
 
 ms.collection: M365-identity-device-management
@@ -88,7 +88,9 @@ To unblock an account based on sign-in risk, administrators have the following o
 
 ## PowerShell preview
 
-Using the Microsoft Graph PowerShell SDK Preview module, organizations can manage risk using PowerShell. The preview modules and sample code can be found in the [Azure AD GitHub repo](https://github.com/AzureAD/IdentityProtectionTools).
+Using the Microsoft Graph PowerShell SDK Preview module, organizations can manage risk using PowerShell. The preview modules and sample code can be found in the [Azure AD GitHub repo](https://github.com/AzureAD/IdentityProtectionTools). 
+
+The `Invoke-AzureADIPDismissRiskyUser.ps1` script included in the repo allows organizations to dismiss all risky users in their directory.
 
 ## Next steps
 

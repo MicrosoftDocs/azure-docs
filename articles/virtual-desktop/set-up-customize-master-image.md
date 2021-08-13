@@ -1,15 +1,18 @@
 ---
 title: Prepare and customize a master VHD image - Azure
-description: How to prepare, customize and upload a Windows Virtual Desktop master image to Azure.
+description: How to prepare, customize and upload a Azure Virtual Desktop master image to Azure.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/14/2019
+ms.date: 01/19/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Prepare and customize a master VHD image
 
-This article tells you how to prepare a master virtual hard disk (VHD) image for upload to Azure, including how to create virtual machines (VMs) and install software on them. These instructions are for a Windows Virtual Desktop-specific configuration that can be used with your organization's existing processes.
+This article tells you how to prepare a master virtual hard disk (VHD) image for upload to Azure, including how to create virtual machines (VMs) and install software on them. These instructions are for a Azure Virtual Desktop-specific configuration that can be used with your organization's existing processes.
+
+>[!IMPORTANT]
+>We recommend you use an image from the Azure Image Gallery. However, if you do need to use a customized image, make sure you don't already have the Azure Virtual Desktop Agent installed on your VM. Using a customized image with the Azure Virtual Desktop Agent can cause problems with the image, such as blocking registration and preventing user session connections.  
 
 ## Create a VM
 
@@ -119,7 +122,7 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnab
 
 ### Disable Storage Sense
 
-For Windows Virtual Desktop session host that use Windows 10 Enterprise or Windows 10 Enterprise multi-session, we recommend disabling Storage Sense. You can disable Storage Sense in the Settings menu under **Storage**, as shown in the following screenshot:
+For Azure Virtual Desktop session host that use Windows 10 Enterprise or Windows 10 Enterprise multi-session, we recommend disabling Storage Sense. You can disable Storage Sense in the Settings menu under **Storage**, as shown in the following screenshot:
 
 > [!div class="mx-imgBorder"]
 > ![A screenshot of the Storage menu under Settings. The "Storage sense" option is turned off.](media/storagesense.png)
@@ -179,7 +182,7 @@ After preparing the image for upload, make sure the VM remains in the off or dea
 
 This section only applies when the master image was created locally.
 
-The following instructions will tell you how to upload your master image into an Azure storage account. If you don't already have an Azure storage account, follow the instructions in [this article](/azure/developer/javascript/tutorial-vscode-static-website-node-03) to create one.
+The following instructions will tell you how to upload your master image into an Azure storage account. If you don't already have an Azure storage account, follow the instructions in [this article](../storage/common/storage-account-create.md) to create one.
 
 1. Convert the VM image (VHD) to Fixed if you haven't already. If you don't convert the image to Fixed, you can't successfully create the image.
 
@@ -206,4 +209,6 @@ Now that you have an image, you can create or update host pools. To learn more a
 - [Tutorial: Create a host pool with Azure Marketplace](create-host-pools-azure-marketplace.md)
 - [Create a host pool with PowerShell](create-host-pools-powershell.md)
 - [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md)
-- [Configure the Windows Virtual Desktop load-balancing method](configure-host-pool-load-balancing.md)
+- [Configure the Azure Virtual Desktop load-balancing method](configure-host-pool-load-balancing.md)
+
+If you encountered a connectivity problem after preparing or customizing your VHD image, check out the [troubleshooting guide](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) for help.

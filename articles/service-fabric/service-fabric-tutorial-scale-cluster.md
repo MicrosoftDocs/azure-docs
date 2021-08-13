@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to scale an Service Fabric cluster 
 
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurepowershell
 ---
 # Tutorial: Scale a Service Fabric cluster in Azure
 
@@ -806,7 +806,7 @@ After creating a Service Fabric cluster, you can scale a cluster horizontally by
 > not recommended to be used on a frequent basis. It is a dangerous command as it deletes the virtual machine scale set 
 > resource behind the node type. 
 
-To remove the node type, run the [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) cmdlet.  The node type must be Silver or Gold [durability level][durability]  The cmdlet deletes the scale set associated with the node type and takes some time to complete.  Then run the [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) cmdlet on each of the nodes to remove, which deletes the node state and removes the nodes from the cluster. If there are services on the nodes, then the services are first moved out to another node. If the cluster manager cannot find a node for the replica/service, then the operation is delayed/blocked.
+To remove the node type, run the [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) cmdlet.  The node type must be Silver or Gold [durability level][durability]  The cmdlet deletes the scale set associated with the node type and takes some time to complete.  Then run the [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate) cmdlet on each of the nodes to remove, which deletes the node state and removes the nodes from the cluster. If there are services on the nodes, then the services are first moved out to another node. If the cluster manager cannot find a node for the replica/service, then the operation is delayed/blocked.
 
 ```powershell
 $groupname = "sfclustertutorialgroup"

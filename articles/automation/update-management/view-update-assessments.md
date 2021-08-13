@@ -3,7 +3,7 @@ title: View Azure Automation update assessments
 description: This article tells how to view update assessments for Update Management deployments.
 services: automation
 ms.subservice: update-management
-ms.date: 09/17/2020
+ms.date: 06/10/2021
 ms.topic: conceptual
 ---
 
@@ -41,6 +41,9 @@ Under **Information link**, select the link for an update to open the support ar
 
 [ ![View update status](./media/view-update-assessments/missing-updates.png)](./media/view-update-assessments/missing-updates-expanded.png#lightbox)
 
+> [!NOTE]
+> Information that is displayed about the Windows Defender definition update status is based on the last data that was summarized from the Log Analytics workspace and might not be current. Review [Windows Defender update always show as missing](../troubleshoot/update-management.md#windows-defender-update-missing-status) to learn more about this behavior.
+ 
 Click anywhere else on the update to open the Log Search pane. The query for the log search is predefined for that specific update. You can modify this query or create your own query to view detailed information.
 
 [ ![View log query results](./media/view-update-assessments/logsearch-results.png)](./media/view-update-assessments/logsearch-results-expanded.png#lightbox)

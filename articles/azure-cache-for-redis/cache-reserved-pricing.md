@@ -10,9 +10,9 @@ ms.date: 02/20/2020
 
 # Prepay for Azure Cache for Redis compute resources with reserved capacity
 
-Azure Cache for Redis now helps you save money by prepaying for compute resources compared to pay-as-you-go prices. With Azure Cache for Redis reserved capacity, you make an upfront commitment on cache for a one or three year period to get a significant discount on the compute costs. To purchase Azure Cache for Redis reserved capacity, you need to specify the Azure region, service tier, and term.
+Azure Cache for Redis now helps you save money by prepaying for compute resources compared to pay-as-you-go prices. With Azure Cache for Redis reserved capacity, you make an upfront commitment on cache for one or three years to get a significant discount on the compute costs. To purchase Azure Cache for Redis reserved capacity, you need to specify the Azure region, service tier, and term.
 
-You do not need to assign the reservation to specific Azure Cache for Redis instances. An already running Azure Cache for Redis or ones that are newly deployed will automatically get the benefit of reserved pricing, up to the reserved cache size. By purchasing a reservation, you are pre-paying for the compute costs for a period of one or three years. As soon as you buy a reservation, the Azure Cache for Redis compute charges that match the reservation attributes are no longer charged at the pay-as-you go rates. A reservation does not cover networking or storage charges associated with the cache. At the end of the reservation term, the billing benefit expires and the Azure Cache for Redis is billed at the pay-as-you go price. Reservations do not auto-renew. For pricing information, see the [Azure Cache for Redis reserved capacity offering](https://azure.microsoft.com/pricing/details/cache).
+You do not need to assign the reservation to specific Azure Cache for Redis instances. An already running Azure Cache for Redis or ones that are newly deployed will automatically get the benefit of reserved pricing, up to the reserved cache size. By purchasing a reservation, you are pre-paying for the compute costs for one or three years. As soon as you buy a reservation, the Azure Cache for Redis compute charges that match the reservation attributes are no longer charged at the pay-as-you go rates. A reservation does not cover networking or storage charges associated with the cache. At the end of the reservation term, the billing benefit expires and the Azure Cache for Redis is billed at the pay-as-you go price. Reservations do not autorenew. For pricing information, see the [Azure Cache for Redis reserved capacity offering](https://azure.microsoft.com/pricing/details/cache).
 
 You can buy Azure Cache for Redis reserved capacity in the [Azure portal](https://portal.azure.com/). To buy the reserved capacity:
 
@@ -25,9 +25,9 @@ For the details on how enterprise customers and Pay-As-You-Go customers are char
 
 ## Determine the right cache size before purchase
 
-The size of reservation should be based on the total amount of memory size used by the existing or soon-to-be-deployed cache within a specific region and using the same service tier.
+The size of reservation should be based on the total amount of memory size that is used by the existing or soon-to-be-deployed cache within a specific region, and using the same service tier.
 
-For example, let's suppose that you are running two caches - one at 13 GB and the other at 26 GB. You'll need both for at least one year. Further, let's suppose that you plan to scale the existing 13 GB caches to 26 GB for a month to meet your seasonal demand, and then scale back. In this case, you can purchase either 1 P2 cache and 1 P3 cache or 3 P2 caches on a one-year reservation to maximize savings. You'll receive discount on the total amount of cache memory you reserve, independent of how that amount is allocated across your caches.
+For example, let's suppose that you're running two caches - one at 13 GB and the other at 26 GB. You'll need both for at least one year. Further, let's suppose that you plan to scale the existing 13-GB caches to 26 GB for a month to meet your seasonal demand, and then scale back. In this case, you can purchase either one P2-cache and one P3-cache or three P2-caches on a one-year reservation to maximize savings. You'll receive discount on the total amount of cache memory you reserve, independent of how that amount is allocated across your caches.
 
 
 ## Buy Azure Cache for Redis reserved capacity
@@ -37,7 +37,7 @@ You can buy a reserved VM instance in the [Azure portal](https://portal.azure.co
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **All services** > **Reservations**.
 3. Select **Add** and then in the Purchase reservations pane, select **Azure Cache for Redis** to purchase a new reservation for your caches.
-4. Fill-in the required fields. Existing or new databases that match the attributes you select qualify to get the reserved capacity discount. The actual number of your Azure Cache for Redis instances that get the discount depend on the scope and quantity selected.
+4. Fill in the required fields. Existing or new databases that match the attributes you select qualify to get the reserved capacity discount. The actual number of your Azure Cache for Redis instances that get the discount depend on the scope and quantity selected.
 
 
 ![Overview of reserved pricing](media/cache-reserved-pricing/cache-reserved-price.png)
@@ -47,12 +47,12 @@ The following table describes required fields.
 
 | Field | Description |
 | :------------ | :------- |
-| Subscription   | The subscription used to pay for the Azure Cache for Redis reserved capacity reservation. The payment method on the subscription is charged the upfront costs for the Azure Cache for Redis reserved capacity reservation. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or an individual agreement with pay-as-you-go pricing (offer numbers: MS-AZR-0003P or MS-AZR-0023P). For an enterprise subscription, the charges are deducted from the enrollment's monetary commitment balance or charged as overage. For an individual subscription with pay-as-you-go pricing, the charges are billed to the credit card or invoice payment method on the subscription.
+| Subscription   | The subscription used to pay for the Azure Cache for Redis reserved capacity reservation. The payment method on the subscription is charged the upfront costs for the Azure Cache for Redis reserved capacity reservation. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or an individual agreement with pay-as-you-go pricing (offer numbers: MS-AZR-0003P or MS-AZR-0023P). For an enterprise subscription, the charges are deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage. For an individual subscription with pay-as-you-go pricing, the charges are billed to the credit card or invoice payment method on the subscription.
 | Scope | The reservation’s scope can cover one subscription or multiple subscriptions (shared scope). If you select: </br></br> **Shared**, the reservation discount is applied to Azure Cache for Redis instances running in any subscriptions within your billing context. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment. For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.</br></br> **Single subscription**, the reservation discount is applied to Azure Cache for Redis instances in this subscription. </br></br> **Single resource group**, the reservation discount is applied to Azure Cache for Redis instances in the selected subscription and the selected resource group within that subscription.
 | Region | The Azure region that’s covered by the Azure Cache for Redis reserved capacity reservation.
 | Pricing tier | The service tier for the Azure Cache for Redis servers.
 | Term | One year or three years
-| Quantity | The amount of compute resources being purchased within the Azure Cache for Redis reserved capacity reservation. The quantity is a number of caches in the selected Azure region and service tier that are being reserved and will get the billing discount. For example, if you are running or planning to run an Azure Cache for Redis servers with the total cache capacity of 26 GB in the East US region, then you would specify quantity that gives you the equivalent of 26 GB to maximize the benefit for all caches. This could be 1 P3 or 2 P2 caches.
+| Quantity | The amount of compute resources being purchased within the Azure Cache for Redis reserved capacity reservation. The quantity is a number of caches in the selected Azure region and service tier that are being reserved and will get the billing discount. For example, if you are running or planning to run an Azure Cache for Redis servers with the total cache capacity of 26 GB in the East US region, then you would specify a quantity that gives you the equivalent of 26 GB to maximize the benefit for all caches. The quantity could be one P3-cache or two P2-caches.
 
 ## Cancel, exchange, or refund reservations
 

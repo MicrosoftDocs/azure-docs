@@ -48,10 +48,10 @@ Performance Monitor is part of NPM and is network monitoring for cloud, hybrid, 
 For more information, view the following articles:
 
 * [Configure a Network Performance Monitor Solution in Azure Monitor logs](../azure-monitor/insights/network-performance-monitor.md) 
-* [Use cases](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
+* [Use cases](/archive/blogs/msoms/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor)
 * Product Updates:
-  * [February 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/)
-  * [August 2017](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
+  * [February 2017](/archive/blogs/msoms/oms-network-performance-monitor-is-now-generally-available)
+  * [August 2017](/archive/blogs/msoms/improvements-to-oms-network-performance-monitor)
 
 ## ExpressRoute Monitor
 
@@ -102,7 +102,7 @@ Traffic Analytics equips you with actionable information that helps you audit yo
 ![Geo-map showing traffic across regions 2](../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png) 
 
 Related links:
-* [Blog post](https://aka.ms/trafficanalytics), [Documentation](https://aka.ms/trafficanalyticsdocs), [FAQ](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-faq)
+* [Blog post](https://aka.ms/trafficanalytics), [Documentation](../network-watcher/traffic-analytics.md), [FAQ](../network-watcher/traffic-analytics-faq.yml)
 
 ## DNS Analytics
 Built for DNS Administrators, this solution collects, analyzes, and correlates DNS logs to provide security, operations, and performance-related insights.  Some of the capabilities are:
@@ -116,8 +116,8 @@ Built for DNS Administrators, this solution collects, analyzes, and correlates D
 ![DNS Analytics Dashboard](./media/network-monitoring-overview/dns-analytics-overview.png) 
 
 Related links:
-* [Blog post](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [Documentation](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
+* [Blog post](/archive/blogs/msoms/introducing-oms-dns-analytics), [Documentation](../azure-monitor/insights/dns-analytics.md)
 
 ## Miscellaneous
 
-* [New Pricing](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor-pricing-faq)
+* [New Pricing](../azure-monitor/insights/network-performance-monitor-pricing-faq.yml)

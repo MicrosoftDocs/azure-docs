@@ -19,11 +19,51 @@ Compared to v2, the v3 version of the Speech services REST API for speech-to-tex
 
 ## Forward compatibility
 
-All entities from v2 can be also found in the v3 API under the same identity. Where the schema of a result has changed, (for example, transcriptions), the result of a GET in the v3 version of the API uses the v3 schema. The result of a GET in the v2 version of the API uses the same v2 schema. Newly created entities on v3 are **not** available in results from v2 APIs.
+All entities from v2 can also be found in the v3 API under the same identity. Where the schema of a result has changed, (for example, transcriptions), the result of a GET in the v3 version of the API uses the v3 schema. The result of a GET in the v2 version of the API uses the same v2 schema. Newly created entities on v3 are **not** available in responses from v2 APIs. 
+
+## Migration steps
+
+This is a summary list of items you need to be aware of when you are preparing for migration. Details are found in the individual links. Depending on your current use of the API not all steps listed here may apply. Only a few changes require non-trivial changes in the calling code. Most changes just require a change to item names. 
+
+General changes: 
+
+1. [Change the host name](#host-name-changes)
+
+1. [Rename the property id to self in your client code](#identity-of-an-entity) 
+
+1. [Change code to iterate over collections of entities](#working-with-collections-of-entities)
+
+1. [Rename the property name to displayName in your client code](#name-of-an-entity)
+
+1. [Adjust the retrieval of the metadata of referenced entities](#accessing-referenced-entities)
+
+1. If you use Batch transcription: 
+
+    * [Adjust code for creating batch transcriptions](#creating-transcriptions) 
+
+    * [Adapt code to the new transcription results schema](#format-of-v3-transcription-results)
+
+    * [Adjust code for how results are retrieved](#getting-the-content-of-entities-and-the-results)
+
+1. If you use Custom model training/testing APIs: 
+
+    * [Apply modifications to custom model training](#customizing-models)
+
+    * [Change how base and custom models are retrieved](#retrieving-base-and-custom-models)
+
+    * [Rename the path segment accuracytests to evaluations in your client code](#accuracy-tests)
+
+1. If you use endpoints APIs:
+
+    * [Change how endpoint logs are retrieved](#retrieving-endpoint-logs)
+
+1. Other minor changes: 
+
+    * [Pass all custom properties as customProperties instead of properties in your POST requests](#using-custom-properties)
+
+    * [Read the location from response header Location instead of Operation-Location](#response-headers)
 
 ## Breaking changes
-
-The list of breaking changes has been sorted by the magnitude of changes required to adapt. Only a few changes require non-trivial changes in the calling code. Most changes just require a change to item names.
 
 ### Host name changes
 
@@ -98,7 +138,7 @@ This change requires calling the `GET` for the collection in a loop until all el
 A detailed description on how to create batches of transcriptions can be found in [Batch transcription How-to](./batch-transcription.md).
 
 The v3 transcription API lets you set specific transcription options explicitly. All (optional) configuration properties can now be set in the `properties` property.
-Version v3 also supports multiple input files, so it requires a list of URLs rather than a single URL as v2 did. The v2 property name `recordingsUrl` is now `contentUrls` in v3. The functionality of analyzing sentiment in transcriptions has been removed in v3. See Microsoft Cognitive Service [Text Analysis](https://azure.microsoft.com/en-us/services/cognitive-services/text-analytics/) for sentiment analysis options.
+Version v3 also supports multiple input files, so it requires a list of URLs rather than a single URL as v2 did. The v2 property name `recordingsUrl` is now `contentUrls` in v3. The functionality of analyzing sentiment in transcriptions has been removed in v3. See Microsoft Cognitive Service [Text Analysis](https://azure.microsoft.com/services/cognitive-services/text-analytics/) for sentiment analysis options.
 
 The new property `timeToLive` under `properties` can help prune the existing completed entities. The `timeToLive` specifies a duration after which a completed entity will be deleted automatically. Set it to a high value (for example `PT12H`) when the entities are continuously tracked, consumed, and deleted and therefore usually processed long before 12 hours have passed.
 

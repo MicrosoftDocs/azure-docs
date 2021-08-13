@@ -1,27 +1,32 @@
 ---
-title: Azure Image Builder Service DevOps Task
+title: "Preview: Azure Image Builder Service DevOps Task"
 description: Azure DevOps task to inject build artifacts into a VM image so you can install and configure your application and OS.
-author: danielsollondon
-ms.author: danis
-ms.date: 08/10/2020
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
+ms.date: 01/27/2021
 ms.topic: article
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: image-builder
+ms.custom: devx-track-azurepowershell
 ---
 
-# Azure Image Builder Service DevOps Task
+# Azure Image Builder Service DevOps Task (preview)
 
 This article shows you how to use an Azure DevOps task to inject build artifacts into a VM image so you can install and configure your application and OS.
 
 ## DevOps Task versions
 There are two Azure VM Image Builder (AIB) DevOps Tasks:
 
-* ['Stable' AIB Task](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder), this allows us to put in the latest updates and features, allow customers to test them, before we promote it to the 'stable' task, approximately 1 week later. 
+* ['Stable' AIB Task](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder), this is the latest stable build that has been tested, and telemetry shows no issues. 
 
 
 * ['Unstable' AIB Task](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder-canary), this allows us to put in the latest updates and features, allow customers to test them, before we promote it to the 'stable' task. If there are no reported issues, and our telemetry shows no issues, approximately 1 week later, we will promote the task code to 'stable'. 
 
 ## Prerequisites
+
+> [!NOTE]
+> The AIB task does not currently support Windows Restarts, running elevated commands as Administrator, which means it is not suitable for Windows Virtual Desktop scenarios or Windows customizations that require the above. If you wish to use DevOps with Image Builder, you should nest the template into an Azure Resource Manager task, use AZ CLI or PowerShell tasks.
 
 * Install the [Stable DevOps Task from Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder).
 * You must have a VSTS DevOps account, and a Build Pipeline created
@@ -66,10 +71,10 @@ Use the resource group where the temporary image template artifact will be store
  
 ### Location
 
-The location is the region where the Image Builder will run. Only a set number of [regions](../windows/image-builder-overview.md#regions) are supported. The source images must be present in this location. For example, if you are using Shared Image Gallery, a replica must exist in that region.
+The location is the region where the Image Builder will run. Only a set number of [regions](../image-builder-overview.md#regions) are supported. The source images must be present in this location. For example, if you are using Shared Image Gallery, a replica must exist in that region.
 
 ### Managed Identity (Required)
-Image Builder requires a Managed Identity, which it uses to read source custom images, connect to Azure Storage, and create custom images. See [here](./image-builder-overview.md#permissions) for more details.
+Image Builder requires a Managed Identity, which it uses to read source custom images, connect to Azure Storage, and create custom images. See [Learn about Azure Image Builder](../image-builder-overview.md#permissions) for more details.
 
 ### VNET Support
 
@@ -150,6 +155,12 @@ The following example explains how this works:
     & 'c:\buildArtifacts\webapp\webconfig.ps1'
     ```
 
+   You can reference multiple scripts, or add more commands, for example:
+
+    ```PowerShell
+    & 'c:\buildArtifacts\webapp\webconfig.ps1'
+    & 'c:\buildArtifacts\webapp\installAgent.ps1'
+    ```
 * Linux - On Linux systems the build artifacts are put into the `/tmp` directory. However, on many Linux OSs, on a reboot, the /tmp directory contents are deleted. If you want the artifacts to exist in the image, you must create another directory and copy them over.  For example:
 
     ```bash
@@ -190,7 +201,7 @@ The following example explains how this works:
     
 #### Total length of image build
 
-Total length cannot be changed in the DevOps pipeline task yet. It uses the default of 240 minutes. If you want to increase the [buildTimeoutInMinutes](./image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#properties-buildtimeoutinminutes), then you can use an AZ CLI task in the Release Pipeline. Configure the task to copy a template and submit it. For an example, see this [solution](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder), or use Az PowerShell.
+Total length cannot be changed in the DevOps pipeline task yet. It uses the default of 240 minutes. If you want to increase the [buildTimeoutInMinutes](./image-builder-json.md#properties-buildtimeoutinminutes), then you can use an AZ CLI task in the Release Pipeline. Configure the task to copy a template and submit it. For an example, see this [solution](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder), or use Az PowerShell.
 
 
 #### Storage Account
@@ -331,4 +342,5 @@ The Image Template resource artifact is in the resource group specified initiall
 
 ## Next steps
 
-For more information, see [Azure Image Builder overview](image-builder-overview.md).
+For more information, see [Azure Image Builder overview](../image-builder-overview.md).
+

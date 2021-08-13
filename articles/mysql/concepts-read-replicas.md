@@ -5,10 +5,13 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 06/17/2021
+ms.custom: references_regions
 ---
 
 # Read replicas in Azure Database for MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 The read replica feature allows you to replicate data from an Azure Database for MySQL server to a read-only server. You can replicate from the source server to up to five replicas. Replicas are updated asynchronously using the MySQL engine's native binary log (binlog) file position-based replication technology. To learn more about binlog replication, see the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
@@ -17,44 +20,77 @@ Replicas are new servers that you manage similar to regular Azure Database for M
 To learn more about MySQL replication features and issues, see the [MySQL replication documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
 > [!NOTE]
-> Bias-free communication
->
-> Microsoft supports a diverse and inclusionary environment. This article contains references to the word _slave_. The Microsoft [style guide for bias-free communication](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) recognizes this as an exclusionary word. The word is used in this article for consistency because it's currently the word that appears in the software. When the software is updated to remove the word, this article will be updated to be in alignment.
+> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 >
 
 ## When to use a read replica
 
-The read replica feature helps to improve the performance and scale of read-intensive workloads. Read workloads can be isolated to the replicas, while write workloads can be directed to the master.
+The read replica feature helps to improve the performance and scale of read-intensive workloads. Read workloads can be isolated to the replicas, while write workloads can be directed to the source.
 
 A common scenario is to have BI and analytical workloads use the read replica as the data source for reporting.
 
-Because replicas are read-only, they don't directly reduce write-capacity burdens on the master. This feature isn't targeted at write-intensive workloads.
+Because replicas are read-only, they don't directly reduce write-capacity burdens on the source. This feature isn't targeted at write-intensive workloads.
 
-The read replica feature uses MySQL asynchronous replication. The feature isn't meant for synchronous replication scenarios. There will be a measurable delay between the source and the replica. The data on the replica eventually becomes consistent with the data on the master. Use this feature for workloads that can accommodate this delay.
+The read replica feature uses MySQL asynchronous replication. The feature isn't meant for synchronous replication scenarios. There will be a measurable delay between the source and the replica. The data on the replica eventually becomes consistent with the data on the source. Use this feature for workloads that can accommodate this delay.
 
 ## Cross-region replication
+
 You can create a read replica in a different region from your source server. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
 
-You can have a source server in any [Azure Database for MySQL region](https://azure.microsoft.com/global-infrastructure/services/?products=mysql).  A source server can have a replica in its paired region or the universal replica regions. The picture below shows which replica regions are available depending on your source region.
+You can have a source server in any [Azure Database for MySQL region](https://azure.microsoft.com/global-infrastructure/services/?products=mysql).  A source server can have a replica in its paired region or the universal replica regions. The following picture shows which replica regions are available depending on your source region.
 
 [ :::image type="content" source="media/concepts-read-replica/read-replica-regions.png" alt-text="Read replica regions":::](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### Universal replica regions
+
 You can create a read replica in any of the following regions, regardless of where your source server is located. The supported universal replica regions include:
 
-Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, East Asia, East US, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, UK South, UK West, West Europe, West US, West US 2, West Central US.
+| Region | Replica availability | 
+| --- | --- | 
+| Australia East | :heavy_check_mark: | 
+| Australia South East | :heavy_check_mark: | 
+| Brazil South | :heavy_check_mark: | 
+| Canada Central | :heavy_check_mark: |
+| Canada East | :heavy_check_mark: |
+| Central US | :heavy_check_mark: | 
+| East US | :heavy_check_mark: | 
+| East US 2 | :heavy_check_mark: |
+| East Asia | :heavy_check_mark: | 
+| Japan East | :heavy_check_mark: | 
+| Japan West | :heavy_check_mark: | 
+| Korea Central | :heavy_check_mark: |
+| Korea South | :heavy_check_mark: |
+| North Europe | :heavy_check_mark: | 
+| North Central US | :heavy_check_mark: | 
+| South Central US | :heavy_check_mark: | 
+| Southeast Asia | :heavy_check_mark: | 
+| UK South | :heavy_check_mark: | 
+| UK West | :heavy_check_mark: | 
+| West Central US | :heavy_check_mark: | 
+| West US | :heavy_check_mark: | 
+| West US 2 | :heavy_check_mark: | 
+| West Europe | :heavy_check_mark: | 
+| Central India* | :heavy_check_mark: | 
+| France Central* | :heavy_check_mark: | 
+| UAE North* | :heavy_check_mark: | 
+| South Africa North* | :heavy_check_mark: |
+
+> [!Note] 
+> *Regions where Azure Database for MySQL has General purpose storage v2 in Public Preview  <br /> 
+> *For these Azure regions, you will have an option to create server in both General purpose storage v1 and v2. For the servers created with General purpose storage v2 in public preview, you are limited to create replica server only in the Azure regions which support General purpose storage v2.
 
 ### Paired regions
+
 In addition to the universal replica regions, you can create a read replica in the Azure paired region of your source server. If you don't know your region's pair, you can learn more from the [Azure Paired Regions article](../best-practices-availability-paired-regions.md).
 
-If you are using cross-region replicas for disaster recovery planning, we recommend you create the replica in the paired region instead of one of the other regions. Paired regions avoid simultaneous updates and prioritize physical isolation and data residency.  
+If you're using cross-region replicas for disaster recovery planning, we recommend you create the replica in the paired region instead of one of the other regions. Paired regions avoid simultaneous updates and prioritize physical isolation and data residency.  
 
 However, there are limitations to consider: 
 
-* Regional availability: Azure Database for MySQL is available in France Central, UAE North, and Germany Central. However, their paired regions are not available.
-	
-* Uni-directional pairs: Some Azure regions are paired in one direction only. These regions include West India, Brazil South, and US Gov Virginia. 
-   This means that a source server in West India can create a replica in South India. However, a source server in South India cannot create a replica in West India. This is because West India's secondary region is South India, but South India's secondary region is not West India.
+* Regional availability: Azure Database for MySQL is available in France Central, UAE North, and Germany Central. However, their paired regions aren't available.
+
+* Uni-directional pairs: Some Azure regions are paired in one direction only. These regions include West India, Brazil South, and US Gov Virginia.
+   This means that a source server in West India can create a replica in South India. However, a source server in South India can't create a replica in West India. This is because West India's secondary region is South India, but South India's secondary region isn't West India.
 
 ## Create a replica
 
@@ -85,7 +121,7 @@ At the prompt, enter the password for the user account.
 
 ## Monitor replication
 
-Azure Database for MySQL provides the **Replication lag in seconds** metric in Azure Monitor. This metric is available for replicas only. This metric is calculated using the `seconds_behind_master` metric available in MySQL's `SHOW SLAVE STATUS` command. Set an alert to inform you when the replication lag reaches a value that isn’t acceptable for your workload.
+Azure Database for MySQL provides the **Replication lag in seconds** metric in Azure Monitor. This metric is available for replicas only. This metric is calculated using the `seconds_behind_master` metric available in MySQL's `SHOW SLAVE STATUS` command. Set an alert to inform you when the replication lag reaches a value that isn't acceptable for your workload.
 
 If you see increased replication lag, refer to [troubleshooting replication latency](howto-troubleshoot-replication-latency.md) to troubleshoot and understand possible causes.
 
@@ -93,7 +129,7 @@ If you see increased replication lag, refer to [troubleshooting replication late
 
 You can stop replication between a source and a replica. After replication is stopped between a source server and a read replica, the replica becomes a standalone server. The data in the standalone server is the data that was available on the replica at the time the stop replication command was started. The standalone server doesn't catch up with the source server.
 
-When you choose to stop replication to a replica, it loses all links to its previous source and other replicas. There is no automated failover between a source and its replica.
+When you choose to stop replication to a replica, it loses all links to its previous source and other replicas. There's no automated failover between a source and its replica.
 
 > [!IMPORTANT]
 > The standalone server can't be made into a replica again.
@@ -103,22 +139,22 @@ Learn how to [stop replication to a replica](howto-read-replicas-portal.md).
 
 ## Failover
 
-There is no automated failover between source and replica servers. 
+There's no automated failover between source and replica servers.
 
-Since replication is asynchronous, there is lag between the source and the replica. The amount of lag can be influenced by a number of factors like how heavy the workload running on the source server is and the latency between data centers. In most cases, replica lag ranges between a few seconds to a couple minutes. You can track your actual replication lag using the metric *Replica Lag*, which is available for each replica. This metric shows the time since the last replayed transaction. We recommend that you identify what your average lag is by observing your replica lag over a period of time. You can set an alert on replica lag, so that if it goes outside your expected range, you can take action.
+Since replication is asynchronous, there's lag between the source and the replica. The amount of lag can be influenced by many factors like how heavy the workload running on the source server is and the latency between data centers. In most cases, replica lag ranges between a few seconds to a couple minutes. You can track your actual replication lag using the metric *Replica Lag*, which is available for each replica. This metric shows the time since the last replayed transaction. We recommend that you identify what your average lag is by observing your replica lag over a period of time. You can set an alert on replica lag, so that if it goes outside your expected range, you can take action.
 
 > [!Tip]
 > If you failover to the replica, the lag at the time you delink the replica from the source will indicate how much data is lost.
 
-Once you have decided you want to failover to a replica, 
+After you've decided you want to failover to a replica:
 
 1. Stop replication to the replica<br/>
-   This step is necessary to make the replica server able to accept writes. As part of this process, the replica server will be delinked from the master. Once you initiate stop replication, the backend process typically takes about 2 minutes to complete. See the [stop replication](#stop-replication) section of this article to understand the implications of this action.
-	
+   This step is necessary to make the replica server able to accept writes. As part of this process, the replica server will be delinked from the source. After you initiate stop replication, the backend process typically takes about 2 minutes to complete. See the [stop replication](#stop-replication) section of this article to understand the implications of this action.
+
 2. Point your application to the (former) replica<br/>
-   Each server has a unique connection string. Update your application to point to the (former) replica instead of the master.
-	
-Once your application is successfully processing reads and writes, you have completed the failover. The amount of downtime your application experiences will depend on when you detect an issue and complete steps 1 and 2 above.
+   Each server has a unique connection string. Update your application to point to the (former) replica instead of the source.
+
+After your application is successfully processing reads and writes, you've completed the failover. The amount of downtime your application experiences will depend on when you detect an issue and complete steps 1 and 2 listed previously.
 
 ## Global transaction identifier (GTID)
 
@@ -134,11 +170,18 @@ The following server parameters are available for configuring GTID:
 |`enforce_gtid_consistency`|Enforces GTID consistency by allowing execution of only those statements that can be logged in a transactionally safe manner. This value must be set to `ON` before enabling GTID replication. |`OFF`|`OFF`: All transactions are allowed to violate GTID consistency.  <br> `ON`: No transaction is allowed to violate GTID consistency. <br> `WARN`: All transactions are allowed to violate GTID consistency, but a warning is generated. | 
 
 > [!NOTE]
-> Once GTID is enabled, you cannot turn it back off. If you need to turn GTID OFF, please contact support. 
+> * After GTID is enabled, you cannot turn it back off. If you need to turn GTID OFF, please contact support. 
+>
+> * To change GTID's from one value to another can only be one step at a time in ascending order of modes. For example, if gtid_mode is currently set to OFF_PERMISSIVE, it is possible to change to ON_PERMISSIVE but not to ON.
+>
+> * To keep replication consistent, you cannot update it for a master/replica server.
+>
+> * Recommended to SET enforce_gtid_consistency to ON before you can set gtid_mode=ON
+
 
 To enable GTID and configure the consistency behavior, update the `gtid_mode` and `enforce_gtid_consistency` server parameters using the [Azure portal](howto-server-parameters.md), [Azure CLI](howto-configure-server-parameters-using-cli.md), or [PowerShell](howto-configure-server-parameters-using-powershell.md).
 
-If GTID is enabled on a source server (`gtid_mode` = ON), newly created replicas will also have GTID enabled and use GTID replication. To keep replication consistent, you cannot update `gtid_mode` on the source or replica server(s).
+If GTID is enabled on a source server (`gtid_mode` = ON), newly created replicas will also have GTID enabled and use GTID replication. In order to make sure that the replication is consistent, `gtid_mode` cannot be changed once the master or replica server(s) is created with GTID enabled. 
 
 ## Considerations and limitations
 
@@ -159,10 +202,10 @@ A read replica is created as a new Azure Database for MySQL server. An existing 
 
 ### Replica configuration
 
-A replica is created by using the same server configuration as the master. After a replica is created, several settings can be changed independently from the source server: compute generation, vCores, storage, and backup retention period. The pricing tier can also be changed independently, except to or from the Basic tier.
+A replica is created by using the same server configuration as the source. After a replica is created, several settings can be changed independently from the source server: compute generation, vCores, storage, and backup retention period. The pricing tier can also be changed independently, except to or from the Basic tier.
 
 > [!IMPORTANT]
-> Before a source server configuration is updated to new values, update the replica configuration to equal or greater values. This action ensures the replica can keep up with any changes made to the master.
+> Before a source server configuration is updated to new values, update the replica configuration to equal or greater values. This action ensures the replica can keep up with any changes made to the source.
 
 Firewall rules and parameter settings are inherited from the source server to the replica when the replica is created. Afterwards, the replica's rules are independent.
 
@@ -183,31 +226,33 @@ Users on the source server are replicated to the read replicas. You can only con
 To prevent data from becoming out of sync and to avoid potential data loss or corruption, some server parameters are locked from being updated when using read replicas.
 
 The following server parameters are locked on both the source and replica servers:
-- [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/8.0/en/innodb-file-per-table-tablespaces.html) 
-- [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators)
 
-The [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) parameter is locked on the replica servers. 
+* [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/8.0/en/innodb-file-per-table-tablespaces.html) 
+* [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators)
 
-To update one of the above parameters on the source server, please delete replica servers, update the parameter value on the master, and recreate replicas.
+The [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) parameter is locked on the replica servers.
+
+To update one of the above parameters on the source server, delete replica servers, update the parameter value on the source, and recreate replicas.
 
 ### GTID
 
 GTID is supported on:
-- MySQL versions 5.7 and 8.0 
-- Servers that support storage up to 16 TB. Refer to the [pricing tier](concepts-pricing-tiers.md#storage) article for the full list of regions that support 16 TB storage. 
 
-GTID is OFF by default. Once GTID is enabled, you cannot turn it back off. If you need to turn GTID OFF, please contact support. 
+* MySQL versions 5.7 and 8.0.
+* Servers that support storage up to 16 TB. Refer to the [pricing tier](concepts-pricing-tiers.md#storage) article for the full list of regions that support 16 TB storage.
 
-If GTID is enabled on a source server, newly created replicas will also have GTID enabled and use GTID replication. To keep replication consistent, you cannot update `gtid_mode` on the source or replica server(s).
+GTID is OFF by default. After GTID is enabled, you can't turn it back off. If you need to turn GTID OFF, contact support.
+
+If GTID is enabled on a source server, newly created replicas will also have GTID enabled and use GTID replication. To keep replication consistent, you can't update `gtid_mode` on the source or replica server(s).
 
 ### Other
 
-- Creating a replica of a replica is not supported.
-- In-memory tables may cause replicas to become out of sync. This is a limitation of the MySQL replication technology. Read more in the [MySQL reference documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) for more information.
-- Ensure the source server tables have primary keys. Lack of primary keys may result in replication latency between the source and replicas.
-- Review the full list of MySQL replication limitations in the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)
+* Creating a replica of a replica isn't supported.
+* In-memory tables may cause replicas to become out of sync. This is a limitation of the MySQL replication technology. Read more in the [MySQL reference documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) for more information.
+* Ensure the source server tables have primary keys. Lack of primary keys may result in replication latency between the source and replicas.
+* Review the full list of MySQL replication limitations in the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)
 
 ## Next steps
 
-- Learn how to [create and manage read replicas using the Azure portal](howto-read-replicas-portal.md)
-- Learn how to [create and manage read replicas using the Azure CLI and REST API](howto-read-replicas-cli.md)
+* Learn how to [create and manage read replicas using the Azure portal](howto-read-replicas-portal.md)
+* Learn how to [create and manage read replicas using the Azure CLI and REST API](howto-read-replicas-cli.md)

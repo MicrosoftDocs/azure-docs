@@ -1,9 +1,6 @@
 ---
 title: Process events from Event Hubs with Storm - Azure HDInsight 
 description: Learn how to process data from Azure Event Hubs with a C# Storm topology created in Visual Studio, by using the HDInsight tools for Visual Studio.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/14/2020
@@ -102,7 +99,7 @@ You can download a complete version of the project created in this article from 
 
 * The [HDInsight tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
-* Java JDK 1.8 or later on your development environment. JDK downloads are available from [Oracle](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+* Java JDK 1.8 or later on your development environment. JDK downloads are available from [Oracle](/azure/developer/java/fundamentals/java-support-on-azure).
 
   * The **JAVA_HOME** environment variable must point to the directory that contains Java.
   * The **%JAVA_HOME%/bin** directory must be in the path.
@@ -124,7 +121,7 @@ Event Hubs is the data source for this example. Use the information in the "Crea
    | writer |Send |
    | reader |Listen |
 
-    ![Screenshot of Share access policies window](./media/apache-storm-develop-csharp-event-hub-topology/share-access-policies.png)
+    :::image type="content" source="./media/apache-storm-develop-csharp-event-hub-topology/share-access-policies.png" alt-text="Screenshot of Share access policies window" border="true":::
 
 2. Select the **reader** and **writer** policies. Copy and save the primary key value for both policies, as these values are used later.
 
@@ -166,15 +163,15 @@ Event Hubs is the data source for this example. Use the information in the "Crea
 
 1. From **Solution Explorer**, right-click the **EventHubReader** project, and select **Submit to Storm on HDInsight**.
 
-    ![Screenshot of Solution Explorer, with Submit to Storm on HDInsight highlighted](./media/apache-storm-develop-csharp-event-hub-topology/submit-to-apache-storm.png)
+    :::image type="content" source="./media/apache-storm-develop-csharp-event-hub-topology/submit-to-apache-storm.png" alt-text="Screenshot of Solution Explorer, with Submit to Storm on HDInsight highlighted" border="true":::
 
 2. On the **Submit Topology** dialog box, select your **Storm Cluster**. Expand **Additional Configurations**, select **Java File Paths**, select **...**, and select the directory that contains the JAR file that you downloaded earlier. Finally, click **Submit**.
 
-    ![Screenshot of Submit Topology dialog box](./media/apache-storm-develop-csharp-event-hub-topology/submit-storm-topology.png)
+    :::image type="content" source="./media/apache-storm-develop-csharp-event-hub-topology/submit-storm-topology.png" alt-text="Screenshot of Submit Topology dialog box" border="true":::
 
 3. When the topology has been submitted, the **Storm Topologies Viewer** appears. To view information about the topology, select the **EventHubReader** topology in the left pane.
 
-    ![Screenshot of Storm Topologies Viewer](./media/apache-storm-develop-csharp-event-hub-topology/storm-topology-viewer.png)
+    :::image type="content" source="./media/apache-storm-develop-csharp-event-hub-topology/storm-topology-viewer.png" alt-text="Screenshot of Storm Topologies Viewer" border="true":::
 
 4. From **Solution Explorer**, right-click the **EventHubWriter** project, and select **Submit to Storm on HDInsight**.
 
@@ -198,11 +195,11 @@ Event Hubs is the data source for this example. Use the information in the "Crea
 
 To stop the topologies, select each topology in the **Storm Topology Viewer**, then click **Kill**.
 
-![Screenshot of Storm Topology Viewer, with Kill button highlighted](./media/apache-storm-develop-csharp-event-hub-topology/kill-storm-topology1.png)
+:::image type="content" source="./media/apache-storm-develop-csharp-event-hub-topology/kill-storm-topology1.png" alt-text="Screenshot of Storm Topology Viewer, with Kill button highlighted" border="true":::
 
 ## Delete your cluster
 
-[!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](../includes/hdinsight-delete-cluster-warning.md)]
 
 ## Next steps
 

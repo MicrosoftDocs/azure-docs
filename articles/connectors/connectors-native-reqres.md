@@ -3,9 +3,9 @@ title: Receive and respond to calls by using HTTPS
 description: Handle inbound HTTPS requests from external services by using Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewers: jonfan, logicappspm
+ms.reviewers: estfan, azla
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 08/04/2021
 tags: connectors
 ---
 
@@ -148,6 +148,23 @@ Your logic app keeps an inbound request open only for a [limited time](../logic-
 
 1. To check that the inbound call has a request body that matches your specified schema, follow these steps:
 
+   1. To enforce the inbound message to have the same exact fields that your schema describes, in your schema, add the `required` property and specify the required fields. Add the `addtionalProperties` and set the value to `false`. 
+   
+      For example, the following schema specifies that the inbound message must have the `msg` field and not any other fields:
+
+      ```json
+      {
+         "properties": {
+           "msg": {
+              "type": "string"
+           }
+         },
+         "type": "object",
+         "required": ["msg"],
+         "additionalProperties": false
+      }
+      ```
+
    1. In the Request trigger's title bar, select the ellipses button (**...**).
 
    1. In the trigger's settings, turn on **Schema Validation**, and select **Done**.
@@ -212,7 +229,7 @@ When you use the Request trigger to handle inbound requests, you can model the r
 > If a Response action includes these headers, Logic Apps removes these headers from the generated response message without showing any warning or error:
 >
 > * `Allow`
-> * `Content-*` with these exceptions: `Content-Disposition`, `Content-Encoding`, and `Content-Type`
+> * `Content-*` headers except for `Content-Disposition`, `Content-Encoding`, and `Content-Type` when you use POST and PUT operations, but are not included for GET operations
 > * `Cookie`
 > * `Expires`
 > * `Last-Modified`

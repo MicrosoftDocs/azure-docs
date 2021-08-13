@@ -2,7 +2,7 @@
 title:  Security recommendations for Azure IoT | Microsoft Docs
 description: This article summarizes additional steps to ensure security in your Azure IoT Hub solution. 
 author: dsk-2015
-manager: philmea
+
 ms.service: iot-hub
 services: iot-hub
 ms.topic: article
@@ -32,14 +32,14 @@ Some of the recommendations included in this article can be automatically monito
 
 | Recommendation | Comments | Supported by ASC |
 |-|----|--|
-| Define access control for the hub | [Understand and define the type of access](iot-security-deployment.md#securing-the-cloud) each component will have in your IoT Hub solution, based on the functionality. The allowed permissions are *Registry Read*, *RegistryReadWrite*, *ServiceConnect*, and *DeviceConnect*. Default [shared access policies in your IoT hub](../iot-hub/iot-hub-devguide-security.md#access-control-and-permissions) can also help define the permissions for each component based on its role. | - |
+| Define access control for the hub | [Understand and define the type of access](iot-security-deployment.md#securing-the-cloud) each component will have in your IoT Hub solution, based on the functionality. The allowed permissions are *Registry Read*, *RegistryReadWrite*, *ServiceConnect*, and *DeviceConnect*. Default [shared access policies in your IoT hub](../iot-hub/iot-hub-dev-guide-sas.md#access-control-and-permissions) can also help define the permissions for each component based on its role. | - |
 | Define access control for backend services | Data ingested by your IoT Hub solution can be consumed by other Azure services such as [Cosmos DB](../cosmos-db/index.yml), [Stream Analytics](../stream-analytics/index.yml), [App Service](../app-service/index.yml), [Logic Apps](../logic-apps/index.yml), and [Blob storage](../storage/blobs/storage-blobs-introduction.md). Make sure to understand and allow appropriate access permissions as documented for these services. | - |
 
 ## Data protection
 
 | Recommendation | Comments | Supported by ASC |
 |-|----|--|
-| Secure device authentication | Ensure secure communication between your devices and your IoT hub, by using either [a unique identity key or security token](iot-security-deployment.md#iot-hub-security-tokens), or [an on-device X.509 certificate](iot-security-deployment.md#x509-certificate-based-device-authentication) for each device. Use the appropriate method to [use security tokens based on the chosen protocol (MQTT, AMQP, or HTTPS)](../iot-hub/iot-hub-devguide-security.md). | - |
+| Secure device authentication | Ensure secure communication between your devices and your IoT hub, by using either [a unique identity key or security token](iot-security-deployment.md#iot-hub-security-tokens), or [an on-device X.509 certificate](iot-security-deployment.md#x509-certificate-based-device-authentication) for each device. Use the appropriate method to [use security tokens based on the chosen protocol (MQTT, AMQP, or HTTPS)](../iot-hub/iot-hub-dev-guide-sas.md). | - |
 | Secure device communication | IoT Hub secures the connection to the devices using Transport Layer Security (TLS) standard, supporting versions 1.2 and 1.0. Use [TLS 1.2](https://tools.ietf.org/html/rfc5246) to ensure maximum security. | - |
 | Secure service communication | IoT Hub provides endpoints to connect to backend services such as [Azure Storage](../storage/index.yml) or [Event Hubs](../event-hubs/index.yml) using only the TLS protocol, and no endpoint is exposed on an unencrypted channel. Once this data reaches these backend services for storage or analysis, make sure to employ appropriate security and encryption methods for that service, and protect sensitive information at the backend. | - |
 

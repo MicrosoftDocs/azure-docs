@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Tic-Tac Mobile for automatic user provisioning with 
 description: Learn how to automatically provision and deprovision user accounts from Azure AD to Tic-Tac Mobile.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: d0f24e81-fecf-4e71-bd8a-ab911366fdf5
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/08/2020
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Tic-Tac Mobile for automatic user provisioning
@@ -103,7 +103,7 @@ This section guides you through the steps to configure the Azure AD provisioning
    |name.familyName|String|
    |externalId|String|
    |title|String|
-   |emails[type eq"work"].value|String|
+   |emails[type eq "work"].value|String|
    |preferredLanguage|String|
    |externalId|String|
    |userType|String|

@@ -2,13 +2,13 @@
 title: Dedicated SQL pool Azure Advisor recommendations
 description: Learn about Synapse SQL recommendations and how they are generated
 services: synapse-analytics
-author: kevinvngo
+author: julieMSFT
 manager: craigg-msft
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 06/26/2020
-ms.author: kevin
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ---
@@ -69,4 +69,4 @@ Query performance can degrade when there is high tempdb contention.  Tempdb cont
 
 ## Data loading misconfiguration
 
-You should always load data from a storage account in the same region as your dedicated SQL pool to minimize latency. Use the [COPY statement for high throughput data ingestion](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) and split your staged files in your storage account to maximize throughput. If you can't use the COPY statement, you can use the SqlBulkCopy API or bcp with a high batch size for better throughput. For additional data loading guidance, visit the following [documentation](./guidance-for-loading-data.md).
+You should always load data from a storage account in the same region as your dedicated SQL pool to minimize latency. Use the [COPY statement for high throughput data ingestion](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) and split your staged files in your storage account to maximize throughput. If you can't use the COPY statement, you can use the SqlBulkCopy API or bcp with a high batch size for better throughput. For additional data loading guidance, visit the following [documentation](./guidance-for-loading-data.md).

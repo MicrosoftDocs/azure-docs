@@ -27,7 +27,7 @@ Traffic between the on-premises datacenter, Azure VMware Solution private cloud,
 
 The diagram shows an example of a Hub and Spoke deployment in Azure connected to on-premises and Azure VMware Solution through ExpressRoute Global Reach.
 
-:::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-and-spoke-deployment.png" alt-text="Azure VMware Solution Hub and Spoke integration deployment" border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-and-spoke-deployment.png":::
+:::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-and-spoke-deployment.png" alt-text="Diagram showing the Azure VMware Solution Hub and Spoke integration deployment." border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-and-spoke-deployment.png":::
 
 The architecture has the following main components:
 
@@ -63,23 +63,23 @@ Because an ExpressRoute gateway doesn't provide transitive routing between its c
 
 * **On-premises to Azure VMware Solution traffic flow**
 
-  :::image type="content" source="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png" alt-text="On-premises to Azure VMware Solution traffic flow" border="false" lightbox="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png":::
+  :::image type="content" source="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png" alt-text="Diagram showing the on-premises to Azure VMware Solution traffic flow." border="false" lightbox="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png":::
 
 
 * **Azure VMware Solution to Hub VNET traffic flow**
 
-  :::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Azure VMware Solution to Hub virtual network traffic flow" border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png":::
+  :::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Diagram showing the Azure VMware Solution to Hub virtual network traffic flow." border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png":::
 
 
-You can find more details about Azure VMware Solution networking and connectivity concepts in the [Azure VMware Solution product documentation](./concepts-networking.md).
+For more information on Azure VMware Solution networking and connectivity concepts, see the [Azure VMware Solution product documentation](./concepts-networking.md).
 
 ### Traffic segmentation
 
-[Azure Firewall](../firewall/index.yml) is the Hub and Spoke topology's central piece, deployed on the Hub virtual network. Use Azure Firewall or another Azure supported network virtual appliance to establish traffic rules and segment the communication between the different spokes and Azure VMware Solution workloads.
+[Azure Firewall](../firewall/index.yml) is the Hub and Spoke topology's central piece, deployed on the Hub virtual network. Use Azure Firewall or another Azure supported network virtual appliance (NVA) to establish traffic rules and segment the communication between the different spokes and Azure VMware Solution workloads.
 
 Create route tables to direct the traffic to Azure Firewall.  For the Spoke virtual networks, create a route that sets the default route to the internal interface of Azure Firewall. This way, when a workload in the Virtual Network needs to reach the Azure VMware Solution address space, the firewall can evaluate it and apply the corresponding traffic rule to either allow or deny it.  
 
-:::image type="content" source="media/hub-spoke/create-route-table-to-direct-traffic.png" alt-text="Create route tables to direct traffic to Azure Firewall" lightbox="media/hub-spoke/create-route-table-to-direct-traffic.png":::
+:::image type="content" source="media/hub-spoke/create-route-table-to-direct-traffic.png" alt-text="Screenshot showing the route tables to direct traffic to Azure Firewall." lightbox="media/hub-spoke/create-route-table-to-direct-traffic.png":::
 
 
 > [!IMPORTANT]
@@ -87,7 +87,7 @@ Create route tables to direct the traffic to Azure Firewall.  For the Spoke virt
 
 Set routes for specific networks on the corresponding route table. For example, routes to reach Azure VMware Solution management and workloads IP prefixes from the spoke workloads and the other way around.
 
-:::image type="content" source="media/hub-spoke/specify-gateway-subnet-for-route-table.png" alt-text="Set routes for specific networks on the corresponding route table" lightbox="media/hub-spoke/specify-gateway-subnet-for-route-table.png":::
+:::image type="content" source="media/hub-spoke/specify-gateway-subnet-for-route-table.png" alt-text="Screenshot that shows the set routes for specific networks on the corresponding route table." lightbox="media/hub-spoke/specify-gateway-subnet-for-route-table.png":::
 
 A second level of traffic segmentation using the network security groups within the Spokes and the Hub to create a more granular traffic policy.
 
@@ -98,9 +98,9 @@ A second level of traffic segmentation using the network security groups within 
 
 Azure Application Gateway V1 and V2 have been tested with web apps that run on Azure VMware Solution VMs as a backend pool. Application Gateway is currently the only supported method to expose web apps running on Azure VMware Solution VMs to the internet. It can also expose the apps to internal users securely.
 
-Review Azure VMware Solution-specific article on [Application Gateway](./protect-azure-vmware-solution-with-application-gateway.md) for the details and requirements.
+For more information, see the Azure VMware Solution-specific article on [Application Gateway](./protect-azure-vmware-solution-with-application-gateway.md).
 
-:::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Second level of traffic segmentation using the Network Security Groups" border="false":::
+:::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Diagram showing the second level of traffic segmentation using the Network Security Groups." border="false":::
 
 
 ### Jump box and Azure Bastion
@@ -116,7 +116,7 @@ As a security best practice, deploy [Microsoft Azure Bastion](../bastion/index.y
 > Do not give a public IP address to the jump box VM or expose 3389/TCP port to the public internet. 
 
 
-:::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Azure Bastion Hub virtual network" border="false":::
+:::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Diagram showing the Azure Bastion Hub virtual network." border="false":::
 
 
 ## Azure DNS resolution considerations

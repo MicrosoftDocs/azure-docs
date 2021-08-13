@@ -9,8 +9,7 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: c51a2a06-6e97-429b-a346-b433a785c9f0
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
@@ -90,8 +89,8 @@ For SAP HANA scale-out configurations using direct attached disks of Azure Premi
 
 ## Additional resources for SAP HANA backup
 For information on how to back up SAP HANA databases on Azure VMs, see:
-* [Backup guide for SAP HANA on Azure Virtual Machines](./sap-hana-backup-guide.md)
-* [SAP HANA Azure Backup on file level](./sap-hana-backup-file-level.md)
+* [Backup guide for SAP HANA on Azure Virtual Machines](../../../backup/sap-hana-db-about.md)
+* [SAP HANA Azure Backup on file level](../../../backup/sap-hana-db-about.md)
 
 ## Next steps
 Read the documentation:

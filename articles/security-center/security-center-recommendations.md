@@ -1,35 +1,17 @@
 ---
 title: Security recommendations in Azure Security Center
 description: This document walks you through how recommendations in Azure Security Center help you protect your Azure resources and stay in compliance with security policies.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/25/2020
+ms.date: 01/24/2021
 ms.author: memildin
 
 ---
-# Security recommendations in Azure Security Center 
+# Review your security recommendations
+
 This topic explains how to view and understand the recommendations in Azure Security Center to help you protect your Azure resources.
-
-
-## What are security recommendations?
-
-Recommendations are actions for you to take in order to secure your resources.
-
-Security Center periodically analyzes the security state of your Azure resources to identify potential security vulnerabilities. It then provides you with recommendations on how to remediate those vulnerabilities.
-
-Each recommendation provides you with:
-
-- A short description of the issue
-- The remediation steps to carry out in order to implement the recommendation
-- The affected resources
 
 ## Monitor recommendations <a name="monitor-recommendations"></a>
 
@@ -37,11 +19,11 @@ Security Center analyzes the security state of your resources to identify potent
 
 1. From Security Center's menu, open the **Recommendations** page to see the recommendations applicable to your environment. Recommendations are grouped into security controls.
 
-    :::image type="content" source="./media/security-center-recommendations/view-recommendations.png" alt-text="Recommendations grouped by security control" lightbox="./media/security-center-recommendations/view-recommendations.png":::
+    :::image type="content" source="./media/security-center-recommendations/view-recommendations.png" alt-text="Recommendations grouped by security control." lightbox="./media/security-center-recommendations/view-recommendations.png":::
 
 1. To find recommendations specific to the resource type, severity, environment, or other criteria that are important to you, use the optional filters above the list of recommendations.
 
-    :::image type="content" source="media/security-center-recommendations/recommendation-list-filters.png" alt-text="Filters for refining the list of Azure Security Center recommendations":::
+    :::image type="content" source="media/security-center-recommendations/recommendation-list-filters.png" alt-text="Filters for refining the list of Azure Security Center recommendations.":::
 
 1. Expand a control and select a specific recommendation to view the recommendation details page.
 
@@ -49,11 +31,15 @@ Security Center analyzes the security state of your resources to identify potent
 
     The page includes:
 
-    1. **Enforce** and **Deny** buttons on supported recommendations (see [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md))
+    1. For supported recommendations, the top toolbar shows any or all of the following buttons:
+        - **Enforce** and **Deny** (see [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md))
+        - **View policy definition** to go directly to the Azure Policy entry for the underlying policy
+        - **Open query** - All recommendations have the option to view the detailed information about the affected resources using Azure Resource Graph Explorer
     1. **Severity indicator**
-    1. **Freshness interval**  (where relevant) 
+    1. **Freshness interval** (where relevant)
+    1. **Count of exempted resources** if exemptions exist for this recommendation, this shows the number of resources that have been exempted
     1. **Description** - A short description of the issue
-    1. **Remediation steps** - A description of the manual steps required to remediate the security issue on the affected resources. For recommendations with 'quick fix', you can select **View remediation logic** before applying the suggested fix to your resources. 
+    1. **Remediation steps** - A description of the manual steps required to remediate the security issue on the affected resources. For recommendations with the **Fix** option**, you can select **View remediation logic** before applying the suggested fix to your resources.
     1. **Affected resources** - Your resources are grouped into tabs:
         - **Healthy resources** – Relevant resources which either aren't impacted or on which you've already  remediated the issue.
         - **Unhealthy resources** – Resources which are still impacted by the identified issue.
@@ -61,6 +47,24 @@ Security Center analyzes the security state of your resources to identify potent
 
             :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Not applicable resources with reasons.":::
     1. Action buttons to remediate the recommendation or trigger a logic app.
+
+
+## Review recommendation data in Azure Resource Graph Explorer (ARG)
+
+The toolbar on the recommendation details page includes an **Open query** button to explore the details in [Azure Resource Graph (ARG)](../governance/resource-graph/index.yml), an Azure service that provides the ability to query Security Center's security posture data across multiple subscriptions.
+
+ARG is designed to provide efficient resource exploration with the ability to query at scale across your cloud environments with robust filtering, grouping, and sorting capabilities. It's a quick and efficient way to query information across Azure subscriptions programmatically or from within the Azure portal.
+
+Using the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), you can cross-reference ASC data with other resource properties.
+
+For example, this recommendation details page shows fifteen affected resources:
+
+:::image type="content" source="./media/security-center-recommendations/open-query.png" alt-text="The **Open Query** button on the recommendation details page.":::
+
+When you open the underlying query, and run it, Azure Resource Graph Explorer returns the same fifteen resources and their health status for this recommendation: 
+
+:::image type="content" source="./media/security-center-recommendations/run-query.png" alt-text="Azure Resource Graph Explorer showing the results for the recommendation shown in the previous screenshot.":::
+
 
 ## Preview recommendations
 
@@ -70,7 +74,7 @@ They should still be remediated wherever possible, so that when the preview peri
 
 An example of a preview recommendation:
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Recommendation with the preview flag":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Recommendation with the preview flag.":::
  
 ## Next steps
 

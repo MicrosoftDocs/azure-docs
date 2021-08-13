@@ -31,7 +31,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
   See [Create a storage account to use with Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
 
-* Make sure that your user account has the [Storage Blob Data Contributor role](../common/storage-auth-aad-rbac-portal.md) assigned to it.
+* Make sure that your user account has the [Storage Blob Data Contributor role](assign-azure-role-data-access.md) assigned to it.
 
 * Install AzCopy v10. See [Transfer data with AzCopy v10](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
@@ -50,7 +50,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 This tutorial uses flight data from the Bureau of Transportation Statistics to demonstrate how to perform an ETL operation. You must download this data to complete the tutorial.
 
-1. Go to [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time).
+1. Go to [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?gnoyr_VQ=FGJ).
 
 2. Select the **Prezipped File** check box to select all data fields.
 

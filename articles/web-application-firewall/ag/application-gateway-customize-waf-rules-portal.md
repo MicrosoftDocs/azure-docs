@@ -4,7 +4,7 @@ description: This article provides information on how to customize Web Applicati
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/14/2019
+ms.date: 04/21/2021
 ms.author: victorh
 ms.topic: article
 ---
@@ -16,7 +16,7 @@ The Azure Application Gateway Web Application Firewall (WAF) provides protection
 >[!NOTE]
 > If your application gateway is not using the WAF tier, the option to upgrade the application gateway to the WAF tier appears in the right pane. 
 
-![Enable WAF][fig1]
+:::image type="content" source="../media/application-gateway-customize-waf-rules-portal/1.png" alt-text="Enable WAF"::: 
 
 ## View rule groups and rules
 
@@ -32,16 +32,13 @@ The Azure Application Gateway Web Application Firewall (WAF) provides protection
 > [!IMPORTANT]
 > Use caution when disabling any rule groups or rules. This may expose you to increased security risks.
 
-When you're disabling rules, you can disable an entire rule group or specific rules under one or more rule groups. 
-
 **To disable rule groups or specific rules**
 
    1. Search for the rules or rule groups that you want to disable.
    2. Select the check boxes for the rules that you want to disable. 
    3. Select the action at the top of the page (enable/disable) for the selected rules.
-   2. Select **Save**. 
-
-![Save changes][3]
+   2. Select **Save**.
+    :::image type="content" source="../media/application-gateway-customize-waf-rules-portal/figure3.png" alt-text="Save disabled rules"::: 
 
 ## Mandatory rules
 
@@ -61,6 +58,3 @@ CRS 3.x specific:
 ## Next steps
 
 After you configure your disabled rules, you can learn how to view your WAF logs. For more information, see [Application Gateway diagnostics](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
-
-[fig1]: ../media/application-gateway-customize-waf-rules-portal/1.png
-[3]: ../media/application-gateway-customize-waf-rules-portal/figure3.png

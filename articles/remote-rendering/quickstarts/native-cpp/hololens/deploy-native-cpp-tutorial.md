@@ -1,15 +1,15 @@
 ---
-title: Deploy native C++ tutorial to HoloLens
-description: Quickstart that shows how to run the native C++ tutorial on HoloLens
+title: Deploy native C++ WMR tutorial to HoloLens
+description: Quickstart that shows how to run the native C++ HolographicApp tutorial on HoloLens
 author: florianborn71
 ms.author: flborn
 ms.date: 06/08/2020
 ms.topic: quickstart
 ---
 
-# Quickstart: Deploy native C++ sample to HoloLens
+# Quickstart: Deploy native C++ WMR sample to HoloLens
 
-This quickstart covers how to deploy and run the native C++ tutorial application on a HoloLens 2.
+This quickstart covers how to deploy and run the native C++ WMR (Windows Mixed Reality) tutorial application on a HoloLens 2.
 
 In this quickstart you will learn how to:
 
@@ -46,37 +46,37 @@ git clone https://github.com/Azure/azure-remote-rendering
 
 The last command creates a subdirectory in the ARR directory containing the various sample projects for Azure Remote Rendering.
 
-The C++ HoloLens tutorial can be found in the subdirectory *NativeCpp/HoloLens*.
+The C++ HoloLens tutorial can be found in the subdirectory *NativeCpp/HoloLens-Wmr*.
 
 ## Build the project
 
-Open the solution file *HolographicApp.sln* located in the *NativeCpp/HoloLens* subdirectory with Visual Studio 2019.
+Open the solution file *HolographicApp.sln* located in the *NativeCpp/HoloLens-Wmr* subdirectory with Visual Studio 2019.
 
 Switch the build configuration to *Debug* (or *Release*) and *ARM64*. Also make sure the debugger mode is set to *Device* as opposed to *Remote Machine*:
 
 ![Visual Studio config](media/vs-config-native-cpp-tutorial.png)
 
-Since the account credentials are hardcoded in the tutorial's source code, change them to valid credentials. For that, open file `HolographicAppMain.cpp` inside Visual Studio and change the part where the frontend is created inside the constructor of class `HolographicAppMain`:
+Since the account credentials are hardcoded in the tutorial's source code, change them to valid credentials. For that, open the file `HolographicAppMain.cpp` inside Visual Studio and change the part where the client is created inside the constructor of class `HolographicAppMain`:
 
 ```cpp
-// 2. Create front end
+// 2. Create Client
 {
     // Users need to fill out the following with their account data and model
-    RR::AzureFrontendAccountInfo init;
+    RR::SessionConfiguration init;
     init.AccountId = "00000000-0000-0000-0000-000000000000";
     init.AccountKey = "<account key>";
-    init.AccountDomain = "westus2.mixedreality.azure.com"; // <change to the region that the rendering session should be created in>
-    init.AccountAuthenticationDomain = "westus2.mixedreality.azure.com"; // <change to the region the account was created in>
+    init.RemoteRenderingDomain = "westus2.mixedreality.azure.com"; // <change to the region that the rendering session should be created in>
+    init.AccountDomain = "westus2.mixedreality.azure.com"; // <change to the region the account was created in>
     m_modelURI = "builtin://Engine";
     m_sessionOverride = ""; // If there is a valid session ID to re-use, put it here. Otherwise a new one is created
-    m_frontEnd = RR::ApiHandle(RR::AzureFrontend(init));
+    m_client = RR::ApiHandle(RR::RemoteRenderingClient(init));
 }
 ```
 
 Specifically, change the following values:
-* `init.AccountId`, `init.AccountKey`, and `init.AccountAuthenticationDomain` to use your account data. See paragraph about how to [retrieve account information](../../../how-tos/create-an-account.md#retrieve-the-account-information).
-* Specify where to create the remote rendering session by modifying the region part of the `init.AccountDomain` string for other regions than `westus2`, for instance `"westeurope.mixedreality.azure.com"`.
-* In addition, `m_sessionOverride` can be changed to an existing session ID. Sessions can be created outside this sample, for instance by using [the PowerShell script](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) or using the [session REST API](../../../how-tos/session-rest-api.md#create-a-session) directly.
+* `init.AccountId`, `init.AccountKey`, and `init.AccountDomain` to use your account data. See the paragraph about how to [retrieve account information](../../../how-tos/create-an-account.md#retrieve-the-account-information).
+* Specify where to create the remote rendering session by modifying the region part of the `init.RemoteRenderingDomain` string for other [regions](../../../reference/regions.md) than `westus2`, for instance `"westeurope.mixedreality.azure.com"`.
+* In addition, `m_sessionOverride` can be changed to an existing session ID. Sessions can be created outside this sample, for instance by using [the PowerShell script](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) or using the [session REST API](../../../how-tos/session-rest-api.md) directly.
 Creating a session outside the sample is recommended when the sample should run multiple times. If no session is passed in, the sample will create a new session upon each startup, which may take several minutes.
 
 Now the application can be compiled.

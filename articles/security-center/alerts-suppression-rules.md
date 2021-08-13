@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 services: security-center
 ms.author: memildin
-ms.date: 09/10/2020
+ms.date: 02/17/2021
 ms.service: security-center
 ms.topic: how-to
 ---
@@ -18,10 +18,10 @@ This page explains how you can use alerts suppression rules to suppress false po
 
 |Aspect|Details|
 |----|:----|
-|Release state:| Generally available |
+|Release state:|General availability (GA)|
 |Pricing:|Free<br>(Most security alerts are only available with Azure Defender)|
 |Required roles and permissions:|**Security admin** and **Owner** can create/delete rules.<br>**Security reader** and **Reader** can view rules.|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet)|
 |||
 
 
@@ -40,7 +40,7 @@ Your suppression rules define the criteria for which alerts should be automatica
 > [!CAUTION]
 > Suppressing security alerts reduces the threat protection effectiveness of Azure Defender. You should carefully check the potential impact of any suppression rule, and monitor it over time.
 
-:::image type="content" source="./media/alerts-suppression-rules/create-suppression-rule.gif" alt-text="Create alert suppression rule":::
+:::image type="content" source="./media/alerts-suppression-rules/create-suppression-rule.gif" alt-text="Create alert suppression rule.":::
 
 ## Create a suppression rule
 
@@ -55,13 +55,11 @@ To create a rule directly in the Azure portal:
 
 1. From Security Center's security alerts page:
 
-    - Locate the specific alert you don't want to see anymore, and from the ellipsis menu (...) for the alert, select **Create suppression rule**:
-
-        [![**Create suppression rule** option](media/alerts-suppression-rules/auto-dismiss-future-option.png)](media/alerts-suppression-rules/auto-dismiss-future-option.png#lightbox)
+    - Select the specific alert you don't want to see anymore, and from the details pane, select **Take action**.
 
     - Or, select the **suppression rules** link at the top of the page, and from the suppression rules page select **Create new suppression rule**:
 
-        ![Create new suppression rule** button](media/alerts-suppression-rules/create-new-suppression-rule.png)
+        ![Create new suppression rule** button.](media/alerts-suppression-rules/create-new-suppression-rule.png)
 
 1. In the new suppression rule pane, enter the details of your new rule.
     - Your rule can dismiss the alert on **all resources** so you don't get any alerts like this one in the future.     
@@ -70,7 +68,7 @@ To create a rule directly in the Azure portal:
     > [!TIP]
     > If you opened the new rule page from a specific alert, the alert and subscription will be automatically configured in your new rule. If you used the **Create new suppression rule** link, the selected subscriptions will match the current filter in the portal.
 
-    [![Suppression rule creation pane](media/alerts-suppression-rules/new-suppression-rule-pane.png)](media/alerts-suppression-rules/new-suppression-rule-pane.png#lightbox)
+    [![Suppression rule creation pane.](media/alerts-suppression-rules/new-suppression-rule-pane.png)](media/alerts-suppression-rules/new-suppression-rule-pane.png#lightbox)
 1. Enter details of the rule:
     - **Name** - A name for the rule. Rule names must begin with a letter or a number, be between 2 and 50 characters, and contain no symbols other than dashes (-) or underscores (_). 
     - **State** - Enabled or disabled.
@@ -80,14 +78,14 @@ To create a rule directly in the Azure portal:
 1. Save the rule. 
 
 
-## Edit a suppression rules
+## Edit a suppression rule
 
-To edit a rules you've created, use the suppression rules page.
+To edit a rule you've created, use the suppression rules page.
 
 1. From Security Center's security alerts page, select the **suppression rules** link at the top of the page.
 1. The suppression rules page opens with all the rules for the selected subscriptions.
 
-    [![Suppression rules list](media/alerts-suppression-rules/suppression-rules-page.png)](media/alerts-suppression-rules/suppression-rules-page.png#lightbox)
+    [![Suppression rules list.](media/alerts-suppression-rules/suppression-rules-page.png)](media/alerts-suppression-rules/suppression-rules-page.png#lightbox)
 
 1. To edit a single rule, open the ellipsis menu (...) for the rule and select **Edit**.
 1. Make the necessary changes and select **Apply**. 
@@ -100,21 +98,7 @@ To delete one or more rules you've created, use the suppression rules page.
 1. The suppression rules page opens with all the rules for the selected subscriptions.
 1. To delete a single rule, open the ellipsis menu (...) for the rule and select **Delete**.
 1. To delete multiple rules, select the check boxes for the rules to be deleted and select **Delete**.
-    ![Deleting one or more suppression rules](media/alerts-suppression-rules/delete-multiple-alerts.png)
-
-## View suppressed alerts
-
-Alerts that match your enabled suppression rules will still be generated, but their state will be set to **dismissed**. You can see the state in the Azure portal or however you access your Security Center security alerts. 
-
-> [!TIP]
-> [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) won't create incidents for suppressed alerts. For other SIEMs, you can filter suppressed alerts by using the alerts' state ('dismissed').
-
-Use Security Center's filter to view alerts that have been dismissed by your rules.
-
-* From Security Center's security alerts page, open the filter options and select **Dismissed**.  
-
-   [![Viewing dismissed alerts](media/alerts-suppression-rules/view-dismissed-alerts.png)](media/alerts-suppression-rules/view-dismissed-alerts.png#lightbox)
-
+    ![Deleting one or more suppression rules.](media/alerts-suppression-rules/delete-multiple-alerts.png)
 
 ## Create and manage suppression rules with the API
 

@@ -7,6 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/24/2020
+ms.custom: references_regions 
 ---
 # Supported data sources and file types in Azure Purview
 
@@ -14,31 +15,21 @@ This article discusses supported data sources, file types and scanning concepts 
 
 ## Supported data sources
 
-Azure Purview supports the following sources:
-
-| Store type | Supported auth type | Set up scans via UX/PowerShell |
-| ---------- | ------------------- | ------------------------------ |
-| On-premises SQL Server                   | SQL Auth                        | UX                                |
-| Azure Synapse Analytics (formerly SQL DW)            | SQL Auth, Service Principal, MSI               | UX                             |
-| Azure SQL Database (DB)                  | SQL Auth, Service Principal, MSI               | UX |
-| Azure SQL Database Managed Instance      | SQL Auth, Service Principal, MSI               | UX    |
-| Azure Blob Storage                       | Account Key, Service Principal, MSI | UX            |
-| Azure Data Explorer                      | Service Principal                              | UX            |
-| Azure Data Lake Storage Gen1 (ADLS Gen1) | Service Principal, MSI                              | UX            |
-| Azure Data Lake Storage Gen2 (ADLS Gen2) | Account Key, Service Principal, MSI            | UX            |
-| Azure Cosmos DB                          | Account Key                                    | UX            |
-
-
-> [!Note]
-> Azure Data Lake Storage Gen2 is now generally available. We recommend that you start using it today. For more information, see the [product page](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/).
+Purview supports all the data sources listed [here](purview-connector-overview.md).
 
 ## File types supported for scanning
 
 The following file types are supported for scanning, for schema extraction and classification where applicable:
 
-- Structured file formats supported by extension: AVRO, ORC, PARQUET, CSV, JSON, PSV, SSV, TSV, TXT, XML
+- Structured file formats supported by extension: AVRO, ORC, PARQUET, CSV, JSON, PSV, SSV, TSV, TXT, XML, GZIP
 - Document file formats supported by extension: DOC, DOCM, DOCX, DOT, ODP, ODS, ODT, PDF, POT, PPS, PPSX, PPT, PPTM, PPTX, XLC, XLS, XLSB, XLSM, XLSX, XLT
 - Purview also supports custom file extensions and custom parsers.
+ 
+> [!Note]
+> Every Gzip file must be mapped to a single csv file within. Gzip files are subject to System and Custom Classification rules. We currently don't support scanning a gzip file mapped to multiple files within, or any file type other than csv. Also, Purview scanner supports scanning snappy compressed PARQUET types for schema extraction and classification. 
+
+> [!Note]
+> Purview scanner does not support complex data types in AVRO, ORC and PARQUET file types for schema extraction.   
 
 ## Sampling within a file
 
@@ -49,9 +40,10 @@ In Purview terminology,
 
 For all structured file formats, Purview scanner samples files in the following way:
 
-- For structured file types, it samples 128 rows in each column or 1 MB, whichever is lower.
-- For document file formats, it samples 20 MB of each file.
+- For structured file types, it samples the top 128 rows in each column or the first 1 MB, whichever is lower.
+- For document file formats, it samples the first 20 MB of each file.
     - If a document file is larger than 20 MB, then it is not subject to a deep scan (subject to classification). In that case, Purview captures only basic meta data like file name and fully qualified name.
+- For **tabular data sources(SQL, CosmosDB)**, it samples the top 128 rows. 
 
 ## Resource set file sampling
 
@@ -67,7 +59,7 @@ File sampling for resource sets by file types:
 
 ## Classification
 
-All 105 system classification rules apply to structured file formats. Only the MCE classification rules apply to document file types (Not the data scan native regex patterns, bloom filter-based detection). For more information on supported classifications, see [Supported classifications in Azure Purview](supported-classifications.md).
+All 206 system classification rules apply to structured file formats. Only the MCE classification rules apply to document file types (Not the data scan native regex patterns, bloom filter-based detection). For more information on supported classifications, see [Supported classifications in Azure Purview](supported-classifications.md).
 
 ## Next steps
 

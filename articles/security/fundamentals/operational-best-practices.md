@@ -120,7 +120,7 @@ The secure score, which is based on Center for Internet Security (CIS) controls,
 **Detail**: Use [Azure Monitor to gather and export data](../../azure-monitor/overview.md#integrate-and-export-data). This practice is critical for enabling security incident investigation, and online log retention is limited. If you’re using Azure Sentinel, see [Connect data sources](../../sentinel/connect-data-sources.md).
 
 **Best practice**: Speed up your investigation and hunting processes and reduce false positives by integrating Endpoint Detection and Response (EDR) capabilities into your attack investigation.   
-**Detail**: [Enabling the Microsoft Defender for Endpoint integration](../../security-center/security-center-wdatp.md#enabling-the-microsoft-defender-for-endpoint-integration) via your Security Center security policy. Consider using Azure Sentinel for threat hunting and incident response.
+**Detail**: [Enable the Microsoft Defender for Endpoint integration](../../security-center/security-center-wdatp.md#enable-the-microsoft-defender-for-endpoint-integration) via your Security Center security policy. Consider using Azure Sentinel for threat hunting and incident response.
 
 ## Monitor end-to-end scenario-based network monitoring
 Customers build an end-to-end network in Azure by combining network resources like a virtual network, ExpressRoute, Application Gateway, and load balancers. Monitoring is available on each of the network resources.
@@ -142,9 +142,9 @@ The following are best practices for network monitoring and available tools.
 Use the following DevOps best practices to ensure that your enterprise and teams are productive and efficient.
 
 **Best practice**: Automate the build and deployment of services.  
-**Detail**: [Infrastructure as code](/azure/devops/learn/what-is-infrastructure-as-code) is a set of techniques and practices that help IT pros remove the burden of day-to-day build and management of modular infrastructure. It enables IT pros to build and maintain their modern server environment in a way that’s like how software developers build and maintain application code.
+**Detail**: [Infrastructure as code](/devops/deliver/what-is-infrastructure-as-code) is a set of techniques and practices that help IT pros remove the burden of day-to-day build and management of modular infrastructure. It enables IT pros to build and maintain their modern server environment in a way that’s like how software developers build and maintain application code.
 
-You can use [Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) to provision your applications by using a declarative template. In a single template, you can deploy multiple services along with their dependencies. You use the same template to repeatedly deploy your application in every stage of the application lifecycle.
+You can use [Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) to provision your applications by using a declarative template. In a single template, you can deploy multiple services along with their dependencies. You use the same template to repeatedly deploy your application in every stage of the application lifecycle.
 
 **Best practice**: Automatically build and deploy to Azure web apps or cloud services.  
 **Detail**: You can configure your Azure DevOps Projects to  [automatically build and deploy](/azure/devops/pipelines/index) to Azure web apps or cloud services. Azure DevOps automatically deploys the binaries after doing a build to Azure after every code check-in. The package build process is equivalent to the Package command in Visual Studio, and the publishing steps are equivalent to the Publish command in Visual Studio.

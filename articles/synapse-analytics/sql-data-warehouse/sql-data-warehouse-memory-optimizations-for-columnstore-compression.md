@@ -2,13 +2,13 @@
 title: Improve columnstore index performance for dedicated SQL pool
 description: Reduce memory requirements or increase the available memory to maximize the number of rows within each rowgroup in dedicated SQL pool.
 services: synapse-analytics
-author: kevinvngo 
+author: julieMSFT 
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 03/22/2019
-ms.author: kevin
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ---
@@ -23,7 +23,7 @@ Since a columnstore index scans a table by scanning column segments of individua
 
 When rowgroups have a high number of rows, data compression improves which means there is less data to read from disk.
 
-For more information about rowgroups, see [Columnstore Indexes Guide](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+For more information about rowgroups, see [Columnstore Indexes Guide](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## Target size for rowgroups
 
@@ -37,11 +37,11 @@ During a bulk load or columnstore index rebuild, sometimes there isn't enough me
 
 When there is insufficient memory to compress at least 10,000 rows into each rowgroup, an error will be generated.
 
-For more information on bulk loading, see [Bulk load into a clustered columnstore index](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+For more information on bulk loading, see [Bulk load into a clustered columnstore index](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## How to monitor rowgroup quality
 
-The DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) contains the view definition matching SQL DB) that exposes useful information such as number of rows in rowgroups and the reason for trimming, if there was trimming.
+The DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) contains the view definition matching SQL DB) that exposes useful information such as number of rows in rowgroups and the reason for trimming, if there was trimming.
 
 You can create the following view as a handy way to query this DMV to get information on rowgroup trimming.
 

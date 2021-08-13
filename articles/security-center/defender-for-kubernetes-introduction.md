@@ -3,7 +3,7 @@ title: Azure Defender for Kubernetes - the benefits and features
 description: Learn about the benefits and features of Azure Defender for Kubernetes.
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
+ms.date: 07/20/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
@@ -12,103 +12,88 @@ manager: rkarlin
 
 # Introduction to Azure Defender for Kubernetes
 
-Azure Kubernetes Service (AKS) is Microsoft's managed service for developing, deploying, and managing containerized applications.
+Azure Defender for Kubernetes is the Azure Defender plan providing protections for your Kubernetes clusters wherever they're running. 
 
-Azure Security Center and AKS form the best cloud-native Kubernetes security offering and together they provide environment hardening, workload protection, and run-time protection as outlined below.
+We can defend clusters in:
 
-For threat detection for your Kubernetes clusters, enable **Azure Defender for Kubernetes**.
+- **Azure Kubernetes Service (AKS)** - Microsoft's managed service for developing, deploying, and managing containerized applications
 
-Host-level threat detection for your Linux AKS nodes is available if you enable [Azure Defender for servers](defender-for-servers-introduction.md).
+- **On-premises and multi-cloud environments** - Using an [extension for Arc enabled Kubernetes](defender-for-kubernetes-azure-arc.md)
+
+Azure Security Center and AKS form a cloud-native Kubernetes security offering with environment hardening, workload protection, and run-time protection as outlined in [Container security in Security Center](container-security.md).
+
+Host-level threat detection for your Linux AKS nodes is available if you enable [Azure Defender for servers](defender-for-servers-introduction.md) and its Log Analytics agent. However, if your cluster is deployed on an Azure Kubernetes Service virtual machine scale set (VMSS), the Log Analytics agent is not currently supported.
+
+
 
 ## Availability
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Generally available (GA)|
-|Pricing:|**Azure Defender for Kubernetes** is billed as shown on [the pricing page](security-center-pricing.md)|
+|Release state:|General availability (GA)|
+|Pricing:|**Azure Defender for Kubernetes** is billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)|
 |Required roles and permissions:|**Security admin** can dismiss alerts.<br>**Security reader** can view findings.|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet)|
 |||
 
 ## What are the benefits of Azure Defender for Kubernetes?
 
-### Run-time protection
+Azure Defender for Kubernetes provides **cluster-level threat protection** by monitoring your clusters' logs.
 
-Through continuous analysis of the following AKS sources, Security Center provides real-time threat protection for your containerized environments and generates alerts for threats and malicious activity detected at the host *and* AKS cluster level. You can use this information to quickly remediate security issues and improve the security of your containers.
-
-Security Center provides threat protection at different levels: 
-
-- **Host level (provided by Azure Defender for servers)** - Using the same Log Analytics agent that Security Center uses on other VMs, Azure Defender monitors your Linux AKS nodes for suspicious activities such as web shell detection and connection with known suspicious IP addresses. The agent also monitors for container-specific analytics such as privileged container creation, suspicious access to API servers, and Secure Shell (SSH) servers running inside a Docker container.
-
-    For a list of the AKS host level alerts, see the [Reference table of alerts](alerts-reference.md#alerts-containerhost).
-
-    >[!IMPORTANT]
-    > If you choose not to install the agents on your hosts, you will only receive a subset of the threat protection benefits and security alerts. You'll still receive alerts related to network analysis and communications with malicious servers.
-
-- **AKS cluster level (provided by Azure Defender for Kubernetes)** - At the cluster level, the threat protection is based on analyzing Kubernetes' audit logs. To enable this **agentless** monitoring, enable Azure Defender. To generate alerts at this level, Security Center monitors your AKS-managed services using the logs retrieved by AKS. Examples of events at this level include exposed Kubernetes dashboards, creation of high privileged roles, and the creation of sensitive mounts.
-
-    For a list of the AKS cluster level alerts, see the [Reference table of alerts](alerts-reference.md#alerts-akscluster).
-
-    >[!NOTE]
-    > Security Center generates security alerts for Azure Kubernetes Service actions and deployments occurring after the Kubernetes option is enabled on the subscription settings. 
-
-Also, our global team of security researchers constantly monitor the threat landscape. They add container-specific alerts and vulnerabilities as they're discovered.
+Examples of security events that Azure Defender for Kubernetes monitors include exposed Kubernetes dashboards, creation of high privileged roles, and the creation of sensitive mounts. For a full list of the cluster level alerts, see the [reference table of alerts](alerts-reference.md#alerts-k8scluster).
 
 > [!TIP]
 > You can simulate container alerts by following the instructions in [this blog post](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-demonstrate-the-new-containers-features-in-azure-security/ba-p/1011270).
 
+Also, our global team of security researchers constantly monitor the threat landscape. They add container-specific alerts and vulnerabilities as they're discovered.
 
-
-## How does Security Center's Kubernetes protection work?
-
-Below is a high-level diagram of the interaction between Azure Security Center, Azure Kubernetes Service, and Azure Policy.
-
-You can see that the items received and analyzed by Security Center include:
-
-- audit logs from the API server
-- raw security events from the Log Analytics agent
-- cluster configuration information from the AKS cluster
-- workload configuration from Azure Policy (via the **Azure Policy add-on for Kubernetes**). [Learn more about workload protection best-practices using Kubernetes admission control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
-
-:::image type="content" source="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png" alt-text="High-level architecture of the interaction between Azure Security Center, Azure Kubernetes Service, and Azure Policy" lightbox="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png":::
+>[!NOTE]
+> Azure Defender generates security alerts for actions and deployments that occur after you've enabled the Defender for Kubernetes plan on your subscription.
 
 
 
 
-## Azure Defender for Kubernetes - FAQ
+## FAQ - Azure Defender for Kubernetes
 
-### Can I still get AKS protections without the Log Analytics agent?
+- [Can I still get cluster protections without the Log Analytics agent?](#can-i-still-get-cluster-protections-without-the-log-analytics-agent)
+- [Does AKS allow me to install custom VM extensions on my AKS nodes?](#does-aks-allow-me-to-install-custom-vm-extensions-on-my-aks-nodes)
+- [If my cluster is already running an Azure Monitor for containers agent, do I need the Log Analytics agent too?](#if-my-cluster-is-already-running-an-azure-monitor-for-containers-agent-do-i-need-the-log-analytics-agent-too)
+- [Does Azure Defender for Kubernetes support AKS with VMSS nodes?](#does-azure-defender-for-kubernetes-support-aks-with-vmss-nodes)
 
-As mentioned above, the optional **Azure Defender for Kubernetes** plan provides protections at the cluster level, the Log Analytics agent of **Azure Defender for servers** protects your nodes. 
+### Can I still get cluster protections without the Log Analytics agent?
+
+**Azure Defender for Kubernetes** plan provides protections at the cluster level. If you also deploy the Log Analytics agent of **Azure Defender for servers**, you'll get the threat protection for your nodes that's provided with that plan. Learn more in [Introduction to Azure Defender for servers](defender-for-servers-introduction.md).
 
 We recommend deploying both, for the most complete protection possible.
 
 If you choose not to install the agent on your hosts, you'll only receive a subset of the threat protection benefits and security alerts. You'll still receive alerts related to network analysis and communications with malicious servers.
 
-
 ### Does AKS allow me to install custom VM extensions on my AKS nodes?
-
-For Azure Defender to monitor your AKS nodes, they must be running the Log Analytics agent. 
+For Azure Defender to monitor your AKS nodes, they must be running the Log Analytics agent.
 
 AKS is a managed service and since the Log analytics agent is a Microsoft-managed extension, it is also supported on AKS clusters.
 
-
-
 ### If my cluster is already running an Azure Monitor for containers agent, do I need the Log Analytics agent too?
-
-For Azure Defender to monitor your AKS nodes, they must be running the Log Analytics agent.
+For Azure Defender to monitor your nodes, they must be running the Log Analytics agent.
 
 If your clusters are already running the Azure Monitor for containers agent, you can install the Log Analytics agent too and the two agents can work alongside one another without any problems.
 
-[Learn more about the Azure Monitor for containers agent](../azure-monitor/insights/container-insights-manage-agent.md).
+[Learn more about the Azure Monitor for containers agent](../azure-monitor/containers/container-insights-manage-agent.md).
+
+
+### Does Azure Defender for Kubernetes support AKS with VMSS nodes?
+If your cluster is deployed on an Azure Kubernetes Service virtual machine scale set (VMSS), the Log Analytics agent is not currently supported.
+
 
 
 ## Next steps
 
 In this article, you learned about Security Center's Kubernetes protection including Azure Defender for Kubernetes. 
 
+> [!div class="nextstepaction"]
+> [Enable Azure Defender](enable-azure-defender.md)
+
 For related material, see the following articles: 
 
-- [Enable Azure Defender](security-center-pricing.md)
 - [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md)
 - [Reference table of alerts](alerts-reference.md)

@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Translator documentation
-summary: Translator is a cloud-based machine translation service you can use to translate text in near real-time through a simple REST API call. The service uses modern neural machine translation technology and offers statistical machine translation technology. Custom Translator is an extension of Translator, which allows you to build neural translation systems. The customized translation system can be used to translate text with Translator or Microsoft Speech Services.
+summary: Translator is a cloud-based machine translation service you can use to translate text in with a simple REST API call. The service uses modern neural machine translation technology and offers statistical machine translation technology. Custom Translator is an extension of Translator, which allows you to build neural translation systems. The customized translation system can be used to translate text with Translator or Microsoft Speech Services.
 metadata:
   title: Translator documentation - quickstarts, tutorials, API reference
   titleSuffix: Azure Cognitive Services
-  description: Translator is a cloud-based machine translation service you can use to translate text in near real-time through a simple REST API call. The service uses modern neural machine translation technology and offers statistical machine translation technology. Custom Translator is an extension of Translator, which allows you to build neural translation systems. The customized translation system can be used to translate text with Translator or Microsoft Speech Services.
+  description: Translator is a cloud-based machine translation service you can use to translate text through a simple REST API call. The service uses modern neural machine translation technology and offers statistical machine translation technology. Custom Translator is an extension of Translator, which allows you to build neural translation systems. The customized translation system can be used to translate text with Translator or Microsoft Speech Services.
   services: cognitive-services
   author: erhopf
   manager: nitinme
@@ -24,10 +24,14 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Translator
-            url: translator-info-overview.md
+          - text: What is Translator?
+            url: translator-overview.md
+          - text: Language support
+            url:  language-support.md  
+          - text: Document Translation
+            url:  document-translation/overview.md 
           - text: Custom Translator
-            url: translator-info-overview.md
+            url: custom-translator/overview.md
           - text: Pricing
             url: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
           - text: Compliance
@@ -36,27 +40,42 @@ landingContent:
             url: ./translator-how-to-signup.md
           - text: FAQ
             url: https://www.microsoft.com/translator/faq.aspx
-  - title: Get started
+  - title: Text Translation
     linkLists:
       - linkListType: quickstart
         links:
           - text: Quickstart
             url: quickstart-translator.md
-      - linkListType: tutorial
+      - linkListType: how-to-guide
         links:
-          - text: Create a WPF translation app, C#
-            url: tutorial-wpf-translation-csharp.md
-          - text: Create a flask translation app, REST
-            url: tutorial-build-flask-app-translation-synthesis.md
+          - text: Create a resource
+            url: translator-how-to-signup.md
+          - text: Prevent translation of content
+            url: prevent-translation.md
+          - text: Use the Dynamic Dictionary
+            url: dynamic-dictionary.md
       - linkListType: reference
         links:
           - text: Translator reference (v3)
             url: reference/v3-0-reference.md
           - text: Request limits
             url: request-limits.md
-          - text: Language support
-            url: language-support.md
-
+  - title: Document Translation
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Document Translation?
+            url: document-translation/overview.md
+      - linkListType: quickstart
+        links:
+          - text: Quickstart
+            url: document-translation/get-started-with-document-translation.md
+      - linkListType: reference
+        links:
+          - text: Document Translation reference
+            url: document-translation/reference/get-supported-document-formats.md
+          - text: Start translation
+            url: document-translation/reference/start-translation.md
   - title: Custom Translator
     linkLists:
       - linkListType: quickstart
@@ -87,14 +106,16 @@ landingContent:
         links:
           - text: Language support
             url: language-support.md
-          - text: Glossary
-            url: custom-translator/glossary.md
+          - text: Terminology
+            url: custom-translator/terminology.md
   - title: Resources
     linkLists:
       - linkListType: reference
         links:
           - text: Samples on GitHub
             url: https://aka.ms/TranslatorGitHub
+          - text: Compliance and certification
+            url: https://www.microsoft.com/translator/business/notrace/          
           - text: Stack Overflow
             url: https://stackoverflow.com/questions/tagged/microsoft-translator
 

@@ -11,7 +11,7 @@ metadata:
   ms.topic: hub-page
   author: twooley
   ms.author: twooley
-  ms.date: 05/01/2020
+  ms.date: 04/14/2021
 
 
 highlightedContent:
@@ -30,9 +30,9 @@ highlightedContent:
     - title: Learn about data redundancy
       itemType: concept
       url: ./common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - title: Transfer data to Azure
+    - title: Migrate data to Azure Storage
       itemType: concept
-      url: ./common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      url: ./common/storage-migration-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
 
  
 # additionalContent section (optional)
@@ -100,16 +100,18 @@ additionalContent:
         # Card
         - title: Expand on-premises file share to the cloud
           links:
-          - url: ./files/storage-sync-files-planning.md
+          - url: ./file-sync/file-sync-introduction.md
+            text: Learn about Azure File Sync
+          - url: ./file-sync/file-sync-planning.md
             text: Sync Azure file shares with Windows file server (Azure FileSync)
-          - url: ./files/storage-sync-files-deployment-guide.md
+          - url: ./file-sync/file-sync-deployment-guide.md
             text: Deploy Azure File Sync
-          - url: ./files/index.yml
+          - url: ./file-sync/index.yml
             text: See more >
         # Card
         - title: Online data transfer (on-premises to Azure)
           links:
-          - url: ../databox-online/data-box-gateway-overview.md
+          - url: ../databox-gateway/data-box-gateway-overview.md
             text: Seamlessly transfer data to Azure (Data Box Gateway)
           - url: ../databox-online/azure-stack-edge-overview.md
             text: Locally process data before transfer to Azure (Azure Stack Edge)
@@ -122,7 +124,7 @@ additionalContent:
             text: Use a fully-managed file caching service (Azure HPC Cache)
           - url: ../avere-vfxt/avere-vfxt-overview.md
             text: Cache on-premises NAS in Azure (Avere vFXT for Azure) 
-          - url: ../fxt-edge-filer/fxt-overview.md
+          - url: ../fxt-edge-filer/overview.md
             text: Deploy an on-premises caching appliance (Azure FXT Edge Filer)
 
     - title: Data operations

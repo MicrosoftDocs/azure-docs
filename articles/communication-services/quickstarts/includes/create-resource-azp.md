@@ -2,7 +2,7 @@
 author: mikben
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 9/1/2020
+ms.date: 06/30/2021
 ms.author: mikben
 ---
 
@@ -10,7 +10,7 @@ ms.author: mikben
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
 
-## Create Azure Communication Resource
+## Create Azure Communication Services resource
 
 To create an Azure Communication Services resource, first sign in to the [Azure portal](https://portal.azure.com). In the upper-left corner of the page, select **+ Create a resource**. 
 
@@ -20,9 +20,9 @@ Enter **Communication** into either the **Search the Marketplace** input or the 
 
 :::image type="content" source="../media/create-a-communication-resource/searchbar-communication-portal.png" alt-text="Screenshot showing a search for communication services in the search bar.":::
 
-Select **Communication Services** in the results, and then select **Add**.
+Select **Communication Services** in the results, and then select **Create**.
 
-:::image type="content" source="../media/create-a-communication-resource/add-communication-portal.png" alt-text="Screenshot showing the Azure panel, highlighting the add button.":::
+:::image type="content" source="../media/create-a-communication-resource/create-communication-portal.png" alt-text="Screenshot showing the Communication Services panel, highlighting the Create button.":::
 
 You can now configure your Communication Services resource. On the first page in the create process, you'll be asked to specify:
 

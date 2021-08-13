@@ -1,8 +1,8 @@
 ---
-title: Build healthcare solutions with Azure IoT Central | Microsoft Docs
+title: What are the Azure IoT Central healthcare solutions | Microsoft Docs
 description: Learn to build healthcare solution using Azure IoT Central application templates.
-author: philmea
-ms.author: philmea
+author: dominicbetts 
+ms.author: dobett 
 ms.date: 09/24/2019
 ms.topic: overview
 ms.service: iot-central
@@ -10,9 +10,7 @@ services: iot-central
 manager: eliotgra
 ---
 
-# Building healthcare solutions with Azure IoT Central 
-
-
+# What are the IoT Central healthcare solutions?
 
 Learn to build healthcare solutions with Azure IoT Central using application templates.
 

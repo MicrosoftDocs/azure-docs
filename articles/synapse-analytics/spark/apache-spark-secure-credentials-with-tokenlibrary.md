@@ -21,7 +21,7 @@ Synapse uses Azure Active Directory (AAD) passthrough by default for authenticat
 
 When retrieving secrets from Azure Key Vault, we recommend creating a linked service to your Azure Key Vault.  Ensure that the Synapse workspace managed service identity (MSI) has Secret Get privileges on your Azure Key Vault.  Synapse will authenticate to Azure Key Vault using the Synapse workspace managed service identity. If you connect directly to Azure Key Vault without a linked service, you will authenticate using your user Azure Active Directory credential.
 
-For more information, see [linked services](../../data-factory/concepts-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+For more information, see [linked services](../../data-factory/concepts-linked-services.md?context=/azure/synapse-analytics/context/context).
 
 ## Usage
 
@@ -135,7 +135,7 @@ display(df.limit(10))
 %%pyspark
 # Python code
 spark.conf.set("spark.storage.synapse.linkedServiceName", "<lINKED SERVICE NAME>")
-spark.conf.set("fs.azure.sas.token.provider.type", "com.microsoft.azure.synapse.tokenlibrary.LinkedServiceBasedTokenProvider")
+spark.conf.set("fs.azure.account.oauth.provider.type", "com.microsoft.azure.synapse.tokenlibrary.LinkedServiceBasedTokenProvider")
 
 df = spark.read.csv('abfss://<CONTAINER>@<ACCOUNT>.dfs.core.windows.net/<DIRECTORY PATH>')
 
@@ -271,7 +271,7 @@ Console.WriteLine(connectionString);
 
 The getConnectionStringAsMap is a helper function available in Scala and Python to parse specific values from a _key=value_ pair in the connection string such as
 
-_`DefaultEndpointsProtocol=https;AccountName=\<ACCOUNT NAME>;AccountKey=\<ACCOUNT KEY>`_
+_`DefaultEndpointsProtocol=https;AccountName=<ACCOUNT NAME>;AccountKey=<ACCOUNT KEY>`_
 
 use the **getConnectionStringAsMap** function and pass the key to return the value.  In the above connection string example, 
 

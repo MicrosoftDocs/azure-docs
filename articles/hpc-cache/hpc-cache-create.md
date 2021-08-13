@@ -4,8 +4,9 @@ description: How to create an Azure HPC Cache instance
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/30/2020
-ms.author: v-erkel
+ms.date: 07/15/2021
+ms.author: v-erkel 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create an Azure HPC Cache
@@ -22,7 +23,7 @@ Click the image below to watch a [video demonstration](https://azure.microsoft.c
 
 ## Define basic details
 
-![screenshot of project details page in Azure portal](media/hpc-cache-create-basics.png)
+![Screenshot of project details page in Azure portal.](media/hpc-cache-create-basics.png)
 
 In **Project Details**, select the subscription and resource group that will host the cache.
 
@@ -33,46 +34,92 @@ In **Service Details**, set the cache name and these other attributes:
 * Subnet - Choose or create a subnet with at least 64 IP addresses (/24). This subnet must be used only for this Azure HPC Cache instance.
 
 ## Set cache capacity
-<!-- referenced from GUI - update aka.ms link if you change this header text -->
+<!-- referenced from GUI - update aka.ms/hpc-cache-iops link if you change this header text -->
 
-On the **Cache** page, you must set the capacity of your cache. The values set here determine how much data your cache can hold and how quickly it can service client requests.
+On the **Cache** page, you must set the capacity of your cache. The values set here determine how quickly your cache can service client requests and how much data it can hold.
 
-Capacity also affects the cache's cost.
+Capacity also affects the cache's cost, and how many storage targets it can support.
 
-Choose the capacity by setting these two values:
+Cache capacity is a combination of two values:
 
 * The maximum data transfer rate for the cache (throughput), in GB/second
 * The amount of storage allocated for cached data, in TB
 
-Choose one of the available throughput values and cache storage sizes.
+![Screenshot of cache sizing page in the Azure portal.](media/hpc-cache-create-capacity.png)
 
-Keep in mind that the actual data transfer rate depends on workload, network speeds, and the type of storage targets. The values you choose set the maximum throughput for the entire cache system, but some of that is used for overhead tasks. For example, if a client requests a file that isn't already stored in the cache, or if the file is marked as stale, your cache uses some of its throughput to fetch it from back-end storage.
+### Understand throughput and cache size
 
-Azure HPC Cache manages which files are cached and preloaded to maximize cache hit rates. Cache contents are continuously assessed, and files are moved to long-term storage when they're less frequently accessed. Choose a cache storage size that can comfortably hold the active set of working files, plus additional space for metadata and other overhead.
+Several factors can affect your HPC Cache's efficiency, but choosing an appropriate throughput value and cache storage size is one of the most important.
 
-![screenshot of cache sizing page](media/hpc-cache-create-capacity.png)
+When you choose a throughput value, keep in mind that the actual data transfer rate depends on workload, network speeds, and the type of storage targets.
+
+The values you choose set the maximum throughput for the entire cache system, but some of that is used for overhead tasks. For example, if a client requests a file that isn't already stored in the cache, or if the file is marked as stale, your cache uses some of its throughput to fetch it from back-end storage.
+
+Azure HPC Cache manages which files are cached and pre-loaded to maximize cache hit rates. Cache contents are continuously assessed, and files are moved to long-term storage when they're less frequently accessed.
+
+Choose a cache storage size that can comfortably hold the active set of working files, plus additional space for metadata and other overhead.
+
+Throughput and cache size also affect how many storage targets are supported for a particular cache. If you want to use more than 10 storage targets with your cache, you must choose the highest available cache storage size value available for your throughput size, or choose one of the high-throughput read-only configurations. Learn more in [Add storage targets](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets).
+
+If you need help sizing your cache correctly, contact Microsoft Service and Support.
+
+### Choose the cache type for your needs
+
+When you choose your cache capacity, you might notice that some throughput values have fixed cache sizes, and others let you select from multiple cache size options. This is because there are two different styles of cache infrastructure:
+
+* Standard caches - listed under **Read-write caching** in the throughput menu
+
+  With standard caches, you can choose from several cache size values. These caches can be configured for read-only or for read and write caching.
+
+* High-throughput caches - listed under **Read-only caching** in the throughput menu
+
+  The high-throughput configurations have set cache sizes because they're preconfigured with NVME disks. They're designed to optimize file read access only.
+
+![Screenshot of maximum throughput menu in the portal. There are several size options under the heading "Read-write caching" and several under the heading "Read-only".](media/rw-ro-cache-sizing.png)
+
+This table explains some important differences between the two options.
+
+| Attribute | Standard cache | High-throughput cache |
+|--|--|--|
+| Throughput menu category |"Read-write caching"| "Read-only caching"|
+| Throughput sizes | 2, 4, or 8 GB/sec | 4.5, 9, or 16 GB/sec |
+| Cache sizes | 3, 6, or 12 TB for 2 GB/sec<br/> 6, 12, or 24 TB for 4 GB/sec<br/> 12, 24, or 48 TB for 8 GB/sec| 21 TB for 4.5 GB/sec <br/> 42 TB for 9 GB/sec <br/> 84 TB for 16 GB/sec |
+| Maximum number of storage targets | [10 or 20](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets) depending on cache size selection | 20 |
+| Compatible storage target types | Azure blob, on-premises NFS storage, NFS-enabled blob | on-premises NFS storage <br/>NFS-enabled blob storage is in preview for this combination |
+| Caching styles | Read caching or read-write caching | Read caching only |
+| Cache can be stopped to save cost when not needed | Yes | No |
+
+Learn more about these options:
+
+* [Maximum number of storage targets](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets)
+* [Read and write caching modes](cache-usage-models.md#basic-file-caching-concepts)
 
 ## Enable Azure Key Vault encryption (optional)
-
-If your cache is in a region that supports customer-managed encryption keys, the **Disk encryption keys** page appears between the **Cache** and **Tags** tabs. Read [Regional availability](hpc-cache-overview.md#region-availability) to learn more about region support.
 
 If you want to manage the encryption keys used for your cache storage, supply your Azure Key Vault information on the **Disk encryption keys** page. The key vault must be in the same region and in the same subscription as the cache.
 
 You can skip this section if you do not need customer-managed keys. Azure encrypts data with Microsoft-managed keys by default. Read [Azure storage encryption](../storage/common/storage-service-encryption.md) to learn more.
 
 > [!NOTE]
->
-> * You cannot change between Microsoft-managed keys and customer-managed keys after creating the cache.
-> * After the cache is created, you must authorize it to access the key vault. Click the **Enable encryption** button in the cache's **Overview** page to turn on encryption. Take this step within 90 minutes of creating the cache.
-> * Cache disks are created after this authorization. This means that the initial cache creation time is short, but the cache will not be ready to use for ten minutes or more after you authorize access.
+> You cannot change between Microsoft-managed keys and customer-managed keys after creating the cache.
 
 For a complete explanation of the customer-managed key encryption process, read [Use customer-managed encryption keys for Azure HPC Cache](customer-keys.md).
 
-![screenshot of encryption keys page with "customer managed" selected and key vault fields showing](media/create-encryption.png)
+![Screenshot of encryption keys page with "Customer managed" selected and the "Customer key settings" and "Managed identities" configuration forms showing.](media/create-encryption.png)
 
 Select **Customer managed** to choose customer-managed key encryption. The key vault specification fields appear. Select the Azure Key Vault to use, then select the key and version to use for this cache. The key must be a 2048-bit RSA key. You can create a new key vault, key, or key version from this page.
 
-After you create the cache, you must authorize it to use the key vault service. Read [Authorize Azure Key Vault encryption from the cache](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) for details.
+Check the **Always use current key version** box if you want to use [automatic key rotation](../virtual-machines/disk-encryption.md#automatic-key-rotation-of-customer-managed-keys-preview).
+
+If you want to use a specific managed identity for this cache, configure it in the **Managed identities** section. Read [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md) to learn more.
+
+> [!NOTE]
+> You cannot change the assigned identity after you create the cache.
+
+If you use a system-assigned managed identity or a user-assigned identity that doesn't already have access to your key vault, there is an extra step you must do after you create the cache. This manual step authorizes the cache's managed identity to use the key vault.
+
+* Read [Choose a managed identity option for the cache](customer-keys.md#choose-a-managed-identity-option-for-the-cache) to understand the differences in the managed identity settings.
+* Read [Authorize Azure Key Vault encryption from the cache](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache-if-needed) to learn about the manual step.
 
 ## Add resource tags (optional)
 
@@ -91,7 +138,7 @@ When creation finishes, a notification appears with a link to the new Azure HPC 
 ![screenshot of Azure HPC Cache instance in Azure portal](media/hpc-cache-new-overview.png)
 
 > [!NOTE]
-> If your cache uses customer-managed encryption keys, the cache might appear in the resources list before the deployment status changes to complete. As soon as the cache's status is **Waiting for key** you can [authorize it](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) to use the key vault.
+> If your cache uses customer-managed encryption keys and requires a manual authorization step after creation, the cache might appear in the resources list before its deployment status changes to complete. As soon as the cache's status is **Waiting for key** you can [authorize it](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache-if-needed) to use the key vault.
 
 ## [Azure CLI](#tab/azure-cli)
 
@@ -102,7 +149,7 @@ When creation finishes, a notification appears with a link to the new Azure HPC 
 > [!NOTE]
 > The Azure CLI currently does not support creating a cache with customer-managed encryption keys. Use the Azure portal.
 
-Use the [az hpc-cache create](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-create) command to create a new Azure HPC Cache.
+Use the [az hpc-cache create](/cli/azure/hpc-cache#az_hpc_cache_create) command to create a new Azure HPC Cache.
 
 Supply these values:
 
@@ -111,8 +158,7 @@ Supply these values:
 * Azure region
 * Cache subnet, in this format:
 
-  ``--subnet "/subscriptions/<subscription_id>/resourceGroups/<cache_resource_group>/providers/Microsoft.Network/virtualNetworks/<virtual_network_name>/sub
-nets/<cache_subnet_name>"``
+  ``--subnet "/subscriptions/<subscription_id>/resourceGroups/<cache_resource_group>/providers/Microsoft.Network/virtualNetworks/<virtual_network_name>/subnets/<cache_subnet_name>"``
 
   The cache subnet needs at least 64 IP addresses (/24), and it can't house any other resources.
 
@@ -121,7 +167,7 @@ nets/<cache_subnet_name>"``
   * The cache size (in GB)
   * The SKU of the virtual machines used in the cache infrastructure
 
-  [az hpc-cache skus list](/cli/azure/ext/hpc-cache/hpc-cache/skus) shows the available SKUs and the valid cache size options for each one. Cache size options range from 3 TB to 48 TB, but only some values are supported.
+  [az hpc-cache skus list](/cli/azure/hpc-cache/skus) shows the available SKUs and the valid cache size options for each one. Cache size options range from 3 TB to 48 TB, but only some values are supported.
 
   This chart shows which cache size and SKU combinations are valid at the time this document is being prepared (July 2020).
 
@@ -132,6 +178,8 @@ nets/<cache_subnet_name>"``
   | 12288 GB   | yes         | yes         | yes         |
   | 24576 GB   | no          | yes         | yes         |
   | 49152 GB   | no          | no          | yes         |
+
+  If you want to use more than 10 storage targets with your cache, choose the highest available cache size value for your SKU. These configurations support up to 20 storage targets.
 
   Read the **Set cache capacity** section in the portal instructions tab for important information about pricing, throughput, and how to size your cache appropriately for your workflow.
 
@@ -227,8 +275,7 @@ Provide these values:
 * Azure region
 * Cache subnet, in this format:
 
-  `-SubnetUri "/subscriptions/<subscription_id>/resourceGroups/<cache_resource_group>/providers/Microsoft.Network/virtualNetworks/<virtual_network_name>/sub
-nets/<cache_subnet_name>"`
+  `-SubnetUri "/subscriptions/<subscription_id>/resourceGroups/<cache_resource_group>/providers/Microsoft.Network/virtualNetworks/<virtual_network_name>/subnets/<cache_subnet_name>"`
 
   The cache subnet needs at least 64 IP addresses (/24), and it can't house any other resources.
 
@@ -302,4 +349,4 @@ The message includes some useful information, including these items:
 After your cache appears in the **Resources** list, you can move to the next step.
 
 * [Define storage targets](hpc-cache-add-storage.md) to give your cache access to your data sources.
-* If you use customer-managed encryption keys, you need to [authorize Azure Key Vault encryption](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) from the cache's overview page to complete your cache setup. You must do this step before you can add storage. Read [Use customer-managed encryption keys](customer-keys.md) for details.
+* If you use customer-managed encryption keys and need to [authorize Azure Key Vault encryption](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache-if-needed) from the cache's overview page to complete your cache setup, follow the guidance in [Use customer-managed encryption keys](customer-keys.md). You must do this step before you can add storage.

@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: article
-ms.date: 06/16/2020
+ms.date: 07/13/2021
 
 ms.author: mimart
 author: msmimart
@@ -24,7 +24,9 @@ This article gives an example of how to integrate with an approval system. In th
 - Trigger a manual review. If the request is approved, the approval system uses Microsoft Graph to provision the user account. The approval system can also notify the user that their account has been created.
 
 > [!IMPORTANT]
->**Starting January 4, 2021**, Google is [deprecating WebView sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you’re using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](google-federation.md#deprecation-of-webview-sign-in-support).
+>
+> - **Starting July 12, 2021**,  if Azure AD B2B customers set up new Google integrations for use with self-service sign-up for their custom or line-of-business applications, authentication with Google identities won’t work until authentications are moved to system web-views. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
+> - **Starting September 30, 2021**, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) or Azure AD B2B for [external user invitations](google-federation.md) or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
 
 ## Register an application for your approval system
 
@@ -77,10 +79,10 @@ Now you'll add the API connectors to a self-service sign-up user flow with these
 1. Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD administrator.
 2. Under **Azure services**, select **Azure Active Directory**.
 3. In the left menu, select **External Identities**.
-4. Select **User flows (Preview)**, and then select the user flow you want to enable the API connector for.
+4. Select **User flows**, and then select the user flow you want to enable the API connector for.
 5. Select **API connectors**, and then select the API endpoints you want to invoke at the following steps in the user flow:
 
-   - **After signing in with an identity provider**: Select your approval status API connector, for example _Check approval status_.
+   - **After federating with an identity provider during sign-up**: Select your approval status API connector, for example _Check approval status_.
    - **Before creating the user**: Select your approval request API connector, for example _Request approval_.
 
    ![Add APIs to the user flow](./media/self-service-sign-up-add-approvals/api-connectors-user-flow-api.png)
@@ -101,7 +103,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [ //Sent for Google, Facebook, and Email One Time Passcode identity providers 
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -152,7 +154,6 @@ Content-type: application/json
     "version": "1.0.0",
     "action": "ShowBlockPage",
     "userMessage": "Your access request is already processing. You'll be notified when your request has been approved.",
-    "code": "CONTOSO-APPROVAL-PENDING"
 }
 ```
 
@@ -164,7 +165,6 @@ Content-type: application/json
     "version": "1.0.0",
     "action": "ShowBlockPage",
     "userMessage": "Your sign up request has been denied. Please contact an administrator if you believe this is an error",
-    "code": "CONTOSO-APPROVAL-DENIED"
 }
 ```
 
@@ -178,7 +178,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [ // Sent for Google, Facebook, and Email One Time Passcode identity providers 
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -240,7 +240,6 @@ Content-type: application/json
     "version": "1.0.0",
     "action": "ShowBlockPage",
     "userMessage": "Your account is now waiting for approval. You'll be notified when your request has been approved.",
-    "code": "CONTOSO-APPROVAL-REQUESTED"
 }
 ```
 
@@ -252,7 +251,6 @@ Content-type: application/json
     "version": "1.0.0",
     "action": "ShowBlockPage",
     "userMessage": "Your sign up request has been denied. Please contact an administrator if you believe this is an error",
-    "code": "CONTOSO-APPROVAL-AUTO-DENIED"
 }
 ```
 
@@ -264,12 +262,12 @@ The `userMessage` in the response is displayed to the user, for example:
 
 After obtaining manual approval, the custom approval system creates a [user](/graph/azuread-users-concept-overview) account by using [Microsoft Graph](/graph/use-the-api). The way your approval system provisions the user account depends on the identity provider that was used by the user.
 
-### For a federated Google or Facebook user
+### For a federated Google or Facebook user and email one-time passcode
 
 > [!IMPORTANT]
-> The approval system should explicitly check that `identities`, `identities[0]` and `identities[0].issuer` are present and that `identities[0].issuer` equals 'facebook' or 'google' to use this method.
+> The approval system should explicitly check that `identities`, `identities[0]` and `identities[0].issuer` are present and that `identities[0].issuer` equals 'facebook', 'google' or 'mail' to use this method.
 
-If your user signed in with a Google or Facebook account, you can use the [User creation API](/graph/api/user-post-users?tabs=http).
+If your user signed in with a Google or Facebook account or email one-time passcode, you can use the [User creation API](/graph/api/user-post-users?tabs=http).
 
 1. The approval system uses receives the HTTP request from the user flow.
 
@@ -327,9 +325,9 @@ Content-type: application/json
 | \<otherBuiltInAttribute>                            | No       | Other built-in attributes like `displayName`, `city`, and others. Parameter names are the same as the parameters sent by the API connector.                            |
 | \<extension\_\{extensions-app-id}\_CustomAttribute> | No       | Custom attributes about the user. Parameter names are the same as the parameters sent by the API connector.                                                            |
 
-### For a federated Azure Active Directory user
+### For a federated Azure Active Directory user or Microsoft account user
 
-If a user signs in with a federated Azure Active Directory account, you must use the [invitation API](/graph/api/invitation-post) to create the user and then optionally the [user update API](/graph/api/user-update) to assign more attributes to the user.
+If a user signs in with a federated Azure Active Directory account or a Microsoft account, you must use the [invitation API](/graph/api/invitation-post) to create the user and then optionally the [user update API](/graph/api/user-update) to assign more attributes to the user.
 
 1. The approval system receives the HTTP request from the user flow.
 
@@ -353,8 +351,8 @@ POST https://graph.microsoft.com/v1.0/invitations
 Content-type: application/json
 
 {
-    "invitedUserEmailAddress":"johnsmith@fabrikam.onmicrosoft.com",
-    "inviteRedirectUrl" : "https://myapp.com"
+    "invitedUserEmailAddress": "johnsmith@fabrikam.onmicrosoft.com",
+    "inviteRedirectUrl" : "https://myapp.com"
 }
 ```
 
@@ -366,9 +364,9 @@ Content-type: application/json
 
 {
     ...
-    "invitedUser": {
-        "id": "<generated-user-guid>"
-    }
+    "invitedUser": {
+        "id": "<generated-user-guid>"
+    }
 }
 ```
 

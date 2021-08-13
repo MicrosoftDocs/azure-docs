@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Logic Apps?
+  - name: About Azure Logic Apps
     href: logic-apps-overview.md
 - name: Quickstarts
   expanded: true
@@ -18,6 +18,8 @@
     href: quickstart-create-deploy-azure-resource-manager-template.md
   - name: Create and manage logic apps - Azure CLI
     href: quickstart-logic-apps-azure-cli.md
+  - name: Create and manage logic apps - Azure PowerShell
+    href: quickstart-logic-apps-azure-powershell.md
 - name: Tutorials
   items:
   - name: Create schedule-based workflows
@@ -36,9 +38,15 @@
     href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Logic
 - name: Concepts
   items:
-  - name: Connectors for Logic Apps
-    href: ../connectors/apis-list.md
-  - name: Schedule recurring workflows
+  - name: Connectors and built-in operations
+    items:
+    - name: Connectors overview
+      href: ../connectors/apis-list.md
+    - name: Managed connectors
+      href: ../connectors/managed.md
+    - name: Built-in operations
+      href: ../connectors/built-in.md
+  - name: Scheduled recurring workflows
     href: concepts-schedule-automated-recurring-tasks-workflows.md
   - name: Serverless with Azure
     href: logic-apps-serverless-overview.md
@@ -54,9 +62,37 @@
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/logic-apps-security-baseline?toc=/azure/logic-apps/toc.json
 - name: How-to guides
   items:
+  - name: Single-tenant Azure Logic Apps
+    items:
+    - name: Single-tenant overview
+      href: single-tenant-overview-compare.md
+    - name: About the workflow designer (single-tenant)
+      href: designer-overview.md
+    - name: Create single-tenant workflows - Portal
+      href: create-single-tenant-workflows-azure-portal.md
+    - name: Create single-tenant workflows - Visual Studio Code
+      href: create-single-tenant-workflows-visual-studio-code.md
+    - name: Edit host and app settings for logic apps in single-tenant
+      href: edit-app-settings-host-settings.md
+    - name: Create parameters for single-tenant workflows
+      href: parameterize-workflow-app.md
+    - name: DevOps deployment for single-tenant
+      href: devops-deployment-single-tenant-azure-logic-apps.md
+    - name: Set up DevOps deployment for single-tenant
+      href: set-up-devops-deployment-single-tenant-azure-logic-apps.md
+    - name: Secure traffic between single-tenant workflows and virtual networks
+      href: secure-single-tenant-workflow-virtual-network-private-endpoint.md
+    - name: Estimate storage costs for single-tenant workflows
+      href: estimate-storage-costs.md
+  - name: Azure Arc enabled Logic Apps
+    items:
+    - name: About Azure Arc enabled Logic Apps
+      href: azure-arc-enabled-logic-apps-overview.md
+    - name: Create and deploy Arc enabled logic apps
+      href: azure-arc-enabled-logic-apps-create-deploy-workflows.md
   - name: Develop
     items:
     - name: Create from prebuilt templates
@@ -67,14 +103,6 @@
       href: logic-apps-move-from-mabs.md
     - name: Export flows from Power Automate and deploy to Azure Logic Apps
       href: export-from-microsoft-flow-logic-app-template.md
-    - name: Azure Logic Apps Preview
-      items:
-       - name: Overview for Azure Logic Apps Preview
-         href: logic-apps-overview-preview.md
-       - name: Create stateful and stateless workflows - Azure portal
-         href: create-stateful-stateless-workflows-azure-portal.md
-       - name: Create stateful and stateless workflows - Visual Studio Code
-         href: create-stateful-stateless-workflows-visual-studio-code.md
     - name: Call logic apps from Power Automate and Power Apps
       href: call-from-power-automate-power-apps.md
     - name: Control workflow execution
@@ -129,10 +157,12 @@
         href: logic-apps-custom-api-authentication.md
       - name: Deploy and call custom APIs
         href: logic-apps-custom-api-host-deploy-call.md
+    - name: Support non-UTF-8 character encoding in logic apps
+      href: support-non-unicode-character-encoding.md
     - name: Troubleshoot errors
       href: logic-apps-diagnosing-failures.md
   - name: Access Azure virtual networks
-    items: 
+    items:
     - name: Create integration service environment - Azure portal
       href: connect-virtual-network-vnet-isolated-environment.md
     - name: Create integration service environment - REST API
@@ -144,84 +174,103 @@
     - name: Set up customer-managed encryption keys for integration service environments
       href: customer-managed-keys-integration-service-environment.md
   - name: Access on-premises data
-    items: 
+    items:
     - name: Install data gateway
       href: logic-apps-gateway-install.md
     - name: Connect to on-premises data
       href: logic-apps-gateway-connection.md
   - name: Develop for B2B scenarios
-    items: 
-    - name: Create integration account
-      href: logic-apps-enterprise-integration-create-integration-account.md
-      displayName: Azure CLI, az logic integration-account create, integration-account
-    - name: Trading partners
-      href: logic-apps-enterprise-integration-partners.md
-    - name: Agreements
-      href: logic-apps-enterprise-integration-agreements.md
-    - name: Schemas for XML validation
-      href: logic-apps-enterprise-integration-schemas.md
-    - name: Maps for XML transform
-      href: logic-apps-enterprise-integration-maps.md
-    - name: Certificates
-      href: logic-apps-enterprise-integration-certificates.md
-    - name: Artifact metadata
-      href: logic-apps-enterprise-integration-metadata.md
+    items:
+    - name: Integration account and artifacts
+      items:
+      - name: Create integration account
+        href: logic-apps-enterprise-integration-create-integration-account.md
+      - name: Trading partners
+        href: logic-apps-enterprise-integration-partners.md
+      - name: Agreements
+        href: logic-apps-enterprise-integration-agreements.md
+      - name: Schemas for XML validation
+        href: logic-apps-enterprise-integration-schemas.md
+      - name: Maps for XML transform
+        href: logic-apps-enterprise-integration-maps.md
+      - name: Certificates
+        href: logic-apps-enterprise-integration-certificates.md
+      - name: Artifact metadata
+        href: logic-apps-enterprise-integration-metadata.md
     - name: Receive and send B2B messages
       href: logic-apps-enterprise-integration-b2b.md
-    - name: Exchange AS2 messages
-      href: logic-apps-enterprise-integration-as2.md
-    - name: AS2 message settings
-      href: logic-apps-enterprise-integration-as2-message-settings.md
-    - name: Exchange EDIFACT messages
-      href: logic-apps-enterprise-integration-edifact.md
-      items: 
+    - name: AS2 messaging
+      items:
+      - name: Exchange AS2 messages
+        href: logic-apps-enterprise-integration-as2.md
+      - name: AS2 message settings
+        href: logic-apps-enterprise-integration-as2-message-settings.md
+      - name: AS2 MDN acknowledgments
+        href: logic-apps-enterprise-integration-as2-mdn-acknowledgment.md
+    - name: EDIFACT messaging
+      items:
+      - name: Exchange EDIFACT messages
+        href: logic-apps-enterprise-integration-edifact.md
       - name: EDIFACT encoding
         href: logic-apps-enterprise-integration-edifact-encode.md
       - name: EDIFACT decoding
         href: logic-apps-enterprise-integration-edifact-decode.md
       - name: Handle EDIFACT files with UNH2.5 segment
         href: logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md
+      - name: EDIFACT CONTRL acknowledgments and error codes
+        href: logic-apps-enterprise-integration-edifact-contrl-acknowledgment.md
+    - name: RosettaNet messaging
+      items:
       - name: Exchange RosettaNet messages
         href: logic-apps-enterprise-integration-rosettanet.md
-    - name: Exchange X12 messages
-      href: logic-apps-enterprise-integration-x12.md
-      items: 
+    - name: X12 messaging
+      items:
+      - name: Exchange X12 messages
+        href: logic-apps-enterprise-integration-x12.md
       - name: X12 encoding
         href: logic-apps-enterprise-integration-x12-encode.md
       - name: X12 decoding
         href: logic-apps-enterprise-integration-x12-decode.md
+      - name: X12 TA1 acknowledgment
+        href: logic-apps-enterprise-integration-x12-ta1-acknowledgment.md
+      - name: X12 997 acknowledgment
+        href: logic-apps-enterprise-integration-x12-997-acknowledgment.md
     - name: Batch and send EDI messages
       href: logic-apps-scenario-edi-send-batch-messages.md
     - name: Process flat files
       href: logic-apps-enterprise-integration-flatfile.md
-    - name: Transform XML
-      href: logic-apps-enterprise-integration-transform.md
-    - name: Process XML
-      href: logic-apps-enterprise-integration-xml.md
-    - name: Validate XML
-      href: logic-apps-enterprise-integration-xml-validation.md
-    - name: Transform JSON
-      href: logic-apps-enterprise-integration-liquid-transform.md
+    - name: XML and JSON transforms
+      items:
+      - name: Transform XML
+        href: logic-apps-enterprise-integration-transform.md
+      - name: Process XML
+        href: logic-apps-enterprise-integration-xml.md
+      - name: Validate XML
+        href: logic-apps-enterprise-integration-xml-validation.md
+      - name: Transform JSON
+        href: logic-apps-enterprise-integration-liquid-transform.md
     - name: Troubleshoot B2B errors
       href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
     - name: Build a disaster recovery plan
       href: logic-apps-enterprise-integration-b2b-business-continuity.md
   - name: Connectors - In-depth topics
-    items: 
+    items:
     - name: AS2
       href: logic-apps-enterprise-integration-as2.md
     - name: Azure Blob Storage
       href: ../connectors/connectors-create-api-azureblobstorage.md
     - name: Azure Container Instances
       href: ../connectors/connectors-create-api-container-instances.md
+    - name: Azure Event Grid
+      href: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md
     - name: Azure Event Hubs
-      href: ../connectors/connectors-create-api-azure-event-hubs.md      
+      href: ../connectors/connectors-create-api-azure-event-hubs.md
     - name: Azure Functions
       href: logic-apps-azure-functions.md
     - name: Azure Logic Apps
       href: logic-apps-http-endpoint.md
     - name: Azure Service Bus
-      href: ../connectors/connectors-create-api-servicebus.md        
+      href: ../connectors/connectors-create-api-servicebus.md
     - name: Azure SQL Database
       href: ../connectors/connectors-create-api-sqlazure.md
     - name: Bing Search
@@ -236,8 +285,6 @@
       href: ../connectors/connectors-create-api-crmonline.md
     - name: EDIFACT
       href: logic-apps-enterprise-integration-edifact.md
-    - name: Excel Online for Business or OneDrive
-      href: ../connectors/connectors-create-api-excel.md
     - name: File system
       href: logic-apps-using-file-connector.md
     - name: Flat file
@@ -289,9 +336,9 @@
     - name: SendGrid
       href: ../connectors/connectors-create-api-sendgrid.md
     - name: SFTP
-      href: ../connectors/connectors-create-api-sftp.md  
+      href: ../connectors/connectors-create-api-sftp.md
     - name: SFTP - SSH
-      href: ../connectors/connectors-sftp-ssh.md  
+      href: ../connectors/connectors-sftp-ssh.md
     - name: SharePoint
       href: ../connectors/connectors-create-api-sharepoint.md
     - name: Slack
@@ -306,8 +353,6 @@
       href: logic-apps-enterprise-integration-transform.md
     - name: Twilio
       href: ../connectors/connectors-create-api-twilio.md
-    - name: Wunderlist
-      href: ../connectors/connectors-create-api-wunderlist.md
     - name: X12
       href: logic-apps-enterprise-integration-x12.md
     - name: XML Validation
@@ -321,7 +366,7 @@
     - name: Block connections in logic apps
       href: block-connections-connectors.md
   - name: Manage
-    items: 
+    items:
     - name: Manage logic apps - Azure portal
       href: manage-logic-apps-with-azure-portal.md
     - name: Manage logic apps - Visual Studio
@@ -330,6 +375,8 @@
       href: logic-apps-enterprise-integration-create-integration-account.md
     - name: Manage integration service environments
       href: ise-manage-integration-service-environment.md
+    - name: Plan and manage costs
+      href: plan-manage-costs.md
     - name: Move logic app resources
       href: move-logic-app-resources.md
     - name: Migrate to latest schema
@@ -340,14 +387,14 @@
       href: test-logic-apps-mock-data-static-results.md
   - name: Deploy
     items:
-    - name: Overview - Automate logic app deployment
+    - name: About automated deployment (multi-tenant)
       href: logic-apps-azure-resource-manager-templates-overview.md
     - name: Create logic app templates
       href: logic-apps-create-azure-resource-manager-templates.md
     - name: Deploy logic app templates
-      href: logic-apps-deploy-azure-resource-manager-templates.md        
+      href: logic-apps-deploy-azure-resource-manager-templates.md
   - name: Monitor
-    items: 
+    items:
       - name: Monitor logic apps
         href: monitor-logic-apps.md
       - name: Monitor logic apps with Azure Monitor logs
@@ -360,19 +407,21 @@
         href: create-monitoring-tracking-queries.md
   - name: Examples, scenarios, and walkthroughs
     href: logic-apps-examples-and-scenarios.md
-    items: 
+    items:
       - name: Data operations - code examples
         href: logic-apps-data-operations-code-samples.md
       - name: Monitor social media
         href: logic-apps-scenario-social-serverless.md
-      - name: Build a serverless app - Visual Studio
-        href: logic-apps-serverless-get-started-vs.md        
+      - name: Create a serverless app - Visual Studio
+        href: create-serverless-apps-visual-studio.md
       - name: Add error and exception handling
         href: logic-apps-scenario-error-and-exception-handling.md
       - name: B2B processing
         href: logic-apps-enterprise-integration-b2b.md
 - name: Reference
   items:
+  - name: Billing and pricing models
+    href: logic-apps-pricing.md
   - name: Architecture patterns
     items:
     - name: Basic enterprise integration
@@ -383,10 +432,8 @@
     href: /connectors/
   - name: Service limits and configuration
     href: logic-apps-limits-and-config.md
-  - name: Pricing model & usage metering
-    href: logic-apps-pricing.md
   - name: Azure CLI
-    href: /cli/azure/ext/logic/logic?view=azure-cli-latest
+    href: /cli/azure/logic
   - name: Azure PowerShell
     href: /powershell/module/az.logicapp
   - name: REST API
@@ -395,7 +442,7 @@
     href: /azure/templates/microsoft.logic/allversions
   - name: Workflow Definition Language schema
     href: logic-apps-workflow-definition-language.md
-    items: 
+    items:
       - name: Trigger and action types reference
         href: logic-apps-workflow-actions-triggers.md
       - name: Functions reference
@@ -403,7 +450,7 @@
       - name: GA - Schema history
         href: logic-apps-schema-2016-04-01.md
   - name: Tracking schemas
-    items: 
+    items:
       - name: AS2 tracking schema
         href: logic-apps-track-integration-account-as2-tracking-schemas.md
       - name: X12 tracking schema
@@ -418,10 +465,10 @@
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-logic-apps
   - name: Azure Logic Apps roadmap
-    href: https://aka.ms/logicappsroadmap/  
+    href: https://aka.ms/logicappsroadmap/
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Pricing
+  - name: Pricing for Azure Logic Apps
     href: https://azure.microsoft.com/pricing/details/logic-apps/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/

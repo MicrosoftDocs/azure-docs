@@ -2,7 +2,7 @@
 title: Receive events using Event Processor Host - Azure Event Hubs | Microsoft Docs
 description: This article describes the Event Processor Host in Azure Event Hubs, which simplifies the management of checkpointing, leasing, and reading events ion parallel. 
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 08/04/2021
 ms.custom: devx-track-csharp
 ---
 
@@ -37,7 +37,7 @@ Instead of building your own solution for this, Event Hubs provides this functio
 
 ## IEventProcessor interface
 
-First, consuming applications implement the  [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) interface, which has four methods: [OpenAsync, CloseAsync, ProcessErrorAsync, and ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor?view=azure-dotnet#methods). This interface contains the actual code to consume the events that Event Hubs sends. The following code shows a simple implementation:
+First, consuming applications implement the  [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) interface, which has four methods: [OpenAsync, CloseAsync, ProcessErrorAsync, and ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor#methods). This interface contains the actual code to consume the events that Event Hubs sends. The following code shows a simple implementation:
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor
@@ -79,6 +79,9 @@ Next, instantiate an [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.
 - **consumerGroupName:** Event Hubs uses **$Default** as the name of the default consumer group, but it is a good practice to create a consumer group for your specific aspect of processing.
 - **eventHubConnectionString:** The connection string to the event hub, which can be retrieved from the Azure portal. This connection string should have **Listen** permissions on the event hub.
 - **storageConnectionString:** The storage account used for internal resource management.
+
+> [!IMPORTANT]
+> Don't enable the soft delete feature on the storage account that's used as a checkpoint store. 
 
 Finally, consumers register the [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) instance with the Event Hubs service. Registering an event processor class with an instance of EventProcessorHost starts event processing. Registering instructs the Event Hubs service to expect that the consumer app consumes events from some of its partitions, and to invoke the [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) implementation code whenever it pushes events to consume. 
 
@@ -145,7 +148,7 @@ As explained previously, the tracking table greatly simplifies the autoscale nat
 
 ## Control Event Processor Host options
 
-Additionally, one overload of [RegisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync?view=azure-dotnet#Microsoft_Azure_EventHubs_Processor_EventProcessorHost_RegisterEventProcessorAsync__1_Microsoft_Azure_EventHubs_Processor_EventProcessorOptions_) takes an [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync?view=azure-dotnet#Microsoft_Azure_EventHubs_Processor_EventProcessorHost_RegisterEventProcessorAsync__1_Microsoft_Azure_EventHubs_Processor_EventProcessorOptions_) object as a parameter. Use this parameter to control the behavior of [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) itself. [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions) defines four properties and one event:
+Additionally, one overload of [RegisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync#Microsoft_Azure_EventHubs_Processor_EventProcessorHost_RegisterEventProcessorAsync__1_Microsoft_Azure_EventHubs_Processor_EventProcessorOptions_) takes an [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync#Microsoft_Azure_EventHubs_Processor_EventProcessorHost_RegisterEventProcessorAsync__1_Microsoft_Azure_EventHubs_Processor_EventProcessorOptions_) object as a parameter. Use this parameter to control the behavior of [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) itself. [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions) defines four properties and one event:
 
 - [MaxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize): The maximum size of the collection you want to receive in an invocation of [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync). This size is not the minimum, only the maximum size. If there are fewer messages to be received, **ProcessEventsAsync** executes with as many as were available.
 - [PrefetchCount](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.prefetchcount): A value used by the underlying AMQP channel to determine the upper limit of how many messages the client should receive. This value should be greater than or equal to [MaxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize).
@@ -158,7 +161,7 @@ Additionally, one overload of [RegisterEventProcessorAsync](/dotnet/api/microsof
 Here is how the receive epoch works:
 
 ### With Epoch
-Epoch is a unique identifier (epoch value) that the service uses, to enforce partition/lease ownership. You create an Epoch-based receiver using the [CreateEpochReceiver](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver?view=azure-dotnet) method. This method creates an Epoch-based receiver. The receiver is created for a specific event hub partition from the specified consumer group.
+Epoch is a unique identifier (epoch value) that the service uses, to enforce partition/lease ownership. You create an Epoch-based receiver using the [CreateEpochReceiver](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver) method. This method creates an Epoch-based receiver. The receiver is created for a specific event hub partition from the specified consumer group.
 
 The epoch feature provides users the ability to ensure that there is only one receiver on a consumer group at any point in time, with the following rules:
 
@@ -167,7 +170,7 @@ The epoch feature provides users the ability to ensure that there is only one re
 - If there is a receiver with an epoch value e1 and a new receiver is created with an epoch value e2 where e1 > e2, then creation of e2 with fail with the error: A receiver with epoch e1 already exists.
 
 ### No Epoch
-You create a non-Epoch-based receiver using the [CreateReceiver](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver?view=azure-dotnet) method. 
+You create a non-Epoch-based receiver using the [CreateReceiver](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver) method. 
 
 There are some scenarios in stream processing where users would like to create multiple receivers on a single consumer group. To support such scenarios, we do have ability to create a receiver without epoch and in this case we allow upto 5 concurrent receivers on the consumer group.
 
@@ -194,5 +197,5 @@ Now that you're familiar with the Event Processor Host, see the following articl
     - [JavaScript](event-hubs-node-get-started-send.md)
 * [Event Hubs programming guide](event-hubs-programming-guide.md)
 * [Availability and consistency in Event Hubs](event-hubs-availability-and-consistency.md)
-* [Event Hubs FAQ](event-hubs-faq.md)
+* [Event Hubs FAQ](event-hubs-faq.yml)
 * [Event Hubs samples on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)

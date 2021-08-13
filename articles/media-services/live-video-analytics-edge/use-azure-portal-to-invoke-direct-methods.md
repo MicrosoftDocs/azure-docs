@@ -1,6 +1,6 @@
 ---
-title: How to use Azure portal to invoke direct methods
-description: This article is an overview using the Azure portal to invoke direct methods.
+title: How to use Azure portal to invoke Live Video Analytics direct methods
+description: This article is an overview using the Azure portal to invoke Live Video Analytics direct methods.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -16,7 +16,9 @@ ms.date: 07/24/2020
 ms.author: inhenkel
 ---
 
-# How to use Azure portal to invoke direct methods
+# How to use Azure portal to invoke Live Video Analytics direct methods
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 IoT Hub gives you the ability to invoke [direct methods](../../iot-hub/iot-hub-devguide-direct-methods.md#method-invocation-for-iot-edge-modules) on edge devices from the cloud. The Live Video Analytics on IoT Edge (LVA) module exposes several [direct methods](./direct-methods.md) that can be used to define, deploy, and instantiate different workflows for analyzing live video.
 
@@ -50,7 +52,7 @@ Use the `GraphTopologyList` method call to retrieve a list of all the graph topo
 1. Copy and paste the JSON below in the **Payload** field.
     ```json
     {
-    "@apiVersion":
+    "@apiVersion": "2.0"
     }
     ```
 1. Select the **Invoke Method** button at the top of the page.<br><br>

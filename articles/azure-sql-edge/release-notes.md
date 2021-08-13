@@ -15,6 +15,40 @@ ms.date: 11/24/2020
 
 This article describes what's new and what has changed with every new build of Azure SQL Edge.
 
+## Azure SQL Edge 1.0.4
+
+SQL engine build 15.0.2000.1559
+
+### What's new?
+
+- PREDICT support for ONNX 
+    - Improvements in handling of null data in PREDICT for ONNX
+
+## Azure SQL Edge 1.0.3
+
+SQL engine build 15.0.2000.1557
+
+### Fixes
+
+- Upgrade ONNX runtime to 1.5.3
+- Update to Microsoft.SqlServer.DACFx version 150.5084.2
+- Miscellaneous bug fixes  
+   
+## Azure SQL Edge 1.0.2
+
+SQL engine build 15.0.2000.1557
+
+### Fixes
+
+- T-SQL streaming  
+   - Fix in ownership and permissions for streaming objects
+   - Logging improvements with log rotation and log prefixing
+   - Azure Stream Analytics: Logging improvements, improve error code/ error messages in adapters 
+
+- ONNX
+    - Bug fixes for parallel query scenario and model cleanup failures
+    - Upgraded ONNX runtime to 1.5.1
+
 ## Azure SQL Edge 1.0.1
 
 SQL engine build 15.0.2000.1553
@@ -87,7 +121,7 @@ SQL engine build 15.0.2000.1549
 ## CTP 2.2
 SQL engine build 15.0.2000.1546
 ### What's new?
-- Support for nonroot containers 
+- Support for non root containers 
 - Support for the usage and diagnostic data collection 
 - T-SQL streaming updates:
    - Support for Unicode characters for stream object names

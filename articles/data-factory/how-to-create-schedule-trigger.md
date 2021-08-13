@@ -1,20 +1,19 @@
 ---
-title: Create schedule triggers in Azure Data Factory 
-description: Learn how to create a trigger in Azure Data Factory that runs a pipeline on a schedule.
-services: data-factory
-documentationcenter: ''
+title: Create schedule triggers
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to create a trigger in Azure Data Factory or Azure Synapse Analytics that runs a pipeline on a schedule.
 author: chez-charlie
 ms.author: chez
-manager: jroth
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 10/30/2020
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-azurepowershell, synapse
 ---
 
 # Create a trigger that runs a pipeline on a schedule
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article provides information about the schedule trigger and the steps to create, start, and monitor a schedule trigger. For other types of triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md).
@@ -23,17 +22,24 @@ When creating a schedule trigger, you specify a schedule (start date, recurrence
 
 The following sections provide steps to create a schedule trigger in different ways. 
 
-## Data Factory UI
+## UI Experience
+
 You can create a **schedule trigger** to schedule a pipeline to run periodically (hourly, daily, etc.). 
 
 > [!NOTE]
 > For a complete walkthrough of creating a pipeline and a schedule trigger, which associates the trigger with the pipeline, and runs and monitors the pipeline, see [Quickstart: create a data factory using Data Factory UI](quickstart-create-data-factory-portal.md).
 
-1. Switch to the **Edit** tab, shown with a pencil symbol. 
+1. Switch to the **Edit** tab in Data Factory or the Integrate tab in Azure Synapse. 
 
+    # [Azure Data Factory](#tab/data-factory)
     ![Switch to Edit tab](./media/how-to-create-schedule-trigger/switch-edit-tab.png)
 
-1. Select **Trigger** on the menu, then select **New/Edit**. 
+    # [Azure Synapse](#tab/synapse-analytics)
+    ![Switch to Edit tab](./media/how-to-create-schedule-trigger/switch-edit-tab-synapse.png)
+
+---
+    
+2. Select **Trigger** on the menu, then select **New/Edit**. 
 
     ![New trigger menu](./media/how-to-create-schedule-trigger/new-trigger-menu.png)
 
@@ -51,7 +57,9 @@ You can create a **schedule trigger** to schedule a pipeline to run periodically
         > For time zones that observe daylight saving, trigger time will auto-adjust for the twice a year change. To opt out of the daylight saving change, please select a time zone that does not observe daylight saving, for instance UTC
 
     1. Specify **Recurrence** for the trigger. Select one of the values from the drop-down list (Every minute, Hourly, Daily, Weekly, and Monthly). Enter the multiplier in the text box. For example, if you want the trigger to run once for every 15 minutes, you select **Every Minute**, and enter **15** in the text box. 
-    1. To specify an end date time, select **Specify an End Date**, and specify _Ends On_, then select **OK**. There is a cost associated with each pipeline run. If you are testing, you may want to ensure that the pipeline is triggered only a couple of times. However, ensure that there is enough time for the pipeline to run between the publish time and the end time. The trigger comes into effect only after you publish the solution to Data Factory, not when you save the trigger in the UI.
+    1. In the **Recurrence**, if you choose "Day(s), Week(s) or Month(s)" from the drop-down, you can find "Advanced recurrence options".
+    :::image type="content" source="./media/how-to-create-schedule-trigger/advanced.png" alt-text="Advanced recurrence options of Day(s), Week(s) or Month(s)":::
+    1. To specify an end date time, select **Specify an End Date**, and specify _Ends On_, then select **OK**. There is a cost associated with each pipeline run. If you are testing, you may want to ensure that the pipeline is triggered only a couple of times. However, ensure that there is enough time for the pipeline to run between the publish time and the end time. The trigger comes into effect only after you publish the solution, not when you save the trigger in the UI.
 
         ![Trigger settings](./media/how-to-create-schedule-trigger/trigger-settings-01.png)
 
@@ -65,17 +73,31 @@ You can create a **schedule trigger** to schedule a pipeline to run periodically
 
     ![Trigger settings - Finish button](./media/how-to-create-schedule-trigger/new-trigger-finish.png)
 
-1. Select **Publish all** to publish the changes to Data Factory. Until you publish the changes to Data Factory, the trigger doesn't start triggering the pipeline runs. 
+1. Select **Publish all** to publish the changes. Until you publish the changes, the trigger doesn't start triggering the pipeline runs. 
 
     ![Publish button](./media/how-to-create-schedule-trigger/publish-2.png)
 
 1. Switch to the **Pipeline runs** tab on the left, then select **Refresh** to refresh the list. You will see the pipeline runs triggered by the scheduled trigger. Notice the values in the **Triggered By** column. If you use the **Trigger Now** option, you will see the manual trigger run in the list. 
 
+    # [Azure Data Factory](#tab/data-factory)
+
     ![Monitor triggered runs](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
 
-1. Switch to the **Trigger Runs** \ **Schedule** view. 
+    # [Azure Synapse](#tab/synapse-analytics)
+    ![Monitor triggered runs](./media/how-to-create-schedule-trigger/monitor-triggered-runs-synapse.png)
+    
+---
+
+9. Switch to the **Trigger Runs** \ **Schedule** view. 
+
+    # [Azure Data Factory](#tab/data-factory)
 
     ![Monitor trigger runs](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
+
+    # [Azure Synapse](#tab/synapse-analytics)
+    ![Monitor trigger runs](./media/how-to-create-schedule-trigger/monitor-trigger-runs-synapse.png)
+    
+---
 
 ## Azure PowerShell
 
@@ -88,7 +110,7 @@ This section shows you how to use Azure PowerShell to create, start, and monitor
     > [!IMPORTANT]
     > Before you save the JSON file, set the value of the **startTime** element to the current UTC time. Set the value of the **endTime** element to one hour past the current UTC time.
 
-    ```json   
+    ```json
     {
         "properties": {
             "name": "MyTrigger",
@@ -166,9 +188,8 @@ This section shows you how to use Azure PowerShell to create, start, and monitor
 
     To monitor the trigger runs and pipeline runs in the Azure portal, see [Monitor pipeline runs](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
-
-
 ## .NET SDK
+
 This section shows you how to use the .NET SDK to create, start, and monitor a trigger. To see this sample working, first go through the [Quickstart: Create a data factory by using the .NET SDK](quickstart-create-data-factory-dot-net.md). Then, add the following code to the main method, which creates and starts a schedule trigger that runs every 15 minutes. The trigger is associated with a pipeline named **Adfv2QuickStartPipeline** that you create as part of the Quickstart.
 
 To create and start a schedule trigger that runs every 15 minutes, add the following code to the main method:
@@ -257,8 +278,8 @@ To monitor a trigger run, add the following code before the last `Console.WriteL
 
 To monitor the trigger runs and pipeline runs in the Azure portal, see [Monitor pipeline runs](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
-
 ## Python SDK
+
 This section shows you how to use the Python SDK to create, start, and monitor a trigger. To see this sample working, first go through the [Quickstart: Create a data factory by using the Python SDK](quickstart-create-data-factory-python.md). Then, add the following code block after the "monitor the pipeline run" code block in the Python script. This code creates a schedule trigger that runs every 15 minutes between the specified start and end times. Update the **start_time** variable to the current UTC time, and the **end_time** variable to one hour past the current UTC time.
 
 ```python
@@ -279,10 +300,12 @@ This section shows you how to use the Python SDK to create, start, and monitor a
 To monitor the trigger runs and pipeline runs in the Azure portal, see [Monitor pipeline runs](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
 ## Azure Resource Manager template
+
 You can use an Azure Resource Manager template to create a trigger. For step-by-step instructions, see [Create an Azure data factory by using a Resource Manager template](quickstart-create-data-factory-resource-manager-template.md).  
 
 ## Pass the trigger start time to a pipeline
-Azure Data Factory version 1 supports reading or writing partitioned data by using the system variables: **SliceStart**, **SliceEnd**, **WindowStart**, and **WindowEnd**. In the current version of Azure Data Factory, you can achieve this behavior by using a pipeline parameter. The start time and scheduled time for the trigger are set as the value for the pipeline parameter. In the following example, the scheduled time for the trigger is passed as a value to the pipeline **scheduledRunTime** parameter:
+
+Azure Data Factory version 1 supports reading or writing partitioned data by using the system variables: **SliceStart**, **SliceEnd**, **WindowStart**, and **WindowEnd**. In the current version of Azure Data Factory and Synapse pipelines, you can achieve this behavior by using a pipeline parameter. The start time and scheduled time for the trigger are set as the value for the pipeline parameter. In the following example, the scheduled time for the trigger is passed as a value to the pipeline **scheduledRunTime** parameter:
 
 ```json
 "parameters": {
@@ -291,6 +314,7 @@ Azure Data Factory version 1 supports reading or writing partitioned data by usi
 ```
 
 ## JSON schema
+
 The following JSON definition shows you how to create a schedule trigger with scheduling and recurrence:
 
 ```json
@@ -342,6 +366,7 @@ The following JSON definition shows you how to create a schedule trigger with sc
 
 
 ### Schema overview
+
 The following table provides a high-level overview of the major schema elements that are related to recurrence and scheduling of a trigger:
 
 | JSON property | Description |
@@ -385,7 +410,7 @@ Here are some of time zones supported for Schedule triggers:
 | India Standard Time (IST) | +5:30 | `India Standard Time` | No | `'yyyy-MM-ddTHH:mm:ss'` |
 | China Standard Time | +8 | `China Standard Time` | No | `'yyyy-MM-ddTHH:mm:ss'` |
 
-This list is incomplete. For complete list of time zone options, explore in Data Factory portal [Trigger creation page](#data-factory-ui)
+This list is incomplete. For complete list of time zone options, explore in the portal [Trigger creation page](#ui-experience)
 
 ### startTime property
 The following table shows you how the **startTime** property controls a trigger run:
@@ -404,6 +429,7 @@ The first execution time is the same even if the **startTime** value is `2017-04
 Finally, when the hours or minutes aren’t set in the schedule for a trigger, the hours or minutes of the first execution are used as the defaults.
 
 ### schedule property
+
 On one hand, the use of a schedule can limit the number of trigger executions. For example, if a trigger with a monthly frequency is scheduled to run only on day 31, the trigger runs only in those months that have a 31st day.
 
 Whereas, a schedule can also expand the number of trigger executions. For example, a trigger with a monthly frequency that's scheduled to run on month days 1 and 2, runs on the 1st and 2nd days of the month, rather than once a month.
@@ -411,7 +437,6 @@ Whereas, a schedule can also expand the number of trigger executions. For exampl
 If multiple **schedule** elements are specified, the order of evaluation is from the largest to the smallest schedule setting. The evaluation starts with week number, and then month day, weekday, hour, and finally, minute.
 
 The following table describes the **schedule** elements in detail:
-
 
 | JSON element | Description | Valid values |
 |:--- |:--- |:--- |
@@ -421,8 +446,8 @@ The following table describes the **schedule** elements in detail:
 | **monthlyOccurrences** | Days of the month on which the trigger runs. The value can be specified with a monthly frequency only. | <ul><li>Array of **monthlyOccurrence** objects: `{ "day": day,  "occurrence": occurrence }`.</li><li>The **day** attribute is the day of the week on which the trigger runs. For example, a **monthlyOccurrences** property with a **day** value of `{Sunday}` means every Sunday of the month. The **day** attribute is required.</li><li>The **occurrence** attribute is the occurrence of the specified **day** during the month. For example, a **monthlyOccurrences** property with **day** and **occurrence** values of `{Sunday, -1}` means the last Sunday of the month. The **occurrence** attribute is optional.</li></ul> |
 | **monthDays** | Day of the month on which the trigger runs. The value can be specified with a monthly frequency only. | <ul><li>Any value <= -1 and >= -31</li><li>Any value >= 1 and <= 31</li><li>Array of values</li></ul> |
 
-
 ## Examples of trigger recurrence schedules
+
 This section provides examples of recurrence schedules and focuses on the **schedule** object and its elements.
 
 The examples assume that the **interval** value is 1, and that the **frequency** value is correct according to the schedule definition. For example, you can't have a **frequency** value of "day" and also have a "monthDays" modification in the **schedule** object. Restrictions such as these are mentioned in the table in the previous section.
@@ -456,6 +481,7 @@ The examples assume that the **interval** value is 1, and that the **frequency**
 | `{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}` | Run every 15 minutes on the last Friday of the month. |
 | `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` | Run at 5:15 AM, 5:45 AM, 5:15 PM, and 5:45 PM on the third Wednesday of every month. |
 
-
 ## Next steps
-For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution).
+
+- For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution).
+- Learn how to reference trigger metadata in pipeline, see [Reference Trigger Metadata in Pipeline Runs](how-to-use-trigger-parameterization.md)

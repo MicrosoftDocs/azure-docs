@@ -1,20 +1,25 @@
 ---
-title: Auto scale a cloud service in the portal | Microsoft Docs
-description: Learn how to use the portal to configure auto scale rules for a cloud service web role or worker role in Azure.
-services: cloud-services
-author: tgore03
-ms.service: cloud-services
+title: Auto scale a cloud service (classic) in the portal | Microsoft Docs
+description: Learn how to use the portal to configure auto scale rules for a cloud service (classic) roles in Azure.
 ms.topic: article
-ms.date: 05/18/2017
-ms.author: tagore
+ms.service: cloud-services
+ms.subservice: autoscale
+ms.date: 10/14/2020
+author: hirenshah1
+ms.author: hirshah
+ms.reviewer: mimckitt
+ms.custom: 
 ---
 
-# How to configure auto scaling for a Cloud Service in the portal
+# How to configure auto scaling for a Cloud Service (classic) in the portal
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
 
 Conditions can be set for a cloud service worker role that trigger a scale in or out operation. The conditions for the role can be based on the CPU, disk, or network load of the role. You can also set a condition based on a message queue or the metric of some other Azure resource associated with your subscription.
 
 > [!NOTE]
-> This article focuses on Cloud Service web and worker roles. When you create a virtual machine (classic) directly, it is hosted in a cloud service. You can scale a standard virtual machine by associating it with an [availability set](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic) and manually turn them on or off.
+> This article focuses on Cloud Service (classic). When you create a virtual machine (classic) directly, it is hosted in a cloud service. You can scale a standard virtual machine by associating it with an [availability set](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic) and manually turn them on or off.
 
 ## Considerations
 You should consider the following information before you configure scaling for your application:
@@ -48,7 +53,7 @@ You can configure scale settings for a role with either two modes **manual** or 
 
 Set the **Scale by** option to **schedule and performance rules**.
 
-![Screenshot that shows the schedule and performance rules option.](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
+![image Cloud services scale settings with profile and rule](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
 
 1. An existing profile.
 2. Add a rule for the parent profile.

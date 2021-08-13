@@ -10,6 +10,8 @@ ms.date: 09/21/2020
 
 # Scheduled maintenance in Azure Database for MySQL – Flexible server
 
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
 Azure Database for MySQL - Flexible server performs periodic maintenance to keep your managed database secure, stable, and up-to-date. During maintenance, the server gets new features, updates, and patches.
 
 > [!IMPORTANT]
@@ -34,9 +36,15 @@ When specifying preferences for the maintenance schedule, you can pick a day of 
 >
 > However, in case of a critical emergency update such as a severe vulnerability, the notification window could be shorter than five days. The critical update may be applied to your server even if a successful scheduled maintenance was performed in the last 30 days.
 
-You can update scheduling settings at any time. If there is a maintenance scheduled for your Flexible server and you update scheduling preferences, the current event will proceed as scheduled and the scheduling settings change will become effective upon its successful completion.
+You can update scheduling settings at any time. If there is a maintenance scheduled for your Flexible server and you update scheduling preferences, the current rollout will proceed as scheduled and the scheduling settings change will become effective upon its successful completion for the next scheduled maintenance.
 
-In rare cases, maintenance event can be canceled by the system or may fail to complete successfully. In this case, the system will create a notification about canceled or failed maintenance event respectively. The next attempt to perform maintenance will be scheduled as per current scheduling settings and you will receive notification about it five days in advance.
+You can define system-managed schedule or custom schedule for each flexible server in your Azure subscription.  
+* With custom schedule, you can specify your maintenance window for the server by choosing the day of the week and a one-hour time window.  
+* With system-managed schedule, the system will pick any one-hour window between 11pm and 7am in your server's region time.  
+
+As part of rolling out changes, we apply the updates to the servers configured with system-managed schedule first followed by servers with custom schedule after a minimum gap of 7-days within a given region. If you intend to receive early updates on fleet of development and test environment servers, we recommend you configure system-managed schedule for servers used in development and test environment. This will allow you to receive the latest update first in your Dev/Test environment for testing and evaluation for validation. If you encounter any behavior or breaking changes, you will have time to address them before the same update is rolled out to production servers with custom-managed schedule. The update starts to roll out on custom-schedule flexible servers after 7 days and is applied to your server at the defined maintenance window. At this time, there is no option to defer the update after the notification has been sent. Custom-schedule is recommended for production environments only. 
+
+In rare cases, maintenance event can be canceled by the system or may fail to complete successfully. If the update fails, the update will be reverted, and the previous version of the binaries is restored. In such failed update scenarios, you may still experience restart of the server during the maintenance window. If the update is canceled or failed, the system will create a notification about canceled or failed maintenance event respectively notifying you. The next attempt to perform maintenance will be scheduled as per your current scheduling settings and you will receive notification about it five days in advance. 
 
 ## Next steps
 

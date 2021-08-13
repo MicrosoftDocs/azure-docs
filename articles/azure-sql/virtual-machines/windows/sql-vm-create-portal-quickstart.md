@@ -30,7 +30,7 @@ This quickstart steps through creating a SQL Server virtual machine (VM) in the 
 
   > [!TIP]
   > - This quickstart provides a path for quickly provisioning and connecting to a SQL VM. For more information about other SQL VM provisioning choices, see the [Provisioning guide for SQL Server on Windows VM in the Azure portal](create-sql-vm-portal.md).
-  > - If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.md).
+  > - If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.yml).
 
 ## <a id="subscription"></a> Get an Azure subscription
 
@@ -67,7 +67,7 @@ On the **Basics** tab, provide the following information:
 
    ![Instance details](./media/sql-vm-create-portal-quickstart/basics-instance-details.png)
 
-1. Under **Administrator account**, provide a username, such as _azureuser_ and a password. The password must be at least 12 characters long and meet the [defined complexity requirements](../../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
+1. Under **Administrator account**, provide a username, such as _azureuser_ and a password. The password must be at least 12 characters long and meet the [defined complexity requirements](../../../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
 
    ![Administrator account](./media/sql-vm-create-portal-quickstart/basics-administrator-account.png)
 

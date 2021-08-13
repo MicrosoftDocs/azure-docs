@@ -64,7 +64,7 @@ The template reference is linked from each of the Azure service documentation si
 
 Resource Explorer is embedded in the Azure portal. Before using this method, you need a storage account. If you don't have one, select the following button to create one:
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-storage-account-create%2fazuredeploy.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage%2Fstorage-account-create%2Fazuredeploy.json)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search box, enter **resource explorer**, and then select **Resource Explorer**.
@@ -92,7 +92,7 @@ Resources.azure.com is a public website can be accessed by anyone with an Azure 
 
 To demonstrate how to retrieve schema information by using this tool, you need a storage account. If you don't have one, select the following button to create one:
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-storage-account-create%2fazuredeploy.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage%2Fstorage-account-create%2Fazuredeploy.json)
 
 1. Browse to [resources.azure.com](https://resources.azure.com/). It takes a few moments for the tool to popular the left pane.
 1. Select **subscriptions**.
@@ -111,4 +111,4 @@ To demonstrate how to retrieve schema information by using this tool, you need a
 
 ## Next steps
 
-In this article, you learned how to find template schema information. To learn more about creating Resource Manager templates, see [Understand the structure and syntax of ARM templates](./template-syntax.md).
+In this article, you learned how to find template schema information. To learn more about creating Resource Manager templates, see [Understand the structure and syntax of ARM templates](./syntax.md).

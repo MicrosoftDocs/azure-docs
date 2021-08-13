@@ -8,9 +8,9 @@ ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: troubleshooting
-author: dalechen
-ms.author: ninarn
-ms.reviewer: sstein, vanto
+author: ramakoni1
+ms.author: ramakoni
+ms.reviewer: mathoma, vanto
 ms.date: 01/14/2020
 ---
 
@@ -327,7 +327,7 @@ Enterprise Library 6 (EntLib60) is a framework of .NET classes that helps you im
 Retry logic for handling transient errors is one area in which EntLib60 can assist. For more information, see [4 - Perseverance, secret of all triumphs: Use the Transient Fault Handling Application Block](/previous-versions/msp-n-p/dn440719(v=pandp.60)).
 
 > [!NOTE]
-> The source code for EntLib60 is available for public download from the [Download Center](https://go.microsoft.com/fwlink/p/?LinkID=290898). Microsoft has no plans to make further feature updates or maintenance updates to EntLib.
+> The source code for EntLib60 is available for public download from the [Download Center](https://github.com/MicrosoftArchive/enterprise-library). Microsoft has no plans to make further feature updates or maintenance updates to EntLib.
 
 <a id="entlib60-classes-for-transient-errors-and-retry" name="entlib60-classes-for-transient-errors-and-retry"></a>
 
@@ -451,3 +451,8 @@ public bool IsTransient(Exception ex)
 [step-4-connect-resiliently-to-sql-with-ado-net-a78n]: /sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net
 
 [step-4-connect-resiliently-to-sql-with-php-p42h]: /sql/connect/php/step-4-connect-resiliently-to-sql-with-php
+
+## See also
+
+- [Troubleshooting connectivity issues and other errors with Azure SQL Database and Azure SQL Managed Instance](troubleshoot-common-errors-issues.md)
+- [Troubleshooting transaction log errors with Azure SQL Database and Azure SQL Managed Instance](troubleshoot-transaction-log-errors-issues.md)

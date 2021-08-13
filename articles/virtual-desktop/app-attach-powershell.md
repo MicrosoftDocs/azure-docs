@@ -1,34 +1,27 @@
 ---
-title: Windows Virtual Desktop MSIX app attach preview PowerShell - Azure
-description: How to set up MSIX app attach for Windows Virtual Desktop using PowerShell.
+title: Azure Virtual Desktop MSIX app attach PowerShell - Azure
+description: How to set up MSIX app attach for Azure Virtual Desktop using PowerShell.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/14/2020
-ms.author: helohr
-manager: lizross
+ms.date: 04/13/2021
+ms.author: helohr 
+ms.custom: devx-track-azurepowershell
+manager: femila
 ---
-# Set up MSIX app attach (preview) using PowerShell
+# Set up MSIX app attach using PowerShell
 
-> [!IMPORTANT]
-> MSIX app attach is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-In addition to the Azure portal, you can also set up MSIX app attach (preview) manually with PowerShell. This article will walk you through how to use PowerShell to set up MSIX app attach.
+In addition to the Azure portal, you can also set up MSIX app attach manually with PowerShell. This article will walk you through how to use PowerShell to set up MSIX app attach.
 
 ## Requirements
 
->[!IMPORTANT]
->Before you get started, make sure to fill out and submit [this form](https://aka.ms/enablemsixappattach) to enable MSIX app attach in your subscription. If you don't have an approved request, MSIX app attach won't work. Approval of requests can take up to 24 hours during business days. You'll get an email when your request has been accepted and completed.
-
 Here's what you need to configure MSIX app attach:
 
-- A functioning Windows Virtual Desktop deployment. To learn how to deploy Windows Virtual Desktop (classic), see [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). To learn how to deploy Windows Virtual Desktop with Azure Resource Manager integration, see [Create a host pool with the Azure portal](./create-host-pools-azure-marketplace.md).
-- A Windows Virtual Desktop host pool with at least one active session host.
+- A functioning Azure Virtual Desktop deployment. To learn how to deploy Azure Virtual Desktop (classic), see [Create a tenant in Azure Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). To learn how to deploy Azure Virtual Desktop with Azure Resource Manager integration, see [Create a host pool with the Azure portal](./create-host-pools-azure-marketplace.md).
+- A Azure Virtual Desktop host pool with at least one active session host.
 - A Desktop remote app group.
 - The MSIX packaging tool.
 - An MSIX-packaged application expanded into an MSIX image that's uploaded into a file share.
-- A file share in your Windows Virtual Desktop deployment where the MSIX package will be stored.
+- A file share in your Azure Virtual Desktop deployment where the MSIX package will be stored.
 - The file share where you uploaded the MSIX image must also be accessible to all virtual machines (VMs) in the host pool. Users will need read-only permissions to access the image.
 - Download and install PowerShell Core.
 - Download the public preview Azure PowerShell module and expand it to a local folder.
@@ -236,11 +229,11 @@ Finally, you'll need to publish the app.
 
 ## Next steps
 
-Ask our community questions about this feature at the [Windows Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
+Ask our community questions about this feature at the [Azure Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 
-You can also leave feedback for Windows Virtual Desktop at the [Windows Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
+You can also leave feedback for Azure Virtual Desktop at the [Azure Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
 
 Here are some other articles you might find helpful:
 
 - [MSIX app attach glossary](app-attach-glossary.md)
-- [MSIX app attach FAQ](app-attach-faq.md)
+- [MSIX app attach FAQ](app-attach-faq.yml)

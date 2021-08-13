@@ -9,7 +9,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.author: yuajia
+ms.author: yuajia 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Real-time Monitoring, metrics, and access Logs for Azure CDN
@@ -210,7 +211,7 @@ The Metrics are displayed in charts and accessible via PowerShell, CLI, and API.
 
 Azure CDN from Microsoft measures and sends its metrics in 60-second intervals. The metrics can take up to 3 mins to appear in the portal. 
 
-For more information, see [Azure Monitor metrics](../azure-monitor/platform/data-platform-metrics.md).
+For more information, see [Azure Monitor metrics](../azure-monitor/essentials/data-platform-metrics.md).
 
 **Metrics supported by Azure CDN from Microsoft**
 
@@ -260,7 +261,7 @@ Select **New alert rule** for metrics listed in Metrics section:
 
 :::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Configure alerts for CDN endpoint." border="true":::
 
-Alert will be charged based on Azure Monitor. For more information about alerts, see [Azure Monitor alerts](../azure-monitor/platform/alerts-overview.md).
+Alert will be charged based on Azure Monitor. For more information about alerts, see [Azure Monitor alerts](../azure-monitor/alerts/alerts-overview.md).
 
 ### Additional Metrics
 You can enable additional metrics using Azure Log Analytics and raw logs for an additional cost.
@@ -294,4 +295,4 @@ For more information on Azure CDN and the other Azure services mentioned in this
 
 * Learn more about [Azure Monitor](../azure-monitor/overview.md).
 
-* Configure [Log Analytics in Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md).
+* Configure [Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md).

@@ -1,10 +1,12 @@
 ---
 title: Mapping data flow transformation overview
+titleSuffix: Azure Data Factory & Azure Synapse
 description: An overview of the different transformations available in mapping data flow
-author: dcstwh
-ms.author: weetok
-manager: anandsub
+author: kromerm
+ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 10/27/2020
 ---
@@ -27,6 +29,7 @@ Below is a list of the transformations currently supported in mapping data flow.
 | [Join](data-flow-join.md) | Multiple inputs/outputs |  Combine data from two sources or streams. |
 | [Lookup](data-flow-lookup.md) | Multiple inputs/outputs | Reference data from another source. |
 | [New branch](data-flow-new-branch.md) | Multiple inputs/outputs | Apply multiple sets of operations and transformations against the same data stream. |
+| [Parse](data-flow-new-branch.md) | Formatter | Parse text columns in your data stream that are strings of JSON, delimited text, or XML formatted text. |
 | [Pivot](data-flow-pivot.md) | Schema modifier | An aggregation where one or more grouping columns has its distinct row values transformed into individual columns. |
 | [Rank](data-flow-rank.md) | Schema modifier | Generate an ordered ranking based upon sort conditions |
 | [Select](data-flow-select.md) | Schema modifier | Alias columns and stream names, and drop or reorder columns |
@@ -37,3 +40,4 @@ Below is a list of the transformations currently supported in mapping data flow.
 | [Union](data-flow-union.md) | Multiple inputs/outputs | Combine multiple data streams vertically |
 | [Unpivot](data-flow-unpivot.md) | Schema modifier | Pivot columns into row values |
 | [Window](data-flow-window.md) | Schema modifier |  Define window-based aggregations of columns in your data streams. |
+| [Parse](data-flow-parse.md) | Schema modifier |  Parse column data to Json or delimited text |

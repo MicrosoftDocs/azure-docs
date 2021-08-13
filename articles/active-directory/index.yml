@@ -13,7 +13,7 @@ metadata:
   author: mtillman
   ms.author: mtillman
   manager: daveba
-  ms.date: 12/01/2020
+  ms.date: 04/14/2021
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -27,9 +27,9 @@ highlightedContent:
     - title: Secure your remote workforce
       itemType: get-started
       url: /enterprise-mobility-security/remote-work/
-    - title: Assign roles to users
-      itemType: how-to-guide
-      url: ./fundamentals/active-directory-users-assign-role-azure-portal.md
+    - title: What is verifiable credentials (preview)?
+      itemType: overview
+      url: ./verifiable-credentials/decentralized-identifier-overview.md
     - title: Azure AD deployment checklist
       itemType: concept
       url: ./fundamentals/active-directory-deployment-checklist-p2.md
@@ -85,19 +85,19 @@ conceptualContent:
         url: ./authentication/index.yml
         text: See more
 
-    - title: Cloud provisioning
+    - title: Cloud sync
       links:
-        - url: ./cloud-provisioning/what-is-cloud-provisioning.md
+        - url: ./cloud-sync/what-is-cloud-sync.md
           itemType: overview
-          text:  What is cloud provisioning?
-        - url: ./cloud-provisioning/tutorial-single-forest.md
+          text:  What is cloud sync?
+        - url: ./cloud-sync/tutorial-single-forest.md
           itemType: tutorial
           text:  Integrate a single forest with a single Azure AD tenant
-        - url: ./cloud-provisioning/how-to-install.md
+        - url: ./cloud-sync/how-to-install.md
           itemType: how-to-guide
-          text:  Install Azure AD Connect cloud provisioning agent
+          text:  Install Azure AD Connect provisioning agent
       footerLink:
-        url: ./cloud-provisioning/index.yml
+        url: ./cloud-sync/index.yml
         text: See more
 
     - title: Conditional Access
@@ -273,7 +273,7 @@ conceptualContent:
         - url: ./reports-monitoring/concept-sign-ins.md
           itemType: concept
           text:  Sign-in logs
-        - url: ./reports-monitoring/reference-sign-ins-error-codes.md
+        - url: ./reports-monitoring/concept-sign-ins.md
           itemType: reference
           text:  Sign-in error codes reference
       footerLink:
@@ -282,10 +282,10 @@ conceptualContent:
 
     - title: Roles
       links:
-        - url: ./roles/groups-assign-role.md
+        - url: ./roles/concept-understand-roles.md
           itemType: concept
           text:  Understand Azure AD roles
-        - url: ./roles/concept-understand-roles.md
+        - url: ./roles/custom-create.md
           itemType: how-to-guide
           text:  Create a custom role
         - url: ./roles/groups-view-assignments.md
@@ -294,6 +294,7 @@ conceptualContent:
       footerLink:
         url: ./roles/index.yml
         text: See more
+
 
     - title: Third-party applications
       links:

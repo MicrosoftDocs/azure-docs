@@ -8,10 +8,10 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 01/12/2021
 ms.author: yulili
 ms.custom: references_regions 
-zone_pivot_groups: programming-languages-set-nineteen
+zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ---
 
 # Pronunciation assessment
@@ -23,13 +23,13 @@ With pronunciation assessment, language learners can practice, get instant feedb
 In this article, you'll learn how to set up `PronunciationAssessmentConfig` and retrieve the `PronunciationAssessmentResult` using the speech SDK.
 
 > [!NOTE]
-> The pronunciation assessment feature is currently only available in regions `westus`, `eastasia` and `centralindia`, and only supports language `en-US`.
+> The pronunciation assessment feature currently supports `en-US` language, which is available on all [speech-to-text regions](regions.md#speech-to-text-text-to-speech-and-translation). The support for `en-GB` and `zh-CN` languages is under preview, which is available on `westus`, `eastasia` and `centralindia` regions.
 
 ## Pronunciation assessment with the Speech SDK
 
 In the samples below, you'll create a `PronunciationAssessmentConfig`, then apply it to a `SpeechRecognizer`.
 
-The following snippets illustrate how to use automatic language detection in your apps:
+The following snippets illustrate how to use language identification in your apps:
 
 ::: zone pivot="programming-language-csharp"
 
@@ -123,6 +123,26 @@ pronunciation_score = pronunciation_assessment_result.pronunciation_score
 
 ::: zone-end
 
+::: zone pivot="programming-language-javascript"
+
+```Javascript
+var pronunciationAssessmentConfig = new SpeechSDK.PronunciationAssessmentConfig("reference text",
+    PronunciationAssessmentGradingSystem.HundredMark,
+    PronunciationAssessmentGranularity.Word, true);
+var speechRecognizer = SpeechSDK.SpeechRecognizer.FromConfig(speechConfig, audioConfig);
+// apply the pronunciation assessment configuration to the speech recognizer
+pronunciationAssessmentConfig.applyTo(speechRecognizer);
+
+speechRecognizer.recognizeOnceAsync((result: SpeechSDK.SpeechRecognitionResult) => {
+        var pronunciationAssessmentResult = SpeechSDK.PronunciationAssessmentResult.fromResult(result);
+        var pronunciationScore = pronunciationAssessmentResult.pronunciationScore;
+        var wordLevelResult = pronunciationAssessmentResult.detailResult.Words;
+},
+{});
+```
+
+::: zone-end
+
 ::: zone pivot="programming-language-objectivec"
 
 ```Objective-C
@@ -169,28 +189,84 @@ This table lists the result parameters of pronunciation assessment.
 | `PronunciationScore` | Overall score indicating the pronunciation quality of the given speech. This is aggregated from `AccuracyScore`, `FluencyScore` and `CompletenessScore` with weight. |
 | `ErrorType` | This value indicates whether a word is omitted, inserted or badly pronounced, compared to `ReferenceText`. Possible values are `None` (meaning no error on this word), `Omission`, `Insertion` and `Mispronunciation`. |
 
+### Sample responses
+
+A typical pronunciation assessment result in JSON:
+
+```json
+{
+  "RecognitionStatus": "Success",
+  "Offset": "400000",
+  "Duration": "11000000",
+  "NBest": [
+      {
+        "Confidence" : "0.87",
+        "Lexical" : "good morning",
+        "ITN" : "good morning",
+        "MaskedITN" : "good morning",
+        "Display" : "Good morning.",
+        "PronunciationAssessment":
+        {
+            "PronScore" : 84.4,
+            "AccuracyScore" : 100.0,
+            "FluencyScore" : 74.0,
+            "CompletenessScore" : 100.0,
+        },
+        "Words": [
+            {
+              "Word" : "Good",
+              "Offset" : 500000,
+              "Duration" : 2700000,
+              "PronunciationAssessment":
+              {
+                "AccuracyScore" : 100.0,
+                "ErrorType" : "None"
+              }
+            },
+            {
+              "Word" : "morning",
+              "Offset" : 5300000,
+              "Duration" : 900000,
+              "PronunciationAssessment":
+              {
+                "AccuracyScore" : 100.0,
+                "ErrorType" : "None"
+              }
+            }
+        ]
+      }
+  ]
+}
+```
+
 ## Next steps
 
-<!-- TODO: update the sample links after release -->
+<!-- TODO: update JavaScript sample links after release -->
 
-<!-- ::: zone pivot="programming-language-csharp"
-* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#L741) on GitHub for automatic language detection
+* Watch the [video introduction](https://www.youtube.com/watch?v=cBE8CUHOFHQ) and [video tutorial](https://www.youtube.com/watch?v=zFlwm7N4Awc) of pronunciation assessment
+
+* Try out the [pronunciation assessment demo](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment/BrowserJS)
+
+::: zone pivot="programming-language-csharp"
+* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#L949) on GitHub for pronunciation assessment.
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#L507) on GitHub for automatic language detection
+* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#L633) on GitHub for pronunciation assessment.
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java#L521) on GitHub for automatic language detection
+* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java#L697) on GitHub for pronunciation assessment.
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_synthesis_sample.py#L434) on GitHub for automatic language detection
+* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py#L576) on GitHub for pronunciation assessment.
 ::: zone-end
 
 ::: zone pivot="programming-language-objectivec"
-* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/objective-c/ios/speech-samples/speech-samples/ViewController.m#L494) on GitHub for automatic language detection
-::: zone-end -->
+* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/objective-c/ios/speech-samples/speech-samples/ViewController.m#L642) on GitHub for pronunciation assessment.
+::: zone-end
 
 * [Speech SDK reference documentation](speech-sdk.md)
+
+* [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)

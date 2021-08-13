@@ -10,13 +10,15 @@ ms.date: 03/10/2020
 
 # Deny Public Network Access in Azure Database for MySQL using Azure portal
 
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 This article describes how you can configure an Azure Database for MySQL server to deny all public configurations and allow only connections through private endpoints to further enhance the network security.
 
 ## Prerequisites
 
 To complete this how-to guide, you need:
 
-* An [Azure Database for MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
+* An [Azure Database for MySQL](quickstart-create-mysql-server-database-using-azure-portal.md) with General Purpose or Memory Optimized pricing tier
 
 ## Set Deny Public Network Access
 

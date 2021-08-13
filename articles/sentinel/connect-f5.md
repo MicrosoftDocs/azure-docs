@@ -22,6 +22,8 @@ ms.author: yelevin
 
 This article explains how to use the F5 ASM data connector to easily pull your F5 ASM logs into Azure Sentinel. This allows you to view F5 ASM data in workbooks, use it to create custom alerts, and incorporate it to improve investigation. Having F5 ASM data in Azure Sentinel will provide you more insights into your organization’s web application security, and will enhance your security operations capabilities.​ 
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 ## Configure your F5 ASM to send CEF messages
 
 1. Follow the instructions in [F5 Configuring Application Security Event Logging](https://techdocs.f5.com/kb/en-us/products/big-ip_asm/manuals/product/asm-implementations-11-5-0/12.html) to set up remote logging, using the following guidelines:
@@ -38,6 +40,6 @@ This article explains how to use the F5 ASM data connector to easily pull your F
 
 ## Next steps
 In this document, you learned how to connect F5 ASM to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](./tutorial-detect-threats-built-in.md).
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](./detect-threats-built-in.md).
 - [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.

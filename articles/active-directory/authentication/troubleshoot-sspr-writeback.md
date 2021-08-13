@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 08/26/2020
+ms.date: 08/11/2021
 
 ms.author: justinha
 author: justinha
@@ -40,12 +40,24 @@ For Azure AD Connect version *1.1.443.0* and above, *outbound HTTPS* access is r
 * *\*.passwordreset.microsoftonline.com*
 * *\*.servicebus.windows.net*
 
-Azure [GOV endpoints](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#guidance-for-developers):
+Azure [GOV endpoints](../../azure-government/compare-azure-government-global-azure.md#guidance-for-developers):
 
 * *\*.passwordreset.microsoftonline.us*
 * *\*.servicebus.usgovcloudapi.net*
 
 If you need more granularity, see the [list of Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653). This list is updated every Wednesday and goes into effect the next Monday.
+
+To determine if access to a url and port are restricted in an environment, run the following cmdlet:
+
+```powershell
+Test-NetConnection -ComputerName https://ssprdedicatedsbprodncu.servicebus.windows.net -Port 443
+```
+
+Or run the following:
+
+```powershell
+Invoke-WebRequest -Uri https://ssprdedicatedbprodscu.windows.net -Verbose
+```
 
 For more information, see the [connectivity prerequisites for Azure AD Connect](../hybrid/how-to-connect-install-prerequisites.md).
 
@@ -144,7 +156,8 @@ The following more specific issues may occur with password writeback. If you hav
 | Federated, pass-through authentication, or password-hash-synchronized users who attempt to reset their passwords see an error after attempting to submit their password. The error indicates that there was a service problem. <br ><br> In addition to this problem, during password reset operations, you might see an error that the management agent was denied access in your on-premises event logs. | If you see these errors in your event log, confirm that the Active Directory Management Agent (ADMA) account that was specified in the wizard at the time of configuration has the necessary permissions for password writeback. <br> <br> After this permission is given, it can take up to one hour for the permissions to trickle down via the `sdprop` background task on the domain controller (DC). <br> <br> For password reset to work, the permission needs to be stamped on the security descriptor of the user object whose password is being reset. Until this permission shows up on the user object, password reset continues to fail with an access denied message. |
 | Federated, pass-through authentication, or password-hash-synchronized users who attempt to reset their passwords, see an error after they submit their password. The error indicates that there was a service problem. <br> <br> In addition to this problem, during password reset operations, you might see an error in your event logs from the Azure AD Connect service indicating an "Object could not be found" error. | This error usually indicates that the sync engine is unable to find either the user object in the Azure AD connector space or the linked metaverse (MV) or Azure AD connector space object. <br> <br> To troubleshoot this problem, make sure that the user is indeed synchronized from on-premises to Azure AD via the current instance of Azure AD Connect and inspect the state of the objects in the connector spaces and MV. Confirm that the Active Directory Certificate Services (AD CS) object is connected to the MV object via the "Microsoft.InfromADUserAccountEnabled.xxx" rule.|
 | Federated, pass-through authentication, or password-hash-synchronized users who attempt to reset their passwords see an error after they submit their password. The error indicates that there was a service problem. <br> <br> In addition to this problem, during password reset operations, you might see an error in your event logs from the Azure AD Connect service that indicates that there's a "Multiple matches found" error. | This indicates that the sync engine detected that the MV object is connected to more than one AD CS object via "Microsoft.InfromADUserAccountEnabled.xxx". This means that the user has an enabled account in more than one forest. This scenario isn't supported for password writeback. |
-| Password operations fail with a configuration error. The application event log contains Azure AD Connect error 6329 with the text "0x8023061f (The operation failed because password synchronization is not enabled on this Management Agent)". | This error occurs if the Azure AD Connect configuration is changed to add a new Active Directory forest (or to remove and readd an existing forest) after the password writeback feature has already been enabled. Password operations for users in these recently added forests fail. To fix the problem, disable and then re-enable the password writeback feature after the forest configuration changes have been completed. |
+| Password operations fail with a configuration error. The application event log contains Azure AD Connect error 6329 with the text "0x8023061f (The operation failed because password synchronization is not enabled on this Management Agent)". | This error occurs if the Azure AD Connect configuration is changed to add a new Active Directory forest (or to remove and readd an existing forest) after the password writeback feature has already been enabled. Password operations for users in these recently added forests fail. To fix the problem, disable and then re-enable the password writeback feature after the forest configuration changes have been completed.
+| SSPR_0029: We are unable to reset your password due to an error in your on-premises configuration. Please contact your admin and ask them to investigate. | Problem: Password writeback has been enabled following all of the required steps, but when attempting to change a password you receive "SSPR_0029: Your organization hasn’t properly set up the on-premises configuration for password reset." Checking the event logs on the Azure AD Connect system shows that the management agent credential was denied access.Possible Solution: Use RSOP on the Azure AD Connect system and your domain controllers to see if the policy "Network access: Restrict clients allowed to make remote calls to SAM" found under Computer Configuration > Windows Settings > Security Settings > Local Policies > Security Options is enabled. Edit the policy to include the MSOL_XXXXXXX management account as an allowed user. |
 
 ## Password writeback event log error codes
 
@@ -181,6 +194,7 @@ A best practice when you troubleshoot problems with password writeback is to ins
 | 31017| AuthTokenSuccess| This event indicates that we successfully retrieved an authorization token for the global admin specified during Azure AD Connect setup to start the offboarding or onboarding process.|
 | 31018| KeyPairCreationSuccess| This event indicates that we successfully created the password encryption key. This key is used to encrypt passwords from the cloud to be sent to your on-premises environment.|
 | 31034| ServiceBusListenerError| This event indicates that there was an error connecting to your tenant's Service Bus listener. If the error message includes "The remote certificate is invalid", check to make sure that your Azure AD Connect server has all the required Root CAs as described in [Azure TLS certificate changes](../../security/fundamentals/tls-certificate-changes.md). |
+| 31044| PasswordResetService| This event indicates that password writeback is not working. The Service Bus listens for requests on two separate relays for redundancy. Each relay connection is managed by a unique Service Host. The writeback client returns an error if either Service Host is not running.|
 | 32000| UnknownError| This event indicates an unknown error occurred during a password management operation. Look at the exception text in the event for more details. If you're having problems, try disabling and then re-enabling password writeback. If this doesn't help, include a copy of your event log along with the tracking ID specified when you open a support request.|
 | 32001| ServiceError| This event indicates there was an error connecting to the cloud password reset service. This error generally occurs when the on-premises service was unable to connect to the password-reset web service.|
 | 32002| ServiceBusError| This event indicates there was an error connecting to your tenant's Service Bus instance. This can happen if you're blocking outbound connections in your on-premises environment. Check your firewall to ensure that you allow connections over TCP 443 and to https://ssprdedicatedsbprodncu.servicebus.windows.net, and then try again. If you're still having problems, try disabling and then re-enabling password writeback.|

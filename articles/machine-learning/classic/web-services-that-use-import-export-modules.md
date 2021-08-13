@@ -5,15 +5,14 @@ services: machine-learning
 author: likebupt
 ms.author: keli19
 
-editor: cgronlun
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 ms.date: 03/28/2017
 ms.custom: devx-track-csharp
 ---
-# Deploy Azure Machine Learning Studio (classic) web services that use Data Import and Data Export modules
+# Deploy Machine Learning Studio (classic) web services that use Data Import and Data Export modules
 
 **APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
@@ -73,7 +72,7 @@ Next you set up the predictive experiment from which you deploy your web service
 9. In the **Data table name field**, type dbo.ScoredLabels. If the table does not exist, it is created when the experiment is run or the web service is called.
 10. In the **Comma separated list of datatable columns** field, type ScoredLabels.
 
-When you write an application that calls the final web service, you may want to specify a different input query or destination table at run time. To configure these inputs and outputs, use the Web Service Parameters feature to set the *Import Data* module *Data source* property and the *Export Data* mode data destination property.  For more information on Web Service Parameters, see the [Azure Machine Learning Studio Web Service Parameters entry](/archive/blogs/machinelearning/azureml-web-service-parameters) on the Cortana Intelligence and Machine Learning Blog.
+When you write an application that calls the final web service, you may want to specify a different input query or destination table at run time. To configure these inputs and outputs, use the Web Service Parameters feature to set the *Import Data* module *Data source* property and the *Export Data* mode data destination property.  For more information on Web Service Parameters, see the [Machine Learning Studio (classic) Web Service Parameters entry](/archive/blogs/machinelearning/azureml-web-service-parameters) on the Cortana Intelligence and Machine Learning Blog.
 
 To configure the Web Service Parameters for the import query and the destination table:
 
@@ -120,7 +119,7 @@ On completion of the run, a new table is added to the database containing the sc
 ### Deploy a New Web Service
 
 > [!NOTE]
-> To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information, see [Manage a Web service using the Azure Machine Learning Web Services portal](manage-new-webservice.md).
+> To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information, see [Manage a Web service using the Machine Learning Web Services portal](manage-new-webservice.md).
 
 To deploy as a New Web Service and create an application to consume it:
 

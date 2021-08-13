@@ -1,9 +1,6 @@
 ---
 title: Configure network virtual appliance in Azure HDInsight
 description: Learn how to configure a number of additional features for your network virtual appliance in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/30/2020

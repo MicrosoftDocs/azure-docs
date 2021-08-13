@@ -2,9 +2,9 @@
 title: Prepare to deploy your solution in production - Azure IoT Edge
 description: Learn how to take your Azure IoT Edge solution from development to production, including setting up your devices with the appropriate certificates and making a deployment plan for future code updates. 
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
-ms.date: 07/10/2020
+ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -12,6 +12,8 @@ ms.custom:  [amqp, mqtt]
 ---
 
 # Prepare to deploy your IoT Edge solution in production
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 When you're ready to take your IoT Edge solution from development into production, make sure that it's configured for ongoing performance.
 
@@ -31,14 +33,19 @@ IoT Edge devices can be anything from a Raspberry Pi to a laptop to a virtual ma
 
 ### Install production certificates
 
-Every IoT Edge device in production needs a device certificate authority (CA) certificate installed on it. That CA certificate is then declared to the IoT Edge runtime in the config.yaml file. For development and testing scenarios, the IoT Edge runtime creates temporary certificates if no certificates are declared in the config.yaml file. However, these temporary certificates expire after three months and aren't secure for production scenarios. For production scenarios, you should provide your own device CA certificate, either from a self-signed certificate authority or purchased from a commercial certificate authority.
+Every IoT Edge device in production needs a device certificate authority (CA) certificate installed on it. That CA certificate is then declared to the IoT Edge runtime in the config file. For development and testing scenarios, the IoT Edge runtime creates temporary certificates if no certificates are declared in the config file. However, these temporary certificates expire after three months and aren't secure for production scenarios. For production scenarios, you should provide your own device CA certificate, either from a self-signed certificate authority or purchased from a commercial certificate authority.
+
+<!--1.1-->
+:::moniker range="iotedge-2018-06"
 
 > [!NOTE]
 > Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2038.
 
+:::moniker-end
+
 To understand the role of the device CA certificate, see [How Azure IoT Edge uses certificates](iot-edge-certs.md).
 
-For more information about how to install certificates on an IoT Edge device and reference them from the config.yaml file, see [Manage certificate on an IoT Edge device](how-to-manage-device-certificates.md).
+For more information about how to install certificates on an IoT Edge device and reference them from the config file, see [Manage certificate on an IoT Edge device](how-to-manage-device-certificates.md).
 
 ### Have a device management plan
 
@@ -47,10 +54,10 @@ Before you put any device in production you should know how you're going to mana
 * Device firmware
 * Operating system libraries
 * Container engine, like Moby
-* IoT Edge daemon
+* IoT Edge
 * CA certificates
 
-For more information, see [Update the IoT Edge runtime](how-to-update-iot-edge.md). The current methods for updating the IoT Edge daemon require physical or SSH access to the IoT Edge device. If you have many devices to update, consider adding the update steps to a script or use an automation tool like Ansible.
+For more information, see [Update the IoT Edge runtime](how-to-update-iot-edge.md). The current methods for updating IoT Edge require physical or SSH access to the IoT Edge device. If you have many devices to update, consider adding the update steps to a script or use an automation tool like Ansible.
 
 ### Use Moby as the container engine
 
@@ -67,7 +74,7 @@ The two runtime modules both have an **UpstreamProtocol** environment variable. 
 * MQTTWS
 * AMQPWS
 
-Configure the UpstreamProtocol variable for the IoT Edge agent in the config.yaml file on the device itself. For example, if your IoT Edge device is behind a proxy server that blocks AMQP ports, you may need to configure the IoT Edge agent to use AMQP over WebSocket (AMQPWS) to establish the initial connection to IoT Hub.
+Configure the UpstreamProtocol variable for the IoT Edge agent in the config file on the device itself. For example, if your IoT Edge device is behind a proxy server that blocks AMQP ports, you may need to configure the IoT Edge agent to use AMQP over WebSocket (AMQPWS) to establish the initial connection to IoT Hub.
 
 Once your IoT Edge device connects, be sure to continue configuring the UpstreamProtocol variable for both runtime modules in future deployments. An example of this process is provided in [Configure an IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md).
 
@@ -130,41 +137,23 @@ When moving from test scenarios to production scenarios, remember to remove debu
 ## Container management
 
 * **Important**
-  * Manage access to your container registry
   * Use tags to manage versions
 * **Helpful**
   * Store runtime containers in your private registry
 
-### Manage access to your container registry
-
-Before you deploy modules to production IoT Edge devices, ensure that you control access to your container registry so that outsiders can't access or make changes to your container images. Use a private, not public, container registry to manage container images.
-
-In the tutorials and other documentation, we instruct you to use the same container registry credentials on your IoT Edge device as you use on your development machine. These instructions are only intended to help you set up testing and development environments more easily, and should not be followed in a production scenario.
-
-For a more secured access to your registry, you have a choice of [authentication options](../container-registry/container-registry-authentication.md). A popular and recommended authentication is to use an Active Directory service principal that's well suited for applications or services to pull container images in an automated or otherwise unattended (headless) manner, as IoT Edge devices do.
-
-To create a service principal, run the two scripts as described in [create a service principal](../container-registry/container-registry-auth-service-principal.md#create-a-service-principal). These scripts do the following tasks:
-
-* The first script creates the service principal. It outputs the Service principal ID and the Service principal password. Store these values securely in your records.
-
-* The second script creates role assignments to grant to the service principal, which can be run subsequently if needed. We recommend applying the **acrPull** user role for the `role` parameter. For a list of roles, see [Azure Container Registry roles and permissions](../container-registry/container-registry-roles.md).
-
-To authenticate using a service principal, provide the service principal ID and password that you obtained from the first script. Specify these credentials in the deployment manifest.
-
-* For the username or client ID, specify the service principal ID.
-
-* For the password or client secret, specify the service principal password.
-
-> [!NOTE]
-> After implementing an enhanced security authentication, disable the **Admin user** setting so that the default username/password access is no longer available. In your container registry in the Azure portal, from the left pane menu under **Settings**, select **Access Keys**.
-
 ### Use tags to manage versions
 
-A tag is a docker concept that you can use to distinguish between versions of docker containers. Tags are suffixes like **1.0** that go on the end of a container repository. For example, **mcr.microsoft.com/azureiotedge-agent:1.0**. Tags are mutable and can be changed to point to another container at any time, so your team should agree on a convention to follow as you update your module images moving forward.
+A tag is a docker concept that you can use to distinguish between versions of docker containers. Tags are suffixes like **1.1** that go on the end of a container repository. For example, **mcr.microsoft.com/azureiotedge-agent:1.1**. Tags are mutable and can be changed to point to another container at any time, so your team should agree on a convention to follow as you update your module images moving forward.
 
 Tags also help you to enforce updates on your IoT Edge devices. When you push an updated version of a module to your container registry, increment the tag. Then, push a new deployment to your devices with the tag incremented. The container engine will recognize the incremented tag as a new version and will pull the latest module version down to your device.
 
-For an example of a tag convention, see [Update the IoT Edge runtime](how-to-update-iot-edge.md#understand-iot-edge-tags) to learn how IoT Edge uses rolling tags and specific tags to track versions.
+#### Tags for the IoT Edge runtime
+
+The IoT Edge agent and IoT Edge hub images are tagged with the IoT Edge version that they are associated with. There are two different ways to use tags with the runtime images:
+
+* **Rolling tags** - Use only the first two values of the version number to get the latest image that matches those digits. For example, 1.1 is updated whenever there's a new release to point to the latest 1.1.x version. If the container runtime on your IoT Edge device pulls the image again, the runtime modules are updated to the latest version. Deployments from the Azure portal default to rolling tags. *This approach is suggested for development purposes.*
+
+* **Specific tags** - Use all three values of the version number to explicitly set the image version. For example, 1.1.0 won't change after its initial release. You can declare a new version number in the deployment manifest when you're ready to update. *This approach is suggested for production purposes.*
 
 ### Store runtime containers in your private registry
 
@@ -181,11 +170,11 @@ Next, be sure to update the image references in the deployment.template.json fil
 
 * edgeAgent:
 
-    `"image": "<registry name and server>/azureiotedge-agent:1.0",`
+    `"image": "<registry name and server>/azureiotedge-agent:1.1",`
 
 * edgeHub:
 
-    `"image": "<registry name and server>/azureiotedge-hub:1.0",`
+    `"image": "<registry name and server>/azureiotedge-hub:1.1",`
 
 ## Networking
 
@@ -196,7 +185,7 @@ Next, be sure to update the image references in the deployment.template.json fil
 
 ### Review outbound/inbound configuration
 
-Communication channels between Azure IoT Hub and IoT Edge are always configured to be outbound. For most IoT Edge scenarios, only three connections are necessary. The container engine needs to connect with the container registry (or registries) that holds the module images. The IoT Edge runtime needs to connect with IoT Hub to retrieve device configuration information, and to send messages and telemetry. And if you use automatic provisioning, the IoT Edge daemon needs to connect to the Device Provisioning Service. For more information, see [Firewall and port configuration rules](troubleshoot.md#check-your-firewall-and-port-configuration-rules).
+Communication channels between Azure IoT Hub and IoT Edge are always configured to be outbound. For most IoT Edge scenarios, only three connections are necessary. The container engine needs to connect with the container registry (or registries) that holds the module images. The IoT Edge runtime needs to connect with IoT Hub to retrieve device configuration information, and to send messages and telemetry. And if you use automatic provisioning, IoT Edge needs to connect to the Device Provisioning Service. For more information, see [Firewall and port configuration rules](troubleshoot.md#check-your-firewall-and-port-configuration-rules).
 
 ### Allow connections from IoT Edge devices
 
@@ -204,7 +193,7 @@ If your networking setup requires that you explicitly permit connections made fr
 
 * **IoT Edge agent** opens a persistent AMQP/MQTT connection to IoT Hub, possibly over WebSockets.
 * **IoT Edge hub** opens a single persistent AMQP connection or multiple MQTT connections to IoT Hub, possibly over WebSockets.
-* **IoT Edge daemon** makes intermittent HTTPS calls to IoT Hub.
+* **IoT Edge service** makes intermittent HTTPS calls to IoT Hub.
 
 In all three cases, the DNS name would match the pattern \*.azure-devices.net.
 
@@ -237,15 +226,42 @@ If your devices are going to be deployed on a network that uses a proxy server, 
 
 * **Helpful**
   * Set up logs and diagnostics
+  * Place limits on log size
   * Consider tests and CI/CD pipelines
 
 ### Set up logs and diagnostics
 
-On Linux, the IoT Edge daemon uses journals as the default logging driver. You can use the command-line tool `journalctl` to query the daemon logs. On Windows, the IoT Edge daemon uses PowerShell diagnostics. Use `Get-IoTEdgeLog` to query logs from the daemon. IoT Edge modules use the JSON driver for logging, which is the  default.  
+On Linux, the IoT Edge daemon uses journals as the default logging driver. You can use the command-line tool `journalctl` to query the daemon logs.
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+On Windows, the IoT Edge daemon uses PowerShell diagnostics. Use `Get-IoTEdgeLog` to query logs from the daemon. IoT Edge modules use the JSON driver for logging, which is the  default.  
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!--1.2-->
+:::moniker range=">=iotedge-2020-11"
+
+Starting with version 1.2, IoT Edge relies on multiple daemons. While each daemon's logs can be individually queried with `journalctl`, the `iotedge system` commands provide a convenient way to query the combined logs.
+
+* Consolidated `iotedge` command:
+
+  ```bash
+  sudo iotedge system logs
+  ```
+
+* Equivalent `journalctl` command:
+
+  ```bash
+  journalctl -u aziot-edge -u aziot-identityd -u aziot-keyd -u aziot-certd -u aziot-tpmd
+  ```
+
+:::moniker-end
 
 When you're testing an IoT Edge deployment, you can usually access your devices to retrieve logs and troubleshoot. In a deployment scenario, you may not have that option. Consider how you're going to gather information about your devices in production. One option is to use a logging module that collects information from the other modules and sends it to the cloud. One example of a logging module is [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics), or you can design your own.
 
@@ -267,12 +283,24 @@ You can limit the size of all container logfiles in the container engine log opt
 }
 ```
 
-Add (or append) this information to a file named `daemon.json` and place it the right location for your device platform.
+Add (or append) this information to a file named `daemon.json` and place it in the following location:
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 | Platform | Location |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
 | Windows | `C:\ProgramData\iotedge-moby\config\` |
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+* `/etc/docker/`
+
+:::moniker-end
+<!-- end 1.2 -->
 
 The container engine must be restarted for the changes to take effect.
 
@@ -315,6 +343,43 @@ You can do so in the **createOptions** of each module. For example:
 ### Consider tests and CI/CD pipelines
 
 For the most efficient IoT Edge deployment scenario, consider integrating your production deployment into your testing and CI/CD pipelines. Azure IoT Edge supports multiple CI/CD platforms, including Azure DevOps. For more information, see [Continuous integration and continuous deployment to Azure IoT Edge](how-to-continuous-integration-continuous-deployment.md).
+
+## Security considerations
+
+* **Important**
+  * Manage access to your container registry
+  * Limit container access to host resources
+
+### Manage access to your container registry
+
+Before you deploy modules to production IoT Edge devices, ensure that you control access to your container registry so that outsiders can't access or make changes to your container images. Use a private container registry to manage container images.
+
+In the tutorials and other documentation, we instruct you to use the same container registry credentials on your IoT Edge device as you use on your development machine. These instructions are only intended to help you set up testing and development environments more easily, and should not be followed in a production scenario.
+
+For a more secured access to your registry, you have a choice of [authentication options](../container-registry/container-registry-authentication.md). A popular and recommended authentication is to use an Active Directory service principal that's well suited for applications or services to pull container images in an automated or otherwise unattended (headless) manner, as IoT Edge devices do.
+
+To create a service principal, run the two scripts as described in [create a service principal](../container-registry/container-registry-auth-service-principal.md#create-a-service-principal). These scripts do the following tasks:
+
+* The first script creates the service principal. It outputs the Service principal ID and the Service principal password. Store these values securely in your records.
+
+* The second script creates role assignments to grant to the service principal, which can be run subsequently if needed. We recommend applying the **acrPull** user role for the `role` parameter. For a list of roles, see [Azure Container Registry roles and permissions](../container-registry/container-registry-roles.md).
+
+To authenticate using a service principal, provide the service principal ID and password that you obtained from the first script. Specify these credentials in the deployment manifest.
+
+* For the username or client ID, specify the service principal ID.
+
+* For the password or client secret, specify the service principal password.
+
+> [!NOTE]
+> After implementing an enhanced security authentication, disable the **Admin user** setting so that the default username/password access is no longer available. In your container registry in the Azure portal, from the left pane menu under **Settings**, select **Access Keys**.
+
+### Limit container access to host resources
+
+To balance shared host resources across modules, we recommend putting limits on resource consumption per module. These limits ensure that one module can't consume too much memory or CPU usage and prevent other processes from running on the device. The IoT Edge platform does not limit resources for modules by default, since knowing how much resource a given module needs to run optimally requires testing.
+
+Docker provides some constraints that you can use to limit resources like memory and CPU usage. For more information, see [Runtime options with memory, CPUs, and GPUs](https://docs.docker.com/config/containers/resource_constraints/).
+
+These constraints can be applied to individual modules by using create options in deployment manifests. For more information, see [How to configure container create options for IoT Edge modules](how-to-use-create-options.md).
 
 ## Next steps
 

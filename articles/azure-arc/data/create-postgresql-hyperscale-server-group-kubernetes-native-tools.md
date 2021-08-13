@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 06/02/2021
 ms.topic: how-to
 ---
 
@@ -39,20 +39,20 @@ data:
   password: <your base64 encoded password>
 kind: Secret
 metadata:
-  name: example-login-secret
+  name: pg1-login-secret
 type: Opaque
 ---
 apiVersion: arcdata.microsoft.com/v1alpha1
-kind: postgresql-12
+kind: postgresql
 metadata:
-  generation: 1
-  name: example
+  name: pg1
 spec:
   engine:
+    version: 12
     extensions:
     - name: citus
   scale:
-    shards: 3
+    workers: 3
   scheduling:
     default:
       resources:
@@ -62,18 +62,22 @@ spec:
         requests:
           cpu: "1"
           memory: 2Gi
-  service:
-    type: LoadBalancer
+  services:
+    primary:
+      type: LoadBalancer # Modify service type based on your Kubernetes environment
   storage:
     backups:
-      className: default
-      size: 5Gi
+      volumes:
+      - className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
+        size: 5Gi
     data:
-      className: default
-      size: 5Gi
+      volumes:
+      - className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
+        size: 5Gi
     logs:
-      className: default
-      size: 1Gi
+      volumes:
+      - className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
+        size: 5Gi
 ```
 
 ### Customizing the login and password.
@@ -94,15 +98,15 @@ PowerShell
 Linux/macOS
 
 ```console
-echo '<your string to encode here>' | base64
+echo -n '<your string to encode here>' | base64
 
 #Example
-# echo 'example' | base64
+# echo -n 'example' | base64
 ```
 
 ### Customizing the name
 
-The template has a value of 'example' for the name attribute.  You can change this but it must be characters that follow the DNS naming standards.  You must also change the name of the secret to match.  For example, if you change the name of the PostgreSQL Hyperscale server group to 'postgres1', you must change the name of the secret from 'example-login-secret' to 'postgres1-login-secret'
+The template has a value of 'pg1' for the name attribute.  You can change this but it must be characters that follow the DNS naming standards.  You must also change the name of the secret to match.  For example, if you change the name of the PostgreSQL Hyperscale server group to 'pg2', you must change the name of the secret from 'pg1-login-secret' to 'pg2-login-secret'
 
 ### Customizing the engine version
 
@@ -147,10 +151,10 @@ kubectl create -n <your target namespace> -f <path to your yaml file>
 Creating the PostgreSQL Hyperscale server group will take a few minutes to complete. You can monitor the progress in another terminal window with the following commands:
 
 > [!NOTE]
->  The example commands below assume that you created a PostgreSQL Hyperscale server group named 'postgres1' and Kubernetes namespace with the name 'arc'.  If you used a different namespace/PostgreSQL Hyperscale server group name, you can replace 'arc' and 'postgres1' with your names.
+>  The example commands below assume that you created a PostgreSQL Hyperscale server group named 'pg1' and Kubernetes namespace with the name 'arc'.  If you used a different namespace/PostgreSQL Hyperscale server group name, you can replace 'arc' and 'pg1' with your names.
 
 ```console
-kubectl get postgresql-12/postgres1 --namespace arc
+kubectl get postgresqls/pg1 --namespace arc
 ```
 
 ```console
@@ -160,10 +164,10 @@ kubectl get pods --namespace arc
 You can also check on the creation status of any particular pod by running a command like below.  This is especially useful for troubleshooting any issues.
 
 ```console
-kubectl describe po/<pod name> --namespace arc
+kubectl describe pod/<pod name> --namespace arc
 
 #Example:
-#kubectl describe po/postgres1-0 --namespace arc
+#kubectl describe pod/pg1-0 --namespace arc
 ```
 
 ## Troubleshooting creation problems

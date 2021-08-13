@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 07/29/2021
 ms.author: cherylmc
 
 ---
@@ -47,8 +47,6 @@ When selecting the authentication method, you have three choices. Each method ha
 
 * **Azure certificates:** For this configuration, certificates are required. You need to either generate or obtain certificates. A client certificate is required for each client. Additionally, the root certificate information (public key) needs to be uploaded. For more information about the required certificates, see [Generate and export certificates](../vpn-gateway/vpn-gateway-certificates-point-to-site.md).
 
-The following example shows Azure certificate authentication.
-
 [!INCLUDE [Define parameters](../../includes/virtual-wan-p2s-configuration-include.md)]
 
 ## <a name="hub"></a>Create the hub and gateway
@@ -75,7 +73,7 @@ Use the downloaded profile to configure the remote access clients. The procedure
 
 ## <a name="connect-spoke"></a>Connect the spoke VNet
 
-In this section, you attach the spoke virtual network to the virtual WAN hub.
+In this section, you create a connection between your hub and the spoke VNet.
 
 [!INCLUDE [Connect spoke virtual network](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 

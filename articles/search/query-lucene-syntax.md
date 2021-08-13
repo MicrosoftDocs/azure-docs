@@ -8,18 +8,18 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 06/08/2021
 ---
 
 # Lucene query syntax in Azure Cognitive Search
 
 When creating queries, you can opt for the [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) syntax for specialized query forms: wildcard, fuzzy search, proximity search, regular expressions. Much of the Lucene Query Parser syntax is [implemented intact in Azure Cognitive Search](search-lucene-query-architecture.md), with the exception of *range searches* which are constructed through **`$filter`** expressions. 
 
-The full Lucene syntax is used for query expressions passed in the **`search`** parameter of a [Search Documents (REST API)](/rest/api/searchservice/search-documents) request, not to be confused with the [OData syntax](query-odata-filter-orderby-syntax.md) used for the [**`$filter`**](search-filters.md) and [**`$orderby`**](search-query-odata-orderby.md) expressions in the same request. OData parameters have different syntax and rules for constructing queries, escaping strings, and so on.
+To use full Lucene syntax, you'll set the queryType to "full" and pass in a query expression patterned for wildcard, fuzzy search, or one of the other query forms supported by the full syntax. In REST, query expressions are provided in the **`search`** parameter of a [Search Documents (REST API)](/rest/api/searchservice/search-documents) request.
 
 ## Example (full syntax)
 
-Set the **`queryType`** parameter to specify full Lucene. The following example invokes in-field search and term boosting. This query looks for hotels where the category field contains the term "budget". Any documents containing the phrase "recently renovated" are ranked higher as a result of the term boost value (3).  
+The following example is a search request constructed using the full syntax. This particular example shows in-field search and term boosting. It looks for hotels where the category field contains the term "budget". Any documents containing the phrase "recently renovated" are ranked higher as a result of the term boost value (3).  
 
 ```http
 POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -30,9 +30,9 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 }
 ```
 
-The **`searchMode`** parameter is relevant in this example. Whenever operators are on the query, you should generally set `searchMode=all` to ensure that *all* of the criteria is matched.  
+While not specific to any query type, the **`searchMode`** parameter is relevant in this example. Whenever operators are on the query, you should generally set `searchMode=all` to ensure that *all* of the criteria is matched.  
 
-For additional examples, see [Lucene query syntax examples](search-query-lucene-examples.md). For details about the query request and parameters, see [Search Documents (REST API)](/rest/api/searchservice/Search-Documents).
+For additional examples, see [Lucene query syntax examples](search-query-lucene-examples.md). For details about the query request and parameters, including searchMode, see [Search Documents (REST API)](/rest/api/searchservice/Search-Documents).
 
 ## <a name="bkmk_syntax"></a> Syntax fundamentals  
 
@@ -118,14 +118,22 @@ Some tools and languages impose additional escape character requirements. For JS
 
 ##  <a name="bkmk_wildcard"></a> Wildcard search
 
-You can use generally recognized syntax for multiple (`*`) or single (`?`) character wildcard searches. For example, a query expression of `search=alpha*` returns "alphanumeric" or "alphabetical". Note the Lucene query parser supports the use of these symbols with a single term, and not a phrase.
+You can use generally recognized syntax for multiple (`*`) or single (`?`) character wildcard searches. Full Lucene syntax supports prefix, infix, and suffix matching. 
 
-Full Lucene syntax supports prefix, infix, and suffix matching. However, if all you need is prefix matching, you can use the simple syntax (prefix matching is supported in both).
+Note the Lucene query parser supports the use of these symbols with a single term, and not a phrase.
 
-Suffix matching, where `*` or `?` precedes the string (as in `search=/.*numeric./`) or infix matching requires full Lucene syntax, as well as the regular expression forward slash `/` delimiters. You cannot use a * or ? symbol as the first character of a term, or within a term, without the `/`. 
+| Affix type | Description and examples |
+|------------|--------------------------|
+| prefix | Term fragment comes before `*` or `?`.  For example, a query expression of `search=alpha*` returns "alphanumeric" or "alphabetical". Prefix matching is supported in both simple and full syntax. |
+| suffix | Term fragment comes after  `*` or `?`, with a forward slash to delimit the construct. For example, `search=/.*numeric./` returns  "alphanumeric". |
+| infix  | Term fragments enclose `*` or `?`.  For example, `search=/.non*al./`returns "nonnumerical" and "nonsensical". |
+
+You can combine operators in one expression. For example, `980?2*` matches on "98072-1222" and "98052-1234", where `?` matches on a single (required) character, and `*` matches on characters of an arbitrary length that follow.
+
+Suffix and infix matching requires the regular expression forward slash `/` delimiters. Generally, when writing code, you cannot use a * or ? symbol as the first character of a term, or within a term, without the `/`. In certain tools, such as Postman or Azure portal, escaping is built-in and you can often execute a query without the delimiter.
 
 > [!NOTE]  
-> As a rule, pattern matching is slow so you might want to explore alternative methods, such as edge n-gram tokenization that creates tokens for sequences of characters in a term. The index will be larger, but queries might execute faster, depending on the pattern construction and the length of strings you are indexing.
+> As a rule, pattern matching is slow so you might want to explore alternative methods, such as edge n-gram tokenization that creates tokens for sequences of characters in a term. With n-gram tokenization, the index will be larger, but queries might execute faster, depending on the pattern construction and the length of strings you are indexing.
 >
 
 ### Impact of an analyzer on wildcard queries

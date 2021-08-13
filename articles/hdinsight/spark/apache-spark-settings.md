@@ -1,9 +1,6 @@
 ---
 title: Configure Spark settings - Azure HDInsight 
 description: How to view and configure Apache Spark settings for an Azure HDInsight cluster
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
@@ -16,7 +13,7 @@ An HDInsight Spark cluster includes an installation of the Apache Spark library.
 
 The default HDInsight Apache Spark cluster includes the following nodes: three Apache ZooKeeper nodes, two head nodes, and one or more worker nodes:
 
-![Spark HDInsight Architecture](./media/apache-spark-settings/spark-hdinsight-arch.png)
+:::image type="content" source="./media/apache-spark-settings/spark-hdinsight-arch.png" alt-text="Spark HDInsight Architecture" border="false":::
 
 The number of VMs, and VM sizes, for the nodes in your HDInsight cluster can affect your Spark configuration. Non-default HDInsight configuration values often require non-default Spark configuration values. When you create an HDInsight Spark cluster, you're shown suggested VM sizes for each of the components. Currently the [Memory-optimized Linux VM sizes](../../virtual-machines/sizes-memory.md) for Azure are D12 v2 or greater.
 
@@ -45,7 +42,7 @@ spark.sql.files.maxPartitionBytes 1099511627776
 spark.sql.files.openCostInBytes 1099511627776
 ```
 
-The example shown above overrides several default values for five Spark configuration parameters.  These values are the compression codec, Apache Hadoop MapReduce split minimum size and parquet block sizes. Also, the Spar SQL partition and open file sizes default values.  These configuration changes are chosen because the associated data and jobs (in this example, genomic data) have particular characteristics. These characteristics will do better using these custom configuration settings.
+The example shown above overrides several default values for five Spark configuration parameters.  These values are the compression codec, Apache Hadoop MapReduce split minimum size and parquet block sizes. Also, the Spark SQL partition and open file sizes default values.  These configuration changes are chosen because the associated data and jobs (in this example, genomic data) have particular characteristics. These characteristics will do better using these custom configuration settings.
 
 ---
 
@@ -57,7 +54,7 @@ The Apache Ambari Web UI appears, with a dashboard of key cluster resource usage
 
 To see configuration values for Apache Spark, select **Config History**, then select **Spark2**.  Select the **Configs** tab, then select the `Spark` (or `Spark2`, depending on your version) link in the service list.  You see a list of configuration values for your cluster:
 
-![Spark Configurations](./media/apache-spark-settings/spark-configurations.png)
+:::image type="content" source="./media/apache-spark-settings/spark-configurations.png" alt-text="Spark Configurations" border="true":::
 
 To see and change individual Spark configuration values, select any link with "spark" in the title.  Configurations for Spark include both custom and advanced configuration values in these categories:
 
@@ -76,7 +73,7 @@ If you create a non-default set of configuration values, your update history is 
 
 The following diagram shows key Spark objects: the driver program and its associated Spark Context, and the cluster manager and its *n* worker nodes.  Each worker node includes an Executor, a cache, and *n* task instances.
 
-![Cluster objects](./media/apache-spark-settings/hdi-spark-architecture.png)
+:::image type="content" source="./media/apache-spark-settings/hdi-spark-architecture.png" alt-text="Cluster objects" border="false":::
 
 Spark jobs use worker resources, particularly memory, so it's common to adjust Spark configuration values for worker node Executors.
 
@@ -87,7 +84,7 @@ Three key parameters that are often adjusted to tune Spark configurations to imp
 
 Another source of information about resources used by Spark Executors is the Spark Application UI.  In the UI,  **Executors** displays Summary and Detail views of the configuration and consumed resources.  Determine whether to change executors values for entire cluster, or particular set of job executions.
 
-![Spark Executors](./media/apache-spark-settings/apache-spark-executors.png)
+:::image type="content" source="./media/apache-spark-settings/apache-spark-executors.png" alt-text="Spark Executors" border="true":::
 
 Or you can use the Ambari REST API to programmatically verify HDInsight and Spark cluster configuration settings.  More information is available at the [Apache Ambari API reference on GitHub](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
@@ -101,7 +98,7 @@ Depending on your Spark workload, you may determine that a non-default Spark con
 
 Here is an example of two worker nodes with different configuration values:
 
-![Two node configurations](./media/apache-spark-settings/executor-configuration.png)
+:::image type="content" source="./media/apache-spark-settings/executor-configuration.png" alt-text="Two node configurations" border="false":::
 
 The following list shows key Spark executor memory parameters.
 
@@ -114,7 +111,7 @@ The following list shows key Spark executor memory parameters.
 
 YARN controls the maximum sum of memory used by the containers on each Spark node. The following diagram shows the per-node relationships between YARN configuration objects and Spark objects.
 
-![YARN Spark Memory Management](./media/apache-spark-settings/hdi-yarn-spark-memory.png)
+:::image type="content" source="./media/apache-spark-settings/hdi-yarn-spark-memory.png" alt-text="YARN Spark Memory Management" border="false":::
 
 ## Change parameters for an application running in Jupyter Notebook
 

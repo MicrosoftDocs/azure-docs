@@ -8,9 +8,9 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 09/28/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperf-fy21q1
+ms.date: 06/18/2021
+ms.topic: how-to
+ms.custom: devx-track-python, contperf-fy21q1
 ---
 
 # Configure and submit training runs
@@ -23,13 +23,13 @@ All you need to do is define the environment for each compute target within a **
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today
-* The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0)
+* If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today
+* The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/install) (>= 1.13.0)
 * An [Azure Machine Learning workspace](how-to-manage-workspace.md), `ws`
 * A compute target, `my_compute_target`.  [Create a compute target](how-to-create-attach-compute-studio.md) 
 
 ## <a name="whats-a-run-configuration"></a>What's a script run configuration?
-A [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) is used to configure the information necessary for submitting a training run as part of an experiment.
+A [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) is used to configure the information necessary for submitting a training run as part of an experiment.
 
 You submit your training experiment with a ScriptRunConfig object.  This object includes the:
 
@@ -37,7 +37,7 @@ You submit your training experiment with a ScriptRunConfig object.  This object 
 * **script**: The training script to run
 * **compute_target**: The compute target to run on
 * **environment**: The environment to use when running the script
-* and some additional configurable options (see the [reference documentation](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) for more information)
+* and some additional configurable options (see the [reference documentation](/python/api/azureml-core/azureml.core.scriptrunconfig) for more information)
 
 ## <a id="submit"></a>Train your model
 
@@ -70,6 +70,11 @@ experiment = Experiment(workspace=ws, name=experiment_name)
 Select the compute target where your training script will run on. If no compute target is specified in the ScriptRunConfig, or if `compute_target='local'`, Azure ML will execute your script locally. 
 
 The example code in this article assumes that you have already created a compute target `my_compute_target` from the "Prerequisites" section.
+
+>[!Note]
+>Azure Databricks is not supported as a compute target for model training. You can use Azure Databricks for data preparation and deployment tasks.
+
+[!INCLUDE [arc-enabled-kubernetes](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
 
 ## Create an environment
 Azure Machine Learning [environments](concept-environments.md) are an encapsulation of the environment where your machine learning training happens. They specify the Python packages, Docker image, environment variables, and software settings around your training and scoring scripts. They also specify runtimes (Python, Spark, or Docker).
@@ -125,7 +130,7 @@ If you have command-line arguments you want to pass to your training script, you
 If you want to override the default maximum time allowed for the run, you can do so via the **`max_run_duration_seconds`** parameter. The system will attempt to automatically cancel the run if it takes longer than this value.
 
 ### Specify a distributed job configuration
-If you want to run a distributed training job, provide the distributed job-specific config to the **`distributed_job_config`** parameter. Supported config types include [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?preserve-view=true&view=azure-ml-py), [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?preserve-view=true&view=azure-ml-py), and [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py). 
+If you want to run a distributed training job, provide the distributed job-specific config to the **`distributed_job_config`** parameter. Supported config types include [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration), [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration), and [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration). 
 
 For more information and examples on running distributed Horovod, TensorFlow and PyTorch jobs, see:
 
@@ -172,6 +177,9 @@ See these notebooks for examples of configuring runs for various training scenar
 
 ## Troubleshooting
 
+* **AttributeError: 'RoundTripLoader' object has no attribute 'comment_handling'**: This error comes from the new version (v0.17.5) of `ruamel-yaml`, an `azureml-core` dependency, that introduces a breaking change to `azureml-core`. In order to fix this error, please uninstall `ruamel-yaml` by running `pip uninstall ruamel-yaml` and installing a different version of `ruamel-yaml`; the supported versions are v0.15.35 to v0.17.4 (inclusive). You can do this by running `pip install "ruamel-yaml>=0.15.35,<0.17.5"`.
+
+
 * **Run fails with `jwt.exceptions.DecodeError`**: Exact error message: `jwt.exceptions.DecodeError: It is required that you pass in a value for the "algorithms" argument when calling decode()`. 
     
     Consider upgrading to the latest version of azureml-core: `pip install -U azureml-core`.
@@ -191,10 +199,10 @@ See these notebooks for examples of configuring runs for various training scenar
     
     Azure ML maintained docker images and their contents can be seen in [AzureML Containers](https://github.com/Azure/AzureML-Containers).
     Framework-specific dependencies  are listed in the respective framework documentation:
-    *  [Chainer](/python/api/azureml-train-core/azureml.train.dnn.chainer?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks)
-    * [PyTorch](/python/api/azureml-train-core/azureml.train.dnn.pytorch?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks)
-    * [TensorFlow](/python/api/azureml-train-core/azureml.train.dnn.tensorflow?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks)
-    *  [SKLearn](/python/api/azureml-train-core/azureml.train.sklearn.sklearn?preserve-view=true&view=azure-ml-py#&preserve-view=trueremarks)
+    *  [Chainer](/python/api/azureml-train-core/azureml.train.dnn.chainer#remarks)
+    * [PyTorch](/python/api/azureml-train-core/azureml.train.dnn.pytorch#remarks)
+    * [TensorFlow](/python/api/azureml-train-core/azureml.train.dnn.tensorflow#remarks)
+    *  [SKLearn](/python/api/azureml-train-core/azureml.train.sklearn.sklearn#remarks)
     
     > [!Note]
     > If you think a particular package is common enough to be added in Azure ML maintained images and environments please raise a GitHub issue in [AzureML Containers](https://github.com/Azure/AzureML-Containers). 
@@ -202,7 +210,7 @@ See these notebooks for examples of configuring runs for various training scenar
 * **NameError (Name not defined), AttributeError (Object has no attribute)**: This exception should come from your training scripts. You can look at the log files from Azure portal to get more information about the specific name not defined or attribute error. From the SDK, you can use `run.get_details()` to look at the error message. This will also list all the log files generated for your run. Please make sure to take a look at your training script and fix the error before resubmitting your run. 
 
 
-* **Run or experiment deletion**:  Experiments can be archived by using the [Experiment.archive](/python/api/azureml-core/azureml.core.experiment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truearchive--) 
+* **Run or experiment deletion**:  Experiments can be archived by using the [Experiment.archive](/python/api/azureml-core/azureml.core.experiment%28class%29#archive--) 
 method, or from the Experiment tab view in Azure Machine Learning studio client via the "Archive experiment" button. This action hides the experiment from list queries and views, but does not delete it.
 
     Permanent deletion of individual experiments or runs is not currently supported. For more information on deleting Workspace assets, see [Export or delete your Machine Learning service workspace data](how-to-export-delete-data.md).
@@ -224,5 +232,5 @@ method, or from the Experiment tab view in Azure Machine Learning studio client 
 * See how to train models with specific ML frameworks, such as [Scikit-learn](how-to-train-scikit-learn.md), [TensorFlow](how-to-train-tensorflow.md), and [PyTorch](how-to-train-pytorch.md).
 * Learn how to [efficiently tune hyperparameters](how-to-tune-hyperparameters.md) to build better models.
 * Once you have a trained model, learn [how and where to deploy models](how-to-deploy-and-where.md).
-* View the [ScriptRunConfig class](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) SDK reference.
+* View the [ScriptRunConfig class](/python/api/azureml-core/azureml.core.scriptrunconfig) SDK reference.
 * [Use Azure Machine Learning with Azure Virtual Networks](./how-to-network-security-overview.md)

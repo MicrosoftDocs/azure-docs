@@ -25,7 +25,7 @@ You need the Azure CLI version 2.0.76 or later installed and configured. Run `a
 
 The API server Authorized IP ranges feature has the following limitations:
 - On clusters created after API server authorized IP address ranges moved out of preview in October 2019, API server authorized IP address ranges are only supported on the *Standard* SKU load balancer. Existing clusters with the *Basic* SKU load balancer and API server authorized IP address ranges configured will continue work as is but cannot be migrated to a *Standard* SKU load balancer. Those existing clusters will also continue to work if their Kubernetes version or control plane are upgraded. API server authorized IP address ranges are not supported for private clusters.
-- This feature is not compatible with clusters that use [Public IP per Node node pools preview feature](use-multiple-node-pools.md#assign-a-public-ip-per-node-for-your-node-pools-preview).
+- This feature is not compatible with clusters that use [Public IP per Node](use-multiple-node-pools.md#assign-a-public-ip-per-node-for-your-node-pools).
 
 ## Overview of API server authorized IP ranges
 
@@ -59,7 +59,6 @@ az aks create \
 > You should add these ranges to an allow list:
 > - The firewall public IP address
 > - Any range that represents networks that you'll administer the cluster from
-> - If you are using Azure Dev Spaces on your AKS cluster, you have to allow [additional ranges based on your region][dev-spaces-ranges].
 >
 > The upper limit for the number of IP ranges you can specify is 200.
 >
@@ -128,11 +127,28 @@ az aks update \
     --api-server-authorized-ip-ranges ""
 ```
 
+## Find existing authorized IP ranges
+
+To find IP ranges that have been authorized, use [az aks show][az-aks-show] and specify the cluster's name and resource group. For example:
+
+```azurecli-interactive
+az aks show \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --query apiServerAccessProfile.authorizedIpRanges
+```
+
+## Update, disable, and find authorized IP ranges using Azure portal
+
+The above operations of adding, updating, finding, and disabling authorized IP ranges can also be performed in the Azure portal. To access, navigate to **Networking** under **Settings** in the menu blade of your cluster resource.
+
+:::image type="content" source="media/api-server-authorized-ip-ranges/ip-ranges-specified.PNG" alt-text="In a browser, shows the cluster resource's networking settings Azure portal page. The options 'set specified IP range' and 'Specified IP ranges' are highlighted.":::
+
 ## How to find my IP to include in `--api-server-authorized-ip-ranges`?
 
 You must add your development machines, tooling or automation IP addresses to the AKS cluster list of approved IP ranges in order to access the API server from there. 
 
-Another option is to configure a jumpbox with the needed tooling inside a separate subnet in the Firewall's virtual network. This assumes your environment has a Firewall with the respective network, and you have added the Firewall IPs to authorized ranges. Similarly, if you have forced tunnelling from the AKS subnet to the Firewall subnet, than having the jumpbox in the cluster subnet is fine too.
+Another option is to configure a jumpbox with the needed tooling inside a separate subnet in the Firewall's virtual network. This assumes your environment has a Firewall with the respective network, and you have added the Firewall IPs to authorized ranges. Similarly, if you have forced tunneling from the AKS subnet to the Firewall subnet, than having the jumpbox in the cluster subnet is fine too.
 
 Add another IP address to the approved ranges with the following command.
 
@@ -143,7 +159,7 @@ CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
 az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
 ```
 
->> [!NOTE]
+> [!NOTE]
 > The above example appends the API server authorized IP ranges on the cluster. To disable authorized IP ranges, use az aks update and specify an empty range "". 
 
 Another option is to use the below command on Windows systems to get the public IPv4 address, or you can use the steps in [Find your IP address](https://support.microsoft.com/en-gb/help/4026518/windows-10-find-your-ip-address).
@@ -162,13 +178,14 @@ For more information, see [Security concepts for applications and clusters in AK
 
 <!-- LINKS - external -->
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
-[dev-spaces-ranges]: ../dev-spaces/configure-networking.md#aks-cluster-network-requirements
+[dev-spaces-ranges]: /previous-versions/azure/dev-spaces/#aks-cluster-network-requirements
 [kubenet]: https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet
 
 <!-- LINKS - internal -->
-[az-aks-update]: /cli/azure/ext/aks-preview/aks#ext-aks-preview-az-aks-update
-[az-aks-create]: /cli/azure/aks#az-aks-create
-[az-network-public-ip-list]: /cli/azure/network/public-ip#az-network-public-ip-list
+[az-aks-update]: /cli/azure/aks#az_aks_update
+[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-show]: /cli/azure/aks#az_aks_show
+[az-network-public-ip-list]: /cli/azure/network/public-ip#az_network_public_ip_list
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
 [concepts-security]: concepts-security.md
 [install-azure-cli]: /cli/azure/install-azure-cli

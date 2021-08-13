@@ -1,11 +1,11 @@
 ---
 title: Set up CI/CD pipeline with Azure Cosmos DB Emulator build task
 description: Tutorial on how to set up build and release workflow in Azure DevOps using the Cosmos DB emulator build task
-author: deborahc
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 01/28/2020
-ms.author: dech
+ms.author: esarroyo
+author: StefArroyo 
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ---
@@ -27,13 +27,13 @@ To use the build task, we first need to install it onto our Azure DevOps organiz
 Next, choose the organization in which to install the extension. 
 
 > [!NOTE]
-> To install an extension to an Azure DevOps organization, you must be an account owner or project collection administrator. If you do not have permissions, but you are an account member, you can request extensions instead. [Learn more.](/azure/devops/marketplace/faq-extensions?preserve-view=true&view=vsts)
+> To install an extension to an Azure DevOps organization, you must be an account owner or project collection administrator. If you do not have permissions, but you are an account member, you can request extensions instead. [Learn more.](/azure/devops/marketplace/faq-extensions)
 
 :::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_2.png" alt-text="Choose an Azure DevOps organization in which to install an extension":::
 
 ## Create a build definition
 
-Now that the extension is installed, sign in to your Azure DevOps organization and find your project from the projects dashboard. You can add a [build pipeline](/azure/devops/pipelines/get-started-designer?preserve-view=true&tabs=new-nav&view=vsts) to your project or modify an existing build pipeline. If you already have a build pipeline, you can skip ahead to [Add the Emulator build task to a build definition](#addEmulatorBuildTaskToBuildDefinition).
+Now that the extension is installed, sign in to your Azure DevOps organization and find your project from the projects dashboard. You can add a [build pipeline](/azure/devops/pipelines/get-started-designer?preserve-view=true&tabs=new-nav) to your project or modify an existing build pipeline. If you already have a build pipeline, you can skip ahead to [Add the Emulator build task to a build definition](#addEmulatorBuildTaskToBuildDefinition).
 
 1. To create a new build definition, navigate to the **Builds** tab in Azure DevOps. Select **+New.** \> **New build pipeline**
 
@@ -46,7 +46,7 @@ Now that the extension is installed, sign in to your Azure DevOps organization a
 3. Finally, select the desired template for the build pipeline. We'll select the **ASP.NET** template in this tutorial. Now you have a build pipeline that you can set up to use the Azure Cosmos DB Emulator build task. 
 
 > [!NOTE]
-> The agent pool to be selected for this CI should have Docker for Windows installed unless the installation is done manually in a prior task as a part of the CI. See [Microsoft hosted agents](/azure/devops/pipelines/agents/hosted?preserve-view=true&tabs=yaml&view=azure-devops) article for a selection of agent pools; we recommend to start with `Hosted VS2017`.
+> The agent pool to be selected for this CI should have Docker for Windows installed unless the installation is done manually in a prior task as a part of the CI. See [Microsoft hosted agents](/azure/devops/pipelines/agents/hosted?tabs=yaml) article for a selection of agent pools; we recommend to start with `Hosted VS2017`.
 
 Azure Cosmos DB Emulator currently doesn’t support hosted VS2019 agent pool. However, the emulator already comes with VS2019 installed and you use it by starting the emulator with the following PowerShell cmdlets. If you run into any issues when using the VS2019, reach out to the [Azure DevOps](https://developercommunity.visualstudio.com/spaces/21/index.html) team for help:
 

@@ -3,7 +3,7 @@ title: Plan an Azure Active Directory Access Reviews deployment
 description: Planning guide for a successful Access Reviews deployment
 services: active-directory
 documentationCenter: ''
-author: BarbaraSelden
+author: ajburnle
 manager: daveba
 editor: 
 ms.service: active-directory
@@ -12,8 +12,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 12/23/2020
-ms.author: barclayn
+ms.date: 04/16/2021
+ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 
@@ -70,15 +70,18 @@ The following videos may be useful as you learn about Access Reviews:
 
 * [How to create Access Reviews in Azure AD](https://youtu.be/6KB3TZ8Wi40)
 
+* [How to create automatic Access Reviews for all guest users with access to Microsoft 365 groups in Azure AD](https://www.youtube.com/watch?v=3D2_YW2DwQ8)
+
 * [How to enable Access Reviews in Azure AD](https://youtu.be/X1SL2uubx9M)
 
 * [How to review access using My Access](https://youtu.be/tIKdQhdHLXU)
+
 
 ### Licenses
 
 You need a valid Azure AD Premium (P2) license for each person, other than Global Administrators or User Administrators, who will create or perform Access Reviews. For more information, see [Access Reviews license requirements](access-reviews-overview.md).
 
-You may also need other Identity Governance features, such as [Entitlement Lifecycle Management](entitlement-management-overview.md) or Privileged Identity Managements. In that case, you might also need related licenses. For more information, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+You may also need other Identity Governance features, such as [Entitlement Lifecycle Management](entitlement-management-overview.md) or Privileged Identity Managements. In that case, you might also need related licenses. For more information, see [Azure Active Directory pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## Plan the Access Reviews deployment project
 
@@ -135,17 +138,13 @@ Clearly, IT will want to stay in control for all infrastructure-related access d
 
 #### Customize email communication
 
-When you schedule a review, you nominate users who will perform this review. These reviewers then receive an email notification of new reviews assigned to them, as well as reminders before a review assigned to them expires.
-
-Administrators can choose to send this notification either half-way before the review expires or a day before it expires. 
+When you schedule a review, you nominate users who will perform this review. These reviewers then receive an email notification of new reviews assigned to them, as well as reminders before a review assigned to them expires. 
 
 The email sent to reviewers can be customized to include a custom short message that encourages them to act on the review. We recommend you use the additional text to:
 
 * Include a personal message to reviewers, so they understand it is sent by your Compliance or IT department.
 
-* Include a hyperlink or reference to internal information on what the expectations of the review are and additional reference or training material.
-
-* Include a link to instructions on [how to perform a self-review of access.](review-your-access.md) 
+* Include a reference to internal information on what the expectations of the review are and additional reference or training material.
 
   ![Reviewer email](./media/deploy-access-review/2-plan-reviewer-email.png)
 
@@ -163,7 +162,7 @@ In your pilot, we recommend:
 
 * Document any access removed as a part of the pilot in case you need to quickly restore it.
 
-* Monitor audit logs to ensure everything is all events are properly audited.
+* Monitor audit logs to ensure all events are properly audited.
 
 For more information, see [best practices for a pilot](../fundamentals/active-directory-deployment-plans.md).
 
@@ -196,7 +195,6 @@ The administrative role required to create, manage, or read an Access Review dep
 | Privileged roles in Azure (resources)| Global Administrator<p>User Administrator<p>Resource Owner| Creators |
 | Access package| Global Administrator<p>Creator of Access Package| Global Administrator only |
 
-
 For more information, see [Administrator role permissions in Azure Active Directory](../roles/permissions-reference.md).
 
 ### Who will review the access to the resource?
@@ -208,6 +206,8 @@ The creator of the access review decides at the time of creation who will perfor
 * A set of individually selected delegates, as selected by the Access Reviews administrator.
 
 * End-users who will each self-attest to their need for continued access.
+
+* Managers review their direct reports' access to the resource. 
 
 When creating an Access Review, administrators can choose one or more reviewers. All reviewers can start and carry out a review, choosing users for continued access to a resource or removing them. 
 
@@ -237,7 +237,6 @@ To create an access review policy, you must have the following information.
 
 * What communications should be sent based on actions taken?
 
-
 **Example Access Review plan**
 
 | Component| Value |
@@ -245,14 +244,10 @@ To create an access review policy, you must have the following information.
 | **Resources to review**| Access to Microsoft Dynamics |
 | **Review frequency**| Monthly |
 | **Who performs review**| Dynamics business group Program Managers |
-| **Notification**| Email 24 hours prior to review to alias Dynamics-Pms<p>Include encouraging custom message to reviewers to secure their buy-in |
+| **Notification**| Email sent at start of review to alias Dynamics-Pms<p>Include encouraging custom message to reviewers to secure their buy-in |
 | **Timeline**| 48 hours from notification |
 |**Automatic actions**| Remove access from any account that has no interactive sign-in within 90 days, by removing user from security group dynamics-access. <p>*Perform actions if not reviewed within timeline.* |
 | **Manual actions**| Reviewers may perform removals approval prior to automated action if desired. |
-| **Communications**| Send internal (member) users who are removed an email explaining they are removed and how to regain access. |
-
-
- 
 
 ### Automate actions based on Access Reviews
 
@@ -317,6 +312,8 @@ Group membership can be reviewed by:
 
 * Members of the group, attesting for themselves
 
+* Managers review their direct reports access 
+
 ### Group ownership
 
 We recommend that group owners review membership, as they're best situated to know who needs access. Ownership of groups differs with the type of group:
@@ -334,19 +331,11 @@ Groups that are synchronized from on-premises Active Directory cannot have an ow
 
 ### Review membership of exclusion groups in Conditional Access policies 
 
-There are times when Conditional Access policies designed to keep your network secure shouldn't apply to all users. For example, a Conditional Access policy that only allows users to sign in while on the corporate network may not apply to the Sales team, which travels extensively. In that case, the Sales team members would be put into a group and that group would be excluded from the Conditional Access policy. 
+Go to [Use Azure AD access reviews to manage users excluded from Conditional Access policies](conditional-access-exclusion.md) to learn how to review membership of exclusion groups.
 
-Review such a group membership regularly as the exclusion represents a potential risk if the wrong members are excluded from the requirement.
+### Review guest users' group memberships
 
-You can [use Azure AD access reviews to manage users excluded from Conditional Access policies](conditional-access-exclusion.md).
-
-### Review external user’s group memberships
-
-To minimize manual work and associated potential errors, consider using [Dynamic Groups](../enterprise-users/groups-create-rule.md) to assign group membership based on a user’s attributes. You may want to create one or more Dynamic Groups for external users. The internal sponsor can act as a reviewer for membership in the group. 
-
-Note: External users who are removed from a group as the result of an Access Review aren't deleted from the tenant. 
-
-They can be deleted from a tenant either removed manually, or via a script.
+Go to [Manage guest access with Azure AD access reviews](./manage-guest-access-with-access-reviews.md) to learn how to review guest users' access to group memberships.
 
 ### Review access to on-premises groups
 
@@ -404,7 +393,7 @@ Access Reviews allows reviewers to attest whether users still need to be in a ro
 
 * All Microsoft 365 and Dynamics Service Administration roles
 
-Roles selected here include permanent and eligible role. 
+Roles reviewed include permanent and eligible assignments. 
 
 In the Reviewers section, select one or more people to review all the users. Or you can select to have the members review their own access.
 
@@ -424,7 +413,6 @@ To reduce the risk of stale access, administrators can enable periodic reviews o
 | [Perform Access Reviews](entitlement-management-access-reviews-review-access.md)| Perform access reviews for other users that are assigned to an Access Package. |
 | [Self-review assigned Access Package(s)](entitlement-management-access-reviews-self-review.md)| Self-review of assigned Access Package(s) |
 
-
 > [!NOTE]
 > End-users who self-review and say they no longer need access are not removed from the Access Package immediately. They are removed from the Access Package when the review ends or if an administrator stops the review.
 
@@ -439,7 +427,6 @@ Access needs to groups and applications for employees and guests likely change o
 | [Self-review your access](review-your-access.md)| Members review own access to a group or an application |
 | [Complete Access Review](complete-access-review.md)| View an Access Review and apply the results |
 | [Take action for on-premises groups](https://github.com/microsoft/access-reviews-samples/tree/master/AzureADAccessReviewsOnPremises)| Sample PowerShell script to act on Access Reviews for on-premises groups. |
-
 
 ### Review Azure AD roles
 
@@ -473,7 +460,7 @@ Follow the instructions in the links below:
 
 ## Use the Access Reviews API
 
-See [graph API methods](/graph/api/resources/accessreviews-root?view=graph-rest-beta) and [role and application permission authorization checks](/graph/api/resources/accessreviews-root?view=graph-rest-beta) to interact with and manage reviewable resources. The Access Reviews methods in the Microsoft Graph API are available for both application and user contexts. When running scripts in the application context, the account used to run the API (the service principle) must be granted the “AccessReview.Read.All” permission to query Access Reviews information.
+See [graph API methods](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta&preserve-view=true) and [role and application permission authorization checks](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta&preserve-view=true) to interact with and manage reviewable resources. The Access Reviews methods in the Microsoft Graph API are available for both application and user contexts. When running scripts in the application context, the account used to run the API (the service principle) must be granted the “AccessReview.Read.All” permission to query Access Reviews information.
 
 Popular Access Reviews tasks to automate using the Graph API for Access Reviews are:
 

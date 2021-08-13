@@ -7,12 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 04/26/2021
 ms.author: alkohli
+ms.custom: "contperf-fy21q4"
 ---
 # System requirements for Azure Stack Edge Pro with GPU 
 
-This article describes the important system requirements for your Microsoft Azure Stack Edge Pro solution and for the clients connecting to Azure Stack Edge Pro. We recommend that you review the information carefully before you deploy your Azure Stack Edge Pro. You can refer back to this information as necessary during the deployment and subsequent operation.
+This article describes the important system requirements for your Microsoft Azure Stack Edge Pro GPU solution and for the clients connecting to Azure Stack Edge Pro. We recommend that you review the information carefully before you deploy your Azure Stack Edge Pro. You can refer back to this information as necessary during the deployment and subsequent operation.
 
 The system requirements for the Azure Stack Edge Pro include:
 
@@ -33,7 +34,7 @@ The system requirements for the Azure Stack Edge Pro include:
 
 ## Supported Edge storage accounts
 
-The following Edge storage accounts are supported with REST interface of the device. The Edge storage accounts are created on the device. For more information, see [Edge storage accounts](azure-stack-edge-j-series-manage-storage-accounts.md#about-edge-storage-accounts).
+The following Edge storage accounts are supported with REST interface of the device. The Edge storage accounts are created on the device. For more information, see [Edge storage accounts](azure-stack-edge-gpu-manage-storage-accounts.md#about-edge-storage-accounts).
 
 |Type  |Storage account  |Comments  |
 |---------|---------|---------|
@@ -101,6 +102,19 @@ We recommend that you set your firewall rules for outbound traffic, based on Azu
 | https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Microsoft container registry (required)               |
 | https://\*.azurecr.io                     | Personal and third-party container registries (optional) | 
 | https://\*.azure-devices.net              | IoT Hub access (required)                             | 
+| https://\*.docker.com              | StorageClass (required)                             | 
+
+### URL patterns for monitoring
+
+Add the following URL patterns for Azure Monitor if you're using the containerized version of the Log Analytics agent for Linux.
+
+| URL pattern | Port | Component or functionality |
+|-------------|-------------|----------------------------|
+| https://\*ods.opinsights.azure.com | 443 | Data ingestion |
+| https://\*.oms.opinsights.azure.com | 443 | Operations Management Suite (OMS) onboarding |
+| https://\*.dc.services.visualstudio.com | 443 | Agent telemetry that uses Azure Public Cloud Application Insights |
+
+For more information, see [Network firewall requirements for monitoring container insights](../azure-monitor/containers/container-insights-onboard.md#network-firewall-requirements).
 
 ### URL patterns for gateway for Azure Government
 
@@ -113,6 +127,17 @@ We recommend that you set your firewall rules for outbound traffic, based on Azu
 | https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Microsoft container registry (required)               |
 | https://\*.azure-devices.us              | IoT Hub access (required)           |
 | https://\*.azurecr.us                    | Personal and third-party container registries (optional) | 
+
+### URL patterns for monitoring for Azure Government
+
+Add the following URL patterns for Azure Monitor if you're using the containerized version of the Log Analytics agent for Linux.
+
+| URL pattern | Port | Component or functionality |
+|-------------|-------------|----------------------------|
+| https://\*ods.opinsights.azure.us | 443 | Data ingestion |
+| https://\*.oms.opinsights.azure.us | 443 | Operations Management Suite (OMS) onboarding |
+| https://\*.dc.services.visualstudio.com | 443 | Agent telemetry that uses Azure Public Cloud Application Insights |
+
 
 ## Internet bandwidth
 

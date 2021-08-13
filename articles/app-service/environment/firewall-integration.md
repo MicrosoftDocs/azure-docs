@@ -4,13 +4,16 @@ description: Learn how to integrate with Azure Firewall to secure outbound traff
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 09/24/2020
+ms.date: 07/07/2021
 ms.author: ccompy
 ms.custom: seodec18, references_regions
 
 ---
 
 # Locking down an App Service Environment
+> [!NOTE]
+> This article is about the App Service Environment v2 which is used with Isolated App Service plans
+> 
 
 The App Service Environment (ASE) has a number of external dependencies that it requires access to in order to function properly. The ASE lives in the customer Azure Virtual Network (VNet). Customers must allow the ASE dependency traffic, which is a problem for customers that want to lock down all egress from their VNet.
 
@@ -96,7 +99,7 @@ Azure Firewall can send logs to Azure Storage, Event Hub, or Azure Monitor logs.
 AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 ```
 
-Integrating your Azure Firewall with Azure Monitor logs is useful when first getting an application working when you are not aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+Integrating your Azure Firewall with Azure Monitor logs is useful when first getting an application working when you are not aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](../../azure-monitor/logs/log-query-overview.md).
  
 ## Dependencies
 
@@ -142,6 +145,8 @@ With an Azure Firewall, you automatically get everything below configured with t
 |login.windows.com:443 |
 |login.windows.net:443 |
 |login.microsoftonline.com:443 |
+|\*.login.microsoftonline.com:443|
+|\*.login.microsoft.com:443|
 |client.wns.windows.com:443 |
 |definitionupdates.microsoft.com:443 |
 |go.microsoft.com:80 |
@@ -235,6 +240,7 @@ With an Azure Firewall, you automatically get everything below configured with t
 | \*.identity.azure.net:443 |
 | \*.ctldl.windowsupdate.com:80 |
 | \*.ctldl.windowsupdate.com:443 |
+| \*.prod.microsoftmetrics.com:443 |
 
 #### Linux dependencies 
 
@@ -368,6 +374,7 @@ Linux is not available in US Gov regions and is thus not listed as an optional c
 |\*ctldl.windowsupdate.com:443 |
 |\*.management.usgovcloudapi.net:443 |
 |\*.update.microsoft.com:443 |
+|\*.prod.microsoftmetrics.com:443 |
 |admin.core.usgovcloudapi.net:443 |
 |azperfmerges.blob.core.windows.net:443 |
 |azperfmerges.blob.core.windows.net:443 |
@@ -398,6 +405,7 @@ Linux is not available in US Gov regions and is thus not listed as an optional c
 |gcwsprodgmdm2billing.queue.core.usgovcloudapi.net:443 |
 |gcwsprodgmdm2billing.table.core.usgovcloudapi.net:443 |
 |global.metrics.nsatc.net:443 |
+|prod.microsoftmetrics.com:443 |
 |go.microsoft.com:443 |
 |gr-gcws-prod-bd3.usgovcloudapp.net:443 |
 |gr-gcws-prod-bn1.usgovcloudapp.net:443 |

@@ -3,21 +3,26 @@ title: Tutorial - Develop C# modules for Windows by using Azure IoT Edge
 description: This tutorial shows you how to create IoT Edge modules with C# code and deploy them to Windows devices that are running IoT Edge.
 services: iot-edge
 author: kgremban
-manager: philmea
+
 
 ms.author: kgremban
 ms.date: 08/03/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: "mvc, amqp, devx-track-csharp"
-
+monikerRange: "=iotedge-2018-06"
 ---
 
-# Tutorial: Develop C# IoT Edge modules for Windows devices
+# Tutorial: Develop C# IoT Edge modules using Windows containers
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 This article shows you how to use Visual Studio to develop C# code and deploy it to a Windows device that's running Azure IoT Edge.
 
-You can use Azure IoT Edge modules to deploy code that implements your business logic directly in your IoT Edge devices. This tutorial walks you through creating and deploying an IoT Edge module that filters sensor data. 
+>[!NOTE]
+>IoT Edge 1.1 LTS is the last release channel that supports Windows containers. Starting with version 1.2, Windows containers are not supported. Consider using or moving to [IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md) to run IoT Edge on Windows devices.
+
+You can use Azure IoT Edge modules to deploy code that implements your business logic directly in your IoT Edge devices. This tutorial walks you through creating and deploying an IoT Edge module that filters sensor data.
 
 In this tutorial, you learn how to:
 
@@ -34,19 +39,19 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
 ## Prerequisites
 
-This tutorial demonstrates how to develop a module in C# by using Visual Studio 2019 and then deploy it to a Windows device. If you're developing modules for Linux devices, go to [Develop C# IoT Edge modules for Linux devices](tutorial-csharp-module.md) instead.
+This tutorial demonstrates how to develop a module in C# by using Visual Studio 2019 and then deploy it to a Windows device. If you're developing modules using Linux containers, go to [Develop C# IoT Edge modules using Linux containers](tutorial-csharp-module.md) instead.
 
-To understand your options for developing and deploying C# modules to Windows devices, refer to the following table:
+To understand your options for developing and deploying C# modules using Windows containers, refer to the following table:
 
 | C# | Visual&nbsp;Studio&nbsp;Code | Visual Studio 2017&nbsp;and&nbsp;2019 |
 | -- | :------------------: | :------------------: |
 | Windows AMD64 develop | ![Develop C# modules for WinAMD64 in Visual Studio Code](./media/tutorial-c-module/green-check.png) | ![Develop C# modules for WinAMD64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
 | Windows AMD64 debug |   | ![Debug C# modules for WinAMD64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
 
-Before you begin this tutorial, set up your development environment by following the instructions in the [Develop IoT Edge modules for Windows devices](tutorial-develop-for-windows.md) tutorial. After you complete it, your environment will contain the following prerequisites:
+Before you begin this tutorial, set up your development environment by following the instructions in the [Develop IoT Edge modules using Windows containers](tutorial-develop-for-windows.md) tutorial. After you complete it, your environment will contain the following prerequisites:
 
 * A free or standard-tier [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
-* A [Windows device that's running Azure IoT Edge](quickstart.md).
+* A [Windows device that's running Azure IoT Edge](how-to-install-iot-edge-windows-on-windows.md).
 * A container registry, such as [Azure Container Registry](../container-registry/index.yml).
 * [Visual Studio 2019](/visualstudio/install/install-visual-studio), configured with the [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) extension.
 * [Docker Desktop](https://docs.docker.com/docker-for-windows/install/), configured to run Windows containers.

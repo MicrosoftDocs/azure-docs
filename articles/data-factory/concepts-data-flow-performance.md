@@ -1,19 +1,21 @@
 ---
 title: Mapping data flow performance and tuning guide
-description: Learn about key factors that affect the performance of mapping data flows in Azure Data Factory.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn about key factors that affect the performance of mapping data flows in Azure Data Factory and Azure Synapse Analytics pipelines.
 author: kromerm
 ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
-ms.custom: seo-lt-2019
-ms.date: 12/18/2020
+ms.subservice: data-flows
+ms.custom: synapse
+ms.date: 06/07/2021
 ---
 
 # Mapping data flows performance and tuning guide
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Mapping data flows in Azure Data Factory provide a code-free interface to design and run data transformations at scale. If you're not familiar with mapping data flows, see the [Mapping Data Flow Overview](concepts-data-flow-overview.md). This article highlights various ways to tune and optimize your data flows so that they meet your performance benchmarks.
+Mapping data flows in Azure Data Factory and Synapse pipelines provide a code-free interface to design and run data transformations at scale. If you're not familiar with mapping data flows, see the [Mapping Data Flow Overview](concepts-data-flow-overview.md). This article highlights various ways to tune and optimize your data flows so that they meet your performance benchmarks.
 
 Watch the below video to see shows some sample timings transforming data with data flows.
 
@@ -21,11 +23,11 @@ Watch the below video to see shows some sample timings transforming data with da
 
 ## Testing data flow logic
 
-When designing and testing data flows from the ADF UX, debug mode allows you to interactively test against a live Spark cluster. This allows you to preview data and execute your data flows without waiting for a cluster to warm up. For more information, see [Debug Mode](concepts-data-flow-debug-mode.md).
+When designing and testing data flows from UI, debug mode allows you to interactively test against a live Spark cluster. This allows you to preview data and execute your data flows without waiting for a cluster to warm up. For more information, see [Debug Mode](concepts-data-flow-debug-mode.md).
 
 ## Monitoring data flow performance
 
-Once you verify your transformation logic using debug mode, run your data flow end-to-end as an activity in a pipeline. Data flows are operationalized in a pipeline using the [execute data flow activity](control-flow-execute-data-flow-activity.md). The data flow activity has a unique monitoring experience compared to other Azure Data Factory activities that displays a detailed execution plan and performance profile of the transformation logic. To view detailed monitoring information of a data flow, click on the eyeglasses icon in the activity run output of a pipeline. For more information, see [Monitoring mapping data flows](concepts-data-flow-monitoring.md).
+Once you verify your transformation logic using debug mode, run your data flow end-to-end as an activity in a pipeline. Data flows are operationalized in a pipeline using the [execute data flow activity](control-flow-execute-data-flow-activity.md). The data flow activity has a unique monitoring experience compared to other activities that displays a detailed execution plan and performance profile of the transformation logic. To view detailed monitoring information of a data flow, click on the eyeglasses icon in the activity run output of a pipeline. For more information, see [Monitoring mapping data flows](concepts-data-flow-monitoring.md).
 
 ![Data Flow Monitor](media/data-flow/monitoring-details.png "Data Flow Monitor 2")
 
@@ -50,12 +52,12 @@ The **Optimize** tab contains settings to configure the partitioning scheme of t
 
 ![Screenshot shows the Optimize tab, which includes Partition option, Partition type, and Number of partitions.](media/data-flow/optimize.png)
 
-By default, *Use current partitioning* is selected which instructs Azure Data Factory keep the current output partitioning of the transformation. As repartitioning data takes time, *Use current partitioning* is recommended in most scenarios. Scenarios where you may want to repartition your data include after aggregates and joins that significantly skew your data or when using Source partitioning on a SQL DB.
+By default, *Use current partitioning* is selected which instructs the service keep the current output partitioning of the transformation. As repartitioning data takes time, *Use current partitioning* is recommended in most scenarios. Scenarios where you may want to repartition your data include after aggregates and joins that significantly skew your data or when using Source partitioning on a SQL DB.
 
 To change the partitioning on any transformation, select the **Optimize** tab and select the **Set Partitioning** radio button. You are presented with a series of options for partitioning. The best method of partitioning differs based on your data volumes, candidate keys, null values, and cardinality. 
 
 > [!IMPORTANT]
-> Single partition combines all the distributed data into a single partition. This is a very slow operation that also significantly affects all downstream transformation and writes. The Azure Data Factory highly recommends against using this option unless there is an explicit business reason to do so.
+> Single partition combines all the distributed data into a single partition. This is a very slow operation that also significantly affects all downstream transformation and writes. This option is strongly discouraged unless there is an explicit business reason to use it.
 
 The following partitioning options are available in every transformation:
 
@@ -65,7 +67,7 @@ Round robin distributes data equally across partitions. Use round-robin when you
 
 ### Hash
 
-Azure Data Factory produces a hash of columns to produce uniform partitions such that rows with similar values fall in the same partition. When you use the Hash option, test for possible partition skew. You can set the number of physical partitions.
+The service produces a hash of columns to produce uniform partitions such that rows with similar values fall in the same partition. When you use the Hash option, test for possible partition skew. You can set the number of physical partitions.
 
 ### Dynamic range
 
@@ -84,7 +86,7 @@ If you have a good understanding of the cardinality of your data, key partitioni
 
 ## Logging level
 
-If you do not require every pipeline execution of your data flow activities to fully log all verbose telemetry logs, you can optionally set your logging level to "Basic" or "None". When executing your data flows in "Verbose" mode (default), you are requesting ADF to fully log activity at each individual partition level during your data transformation. This can be an expensive operation, so only enabling verbose when troubleshooting can improve your overall data flow and pipeline performance. "Basic" mode will only log transformation durations while "None" will only provide a summary of durations.
+If you do not require every pipeline execution of your data flow activities to fully log all verbose telemetry logs, you can optionally set your logging level to "Basic" or "None". When executing your data flows in "Verbose" mode (default), you are requesting the service to fully log activity at each individual partition level during your data transformation. This can be an expensive operation, so only enabling verbose when troubleshooting can improve your overall data flow and pipeline performance. "Basic" mode will only log transformation durations while "None" will only provide a summary of durations.
 
 ![Logging level](media/data-flow/logging.png "Set logging level")
 
@@ -92,7 +94,7 @@ If you do not require every pipeline execution of your data flow activities to f
 
 Data flows run on Spark clusters that are spun up at run-time. The configuration for the cluster used is defined in the integration runtime (IR) of the activity. There are three performance considerations to make when defining your integration runtime: cluster type, cluster size, and time to live.
 
-For more information how to create an Integration Runtime, see [Integration Runtime in Azure Data Factory](concepts-integration-runtime.md).
+For more information how to create an Integration Runtime, see [Integration Runtime](concepts-integration-runtime.md).
 
 ### Cluster type
 
@@ -102,7 +104,7 @@ There are three available options for the type of Spark cluster spun up: general
 
 If your data flow has many joins and lookups, you may want to use a **memory optimized** cluster. Memory optimized clusters can store more data in memory and will minimize any out-of-memory errors you may get. Memory optimized have the highest price-point per core, but also tend to result in more successful pipelines. If you experience any out of memory errors when executing data flows, switch to a memory optimized Azure IR configuration. 
 
-**Compute optimized** aren't ideal for ETL workflows and aren't recommended by the Azure Data Factory team for most production workloads. For simpler, non-memory intensive data transformations such as filtering data or adding derived columns, compute-optimized clusters can be used at a cheaper price per core.
+**Compute optimized** aren't ideal for ETL workflows and aren't recommended for most production workloads. For simpler, non-memory intensive data transformations such as filtering data or adding derived columns, compute-optimized clusters can be used at a cheaper price per core.
 
 ### Cluster size
 
@@ -128,15 +130,15 @@ A best practice is to start small and scale up to meet your performance needs.
 
 ### Time to live
 
-By default, every data flow activity spins up a new cluster based upon the IR configuration. Cluster start-up time takes a few minutes and data processing can't start until it is complete. If your pipelines contain multiple **sequential** data flows, you can enable a time to live (TTL) value. Specifying a time to live value keeps a cluster alive for a certain period of time after its execution completes. If a new job starts using the IR during the TTL time, it will reuse the existing cluster and start up time will greatly reduced. After the second job completes, the cluster will again stay alive for the TTL time.
+By default, every data flow activity spins up a new Spark cluster based upon the Azure IR configuration. Cold cluster start-up time takes a few minutes and data processing can't start until it is complete. If your pipelines contain multiple **sequential** data flows, you can enable a time to live (TTL) value. Specifying a time to live value keeps a cluster alive for a certain period of time after its execution completes. If a new job starts using the IR during the TTL time, it will reuse the existing cluster and start up time will greatly reduced. After the second job completes, the cluster will again stay alive for the TTL time.
 
-Only one job can run on a single cluster at a time. If there is an available cluster, but two data flows start, only one will use the live cluster. The second job will spin up its own isolated cluster.
+You can additionally minimize the startup time of warm clusters by setting the "Quick re-use" option in the Azure Integration runtime under Data Flow Properties. Setting this to true will tell the service to not teardown the existing cluster after each job and instead re-use the existing cluster, essentially keeping the compute environment you've set in your Azure IR alive for up to the period of time specified in your TTL. This option makes for the shortest start-up time of your data flow activities when executing from a pipeline.
 
-If most of your data flows execute in parallel, it is not recommended that you enable TTL. 
+However, if most of your data flows execute in parallel, it is not recommended that you enable TTL for the IR that you use for those activities. Only one job can run on a single cluster at a time. If there is an available cluster, but two data flows start, only one will use the live cluster. The second job will spin up its own isolated cluster.
 
 > [!NOTE]
 > Time to live is not available when using the auto-resolve integration runtime
-
+ 
 ## Optimizing sources
 
 For every source except Azure SQL Database, it is recommended that you keep **Use current partitioning** as the selected value. When reading from all other source systems, data flows automatically partitions data evenly based upon the size of the data. A new partition is created for about every 128 MB of data. As your data size increases, the number of partitions increase.
@@ -157,7 +159,7 @@ Azure SQL Database has a unique partitioning option called 'Source' partitioning
 
 #### Isolation level
 
-The isolation level of the read on an Azure SQL source system has an impact on performance. Choosing 'Read uncommitted' will provide the fastest performance and prevent any database locks. To learn more about SQL Isolation levels, please see [Understanding isolation levels](https://docs.microsoft.com/sql/connect/jdbc/understanding-isolation-levels).
+The isolation level of the read on an Azure SQL source system has an impact on performance. Choosing 'Read uncommitted' will provide the fastest performance and prevent any database locks. To learn more about SQL Isolation levels, please see [Understanding isolation levels](/sql/connect/jdbc/understanding-isolation-levels).
 
 #### Read using query
 
@@ -165,13 +167,13 @@ You can read from Azure SQL Database using a table or a SQL query. If you are ex
 
 ### Azure Synapse Analytics sources
 
-When using Azure Synapse Analytics, a setting called **Enable staging** exists in the source options. This allows ADF to read from Synapse using ```Staging```, which greatly improves read performance. Enabling ```Staging``` requires you to specify an Azure Blob Storage or Azure Data Lake Storage gen2 staging location in the data flow activity settings.
+When using Azure Synapse Analytics, a setting called **Enable staging** exists in the source options. This allows the service to read from Azure Synapse using ```Staging```, which greatly improves read performance. Enabling ```Staging``` requires you to specify an Azure Blob Storage or Azure Data Lake Storage gen2 staging location in the data flow activity settings.
 
 ![Enable staging](media/data-flow/enable-staging.png "Enable staging")
 
 ### File-based sources
 
-While data flows support a variety of file types, the Azure Data Factory recommends using the Spark-native Parquet format for optimal read and write times.
+While data flows support a variety of file types, the Spark-native Parquet format is recommended for optimal read and write times.
 
 If you're running the same data flow on a set of files, we recommend reading from a folder, using wildcard paths or reading from a list of files. A single data flow activity run can process all of your files in batch. More information on how to set these settings can be found in the connector documentation such as [Azure Blob Storage](connector-azure-blob-storage.md#source-transformation).
 
@@ -187,7 +189,7 @@ With Azure SQL Database, the default partitioning should work in most cases. The
 
 #### Impact of error row handling to performance
 
-When you enable error row handling ("continue on error") in the sink transformation, ADF will take an additional step before writing the compatible rows to your destination table. This additional step will have a small performance penalty that can be in the range of 5% added for this step with an additional small performance hit also added if you set the option to also with the incompatible rows to a log file.
+When you enable error row handling ("continue on error") in the sink transformation, the service will take an additional step before writing the compatible rows to your destination table. This additional step will have a small performance penalty that can be in the range of 5% added for this step with an additional small performance hit also added if you set the option to also with the incompatible rows to a log file.
 
 #### Disabling indexes using a SQL Script
 
@@ -204,7 +206,7 @@ These can both be done natively using Pre and Post-SQL scripts within an Azure S
 ![Disable indexes](media/data-flow/disable-indexes-sql.png "Disable indexes")
 
 > [!WARNING]
-> When disabling indexes, the data flow is effectively taking control of a database and queries are unlikely to succeed at this time. As a result, many ETL jobs are triggered in the middle of the night to avoid this conflict. For more information, learn about the [constraints of disabling indexes](https://docs.microsoft.com/sql/relational-databases/indexes/disable-indexes-and-constraints)
+> When disabling indexes, the data flow is effectively taking control of a database and queries are unlikely to succeed at this time. As a result, many ETL jobs are triggered in the middle of the night to avoid this conflict. For more information, learn about the [constraints of disabling indexes](/sql/relational-databases/indexes/disable-indexes-and-constraints)
 
 #### Scaling up your database
 
@@ -212,13 +214,13 @@ Schedule a resizing of your source and sink Azure SQL DB and DW before your pipe
 
 ### Azure Synapse Analytics sinks
 
-When writing to Azure Synapse Analytics, make sure that **Enable staging** is set to true. This enables ADF to write using [SQL Copy Command](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) which effectively loads the data in bulk. You will need to reference an Azure Data Lake Storage gen2 or Azure Blob Storage account for staging of the data when using Staging.
+When writing to Azure Synapse Analytics, make sure that **Enable staging** is set to true. This enables the service to write using [SQL Copy Command](/sql/t-sql/statements/copy-into-transact-sql) which effectively loads the data in bulk. You will need to reference an Azure Data Lake Storage gen2 or Azure Blob Storage account for staging of the data when using Staging.
 
 Other than Staging, the same best practices apply to Azure Synapse Analytics as Azure SQL Database.
 
 ### File-based sinks 
 
-While data flows support a variety of file types, the Azure Data Factory recommends using the Spark-native Parquet format for optimal read and write times.
+While data flows support a variety of file types, the Spark-native Parquet format is recommended for optimal read and write times.
 
 If the data is evenly distributed, **Use current partitioning** will be the fastest partitioning option for writing files.
 
@@ -234,17 +236,17 @@ Setting a naming **Pattern** will rename each partition file to a more user-frie
 
 If a column corresponds to how you wish to output the data, you can select **As data in column**. This reshuffles the data and can impact performance if the columns are not evenly distributed.
 
-**Output to single file** combines all the data into a single partition. This leads to long write times, especially for large datasets. The Azure Data Factory team highly recommends **not** choosing this option unless there is an explicit business reason to do so.
+**Output to single file** combines all the data into a single partition. This leads to long write times, especially for large datasets. This option is strongly discouraged unless there is an explicit business reason to use it.
 
 ### CosmosDB sinks
 
 When writing to CosmosDB, altering throughput and batch size during data flow execution can improve performance. These changes only take effect during the data flow activity run and will return to the original collection settings after conclusion. 
 
-**Batch size:** Calculate the rough row size of your data, and make sure that row size * batch size is less than two million. If it is, increase the batch size to get better throughput
+**Batch size:** Usually, starting with the default batch size is sufficient. To further tune this value, calculate the rough object size of your data, and make sure that object size * batch size is less than 2MB. If it is, you can increase the batch size to get better throughput.
 
 **Throughput:** Set a higher throughput setting here to allow documents to write faster to CosmosDB. Keep in mind the higher RU costs based upon a high throughput setting.
 
-**Write Throughput Budget:** Use a value which is smaller than total RUs per minute. If you have a data flow with a high number of Spark partitions, setting a budget throughput will allow more balance across those partitions.
+**Write throughput budget:** Use a value which is smaller than total RUs per minute. If you have a data flow with a high number of Spark partitions, setting a budget throughput will allow more balance across those partitions.
 
 ## Optimizing transformations
 
@@ -256,6 +258,8 @@ In joins, lookups, and exists transformations, if one or both data streams are s
 
 If the size of the broadcasted data is too large for the Spark node, you may get an out of memory error. To avoid out of memory errors, use **memory optimized** clusters. If you experience broadcast timeouts during data flow executions, you can switch off the broadcast optimization. However, this will result in slower performing data flows.
 
+When working with data sources that can take longer to query, like large database queries, it is recommended to turn broadcast off for joins. Source with long query times can cause Spark timeouts when the cluster attempts to broadcast to compute nodes. Another good choice for turning off broadcast is when you have a stream in your data flow that is aggregating values for use in a lookup transformation later. This pattern can confuse the Spark optimizer and cause timeouts.
+
 ![Join Transformation optimize](media/data-flow/joinoptimize.png "Join Optimization")
 
 #### Cross joins
@@ -264,7 +268,7 @@ If you use literal values in your join conditions or have multiple matches on bo
 
 #### Sorting before joins
 
-Unlike merge join in tools like SSIS, the join transformation isn't a mandatory merge join operation. The join keys don't require sorting prior to the transformation. The Azure Data Factory team doesn't recommend using Sort transformations in mapping data flows.
+Unlike merge join in tools like SSIS, the join transformation isn't a mandatory merge join operation. The join keys don't require sorting prior to the transformation. Using Sort transformations in mapping data flows is not recommended.
 
 ### Window transformation performance
 
@@ -289,7 +293,7 @@ When building complex pipelines with multiple data flows, your logical flow can 
 
 ### Executing data flows in parallel
 
-If you execute multiple data flows in parallel, ADF spins up separate Spark clusters for each activity. This allows for each job to be isolated and run in parallel, but will lead to multiple clusters running at the same time.
+If you execute multiple data flows in parallel, the service spins up separate Spark clusters for each activity. This allows for each job to be isolated and run in parallel, but will lead to multiple clusters running at the same time.
 
 If your data flows execute in parallel, its recommended to not enable the Azure IR time to live property as it will lead to multiple unused warm pools.
 
@@ -298,19 +302,17 @@ If your data flows execute in parallel, its recommended to not enable the Azure 
 
 ### Execute data flows sequentially
 
-If you execute your data flow activities in sequence, it is recommended that you set a TTL in the Azure IR configuration. ADF will reuse the compute resources resulting in a faster cluster start up time. Each activity will still be isolated receive a new Spark context for each execution.
-
-Running jobs sequentially will likely take the longest time to execute end-to-end, but provides a clean separation of logical operations.
+If you execute your data flow activities in sequence, it is recommended that you set a TTL in the Azure IR configuration. The service will reuse the compute resources resulting in a faster cluster start up time. Each activity will still be isolated receive a new Spark context for each execution. To reduce the time between sequential activities even more, set the "quick re-use" checkbox on the Azure IR to tell the service to re-use the existing cluster.
 
 ### Overloading a single data flow
 
-If you put all of your logic inside of a single data flow, ADF will execute the entire job on a single Spark instance. While this may seem like a way to reduce costs, it mixes together different logical flows and can be difficult to monitor and debug. If one component fails, all other parts of the job will fail as well. The Azure Data Factory team recommends organizing data flows by independent flows of business logic. If your data flow becomes too large, splitting it into separates components will make monitoring and debugging easier. While there is no hard limit on the number of transformations in a data flow, having too many will make the job complex.
+If you put all of your logic inside of a single data flow, the service will execute the entire job on a single Spark instance. While this may seem like a way to reduce costs, it mixes together different logical flows and can be difficult to monitor and debug. If one component fails, all other parts of the job will fail as well. Organizing data flows by independent flows of business logic is recommended. If your data flow becomes too large, splitting it into separates components will make monitoring and debugging easier. While there is no hard limit on the number of transformations in a data flow, having too many will make the job complex.
 
 ### Execute sinks in parallel
 
 The default behavior of data flow sinks is to execute each sink sequentially, in a serial manner, and to fail the data flow when an error is encountered in the sink. Additionally, all sinks are defaulted to the same group unless you go into the data flow properties and set different priorities for the sinks.
 
-Data flows allow you to group sinks together into groups from the data flow properties tab in the UI designer. You can both set the order of execution of your sinks as well as to group sinks together using the same group number. To help manage groups, you can ask ADF to run sinks in the same group, to run in parallel.
+Data flows allow you to group sinks together into groups from the data flow properties tab in the UI designer. You can both set the order of execution of your sinks as well as to group sinks together using the same group number. To help manage groups, you can ask the service to run sinks in the same group, to run in parallel.
 
 On the pipeline execute data flow activity under the "Sink Properties" section is an option to turn on parallel sink loading. When you enable "run in parallel", you are instructing data flows write to connected sinks at the same time rather than in a sequential manner. In order to utilize the parallel option, the sinks must be group together and connected to the same stream via a New Branch or Conditional Split.
 

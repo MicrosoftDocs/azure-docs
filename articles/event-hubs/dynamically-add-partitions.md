@@ -2,7 +2,7 @@
 title: Dynamically add partitions to an event hub in Azure Event Hubs
 description: This article shows you how to dynamically add partitions to an event hub in Azure Event Hubs. 
 ms.topic: how-to
-ms.date: 06/23/2020
+ms.date: 05/04/2021
 ---
 
 # Dynamically add partitions to an event hub (Apache Kafka topic) in Azure Event Hubs
@@ -11,7 +11,7 @@ Event Hubs provides message streaming through a partitioned consumer pattern in 
 You can specify the number of partitions at the time of creating an event hub. In some scenarios, you may need to add partitions after the event hub has been created. This article describes how to dynamically add partitions to an existing event hub. 
 
 > [!IMPORTANT]
-> Dynamic additions of partitions is available only on **Dedicated** Event Hubs clusters.
+> Dynamic additions of partitions is available only in **premium** and **dedicated** tiers of Event Hubs. 
 
 > [!NOTE]
 > For Apache Kafka clients, an **event hub** maps to a **Kafka topic**. For more mappings between Azure Event Hubs and Apache Kafka, see [Kafka and Event Hubs conceptual mapping](event-hubs-for-kafka-ecosystem-overview.md#kafka-and-event-hub-conceptual-mapping)
@@ -21,14 +21,14 @@ You can specify the number of partitions at the time of creating an event hub. I
 This section shows you how to update partition count of an event hub in different ways (PowerShell, CLI, and so on.).
 
 ### PowerShell
-Use the [Set-AzureRmEventHub](/powershell/module/azurerm.eventhub/Set-AzureRmEventHub?view=azurermps-6.13.0) PowerShell command to update partitions in an event hub. 
+Use the [Set-AzureRmEventHub](/powershell/module/azurerm.eventhub/Set-AzureRmEventHub) PowerShell command to update partitions in an event hub. 
 
 ```azurepowershell-interactive
 Set-AzureRmEventHub -ResourceGroupName MyResourceGroupName -Namespace MyNamespaceName -Name MyEventHubName -partitionCount 12
 ```
 
 ### CLI
-Use the [`az eventhubs eventhub update`](/cli/azure/eventhubs/eventhub?view=azure-cli-latest#az-eventhubs-eventhub-update) CLI command to update partitions in an event hub. 
+Use the [`az eventhubs eventhub update`](/cli/azure/eventhubs/eventhub#az_eventhubs_eventhub_update) CLI command to update partitions in an event hub. 
 
 ```azurecli-interactive
 az eventhubs eventhub update --resource-group MyResourceGroupName --namespace-name MyNamespaceName --name MyEventHubName --partition-count 12
@@ -100,4 +100,3 @@ When a consumer group member performs a metadata refresh and picks up the newly 
 
 ## Next steps
 For more information about partitions, see [Partitions](event-hubs-scalability.md#partitions).
-

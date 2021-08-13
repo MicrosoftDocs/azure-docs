@@ -4,7 +4,7 @@ description: How to manage and update Azure HPC Cache using the Azure portal or 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 07/08/2021
 ms.author: v-erkel
 ---
 
@@ -28,6 +28,9 @@ The buttons at the top of the page can help you manage the cache:
 * [**Delete**](#delete-the-cache) - Permanently destroys the cache
 
 Read more about these options below.
+
+> [!TIP]
+> You can also manage individual storage targets - read [Manage storage targets](manage-storage-targets.md) for details.
 
 Click the image below to watch a [video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) that demonstrates cache management tasks.
 
@@ -55,13 +58,13 @@ To reactivate a stopped cache, click the **Start** button. No confirmation is ne
 
 [Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
-Temporarily suspend a cache with the [az hpc-cache stop](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-stop) command. This action is only valid when a cache's status is **Healthy** or **Degraded**.
+Temporarily suspend a cache with the [az hpc-cache stop](/cli/azure/hpc-cache#az_hpc_cache_stop) command. This action is only valid when a cache's status is **Healthy** or **Degraded**.
 
 The cache automatically flushes its contents to the storage targets before stopping. This process might take some time, but it ensures data consistency.
 
 When the action is complete, the cache status changes to **Stopped**.
 
-Reactivate a stopped cache with [az hpc-cache start](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-start).
+Reactivate a stopped cache with [az hpc-cache start](/cli/azure/hpc-cache#az_hpc_cache_start).
 
 When you issue the start or stop command, the command line shows a "Running" status message until the operation completes.
 
@@ -110,7 +113,7 @@ To flush the cache, click the **Flush** button and then click **Yes** to confirm
 
 [Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
-Use [az hpc-cache flush](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-flush) to force the cache to write all changed data to the storage targets.
+Use [az hpc-cache flush](/cli/azure/hpc-cache#az_hpc_cache_flush) to force the cache to write all changed data to the storage targets.
 
 Example:
 
@@ -158,9 +161,9 @@ Click the **Upgrade** button to begin the software update. The cache status chan
 
 [Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
-On the Azure CLI, new software information is included at the end of the cache status report. (Use [az hpc-cache show](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-show) to check.) Look for the string "upgradeStatus" in the message.
+On the Azure CLI, new software information is included at the end of the cache status report. (Use [az hpc-cache show](/cli/azure/hpc-cache#az_hpc_cache_show) to check.) Look for the string "upgradeStatus" in the message.
 
-Use [az hpc-cache upgrade-firmware](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-upgrade-firmware) to apply the update, if any exists.
+Use [az hpc-cache upgrade-firmware](/cli/azure/hpc-cache#az_hpc_cache_upgrade-firmware) to apply the update, if any exists.
 
 If no update is available, this operation has no effect.
 
@@ -222,7 +225,7 @@ After stopping the cache, click the **Delete** button to permanently remove the 
 
 [Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
-Use the Azure CLI command [az hpc-cache delete](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-delete) to permanently remove the cache.
+Use the Azure CLI command [az hpc-cache delete](/cli/azure/hpc-cache#az_hpc_cache_delete) to permanently remove the cache.
 
 Example:
 ```azurecli
@@ -242,15 +245,21 @@ $
 
 ---
 
-## Cache metrics and monitoring
+## View warnings
 
-The overview page shows graphs for some basic cache statistics - cache throughput, operations per second, and latency.
+If the cache goes into an unhealthy state, check the **Warnings** page. This page shows notifications from the cache software that might help you understand its state.
 
-![screenshot of three line graphs showing the statistics mentioned above for a sample cache](media/hpc-cache-overview-stats.png)
+These notifications do not appear in the activity log because they are not controlled by Azure portal. They are often associated with custom settings you might have made.
 
-These charts are part of Azure's built-in monitoring and analytics tools. Additional tools and alerts are available from the pages under the **Monitoring** heading in the portal sidebar. Learn more in the portal section of the [Azure Monitoring documentation](../azure-monitor/insights/monitor-azure-resource.md#monitoring-in-the-azure-portal).
+Kinds of warnings you might see here include:
+
+* The cache can't reach its NTP server
+* The cache failed to download Extended Groups username information
+* Custom DNS settings have changed on a storage target
+
+![screenshot of the Monitoring > Warnings page showing a message that extended groups usernames could not be downloaded](media/warnings-page.png)
 
 ## Next steps
 
-* Learn more about [Azure metrics and statistics tools](../azure-monitor/index.yml)
+* [Monitor the cache with statistics](metrics.md)
 * Get [help with your Azure HPC Cache](hpc-cache-support-ticket.md)

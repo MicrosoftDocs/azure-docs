@@ -2,11 +2,14 @@
 title: Create a Windows VM from a specialized VHD in Azure 
 description: Create a new Windows VM by attaching a specialized managed disk as the OS disk by using the Resource Manager deployment model.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: imaging
+ms.collection: windows
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/10/2019
-ms.author: cynthn
+ms.author: cynthn 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Create a Windows VM from a specialized disk by using PowerShell
@@ -49,7 +52,7 @@ You can upload the VHD from a specialized VM created with an on-premises virtual
 ### Prepare the VM
 Use the VHD as-is to create a new VM. 
   
-  * [Prepare a Windows VHD to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Do not** generalize the VM by using Sysprep.
+  * [Prepare a Windows VHD to upload to Azure](prepare-for-upload-vhd-image.md). **Do not** generalize the VM by using Sysprep.
   * Remove any guest virtualization tools and agents that are installed on the VM (such as VMware tools).
   * Make sure the VM is configured to get the IP address and DNS settings from DHCP. This ensures that the server obtains an IP address within the virtual network when it starts up. 
 
@@ -188,7 +191,7 @@ $nsg = New-AzNetworkSecurityGroup `
 	
 ```
 
-For more information about endpoints and NSG rules, see [Opening ports to a VM in Azure by using PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+For more information about endpoints and NSG rules, see [Opening ports to a VM in Azure by using PowerShell](nsg-quickstart-powershell.md).
 
 ### Create a public IP address and NIC
 To enable communication with the virtual machine in the virtual network, you'll need a [public IP address](../../virtual-network/public-ip-addresses.md) and a network interface.

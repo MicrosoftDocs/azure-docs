@@ -1,32 +1,38 @@
 ---
-title: Create tumbling window triggers in Azure Data Factory 
-description: Learn how to create a trigger in Azure Data Factory that runs a pipeline on a tumbling window.
-services: data-factory
-documentationcenter: ''
+title: Create tumbling window triggers
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to create a trigger in Azure Data Factory or Azure Synapse Analytics that runs a pipeline on a tumbling window.
 author: chez-charlie
 ms.author: chez
-manager: jroth
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/25/2020
+ms.date: 07/26/2021
 ---
 
 # Create a trigger that runs a pipeline on a tumbling window
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article provides steps to create, start, and monitor a tumbling window trigger. For general information about triggers and the supported types, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md).
 
 Tumbling window triggers are a type of trigger that fires at a periodic time interval from a specified start time, while retaining state. Tumbling windows are a series of fixed-sized, non-overlapping, and contiguous time intervals. A tumbling window trigger has a one-to-one relationship with a pipeline and can only reference a singular pipeline. Tumbling window trigger is a more heavy weight alternative for schedule trigger offering a suite of features for complex scenarios([dependency on other tumbling window triggers](#tumbling-window-trigger-dependency), [rerunning a failed job](tumbling-window-trigger-dependency.md#monitor-dependencies) and [set user retry for pipelines](#user-assigned-retries-of-pipelines)). To further understand the difference between schedule trigger and tumbling window trigger, please visit [here](concepts-pipeline-execution-triggers.md#trigger-type-comparison).
 
-## Data Factory UI
+## UI Experience
 
-1. To create a tumbling window trigger in the Data Factory UI, select the **Triggers** tab, and then select **New**. 
+1. To create a tumbling window trigger in the UI, select the **Triggers** tab, and then select **New**. 
 1. After the trigger configuration pane opens, select **Tumbling Window**, and then define your tumbling window trigger properties. 
 1. When you're done, select **Save**.
 
-![Create a tumbling window trigger in the Azure portal](media/how-to-create-tumbling-window-trigger/create-tumbling-window-trigger.png)
+# [Azure Data Factory](#tab/data-factory)
+:::image type="content" source="media/how-to-create-tumbling-window-trigger/create-tumbling-window-trigger.png" alt-text="Create a tumbling window trigger in the Azure portal":::
+
+# [Azure Synapse](#tab/synapse-analytics)
+:::image type="content" source="media/how-to-create-tumbling-window-trigger/create-tumbling-window-trigger-synapse.png" alt-text="Create a tumbling window trigger in the Azure portal":::
+
+---
 
 ## Tumbling window trigger type properties
 
@@ -166,11 +172,27 @@ You can cancel runs for a tumbling window trigger, if the specific window is in 
 * If the window is in **Running** state, cancel the associated _Pipeline Run_, and the trigger run will be marked as _Canceled_ afterwards
 * If the window is in **Waiting** or **Waiting on Dependency** state, you can cancel the window from Monitoring:
 
-![Cancel a tumbling window trigger from Monitoring page](media/how-to-create-tumbling-window-trigger/cancel-tumbling-window-trigger.png)
+# [Azure Data Factory](#tab/data-factory)
+
+:::image type="content" source="media/how-to-create-tumbling-window-trigger/cancel-tumbling-window-trigger.png" alt-text="Cancel a tumbling window trigger from Monitoring page":::
+
+# [Azure Synapse](#tab/synapse-analytics)
+
+:::image type="content" source="media/how-to-create-tumbling-window-trigger/cancel-tumbling-window-trigger-synapse.png" alt-text="Cancel a tumbling window trigger from Monitoring page":::
+
+---
 
 You can also rerun a canceled window. The rerun will take the _latest_ published definitions of the trigger, and dependencies for the specified window will be _re-evaluated_ upon rerun
 
-![Rerun a tumbling window trigger for previously canceled runs](media/how-to-create-tumbling-window-trigger/rerun-tumbling-window-trigger.png)
+# [Azure Data Factory](#tab/data-factory)
+
+:::image type="content" source="media/how-to-create-tumbling-window-trigger/rerun-tumbling-window-trigger.png" alt-text="Rerun a tumbling window trigger for previously canceled runs":::
+
+# [Azure Synapse](#tab/synapse-analytics)
+
+:::image type="content" source="media/how-to-create-tumbling-window-trigger/rerun-tumbling-window-trigger-synapse.png" alt-text="Rerun a tumbling window trigger for previously canceled runs":::
+
+---
 
 ## Sample for Azure PowerShell
 
@@ -219,7 +241,7 @@ This section shows you how to use Azure PowerShell to create, start, and monitor
     ```powershell
     Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
-    
+
 3. Confirm that the status of the trigger is **Stopped** by using the **Get-AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
@@ -243,10 +265,11 @@ This section shows you how to use Azure PowerShell to create, start, and monitor
     ```powershell
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
     ```
-    
+
 To monitor trigger runs and pipeline runs in the Azure portal, see [Monitor pipeline runs](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
 ## Next steps
 
 * For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution).
-* [Create a tumbling window trigger dependency](tumbling-window-trigger-dependency.md)
+* [Create a tumbling window trigger dependency](tumbling-window-trigger-dependency.md).
+* Learn how to reference trigger metadata in pipeline, see [Reference Trigger Metadata in Pipeline Runs](how-to-use-trigger-parameterization.md)

@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
+zone_pivot_groups: azure-maps-android
 ---
 
 # Tutorial: Load GeoJSON data into Azure Maps Android SDK
@@ -18,6 +19,7 @@ This tutorial guides you through the process of importing a GeoJSON file of loca
 > * Add Azure Maps to an Android application.
 > * Create a data source and load in a GeoJSON file from a local file or the web.
 > * Display the data on the map.
+> * Interact with the data on the maps to view its details.
 
 ## Prerequisites
 
@@ -26,239 +28,219 @@ This tutorial guides you through the process of importing a GeoJSON file of loca
 
 ### Import GeoJSON data from web or assets folder
 
-Most GeoJSON files wrap all data within a `FeatureCollection`. With this in mind, if the GeoJSON files are loaded into the application as a string, they can be passed into the feature collection's static `fromJson` method which will deserialize the string into a GeoJSON `FeatureCollection` object that can be added the to map.
+Most GeoJSON files wrap all data within a `FeatureCollection`. With this scenario in mind, if the GeoJSON files are loaded into the application as a string, they can be passed into the feature collection's static `fromJson` method, which will deserialize the string into a GeoJSON `FeatureCollection` object that can be added to the map.
 
 The following steps show you how to import a GeoJSON file into the application and deserialize it as a GeoJSON `FeatureCollection` object.
 
 1. Complete the [Quickstart: Create an Android app](quick-android-map.md) as the following steps build on top of this application.
-2. In the project panel of Android studio, right click on the **app** folder and go to `New > Folder > Assets Folder`.
+2. In the project panel of Android studio, right-click on the **app** folder and go to `New > Folder > Assets Folder`.
 3. Drag and drop the [Sample Points of Interest](https://raw.githubusercontent.com/Azure-Samples/AzureMapsCodeSamples/master/AzureMapsCodeSamples/Common/data/geojson/SamplePoiDataSet.json) GeoJSON file into the assets folder.
-4. Create a new file called **Utils.java** and add the following code to that file. This code provides a static method called `importData` that asynchronously imports a file from the the `assets` folder of the application or from the web using a URL as a string and returns it back to the UI thread using a simple callback method.
 
-    ```java
-    //Modify the package name as needed to align with your application.
-    package com.example.myapplication;
-    
-    import android.content.Context;
-    import android.os.Handler;
-    import android.os.Looper;
-    import android.webkit.URLUtil;
-    
-    import java.io.BufferedReader;
-    import java.io.IOException;
-    import java.io.InputStream;
-    import java.io.InputStreamReader;
-    import java.net.URL;
-    import java.util.concurrent.ExecutorService;
-    import java.util.concurrent.Executors;
-    
-    import javax.net.ssl.HttpsURLConnection;
-    
-    public class Utils {
-    
-        interface SimpleCallback {
-            void notify(String result);
-        }
-    
-        /**
-         * Imports data from a web url or asset file name and returns it to a callback.
-         * @param urlOrFileName A web url or asset file name that points to data to load.
-         * @param context The context of the app.
-         * @param callback The callback function to return the data to.
-         */
-        public static void importData(String urlOrFileName, Context context, SimpleCallback callback){
-            importData(urlOrFileName, context, callback, null);
-        }
-        
-        /**
-         * Imports data from a web url or asset file name and returns it to a callback.
-         * @param urlOrFileName A web url or asset file name that points to data to load.
-         * @param context The context of the app.
-         * @param callback The callback function to return the data to.
-         * @param error A callback function to return errors to.
-         */
-        public static void importData(String urlOrFileName, Context context, SimpleCallback callback, SimpleCallback error){
-            if(urlOrFileName != null && callback != null) {
-                ExecutorService executor = Executors.newSingleThreadExecutor();
-                Handler handler = new Handler(Looper.getMainLooper());
-    
-                executor.execute(() -> {
-                    String data = null;
-    
-                    try {
-    
-                        if(URLUtil.isNetworkUrl(urlOrFileName)){
-                            data = importFromWeb(urlOrFileName);
-                        } else {
-                            //Assume file is in assets folder.
-                            data = importFromAssets(context, urlOrFileName);
-                        }
-    
-                        final String result = data;
-    
-                        handler.post(() -> {
-                            //Ensure the resulting data string is not null or empty.
-                            if (result != null && !result.isEmpty()) {
-                                callback.notify(result);
-                            } else {
-                                error.notify("No data imported.");
-                            }
-                        });
-                    } catch(Exception e) {
-                        if(error != null){
-                            error.notify(e.getMessage());
-                        }
-                    }
-                });
-            }
-        }
-    
-        /**
-         * Imports data from an assets file as a string.
-         * @param context The context of the app.
-         * @param fileName The asset file name.
-         * @return
-         * @throws IOException
-         */
-        private static String importFromAssets(Context context, String fileName) throws IOException {
-            InputStream stream = null;
-    
-            try {
-                stream = context.getAssets().open(fileName);
-    
-                if(stream != null) {
-                    return readStreamAsString(stream);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                // Close Stream and disconnect HTTPS connection.
-                if (stream != null) {
-                    stream.close();
-                }
-            }
-    
-            return null;
-        }
-    
-        /**
-         * Imports data from the web as a string.
-         * @param url URL to the data.
-         * @return
-         * @throws IOException
-         */
-        private static String importFromWeb(String url) throws IOException {
-            InputStream stream = null;
-            HttpsURLConnection connection = null;
-            String result = null;
-    
-            try {
-                connection = (HttpsURLConnection) new URL(url).openConnection();
-    
-                //For this use case, set HTTP method to GET.
-                connection.setRequestMethod("GET");
-    
-                //Open communications link (network traffic occurs here).
-                connection.connect();
-    
-                int responseCode = connection.getResponseCode();
-                if (responseCode != HttpsURLConnection.HTTP_OK) {
-                    throw new IOException("HTTP error code: " + responseCode);
-                }
-    
-                //Retrieve the response body as an InputStream.
-                stream = connection.getInputStream();
-    
-                if (stream != null) {
-                    return readStreamAsString(stream);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                // Close Stream and disconnect HTTPS connection.
-                if (stream != null) {
-                    stream.close();
-                }
-                if (connection != null) {
-                    connection.disconnect();
-                }
-            }
-    
-            return result;
-        }
-    
-        /**
-         * Reads an input stream as a string.
-         * @param stream Stream to convert.
-         * @return
-         * @throws IOException
-         */
-        private static String readStreamAsString(InputStream stream) throws IOException {
-            //Convert the contents of an InputStream to a String.
-            BufferedReader in = new BufferedReader(new InputStreamReader(stream, "UTF-8"));
-    
-            String inputLine;
-            StringBuffer response = new StringBuffer();
-    
-            while ((inputLine = in.readLine()) != null) {
-                response.append(inputLine);
-            }
-    
-            in.close();
-    
-            return response.toString();
-        }
-    }
-    ```
+::: zone pivot="programming-language-java-android"
 
-5. Go into the **MainActivity.java** file and add the following code inside the callback for the `mapControl.onReady` event, this is located inside the `onCreate` method. This code uses the import utility to read in the **SamplePoiDataSet.json** file as a string, then deserializes it as a feature collection using the static `fromJson` method of the `FeatureCollection` class. This code also calculates the bounding box area for all the data in the feature collection and uses this to set the camera of the map to focus in on the data.
+4. Go into the **MainActivity.java** file and add the following code inside the callback for the `mapControl.onReady` event, inside the `onCreate` method. This code loads the **SamplePoiDataSet.json** file from the assets folder into a data source using `importDataFromUrl` method and then adds it to the map.
 
-    ```java
-    //Create a data source and add it to the map.
-    DataSource source = new DataSource();
-    map.sources.add(source);
+```java
+//Create a data source and add it to the map.
+DataSource source = new DataSource();
+
+//Import the geojson data and add it to the data source.
+source.importDataFromUrl("asset://SamplePoiDataSet.json");
+
+//Add data source to the map.
+map.sources.add(source);
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+4. Go into the **MainActivity.kt** file and add the following code inside the callback for the `mapControl.onReady` event, inside the `onCreate` method. This code loads the **SamplePoiDataSet.json** file from the assets folder into a data source using `importDataFromUrl` method and then adds it to the map.
+
+```kotlin
+//Create a data source and add it to the map.
+DataSource source = new DataSource();
+
+//Import the geojson data and add it to the data source.
+source.importDataFromUrl("asset://SamplePoiDataSet.json");
+
+//Add data source to the map.
+map.sources.add(source);
+```
+
+::: zone-end
+
+5. Using the code to load the GeoJSON data a data source, we now need to specify how that data should be displayed on the map. There are several different rendering layers for point data; [Bubble layer](map-add-bubble-layer-android.md), [Symbol layer](how-to-add-symbol-to-android-map.md), and [Heat map layer](map-add-heat-map-layer-android.md) are the most commonly used layers. Add the following code to render the data in a bubble layer in the callback for the `mapControl.onReady` event after the code for importing the data.
+
+::: zone pivot="programming-language-java-android"
+
+```java
+//Create a layer and add it to the map.
+BubbleLayer layer = new BubbleLayer(source);
+map.layers.add(layer);
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Create a layer and add it to the map.
+val layer = new BubbleLayer(source)
+map.layers.add(layer)
+```
+
+::: zone-end
+
+6. In the project panel of Android studio, right-click on the **layout** folder under the path `app > res > layout` and go to `New > File`. Create a new file called **popup_text.xml**.
+7. Open the **popup_text.xml** file. If the file opens in a designer view, right-click on the screen and select "Go to XML". Copy and paste the following XML into this file. This XML creates a simple layout that can be used with a popup and contains a text view.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    android:layout_margin="8dp"
+    android:padding="10dp"
+
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/message"
+        android:layout_width="wrap_content"
+        android:text=""
+        android:textSize="18dp"
+        android:textColor="#222"
+        android:layout_height="wrap_content"
+        android:width="200dp"/>
+
+</RelativeLayout>
+```
+
+::: zone pivot="programming-language-java-android"
+
+8. Go back into the  **MainActivity.java** file and after the code for the bubble layer, add the following code to create a reusable popup.
+
+```java
+//Create a popup and add it to the map.
+Popup popup = new Popup();
+map.popups.add(popup);
+
+//Close it initially.
+popup.close();
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+8. Go back into the  **MainActivity.kt** file and after the code for the bubble layer, add the following code to create a reusable popup.
+
+```kotlin
+//Create a popup and add it to the map.
+val popup = Popup()
+map.popups.add(popup)
     
-    //Import the GeoJSON data and add it to the data source.
-    Utils.importData("SamplePoiDataSet.json",
-        this,
-        (String result) -> {
-            //Parse the data as a GeoJSON Feature Collection.
-            FeatureCollection fc = FeatureCollection.fromJson(result);
-    
-            //Add the feature collection to the data source.
-            source.add(fc);
-    
-            //Optionally, update the maps camera to focus in on the data.
-    
-            //Calculate the bounding box of all the data in the Feature Collection.
-            BoundingBox bbox = MapMath.fromData(fc);
-    
-            //Update the maps camera so it is focused on the data.
-            map.setCamera(
-                bounds(bbox),
+//Close it initially.
+popup.close()
+```
 
-                //Padding added to account for pixel size of rendered points.
-                padding(20)
-            );
-        });
-    ```
+::: zone-end
 
-6. Now that there is code to load the GeoJSON data into the map using a data source, we need to specify how that data should be displayed on the map. There are several different rendering layers for point data; [Bubble layer](map-add-bubble-layer-android.md), [Symbol layer](how-to-add-symbol-to-android-map.md), and [Heat map layer](map-add-heat-map-layer-android.md) are the most commonly used layers. Add the following code to render the data in a bubble layer in the callback for the `mapControl.onReady` event after the code for importing the data.
+9. Add the following code to attach a click event to the bubble layer. When a bubble in the bubble layer is tapped, the event will fire and retrieve some details from the properties of the selected feature, create a view using the **popup_text.xml** layout file, pass it in as content into the popup, then show the popup at the features position.
 
-    ```java
-    //Create a layer and add it to the map.
-    BubbleLayer layer = new BubbleLayer(source);
-    map.layers.add(layer);
-    ```
+::: zone pivot="programming-language-java-android"
 
-7. Run the application. A map will be displayed focused over the USA, with circles overlaid for each location in the GeoJSON file.
+```java
+//Add a click event to the layer.
+map.events.add((OnFeatureClick)(feature) -> {
+    //Get the first feature and it's properties.
+    Feature f = feature.get(0);
+    JsonObject props = f.properties();
 
-    ![Map of the USA with data from a GeoJSON file displayed](media/tutorial-load-geojson-file-android/android-import-geojson.png)
+    //Retrieve the custom layout for the popup.
+    View customView = LayoutInflater.from(this).inflate(R.layout.popup_text, null);
 
+    //Display the name and entity type information of the feature into the text view of the popup layout.
+    TextView tv = customView.findViewById(R.id.message);
+    tv.setText("%s\n%s",
+        f.getStringProperty("Name"),
+        f.getStringProperty("EntityType")
+    );
+
+    //Get the position of the clicked feature.
+    Position pos = MapMath.getPosition((Point)f.geometry());
+
+    //Set the options on the popup.
+    popup.setOptions(
+            //Set the popups position.
+            position(pos),
+
+            //Set the anchor point of the popup content.
+            anchor(AnchorType.BOTTOM),
+
+            //Set the content of the popup.
+            content(customView)
+    );
+
+    //Open the popup.
+    popup.open();
+
+    //Return a boolean indicating if event should be consumed or continue to bubble up.
+    return false;
+}, layer);
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Add a click event to the layer.
+map.events.add(OnFeatureClick { feature: List<Feature> ->
+    //Get the first feature and it's properties.
+    val f = feature[0]
+    val props = f.properties()
+
+    //Retrieve the custom layout for the popup.
+    val customView: View = LayoutInflater.from(this).inflate(R.layout.popup_text, null)
+
+    //Display the name and entity type information of the feature into the text view of the popup layout.
+    val tv = customView.findViewById<TextView>(R.id.message)
+    tv.text = String.format(
+        "%s\n%s",
+        f.getStringProperty("Name"),
+        f.getStringProperty("EntityType")
+    )
+
+    //Get the position of the clicked feature.
+    val pos = MapMath.getPosition(f.geometry() as Point?)
+
+    //Set the options on the popup.
+    popup.setOptions( //Set the popups position.
+        position(pos),  //Set the anchor point of the popup content.
+        anchor(AnchorType.BOTTOM),  //Set the content of the popup.
+        content(customView)
+    )
+
+    //Open the popup.
+    popup.open()
+
+    //Return a boolean indicating if event should be consumed or continue to bubble up.
+    false
+} as OnFeatureClick, layer)
+```
+
+::: zone-end
+
+10. Run the application. A map will be displayed with bubbles overlaid for each location in the GeoJSON file. Tapping on any bubble will display a popup with the name and entity type of the feature touched.
+
+    ![Map of data from a GeoJSON file displayed with a popup being opened when location tapped](media/tutorial-load-geojson-file-android/android-import-geojson.gif)
 
 ## Clean up resources
 
-Take to following steps to clean up the resources from this tutorial:
+Take the following steps to clean up the resources from this tutorial:
 
 1. Close Android Studio and delete the application you created.
 2. If you tested the application on an external device, uninstall the application from that device.

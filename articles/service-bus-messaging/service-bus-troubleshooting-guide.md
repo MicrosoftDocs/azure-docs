@@ -2,7 +2,8 @@
 title: Troubleshooting guide for Azure Service Bus | Microsoft Docs
 description: Learn about troubleshooting tips and recommendations for a few issues that you may see when using Azure Service Bus.
 ms.topic: article
-ms.date: 09/16/2020
+ms.date: 03/03/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshooting guide for Azure Service Bus
@@ -47,6 +48,8 @@ The following steps may help you with troubleshooting connectivity/certificate/t
     ```
     You can use equivalent commands if you're using other tools such as `tnc`, `ping`, and so on. 
 - Obtain a network trace if the previous steps don't help and analyze it using tools such as [Wireshark](https://www.wireshark.org/). Contact [Microsoft Support](https://support.microsoft.com/) if needed. 
+- To find the right IP addresses to add to allowlist for your connections, see [What IP addresses do I need to add to allowlist](service-bus-faq.yml#what-ip-addresses-do-i-need-to-add-to-allow-list-). 
+
 
 ## Issues that may occur with service upgrades/restarts
 
@@ -75,7 +78,7 @@ Service Bus Error: Unauthorized access. 'Send' claim\(s\) are required to perfor
 The identity doesn't have permissions to access the Service Bus topic. 
 
 ### Resolution
-To resolve this error, install the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) library.  For more information, see [Local development authentication](../key-vault/general/service-to-service-authentication.md#local-development-authentication). 
+To resolve this error, install the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) library.  For more information, see [Local development authentication](/dotnet/api/overview/azure/service-to-service-authentication#local-development-authentication). 
 
 To learn how to assign permissions to roles, see [Authenticate a managed identity with Azure Active Directory to access Azure Service Bus resources](service-bus-managed-service-identity.md).
 
@@ -91,6 +94,25 @@ There's a limit on number of tokens that are used to send and receive messages u
 
 ### Resolution
 Open a new connection to the Service Bus namespace to send more messages.
+
+## Adding virtual network rule using PowerShell fails
+
+### Symptoms
+You have configured two subnets from a single virtual network in a virtual network rule. When you try to remove one subnet using the [Remove-AzServiceBusVirtualNetworkRule](/powershell/module/az.servicebus/remove-azservicebusvirtualnetworkrule) cmdlet, it doesn't remove the subnet from the virtual network rule. 
+
+```azurepowershell-interactive
+Remove-AzServiceBusVirtualNetworkRule -ResourceGroupName $resourceGroupName -Namespace $serviceBusName -SubnetId $subnetId
+```
+
+### Cause
+The Azure Resource Manager ID that you specified for the subnet may be invalid. This may happen when the virtual network is in a different resource group from the one that has the Service Bus namespace. If you don't explicitly specify the resource group of the virtual network, the CLI command constructs the Azure Resource Manager ID by using the resource group of the Service Bus namespace. So, it fails to remove the subnet from the network rule. 
+
+### Resolution
+Specify the full Azure Resource Manager ID of the subnet that includes the name of the resource group that has the virtual network. For example:
+
+```azurepowershell-interactive
+Remove-AzServiceBusVirtualNetworkRule -ResourceGroupName myRG -Namespace myNamespace -SubnetId "/subscriptions/SubscriptionId/resourcegroups/ResourceGroup/myOtherRG/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/mySubnet"
+```
 
 ## Next steps
 See the following articles: 

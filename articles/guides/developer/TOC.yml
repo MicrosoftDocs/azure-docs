@@ -15,7 +15,7 @@
     - name: Windows
       href: ../../virtual-machines/windows/quick-create-portal.md
   - name: Serverless
-    href: ../../azure-functions/functions-create-first-azure-function.md
+    href: ../../azure-functions/functions-get-started.md
   - name: Microservices
     items:
     - name: Service Fabric
@@ -23,7 +23,7 @@
     - name: Container Service
       href: /previous-versions/azure/container-service/dcos-swarm/container-service-intro
     - name: Azure Spring Cloud
-      href: ../../spring-cloud/spring-cloud-quickstart.md
+      href: ../../spring-cloud/quickstart.md
 - name: Tutorials
   items:
   - name: Create and deploy a web app
@@ -53,17 +53,17 @@
     - name: Web Apps
       href: ../../app-service/samples-cli.md
     - name: Linux VM
-      href: ../../virtual-machines/linux/cli-samples.md
+      href: https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine
     - name: Windows VM
-      href: ../../virtual-machines/windows/cli-samples.md
+      href: https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine
   - name: Azure PowerShell
     items:
     - name: Web Apps
       href: ../../app-service/samples-powershell.md
     - name: Linux VM
-      href: ../../virtual-machines/linux/powershell-samples.md
+      href: https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine
     - name: Windows VM
-      href: ../../virtual-machines/windows/powershell-samples.md
+      href: https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine
 - name: Concepts
   items:
   - name: Billing and subscriptions
@@ -148,8 +148,6 @@
     items:
     - name: Web and mobile apps
       href: ../../app-service/troubleshoot-diagnostic-logs.md
-    - name: Linux VM
-      href: ../../virtual-machines/linux/tutorial-monitor.md
     - name: Windows VM
       href: ../../virtual-machines/windows/tutorial-monitor.md
     - name: Microservices
@@ -187,7 +185,7 @@
     - name: Azure PowerShell
       href: /powershell/
   - name: Billing
-    href: ../../cost-management-billing/manage/usage-rate-card-overview.md
+    href: ../../cost-management-billing/manage/consumption-api-overview.md
 - name: Resources
   items:
   - name: Azure limits and quotas

@@ -19,7 +19,7 @@ ms.author: yelevin
 ---
 # STEP 3: Validate connectivity
 
-Once you have deployed your log forwarder (in Step 1) and configured your security solution to send it CEF messages (in Step 2), follow these instructions to verify connectivity between your security solution and Azure Sentinel. 
+Once you have deployed your log forwarder (in Step 1) and configured your security solution to send it CEF messages (in Step 2), follow these instructions to verify connectivity between your security solution and Azure Sentinel.
 
 ## Prerequisites
 
@@ -33,14 +33,14 @@ Use the `python –version` command to check.
 ## How to validate connectivity
 
 1. From the Azure Sentinel navigation menu, open **Logs**. Run a query using the **CommonSecurityLog** schema to see if you are receiving logs from your security solution.<br>
-Be aware that it may take about 20 minutes until your logs start to appear in **Log Analytics**. 
+Be aware that it may take about 20 minutes until your logs start to appear in **Log Analytics**.
 
-1. If you don't see any results from the query, verify that events are being generated from your security solution, or try generating some, and verify they are being forwarded to the Syslog forwarder machine you designated. 
+1. If you don't see any results from the query, verify that events are being generated from your security solution, or try generating some, and verify they are being forwarded to the Syslog forwarder machine you designated.
 
 1. Run the following script on the log forwarder (applying the Workspace ID in place of the placeholder) to check connectivity between your security solution, the log forwarder, and Azure Sentinel. This script checks that the daemon is listening on the correct ports, that the forwarding is properly configured, and that nothing is blocking communication between the daemon and the Log Analytics agent. It also sends mock messages 'TestCommonEventFormat' to check end-to-end connectivity. <br>
 
     ```bash
-    sudo wget -O https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]
+    sudo wget -O cef_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]
     ```
 
    - You may get a message directing you to run a command to correct an issue with the **mapping of the *Computer* field**. See the [explanation in the validation script](#mapping-command) for details.
@@ -77,20 +77,20 @@ The validation script performs the following checks:
     </filter>
     ```
 
-1. Checks that the parsing for Cisco ASA Firewall events is configured as expected, using the following command: 
+1. Checks that the parsing for Cisco ASA Firewall events is configured as expected, using the following command:
 
     ```bash
     grep -i "return ident if ident.include?('%ASA')" /opt/microsoft/omsagent/plugin/security_lib.rb
     ```
 
     - <a name="parsing-command"></a>If there is an issue with the parsing, the script will produce an error message directing you to **manually run the following command** (applying the Workspace ID in place of the placeholder). The command will ensure the correct parsing and restart the agent.
-    
+
         ```bash
         # Cisco ASA parsing fix
         sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" /opt/microsoft/omsagent/plugin/security_lib.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
         ```
 
-1. Checks that the *Computer* field in the syslog source is properly mapped in the Log Analytics agent, using the following command: 
+1. Checks that the *Computer* field in the syslog source is properly mapped in the Log Analytics agent, using the following command:
 
     ```bash
     grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
@@ -110,7 +110,7 @@ The validation script performs the following checks:
     - Configuration file: `/etc/rsyslog.d/security-config-omsagent.conf`
 
         ```bash
-        if $rawmsg contains "CEF:" or $rawmsg contains "ASA-" then @@127.0.0.1:25226 
+        if $rawmsg contains "CEF:" or $rawmsg contains "ASA-" then @@127.0.0.1:25226
         ```
 
 1. Restarts the syslog daemon and the Log Analytics agent:
@@ -170,20 +170,20 @@ The validation script performs the following checks:
     </filter>
     ```
 
-1. Checks that the parsing for Cisco ASA Firewall events is configured as expected, using the following command: 
+1. Checks that the parsing for Cisco ASA Firewall events is configured as expected, using the following command:
 
     ```bash
     grep -i "return ident if ident.include?('%ASA')" /opt/microsoft/omsagent/plugin/security_lib.rb
     ```
 
     - <a name="parsing-command"></a>If there is an issue with the parsing, the script will produce an error message directing you to **manually run the following command** (applying the Workspace ID in place of the placeholder). The command will ensure the correct parsing and restart the agent.
-    
+
         ```bash
         # Cisco ASA parsing fix
         sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" /opt/microsoft/omsagent/plugin/security_lib.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
         ```
 
-1. Checks that the *Computer* field in the syslog source is properly mapped in the Log Analytics agent, using the following command: 
+1. Checks that the *Computer* field in the syslog source is properly mapped in the Log Analytics agent, using the following command:
 
     ```bash
     grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
@@ -239,9 +239,12 @@ The validation script performs the following checks:
     ```
 ---
 
+
 ## Next steps
 
 In this document, you learned how to connect CEF appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](./tutorial-detect-threats-built-in.md).
+
+- Learn about [CEF and CommonSecurityLog field mapping](cef-name-mapping.md).
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](./detect-threats-built-in.md).
 - [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.

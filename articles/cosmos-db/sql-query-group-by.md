@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 07/30/2021
 ms.author: tisande
 
 ---
@@ -57,11 +57,13 @@ GROUP BY f.lastName
 ) AS UniqueLastNames
 ```
 
+Additionally, cross-partition `GROUP BY` queries can have a maximum of 21 [aggregate system functions](sql-query-aggregate-functions.md). 
+
 ## Examples
 
-These examples use the nutrition data set available through the [Azure Cosmos DB Query Playground](https://www.documentdb.com/sql/demo).
+These examples use a sample [nutrition data set](https://github.com/AzureCosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
 
-For example, here's a query which returns the total count of items in each foodGroup:
+Here's a query which returns the total count of items in each foodGroup:
 
 ```sql
 SELECT TOP 4 COUNT(1) AS foodGroupCount, f.foodGroup

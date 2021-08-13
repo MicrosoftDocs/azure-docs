@@ -17,12 +17,15 @@ We'll start with the assumption that you already have the app you want to monito
 
 In this example, we will be using the page view data, but the same pattern can easily be extended to other data types such as custom events and exceptions. 
 
+> [!IMPORTANT]
+> Continuous export has been deprecated and is only supported for classic Application Insights resources. [Migrate to a workspace-based Application Insights resource](convert-classic-resource.md) to use [diagnostic settings](export-telemetry.md#diagnostic-settings-based-export) for exporting telemetry.
+
 ## Add Application Insights to your application
 To get started:
 
 1. [Set up Application Insights for your web pages](./javascript.md). 
    
-    (In this example, we'll focus on processing page view data from the client browsers, but you could also set up Application Insights for the server side of your [Java](./java-get-started.md) or [ASP.NET](./asp-net.md) app and process request, dependency and other server telemetry.)
+    (In this example, we'll focus on processing page view data from the client browsers, but you could also set up Application Insights for the server side of your [Java](./java-in-process-agent.md) or [ASP.NET](./asp-net.md) app and process request, dependency and other server telemetry.)
 2. Publish your app, and watch telemetry data appearing in your Application Insights resource.
 
 ## Create storage in Azure
@@ -57,7 +60,7 @@ Continuous export always outputs data to an Azure Storage account, so you need t
     ![Choose event types](./media/code-sample-export-sql-stream-analytics/085-types.png)
 
 
-1. Let some data accumulate. Sit back and let people use your application for a while. Telemetry will come in and you'll see statistical charts in [metric explorer](../platform/metrics-charts.md) and individual events in [diagnostic search](./diagnostic-search.md). 
+1. Let some data accumulate. Sit back and let people use your application for a while. Telemetry will come in and you'll see statistical charts in [metric explorer](../essentials/metrics-charts.md) and individual events in [diagnostic search](./diagnostic-search.md). 
    
     And also, the data will export to your storage. 
 2. Inspect the exported data, either in the portal - choose **Browse**, select your storage account, and then **Containers** - or in Visual Studio. In Visual Studio, choose **View / Cloud Explorer**, and open Azure / Storage. (If you don't have this menu option, you need to install the Azure SDK: Open the New Project dialog and open Visual C# / Cloud / Get Microsoft Azure SDK for .NET.)
@@ -78,7 +81,7 @@ Make sure that the server allows access to Azure services:
 ![Browse, Servers, your server, Settings, Firewall, Allow Access to Azure](./media/code-sample-export-sql-stream-analytics/100-sqlaccess.png)
 
 ## Create a table in Azure SQL Database
-Connect to the database created in the previous section with your preferred management tool. In this walkthrough, we will be using [SQL Server Management Tools](/sql/ssms/sql-server-management-studio-ssms?view=sql-server-ver15) (SSMS).
+Connect to the database created in the previous section with your preferred management tool. In this walkthrough, we will be using [SQL Server Management Tools](/sql/ssms/sql-server-management-studio-ssms) (SSMS).
 
 ![Connect to Azure SQL Database](./media/code-sample-export-sql-stream-analytics/31-sql-table.png)
 
@@ -248,7 +251,7 @@ FROM [dbo].[PageViewsTable]
 
 [diagnostic]: ./diagnostic-search.md
 [export]: ./export-telemetry.md
-[metrics]: ../platform/metrics-charts.md
+[metrics]: ../essentials/metrics-charts.md
 [portal]: https://portal.azure.com/
 [start]: ./app-insights-overview.md
 

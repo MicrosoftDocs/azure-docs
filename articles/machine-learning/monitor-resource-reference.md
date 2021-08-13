@@ -5,11 +5,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 10/02/2020
+ms.custom: subject-monitoring
+ms.date: 04/07/2021
 ---
 
 # Monitoring Azure machine learning data reference
@@ -18,58 +18,71 @@ Learn about the data and resources collected by Azure Monitor from your Azure Ma
 
 ## Metrics
 
-This section lists all the automatically collected platform metrics collected for Azure Machine Learning. The resource provider for these metrics is [Microsoft.MachineLearningServices/workspaces](../azure-monitor/platform/metrics-supported.md#microsoftmachinelearningservicesworkspaces).
+This section lists all the automatically collected platform metrics collected for Azure Machine Learning. The resource provider for these metrics is [Microsoft.MachineLearningServices/workspaces](../azure-monitor/essentials/metrics-supported.md#microsoftmachinelearningservicesworkspaces).
 
 **Model**
 
 | Metric | Unit | Description |
-| ----- | ----- | ----- |
-| Model deploy failed | Count | The number of model deployments that failed. |
-| Model deploy started | Count | The number of model deployments started. |
-| Model deploy succeeded | Count | The number of model deployments that succeeded. |
-| Model register failed | Count | The number of model registrations that failed. |
-| Model register succeeded | Count | The number of model registrations that succeeded. |
+|--|--|--|
+| Model Register Succeeded | Count | Number of model registrations that succeeded in this workspace |
+| Model Register Failed | Count | Number of model registrations that failed in this workspace |
+| Model Deploy Started | Count | Number of model deployments started in this workspace |
+| Model Deploy Succeeded | Count | Number of model deployments that succeeded in this workspace |
+| Model Deploy Failed | Count | Number of model deployments that failed in this workspace |
 
 **Quota**
 
 Quota information is for Azure Machine Learning compute only.
 
 | Metric | Unit | Description |
-| ----- | ----- | ----- |
-| Active cores | Count | The number of active compute cores. |
-| Active nodes | Count | The number of active nodes. |
-| Idle cores | Count | The number of idle compute cores. |
-| Idle nodes | Count | The number of idle compute nodes. |
-| Leaving cores | Count | The number of leaving cores. |
-| Leaving nodes | Count | The number of leaving nodes. |
-| Preempted cores | Count | The number of preempted cores. |
-| Preempted nodes | Count | The number of preempted nodes. |
-| Quota utilization percentage | Percent | The percentage of quota used. |
-| Total cores | Count | The total cores. |
-| Total nodes | Count | The total nodes. |
-| Unusable cores | Count | The number of unusable cores. |
-| Unusable nodes | Count | The number of unusable nodes. |
+|--|--|--|
+| Total Nodes | Count | Number of total nodes. This total includes some of Active Nodes, Idle Nodes, Unusable Nodes, Preempted Nodes, Leaving Nodes |
+| Active Nodes | Count | Number of Active nodes. The nodes that are actively running a job. |
+| Idle Nodes | Count | Number of idle nodes. Idle nodes are the nodes that are not running any jobs but can accept new job if available. |
+| Unusable Nodes | Count | Number of unusable nodes. Unusable nodes are not functional due to some unresolvable issue. Azure will recycle these nodes. |
+| Preempted Nodes | Count | Number of preempted nodes. These nodes are the low-priority nodes that are taken away from the available node pool. |
+| Leaving Nodes | Count | Number of leaving nodes. Leaving nodes are the nodes that just finished processing a job and will go to Idle state. |
+| Total Cores | Count | Number of total cores |
+| Active Cores | Count | Number of active cores |
+| Idle Cores | Count | Number of idle cores |
+| Unusable Cores | Count | Number of unusable cores |
+| Preempted Cores | Count | Number of preempted cores |
+| Leaving Cores | Count | Number of leaving cores |
+| Quota Utilization Percentage | Count | Percent of quota utilized |
 
 **Resource**
 
-| Metric | Unit | Description |
-| ----- | ----- | ----- |
-| CpuUtilization | Percent | How much percent of CPU was utilized for a given node during a run/job. This metric is published only when a job is running on a node. One job may use one or more nodes. This metric is published per node. |
-| GpuUtilization | Percent | How much percentage of GPU was utilized for a given node during a run/job. One node can have one or more GPUs. This metric is published per GPU per node. |
+| Metric| Unit | Description |
+|--|--|--|
+| CpuUtilization | Count | Percentage of utilization on a CPU node. Utilization is reported at one-minute intervals. |
+| GpuUtilization | Count | Percentage of utilization on a GPU node. Utilization is reported at one-minute intervals. |
+| GpuMemoryUtilization | Count | Percentage of memory utilization on a GPU node. Utilization is reported at one-minute intervals. |
+| GpuEnergyJoules | Count | Interval energy in Joules on a GPU node. Energy is reported at one-minute intervals. |
 
 **Run**
 
-Information on training runs.
+Information on training runs for the workspace.
 
 | Metric | Unit | Description |
-| ----- | ----- | ----- |
-| Completed runs | Count | The number of completed runs. |
-| Failed runs | Count | The number of failed runs. |
-| Started runs | Count | The number of started runs. |
+|--|--|--|
+| Cancelled Runs | Count | Number of runs canceled for this workspace. Count is updated when a run is successfully canceled. |
+| Cancel Requested Runs | Count | Number of runs where cancel was requested for this workspace. Count is updated when cancellation request has been received for a run. |
+| Completed Runs | Count | Number of runs completed successfully for this workspace. Count is updated when a run has completed and output has been collected. |
+| Failed Runs | Count | Number of runs failed for this workspace. Count is updated when a run fails. |
+| Finalizing Runs | Count | Number of runs entered finalizing state for this workspace. Count is updated when a run has completed but output collection still in progress. | 
+| Not Responding Runs | Count | Number of runs not responding for this workspace. Count is updated when a run enters Not Responding state. |
+| Not Started Runs | Count | Number of runs in Not Started state for this workspace. Count is updated when a request is received to create a run but run information has not yet been populated. |
+| Preparing Runs | Count | Number of runs that are preparing for this workspace. Count is updated when a run enters Preparing state while the run environment is being prepared. |
+| Provisioning Runs | Count | Number of runs that are provisioning for this workspace. Count is updated when a run is waiting on compute target creation or provisioning. |
+| Queued Runs | Count | Number of runs that are queued for this workspace. Count is updated when a run is queued in compute target. Can occur when waiting for required compute nodes to be ready. |
+| Started Runs | Count | Number of runs running for this workspace. Count is updated when run starts running on required resources. |
+| Starting Runs | Count | Number of runs started for this workspace. Count is updated after request to create run and run info, such as the Run ID, has been populated |
+| Errors | Count | Number of run errors in this workspace. Count is updated whenever run encounters an error. |
+| Warnings | Count | Number of run warnings in this workspace. Count is updated whenever a run encounters a warning. |
 
 ## Metric dimensions
 
-For more information on what metric dimensions are, see [Multi-dimensional metrics](../azure-monitor/platform/data-platform-metrics.md#multi-dimensional-metrics).
+For more information on what metric dimensions are, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
 Azure Machine Learning has the following dimensions associated with its metrics.
 
@@ -83,7 +96,7 @@ Azure Machine Learning has the following dimensions associated with its metrics.
 | NodeId | ID of the node created where job is running. Only available for CpuUtilization and GpuUtilization. |
 | RunId | ID of the run/job. Only available for CpuUtilization and GpuUtilization. |
 | ComputeType | The compute type that the run used. Only available for Completed runs, Failed runs, and Started runs. |
-| PipelineStepType | The type of [PipelineStep](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?preserve-view=true&view=azure-ml-py) used in the run. Only available for Completed runs, Failed runs, and Started runs. |
+| PipelineStepType | The type of [PipelineStep](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep) used in the run. Only available for Completed runs, Failed runs, and Started runs. |
 | PublishedPipelineId | The ID of the published pipeline used in the run. Only available for Completed runs, Failed runs, and Started runs. |
 | RunType | The type of run. Only available for Completed runs, Failed runs, and Started runs. |
 
@@ -112,7 +125,7 @@ The following table lists the operations related to Azure Machine Learning that 
 
 This section lists the types of resource logs you can collect for Azure Machine Learning workspace.
 
-Resource Provider and Type: [Microsoft.MachineLearningServices/workspace](../azure-monitor/platform/resource-logs-categories.md#microsoftmachinelearningservicesworkspaces).
+Resource Provider and Type: [Microsoft.MachineLearningServices/workspace](../azure-monitor/essentials/resource-logs-categories.md#microsoftmachinelearningservicesworkspaces).
 
 | Category | Display Name |
 | ----- | ----- |
@@ -121,12 +134,34 @@ Resource Provider and Type: [Microsoft.MachineLearningServices/workspace](../azu
 | AmlComputeCpuGpuUtilization | AmlComputeCpuGpuUtilization |
 | AmlComputeJobEvent | AmlComputeJobEvent |
 | AmlRunStatusChangedEvent | AmlRunStatusChangedEvent |
+| ModelsChangeEvent | ModelsChangeEvent |
+| ModelsReadEvent | ModelsReadEvent |
+| ModelsActionEvent | ModelsActionEvent |
+| DeploymentReadEvent | DeploymentReadEvent |
+| DeploymentEventACI | DeploymentEventACI |
+| DeploymentEventAKS | DeploymentEventAKS |
+| InferencingOperationAKS | InferencingOperationAKS |
+| InferencingOperationACI | InferencingOperationACI |
+| EnvironmentChangeEvent | EnvironmentChangeEvent |
+| EnvironmentReadEvent | EnvironmentReadEvent |
+| DataLabelChangeEvent | DataLabelChangeEvent |
+| DataLabelReadEvent | DataLabelReadEvent |
+| ComputeInstanceEvent | ComputeInstanceEvent |
+| DataStoreChangeEvent | DataStoreChangeEvent |
+| DataStoreReadEvent | DataStoreReadEvent |
+| DataSetChangeEvent | DataSetChangeEvent |
+| DataSetReadEvent | DataSetReadEvent |
+| PipelineChangeEvent | PipelineChangeEvent |
+| PipelineReadEvent | PipelineReadEvent |
+| RunEvent | RunEvent |
+| RunReadEvent | RunReadEvent |
+
 
 ## Schemas
 
 The following schemas are in use by Azure Machine Learning
 
-### AmlComputeJobEvents table
+### AmlComputeJobEvent table
 
 | Property | Description |
 |:--- |:---|
@@ -155,7 +190,7 @@ The following schemas are in use by Azure Machine Learning
 | JobErrorMessage | detailed message of Job error |
 | NodeId | ID of the node created where job is running |
 
-### AmlComputeClusterEvents table
+### AmlComputeClusterEvent table
 
 | Property | Description |
 |:--- |:--- |
@@ -198,7 +233,7 @@ The following schemas are in use by Azure Machine Learning
 | ClusterErrorCodes | Error code received during cluster creation or scaling |
 | CreationApiVersion | Api version used while creating the cluster |
 
-### AmlComputeClusterNodeEvents table
+### AmlComputeClusterNodeEvent table
 
 | Property | Description |
 |:--- |:--- |
@@ -223,8 +258,158 @@ The following schemas are in use by Azure Machine Learning
 | StartTaskEndTime | Time when task assigned to a node ended |
 | TotalE2ETimeInSeconds | Total time node was active |
 
+### AmlComputeInstanceEvent table
+
+| Property | Description |
+|:--- |:--- |
+| Type | Name of the log event, AmlComputeInstanceEvent |
+| TimeGenerated | Time (UTC) when the log entry was generated |
+| Level | The severity level of the event. Must be one of Informational, Warning, Error, or Critical. |
+| ResultType | The status of the event. Typical values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
+| CorrelationId | A GUID used to group together a set of related events, when applicable. |
+| OperationName | The name of the operation associated with the log entry |
+| Identity | The identity of the user or application that performed the operation. |
+| AadTenantId | The AAD tenant ID the operation was submitted for. |
+| AmlComputeInstanceName | "The name of the compute instance associated with the log entry. |
+
+### AmlDataLabelEvent table
+
+| Property | Description |
+|:--- |:--- |
+| Type | Name of the log event, AmlDataLabelEvent |
+| TimeGenerated | Time (UTC) when the log entry was generated |
+| Level | The severity level of the event. Must be one of Informational, Warning, Error, or Critical. |
+| ResultType | The status of the event. Typical values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
+| CorrelationId | A GUID used to group together a set of related events, when applicable. |
+| OperationName | The name of the operation associated with the log entry |
+| Identity | The identity of the user or application that performed the operation. |
+| AadTenantId | The AAD tenant ID the operation was submitted for. |
+| AmlProjectId | The unique identifier of the AML project. |
+| AmlProjectName | The name of the AML project. |
+| AmlLabelNames | The label class names which are created for the project. |
+| AmlDataStoreName | The name of the data store where the project's data is stored. |
+
+### AmlDataSetEvent table
+
+| Property | Description |
+|:--- |:--- |
+| Type | Name of the log event, AmlDataSetEvent |
+| TimeGenerated | Time (UTC) when the log entry was generated |
+| Level | The severity level of the event. Must be one of Informational, Warning, Error, or Critical. |
+| ResultType | The status of the event. Typical values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
+| AmlWorkspaceId | A GUID and unique ID of the AML workspace. |
+| OperationName | The name of the operation associated with the log entry |
+| Identity | The identity of the user or application that performed the operation. |
+| AadTenantId | The AAD tenant ID the operation was submitted for. |
+| AmlDatasetId | The ID of the AML Data Set. |
+| AmlDatasetName | The name of the AML Data Set. |
+
+### AmlDataStoreEvent table
+
+| Property | Description |
+|:--- |:--- |
+| Type | Name of the log event, AmlDataStoreEvent |
+| TimeGenerated | Time (UTC) when the log entry was generated |
+| Level | The severity level of the event. Must be one of Informational, Warning, Error, or Critical. |
+| ResultType | The status of the event. Typical values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
+| AmlWorkspaceId | A GUID and unique ID of the AML workspace. |
+| OperationName | The name of the operation associated with the log entry |
+| Identity | The identity of the user or application that performed the operation. |
+| AadTenantId | The AAD tenant ID the operation was submitted for. |
+| AmlDatastoreName | The name of the AML Data Store. |
+
+### AmlDeploymentEvent table
+
+| Property | Description |
+|:--- |:--- |
+| Type | Name of the log event, AmlDeploymentEvent |
+| TimeGenerated | Time (UTC) when the log entry was generated |
+| Level | The severity level of the event. Must be one of Informational, Warning, Error, or Critical. |
+| ResultType | The status of the event. Typical values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
+| OperationName | The name of the operation associated with the log entry |
+| Identity | The identity of the user or application that performed the operation. |
+| AadTenantId | The AAD tenant ID the operation was submitted for. |
+| AmlServiceName | The name of the AML Service. |
+
+### AmlInferencingEvent table
+
+| Property | Description |
+|:--- |:--- |
+| Type | Name of the log event, AmlInferencingEvent |
+| TimeGenerated | Time (UTC) when the log entry was generated |
+| Level | The severity level of the event. Must be one of Informational, Warning, Error, or Critical. |
+| ResultType | The status of the event. Typical values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
+| OperationName | The name of the operation associated with the log entry |
+| Identity | The identity of the user or application that performed the operation. |
+| AadTenantId | The AAD tenant ID the operation was submitted for. |
+| AmlServiceName | The name of the AML Service. |
+
+### AmlModelsEvent table
+
+| Property | Description |
+|:--- |:--- |
+| Type | Name of the log event, AmlModelsEvent |
+| TimeGenerated | Time (UTC) when the log entry was generated |
+| Level | The severity level of the event. Must be one of Informational, Warning, Error, or Critical. |
+| ResultType | The status of the event. Typical values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
+| OperationName | The name of the operation associated with the log entry |
+| Identity | The identity of the user or application that performed the operation. |
+| AadTenantId | The AAD tenant ID the operation was submitted for. |
+| ResultSignature | The HTTP status code of the event. Typical values include 200, 201, 202 etc. |
+| AmlModelName | The name of the AML Model. |
+
+### AmlPipelineEvent table
+
+| Property | Description |
+|:--- |:--- |
+| Type | Name of the log event, AmlPipelineEvent |
+| TimeGenerated | Time (UTC) when the log entry was generated |
+| Level | The severity level of the event. Must be one of Informational, Warning, Error, or Critical. |
+| ResultType | The status of the event. Typical values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
+| AmlWorkspaceId | A GUID and unique ID of the AML workspace. |
+| AmlWorkspaceId | The name of the AML workspace. |
+| OperationName | The name of the operation associated with the log entry |
+| Identity | The identity of the user or application that performed the operation. |
+| AadTenantId | The AAD tenant ID the operation was submitted for. |
+| AmlModuleId | A GUID and unique ID of the module.|
+| AmlModelName | The name of the AML Model. |
+| AmlPipelineId | The ID of the AML pipeline. |
+| AmlParentPipelineId | The ID of the parent AML pipeline (in the case of cloning). |
+| AmlPipelineDraftId | The ID of the AML pipeline draft. |
+| AmlPipelineDraftName | The name of the AML pipeline draft. |
+| AmlPipelineEndpointId | The ID of the AML pipeline endpoint. |
+| AmlPipelineEndpointName | The name of the AML pipeline endpoint. |
+
+
+### AmlRunEvent table
+
+| Property | Description |
+|:--- |:--- |
+| Type | Name of the log event, AmlRunEvent |
+| TimeGenerated | Time (UTC) when the log entry was generated |
+| Level | The severity level of the event. Must be one of Informational, Warning, Error, or Critical. |
+| ResultType | The status of the event. Typical values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
+| OperationName | The name of the operation associated with the log entry |
+| AmlWorkspaceId | A GUID and unique ID of the AML workspace. |
+| Identity | The identity of the user or application that performed the operation. |
+| AadTenantId | The AAD tenant ID the operation was submitted for. |
+| RunId | The unique ID of the run. |
+
+### AmlEnvironmentEvent  table
+
+| Property | Description |
+|:--- |:--- |
+| Type | Name of the log event, AmlEnvironmentEvent |
+| TimeGenerated | Time (UTC) when the log entry was generated |
+| Level | The severity level of the event. Must be one of Informational, Warning, Error, or Critical. |
+| OperationName | The name of the operation associated with the log entry |
+| Identity | The identity of the user or application that performed the operation. |
+| AadTenantId | The AAD tenant ID the operation was submitted for. |
+| AmlEnvironmentName | The name of the AML environment configuration. |
+| AmlEnvironmentVersion | The name of the AML environment configuration version. |
+
 
 ## See also
 
 - See [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md) for a description of monitoring Azure Machine Learning.
-- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

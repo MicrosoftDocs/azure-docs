@@ -3,7 +3,11 @@ title: Create a Python function from the command line - Azure Functions
 description: Learn how to create a Python function from the command line, then publish the local project to serverless hosting in Azure Functions.
 ms.date: 11/03/2020
 ms.topic: quickstart
-ms.custom: [devx-track-python, devx-track-azurecli]
+ms.custom: [devx-track-python, devx-track-azurecli, devx-track-azurepowershell]
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./create-first-function-cli-python-uiex
 ---
 
 # Quickstart: Create a Python function in Azure from the command line
@@ -30,7 +34,7 @@ Before you begin, you must have the following:
 
     + [Azure PowerShell](/powershell/azure/install-az-ps) version 5.0 or later.
 
-+ [Python 3.8 (64-bit)](https://www.python.org/downloads/release/python-382/), [Python 3.7 (64-bit)](https://www.python.org/downloads/release/python-375/), [Python 3.6 (64-bit)](https://www.python.org/downloads/release/python-368/), which are all supported by version 3.x of Azure Functions.
++ [Python versions that are supported by Azure Functions](supported-languages.md#languages-by-runtime-version)
 
 ### Prerequisite check
 
@@ -118,7 +122,7 @@ In Azure Functions, a function project is a container for one or more individual
     cd LocalFunctionProj
     ```
     
-    This folder contains various files for the project, including configurations files named [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
+    This folder contains various files for the project, including configurations files named [local.settings.json](functions-develop-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
 
 1. Add a function to your project by using the following command, where the `--name` argument is the unique name of your function (HttpExample) and the `--template` argument specifies the function's trigger (HTTP).
 
@@ -169,7 +173,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     az login
     ```
 
-    The [az login](/cli/azure/reference-index#az-login) command signs you into your Azure account.
+    The [az login](/cli/azure/reference-index#az_login) command signs you into your Azure account.
 
     # [Azure PowerShell](#tab/azure-powershell) 
     ```azurepowershell
@@ -178,6 +182,18 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
 
     The [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet signs you into your Azure account.
 
+    ---
+    
+1. When using the Azure CLI, you can turn on the `param-persist` option that automatically tracks the names of your created resources. To learn more, see [Azure CLI persisted parameter](/cli/azure/param-persist-howto).  
+
+    # [Azure CLI](#tab/azure-cli)
+    ```azurecli
+    az config param-persist on
+    ```
+    # [Azure PowerShell](#tab/azure-powershell) 
+    
+    This feature isn't available in Azure PowerShell.
+    
     ---
 
 1. Create a resource group named `AzureFunctionsQuickstart-rg` in the `westeurope` region. 
@@ -188,7 +204,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     az group create --name AzureFunctionsQuickstart-rg --location westeurope
     ```
  
-    The [az group create](/cli/azure/group#az-group-create) command creates a resource group. You generally create your resource group and resources in a region near you, using an available region returned from the `az account list-locations` command.
+    The [az group create](/cli/azure/group#az_group_create) command creates a resource group. You generally create your resource group and resources in a region near you, using an available region returned from the `az account list-locations` command.
 
     # [Azure PowerShell](#tab/azure-powershell)
 
@@ -208,10 +224,10 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     # [Azure CLI](#tab/azure-cli)
 
     ```azurecli
-    az storage account create --name <STORAGE_NAME> --location westeurope --resource-group AzureFunctionsQuickstart-rg --sku Standard_LRS
+    az storage account create --name <STORAGE_NAME> --sku Standard_LRS
     ```
 
-    The [az storage account create](/cli/azure/storage/account#az-storage-account-create) command creates the storage account. 
+    The [az storage account create](/cli/azure/storage/account#az_storage_account_create) command creates the storage account. 
 
     # [Azure PowerShell](#tab/azure-powershell)
 
@@ -232,7 +248,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     # [Azure CLI](#tab/azure-cli)
         
     ```azurecli
-    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime python --runtime-version 3.8 --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME> --os-type linux
+    az functionapp create --consumption-plan-location westeurope --runtime python --runtime-version 3.8 --functions-version 3 --name <APP_NAME> --os-type linux
     ```
     
     The [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command creates the function app in Azure. If you are using Python 3.7 or 3.6, change `--runtime-version` to `3.7` or `3.6`, respectively.
@@ -247,7 +263,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
 
     ---
     
-    In the previous example, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you.  The `<APP_NAME>` is also the default DNS domain for the function app. 
+    In the previous example, replace `<APP_NAME>` with a globally unique name appropriate to you.  The `<APP_NAME>` is also the default DNS domain for the function app. 
     
     This command creates a function app running in your specified language runtime under the [Azure Functions Consumption Plan](consumption-plan.md), which is free for the amount of usage you incur here. The command also provisions an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
 

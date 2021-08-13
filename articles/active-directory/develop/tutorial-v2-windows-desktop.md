@@ -43,7 +43,7 @@ The sample application that you create with this guide enables a Windows Desktop
 
 ## Handling token acquisition for accessing protected web APIs
 
-After the user is authenticated, the sample application receives a token you can use to query Microsoft Graph API or a web API that's secured by Microsoft identity platform for developers.
+After the user is authenticated, the sample application receives a token you can use to query Microsoft Graph API or a web API that's secured by the Microsoft identity platform.
 
 APIs such as Microsoft Graph require a token to allow access to specific resources. For example, a token is required to read a user’s profile, access a user’s calendar, or send email. Your application can request an access token by using MSAL to access these resources by specifying API scopes. This access token is then added to the HTTP Authorization header for every call that's made against the protected resource.
 
@@ -93,14 +93,14 @@ You can register your application in either of two ways.
 ### Option 1: Express mode
 
 You can quickly register your application by doing the following:
-1. Go to the [Azure portal - Application Registration](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).
+1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.
 1. Enter a name for your application and select **Register**.
 1. Follow the instructions to download and automatically configure your new application with just one click.
 
 ### Option 2: Advanced mode
 
 To register your application and add your application registration information to your solution, do the following:
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
@@ -137,6 +137,7 @@ In this step, you create a class to handle interaction with MSAL, such as handli
         {
             _clientApp = PublicClientApplicationBuilder.Create(ClientId)
                 .WithAuthority(AzureCloudInstance.AzurePublic, Tenant)
+                .WithDefaultRedirectUri()
                 .Build();
         }
 

@@ -7,7 +7,7 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: overview
 ms.workload: identity
-ms.date: 09/30/2020
+ms.date: 05/17/2021
 ms.author: rolyon
 ms.custom: contperf-fy21q1, azuread-video-2020
 
@@ -35,19 +35,19 @@ Here are some examples of what you can do with Azure RBAC:
 
 ## How Azure RBAC works
 
-The way you control access to resources using Azure RBAC is to create role assignments. This is a key concept to understand – it's how permissions are enforced. A role assignment consists of three elements: security principal, role definition, and scope.
+The way you control access to resources using Azure RBAC is to assign Azure roles. This is a key concept to understand – it's how permissions are enforced. A role assignment consists of three elements: security principal, role definition, and scope.
 
 ### Security principal
 
 A *security principal* is an object that represents a user, group, service principal, or managed identity that is requesting access to Azure resources. You can assign a role to any of these security principals.
 
-![Security principal for a role assignment](./media/shared/rbac-security-principal.png)
+![Diagram showing the security principal types for a role assignment.](./media/shared/rbac-security-principal.png)
 
 ### Role definition
 
 A *role definition* is a collection of permissions. It's typically just called a *role*. A role definition lists the operations that can be performed, such as read, write, and delete. Roles can be high-level, like owner, or specific, like virtual machine reader.
 
-![Role definition for a role assignment](./media/shared/rbac-role-definition.png)
+![Diagram showing role definition example for a role assignment](./media/shared/rbac-role-definition.png)
 
 Azure includes several [built-in roles](built-in-roles.md) that you can use. For example, the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role allows a user to create and manage virtual machines. If the built-in roles don't meet the specific needs of your organization, you can create your own [Azure custom roles](custom-roles.md).
 
@@ -65,7 +65,7 @@ For more information, see [Understand Azure role definitions](role-definitions.m
 
 In Azure, you can specify a scope at four levels: [management group](../governance/management-groups/overview.md), subscription, [resource group](../azure-resource-manager/management/overview.md#resource-groups), or resource. Scopes are structured in a parent-child relationship. You can assign roles at any of these levels of scope.
 
-![Scope for a role assignment](./media/shared/rbac-scope.png)
+![Diagram showing scope levels for a role assignment.](./media/shared/rbac-scope.png)
 
 For more information about scope, see [Understand scope](scope-overview.md).
 
@@ -75,17 +75,23 @@ A *role assignment* is the process of attaching a role definition to a user, gro
 
 The following diagram shows an example of a role assignment. In this example, the Marketing group has been assigned the [Contributor](built-in-roles.md#contributor) role for the pharma-sales resource group. This means that users in the Marketing group can create or manage any Azure resource in the pharma-sales resource group. Marketing users do not have access to resources outside the pharma-sales resource group, unless they are part of another role assignment.
 
-![Role assignment to control access](./media/overview/rbac-overview.png)
+![Diagram showing how security principal, role definition, and scope create a role assignment.](./media/overview/rbac-overview.png)
 
-You can create role assignments using the Azure portal, Azure CLI, Azure PowerShell, Azure SDKs, or REST APIs.
+You can assign roles using the Azure portal, Azure CLI, Azure PowerShell, Azure SDKs, or REST APIs.
 
-For more information, see [Steps to add a role assignment](role-assignments-steps.md).
+For more information, see [Steps to assign an Azure role](role-assignments-steps.md).
+
+## Groups
+
+Role assignments are transitive for groups which means that if a user is a member of a group and that group is a member of another group that has a role assignment, the user will have the permissions in the role assignment.
+
+![Diagram showing how role assignments are transitive for groups.](./media/overview/rbac-groups-transitive.png)
 
 ## Multiple role assignments
 
-So what happens if you have multiple overlapping role assignments? Azure RBAC is an additive model, so your effective permissions are the sum of your role assignments. Consider the following example where a user is granted the Contributor role at the subscription scope and the Reader role on a resource group. The sum of the Contributor permissions and the Reader permissions is effectively the Contributor role for the resource group. Therefore, in this case, the Reader role assignment has no impact.
+So what happens if you have multiple overlapping role assignments? Azure RBAC is an additive model, so your effective permissions are the sum of your role assignments. Consider the following example where a user is granted the Contributor role at the subscription scope and the Reader role on a resource group. The sum of the Contributor permissions and the Reader permissions is effectively the Contributor role for the subscription. Therefore, in this case, the Reader role assignment has no impact.
 
-![Multiple role assignments](./media/overview/rbac-multiple-roles.png)
+![Diagram showing how multiple role assignments overlap.](./media/overview/rbac-multiple-roles.png)
 
 ## Deny assignments
 
@@ -95,7 +101,7 @@ For more information, see [Understand Azure deny assignments](deny-assignments.m
 
 ## How Azure RBAC determines if a user has access to a resource
 
-The following are the high-level steps that Azure RBAC uses to determine if you have access to a resource on the management plane. This is helpful to understand if you are trying to troubleshoot an access issue.
+The following are the high-level steps that Azure RBAC uses to determine if you have access to a resource. These steps apply to Azure Resource Manager or data plane services integrated with Azure RBAC. This is helpful to understand if you are trying to troubleshoot an access issue.
 
 1. A user (or service principal) acquires a token for Azure Resource Manager.
 
@@ -105,13 +111,25 @@ The following are the high-level steps that Azure RBAC uses to determine if you 
 
 1. Azure Resource Manager retrieves all the role assignments and deny assignments that apply to the resource upon which the action is being taken.
 
+1. If a deny assignment applies, access is blocked. Otherwise, evaluation continues.
+
 1. Azure Resource Manager narrows the role assignments that apply to this user or their group and determines what roles the user has for this resource.
 
-1. Azure Resource Manager determines if the action in the API call is included in the roles the user has for this resource.
+1. Azure Resource Manager determines if the action in the API call is included in the roles the user has for this resource. If the roles include `Actions` that have a wildcard (`*`), the effective permissions are computed by subtracting the `NotActions` from the allowed `Actions`. Similarly, the same subtraction is done for any data actions.
 
-1. If the user doesn't have a role with the action at the requested scope, access is not granted. Otherwise, Azure Resource Manager checks if a deny assignment applies.
+    `Actions - NotActions = Effective management permissions`
 
-1. If a deny assignment applies, access is blocked. Otherwise access is granted.
+    `DataActions - NotDataActions = Effective data permissions`
+
+1. If the user doesn't have a role with the action at the requested scope, access is not allowed. Otherwise, any conditions are evaluated.
+
+1. If the role assignment includes conditions, they are evaluated. Otherwise access is allowed.
+
+1. If conditions are met, access is allowed. Otherwise access is not allowed.
+
+The following diagram is a summary of the evaluation logic.
+
+![Evaluation logic flowchart for determining access to a resource.](./media/overview/evaluation-logic.png)
 
 ## License requirements
 
@@ -119,6 +137,6 @@ The following are the high-level steps that Azure RBAC uses to determine if you 
 
 ## Next steps
 
-- [Add or remove Azure role assignments using the Azure portal](role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](role-assignments-portal.md)
 - [Understand the different roles](rbac-and-directory-admin-roles.md)
 - [Cloud Adoption Framework: Resource access management in Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

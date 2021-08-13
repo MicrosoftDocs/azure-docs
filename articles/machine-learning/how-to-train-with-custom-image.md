@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sagopal
 author: saachigopal
-ms.date: 10/20/2020
+ms.date: 08/11/2021
 ms.topic: conceptual
 ms.custom: how-to
 ---
@@ -16,18 +16,18 @@ ms.custom: how-to
 
 In this article, learn how to use a custom Docker image when you're training models with Azure Machine Learning. You'll use the example scripts in this article to classify pet images by creating a convolutional neural network. 
 
-Azure Machine Learning provides a default Docker base image. You can also use Azure Machine Learning environments to specify a different base image, such as one of the maintained [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers) or your own [custom image](how-to-deploy-custom-docker-image.md#create-a-custom-base-image). Custom base images allow you to closely manage your dependencies and maintain tighter control over component versions when running training jobs.
+Azure Machine Learning provides a default Docker base image. You can also use Azure Machine Learning environments to specify a different base image, such as one of the maintained [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers) or your own [custom image](./how-to-deploy-custom-container.md). Custom base images allow you to closely manage your dependencies and maintain tighter control over component versions when running training jobs.
 
 ## Prerequisites
 
 Run the code on either of these environments:
 
 * Azure Machine Learning compute instance (no downloads or installation necessary):
-  * Complete the [Set up environment and workspace](tutorial-1st-experiment-sdk-setup.md) tutorial to create a dedicated notebook server preloaded with the SDK and the sample repository.
+  * Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) tutorial to create a dedicated notebook server preloaded with the SDK and the sample repository.
   * In the Azure Machine Learning [examples repository](https://github.com/Azure/azureml-examples), find a completed notebook by going to the **notebooks** > **fastai** > **train-pets-resnet34.ipynb** directory. 
 * Your own Jupyter Notebook server:
   * Create a [workspace configuration file](how-to-configure-environment.md#workspace).
-  * Install the [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py). 
+  * Install the [Azure Machine Learning SDK](/python/api/overview/azure/ml/install). 
   * Create an [Azure container registry](../container-registry/index.yml) or other Docker registry that's available on the internet.
 
 ## Set up a training experiment
@@ -36,7 +36,7 @@ In this section, you set up your training experiment by initializing a workspace
 
 ### Initialize a workspace
 
-The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for the service. It gives you a centralized place to work with all the artifacts that you create. In the Python SDK, you can access the workspace artifacts by creating a [`Workspace`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) object.
+The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for the service. It gives you a centralized place to work with all the artifacts that you create. In the Python SDK, you can access the workspace artifacts by creating a [`Workspace`](/python/api/azureml-core/azureml.core.workspace.workspace) object.
 
 Create a `Workspace` object from the config.json file that you created as a [prerequisite](#prerequisites).
 
@@ -48,13 +48,12 @@ ws = Workspace.from_config()
 
 ### Define your environment
 
-Create an `Environment` object and enable Docker.
+Create an `Environment` object.
 
 ```python
 from azureml.core import Environment
 
 fastai_env = Environment("fastai2")
-fastai_env.docker.enabled = True
 ```
 
 The specified base image in the following code supports the fast.ai library, which allows for distributed deep-learning capabilities. For more information, see the [fast.ai Docker Hub repository](https://hub.docker.com/u/fastdotai). 
@@ -84,7 +83,7 @@ It's also possible to use a custom Dockerfile. Use this approach if you need to 
 ```python 
 # Specify Docker steps as a string. 
 dockerfile = r"""
-FROM mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04
+FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210615.v1
 RUN echo "Hello from custom container!"
 """
 
@@ -96,6 +95,13 @@ fastai_env.docker.base_dockerfile = dockerfile
 fastai_env.docker.base_image = None
 fastai_env.docker.base_dockerfile = "./Dockerfile"
 ```
+
+>[!IMPORTANT]
+> Azure Machine Learning only supports Docker images that provide the following software:
+> * Ubuntu 18.04 or greater.
+> * Conda 4.7.# or greater.
+> * Python 3.6+.
+> * A POSIX compliant shell available at /bin/sh is required in any container image used for training. 
 
 For more information about creating and managing Azure Machine Learning environments, see [Create and use software environments](how-to-use-environments.md). 
 
@@ -131,9 +137,14 @@ except ComputeTargetException:
 print(compute_target.get_status().serialize())
 ```
 
+
+>[!IMPORTANT]
+>Use CPU SKUs for any image build on compute. 
+
+
 ## Configure your training job
 
-For this tutorial, use the training script *train.py* on [GitHub](https://github.com/Azure/azureml-examples/blob/main/workflows/train/fastai/pets/src/train.py). In practice, you can take any custom training script and run it, as is, with Azure Machine Learning.
+For this tutorial, use the training script *train.py* on [GitHub](https://github.com/Azure/azureml-examples/blob/main/python-sdk/workflows/train/fastai/pets/src/train.py). In practice, you can take any custom training script and run it, as is, with Azure Machine Learning.
 
 Create a `ScriptRunConfig` resource to configure your job for running on the desired [compute target](how-to-set-up-training-targets.md).
 
@@ -158,9 +169,9 @@ run.wait_for_completion(show_output=True)
 ```
 
 > [!WARNING]
-> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use an [.ignore file](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) or don't include it in the source directory. Instead, access your data by using a [datastore](/python/api/azureml-core/azureml.data?preserve-view=true&view=azure-ml-py).
+> Azure Machine Learning runs training scripts by copying the entire source directory. If you have sensitive data that you don't want to upload, use an [.ignore file](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) or don't include it in the source directory. Instead, access your data by using a [datastore](/python/api/azureml-core/azureml.data).
 
 ## Next steps
 In this article, you trained a model by using a custom Docker image. See these other articles to learn more about Azure Machine Learning:
-* [Track run metrics](how-to-track-experiments.md) during training.
-* [Deploy a model](how-to-deploy-custom-docker-image.md) by using a custom Docker image.
+* [Track run metrics](how-to-log-view-metrics.md) during training.
+* [Deploy a model](./how-to-deploy-custom-container.md) by using a custom Docker image.

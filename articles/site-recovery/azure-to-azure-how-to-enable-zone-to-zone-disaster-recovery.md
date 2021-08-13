@@ -16,7 +16,7 @@ This article describes how to replicate, failover, and failback Azure virtual ma
 
 >[!NOTE]
 >
->- Support for Zone to Zone disaster recovery is currently limited to five regions: Southeast Asia, UK South, Japan East, Australia East, and West Europe.  
+>- Support for Zone to Zone disaster recovery is currently limited to the following regions: Southeast Asia, Japan East, Australia East, UK South, West Europe, North Europe, France Central, Central US, South Central US, East US, East US 2, West US 2, and West US 3.  
 >- Site Recovery does not move or store customer data out of the region in which it is deployed when the customer is using Zone to Zone Disaster Recovery. Customers may select a Recovery Services Vault from a different region if they so choose. The Recovery Services Vault contains metadata but no actual customer data.
 
 Site Recovery service contributes to your business continuity and disaster recovery strategy by keeping your business apps up and running, during planned and unplanned outages. It is the recommended Disaster Recovery option to keep your applications up and running if there are regional outages.
@@ -31,7 +31,7 @@ Typically, Availability Zones are used to deploy VMs in a High Availability conf
 
 However, in some scenarios, Availability Zones can be leveraged for Disaster Recovery:
 
-- Many customers who had a metro Disaster Recovery strategy while hosting applications on premise sometimes look to mimic this strategy once they migrate applications over to Azure. These customers acknowledge the fact that metro Disaster Recovery strategy may not work in case of a large-scale physical disaster and accept this risk. For such customers, Zone to Zone Disaster Recovery can be used as a Disaster Recovery option.
+- Many customers who had a metro Disaster Recovery strategy while hosting applications on-premises sometimes look to mimic this strategy once they migrate applications over to Azure. These customers acknowledge the fact that metro Disaster Recovery strategy may not work in case of a large-scale physical disaster and accept this risk. For such customers, Zone to Zone Disaster Recovery can be used as a Disaster Recovery option.
 
 - Many other customers have complicated networking infrastructure and do not wish to recreate it in a secondary region due to the associated cost and complexity. Zone to Zone Disaster Recovery reduces complexity as it leverages redundant networking concepts across Availability Zones making configuration much simpler. Such customers prefer simplicity and can also use Availability Zones for Disaster Recovery.
 
@@ -73,7 +73,7 @@ Before deploying Zone to Zone Disaster Recovery for your VMs, it is important to
 |Managed disks    |    Supported    |
 |Customer-managed keys    |    Supported    |
 |Proximity placement groups    |    Supported    |
-|Backup interoperability    |    File level backup and restore are supported. Disk and VM level backup and restore and not supported.    |
+|Backup interoperability    |    File level backup and restore are supported. Disk and VM level backup and restore are not supported.    |
 |Hot add/remove    |    Disks can be added after enabling zone to zone replication. Removal of disks after enabling zone to zone replication is not supported.    |	
 
 ## Set up Site Recovery Zone to Zone Disaster Recovery

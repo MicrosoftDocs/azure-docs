@@ -35,9 +35,17 @@
   - name: Security
     items:
     - name: Authentication and authorization
-      href: relay-authentication-and-authorization.md
+      items:
+      - name: Overview (authentication and authorization)
+        href: relay-authentication-and-authorization.md      
+      - name: Use Azure Active Directory 
+        items:
+        - name: Authenticate with managed identities (Preview)
+          href: authenticate-managed-identity.md 
+        - name: Authenticate from an application (Preview)
+          href: authenticate-application.md
     - name: Built-in security controls
-      href: service-bus-relay-security-controls.md
+      href: /security/benchmark/azure/baselines/service-bus-messaging-security-baseline?toc=/azure/azure-relay/TOC.json
     - name: Network security
       href: network-security.md      
   - name: Hybrid Connections protocol
@@ -65,7 +73,7 @@
         href: relay-hybrid-connections-node-ws-api-overview.md
   - name: Secure
     items: 
-    - name: Configure IP firewall (preview)
+    - name: Configure IP firewall
       href: ip-firewall-virtual-networks.md
     - name: Configure private endpoints
       href: private-link-service.md        
@@ -83,6 +91,8 @@
       href: /dotnet/api/microsoft.azure.relay
     - name: Microsoft.ServiceBus
       href: /dotnet/api/Microsoft.ServiceBus
+  - name: Azure CLI
+    href: /cli/azure/relay
   - name: Exceptions
     href: relay-exceptions.md
   - name: Port settings
@@ -92,7 +102,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=enterprise-integration
   - name: FAQ
-    href: relay-faq.md
+    href: relay-faq.yml
   - name: Blog
     href: /archive/blogs/servicebus/
   - name: Pricing

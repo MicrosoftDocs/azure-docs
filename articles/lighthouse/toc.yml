@@ -12,9 +12,9 @@
     href: ./samples/index.md
 - name: Concepts
   items:
-  - name: Azure delegated resource management
-    displayName: delegation, projection
-    href: ./concepts/azure-delegated-resource-management.md
+  - name: Architecture
+    displayName: delegation, projection, resource, registration
+    href: ./concepts/architecture.md
   - name: Cross-tenant management experiences
     displayName: scenarios, supported, enhanced, services, limitations, current
     href: ./concepts/cross-tenant-management-experience.md
@@ -42,59 +42,64 @@
       displayName: mfa, authentication, secure, group
       href: ./concepts/recommended-security-practices.md
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/lighthouse-security-baseline?toc=/azure/lighthouse/toc.json
 - name: How-to guides
   items:
-  - name: Onboard a customer to Azure Lighthouse
-    displayName: resource management
-    href: ./how-to/onboard-customer.md
-  - name: Publish Managed Service offers to Azure Marketplace 
-    displayName: managed services offer, azure marketplace, publish, marketplace
-    href: ./how-to/publish-managed-services-offers.md
+  - name: Customer actions
+    items:
+    - name: View and manage service providers 
+      displayName: customer, update, visibility, control
+      href: ./how-to/view-manage-service-providers.md
+    - name: Monitor service provider activity
+      displayName: monitor, log, customer, visibility, transparency, control
+      href: ./how-to/view-service-provider-activity.md
+  - name: Onboarding and delegation management
+    items:
+    - name: Onboard customers
+      displayName: ARM, template, delegation, authorization, resource management
+      href: ./how-to/onboard-customer.md
+    - name: Publish Managed Service offers to Azure Marketplace 
+      displayName: managed services, azure marketplace, publish, marketplace
+      href: ./how-to/publish-managed-services-offers.md
+    - name: Create eligible authorizations
+      displayName: jit, pim, elevate, elevation, just-in-time
+      href: ./how-to/create-eligible-authorizations.md
+    - name: Update delegations
+      displayName: upgrade
+      href: ./how-to/update-delegation.md
+    - name: Remove access to delegations
+      displayName: delete, undelegate
+      href: ./how-to/remove-delegation.md
+    - name: Monitor delegation changes
+      displayName: activity log
+      href: ./how-to/monitor-delegation-changes.md
   - name: View and manage customers 
     displayName: my customers
     href: ./how-to/view-manage-customers.md
   - name: Link your partner ID
     displayName: partner earned credit, pec, mpn
     href: ./how-to/partner-earned-credit.md
-  - name: Update a delegation
-    displayName: upgrade
-    href: ./how-to/update-delegation.md
-  - name: Remove access to a delegation
-    displayName: delete, undelegate
-    href: ./how-to/remove-delegation.md
-  - name: Azure Arc integration
-    displayName: server, kubernetes, hybrid, infrastructure
-    href: ./how-to/manage-hybrid-infrastructure-arc.md
-  - name: Azure Migrate integration
-    displayName: migration, project, on-prem
-    href: ./how-to/migration-at-scale.md
-  - name: Azure Monitor integration
+  - name: Azure service integration
     items:
-    - name: Use Azure Monitor Logs at scale
+    - name: Azure Arc integration
+      displayName: server, kubernetes, hybrid, infrastructure
+      href: ./how-to/manage-hybrid-infrastructure-arc.md
+    - name: Azure Migrate integration
+      displayName: migration, project, on-prem
+      href: ./how-to/migration-at-scale.md
+    - name: Azure Monitor integration
       displayName: log, analytics, analyze, activity
       href: ./how-to/monitor-at-scale.md
-    - name: Monitor delegation changes
-      displayName: activity log
-      href: ./how-to/monitor-delegation-changes.md
-  - name: Azure Policy integration
-    items:
-    - name: Deploy a policy at scale
-      displayName: storage
-      href: ./how-to/policy-at-scale.md
-    - name: Deploy a policy that can be remediated
-      displayName: deployIfNotExists, modify, managed identities, managed identity
-      href: ./how-to/deploy-policy-remediation.md
-  - name: Azure Sentinel integration
-    href: ./how-to/manage-sentinel-workspaces.md
-  - name: Customer actions
-    items:
-    - name: View and manage service providers 
-      displayName: customer, update
-      href: ./how-to/view-manage-service-providers.md
-    - name: View service provider activity
-      displayName: monitor, log
-      href: ./how-to/view-service-provider-activity.md
+    - name: Azure Policy integration
+      items:
+      - name: Deploy a policy at scale
+        displayName: storage
+        href: ./how-to/policy-at-scale.md
+      - name: Deploy a policy that can be remediated
+        displayName: deployIfNotExists, modify, managed identities, managed identity
+        href: ./how-to/deploy-policy-remediation.md
+    - name: Azure Sentinel integration
+      href: ./how-to/manage-sentinel-workspaces.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -110,18 +115,20 @@
   - name: REST
     href: /rest/api/managedservices/
   - name: OpenAPI
-    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/preview/2018-06-01-preview
+    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/stable/2019-06-01
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./samples/policy-reference.md
   - name: Terraform
     href: https://www.terraform.io/docs/providers/azurerm/r/lighthouse_assignment.html
+  - name: Ansible
+    href: https://docs.ansible.com/ansible/latest/collections/azure/azcollection/index.html#plugins-in-azure-azcollection
 - name: Resources
   items:
   - name: Microsoft Q&A for Azure Lighthouse
     href: /answers/topics/azure-lighthouse.html
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Regional availability

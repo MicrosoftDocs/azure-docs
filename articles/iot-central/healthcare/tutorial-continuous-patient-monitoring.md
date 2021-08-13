@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Create a continuous patient monitoring app with Azure IoT Central | Microsoft Docs
 description: In this tutorial, you learn to build a continuous patient monitoring application using Azure IoT Central application templates.
-author: philmea
-ms.author: philmea
+author: dominicbetts 
+ms.author: dobett 
 ms.date: 09/24/2019
 ms.topic: tutorial
 ms.service: iot-central
@@ -12,13 +12,17 @@ manager: eliotgra
 
 # Tutorial: Deploy and walkthrough a continuous patient monitoring app template
 
-This tutorial shows you, as a solution builder, how to get started by deploying an IoT Central continuous patient monitoring application template. You learn how to deploy and use the template.
+This tutorial shows you how to get started by deploying an IoT Central continuous patient monitoring application template. You learn how to deploy and use the template.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create an application template
 > * Walk through the application template
+
+## Prerequisites
+
+An Azure subscription is recommended. Alternatively, you can use a free, 7-day trial. If you don't have an Azure subscription, you can create one on the [Azure sign-up page](https://aka.ms/createazuresubscription).
 
 ## Create an application template
 
@@ -125,4 +129,4 @@ If you're not going to continue to use this application, delete the application 
 Advance to the next article to learn how to create a provider dashboard that connects to your IoT Central application.
 
 > [!div class="nextstepaction"]
-> [Build a provider dashboard](howto-health-data-triage.md)
+> [Build a provider dashboard](tutorial-health-data-triage.md)

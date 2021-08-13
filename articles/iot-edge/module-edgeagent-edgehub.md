@@ -2,15 +2,17 @@
 title: Properties of the agent and hub module twins - Azure IoT Edge
 description: Review the specific properties and their values for the edgeAgent and edgeHub module twins
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
-ms.date: 08/31/2020
+ms.date: 04/16/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ---
 
 # Properties of the IoT Edge agent and IoT Edge hub module twins
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 The IoT Edge agent and IoT Edge hub are two modules that make up the IoT Edge runtime. For more information about the responsibilities of each runtime module, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
@@ -77,7 +79,6 @@ The following table does not include the information that is copied from the des
 | lastDesiredVersion | This integer refers to the last version of the desired properties processed by the IoT Edge agent. |
 | lastDesiredStatus.code | This status code refers to the last desired properties seen by the IoT Edge agent. Allowed values: `200` Success, `400` Invalid configuration, `412` Invalid schema version, `417` the desired properties are empty, `500` Failed |
 | lastDesiredStatus.description | Text description of the status |
-| deviceHealth | `healthy` if the runtime status of all modules is either `running` or `stopped`, `unhealthy` otherwise |
 | configurationHealth.{deploymentId}.health | `healthy` if the runtime status of all modules set by the deployment {deploymentId} is either `running` or `stopped`, `unhealthy` otherwise |
 | runtime.platform.OS | Reporting the OS running on the device |
 | runtime.platform.architecture | Reporting the architecture of the CPU on the device |

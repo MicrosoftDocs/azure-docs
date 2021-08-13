@@ -1,7 +1,7 @@
 ---
 title: Recommended security practices
 description: When using Azure Lighthouse, it's important to consider security and access control.
-ms.date: 08/12/2020
+ms.date: 03/12/2021
 ms.topic: conceptual
 ---
 
@@ -14,9 +14,9 @@ When using [Azure Lighthouse](../overview.md), it's important to consider securi
 
 ## Require Azure AD Multi-Factor Authentication
 
-[Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (also known as two-step verification) helps prevent attackers from gaining access to an account by requiring multiple authentication steps. You should require Multi-Factor Authentication for all users in your managing tenant, including users who will have access to delegated customer resources.
+[Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (also known as two-step verification) helps prevent attackers from gaining access to an account by requiring multiple authentication steps. You should require Azure AD Multi-Factor Authentication for all users in your managing tenant, including users who will have access to delegated customer resources.
 
-We suggest that you ask your customers to implement Azure AD Multi-Factor Authentication in their tenants as well.
+We recommend that you ask your customers to implement Azure AD Multi-Factor Authentication in their tenants as well.
 
 ## Assign permissions to groups, using the principle of least privilege
 
@@ -42,5 +42,6 @@ Keep  in mind that when you [onboard customers through a public managed service 
 
 ## Next steps
 
+- Review the [security baseline information](../security-baseline.md) to understand how guidance from the Azure Security Benchmark applies to Azure Lighthouse.
 - [Deploy Azure AD Multi-Factor Authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
 - Learn about [cross-tenant management experiences](cross-tenant-management-experience.md).

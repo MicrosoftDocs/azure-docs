@@ -3,13 +3,13 @@ title: T-SQL differences between SQL Server & Azure SQL Managed Instance
 description: This article discusses the Transact-SQL (T-SQL) differences between an Azure SQL Managed Instance and SQL Server. 
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: service-overview
 ms.devlang: 
 ms.topic: reference
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: sstein, bonova, danil
-ms.date: 11/10/2020
+author: danimir
+ms.author: danil
+ms.reviewer: mathoma, bonova, danil
+ms.date: 3/16/2021
 ms.custom: seoapril2019, sqldbrb=1
 ---
 
@@ -134,7 +134,7 @@ SQL Managed Instance can't access files, so cryptographic providers can't be cre
 ### Logins and users
 
 - SQL logins created by using `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, and `FROM SID` are supported. See [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql).
-- Azure Active Directory (Azure AD) server principals (logins) created with the [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) syntax or the [CREATE USER FROM LOGIN [Azure AD Login]](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) syntax are supported. These logins are created at the server level.
+- Azure Active Directory (Azure AD) server principals (logins) created with the [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) syntax or the [CREATE USER FROM LOGIN [Azure AD Login]](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current&preserve-view=true) syntax are supported. These logins are created at the server level.
 
     SQL Managed Instance supports Azure AD database principals with the syntax `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. This feature is also known as Azure AD contained database users.
 
@@ -163,7 +163,7 @@ SQL Managed Instance can't access files, so cryptographic providers can't be cre
     - Export a database from SQL Managed Instance and import to SQL Database within the same Azure AD domain. 
     - Export a database from SQL Database and import to SQL Managed Instance within the same Azure AD domain.
     - Export a database from SQL Managed Instance and import to SQL Server (version 2012 or later).
-      - In this configuration all Azure AD users are created as SQL Server database principals (users) without logins. The type of users are listed as `SQL` and are visible as `SQL_USER` in sys.database_principals). Their permissions and roles remain in the SQL Server database metadata and can be used for impersonation. However, they cannot be used to access and log in to the SQL Server using their credentials.
+      - In this configuration, all Azure AD users are created as SQL Server database principals (users) without logins. The type of users is listed as `SQL` and is visible as `SQL_USER` in sys.database_principals). Their permissions and roles remain in the SQL Server database metadata and can be used for impersonation. However, they cannot be used to access and log in to the SQL Server using their credentials.
 
 - Only the server-level principal login, which is created by the SQL Managed Instance provisioning process, members of the server roles, such as `securityadmin` or `sysadmin`, or other logins with ALTER ANY LOGIN permission at the server level can create Azure AD server principals (logins) in the master database for SQL Managed Instance.
 - If the login is a SQL principal, only logins that are part of the `sysadmin` role can use the create command to create logins for an Azure AD account.
@@ -247,7 +247,7 @@ Some file properties can't be set or changed:
 The following options are set by default and can't be changed:
 
 - `MULTI_USER`
-- `ENABLE_BROKER ON`
+- `ENABLE_BROKER`
 - `AUTO_CLOSE OFF`
 
 The following options can't be modified:
@@ -272,11 +272,14 @@ The following options can't be modified:
 - `SINGLE_USER`
 - `WITNESS`
 
+Some `ALTER DATABASE` statements (for example, [SET CONTAINMENT](/sql/relational-databases/databases/migrate-to-a-partially-contained-database#converting-a-database-to-partially-contained-using-transact-sql)) might transiently fail, for example during the automated database backup or right after a database is created. In this case `ALTER DATABASE` statement should be retried. For more information on related error messages, see the [Remarks section](/sql/t-sql/statements/alter-database-transact-sql?preserve-view=true&tabs=sqlpool&view=azuresqldb-mi-current#remarks-2).
+
 For more information, see [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
 ### SQL Server Agent
 
 - Enabling and disabling SQL Server Agent is currently not supported in SQL Managed Instance. SQL Agent is always running.
+- Job schedule trigger based on an idle CPU is not supported.
 - SQL Server Agent settings are read only. The procedure `sp_set_agent_properties` isn't supported in SQL Managed Instance. 
 - Jobs
   - T-SQL job steps are supported.
@@ -298,14 +301,8 @@ For more information, see [ALTER DATABASE](/sql/t-sql/statements/alter-database-
   - Alerts aren't yet supported.
   - Proxies aren't supported.
 - EventLog isn't supported.
-- User must be directly mapped to Azure AD server principal (login) to create, modify or execute SQL Agent jobs. Users that are not directly mapped, e.g. users that belong to an Azure AD group that has the rights to create, modify or execute SQL Agent jobs, will not effectively be able to perform those actions. This is due to Managed Instance impersonation and [EXECUTE AS limitations](#logins-and-users).
-
-The following SQL Agent features currently aren't supported:
-
-- Proxies
-- Scheduling jobs on an idle CPU
-- Enabling or disabling an Agent
-- Alerts
+- User must be directly mapped to Azure AD server principal (login) to create, modify, or execute SQL Agent jobs. Users that are not directly mapped, for example, users that belong to an Azure AD group that has the rights to create, modify or execute SQL Agent jobs, will not effectively be able to perform those actions. This is due to Managed Instance impersonation and [EXECUTE AS limitations](#logins-and-users).
+- The Multi Server Administration feature for master/target (MSX/TSX) jobs are not supported.
 
 For information about SQL Server Agent, see [SQL Server Agent](/sql/ssms/agent/sql-server-agent).
 
@@ -352,9 +349,9 @@ Undocumented DBCC statements that are enabled in SQL Server aren't supported in 
 
 ### Distributed transactions
 
-Partial support for [distributed transactions](../database/elastic-transactions-overview.md) is currently in public preview. Supported scenarios are:
-* Transactions where participants are only Azure SQL Managed Instances that are part of [Server trust group](./server-trust-group-overview.md).
-* Transactions initiated from .NET (TransactionScope class) and Transact-SQL.
+Partial support for [distributed transactions](../database/elastic-transactions-overview.md) is currently in public preview. Distributed transactions are supported under following conditions (all of them must be met):
+* all transaction participants are Azure SQL Managed Instances that are part of the [Server trust group](./server-trust-group-overview.md).
+* transactions are initiated either from .NET (TransactionScope class) or Transact-SQL.
 
 Azure SQL Managed Instance currently does not support other scenarios which are regularly supported by MSDTC on-premises or in Azure Virtual Machines.
 
@@ -393,22 +390,23 @@ For more information, see [FILESTREAM](/sql/relational-databases/blob/filestream
 Linked servers in SQL Managed Instance support a limited number of targets:
 
 - Supported targets are SQL Managed Instance, SQL Database, Azure Synapse SQL [serverless](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) and dedicated pools, and SQL Server instances. 
-- Linked servers don't support distributed writable transactions (MS DTC).
+- Distributed writable transactions are possible only among Managed Instances. For more information, see [Distributed Transactions](../database/elastic-transactions-overview.md). However, MS DTC is not supported.
 - Targets that aren't supported are files, Analysis Services, and other RDBMS. Try to use native CSV import from Azure Blob Storage using `BULK INSERT` or `OPENROWSET` as an alternative for file import, or load files using a [serverless SQL pool in Azure Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/).
 
 Operations: 
 
-- Cross-instance write transactions aren't supported.
+- [Cross-instance](../database/elastic-transactions-overview.md) write transactions are supported only for Managed Instances.
 - `sp_dropserver` is supported for dropping a linked server. See [sp_dropserver](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
 - The `OPENROWSET` function can be used to execute queries only on SQL Server instances. They can be either managed, on-premises, or in virtual machines. See [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
 - The `OPENDATASOURCE` function can be used to execute queries only on SQL Server instances. They can be either managed, on-premises, or in virtual machines. Only the `SQLNCLI`, `SQLNCLI11`, and `SQLOLEDB` values are supported as a provider. An example is `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. See [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql).
 - Linked servers cannot be used to read files (Excel, CSV) from the network shares. Try to use [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file), [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) that reads CSV files from Azure Blob Storage, or a [linked server that references a serverless SQL pool in Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/). Track this requests on [SQL Managed Instance Feedback item](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|
 
+Linked servers on Azure SQL Managed Instance support only SQL authentication. AAD authentication is not supported yet.
+
 ### PolyBase
 
-The only available types of external source is RDBMS (in public preview) to Azure SQL database, Azure SQL managed instance, and Azure Synapse pool. You can use [an external table that references a serverless SQL pool in Synapse Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) as an workaround for Polybase external tables that directly reads from the Azure storage. 
-In Azure SQL managed instance you can use linked servers to [a serverless SQL pool in Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) or SQL Server to read Azure storage data.
-For information about PolyBase, see [PolyBase](/sql/relational-databases/polybase/polybase-guide).
+Work on enabling Polybase support in SQL Managed Instance is [in progress](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35698078-enable-polybase-on-sql-managed-instance). In the meantime, as a workaround you can use linked servers to [a serverless SQL pool in Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) or SQL Server to query data from files stored in Azure Data Lake or Azure Storage.   
+For general information about PolyBase, see [PolyBase](/sql/relational-databases/polybase/polybase-guide).
 
 ### Replication
 
@@ -465,11 +463,17 @@ For information about restore statements, see [RESTORE statements](/sql/t-sql/st
 
 ### Service broker
 
-Cross-instance service broker isn't supported:
+Cross-instance service broker message exchange is supported only between Azure SQL Managed Instances:
 
-- `sys.routes`: As a prerequisite, you must select the address from sys.routes. The address must be LOCAL on every route. See [sys.routes](/sql/relational-databases/system-catalog-views/sys-routes-transact-sql).
-- `CREATE ROUTE`: You can't use `CREATE ROUTE` with `ADDRESS` other than `LOCAL`. See [CREATE ROUTE](/sql/t-sql/statements/create-route-transact-sql).
-- `ALTER ROUTE`: You can't use `ALTER ROUTE` with `ADDRESS` other than `LOCAL`. See [ALTER ROUTE](/sql/t-sql/statements/alter-route-transact-sql). 
+- `CREATE ROUTE`: You can't use `CREATE ROUTE` with `ADDRESS` other than `LOCAL` or DNS name of another SQL Managed Instance.
+- `ALTER ROUTE`: You can't use `ALTER ROUTE` with `ADDRESS` other than `LOCAL` or DNS name of another SQL Managed Instance.
+
+Transport security is supported, dialog security is not:
+- `CREATE REMOTE SERVICE BINDING`is not supported.
+
+Service broker is enabled by default and cannot be disabled. The following ALTER DATABSE options are not supported:
+- `ENABLE_BROKER`
+- `DISABLE_BROKER`
 
 ### Stored procedures, functions, and triggers
 
@@ -481,9 +485,12 @@ Cross-instance service broker isn't supported:
   - `remote access`
   - `remote data archive`
   - `remote proc trans`
+  - `scan for startup procs`
+- The following [sp_configure](/sql/relational-databases/system-stored-procedures/sp-configure-transact-sql) options are ignored and have no effect: 
+  - `Ole Automation Procedures`
 - `sp_execute_external_scripts` isn't supported. See [sp_execute_external_scripts](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
 - `xp_cmdshell` isn't supported. See [xp_cmdshell](/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
-- `Extended stored procedures` aren't supported, which includes `sp_addextendedproc` and `sp_dropextendedproc`. See [Extended stored procedures](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
+- `Extended stored procedures` aren't supported, and this includes `sp_addextendedproc` and `sp_dropextendedproc`. This functionality won't be supported because it's on a deprecation path for SQL Server. For more details, see [Extended Stored Procedures](/sql/relational-databases/extended-stored-procedures-programming/database-engine-extended-stored-procedures-programming).
 - `sp_attach_db`, `sp_attach_single_file_db`, and `sp_detach_db` aren't supported. See [sp_attach_db](/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), and [sp_detach_db](/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 
 ### System functions and variables
@@ -502,15 +509,14 @@ The following variables, functions, and views return different results:
 
 ### Subnet
 -  You cannot place any other resources (for example virtual machines) in the subnet where you have deployed your SQL Managed Instance. Deploy these resources using a different subnet.
-- Subnet must have sufficient number of available [IP addresses](connectivity-architecture-overview.md#network-requirements). Minimum is 16, while recommendation is to have at least 32 IP addresses in the subnet.
-- [Service endpoints cannot be associated with the SQL Managed Instance's subnet](connectivity-architecture-overview.md#network-requirements). Make sure that the service endpoints option is disabled when you create the virtual network.
+- Subnet must have sufficient number of available [IP addresses](connectivity-architecture-overview.md#network-requirements). Minimum is to have at least 32 IP addresses in the subnet.
 - The number of vCores and types of instances that you can deploy in a region have some [constraints and limits](resource-limits.md#regional-resource-limitations).
-- There are some [security rules that must be applied on the subnet](connectivity-architecture-overview.md#network-requirements).
+- There is a [networking configuration](connectivity-architecture-overview.md#network-requirements) that must be applied on the subnet.
 
 ### VNET
 - VNet can be deployed using Resource Model - Classic Model for VNet is not supported.
 - After a SQL Managed Instance is created, moving the SQL Managed Instance or VNet to another resource group or subscription is not supported.
-- Some services such as App Service Environments, Logic apps, and SQL Managed Instance (used for Geo-replication, Transactional replication, or via linked servers) cannot access SQL Managed Instance in different regions if their VNets are connected using [global peering](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). You can connect to these resources via ExpressRoute or VNet-to-VNet through VNet Gateways.
+- For SQL Managed Instances hosted in virtual clusters that are created before 9/22/2020 [global peering](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) is not supported. You can connect to these resources via ExpressRoute or VNet-to-VNet through VNet Gateways.
 
 ### Failover groups
 System databases are not replicated to the secondary instance in a failover group. Therefore, scenarios that depend on objects from the system databases will be impossible on the secondary instance unless the objects are manually created on the secondary.
@@ -518,7 +524,7 @@ System databases are not replicated to the secondary instance in a failover grou
 ### TEMPDB
 - The maximum file size of `tempdb` can't be greater than 24 GB per core on a General Purpose tier. The maximum `tempdb` size on a Business Critical tier is limited by the SQL Managed Instance storage size. `Tempdb` log file size is limited to 120 GB on General Purpose tier. Some queries might return an error if they need more than 24 GB per core in `tempdb` or if they produce more than 120 GB of log data.
 - `Tempdb` is always split into 12 data files: 1 primary, also called master, data file and 11 non-primary data files. The file structure cannot be changed and new files cannot be added to `tempdb`. 
-- [Memory-optimized `tempdb` metadata](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15#memory-optimized-tempdb-metadata), a new SQL Server 2019 in-memory database feature, is not supported.
+- [Memory-optimized `tempdb` metadata](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15&preserve-view=true#memory-optimized-tempdb-metadata), a new SQL Server 2019 in-memory database feature, is not supported.
 - Objects created in the model database cannot be auto-created in `tempdb` after a restart or a failover because `tempdb` does not get its initial object list from the model database. You must create objects in `tempdb` manually after each restart or a failover.
 
 ### MSDB
@@ -527,13 +533,13 @@ The following MSDB schemas in SQL Managed Instance must be owned by their respec
 
 - General roles
   - TargetServersRole
-- [Fixed database roles](/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
+- [Fixed database roles](/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15&preserve-view=true)
   - SQLAgentUserRole
   - SQLAgentReaderRole
   - SQLAgentOperatorRole
-- [DatabaseMail roles](/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
+- [DatabaseMail roles](/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15&preserve-view=true#DBProfile):
   - DatabaseMailUserRole
-- [Integration services roles](/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15):
+- [Integration services roles](/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15&preserve-view=true):
   - db_ssisadmin
   - db_ssisltduser
   - db_ssisoperator

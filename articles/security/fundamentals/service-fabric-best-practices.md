@@ -140,7 +140,7 @@ The HTTP protocol is unsecure and subject to eavesdropping attacks. Data that is
 To learn more about using SSL/TLS certificates, see [Configuring TLS for an application in Azure](../../cloud-services/cloud-services-configure-ssl-certificate-portal.md).
 
 ## Use network isolation and security with Azure Service Fabric
-Set up a 3 nodetype secure cluster by using the [Azure Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) as a sample. Control the inbound and outbound network traffic by using the template and Network Security Groups.
+Set up a 3 nodetype secure cluster by using the [Azure Resource Manager template](../../azure-resource-manager/templates/syntax.md) as a sample. Control the inbound and outbound network traffic by using the template and Network Security Groups.
 
 The template has an NSG for each of the virtual machine scale sets and is used to control the traffic in and out of the set. The rules are configured by default to allow all traffic necessary for the system services and the application ports specified in the template. Review these rules and make any changes to fit your needs, including adding new rules for your applications.
 
@@ -151,7 +151,7 @@ Service Fabric uses certificates to provide authentication and encryption for se
 
 Service Fabric uses X.509 certificates to secure a cluster and to provide application security features. You use Azure Key Vault to [manage certificates](../../service-fabric/service-fabric-cluster-security-update-certs-azure.md) for Service Fabric clusters in Azure. The Azure resource provider that creates the clusters pulls the certificates from a key vault. The provider then installs the certificates on the VMs when the cluster is deployed on Azure.
 
-A certificate relationship exists between [Azure Key Vault](../../key-vault/general/secure-your-key-vault.md), the Service Fabric cluster, and the resource provider that uses the certificates. When the cluster is created, information about the certificate relationship is stored in a key vault.
+A certificate relationship exists between [Azure Key Vault](../../key-vault/general/security-features.md), the Service Fabric cluster, and the resource provider that uses the certificates. When the cluster is created, information about the certificate relationship is stored in a key vault.
 
 There are two basic steps to set up a key vault:
 1. Create a resource group specifically for your key vault.

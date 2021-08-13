@@ -1,16 +1,14 @@
 ---
 title: Copy data from Amazon Simple Storage Service (S3)
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about how to copy data from Amazon Simple Storage Service (S3) to supported sink data stores by using Azure Data Factory.
-services: data-factory
-ms.author: jingwang
-author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 12/08/2020
+ms.custom: synapse
+ms.date: 03/17/2021
 ---
 
 # Copy data from Amazon Simple Storage Service by using Azure Data Factory
@@ -38,7 +36,7 @@ This Amazon S3 connector is supported for the following activities:
 Specifically, this Amazon S3 connector supports copying files as is or parsing files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md). You can also choose to [preserve file metadata during copy](#preserve-metadata-during-copy). The connector uses [AWS Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) to authenticate requests to S3.
 
 >[!TIP]
->You can use this Amazon S3 connector to copy data from *any S3-compatible storage provider*, such as [Google Cloud Storage](connector-google-cloud-storage.md). Specify the corresponding service URL in the linked service configuration.
+>If you want to copy data from *any S3-compatible storage provider*, see [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md).
 
 ## Required permissions
 
@@ -50,7 +48,7 @@ For the full list of Amazon S3 permissions, see [Specifying Permissions in a Pol
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)] 
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)] 
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Amazon S3.
 
@@ -65,11 +63,9 @@ The following properties are supported for an Amazon S3 linked service:
 | accessKeyId | ID of the secret access key. |Yes |
 | secretAccessKey | The secret access key itself. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | sessionToken | Applicable when using [temporary security credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) authentication. Learn how to [request temporary security credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getsessiontoken) from AWS.<br>Note AWS temporary credential expires between 15 minutes to 36 hours based on settings. Make sure your credential is valid when activity executes， especially for operationalized workload - for example, you can refresh it periodically and store it in Azure Key Vault.<br>Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |No |
-| serviceUrl | Specify the custom S3 endpoint if you're copying data from an S3-compatible storage provider other than the official Amazon S3 service. For example, to copy data from Google Cloud Storage, specify `https://storage.googleapis.com`. | No |
+| serviceUrl | Specify the custom S3 endpoint `https://<service url>`. | No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. |No |
 
->[!TIP]
->Specify the custom S3 service URL if you're copying data from an S3-compatible storage other than the official Amazon S3 service.
 
 **Example: using access key authentication**
 
@@ -124,7 +120,7 @@ The following properties are supported for an Amazon S3 linked service:
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. 
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for Amazon S3 under `location` settings in a format-based dataset:
 
@@ -169,7 +165,7 @@ For a full list of sections and properties available for defining activities, se
 
 ### Amazon S3 as a source type
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for Amazon S3 under `storeSettings` settings in a format-based copy source:
 
@@ -189,7 +185,7 @@ The following properties are supported for Amazon S3 under `storeSettings` setti
 | modifiedDatetimeEnd      | Same as above.                                               | No                                                          |
 | enablePartitionDiscovery | For files that are partitioned, specify whether to parse the partitions from the file path and add them as additional source columns.<br/>Allowed values are **false** (default) and **true**. | No                                            |
 | partitionRootPath | When partition discovery is enabled, specify the absolute root path in order to read partitioned folders as data columns.<br/><br/>If it is not specified, by default,<br/>- When you use file path in dataset or list of files on source, partition root path is the path configured in dataset.<br/>- When you use wildcard folder filter, partition root path is the sub-path before the first wildcard.<br/>- When you use prefix, partition root path is sub-path before the last "/". <br/><br/>For example, assuming you configure the path in dataset as "root/folder/year=2020/month=08/day=27":<br/>- If you specify partition root path as "root/folder/year=2020", copy activity will generate two more columns `month` and `day` with value "08" and "27" respectively, in addition to the columns inside the files.<br/>- If partition root path is not specified, no extra column will be generated. | No                                            |
-| maxConcurrentConnections | The number of concurrent connections to the data store. Specify only when you want to limit concurrent connections to the data store. | No                                                          |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No                                                          |
 
 **Example:**
 
@@ -360,7 +356,7 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 |:--- |:--- |:--- |
 | type | The **type** property of the Copy activity source must be set to **FileSystemSource**. |Yes |
 | recursive | Indicates whether the data is read recursively from the subfolders or only from the specified folder. Note that when **recursive** is set to **true** and the sink is a file-based store, an empty folder or subfolder will not be copied or created at the sink.<br/>Allowed values are **true** (default) and **false**. | No |
-| maxConcurrentConnections | The number of the connections to connect to the data store concurrently. Specify only when you want to limit concurrent connections to the data store. | No |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 
 **Example:**
 

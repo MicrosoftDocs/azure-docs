@@ -67,10 +67,14 @@
     href: choose-pricing-tier.md
   - name: Creator for Indoor maps
     items:
+    - name: Creator service geographic scope
+      href: creator-geographic-scope.md
     - name: Indoor map concepts
       href: creator-indoor-maps.md
     - name: Drawing conversion errors and warnings
       href: drawing-conversion-error-codes.md  
+  - name: Encryption of data at rest
+    href: ../security/fundamentals/encryption-atrest.md
   - name: Coverage
     items:
     - name: Coverage
@@ -98,7 +102,7 @@
   - name: Weather services concepts
     href: weather-services-concepts.md
   - name: Weather services FAQ
-    href: weather-services-faq.md
+    href: weather-services-faq.yml
 - name: How-to guides
   items:
   - name: Manage Maps accounts
@@ -159,11 +163,11 @@
       - name: Create a data source
         href: create-data-source-web-sdk.md
       - name: Add a symbol layer
-        href: map-add-pin.md  
-      - name: Add a popup
-        href: map-add-popup.md      
+        href: map-add-pin.md     
       - name: Add a bubble layer
         href: map-add-bubble-layer.md
+      - name: Add a popup
+        href: map-add-popup.md   
       - name: Add HTML markers
         href: map-add-custom-html.md
       - name: Add a line layer
@@ -198,6 +202,8 @@
         href: map-add-drawing-toolbar.md
       - name: Get shape data
         href: map-get-shape-data.md
+      - name: Add a snap grid
+        href: map-add-snap-grid.md
       - name: React to drawing events
         href: drawing-tools-events.md
       - name: Interaction types and keyboard shortcuts
@@ -238,30 +244,40 @@
         href: spatial-io-supported-data-format-details.md
     - name: Web SDK supported browsers
       href: supported-browsers.md
+    - name: Best practices
+      href: web-sdk-best-practices.md
   - name: Develop with the Android SDK
     items:
     - name: Getting started with Android map control
       href: how-to-use-android-map-control-library.md
     - name: Change the style of the map
       href: set-android-map-styles.md
+    - name: Add controls to the map
+      href: map-add-controls-android.md
     - name: Create a data source
       href: create-data-source-android-sdk.md
     - name: Add a symbol layer
       href: how-to-add-symbol-to-android-map.md
     - name: Add a bubble layer
       href: map-add-bubble-layer-android.md
-    - name: Add shapes
-      href: how-to-add-shapes-to-android-map.md
-    - name: Add heat map layer
-      href: map-add-heat-map-layer-android.md
-    - name: Add a line layer
-      href: android-map-add-line-layer.md
     - name: Display feature information
       href: display-feature-information-android.md
+    - name: Add a line layer
+      href: android-map-add-line-layer.md
+    - name: Add a polygon layer
+      href: how-to-add-shapes-to-android-map.md
+    - name: Add a polygon extrusion layer
+      href: map-extruded-polygon-android.md
+    - name: Add heat map layer
+      href: map-add-heat-map-layer-android.md
+    - name: Add an image layer
+      href: map-add-image-layer-android.md
     - name: Add a tile layer
       href: how-to-add-tile-layer-android-map.md
     - name: Show traffic data 
       href: how-to-show-traffic-android.md
+    - name: Cluster point data
+      href: clustering-point-data-android-sdk.md
     - name: Use data-driven expressions
       href: data-driven-style-expressions-android-sdk.md
     - name: Reacting to events
@@ -284,6 +300,8 @@
       href: power-bi-visual-show-real-time-traffic.md
     - name: Manage access
       href: power-bi-visual-manage-access.md
+    - name: Use Azure Maps in Power Apps
+      href: /powerapps/maker/canvas-apps/geospatial-component-map
   - name: Provide data feedback
     href: how-to-use-feedback-tool.md
 - name: Reference
@@ -292,6 +310,8 @@
     items:
     - name: Drawing package requirements
       href: drawing-requirements.md
+    - name: Drawing package guide
+      href: drawing-package-guide.md
     - name: Dynamic maps StylesObject
       href: schema-stateset-stylesobject.md
     - name: Vehicle consumption model
@@ -302,10 +322,12 @@
       href: geofence-geojson.md
     - name: Supported search categories
       href: supported-search-categories.md
+    - name: Facility Ontology
+      href: creator-facility-ontology.md
   - name: REST
     items:
     - name: Data service
-      href: /rest/api/maps/data
+      href: /rest/api/maps/data-v2
     - name: Elevation service
       href: /rest/api/maps/elevation
     - name: Geolocation service
@@ -331,17 +353,17 @@
     - name: Maps Creator service
       items:
       - name: Alias service
-        href: /rest/api/maps/alias
+        href: /rest/api/maps/v2/alias
       - name: Conversion service
-        href: /rest/api/maps/conversion
+        href: /rest/api/maps/v2/conversion
       - name: Dataset service
-        href: /rest/api/maps/dataset
+        href: /rest/api/maps/v2/dataset
       - name: Feature State service
-        href: /rest/api/maps/featurestate
+        href: /rest/api/maps/v2/feature-state
       - name: Tileset service
-        href: /rest/api/maps/tileset
+        href: /rest/api/maps/v2/tileset
       - name: WFS service
-        href: /rest/api/maps/wfs
+        href: /rest/api/maps/v2/wfs
     - name: Maps account management
       href: /rest/api/maps-management
   - name: JavaScript
@@ -363,7 +385,7 @@
 - name: Resources
   items:
   - name: Support and help options
-    href: ../iot-fundamentals/iot-support-help.md
+    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/azure-maps/toc.json&bc=/azure/azure-maps/breadcrumb/toc.json
   - name: Azure IoT services
     items:
     - name: IoT Hub
@@ -377,7 +399,7 @@
     - name: IoT solution accelerators
       href: ../iot-accelerators/index.yml
     - name: IoT Plug and Play
-      href: ../iot-pnp/index.yml
+      href: ../iot-develop/index.yml
     - name: Azure Maps
       href: ./index.yml
     - name: Time Series Insights

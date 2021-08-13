@@ -1,9 +1,6 @@
 ---
 title: Secure and isolate Azure HDInsight clusters with Private Link (preview)
 description: Learn how to isolate Azure HDInsight clusters in a virtual network using Azure Private Link.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
@@ -26,7 +23,7 @@ The basic load balancers used in the default virtual network architecture automa
 
 Configuring `resourceProviderConnection` to outbound also allows you to access cluster-specific resources, such as Azure Data Lake Storage Gen2 or external metastores, using private endpoints. Using private endpoints for these resources is not mandatory, but if you plan to have private endpoints for these resources, you must configure the private endpoints and DNS entries `before` you create the HDInsight cluster. We recommend you create and provide all of the external SQL databases you need, such as Apache Ranger, Ambari, Oozie and Hive metastores, at cluster creation time. The requirement is that all of these resources must be accessible from inside the cluster subnet, either through their own private endpoint or otherwise.
 
-Using private endpoints for Azure Key Vault is not supported. If you're using Azure Key Vault for CMK encryption at rest, the Azure Key Vault endpoint must be accessible from within the HDInsight subnet with no private endpoint.
+When connecting to Azure Data Lake Storage Gen2 over Private Endpoint, make sure the Gen2 storage account has an endpoint set for both ‘blob’ and ‘dfs’. For more information please see [Creating a Private Endpoint](../storage/common/storage-private-endpoints.md).
 
 The following diagram shows what a potential HDInsight virtual network architecture could look like when `resourceProviderConnection` is set to outbound:
 
@@ -51,11 +48,11 @@ Private Link, which is disabled by default, requires extensive networking knowle
 
 When `privateLink` is set to *enable*, internal [standard load balancers](../load-balancer/load-balancer-overview.md) (SLB) are created, and an Azure Private Link Service is provisioned for each SLB. The Private Link Service is what allows you to access the HDInsight cluster from private endpoints.
 
-Standard load balancers do not automatically provide the [public outbound NAT](../load-balancer/load-balancer-outbound-connections.md) like basic load balancers do. You must provide your own NAT solution, such as [Virtual Network NAT](../virtual-network/nat-overview.md) or a [firewall](./hdinsight-restrict-outbound-traffic.md), for outbound dependencies. Your HDInsight cluster still needs access to its outbound dependencies. If these outbound dependencies are not allowed, the cluster creation may fail.
+Standard load balancers do not automatically provide the [public outbound NAT](../load-balancer/load-balancer-outbound-connections.md) like basic load balancers do. You must provide your own NAT solution, such as [Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md) or a [firewall](./hdinsight-restrict-outbound-traffic.md), for outbound dependencies. Your HDInsight cluster still needs access to its outbound dependencies. If these outbound dependencies are not allowed, the cluster creation may fail.
 
 ### Prepare your environment
 
-For successgfull creation of private link services, you must explicitly [disable network policies for private link service](../private-link/disable-private-link-service-network-policy.md).
+For successfully creation of private link services, you must explicitly [disable network policies for private link service](../private-link/disable-private-link-service-network-policy.md).
 
 The following diagram shows an example of the networking configuration required before you create a cluster. In this example, all outbound traffic is [forced](../firewall/forced-tunneling.md) to Azure Firewall using UDR and the required outbound dependencies should be "allowed" on the firewall before creating a cluster. For Enterprise Security Package clusters, the network connectivity to Azure Active Directory Domain Services can be provided by VNet peering.
 
@@ -95,12 +92,12 @@ networkProperties: {
 
 For a complete template with many of the HDInsight enterprise security features, including Private Link, see [HDInsight enterprise security template](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/ESP-HIB-PL-Template).
 
-### Use Azure Powershell
+### Use Azure PowerShell
 
-To use powershell see the example [here](/powershell/module/az.hdinsight/new-azhdinsightcluster?view=azps-5.1.0#example-4--create-an-azure-hdinsight-cluster-with-relay-outbound-and-private-link-feature).
+To use PowerShell, see the example [here](/powershell/module/az.hdinsight/new-azhdinsightcluster#example-4--create-an-azure-hdinsight-cluster-with-relay-outbound-and-private-link-feature).
 
 ### Use Azure CLI
-To use Azure CLI, see the example [here](/cli/azure/hdinsight?view=azure-cli-latest#az_hdinsight_create-examples).
+To use Azure CLI, see the example [here](/cli/azure/hdinsight#az_hdinsight_create-examples).
 
 ## Next steps
 

@@ -1,13 +1,13 @@
 ---
 title: Global parameters
 description: Set global parameters for each of your Azure Data Factory environments
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: authoring
 ms.topic: conceptual
-author: dcstwh
-ms.author: weetok
-ms.date: 08/31/2020
+author: minhe-msft
+ms.author: hemin
+ms.date: 05/12/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Global parameters in Azure Data Factory
@@ -18,7 +18,7 @@ Global parameters are constants across a data factory that can be consumed by a 
 
 ## Creating global parameters
 
-To create a global parameter, go to the *Global parameters* tab in the *Manage* section. Select **New** to open the creation side-nav.
+To create a global parameter, go to the *Global parameters* tab in the **Manage** section. Select **New** to open the creation side-nav.
 
 ![Screenshot that highlights the New button you select to create global parameters.](media/author-global-parameters/create-global-parameter-1.png)
 
@@ -43,11 +43,18 @@ There are two ways to integrate global parameters in your continuous integration
 * Include global parameters in the ARM template
 * Deploy global parameters via a PowerShell script
 
-For most use cases, it is recommended to include global parameters in the ARM template. This will integrate natively with the solution outlined in [the CI/CD doc](continuous-integration-deployment.md). Global parameters will be added as an ARM template parameter by default as they often change from environment to environment. You can enable the inclusion of global parameters in the ARM template from the management hub.
+For general use cases, it is recommended to include global parameters in the ARM template. This integrates natively with the solution outlined in [the CI/CD doc](continuous-integration-deployment.md). In case of automatic publishing and  Purview connection, **PowerShell script** method is required. You can find more about PowerShell script method later. Global parameters will be added as an ARM template parameter by default as they often change from environment to environment. You can enable the inclusion of global parameters in the ARM template from the **Manage** hub.
 
 ![Include in ARM template](media/author-global-parameters/include-arm-template.png)
 
-Adding global parameters to the ARM template adds a factory-level setting that will override other factory-level settings such as a customer-managed key or git configuration in other environments. If you have these settings enabled in an elevated environment such as UAT or PROD, it's better to deploy global parameters via a PowerShell script in the steps highlighted below.
+> [!NOTE]
+> The **Include in ARM template** configuration is only available in "Git mode". Currently it is disabled in "live mode" or "Data Factory" mode. In case of automatic publishing or Purview connection, do not use Include global parameters method; use PowerShell script method. 
+
+> [!WARNING]
+>You cannot use  ‘-‘ in the parameter name. You will receive an errorcode "{"code":"BadRequest","message":"ErrorCode=InvalidTemplate,ErrorMessage=The expression >'pipeline().globalParameters.myparam-dbtest-url' is not valid: .....}". But, you can use the ‘_’ in the parameter name. 
+
+Adding global parameters to the ARM template adds a factory-level setting that will override other factory-level settings such as a customer-managed key or git configuration in other environments. If you have these settings enabled in an elevated environment such as UAT or PROD, it's better to deploy global parameters via a PowerShell script in the steps highlighted below. 
+
 
 ### Deploying using PowerShell
 

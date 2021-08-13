@@ -7,78 +7,85 @@ manager: mikben
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 09/30/2020
+ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 # Client and Server Architecture
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+This page illustrates typical architectural components and dataflows in various Azure Communication Service scenarios. Relevant components include:
 
-<!--
-> [!WARNING]
-> This document is under construction and needs the following items to be addressed: 
-> - Need to add security best practices for token management here
-> - Reference docs:
-> - https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/create-a-token-object
-> - https://docs.microsoft.com/azure/aks/operator-best-practices-identity
-> - https://docs.microsoft.com/cloud-app-security/api-tokens?view=gestures-1.0-->
+1. **Client Application.** This website or native application is leveraged by end-users to communicate. Azure Communication Services provides [SDK client libraries](sdk-options.md) for multiple browsers and application platforms. In addition to our core SDKs, [a UI toolkit](https://aka.ms/acsstorybook) is available to accelerate browser app development.
+1. **Identity Management Service.**  This service capability you build to map users and other concepts in your business logic to Azure Communication Services and also to create tokens for those users when required.
+1. **Call Management Service.**  This service capability you build to manage and monitor voice and video calls.  This service can create calls, invite users, call phone numbers, play audio, listen to DMTF tones and leverage many other call features through the Calling Automation SDK and REST APIs.
 
-Every Azure Communication Services application will have **client applications** that use **services** to facilitate person-to-person connectivity. This page illustrates common architectural elements in a variety of scenarios.
 
 ## User access management
 
-Azure Communication Services client libraries require `user access tokens` to access Communication Services resources securely. `User access tokens` should be generated and managed by a trusted service due to the sensitive nature of the token and the connection string necessary to generate them. Failure to properly manage access tokens can result in additional charges due to misuse of resources. It is highly recommended to make use of a trusted service for user management. The trusted service will generate the tokens and pass them back to the client using proper encryption. A sample architecture flow can be found below:
+Azure Communication Services clients must present `user access tokens` to access Communication Services resources securely. `User access tokens` should be generated and managed by a trusted service due to the sensitive nature of the token and the connection string or managed identity necessary to generate them. Failure to properly manage access tokens can result in additional charges due to misuse of resources.
 
-:::image type="content" source="../media/scenarios/archdiagram-access.png" alt-text="Diagram showing user access token architecture.":::
+:::image type="content" source="../media/scenarios/architecture_v2_identity.svg" alt-text="Diagram showing user access token architecture.":::
 
-For additional information review [best identity management practices](../../security/fundamentals/identity-management-best-practices.md)
+### Dataflows
+1. The user starts the client application. The design of this application and user authentication scheme is in your control.
+2. The client application contacts your identity management service. The identity management service maintains a mapping between your users and other addressable objects (for example services or bots) to Azure Communication Service identities.
+3. The identity management service creates a user access token for the applicable identity. If no Azure Communication Services identity has been allocated the past, a new identity is created.  
 
-## Browser communication
+### Resources
+- **Concept:** [User Identity](identity-model.md)
+- **Quickstart:** [Create and manage access tokens](../quickstarts/access-tokens.md)
+- **Tutorial:** [Build a identity management services use Azure Functions](../tutorials/trusted-service-tutorial.md)
 
-Azure Communications JavaScript client libraries can enable web applications with rich text, voice, and video interaction. The application directly interacts with Azure Communication Services through the client library to access the data plane and deliver real-time text, voice, and video communication. A sample architecture flow can be found below:
+> [!IMPORTANT]
+> For simplicity, we do not show user access management and token distribution in subsequent architecture flows.
 
-:::image type="content" source="../media/scenarios/archdiagram-browser.png" alt-text="Diagram showing the browser to browser Architecture for Communication Services.":::
 
-## Native app communication
+## Calling a user without push notifications
+The simplest voice and video calling scenarios involves a user calling another, in the foreground without push notifications.
 
-Many scenarios are best served with native applications. Azure Communication Services supports both browser-to-app and app-to-app communication.  When building a native application experience, having push notifications will enable users to receive calls even when the application is not running. Azure Communication Services makes this easy with integrated push notifications to Google Firebase, Apple Push Notification Service, and Windows Push Notifications. A sample architecture flow can be found below:
+:::image type="content" source="../media/scenarios/architecture_v2_calling_without_notifications.svg" alt-text="Diagram showing Communication Services architecture calling without push notifications.":::
 
-:::image type="content" source="../media/scenarios/archdiagram-app.png" alt-text="Diagram showing Communication Services Architecture for native app communication.":::
+### Dataflows
 
-## Voice and SMS over the public switched telephony network (PSTN)
+1. The accepting user initializes the Call client, allowing them to receive incoming phone calls.
+2. The initiating user needs the Azure Communication Services identity of the person they want to call. A typical experience may have a *friend's list* maintained by the identity management service that collates the user's friends and associated Azure Communication Service identities.
+3. The initiating user initializes their Call client and calls the remote user.
+4. The accepting user is notified of the incoming call through the Calling SDK.
+5. The users communicate with each other using voice and video in a call.
 
-Communicating over the phone system can dramatically increase the reach of your application. To support PSTN voice and SMS scenarios, Azure Communication Services helps you [acquire phone numbers](../quickstarts/telephony-sms/get-phone-number.md) directly from the Azure portal or using REST APIs and client libraries. Once phone numbers are acquired, they can be used to reach customers using both PSTN calling and SMS in both inbound and outbound scenarios. A sample architecture flow can be found below:
+### Resources
+- **Concept:** [Calling Overview](voice-video-calling/calling-sdk-features.md)
+- **Quickstart:** [Add voice calling to your app](../quickstarts/voice-video-calling/getting-started-with-calling.md)
+- **Quickstart:** [Add video calling to your app](../quickstarts/voice-video-calling/get-started-with-video-calling.md)
+- **Hero Sample:** [Group Calling for Web, iOS, and Android](../samples/calling-hero-sample.md)
 
-> [!Note]
-> During public preview, the provisioning of US phone numbers is available to customers with billing addresses located within the US and Canada. 
 
-:::image type="content" source="../media/scenarios/archdiagram-pstn.png" alt-text="Diagram showing Communication Services PSTN architecture.":::
+## Joining a user-created group call
+You may want users to join a call without an explicit invitation. For example you may have a *social space* with an associated call, and users join that call at their leisure. In this first dataflow, we show a call that is initially created by a client.
 
-For more information on PSTN and SMS solutions, see [Plan your PSTN and SMS solution](../concepts/telephony-sms/plan-solution.md)
+:::image type="content" source="../media/scenarios/architecture_v2_calling_join_client_driven.svg" alt-text="Diagram showing Communication Services architecture calling out-of-band signaling.":::
 
-## Humans communicating with bots and other services
+### Dataflows
+1. Initiating user initializes their Call client and makes a group call.
+2. The initiating user shares the group call ID with a Call management service.
+3. The Call Management Service shares the call ID with other users. For example, if the application orients around scheduled events, the group call ID might be an attribute of the scheduled event's data model.
+4. Other users join the call using the group call ID.
+5. The users communicate with each other using voice and video in a call.
 
-Azure Communication Services supports human-to-system communication though text and voice channels, with services that directly access the Azure Communication Services data plane. For example, you can have a bot answer incoming phone calls or participate in a web chat. Azure Communication Services provides client libraries that enable these scenarios for calling and chat. A sample architecture flow can be found below:
 
-:::image type="content" source="../media/scenarios/archdiagram-bot.png" alt-text="Diagram showing Communication Services Bot architecture.":::
+## Joining a scheduled Teams call
+Azure Communication Service applications can join Teams calls. This is ideal for many business-to-consumer scenarios, where the consumer is leveraging a custom application and custom identity, while the business-side is using Teams.
 
-## Networking
+:::image type="content" source="../media/scenarios/architecture_v2_calling_join_teams_driven.svg" alt-text="Diagram showing Communication Services architecture for joining a Teams meeting.":::
 
-You may want to exchange arbitrary data between users, for example to synchronize a shared mixed reality or gaming experience. The real-time data plane used for text, voice, and video communication is available to you directly in two ways:
 
-- **Calling client library** - Devices in a call have access to APIs for sending and receiving data over the call channel. This is the easiest way to add data communication to an existing interaction.
-- **STUN/TURN** - Azure Communication Services makes standards-compliant STUN and TURN services available to you. This allows you to build a heavily customized transport layer on top of these standardized primitives. You can author your own standards-compliant client or use open-source libraries such as [WinRTC](https://github.com/microsoft/winrtc).
+### Dataflows
+1. The Call Management Service creates a group call with [Graph APIs](/graph/api/resources/onlinemeeting?view=graph-rest-1.0). Another pattern involves end users creating the group call using [Bookings](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app), Outlook, Teams, or another scheduling experience in the Microsoft 365 ecosystem.
+2. The Call Management Service shares the Teams call details with Azure Communication Service clients.
+3. Typically, a Teams user must join the call and allow external users to join through the lobby. However this experience is sensitive to the Teams tenant configuration and specific meeting settings.
+4. Azure Communication Service users initialize their Call client and join the Teams meeting, using the details received in Step 2.
+5. The users communicate with each other using voice and video in a call.
 
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Creating user access tokens](../quickstarts/access-tokens.md)
-
-For more information, see the following articles:
-
-- Learn about [authentication](../concepts/authentication.md)
-- Learn about [PSTN and SMS solutions](../concepts/telephony-sms/plan-solution.md)
-
-- [Add chat to your app](../quickstarts/chat/get-started.md)
-- [Add voice calling to your app](../quickstarts/voice-video-calling/getting-started-with-calling.md)
+### Resources
+- **Concept:** [Teams Interoperability](teams-interop.md)
+- **Quickstart:** [Join a Teams meeting](../quickstarts/voice-video-calling/get-started-teams-interop.md)

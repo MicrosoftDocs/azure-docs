@@ -3,7 +3,7 @@ title: Azure EA VM reserved instances
 description: This article summaries how Azure reservations for VM reserved instances can help you save you money with your enterprise enrollment.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/14/2020
+ms.date: 05/17/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -20,7 +20,7 @@ You can exchange a reservation for another reservation of the same type. It's al
 
 ### Partial refunds
 
-We’ll issue a partial refund when EA customers return reservations that were purchased using overage and not monetary commitment.
+We’ll issue a partial refund when EA customers return reservations that were purchased using overage and not Azure Prepayment (previously called monetary commitment).
 
 The refund will be displayed in the EA portal as a negative adjustment in the previous month and a positive adjustment in the current month. It will show up similarly to a reservations exchange. The credit memo will reference the original invoice number; therefore, to reconcile the initial purchase with the credit memo, please refer to the original invoice number.
 
@@ -38,6 +38,14 @@ Enterprise agreement customers can view cost and usage data in the Azure portal 
 For more information about reservation costs and usage, see [Get Enterprise Agreement reservation costs and usage](../reservations/understand-reserved-instance-usage-ea.md).
 
 For information about pricing, see [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) or [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
+
+### Reservation prices
+
+Any reservation discounts that your organization might have negotiated are not shown in the EA portal price sheet. Previously, the discounted rates were available in the EA portal, however that functionality was removed. If you’ve negotiated reduced reservation prices, currently the only way to get a list of them is to create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+The prices for reservations are not necessarily the same between retail rates and EA. They could be the same, but if you’ve negotiated a discount, the rates will differ.
+
+Prices shown in the [Azure Pricing calculator](https://azure.microsoft.com/pricing/calculator/) and [Retail Prices API](/rest/api/cost-management/retail-prices/azure-retail-prices) are the same. Querying the API is the best way to view all prices at once.
 
 ## Reserved instances API support
 
@@ -91,7 +99,7 @@ In scenarios where Azure EA customers have used all their Azure Prepayment, rese
 
 ### Reserved instance expiration
 
-You'll receive email notifications 30 days before reservation and at expiration. Once the reservation expires, deployed VMs will continue to run and be billed at a pay-as-you-go rate. For more information, see [Reserved Virtual Machine Instances offering.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
+You'll receive email notifications, first one 30 days prior to reservation expiry and other one at expiration. Once the reservation expires, deployed VMs will continue to run and be billed at a pay-as-you-go rate. For more information, see [Reserved Virtual Machine Instances offering.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
 
 ## Next steps
 

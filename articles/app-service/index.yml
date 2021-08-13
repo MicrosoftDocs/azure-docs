@@ -17,22 +17,23 @@ landingContent:
         links:
           - text: What is App Service?
             url: overview.md
+          - text: What is an App Service plan?
+            url: overview-hosting-plans.md
           - text: App Service Environments
             url: environment/intro.md
-          - text: Compare hosting options
+          - text: Compare Azure hosting options for web apps
             url: /azure/architecture/guide/technology-choices/compute-decision-tree
       - linkListType: whats-new
         links:
           - text: Service updates
             url: https://azure.microsoft.com/updates/?product=app-service
+
   - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
-          - text: First ASP.NET Core app
+          - text: First ASP.NET web app
             url: quickstart-dotnetcore.md
-          - text: First ASP.NET app (Windows only)
-            url: quickstart-dotnet-framework.md
           - text: First Node.js app
             url: quickstart-nodejs.md
           - text: First PHP app
@@ -43,13 +44,14 @@ landingContent:
             url: quickstart-python.md
           - text: First Ruby app (Linux only)
             url: quickstart-ruby.md
+
   - title: Common tasks
     linkLists:
       - linkListType: tutorial
         links:
           - text: Map a custom domain to your app
             url: app-service-web-tutorial-custom-domain.md
-          - text: Secure a custom domain with an SSL binding
+          - text: Secure a custom domain with a TLS/SSL binding
             url: configure-ssl-bindings.md
           - text: Run app in staged environments
             url: deploy-staging-slots.md
@@ -57,47 +59,10 @@ landingContent:
             url: scenario-secure-app-overview.md
       - linkListType: how-to-guide
         links:
-          - text: Enable diagnostic logs
-            url: troubleshoot-diagnostic-logs.md
           - text: Connect to Linux container via SSH
             url: configure-linux-open-ssh-session.md
           - text: Migrate an active domain to App Service
             url: manage-custom-dns-migrate-domain.md
-  - title: CRUD app with database
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: ASP.NET app with SQL Database
-            url: app-service-web-tutorial-dotnet-sqldatabase.md
-          - text: ASP.NET Core app with SQL Database
-            url: tutorial-dotnetcore-sqldb-app.md
-          - text: PHP (Laravel) app with Azure MySQL
-            url: tutorial-php-mysql-app.md
-          - text: Node.js (MEAN.js) app with MongoDB
-            url: tutorial-nodejs-mongodb-app.md
-          - text: Java (Spring Boot) app with Cosmos DB
-            url: tutorial-java-spring-cosmosdb.md
-          - text: Python (Django) app with PostgreSQL
-            url: tutorial-python-postgresql-app.md
-          - text: Ruby (Rails) app with PostgreSQL
-            url: tutorial-ruby-postgres-app.md
-  - title: Upload your code or content
-    linkLists:
-      - linkListType: deploy
-        links:
-          - text: Upload content with FTP
-            url: deploy-ftp.md
-          - text: Upload content as zip packages
-            url: deploy-zip.md
-          - text: Git push from local machine
-            url: deploy-local-git.md
-          - text: Sync content with OneDrive or Dropbox
-            url: deploy-content-sync.md
-          - text: CI/CD with GitHub, BitBucket, etc.
-            url: deploy-continuous-deployment.md
-          - text: Run from package
-            url: deploy-run-package.md
-
 
   - title: Run custom containers
     linkLists:
@@ -119,13 +84,31 @@ landingContent:
             url: configure-connect-to-azure-storage.md
           - text: Deploy with GitHub Actions
             url: deploy-container-github-action.md
+  - title: CRUD app with database
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: ASP.NET app with SQL Database
+            url: app-service-web-tutorial-dotnet-sqldatabase.md
+          - text: ASP.NET Core app with SQL Database
+            url: tutorial-dotnetcore-sqldb-app.md
+          - text: PHP (Laravel) app with Azure MySQL
+            url: tutorial-php-mysql-app.md
+          - text: Node.js (MEAN.js) app with MongoDB
+            url: tutorial-nodejs-mongodb-app.md
+          - text: Java (Spring Boot) app with Cosmos DB
+            url: tutorial-java-spring-cosmosdb.md
+          - text: Python (Django) app with PostgreSQL
+            url: tutorial-python-postgresql-app.md
+          - text: Ruby (Rails) app with PostgreSQL
+            url: tutorial-ruby-postgres-app.md
 
   - title: Manage and integrate
     linkLists:
       - linkListType: concept
         links:
           - text: Manage App Service plans
-            url: overview-hosting-plans.md
+            url: app-service-plan-manage.md
       - linkListType: tutorial
         links:
           - text: Secure resource access with managed identities
@@ -147,7 +130,48 @@ landingContent:
           - text: Back up your app to Storage Blobs
             url: manage-backup.md
 
+  - title: Upload your code or content
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Upload content with FTP
+            url: deploy-ftp.md
+          - text: Upload content as zip packages
+            url: deploy-zip.md
+          - text: Git push from local machine
+            url: deploy-local-git.md
+          - text: Sync content with OneDrive or Dropbox
+            url: deploy-content-sync.md
+          - text: CI/CD with GitHub, BitBucket, etc.
+            url: deploy-continuous-deployment.md
+          - text: Run from package
+            url: deploy-run-package.md
 
+  - title: Monitor your app
+    linkLists:
+      - linkListType: whats-new
+        links:
+          - text: App Service Integration with Azure Monitor (preview)
+            url: https://azure.github.io/AppService/2019/11/01/App-Service-Integration-with-Azure-Monitor.html
+          - text: Log Types for Azure Monitor Integration (preview)
+            url: https://azure.github.io/AppService/2020/06/25/New-Logs-Available-for-Azure-Monitor-Integration.html
+      - linkListType: tutorial
+        links:
+          - text: Troubleshoot errors with Azure Monitor (preview)
+            url: tutorial-troubleshoot-monitor.md
+      - linkListType: how-to-guide
+        links:
+          - text: Enable diagnostic logs
+            url: troubleshoot-diagnostic-logs.md
+          - text: Get resource events
+            url: get-resource-events.md
+          - text: Health check
+            url: monitor-instances-health-check.md
+            
+      - linkListType: reference
+        links:
+          - text: Quotas & alerts
+            url: web-sites-monitor.md
 
   - title: More resources
     linkLists:
@@ -173,3 +197,18 @@ landingContent:
             url: /rest/api/appservice/
           - text: Resource Manager
             url: /azure/templates/microsoft.web/allversions
+
+  - title: App Service on Azure Arc (preview)
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: App Service, Functions, and Logic Apps on Azure Arc (preview)
+            url: overview-arc-integration.md
+      - linkListType: quickstart
+        links:
+          - text: Create an App Service app on Azure Arc (preview)
+            url: quickstart-arc.md            
+      - linkListType: tutorial
+        links:            
+          - text: Set up an Azure Arc enabled Kubernetes cluster to run App Service, Functions, and Logic Apps (Preview)
+            url: manage-create-arc-environment.md

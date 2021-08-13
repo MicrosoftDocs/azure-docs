@@ -13,18 +13,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2020
+ms.date: 06/03/2021
 ms.author: yelevin
 
 ---
 # Connect Office 365 Logs to Azure Sentinel
 
-The [Office 365](/office/) log connector brings into Azure Sentinel information on ongoing user and admin activities in **Exchange** and **SharePoint** (including **OneDrive**), and now in **Teams** as well. This information includes details of actions such as file downloads, access requests sent, changes to group events, mailbox operations, Teams events (such as chat, team, member, and channel events), as well as the details of the user who performed the actions. Connecting Office 365 logs to Azure Sentinel enables you to view and analyze this data in your workbooks, query it to create custom alerts, and incorporate it to improve your investigation process, giving you more insight into your Office 365 security.
+The [Office 365](/office/) log connector brings into Azure Sentinel information on ongoing user and admin activities in **Exchange** and **SharePoint** (including **OneDrive**), and **Teams**. This information includes details of actions such as file downloads, access requests sent, changes to group events, mailbox operations, Teams events (such as chat, team, member, and channel events), as well as the details of the user who performed the actions. Connecting Office 365 logs to Azure Sentinel enables you to view and analyze this data in your workbooks, query it to create custom alerts, and incorporate it to improve your investigation process, giving you more insight into your Office 365 security.
 
-> [!IMPORTANT]
-> The Office 365 log connector's **extension for Microsoft Teams logs** is currently in public preview.
-> This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## Prerequisites
 
@@ -41,7 +38,7 @@ The [Office 365](/office/) log connector brings into Azure Sentinel information 
 
 
    > [!NOTE]
-   > As noted above, and as you'll see on the connector page under **Data types**, the Azure Sentinel Office 365 connector currently supports the ingestion of audit logs only from Microsoft Exchange and SharePoint (including OneDrive), **and now from Teams as well**. However, there are some external solutions if you're interested in bringing [other Office data](https://techcommunity.microsoft.com/t5/azure-sentinel/ingesting-office-365-alerts-with-graph-security-api/ba-p/984888) into Azure Sentinel. 
+   > As noted above, and as you'll see on the connector page under **Data types**, the Azure Sentinel Office 365 connector currently supports the ingestion of audit logs only from Microsoft Exchange, SharePoint (including OneDrive), and Teams. However, there are some external solutions if you're interested in bringing [other Office data](https://techcommunity.microsoft.com/t5/azure-sentinel/ingesting-office-365-alerts-with-graph-security-api/ba-p/984888) into Azure Sentinel. 
 
 ## Enable the Office 365 log connector
 
@@ -65,5 +62,5 @@ The [Office 365](/office/) log connector brings into Azure Sentinel information 
 
 ## Next steps
 In this document, you learned how to connect Office 365 to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data and potential threats](quickstart-get-visibility.md).
-- Get started detecting threats with Azure Sentinel, using [built-in](tutorial-detect-threats-built-in.md) or [custom](tutorial-detect-threats-custom.md) rules.
+- Learn how to [get visibility into your data and potential threats](get-visibility.md).
+- Get started detecting threats with Azure Sentinel, using [built-in](detect-threats-built-in.md) or [custom](detect-threats-custom.md) rules.

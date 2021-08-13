@@ -47,7 +47,7 @@ The benefits of deploying Conditional Access are:
 
 See [Conditional Access license requirements](overview.md).
 
-If additional features are required, you might also need related licenses. For more information, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+If additional features are required, you might also need related licenses. For more information, see [Azure Active Directory pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ### Prerequisites
 
@@ -69,6 +69,7 @@ The following resources may be useful as you learn about Conditional Access:
 * [What is Conditional Access?](https://youtu.be/ffMAw2IVO7A)
 * [How to deploy Conditional Access?](https://youtu.be/c_izIRNJNuk)
 * [How to roll out Conditional Access policies to end users?](https://youtu.be/0_Fze7Zpyvc)
+* [How to include or exclude users from Conditional Access policies](https://youtu.be/5DsW1hB3Jqs)
 * [Conditional Access with device controls](https://youtu.be/NcONUf-jeS4)
 * [Conditional Access with Azure AD MFA](https://youtu.be/Tbc-SU97G-w)
 * [Conditional Access in Enterprise Mobility + Security](https://youtu.be/A7IrxAH87wc)
@@ -312,7 +313,7 @@ With Conditional Access policies, you can implement automated responses to sign-
 
 * [Require all users to register for MFA](howto-conditional-access-policy-risk.md)
 
-* [Require a password change for users that are high-risk](howto-conditional-access-policy-risk.md)
+* [Require a password change for users that are high-risk](howto-conditional-access-policy-risk-user.md)
 
 * [Require MFA for users with medium or high sign-in risk](howto-conditional-access-policy-risk.md)
 
@@ -322,7 +323,7 @@ The proliferation of supported devices to access your cloud resources helps to i
 
 ### Require approved client apps
 
-Employees use their mobile devices for both personal and work tasks. For BYOD scenarios you must decide whether to manage the entire device or just the data on it. if managing only data and access, you can [require approved cloud apps](app-based-conditional-access.md) that can protect your corporate data. for example, you can require email only be accessed via Outlook mobile, and not via a generic mail program.
+Employees use their mobile devices for both personal and work tasks. For BYOD scenarios you must decide whether to manage the entire device or just the data on it. If managing only data and access, you can [require approved cloud apps](app-based-conditional-access.md) that can protect your corporate data. for example, you can require email only be accessed via Outlook mobile, and not via a generic mail program.
 
 ### Block access
 
@@ -482,4 +483,4 @@ Once you have collected the information, See the following resources:
 
 [Learn more about Identity Protection](../identity-protection/overview-identity-protection.md)
 
-[Manage Conditional Access policies with Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy)
+[Manage Conditional Access policies with Microsoft Graph API](/graph/api/resources/conditionalaccesspolicy)

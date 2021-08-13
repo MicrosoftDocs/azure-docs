@@ -21,11 +21,14 @@ ms.author: yelevin
 
 # Bring your own Machine Learning (ML) into Azure Sentinel
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 Machine Learning (ML) is one of the major underpinnings of Azure Sentinel, and one of the main attributes that set it apart. Azure Sentinel offers ML in several experiences: built-in to the [Fusion](fusion.md) correlation engine and Jupyter notebooks, and the newly available Build-Your-Own ML (BYO ML) platform. 
 
-ML detection models can adapt to individual environments and to changes in user behavior, to reduce false positives and identify threats that wouldn't be found with a traditional approach. Many security organizations understand the value of ML for security, though not many of them have the luxury of professionals who have expertise in both security and ML. We designed the framework presented here for security organizations and professionals to grow with us in their ML journey. Organizations new to ML, or without the necessary expertise, can get significant protection value out of Azure Sentinel's built-in ML capabilities.
+ML detection models can adapt to individual environments and to changes in user behavior, to reduce [false positives](false-positives.md) and identify threats that wouldn't be found with a traditional approach. Many security organizations understand the value of ML for security, though not many of them have the luxury of professionals who have expertise in both security and ML. We designed the framework presented here for security organizations and professionals to grow with us in their ML journey. Organizations new to ML, or without the necessary expertise, can get significant protection value out of Azure Sentinel's built-in ML capabilities.
 
 :::image type="content" source="./media/bring-your-own-ml/machine-learning-framework.png" alt-text="machine learning framework":::
+
 
 ## What is the Bring Your Own Machine Learning (BYO-ML) platform?
 
@@ -79,7 +82,7 @@ The BYO ML package includes the best practices and research of Microsoft in the 
 | File name | Description |
 | --------- | ----------- |
 | azure_sentinel_utilities.whl | Contains utilities for reading blobs from Azure and writing to Log Analytics. |
-| AnomalousRASampleData | Notebook demonstrates the use of Anomalous Resource Access model in Sentinel with generated training and testing sample data. |
+| AnomalousRASampleData | Notebook demonstrates the use of Anomalous Resource Access model in Azure Sentinel with generated training and testing sample data. |
 | AnomalousRATraining.ipynb | Notebook to train the algorithm, build and save the models. |
 | AnomalousRAScoring.ipynb | Notebook to schedule the model to run, visualize the result and write score back to Azure Sentinel. |
 |
@@ -96,7 +99,7 @@ You will need to setup your own Databricks environment if you don’t already ha
 
 ### Auto-export instruction
 
-To build custom ML models based on your own data in Sentinel, you will need to export your data from Log Analytics to a Blob storage or Event hub resource, so that the ML model can access it from Databricks. Learn how to [ingest data into Azure Sentinel](connect-data-sources.md).
+To build custom ML models based on your own data in Azure Sentinel, you will need to export your data from Log Analytics to a Blob storage or Event hub resource, so that the ML model can access it from Databricks. Learn how to [ingest data into Azure Sentinel](connect-data-sources.md).
 
 For this example, you need to have your training data for File Share Access log in the Azure blob storage. The format of the data is documented in the notebook and libraries.
 
@@ -134,11 +137,11 @@ az monitor log-analytics workspace data-export list --resource-group "RG_NAME" -
 
 ### Export custom data
 
-For custom data that is not supported by Log Analytics auto-export, you can use Logic App or other solutions to move your data. You can refer to the [Exporting Log Analytics Data to Blob Store](https://www.borninthecloud.com/exporting-log-analytics-data-to-blob-store/?preview=true) blog and script.
+For custom data that is not supported by Log Analytics auto-export, you can use Logic App or other solutions to move your data. You can refer to the [Exporting Log Analytics Data to Blob Store](https://techcommunity.microsoft.com/t5/azure-monitor/log-analytics-data-export-preview/ba-p/1783530) blog and script.
 
 ### Correlate with data outside of Azure Sentinel
 
-You can also bring data from outside of Azure Sentinel to the blob storage or Event Hub and correlate them with the Sentinel data to build your ML models. 
+You can also bring data from outside of Azure Sentinel to the blob storage or Event Hub and correlate them with the Azure Sentinel data to build your ML models. 
  
 ### Copy and install the related packages
 
@@ -160,7 +163,7 @@ In order to see your scored results together with related log details, go back t
 
 ### Build custom analytics rule with ML results
 
-Once you have confirmed the ML results are in the custom logs table, and you're satisfied with the fidelity of the scores, you can create a detection based on the results. Go to **Analytics** from the Azure Sentinel portal and [create a new detection rule](tutorial-detect-threats-custom.md). Below is an example showing the query used to create the detection.
+Once you have confirmed the ML results are in the custom logs table, and you're satisfied with the fidelity of the scores, you can create a detection based on the results. Go to **Analytics** from the Azure Sentinel portal and [create a new detection rule](detect-threats-custom.md). Below is an example showing the query used to create the detection.
 
 :::image type="content" source="./media/bring-your-own-ml/create-byo-ml-analytics-rule.png" alt-text="create custom analytics rule for B Y O M L detections":::
 

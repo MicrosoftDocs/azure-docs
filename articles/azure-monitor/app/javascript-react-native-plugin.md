@@ -1,6 +1,6 @@
 ---
-title: Native React plugin for Application Insights JavaScript SDK 
-description: How to install and use the Native React plugin for Application Insights JavaScript SDK. 
+title: React Native plugin for Application Insights JavaScript SDK 
+description: How to install and use the React Native plugin for Application Insights JavaScript SDK. 
 services: azure-monitor
 
 ms.workload: tbd
@@ -9,9 +9,9 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ---
 
-# Native React plugin for Application Insights JavaScript SDK
+# React Native plugin for Application Insights JavaScript SDK
 
-The Native React plugin for Application Insights JavaScript SDK collects device information, by default this plugin automatically collects:
+The React Native plugin for Application Insights JavaScript SDK collects device information, by default this plugin automatically collects:
 
 - **Unique Device ID** (Also known as Installation ID.)
 - **Device Model Name** (Such as iPhone X, Samsung Galaxy Fold, Huawei P30 Pro etc.)
@@ -55,4 +55,4 @@ appInsights.loadAppInsights();
 ## Next steps
 
 - To learn more about the JavaScript SDK, see the [Application Insights JavaScript SDK documentation](javascript.md).
-- To learn about the Kusto query language and querying data in Log Analytics, see the [Log query overview](../../azure-monitor/log-query/log-query-overview.md).
+- To learn about the Kusto query language and querying data in Log Analytics, see the [Log query overview](../../azure-monitor/logs/log-query-overview.md).

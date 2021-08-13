@@ -1,8 +1,9 @@
 ---
 title: Connect hybrid machines to Azure by using PowerShell
-description: In this article, you learn how to install the agent and connect a machine to Azure by using Azure Arc enabled servers. You can do this with PowerShell.
-ms.date: 10/28/2020
-ms.topic: conceptual
+description: In this article, you learn how to install the agent and connect a machine to Azure by using Azure Arc-enabled servers. You can do this with PowerShell.
+ms.date: 07/16/2021
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Connect hybrid machines to Azure by using PowerShell
@@ -19,7 +20,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - A machine with Azure PowerShell. For instructions, see [Install and configure Azure PowerShell](/powershell/azure/).
 
-You use PowerShell to manage VM extensions on your hybrid servers managed by Azure Arc enabled servers. Before using PowerShell, install the `Az.ConnectedMachine` module. Run the following command on your server enabled with Azure Arc:
+You use PowerShell to manage VM extensions on your hybrid servers managed by Azure Arc-enabled servers. Before using PowerShell, install the `Az.ConnectedMachine` module. Run the following command on your server enabled with Azure Arc:
 
 ```powershell
 Install-Module -Name Az.ConnectedMachine
@@ -90,7 +91,7 @@ Here's how to configure one or more Windows servers with servers enabled with Az
 
 ## Verify the connection with Azure Arc
 
-After you install and configure the agent to register with Azure Arc enabled servers, go to the Azure portal to verify that the server has successfully connected. View your machine in the [Azure portal](https://portal.azure.com).
+After you install and configure the agent to register with Azure Arc-enabled servers, go to the Azure portal to verify that the server has successfully connected. View your machine in the [Azure portal](https://portal.azure.com).
 
 ![Screenshot of Servers dashboard, showing a successful server connection.](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 
@@ -98,6 +99,6 @@ After you install and configure the agent to register with Azure Arc enabled ser
 
 * If necessary, see the [Troubleshoot Connected Machine agent guide](troubleshoot-agent-onboard.md).
 
-* Learn how to manage your machine by using [Azure Policy](../../governance/policy/overview.md). You can use VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verify that the machine is reporting to the expected Log Analytics workspace, and enable monitoring with [Azure Monitor with VMs](../../azure-monitor/insights/vminsights-enable-policy.md).
+* Review the [Planning and deployment guide](plan-at-scale-deployment.md) to plan for deploying Azure Arc-enabled servers at any scale and implement centralized management and monitoring.
 
-* Learn more about the [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md). The Log Analytics agent for Windows and Linux is required when you want to collect operating system and workload monitoring data, or manage it by using Azure Automation runbooks or features like Update Management. This agent is also required to use other Azure services, such as [Azure Security Center](../../security-center/security-center-introduction.md).
+* Learn how to manage your machine by using [Azure Policy](../../governance/policy/overview.md). You can use VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verify that the machine is reporting to the expected Log Analytics workspace, and enable monitoring with [VM insights](../../azure-monitor/vm/vminsights-enable-policy.md).

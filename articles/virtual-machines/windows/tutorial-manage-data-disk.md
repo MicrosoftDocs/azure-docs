@@ -1,15 +1,15 @@
 ---
 title: Tutorial - Manage Azure disks with Azure PowerShell 
 description: In this tutorial, you learn how to use Azure PowerShell to create and manage Azure disks for virtual machines
-author: cynthn
-ms.service: virtual-machines-windows
+author: roygara
+ms.author: rogarana
+ms.service: storage
 ms.subservice: disks
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/29/2018
-ms.author: cynthn
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 
 #Customer intent: As an IT administrator, I want to learn about Azure Managed Disks so that I can create and manage storage for Windows VMs in Azure.
 ---
@@ -61,7 +61,7 @@ While the above table identifies max IOPS per disk, a higher level of performanc
 
 To complete the example in this tutorial, you must have an existing virtual machine. If needed, create a virtual machine with the following commands.
 
-Set the username and password needed for the administrator account on the virtual machine with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1&preserve-view=true):
+Set the username and password needed for the administrator account on the virtual machine with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 
 Create the virtual machine with [New-AzVM](/powershell/module/az.compute/new-azvm). You'll be prompted to enter a username and password for the administrators account for the VM.

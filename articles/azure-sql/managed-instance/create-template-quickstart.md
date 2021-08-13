@@ -3,13 +3,13 @@ title: "Azure Resource Manager: Create an Azure SQL Managed Instance"
 description: Learn how to create an Azure SQL Managed Instance by using an Azure Resource Manager template.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
-ms.custom: subject-armqs
+ms.subservice: deployment-configuration
+ms.custom: subject-armqs, devx-track-azurepowershell
 ms.devlang:
 ms.topic: quickstart
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: srdan-bozovic-msft
+ms.author: srbozovi
+ms.reviewer: mathoma
 ms.date: 06/22/2020
 ---
 
@@ -21,7 +21,7 @@ This quickstart focuses on the process of deploying an Azure Resource Manager te
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sqlmi-new-vnet%2Fazuredeploy.json)
+[![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.sql%2Fsqlmi-new-vnet%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -29,9 +29,9 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/sqlmi-new-vnet/).
 
-:::code language="json" source="~/quickstart-templates/101-sqlmi-new-vnet/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.sql/sqlmi-new-vnet/azuredeploy.json":::
 
 These resources are defined in the template:
 
@@ -47,14 +47,14 @@ More template samples can be found in [Azure Quickstart Templates](https://azure
 Select **Try it** from the following PowerShell code block to open Azure Cloud Shell.
 
 > [!IMPORTANT]
-> Deploying a managed instance is a long-running operation. Deployment of the first instance in the subnet typically takes much longer than deploying into a subnet with existing managed instances. For average provisioning times, see [SQL Managed Instance management operations](sql-managed-instance-paas-overview.md#management-operations).
+> Deploying a managed instance is a long-running operation. Deployment of the first instance in the subnet typically takes much longer than deploying into a subnet with existing managed instances. For average provisioning times, see [SQL Managed Instance management operations](management-operations-overview.md#duration).
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-sqlmi-new-vnet/azuredeploy.json"
+$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.sql/sqlmi-new-vnet/azuredeploy.json"
 
 $resourceGroupName = "${projectName}rg"
 
@@ -69,7 +69,7 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 ```azurecli-interactive
 read -p "Enter a project name that is used for generating resource names:" projectName &&
 read -p "Enter the location (i.e. centralus):" location &&
-templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-sqlmi-new-vnet/azuredeploy.json" &&
+templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.sql/sqlmi-new-vnet/azuredeploy.json" &&
 resourceGroupName="${projectName}rg" &&
 az group create --name $resourceGroupName --location "$location" &&
 az deployment group create --resource-group $resourceGroupName --template-uri  $templateUri &&

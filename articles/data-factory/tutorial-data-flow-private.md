@@ -1,13 +1,14 @@
 ---
 title: Transform data with an Azure Data Factory managed virtual network mapping data flow
 description:  This tutorial provides step-by-step instructions for using Azure Data Factory to transform data with mapping data flows.
-author: dcstwh
-ms.author: weetok
+author: ssabat
+ms.author: susabat
 ms.reviewer: makromer
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/19/2019
+ms.date: 06/04/2021
 ---
 
 # Transform data securely by using mapping data flow
@@ -29,6 +30,7 @@ In this tutorial, you do the following steps:
 > * Monitor a data flow activity.
 
 ## Prerequisites
+
 * **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 * **Azure storage account**. You use Data Lake Storage as *source* and *sink* data stores. If you don't have a storage account, see [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal) for steps to create one. *Ensure the storage account allows access only from selected networks.* 
 
@@ -59,12 +61,14 @@ In this step, you create a data factory and open the Data Factory UI to create a
 1. Select **Author & Monitor** to launch the Data Factory UI in a separate tab.
 
 ## Create an Azure IR in Data Factory Managed Virtual Network
+
 In this step, you create an Azure IR and enable Data Factory Managed Virtual Network.
 
 1. In the Data Factory portal, go to **Manage**, and select **New** to create a new Azure IR.
 
    ![Screenshot that shows creating a new Azure IR.](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
-1. Select the **Azure** IR option.
+1. On the **Integration runtime setup** page, choose what integration runtime to create based on required capabilities. In this tutorial, select **Azure, Self-Hosted** and then click **Continue**. 
+1. Select **Azure** and then click **Continue** to create an Azure Integration runtime.
 
    ![Screenshot that shows a new Azure IR.](./media/tutorial-copy-data-portal-private/azure-ir.png)
 
@@ -78,14 +82,11 @@ In this step, you create an Azure IR and enable Data Factory Managed Virtual Net
 
 In this step, you'll create a pipeline that contains a data flow activity.
 
-1. On the **Let's get started** page, select **Create pipeline**.
+1. On the home page of Azure Data Factory, select **Orchestrate**.
 
    ![Screenshot that shows creating a pipeline.](./media/doc-common-process/get-started-page.png)
 
 1. In the properties pane for the pipeline, enter **TransformMovies** for the pipeline name.
-1. In the factory top bar, slide the **Data flow debug** slider on. Debug mode allows for interactive testing of transformation logic against a live Spark cluster. Data flow clusters take five to seven minutes to warm up. Turn on **Data flow debug** first if you plan to do data flow development. For more information, see [Debug mode](./concepts-data-flow-debug-mode.md).
-
-    ![Screenshot that shows the Data flow debug slider.](media/tutorial-data-flow-private/dataflow-debug.png)
 1. In the **Activities** pane, expand **Move and Transform**. Drag the **Data Flow** activity from the pane to the pipeline canvas.
 
 1. In the **Adding data flow** pop-up, select **Create new data flow** and then select **Mapping Data Flow**. Select **OK** when you're finished.
@@ -93,6 +94,9 @@ In this step, you'll create a pipeline that contains a data flow activity.
     ![Screenshot that shows Mapping Data Flow.](media/tutorial-data-flow-private/mapping-dataflow.png)
 
 1. Name your data flow **TransformMovies** in the properties pane.
+1. In the top bar of the pipeline canvas, slide the **Data Flow debug** slider on. Debug mode allows for interactive testing of transformation logic against a live Spark cluster. Data Flow clusters take 5-7 minutes to warm up and users are recommended to turn on debug first if they plan to do Data Flow development. For more information, see [Debug Mode](concepts-data-flow-debug-mode.md).
+
+    ![Screenshot that shows the Data flow debug slider.](media/tutorial-data-flow-private/dataflow-debug.png)
 
 ## Build transformation logic in the data flow canvas
 

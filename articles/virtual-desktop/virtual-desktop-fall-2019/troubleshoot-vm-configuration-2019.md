@@ -1,28 +1,28 @@
 ---
-title: Troubleshoot Windows Virtual Desktop (classic) session host - Azure
-description: How to resolve issues when you're configuring Windows Virtual Desktop (classic) session host virtual machines.
+title: Troubleshoot Azure Virtual Desktop (classic) session host - Azure
+description: How to resolve issues when you're configuring Azure Virtual Desktop (classic) session host virtual machines.
 author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
-# Windows Virtual Desktop (classic) session host virtual machine configuration
+# Azure Virtual Desktop (classic) session host virtual machine configuration
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../troubleshoot-vm-configuration.md).
+>This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../troubleshoot-vm-configuration.md).
 
-Use this article to troubleshoot issues you're having when configuring the Windows Virtual Desktop session host virtual machines (VMs).
+Use this article to troubleshoot issues you're having when configuring the Azure Virtual Desktop session host virtual machines (VMs).
 
 ## Provide feedback
 
-Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to discuss the Windows Virtual Desktop service with the product team and active community members.
+Visit the [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to discuss the Azure Virtual Desktop service with the product team and active community members.
 
 ## VMs are not joined to the domain
 
 Follow these instructions if you're having issues joining VMs to the domain.
 
-- Join the VM manually using the process in [Join a Windows Server virtual machine to a managed domain](../../active-directory-domain-services/join-windows-vm.md) or using the [domain join template](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
+- Join the VM manually using the process in [Join a Windows Server virtual machine to a managed domain](../../active-directory-domain-services/join-windows-vm.md) or using the [domain join template](https://azure.microsoft.com/resources/templates/vm-domain-join-existing/).
 - Try pinging the domain name from command line on VM.
 - Review the list of domain join error messages in [Troubleshooting Domain Join Error Messages](https://social.technet.microsoft.com/wiki/contents/articles/1935.troubleshooting-domain-join-error-messages.aspx).
 
@@ -34,7 +34,7 @@ Follow these instructions if you're having issues joining VMs to the domain.
 
 - Manually add the VMs to a domain.
 - Redeploy the template once credentials have been confirmed. See [Create a host pool with PowerShell](create-host-pools-powershell-2019.md).
-- Join VMs to a domain using a template with [Joins an existing Windows VM to AD Domain](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
+- Join VMs to a domain using a template with [Joins an existing Windows VM to AD Domain](https://azure.microsoft.com/resources/templates/vm-domain-join-existing/).
 
 ### Error: Timeout waiting for user input
 
@@ -70,43 +70,43 @@ Follow these instructions if you're having issues joining VMs to the domain.
 - Change the network interface's DNS server settings to **Custom** with the steps from [Change DNS servers](../../virtual-network/virtual-network-network-interface.md#change-dns-servers) and specify the private IP addresses of the DNS servers on the virtual network.
 - Change the network interface's DNS server settings to **Inherit from virtual network** with the steps from [Change DNS servers](../../virtual-network/virtual-network-network-interface.md#change-dns-servers), then change the virtual network's DNS server settings with the steps from [Change DNS servers](../../virtual-network/manage-virtual-network.md#change-dns-servers).
 
-## Windows Virtual Desktop Agent and Windows Virtual Desktop Boot Loader are not installed
+## Azure Virtual Desktop Agent and Azure Virtual Desktop Boot Loader are not installed
 
-The recommended way to provision VMs is using the Azure Resource Manager **Create and provision Windows Virtual Desktop host pool** template. The template automatically installs the Windows Virtual Desktop Agent and Windows Virtual Desktop Agent Boot Loader.
+The recommended way to provision VMs is using the Azure Resource Manager **Create and provision Azure Virtual Desktop host pool** template. The template automatically installs the Azure Virtual Desktop Agent and Azure Virtual Desktop Agent Boot Loader.
 
 Follow these instructions to confirm the components are installed and to check for error messages.
 
-1. Confirm that the two components are installed by checking in **Control Panel** > **Programs** > **Programs and Features**. If **Windows Virtual Desktop Agent** and **Windows Virtual Desktop Agent Boot Loader** are not visible, they aren't installed on the VM.
+1. Confirm that the two components are installed by checking in **Control Panel** > **Programs** > **Programs and Features**. If **Azure Virtual Desktop Agent** and **Azure Virtual Desktop Agent Boot Loader** are not visible, they aren't installed on the VM.
 2. Open **File Explorer** and navigate to **C:\Windows\Temp\ScriptLog.log**. If the file is missing, it indicates that the PowerShell DSC that installed the two components was not able to run in the security context provided.
 3. If the file **C:\Windows\Temp\ScriptLog.log** is present, open it and check for error messages.
 
-### Error: Windows Virtual Desktop Agent and Windows Virtual Desktop Agent Boot Loader are missing. C:\Windows\Temp\ScriptLog.log is also missing
+### Error: Azure Virtual Desktop Agent and Azure Virtual Desktop Agent Boot Loader are missing. C:\Windows\Temp\ScriptLog.log is also missing
 
 **Cause 1:** Credentials provided during input for the Azure Resource Manager template were incorrect or permissions were insufficient.
 
 **Fix 1:** Manually add the missing components to the VMs using [Create a host pool with PowerShell](create-host-pools-powershell-2019.md).
 
-**Cause 2:** PowerShell DSC was able to start and execute but failed to complete as it can't sign in to Windows Virtual Desktop and obtain needed information.
+**Cause 2:** PowerShell DSC was able to start and execute but failed to complete as it can't sign in to Azure Virtual Desktop and obtain needed information.
 
 **Fix 2:** Confirm the items in the following list.
 
 - Make sure the account doesn't have MFA.
-- Confirm that the tenant name is accurate and the tenant exists in Windows Virtual Desktop.
+- Confirm that the tenant name is accurate and the tenant exists in Azure Virtual Desktop.
 - Confirm the account has at least RDS Contributor permissions.
 
 ### Error: Authentication failed, error in C:\Windows\Temp\ScriptLog.log
 
-**Cause:** PowerShell DSC was able to execute but couldn't connect to Windows Virtual Desktop.
+**Cause:** PowerShell DSC was able to execute but couldn't connect to Azure Virtual Desktop.
 
 **Fix:** Confirm the items in the following list.
 
-- Manually register the VMs with the Windows Virtual Desktop service.
-- Confirm account used for connecting to Windows Virtual Desktop has permissions on the tenant to create host pools.
+- Manually register the VMs with the Azure Virtual Desktop service.
+- Confirm account used for connecting to Azure Virtual Desktop has permissions on the tenant to create host pools.
 - Confirm account doesn't have MFA.
 
-## Windows Virtual Desktop Agent is not registering with the Windows Virtual Desktop service
+## Azure Virtual Desktop Agent is not registering with the Azure Virtual Desktop service
 
-When the Windows Virtual Desktop Agent is first installed on session host VMs (either manually or through the Azure Resource Manager template and PowerShell DSC), it provides a registration token. The following section covers troubleshooting issues applicable to the Windows Virtual Desktop Agent and the token.
+When the Azure Virtual Desktop Agent is first installed on session host VMs (either manually or through the Azure Resource Manager template and PowerShell DSC), it provides a registration token. The following section covers troubleshooting issues applicable to the Azure Virtual Desktop Agent and the token.
 
 ### Error: The status filed in Get-RdsSessionHost cmdlet shows status as Unavailable
 
@@ -119,12 +119,12 @@ When the Windows Virtual Desktop Agent is first installed on session host VMs (e
 
 1. Download a new version of the agent on the session host VM.
 2. Launch Task Manager and, in the Service Tab, stop the RDAgentBootLoader service.
-3. Run the installer for the new version of the Windows Virtual Desktop Agent.
+3. Run the installer for the new version of the Azure Virtual Desktop Agent.
 4. When prompted for the registration token, remove the entry INVALID_TOKEN and press next (a new token isn't required).
 5. Complete the installation Wizard.
 6. Open Task Manager and start the RDAgentBootLoader service.
 
-## Error:  Windows Virtual Desktop Agent registry entry IsRegistered shows a value of 0
+## Error:  Azure Virtual Desktop Agent registry entry IsRegistered shows a value of 0
 
 **Cause:** Registration token has expired or has been generated with expiration value of 999999.
 
@@ -134,7 +134,7 @@ When the Windows Virtual Desktop Agent is first installed on session host VMs (e
 2. Generate new token with Rds-NewRegistrationInfo.
 3. Confirm that the -ExpriationHours parameter is set to 72 (max value is 99999).
 
-### Error: Windows Virtual Desktop agent isn't reporting a heartbeat when running Get-RdsSessionHost
+### Error: Azure Virtual Desktop agent isn't reporting a heartbeat when running Get-RdsSessionHost
 
 **Cause 1:** RDAgentBootLoader service has been stopped.
 
@@ -170,17 +170,17 @@ When the Windows Virtual Desktop Agent is first installed on session host VMs (e
     Minimum = 2.12ms, Maximum = 3.83ms, Average = 2.58ms
     ```
 
-## Troubleshooting issues with the Windows Virtual Desktop side-by-side stack
+## Troubleshooting issues with the Azure Virtual Desktop side-by-side stack
 
-The Windows Virtual Desktop side-by-side stack is automatically installed with Windows Server 2019. Use Microsoft Installer (MSI) to install the side-by-side stack on Microsoft Windows Server 2016 or Windows Server 2012 R2. For Microsoft Windows 10, the Windows Virtual Desktop side-by-side stack is enabled with **enablesxstackrs.ps1**.
+The Azure Virtual Desktop side-by-side stack is automatically installed with Windows Server 2019. Use Microsoft Installer (MSI) to install the side-by-side stack on Microsoft Windows Server 2016 or Windows Server 2012 R2. For Microsoft Windows 10, the Azure Virtual Desktop side-by-side stack is enabled with **enablesxstackrs.ps1**.
 
 There are three main ways the side-by-side stack gets installed or enabled on session host pool VMs:
 
-- With the Azure Resource Manager **Create and provision new Windows Virtual Desktop host pool** template
+- With the Azure Resource Manager **Create and provision new Azure Virtual Desktop host pool** template
 - By being included and enabled on the master image
 - Installed or enabled manually on each VM (or with extensions/PowerShell)
 
-If you're having issues with the Windows Virtual Desktop side-by-side stack, type the **qwinsta** command from the command prompt to confirm that the side-by-side stack is installed or enabled.
+If you're having issues with the Azure Virtual Desktop side-by-side stack, type the **qwinsta** command from the command prompt to confirm that the side-by-side stack is installed or enabled.
 
 The output of **qwinsta** will list **rdp-sxs** in the output if the side-by-side stack is installed and enabled.
 
@@ -207,7 +207,7 @@ Examine the registry entries listed below and confirm that their values match. I
 **Fix:** Follow these instructions to install the side-by-side stack on the session host VM.
 
 1. Use Remote Desktop Protocol (RDP) to get directly into the session host VM as local administrator.
-2. Download and import [The Windows Virtual Desktop PowerShell module](/powershell/windows-virtual-desktop/overview/) to use in your PowerShell session if you haven't already, then run this cmdlet to sign in to your account:
+2. Download and import [The Azure Virtual Desktop PowerShell module](/powershell/windows-virtual-desktop/overview/) to use in your PowerShell session if you haven't already, then run this cmdlet to sign in to your account:
 
     ```powershell
     Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
@@ -215,7 +215,7 @@ Examine the registry entries listed below and confirm that their values match. I
 
 3. Install the side-by-side stack using [Create a host pool with PowerShell](create-host-pools-powershell-2019.md).
 
-## How to fix a Windows Virtual Desktop side-by-side stack that malfunctions
+## How to fix a Azure Virtual Desktop side-by-side stack that malfunctions
 
 There are known circumstances that can cause the side-by-side stack to malfunction:
 
@@ -225,14 +225,14 @@ There are known circumstances that can cause the side-by-side stack to malfuncti
 - Running enablesxsstackrc.ps1 multiple times
 - Running enablesxsstackrc.ps1 in an account that doesn't have local admin privileges
 
-The instructions in this section can help you uninstall the Windows Virtual Desktop side-by-side stack. Once you uninstall the side-by-side stack, go to "Register the VM with the Windows Virtual Desktop host pool" in [Create a host pool with PowerShell](create-host-pools-powershell-2019.md) to reinstall the side-by-side stack.
+The instructions in this section can help you uninstall the Azure Virtual Desktop side-by-side stack. Once you uninstall the side-by-side stack, go to "Register the VM with the Azure Virtual Desktop host pool" in [Create a host pool with PowerShell](create-host-pools-powershell-2019.md) to reinstall the side-by-side stack.
 
 The VM used to run remediation must be on the same subnet and domain as the VM with the malfunctioning side-by-side stack.
 
 Follow these instructions to run remediation from the same subnet and domain:
 
 1. Connect with standard Remote Desktop Protocol (RDP) to the VM from where fix will be applied.
-2. Download PsExec from https://docs.microsoft.com/sysinternals/downloads/psexec.
+2. Download PsExec from [https://docs.microsoft.com/sysinternals/downloads/psexec](/sysinternals/downloads/psexec).
 3. Unzip the downloaded file.
 4. Start command prompt as local administrator.
 5. Navigate to folder where PsExec was unzipped.
@@ -272,7 +272,7 @@ Follow these instructions to run remediation from the same subnet and domain:
 
 11. Uninstall all products that start with "Remote Desktop."
 
-12. After all Windows Virtual Desktop components have been uninstalled, follow the instructions for your operating system:
+12. After all Azure Virtual Desktop components have been uninstalled, follow the instructions for your operating system:
 
 13. If your operating system is Windows Server, restart the VM that had the malfunctioning side-by-side stack (either with Azure portal or from the PsExec tool).
 
@@ -306,7 +306,7 @@ If the time limit expires, an error message will appear that says, "The remote s
 If you see either of these messages, this means the image doesn't have the latest Windows updates installed or that you are setting the Remote Desktop licensing mode through group policy. Follow the steps in the next sections to check the group policy setting, identify the version of Windows 10 Enterprise multi-session, and install the corresponding update.
 
 >[!NOTE]
->Windows Virtual Desktop only requires an RDS client access license (CAL) when your host pool contains Windows Server session hosts. To learn how to configure an RDS CAL, see [License your RDS deployment with client access licenses](/windows-server/remote/remote-desktop-services/rds-client-access-license/).
+>Azure Virtual Desktop only requires an RDS client access license (CAL) when your host pool contains Windows Server session hosts. To learn how to configure an RDS CAL, see [License your RDS deployment with client access licenses](/windows-server/remote/remote-desktop-services/rds-client-access-license/).
 
 ### Disable the Remote Desktop licensing mode group policy setting
 
@@ -339,19 +339,19 @@ Redeploy the host operating system with the latest version of the Windows 10, ve
 
 ## We couldn't connect to the remote PC because of a security error
 
-If your users see an error that says, “We couldn't connect to the remote PC because of a security error. If this keeps happening, ask your admin or tech support for help,” validate any existing policies that change default RDP permissions. One policy that might cause this error to appear is “Allow log on through Remote Desktop Services security policy."
+If your users see an error that says, "We couldn't connect to the remote PC because of a security error. If this keeps happening, ask your admin or tech support for help," validate any existing policies that change default RDP permissions. One policy that might cause this error to appear is "Allow log on through Remote Desktop Services security policy."
 
 To learn more about this policy, see [Allow log on through Remote Desktop Services](/windows/security/threat-protection/security-policy-settings/allow-log-on-through-remote-desktop-services).
 
 ## Next steps
 
-- For an overview on troubleshooting Windows Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview-2019.md).
-- To troubleshoot issues while creating a tenant and host pool in a Windows Virtual Desktop environment, see [Tenant and host pool creation](troubleshoot-set-up-issues-2019.md).
-- To troubleshoot issues while configuring a virtual machine (VM) in Windows Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration-2019.md).
-- To troubleshoot issues with Windows Virtual Desktop client connections, see [Windows Virtual Desktop service connections](troubleshoot-service-connection-2019.md).
+- For an overview on troubleshooting Azure Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview-2019.md).
+- To troubleshoot issues while creating a tenant and host pool in a Azure Virtual Desktop environment, see [Tenant and host pool creation](troubleshoot-set-up-issues-2019.md).
+- To troubleshoot issues while configuring a virtual machine (VM) in Azure Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration-2019.md).
+- To troubleshoot issues with Azure Virtual Desktop client connections, see [Azure Virtual Desktop service connections](troubleshoot-service-connection-2019.md).
 - To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](../troubleshoot-client.md)
-- To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Windows Virtual Desktop PowerShell](troubleshoot-powershell-2019.md).
-- To learn more about the service, see [Windows Virtual Desktop environment](environment-setup-2019.md).
+- To troubleshoot issues when using PowerShell with Azure Virtual Desktop, see [Azure Virtual Desktop PowerShell](troubleshoot-powershell-2019.md).
+- To learn more about the service, see [Azure Virtual Desktop environment](environment-setup-2019.md).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
 - To learn about auditing actions, see [Audit operations with Resource Manager](../../azure-resource-manager/management/view-activity-logs.md).
 - To learn about actions to determine the errors during deployment, see [View deployment operations](../../azure-resource-manager/templates/deployment-history.md).

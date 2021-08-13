@@ -1,20 +1,12 @@
 ---
 title: Session log in copy activity 
 description: 'Learn about how to enable session log in copy activity in Azure Data Factory.'
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
-manager: 
-ms.reviewer: 
-
 ms.service: data-factory
-ms.workload: data-services
-
-
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: yexu
-
 ---
 #  Session log in copy activity
 
@@ -23,6 +15,11 @@ ms.author: yexu
 You can log your copied file names in copy activity, which can help you to further ensure the data is not only successfully copied from source to destination store, but also consistent between source and destination store by reviewing the copied files in copy activity session logs.  
 
 When you enable fault tolerance setting in copy activity to skip faulty data, the skipped files and skipped rows can also be logged.  You can get more details from [fault tolerance in copy activity](copy-activity-fault-tolerance.md). 
+
+Given you have the opportunity to get all the file names copied by ADF copy activity via enabling session log, it will be helpful for you in the following scenarios:
+-   After you use ADF copy activities to copy the files from one storage to another, you see some files are shown up in destination store which should not. You can scan the copy activity session logs to see which copy activity actually copied those files and when to copy those files. By those, you can easily find the root cause and fix your configurations in ADF.   
+-   After you use ADF copy activities to copy the files from one storage to another, you feel the files copied to the destination are not the same as the ones from the source store. You can scan the copy activity session logs to get the timestamp of copy jobs as well as the metadata of files when ADF copy activities read them from the source store.  By those, you can know if those files had been updated by other applications on source store after being copied by ADF.  
+
 
 ## Configuration
 The following example provides a JSON definition to enable session log in Copy Activity: 
@@ -61,7 +58,7 @@ The following example provides a JSON definition to enable session log in Copy A
                "referenceName": "ADLSGen2",
                "type": "LinkedServiceReference"
             },
-			"path": "sessionlog/"
+            "path": "sessionlog/"
         }
     }
 }
@@ -80,7 +77,7 @@ path | The path of the log files. | Specify the path that you want to store the 
 ## Monitoring
 
 ### Output from copy activity
-After the copy activity runs completely, you can see the path of log files from the output of each copy activity run. You can find the log files from the path: `https://[your-blob-account].blob.core.windows.net/[logFilePath]/copyactivity-logs/[copy-activity-name]/[copy-activity-run-id]/[auto-generated-GUID].csv`.  The log files will be the csv files. 
+After the copy activity runs completely, you can see the path of log files from the output of each copy activity run. You can find the log files from the path: `https://[your-blob-account].blob.core.windows.net/[logFilePath]/copyactivity-logs/[copy-activity-name]/[copy-activity-run-id]/[auto-generated-GUID].txt`.  The log files generated have the .txt extension and their data is in CSV format.
 
 ```json
 "output": {
@@ -91,7 +88,7 @@ After the copy activity runs completely, you can see the path of log files from 
             "filesSkipped": 2, 
             "throughput": 297,
             "logFilePath": "myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
-			"dataConsistencyVerification": 
+            "dataConsistencyVerification": 
            { 
                 "VerificationResult": "Verified", 
                 "InconsistentData": "Skipped" 
@@ -100,6 +97,9 @@ After the copy activity runs completely, you can see the path of log files from 
 
 ```
 
+> [!NOTE]
+> When the `enableCopyActivityLog` property is set to `Enabled`, the log file names are system generated.
+
 ### The schema of the log file
 
 The following is the schema of a log file.
@@ -107,8 +107,8 @@ The following is the schema of a log file.
 Column | Description 
 -------- | -----------  
 Timestamp | The timestamp when ADF reads, writes, or skips the object.
-Level | The log level of this item. It can be 'Warning' or “Info”.
-OperationName | ADF copy activity operational behavior on each object. It can be ‘FileRead’,’ FileWrite’, 'FileSkip', or ‘TabularRowSkip’.
+Level | The log level of this item. It can be 'Warning' or "Info".
+OperationName | ADF copy activity operational behavior on each object. It can be 'FileRead',' FileWrite', 'FileSkip', or 'TabularRowSkip'.
 OperationItem | The file names or skipped rows.
 Message | More information to show if the file has been read from source store, or written to the destination store. It can also be why the file or rows has being skipped.
 
@@ -156,7 +156,7 @@ select OperationItem from SessionLogDemo where OperationName='FileSkip'
 select TIMESTAMP, OperationItem, Message from SessionLogDemo where OperationName='FileSkip'
 ```
 
--   Give me the list of files skipped due to the same reason: “blob file does not exist”. 
+-   Give me the list of files skipped due to the same reason: "blob file does not exist". 
 ```sql
 select TIMESTAMP, OperationItem, Message from SessionLogDemo where OperationName='FileSkip' and Message like '%UserErrorSourceBlobNotExist%'
 ```

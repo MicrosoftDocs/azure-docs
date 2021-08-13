@@ -30,7 +30,7 @@ The details on how enterprise customers and Pay-As-You-Go customers are charged 
 
 The size of reservation should be based on the total amount of compute used by the existing or soon-to-be-deployed servers within a specific region and using the same performance tier and hardware generation.</br>
 
-For example, let's suppose that you are running one general purpose Gen5 – 32 vCore PostgreSQL database, and two memory-optimized Gen5 – 16 vCore PostgreSQL databases. Further, let's supposed that you plan to deploy within the next month an additional general purpose Gen5 – 32 vCore database server, and one memory-optimized Gen5 – 16 vCore database server. Let's suppose that you know that you will need these resources for at least one year. In this case, you should purchase a 64 (2x32) vCores, one-year reservation for single database general purpose - Gen5 and a 48 (2x16 + 16) vCore one year reservation for single database memory optimized - Gen5
+For example, let's suppose that you are running one general purpose Gen5 – 32 vCore PostgreSQL database, and two memory-optimized Gen5 – 16 vCore PostgreSQL databases. Further, let's supposed that you plan to deploy within the next month an additional general purpose Gen5 – 8 vCore database server, and one memory-optimized Gen5 – 32 vCore database server. Let's suppose that you know that you will need these resources for at least one year. In this case, you should purchase a 40 (32 + 8) vCores, one-year reservation for single database general purpose - Gen5 and a 64 (2x16 + 32) vCore one year reservation for single database memory optimized - Gen5
 
 
 ## Buy Azure Database for PostgreSQL reserved capacity
@@ -48,7 +48,7 @@ The following table describes required fields.
 
 | Field | Description |
 | :------------ | :------- |
-| Subscription   | The subscription used to pay for the Azure Database for PostgreSQL reserved capacity reservation. The payment method on the subscription is charged the upfront costs for the Azure Database for PostgreSQL reserved capacity reservation. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or an individual agreement with pay-as-you-go pricing (offer numbers: MS-AZR-0003P or MS-AZR-0023P). For an enterprise subscription, the charges are deducted from the enrollment's monetary commitment balance or charged as overage. For an individual subscription with pay-as-you-go pricing, the charges are billed to the credit card or invoice payment method on the subscription.
+| Subscription   | The subscription used to pay for the Azure Database for PostgreSQL reserved capacity reservation. The payment method on the subscription is charged the upfront costs for the Azure Database for PostgreSQL reserved capacity reservation. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or an individual agreement with pay-as-you-go pricing (offer numbers: MS-AZR-0003P or MS-AZR-0023P). For an enterprise subscription, the charges are deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage. For an individual subscription with pay-as-you-go pricing, the charges are billed to the credit card or invoice payment method on the subscription.
 | Scope | The vCore reservation’s scope can cover one subscription or multiple subscriptions (shared scope). If you select: </br></br> **Shared**, the vCore reservation discount is applied to Azure Database for PostgreSQL servers running in any subscriptions within your billing context. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment. For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.</br></br> **Single subscription**, the vCore reservation discount is applied to Azure Database for PostgreSQL servers in this subscription. </br></br> **Single resource group**, the reservation discount is applied to Azure Database for PostgreSQL servers in the selected subscription and the selected resource group within that subscription.
 | Region | The Azure region that’s covered by the Azure Database for PostgreSQL reserved capacity reservation.
 | Deployment Type | The Azure Database for PostgreSQL resource type that you want to buy the reservation for.
@@ -62,7 +62,8 @@ You can cancel, exchange, or refund reservations with certain limitations. For m
 
 ## vCore size flexibility
 
-vCore size flexibility helps you scale up or down within a performance tier and region, without losing the reserved capacity benefit. 
+vCore size flexibility helps you scale up or down within a performance tier and region, without losing the reserved capacity benefit. If you scale to higher vCores than your reserved capacity, you will be billed for the excess vCores using pay-as-you-go pricing.
+
 
 ## Need help? Contact us
 

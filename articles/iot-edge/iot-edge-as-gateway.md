@@ -2,9 +2,9 @@
 title: Gateways for downstream devices - Azure IoT Edge | Microsoft Docs 
 description: Use Azure IoT Edge to create a transparent, opaque, or proxy gateway device that sends data from multiple downstream devices to the cloud or processes it locally.
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
-ms.date: 11/10/2020
+ms.date: 03/23/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -12,14 +12,11 @@ ms.custom:  [amqp, mqtt]
 ---
 # How an IoT Edge device can be used as a gateway
 
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+
 IoT Edge devices can operate as gateways, providing a connection between other devices on the network and IoT Hub.
 
-The IoT Edge hub module acts like IoT Hub, so can handle connections from any devices that have an identity with IoT Hub, including other IoT Edge devices. This type of gateway pattern is called *transparent* because messages can pass from downstream devices to IoT Hub as though there were not a gateway between them.
-
-<!-- 1.2.0 -->
-::: moniker range=">=iotedge-2020-11"
-Beginning with version 1.2 of IoT Edge, transparent gateways can handle downstream connections from other IoT Edge devices.
-::: moniker-end
+The IoT Edge hub module acts like IoT Hub, so can handle connections from other devices that have an identity with the same IoT hub. This type of gateway pattern is called *transparent* because messages can pass from downstream devices to IoT Hub as though there were not a gateway between them.
 
 For devices that don't or can't connect to IoT Hub on their own, IoT Edge gateways can provide that connection. This type of gateway pattern is called *translation* because the IoT Edge device has to perform processing on incoming downstream device messages before they can be forwarded to IoT Hub. These scenarios require additional modules on the IoT Edge gateway to handle the processing steps.
 
@@ -29,7 +26,7 @@ All gateway patterns provide the following benefits:
 
 * **Analytics at the edge** – Use AI services locally to process data coming from downstream devices without sending full-fidelity telemetry to the cloud. Find and react to insights locally and only send a subset of data to IoT Hub.
 * **Downstream device isolation** – The gateway device can shield all downstream devices from exposure to the internet. It can sit in between an operational technology (OT) network that does not have connectivity and an information technology (IT) network that provides access to the web. Similarly, devices that don't have the capability to connect to IoT Hub on their own can connect to a gateway device instead.
-* **Connection multiplexing** - All devices connecting to IoT Hub through an IoT Edge gateway use the same underlying connection.
+* **Connection multiplexing** - All devices connecting to IoT Hub through an IoT Edge gateway can use the same underlying connection. This multiplexing capability requires that the IoT Edge gateway uses AMQP as its upstream protocol.
 * **Traffic smoothing** - The IoT Edge device will automatically implement exponential backoff if IoT Hub throttles traffic, while persisting the messages locally. This benefit makes your solution resilient to spikes in traffic.
 * **Offline support** - The gateway device stores messages and twin updates that cannot be delivered to IoT Hub.
 
@@ -37,19 +34,23 @@ All gateway patterns provide the following benefits:
 
 In the transparent gateway pattern, devices that theoretically could connect to IoT Hub can connect to a gateway device instead. The downstream devices have their own IoT Hub identities and connect using either MQTT or AMQP protocols. The gateway simply passes communications between the devices and IoT Hub. Both the devices and the users interacting with them through IoT Hub are unaware that a gateway is mediating their communications. This lack of awareness means the gateway is considered *transparent*.
 
-<!-- 1.0.10 -->
+For more information about how the IoT Edge hub manages communication between downstream devices and the cloud, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
+
+<!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
-
-IoT Edge devices cannot be downstream of an IoT Edge gateway.
-
 ![Diagram - Transparent gateway pattern](./media/iot-edge-as-gateway/edge-as-gateway-transparent.png)
+
+>[!NOTE]
+>In IoT Edge version 1.1 and older, IoT Edge devices cannot be downstream of an IoT Edge gateway.
+>
+>Beginning with version 1.2 of IoT Edge, transparent gateways can handle connections from downstream IoT Edge devices. For more information, switch to the [IoT Edge 1.2](?view=iotedge-2020-11&preserve-view=true) version of this article.
 
 ::: moniker-end
 
-<!-- 1.2.0 -->
+<!-- 1.2 -->
 ::: moniker range=">=iotedge-2020-11"
 
-Starting in version 1.2.0, IoT Edge devices can connect through transparent gateways.
+Beginning with version 1.2 of IoT Edge, transparent gateways can handle connections from downstream IoT Edge devices.
 
 <!-- TODO add a downstream IoT Edge device to graphic -->
 
@@ -64,6 +65,11 @@ The parent/child relationship is established at three points in the gateway conf
 #### Cloud identities
 
 All devices in a transparent gateway scenario need cloud identities so they can authenticate to IoT Hub. When you create or update a device identity, you can set the device's parent or child devices. This configuration authorizes the parent gateway device to handle authentication for its child devices.
+
+>[!NOTE]
+>Setting the parent device in IoT Hub used to be an optional step for downstream devices that use symmetric key authentication. However, starting with version 1.1.0 every downstream device must be assigned to a parent device.
+>
+>You can configure the IoT Edge hub to go back to the previous behavior by setting the environment variable **AuthenticationMode** to the value **CloudAndScope**.
 
 Child devices can only have one parent. Each parent can have up to 100 children.
 
@@ -80,7 +86,7 @@ On downstream IoT devices, use the **gatewayHostname** parameter in the connecti
 
 <!-- 1.2.0 -->
 ::: moniker range=">=iotedge-2020-11"
-On downstream IoT Edge devices, use the **parent_hostname** parameter in the config.yaml file to point to the parent device.
+On downstream IoT Edge devices, use the **parent_hostname** parameter in the config file to point to the parent device.
 ::: moniker-end
 
 #### Secure connection
@@ -98,7 +104,7 @@ All IoT Hub primitives that work with IoT Edge's messaging pipeline also support
 
 Use the following table to see how different IoT Hub capabilities are supported for devices compared to devices behind gateways.
 
-<!-- 1.0.10 -->
+<!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
 
 | Capability | IoT device | IoT behind a gateway |

@@ -2,13 +2,13 @@
 title: Network security for Azure Relay
 description: This article describes how to use IP firewall rules and private endpoints with Azure Relay.
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 06/23/2021
 ---
 
 # Network security for Azure Relay 
 This article describes how to use the following security features with Azure Relay: 
 
-- IP firewall rules (preview)
+- IP firewall rules
 - Private endpoints 
 
 > [!NOTE]
@@ -23,9 +23,6 @@ This feature is helpful in scenarios in which Azure Relay should be only accessi
 The IP firewall rules are applied at the Relay namespace level. Therefore, the rules apply to all connections from clients using any supported protocol. Any connection attempt from an IP address that does not match an allowed IP rule on the Relay namespace is rejected as unauthorized. The response does not mention the IP rule. IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
 
 For more information, see [How to configure IP firewall for a Relay namespace](ip-firewall-virtual-networks.md)
-
-> [!NOTE]
-> This feature is currently in **preview**. 
 
 ## Private endpoints
 

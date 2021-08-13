@@ -36,6 +36,8 @@ For developers, the Microsoft identity platform offers integration of modern inn
 
 With the Microsoft identity platform, you can write code once and reach any user. You can build an app once and have it work across many platforms, or build an app that functions as a client as well as a resource application (API).
 
+For a video overview of the platform and a demo of the authentication experience, see [What is the Microsoft identity platform for developers?](https://youtu.be/uDU1QTSw7Ps).
+
 ## Getting started
 
 Choose the [application scenario](authentication-flows-app-scenarios.md) you'd like to build. Each of these scenario paths starts with an overview and links to a quickstart to help you get up and running:

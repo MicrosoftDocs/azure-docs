@@ -1,23 +1,24 @@
 --- 
-title: Configure security for your Azure Arc enabled PostgreSQL Hyperscale server group
-description: Configure security for your Azure Arc enabled PostgreSQL Hyperscale server group
+title: Configure security for your Azure Arc-enabled PostgreSQL Hyperscale server group
+description: Configure security for your Azure Arc-enabled PostgreSQL Hyperscale server group
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
-# Configure security for your Azure Arc enabled PostgreSQL Hyperscale server group
+# Configure security for your Azure Arc-enabled PostgreSQL Hyperscale server group
 
 This document describes various aspects related to security of your server group:
 - Encryption at rest
 - User management
    - General perspectives
    - Change the password of the _postgres_ administrative user
+- Audit
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -25,12 +26,12 @@ This document describes various aspects related to security of your server group
 You can implement encryption at rest either by encrypting the disks on which you store your databases and/or by using database functions to encrypt the data you insert or update.
 
 ### Hardware: Linux host volume encryption
-Implement system data encryption to secure any data that resides on the disks used by your Azure Arc enabled Data Services setup. You can read more about this topic:
+Implement system data encryption to secure any data that resides on the disks used by your Azure Arc-enabled Data Services setup. You can read more about this topic:
 - [Data encryption at rest](https://wiki.archlinux.org/index.php/Data-at-rest_encryption) on Linux in general 
-- Disk encryption with LUKS `cryptsetup` encrypt command (Linux)(https://www.cyberciti.biz/security/howto-linux-hard-disk-encryption-with-luks-cryptsetup-command/) specifically Since Azure Arc enabled Data Services runs on the physical infrastructure that you provide, you are in charge of securing the infrastructure.
+- Disk encryption with LUKS `cryptsetup` encrypt command (Linux)(https://www.cyberciti.biz/security/howto-linux-hard-disk-encryption-with-luks-cryptsetup-command/) specifically Since Azure Arc-enabled Data Services runs on the physical infrastructure that you provide, you are in charge of securing the infrastructure.
 
 ### Software: Use the PostgreSQL `pgcrypto` extension in your server group
-In addition of encrypting the disks used to host your Azure Arc setup, you can configure your Azure Arc enabled PostgreSQL Hyperscale server group to expose mechanisms that your applications can use to encrypt data in your database(s). The `pgcrypto` extension is part of the `contrib` extensions of Postgres and is available in your Azure Arc enabled PostgreSQL Hyperscale server group. You find details about the `pgcrypto` extension [here](https://www.postgresql.org/docs/current/pgcrypto.html).
+In addition of encrypting the disks used to host your Azure Arc setup, you can configure your Azure Arc-enabled PostgreSQL Hyperscale server group to expose mechanisms that your applications can use to encrypt data in your database(s). The `pgcrypto` extension is part of the `contrib` extensions of Postgres and is available in your Azure Arc-enabled PostgreSQL Hyperscale server group. You find details about the `pgcrypto` extension [here](https://www.postgresql.org/docs/current/pgcrypto.html).
 In summary, with the following commands, you enable the extension, you create it and you use it:
 
 
@@ -141,33 +142,35 @@ When I connect with my application and I pass a password, it will look up in the
    (1 row)
    ```
 
-This small example demonstrates that you can encrypt data at rest (store encrypted data) in Azure Arc enabled PostgreSQL Hyperscale using the Postgres `pgcrypto` extension and your applications can use functions offered by `pgcrypto` to manipulate this encrypted data.
+This small example demonstrates that you can encrypt data at rest (store encrypted data) in Azure Arc-enabled PostgreSQL Hyperscale using the Postgres `pgcrypto` extension and your applications can use functions offered by `pgcrypto` to manipulate this encrypted data.
 
 ## User management
 ### General perspectives
 You can use the standard Postgres way to  create users or roles. However, if you do so, these artifacts will only be available on the coordinator role. During preview, these users/roles will not yet be able to access data that is distributed outside the Coordinator node and on the Worker nodes of your server group. The reason is that in preview, the user definition is not replicated to the Worker nodes.
 
 ### Change the password of the _postgres_ administrative user
-Azure Arc enabled PostgreSQL Hyperscale comes with the standard Postgres administrative user _postgres_ for which you set the password when you create your server group.
+Azure Arc-enabled PostgreSQL Hyperscale comes with the standard Postgres administrative user _postgres_ for which you set the password when you create your server group.
 The general format of the command to change its password is:
-```console
-azdata arc postgres server edit --name <server group name> --admin-password
+```azurecli
+az postgres arc-server edit --name <server group name> --admin-password --k8s-namespace <namespace> --use-k8s
 ```
 
-Where --admin-password is a boolean that relates to the presence of a value in the AZDATA_PASSWORD **session**'s environment variable.
-If the AZDATA_PASSWORD **session**'s environment variable exists and has a value, running the above command will set the password of the postgres user to the value of this environment variable.
+Where `--admin-password` is a boolean that relates to the presence of a value in the AZDATA_PASSWORD **session** environment variable.
+If the AZDATA_PASSWORD **session** environment variable exists and has a value, running the above command will set the password of the postgres user to the value of this environment variable.
 
-If the AZDATA_PASSWORD **session**'s environment variable exists but has not value or the AZDATA_PASSWORD **session**'s environment variable does not exist, running the above command will prompt the user to enter a password interactively
+If the AZDATA_PASSWORD **session** environment variable exists but has not value or the AZDATA_PASSWORD **session** environment variable does not exist, running the above command will prompt the user to enter a password interactively
 
-#### Changing the password of the postgres administrative user in an interactive way:
-1. Delete the AZDATA_PASSWORD **session**'s environment variable or delete its value
+#### Change the password of the postgres administrative user in an interactive way
+
+1. Delete the AZDATA_PASSWORD **session** environment variable or delete its value
 2. Run the command:
-   ```console
-   azdata arc postgres server edit --name <server group name> --admin-password
+
+   ```azurecli
+   az postgres arc-server edit --name <server group name> --admin-password --k8s-namespace <namespace> --use-k8s
    ```
    For example
-   ```console
-   azdata arc postgres server edit -n postgres01 --admin-password
+   ```azurecli
+   az postgres arc-server edit -n postgres01 --admin-password --k8s-namespace <namespace> --use-k8s
    ```
    You will be prompted to enter the password and to confirm it:
    ```console
@@ -181,15 +184,15 @@ If the AZDATA_PASSWORD **session**'s environment variable exists but has not val
    postgres01 is Ready
    ```
    
-#### Changing the password of the postgres administrative user using the AZDATA_PASSWORD **session**'s environment variable:
-1. Set the value of the AZDATA_PASSWORD **session**'s environment variable to what you want to password to be.
+#### Change the password of the postgres administrative user using the AZDATA_PASSWORD **session** environment variable:
+1. Set the value of the AZDATA_PASSWORD **session** environment variable to what you want to password to be.
 2. Run the  command:
-   ```console
-   azdata arc postgres server edit --name <server group name> --admin-password
+   ```azurecli
+   az postgres arc-server edit --name <server group name> --admin-password --k8s-namespace <namespace> --use-k8s
    ```
    For example
-   ```console
-   azdata arc postgres server edit -n postgres01 --admin-password
+   ```azurecli
+   az postgres arc-server edit -n postgres01 --admin-password --k8s-namespace <namespace> --use-k8s
    ```
    
    As the password is being updated, the output of the command shows:
@@ -211,9 +214,13 @@ If the AZDATA_PASSWORD **session**'s environment variable exists but has not val
 > echo $env:AZDATA_PASSWORD
 > ```
 
+## Audit
+
+For audit scenarios please configure your server group to use the `pgaudit` extensions of Postgres. For more details about `pgaudit` see [`pgAudit` GitHub project](https://github.com/pgaudit/pgaudit/blob/master/README.md). To enable the `pgaudit` extension in your server group read [Use PostgreSQL extensions](using-extensions-in-postgresql-hyperscale-server-group.md).
+
 
 
 ## Next steps
-- Read details about the `pgcrypto` extension [here](https://www.postgresql.org/docs/current/pgcrypto.html).
-- Read details about how to use Postgres extensions [here](using-extensions-in-postgresql-hyperscale-server-group.md).
+- See [`pgcrypto` extension](https://www.postgresql.org/docs/current/pgcrypto.html)
+- See [Use PostgreSQL extensions](using-extensions-in-postgresql-hyperscale-server-group.md)
 

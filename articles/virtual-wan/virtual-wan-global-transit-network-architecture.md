@@ -1,7 +1,7 @@
 ---
 title: 'Architecture: Global transit network architecture'
 titleSuffix: Azure Virtual WAN
-description: Learn how Azure Virtual WAN allows a global transit network architecture by enabling ubiquitous, any-to-any connectivity between cloud workloads.
+description: Learn how Azure Virtual WAN allows a global transit network architecture by enabling ubiquitous, any-to-any connectivity between globally distributed sets of cloud workloads in VNets, branch sites, SaaS and PaaS applications, and users.
 services: virtual-wan
 author: cherylmc
 
@@ -131,9 +131,6 @@ The Azure Virtual WAN hubs interconnect all the networking end points across the
 
 **Figure 5: Secured virtual hub with Azure Firewall**
 
-> [!NOTE]
-> Inter-hub with firewall is currently not supported. Traffic between hubs will move directly bypassing the Azure Firewall in each hub.
-
 Azure Firewall to the virtual WAN supports the following global secured transit connectivity paths. The letters in parentheses map to Figure 5.
 
 * VNet-to-VNet secure transit (e)
@@ -150,6 +147,23 @@ The VNet-to-Internet enables VNets to connect to the internet via the Azure Fire
 
 ### Branch-to-Internet or third-party Security Service (j)
 The Branch-to-Internet enables branches to connect to the internet via the Azure Firewall in the virtual WAN hub. Traffic to internet via supported third-party security services does not flow through the Azure Firewall. You can configure Branch-to-Internet path via supported third-party security service using Azure Firewall Manager. 
+
+### Branch-to-branch secured transit cross-region (f)
+
+Branches can be connected to a secured virtual hub with Azure Firewall using ExpressRoute circuits and/or site-to-site VPN connections. You can connect the branches to the virtual WAN hub that is in the region closest to the branch.
+
+This option lets enterprises leverage the Azure backbone to connect branches. However, even though this capability is available, you should weigh the benefits of connecting branches over Azure Virtual WAN vs. using a private WAN.  
+
+> [!NOTE]
+> Inter-hub processing of traffic via firewall is currently not supported. Traffic between hubs will be routed to the proper branch within the secured virtual hub, however traffic will bypass the Azure Firewall in each hub.
+
+### Branch-to-VNet secured transit (g)
+
+The Branch-to-VNet secured transit enables branches to communicate with virtual networks in the same region as the virtual WAN hub as well as another virtual network connected to another virtual WAN hub in another region.
+
+> [!NOTE]
+> Inter-hub with firewall is currently not supported. Traffic between hubs will move directly bypassing the Azure Firewall in each hub.  Traffic via a connection destined to a virtual network in the same region will be processed by the Azure Firewall in the secured hub.
+
 
 ### How do I enable default route (0.0.0.0/0) in a Secured Virtual Hub
 

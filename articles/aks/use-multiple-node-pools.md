@@ -3,7 +3,7 @@ title: Use multiple node pools in Azure Kubernetes Service (AKS)
 description: Learn how to create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 04/08/2020
+ms.date: 02/11/2021
 
 ---
 
@@ -126,9 +126,11 @@ A workload may require splitting a cluster's nodes into separate pools for logic
 #### Limitations
 
 * All subnets assigned to nodepools must belong to the same virtual network.
-* System pods must have access to all nodes in the cluster to provide critical functionality such as DNS resolution via coreDNS.
-* Assignment of a unique subnet per node pool is limited to Azure CNI during preview.
-* Using network policies with a unique subnet per node pool is not supported during preview.
+* System pods must have access to all nodes/pods in the cluster to provide critical functionality such as DNS resolution and tunneling kubectl logs/exec/port-forward proxy.
+* If you expand your VNET after creating the cluster you must update your cluster (perform any managed cluster operation but node pool operations don't count) before adding a subnet outside the original cidr. AKS will error out on the agent pool add now though we originally allowed it. If you don't know how to reconcile your cluster file a support ticket. 
+* Calico Network Policy is not supported. 
+* Azure Network Policy is not supported.
+* Kube-proxy expects a single contiguous cidr and uses it this for three optmizations. See this [K.E.P.](https://github.com/kubernetes/enhancements/tree/master/keps/sig-network/2450-Remove-knowledge-of-pod-cluster-CIDR-from-iptables-rules) and --cluster-cidr [here](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) for details. In Azure cni your first node pool's subnet will be given to kube-proxy. 
 
 To create a node pool with a dedicated subnet, pass the subnet resource ID as an additional parameter when creating a node pool.
 
@@ -402,9 +404,12 @@ It takes a few minutes for the *gpunodepool* to be successfully created.
 
 ## Specify a taint, label, or tag for a node pool
 
-### Setting nodepool taints
-
 When creating a node pool, you can add taints, labels, or tags to that node pool. When you add a taint, label, or tag, all nodes within that node pool also get that taint, label, or tag.
+
+> [!IMPORTANT]
+> Adding taints, labels, or tags to nodes should be done for the entire node pool using `az aks nodepool`. Applying taints, lablels, or tags to individual nodes in a node pool using `kubectl` is not recommended.  
+
+### Setting nodepool taints
 
 To create a node pool with a taint, use [az aks nodepool add][az-aks-nodepool-add]. Specify the name *taintnp* and use the `--node-taints` parameter to specify *sku=gpu:NoSchedule* for the taint.
 
@@ -602,6 +607,109 @@ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ]
 ```
 
+## Add a FIPS-enabled node pool (preview)
+
+The Federal Information Processing Standard (FIPS) 140-2 is a US government standard that defines minimum security requirements for cryptographic modules in information technology products and systems. AKS allows you to create Linux-based node pools with FIPS 140-2 enabled. Deployments running on FIPS-enabled node pools can use those cryptographic modules to provide increased security and help meet security controls as part of FedRAMP compliance. For more details on FIPS 140-2, see [Federal Information Processing Standard (FIPS) 140-2][fips].
+
+FIPS-enabled node pools are currently in preview.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+You will need the *aks-preview* Azure CLI extension version *0.5.11* or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+To use the feature, you must also enable the `FIPSPreview` feature flag on your subscription.
+
+Register the `FIPSPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "FIPSPreview"
+```
+
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/FIPSPreview')].{Name:name,State:properties.state}"
+```
+
+When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+FIPS-enabled node pools have the following limitations:
+
+* Currently, you can only have FIPS-enabled Linux-based node pools running on Ubuntu 18.04.
+* FIPS-enabled node pools require Kubernetes version 1.19 and greater.
+* To update the underlying packages or modules used for FIPS, you must use [Node Image Upgrade][node-image-upgrade].
+
+> [!IMPORTANT]
+> The FIPS-enabled Linux image is a different image than the default Linux image used for Linux-based node pools. To enable FIPS on a node pool, you must create a new Linux-based node pool. You can't enable FIPS on existing node pools.
+> 
+> FIPS-enabled node images may have different version numbers, such as kernel version, than images that are not FIPS-enabled. Also, the update cycle for FIPS-enabled node pools and node images may differ from node pools and images that are not FIPS-enabled.
+
+To create a FIPS-enabled node pool, use [az aks nodepool add][az-aks-nodepool-add] with the *--enable-fips-image* parameter when creating a node pool.
+
+```azurecli-interactive
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name fipsnp \
+    --enable-fips-image
+```
+
+> [!NOTE]
+> You can also use the *--enable-fips-image* parameter with [az aks create][az-aks-create] when creating a cluster to enable FIPS on the default node pool. When adding node pools to a cluster created in this way, you still must use the *--enable-fips-image* parameter when adding node pools to create a FIPS-enabled node pool.
+
+To verify your node pool is FIPS-enabled, use [az aks show][az-aks-show] to check the *enableFIPS* value in *agentPoolProfiles*.
+
+```azurecli-interactive
+az aks show --resource-group myResourceGroup --cluster-name myAKSCluster --query="agentPoolProfiles[].{Name:name enableFips:enableFips}" -o table
+```
+
+The following example output shows the *fipsnp* node pool is FIPS-enabled and *nodepool1* is not.
+
+```output
+Name       enableFips
+---------  ------------
+fipsnp     True
+nodepool1  False  
+```
+
+You can also verify deployments have access to the FIPS cryptographic libraries using `kubectl debug` on a node in the FIPS-enabled node pool. Use `kubectl get nodes` to list the nodes:
+
+```output
+$ kubectl get nodes
+NAME                                STATUS   ROLES   AGE     VERSION
+aks-fipsnp-12345678-vmss000000      Ready    agent   6m4s    v1.19.9
+aks-fipsnp-12345678-vmss000001      Ready    agent   5m21s   v1.19.9
+aks-fipsnp-12345678-vmss000002      Ready    agent   6m8s    v1.19.9
+aks-nodepool1-12345678-vmss000000   Ready    agent   34m     v1.19.9
+```
+
+In the above example, the nodes starting with `aks-fipsnp` are part of the FIPS-enabled node pool. Use `kubectl debug` to run a deployment with an interactive session on one of those nodes in the FIPS-enabled node pool.
+
+```azurecli-interactive
+kubectl debug node/aks-fipsnp-12345678-vmss000000 -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
+```
+
+From the interactive session, you can verify the FIPS cryptographic libraries are enabled:
+
+```output
+root@aks-fipsnp-12345678-vmss000000:/# cat /proc/sys/crypto/fips_enabled
+1
+```
+
+FIPS-enabled node pools also have a *kubernetes.azure.com/fips_enabled=true* label, which can be used by deployments to target those node pools.
+
 ## Manage node pools using a Resource Manager template
 
 When you use an Azure Resource Manager template to create and managed resources, you can typically update the settings in your template and redeploy to update the resource. With node pools in AKS, the initial node pool profile can't be updated once the AKS cluster has been created. This behavior means that you can't update an existing Resource Manager template, make a change to the node pools, and redeploy. Instead, you must create a separate Resource Manager template that updates only the node pools for an existing AKS cluster.
@@ -710,33 +818,11 @@ az deployment group create \
 
 It may take a few minutes to update your AKS cluster depending on the node pool settings and operations you define in your Resource Manager template.
 
-## Assign a public IP per node for your node pools (preview)
+## Assign a public IP per node for your node pools
 
-> [!WARNING]
-> You must install the CLI preview extension 0.4.43 or greater to use the public IP per node feature.
+AKS nodes do not require their own public IP addresses for communication. However, scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. A common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. This scenario can be achieved on AKS by using Node Public IP.
 
-AKS nodes do not require their own public IP addresses for communication. However, scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. A common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. This scenario can be achieved on AKS by registering for a preview feature, Node Public IP (preview).
-
-To install and update the latest aks-preview extension, use the following Azure CLI commands:
-
-```azurecli
-az extension add --name aks-preview
-az extension update --name aks-preview
-az extension list
-```
-
-Register for the Node Public IP feature with the following Azure CLI command:
-
-```azurecli-interactive
-az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
-```
-It may take several minutes for the feature to register.  You can check the status with the following command:
-
-```azurecli-interactive
- az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/NodePublicIPPreview')].{Name:name,State:properties.state}"
-```
-
-After successful registration, create a new resource group.
+First, create a new resource group.
 
 ```azurecli-interactive
 az group create --name myResourceGroup2 --location eastus
@@ -754,12 +840,37 @@ For existing AKS clusters, you can also add a new node pool, and attach a public
 az aks nodepool add -g MyResourceGroup2 --cluster-name MyManagedCluster -n nodepool2 --enable-node-public-ip
 ```
 
-> [!Important]
-> During preview, the Azure Instance Metadata Service doesn't currently support retrieval of public IP addresses for the standard tier VM SKU. Due to this limitation, you can't use kubectl commands to display the public IPs assigned to the nodes. However, the IPs are assigned and function as intended. The public IPs for your nodes are attached to the instances in your Virtual Machine Scale Set.
+### Use a public IP prefix
+
+There are a number of [benefits to using a public IP prefix][public-ip-prefix-benefits]. AKS supports using addresses from an existing public IP prefix for your nodes by passing the resource ID with the flag `node-public-ip-prefix` when creating a new cluster or adding a node pool.
+
+First, create a public IP prefix using [az network public-ip prefix create][az-public-ip-prefix-create]:
+
+```azurecli-interactive
+az network public-ip prefix create --length 28 --location eastus --name MyPublicIPPrefix --resource-group MyResourceGroup3
+```
+
+View the output, and take note of the `id` for the prefix:
+
+```output
+{
+  ...
+  "id": "/subscriptions/<subscription-id>/resourceGroups/myResourceGroup3/providers/Microsoft.Network/publicIPPrefixes/MyPublicIPPrefix",
+  ...
+}
+```
+
+Finally, when creating a new cluster or adding a new node pool, use the flag `node-public-ip-prefix` and pass in the prefix's resource ID:
+
+```azurecli-interactive
+az aks create -g MyResourceGroup3 -n MyManagedCluster -l eastus --enable-node-public-ip --node-public-ip-prefix /subscriptions/<subscription-id>/resourcegroups/MyResourceGroup3/providers/Microsoft.Network/publicIPPrefixes/MyPublicIPPrefix
+```
+
+### Locate public IPs for nodes
 
 You can locate the public IPs for your nodes in various ways:
 
-* Use the Azure CLI command [az vmss list-instance-public-ips][az-list-ips]
+* Use the Azure CLI command [az vmss list-instance-public-ips][az-list-ips].
 * Use [PowerShell or Bash commands][vmss-commands]. 
 * You can also view the public IPs in the Azure portal by viewing the instances in the Virtual Machine Scale Set.
 
@@ -812,20 +923,24 @@ Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your 
 
 <!-- INTERNAL LINKS -->
 [aks-windows]: windows-container-cli.md
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[az-aks-create]: /cli/azure/aks#az-aks-create
-[az-aks-get-upgrades]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-upgrades
-[az-aks-nodepool-add]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add
-[az-aks-nodepool-list]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-list
-[az-aks-nodepool-update]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-update
-[az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-upgrade
-[az-aks-nodepool-scale]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-scale
-[az-aks-nodepool-delete]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-delete
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
-[az-group-create]: /cli/azure/group#az-group-create
-[az-group-delete]: /cli/azure/group#az-group-delete
-[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
+[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_get_credentials
+[az-aks-create]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_create
+[az-aks-get-upgrades]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_get_upgrades
+[az-aks-nodepool-add]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az_aks_nodepool_add
+[az-aks-nodepool-list]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az_aks_nodepool_list
+[az-aks-nodepool-update]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az_aks_nodepool_update
+[az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az_aks_nodepool_upgrade
+[az-aks-nodepool-scale]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az_aks_nodepool_scale
+[az-aks-nodepool-delete]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az_aks_nodepool_delete
+[az-aks-show]: /cli/azure/aks#az_aks_show
+[az-extension-add]: /cli/azure/extension?view=azure-cli-latest&preserve-view=true#az_extension_add
+[az-extension-update]: /cli/azure/extension?view=azure-cli-latest&preserve-view=true#az_extension_update
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-group-create]: /cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_create
+[az-group-delete]: /cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_delete
+[az-deployment-group-create]: /cli/azure/deployment/group?view=azure-cli-latest&preserve-view=true#az_deployment_group_create
 [gpu-cluster]: gpu-cluster.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
@@ -838,5 +953,9 @@ Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your 
 [ip-limitations]: ../virtual-network/virtual-network-ip-addresses-overview-arm#standard
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [vmss-commands]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine
-[az-list-ips]: /cli/azure/vmss?view=azure-cli-latest.md#az-vmss-list-instance-public-ips
+[az-list-ips]: /cli/azure/vmss?view=azure-cli-latest&preserve-view=true#az_vmss_list_instance_public_ips
 [reduce-latency-ppg]: reduce-latency-ppg.md
+[public-ip-prefix-benefits]: ../virtual-network/public-ip-address-prefix.md
+[az-public-ip-prefix-create]: /cli/azure/network/public-ip/prefix?view=azure-cli-latest&preserve-view=true#az_network_public_ip_prefix_create
+[node-image-upgrade]: node-image-upgrade.md
+[fips]: /azure/compliance/offerings/offering-fips-140-2

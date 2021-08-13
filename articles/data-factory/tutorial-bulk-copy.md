@@ -1,21 +1,18 @@
 ---
 title: Copy data in bulk with PowerShell
 description: Use Azure Data Factory with Copy Activity to copy data from a source data store to a destination data store in bulk.
-services: data-factory
-author: linda33wj
-ms.author: jingwang
-manager: shwang
-ms.reviewer: douglasl
+author: jianleishen
+ms.author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 01/22/2018
+ms.date: 02/18/2021
 ---
 
 # Copy multiple tables in bulk by using Azure Data Factory using PowerShell
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This tutorial demonstrates **copying a number of tables from Azure SQL Database to Azure Synapse Analytics**. You can apply the same pattern in other copy scenarios as well. For example, copying tables from SQL Server/Oracle to Azure SQL Database/Data Warehouse/Azure Blob, copying different paths from Blob to Azure SQL Database tables.
 

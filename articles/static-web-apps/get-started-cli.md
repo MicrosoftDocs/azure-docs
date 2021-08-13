@@ -20,7 +20,7 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 - [GitHub](https://github.com) account
 - [GitHub personal access token](https://docs.github.com/github/authenticating-to-github/creating-a-personal-access-token)
 - [Azure](https://portal.azure.com) account
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) installed (version 2.8.0 and higher)
+- [Azure CLI](/cli/azure/install-azure-cli) installed (version 2.8.0 and higher)
 
 [!INCLUDE [create repository from template](../../includes/static-web-apps-get-started-create-repo.md)]
 
@@ -41,7 +41,7 @@ Now that the repository is created, you can create a static web app from the Azu
 
 1. Sign in to the Azure CLI by using the following command.
 
-    ```bash
+    ```azurecli
     az login
     ```
 
@@ -49,58 +49,63 @@ Now that the repository is created, you can create a static web app from the Azu
 
     # [No Framework](#tab/vanilla-javascript)
 
-    ```bash
+    ```azurecli
     az staticwebapp create \
         -n my-first-static-web-app \
         -g <RESOURCE_GROUP_NAME> \
         -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
         -l <LOCATION> \
-        -b master \
+        -b main \
         --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
     ```
 
     # [Angular](#tab/angular)
 
-    ```bash
+    ```azurecli
     az staticwebapp create \
         -n my-first-static-web-app \
         -g <RESOURCE_GROUP_NAME> \
         -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
         -l <LOCATION> \
-        -b master \
+        -b main \
         --app-artifact-location "dist/angular-basic" \
         --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
     ```
 
     # [React](#tab/react)
 
-    ```bash
+    ```azurecli
     az staticwebapp create \
         -n my-first-static-web-app \
         -g <RESOURCE_GROUP_NAME> \
         -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
         -l <LOCATION> \
-        -b master \
+        -b main \
         --app-artifact-location "build" \
         --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
     ```
 
     # [Vue](#tab/vue)
 
-    ```bash
+    ```azurecli
     az staticwebapp create \
         -n my-first-static-web-app \
         -g <RESOURCE_GROUP_NAME> \
         -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
         -l <LOCATION> \
-        -b master \
+        -b main \
         --app-artifact-location "dist" \
         --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
     ```
 
     ---
+    
+    > [!IMPORTANT]
+    > The URL passed to the `s` parameter must not include the `.git` suffix.
 
-    - `<RESOURCE_GROUP_NAME>`: Replace this value with an existing Azure resource group name.
+    - `<RESOURCE_GROUP_NAME>`: Replace this value with an existing [Azure resource group name](../azure-resource-manager/management/manage-resources-cli.md).
+
+      - See the [az group](/cli/azure/group#az_group_list) documentation for details on listing resource groups.
 
     - `<YOUR_GITHUB_ACCOUNT_NAME>`: Replace this value with your GitHub username.
 
@@ -122,7 +127,7 @@ Now that the repository is created, you can create a static web app from the Azu
 
 If you're not going to continue to use this application, you can delete the Azure Static Web Apps instance by running the following command:
 
-```bash
+```azurecli
 az staticwebapp delete \
     --name my-first-static-web-app \
     --resource-group my-first-static-web-app

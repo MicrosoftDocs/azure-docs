@@ -8,13 +8,13 @@ ms.subservice: core
 author: juliakm
 ms.author: jukullam
 ms.date: 10/19/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: github-actions-azure
 ---
 
 # Use GitHub Actions with Azure Machine Learning
 
-Get started with [GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions) to train a model on Azure Machine Learning. 
+Get started with [GitHub Actions](https://docs.github.com/en/actions) to train a model on Azure Machine Learning. 
 
 > [!NOTE]
 > GitHub Actions for Azure Machine Learning are provided as-is, and are not fully supported by Microsoft. If you encounter problems with a specific action, open an issue in the repository for the action. For example, if you encounter a problem with the aml-deploy action, report the problem in the [https://github.com/Azure/aml-deploy]( https://github.com/Azure/aml-deploy) repo.
@@ -50,7 +50,7 @@ Create a new repository off the [ML Ops with GitHub Actions and Azure Machine Le
 
 ## Generate deployment credentials
 
-You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
+You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myML" --role contributor \
@@ -223,4 +223,4 @@ When your resource group and repository are no longer needed, clean up the resou
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create and run machine learning pipelines with Azure Machine Learning SDK](how-to-create-your-first-pipeline.md)
+> [Create and run machine learning pipelines with Azure Machine Learning SDK](./how-to-create-machine-learning-pipelines.md)

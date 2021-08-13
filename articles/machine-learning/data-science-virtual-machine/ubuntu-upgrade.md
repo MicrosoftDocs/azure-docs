@@ -4,8 +4,7 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Learn how to upgrade from CentOS and Ubuntu 16.04 to the latest Ubuntu 18.04 Data Science Virtual Machine.
 keywords: deep learning, AI, data science tools, data science virtual machine, team data science process
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: samkemp
 ms.author: samkemp
 ms.topic: conceptual

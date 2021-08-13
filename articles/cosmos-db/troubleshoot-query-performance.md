@@ -4,7 +4,7 @@ description: Learn how to identify, diagnose, and troubleshoot Azure Cosmos DB S
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 10/12/2020
+ms.date: 02/16/2021
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
@@ -12,7 +12,7 @@ ms.reviewer: sngun
 # Troubleshoot query issues when using Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. Although you shouldn't consider the steps outlined in this article a complete defense against potential query issues, we've included the most common performance tips here. You should use this article as a starting place for troubleshooting slow or expensive queries in the Azure Cosmos DB core (SQL) API. You can also use [diagnostics logs](cosmosdb-monitor-resource-logs.md) to identify queries that are slow or that consume significant amounts of throughput. If you are using Azure Cosmos DB's API for MongoDB, you should use [Azure Cosmos DB's API for MongoDB query troubleshooting guide](mongodb-troubleshoot-query.md)
+This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. Although you shouldn't consider the steps outlined in this article a complete defense against potential query issues, we've included the most common performance tips here. You should use this article as a starting place for troubleshooting slow or expensive queries in the Azure Cosmos DB core (SQL) API. You can also use [diagnostics logs](cosmosdb-monitor-resource-logs.md) to identify queries that are slow or that consume significant amounts of throughput. If you are using Azure Cosmos DB's API for MongoDB, you should use [Azure Cosmos DB's API for MongoDB query troubleshooting guide](mongodb/troubleshoot-query-performance.md)
 
 Query optimizations in Azure Cosmos DB are broadly categorized as follows:
 
@@ -56,6 +56,8 @@ Refer to the following sections to understand the relevant query optimizations f
 - [Include necessary paths in the indexing policy.](#include-necessary-paths-in-the-indexing-policy)
 
 - [Understand which system functions use the index.](#understand-which-system-functions-use-the-index)
+
+- [Improve string system function execution.](#improve-string-system-function-execution)
 
 - [Understand which aggregate queries use the index.](#understand-which-aggregate-queries-use-the-index)
 
@@ -192,23 +194,43 @@ You can add properties to the indexing policy at any time, with no effect on wri
 
 Most system functions use indexes. Here's a list of some common string functions that use indexes:
 
-- STARTSWITH(str_expr1, str_expr2, bool_expr)  
-- CONTAINS(str_expr, str_expr, bool_expr)
-- LEFT(str_expr, num_expr) = str_expr
-- SUBSTRING(str_expr, num_expr, num_expr) = str_expr, but only if the first num_expr is 0
+- StartsWith
+- Contains
+- RegexMatch
+- Left
+- Substring - but only if the first num_expr is 0
 
-Following are some common system functions that don't use the index and must load each document:
+Following are some common system functions that don't use the index and must load each document when used in a `WHERE` clause:
 
 | **System function**                     | **Ideas   for optimization**             |
 | --------------------------------------- |------------------------------------------------------------ |
-| UPPER/LOWER                             | Instead of using the system function to normalize data for comparisons, normalize the casing upon insertion. A query like ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` becomes ```SELECT * FROM c WHERE c.name = 'BOB'```. |
+| Upper/Lower                         | Instead of using the system function to normalize data for comparisons, normalize the casing upon insertion. A query like ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` becomes ```SELECT * FROM c WHERE c.name = 'BOB'```. |
+| GetCurrentDateTime/GetCurrentTimestamp/GetCurrentTicks | Calculate the current time before query execution and use that string value in the `WHERE` clause. |
 | Mathematical functions (non-aggregates) | If you need to compute a value frequently in your query, consider storing the value as a property in your JSON document. |
 
-------
+These system functions can use indexes, except when used in queries with aggregates:
 
-If a system function uses indexes and still has a high RU charge, you can try adding `ORDER BY` to the query. In some cases, adding `ORDER BY` can improve system function index utilization, particularly if the query is long-running or spans multiple pages.
+| **System function**                     | **Ideas   for optimization**             |
+| --------------------------------------- |------------------------------------------------------------ |
+| Spatial system functions                        | Store the query result in a real-time materialized view |
 
-For example, consider the below query with `CONTAINS`. `CONTAINS` should use an index but let's imagine that, after adding the relevant index, you still observe a very high RU charge when running the below query:
+When used in the `SELECT` clause, inefficient system functions will not affect how queries can use indexes.
+
+### Improve string system function execution
+
+For some system functions that use indexes, you can improve query execution by adding an `ORDER BY` clause to the query. 
+
+More specifically, any system function whose RU charge increases as the cardinality of the property increases may benefit from having `ORDER BY` in the query. These queries do an index scan, so having the query results sorted can make the query more efficient.
+
+This optimization can improve execution for the following system functions:
+
+- StartsWith (where case-insensitive = true)
+- StringEquals (where case-insensitive = true)
+- Contains
+- RegexMatch
+- EndsWith
+
+For example, consider the below query with `CONTAINS`. `CONTAINS` will use indexes but sometimes, even after adding the relevant index, you may still observe a very high RU charge when running the below query.
 
 Original query:
 
@@ -218,13 +240,32 @@ FROM c
 WHERE CONTAINS(c.town, "Sea")
 ```
 
-Updated query with `ORDER BY`:
+You can improve query execution by adding `ORDER BY`:
 
 ```sql
 SELECT *
 FROM c
 WHERE CONTAINS(c.town, "Sea")
 ORDER BY c.town
+```
+
+The same optimization can help in queries with additional filters. In this case, it's best to also add properties with equality filters to the `ORDER BY` clause.
+
+Original query:
+
+```sql
+SELECT *
+FROM c
+WHERE c.name = "Samer" AND CONTAINS(c.town, "Sea")
+```
+
+You can improve query execution by adding `ORDER BY` and [a composite index](index-policy.md#composite-indexes) for (c.name, c.town):
+
+```sql
+SELECT *
+FROM c
+WHERE c.name = "Samer" AND CONTAINS(c.town, "Sea")
+ORDER BY c.name, c.town
 ```
 
 ### Understand which aggregate queries use the index

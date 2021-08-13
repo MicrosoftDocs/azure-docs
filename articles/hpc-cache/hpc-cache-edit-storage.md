@@ -4,71 +4,50 @@ description: How to edit Azure HPC Cache storage targets
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 06/30/2021
 ms.author: v-erkel
 ---
 
 # Edit storage targets
 
-You can remove or modify storage targets with the Azure portal or by using the Azure CLI.
+You can modify storage targets with the Azure portal or by using the Azure CLI. For example, you can change access policies, usage models, and namespace paths for an existing storage target.
+
+> [!TIP]
+> Read [Manage storage targets](manage-storage-targets.md) to learn how to delete or suspend storage targets, or make them write cached data to back-end storage.
 
 Depending on the type of storage, you can modify these storage target values:
 
-* For Blob storage targets, you can change the namespace path.
+* For Blob storage targets, you can change the namespace path and access policy.
 
 * For NFS storage targets, you can change these values:
 
   * Namespace paths
+  * Access policy
   * The storage export or export subdirectory associated with a namespace path
   * Usage model
 
-You can't edit a storage target's name, type, or back-end storage system (Blob container or NFS hostname/IP address). If you need to change these properties, delete the storage target and create a replacement with the new value.
+* For ADLS-NFS storage targets, you can change the namespace path, access policy, and the usage model.
 
-> [!TIP]
-> The [Managing Azure HPC Cache video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) shows how to edit a storage target in the Azure portal.
+You can't edit a storage target's name, type, or back-end storage system. If you need to change these properties, delete the storage target and create a replacement with the new value.
 
-## Remove a storage target
+The [Managing Azure HPC Cache video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) shows how to edit a storage target in the Azure portal.
 
-### [Portal](#tab/azure-portal)
-
-To remove a storage target, open the **Storage targets** page. Select the storage target from the list and click the **Delete** button.
-
-### [Azure CLI](#tab/azure-cli)
-
-[Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
-
-Use [az hpc-cache storage-target remove](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-remove) to delete a storage target from the cache.
-
-```azurecli
-$ az hpc-cache storage-target remove --resource-group cache-rg --cache-name doc-cache0629 --name blob1
-
-{- Finished ..
-  "endTime": "2020-07-09T21:45:06.1631571+00:00",
-  "name": "2f95eac1-aded-4860-b19c-3f089531a7ec",
-  "startTime": "2020-07-09T21:43:38.5461495+00:00",
-  "status": "Succeeded"
-}
-```
-
----
-
-Deleting a storage target removes the storage system's association with this Azure HPC Cache system, but it does not change the back-end storage system. For example, if you used an Azure Blob storage container, the container and its contents still exist after you delete it from the cache. You can add the container to a different Azure HPC Cache, re-add it to this cache, or delete it with the Azure portal.
-
-Any file changes stored in the cache are written to the back-end storage system before the storage target is removed. This process can take an hour or more if a lot of changed data is in the cache.
-
-## Change a blob storage target's namespace path
+## Change a blob storage target's namespace path or access policy
 
 Namespace paths are the paths that clients use to mount this storage target. (To learn more, read [Plan the aggregated namespace](hpc-cache-namespace.md) and [Set up the aggregated namespace](add-namespace-paths.md)).
 
-The namespace path is the only update you can make on an Azure Blob storage target. Use the Azure portal or the Azure CLI to change it.
+Use the Azure portal or the Azure CLI to change the namespace path or access policy.
 
 ### [Portal](#tab/azure-portal)
 
-Use the **Namespace** page for your Azure HPC Cache. The namespace page is described in more detail in the article [Set up the aggregated namespace](add-namespace-paths.md).
+Use the **Namespace** page for your Azure HPC Cache to update the namespace path or client access policy. The namespace page is described in more detail in the article [Set up the aggregated namespace](add-namespace-paths.md).
 
-Click the name of the path that you want to change, and create the new path in the edit window that appears.
+1. Click the path that you want to change.
+   ![Screenshot of the Namespace page with the cursor over an item in the Namespace path column (first column to the left). The name is formatted as a hyperlink and the cursor indicates that it can be clicked.](media/edit-select-namespace.png)
 
-![Screenshot of the namespace page after clicking on a Blob namespace path - the edit fields appear on a pane to the right](media/edit-namespace-blob.png)
+1. Use the edit window to type in new virtual path or update the access policy.
+
+   ![Screenshot of the namespace page after clicking on a Blob namespace path - the edit fields appear on a pane to the right.](media/update-namespace-blob.png)
 
 After making changes, click **OK** to update the storage target, or click **Cancel** to discard changes.
 
@@ -76,7 +55,7 @@ After making changes, click **OK** to update the storage target, or click **Canc
 
 [Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
-To change a blob storage target's namespace with the Azure CLI, use the command [az hpc-cache blob-storage-target update](/cli/azure/ext/hpc-cache/hpc-cache/blob-storage-target#ext-hpc-cache-az-hpc-cache-blob-storage-target-update). Only the `--virtual-namespace-path` value can be changed.
+To change a blob storage target's namespace with the Azure CLI, use the command [az hpc-cache blob-storage-target update](/cli/azure/hpc-cache/blob-storage-target#az_hpc_cache_blob_storage_target_update). Only the `--virtual-namespace-path` value can be changed.
 
   ```azurecli
   az hpc-cache blob-storage-target update --cache-name cache-name --name target-name \
@@ -89,32 +68,34 @@ To change a blob storage target's namespace with the Azure CLI, use the command 
 
 For NFS storage targets, you can change or add virtual namespace paths, change the NFS export or subdirectory values that a namespace path points to, and change the usage model.
 
+Storage targets in caches with some types of custom DNS settings also have a control for refreshing their IP addresses. (This kind of configuration is rare.) Learn how to refresh the DNS settings in [Manage storage targets](manage-storage-targets.md#update-ip-address-custom-dns-configurations-only).
+
 Details are below:
 
-* [Change aggregated namespace values](#change-aggregated-namespace-values) (virtual namespace path, export, and export subdirectory)
+* [Change aggregated namespace values](#change-aggregated-namespace-values) (virtual namespace path, access policy, export, and export subdirectory)
 * [Change the usage model](#change-the-usage-model)
 
 ### Change aggregated namespace values
 
-You can use the Azure portal or the Azure CLI to change the client-facing namespace path, the storage export, and the export subdirectory (if used).
+You can use the Azure portal or the Azure CLI to change the client-facing namespace path, the storage export, and the export subdirectory (if used). If you need to change the access policy, use the Azure portal.
 
 Read the guidelines in [Add NFS namespace paths](add-namespace-paths.md#nfs-namespace-paths) if you need a reminder about how to create multiple valid paths on one storage target.
 
 ### [Portal](#tab/azure-portal)
 
-Use the **Namespace** page for your Azure HPC Cache to update namespace values. This page is described in more detail in the article [Set up the aggregated namespace](add-namespace-paths.md).
+Use the **Namespace** page for your Azure HPC Cache to update namespace values, including the client access policy. This page is described in more detail in the article [Set up the aggregated namespace](add-namespace-paths.md).
 
 ![screenshot of the portal namespace page with the NFS update page open at the right](media/update-namespace-nfs.png)
 
 1. Click the name of the path that you want to change.
-1. Use the edit window to type in new virtual path, export, or subdirectory values.
+1. Use the edit window to type in new virtual path, export, or subdirectory values, or to select a different access policy.
 1. After making changes, click **OK** to update the storage target or **Cancel** to discard changes.
 
 ### [Azure CLI](#tab/azure-cli)
 
 [Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
-Use the ``--junction`` option in the [az hpc-cache nfs-storage-target update](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target) command to change the namespace path, NFS export, or export subdirectory.
+Use the ``--junction`` option in the [az hpc-cache nfs-storage-target update](/cli/azure/hpc-cache/nfs-storage-target) command to change the namespace path, NFS export, or export subdirectory.
 
 The ``--junction`` parameter uses these values:
 
@@ -140,13 +121,16 @@ az hpc-cache nfs-storage-target update --cache-name mycache \
 
 ### Change the usage model
 
-The usage model influences how the cache retains data. Read [Choose a usage model](hpc-cache-add-storage.md#choose-a-usage-model) to learn more.
+The usage model influences how the cache retains data. Read [Understand cache usage models](cache-usage-models.md) to learn more.
+
+> [!NOTE]
+> You can't change between **Read heavy, infrequent writes** and other usage models. Read [Understand cache usage models](cache-usage-models.md#change-usage-models) for details.
 
 To change the usage model for an NFS storage target, use one of these methods.
 
 ### [Portal](#tab/azure-portal)
 
-Change the usage model from the **Storage targets** page in the Azure portal. Click the name of the storage target to change.
+Open the **Storage targets** page in the Azure portal. Click the name of a storage target in the list to open its edit page.
 
 ![screenshot of the edit page for an NFS storage target](media/edit-storage-nfs.png)
 
@@ -156,7 +140,7 @@ Use the drop-down selector to choose a new usage model. Click **OK** to update t
 
 [Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
-Use the [az hpc-cache nfs-storage-target update](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target?view=azure-cli-latest#ext-hpc-cache-az-hpc-cache-nfs-storage-target-update) command.
+Use the [az hpc-cache nfs-storage-target update](/cli/azure/hpc-cache/nfs-storage-target#az_hpc_cache_nfs_storage_target_update) command.
 
 The update command is nearly identical to the command that you use to add an NFS storage target. Refer to [Create an NFS storage target](hpc-cache-add-storage.md#create-an-nfs-storage-target) for details and examples.
 
@@ -164,13 +148,32 @@ To change the usage model, update the ``--nfs3-usage-model`` option. Example: ``
 
 The cache name, storage target name, and resource group values also are required.
 
-If you want to verify the names of the usage models, use the command [az hpc-cache usage-model list](/cli/azure/ext/hpc-cache/hpc-cache/usage-model#ext-hpc-cache-az-hpc-cache-usage-model-list).
+If you want to verify the names of the usage models, use the command [az hpc-cache usage-model list](/cli/azure/hpc-cache/usage-model#az_hpc_cache_usage-model-list).
 
 If the cache is stopped or not in a healthy state, the update will apply after the cache is healthy.
 
 ---
 
+## Update an ADLS-NFS storage target
+
+Similar to NFS targets, you can change the namespace path and the usage model for ADLS-NFS storage targets.
+
+### Change an ADLS-NFS namespace path
+
+Use the **Namespace** page for your Azure HPC Cache to update namespace values. This page is described in more detail in the article [Set up the aggregated namespace](add-namespace-paths.md).
+
+![screenshot of the portal namespace page with an ADS-NFS update page open at the right](media/update-namespace-adls.png)
+
+1. Click the name of the path that you want to change.
+1. Use the edit window to type in new virtual path, or update the access policy.
+1. After making changes, click **OK** to update the storage target or **Cancel** to discard changes.
+
+### Change ADLS-NFS usage models
+
+The configuration for ADLS-NFS usage models is identical to the NFS usage model selection. Read the portal instructions in [Change the usage model](#change-the-usage-model) in the NFS section above. Additional tools for updating ADLS-NFS storage targets are in development.
+
 ## Next steps
 
-* Read [Add storage targets](hpc-cache-add-storage.md) to learn more about these options.
+* Read [Manage storage targets](manage-storage-targets.md) for information about stopping, deleting, and flushing individual storage targets.
+* Read [Add storage targets](hpc-cache-add-storage.md) to learn more about storage target options.
 * Read [Plan the aggregated namespace](hpc-cache-namespace.md) for more tips about using virtual paths.

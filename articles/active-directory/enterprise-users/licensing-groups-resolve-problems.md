@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/02/2020
+ms.date: 04/21/2021
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
@@ -66,7 +66,7 @@ Consider the following example. A user has a license for Office 365 Enterprise *
 
 - Exchange Online (Plan 2) conflicts with Exchange Online (Plan 1).
 
-To solve this conflict, you need to disable two of the plans. You can disable the E1 license that's directly assigned to the user. Or, you need to modify the entire group license assignment and disable the plans in the E3 license. Alternatively, you might decide to remove the E1 license from the user if it's redundant in the context of the E3 license.
+To solve this conflict, you need to disable one of the plans. You can disable the E1 license that's directly assigned to the user. Or, you need to modify the entire group license assignment and disable the plans in the E3 license. Alternatively, you might decide to remove the E1 license from the user if it's redundant in the context of the E3 license.
 
 The decision about how to resolve conflicting product licenses always belongs to the administrator. Azure AD doesn't automatically resolve license conflicts.
 
@@ -100,10 +100,10 @@ If you use Exchange Online, some users in your organization might be incorrectly
 > [!TIP]
 > To see if there is a duplicate proxy address, execute the following PowerShell cmdlet against Exchange Online:
 > ```
-> Get-Recipient -ResultSize unlimited | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
+> Get-Recipient -Filter "EmailAddresses -eq 'user@contoso.onmicrosoft.com'" | fl Name, RecipientType,Emailaddresses
 > ```
 > For more information about this problem, see ["Proxy address 
-> is already being used" error message in Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). The article also includes information on [how to connect to Exchange Online by using remote PowerShell](/powershell/exchange/connect-to-exchange-online-powershell?view=exchange-ps).
+> is already being used" error message in Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). The article also includes information on [how to connect to Exchange Online by using remote PowerShell](/powershell/exchange/connect-to-exchange-online-powershell).
 
 After you resolve any proxy address problems for the affected users, make sure to force license processing on the group to make sure that the licenses can now be applied.
 

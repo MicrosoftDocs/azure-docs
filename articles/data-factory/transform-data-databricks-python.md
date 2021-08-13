@@ -1,22 +1,17 @@
 ---
 title: Transform data with Databricks Python 
-description: Learn how to process or transform data by running a Databricks Python.
-services: data-factory
-documentationcenter: ''
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to process or transform data by running a Databricks Python activity in an Azure Data Factory pipeline.
 ms.service: data-factory
-ms.workload: data-services
-
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.date: 03/15/2018
-author: dcstwh
-ms.author: weetok
-ms.reviewer: maghan
-manager: anandsub
-ms.custom: devx-track-python
+author: nabhishek
+ms.author: abnarain
+ms.custom: devx-track-python, synapse
 ---
 # Transform data by running a Python activity in Azure Databricks
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
-
 
 The Azure Databricks Python Activity in a [Data Factory pipeline](concepts-pipelines-activities.md) runs a Python file in your Azure Databricks cluster. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. Azure Databricks is a managed platform for running Apache Spark.
 
@@ -35,7 +30,7 @@ Here is the sample JSON definition of a Databricks Python Activity:
         "description": "MyActivity description",
         "type": "DatabricksSparkPython",
         "linkedServiceName": {
-            "referenceName": "MyDatabricksLinkedservice",
+            "referenceName": "MyDatabricksLinkedService",
             "type": "LinkedServiceReference"
         },
         "typeProperties": {
@@ -106,18 +101,23 @@ In the above Databricks activity definition you specify these library types: *ja
 
 ```
 
-For more details refer [Databricks documentation](https://docs.azuredatabricks.net/api/latest/libraries.html#managedlibrarieslibrary) for library types.
+For more details refer [Databricks documentation](/azure/databricks/dev-tools/api/latest/libraries#managedlibrarieslibrary) for library types.
 
 ## How to upload a library in Databricks
 
-#### [Using Databricks workspace UI](https://docs.azuredatabricks.net/user-guide/libraries.html#create-a-library)
+### You can use the Workspace UI:
 
-To obtain the dbfs path of the library added using UI, you can use [Databricks CLI (installation)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli). 
+1. [Use the Databricks workspace UI](/azure/databricks/libraries/#create-a-library)
 
-Typically the Jar libraries are stored under dbfs:/FileStore/jars while using the UI. You can list all through the CLI: *databricks fs ls dbfs:/FileStore/jars* 
+2. To obtain the dbfs path of the library added using UI, you can use [Databricks CLI](/azure/databricks/dev-tools/cli/#install-the-cli).
 
+   Typically the Jar libraries are stored under dbfs:/FileStore/jars while using the UI. You can list all through the CLI: *databricks fs ls dbfs:/FileStore/job-jars*
 
+### Or you can use the Databricks CLI:
 
-#### [Copy library using Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#copy-a-file-to-dbfs)
+1. Follow [Copy the library using Databricks CLI](/azure/databricks/dev-tools/cli/#copy-a-file-to-dbfs)
 
-Example: *databricks fs cp SparkPi-assembly-0.1.jar dbfs:/FileStore/jars*
+2. Use Databricks CLI [(installation steps)](/azure/databricks/dev-tools/cli/#install-the-cli)
+
+   As an example, to copy a JAR to dbfs:
+   `dbfs cp SparkPi-assembly-0.1.jar dbfs:/docs/sparkpi.jar`

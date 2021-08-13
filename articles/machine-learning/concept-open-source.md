@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 12/16/2020
+ms.date: 01/14/2020
 ---
 
 # Open-source integration with Azure Machine Learning projects
@@ -37,11 +37,11 @@ Open-source machine learning algorithms known as neural networks, a subset of ma
 
 Open-source deep learning frameworks and how-to guides include:
 
- *  [PyTorch](https://github.com/pytorch/pytorch): [Train a deep learning image classification model using transfer learning in PyTorch](how-to-train-pytorch.md) 
+ *  [PyTorch](https://github.com/pytorch/pytorch): [Train a deep learning image classification model using transfer learning](how-to-train-pytorch.md) 
  *  [TensorFlow](https://github.com/tensorflow/tensorflow): [Recognize handwritten digits using TensorFlow](how-to-train-tensorflow.md)
  *  [Keras](https://github.com/keras-team/keras): [Build a neural network to analyze images using Keras](how-to-train-keras.md)
 
-Training a deep learning model from scratch often requires large amounts of time, data, and compute resources. You can shortcut the training process by using transfer learning. Transfer learning is a technique that applies knowledge gained from solving one problem to a different but related problem. This means you can take an existing model repurpose it. See the [deep learning article](concept-deep-learning-vs-machine-learning.md#transfer-learning) to learn more about transfer learning.
+Training a deep learning model from scratch often requires large amounts of time, data, and compute resources. You can shortcut the training process by using transfer learning. Transfer learning is a technique that applies knowledge gained from solving one problem to a different but related problem. This means you can take an existing model repurpose it. See the [deep learning vs machine learning article](concept-deep-learning-vs-machine-learning.md#what-is-transfer-learning) to learn more about transfer learning.
 
 ### Reinforcement learning: Ray RLLib
 
@@ -84,7 +84,7 @@ For more information on ONNX and how to consume ONNX models, see the following a
 
 ### Package and deploy models as containers
 
-Container technologies such as Docker are one way to deploy models as web services. Containers provide a platform and resource agnostic way to build and orchestrate reproducible software environments. With these core technologies, you can use [preconfigured environments](./how-to-use-environments.md), [preconfigured container images](./how-to-deploy-custom-docker-image.md) or custom ones to deploy your machine learning models to such as [Kubernetes clusters](./how-to-deploy-azure-kubernetes-service.md?tabs=python). For GPU intensive workflows, you can use tools like NVIDIA Triton Inference server to [make predictions using GPUs](how-to-deploy-with-triton.md?tabs=python).
+Container technologies such as Docker are one way to deploy models as web services. Containers provide a platform and resource agnostic way to build and orchestrate reproducible software environments. With these core technologies, you can use [preconfigured environments](./how-to-use-environments.md), [preconfigured container images](./how-to-deploy-custom-container.md) or custom ones to deploy your machine learning models to such as [Kubernetes clusters](./how-to-deploy-azure-kubernetes-service.md?tabs=python). For GPU intensive workflows, you can use tools like NVIDIA Triton Inference server to [make predictions using GPUs](how-to-deploy-with-triton.md?tabs=python).
 
 ### Secure deployments with homomorphic encryption
 
@@ -96,4 +96,4 @@ Machine Learning Operations (MLOps), commonly thought of as DevOps for machine l
 
 Using DevOps practices like continuous integration (CI) and continuous deployment (CD), you can automate the end-to-end machine learning lifecycle and capture governance data around it. You can define your [machine learning CI/CD pipeline in GitHub actions](./how-to-github-actions-machine-learning.md) to run Azure Machine Learning training and deployment tasks. 
 
-Capturing software dependencies, metrics, metadata, data and model versioning are an important part of the MLOps process in order to build transparent, reproducible, and auditable pipelines. For this task, you can [use MLFlow in Azure Machine Learning](how-to-use-mlflow.md) as well as when [training machine learning models in Azure Databricks](./how-to-use-mlflow-azure-databricks.md). You can also [deploy MLflow models as an Azure web service](how-to-deploy-mlflow-models.md). 
+Capturing software dependencies, metrics, metadata, data and model versioning are an important part of the MLOps process in order to build transparent, reproducible, and auditable pipelines. For this task, you can [use MLFlow in Azure Machine Learning](how-to-use-mlflow.md) as well as when [training machine learning models in Azure Databricks](./how-to-use-mlflow-azure-databricks.md). You can also [deploy MLflow models as an Azure web service](how-to-deploy-mlflow-models.md).

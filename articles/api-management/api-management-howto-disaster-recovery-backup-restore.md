@@ -13,16 +13,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/05/2020
-ms.author: apimpm
+ms.author: apimpm 
+ms.custom: devx-track-azurepowershell
 ---
 
 # How to implement disaster recovery using service backup and restore in Azure API Management
 
 By publishing and managing your APIs via Azure API Management, you're taking advantage of fault tolerance and infrastructure capabilities that you'd otherwise design, implement, and manage manually. The Azure platform mitigates a large fraction of potential failures at a fraction of the cost.
 
-To recover from availability problems that affect the region that hosts your API Management service, be ready to reconstitute your service in another region at any time. Depending on your recovery time objective, you might want to keep a standby service in one or more regions. You might also try to maintain their configuration and content in sync with the active service according to your recovery point objective. The service backup and restore features provides the necessary building blocks for implementing disaster recovery strategy.
+To recover from availability problems that affect the region that hosts your API Management service, be ready to reconstitute your service in another region at any time. Depending on your recovery time objective, you might want to keep a standby service in one or more regions. You might also try to maintain their configuration and content in sync with the active service according to your recovery point objective. The service backup and restore features provide the necessary building blocks for implementing disaster recovery strategy.
 
-Backup and restore operations can also be used for replicating API Management service configuration between operational environments, e.g. development and staging. Beware that runtime data such as users and subscriptions will be copied as well, which might not always be desirable.
+Backup and restore operations can also be used for replicating API Management service configuration between operational environments, for example, development and staging. Beware that runtime data such as users and subscriptions will be copied as well, which might not always be desirable.
 
 This guide shows how to automate backup and restore operations and how to ensure successful authenticating of backup and restore requests by Azure Resource Manager.
 
@@ -74,11 +75,14 @@ All of the tasks that you do on resources using the Azure Resource Manager must 
 5. Choose **Azure Service Management**.
 6. Press **Select**.
 
-    ![Add permissions](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
+    :::image type="content" source="./media/api-management-howto-disaster-recovery-backup-restore/add-app-permission.png" alt-text="Screenshot that shows how to add app permissions."::: 
 
 7. Click **Delegated Permissions** beside the newly added application, check the box for **Access Azure Service Management (preview)**.
+
+    :::image type="content" source="./media/api-management-howto-disaster-recovery-backup-restore/delegated-app-permission.png" alt-text="Screenshot that shows adding delegated app permissions.":::
+
 8. Press **Select**.
-9. Click **Grant Permissions**.
+9. Click **Add Permissions**.
 
 ### Configuring your app
 
@@ -127,7 +131,7 @@ Replace `{tenant id}`, `{application id}`, and `{redirect uri}` using the follow
 
 ## Calling the backup and restore operations
 
-The REST APIs are [Api Management Service - Backup](/rest/api/apimanagement/2019-12-01/apimanagementservice/backup) and [Api Management Service - Restore](/rest/api/apimanagement/2019-12-01/apimanagementservice/restore).
+The REST APIs are [Api Management Service - Backup](/rest/api/apimanagement/2020-12-01/api-management-service/backup) and [Api Management Service - Restore](/rest/api/apimanagement/2020-12-01/api-management-service/restore).
 
 Before calling the "backup and restore" operations described in the following sections, set the authorization request header for your REST call.
 
@@ -148,7 +152,7 @@ where:
 -   `subscriptionId` - ID of the subscription that holds the API Management service you're trying to back up
 -   `resourceGroupName` - name of the resource group of your Azure API Management service
 -   `serviceName` - the name of the API Management service you're making a backup of specified at the time of its creation
--   `api-version` - replace with `2019-12-01`
+-   `api-version` - replace with `2020-12-01`
 
 In the body of the request, specify the target Azure storage account name, access key, blob container name, and backup name:
 
@@ -178,7 +182,7 @@ where:
 -   `subscriptionId` - ID of the subscription that holds the API Management service you're restoring a backup into
 -   `resourceGroupName` - name of the resource group that holds the Azure API Management service you're restoring a backup into
 -   `serviceName` - the name of the API Management service being restored into specified at its creation time
--   `api-version` - replace with `api-version=2019-12-01`
+-   `api-version` - replace with `api-version=2020-12-01`
 
 In the body of the request, specify the backup file location. That is, add the Azure storage account name, access key, blob container name, and backup name:
 
@@ -217,13 +221,13 @@ Restore is a long running operation that may take up to 30 or more minutes to co
 
 ## What is not backed up
 -   **Usage data** used for creating analytics reports **isn't included** in the backup. Use [Azure API Management REST API][azure api management rest api] to periodically retrieve analytics reports for safekeeping.
--   [Custom domain TLS/SSL](configure-custom-domain.md) certificates
--   [Custom CA Certificate](api-management-howto-ca-certificates.md), which include intermediate or root certificates uploaded by customer
+-   [Custom domain TLS/SSL](configure-custom-domain.md) certificates.
+-   [Custom CA Certificate](api-management-howto-ca-certificates.md), which includes intermediate or root certificates uploaded by the customer.
 -   [Virtual network](api-management-using-with-vnet.md) integration settings.
 -   [Managed Identity](api-management-howto-use-managed-service-identity.md) configuration.
 -   [Azure Monitor Diagnostic](api-management-howto-use-azure-monitor.md) Configuration.
 -   [Protocols and Cipher](api-management-howto-manage-protocols-ciphers.md) settings.
--   [Developer portal](api-management-howto-developer-portal.md#is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management) content.
+-   [Developer portal](developer-portal-faq.md#is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management) content.
 
 The frequency with which you perform service backups affect your recovery point objective. To minimize it, we recommend implementing regular backups and performing on-demand backups after you make changes to your API Management service.
 

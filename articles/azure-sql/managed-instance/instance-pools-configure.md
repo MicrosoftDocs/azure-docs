@@ -4,13 +4,13 @@ titleSuffix: Azure SQL Managed Instance
 description: This article describes how to create and manage Azure SQL Managed Instance pools (preview).
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
-ms.custom: 
+ms.subservice: deployment-configuration
+ms.custom: devx-track-azurepowershell
 ms.devlang: 
 ms.topic: how-to
-author: bonova
-ms.author: bonova
-ms.reviewer: sstein
+author: urosmil
+ms.author: urmilano
+ms.reviewer: mathoma
 ms.date: 09/05/2019
 ---
 # Deploy Azure SQL Managed Instance to an instance pool
@@ -160,7 +160,7 @@ $databases = Get-AzSqlInstanceDatabase -InstanceName "pool-mi-001" -ResourceGrou
 
 
 > [!NOTE]
-> There is a limit of 100 databases per pool (not per instance).
+> For checking limits on number of databases per instance pool and managed instance deployed inside the pool visit [Instance pool resource limits](instance-pools-overview.md#resource-limitations) section.
 
 
 ## Scale 

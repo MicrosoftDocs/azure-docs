@@ -1,9 +1,11 @@
 ---
-title: "Quickstart: Create a shared query with templates"
+title: 'Quickstart: Create a shared query with templates'
 description: In this quickstart, you use an Azure Resource Manager template (ARM template) to create a Resource Graph shared query that counts virtual machines by OS.
-ms.date: 10/14/2020
+ms.date: 05/11/2021
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom:
+  - subject-armqs
+  - mode-arm
 ---
 # Quickstart: Create a shared query by using an ARM template
 
@@ -18,7 +20,7 @@ Resource Manager template (ARM template) to create a shared query.
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the
 **Deploy to Azure** button. The template will open in the Azure portal.
 
-:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy the ARM template for creating a shared query to Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json":::
+:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy the ARM template for creating a shared query to Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json":::
 
 ## Prerequisites
 
@@ -33,7 +35,7 @@ in portal with Resource Graph Explorer, see
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/resourcegraph-sharedquery-countos/).
 
-:::code language="json" source="~/quickstart-templates/resourcegraph-sharedquery-countos/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/demos/resourcegraph-sharedquery-countos/azuredeploy.json":::
 
 The resource defined in the template is:
 
@@ -47,7 +49,7 @@ The resource defined in the template is:
 
 1. Select the following image to sign in to the Azure portal and open the template:
 
-   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy the ARM template for creating a shared query to Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json":::
+   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy the ARM template for creating a shared query to Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fresourcegraph-sharedquery-countos%2Fazuredeploy.json":::
 
 1. Select or enter the following values:
 

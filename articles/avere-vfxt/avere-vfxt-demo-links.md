@@ -24,7 +24,7 @@ Sample tutorials are provided on [GitHub](https://github.com/Azure/Avere). These
 
 ## vFXT performance
 
-* [Measure vFXT performance with vdbench](https://github.com/Azure/Avere/blob/master/docs/vdbench.md) - A basic test setup to generate small and medium-sized workloads to test the vFXT memory and disk subsystems
+* [Measure vFXT performance with vdbench](https://github.com/Azure/Avere/blob/master/docs/vdbench.md) - A basic test setup to generate small and midsize workloads to test the vFXT memory and disk subsystems
 
 ## Client setup
 

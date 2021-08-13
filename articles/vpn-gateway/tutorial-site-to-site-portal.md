@@ -1,12 +1,12 @@
 ---
 title: 'Tutorial - Connect on-premises network to virtual network: Azure portal'
-description: Create a site-to-site VPN Gateway IPsec connection from your on-premises network to an Azure virtual network over the public internet using the portal.
+description: In this tutorial, learn how to create a site-to-site VPN Gateway IPsec connection from your on-premises network to a VNet.
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 12/04/2020
+ms.date: 07/21/2021
 
 ---
 
@@ -64,8 +64,8 @@ Create a VPN gateway using the following values:
 * **Region:** East US
 * **Gateway type:** VPN
 * **VPN type:** Route-based
-* **SKU:** VpnGw1
-* **Generation:** Generation1
+* **SKU:** VpnGw2
+* **Generation:** Generation 2
 * **Virtual network:** VNet1
 * **Gateway subnet address range:** 10.1.255.0/27
 * **Public IP address:** Create new
@@ -73,7 +73,10 @@ Create a VPN gateway using the following values:
 * **Enable active-active mode:** Disabled
 * **Configure BGP:** Disabled
 
-[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-portal-include.md)]
+[!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-gw-pip-portal-include.md)]
+
+You can see the deployment status on the Overview page for your gateway. A gateway can take up to 45 minutes to fully create and deploy. After the gateway is created, you can view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device.
 
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
@@ -149,7 +152,7 @@ Resetting an Azure VPN gateway is helpful if you lose cross-premises VPN connect
 
 [!INCLUDE [reset a gateway](../../includes/vpn-gateway-reset-gw-portal-include.md)]
 
-### <a name="connectVM"></a>Additional configuration considerations
+### <a name="additional"></a>Additional configuration considerations
 
 S2S configurations can be customized in a variety of ways. For more information, see the following articles:
 

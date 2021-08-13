@@ -55,4 +55,4 @@ To use the image submitted previously for training, use the following steps:
 
 ## Next steps
 
-[Improve your classifier](getting-started-improving-your-classifier.md)
+[Improve your model](getting-started-improving-your-classifier.md)

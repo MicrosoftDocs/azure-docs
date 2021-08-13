@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
-ms.date: 09/09/2020
-ms.topic: conceptual
-ms.custom: how-to, designer
+ms.date: 02/05/2021
+ms.topic: how-to
+ms.custom: designer
 ---
 
 # Run batch predictions using Azure Machine Learning designer
@@ -25,6 +25,8 @@ In this how-to, you learn to do the following tasks:
 > * Manage endpoint versions
 
 To learn how to set up batch scoring services using the SDK, see the accompanying [how-to](./tutorial-pipeline-batch-scoring-classification.md).
+
+[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
 
 ## Prerequisites
 
@@ -140,7 +142,24 @@ You can also set a new default pipeline in the **Published pipelines** tab of yo
 
 ![Set default pipeline in published pipeline page](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
 
+## Limitations
+
+If you make some modifications in your training pipeline, you should re-submit the training pipeline, **Update**  the inference pipeline and run the inference pipeline again.
+
+Note that only models will be updated in the inference pipeline, while data transformation will not be updated.
+
+To use the updated transformation in inference pipeline, you need to register the transformation output of the transformation module as dataset.
+
+![Screenshot showing how to register transformation dataset](./media/how-to-run-batch-predictions-designer/register-transformation-dataset.png)
+
+Then manually replace the **TD-** module in inference pipeline with the registered dataset.
+
+![Screenshot showing how to replace transformation module](./media/how-to-run-batch-predictions-designer/replace-td-module-batch-inference-pipeline.png)
+
+Then you can submit the inference pipeline with the updated model and transformation, and publish.
+
 ## Next steps
 
 Follow the designer [tutorial](tutorial-designer-automobile-price-train-score.md) to train and deploy a regression model.
-''
+
+For how to publish and run a published pipeline using SDK, see [this article](how-to-deploy-pipelines.md).

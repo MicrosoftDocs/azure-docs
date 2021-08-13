@@ -22,8 +22,11 @@ ms.author: yelevin
 
 > [!IMPORTANT]
 > The DNS data connector in Azure Sentinel is currently in public preview.
-> This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> This feature is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+> [!CAUTION]
+> Enabling the DNS solution might cause high CPU usage on the target machine. As noted above, this connector is not recommended for use in a production setting. We are working towards a stable version of this connector for general availability.
 
 You can connect any Domain Name Server (DNS) running on Windows to Azure Sentinel. This is done by installing an agent on the DNS machine. Using DNS logs, you can gain security, performance, and operations-related insights into the DNS infrastructure of your organization by collecting, analyzing, and correlating analytic and audit logs and other related data from the DNS servers.
 
@@ -40,10 +43,10 @@ The following table describes the connected sources that are supported by this s
 
 | **Connected source** | **Support** | **Description** |
 | --- | --- | --- |
-| [Windows agents](../azure-monitor/platform/agent-windows.md) | Yes | The solution collects DNS information from Windows agents. |
-| [Linux agents](../azure-monitor/learn/quick-collect-linux-computer.md) | No | The solution does not collect DNS information from direct Linux agents. |
-| [System Center Operations Manager management group](../azure-monitor/platform/om-agents.md) | Yes | The solution collects DNS information from agents in a connected Operations Manager management group. A direct connection from the Operations Manager agent to Azure Monitor is not required. Data is forwarded from the management group to the Log Analytics workspace. |
-| [Azure storage account](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) | No | Azure storage isn't used by the solution. |
+| [Windows agents](../azure-monitor/agents/agent-windows.md) | Yes | The solution collects DNS information from Windows agents. |
+| [Linux agents](../azure-monitor/vm/quick-collect-linux-computer.md) | No | The solution does not collect DNS information from direct Linux agents. |
+| [System Center Operations Manager management group](../azure-monitor/agents/om-agents.md) | Yes | The solution collects DNS information from agents in a connected Operations Manager management group. A direct connection from the Operations Manager agent to Azure Monitor is not required. Data is forwarded from the management group to the Log Analytics workspace. |
+| [Azure storage account](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) | No | Azure storage isn't used by the solution. |
 
 ### Data collection details
 
@@ -82,5 +85,5 @@ If Lookup Queries do not show up in Azure Sentinel, follow these steps so the qu
 ## Next steps
 
 In this document, you learned how to connect DNS on-premises appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).

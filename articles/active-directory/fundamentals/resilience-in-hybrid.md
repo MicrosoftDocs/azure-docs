@@ -77,7 +77,7 @@ To implement Pass-through Authentication, see the following resources.
 
 Federation involves the creation of a trust relationship between Azure AD and the federation service, which includes the exchange of endpoints, token signing certificates, and other metadata. When a request comes to Azure AD, it reads the configuration and redirects the user to the endpoints configured. At that point, the user interacts with the federation service, which issues a SAML assertion that is validated by Azure AD. 
 
-The following diagram shows a topology of an enterprise Active Directory Federation Services (AD FS), deployment that includes redundant federation and web application proxy servers across multiple on-premises data centers. This configuration relies on enterprise networking infrastructure components like DNS, Network Load Balancing with geo-affinity capabilities, firewalls, etc. All on-premises components and connections are susceptible to failure. Visit the [AD FS Capacity Planning Documentation](https://docs.microsoft.com/windows-server/identity/ad-fs/design/planning-for-ad-fs-server-capacity) for more information.
+The following diagram shows a topology of an enterprise Active Directory Federation Services (AD FS), deployment that includes redundant federation and web application proxy servers across multiple on-premises data centers. This configuration relies on enterprise networking infrastructure components like DNS, Network Load Balancing with geo-affinity capabilities, firewalls, etc. All on-premises components and connections are susceptible to failure. Visit the [AD FS Capacity Planning Documentation](/windows-server/identity/ad-fs/design/planning-for-ad-fs-server-capacity) for more information.
 
 > [!NOTE]
 >  Federation has the highest number of on-premises dependencies, and therefore the most potential points of failure. While this diagram shows AD FS, other on-premises identity providers are subject to similar design considerations to achieve high availability, scalability, and fail over.
@@ -94,9 +94,9 @@ If you are implementing a federated authentication strategy or want to make it m
 
 * [Azure AD federation compatibility list](../hybrid/how-to-connect-fed-compatibility.md)
 
-* Follow the [AD FS capacity planning documentation](https://docs.microsoft.com/windows-server/identity/ad-fs/design/planning-for-ad-fs-server-capacity)
+* Follow the [AD FS capacity planning documentation](/windows-server/identity/ad-fs/design/planning-for-ad-fs-server-capacity)
 
-* [Deploying AD FS in Azure IaaS](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)
+* [Deploying AD FS in Azure IaaS](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)
 
 * [Enable PHS](../hybrid/tutorial-phs-backup.md) along with your federation
 

@@ -9,12 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 10/05/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 #Customer intent: As the moderator of a Facebook page, I want to use Azure's machine learning technology to automate and streamline the process of post moderation.
 ---
 
 # Tutorial: Moderate Facebook posts and commands with Azure Content Moderator
+
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
 In this tutorial, you will learn how to use Azure Content Moderator to help moderate the posts and comments on a Facebook page. Facebook will send the content posted by visitors to the Content Moderator service. Then your Content Moderator workflows will either publish the content or create reviews within the Review tool, depending on the content scores and thresholds. See the [Build 2017 demo video](https://channel9.msdn.com/Events/Build/2017/T6033) for a working example of this scenario.
 
@@ -102,14 +104,14 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps:
     ![facebook developer page](images/facebook-developer-app.png)
 
     1. Navigate to the [Facebook developer site](https://developers.facebook.com/)
-    1. Click on **My Apps**.
+    1. Go to **My Apps**.
     1. Add a New App.
-    1. name it something
+    1. Provide a name
     1. Select **Webhooks -> Set Up**
     1. Select **Page** in the dropdown menu and select **Subscribe to this object**
     1. Provide the **FBListener Url** as the Callback URL and the **Verify Token** you configured under the **Function App Settings**
     1. Once subscribed, scroll down to feed and select **subscribe**.
-    1. Click on the **Test** button of the **feed** row to send a test message to your FBListener Azure Function, then hit the **Send to My Server** button. You should see the request being received on your FBListener.
+    1. Select the **Test** button of the **feed** row to send a test message to your FBListener Azure Function, then hit the **Send to My Server** button. You should see the request being received on your FBListener.
 
 1. Create a Facebook Page.
 
@@ -121,7 +123,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps:
         1. Navigate to the [Graph API Explorer](https://developers.facebook.com/tools/explorer/).
         1. Select **Application**.
         1. Select **Page Access Token**, Send a **Get** request.
-        1. Click the **Page ID** in the response.
+        1. Select the **Page ID** in the response.
         1. Now append the **/subscribed_apps** to the URL and Send a **Get** (empty response) request.
         1. Submit a **Post** request. You get the response as **success: true**.
 
@@ -156,7 +158,7 @@ The solution sends all images and text posted on your Facebook page to Content M
 
 ## Next steps
 
-In this tutorial, you set up a program to analyze product images for the purpose of tagging them by product type and allowing a review team to make informed decisions about content moderation. Next, learn more about the details of image moderation.
+In this tutorial, you set up a program to analyze product images, tag them by product type, and allow a review team to make informed decisions about content moderation. Next, learn more about the details of image moderation.
 
 > [!div class="nextstepaction"]
 > [Image moderation](./image-moderation-api.md)

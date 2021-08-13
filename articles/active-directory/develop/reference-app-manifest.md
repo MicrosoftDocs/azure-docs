@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/15/2020
+ms.date: 02/02/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
@@ -22,13 +22,13 @@ The application manifest contains a definition of all the attributes of an appli
 You can configure an app's attributes through the Azure portal or programmatically using [REST API](/graph/api/resources/application) or [PowerShell](/powershell/module/azuread#applications). However, there are some scenarios where you'll need to edit the app manifest to configure an app's attribute. These scenarios include:
 
 * If you registered the app as Azure AD multi-tenant and personal Microsoft accounts, you can't change the supported Microsoft accounts in the UI. Instead, you must use the application manifest editor to change the supported account type.
-* If you need to define permissions and roles that your app supports, you must modify the application manifest.
+* To define permissions and roles that your app supports, you must modify the application manifest.
 
 ## Configure the app manifest
 
 To configure the application manifest:
 
-1. Go to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>. Search for and select the **Azure Active Directory** service.
+1. Go to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>. Search for and select the **Azure Active Directory** service.
 1. Select **App registrations**.
 1. Select the app you want to configure.
 1. From the app's **Overview** page, select the **Manifest** section. A web-based manifest editor opens, allowing you to edit the manifest within the portal. Optionally, you can select **Download** to edit the manifest locally, and then use **Upload** to reapply it to your application.
@@ -110,17 +110,6 @@ Example:
     "allowPublicClient": false,
 ```
 
-### availableToOtherTenants attribute
-
-| Key | Value type |
-| :--- | :--- |
-| availableToOtherTenants | Boolean |
-
-Set to true if the application is shared with other tenants; otherwise, false.
-
-> [!NOTE]
-> This attribute is available only in the **App registrations (Legacy)** experience. Replaced by `signInAudience` in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience.
-
 ### appId attribute
 
 | Key | Value type |
@@ -160,17 +149,6 @@ Example:
     ],
 ```
 
-### displayName attribute
-
-| Key | Value type |
-| :--- | :--- |
-| displayName | String |
-
-The display name for the app.
-
-> [!NOTE]
-> This attribute is available only in the **App registrations (Legacy)** experience. Replaced by `name` in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience.
-
 ### errorUrl attribute
 
 | Key | Value type |
@@ -190,39 +168,13 @@ Configures the `groups` claim issued in a user or OAuth 2.0 access token that th
 - `"None"`
 - `"SecurityGroup"` (for security groups and Azure AD roles)
 - `"ApplicationGroup"` (this option includes only groups that are assigned to the application)
-- `"All"` (this will get all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of.
+- `"DirectoryRole"` (gets the Azure AD directory roles the user is a member of)
+- `"All"` (this will get all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of).
 
 Example:
 
 ```json
     "groupMembershipClaims": "SecurityGroup",
-```
-
-### homepage attribute
-
-| Key | Value type |
-| :--- | :--- |
-| homepage |String |
-
-The URL to the application's homepage.
-
-> [!NOTE]
-> This attribute is available only in the **App registrations (Legacy)** experience. Replaced by `signInUrl` in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience.
-
-### objectId attribute
-
-| Key | Value type |
-| :--- | :--- |
-|objectId | String |
-
-The unique identifier for the app in the directory.
-
-This is available only in the **App registrations (Legacy)** experience. Replaced by `id` in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience.
-
-Example:
-
-```json
-    "objectId": "f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd",
 ```
 
 ### optionalClaims attribute
@@ -240,7 +192,6 @@ Example:
 ```json
     "optionalClaims": null,
 ```
-
 
 
 ### identifierUris attribute
@@ -484,16 +435,6 @@ Example:
     ],
 ```
 
-### publicClient attribute
-
-| Key | Value type |
-| :--- | :--- |
-| publicClient | Boolean|
-
-Specifies whether this application is a public client (such as an installed application running on a mobile device).
-
-This property is available only in the **App registrations (Legacy)** experience. Replaced by `allowPublicClient` in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience.
-
 ### publisherDomain attribute
 
 | Key | Value type |
@@ -505,18 +446,8 @@ The verified publisher domain for the application. Read-only.
 Example:
 
 ```json
-    "publisherDomain": "https://www.contoso.com",
-````
-
-### replyUrls attribute
-
-| Key | Value type |
-| :--- | :--- |
-| replyUrls | String array |
-
-This multi-value property holds the list of registered redirect_uri values that Azure AD will accept as destinations when returning tokens.
-
-This property is available only in the **App registrations (Legacy)** experience. Replaced by `replyUrlsWithType` in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience.
+    "publisherDomain": "{tenant}.onmicrosoft.com",
+```
 
 ### replyUrlsWithType attribute
 
@@ -684,7 +615,7 @@ Use the following comments section to provide feedback that helps refine and sha
 [ADD-UPD-RMV-APP]:quickstart-v1-integrate-apps-with-azure-ad.md
 [AZURE-PORTAL]: https://portal.azure.com
 [DEV-GUIDE-TO-AUTH-WITH-ARM]: http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/
-[GRAPH-API]: active-directory-graph-api.md
+[GRAPH-API]: /graph/migrate-azure-ad-graph-planning-checklist
 [IMPLICIT-GRANT]:v1-oauth2-implicit-grant-flow.md
 [INTEGRATING-APPLICATIONS-AAD]: ./quickstart-register-app.md
 [O365-PERM-DETAILS]: /graph/permissions-reference

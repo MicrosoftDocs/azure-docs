@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 6/2/2020
  ms.author: rogarana
- ms.custom: include file
+ ms.custom: include file, devx-track-azurecli
 ---
 
 To restrict access to the storage account's public endpoint to specific virtual networks using service endpoints, we first need to collect information about the storage account and virtual network. Fill in `<storage-account-resource-group>`, `<storage-account-name>`, `<vnet-resource-group-name>`, `<vnet-name>`, and `<subnet-name>` to collect this information.
@@ -79,7 +79,7 @@ fi
 
 The final step in restricting traffic to the storage account is to create a networking rule and add to the storage account's network rule set.
 
-```bash
+```azurecli
 az storage account network-rule add \
         --resource-group $storageAccountResourceGroupName \
         --account-name $storageAccountName \

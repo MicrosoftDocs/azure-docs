@@ -12,7 +12,7 @@ ms.date: 06/05/2020
 ms.author: ajburnle
 ms.custom: "it-pro, seodec18, seo-update-azuread-jan, contperf-fy20q4"
 
-#customer intent: As a new administrator, I want to understand what Azure Active Directory is, which license is right for me, and what features are available.
+# Customer intent: As a new administrator, I want to understand what Azure Active Directory is, which license is right for me, and what features are available.
 ms.collection: M365-identity-device-management
 ---
 
@@ -43,7 +43,7 @@ Microsoft Online business services, such as Microsoft 365 or Microsoft Azure, re
 To enhance your Azure AD implementation, you can also add paid capabilities by upgrading to Azure Active Directory Premium P1 or Premium P2 licenses. Azure AD paid licenses are built on top of your existing free directory, providing self-service, enhanced monitoring, security reporting, and secure access for your mobile users.
 
 >[!Note]
->For the pricing options of these licenses, see [Azure Active Directory Pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+>For the pricing options of these licenses, see [Azure Active Directory Pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 >
 >Azure Active Directory Premium P1 and Premium P2 are not currently supported in China. For more information about Azure AD pricing, contact the [Azure Active Directory Forum](https://azure.microsoft.com/support/community/?product=active-directory).
 
@@ -63,7 +63,7 @@ After you choose your Azure AD license, you'll get access to some or all of the 
 
 |Category|Description|
 |-------|-----------|
-|Application management|Manage your cloud and on-premises apps using Application Proxy, single sign-on, the My Apps portal (also known as the Access panel), and Software as a Service (SaaS) apps. For more information, see [How to provide secure remote access to on-premises applications](../manage-apps/application-proxy.md) and [Application Management documentation](../manage-apps/index.yml).|
+|Application management|Manage your cloud and on-premises apps using Application Proxy, single sign-on, the My Apps portal (also known as the Access panel), and Software as a Service (SaaS) apps. For more information, see [How to provide secure remote access to on-premises applications](../app-proxy/application-proxy.md) and [Application Management documentation](../manage-apps/index.yml).|
 |Authentication|Manage Azure Active Directory self-service password reset, Multi-Factor Authentication, custom banned password list, and smart lockout. For more information, see [Azure AD Authentication documentation](../authentication/index.yml).|
 |Azure Active Directory for developers|Build apps that sign in all Microsoft identities, get tokens to call Microsoft Graph, other Microsoft APIs, or custom APIs. For more information, see [Microsoft identity platform (Azure Active Directory for developers)](../develop/index.yml).|
 |Business-to-Business (B2B)|Manage your guest users and external partners, while maintaining control over your own corporate data. For more information, see [Azure Active Directory B2B documentation](../external-identities/index.yml).|
@@ -88,10 +88,10 @@ To better understand Azure AD and its documentation, we recommend reviewing the 
 |Identity| A thing that can get authenticated. An identity can be a user with a username and password. Identities also include applications or other servers that might require authentication through secret keys or certificates.|
 |Account| An identity that has data associated with it. You cannot have an account without an identity.|
 |Azure AD account| An identity created through Azure AD or another Microsoft cloud service, such as Microsoft 365. Identities are stored in Azure AD and accessible to your organization's cloud service subscriptions. This account is also sometimes called a Work or school account.|
-|Account Administrator|This classic subscription administrator role is conceptually the billing owner of a subscription. This role has access to the [Azure Account Center](https://account.azure.com/Subscriptions) and enables you to manage all subscriptions in an account. For more information, see [Classic subscription administrator roles, Azure roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
+|Account Administrator|This classic subscription administrator role is conceptually the billing owner of a subscription. This role enables you to manage all subscriptions in an account. For more information, see [Classic subscription administrator roles, Azure roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Service Administrator|This classic subscription administrator role enables you to manage all Azure resources, including access. This role has the equivalent access of a user who is assigned the Owner role at the subscription scope. For more information, see [Classic subscription administrator roles, Azure roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
-|Owner|This role helps you manage all Azure resources, including access. This role is built on a newer authorization system called Azure role-base access control (Azure RBAC) that provides fine-grained access management to Azure resources. For more information, see [Classic subscription administrator roles, Azure roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
-|Azure AD Global administrator|This administrator role is automatically assigned to whomever created the Azure AD tenant. Global administrators can do all of the administrative functions for Azure AD and any services that federate to Azure AD, such as Exchange Online, SharePoint Online, and Skype for Business Online. You can have multiple Global administrators, but only Global administrators can assign administrator roles (including assigning other Global administrators) to users. Note that this administrator role is called Global administrator in the Azure portal, but it's called **Company administrator** in the Microsoft Graph API and Azure AD PowerShell. For more information about the various administrator roles, see [Administrator role permissions in Azure Active Directory](../roles/permissions-reference.md).|
+|Owner|This role helps you manage all Azure resources, including access. This role is built on a newer authorization system called Azure role-based access control (Azure RBAC) that provides fine-grained access management to Azure resources. For more information, see [Classic subscription administrator roles, Azure roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
+|Azure AD Global administrator|This administrator role is automatically assigned to whomever created the Azure AD tenant. Global administrators can do all of the administrative functions for Azure AD and any services that federate to Azure AD, such as Exchange Online, SharePoint Online, and Skype for Business Online. You can have multiple Global administrators, but only Global administrators can assign administrator roles (including assigning other Global administrators) to users. For more information about the various administrator roles, see [Administrator role permissions in Azure Active Directory](../roles/permissions-reference.md).|
 |Azure subscription| Used to pay for Azure cloud services. You can have many subscriptions and they're linked to a credit card.|
 |Azure tenant| A dedicated and trusted instance of Azure AD that's automatically created when your organization signs up for a Microsoft cloud service subscription, such as Microsoft Azure, Microsoft Intune, or Microsoft 365. An Azure tenant represents a single organization.|
 |Single tenant| Azure tenants that access other services in a dedicated environment are considered single tenant.|

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial - Customize the operator dashboard in Azure IoT Central'
-description: 'This tutorial shows how to customize the operator dashboard in an IoT Central application, and manage devices.'
+title: 'Tutorial - Customize the dashboard in Azure IoT Central'
+description: 'This tutorial shows how to customize the dashboard in an IoT Central application, and manage devices.'
 services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail
@@ -11,10 +11,10 @@ author: timlt
 ms.date: 11/12/2019
 ---
 
-# Tutorial:  Customize the operator dashboard and manage devices in Azure IoT Central
+# Tutorial: Customize the dashboard and manage devices in Azure IoT Central
 
 
-In this tutorial, as a builder, you learn how to customize the operator dashboard in your Azure IoT Central in-store analytics application. Application operators can use the customized dashboard to run the application and manage the attached devices.
+In this tutorial, you learn how to customize the dashboard in your Azure IoT Central in-store analytics application. Application operators can use the customized dashboard to run the application and manage the attached devices.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -32,7 +32,7 @@ The builder should complete the tutorial to create the Azure IoT Central in-stor
 * [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app.md) (Required)
 
 ## Change the dashboard name
-To customize the operator dashboard, you have to edit the default dashboard in your application. Also, you can create additional new dashboards. The first step to customize the dashboard in your application is to change the name.
+To customize the dashboard, you have to edit the default dashboard in your application. Also, you can create additional new dashboards. The first step to customize the dashboard in your application is to change the name.
 
 1. Navigate to the [Azure IoT Central application manager](https://aka.ms/iotcentral) website.
 
@@ -239,7 +239,12 @@ To add a command tile to reboot the gateway:
 
 1. Optionally, select the **Reboot** tile to run the reboot command on your gateway.
 
+## Clean up resources
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
+
 ## Next steps
+
 In this tutorial, you learned how to:
 
 * Change the dashboard name

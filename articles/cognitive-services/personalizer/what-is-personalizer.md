@@ -16,11 +16,14 @@ Azure Personalizer is a cloud-based service that helps your applications choose 
 > [!TIP]
 > Content is any unit of information, such as text, images, URL, emails, or anything else that you want to select from and show to your users.
 
-Before you get started, feel free to try out [Personalizer with this interactive demo](https://personalizationdemo.azurewebsites.net/).
+This documentation contains the following article types:  
 
-<!--
-![What is personalizer animation](./media/what-is-personalizer.gif)
--->
+* [**Quickstarts**](quickstart-personalizer-sdk.md) are getting-started instructions to guide you through making requests to the service.  
+* [**How-to guides**](how-to-settings.md) contain instructions for using the service in more specific or customized ways.  
+* [**Concepts**](how-personalizer-works.md) provide in-depth explanations of the service functionality and features.  
+* [**Tutorials**](tutorial-use-personalizer-web-app.md) are longer guides that show you how to use the service as a component in broader business solutions.  
+
+Before you get started, try out [Personalizer with this interactive demo](https://personalizationdemo.azurewebsites.net/).
 
 ## How does Personalizer select the best content item?
 
@@ -96,24 +99,12 @@ Since Personalizer uses collective information in near real-time to return the s
         * Or sometime later in an offline system
     1. [Evaluate your loop](concepts-offline-evaluation.md) with an offline evaluation after a period of use. An offline evaluation allows you to test and assess the effectiveness of the Personalizer Service without changing your code or affecting user experience.
 
-## Complete a quickstart
-
-We offer quickstarts in C#, JavaScript, and Python. Each quickstart is designed to teach you basic design patterns, and have you running code in less than 10 minutes. 
-
-* [Quickstart: How to use the Personalizer client library](./quickstart-personalizer-sdk.md)
-
-After you've had a chance to get started with the Personalizer service, try our tutorials and learn how to use Personalizer in web applications, chat bots, or an Azure Notebook.
-
-* [Tutorial: Use Personalizer in a .NET web app](tutorial-use-personalizer-web-app.md)
-* [Tutorial: Use Personalizer in a .NET chat bot](tutorial-use-personalizer-chat-bot.md)
-* [Tutorial: Use Personalizer in an Azure Notebook](tutorial-use-azure-notebook-generate-loop-data.md)
-
 ## Reference 
 
-* [Personalizer C#/.NET SDK](/dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet)
+* [Personalizer C#/.NET SDK](/dotnet/api/overview/azure/cognitiveservices/client/personalizer)
 * [Personalizer Go SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview)
-* [Personalizer JavaScript SDK](/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest)
-* [Personalizer Python SDK](/python/api/overview/azure/cognitiveservices/personalizer?view=azure-python)
+* [Personalizer JavaScript SDK](/javascript/api/@azure/cognitiveservices-personalizer/)
+* [Personalizer Python SDK](/python/api/overview/azure/cognitiveservices/personalizer)
 * [REST APIs](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank)
 
 ## Next steps

@@ -4,11 +4,11 @@ titleSuffix: Azure Maps
 description: "Learn about two ways of authenticating requests in Azure Maps: shared key authentication and Azure Active Directory (Azure AD) authentication."
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 05/25/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ms.custom: mvc
 ---
 
@@ -25,8 +25,8 @@ Azure Maps supports two ways to authenticate requests: Shared Key authentication
 
 For information about viewing your keys in the Azure portal, see [Manage authentication](./how-to-manage-authentication.md#view-authentication-details).
 
-> [!TIP]
-> For security purposes, it is recommended that you rotate between your primary and secondary keys. To rotate keys, update your app to use the secondary key, deploy, then press the cycle/refresh button beside the primary key to generate a new primary key. The old primary key will be disabled. For more information on key rotation, see [Set up Azure Key Vault with key rotation and auditing](../key-vault/secrets/tutorial-rotation-dual.md)
+> [!NOTE]
+> Primary and Secondary keys should be treated as sensitive data. The shared key is used to authenticate all Azure Maps REST APIs.  Users who use a shared key should abstract the API key away, either through environment variables or secure secret storage, where it can be managed centrally.
 
 ## Azure AD authentication
 
@@ -46,7 +46,7 @@ For general information about authenticating with Azure AD, see [What is authent
 
 ### Managed identities for Azure resources and Azure Maps
 
-[Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) provide Azure services with an automatically managed application based security principal which can authenticate with Azure AD. With Azure role-based access control (Azure RBAC), the managed identity security principal can be authorized to access Azure Maps services. Some examples of managed identities include: Azure App Service, Azure Functions, and Azure Virtual Machines. For a list of managed identities, see [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
+[Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) provide Azure services with an automatically managed application based security principal that can authenticate with Azure AD. With Azure role-based access control (Azure RBAC), the managed identity security principal can be authorized to access Azure Maps services. Some examples of managed identities include: Azure App Service, Azure Functions, and Azure Virtual Machines. For a list of managed identities, see [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
 
 ### Configuring application Azure AD authentication
 
@@ -75,11 +75,11 @@ For information about viewing your client ID, see [View authentication details](
 
 ## Authorization with role-based access control
 
-Azure Maps supports access to all principal types for [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) including: individual Azure AD users, groups, applications, Azure resources, and Azure Managed identities. Principal types are granted a set of permissions, also known as a role definition. A role definition provides permissions to REST API actions. Applying access to one or more Azure Maps accounts is known as a scope. When applying a principal, role definition, and scope then a role assignment is created. 
+Azure Maps supports access to all principal types for [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) including: individual Azure AD users, groups, applications, Azure resources, and Azure Managed identities. Principal types are granted a set of permissions, also known as a role definition. A role definition provides permissions to REST API actions. Applying access to one or more Azure Maps accounts is known as a scope. When applying a principal, role definition, and scope then a role assignment is created.
 
-The next sections discuss concepts and components of Azure Maps integration with Azure RBAC. As part of the process to set up your Azure Maps account, an Azure AD directory is associated to the Azure subscription which the Azure Maps account resides. 
+The next sections discuss concepts and components of Azure Maps integration with Azure RBAC. As part of the process to set up your Azure Maps account, an Azure AD directory is associated to the Azure subscription, which the Azure Maps account resides.
 
-When you configure Azure RBAC, you choose a security principal and apply it to a role assignment. To learn how to add role assignments on the Azure portal, see [Add or remove Azure role assignments](../role-based-access-control/role-assignments-portal.md).
+When you configure Azure RBAC, you choose a security principal and apply it to a role assignment. To learn how to add role assignments on the Azure portal, see [Assign Azure roles](../role-based-access-control/role-assignments-portal.md).
 
 ### Picking a role definition
 

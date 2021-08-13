@@ -1,5 +1,5 @@
 ---
-title: Building government solutions with Azure IoT Central
+title: What are the Azure IoT Central government solutions
 description: Learn to build smart city solutions using Azure IoT Central application templates.
 author: miriambrus
 ms.author: miriamb
@@ -9,7 +9,7 @@ ms.service: iot-central
 services: iot-central
 ---
 
-# Building government solutions with Azure IoT Central
+# What are the IoT Central government solutions?
 
 Get started with building smart city solutions using Azure IoT Central application templates. Start now with **water quality monitoring**, **water consumption monitoring**, and **connected waste management**.
 
@@ -22,7 +22,7 @@ Water Quality Monitoring app is an IoT Central app template to help you kickstar
 ![Water Quality Monitoring App template](./media/overview-iotcentral-government/waterqualitymonitoring-dashboard-full.png)
 
 The App template consists of:
-* Sample operator dashboards
+* Sample dashboards
 * Sample water quality monitor device templates
 * Simulated water quality monitor devices
 * Pre-configured rules and jobs
@@ -40,7 +40,7 @@ Water Consumption Monitoring app is an IoT Central app template to help you kick
   ![Water Consumption Monitoring App template](./media/overview-iotcentral-government/waterconsumptionmonitoring-dashboardfull.png)
 
 The Water Consumption Monitoring app template consists of pre-configured:
-* Sample operator dashboards
+* Sample dashboards
 * Sample water quality monitor device templates
 * Simulated water quality monitor devices
 * Pre-configured rules and jobs
@@ -56,7 +56,7 @@ Connected Waste Management app is an IoT Central app template to help you kickst
 
 
 The Connected Waste Management app template consist of pre-configured:
-* Sample operator dashboards
+* Sample dashboards
 * Sample connected waste bin device templates
 * Simulated connected waste bin devices
 * Pre-configured rules and jobs
@@ -66,8 +66,6 @@ Get started with the [Connected Waste Management application tutorial](./tutoria
 
 ## Next steps
 
-* Try any of the Government application templates in IoT Central for free [create app](https://apps.azureiotcentral.com/build/government)
 * Learn about [Water Quality Monitoring concepts](./concepts-waterqualitymonitoring-architecture.md)
 * Learn about [Water Consumption Monitoring concepts](./concepts-waterconsumptionmonitoring-architecture.md)
 * Learn about [Connected Waste Management concepts](./concepts-connectedwastemanagement-architecture.md)  
-* Learn about IoT Central, see [IoT Central overview](../core/overview-iot-central.md)

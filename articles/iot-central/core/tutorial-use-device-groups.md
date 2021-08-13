@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Use device groups in your Azure IoT Central application | Microsoft Docs
-description: Tutorial - As an operator, learn how to use device groups to analyze telemetry from  devices in your Azure IoT Central application.
+description: Tutorial - Learn how to use device groups to analyze telemetry from  devices in your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/16/2020
@@ -11,7 +11,7 @@ services: iot-central
 
 # Tutorial: Use device groups to analyze device telemetry
 
-This article describes how, as an operator, to use device groups to analyze device telemetry in your Azure IoT Central application.
+This article describes how to use device groups to analyze device telemetry in your Azure IoT Central application.
 
 A device group is a list of devices that are grouped together because they match some specified criteria. Device groups help you manage, visualize, and analyze devices at scale by grouping devices into smaller, logical groups. For example, you can create a device group to list all the air conditioner devices in Seattle to enable a technician to find the devices for which they're responsible.
 
@@ -23,24 +23,60 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Before you begin, you should complete the [Create an Azure IoT Central application](./quick-deploy-iot-central.md) and [Add a simulated device to your IoT Central application](./quick-create-simulated-device.md) quickstarts to create the **Sensor Controller** device template to work with.
+To complete the steps in this tutorial, you need:
+
+[!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
+
+## Add and customize a device template
+
+Add a device template from the device catalog. This tutorial uses the **ESP32-Azure IoT Kit** device template:
+
+1. To add a new device template, select **+ New** on the **Device templates** page.
+
+1. On the **Select type** page, scroll down until you find the **ESP32-Azure IoT Kit** tile in the **Use a pre-configured device template** section.
+
+1. Select the **ESP32-Azure IoT Kit** tile, and then select **Next: Review**.
+
+1. On the **Review** page, select **Create**.
+
+The name of the template you created is **Sensor Controller**. The model includes components such as **Sensor Controller**, **SensorTemp**, and **Device Information interface**. Components define the capabilities of an ESP32 device. Capabilities include the telemetry, properties, and commands.
+
+Add two cloud properties to the **Sensor Controller** device template:
+
+1. Select **Cloud Properties** and then **+ Add cloud property**. Use the information in the following table to add two cloud properties to your device template:
+
+    | Display Name      | Semantic Type | Schema |
+    | ----------------- | ------------- | ------ |
+    | Last Service Date | None          | Date   |
+    | Customer Name     | None          | String |
+
+1. Select **Save** to save your changes.
+
+Add a new form to the device template to manage the device:
+
+1. Select the **Views** node, and then select the **Editing device and cloud data** tile to add a new view.
+
+1. Change the form name to **Manage device**.
+
+1. Select the **Customer Name** and **Last Service Date** cloud properties, and the **Target Temperature** property. Then select **Add section**.
+
+1. Select **Save** to save your new form.
+
+Now publish the device template.
 
 ## Create simulated devices
 
 Before you create a device group, add at least five simulated devices based on the **Sensor Controller** device template to use in this tutorial:
 
-
 :::image type="content" source="media/tutorial-use-device-groups/simulated-devices.png" alt-text="Screenshot showing five simulated sensor controller devices":::
 
-For four of the simulated sensor devices, use the **Manage device** view to set the customer name to *Contoso*:
+For four of the simulated sensor devices, use the **Manage device** view to set the customer name to *Contoso* and select **Save**.
 
 :::image type="content" source="media/tutorial-use-device-groups/customer-name.png" alt-text="Screenshot that shows how to set the Customer Name cloud property":::
 
 ## Create a device group
 
-To create a device group:
-
-1. Choose **Device groups** on the left pane.
+1. Select **Device groups** on the left pane to navigate to device groups page.
 
 1. Select **+ New**.
 
@@ -70,13 +106,21 @@ To analyze the telemetry for a device group:
 
     :::image type="content" source="media/tutorial-use-device-groups/create-analysis.png" alt-text="Screenshot that shows the telemetry types selected for analysis":::
 
-    Use the gear-wheel icons next to the telemetry types to select an aggregation type. The default is **Average**. Use **Group by** to change how the aggregate data is shown. For example, if you split by device ID you see a plot for each device when you select **Analyze**.
+    Use the ellipsis icons next to the telemetry types to select an aggregation type. The default is **Average**. Use **Group by** to change how the aggregate data is shown. For example, if you split by device ID you see a plot for each device when you select **Analyze**.
 
 1. Select **Analyze** to view the average telemetry values:
 
     :::image type="content" source="media/tutorial-use-device-groups/view-analysis.png" alt-text="Screenshot that shows average values for all the Contoso devices":::
 
-    You can customize the view, change the time period shown, and export the data.
+    You can customize the view, change the time period shown, and export the data as CSV or view data as table.
+
+    :::image type="content" source="media/tutorial-use-device-groups/export-data.png" alt-text="Screenshot that shows how to export data for the Contoso devices":::
+
+To learn more about analytics, see [How to use analytics to analyze device data](howto-create-analytics.md).
+
+## Clean up resources
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
 ## Next steps
 

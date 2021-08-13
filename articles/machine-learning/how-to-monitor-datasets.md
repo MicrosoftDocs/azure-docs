@@ -6,13 +6,12 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: sgilley
-ms.author: copeters
-author: lostmygithubaccount
+ms.author: wibuchan
+author: buchananwp
 ms.date: 06/25/2020
-ms.topic: conceptual
-ms.custom: how-to, data4ml, contperf-fy21q2
-
-## Customer intent: As a data scientist, I want to detect data drift in my datasets and set alerts for when drift is large.
+ms.topic: how-to
+ms.custom: data4ml, contperf-fy21q2
+#Customer intent: As a data scientist, I want to detect data drift in my datasets and set alerts for when drift is large.
 ---
 
 # Detect data drift (preview) on datasets
@@ -25,7 +24,7 @@ With Azure Machine Learning dataset monitors (preview), you can:
 * **Monitor new data** for differences between any baseline and target dataset.
 * **Profile features in data** to track how statistical properties change over time.
 * **Set up alerts on data drift** for early warnings to potential issues. 
-* **[Create a new dataset version](how-to-version-track-datasets** when you determine the data has drifted too much.
+* **[Create a new dataset version](how-to-version-track-datasets.md)** when you determine the data has drifted too much.
 
 An [Azure Machine learning dataset](how-to-create-register-datasets.md) is used to create the monitor. The dataset must include a timestamp column.
 
@@ -39,9 +38,9 @@ You can view data drift metrics with the Python SDK or in Azure Machine Learning
 ## Prerequisites
 
 To create and work with dataset monitors, you need:
-* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 * An [Azure Machine Learning workspace](how-to-manage-workspace.md).
-* The [Azure Machine Learning SDK for Python installed](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py), which includes the azureml-datasets package.
+* The [Azure Machine Learning SDK for Python installed](/python/api/overview/azure/ml/install), which includes the azureml-datasets package.
 * Structured (tabular) data with a timestamp specified in the file path, file name, or column in the data.
 
 ## What is data drift?
@@ -100,12 +99,12 @@ The monitor will compare the baseline and target datasets.
 
 ## Create target dataset
 
-The target dataset needs the `timeseries` trait set on it by specifying the timestamp column either from a column in the data or a virtual column derived from the path pattern of the files. Create the dataset with a timestamp through the [Python SDK](#sdk-dataset) or [Azure Machine Learning studio](#studio-dataset). A column representing a "timestamp" must be specified to add `timeseries` trait to the dataset. If your data is partitioned into folder structure with time info, such as '{yyyy/MM/dd}', create a virtual column through the path pattern setting and set it as the "partition timestamp" to improve the importance of time series functionality.
+The target dataset needs the `timeseries` trait set on it by specifying the timestamp column either from a column in the data or a virtual column derived from the path pattern of the files. Create the dataset with a timestamp through the [Python SDK](#sdk-dataset) or [Azure Machine Learning studio](#studio-dataset). A column representing a "timestamp" must be specified to add `timeseries` trait to the dataset. If your data is partitioned into folder structure with time info, such as '{yyyy/MM/dd}', create a virtual column through the path pattern setting and set it as the "partition timestamp" to enable time series API functionality.
 
 # [Python](#tab/python)
 <a name="sdk-dataset"></a>
 
-The [`Dataset`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) class [`with_timestamp_columns()`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-)  method defines the time stamp column for the dataset.
+The [`Dataset`](/python/api/azureml-core/azureml.data.tabulardataset#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) class [`with_timestamp_columns()`](/python/api/azureml-core/azureml.data.tabulardataset#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-)  method defines the time stamp column for the dataset.
 
 ```python 
 from azureml.core import Workspace, Dataset, Datastore
@@ -133,7 +132,7 @@ dset = dset.register(ws, 'target')
 ```
 
 > [!TIP]
-> For a full example of using the `timeseries` trait of datasets, see the [example notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) or the [datasets SDK documentation](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
+> For a full example of using the `timeseries` trait of datasets, see the [example notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) or the [datasets SDK documentation](/python/api/azureml-core/azureml.data.tabulardataset#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
 
 # [Studio](#tab/azure-studio)
 
@@ -145,11 +144,11 @@ In the following example, all data under the subfolder *NoaaIsdFlorida/2019* is 
 
 [![Partition format](./media/how-to-monitor-datasets/partition-format.png)](media/how-to-monitor-datasets/partition-format-expand.png)
 
-In the **Schema** settings, specify the timestamp column from a virtual or real column in the specified dataset:
+In the **Schema** settings, specify the **timestamp** column from a virtual or real column in the specified dataset. This type indicates that your data has a time component. 
 
 :::image type="content" source="media/how-to-monitor-datasets/timestamp.png" alt-text="Set the timestamp":::
 
-If your data is partitioned by date, as is the case here, you can also specify the partition_timestamp.  This allows more efficient processing of dates.
+If your data is already partitioned by date or time, as is the case here, you can also specify the **Partition timestamp**. This allows more efficient processing of dates and enables timeseries APIs that you can leverage during training.
 
 :::image type="content" source="media/how-to-monitor-datasets/timeseries-partitiontimestamp.png" alt-text="Partition timestamp":::
 
@@ -174,7 +173,7 @@ from datetime import datetime
 ws = Workspace.from_config()
 
 # get the target dataset
-dset = Dataset.get_by_name(ws, 'target')
+target = Dataset.get_by_name(ws, 'target')
 
 # set the baseline dataset
 baseline = target.time_before(datetime(2019, 2, 1))
@@ -354,7 +353,7 @@ Limitations and known issues for data drift monitors:
     1. On the **Dataset Monitors** tab, select the experiment link to check run status.  This link is on the far right of the table.
     1. If run completed successfully, check driver logs to see how many metrics has been generated or if there's any warning messages.  Find driver logs in the **Output + logs** tab after you click on an experiment.
 
-* If the SDK `backfill()` function does not generate the expected output, it may be due to an authentication issue.  When you create the compute to pass into this function, do not use `Run.get_context().experiment.workspace.compute_targets`.  Instead, use [ServicePrincipalAuthentication](/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?preserve-view=true&view=azure-ml-py) such as the following to create the compute that you pass into that `backfill()` function: 
+* If the SDK `backfill()` function does not generate the expected output, it may be due to an authentication issue.  When you create the compute to pass into this function, do not use `Run.get_context().experiment.workspace.compute_targets`.  Instead, use [ServicePrincipalAuthentication](/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication) such as the following to create the compute that you pass into that `backfill()` function: 
 
   ```python
    auth = ServicePrincipalAuthentication(
@@ -362,7 +361,7 @@ Limitations and known issues for data drift monitors:
           service_principal_id=app_id,
           service_principal_password=client_secret
           )
-   ws = Workspace.get("xxx", auth=auth, subscription_id="xxx", resource_group"xxx")
+   ws = Workspace.get("xxx", auth=auth, subscription_id="xxx", resource_group="xxx")
    compute = ws.compute_targets.get("xxx")
    ```
 

@@ -3,13 +3,14 @@ title: Collaborate with others - LUIS
 titleSuffix: Azure Cognitive Services
 description: An app owner can add contributors to the authoring resource. These contributors can modify the model, train, and publish the app.
 services: cognitive-services
-
+author: aahill
+ms.author: aahi
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 05/17/2021
 
 ---
 
@@ -21,18 +22,7 @@ An app owner can add contributors to apps. These contributors can modify the mod
 
 You have migrated if your LUIS authoring experience is tied to an Authoring resource on the **Manage -> Azure resources** page in the LUIS portal.
 
-1. In the Azure portal, find the Language Understanding (LUIS) authoring resource. It has the type `LUIS.Authoring`.
-1. On this resource's **Access Control (IAM)** page, select **+Add** then select **Add role assignment**.
-
-    ![In Azure portal, add role assignment on authoring resource.](./media/luis-how-to-collaborate/authoring-resource-access-control-add-role.png)
-
-1. In the **Add role assignment** window, select the **Role** of Contributor. In the **Assign access to** option, select **Azure AD user, group, or service principal**. In the **Select** option, enter the user's email address. If the user is known by more than 1 email address for the same domain, make sure the enter the _primary_ email account.
-
-    ![Add user's email to the contributor role for Azure AD](./media/luis-how-to-collaborate/add-role-assignment-for-contributor.png)
-
-    When the user's email is found, select the account and select **Save**.
-
-    If you have trouble with this role assignment, review [Azure role assignments](../../role-based-access-control/role-assignments-portal.md) and [Azure access control troubleshooting](../../role-based-access-control/troubleshooting.md#problems-with-azure-role-assignments).
+In the Azure portal, find your Language Understanding (LUIS) authoring resource. It has the type `LUIS.Authoring`. In the resource's **Access Control (IAM)** page, add the role of **contributor** for the user that you want to contribute. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## View the app as a contributor
 
@@ -63,9 +53,7 @@ LUIS uses standard Azure Active Directory (Azure AD) consent flow.
 The tenant admin should work directly with the user who needs access granted to use LUIS in the Azure AD.
 
 * First, the user signs into LUIS, and sees the pop-up dialog needing admin approval. The user contacts the tenant admin before continuing.
-* Second, the tenant admin signs into LUIS, and sees a consent flow pop-up dialog. This is the dialog the admin needs to give permission for the user. Once the admin accepts the permission, the user is able to continue with LUIS. If the tenant admin will not sign in to LUIS, the admin can access [consent](https://account.activedirectory.windowsazure.com/r#/applications) for LUIS, shown in the following screenshot. Notice the list is filtered to items that include the name `LUIS`.
-
-![Azure active directory permission by app website](./media/luis-how-to-collaborate/tenant-permissions.png)
+* Second, the tenant admin signs into LUIS, and sees a consent flow pop-up dialog. This is the dialog the admin needs to give permission for the user. Once the admin accepts the permission, the user is able to continue with LUIS. If the tenant admin will not sign in to LUIS, the admin can access [consent](https://account.activedirectory.windowsazure.com/r#/applications) for LUIS. On this page you can filter the list to items that include the name `LUIS`.
 
 If the tenant admin only wants certain users to use LUIS, there are a couple of possible solutions:
 * Giving the "admin consent" (consent to all users of the Azure AD), but then set to "Yes" the "User assignment required" under Enterprise Application Properties, and finally assign/add only the wanted users to the Application. With this method, the Administrator is still providing "admin consent" to the App, however, it's possible to control the users that can access it.
@@ -77,6 +65,6 @@ Learn more about Azure active directory users and consent:
 ## Next steps
 
 * Learn [how to use versions](luis-how-to-manage-versions.md) to control your app life cycle.
-* Understand the concepts including the [authoring resource](luis-how-to-azure-subscription.md#authoring-key) and [contributors](luis-how-to-azure-subscription.md#contributions-from-other-authors) on that resource.
+* Understand the about [authoring resources](luis-how-to-azure-subscription.md) and [adding contributors](luis-how-to-collaborate.md) on that resource.
 * Learn [how to create](luis-how-to-azure-subscription.md) authoring and runtime resources
 * Migrate to the new [authoring resource](luis-migration-authoring.md)

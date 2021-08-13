@@ -2,7 +2,7 @@
 title: Develop modules for Azure IoT Edge | Microsoft Docs 
 description: Develop custom modules for Azure IoT Edge that can communicate with the runtime and IoT Hub
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 11/10/2020
 ms.topic: conceptual
@@ -11,6 +11,8 @@ services: iot-edge
 ---
 
 # Develop your own IoT Edge modules
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 Azure IoT Edge modules can connect with other Azure services and contribute to your larger cloud data pipeline. This article describes how you can develop modules to communicate with the IoT Edge runtime and IoT Hub, and therefore the rest of the Azure cloud.
 
@@ -127,7 +129,7 @@ IoT Edge supports multiple operating systems, device architectures, and developm
 
 ### Linux
 
-For all languages in the following table, IoT Edge supports development for AMD64 and ARM32 Linux devices.
+For all languages in the following table, IoT Edge supports development for AMD64 and ARM32 Linux containers.
 
 | Development language | Development tools |
 | -------------------- | ----------------- |
@@ -138,16 +140,30 @@ For all languages in the following table, IoT Edge supports development for AMD6
 | Python | Visual Studio Code |
 
 >[!NOTE]
->Develop and debugging support for ARM64 Linux devices is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information, see [Develop and debug ARM64 IoT Edge modules in Visual Studio Code (preview)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
+>Develop and debugging support for ARM64 Linux containers is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information, see [Develop and debug ARM64 IoT Edge modules in Visual Studio Code (preview)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
 
 ### Windows
 
-For all languages in the following table, IoT Edge supports development for AMD64 Windows devices.
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+For all languages in the following table, IoT Edge supports development for AMD64 Windows containers.
 
 | Development language | Development tools |
 | -------------------- | ----------------- |
 | C | Visual Studio 2017/2019 |
 | C# | Visual Studio Code (no debugging capabilities)<br>Visual Studio 2017/2019 |
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+IoT Edge 1.1 LTS is the last release channel that supports Windows containers. Starting with version 1.2, Windows containers are not supported.
+
+For information about developing with Windows containers, refer to the [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true) version of this article.
+
+:::moniker-end
+<!-- end 1.2 -->
 
 ## Next steps
 

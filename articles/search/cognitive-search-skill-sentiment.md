@@ -3,9 +3,8 @@ title: Sentiment cognitive skill
 titleSuffix: Azure Cognitive Search
 description: Extract a positive-negative sentiment score from text in an AI enrichment pipeline in Azure Cognitive Search.
 
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
@@ -14,6 +13,9 @@ ms.date: 06/17/2020
 # Sentiment cognitive skill
 
 The **Sentiment** skill evaluates unstructured text along a positive-negative continuum, and for each record, returns a numeric score between 0 and 1. Scores close to 1 indicate positive sentiment, and scores close to 0 indicate negative sentiment. This skill uses the machine learning models provided by [Text Analytics](../cognitive-services/text-analytics/overview.md) in Cognitive Services.
+
+> [!IMPORTANT]
+> The Sentiment skill is now discontinued replaced by [Microsoft.Skills.Text.V3.SentimentSkill](cognitive-search-skill-sentiment-v3.md). Follow the recommendations in [Deprecated cognitive search skills](cognitive-search-skill-deprecated.md) to migrate to a supported skill.
 
 > [!NOTE]
 > As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Cognitive Search. There are no charges for text extraction from documents.
@@ -106,13 +108,12 @@ Parameters are case-sensitive.
 }
 ```
 
-## Notes
-If empty, a sentiment score is not returned for those records.
-
-## Error cases
-If a language is not supported, an error is generated and no sentiment score is returned.
+## Warning cases
+If your text is empty, a warning is generated and no sentiment score is returned.
+If a language is not supported, a warning is generated and no sentiment score is returned.
 
 ## See also
 
 + [Built-in skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
++ [Sentiment Skill (V3)](cognitive-search-skill-sentiment-v3.md)

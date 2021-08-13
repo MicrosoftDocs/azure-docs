@@ -3,13 +3,13 @@ title: Tutorial - Monitor Windows virtual machines in Azure
 description: In this tutorial, you learn how to monitor the performance and discovered application components running on your Windows virtual machines.
 author: mgoedtel
 manager: carmonm
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: monitoring
 ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 09/27/2018
 ms.author: magoedte
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 
 #Customer intent: As an IT administrator, I want to learn about monitoring so that I can review the health status and perform troubleshooting on Windows virtual machines.
 ---
@@ -36,7 +36,7 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 
 ## Create virtual machine
 
-To configure Azure monitoring and update management in this tutorial, you need a Windows VM in Azure. First, set an administrator username and password for the VM with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1&preserve-view=true):
+To configure Azure monitoring and update management in this tutorial, you need a Windows VM in Azure. First, set an administrator username and password for the VM with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
@@ -83,18 +83,18 @@ To enable monitoring of your Azure VM with Azure Monitor for VMs:
 
 3. On the **Insights (preview)** page, select **Try now**.
 
-    ![Enable Azure Monitor for VMs for a VM](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
+    ![Enable Azure Monitor for VMs for a VM](../../azure-monitor/vm/media/vminsights-enable-portal/enable-vminsights-vm-portal.png)
 
 4. On the **Azure Monitor Insights Onboarding** page, if you have an existing Log Analytics workspace in the same subscription, select it in the drop-down list.  
 
     The list preselects the default workspace and location where the VM is deployed in the subscription. 
 
     >[!NOTE]
-    >To create a new Log Analytics workspace to store the monitoring data from the VM, see [Create a Log Analytics workspace](../../azure-monitor/learn/quick-create-workspace.md). The workspace must belong to one of the [supported regions](../../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions).
+    >To create a new Log Analytics workspace to store the monitoring data from the VM, see [Create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md). The workspace must belong to one of the [supported regions](../../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions).
 
 After you've enabled monitoring, you might need to wait several minutes before you can view the performance metrics for the VM.
 
-![Enable Azure Monitor for VMs monitoring deployment processing](../../azure-monitor/insights/media/vminsights-enable-single-vm/onboard-vminsights-vm-portal-status.png)
+![Enable Azure Monitor for VMs monitoring deployment processing](../../azure-monitor/vm/media/vminsights-enable-portal/onboard-vminsights-vm-portal-status.png)
 
 ## View VM performance metrics
 

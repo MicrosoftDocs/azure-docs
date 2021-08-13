@@ -2,8 +2,9 @@
 title: Red Hat Update Infrastructure | Microsoft Docs
 description: Learn about Red Hat Update Infrastructure for on-demand Red Hat Enterprise Linux instances in Microsoft Azure
 author: asinn826
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: redhat
+ms.collection: linux
 ms.topic: article
 ms.date: 02/10/2020
 ms.author: alsin
@@ -16,7 +17,7 @@ ms.reviewer: cynthn
 
 Red Hat Enterprise Linux (RHEL) Pay-As-You-Go (PAYG) images come preconfigured to access Azure RHUI. No additional configuration is needed. To get the latest updates, run `sudo yum update` after your RHEL instance is ready. This service is included as part of the RHEL PAYG software fees.
 
-Additional information on RHEL images in Azure, including publishing and retention policies, is available [here](./redhat-images.md).
+Additional information on RHEL images in Azure, including publishing and retention policies, is available [Overview of Red Hat Enterprise Linux images in Azure](./redhat-images.md).
 
 Information on Red Hat support policies for all versions of RHEL can be found on the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) page.
 
@@ -74,7 +75,7 @@ RedHat:RHEL:7.6:7.6.2019062116
 Extended Update Support (EUS) repositories are available to customers who may want to lock their RHEL VMs to a certain RHEL minor release after provisioning the VM. You can version-lock your RHEL VM to a specific minor version by updating the repositories to point to the Extended Update Support repositories. You can also undo the EUS version-locking operation.
 
 >[!NOTE]
-> EUS is not supported on RHEL Extras. This means that if you are installing a package that is usually available from the RHEL Extras channel, you will not be able to do so while on EUS. The Red Hat Extras Product Life Cycle is detailed [here](https://access.redhat.com/support/policy/updates/extras/).
+> EUS is not supported on RHEL Extras. This means that if you are installing a package that is usually available from the RHEL Extras channel, you will not be able to do so while on EUS. The Red Hat Extras Product Life Cycle is detailed on the [Red Hat Enterprise Linux Extras Product Life Cycle - Red Hat Customer Portal](https://access.redhat.com/support/policy/updates/extras/) page.
 
 At the time of this writing, EUS support has ended for RHEL <= 7.4. See the "Red Hat Enterprise Linux Extended Maintenance" section in the [Red Hat documentation](https://access.redhat.com/support/policy/updates/errata/#Long_Support) for more details.
 * RHEL 7.4 EUS support ends August 31, 2019
@@ -226,7 +227,7 @@ If you're using a network configuration to further restrict access from RHEL PAY
 >The new Azure US Government images,as of January 2020, will be using Public IP mentioned under Azure Global header above.
 
 >[!NOTE]
->Also, note that Azure Germany is deprecated in favor of public Germany regions. Recommendation for Azure Germany customers is to start pointing to public RHUI using the steps [here](#manual-update-procedure-to-use-the-azure-rhui-servers).
+>Also, note that Azure Germany is deprecated in favor of public Germany regions. Recommendation for Azure Germany customers is to start pointing to public RHUI using the steps on the [Red Hat Update Infrastructure](#manual-update-procedure-to-use-the-azure-rhui-servers) page.
 
 ## Azure RHUI Infrastructure
 

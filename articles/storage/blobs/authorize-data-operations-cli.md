@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 07/12/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
@@ -30,6 +30,9 @@ Azure CLI commands for reading and writing blob data include the optional `--aut
 
 To use the `--auth-mode` parameter, make sure that you have installed Azure CLI version 2.0.46 or later. Run `az --version` to check your installed version.
 
+> [!NOTE]
+> When a storage account is locked with an Azure Resource Manager **ReadOnly** lock, the [List Keys](/rest/api/storagerp/storageaccounts/listkeys) operation is not permitted for that storage account. **List Keys** is a POST operation, and all POST operations are prevented when a **ReadOnly** lock is configured for the account. For this reason, when the account is locked with a **ReadOnly** lock, users users who do not already possess the account keys must use Azure AD credentials to access blob data.
+
 > [!IMPORTANT]
 > If you omit the `--auth-mode` parameter or set it to `key`, then the Azure CLI attempts to use the account access key for authorization. In this case, Microsoft recommends that you provide the access key either on the command or in the **AZURE_STORAGE_KEY** environment variable. For more information about environment variables, see the section titled [Set environment variables for authorization parameters](#set-environment-variables-for-authorization-parameters).
 >
@@ -39,7 +42,7 @@ To use the `--auth-mode` parameter, make sure that you have installed Azure CLI 
 
 When you sign in to Azure CLI with Azure AD credentials, an OAuth 2.0 access token is returned. That token is automatically used by Azure CLI to authorize subsequent data operations against Blob or Queue storage. For supported operations, you no longer need to pass an account key or SAS token with the command.
 
-You can assign permissions to blob data to an Azure AD security principal via Azure role-based access control (Azure RBAC). For more information about Azure roles in Azure Storage, see [Manage access rights to Azure Storage data with Azure RBAC](../common/storage-auth-aad-rbac-portal.md).
+You can assign permissions to blob data to an Azure AD security principal via Azure role-based access control (Azure RBAC). For more information about Azure roles in Azure Storage, see [Assign an Azure role for access to blob data](assign-azure-role-data-access.md).
 
 ### Permissions for calling data operations
 
@@ -51,12 +54,12 @@ For details about the permissions required for each Azure Storage operation on a
 
 The following example shows how to create a container from Azure CLI using your Azure AD credentials. To create the container, you'll need to log in to the Azure CLI, and you'll need a resource group and a storage account. To learn how to create these resources, see [Quickstart: Create, download, and list blobs with Azure CLI](../blobs/storage-quickstart-blobs-cli.md).
 
-1. Before you create the container, assign the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) role to yourself. Even though you are the account owner, you need explicit permissions to perform data operations against the storage account. For more information about assigning Azure roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../common/storage-auth-aad-rbac-portal.md).
+1. Before you create the container, assign the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) role to yourself. Even though you are the account owner, you need explicit permissions to perform data operations against the storage account. For more information about assigning Azure roles, see [Assign an Azure role for access to blob data](assign-azure-role-data-access.md).
 
     > [!IMPORTANT]
     > Azure role assignments may take a few minutes to propagate.
 
-1. Call the [az storage container create](/cli/azure/storage/container#az-storage-container-create) command with the `--auth-mode` parameter set to `login` to create the container using your Azure AD credentials. Remember to replace placeholder values in angle brackets with your own values:
+1. Call the [az storage container create](/cli/azure/storage/container#az_storage_container_create) command with the `--auth-mode` parameter set to `login` to create the container using your Azure AD credentials. Remember to replace placeholder values in angle brackets with your own values:
 
     ```azurecli
     az storage container create \
@@ -78,6 +81,9 @@ az storage container create \
     --account-key <key>
     --auth-mode key
 ```
+
+> [!IMPORTANT]
+> When a storage account is locked with an Azure Resource Manager **ReadOnly** lock, the [List Keys](/rest/api/storagerp/storageaccounts/listkeys) operation is not permitted for that storage account. **List Keys** is a POST operation, and all POST operations are prevented when a **ReadOnly** lock is configured for the account. For this reason, when the account is locked with a **ReadOnly** lock, users must access data with Azure AD credentials.
 
 ## Authorize with a SAS token
 
@@ -104,5 +110,5 @@ You can specify authorization parameters in environment variables to avoid inclu
 
 ## Next steps
 
-- [Use Azure CLI to assign an Azure role for access to blob and queue data](../common/storage-auth-aad-rbac-cli.md)
+- [Assign an Azure role for access to blob data](assign-azure-role-data-access.md)
 - [Authorize access to blob and queue data with managed identities for Azure resources](../common/storage-auth-aad-msi.md)

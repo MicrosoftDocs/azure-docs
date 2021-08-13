@@ -27,7 +27,18 @@ landingContent:
         links:
           - text: What is Azure Sentinel?
             url: overview.md
-       
+          - text: Useful resources
+            url: resources.md
+      - linkListType: whats-new
+        links:
+          - text: What's new in Azure Sentinel?
+            url: whats-new.md
+      - linkListType: concept
+        links:
+          - text: Best practices
+            url: best-practices.md
+
+
   # Card (optional)
   - title: Get started
     linkLists:
@@ -35,72 +46,161 @@ landingContent:
         links:
           - text: Onboard Azure Sentinel
             url: quickstart-onboard.md
-          - text: Get visibility into alerts
-            url: quickstart-get-visibility.md
+      - linkListType: concept
+        links:
+          - text: Prerequisites
+            url: prerequisites.md
       - linkListType: how-to-guide
         links:
           - text: Connect data to Azure Sentinel
             url: connect-data-sources.md
-          
-  # Card
-  - title: Connect additional data sources
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Connect Azure Active Directory
-            url: connect-azure-active-directory.md
-          - text: Connect Azure Information Protection
-            url: connect-azure-information-protection.md
-          - text: Connect AWS
-            url: connect-aws.md
-          - text: Connect Palo Alto Networks
-            url: connect-paloalto.md
-          - text: Connect threat intelligence
-            url: connect-threat-intelligence.md
-      
-  # Card
-  - title: Work with multiple tenants
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: How to enable multi-tenant support in Azure Sentinel
-            url: multiple-tenants-service-providers.md
-  
- # Card (optional)
-  - title: Know what's happening in your environment
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Monitor your data
-            url: tutorial-monitor-your-data.md
           - text: Investigate incidents
-            url: tutorial-investigate-cases.md
-            
- # Card (optional)
-  - title: Detect threats
+            url: investigate-cases.md
+          - text: Microsoft 365 Defender integration with Azure Sentinel
+            url: microsoft-365-defender-sentinel-integration.md
+      - linkListType: learn
+        links:
+          - text: Create KQL queries for Azure Sentinel
+            url: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
+
+  # Card
+  - title: Collect data
     linkLists:
-      - linkListType: tutorial
+      - linkListType: concept
+        links:
+          - text: Data collection best practices
+            url: best-practices-data.md
+          - text: Normalizing and parsing data
+            url: normalization.md
+      - linkListType: how-to-guide
+        links:
+          - text: Connect Microsoft 365 Defender
+            url: connect-microsoft-365-defender.md
+          - text: Create a custom connector
+            url: create-custom-connector.md
+          - text: Monitor connector health
+            url: monitor-data-connector-health.md
+          - text: Integrate Azure Data Explorer
+            url: store-logs-in-azure-data-explorer.md
+      - linkListType: reference
+        links:
+          - text: Data source schema reference
+            url: data-source-schema-reference.md
+          - text: CEF log field mapping
+            url: cef-name-mapping.md
+          - text: Network normalization schema
+            url: normalization-schema.md
+
+ # Card (optional)
+  - title: Threat intelligence
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Understand threat intelligence in Azure Sentinel
+            url: understand-threat-intelligence.md
+          - text: Threat intelligence integrations
+            url: threat-intelligence-integration.md
+      - linkListType: how-to-guide
+        links:
+          - text: Connect threat intelligence platforms to Azure Sentinel
+            url: connect-threat-intelligence-tip.md
+          - text: Connect Azure Sentinel to STIX/TAXII feeds
+            url: connect-threat-intelligence-taxii.md
+          - text: Work with threat indicators
+            url: work-with-threat-indicators.md
+
+ # Card (optional)
+  - title: Threat detection
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: User and entity behavior analytics (UEBA)
+            url: identify-threats-with-entity-behavior-analytics.md
+          - text: SOC-ML anomalies
+            url: soc-ml-anomalies.md
+      - linkListType: how-to-guide
         links:
           - text: Use built-in-analytics to detect threats
-            url: tutorial-detect-threats-built-in.md
+            url: detect-threats-built-in.md
           - text: Create custom detection rules
-            url: tutorial-detect-threats-custom.md
+            url: detect-threats-custom.md
+      - linkListType: reference
+        links:
+          - text: Entities reference
+            url: entities-reference.md
+          - text: UEBA enrichments
+            url: ueba-enrichments.md
 
-# Card (optional)
-  - title: Automate threat prevention
+ # Card (optional)
+  - title: Threat hunting
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Hunt for threats
+            url: hunting.md
+      - linkListType: how-to-guide
+        links:
+          - text: Hunt with Jupyter notebooks
+            url: notebooks.md
+          - text: Hunt with bookmarks
+            url: bookmarks.md
+          - text: Hunt with livestream
+            url: livestream.md
+
+ # Card (optional)
+  - title: Investigate
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Respond automatically to threats
-            url: tutorial-respond-threats-playbook.md
-          - text: Use Jupyter Notebooks to hunt for security threats
-            url: notebooks.md
-# Card (optional)
-  - title: Be proactive about threat detection
-    linkLists:
+        - text: Investigate with UEBA
+          url: investigate-with-ueba.md
       - linkListType: how-to-guide
         links:
-          - text: Connect threat intelligence
-            url: connect-threat-intelligence.md
-          - text: Hunt for threats
-            url: hunting.md
+          - text: Investigate incidents
+            url: investigate-cases.md
+          - text: Monitor your data
+            url: monitor-your-data.md
+      - linkListType: reference
+        links:
+        - text: Commonly used Azure Sentinel workbooks
+          url: top-workbooks.md
+
+
+# Card (optional)
+  - title: Respond
+    linkLists:
+      - linkListType: tutorial
+        links:
+        - text: Respond automatically to threats
+          url: tutorial-respond-threats-playbook.md
+        - text: Use Jupyter Notebooks to hunt for security threats
+          url: notebooks.md
+      - linkListType: concept
+        links:
+          - text: Automation rules
+            url: automate-incident-handling-with-automation-rules.md
+          - text: Playbooks
+            url: automate-responses-with-playbooks.md
+
+
+
+  # Card
+  - title: Manage Azure Sentinel
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Workspace architecture best practices
+            url: best-practices-workspace-architecture.md
+      - linkListType: how-to-guide
+        links:
+          - text: Design your workspace architecture
+            url: design-your-workspace-architecture.md
+          - text: Manage multiple tenants
+            url: multiple-tenants-service-providers.md
+          - text: Work with incidents in multiple workspaces
+            url: multiple-workspace-view.md
+          - text: Manage your intellectual property
+            url: mssp-protect-intellectual-property.md
+
+
+

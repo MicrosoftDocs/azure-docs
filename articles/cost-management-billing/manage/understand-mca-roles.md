@@ -5,7 +5,7 @@ author: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 06/27/2021
 ms.author: banders
 ---
 
@@ -13,7 +13,11 @@ ms.author: banders
 
 To manage your billing account for a Microsoft Customer Agreement, use the roles described in the following sections. These roles are in addition to the built-in roles Azure has to control access to resources. For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
-This article applies to a billing account for a Microsoft Customer Agreement. Check if you have access to a Microsoft Customer Agreement.
+This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
+
+Watch the [Manage access to your MCA billing account](https://www.youtube.com/watch?v=9sqglBlKkho) video to learn how you can control access to your Microsoft Customer Agreement (MCA) billing account.
+
+>[!VIDEO https://www.youtube.com/embed/9sqglBlKkho]
 
 ## Billing role definitions
 
@@ -27,7 +31,7 @@ The following table describes the billing roles you use to manage your billing a
 |Billing profile owner|Manage everything for billing profile|
 |Billing profile contributor|Manage everything except permissions on the billing profile|
 |Billing profile reader|Read-only view of everything on billing profile|
-|Invoice manager|View invoices for billing profile|
+|Invoice manager|View and pay invoices for billing profile|
 |Invoice section owner|Manage everything on invoice section|
 |Invoice section contributor|Manage everything except permissions on the invoice section|
 |Invoice section reader|Read-only view of everything on the invoice section|
@@ -35,7 +39,7 @@ The following table describes the billing roles you use to manage your billing a
 
 ## Billing account roles and tasks
 
-A billing account lets you manage billing for your organization. You use billing account to organize costs, monitor charges, and invoices and control billing access for your organization. For more information, see [Understand billing account](../understand/mca-overview.md#your-billing-account).
+A billing account is created when you sign up to use Azure. You use your billing account to manage invoices, payments, and track costs. Roles on the billing account have the highest level of permissions and users in these roles get visibility into the cost and billing information for your entire account. Assign these roles only to users that need to view invoices, and track costs for your entire account like member of the finance and the accounting teams. For more information, see [Understand billing account](../understand/mca-overview.md#your-billing-account).
 
 The following tables show what role you need to complete tasks in the context of the billing account.
 
@@ -43,132 +47,142 @@ The following tables show what role you need to complete tasks in the context of
 
 |Task|Billing account owner|Billing account contributor|Billing account reader|
 |---|---|---|---|
-|View existing permissions for billing account|✔|✔|✔|
+|View role assignments for billing account|✔|✔|✔|
 |Give others permissions to view and manage the billing account|✔|✘|✘|
-|View billing account properties like company name, address, and more|✔|✔|✔|
+|View billing account properties like address, agreements and more|✔|✔|✔|
+|Update billing account properties like sold-to, display name, and more|✔|✔|✘|
 
 ### Manage billing profiles for billing account
 
 |Task|Billing account owner|Billing account contributor|Billing account reader|
 |---|---|---|---|
-|View all billing profiles in the account|✔|✔|✔|
+|View all billing profiles for the account|✔|✔|✔|
+|Create new billing profiles|✔|✔|✘|
 
 ### Manage invoices for billing account
 
 |Task|Billing account owner|Billing account contributor|Billing account reader|
 |---|---|---|---|
-|View all invoices in the account|✔|✔|✔|
-|Download invoices, Azure usage and charges files, price sheets and tax documents in the account|✔|✔|✔|
+|View all invoices for the account|✔|✔|✔|
+|Pay invoices with credit card|✔|✔|✘|
+|Download invoices, Azure usage files, price sheets, and tax documents|✔|✔|✔|
 
-### Manage invoice sections for billing account
-
-|Task|Billing account owner|Billing account contributor|Billing account reader|
-|---|---|---|---|
-|View all invoice sections in the account|✔|✔|✔|
-
-### Manage transactions for billing account
+### Manage products for billing account
 
 |Task|Billing account owner|Billing account contributor|Billing account reader|
 |---|---|---|---|
-|View all billing transactions for the account|✔|✔|✔|
-|View all products bought for the account|✔|✔|✔|
+|View all products purchased for the account|✔|✔|✔|
+|Manage billing for products like cancel, turn off auto renewal, and more|✔|✔|✘|
 
 ### Manage subscriptions for billing account
 
 |Task|Billing account owner|Billing account contributor|Billing account reader|
 |---|---|---|---|
-|View all Azure subscriptions in the billing account|✔|✔|✔|
+|View all Azure subscriptions created for the billing account|✔|✔|✔|
+|Create new Azure subscriptions|✔|✔|✘|
+|Cancel Azure subscriptions|✘|✘|✘|
 
 ## Billing profile roles and tasks
 
-A billing profile lets you manage your invoices and payment methods. A monthly invoice is generated for the Azure subscriptions and other products purchased using the billing profile. You use the payments methods to pay the invoice. For more information, see [Understand billing profiles](../understand/mca-overview.md#billing-profiles).
+Each billing account has at least one billing profile. Your first billing profile is set up when you sign up to use Azure. A monthly invoice is generated for the billing profile and contains all its associated charges from the prior month. You can set up more billing profiles based on your needs. Users with roles on a billing profile can view cost, set budget, and manage and pay its invoices. Assign these roles to users who are responsible for managing budget and paying invoices for the billing profile like members of the business administration teams in your organization. For more information, see [Understand billing profiles](../understand/mca-overview.md#billing-profiles).
 
 The following tables show what role you need to complete tasks in the context of the billing profile.
 
 ### Manage billing profile permissions, properties, and policies
 
-|Task|Billing profile owner|Billing profile contributor|Billing profile reader|Invoice Manager|Billing account owner|Billing account contributor|Billing account reader
+|Task|Billing profile owner|Billing profile contributor|Billing profile reader|Invoice manager|Billing account owner|Billing account contributor|Billing account reader
 |---|---|---|---|---|---|---|---|
-|View existing permissions for the billing profile|✔|✔|✔|✔|✔|✔|✔|
-|Give others permissions to view and manage the billing profile|✔|✘|✘|✘|✘|✘|✘|
-|View billing profile properties like PO number, email invoice preference, and more|✔|✔|✔|✔|✔|✔|✔|
-|Update billing profile properties |✔|✔|✘|✘|✘|✘|✘|
-|View policies applied on the billing profile like enable Azure reservation purchases, enable Azure marketplace purchases, and more|✔|✔|✔|✔|✔|✔|✔|
-|Apply policies on the billing profile |✔|✔|✘|✘|✘|✘|✘|
+|View role assignments for the billing profile|✔|✔|✔|✔|✔|✔|✔|
+|Give others permissions to view and manage the billing profile|✔|✘|✘|✘|✔|✘|✘|
+|View billing profile properties like PO number, bill-to, and more|✔|✔|✔|✔|✔|✔|✔|
+|Update billing profile properties |✔|✔|✘|✘|✔|✔|✘|
+|View policies applied on the billing profile like Azure reservation purchases, Azure Marketplace purchases, and more|✔|✔|✔|✔|✔|✔|✔|
+|Apply policies on the billing profile |✔|✔|✘|✘|✔|✔|✘|
 
 ### Manage invoices for billing profile
 
-|Task|Billing profile owner|Billing profile contributor|Billing profile reader|Invoice Manager|Billing account owner|Billing account contributor|Billing account reader
+|Task|Billing profile owner|Billing profile contributor|Billing profile reader|Invoice manager|Billing account owner|Billing account contributor|Billing account reader
 |---|---|---|---|---|---|---|---|
 |View all the invoices for the billing profile|✔|✔|✔|✔|✔|✔|✔|
+|Pay invoices with credit card|✔|✔|✘|✔|✔|✘|✘|
 |Download invoices, Azure usage and charges files, price sheets and tax documents for the billing profile|✔|✔|✔|✔|✔|✔|✔|
 
 ### Manage invoice sections for billing profile
 
-|Task|Billing profile owner|Billing profile contributor|Billing profile reader|Invoice Manager|Billing account owner|Billing account contributor|Billing account reader
+|Task|Billing profile owner|Billing profile contributor|Billing profile reader|Invoice manager|Billing account owner|Billing account contributor|Billing account reader
 |---|---|---|---|---|---|---|---|
 |View all the invoice sections for the billing profile|✔|✔|✔|✔|✔|✔|✔|
-|Create new invoice section for the billing profile|✔|✔|✘|✘|✘|✘|✘|
+|Create new invoice section for the billing profile|✔|✔|✘|✘|✔|✔|✘|
 
-### Manage transactions for billing profile
+### Manage products for billing profile
 
-|Task|Billing profile owner|Billing profile contributor|Billing profile reader|Invoice Manager|Billing account owner|Billing account contributor|Billing account reader
+|Task|Billing profile owner|Billing profile contributor|Billing profile reader|Invoice manager|Billing account owner|Billing account contributor|Billing account reader
 |---|---|---|---|---|---|---|---|
-|View all billing transactions for the billing profile|✔|✔|✔|✔|✔|✔|✔|
+|View all products purchased for the billing profile|✔|✔|✔|✔|✔|✔|✔|
+|Manage billing for products like cancel, turn off auto renewal, and more|✔|✔|✘|✘|✔|✔|✘|
+|Change billing profile for the products|✔|✔|✘|✘|✔|✔|✘|
 
 ### Manage payment methods for billing profile
 
-|Task|Billing profile owner|Billing profile contributor|Billing profile reader|Invoice Manager|Billing account owner|Billing account contributor|Billing account reader
+|Task|Billing profile owner|Billing profile contributor|Billing profile reader|Invoice manager|Billing account owner|Billing account contributor|Billing account reader
 |---|---|---|---|---|---|---|---|
 |View payment methods for the billing profile|✔|✔|✔|✔|✔|✔|✔|
+|Manage payment methods such as replacing credit card, detaching credit card, and more|✔|✔|✘|✘|✔|✔|✘|
 |Track Azure credits balance for the billing profile|✔|✔|✔|✔|✔|✔|✔|
 
 ### Manage subscriptions for billing profile
 
-|Task|Billing profile owner|Billing profile contributor|Billing profile reader|Invoice Manager|Billing account owner|Billing account contributor|Billing account reader
+|Task|Billing profile owner|Billing profile contributor|Billing profile reader|Invoice manager|Billing account owner|Billing account contributor|Billing account reader
 |---|---|---|---|---|---|---|---|
 |View all Azure subscriptions for the billing profile|✔|✔|✔|✔|✔|✔|✔|
+|Create new Azure subscriptions|✔|✔|✘|✘|✔|✔|✘|
+|Cancel Azure subscriptions|✘|✘|✘|✘|✘|✘|✘|
+|Change billing profile for the Azure subscriptions|✔|✔|✘|✘|✔|✔|✘|
 
 ## Invoice section roles and tasks
 
-An invoice section allows you to organize the costs on your invoice. You can create a section to organize your costs by department, development environment, or based on your organization's needs. Give others permission to create Azure subscriptions for the section. Any usage charges and purchases for the subscriptions then show on the section of the invoice. For more information, see [Understand invoice section](../understand/mca-overview.md#invoice-sections).
+Each billing profile contains one invoice section by default. You may create more invoice sections to group cost on the billing profile's invoice.  Users with roles on an invoice section can control who creates Azure subscriptions and make other purchases. Assign these roles to users who set up Azure environment for teams in our organization like engineering leads and technical architects. For more information, see [Understand invoice section](../understand/mca-overview.md#invoice-sections).
 
 The following tables show what role you need to complete tasks in the context of invoice sections.
 
 ### Manage invoice section permissions and properties
 
-|Tasks|Invoice section owner|Invoice section contributor|Invoice section reader|Azure subscription creator|Billing account owner|Billing account contributor|Billing account reader |
-|---|---|---|---|---|---|---|---|
-|View all permissions on invoice section|✔|✔|✔|✔|✔|✔|✔|
-|Give others permissions to view and manage the invoice section|✔|✘|✘|✘|✘|✘|✘|
-|View invoice section properties|✔|✔|✔|✔|✔|✔|✔|
-|Update invoice section properties|✔|✔|✘|✘|✘|✘|✘|
+|Tasks|Invoice section owner|Invoice section contributor|Invoice section reader|Azure subscription creator|Billing profile owner|Billing profile contributor|Billing profile reader |Invoice manager|Billing account owner|Billing account contributor|Billing account reader 
+|---|---|---|---|---|---|---|---|---|---|---|---|
+|View role assignments for invoice section|✔|✔|✔|✘|✔|✔|✔|✔|✔|✔|✔|
+|Give others permissions to view and manage the invoice section|✔|✘|✘|✘|✔|✘|✘|✘|✔|✘|✘|
+|View invoice section properties|✔|✔|✔|✘|✔|✔|✔|✔|✔|✔|✔|
+|Update invoice section properties|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
 
 ### Manage products for invoice section
 
-|Tasks|Invoice section owner|Invoice section contributor|Invoice section reader|Azure subscription creator|Billing account owner|Billing account contributor|Billing account reader
-|---|---|---|---|---|---|---|---|
-|View all products bought in the invoice section|✔|✔|✔|✘|✔|✔|✔|
-|Manage billing for products for invoice section like cancel, turn off auto renewal, and more|✔|✔|✘|✘|✘|✘|✘|
-|Change invoice section for the products|✔|✔|✘|✘|✘|✘|✘|
+|Tasks|Invoice section owner|Invoice section contributor|Invoice section reader|Azure subscription creator|Billing profile owner|Billing profile contributor|Billing profile reader |Invoice manager|Billing account owner|Billing account contributor|Billing account reader 
+|---|---|---|---|---|---|---|---|---|---|---|---|
+|View all products bought for the invoice section|✔|✔|✔|✘|✔|✔|✔|✔|✔|✔|✔|
+|Manage billing for products like cancel, turn off auto renewal, and more|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
+|Change invoice section for the products|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
 
 ### Manage subscriptions for invoice section
 
-|Tasks|Invoice section owner|Invoice section contributor|Invoice section reader|Azure subscription creator|Billing account owner|Billing account contributor|Billing account reader
-|---|---|---|---|---|---|---|---|
-|View all Azure subscriptions for invoice section|✔|✔|✔|✘|✔|✔|✔|
-|Change invoice section for the subscriptions|✔|✔|✘|✘|✘|✘|✘|
-|Request billing ownership of subscriptions from users in other billing accounts|✔|✔|✘|✘|✘|✘|✘|
+|Tasks|Invoice section owner|Invoice section contributor|Invoice section reader|Azure subscription creator|Billing profile owner|Billing profile contributor|Billing profile reader |Invoice manager|Billing account owner|Billing account contributor|Billing account reader 
+|---|---|---|---|---|---|---|---|---|---|---|---|
+|View all Azure subscriptions for invoice section|✔|✔|✔|✘|✔|✔|✔|✔|✔|✔|✔|
+|Create Azure subscriptions|✔|✔|✘|✔|✔|✔|✘|✘|✔|✔|✘|
+|Cancel Azure subscriptions|✘|✘|✘|✘|✘|✘|✘|✘|✘|✘|✘|
+|Change invoice section for the Azure subscription|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
+|Request billing ownership of subscriptions from users in other billing accounts|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
 
 ## Subscription billing roles and tasks
 
 The following table shows what role you need to complete tasks in the context of a subscription.
 
-|Tasks|Invoice section owner|Invoice section contributor|Invoice section reader|Azure subscription creator|
-|---|---|---|---|---|
-|Create Azure subscriptions|✔|✔|✘|✔|
-|Update cost center for the subscription|✔|✔|✘|✘|
-|Change invoice section for the subscription|✔|✔|✘|✘|
+|Tasks|Invoice section owner|Invoice section contributor|Invoice section reader|Azure subscription creator|Billing profile owner|Billing profile contributor|Billing profile reader |Invoice manager|Billing account owner|Billing account contributor|Billing account reader 
+|---|---|---|---|---|---|---|---|---|---|---|---|
+|Create subscriptions|✔|✔|✘|✔|✔|✔|✘|✘|✔|✔|✘|
+|Update cost center for the subscription|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
+|Change invoice section for the subscription|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
+|Change billing profile for the subscription|✘|✘|✘|✘|✔|✔|✘|✘|✔|✔|✘|
+|Cancel Azure subscriptions|✘|✘|✘|✘|✘|✘|✘|✘|✘|✘|✘|
 
 ## Manage billing roles in the Azure portal
 

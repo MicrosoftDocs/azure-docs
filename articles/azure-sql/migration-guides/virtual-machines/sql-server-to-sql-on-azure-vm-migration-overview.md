@@ -3,12 +3,12 @@ title: SQL Server to SQL Server on Azure VM (Migration overview)
 description: Learn about the different migration strategies when you want to migrate your SQL Server to SQL Server on Azure VMs. 
 ms.custom: ""
 ms.service: virtual-machines-sql
-ms.subservice: 
+ms.subservice: migration-guide
 ms.devlang: 
 ms.topic: how-to
 author: markjones-msft
 ms.author: markjon
-ms.reviewer: mathoma
+ms.reviewer: chadam
 ms.date: 11/06/2020
 ---
 
@@ -24,7 +24,7 @@ You can migrate SQL Server running on-premises or on:
 - Amazon Relational Database Service (AWS RDS) 
 - Compute Engine (Google Cloud Platform - GCP)
 
-For other scenarios, see the [Database Migration Guide](https://datamigration.microsoft.com/). 
+For other migration guides, see [Database Migration](/data-migration). 
 
 ## Overview
 
@@ -33,10 +33,10 @@ Migrate to [SQL Server on Azure Virtual Machines (VMs)](../../virtual-machines/w
 Save on costs by bringing your own license with the [Azure Hybrid Benefit licensing model](../../virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md) or extend support for SQL Server 2008 and SQL Server 2008 R2 by getting [free security updates](../../virtual-machines/windows/sql-server-2008-extend-end-of-support.md). 
 
 
-## Choosing appropriate target
+## Choose appropriate target
 
 Azure Virtual Machines run in many different regions of Azure and also offer a variety of [machine sizes](../../../virtual-machines/sizes.md) and [Storage options](../../../virtual-machines/disks-types.md). 
-When determining the correct size of VM and Storage for your SQL Server workload, refer to the [Performance Guidelines for SQL Server on Azure Virtual Machines.](../../virtual-machines/windows/performance-guidelines-best-practices.md#vm-size-guidance). To determine the VM size and storage requirements for your workload. it is recommended that these are sized through a Performance-Based [Azure Migrate Assessment](../../../migrate/concepts-assessment-calculation.md#types-of-assessments). If this is not an available option, see the following article on creating your own [baseline for performance](https://azure.microsoft.com/services/virtual-machines/sql-server/).
+When determining the correct size of VM and Storage for your SQL Server workload, refer to the [Performance Guidelines for SQL Server on Azure Virtual Machines.](../../virtual-machines/windows/performance-guidelines-best-practices-checklist.md#vm-size). To determine the VM size and storage requirements for your workload. it is recommended that these are sized through a Performance-Based [Azure Migrate Assessment](../../../migrate/concepts-assessment-calculation.md#types-of-assessments). If this is not an available option, see the following article on creating your own [baseline for performance](https://azure.microsoft.com/services/virtual-machines/sql-server/).
 
 Consideration should also be made on the correct installation and configuration of SQL Server on a VM. It is recommended to use the [Azure SQL virtual machine image gallery](../../virtual-machines/windows/create-sql-vm-portal.md) as this allows you to create a SQL Server VM with the right version, edition, and operating system. This will also register the Azure VM with the SQL Server [Resource Provider](../../virtual-machines/windows/create-sql-vm-portal.md) automatically, enabling features such as Automated Backups and Automated Patching.
 
@@ -74,6 +74,9 @@ The following table details the available method for the **lift and shift** migr
 | --- | --- | --- | --- | --- |
 | [Azure Migrate](../../../migrate/index.yml) | SQL Server 2008 SP4| SQL Server 2008 SP4| [Azure VM storage limit](../../../index.yml) |  Existing SQL Server to be moved as-is to instance of SQL Server on an Azure VM. Can scale migration workloads of up to 35,000 VMs. <br /><br /> Source server(s) remain online and servicing requests during synchronization of server data, minimizing downtime. <br /><br /> **Automation & scripting**: [Azure Site Recovery Scripts](../../../migrate/how-to-migrate-at-scale.md) and [Example of scaled migration and planning for Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)|
 
+> [!NOTE]
+> It's now possible to lift and shift both your [failover cluster instance](sql-server-failover-cluster-instance-to-sql-on-azure-vm.md) and [availability group](sql-server-availability-group-to-sql-on-azure-vm.md) solution to SQL Server on Azure VMs using Azure Migrate. 
+
 ## Migrate  
 
 Due to the ease of setup, the recommended migration approach is to take a native SQL Server [backup](/sql/t-sql/statements/backup-transact-sql) locally and then copy the file to Azure. This method supports larger databases (>1 TB) for all versions of SQL Server starting from 2008 and larger database backups (>1 TB). However, for databases starting in SQL Server 2014, that are smaller than 1 TB, and that have good connectivity to Azure, then [SQL Server backup to URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) is the better approach. 
@@ -100,8 +103,8 @@ The following table details all available methods to migrate your SQL Server dat
 &nbsp;
  
 > [!TIP]
-> For large data transfers with limited to no network options, see [Large data transfers with limited connectivity](../../../storage/common/storage-solution-large-dataset-low-network.md).
-> 
+> - For large data transfers with limited to no network options, see [Large data transfers with limited connectivity](../../../storage/common/storage-solution-large-dataset-low-network.md).
+> - It's now possible to lift and shift both your [failover cluster instance](sql-server-failover-cluster-instance-to-sql-on-azure-vm.md) and [availability group](sql-server-availability-group-to-sql-on-azure-vm.md) solution to SQL Server on Azure VMs using Azure Migrate. 
 
 ### Considerations
 
@@ -134,14 +137,12 @@ For additional assistance, see the following resources that were developed for r
 
 |Asset  |Description  |
 |---------|---------|
-|[Data workload assessment model and tool](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Data%20Workload%20Assessment%20Model%20and%20Tool)| This tool provides suggested "best fit" target platforms, cloud readiness, and application/database remediation level for a given workload. It offers simple, one-click calculation and report generation that helps to accelerate large estate assessments by providing and automated and uniform target platform decision process.|
-|[Perfmon data collection automation using Logman](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Perfmon%20Data%20Collection%20Automation%20Using%20Logman)|A tool that collects Perform data to understand baseline performance that assists in the migration target recommendation. This tool that uses logman.exe to create the command that will create, start, stop, and delete performance counters set on a remote SQL Server.|
-|[SQL Server Deployment in Azure](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/SQL%20Server%20Deployment%20in%20Azure%20.pdf)|This guidance whitepaper assists in reviewing various options to move your SQL Server workloads to Azure including feature comparison, high availability and backup / storage considerations. |
-|[On-Premise SQL Server to Azure virtual machine](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/OnPremise%20SQL%20Server%20to%20Azure%20VM.pdf)|This whitepaper outlines the steps to backup and restore databases from on-premises SQL Server to SQL Server on Azure virtual machine using sample scripts.|
-|[Multiple-SQL-VM-VNet-ILB](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/ARM%20Templates/Multiple-SQL-VM-VNet-ILB)|This whitepaper outlines the steps to setup multiple Azure virtual machines in a SQL Server Always On Availability Group configuration.|
-|[Azure virtual machines supporting Ultra SSD per Region](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Find%20Azure%20VMs%20supporting%20Ultra%20SSD)|These PowerShell scripts provide a programmatic option to retrieve the list of regions that support Azure virtual machines supporting Ultra SSDs.|
+|[Data workload assessment model and tool](https://www.microsoft.com/download/details.aspx?id=103130)| This tool provides suggested "best fit" target platforms, cloud readiness, and application/database remediation level for a given workload. It offers simple, one-click calculation and report generation that helps to accelerate large estate assessments by providing and automated and uniform target platform decision process.|
+|[Perfmon data collection automation using Logman](https://www.microsoft.com/download/details.aspx?id=103114)|A tool that collects Perform data to understand baseline performance that assists in the migration target recommendation. This tool that uses logman.exe to create the command that will create, start, stop, and delete performance counters set on a remote SQL Server.|
+|[Multiple-SQL-VM-VNet-ILB](https://www.microsoft.com/download/details.aspx?id=103104)|This whitepaper outlines the steps to setup multiple Azure virtual machines in a SQL Server Always On Availability Group configuration.|
+|[Azure virtual machines supporting Ultra SSD per Region](https://www.microsoft.com/download/details.aspx?id=103105)|These PowerShell scripts provide a programmatic option to retrieve the list of regions that support Azure virtual machines supporting Ultra SSDs.|
 
-These resources were developed as part of the Data SQL Ninja Program, which is sponsored by the Azure Data Group engineering team. The core charter of the Data SQL Ninja program is to unblock and accelerate complex modernization and compete data platform migration opportunities to Microsoft's Azure Data platform. If you think your organization would be interested in participating in the Data SQL Ninja program, please contact your account team and ask them to submit a nomination.
+The Data SQL Engineering team developed these resources. This team's core charter is to unblock and accelerate complex modernization for data platform migration projects to Microsoft's Azure data platform.
 
 ## Next steps
 

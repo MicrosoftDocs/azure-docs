@@ -10,12 +10,16 @@
   - name: Tutorials
     expanded: true
     items:
-    - name: Build a SCIM endpoint and configure provisioning
+    - name: Plan provisioning for a SCIM endpoint 
       href: use-scim-to-provision-users-and-groups.md
+    - name: Develop a sample SCIM endpoint
+      href: use-scim-to-build-users-and-groups-endpoints.md
     - name: Customize attribute mappings
       href: customize-application-attributes.md
     - name: App specific provisioning tutorials
       href: /azure/active-directory/saas-apps
+    - name: Azure AD ECMA Connector Host Generic SQL Connector
+      href: tutorial-ecma-sql-connector.md
   - name: Concepts
     expanded: true
     items: 
@@ -27,6 +31,10 @@
        href: plan-cloud-hr-provision.md
      - name: Understand logging with Azure Monitor
        href: application-provisioning-log-analytics.md
+     - name: On-premises application provisioning architecture
+       href: on-premises-application-provisioning-architecture.md 
+     - name: Understand expression builder
+       href: expression-builder.md
   - name: How-to guides
     expanded: true
     items:
@@ -51,7 +59,7 @@
       - name: Provisioning reports
         href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - name: Automate configuration using MS Graph
-      href: /graph/application-provisioning-configure-api
+      href: application-provisioning-configuration-api.md
     - name: Troubleshoot application provisioning
       items:
       - name: Known issues
@@ -64,8 +72,24 @@
         href: application-provisioning-config-problem-no-users-provisioned.md
       - name: Missing source attribute
         href: user-provisioning-sync-attributes-for-mapping.md
+      - name: Troubleshooting ECMA Connector Host
+        href: on-premises-ecma-troubleshoot.md
       - name: Provisioning logs
         href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+    - name: On-premises app provisioning
+      items:
+      - name: ECMA Connector Host pre-requisites
+        href: on-premises-ecma-prerequisites.md
+      - name: ECMA Connector Host installation
+        href: on-premises-ecma-install.md
+      - name: ECMA Connector Host configuration
+        href: on-premises-ecma-configure.md
+      - name: Generic SQL connector configuration
+        href: on-premises-sql-connector-configure.md
+      - name: On-premises application provisioning to SCIM-enabled apps
+        href: on-premises-scim-provisioning.md
+      - name: Migrate connector from MIM Sync
+        href: on-premises-migrate-microsoft-identity-manager.md
   - name: Reference
     items:
     - name: SCIM 2.0 protocol compliance
@@ -80,6 +104,8 @@
         href: sap-successfactors-integration-reference.md
       - name: SuccessFactors attribute reference
         href: sap-successfactors-attribute-reference.md
+      - name: Workday integration 
+        href: workday-integration-reference.md
       - name: Workday attribute reference
         href: workday-attribute-reference.md
       - name: Provisioning Agent version history

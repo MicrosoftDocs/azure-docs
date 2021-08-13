@@ -1,12 +1,12 @@
 ---
 title: Managed virtual network
 description: An article that explains Managed virtual network in Azure Synapse Analytics
-author: RonyMSFT
+author: ashinMSFT
 ms.service: synapse-analytics 
 ms.topic: overview
 ms.subservice: security
-ms.date: 04/15/2020
-ms.author: ronytho
+ms.date: 01/18/2021
+ms.author: seshin
 ms.reviewer: jrasnick
 ---
 
@@ -47,8 +47,21 @@ If you leave the checkbox unchecked, then your workspace won't have a Virtual Ne
 
 ![Enable Managed workspace Virtual Network](./media/synapse-workspace-managed-vnet/enable-managed-vnet-1.png)
 
+After you choose to associate a Managed workspace Virtual Network with your workspace, you can protect against data exfiltration by allowing outbound connectivity from the Managed workspace Virtual Network only to approved targets using [Managed private endpoints](./synapse-workspace-managed-private-endpoints.md). Select **Yes** to limit outbound traffic from the Managed workspace Virtual Network to targets through Managed private endpoints. 
 
-You can check whether your Azure Synapse workspace is associated to a Managed workspace Virtual Network by selecting **Overview** from Azure portal.
+
+>[!IMPORTANT]
+>Metastore is disabled in Synapse workspaces that have Managed Virtual Network with data exfiltration protection enabled. You will not be able to use Spark SQL in these workspaces.
+
+![Outbound traffic using Managed private endpoints](./media/synapse-workspace-managed-vnet/select-outbound-connectivity.png)
+
+Select **No** to allow outbound traffic from the workspace to any target.
+
+You can also control the targets to which Managed private endpoints are created from your Azure Synapse workspace. By default, Managed private endpoints to resources in the same AAD tenant that your subscription belongs to are allowed. If you want to create a Managed private endpoint to a resource in an AAD tenant that is different from the one that your subscription belongs to, then you can add that AAD tenant by selecting **+ Add**. You can either select the AAD tenant from the dropdown or manually enter the AAD tenant ID.
+
+![Add additional AAD tenants](./media/synapse-workspace-managed-vnet/add-additional-azure-active-directory-tenants.png)
+
+After the workspace is created, you can check whether your Azure Synapse workspace is associated to a Managed workspace Virtual Network by selecting **Overview** from Azure portal.
 
 ![Workspace overview in Azure portal](./media/synapse-workspace-managed-vnet/enable-managed-vnet-2.png)
 

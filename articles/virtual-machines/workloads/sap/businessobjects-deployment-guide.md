@@ -8,8 +8,7 @@ manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
@@ -77,13 +76,13 @@ In below figure, architecture of large-scale deployment of SAP BOBI Platform on 
   In Azure, you can either use [Azure Premium Files](../../../storage/files/storage-files-introduction.md) or [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) for File Repository Server. Both of these Azure services have built-in redundancy.
 
   > [!Important]
-  > SMB Protocol for Azure Files is generally available, but NFS Protocol support for Azure Files is currently in preview. For more information, see [NFS 4.1 support for Azure Files is now in preview](https://azure.microsoft.com/en-us/blog/nfs-41-support-for-azure-files-is-now-in-preview/)
+  > SMB Protocol for Azure Files is generally available, but NFS Protocol support for Azure Files is currently in preview. For more information, see [NFS 4.1 support for Azure Files is now in preview](https://azure.microsoft.com/blog/nfs-41-support-for-azure-files-is-now-in-preview/)
 
 - CMS & audit database
   
   SAP BOBI Platform requires a database to store its system data, which is referred as CMS database. It's used to store BI platform information such as user, server, folder, document, configuration, and authentication details.
 
-  Azure offers [MySQL Database](https://azure.microsoft.com/en-us/services/mysql/) and [Azure SQL database](https://azure.microsoft.com/en-us/services/sql-database/) Database-as-a-Service (DBaaS) offering that can be used for CMS database and Audit database. As this being a PaaS offering, customers don't have to worry about operation, availability, and maintenance of the databases. Customer can also choose their own database for CMS and Audit repository based on their business need.
+  Azure offers [MySQL Database](https://azure.microsoft.com/services/mysql/) and [Azure SQL database](https://azure.microsoft.com/services/sql-database/) Database-as-a-Service (DBaaS) offering that can be used for CMS database and Audit database. As this being a PaaS offering, customers don't have to worry about operation, availability, and maintenance of the databases. Customer can also choose their own database for CMS and Audit repository based on their business need.
 
 ## Support matrix
 
@@ -116,11 +115,11 @@ The BI Platform needs database for CMS and Auditing Data store, which can be ins
 
 - Microsoft SQL Server
 
-- [Azure SQL Database](https://azure.microsoft.com/en-us/services/sql-database/) (Supported database only for SAP BOBI Platform on Windows)
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) (Supported database only for SAP BOBI Platform on Windows)
 
   It's a fully managed SQL Server database engine, based on the latest stable Enterprise Edition of SQL Server. Azure SQL database handles most of the database management functions such as upgrading, patching, and monitoring without user involvement. With Azure SQL Database, you can create a highly available and high-performance data storage layer for the applications and solutions in Azure. For more details, check [Azure SQL Database](../../../azure-sql/azure-sql-iaas-vs-paas-what-is-overview.md) documentation.
 
-- [Azure Database for MySQL](https://azure.microsoft.com/en-us/services/mysql/) (Follow same compatibility guidelines as mentioned for MySQL AB in SAP PAM)
+- [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/) (Follow same compatibility guidelines as mentioned for MySQL AB in SAP PAM)
 
   It's a relational database service powered by the MySQL community edition. Being a fully managed Database-as-a-Service (DBaaS) offering, it can handle mission-critical workloads with predictable performance and dynamic scalability. It has built-in high availability, automatic backups, software patching, automatic failure detection, and point-in-time restore for up to 35 days, which substantially reduce operation tasks. For more details, check [Azure Database for MySQL](../../../mysql/overview.md) documentation.
 
@@ -142,7 +141,7 @@ Sizing is a process of determining the hardware requirement to run the applicati
 
 For storage need for SAP BOBI Platform, Azure offers different types of [Managed Disks](../../managed-disks-overview.md). For SAP BOBI Installation directory, it's recommended to use premium managed disk and for the database that runs on virtual machines, follow the guidance that is provided in [DBMS deployment for SAP workload](dbms_guide_general.md).
 
-Azure supports two DBaaS offering for SAP BOBI Platform data tier - [Azure SQL Database](https://azure.microsoft.com/en-us/services/sql-database) (BI Application running on Windows) and [Azure Database for MySQL](https://azure.microsoft.com/en-us/services/mysql) (BI Application running on Linux and Windows). So based on the sizing result, you can choose purchasing model that best fits your need.
+Azure supports two DBaaS offering for SAP BOBI Platform data tier - [Azure SQL Database](https://azure.microsoft.com/services/sql-database) (BI Application running on Windows) and [Azure Database for MySQL](https://azure.microsoft.com/services/mysql) (BI Application running on Linux and Windows). So based on the sizing result, you can choose purchasing model that best fits your need.
 
 > [!Tip]
 > For quick sizing reference, consider 800 SAPS = 1 vCPU while mapping the SAPS result of SAP BOBI Platform database tier to Azure Database-as-a-Service (Azure SQL Database or Azure Database for MySQL).
@@ -201,7 +200,7 @@ Azure Database for MySQL comes with three different pricing tiers. They're diffe
 
 Azure region is one or a collection of data-centers that contains the infrastructure to run and hosts different Azure Services. This infrastructure includes large number of nodes that function as compute nodes or storage nodes, or run network functionality. Not all region offers the same services.
 
-SAP BI Platform contains different components that might require specific VM types, Storage like Azure Files or Azure NetApp Files or Database as a Service (DBaaS) for its data tier that might not be available in certain regions. You can find out the exact information on VM types, Azure Storage types or, other Azure Services in [Products available by region](https://azure.microsoft.com/en-us/global-infrastructure/services/) site. If you're already running your SAP systems on Azure, probably you have your region identified. In that case, you need to first investigate that the necessary services are available in those regions to decide the architecture of SAP BI Platform.
+SAP BI Platform contains different components that might require specific VM types, Storage like Azure Files or Azure NetApp Files or Database as a Service (DBaaS) for its data tier that might not be available in certain regions. You can find out the exact information on VM types, Azure Storage types or, other Azure Services in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/) site. If you're already running your SAP systems on Azure, probably you have your region identified. In that case, you need to first investigate that the necessary services are available in those regions to decide the architecture of SAP BI Platform.
 
 ### Availability zones
 
@@ -219,7 +218,7 @@ SAP BI Platform contains many different components and while designing the archi
 
 Also the number of update and fault domains that can be used by an Azure Availability Set within an Azure Scale unit is finite. So if you keep adding VMs to a single availability set, two or more VMs will eventually end in the same fault or update domain. For more information, see the [Azure Availability Sets](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/workloads/sap/planning-guide.md#azure-availability-sets) section of the Azure virtual machines planning and implementation for SAP document.
 
-To understand the concept of Azure availability sets and the way availability sets relate to Fault and Upgrade Domains, read [manage availability](../../manage-availability.md) article.
+To understand the concept of Azure availability sets and the way availability sets relate to Fault and Upgrade Domains, read [manage availability](../../availability.md) article.
 
 > [!Important]
 > The concepts of Azure Availability Zones and Azure availability sets are mutually exclusive. That means, you can either deploy a pair or multiple VMs into a specific Availability Zone or an Azure availability set. But not both.
@@ -246,7 +245,7 @@ Azure Storage has different Storage types available for customers and details fo
 
 - Azure Premium Files or Azure NetApp Files
 
-  In SAP BOBI Platform, File Repository Server (FRS) refers to the disk directories where contents like reports, universes, and connections are stored which are used by all application servers of that system. [Azure Premium Files](../../../storage/files/storage-files-introduction.md) or [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) storage can be used as a shared file system for SAP BOBI applications FRS. As this storage offering is not available all regions, refer to [Products available by region](https://azure.microsoft.com/en-us/global-infrastructure/services/) site to find out up-to-date information.
+  In SAP BOBI Platform, File Repository Server (FRS) refers to the disk directories where contents like reports, universes, and connections are stored which are used by all application servers of that system. [Azure Premium Files](../../../storage/files/storage-files-introduction.md) or [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) storage can be used as a shared file system for SAP BOBI applications FRS. As this storage offering is not available all regions, refer to [Products available by region](https://azure.microsoft.com/global-infrastructure/services/) site to find out up-to-date information.
 
   If the service is unavailable in your region, you can create NFS server from which you can share the file system to SAP BOBI application. But you'll also need to consider its high availability.
 

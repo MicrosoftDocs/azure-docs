@@ -3,8 +3,9 @@ title: Runbook execution in Azure Automation
 description: This article provides an overview of the processing of runbooks in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/06/2020
-ms.topic: conceptual
+ms.date: 07/27/2021
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Runbook execution in Azure Automation
@@ -29,9 +30,11 @@ The following diagram shows the lifecycle of a runbook job for [PowerShell runbo
 
 Runbooks in Azure Automation can run on either an Azure sandbox or a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md). 
 
-When runbooks are designed to authenticate and run against resources in Azure, they run in an Azure sandbox, which is a shared environment that multiple jobs can use. Jobs using the same sandbox are bound by the resource limitations of the sandbox. The Azure sandbox environment does not support interactive operations. It prevents access to all out-of-process COM servers. It also requires the use of local MOF files for runbooks that make Win32 calls.
+When runbooks are designed to authenticate and run against resources in Azure, they run in an Azure sandbox, which is a shared environment that multiple jobs can use. Jobs using the same sandbox are bound by the resource limitations of the sandbox. The Azure sandbox environment does not support interactive operations. It prevents access to all out-of-process COM servers, and it does not support making [WMI calls](/windows/win32/wmisdk/wmi-architecture) to the Win32 provider in your runbook.  These scenarios are only supported by running the runbook on a Windows Hybrid Runbook Worker.
 
 You can also use a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) to run runbooks directly on the computer that hosts the role and against local resources in the environment. Azure Automation stores and manages runbooks and then delivers them to one or more assigned computers.
+
+Enabling the Azure Firewall on [Azure Storage](../storage/common/storage-network-security.md), [Azure Key Vault](../key-vault/general/network-security.md), or [Azure SQL](../azure-sql/database/firewall-configure.md) blocks access from Azure Automation runbooks for those services. Access will be blocked even when the firewall exception to allow trusted Microsoft services is enabled, as Automation is not a part of the trusted services list. With an enabled firewall, access can only be made by using a Hybrid Runbook Worker and a [virtual network service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 >[!NOTE]
 >To run on a Linux Hybrid Runbook Worker, your scripts must be signed and the worker configured accordingly. Alternatively, [signature validation must be turned off](automation-linux-hrw-install.md#turn-off-signature-validation).
@@ -46,7 +49,7 @@ The following table lists some runbook execution tasks with the recommended exec
 |Execute long-running script|Hybrid Runbook Worker|Azure sandboxes have [resource limits](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).|
 |Interact with local services|Hybrid Runbook Worker|Directly access the host machine, or resources in other cloud environments or the on-premises environment. |
 |Require third-party software and executables|Hybrid Runbook Worker|You manage the operating system and can install software.|
-|Monitor a file or folder with a runbook|Hybrid Runbook Worker|Use a [Watcher task](automation-watchers-tutorial.md) on a Hybrid Runbook Worker.|
+|Monitor a file or folder with a runbook|Hybrid Runbook Worker|Use a [Watcher task](./automation-scenario-using-watcher-task.md) on a Hybrid Runbook Worker.|
 |Run a resource-intensive script|Hybrid Runbook Worker| Azure sandboxes have [resource limits](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).|
 |Use modules with specific requirements| Hybrid Runbook Worker|Some examples are:</br> WinSCP - dependency on winscp.exe </br> IIS administration - dependency on enabling or managing IIS|
 |Install a module with an installer|Hybrid Runbook Worker|Modules for sandbox must support copying.|
@@ -81,22 +84,22 @@ A runbook requires appropriate [credentials](shared-resources/credentials.md) to
 
 ## Azure Monitor
 
-Azure Automation makes use of [Azure Monitor](../azure-monitor/overview.md) for monitoring its machine operations. The operations require a Log Analytics workspace and a [Log Analytics agent](../azure-monitor/platform/log-analytics-agent.md).
+Azure Automation makes use of [Azure Monitor](../azure-monitor/overview.md) for monitoring its machine operations. The operations require a Log Analytics workspace and a [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md).
 
 ### Log Analytics agent for Windows
 
-The [Log Analytics agent for Windows](../azure-monitor/platform/agent-windows.md) works with Azure Monitor to manage Windows VMs and physical computers. The machines can be running either in Azure or in a non-Azure environment, such as a local datacenter.
+The [Log Analytics agent for Windows](../azure-monitor/agents/agent-windows.md) works with Azure Monitor to manage Windows VMs and physical computers. The machines can be running either in Azure or in a non-Azure environment, such as a local datacenter.
 
 >[!NOTE]
 >The Log Analytics agent for Windows was previously known as the Microsoft Monitoring Agent (MMA).
 
 ### Log Analytics agent for Linux
 
-The [Log Analytics agent for Linux](../azure-monitor/platform/agent-linux.md) works similarly to the agent for Windows, but connects Linux computers to Azure Monitor. The agent is installed with a **nxautomation** user account that allows execution of commands requiring root permissions, for example, on a Hybrid Runbook Worker. The **nxautomation** account is a system account that doesn't require a password.
+The [Log Analytics agent for Linux](../azure-monitor/agents/agent-linux.md) works similarly to the agent for Windows, but connects Linux computers to Azure Monitor. The agent is installed with a **nxautomation** user account that allows execution of commands requiring root permissions, for example, on a Hybrid Runbook Worker. The **nxautomation** account is a system account that doesn't require a password.
 
 The **nxautomation** account with the corresponding sudo permissions must be present during [installation of a Linux Hybrid Runbook worker](automation-linux-hrw-install.md). If you try to install the worker and the account is not present or doesn’t have the appropriate permissions, the installation fails.
 
-You should not change the permissions of the `sudoers.d` folder or its ownership. Sudo permission is required for the **nxautomation** account and the permissions should not be removed. Restricting this to certain folders or commands may result in a breaking change.
+Do not change the permissions of the `sudoers.d` folder or its ownership. Sudo permission is required for the **nxautomation** account and the permissions should not be removed. Restricting this to certain folders or commands may result in a breaking change.
 
 The logs available for the Log Analytics agent and the **nxautomation** account are:
 
@@ -108,11 +111,17 @@ The logs available for the Log Analytics agent and the **nxautomation** account 
 
 ## Runbook permissions
 
-A runbook needs permissions for authentication to Azure, through credentials. See [Manage Azure Automation Run As accounts](manage-runas-account.md).
+A runbook needs permissions for authentication to Azure, through credentials. See [Azure Automation authentication overview](automation-security-overview.md).
 
 ## Modules
 
-Azure Automation supports a number of default modules, including some AzureRM modules (AzureRM.Automation) and a module containing several internal cmdlets. Also supported are installable modules, including the Az modules (Az.Automation), currently being used in preference to AzureRM modules. For details of the modules that are available for your runbooks and DSC configurations, see [Manage modules in Azure Automation](shared-resources/modules.md).
+Azure Automation includes the following PowerShell modules:
+
+* Orchestrator.AssetManagement.Cmdlets - contains several internal cmdlets that are only available when you execute runbooks in the Azure sandbox environment or on a Windows Hybrid Runbook Worker. These cmdlets are designed to be used instead of Azure PowerShell cmdlets to interact with your Automation account resources.
+* Az.Automation - the recommended PowerShell module for interacting with Azure Automation that replaces the AzureRM Automation module. The Az.Automation module is not automatically included when you create an Automation account and you need to import them manually. 
+* AzureRM.Automation - installed by default when you create an Automation account. 
+
+Also supported are installable modules, based on the cmdlets that your runbooks and DSC configurations require. For details of the modules that are available for your runbooks and DSC configurations, see [Manage modules in Azure Automation](shared-resources/modules.md).
 
 ## Certificates
 
@@ -135,6 +144,7 @@ The following table describes the statuses that are possible for a job. You can 
 
 | Status | Description |
 |:--- |:--- |
+| Activating |The job is being activated. |
 | Completed |The job completed successfully. |
 | Failed |A graphical or PowerShell Workflow runbook failed to compile. A PowerShell runbook failed to start or the job had an exception. See [Azure Automation runbook types](automation-runbook-types.md).|
 | Failed, waiting for resources |The job failed because it reached the [fair share](#fair-share) limit three times and started from the same checkpoint or from the start of the runbook each time. |
@@ -224,7 +234,7 @@ External services, for example, Azure DevOps Services and GitHub, can start a ru
 
 To share resources among all runbooks in the cloud, Azure uses a concept called fair share. Using fair share, Azure temporarily unloads or stops any job that has run for more than three hours. Jobs for [PowerShell runbooks](automation-runbook-types.md#powershell-runbooks) and [Python runbooks](automation-runbook-types.md#python-runbooks) are stopped and not restarted, and the job status becomes Stopped.
 
-For long-running Azure Automation tasks, it's recommended to use a Hybrid Runbook Worker. Hybrid Runbook Workers aren't limited by fair share, and don't have a limitation on how long a runbook can execute. The other job [limits](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) apply to both Azure sandboxes and Hybrid Runbook Workers. While Hybrid Runbook Workers aren't limited by the three hour fair share limit, you should develop runbooks to run on the workers that support restarts from unexpected local infrastructure issues.
+For long-running Azure Automation tasks, it's recommended to use a Hybrid Runbook Worker. Hybrid Runbook Workers aren't limited by fair share, and don't have a limitation on how long a runbook can execute. The other job [limits](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) apply to both Azure sandboxes and Hybrid Runbook Workers. While Hybrid Runbook Workers aren't limited by the three-hour fair share limit, you should develop runbooks to run on the workers that support restarts from unexpected local infrastructure issues.
 
 Another option is to optimize a runbook by using child runbooks. For example, your runbook might loop through the same function on several resources, for example, with a database operation on several databases. You can move this function to a [child runbook](automation-child-runbooks.md) and have your runbook call it using [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook). Child runbooks execute in parallel in separate processes.
 

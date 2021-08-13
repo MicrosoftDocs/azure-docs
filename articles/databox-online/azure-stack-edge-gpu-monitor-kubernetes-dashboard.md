@@ -7,10 +7,12 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 02/22/2021
 ms.author: alkohli
 ---
 # Use Kubernetes dashboard to monitor your Azure Stack Edge Pro GPU device
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 This article describes how to access and use the Kubernetes dashboard to monitor your Azure Stack Edge Pro GPU device. To monitor your device, you can use charts in Azure portal, view the Kubernetes dashboard, or run `kubectl` commands via the PowerShell interface of the device. 
 
@@ -114,4 +116,5 @@ The Kubernetes metrics server provides autoscaling pipelines such as [Horizontal
 
 ## Next steps
 
-Learn how to [Troubleshoot device issues](azure-stack-edge-gpu-troubleshoot.md).
+Learn how to [Monitor using Azure Monitor](azure-stack-edge-gpu-enable-azure-monitor.md).
+Learn how to [Run diagnostics and collect logs](azure-stack-edge-gpu-troubleshoot.md)

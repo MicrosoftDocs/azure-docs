@@ -7,16 +7,11 @@ ms.date: 12/07/2020
 ms.topic: conceptual 
 ms.service: azure-maps 
 services: azure-maps 
-manager: philmea 
+ 
 ms.custom: mvc 
 --- 
 
-# Creator (Preview) Long-Running Operation API
-
-> [!IMPORTANT]
-> Azure Maps Creator services are currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Creator Long-Running Operation API
 
 Some APIs in Azure Maps use an [Asynchronous Request-Reply pattern](/azure/architecture/patterns/async-request-reply). This pattern allows Azure Maps to provide highly available and responsive services. This article explains Azure Map's specific implementation of long-running asynchronous background processing.
 

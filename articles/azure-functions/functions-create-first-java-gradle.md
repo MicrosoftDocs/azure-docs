@@ -19,7 +19,7 @@ This article shows you how to build and publish a Java function project to Azure
 
 To develop functions using Java, you must have the following installed:
 
-- [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8
+- [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8
 - [Azure CLI]
 - [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 or above
 - [Gradle](https://gradle.org/), version 4.10 and above
@@ -109,7 +109,7 @@ az login
 ```
 
 > [!TIP]
-> If your account can access multiple subscriptions, use [az account set](/cli/azure/account#az-account-set) to set the default subscription for this session. 
+> If your account can access multiple subscriptions, use [az account set](/cli/azure/account#az_account_set) to set the default subscription for this session. 
 
 Use the following command to deploy your project to a new function app. 
 

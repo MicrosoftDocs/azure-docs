@@ -6,9 +6,9 @@ services: virtual-network
 author: KumudD
 ms.service: virtual-network
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 06/09/2021
 ms.author: kumud
-ms.custom: 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Quickstart: Create a virtual network - Resource Manager template
@@ -26,13 +26,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vnet-two-subnets/azuredeploy.json)
+The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/vnet-two-subnets/azuredeploy.json)
 
-:::code language="json" source="~/quickstart-templates/101-vnet-two-subnets/azuredeploy.json" range="001-96" highlight="56-92":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/vnet-two-subnets/azuredeploy.json" range="001-98" highlight="56-97":::
 
 The following Azure resources have been defined in the template:
-- [**Microsoft.Network/virtualNetworks**](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks): create an Azure virtual network.
--  [**Microsoft.Network/virtualNetworks/subnets**](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks/subnets) - create a subnet.
+- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks): create an Azure virtual network.
+-  [**Microsoft.Network/virtualNetworks/subnets**](/azure/templates/microsoft.network/virtualnetworks/subnets) - create a subnet.
 
 ## Deploy the template
 
@@ -40,7 +40,7 @@ Deploy Resource Manager template to Azure:
 
 1. Select **Deploy to Azure** to sign in to Azure and open the template. The template creates a virtual network with two subnets.
 
-   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-virtual-network-2vms-create%2Fazuredeploy.json)
+   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fvnet-two-subnets%2Fazuredeploy.json)
 
 2. In the portal, on the **Create a Virtual Network with two Subnets** page, type or select the following values:
    - **Resource group**: Select **Create new**, type a name for the resource group, and select **OK**.
@@ -51,7 +51,7 @@ Deploy Resource Manager template to Azure:
 
 Explore the resources that were created with the virtual network.
 
-To learn about the JSON syntax and properties for a virtual network in a template, see [Microsoft.Network/virtualNetworks](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+To learn about the JSON syntax and properties for a virtual network in a template, see [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks).
 
 ## Clean up resources
 

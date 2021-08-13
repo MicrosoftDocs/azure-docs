@@ -3,7 +3,7 @@ title: Partnering with Azure DDoS Protection Standard
 description: "Understand partnering opportunities enabled by Azure DDoS Protection Standard."
 ms.service: ddos-protection
 documentationcenter: na
-author: yitoh
+author: aletheatoh
 mms.devlang: na
 ms.topic: how-to
 ms.date: 08/28/2020
@@ -62,7 +62,7 @@ The following steps are required for partners to configure integration with Azur
    > [!NOTE]
    > Only 1 DDoS Protection Plan needs to be created for a given tenant. 
 2. Deploy a service with public endpoint in your (partner) subscriptions, such as load balancer, firewalls, and web application firewall. 
-3. Enable Azure DDoS Protection Standard on the virtual network of the service that has public endpoints using DDoS Protection Plan created in the first step. For stpe-by-step instructions, see [Enable DDoS Standard Protection plan](manage-ddos-protection.md#enable-ddos-protection-for-an-existing-virtual-network)
+3. Enable Azure DDoS Protection Standard on the virtual network of the service that has public endpoints using DDoS Protection Plan created in the first step. For step-by-step instructions, see [Enable DDoS Standard Protection plan](manage-ddos-protection.md#enable-ddos-protection-for-an-existing-virtual-network)
    > [!IMPORTANT] 
    > After Azure DDoS Protection Standard is enabled on a virtual network, all public IPs within that virtual network are automatically protected. The origin of these public IPs can be either within Azure (client subscription) or outside of Azure. 
 4. Optionally, integrate Azure DDoS Protection Standard telemetry and attack analytics in your application-specific customer-facing dashboard. For more information about using telemetry, see [View and configure DDoS protection telemetry](telemetry.md). 
@@ -89,3 +89,4 @@ The following steps are required for partners to configure integration with Azur
 View existing partner integrations:
 
 - [Barracuda WAF-as-a-service](https://www.barracuda.com/waf-as-a-service)
+- [Azure Cloud WAF from Radware](https://www.radware.com/resources/microsoft-azure/)

@@ -9,7 +9,7 @@ ms.author: trbye
 Handling compressed audio is implemented using [GStreamer](https://gstreamer.freedesktop.org). For licensing reasons GStreamer binaries are not compiled and linked with the Speech SDK. Developers need to install several dependencies and plugins.
 
 > [!NOTE]
-> See the list of [supported Linux distributions and target architectures](~/articles/cognitive-services/speech-service/speech-sdk.md).
+> For mandatory general setup on Linux, see [system requirements and setup instructions](~/articles/cognitive-services/speech-service/speech-sdk.md#get-the-speech-sdk).
 
 # [Ubuntu/Debian](#tab/debian)
 
@@ -32,10 +32,7 @@ gstreamer1-plugins-ugly-free
 ```
 
 > [!NOTE]
-> - On RHEL/CentOS 7, follow the instructions on [how to configure RHEL/CentOS 7 for Speech SDK](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
-> - On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+> - On RHEL/CentOS 7 and RHEL/CentOS 8, in case of using "ANY" compressed format, more GStreamer plugins needs to be installed if stream media format plugin is not in the above installed plugins. 
 
-> [!IMPORTANT]
-> The Opus audio coding format is not supported by the Speech SDK on RHEL/CentOS 7.
 
 ---

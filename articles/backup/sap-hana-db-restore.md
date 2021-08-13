@@ -2,7 +2,7 @@
 title: Restore SAP HANA databases on Azure VMs
 description: In this article, discover how to restore SAP HANA databases that are running on Azure Virtual Machines. You can also use Cross Region Restore to restore your databases to a secondary region.
 ms.topic: conceptual
-ms.date: 11/7/2019
+ms.date: 08/06/2021
 ---
 
 # Restore SAP HANA databases on Azure VMs
@@ -147,7 +147,7 @@ To restore the backup data as files instead of a database, choose **Restore as F
     ![Select restore point](media/sap-hana-db-restore/select-restore-point.png)
 
 1. All the backup files associated with the selected restore point are dumped into the destination path.
-1. Based on the type of restore point chosen (**Point in time** or **Full & Differential**), you'll see one or more folders created in the destination path. One of the folders named `Data_<date and time of restore>` contains the full and differential backups, and the other folder named `Log` contains the log backups.
+1. Based on the type of restore point chosen (**Point in time** or **Full & Differential**), you'll see one or more folders created in the destination path. One of the folders named `Data_<date and time of restore>` contains the full backups, and the other folder named `Log` contains the log backups and other backups (such as differential, and incremental).
 1. Move these restored files to the SAP HANA server where you want to restore them as a database.
 1. Then follow these steps:
     1. Set permissions on the folder / directory where the backup files are stored using the following command:
@@ -171,7 +171,7 @@ To restore the backup data as files instead of a database, choose **Restore as F
         In the command above:
 
         * `<DataFileDir>` - the folder that contains the full backups
-        * `<LogFilesDir>` - the folder that contains the log backups
+        * `<LogFilesDir>` - the folder that contains the log backups, differential and incremental backups (if any)
         * `<PathToPlaceCatalogFile>` - the folder where the catalog file generated must be placed
 
     1. Restore using the newly generated catalog file through HANA Studio or run the HDBSQL restore query with this newly generated catalog. HDBSQL queries are listed below:
@@ -191,7 +191,7 @@ To restore the backup data as files instead of a database, choose **Restore as F
         * `<DatabaseName@HostName>` - Name of the database whose backup is used for restore and the **host** / SAP HANA server name on which this database resides. The `USING SOURCE <DatabaseName@HostName>` option specifies that the data backup (used for restore) is of a database with a different SID or name than the target SAP HANA machine. So it doesn't need be specified for restores done on the same HANA server from where the backup is taken.
         * `<PathToGeneratedCatalogInStep3>` - Path to the catalog file generated in **Step C**
         * `<DataFileDir>` - the folder that contains the full backups
-        * `<LogFilesDir>` - the folder that contains the log backups
+        * `<LogFilesDir>` - the folder that contains the log backups, differential and incremental backups (if any)
         * `<BackupIdFromJsonFile>` - the **BackupId** extracted in **Step C**
 
     * To restore to a particular full or differential backup:
@@ -207,7 +207,7 @@ To restore the backup data as files instead of a database, choose **Restore as F
         * `<DatabaseName@HostName>` - the name of the database whose backup is used for restore and the **host** / SAP HANA server name on which this database resides. The `USING SOURCE <DatabaseName@HostName>`  option specifies that the data backup (used for restore) is of a database with a different SID or name than the target SAP HANA machine. So it need not be specified for restores done on the same HANA server from where the backup is taken.
         * `<PathToGeneratedCatalogInStep3>` - the path to the catalog file generated in **Step C**
         * `<DataFileDir>` - the folder that contains the full backups
-        * `<LogFilesDir>` - the folder that contains the log backups
+        * `<LogFilesDir>` - the folder that contains the log backups, differential and incremental backups (if any)
         * `<BackupIdFromJsonFile>` - the **BackupId** extracted in **Step C**
 
 ### Restore to a specific point in time
@@ -249,7 +249,7 @@ If you've selected **Full & Differential** as the restore type, do the following
 
 As one of the restore options, Cross Region Restore (CRR) allows you to restore SAP HANA databases hosted on Azure VMs in a secondary region, which is an Azure paired region.
 
-To onboard to the feature during the preview, read the [Before You Begin section](./backup-create-rs-vault.md#set-cross-region-restore).
+To onboard to the feature, read the [Before You Begin section](./backup-create-rs-vault.md#set-cross-region-restore).
 
 To see if CRR is enabled, follow the instructions in [Configure Cross Region Restore](backup-create-rs-vault.md#configure-cross-region-restore)
 
@@ -269,19 +269,15 @@ If CRR is enabled, you can view the backup items in the secondary region.
 
 ### Restore in secondary region
 
-The secondary region restore user experience will be similar to the primary region restore user experience. When configuring details in the Restore Configuration pane to configure your restore, you'll be prompted to provide only secondary region parameters.
+The secondary region restore user experience will be similar to the primary region restore user experience. When configuring details in the Restore Configuration pane to configure your restore, you'll be prompted to provide only secondary region parameters. A vault should exist in the secondary region and the SAP HANA server should be registered to the vault in the secondary region.
 
 ![Where and how to restore](./media/sap-hana-db-restore/restore-secondary-region.png)
-
->[!NOTE]
->The virtual network in the secondary region needs to be assigned uniquely, and can't be used for any other VMs in that resource group.
 
 ![Trigger restore in progress notification](./media/backup-azure-arm-restore-vms/restorenotifications.png)
 
 >[!NOTE]
->
 >* After the restore is triggered and in the data transfer phase, the restore job can't be cancelled.
->* The Azure roles needed to restore in the secondary region are the same as those in the primary region.
+>* The role/access level required to perform restore operation in cross-regions are _Backup Operator_ role in the subscription and _Contributor(write)_ access on the source and target virtual machines. To view backup jobs, _ Backup reader_ is the minimum premission required in the subscription.
 
 ### Monitoring secondary region restore jobs
 

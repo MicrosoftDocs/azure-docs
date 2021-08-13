@@ -154,6 +154,6 @@ Compare the column BikeBuyer (actual) with the Scored Labels (prediction), to se
 
 ## Next steps
 
-To learn more about Azure Machine Learning, refer to [Introduction to Machine Learning on Azure](../../machine-learning/overview-what-is-azure-ml.md).
+To learn more about Azure Machine Learning, refer to [Introduction to Machine Learning on Azure](../../machine-learning/overview-what-is-azure-machine-learning.md).
 
-Learn about built-in scoring in the data warehouse, [here](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest).
+Learn about built-in scoring in the data warehouse, [here](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true).

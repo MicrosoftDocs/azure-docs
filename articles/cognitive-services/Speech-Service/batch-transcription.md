@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/23/2020
+ms.date: 06/17/2021
 ms.author: wolfma
 ms.custom: devx-track-csharp
 ---
@@ -33,7 +33,7 @@ You can review and test the detailed API, which is available as a [Swagger docum
 
 Batch transcription jobs are scheduled on a best effort basis.
 You cannot estimate when a job will change into the running state,
-but it should happen within minutes under normal system load. 
+but it should happen within minutes under normal system load.
 Once in the running state, the transcription occurs faster than the audio runtime playback speed.
 
 ## Prerequisites
@@ -46,7 +46,7 @@ As with all features of the Speech service, you create a subscription key from t
 If you plan to customize models, follow the steps in [Acoustic customization](./how-to-custom-speech-train-model.md) and [Language customization](./how-to-custom-speech-train-model.md). To use the created models in batch transcription, you need their model location. You can retrieve the model location when you inspect the details of the model (`self` property). A deployed custom endpoint is *not needed* for the batch transcription service.
 
 >[!NOTE]
-> As a part of the REST API, Batch Transcription has a set of [quotas and limits](speech-services-quotas-and-limits.md#batch-transcription), which we encourage to review. To take the full advantage of Batch Transcription ability to efficiently transcribe a large number of audio files we recommend always sending multiple files per request or pointing to a Blob Storage container with the audio files to transcribe. The service will transcribe the files concurrently reducing the turnaround time. Using multiple files in a single request is very simple and straightforward - see [Configuration](#configuration) section. 
+> As a part of the REST API, Batch Transcription has a set of [quotas and limits](speech-services-quotas-and-limits.md#batch-transcription), which we encourage to review. To take the full advantage of Batch Transcription ability to efficiently transcribe a large number of audio files we recommend always sending multiple files per request or pointing to a Blob Storage container with the audio files to transcribe. The service will transcribe the files concurrently reducing the turnaround time. Using multiple files in a single request is very simple and straightforward - see [Configuration](#configuration) section.
 
 ## Batch transcription API
 
@@ -63,7 +63,7 @@ To create an ordered final transcript, use the timestamps generated per utteranc
 
 ### Configuration
 
-Configuration parameters are provided as JSON. 
+Configuration parameters are provided as JSON.
 
 **Transcribing one or more individual files.** If you have more than one file to transcribe, we recommend sending multiple files in one request. The example below is using three files:
 
@@ -185,9 +185,9 @@ and can read audio or write transcriptions using a SAS URI with [Azure Blob stor
 ## Batch transcription result
 
 For each audio input, one transcription result file is created.
-The [Get transcriptions files](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptionFiles) operation 
-returns a list of result files for this transcription. 
-To find the transcription file for a specific input file, 
+The [Get transcriptions files](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptionFiles) operation
+returns a list of result files for this transcription.
+To find the transcription file for a specific input file,
 filter all returned files with `kind` == `Transcription` and  `name` == `{originalInputName.suffix}.json`.
 
 Each transcription result file has this format:
@@ -210,8 +210,9 @@ Each transcription result file has this format:
   "recognizedPhrases": [                // results for each phrase and each channel individually
     {
       "recognitionStatus": "Success",   // recognition state, e.g. "Success", "Failure"
+      "speaker": 1,                     // if `diarizationEnabled` is `true`, this is the identified speaker (1 or 2), otherwise this property is not present
       "channel": 0,                     // channel number of the result
-      "offset": "PT0.07S",              // offset in audio of this phrase, ISO 8601 encoded duration 
+      "offset": "PT0.07S",              // offset in audio of this phrase, ISO 8601 encoded duration
       "duration": "PT1.59S",            // audio duration of this phrase, ISO 8601 encoded duration
       "offsetInTicks": 700000.0,        // offset in audio of this phrase in ticks (1 tick is 100 nanoseconds)
       "durationInTicks": 15900000.0,    // audio duration of this phrase in ticks (1 tick is 100 nanoseconds)
@@ -220,7 +221,6 @@ Each transcription result file has this format:
       "nBest": [
         {
           "confidence": 0.898652852,    // confidence value for the recognition of the whole phrase
-          "speaker": 1,                 // if `diarizationEnabled` is `true`, this is the identified speaker (1 or 2), otherwise this property is not present
           "lexical": "hello world",
           "itn": "hello world",
           "maskedITN": "hello world",
@@ -318,11 +318,14 @@ Word-level timestamps must be enabled as the parameters in the above request ind
 
 ## Best practices
 
-The batch transcription service can handle large number of submitted transcriptions. You can query the status of your transcriptions 
+The batch transcription service can handle large number of submitted transcriptions. You can query the status of your transcriptions
 with [Get transcriptions](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions).
-Call [Delete transcription](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) 
+Call [Delete transcription](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription)
 regularly from the service once you retrieved the results. Alternatively set `timeToLive` property to ensure eventual
 deletion of the results.
+
+> [!TIP]
+> You can use the [Ingestion Client](ingestion-client.md) tool and resulting solution to process high volume of audio.
 
 ## Sample code
 
@@ -330,7 +333,7 @@ Complete samples are available in the [GitHub sample repository](https://aka.ms/
 
 Update the sample code with your subscription information, service region, URI pointing to the audio file to transcribe, and model location if you're using a custom model.
 
-[!code-csharp[Configuration variables for batch transcription](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#transcriptiondefinition)]
+[!code-csharp[Configuration variables for batch transcription](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/batchclient/program.cs#transcriptiondefinition)]
 
 The sample code sets up the client and submits the transcription request. It then polls for the status information and print details about the transcription progress.
 

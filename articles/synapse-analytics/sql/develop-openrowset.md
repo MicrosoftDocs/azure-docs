@@ -65,10 +65,10 @@ Caller must have `REFERENCES` permission on credential to use it to authenticate
 ## Syntax
 
 ```syntaxsql
---OPENROWSET syntax for reading Parquet files
+--OPENROWSET syntax for reading Parquet or Delta Lake (preview) files
 OPENROWSET  
 ( { BULK 'unstructured_data_path' , [DATA_SOURCE = <data source name>, ]
-    FORMAT='PARQUET' }  
+    FORMAT= ['PARQUET' | 'DELTA'] }  
 )  
 [WITH ( {'column_name' 'column_type' }) ]
 [AS] table_alias(column_alias,...n)
@@ -85,13 +85,14 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })
 <bulk_options> ::=  
 [ , FIELDTERMINATOR = 'char' ]    
 [ , ROWTERMINATOR = 'char' ] 
-[ , ESCAPE_CHAR = 'char' ] 
+[ , ESCAPECHAR = 'char' ] 
 [ , FIRSTROW = 'first_row' ]     
 [ , FIELDQUOTE = 'quote_characters' ]
 [ , DATA_COMPRESSION = 'data_compression_method' ]
 [ , PARSER_VERSION = 'parser_version' ]
 [ , HEADER_ROW = { TRUE | FALSE } ]
 [ , DATAFILETYPE = { 'char' | 'widechar' } ]
+[ , CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' } ]
 ```
 
 ## Arguments
@@ -101,6 +102,8 @@ You have two choices for input files that contain the target data for querying. 
 - 'CSV' - Includes any delimited text file with row/column separators. Any character can be used as a field separator, such as  TSV: FIELDTERMINATOR = tab.
 
 - 'PARQUET' - Binary file in Parquet format 
+
+- 'DELTA' - A set of Parquet files organized in Delta Lake (preview) format 
 
 **'unstructured_data_path'**
 
@@ -116,7 +119,7 @@ Below you'll find the relevant <storage account path> values that will link to y
 | Azure Blob Storage         | wasb[s]  | \<container>@\<storage_account>.blob.core.windows.net/path/file |
 | Azure Data Lake Store Gen1 | http[s]  | \<storage_account>.azuredatalakestore.net/webhdfs/v1 |
 | Azure Data Lake Store Gen2 | http[s]  | \<storage_account>.dfs.core.windows.net /path/file   |
-| Azure Data Lake Store Gen2 | aufs[s]  | [\<file_system>@\<account_name>.dfs.core.windows.net/path/file](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md#uri-syntax)              |
+| Azure Data Lake Store Gen2 | abfs[s]  | [\<file_system>@\<account_name>.dfs.core.windows.net/path/file](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md#uri-syntax)              |
 ||||
 
 '\<storage_path>'
@@ -133,9 +136,9 @@ You can instruct serverless SQL pool to traverse folders by specifying /* at the
 `https://sqlondemandstorage.blob.core.windows.net/csv/population/**`
 
 > [!NOTE]
-> Unlike Hadoop and PolyBase, serverless SQL pool doesn't return subfolders unless you specify /** at the end of path. Also, unlike Hadoop and PolyBase, serverless SQL pool does return files for which the file name begins with an underline (_) or a period (.).
+> Unlike Hadoop and PolyBase, serverless SQL pool doesn't return subfolders unless you specify /** at the end of path. Just like Hadoop and PolyBase, it doesn't return files for which the file name begins with an underline (_) or a period (.).
 
-In the example below, if the unstructured_data_path=`https://mystorageaccount.dfs.core.windows.net/webdata/`, a serverless SQL pool query will return rows from mydata.txt and _hidden.txt. It won't return mydata2.txt and mydata3.txt because they're located in a subfolder.
+In the example below, if the unstructured_data_path=`https://mystorageaccount.dfs.core.windows.net/webdata/`, a serverless SQL pool query will return rows from mydata.txt. It won't return mydata2.txt and mydata3.txt because they're located in a subfolder.
 
 ![Recursive data for external tables](./media/develop-openrowset/folder-traversal.png)
 
@@ -147,9 +150,9 @@ The WITH clause allows you to specify columns that you want to read from files.
     > [!TIP]
     > You can omit WITH clause for CSV files also. Data types will be automatically inferred from file content. You can use HEADER_ROW argument to specify existence of header row in which case column names will be read from header row. For details check [automatic schema discovery](#automatic-schema-discovery).
     
-- For Parquet data files, provide column names that match the column names in the originating data files. Columns will be bound by name and is case sensitive. If the WITH clause is omitted, all columns from Parquet files will be returned.
+- For Parquet or Delta Lake files, provide column names that match the column names in the originating data files. Columns will be bound by name and is case-sensitive. If the WITH clause is omitted, all columns from Parquet files will be returned.
     > [!IMPORTANT]
-    > Column names in Parquet files are case sensitive. If you specify column name with casing different from column name casing in Parquet file, NULL values will be returned for that column.
+    > Column names in Parquet and Delta Lake files are case sensitive. If you specify column name with casing different from column name casing in the files, the `NULL` values will be returned for that column.
 
 
 column_name = Name for the output column. If provided, this name overrides the column name in the source file and column name provided in JSON path if there is one. If json_path is not provided, it will be automatically added as '$.column_name'. Check json_path argument for behavior.
@@ -167,7 +170,7 @@ WITH (
 )
 ```
 
-json_path = [JSON path expression](/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) to column or nested property. Default [path mode](/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15#PATHMODE) is lax.
+json_path = [JSON path expression](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true) to column or nested property. Default [path mode](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true#PATHMODE) is lax.
 
 > [!NOTE]
 > In strict mode query will fail with error if provided path does not exist. In lax mode query will succeed and JSON path expression will evaluate to NULL.
@@ -182,11 +185,14 @@ ROWTERMINATOR ='row_terminator'`
 
 Specifies the row terminator to be used. If row terminator is not specified, one of default terminators will be used. Default terminators for PARSER_VERSION = '1.0' are \r\n, \n and \r. Default terminators for PARSER_VERSION = '2.0' are \r\n and \n.
 
+> [!NOTE]
+> When you use PARSER_VERSION='1.0' and specify \n (newline) as the row terminator, it will be automatically prefixed with a \r (carriage return) character, which results in a row terminator of \r\n.
+
 ESCAPE_CHAR = 'char'
 
 Specifies the character in the file that is used to escape itself and all delimiter values in the file. If the escape character is followed by a value other than itself, or any of the delimiter values, the escape character is dropped when reading the value. 
 
-The ESCAPE_CHAR parameter will be applied regardless of whether the FIELDQUOTE is or isn't enabled. It won't be used to escape the quoting character. The quoting character must be escaped with another quoting character. Quoting character can appear within column value only if value is encapsulated with quoting characters.
+The ESCAPECHAR parameter will be applied regardless of whether the FIELDQUOTE is or isn't enabled. It won't be used to escape the quoting character. The quoting character must be escaped with another quoting character. Quoting character can appear within column value only if value is encapsulated with quoting characters.
 
 FIRSTROW = 'first_row' 
 
@@ -214,16 +220,21 @@ CSV parser version 1.0 is default and feature rich. Version 2.0 is built for per
 CSV parser version 1.0 specifics:
 
 - Following options aren't supported: HEADER_ROW.
+- Default terminators are \r\n, \n and \r. 
+- If you specify \n (newline) as the row terminator, it will be automatically prefixed with a \r (carriage return) character, which results in a row terminator of \r\n.
 
 CSV parser version 2.0 specifics:
 
 - Not all data types are supported.
+- Maximum character column length is 8000.
 - Maximum row size limit is 8 MB.
 - Following options aren't supported: DATA_COMPRESSION.
 - Quoted empty string ("") is interpreted as empty string.
+- DATEFORMAT SET option is not honored.
 - Supported format for DATE data type: YYYY-MM-DD
 - Supported format for TIME data type: HH:MM:SS[.fractional seconds]
 - Supported format for DATETIME2 data type: YYYY-MM-DD HH:MM:SS[.fractional seconds]
+- Default terminators are \r\n and \n.
 
 HEADER_ROW = { TRUE | FALSE }
 
@@ -232,6 +243,10 @@ Specifies whether CSV file contains header row. Default is FALSE. Supported in P
 DATAFILETYPE = { 'char' | 'widechar' }
 
 Specifies encoding: char is used for UTF8, widechar is used for UTF16 files.
+
+CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' }
+
+Specifies the code page of the data in the data file. The default value is 65001 (UTF-8 encoding). See more details about this option [here](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15&preserve-view=true#codepage).
 
 ## Fast delimited text parsing
 
@@ -246,11 +261,11 @@ Parquet files contain column metadata which will be read, type mappings can be f
 For CSV files column names can be read from header row. You can specify whether header row exists using HEADER_ROW argument. If HEADER_ROW = FALSE, generic column names will be used: C1, C2, ... Cn where n is number of columns in file. Data types will be inferred from first 100 data rows. Check [reading CSV files without specifying schema](#read-csv-files-without-specifying-schema) for samples.
 
 > [!IMPORTANT]
-> There are cases when appropriate data type cannot be inferred due to lack of information and larger data type will be used instead. This brings performance overhead and is particularly important for character columns which will be inferred as varchar(8000). For optimal performance, please [check inferred data types](best-practices-sql-on-demand.md#check-inferred-data-types) and [use appropriate data types](best-practices-sql-on-demand.md#use-appropriate-data-types).
+> There are cases when appropriate data type cannot be inferred due to lack of information and larger data type will be used instead. This brings performance overhead and is particularly important for character columns which will be inferred as varchar(8000). For optimal performance, please [check inferred data types](./best-practices-serverless-sql-pool.md#check-inferred-data-types) and [use appropriate data types](./best-practices-serverless-sql-pool.md#use-appropriate-data-types).
 
 ### Type mapping for Parquet
 
-Parquet files contain type descriptions for every column. The following table describes how Parquet types are mapped to SQL native types.
+Parquet and Delta Lake files contain type descriptions for every column. The following table describes how Parquet types are mapped to SQL native types.
 
 | Parquet type | Parquet logical type (annotation) | SQL data type |
 | --- | --- | --- |
@@ -296,19 +311,19 @@ The following example reads CSV file that contains header row without specifying
 
 ```sql
 SELECT 
-	*
+    *
 FROM OPENROWSET(
     BULK 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.csv',
     FORMAT = 'CSV',
     PARSER_VERSION = '2.0',
-	HEADER_ROW = TRUE) as [r]
+    HEADER_ROW = TRUE) as [r]
 ```
 
 The following example reads CSV file that doesn't contain header row without specifying column names and data types: 
 
 ```sql
 SELECT 
-	*
+    *
 FROM OPENROWSET(
     BULK 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.csv',
     FORMAT = 'CSV',
@@ -329,13 +344,27 @@ FROM
     ) AS [r]
 ```
 
+### Read Delta Lake files without specifying schema
+
+The following example returns all columns of the first row from the census data set, in Delta Lake format, and without specifying column names and data types: 
+
+```sql
+SELECT 
+    TOP 1 *
+FROM  
+    OPENROWSET(
+        BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        FORMAT='DELTA'
+    ) AS [r]
+```
+
 ### Read specific columns from CSV file
 
 The following example returns only two columns with ordinal numbers 1 and 4 from the population*.csv files. Since there's no header row in the files, it starts reading from the first line:
 
 ```sql
 SELECT 
-	* 
+    * 
 FROM OPENROWSET(
         BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population*.csv',
         FORMAT = 'CSV',
@@ -360,14 +389,14 @@ FROM
         FORMAT='PARQUET'
     )
 WITH (
-	[stateName] VARCHAR (50),
-	[population] bigint
+    [stateName] VARCHAR (50),
+    [population] bigint
 ) AS [r]
 ```
 
 ### Specify columns using JSON paths
 
-The following example shows how you can use [JSON path expressions](/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-ver15) in WITH clause and demonstrates difference between strict and lax path modes: 
+The following example shows how you can use [JSON path expressions](/sql/relational-databases/json/json-path-expressions-sql-server?view=azure-sqldw-latest&preserve-view=true) in WITH clause and demonstrates difference between strict and lax path modes: 
 
 ```sql
 SELECT 
@@ -378,19 +407,19 @@ FROM
         FORMAT='PARQUET'
     )
 WITH (
-	--lax path mode samples
-	[stateName] VARCHAR (50), -- this one works as column name casing is valid - it targets the same column as the next one
-	[stateName_explicit_path] VARCHAR (50) '$.stateName', -- this one works as column name casing is valid
-	[COUNTYNAME] VARCHAR (50), -- STATEname column will contain NULLs only because of wrong casing - it targets the same column as the next one
-	[countyName_explicit_path] VARCHAR (50) '$.COUNTYNAME', -- STATEname column will contain NULLS only because of wrong casing and default path mode being lax
+    --lax path mode samples
+    [stateName] VARCHAR (50), -- this one works as column name casing is valid - it targets the same column as the next one
+    [stateName_explicit_path] VARCHAR (50) '$.stateName', -- this one works as column name casing is valid
+    [COUNTYNAME] VARCHAR (50), -- STATEname column will contain NULLs only because of wrong casing - it targets the same column as the next one
+    [countyName_explicit_path] VARCHAR (50) '$.COUNTYNAME', -- STATEname column will contain NULLS only because of wrong casing and default path mode being lax
 
-	--strict path mode samples
-	[population] bigint 'strict $.population' -- this one works as column name casing is valid
-	--,[population2] bigint 'strict $.POPULATION' -- this one fails because of wrong casing and strict path mode
+    --strict path mode samples
+    [population] bigint 'strict $.population' -- this one works as column name casing is valid
+    --,[population2] bigint 'strict $.POPULATION' -- this one fails because of wrong casing and strict path mode
 )
 AS [r]
 ```
 
 ## Next steps
 
-For more samples, see the [query data storage quickstart](query-data-storage.md) to learn how to use `OPENROWSET` to read [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md), and [JSON](query-json-files.md) file formats. Check [best practices](best-practices-sql-on-demand.md) for achieving optimal performance. You can also learn how to save the results of your query to Azure Storage using [CETAS](develop-tables-cetas.md).
+For more samples, see the [query data storage quickstart](query-data-storage.md) to learn how to use `OPENROWSET` to read [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md), [DELTA LAKE](query-delta-lake-format.md), and [JSON](query-json-files.md) file formats. Check [best practices](./best-practices-serverless-sql-pool.md) for achieving optimal performance. You can also learn how to save the results of your query to Azure Storage using [CETAS](develop-tables-cetas.md).

@@ -6,8 +6,8 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 03/10/2020
-author: kevinvngo
-ms.author: kevin
+author: julieMSFT
+ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ---
@@ -112,7 +112,7 @@ To enable region access for a subscription, you'll need to complete the followin
 
 Select **Other quota request** from the quota type drop-down menu for other quota request types:
 
-![Other quota details](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-whitelisting.png)
+![Other quota details](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details.png)
 
 ## Submit your request
 

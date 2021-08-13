@@ -2,7 +2,8 @@
 title: Deploy resources to tenant
 description: Describes how to deploy resources at the tenant scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 04/27/2021 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Tenant deployments with ARM templates
@@ -12,12 +13,6 @@ As your organization matures, you may need to define and assign [policies](../..
 ## Supported resources
 
 Not all resource types can be deployed to the tenant level. This section lists which resource types are supported.
-
-For Azure Policies, use:
-
-* [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
-* [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
-* [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 
 For Azure role-based access control (Azure RBAC), use:
 
@@ -44,6 +39,8 @@ For managing costs, use:
 For configuring the portal, use:
 
 * [tenantConfigurations](/azure/templates/microsoft.portal/tenantconfigurations)
+
+Built-in policy definitions are tenant-level resources, but you can't deploy custom policy definitions at the tenant. For an example of assigning a built-in policy definition to a resource, see [tenantResourceId example](./template-functions-resource.md#tenantresourceid-example).
 
 ## Schema
 
@@ -93,7 +90,7 @@ The commands for tenant deployments are different than the commands for resource
 
 # [Azure CLI](#tab/azure-cli)
 
-For Azure CLI, use [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
+For Azure CLI, use [az deployment tenant create](/cli/azure/deployment/tenant#az_deployment_tenant_create):
 
 ```azurecli-interactive
 az deployment tenant create \
@@ -128,7 +125,7 @@ For more detailed information about deployment commands and options for deployin
 
 For tenant level deployments, you must provide a location for the deployment. The location of the deployment is separate from the location of the resources you deploy. The deployment location specifies where to store deployment data. [Subscription](deploy-to-subscription.md) and [management group](deploy-to-management-group.md) deployments also require a location. For [resource group](deploy-to-resource-group.md) deployments, the location of the resource group is used to store the deployment data.
 
-You can provide a name for the deployment, or use the default deployment name. The default name is the name of the template file. For example, deploying a template named **azuredeploy.json** creates a default deployment name of **azuredeploy**.
+You can provide a name for the deployment, or use the default deployment name. The default name is the name of the template file. For example, deploying a template named _azuredeploy.json_ creates a default deployment name of **azuredeploy**.
 
 For each deployment name, the location is immutable. You can't create a deployment in one location when there's an existing deployment with the same name in a different location. For example, if you create a tenant deployment with the name **deployment1** in **centralus**, you can't later create another deployment with the name **deployment1** but a location of **westus**. If you get the error code `InvalidDeploymentLocation`, either use a different name or the same location as the previous deployment for that name.
 
@@ -140,7 +137,8 @@ When deploying to a tenant, you can deploy resources to:
 * management groups within the tenant
 * subscriptions
 * resource groups
-* [extension resources](scope-extension-resources.md) can be applied to resources
+
+An [extension resource](scope-extension-resources.md) can be scoped to a target that is different than the deployment target.
 
 The user deploying the template must have access to the specified scope.
 
@@ -179,6 +177,8 @@ To target a resource group within the tenant, use a nested deployment. Set the `
 The following template creates a management group.
 
 :::code language="json" source="~/quickstart-templates/tenant-deployments/new-mg/azuredeploy.json":::
+
+If your account doesn't have permission to deploy to the tenant, you can still create management groups by deploying to another scope. For more information, see [Management group](deploy-to-management-group.md#management-group).
 
 ## Assign role
 

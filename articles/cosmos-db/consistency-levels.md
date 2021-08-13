@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/09/2020
+ms.date: 03/22/2021
 ---
 # Consistency levels in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -28,7 +28,7 @@ The consistency levels are region-agnostic and are guaranteed for all operations
 
 ## Consistency levels and Azure Cosmos DB APIs
 
-Azure Cosmos DB provides native support for wire protocol-compatible APIs for popular databases. These include MongoDB, Apache Cassandra, Gremlin, and Azure Table storage. When using Gremlin API and Table API, the default consistency level configured on the Azure Cosmos account is used. For details on consistency level mapping between Cassandra API or the API for MongoDB and Azure Cosmos DB's consistency levels see, [Cassandra API consistency mapping](cassandra-consistency.md) and [API for MongoDB consistency mapping](mongodb-consistency.md).
+Azure Cosmos DB provides native support for wire protocol-compatible APIs for popular databases. These include MongoDB, Apache Cassandra, Gremlin, and Azure Table storage. When using Gremlin API and Table API, the default consistency level configured on the Azure Cosmos account is used. For details on consistency level mapping between Cassandra API or the API for MongoDB and Azure Cosmos DB's consistency levels see, [Cassandra API consistency mapping](cassandra/apache-cassandra-consistency-mapping.md) and [API for MongoDB consistency mapping](mongodb/consistency-mapping.md).
 
 ## Scope of the read consistency
 
@@ -38,6 +38,9 @@ Read consistency applies to a single read operation scoped within a logical part
 
 You can configure the default consistency level on your Azure Cosmos account at any time. The default consistency level configured on your account applies to all Azure Cosmos databases and containers under that account. All reads and queries issued against a container or a database use the specified consistency level by default. To learn more, see how to [configure the default consistency level](how-to-manage-consistency.md#configure-the-default-consistency-level). You can also override the default consistency level for a specific request, to learn more, see how to [Override the default consistency level](how-to-manage-consistency.md?#override-the-default-consistency-level) article.
 
+> [!TIP]
+> Overriding the default consistency level only applies to reads within the SDK client. An account configured for strong consistency by default will still write and replicate data synchronously to every region in the account. When the SDK client instance or request overrides this with Session or weaker consistency, reads will be performed using a single replica. See [Consistency levels and throughput](consistency-levels.md#consistency-levels-and-throughput) for more details.
+
 > [!IMPORTANT]
 > It is required to recreate any SDK instance after changing the default consistency level. This can be done by restarting the application. This ensures the SDK uses the new default consistency level.
 
@@ -45,15 +48,19 @@ You can configure the default consistency level on your Azure Cosmos account at 
 
 Azure Cosmos DB guarantees that 100 percent of read requests meet the consistency guarantee for the consistency level chosen. The precise definitions of the five consistency levels in Azure Cosmos DB using the TLA+ specification language are provided in the [azure-cosmos-tla](https://github.com/Azure/azure-cosmos-tla) GitHub repo.
 
-The semantics of the five consistency levels are described here:
+The semantics of the five consistency levels are described in the following sections.
 
-- **Strong**: Strong consistency offers a linearizability guarantee. Linearizability refers to serving requests concurrently. The reads are guaranteed to return the most recent committed version of an item. A client never sees an uncommitted or partial write. Users are always guaranteed to read the latest committed write.
+### Strong consistency
+
+Strong consistency offers a linearizability guarantee. Linearizability refers to serving requests concurrently. The reads are guaranteed to return the most recent committed version of an item. A client never sees an uncommitted or partial write. Users are always guaranteed to read the latest committed write.
 
   The following graphic illustrates the strong consistency with musical notes. After the data is written to the "West US 2" region, when you read the data from other regions, you get the most recent value:
 
   :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="Illustration of strong consistency level":::
 
-- **Bounded staleness**: The reads are guaranteed to honor the consistent-prefix guarantee. The reads might lag behind writes by at most *"K"* versions (that is, "updates") of an item or by *"T"* time interval, whichever is reached first. In other words, when you choose bounded staleness, the "staleness" can be configured in two ways:
+### Bounded staleness consistency
+
+In bounded staleness consistency, the reads are guaranteed to honor the consistent-prefix guarantee. The reads might lag behind writes by at most *"K"* versions (that is, "updates") of an item or by *"T"* time interval, whichever is reached first. In other words, when you choose bounded staleness, the "staleness" can be configured in two ways:
 
 - The number of versions (*K*) of the item
 - The time interval (*T*) reads might lag behind the writes
@@ -73,20 +80,24 @@ Inside the staleness window, Bounded Staleness provides the following consistenc
 
   :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="Illustration of bounded staleness consistency level":::
 
-- **Session**:  Within a single client session reads are guaranteed to honor the consistent-prefix, monotonic reads, monotonic writes, read-your-writes, and write-follows-reads guarantees. This assumes a single "writer" session or sharing the session token for multiple writers.
+### Session consistency
+
+In session consistency, within a single client session reads are guaranteed to honor the consistent-prefix, monotonic reads, monotonic writes, read-your-writes, and write-follows-reads guarantees. This assumes a single "writer" session or sharing the session token for multiple writers.
 
 Clients outside of the session performing writes will see the following guarantees:
 
 - Consistency for clients in same region for an account with single write region = Consistent Prefix
 - Consistency for clients in different regions for an account with single write region = Consistent Prefix
 - Consistency for clients writing to a single region for an account with multiple write regions = Consistent Prefix
-- Consistency for clients writing to multiple regions for a account with multiple write regions = Eventual
+- Consistency for clients writing to multiple regions for an account with multiple write regions = Eventual
 
   Session consistency is the most widely used consistency level for both single region as well as globally distributed applications. It provides write latencies, availability, and read throughput comparable to that of eventual consistency but also provides the consistency guarantees that suit the needs of applications written to operate in the context of a user. The following graphic illustrates the session consistency with musical notes. The "West US 2 writer" and the "West US 2 reader" are using the same session (Session A) so they both read the same data at the same time. Whereas the "Australia East" region is using "Session B" so, it receives data later but in the same order as the writes.
 
   :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="Illustration of session consistency level":::
 
-- **Consistent prefix**: Updates that are returned contain some prefix of all the updates, with no gaps. Consistent prefix consistency level guarantees that reads never see out-of-order writes.
+### Consistent prefix consistency
+
+In consistent prefix option, updates that are returned contain some prefix of all the updates, with no gaps. Consistent prefix consistency level guarantees that reads never see out-of-order writes.
 
 If writes were performed in the order `A, B, C`, then a client sees either `A`, `A,B`, or `A,B,C`, but never out-of-order permutations like `A,C` or `B,A,C`. Consistent Prefix provides write latencies, availability, and read throughput comparable to that of eventual consistency, but also provides the order guarantees that suit the needs of scenarios where order is important.
 
@@ -101,7 +112,9 @@ The following graphic illustrates the consistency prefix consistency with musica
 
   :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="Illustration of consistent prefix":::
 
-- **Eventual**: There's no ordering guarantee for reads. In the absence of any further writes, the replicas eventually converge.  
+### Eventual consistency
+
+In eventual consistency, there's no ordering guarantee for reads. In the absence of any further writes, the replicas eventually converge.  
 Eventual consistency is the weakest form of consistency because a client may read the values that are older than the ones it had read before. Eventual consistency is ideal where the application does not require any ordering guarantees. Examples include count of Retweets, Likes, or non-threaded comments. The following graphic illustrates the eventual consistency with musical notes.
 
   :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="viIllustration of eventual consistency":::

@@ -3,11 +3,14 @@ title: Quickstart - Deploy JBoss Enterprise Application Platform (EAP) on Red Ha
 description: How to deploy enterprise Java applications by using Red Hat JBoss EAP on Azure RHEL VMs and virtual machine scale sets.
 author: theresa-nguyen
 ms.author: bicnguy
-ms.topic: quickstart
-ms.service: virtual-machines-linux
-ms.subservice: workloads
-ms.assetid: 8a4df7bf-be49-4198-800e-db381cda98f5
 ms.date: 10/30/2020
+ms.assetid: 8a4df7bf-be49-4198-800e-db381cda98f5
+ms.topic: quickstart
+ms.service: virtual-machines
+ms.subservice: redhat
+ms.custom:
+  - mode-api
+ms.collection: linux
 ---
 
 # Deploy enterprise Java applications to Azure with JBoss EAP on Red Hat Enterprise Linux
@@ -155,7 +158,7 @@ To use BYOS for RHEL OS, you need to have a valid Red Hat subscription with enti
 
    1. Enable new products for Cloud Access on Microsoft Azure.
     
-   1. Activate Red Hat Gold Images for your Azure subscription. For more information, see [Red Hat Gold Images on Microsoft Azure](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/cloud-access-gold-images_cloud-access#proc_using-gold-images-azure_cloud-access).
+   1. Activate Red Hat Gold Images for your Azure subscription. For more information, see [Red Hat Gold Images on Microsoft Azure](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/understanding-gold-images_cloud-access#proc_using-gold-images-azure_cloud-access#proc_using-gold-images-azure_cloud-access).
 
    1. Wait for Red Hat Gold Images to be available in your Azure subscription. These images are typically available within three hours of submission.
     
@@ -222,7 +225,7 @@ You can start by using one of the following Quickstart templates for JBoss EAP o
 
 * <a href="https://azure.microsoft.com/resources/templates/jboss-eap-clustered-multivm-rhel/"> JBoss EAP on RHEL (clustered, multiple VMs)</a>. This will deploy a web application called eap-session-replication on a JBoss EAP 7.2 or 7.3 cluster running on *n* number of RHEL 7.7 or 8.0 VMs. The user decides the *n* value. All the VMs are added to the back-end pool of a load balancer.
 
-* <a href="https://azure.microsoft.com/en-us/resources/templates/jboss-eap-clustered-vmss-rhel/"> JBoss EAP on RHEL (clustered, virtual machine scale set)</a>. This will deploy a web application called eap-session-replication on a JBoss EAP 7.2 or 7.3 cluster running on RHEL 7.7 or 8.0 virtual machine scale sets.
+* <a href="https://azure.microsoft.com/resources/templates/jboss-eap-clustered-vmss-rhel/"> JBoss EAP on RHEL (clustered, virtual machine scale set)</a>. This will deploy a web application called eap-session-replication on a JBoss EAP 7.2 or 7.3 cluster running on RHEL 7.7 or 8.0 virtual machine scale sets.
 
 ## Resource links
 

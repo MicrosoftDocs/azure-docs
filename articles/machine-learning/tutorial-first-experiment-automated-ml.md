@@ -1,7 +1,7 @@
 ---
-title: Create automated ML classification models
+title: 'Tutorial: AutoML- train no-code classification models'
 titleSuffix: Azure Machine Learning
-description: Learn how to train & deploy classification models with Azure Machine Learning's automated machine learning (automated ML)  interface.
+description: Train a classification model without writing a single line of code using Azure Machine Learning automated ML in the studio UI.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,31 +9,34 @@ ms.topic: tutorial
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 12/21/2020
-ms.custom: automl
+ms.date: 07/01/2021
+ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
+
 # Customer intent: As a non-coding data scientist, I want to use automated machine learning techniques so that I can build a classification model.
 ---
 
-# Tutorial: Create a classification model with automated ML in Azure Machine Learning
+# Tutorial: Train a classification model with no-code AutoML in the Azure Machine Learning studio
 
+Learn how to train a classification model with no-code AutoML using Azure Machine Learning automated ML in the Azure Machine Learning studio. This classification model predicts if a client will subscribe to a fixed term deposit with a financial institution.
 
-In this tutorial, you learn how to create a simple classification model without writing a single line of code using automated machine learning in the Azure Machine Learning studio. This classification model predicts if a client will subscribe to a fixed term deposit with a financial institution.
+With automated ML, you can automate away time intensive tasks. Automated machine learning rapidly iterates over many combinations of algorithms and hyperparameters to help you find the best model based on a success metric of your choosing.
 
-With automated machine learning, you can automate away time intensive tasks. Automated machine learning rapidly iterates over many combinations of algorithms and hyperparameters to help you find the best model based on a success metric of your choosing.
-
-For a time-series forecasting example, see [Tutorial: Demand forecasting & AutoML](tutorial-automated-ml-forecast.md).
-
-In this tutorial, you learn how to do the following tasks:
+You won't write any code in this tutorial, you'll use the studio interface to perform training.  You'll learn how to do the following tasks:
 
 > [!div class="checklist"]
 > * Create an Azure Machine Learning workspace.
 > * Run an automated machine learning experiment.
-> * View experiment details.
-> * Deploy the model.
+> * Explore model details.
+> * Deploy the recommended model.
+
+Also try automated machine learning for these other model types:
+
+* For a no-code example of forecasting, see [Tutorial: Demand forecasting & AutoML](tutorial-automated-ml-forecast.md).
+* For a code first example of a regression model, see the [Tutorial: Regression model with AutoML](tutorial-auto-train-models.md).
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLFree).
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 
 * Download the [**bankmarketing_train.csv**](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) data file. The **y** column indicates if a customer subscribed to a fixed term deposit, which is later identified as the target column for predictions in this tutorial. 
 
@@ -48,7 +51,7 @@ There are many [ways to create a workspace](how-to-manage-workspace.md). In this
 >[!IMPORTANT] 
 > Take note of your **workspace** and **subscription**. You'll need these to ensure you create your experiment in the right place. 
 
-## Get started in Azure Machine Learning studio
+## Sign in to the studio
 
 You complete the following experiment set-up and run steps  via the Azure Machine Learning studio at https://ml.azure.com, a consolidated web interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels. The studio is not supported on Internet Explorer browsers.
 
@@ -86,7 +89,7 @@ Before you configure your experiment, upload your data file to your workspace in
 
     1. Select **Next** on the bottom left, to  upload it to the default container that was automatically set up during your workspace creation.  
     
-       When the upload is complete, the Settings and preview form is pre-populated based on the file type. 
+       When the upload is complete, the **Settings and preview** form is pre-populated based on the file type. 
        
     1. Verify that the **Settings and preview** form is populated as follows and select **Next**.
         
@@ -98,8 +101,8 @@ Before you configure your experiment, upload your data file to your workspace in
         Column headers| Indicates how the headers of the dataset, if any, will be treated.| All files have same headers
         Skip rows | Indicates how many, if any, rows are skipped in the dataset.| None
 
-    1. The **Schema** form allows for further configuration of your data for this experiment. For this example, we don't make any selections. Select **Next**.
-
+    1. The **Schema** form allows for further configuration of your data for this experiment. For this example, select the toggle switch for the **day_of_week**, so as to not include it. Select **Next**.
+         ![Schema form](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
     1. On the **Confirm details** form, verify the information matches what was previously  populated on the **Basic info, Datastore and file selection** and **Settings and preview** forms.
     
     1. Select **Create** to complete the creation of your dataset.
@@ -136,7 +139,7 @@ After you load and configure your data, you can set up your experiment. This set
             ----|---|---
             Compute name |	A unique name that identifies your compute context. | automl-compute
             Min / Max nodes| To profile data, you must specify 1 or more nodes.|Min nodes: 1<br>Max nodes: 6
-            Idle seconds before scale down | Idle time before  the cluster is automatically scaled down to the minimum node count.|120 (default)
+            Idle seconds before scale down | Idle time before  the cluster is automatically scaled down to the minimum node count.|1800 (default)
             Advanced settings | Settings to configure and authorize a virtual network for your experiment.| None               
 
         1. Select **Create** to create your compute target. 
@@ -149,7 +152,7 @@ After you load and configure your data, you can set up your experiment. This set
 
     1. Select **Next**.
 
-1. On the **Task type and settings** form, complete the setup for your automated ML experiment by specifying the machine learning task type and configuration settings.
+1. On the **Select task and settings** form, complete the setup for your automated ML experiment by specifying the machine learning task type and configuration settings.
     
     1.  Select **Classification** as the machine learning task type.
 
@@ -166,13 +169,7 @@ After you load and configure your data, you can set up your experiment. This set
         
         Select **Save**.
     
-    1. Select **View featurization settings**. For this example, select the toggle switch for the **day_of_week** feature, so as to not include it for featurization in this experiment.
-
-        ![Featurization selection](./media/tutorial-first-experiment-automated-ml/featurization-setting-config.gif)   
- 
-        Select **Save**.
-
-1. Select **Finish** to run the experiment. The **Run Detail**  screen opens with the **Run status** at the top as the experiment preparation begins. This status updates as the experiment progresses. Notifications also appear in the top right corner of the studio, to inform you of the status of your experiment.
+1. Select **Finish** to run the experiment. The **Run Detail**  screen opens with the **Run status** at the top as the experiment preparation begins. This status updates as the experiment progresses. Notifications also appear in the top right corner of the studio to inform you of the status of your experiment.
 
 >[!IMPORTANT]
 > Preparation takes **10-15 minutes** to prepare the experiment run.
@@ -188,6 +185,30 @@ While you wait for all of the experiment models to finish, select the **Algorith
 The following navigates through the **Details** and the **Metrics** tabs to view the selected model's properties, metrics, and performance charts. 
 
 ![Run iteration detail](./media/tutorial-first-experiment-automated-ml/run-detail.gif)
+
+## Model explanations
+
+While you wait for the models to complete, you can also take a look at model explanations and see which data features (raw or engineered) influenced a particular model's predictions. 
+
+These model explanations can be generated on demand, and are summarized in the model explanations dashboard  that's part of the **Explanations (preview)** tab.
+
+To generate model explanations, 
+ 
+1. Select **Run 1** at the top to navigate back to the **Models** screen. 
+1. Select the **Models** tab.
+1. For this tutorial, select the first **MaxAbsScaler, LightGBM** model.
+1. Select the **Explain model** button at the top. On the right, the **Explain model** pane appears. 
+1. Select the **automl-compute** that you created previously. This compute cluster initiates a child run to generate the model explanations.
+1. Select **Create** at the bottom. A green success message appears towards the top of your screen. 
+    >[!NOTE]
+    > The explainability run takes about 2-5 minutes to complete.
+1. Select the **Explanations (preview)** button. This tab populates once the explainability run completes.
+1. On the left hand side, expand the pane and select the row that says **raw** under **Features**. 
+1. Select the **Aggregate feature importance** tab on the right. This chart shows which data features influenced the predictions of the selected model. 
+
+    In this example, the *duration* appears to have the most influence on the predictions of this model.
+    
+    ![Model explanation dashboard](media/tutorial-first-experiment-automated-ml/model-explanation-dashboard.png)
 
 ## Deploy the best model
 
@@ -213,7 +234,7 @@ We deploy this model, but be advised, deployment takes about 20 minutes to compl
     Deployment description| My first automated machine learning experiment deployment
     Compute type | Select Azure Compute Instance (ACI)
     Enable authentication| Disable. 
-    Use custom deployments| Disable. Allows for the default driver file (scoring script) and environment file to be autogenerated. 
+    Use custom deployments| Disable. Allows for the default driver file (scoring script) and environment file to be auto-generated. 
     
     For this example, we use the defaults provided in the *Advanced* menu. 
 
@@ -248,7 +269,7 @@ Delete just the deployment instance from Azure Machine Learning at https:\//ml.a
 In this automated machine learning tutorial, you used Azure Machine Learning's automated ML interface to create and deploy a classification model. See these articles for more information and next steps:
 
 > [!div class="nextstepaction"]
-> [Consume a web service](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)
+> [Consume a web service](/power-bi/connect-data/service-aml-integrate?context=azure%2fmachine-learning%2fcontext%2fml-context)
 
 + Learn more about [automated machine learning](concept-automated-ml.md).
 + For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md) article.

@@ -1,74 +1,152 @@
 ---
-title: Deploy VMs on your Azure Stack Edge Pro GPU device via Azure PowerShell
-description: Describes how to create and manage virtual machines (VMs) on a Azure Stack Edge Pro GPU device using Azure PowerShell.
+title: Deploy VMs on your Azure Stack Edge device via Azure PowerShell
+description: Describes how to create and manage virtual machines on an Azure Stack Edge device by using Azure PowerShell.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/23/2020
+ms.date: 02/26/2021
 ms.author: alkohli
-#Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
+ms.custom: devx-track-azurepowershell
+#Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device. I want to use APIs so that I can efficiently manage my VMs.
 ---
 
-# Deploy VMs on your Azure Stack Edge Pro GPU device via Azure PowerShell
+# Deploy VMs on your Azure Stack Edge device via Azure PowerShell
 
-This article describes how to create and manage a VM on your Azure Stack Edge Pro device using Azure PowerShell. This article applies to Azure Stack Edge Pro GPU, Azure Stack Edge Pro R and Azure Stack Edge Mini R devices.
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
+
+This article describes how to create and manage a virtual machine (VM) on your Azure Stack Edge device by using Azure PowerShell.
 
 ## VM deployment workflow
 
-The deployment workflow is illustrated in the following diagram.
+The high-level deployment workflow of the VM deployment is as follows:
 
-![VM deployment workflow](media/azure-stack-edge-gpu-deploy-virtual-machine-powershell/vm-workflow-r.svg)
+1. Connect to the local Azure Resource Manager of your device.
+1. Identify the built-in subscription on the device.
+1. Bring your VM image.
+1. Create a resource group in the built-in subscription. The resource group will contain the VM and all the related resources.  
+1. Create a local storage account on the device to store the VHD that will be used to create a VM image.
+1. Upload a Windows/Linux source image into the storage account to create a managed disk.
+1. Use the managed disk to create a VM image.
+1. Enable compute on a device port to create a virtual switch.
+1. This creates a virtual network using the virtual switch attached to the port on which you enabled compute.
+1. Create a VM using the previously created VM image, virtual network, and virtual network interface(s) to communicate within the virtual network and assign a public IP address to remotely access the VM. Optionally include data disks to provide more storage for your VM.
 
 ## Prerequisites
 
 [!INCLUDE [azure-stack-edge-gateway-deploy-vm-prerequisites](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-prerequisites.md)]
 
 
-## Query for built in subscription on the device
+## Query for a built-in subscription on the device
 
-For Azure Resource Manager, only a single user-visible fixed subscription is supported. This subscription is unique per device and this subscription name or subscription ID cannot be changed.
+For Azure Resource Manager, only a single fixed subscription that's user-visible is supported. This subscription is unique per device, and the subscription name and subscription ID can't be changed.
 
-This subscription contains all the resources that are created required for VM creation. 
+The subscription contains all the resources that are required for VM creation. 
 
 > [!IMPORTANT]
-> This subscription is created when you enable VMs from the Azure portal and it lives locally on your device .
+> The subscription is created when you enable VMs from the Azure portal, and it lives locally on your device.
 
-This subscription is used to deploy the VMs.
+The subscription is used to deploy the VMs.
 
-1.  To list this subscription, type:
+### [Az](#tab/az)
+
+1.  To list the subscription, run the following command:
+
+    ```powershell
+    Get-AzSubscription
+    ```
+    
+    Here's some example output:
+
+    ```output
+    PS C:\WINDOWS\system32> Get-AzSubscription
+    
+    Name                          Id                                   TenantId
+    ----                          --                                   --------
+    Default Provider Subscription ...                                  ...
+    
+    
+    PS C:\WINDOWS\system32>
+    ```
+        
+1. Get a list of the registered resource providers that are running on the device. The list ordinarily includes compute, network, and storage.
+
+    ```powershell
+    Get-AzResourceProvider
+    ```
+
+    > [!NOTE]
+    > The resource providers are pre-registered, and they can't be modified or changed.
+    
+    Here's some example output:
+
+    ```output
+    PS C:\WINDOWS\system32>  Get-AzResourceProvider
+        
+    ProviderNamespace : Microsoft.AzureBridge
+    RegistrationState : Registered
+    ResourceTypes     : {locations, operations, locations/ingestionJobs}
+    Locations         : {DBELocal}
+    
+    ProviderNamespace : Microsoft.Compute
+    RegistrationState : Registered
+    ResourceTypes     : {virtualMachines, virtualMachines/extensions, locations, operations...}
+    Locations         : {DBELocal}
+    
+    ProviderNamespace : Microsoft.Network
+    RegistrationState : Registered
+    ResourceTypes     : {operations, locations, locations/operations, locations/usages...}
+    Locations         : {DBELocal}
+    
+    ProviderNamespace : Microsoft.Resources
+    RegistrationState : Registered
+    ResourceTypes     : {tenants, locations, providers, checkresourcename...}
+    Locations         : {DBELocal}
+    
+    ProviderNamespace : Microsoft.Storage
+    RegistrationState : Registered
+    ResourceTypes     : {storageaccounts, storageAccounts/blobServices, storageAccounts/tableServices,
+                        storageAccounts/queueServices...}
+    Locations         : {DBELocal}
+    
+    PS C:\WINDOWS\system32>
+    ```
+
+### [AzureRM](#tab/azure-rm)
+
+1.  To list the subscription, run the following command:
 
     ```powershell
     Get-AzureRmSubscription
     ```
     
-    A sample output is shown below.
+    Here's some example output:
 
-    ```powershell
+    ```output
     PS C:\windows\system32> Get-AzureRmSubscription
     
     Name                 Id                 TenantId          State
     ----                 --                --------           -----
-    Default Provider Subscription A4257FDE-B946-4E01-ADE7-674760B8D1A3 c0257de7-538f-415c-993a-1b87a031879d Enabled
+    Default Provider Subscription         ...                 c0257de7-538f-415c-993a-1b87a031879d Enabled
     
     PS C:\windows\system32>
     ```
         
-3.  Get the list of the registered resource providers running on the device. This list typically includes Compute, Network, and Storage.
+1. Get a list of the registered resource providers that are running on the device. The list ordinarily includes compute, network, and storage.
 
     ```powershell
     Get-AzureRMResourceProvider
     ```
 
     > [!NOTE]
-    > The resource providers are pre-registered and cannot be modified or changed.
+    > The resource providers are pre-registered, and they can't be modified or changed.
     
-    A sample output is shown below:
+    Here's some example output:
 
-    ```powershell
-    Get-AzureRmResourceProvider
+    ```output
+    PS C:\Windows\system32> Get-AzureRmResourceProvider
     ProviderNamespace : Microsoft.Compute
     RegistrationState : Registered
     ResourceTypes     : {virtualMachines, virtualMachines/extensions, locations, operations...}
@@ -94,44 +172,131 @@ This subscription is used to deploy the VMs.
     Locations         : {DBELocal}
     ZoneMappings      :
     ```
-    
+---
+   
 ## Create a resource group
 
-Create an Azure resource group with [New-AzureRmResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which the Azure resources such as storage account, disk, managed disk are deployed and managed.
+Start by creating a new Azure resource group and use this as a logical container for all the VM related resources, such as storage account, disk, network interface, and managed disk.
 
 > [!IMPORTANT]
-> All the resources are created in the same location as that of the device and the location is set to **DBELocal**.
+> All the resources are created in the same location as that of the device, and the location is set to **DBELocal**.
+
+### [Az](#tab/az)
+
+1. Set some parameters.
+
+    ```powershell
+    $ResourceGroupName = "<Resource group name>" 
+    ```
+1. Create a resource group for the resources that you'll create for the VM.
+   
+    ```powershell
+    New-AzResourceGroup -Name $ResourceGroupName -Location DBELocal
+    ```
+
+    Here's some example output:
+    
+    ```output
+    PS C:\WINDOWS\system32> New-AzResourceGroup -Name myaseazrg -Location DBELocal
+    
+    ResourceGroupName : myaseazrg
+    Location          : dbelocal
+    ProvisioningState : Succeeded
+    Tags              :
+    ResourceId        : /subscriptions/.../resourceGroups/myaseazrg
+    
+    PS C:\WINDOWS\system32>
+    ```
+
+### [AzureRM](#tab/azure-rm)
 
 ```powershell
 New-AzureRmResourceGroup -Name <Resource group name> -Location DBELocal
 ```
 
-A sample output is shown below.
+Here's some example output:
 
-```powershell
+```output
 New-AzureRmResourceGroup -Name rg191113014333 -Location DBELocal 
 Successfully created Resource Group:rg191113014333
 ```
+---
 
 ## Create a storage account
 
-Create a new storage account using the resource group created in the previous step. This is a **local storage account** that will be used to upload the virtual disk image for the VM.
+Create a new storage account by using the resource group that you created in the preceding step. This is a local storage account that you use to upload the virtual disk image for the VM.
+
+### [Az](#tab/az)
+
+1. Set some parameters.
+
+    ```powershell
+    $StorageAccountName = "<Storage account name>"    
+    ```
+
+1. Create a new local storage account on your device.
+
+    ```powershell
+    New-AzStorageAccount -Name $StorageAccountName -ResourceGroupName $ResourceGroupName -Location DBELocal -SkuName Standard_LRS
+    ```
+    
+    > [!NOTE]
+    > By using Azure Resource Manager, you can create only local storage accounts, such as locally redundant storage (standard or premium). To create tiered storage accounts, see [Tutorial: Transfer data via storage accounts with Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-deploy-add-storage-accounts.md).
+
+    Here's an example output:
+    
+    ```output
+    PS C:\WINDOWS\system32> New-AzStorageAccount -Name myaseazsa -ResourceGroupName myaseazrg -Location DBELocal -SkuName Standard_LRS
+    
+    StorageAccountName ResourceGroupName PrimaryLocation SkuName      Kind    AccessTier CreationTime
+    ------------------ ----------------- --------------- -------      ----    ---------- ------------
+    myaseazsa          myaseazrg         DBELocal        Standard_LRS Storage            6/10/2021 11:45...
+    
+    PS C:\WINDOWS\system32>
+    ```
+
+1. Get the storage account key for the account that you created in the earlier step. When prompted, provide the resource group name and the storage account name.
+
+    ```powershell
+    Get-AzStorageAccountKey
+    ``` 
+
+    Here's an example output:
+
+    ```output
+    PS C:\WINDOWS\system32> Get-AzStorageAccountKey
+    
+    cmdlet Get-AzStorageAccountKey at command pipeline position 1
+    Supply values for the following parameters:
+    (Type !? for Help.)
+    ResourceGroupName: myaseazrg
+    Name: myaseazsa
+    
+    KeyName Value                                                                                    Permissions
+    ------- -----                                         ------
+    key1    gv3OF57tuPDyzBNc1M7fhil2UAiiwnhTT6zgiwE3TlF/CD217Cvw2YCPcrKF47joNKRvzp44leUe5HtVkGx8RQ==   Full
+    key2    kmEynIs3xnpmSxWbU41h5a7DZD7v4gGV3yXa2NbPbmhrPt10+QmE5PkOxxypeSqbqzd9si+ArNvbsqIRuLH2Lw==   Full
+    
+    PS C:\WINDOWS\system32>
+    ```
+
+### [AzureRM](#tab/azure-rm)
 
 ```powershell
 New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resource group name> -Location DBELocal -SkuName Standard_LRS
 ```
 
 > [!NOTE]
-> Only the local storage accounts such as Locally redundant storage (Standard_LRS or Premium_LRS) can be created via Azure Resource Manager. To create tiered storage accounts, see the steps in [Add, connect to storage accounts on your Azure Stack Edge Pro](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
+> By using Azure Resource Manager, you can create only local storage accounts, such as locally redundant storage (standard or premium). To create tiered storage accounts, see [Tutorial: Transfer data via storage accounts with Azure Stack Edge Pro with GPU](./azure-stack-edge-gpu-deploy-add-storage-accounts.md).
 
-A sample output is shown below.
+Here's some example output:
 
-```powershell
+```output
 New-AzureRmStorageAccount -Name sa191113014333  -ResourceGroupName rg191113014333 -SkuName Standard_LRS -Location DBELocal
 
 ResourceGroupName      : rg191113014333
 StorageAccountName     : sa191113014333
-Id                     : /subscriptions/a4257fde-b946-4e01-ade7-674760b8d1a3/resourceGroups/rg191113014333/providers/Microsoft.Storage/storageaccounts/sa191113014333
+Id                     : /subscriptions/.../resourceGroups/rg191113014333/providers/Microsoft.Storage/storageaccounts/sa191113014333
 Location               : DBELocal
 Sku                    : Microsoft.Azure.Management.Storage.Models.Sku
 Kind                   : Storage
@@ -155,10 +320,10 @@ Context                : Microsoft.WindowsAzure.Commands.Common.Storage.LazyAzur
 ExtendedProperties     : {}
 ```
 
-To get the storage account key, run the `Get-AzureRmStorageAccountKey` command. A sample output of this command is shown here.
+To get the storage account key, run the `Get-AzureRmStorageAccountKey` command. Here's some example output:
 
-```powershell
-PS C:\Users\Administrator> Get-AzureRmStorageAccountKey
+```output
+PS C:\windows\system32> Get-AzureRmStorageAccountKey
 
 cmdlet Get-AzureRmStorageAccountKey at command pipeline position 1
 Supply values for the following parameters:
@@ -171,39 +336,73 @@ KeyName Value
 key1 /IjVJN+sSf7FMKiiPLlDm8mc9P4wtcmhhbnCa7...
 key2 gd34TcaDzDgsY9JtDNMUgLDOItUU0Qur3CBo6Q...
 ```
+---
 
-## Add blob URI to hosts file
+## Add the blob URI to the host file
 
-You already added the blob URI in hosts file for the client that you are using to connect to Blob storage in the section [Modify host file for endpoint name resolution](azure-stack-edge-j-series-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution). This was the entry for the blob URI:
+You already added the blob URI in the hosts file for the client that you're using to connect to Azure Blob Storage in **Modify host file for endpoint name resolution** of [Connecting to Azure Resource Manager on your Azure Stack Edge device](./azure-stack-edge-gpu-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution). This entry was used to add the blob URI:
 
-\<Azure consistent network services VIP \> \<storage name\>.blob.\<appliance name\>.\<dnsdomain\>
-
+`<Device IP address>` `<storage name>.blob.<appliance name>.<dnsdomain>`
 
 ## Install certificates
 
-If you are using *https*, then you need to install appropriate certificates on your device. In this case, install the blob endpoint certificate. For more information, see how to create and upload certificates in [Manage certificates](azure-stack-edge-j-series-manage-certificates.md).
+If you're using HTTPS, you need to install the appropriate certificates on your device. Here, you install the blob endpoint certificate. For more information, see [Use certificates with your Azure Stack Edge Pro with GPU device](azure-stack-edge-gpu-manage-certificates.md).
 
 ## Upload a VHD
 
-Copy any disk images to be used into page blobs in the local storage account that you created in the earlier steps. You can use a tool such as [AzCopy](../storage/common/storage-use-azcopy-v10.md) to upload the VHD to the storage account that you created in earlier steps. 
-
-<!--Before you use AzCopy, make sure that the [AzCopy is configured correctly](#configure-azcopy) for use with the blob storage REST API version that you are using with your Azure Stack Edge Pro device.
-
-```powershell
-AzCopy /Source:<sourceDirectoryForVHD> /Dest:<blobContainerUri> /DestKey:<storageAccountKey> /Y /S /V /NC:32  /BlobType:page /destType:blob 
-```
-
-> [!NOTE]
-> Set `BlobType` to page for creating a managed disk out of VHD. Set `BlobType` to block when writing to tiered storage accounts using AzCopy.
-
-You can download the disk images from the marketplace. For detailed steps, go to [Get the virtual disk image from Azure marketplace](azure-stack-edge-j-series-create-virtual-machine-image.md).
-
-A sample output using AzCopy 7.3 is shown below. For more information on this command, go to [Upload VHD file to storage account using AzCopy](../devtest-labs/devtest-lab-upload-vhd-using-azcopy.md).
+Copy any disk images to be used into page blobs in the local storage account that you created earlier. You can use a tool such as [AzCopy](../storage/common/storage-use-azcopy-v10.md) to upload the virtual hard disk (VHD) to the storage account. 
 
 
-```powershell
-AzCopy /Source:\\hcsfs\scratch\vm_vhds\linux\ /Dest:http://sa191113014333.blob.dbe-1dcmhq2.microsoftdatabox.com/vmimages /DestKey:gJKoyX2Amg0Zytd1ogA1kQ2xqudMHn7ljcDtkJRHwMZbMK== /Y /S /V /NC:32 /BlobType:page /destType:blob /z:2e7d7d27-c983-410c-b4aa-b0aa668af0c6
-```-->
+### [Az](#tab/az)
+
+Use the following commands with AzCopy 10:  
+
+1. Set some parameters including the appropriate version of APIs for AzCopy. In this example, AzCopy 10 was used.
+
+    ```powershell
+    $Env:AZCOPY_DEFAULT_SERVICE_API_VERSION="2019-07-07"    
+    $ContainerName = <Container name>
+    $ResourceGroupName = <Resource group name>
+    $StorageAccountName = <Storage account name>
+    $VHDPath = "Full VHD Path"
+    $VHDFile = <VHD file name>
+    ```
+1. Copy the VHD from the source (in this case, local system) to the storage account that you created on your device in the earlier step.
+
+    ```powershell
+    $StorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName)[0].Value    
+    $endPoint = (Get-AzStorageAccount -name $StorageAccountName -ResourceGroupName $ResourceGroupName).PrimaryEndpoints.Blob    
+    $StorageAccountContext = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey -Endpoint $endpoint    
+    $StorageAccountSAS = New-AzStorageAccountSASToken -Service Blob -ResourceType Container,Service,Object -Permission "acdlrw" -Context $StorageAccountContext -Protocol HttpsOnly        
+    <Path to azcopy.exe> cp "$VHDPath\$VHDFile" "$endPoint$ContainerName$StorageAccountSAS"    
+    ```
+
+    Here's an example output: 
+    
+    ```output
+    PS C:\windows\system32> $ContainerName = "testcontainer1"
+    PS C:\windows\system32> $ResourceGroupName = "myaseazrg"
+    PS C:\windows\system32> $StorageAccountName = "myaseazsa"
+    PS C:\windows\system32> $VHDPath = "C:\Users\alkohli\Downloads\Ubuntu1604"           
+    PS C:\windows\system32> $VHDFile = "ubuntu13.vhd"
+    
+    PS C:\windows\system32> $StorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName)[0].Value
+    PS C:\windows\system32> $endPoint = (Get-AzStorageAccount -name $StorageAccountName -ResourceGroupName $ResourceGroupName).PrimaryEndpoints.Blob
+    PS C:\windows\system32> $StorageAccountContext = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey -Endpoint $endpoint
+    PS C:\windows\system32> $StorageAccountSAS = New-AzStorageAccountSASToken -Service Blob -ResourceType Container,Service,Object -Permission "acdlrw" -Context $StorageAccountContext -Protocol HttpsOnly
+
+    PS C:\windows\system32> C:\azcopy\azcopy_windows_amd64_10.10.0\azcopy.exe cp "$VHDPath\$VHDFile" "$endPoint$ContainerName$StorageAccountSAS"
+    INFO: Scanning...
+    INFO: Any empty folders will not be processed, because source and/or destination doesn't have full folder support
+    
+    Job 72a5e3dd-9210-3e43-6691-6bebd4875760 has started
+    Log file is located at: C:\Users\alkohli\.azcopy\72a5e3dd-9210-3e43-6691-6bebd4875760.log
+    
+    INFO: azcopy.exe: A newer version 10.11.0 is available to download
+    ```
+
+### [AzureRM](#tab/azure-rm)
+
 Use the following commands with AzCopy 10:  
 
 ```powershell
@@ -218,14 +417,14 @@ $StorageAccountSAS = New-AzureStorageAccountSASToken -Service Blob,File,Queue,Ta
 <AzCopy exe path> cp "Full VHD path" "<BlobEndPoint>/<ContainerName><StorageAccountSAS>"
 ```
 
-Here is an example output: 
+Here's some example output: 
 
-```powershell
-$ContainerName = <ContainerName>
-$ResourceGroupName = <ResourceGroupName>
-$StorageAccountName = <StorageAccountName>
-$VHDPath = "Full VHD Path"
-$VHDFile = <VHDFileName>
+```output
+$ContainerName = <Container name>
+$ResourceGroupName = <Resource group name>
+$StorageAccountName = <Storage account name>
+$VHDPath = "Full VHD path"
+$VHDFile = <VHD file name>
 
 $StorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName)[0].Value
 
@@ -237,27 +436,85 @@ $StorageAccountSAS = New-AzureStorageAccountSASToken -Service Blob,File,Queue,Ta
 
 C:\AzCopy.exe  cp "$VHDPath\$VHDFile" "$endPoint$ContainerName$StorageAccountSAS"
 ```
+---
 
-## Create managed disks from the VHD
+## Create a managed disk from the VHD
 
-Create a managed disk from the uploaded VHD.
+You will now create a managed disk from the uploaded VHD.
+
+### [Az](#tab/az)
+
+1. Set some parameters.
+
+    ```powershell
+    $DiskName = "<Managed disk name>"
+    ```
+
+1. Create a managed disk from uploaded VHD. To get the source URL for your VHD, go to the container in the storage account that contains the VHD in Storage Explorer. Select the VHD, and right-click and then select **Properties**. In the **Blob properties** dialog, select the **URI**. 
+
+    ```powershell
+    $StorageAccountId = (Get-AzStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName).Id    
+    $DiskConfig = New-AzDiskConfig -Location DBELocal -StorageAccountId $StorageAccountId -CreateOption Import -SourceUri "Source URL for your VHD"
+    New-AzDisk -ResourceGroupName $ResourceGroupName -DiskName $DiskName -Disk $DiskConfig
+    ```
+    Here's an example output:.
+    
+    ```output
+    PS C:\WINDOWS\system32> $DiskName = "myazmd"
+    PS C:\WINDOWS\system32> $StorageAccountId = (Get-AzStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName).Id
+    PS C:\WINDOWS\system32> $DiskConfig = New-AzDiskConfig -Location DBELocal -StorageAccountId $StorageAccountId -CreateOption Import -SourceUri "https://myaseazsa.blob.myasegpu.wdshcsso.com/testcontainer1/ubuntu13.vhd"
+    PS C:\WINDOWS\system32> New-AzDisk -ResourceGroupName $ResourceGroupName -DiskName $DiskName -Disk $DiskConfig
+    
+    ResourceGroupName            : myaseazrg
+    ManagedBy                    :
+    Sku                          : Microsoft.Azure.Management.Compute.Models.DiskSku
+    Zones                        :
+    TimeCreated                  : 6/24/2021 12:19:56 PM
+    OsType                       :
+    HyperVGeneration             :
+    CreationData                 : Microsoft.Azure.Management.Compute.Models.CreationDat
+                                   a
+    DiskSizeGB                   : 30
+    DiskSizeBytes                : 32212254720
+    UniqueId                     : 53743801-cbf2-4d2f-acb4-971d037a9395
+    EncryptionSettingsCollection :
+    ProvisioningState            : Succeeded
+    DiskIOPSReadWrite            : 500
+    DiskMBpsReadWrite            : 60
+    DiskState                    : Unattached
+    Encryption                   : Microsoft.Azure.Management.Compute.Models.Encryption
+    Id                           : /subscriptions/.../r
+                                   esourceGroups/myaseazrg/providers/Microsoft.Compute/d
+                                   isks/myazmd
+    Name                         : myazmd
+    Type                         : Microsoft.Compute/disks
+    Location                     : DBELocal
+    Tags                         : {}
+    
+    PS C:\WINDOWS\system32>
+    ```
+ 
+
+### [AzureRM](#tab/azure-rm)
 
 ```powershell
 $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import -SourceUri "Source URL for your VHD"
 ```
-A sample output is shown below: 
-<code>
-$DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import –SourceUri http://</code><code>sa191113014333.blob.dbe-1dcmhq2.microsoftdatabox.com/vmimages/ubuntu13.vhd</code> 
+Here's some example output: 
+
+```output
+$DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import –SourceUri http://sa191113014333.blob.dbe-1dcmhq2.microsoftdatabox.com/vmimages/ubuntu13.vhd
+```
+ 
 
 ```powershell
 New-AzureRMDisk -ResourceGroupName <Resource group name> -DiskName <Disk name> -Disk $DiskConfig
 ```
 
-A sample output is shown below. For more information on this cmdlet, go to [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk?view=azurermps-6.13.0).
+Here's some example output. For more information about this cmdlet, see [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk?view=azurermps-6.13.0&preserve-view=true).
 
-```powershell
-Tags               :
-New-AzureRmDisk -ResourceGroupName rg191113014333 -DiskName ld191113014333 -Disk $DiskConfig
+```output
+Tags               : New-AzureRmDisk -ResourceGroupName rg191113014333 -DiskName ld191113014333 -Disk $DiskConfig
 
 ResourceGroupName  : rg191113014333
 ManagedBy          :
@@ -269,116 +526,274 @@ CreationData       : Microsoft.Azure.Management.Compute.Models.CreationData
 DiskSizeGB         : 30
 EncryptionSettings :
 ProvisioningState  : Succeeded
-Id                 : /subscriptions/a4257fde-b946-4e01-ade7-674760b8d1a3/resourceGroups/rg191113014333/providers/Micros
+Id                 : /subscriptions/.../resourceGroups/rg191113014333/providers/Micros
                      oft.Compute/disks/ld191113014333
 Name               : ld191113014333
 Type               : Microsoft.Compute/disks
 Location           : DBELocal
 Tags               : {}
 ```
+---
 
-## Create a VM image from the image managed disk
+## Create a VM image from the managed disk
 
-Use the following command to create a VM image from the managed disk. Replace the values within \< \> with the names you choose.
+You'll now create a VM image from the managed disk.
+
+### [Az](#tab/az)
+
+1. Set some parameters.
+
+    ```powershell
+    $DiskSize = "<Size greater than or equal to size of source managed disk>"
+    $OsType = "<linux or windows>" 
+    $ImageName = "<Image name>"
+    ```
+1. Create a VM image. The supported OS types are Linux and Windows.
+
+    ```powershell
+    $imageConfig = New-AzImageConfig -Location DBELocal
+    $ManagedDiskId = (Get-AzDisk -Name $DiskName -ResourceGroupName $ResourceGroupName).Id
+    Set-AzImageOsDisk -Image $imageConfig -OsType $OsType -OsState 'Generalized' -DiskSizeGB $DiskSize -ManagedDiskId $ManagedDiskId 
+    New-AzImage -Image $imageConfig -ImageName $ImageName -ResourceGroupName $ResourceGroupName  
+    ```  
+    Here's an example output. 
+
+    ```output
+    PS C:\WINDOWS\system32> $OsType = "linux"
+    PS C:\WINDOWS\system32> $ImageName = "myaseazlinuxvmimage"
+    PS C:\WINDOWS\system32> $DiskSize = 35
+    PS C:\WINDOWS\system32> $imageConfig = New-AzImageConfig -Location DBELocal
+    PS C:\WINDOWS\system32> $ManagedDiskId = (Get-AzDisk -Name $DiskName -ResourceGroupName $ResourceGroupName).Id
+    PS C:\WINDOWS\system32> Set-AzImageOsDisk -Image $imageConfig -OsType $OsType -OsState 'Generalized' -DiskSizeGB $DiskSize -ManagedDiskId $ManagedDiskId
+    
+    ResourceGroupName    :
+    SourceVirtualMachine :
+    StorageProfile       : Microsoft.Azure.Management.Compute.Models.ImageStorageProfile
+    ProvisioningState    :
+    HyperVGeneration     : V1
+    Id                   :
+    Name                 :
+    Type                 :
+    Location             : DBELocal
+    Tags                 :
+    
+    PS C:\WINDOWS\system32> New-AzImage -Image $imageConfig -ImageName $ImageName -ResourceGroupName $ResourceGroupName
+    
+    ResourceGroupName    : myaseazrg
+    SourceVirtualMachine :
+    StorageProfile       : Microsoft.Azure.Management.Compute.Models.ImageStorageProfile
+    ProvisioningState    : Succeeded
+    HyperVGeneration     : V1
+    Id                   : /subscriptions/.../resourceG
+                           roups/myaseazrg/providers/Microsoft.Compute/images/myaseazlin
+                           uxvmimage
+    Name                 : myaseazlinuxvmimage
+    Type                 : Microsoft.Compute/images
+    Location             : dbelocal
+    Tags                 : {}
+    
+    PS C:\WINDOWS\system32> 
+    ```
+
+### [AzureRM](#tab/azure-rm)
+
+Run the following command. Replace *\<Disk name>*, *\<OS type>*, and *\<Disk size>* with real values.
 
 ```powershell
 $imageConfig = New-AzureRmImageConfig -Location DBELocal
 $ManagedDiskId = (Get-AzureRmDisk -Name <Disk name> -ResourceGroupName <Resource group name>).Id
 Set-AzureRmImageOsDisk -Image $imageConfig -OsType '<OS type>' -OsState 'Generalized' -DiskSizeGB <Disk size> -ManagedDiskId $ManagedDiskId 
-
-The supported OS types are Linux and Windows.
-
-For OS Type=Linux, for example:
-Set-AzureRmImageOsDisk -Image $imageConfig -OsType 'Linux' -OsState 'Generalized' -DiskSizeGB <Disk size> -ManagedDiskId $ManagedDiskId
 New-AzureRmImage -Image $imageConfig -ImageName <Image name>  -ResourceGroupName <Resource group name>
 ```
 
-A sample output is shown below. For more information on this cmdlet, go to [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage?view=azurermps-6.13.0).
+The supported OS types are Linux and Windows.
 
-```powershell
-New-AzureRmImage -Image Microsoft.Azure.Commands.Compute.Automation.Models.PSImage -ImageName ig191113014333  -ResourceGroupName rg191113014333
-ResourceGroupName    : rg191113014333
+Here's some example output. For more information about this cmdlet, see [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage?view=azurermps-6.13.0&preserve-view=true).
+
+```output
+PS C:\Windows\system32> New-AzImage -Image $imageConfig -ImageName ig191113014333    -ResourceGroupName RG191113014333
+ResourceGroupName    : RG191113014333
 SourceVirtualMachine :
 StorageProfile       : Microsoft.Azure.Management.Compute.Models.ImageStorageProfile
 ProvisioningState    : Succeeded
-Id                   : /subscriptions/a4257fde-b946-4e01-ade7-674760b8d1a3/resourceGroups/rg191113014333/providers/Micr
-                       osoft.Compute/images/ig191113014333
+HyperVGeneration     : V1
+Id                   : /subscriptions/.../resourceGroups/RG191113014333/providers/Microsoft.Compute/images/ig191113014333
 Name                 : ig191113014333
 Type                 : Microsoft.Compute/images
 Location             : dbelocal
 Tags                 : {}
 ```
+---
 
-## Create VM with previously created resources
+## Create your VM with previously created resources
 
-You must create one virtual network and associate a virtual network interface before you create and deploy the VM.
+Before you create and deploy the VM, you must create one virtual network and associate a virtual network interface with it.
 
 > [!IMPORTANT]
-> While creating virtual network and virtual network interface, the following rules apply:
-> - Only one Vnet can be created (even across resource groups) and it must match exactly with the logical network in terms of the address space.
-> -   Only one subnet will be allowed in the Vnet. The subnet must be the exact same address space as the Vnet.
-> -   Only static allocation method will be allowed during Vnic creation and user needs to provide a private IP address.
+> The following rules apply:
+> - You can create only one virtual network, even across resource groups. The virtual network must have exactly the same address space as the logical network.
+> - The virtual network can have only one subnet. The subnet must have exactly the same address space as the virtual network.
+> - When you create the virtual network interface card, you can use only the static allocation method. The user needs to provide a private IP address.<!--Confirm w/ Neeraj given we can have both static and DHCP-->
 
- 
-**Query the automatically created Vnet**
+### Query the automatically created virtual network
 
-When you enable compute from the local UI of your device, a Vnet `ASEVNET` is created automatically under `ASERG` resource group. 
-Use the following command to query the existing Vnet:
+When you enable compute from the local UI of your device, a virtual network called `ASEVNET` is created automatically, under the `ASERG` resource group. 
+
+### [Az](#tab/az)
+
+Use the following command to query the existing virtual network:
+
+```powershell
+$ArmVn = Get-AzVirtualNetwork -Name ASEVNET -ResourceGroupName ASERG 
+```
+
+### [AzureRM](#tab/azure-rm)
+
+Use the following command to query the existing virtual network:
 
 ```powershell
 $aRmVN = Get-AzureRMVirtualNetwork -Name ASEVNET -ResourceGroupName ASERG 
 ```
+---
 
-<!--```powershell
-$subNetId=New-AzureRmVirtualNetworkSubnetConfig -Name <Subnet name> -AddressPrefix <Address Prefix>
-$aRmVN = New-AzureRmVirtualNetwork -ResourceGroupName <Resource group name> -Name <Vnet name> -Location DBELocal -AddressPrefix <Address prefix> -Subnet $subNetId
-```-->
+### Create a virtual network interface card
 
-**Create a Vnic using the Vnet subnet ID**
+You'll create a virtual network interface card by using the virtual network subnet ID.
+
+### [Az](#tab/az)
+
+1. Set some parameters.
+
+    ```powershell
+    $IpConfigName = "<IP config name>"
+    $NicName = "<Network interface name>"
+    ```
+
+1. Create a virtual network interface.
+
+    ```powershell
+    $ipConfig = New-AzNetworkInterfaceIpConfig -Name $IpConfigName -SubnetId $aRmVN.Subnets[0].Id 
+    $Nic = New-AzNetworkInterface -Name $NicName -ResourceGroupName $ResourceGroupName -Location DBELocal -IpConfiguration $IpConfig    
+    ```
+
+    By default, an IP is dynamically assigned to your network interface from the network enabled for compute. Use the `-PrivateIpAddress parameter` if you are allocating a static IP to your network interface.         
+
+    Here's an example output:
+    
+    ```output
+    PS C:\WINDOWS\system32> $IpConfigName = "myazipconfig1"
+    PS C:\WINDOWS\system32> $NicName = "myaznic1"
+    PS C:\WINDOWS\system32> $ipConfig = New-AzNetworkInterfaceIpConfig -Name $IpConfigName -SubnetId $aRmVN.Subnets[0].Id 
+    PS C:\WINDOWS\system32> $ipConfig = New-AzNetworkInterfaceIpConfig -Name $IpConfigName -SubnetId $aRmVN.Subnets[0].Id
+    PS C:\WINDOWS\system32> $Nic = New-AzNetworkInterface -Name $NicName -ResourceGroupName $ResourceGroupName -Location DBELocal -IpConfiguration $IpConfig
+    PS C:\WINDOWS\system32> $Nic
+        
+    Name                        : myaznic1
+    ResourceGroupName           : myaseazrg
+    Location                    : dbelocal
+    Id                          : /subscriptions/.../re
+                                  sourceGroups/myaseazrg/providers/Microsoft.Network/net
+                                  workInterfaces/myaznic1
+    Etag                        : W/"0b20057b-2102-4f34-958b-656327c0fb1d"
+    ResourceGuid                : e7d4131f-6f01-4492-9d4c-a8ff1af7244f
+    ProvisioningState           : Succeeded
+    Tags                        :
+    VirtualMachine              : null
+    IpConfigurations            : [
+                                    {
+                                      "Name": "myazipconfig1",
+                                      "Etag":
+                                  "W/\"0b20057b-2102-4f34-958b-656327c0fb1d\"",
+                                      "Id": "/subscriptions/.../resourceGroups/myaseazrg/providers/Microsoft.
+                                  Network/networkInterfaces/myaznic1/ipConfigurations/my
+                                  azipconfig1",
+                                      "PrivateIpAddress": "10.126.76.60",
+                                      "PrivateIpAllocationMethod": "Dynamic",
+                                      "Subnet": {
+                                        "Delegations": [],
+                                        "Id": "/subscriptions/.../resourceGroups/ASERG/providers/Microsoft.Ne
+                                  twork/virtualNetworks/ASEVNET/subnets/ASEVNETsubNet",
+                                        "ServiceAssociationLinks": []
+                                      },
+                                      "ProvisioningState": "Succeeded",
+                                      "PrivateIpAddressVersion": "IPv4",
+                                      "LoadBalancerBackendAddressPools": [],
+                                      "LoadBalancerInboundNatRules": [],
+                                      "Primary": true,
+                                      "ApplicationGatewayBackendAddressPools": [],
+                                      "ApplicationSecurityGroups": []
+                                    }
+                                  ]
+    DnsSettings                 : {
+                                    "DnsServers": [],
+                                    "AppliedDnsServers": [],
+                                    "InternalDomainNameSuffix": "auwlfcx0dhxurjgisct43fc
+                                  ywb.a--x.internal.cloudapp.net"
+                                  }
+    EnableIPForwarding          : False
+    EnableAcceleratedNetworking : False
+    NetworkSecurityGroup        : null
+    Primary                     :
+    MacAddress                  : 001DD84A58D1
+           
+    PS C:\WINDOWS\system32>
+    ```
+
+Optionally, while you're creating a virtual network interface card for a VM, you can pass the public IP. In this instance, the public IP returns the private IP. 
+
+```powershell
+New-AzPublicIPAddress -Name <Public IP> -ResourceGroupName <ResourceGroupName> -AllocationMethod Static -Location DBELocal
+$publicIP = (Get-AzPublicIPAddress -Name <Public IP> -ResourceGroupName <Resource group name>).Id
+$ipConfig = New-AzNetworkInterfaceIpConfig -Name <ConfigName> -PublicIpAddressId $publicIP -SubnetId $subNetId
+```
+
+### [AzureRM](#tab/azure-rm)
 
 ```powershell
 $ipConfig = New-AzureRmNetworkInterfaceIpConfig -Name <IP config Name> -SubnetId $aRmVN.Subnets[0].Id -PrivateIpAddress <Private IP>
 $Nic = New-AzureRmNetworkInterface -Name <Nic name> -ResourceGroupName <Resource group name> -Location DBELocal -IpConfiguration $ipConfig
 ```
 
-The sample output of these commands is shown below:
+By default, an IP is dynamically assigned to your network interface from the network enabled for compute. Use the `-PrivateIpAddress parameter` if you are allocating a static IP to your network interface. 
 
-```powershell
-PS C:\Users\Administrator> $subNetId=New-AzureRmVirtualNetworkSubnetConfig -Name my-ase-subnet -AddressPrefix "5.5.0.0/16"
+Here's some example output:
 
-PS C:\Users\Administrator> $aRmVN = New-AzureRmVirtualNetwork -ResourceGroupName Resource-my-ase -Name my-ase-virtualnetwork -Location DBELocal -AddressPrefix "5.5.0.0/16" -Subnet $subNetId
+```output
+PS C:\windows\system32> $subNetId=New-AzureRmVirtualNetworkSubnetConfig -Name my-ase-subnet -AddressPrefix "5.5.0.0/16"
+
+PS C:\windows\system32> $aRmVN = New-AzureRmVirtualNetwork -ResourceGroupName Resource-my-ase -Name my-ase-virtualnetwork -Location DBELocal -AddressPrefix "5.5.0.0/16" -Subnet $subNetId
 WARNING: The output object type of this cmdlet will be modified in a future release.
-PS C:\Users\Administrator> $ipConfig = New-AzureRmNetworkInterfaceIpConfig -Name my-ase-ip -SubnetId $aRmVN.Subnets[0].Id
-PS C:\Users\Administrator> $Nic = New-AzureRmNetworkInterface -Name my-ase-nic -ResourceGroupName Resource-my-ase -Location DBELocal -IpConfiguration $ipConfig
+PS C:\windows\system32> $ipConfig = New-AzureRmNetworkInterfaceIpConfig -Name my-ase-ip -SubnetId $aRmVN.Subnets[0].Id
+PS C:\windows\system32> $Nic = New-AzureRmNetworkInterface -Name my-ase-nic -ResourceGroupName Resource-my-ase -Location DBELocal -IpConfiguration $ipConfig
 WARNING: The output object type of this cmdlet will be modified in a future release.
 
-PS C:\Users\Administrator> $Nic
+PS C:\windows\system32> $Nic
 
-PS C:\Users\Administrator> (Get-AzureRmNetworkInterface)[0]
+PS C:\windows\system32> (Get-AzureRmNetworkInterface)[0]
 
 Name                        : nic200108020444
 ResourceGroupName           : rg200108020444
 Location                    : dbelocal
-Id                          : /subscriptions/a4257fde-b946-4e01-ade7-674760b8d1a3/resourceGroups/rg200108020444/providers/Microsoft.Network/networ
+Id                          : /subscriptions/.../resourceGroups/rg200108020444/providers/Microsoft.Network/networ
                               kInterfaces/nic200108020444
 Etag                        : W/"f9d1759d-4d49-42fa-8826-e218e0b1d355"
 ResourceGuid                : 3851ae62-c13e-4416-9386-e21d9a2fef0f
 ProvisioningState           : Succeeded
 Tags                        :
 VirtualMachine              : {
-                                "Id": "/subscriptions/a4257fde-b946-4e01-ade7-674760b8d1a3/resourceGroups/rg200108020444/providers/Microsoft.Compu
+                                "Id": "/subscriptions/.../resourceGroups/rg200108020444/providers/Microsoft.Compu
                               te/virtualMachines/VM200108020444"
                               }
 IpConfigurations            : [
                                 {
                                   "Name": "ip200108020444",
                                   "Etag": "W/\"f9d1759d-4d49-42fa-8826-e218e0b1d355\"",
-                                  "Id": "/subscriptions/a4257fde-b946-4e01-ade7-674760b8d1a3/resourceGroups/rg200108020444/providers/Microsoft.Net
+                                  "Id": "/subscriptions/.../resourceGroups/rg200108020444/providers/Microsoft.Net
                               work/networkInterfaces/nic200108020444/ipConfigurations/ip200108020444",
                                   "PrivateIpAddress": "5.5.166.65",
                                   "PrivateIpAllocationMethod": "Static",
                                   "Subnet": {
-                                    "Id": "/subscriptions/a4257fde-b946-4e01-ade7-674760b8d1a3/resourceGroups/DbeSystemRG/providers/Microsoft.Netw
+                                    "Id": "/subscriptions/.../resourceGroups/DbeSystemRG/providers/Microsoft.Netw
                               ork/virtualNetworks/vSwitch1/subnets/subnet123",
                                     "ResourceNavigationLinks": [],
                                     "ServiceEndpoints": []
@@ -403,25 +818,148 @@ Primary                     : True
 MacAddress                  : 00155D18E432                :
 ```
 
-Optionally, while creating a Vnic for a VM, you can pass the public IP. In this instance, the public IP will return the private IP. 
+Optionally, while you're creating a virtual network interface card for a VM, you can pass the public IP. In this instance, the public IP returns the private IP. 
 
 ```powershell
 New-AzureRmPublicIPAddress -Name <Public IP> -ResourceGroupName <ResourceGroupName> -AllocationMethod Static -Location DBELocal
 $publicIP = (Get-AzureRmPublicIPAddress -Name <Public IP> -ResourceGroupName <Resource group name>).Id
 $ipConfig = New-AzureRmNetworkInterfaceIpConfig -Name <ConfigName> -PublicIpAddressId $publicIP -SubnetId $subNetId
 ```
+---
 
-
-**Create a VM**
+### Create a VM
 
 You can now use the VM image to create a VM and attach it to the virtual network that you created earlier.
+
+### [Az](#tab/az)
+
+1. Set the username and password to sign in to the VM that you want to create.
+
+    ```powershell
+    $pass = ConvertTo-SecureString "<Password>" -AsPlainText -Force;
+    $cred = New-Object System.Management.Automation.PSCredential("<Enter username>", $pass)
+    ```
+    After you've created and powered up the VM, you'll use the preceding username and password to sign in to it.
+
+1. Set the parameters.
+
+    ```powershell
+    $VmName = "<VM name>"
+    $ComputerName = "<VM display name>"
+    $OsDiskName = "<OS disk name>"
+    ```
+1. Create the VM.
+
+    ```powershell
+    $VirtualMachine =  New-AzVMConfig -VmName $VmName -VMSize "Standard_D1_v2"
+ 
+    $VirtualMachine =  Set-AzVMOperatingSystem -VM $VirtualMachine -Linux -ComputerName $ComputerName -Credential $cred
+     
+    $VirtualMachine =  Set-AzVmOsDisk -VM $VirtualMachine -Name $OsDiskName -Caching "ReadWrite" -CreateOption "FromImage" -Linux -StorageAccountType Standard_LRS
+     
+    $nicID = (Get-AzNetworkInterface -Name $NicName -ResourceGroupName $ResourceGroupName).Id
+     
+    $VirtualMachine =  Add-AzVMNetworkInterface -Vm $VirtualMachine -Id $nicID
+     
+    $image = ( Get-AzImage -ResourceGroupName $ResourceGroupName -ImageName $ImageName).Id
+     
+    $VirtualMachine =  Set-AzVMSourceImage -VM $VirtualMachine -Id $image
+     
+    New-AzVM -ResourceGroupName $ResourceGroupName -Location DBELocal -VM $VirtualMachine -Verbose
+    ```
+
+    Here's an example output.
+    
+    ```powershell
+    PS C:\WINDOWS\system32> $pass = ConvertTo-SecureString "Password1" -AsPlainText -Force;
+    PS C:\WINDOWS\system32> $cred = New-Object System.Management.Automation.PSCredential("myazuser", $pass)
+    PS C:\WINDOWS\system32> $VmName = "myazvm"
+    >> $ComputerName = "myazvmfriendlyname"
+    >> $OsDiskName = "myazosdisk1"
+    PS C:\WINDOWS\system32> $VirtualMachine =  New-AzVMConfig -VmName $VmName -VMSize "Standard_D1_v2"
+    PS C:\WINDOWS\system32> $VirtualMachine =  Set-AzVMOperatingSystem -VM $VirtualMachine -Linux -ComputerName $ComputerName -Credential $cred
+    PS C:\WINDOWS\system32> $VirtualMachine =  Set-AzVmOsDisk -VM $VirtualMachine -Name $OsDiskName -Caching "ReadWrite" -CreateOption "FromImage" -Linux -StorageAccountType Standard_LRS
+    PS C:\WINDOWS\system32> $nicID = (Get-AzNetworkInterface -Name $NicName -ResourceGroupName $ResourceGroupName).Id
+    PS C:\WINDOWS\system32> $nicID/subscriptions/.../resourceGroups/myaseazrg/providers/Microsoft.Network/networkInterfaces/myaznic1
+    PS C:\WINDOWS\system32> $VirtualMachine =  Add-AzVMNetworkInterface -VM $VirtualMachine -Id $nicID
+    PS C:\WINDOWS\system32> $image = ( Get-AzImage -ResourceGroupName $ResourceGroupName -ImageName $ImageName).Id
+    PS C:\WINDOWS\system32> $VirtualMachine =  Set-AzVMSourceImage -VM $VirtualMachine -Id $image
+    PS C:\WINDOWS\system32> New-AzVM -ResourceGroupName $ResourceGroupName -Location DBELocal -VM $VirtualMachine -Verbose
+    WARNING: Since the VM is created using premium storage or managed disk, existing
+    standard storage account, myaseazsa, is used for boot diagnostics.
+    VERBOSE: Performing the operation "New" on target "myazvm".
+    
+    RequestId IsSuccessStatusCode StatusCode ReasonPhrase
+    --------- ------------------- ---------- ------------
+                             True         OK OK
+    ```
+1. To figure out the IP assigned to the VM that you created, query the virtual network interface that you created. Locate the `PrivateIPAddress` and copy the IP for your VM. Here's an example output.
+
+    ```powershell
+    PS C:\WINDOWS\system32> $Nic
+
+    Name                        : myaznic1
+    ResourceGroupName           : myaseazrg
+    Location                    : dbelocal
+    Id                          : /subscriptions/.../re
+                                  sourceGroups/myaseazrg/providers/Microsoft.Network/net
+                                  workInterfaces/myaznic1
+    Etag                        : W/"0b20057b-2102-4f34-958b-656327c0fb1d"
+    ResourceGuid                : e7d4131f-6f01-4492-9d4c-a8ff1af7244f
+    ProvisioningState           : Succeeded
+    Tags                        :
+    VirtualMachine              : null
+    IpConfigurations            : [
+                                    {
+                                      "Name": "myazipconfig1",
+                                      "Etag":
+                                  "W/\"0b20057b-2102-4f34-958b-656327c0fb1d\"",
+                                      "Id": "/subscriptions/.../resourceGroups/myaseazrg/providers/Microsoft.
+                                  Network/networkInterfaces/myaznic1/ipConfigurations/my
+                                  azipconfig1",
+                                      "PrivateIpAddress": "10.126.76.60",
+                                      "PrivateIpAllocationMethod": "Dynamic",
+                                      "Subnet": {
+                                        "Delegations": [],
+                                        "Id": "/subscriptions/.../resourceGroups/ASERG/providers/Microsoft.Ne
+                                  twork/virtualNetworks/ASEVNET/subnets/ASEVNETsubNet",
+                                        "ServiceAssociationLinks": []
+                                      },
+                                      "ProvisioningState": "Succeeded",
+                                      "PrivateIpAddressVersion": "IPv4",
+                                      "LoadBalancerBackendAddressPools": [],
+                                      "LoadBalancerInboundNatRules": [],
+                                      "Primary": true,
+                                      "ApplicationGatewayBackendAddressPools": [],
+                                      "ApplicationSecurityGroups": []
+                                    }
+                                  ]
+    DnsSettings                 : {
+                                    "DnsServers": [],
+                                    "AppliedDnsServers": [],
+                                    "InternalDomainNameSuffix": "auwlfcx0dhxurjgisct43fc
+                                  ywb.a--x.internal.cloudapp.net"
+                                  }
+    EnableIPForwarding          : False
+    EnableAcceleratedNetworking : False
+    NetworkSecurityGroup        : null
+    Primary                     :
+    MacAddress                  : 001DD84A58D1
+      
+    PS C:\WINDOWS\system32>
+    ```
+
+
+### [AzureRM](#tab/azure-rm)
 
 ```powershell
 $pass = ConvertTo-SecureString "<Password>" -AsPlainText -Force;
 $cred = New-Object System.Management.Automation.PSCredential("<Enter username>", $pass)
+```
 
-You will use this username, password to login to the VM, once it is created and powered up.
+After you've created and powered up the VM, you'll use the following username and password to sign in to it.
 
+```powershell
 $VirtualMachine = New-AzureRmVMConfig -VMName <VM name> -VMSize "Standard_D1_v2"
 
 $VirtualMachine = Set-AzureRmVMOperatingSystem -VM $VirtualMachine -<OS type> -ComputerName <Your computer Name> -Credential $cred
@@ -438,100 +976,154 @@ $VirtualMachine = Set-AzureRmVMSourceImage -VM $VirtualMachine -Id $image
 
 New-AzureRmVM -ResourceGroupName <Resource Group Name> -Location DBELocal -VM $VirtualMachine -Verbose
 ```
+---
 
-## Connect to a VM
+## Connect to the VM
 
-Depending on whether you created a Windows or a Linux VM, the steps to connect can be different.
+Depending on whether you created a Windows VM or a Linux VM, the connection instructions can be different.
 
-### Connect to Linux VM
+## Connect to a Linux VM
 
-Follow these steps to connect to a Linux VM.
+To connect to a Linux VM, do the following:
 
 [!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-linux.md)]
 
-### Connect to Windows VM
+If you used a public IP address during the VM creation, you can use that IP to connect to the VM. To get the public IP, run the following command: 
 
-Follow these steps to connect to a Windows VM.
+### [Az](#tab/az)
 
-[!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-windows.md)]
-
-
-<!--Connect to the VM using the private IP that you passed during the VM creation.
-
-Open an SSH session to connect with the IP address.
-
-`ssh -l <username> <ip address>`
-
-When prompted, provide the password that you used when creating the VM.
-
-If you need to provide the SSH key, use this command.
-
-ssh -i c:/users/Administrator/.ssh/id_rsa Administrator@5.5.41.236
-
-If you used a public IP address during VM creation, you can use that IP to connect to the VM. To get the public IP: 
+```powershell
+$publicIp = Get-AzPublicIpAddress -Name $PublicIp -ResourceGroupName $ResourceGroupName
+```
+In this instance, the public IP is the same as the private IP that you passed during the creation of the virtual network interface.
+  
+### [AzureRM](#tab/azure-rm)
 
 ```powershell
 $publicIp = Get-AzureRmPublicIpAddress -Name <Public IP> -ResourceGroupName <Resource group name>
 ```
-The public IP in this case will be the same as the private IP that you passed during virtual network interface creation.-->
+In this instance, the public IP is the same as the private IP that you passed during the creation of the virtual network interface.
+
+---
+
+## Connect to a Windows VM
+
+To connect to a Windows VM, do the following:
+
+[!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-windows.md)]
 
 
-## Manage VM
+## Manage the VM
 
-The following section describes some of the common operations around the VM that you will create on your Azure Stack Edge Pro device.
+The following sections describe some of the common operations that you can create on your Azure Stack Edge Pro device.
 
-### List VMs running on the device
+### List VMs that are running on the device
 
-To return a list of all the VMs running on your Azure Stack Edge Pro device, run the following command.
+To return a list of all the VMs that are running on your Azure Stack Edge device, run this command:
 
+### [Az](#tab/az)
 
-`Get-AzureRmVM -ResourceGroupName <String> -Name <String>`
- 
+```powershell
+Get-AzVM -ResourceGroupName <String> -Name <String>
+```
+
+For more information about this cmdlet, see [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-6.1.0&preserve-view=true).
+
+### [AzureRM](#tab/azure-rm)
+
+```powershell
+Get-AzureRmVM -ResourceGroupName <String> -Name <String>
+```
+
+---
+
 
 ### Turn on the VM
 
-Run the following cmdlet to turn on a virtual machine running on your device:
+To turn on a virtual machine that's running on your device, run the following cmdlet:
 
+### [Az](#tab/az)
 
-`Start-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>`
+```powershell
+Start-AzVM [-Name] <String> [-ResourceGroupName] <String>
+```
+For more information about this cmdlet, see [Start-AzVM](/powershell/module/az.compute/start-azvm?view=azps-5.9.0&preserve-view=true).
 
+### [AzureRM](#tab/azure-rm)
 
-For more information on this cmdlet, go to [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0).
+```powershell
+Start-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>
+```
+
+For more information about this cmdlet, see [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0&preserve-view=true).
+
+---
 
 ### Suspend or shut down the VM
 
-Run the following cmdlet to stop or shut down a virtual machine running on your device:
+To stop or shut down a virtual machine that's running on your device, run the following cmdlet:
 
+### [Az](#tab/az)
+
+```powershell
+Stop-AzVM [-Name] <String> [-StayProvisioned] [-ResourceGroupName] <String>
+```
+
+For more information about this cmdlet, see [Stop-AzVM cmdlet](/powershell/module/az.compute/stop-azvm?view=azps-5.9.0&preserve-view=true).
+
+### [AzureRM](#tab/azure-rm)
 
 ```powershell
 Stop-AzureRmVM [-Name] <String> [-StayProvisioned] [-ResourceGroupName] <String>
 ```
 
+For more information about this cmdlet, see [Stop-AzureRmVM cmdlet](/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-6.13.0&preserve-view=true).
 
-For more information on this cmdlet, go to [Stop-AzureRmVM cmdlet](/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-6.13.0).
+---
 
 ### Add a data disk
 
-If the workload requirements on your VM increase, then you may need to add a data disk.
+If the workload requirements on your VM increase, you might need to add a data disk. To do so, run the following command:
+
+### [Az](#tab/az)
+
+```powershell
+Add-AzRmVMDataDisk -VM $VirtualMachine -Name "disk1" -VhdUri "https://contoso.blob.core.windows.net/vhds/diskstandard03.vhd" -LUN 0 -Caching ReadOnly -DiskSizeinGB 1 -CreateOption Empty 
+ 
+Update-AzVM -ResourceGroupName "<Resource Group Name string>" -VM $VirtualMachine
+```
+
+### [AzureRM](#tab/azure-rm)
 
 ```powershell
 Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "disk1" -VhdUri "https://contoso.blob.core.windows.net/vhds/diskstandard03.vhd" -LUN 0 -Caching ReadOnly -DiskSizeinGB 1 -CreateOption Empty 
  
 Update-AzureRmVM -ResourceGroupName "<Resource Group Name string>" -VM $VirtualMachine
 ```
+---
+
+
 
 ### Delete the VM
 
-Run the following cmdlet to remove a virtual machine from your device:
+To remove a virtual machine from your device, run the following cmdlet:
+
+### [Az](#tab/az)
+
+```powershell
+Remove-AzVM [-Name] <String> [-ResourceGroupName] <String>
+```
+For more information about this cmdlet, see [Remove-AzVm cmdlet](/powershell/module/az.compute/remove-azvm?view=azps-5.9.0&preserve-view=true).
+
+### [AzureRM](#tab/azure-rm)
 
 ```powershell
 Remove-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>
 ```
+For more information about this cmdlet, see [Remove-AzureRmVm cmdlet](/powershell/module/azurerm.compute/remove-azurermvm?view=azurermps-6.13.0&preserve-view=true).
 
-For more information on this cmdlet, go to [Remove-AzureRmVm cmdlet](/powershell/module/azurerm.compute/remove-azurermvm?view=azurermps-6.13.0).
-
-
+---
 
 ## Next steps
 
-[Azure Resource Manager cmdlets](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Azure Resource Manager cmdlets](/powershell/module/azurerm.resources/?view=azurermps-6.13.0&preserve-view=true)

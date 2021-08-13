@@ -6,17 +6,16 @@
     href: automation-intro.md
   - name: FAQ
     href: automation-faq.md
+  - name: What's new
+    href: whats-new.md
 - name: Quickstarts
   items:
-    - name: Create an Automation account
+    - name: Create Automation account - Portal
       href: automation-quickstart-create-account.md
     - name: Create a PowerShell runbook
       href: automation-quickstart-create-runbook.md
     - name: Enable Desired State Configuration for a machine
       href: automation-quickstart-dsc-configuration.md
-    - name: Create Automation account - ARM template
-      displayName: Resource Manager
-      href: quickstart-create-automation-account-template.md
 - name: Tutorials
   items:
     - name: Create a graphical runbook
@@ -41,13 +40,15 @@
       href: automation-runbook-types.md
     - name: PowerShell DSC
       href: /powershell/scripting/dsc/overview/overview
+    - name: Automation network configuration details
+      href: automation-network-configuration.md
     - name: Security
       items:
       - name: Security controls by Azure Policy
         displayName: regulatory, compliance, standards, domains
         href: ./security-controls-policy.md
       - name: Security baseline
-        href: security-baseline.md
+        href: /security/benchmark/azure/baselines/automation-security-baseline?toc=/azure/automation/TOC.json
     - name: Data security
       items:
         - name: Encryption of secure assets
@@ -62,20 +63,40 @@
           href: automation-create-standalone-account.md
         - name: Create Automation account with Resource Manager template
           href: quickstart-create-automation-account-template.md
+        - name: Managed identity
+          items:
+            - name: Using system-assigned managed identity
+              href: enable-managed-identity-for-automation.md
+            - name: Using user-assigned managed identity
+              href: add-user-assigned-identity.md
+            - name: Disable system-assigned managed identity
+              href: disable-managed-identity-for-automation.md
+            - name: Remove user-assigned managed identity
+              href: remove-user-assigned-identity.md
+            - name: Troubleshoot managed identity
+              href: troubleshoot/managed-identity.md
+        - name: Run As account
+          items:
+            - name: Create Run As account
+              href: create-run-as-account.md
+            - name: Delete Run As account
+              href: delete-run-as-account.md
+            - name: Manage Run As account
+              href: manage-runas-account.md
         - name: Configure authentication with Amazon Web Services
           href: automation-config-aws-account.md
         - name: Configure authentication with Azure AD
           href: automation-use-azure-ad.md
-        - name: Manage DNS record used by Automation
+        - name: Manage DNS records used by Automation
           href: how-to/automation-region-dns-records.md
-        - name: Manage an Automation Run As account
-          href: manage-runas-account.md
         - name: Connect privately to Automation account
           href: how-to/private-link-security.md
         - name: Manage role permissions and security
           href: automation-role-based-access-control.md
         - name: Move Automation account to another subscription
           href: how-to/move-account.md
+        - name: Delete Automation account
+          href: delete-account.md
         - name: Migrate from Orchestrator to Azure Automation (Beta)
           href: automation-orchestrator-migration.md
     - name: Shared resources
@@ -104,7 +125,7 @@
           href: troubleshoot/shared-resources.md
     - name: Process automation
       items:
-        - name: Use runbooks and modules in PowerShell Gallery
+        - name: Use existing runbooks and modules
           href: automation-runbook-gallery.md
         - name: Learn PowerShell Workflow
           href: automation-powershell-workflow.md
@@ -126,8 +147,6 @@
               href: start-runbooks.md
             - name: Start a runbook from a webhook
               href: automation-webhooks.md
-            - name: Track updated files with watcher task
-              href: automation-watchers-tutorial.md
             - name: Work with the Graphical runbook SDK
               href: graphical-runbook-sdk.md
         - name: Monitor runbooks
@@ -152,6 +171,8 @@
               href: automation-linux-hrw-install.md
             - name: Run runbooks on Hybrid Runbook Worker
               href: automation-hrw-run-runbooks.md
+            - name: Use Azure Policy to enforce job execution
+              href: enforce-job-execution-hybrid-worker.md
             - name: Troubleshoot Hybrid Runbook Worker issues
               href: troubleshoot/hybrid-runbook-worker.md
         - name: Use source control integration
@@ -174,6 +195,8 @@
               href: automation-dsc-compile.md
             - name: Remediate noncompliant State Configuration servers
               href: automation-dsc-remediate.md
+            - name: Remove node and configuration
+              href: state-configuration/remove-node-and-configuration-package.md
             - name: Set up continuous deployment with Chocolatey
               href: automation-dsc-cd-chocolatey.md
             - name: Integrate with Azure Monitor Logs
@@ -192,8 +215,6 @@
                   href: automation-dsc-config-from-server.md
                 - name: Convert configurations to composite resources
                   href: automation-dsc-create-composite.md
-                - name: Remediate non-compliant servers
-                  href: automation-dsc-remediate.md 
         - name: Change tracking and inventory
           items:
             - name: Overview
@@ -242,6 +263,8 @@
           href: automation-solution-vm-management-config.md
         - name: Query logs from Start/Stop VMs during off-hours
           href: automation-solution-vm-management-logs.md
+        - name: Remove Start/Stop VMs during off-hours
+          href: automation-solution-vm-management-remove.md
         - name: Troubleshoot Stop/Start VMs during off-hours
           href: troubleshoot/start-stop-vm.md
     - name: Update Management
@@ -250,8 +273,12 @@
           href: update-management/overview.md
         - name: Supported regions for linked Log Analytics workspace
           href: how-to/region-mappings.md
+        - name: Plan your deployment
+          href: update-management/plan-deployment.md
         - name: Enable
           items:
+            - name: System prerequisites
+              href: update-management/operating-system-requirements.md
             - name: Enable using Azure Resource Manager template
               href: update-management/enable-from-template.md
             - name: Enable from the Azure portal
@@ -300,7 +327,7 @@
               href: troubleshoot/update-agent-issues.md
             - name: Troubleshoot Linux update agent issues
               href: troubleshoot/update-agent-issues-linux.md
-    - name: Cross-component scenarios
+    - name: Scenarios
       items:
         - name: Send an email from a runbook
           href: automation-send-email.md
@@ -308,6 +335,8 @@
           href: automation-alert-metric.md
         - name: Trigger runbook from Azure alert
           href: automation-create-alert-triggered-runbook.md
+        - name: Track updated files with watcher task
+          href: automation-scenario-using-watcher-task.md
         - name: Manage Office 365 services
           href: manage-office-365.md
         - name: Deploy AWS VM with Automation runbook
@@ -320,6 +349,8 @@
           href: ../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir
 - name: Reference
   items:
+  - name: Azure CLI
+    href: /cli/azure/automation
   - name: Azure PowerShell Az
     href: /powershell/module/az.automation
   - name: Azure PowerShell AzureRM
@@ -351,4 +382,3 @@
     href: http://stackoverflow.com/questions/tagged/azure-automation
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=automation
-

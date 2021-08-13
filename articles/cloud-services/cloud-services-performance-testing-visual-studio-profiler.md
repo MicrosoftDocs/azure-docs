@@ -1,23 +1,19 @@
 ---
-title: Profiling a Cloud Service Locally in the Compute Emulator | Microsoft Docs
-services: cloud-services
+title: Profiling a Cloud Service (classic) Locally in the Compute Emulator | Microsoft Docs
 description: Investigate performance issues in cloud services with the Visual Studio profiler
-documentationcenter: ''
-author: mikejo
-manager: jillfra
-editor: ''
-tags: ''
-
-ms.assetid: 25e40bf3-eea0-4b0b-9f4a-91ffe797f6c3
-ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/18/2016
-ms.author: mikejo
-
+ms.service: cloud-services
+ms.date: 10/14/2020
+author: hirenshah1
+ms.author: hirshah
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-# Testing the Performance of a Cloud Service Locally in the Azure Compute Emulator Using the Visual Studio Profiler
+# Testing the Performance of a Cloud Service (classic) Locally in the Azure Compute Emulator Using the Visual Studio Profiler
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 A variety of tools and techniques are available for testing the performance of cloud services.
 When you publish a cloud service to Azure, you can have Visual Studio collect profiling
 data and then analyze it locally, as described in [Profiling an Azure Application][1].

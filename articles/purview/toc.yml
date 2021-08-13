@@ -12,10 +12,22 @@ items:
     href: create-catalog-portal.md
   - name: Create a Purview account - Azure PowerShell
     href: create-catalog-powershell.md
+  - name: Create a Purview account - .NET SDK
+    href: create-purview-dotnet.md
+  - name: Create a Purview account - Python
+    href: create-purview-python.md
+  - name: Manage Kafka notifications - .NET
+    href: manage-kafka-dotnet.md
 - name: Tutorials
   items:
+  - name: Onboarding Azure data sources at scale
+    items:
+    - name: Azure data sources readiness check at scale
+      href: tutorial-data-sources-readiness.md
+    - name: Azure Purview MSI configuration at scale
+      href: tutorial-msi-configuration.md
   - name: Starter kit
-    items: 
+    items:
     - name: Scan data
       href: tutorial-scan-data.md
     - name: Navigate home page and search
@@ -56,8 +68,10 @@ items:
     href: concept-insights.md
   - name: Supported Browsers
     href: supported-browsers.md
+  - name: Asset normalization
+    href: concept-asset-normalization.md
   - name: Frequently asked questions
-    href: frequently-asked-questions.md
+    href: /azure/purview/frequently-asked-questions.yml
 - name: How-to guides
   items:
   - name: Register & scan
@@ -71,18 +85,33 @@ items:
       href: manage-integration-runtimes.md
     - name: Troubleshoot connection issues
       href: troubleshoot-connections.md
+    - name: Resource set pattern rules
+      href: how-to-resource-set-pattern-rules.md
     - name: Sources
       items:
       - name: Manage data sources
         href: manage-data-sources.md
-      - name: Purview connectors overview
+      - name: Azure Purview Connectors
         href: purview-connector-overview.md
+      - name: Azure Multiple Source
+        href: register-scan-azure-multiple-sources.md
+      - name: Azure Synapse Analytics workspaces
+        href: register-scan-synapse-workspace.md
       - name: Azure Blob Storage
         href: register-scan-azure-blob-storage-source.md
-        displayName: Register and scan azure blob storage
+        displayName: Register and scan Azure Blob Storage
+      - name: Azure Files
+        href: register-scan-azure-files-storage-source.md
+        displayName: Register and scan Azure Files
       - name: Azure Cosmos DB
         href: register-scan-azure-cosmos-database.md
         displayName: Register and scan Azure Cosmos DB
+      - name: Azure Database for MySQL
+        href: register-scan-azure-mysql-database.md
+        displayName: Register and scan an Azure database for MySQL
+      - name: Azure Database for PostgreSQL
+        href: register-scan-azure-postgresql.md
+        displayName: Register and scan an Azure database for PostgreSQL        
       - name: Azure Data Explorer
         href: register-scan-azure-data-explorer.md
         displayName: Register and scan Azure Data Explorer Kusto
@@ -98,12 +127,32 @@ items:
       - name: Azure SQL Database Managed Instance
         href: register-scan-azure-sql-database-managed-instance.md
         displayName: Register and scan Azure SQL DB Managed Instance
-      - name: Azure Synapse Analytics
+      - name: Azure Dedicated SQL pool (formerly SQL DW)
         href: register-scan-azure-synapse-analytics.md
+      - name: Cassandra
+        href: register-scan-cassandra-source.md
+      - name: Erwin
+        href: register-scan-erwin-source.md
+      - name: Google BigQuery
+        href: register-scan-google-bigquery-source.md
+      - name: Hive Metastore Database
+        href: register-scan-hive-metastore-source.md
+      - name: Looker
+        href: register-scan-looker-source.md
       - name: On-premises SQL server
         href: register-scan-on-premises-sql-server.md
+      - name: Oracle
+        href: register-scan-oracle-source.md
       - name: Power BI tenant - Portal
         href: register-scan-power-bi-tenant.md
+      - name: SAP ECC 
+        href: register-scan-sapecc-source.md
+      - name: SAP S/4HANA 
+        href: register-scan-saps4hana-source.md
+      - name: Teradata 
+        href: register-scan-teradata-source.md
+      - name: Amazon S3
+        href: register-scan-amazon-s3.md
       # - name: Power BI tenant - PowerShell
         # href: powershell-register-scan-power-bi.md
   - name: Business glossary
@@ -111,8 +160,10 @@ items:
     - name: Create, import, & export glossary terms
       href: how-to-create-import-export-glossary.md
     - name: Manage term templates
-      href: how-to-manage-term-templates.md
-    - name: Bulk edit assets to assign glossary terms 
+      href: how-to-manage-term-templates.md  
+  - name: Bulk edit
+    items:
+    - name: Bulk edit assets to tag annotations and contacts 
       href: how-to-bulk-edit-assets.md
   - name: Classify
     items: 
@@ -128,6 +179,8 @@ items:
       href: how-to-browse-catalog.md
     - name: Search Data Catalog
       href: how-to-search-catalog.md
+    - name: View, edit, and delete Catalog assets
+      href: catalog-asset-details.md
   - name: Lineage 
     items:
     - name: Lineage user guide
@@ -136,6 +189,28 @@ items:
       href: how-to-link-azure-data-factory.md
     - name: Azure Data Share lineage
       href: how-to-link-azure-data-share.md
+    - name: Cassandra lineage
+      href: how-to-lineage-cassandra.md
+    - name: Erwin lineage
+      href: how-to-lineage-erwin.md
+    - name: Looker lineage
+      href: how-to-lineage-looker.md
+    - name: Google BigQuery lineage
+      href: how-to-lineage-google-bigquery.md
+    - name: Oracle lineage
+      href: how-to-lineage-oracle.md
+    - name: Power BI lineage
+      href: how-to-lineage-powerbi.md
+    - name: SAP S/4HANA lineage
+      href: how-to-lineage-saps4hana.md
+    - name: SAP ECC lineage
+      href: how-to-lineage-sapecc.md
+    - name: Spark lineage
+      href: how-to-lineage-spark-atlas-connector.md
+    - name: SQL Server Integration Services lineage
+      href: how-to-lineage-sql-server-integration-services.md
+    - name: Teradata lineage
+      href: how-to-lineage-teradata.md
   - name: Monitor
     items:
     - name: Monitor with Azure Monitor
@@ -154,8 +229,29 @@ items:
       href: sensitivity-insights.md
     - name: View file extension insights
       href: file-extension-insights.md
+  - name: Security & Networking
+    items:
+    - name: Manage Private endpoints
+      href: catalog-private-link.md
+    - name: Azure Purview Private endpoints FAQs
+      href: catalog-private-link-faqs.md
+  - name: Disaster recovery
+    items:
+    - name: Disaster recovery
+      href: disaster-recovery.md
 - name: Reference
   items:
     - name: Supported classifications
       href: supported-classifications.md
-#- name: Resources
+    - name: Azure Purview product glossary
+      href: reference-purview-glossary.md
+    - name: ABAP function deployment guide
+      href: abap-functions-deployment-guide.md
+- name: Resources
+  items:
+    - name: Feature feedback (User voice)
+      href: https://feedback.azure.com/forums/932437-azure-purview
+    - name: Pricing calculator
+      href: https://azure.microsoft.com/pricing/details/azure-purview/
+    - name: Microsoft Q&A forum
+      href: /answers/topics/azure-purview.html

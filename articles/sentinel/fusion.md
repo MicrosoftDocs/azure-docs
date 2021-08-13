@@ -11,42 +11,73 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2020
+ms.date: 08/09/2021
 ms.author: yelevin
 
 ---
 # Advanced multistage attack detection in Azure Sentinel
 
-
 > [!IMPORTANT]
-> Some Fusion features in Azure Sentinel are currently in **public preview**.
-> These features are provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Some Fusion detections (see those so indicated below) are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 By using Fusion technology based on machine learning, Azure Sentinel can automatically detect multistage attacks by identifying combinations of anomalous behaviors and suspicious activities that are observed at various stages of the kill-chain. On the basis of these discoveries, Azure Sentinel generates incidents that would otherwise be difficult to catch. These incidents comprise two or more alerts or activities. By design, these incidents are low-volume, high-fidelity, and high-severity.
 
-Customized for your environment, this detection technology not only reduces false positive rates but can also detect attacks with limited or missing information.
+Customized for your environment, this detection technology not only reduces [false positive](false-positives.md) rates but can also detect attacks with limited or missing information.
+
+
 
 ## Configuration for advanced multistage attack detection
 
+### Enable fusion rule
+
 This detection is enabled by default in Azure Sentinel. To check the status, or to disable it in the event that you are using an alternative solution to create incidents based on multiple alerts, use the following instructions:
 
-1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com).
+1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com) and enter **Azure Sentinel**.
 
-1. Navigate to **Azure Sentinel** > **Configuration** > **Analytics**
+1. From the Azure Sentinel navigation menu, select **Analytics**.
 
-1. Select **Active rules**, and then locate **Advanced Multistage Attack Detection** in the **NAME** column by filtering the list for the **Fusion** rule type. Check the **STATUS** column to confirm whether this detection is enabled or disabled.
+1. Select the **Active rules** tab, and then locate **Advanced Multistage Attack Detection** in the **NAME** column by filtering the list for the **Fusion** rule type. Check the **STATUS** column to confirm whether this detection is enabled or disabled.
 
-    :::image type="content" source="./media/fusion/selecting-fusion-rule-type.png" alt-text="{alt-text}":::
+    :::image type="content" source="./media/fusion/selecting-fusion-rule-type.png" alt-text="{alt-text}" lightbox="./media/fusion/selecting-fusion-rule-type.png":::
 
-1. To change the status, select this entry and on the **Advanced Multistage Attack Detection** blade, select **Edit**.
+1. To change the status, select this entry and on the **Advanced Multistage Attack Detection** preview pane, select **Edit**.
 
 1. On the **Rule creation wizard** blade, the change of status is automatically selected for you, so select **Next: Review**, and then **Save**. 
 
  Since the **Fusion** rule type contains only one rule that can't be modified, rule templates are not applicable for this rule type.
 
 > [!NOTE]
-> Azure Sentinel currently uses 30 days of historical data to train the machine learning systems. This data is always encrypted using Microsoft’s keys as it passes through the machine learning pipeline. However, the training data is not encrypted using [Customer Managed Keys (CMK)](customer-managed-keys.md) if you enabled CMK in your Azure Sentinel workspace. To opt out of Fusion, navigate to **Azure Sentinel** \> **Configuration** \> **Analytics \> Active rules \> Advanced Multistage Attack Detection** and in the **Status** column, select **Disable.**
+> Azure Sentinel currently uses 30 days of historical data to train the machine learning systems. This data is always encrypted using Microsoft’s keys as it passes through the machine learning pipeline. However, the training data is not encrypted using [Customer-Managed Keys (CMK)](customer-managed-keys.md) if you enabled CMK in your Azure Sentinel workspace. To opt out of Fusion, navigate to **Azure Sentinel** \> **Configuration** \> **Analytics \> Active rules \> Advanced Multistage Attack Detection** and in the **Status** column, select **Disable.**
+
+### Configure scheduled analytics rules for fusion detections
+
+> [!IMPORTANT]
+>
+> - Fusion-based detection using analytics rule alerts is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+**Fusion** can detect multi-stage attacks using alerts generated by a set of [scheduled analytics rules](detect-threats-custom.md). We recommend you take the following steps to configure and enable these rules, so that you can get the most out of Azure Sentinel's fusion capabilities.
+
+1. Use the following **scheduled analytics rule templates**, which can be found in the **Rule templates** tab in the **Analytics** blade, to create new rules. Click on the rule name in the templates gallery, and click **Create rule** in the preview pane:
+
+    - [Cisco - firewall block but success logon to Azure AD](https://github.com/Azure/Azure-Sentinel/blob/60e7aa065b196a6ed113c748a6e7ae3566f8c89c/Detections/MultipleDataSources/SigninFirewallCorrelation.yaml)
+    - [Fortinet - Beacon pattern detected](https://github.com/Azure/Azure-Sentinel/blob/83c6d8c7f65a5f209f39f3e06eb2f7374fd8439c/Detections/CommonSecurityLog/Fortinet-NetworkBeaconPattern.yaml)
+    - [IP with multiple failed Azure AD logins successfully logs in to Palo Alto VPN](https://github.com/Azure/Azure-Sentinel/blob/60e7aa065b196a6ed113c748a6e7ae3566f8c89c/Detections/MultipleDataSources/HostAADCorrelation.yaml)
+    - [Multiple Password Reset by user](https://github.com/Azure/Azure-Sentinel/blob/83c6d8c7f65a5f209f39f3e06eb2f7374fd8439c/Detections/MultipleDataSources/MultiplePasswordresetsbyUser.yaml)
+    - [New Admin account activity seen which was not seen historically](https://github.com/Azure/Azure-Sentinel/blob/83c6d8c7f65a5f209f39f3e06eb2f7374fd8439c/Hunting%20Queries/OfficeActivity/new_adminaccountactivity.yaml)
+    - [Rare application consent](https://github.com/Azure/Azure-Sentinel/blob/83c6d8c7f65a5f209f39f3e06eb2f7374fd8439c/Detections/AuditLogs/RareApplicationConsent.yaml)
+    - [SharePointFileOperation via previously unseen IPs](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/OfficeActivity/SharePoint_Downloads_byNewIP.yaml)
+    - [Suspicious Resource deployment](https://github.com/Azure/Azure-Sentinel/blob/83c6d8c7f65a5f209f39f3e06eb2f7374fd8439c/Detections/AzureActivity/NewResourceGroupsDeployedTo.yaml)
+
+    > [!NOTE]
+    > For the set of scheduled analytics rules used by Fusion, the ML algorithm does fuzzy matching for the KQL queries provided in the templates. Renaming the templates will not impact Fusion detections.
+
+1. Review **entity mapping** for these scheduled rules. Use the [entity mapping configuration section](map-data-fields-to-entities.md) to map parameters from your query results to Azure Sentinel-recognized entities. As Fusion correlates alerts based on entities (such as *user account* or *IP address*), the ML algorithms cannot perform alert matching without the entity information.
+
+1. Review the **tactics** in your analytics rule details. The Fusion ML algorithm uses MITRE ATT&CK tactic information for detecting multi-stage attacks, and the tactics you label the analytics rules with will show up in the resulting incidents. Fusion calculations may be affected if incoming alerts are missing tactic information.
+
+1. Adjust **alert threshold** as needed. Fusion generates incidents based on the alerts raised from your scheduled analytics rules. If you'd like to reduce the number of Fusion incidents for a specific analytics rule, adjust the alert threshold as needed. You can also disable the specific analytics rule if you do not want to receive any incidents based on that rule.
 
 ## Attack detection scenarios
 
@@ -57,12 +88,12 @@ As mentioned above, since Fusion correlates multiple security alerts from variou
 In order to enable these Fusion-powered attack detection scenarios, any data sources listed must be ingested using the associated Azure Sentinel data connectors.
 
 > [!NOTE]
-> Some of these scenarios are in **public preview**. They will be so indicated.
+> Some of these scenarios are in **PREVIEW**. They will be so indicated.
 
 ## Compute resource abuse
 
 ### Multiple VM creation activities following suspicious Azure Active Directory sign-in
-This scenario is currently in **public preview**.
+This scenario is currently in **PREVIEW**.
 
 **MITRE ATT&CK tactics:** Initial Access, Impact 
 
@@ -82,8 +113,57 @@ This scenario is currently in **public preview**.
 
 - **Sign-in event from user with leaked credentials leading to multiple VM creation activities**
 
-## Credential harvesting (New threat classification)
+## Credential access
+(New threat classification)
 
+### New! Multiple passwords reset by user following suspicious sign-in
+This scenario makes use of alerts produced by **scheduled analytics rules**.
+
+This scenario is currently in **PREVIEW**.
+
+**MITRE ATT&CK tactics:** Initial Access, Credential Access
+
+**MITRE ATT&CK techniques:** Valid Account (T1078), Brute Force (T1110)
+
+**Data connector sources:** Azure Sentinel (scheduled analytics rule), Azure Active Directory Identity Protection
+
+**Description:** Fusion incidents of this type indicate that a user reset multiple passwords following a suspicious sign-in to an Azure AD account. This evidence suggests that the account noted in the Fusion incident description has been compromised and was used to perform multiple password resets in order to gain access to multiple systems and resources. Account manipulation (including password reset) may aid adversaries in maintaining access to credentials and certain permission levels within an environment. The permutations of suspicious Azure AD sign-in alerts with multiple passwords reset alerts are:
+
+- **Impossible travel to an atypical location leading to multiple passwords reset**
+
+- **Sign-in event from an unfamiliar location leading to multiple passwords reset**
+
+- **Sign-in event from an infected device leading to multiple passwords reset**
+
+- **Sign-in event from an anonymous IP leading to multiple passwords reset**
+
+- **Sign-in event from user with leaked credentials leading to multiple passwords reset**
+
+### New! Suspicious sign-in coinciding with successful sign-in to Palo Alto VPN by IP with multiple failed Azure AD sign-ins
+This scenario makes use of alerts produced by **scheduled analytics rules**.
+
+This scenario is currently in **PREVIEW**.
+
+**MITRE ATT&CK tactics:** Initial Access, Credential Access
+
+**MITRE ATT&CK techniques:** Valid Account (T1078), Brute Force (T1110)
+
+**Data connector sources:** Azure Sentinel (scheduled analytics rule), Azure Active Directory Identity Protection
+
+**Description:** Fusion incidents of this type indicate that a suspicious sign-in to an Azure AD account coincided with a successful sign-in through a Palo Alto VPN from an IP address from which multiple failed Azure AD sign-ins occurred in a similar time frame. Though not evidence of a multistage attack, the correlation of these two lower-fidelity alerts results in a high-fidelity incident suggesting malicious initial access to the organization's network. Alternatively, this could be an indication of an attacker trying to use brute force techniques to gain access to an Azure AD account. The permutations of suspicious Azure AD sign-in alerts with "IP with multiple failed Azure AD logins successfully logs in to Palo Alto VPN" alerts are:
+
+- **Impossible travel to an atypical location coinciding with IP with multiple failed Azure AD logins successfully logs in to Palo Alto VPN**
+
+- **Sign-in event from an unfamiliar location coinciding with IP with multiple failed Azure AD logins successfully logs in to Palo Alto VPN**
+
+- **Sign-in event from an infected device coinciding with IP with multiple failed Azure AD logins successfully logs in to Palo Alto VPN**
+
+- **Sign-in event from an anonymous IP coinciding with IP with multiple failed Azure AD logins successfully logs in to Palo Alto VPN**
+
+- **Sign-in event from user with leaked credentials coinciding with IP with multiple failed Azure AD logins successfully logs in to Palo Alto VPN**
+
+## Credential harvesting
+(New threat classification)
 ### Malicious credential theft tool execution following suspicious sign-in
 
 **MITRE ATT&CK tactics:** Initial Access, Credential Access
@@ -92,7 +172,7 @@ This scenario is currently in **public preview**.
 
 **Data connector sources:** Azure Active Directory Identity Protection, Microsoft Defender for Endpoint
 
-**Description:** Fusion incidents of this type indicate that a known credential theft tool was executed following a suspicious Azure AD sign-in. This provides a high-confidence indication that the user account noted in the alert description has been compromised and may have successfully used a tool like **Mimikatz** to harvest credentials such as keys, plaintext passwords and/or password hashes from the system. The harvested credentials may allow an attacker to access sensitive data, escalate privileges, and/or move laterally across the network. The permutations of suspicious Azure AD sign-in alerts with the malicious credential theft tool alert are:
+**Description:** Fusion incidents of this type indicate that a known credential theft tool was executed following a suspicious Azure AD sign-in. This evidence suggests with high confidence that the user account noted in the alert description has been compromised and may have successfully used a tool like **Mimikatz** to harvest credentials such as keys, plaintext passwords and/or password hashes from the system. The harvested credentials may allow an attacker to access sensitive data, escalate privileges, and/or move laterally across the network. The permutations of suspicious Azure AD sign-in alerts with the malicious credential theft tool alert are:
 
 - **Impossible travel to atypical locations leading to malicious credential theft tool execution**
 
@@ -112,7 +192,7 @@ This scenario is currently in **public preview**.
 
 **Data connector sources:** Azure Active Directory Identity Protection, Microsoft Defender for Endpoint
 
-**Description:** Fusion incidents of this type indicate that activity associated with patterns of credential theft occurred following a suspicious Azure AD sign-in. This provides a high-confidence indication that the user account noted in the alert description has been compromised and used to steal credentials such as keys, plain-text passwords, password hashes, and so on. The stolen credentials may allow an attacker to access sensitive data, escalate privileges, and/or move laterally across the network. The permutations of suspicious Azure AD sign-in alerts with the credential theft activity alert are:
+**Description:** Fusion incidents of this type indicate that activity associated with patterns of credential theft occurred following a suspicious Azure AD sign-in. This evidence suggests with high confidence that the user account noted in the alert description has been compromised and used to steal credentials such as keys, plain-text passwords, password hashes, and so on. The stolen credentials may allow an attacker to access sensitive data, escalate privileges, and/or move laterally across the network. The permutations of suspicious Azure AD sign-in alerts with the credential theft activity alert are:
 
 - **Impossible travel to atypical locations leading to suspected credential theft activity**
 
@@ -124,7 +204,8 @@ This scenario is currently in **public preview**.
 
 - **Sign-in event from user with leaked credentials leading to suspected credential theft activity**
 
-## Crypto-mining (New threat classification)
+## Crypto-mining
+(New threat classification)
 
 ### Crypto-mining activity following suspicious sign-in
 
@@ -134,7 +215,7 @@ This scenario is currently in **public preview**.
 
 **Data connector sources:** Azure Active Directory Identity Protection, Azure Defender (Azure Security Center)
 
-**Description:** Fusion incidents of this type indicate crypto-mining activity associated with a suspicious sign-in to an Azure AD account. This provides a high-confidence indication that the user account noted in the alert description has been compromised and was used to hijack resources in your environment to mine crypto-currency. This can starve your resources of computing power and/or result in significantly higher-than-expected cloud usage bills. The permutations of suspicious Azure AD sign-in alerts with the crypto-mining activity alert are:  
+**Description:** Fusion incidents of this type indicate crypto-mining activity associated with a suspicious sign-in to an Azure AD account. This evidence suggests with high confidence that the user account noted in the alert description has been compromised and was used to hijack resources in your environment to mine crypto-currency. This can starve your resources of computing power and/or result in significantly higher-than-expected cloud usage bills. The permutations of suspicious Azure AD sign-in alerts with the crypto-mining activity alert are:  
 
 - **Impossible travel to atypical locations leading to crypto-mining activity**
 
@@ -146,27 +227,91 @@ This scenario is currently in **public preview**.
 
 - **Sign-in event from user with leaked credentials leading to crypto-mining activity**
 
-## Data exfiltration
+## Data destruction
 
-### Office 365 mailbox exfiltration following a suspicious Azure AD sign-in
+### Mass file deletion following suspicious Azure AD sign-in
 
-**MITRE ATT&CK tactics:** Initial Access, Exfiltration, Collection
+**MITRE ATT&CK tactics:** Initial Access, Impact
 
-**MITRE ATT&CK techniques:** Valid Account (T1078), E-mail collection (T1114), Automated Exfiltration (T1020)
+**MITRE ATT&CK techniques:** Valid Account (T1078), Data Destruction (T1485)
 
 **Data connector sources:** Microsoft Cloud App Security, Azure Active Directory Identity Protection
 
-**Description:** Fusion incidents of this type indicate that a suspicious inbox forwarding rule was set on a user's inbox following a suspicious sign-in to an Azure AD account. This indication provides high confidence that the user's account (noted in the Fusion incident description) has been compromised, and that it was used to exfiltrate data from your organization's network by enabling a mailbox forwarding rule without the true user's knowledge. The permutations of suspicious Azure AD sign-in alerts with the Office 365 mailbox exfiltration alert are:
+**Description:** Fusion incidents of this type indicate that an anomalous number of unique files were deleted following a suspicious sign-in to an Azure AD account. This evidence suggests that the account noted in the Fusion incident description may have been compromised and was used to destroy data for malicious purposes. The permutations of suspicious Azure AD sign-in alerts with the mass file deletion alert are:  
 
-- **Impossible travel to an atypical location leading to Office 365 mailbox exfiltration**
+- **Impossible travel to an atypical location leading to mass file deletion**
 
-- **Sign-in event from an unfamiliar location leading to Office 365 mailbox exfiltration**
+- **Sign-in event from an unfamiliar location leading to mass file deletion**
 
-- **Sign-in event from an infected device leading to Office 365 mailbox exfiltration**
+- **Sign-in event from an infected device leading to mass file deletion**
 
-- **Sign-in event from an anonymous IP address leading to Office 365 mailbox exfiltration**
+- **Sign-in event from an anonymous IP address leading to mass file deletion**
 
-- **Sign-in event from user with leaked credentials leading to Office 365 mailbox exfiltration**
+- **Sign-in event from user with leaked credentials leading to mass file deletion**
+
+### New! Mass file deletion following successful Azure AD sign-in from IP blocked by a Cisco firewall appliance
+This scenario makes use of alerts produced by **scheduled analytics rules**.
+
+This scenario is currently in **PREVIEW**.
+
+**MITRE ATT&CK tactics:** Initial Access, Impact
+
+**MITRE ATT&CK techniques:** Valid Account (T1078), Data Destruction (T1485)
+
+**Data connector sources:** Azure Sentinel (scheduled analytics rule), Microsoft Cloud App Security
+
+**Description:** Fusion incidents of this type indicate that an anomalous number of unique files were deleted following a successful Azure AD sign-in despite the user's IP address being blocked by a Cisco firewall appliance. This evidence suggests that the account noted in the Fusion incident description has been compromised and was used to destroy data for malicious purposes. Because the IP was blocked by the firewall, that same IP logging on successfully to Azure AD is potentially suspect and could indicate credential compromise for the user account.
+
+### New! Mass file deletion following successful sign-in to Palo Alto VPN by IP with multiple failed Azure AD sign-ins
+This scenario makes use of alerts produced by **scheduled analytics rules**.
+
+This scenario is currently in **PREVIEW**.
+
+**MITRE ATT&CK tactics:** Initial Access, Credential Access, Impact
+
+**MITRE ATT&CK techniques:** Valid Account (T1078), Brute Force (T1110), Data Destruction (T1485)
+
+**Data connector sources:** Azure Sentinel (scheduled analytics rule), Microsoft Cloud App Security
+
+**Description:** Fusion incidents of this type indicate that an anomalous number of unique files were deleted by a user who successfully signed in through a Palo Alto VPN from an IP address from which multiple failed Azure AD sign-ins occurred in a similar time frame. This evidence suggests that the user account noted in the Fusion incident may have been compromised using brute force techniques, and was used to destroy data for malicious purposes.
+
+### Suspicious email deletion activity following suspicious Azure AD sign-in
+This scenario is currently in **PREVIEW**.
+
+**MITRE ATT&CK tactics:** Initial Access, Impact 
+
+**MITRE ATT&CK techniques:** Valid Account (T1078), Data Destruction (T1485)
+
+**Data connector sources:** Microsoft Cloud App Security, Azure Active Directory Identity Protection
+
+**Description:** Fusion incidents of this type indicate that an anomalous number of emails were deleted in a single session following a suspicious sign-in to an Azure AD account. This evidence suggests that the account noted in the Fusion incident description may have been compromised and was used to destroy data for malicious purposes, such as harming the organization or hiding spam-related email activity. The permutations of suspicious Azure AD sign-in alerts with the suspicious email deletion activity alert are:   
+
+- **Impossible travel to an atypical location leading to suspicious email deletion activity**
+
+- **Sign-in event from an unfamiliar location leading to suspicious email deletion activity**
+
+- **Sign-in event from an infected device leading to suspicious email deletion activity**
+
+- **Sign-in event from an anonymous IP address leading to suspicious email deletion activity**
+
+- **Sign-in event from user with leaked credentials leading to suspicious email deletion activity**
+
+## Data exfiltration
+
+### New! Mail forwarding activities following new admin-account activity not seen recently
+This scenario belongs to two threat classifications in this list: **data exfiltration** and **malicious administrative activity**. For the sake of clarity, it appears in both sections.
+
+This scenario makes use of alerts produced by **scheduled analytics rules**.
+
+This scenario is currently in **PREVIEW**.
+
+**MITRE ATT&CK tactics:** Initial Access, Collection, Exfiltration
+
+**MITRE ATT&CK techniques:** Valid Account (T1078), Email Collection (T1114), Exfiltration Over Web Service (T1567)
+
+**Data connector sources:** Azure Sentinel (scheduled analytics rule), Microsoft Cloud App Security
+
+**Description:** Fusion incidents of this type indicate that either a new Exchange administrator account has been created, or an existing Exchange admin account took some administrative action for the first time, in the last two weeks, and that the account then did some mail-forwarding actions, which are unusual for an administrator account. This evidence suggests that the user account noted in the Fusion incident description has been compromised or manipulated, and that it was used to exfiltrate data from your organization's network.
 
 ### Mass file download following suspicious Azure AD sign-in
 
@@ -188,6 +333,32 @@ This scenario is currently in **public preview**.
 
 - **Sign-in event from user with leaked credentials leading to mass file download**
 
+### New! Mass file download following successful Azure AD sign-in from IP blocked by a Cisco firewall appliance
+This scenario makes use of alerts produced by **scheduled analytics rules**.
+
+This scenario is currently in **PREVIEW**.
+
+**MITRE ATT&CK tactics:** Initial Access, Exfiltration
+
+**MITRE ATT&CK techniques:** Valid Account (T1078), Exfiltration Over Web Service (T1567)
+
+**Data connector sources:** Azure Sentinel (scheduled analytics rule), Microsoft Cloud App Security
+
+**Description:** Fusion incidents of this type indicate that an anomalous number of files were downloaded by a user following a successful Azure AD sign-in despite the user's IP address being blocked by a Cisco firewall appliance. This could possibly be an attempt by an attacker to exfiltrate data from the organization's network after compromising a user account. Because the IP was blocked by the firewall, that same IP logging on successfully to Azure AD is potentially suspect and could indicate credential compromise for the user account.
+
+### New! Mass file download coinciding with SharePoint file operation from previously unseen IP
+This scenario makes use of alerts produced by **scheduled analytics rules**.
+
+This scenario is currently in **PREVIEW**.
+
+**MITRE ATT&CK tactics:** Exfiltration
+
+**MITRE ATT&CK techniques:** Exfiltration Over Web Service (T1567), Data Transfer Size Limits (T1030)
+
+**Data connector sources:** Azure Sentinel (scheduled analytics rule), Microsoft Cloud App Security
+
+**Description:** Fusion incidents of this type indicate that an anomalous number of files were downloaded by a user connected from a previously unseen IP address. Though not evidence of a multistage attack, the correlation of these two lower-fidelity alerts results in a high-fidelity incident suggesting an attempt by an attacker to exfiltrate data from the organization's network from a possibly compromised user account. In stable environments, such connections by previously unseen IPs may be unauthorized, especially if associated with spikes in volume that could be associated with large-scale document exfiltration.
+
 ### Mass file sharing following suspicious Azure AD sign-in
 
 **MITRE ATT&CK tactics:** Initial Access, Exfiltration
@@ -208,31 +379,8 @@ This scenario is currently in **public preview**.
 
 - **Sign-in event from user with leaked credentials leading to mass file sharing**
 
-### Suspicious inbox manipulation rules set following suspicious Azure AD sign-in
-This scenario belongs to two threat classifications in this list: **data exfiltration** and **lateral movement**. For the sake of clarity, it appears in both sections.
-
-This scenario is currently in **public preview**.
-
-**MITRE ATT&CK tactics:** Initial Access, Lateral Movement, Exfiltration
-
-**MITRE ATT&CK techniques:** Valid Account (T1078), Internal Spear Phishing (T1534)
-
-**Data connector sources:** Microsoft Cloud App Security, Azure Active Directory Identity Protection
-
-**Description:** Fusion incidents of this type indicate that anomalous inbox rules were set on a user's inbox following a suspicious sign-in to an Azure AD account. This provides a high-confidence indication that the account noted in the Fusion incident description has been compromised and was used to manipulate the user’s email inbox rules for malicious purposes. This could possibly be an attempt by an attacker to exfiltrate data from the organization's network. Alternatively, the attacker could be trying to generate phishing emails from within the organization (bypassing phishing detection mechanisms targeted at email from external sources) for the purpose of moving laterally by gaining access to additional user and/or privileged accounts. The permutations of suspicious Azure AD sign-in alerts with the suspicious inbox manipulation rules alert are:  
-
-- **Impossible travel to an atypical location leading to suspicious inbox manipulation rule**
-
-- **Sign-in event from an unfamiliar location leading to suspicious inbox manipulation rule**
-
-- **Sign-in event from an infected device leading to suspicious inbox manipulation rule**
-
-- **Sign-in event from an anonymous IP address leading to suspicious inbox manipulation rule**
-
-- **Sign-in event from user with leaked credentials leading to suspicious inbox manipulation rule**
-
 ### Multiple Power BI report sharing activities following suspicious Azure AD sign-in 
-This scenario is currently in **public preview**.
+This scenario is currently in **PREVIEW**.
 
 **MITRE ATT&CK tactics:** Initial Access, Exfiltration 
 
@@ -252,8 +400,64 @@ This scenario is currently in **public preview**.
 
 - **Sign-in event from user with leaked credentials leading to multiple Power BI report sharing activities**
 
+### Office 365 mailbox exfiltration following a suspicious Azure AD sign-in
+
+**MITRE ATT&CK tactics:** Initial Access, Exfiltration, Collection
+
+**MITRE ATT&CK techniques:** Valid Account (T1078), E-mail collection (T1114), Automated Exfiltration (T1020)
+
+**Data connector sources:** Microsoft Cloud App Security, Azure Active Directory Identity Protection
+
+**Description:** Fusion incidents of this type indicate that a suspicious inbox forwarding rule was set on a user's inbox following a suspicious sign-in to an Azure AD account. This indication provides high confidence that the user's account (noted in the Fusion incident description) has been compromised, and that it was used to exfiltrate data from your organization's network by enabling a mailbox forwarding rule without the true user's knowledge. The permutations of suspicious Azure AD sign-in alerts with the Office 365 mailbox exfiltration alert are:
+
+- **Impossible travel to an atypical location leading to Office 365 mailbox exfiltration**
+
+- **Sign-in event from an unfamiliar location leading to Office 365 mailbox exfiltration**
+
+- **Sign-in event from an infected device leading to Office 365 mailbox exfiltration**
+
+- **Sign-in event from an anonymous IP address leading to Office 365 mailbox exfiltration**
+
+- **Sign-in event from user with leaked credentials leading to Office 365 mailbox exfiltration**
+
+### New! SharePoint file operation from previously unseen IP following malware detection
+This scenario makes use of alerts produced by **scheduled analytics rules**.
+
+This scenario is currently in **PREVIEW**.
+
+**MITRE ATT&CK tactics:** Exfiltration, Defense Evasion
+
+**MITRE ATT&CK techniques:** Data Transfer Size Limits (T1030)
+
+**Data connector sources:** Azure Sentinel (scheduled analytics rule), Microsoft Cloud App Security
+
+**Description:** Fusion incidents of this type indicate that an attacker attempted to exfiltrate large amounts of data by downloading or sharing through SharePoint through the use of malware. In stable environments, such connections by previously unseen IPs may be unauthorized, especially if associated with spikes in volume that could be associated with large-scale document exfiltration. 
+
+### Suspicious inbox manipulation rules set following suspicious Azure AD sign-in
+This scenario belongs to two threat classifications in this list: **data exfiltration** and **lateral movement**. For the sake of clarity, it appears in both sections.
+
+This scenario is currently in **PREVIEW**.
+
+**MITRE ATT&CK tactics:** Initial Access, Lateral Movement, Exfiltration
+
+**MITRE ATT&CK techniques:** Valid Account (T1078), Internal Spear Phishing (T1534), Automated Exfiltration (T1020)
+
+**Data connector sources:** Microsoft Cloud App Security, Azure Active Directory Identity Protection
+
+**Description:** Fusion incidents of this type indicate that anomalous inbox rules were set on a user's inbox following a suspicious sign-in to an Azure AD account. This evidence provides a high-confidence indication that the account noted in the Fusion incident description has been compromised and was used to manipulate the user’s email inbox rules for malicious purposes, possibly to exfiltrate data from the organization's network. Alternatively, the attacker could be trying to generate phishing emails from within the organization (bypassing phishing detection mechanisms targeted at email from external sources) for the purpose of moving laterally by gaining access to additional user and/or privileged accounts. The permutations of suspicious Azure AD sign-in alerts with the suspicious inbox manipulation rules alert are:
+
+- **Impossible travel to an atypical location leading to suspicious inbox manipulation rule**
+
+- **Sign-in event from an unfamiliar location leading to suspicious inbox manipulation rule**
+
+- **Sign-in event from an infected device leading to suspicious inbox manipulation rule**
+
+- **Sign-in event from an anonymous IP address leading to suspicious inbox manipulation rule**
+
+- **Sign-in event from user with leaked credentials leading to suspicious inbox manipulation rule**
+
 ### Suspicious Power BI report sharing following suspicious Azure AD sign-in
-This scenario is currently in **public preview**.
+This scenario is currently in **PREVIEW**.
 
 **MITRE ATT&CK tactics:** Initial Access, Exfiltration 
 
@@ -273,53 +477,10 @@ This scenario is currently in **public preview**.
 
 - **Sign-in event from user with leaked credentials leading to suspicious Power BI report sharing**
 
-## Data destruction
-
-### Mass file deletion following suspicious Azure AD sign-in
-
-**MITRE ATT&CK tactics:** Initial Access, Impact
-
-**MITRE ATT&CK techniques:** Valid Account (T1078), Data Destruction (T1485)
-
-**Data connector sources:** Microsoft Cloud App Security, Azure Active Directory Identity Protection
-
-**Description:** Fusion incidents of this type indicate that an anomalous number of unique files were deleted following a suspicious sign-in to an Azure AD account. This provides an indication that the account noted in the Fusion incident description may have been compromised and was used to destroy data for malicious purposes. The permutations of suspicious Azure AD sign-in alerts with the mass file deletion alert are:  
-
-- **Impossible travel to an atypical location leading to mass file deletion**
-
-- **Sign-in event from an unfamiliar location leading to mass file deletion**
-
-- **Sign-in event from an infected device leading to mass file deletion**
-
-- **Sign-in event from an anonymous IP address leading to mass file deletion**
-
-- **Sign-in event from user with leaked credentials leading to mass file deletion**
-
-### Suspicious email deletion activity following suspicious Azure AD sign-in
-This scenario is currently in **public preview**.
-
-**MITRE ATT&CK tactics:** Initial Access, Impact 
-
-**MITRE ATT&CK techniques:** Valid Account (T1078), Data Destruction (T1485)
-
-**Data connector sources:** Microsoft Cloud App Security, Azure Active Directory Identity Protection
-
-**Description:** Fusion incidents of this type indicate that an anomalous number of emails were deleted in a single session following a suspicious sign-in to an Azure AD account. This provides an indication that the account noted in the Fusion incident description may have been compromised and was used to destroy data for malicious purposes, such as harming the organization or hiding spam-related email activity. The permutations of suspicious Azure AD sign-in alerts with the suspicious email deletion activity alert are:   
-
-- **Impossible travel to an atypical location leading to suspicious email deletion activity**
-
-- **Sign-in event from an unfamiliar location leading to suspicious email deletion activity**
-
-- **Sign-in event from an infected device leading to suspicious email deletion activity**
-
-- **Sign-in event from an anonymous IP address leading to suspicious email deletion activity**
-
-- **Sign-in event from user with leaked credentials leading to suspicious email deletion activity**
-
 ## Denial of service
 
-### Multiple VM delete activities following suspicious Azure AD sign-in
-This scenario is currently in **public preview**.
+### Multiple VM deletion activities following suspicious Azure AD sign-in
+This scenario is currently in **PREVIEW**.
 
 **MITRE ATT&CK tactics:** Initial Access, Impact
 
@@ -327,17 +488,17 @@ This scenario is currently in **public preview**.
 
 **Data connector sources:** Microsoft Cloud App Security, Azure Active Directory Identity Protection
 
-**Description:** Fusion incidents of this type indicate that an anomalous number of VMs were deleted in a single session following a suspicious sign-in to an Azure AD account. This indication provides high confidence that the account noted in the Fusion incident description has been compromised and was used to attempt to disrupt or destroy the organization's cloud environment. The permutations of suspicious Azure AD sign-in alerts with the multiple VM delete activities alert are:  
+**Description:** Fusion incidents of this type indicate that an anomalous number of VMs were deleted in a single session following a suspicious sign-in to an Azure AD account. This indication provides high confidence that the account noted in the Fusion incident description has been compromised and was used to attempt to disrupt or destroy the organization's cloud environment. The permutations of suspicious Azure AD sign-in alerts with the multiple VM deletion activities alert are:  
 
-- **Impossible travel to an atypical location leading to multiple VM delete activities**
+- **Impossible travel to an atypical location leading to multiple VM deletion activities**
 
-- **Sign-in event from an unfamiliar location leading to multiple VM delete activities**
+- **Sign-in event from an unfamiliar location leading to multiple VM deletion activities**
 
-- **Sign-in event from an infected device leading to multiple VM delete activities**
+- **Sign-in event from an infected device leading to multiple VM deletion activities**
 
-- **Sign-in event from an anonymous IP address leading to multiple VM delete activities**
+- **Sign-in event from an anonymous IP address leading to multiple VM deletion activities**
 
-- **Sign-in event from user with leaked credentials leading to multiple VM delete activities**
+- **Sign-in event from user with leaked credentials leading to multiple VM deletion activities**
 
 ## Lateral movement
 
@@ -364,7 +525,7 @@ This scenario is currently in **public preview**.
 ### Suspicious inbox manipulation rules set following suspicious Azure AD sign-in
 This scenario belongs to two threat classifications in this list: **lateral movement** and **data exfiltration**. For the sake of clarity, it appears in both sections.
 
-This scenario is currently in **public preview**.
+This scenario is currently in **PREVIEW**.
 
 **MITRE ATT&CK tactics:** Initial Access, Lateral Movement, Exfiltration
 
@@ -372,7 +533,7 @@ This scenario is currently in **public preview**.
 
 **Data connector sources:** Microsoft Cloud App Security, Azure Active Directory Identity Protection
 
-**Description:** Fusion incidents of this type indicate that anomalous inbox rules were set on a user's inbox following a suspicious sign-in to an Azure AD account. This indication provides high confidence that the account noted in the Fusion incident description has been compromised and was used to manipulate the user’s email inbox rules for malicious purposes. This could possibly be an attempt by an attacker to exfiltrate data from the organization's network. Alternatively, the attacker could be trying to generate phishing emails from within the organization (bypassing phishing detection mechanisms targeted at email from external sources) for the purpose of moving laterally by gaining access to additional user and/or privileged accounts. The permutations of suspicious Azure AD sign-in alerts with the suspicious inbox manipulation rules alert are:
+**Description:** Fusion incidents of this type indicate that anomalous inbox rules were set on a user's inbox following a suspicious sign-in to an Azure AD account. This evidence provides a high-confidence indication that the account noted in the Fusion incident description has been compromised and was used to manipulate the user’s email inbox rules for malicious purposes, possibly to exfiltrate data from the organization's network. Alternatively, the attacker could be trying to generate phishing emails from within the organization (bypassing phishing detection mechanisms targeted at email from external sources) for the purpose of moving laterally by gaining access to additional user and/or privileged accounts. The permutations of suspicious Azure AD sign-in alerts with the suspicious inbox manipulation rules alert are:
 
 - **Impossible travel to an atypical location leading to suspicious inbox manipulation rule**
 
@@ -394,7 +555,7 @@ This scenario is currently in **public preview**.
 
 **Data connector sources:** Microsoft Cloud App Security, Azure Active Directory Identity Protection
 
-**Description:** Fusion incidents of this type indicate that an anomalous number of administrative activities were performed in a single session following a suspicious Azure AD sign-in from the same account. This provides an indication that the account noted in the Fusion incident description may have been compromised and was used to make any number of unauthorized administrative actions with malicious intent. This also indicates that an account with administrative privileges may have been compromised. The permutations of suspicious Azure AD sign-in alerts with the suspicious cloud app administrative activity alert are:  
+**Description:** Fusion incidents of this type indicate that an anomalous number of administrative activities were performed in a single session following a suspicious Azure AD sign-in from the same account. This evidence suggests that the account noted in the Fusion incident description may have been compromised and was used to make any number of unauthorized administrative actions with malicious intent. This also indicates that an account with administrative privileges may have been compromised. The permutations of suspicious Azure AD sign-in alerts with the suspicious cloud app administrative activity alert are:  
 
 - **Impossible travel to an atypical location leading to suspicious cloud app administrative activity**
 
@@ -406,10 +567,25 @@ This scenario is currently in **public preview**.
 
 - **Sign-in event from user with leaked credentials leading to suspicious cloud app administrative activity**
 
+### New! Mail forwarding activities following new admin-account activity not seen recently
+This scenario belongs to two threat classifications in this list: **malicious administrative activity** and **data exfiltration**. For the sake of clarity, it appears in both sections.
+
+This scenario makes use of alerts produced by **scheduled analytics rules**.
+
+This scenario is currently in **PREVIEW**.
+
+**MITRE ATT&CK tactics:** Initial Access, Collection, Exfiltration
+
+**MITRE ATT&CK techniques:** Valid Account (T1078), Email Collection (T1114), Exfiltration Over Web Service (T1567)
+
+**Data connector sources:** Azure Sentinel (scheduled analytics rule), Microsoft Cloud App Security
+
+**Description:** Fusion incidents of this type indicate that either a new Exchange administrator account has been created, or an existing Exchange admin account took some administrative action for the first time, in the last two weeks, and that the account then did some mail-forwarding actions, which are unusual for an administrator account. This evidence suggests that the user account noted in the Fusion incident description has been compromised or manipulated, and that it was used to exfiltrate data from your organization's network.
+
 ## Malicious execution with legitimate process
 
 ### PowerShell made a suspicious network connection, followed by anomalous traffic flagged by Palo Alto Networks firewall.
-This scenario is currently in **public preview**.
+This scenario is currently in **PREVIEW**.
 
 **MITRE ATT&CK tactics:** Execution
 
@@ -417,10 +593,10 @@ This scenario is currently in **public preview**.
 
 **Data connector sources:** Microsoft Defender for Endpoint (formerly Microsoft Defender Advanced Threat Protection, or MDATP), Palo Alto Networks 
 
-**Description:** Fusion incidents of this type indicate that an outbound connection request was made via a PowerShell command, and following that, anomalous inbound activity was detected by the Palo Alto Networks Firewall. This provides an indication that an attacker has likely gained access to your network and is trying to perform malicious actions. Connection attempts by PowerShell that follow this pattern could be an indication of malware command and control activity, requests for the download of additional malware, or an attacker establishing remote interactive access. As with all “living off the land” attacks, this activity could be a legitimate use of PowerShell. However, the PowerShell command execution followed by suspicious inbound Firewall activity increases the confidence that PowerShell is being used in a malicious manner and should be investigated further. In Palo Alto logs, Azure Sentinel focuses on [threat logs](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs), and traffic is considered suspicious when threats are allowed (suspicious data, files, floods, packets, scans, spyware, URLs, viruses, vulnerabilities, wildfire-viruses, wildfires). Also reference the Palo Alto Threat Log corresponding to the [Threat/Content Type](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) listed in the Fusion incident description for additional alert details.
+**Description:** Fusion incidents of this type indicate that an outbound connection request was made via a PowerShell command, and following that, anomalous inbound activity was detected by the Palo Alto Networks Firewall. This evidence suggests that an attacker has likely gained access to your network and is trying to perform malicious actions. Connection attempts by PowerShell that follow this pattern could be an indication of malware command and control activity, requests for the download of additional malware, or an attacker establishing remote interactive access. As with all “living off the land” attacks, this activity could be a legitimate use of PowerShell. However, the PowerShell command execution followed by suspicious inbound Firewall activity increases the confidence that PowerShell is being used in a malicious manner and should be investigated further. In Palo Alto logs, Azure Sentinel focuses on [threat logs](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs), and traffic is considered suspicious when threats are allowed (suspicious data, files, floods, packets, scans, spyware, URLs, viruses, vulnerabilities, wildfire-viruses, wildfires). Also reference the Palo Alto Threat Log corresponding to the [Threat/Content Type](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) listed in the Fusion incident description for additional alert details.
 
 ### Suspicious remote WMI execution followed by anomalous traffic flagged by Palo Alto Networks firewall
-This scenario is currently in **public preview**.
+This scenario is currently in **PREVIEW**.
 
 **MITRE ATT&CK tactics:** Execution, Discovery
 
@@ -428,7 +604,7 @@ This scenario is currently in **public preview**.
 
 **Data connector sources:** Microsoft Defender for Endpoint (formerly MDATP), Palo Alto Networks 
 
-**Description:** Fusion incidents of this type indicate that Windows Management Interface (WMI) commands were remotely executed on a system, and following that, suspicious inbound activity was detected by the Palo Alto Networks Firewall. This provides an indication that an attacker may have gained access to your network and is attempting to move laterally, escalate privileges, and/or execute malicious payloads. As with all “living off the land” attacks, this activity could be a legitimate use of WMI. However, the remote WMI command execution followed by suspicious inbound Firewall activity increases the confidence that WMI is being used in a malicious manner and should be investigated further. In Palo Alto logs, Azure Sentinel focuses on [threat logs](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs), and traffic is considered suspicious when threats are allowed (suspicious data, files, floods, packets, scans, spyware, URLs, viruses, vulnerabilities, wildfire-viruses, wildfires). Also reference the Palo Alto Threat Log corresponding to the [Threat/Content Type](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) listed in the Fusion incident description for additional alert details.
+**Description:** Fusion incidents of this type indicate that Windows Management Interface (WMI) commands were remotely executed on a system, and following that, suspicious inbound activity was detected by the Palo Alto Networks Firewall. This evidence suggests that an attacker may have gained access to your network and is attempting to move laterally, escalate privileges, and/or execute malicious payloads. As with all “living off the land” attacks, this activity could be a legitimate use of WMI. However, the remote WMI command execution followed by suspicious inbound Firewall activity increases the confidence that WMI is being used in a malicious manner and should be investigated further. In Palo Alto logs, Azure Sentinel focuses on [threat logs](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs), and traffic is considered suspicious when threats are allowed (suspicious data, files, floods, packets, scans, spyware, URLs, viruses, vulnerabilities, wildfire-viruses, wildfires). Also reference the Palo Alto Threat Log corresponding to the [Threat/Content Type](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) listed in the Fusion incident description for additional alert details.
 
 ### Suspicious PowerShell command line following suspicious sign-in
 
@@ -438,7 +614,7 @@ This scenario is currently in **public preview**.
 
 **Data connector sources:** Azure Active Directory Identity Protection, Microsoft Defender for Endpoint (formerly MDATP)
 
-**Description:** Fusion incidents of this type indicate that a user executed potentially malicious PowerShell commands following a suspicious sign-in to an Azure AD account. This provides a high-confidence indication that the account noted in the alert description has been compromised and further malicious actions were taken. Attackers often leverage PowerShell to execute malicious payloads in memory without leaving artifacts on the disk, in order to avoid detection by disk-based security mechanisms such as virus scanners. The permutations of suspicious Azure AD sign-in alerts with the suspicious PowerShell command alert are:
+**Description:** Fusion incidents of this type indicate that a user executed potentially malicious PowerShell commands following a suspicious sign-in to an Azure AD account. This evidence suggests with high confidence that the account noted in the alert description has been compromised and further malicious actions were taken. Attackers often use PowerShell to execute malicious payloads in memory without leaving artifacts on the disk, in order to avoid detection by disk-based security mechanisms such as virus scanners. The permutations of suspicious Azure AD sign-in alerts with the suspicious PowerShell command alert are:
 
 - **Impossible travel to atypical locations leading to suspicious PowerShell command line**
 
@@ -452,8 +628,46 @@ This scenario is currently in **public preview**.
 
 ## Malware C2 or download
 
+### New! Beacon pattern detected by Fortinet following multiple failed user sign-ins to a service
+
+This scenario makes use of alerts produced by **scheduled analytics rules**.
+
+This scenario is currently in **PREVIEW**.
+
+**MITRE ATT&CK tactics:** Initial Access, Command and Control
+
+**MITRE ATT&CK techniques:** Valid Account (T1078), Non-Standard Port (T1571), T1065 (retired)
+
+**Data connector sources:** Azure Sentinel (scheduled analytics rule), Microsoft Cloud App Security
+
+**Description:** Fusion incidents of this type indicate communication patterns, from an internal IP address to an external one, that are consistent with beaconing, following multiple failed user sign-ins to a service from a related internal entity. The combination of these two events could be an indication of malware infection or of a compromised host doing data exfiltration. 
+
+### New! Beacon pattern detected by Fortinet following suspicious Azure AD sign-in
+
+This scenario makes use of alerts produced by **scheduled analytics rules**.
+
+This scenario is currently in **PREVIEW**.
+
+**MITRE ATT&CK tactics:** Initial Access, Command and Control
+
+**MITRE ATT&CK techniques:** Valid Account (T1078), Non-Standard Port (T1571), T1065 (retired)
+
+**Data connector sources:** Azure Sentinel (scheduled analytics rule), Azure Active Directory Identity Protection
+
+**Description:** Fusion incidents of this type indicate communication patterns, from an internal IP address to an external one, that are consistent with beaconing, following a user sign-in of a suspicious nature to Azure AD. The combination of these two events could be an indication of malware infection or of a compromised host doing data exfiltration. The permutations of beacon pattern detected by Fortinet alerts with suspicious Azure AD sign-in alerts are:   
+
+- **Impossible travel to an atypical location leading to beacon pattern detected by Fortinet**
+
+- **Sign-in event from an unfamiliar location leading to beacon pattern detected by Fortinet**
+
+- **Sign-in event from an infected device leading to beacon pattern detected by Fortinet**
+
+- **Sign-in event from an anonymous IP address leading to beacon pattern detected by Fortinet**
+
+- **Sign-in event from user with leaked credentials leading to beacon pattern detected by Fortinet**
+
 ### Network request to TOR anonymization service followed by anomalous traffic flagged by Palo Alto Networks firewall.
-This scenario is currently in **public preview**.
+This scenario is currently in **PREVIEW**.
 
 **MITRE ATT&CK tactics:** Command and Control
 
@@ -461,10 +675,10 @@ This scenario is currently in **public preview**.
 
 **Data connector sources:** Microsoft Defender for Endpoint (formerly MDATP), Palo Alto Networks 
 
-**Description:** Fusion incidents of this type indicate that an outbound connection request was made to the TOR anonymization service, and following that, anomalous inbound activity was detected by the Palo Alto Networks Firewall. This provides an indication that an attacker has likely gained access to your network and is trying to conceal their actions and intent. Connections to the TOR network following this pattern could be an indication of malware command and control activity, requests for the download of additional malware, or an attacker establishing remote interactive access. In Palo Alto logs, Azure Sentinel focuses on [threat logs](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs), and traffic is considered suspicious when threats are allowed (suspicious data, files, floods, packets, scans, spyware, URLs, viruses, vulnerabilities, wildfire-viruses, wildfires). Also reference the Palo Alto Threat Log corresponding to the [Threat/Content Type](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) listed in the Fusion incident description for additional alert details.
+**Description:** Fusion incidents of this type indicate that an outbound connection request was made to the TOR anonymization service, and following that, anomalous inbound activity was detected by the Palo Alto Networks Firewall. This evidence suggests that an attacker has likely gained access to your network and is trying to conceal their actions and intent. Connections to the TOR network following this pattern could be an indication of malware command and control activity, requests for the download of additional malware, or an attacker establishing remote interactive access. In Palo Alto logs, Azure Sentinel focuses on [threat logs](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs), and traffic is considered suspicious when threats are allowed (suspicious data, files, floods, packets, scans, spyware, URLs, viruses, vulnerabilities, wildfire-viruses, wildfires). Also reference the Palo Alto Threat Log corresponding to the [Threat/Content Type](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) listed in the Fusion incident description for additional alert details.
 
 ### Outbound connection to IP with a history of unauthorized access attempts followed by anomalous traffic flagged by Palo Alto Networks firewall
-This scenario is currently in **public preview**.
+This scenario is currently in **PREVIEW**.
 
 **MITRE ATT&CK tactics:** Command and Control
 
@@ -472,7 +686,34 @@ This scenario is currently in **public preview**.
 
 **Data connector sources:** Microsoft Defender for Endpoint (formerly MDATP), Palo Alto Networks 
 
-**Description:** Fusion incidents of this type indicate that an outbound connection to an IP address with a history of unauthorized access attempts was established, and following that, anomalous activity was detected by the Palo Alto Networks Firewall. This provides an indication that an attacker has likely gained access to your network. Connection attempts following this pattern could be an indication of malware command and control activity, requests for the download of additional malware, or an attacker establishing remote interactive access. In Palo Alto logs, Azure Sentinel focuses on [threat logs](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs), and traffic is considered suspicious when threats are allowed (suspicious data, files, floods, packets, scans, spyware, URLs, viruses, vulnerabilities, wildfire-viruses, wildfires). Also reference the Palo Alto Threat Log corresponding to the [Threat/Content Type](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) listed in the Fusion incident description for additional alert details.
+**Description:** Fusion incidents of this type indicate that an outbound connection to an IP address with a history of unauthorized access attempts was established, and following that, anomalous activity was detected by the Palo Alto Networks Firewall. This evidence suggests that an attacker has likely gained access to your network. Connection attempts following this pattern could be an indication of malware command and control activity, requests for the download of additional malware, or an attacker establishing remote interactive access. In Palo Alto logs, Azure Sentinel focuses on [threat logs](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs), and traffic is considered suspicious when threats are allowed (suspicious data, files, floods, packets, scans, spyware, URLs, viruses, vulnerabilities, wildfire-viruses, wildfires). Also reference the Palo Alto Threat Log corresponding to the [Threat/Content Type](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) listed in the Fusion incident description for additional alert details.
+
+## Persistence
+(New threat classification)
+
+### New! Rare application consent following suspicious sign-in
+
+This scenario makes use of alerts produced by **scheduled analytics rules**.
+
+This scenario is currently in **PREVIEW**.
+
+**MITRE ATT&CK tactics:** Persistence, Initial Access
+
+**MITRE ATT&CK techniques:** Create Account (T1136), Valid Account (T1078)
+
+**Data connector sources:** Azure Sentinel (scheduled analytics rule), Azure Active Directory Identity Protection
+
+**Description:** Fusion incidents of this type indicate that an application was granted consent by a user who has never or rarely done so, following a related suspicious sign-in to an Azure AD account. This evidence suggests that the account noted in the Fusion incident description may have been compromised and used to access or manipulate the application for malicious purposes.  Consent to application, Add service principal and Add OAuth2PermissionGrant should typically be rare events. Attackers may use this type of configuration change to establish or maintain their foothold on systems. The permutations of suspicious Azure AD sign-in alerts with the rare application consent alert are:
+
+- **Impossible travel to an atypical location leading to rare application consent**
+
+- **Sign-in event from an unfamiliar location leading to rare application consent**
+
+- **Sign-in event from an infected device leading to rare application consent**
+
+- **Sign-in event from an anonymous IP leading to rare application consent**
+
+- **Sign-in event from user with leaked credentials leading to rare application consent**
 
 ## Ransomware
 
@@ -496,10 +737,30 @@ This scenario is currently in **public preview**.
 
 - **Sign-in event from user with leaked credentials leading to ransomware in cloud app**
 
+### Multiple alerts possibly related to Ransomware activity detected (Public preview)
+
+Azure Sentinel generates an incident when multiple alerts of different types are detected from the following data sources, and may be related to Ransomware activity:
+
+- [Azure Defender (Azure Security Center)](connect-azure-security-center.md)
+- [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md)
+- [Microsoft Defender for Identity](connect-azure-atp.md)
+- [Microsoft Cloud App Security](connect-cloud-app-security.md)
+- [Azure Sentinel scheduled analytics rules](tutorial-detect-threats-built-in.md#scheduled). Fusion only considers scheduled analytics rules with tactics information.
+
+Such Fusion incidents are named **Multiple alerts possibly related to Ransomware activity detected**, and are generated when relevant alerts are detected during a specific time-frame and are associated with the **Execution** and **Defense Evasion** stages of an attack.
+
+For example, Azure Sentinel would generate an incident for possible Ransomware activities if the following alerts are triggered on the same host within a specific timeframe:
+
+- Azure Sentinel scheduled alerts (informational): **Windows Error and Warning Events**
+- Azure Defender (medium): **'GandCrab' ransomware was prevented**
+- Microsoft Defender for Endpoint (informational): **'Emotet' malware was detected**
+- Azure Defender (low): **'Tofsee' backdoor was detected**
+- Microsoft Defender for Endpoint (informational): **'Parite' malware was detected**
+
 ## Remote exploitation
 
 ### Suspected use of attack framework followed by anomalous traffic flagged by Palo Alto Networks firewall
-This scenario is currently in **public preview**.
+This scenario is currently in **PREVIEW**.
 
 **MITRE ATT&CK tactics:** Initial Access, Execution, Lateral Movement, Privilege Escalation
 
@@ -509,9 +770,35 @@ This scenario is currently in **public preview**.
 
 **Description:** Fusion incidents of this type indicate that non-standard uses of protocols, resembling the use of attack frameworks such as Metasploit, were detected, and following that, suspicious inbound activity was detected by the Palo Alto Networks Firewall. This may be an initial indication that an attacker has exploited a service to gain access to your network resources or that an attacker has already gained access and is trying to further exploit available systems/services to move laterally and/or escalate privileges. In Palo Alto logs, Azure Sentinel focuses on [threat logs](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs), and traffic is considered suspicious when threats are allowed (suspicious data, files, floods, packets, scans, spyware, URLs, viruses, vulnerabilities, wildfire-viruses, wildfires). Also reference the Palo Alto Threat Log corresponding to the [Threat/Content Type](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) listed in the Fusion incident description for additional alert details.
 
+## Resource hijacking
+(New threat classification)
+
+### New! Suspicious resource / resource group deployment by a previously unseen caller following suspicious Azure AD sign-in
+This scenario makes use of alerts produced by **scheduled analytics rules**.
+
+This scenario is currently in **PREVIEW**.
+
+**MITRE ATT&CK tactics:** Initial Access, Impact
+
+**MITRE ATT&CK techniques:** Valid Account (T1078), Resource Hijacking (T1496)
+
+**Data connector sources:** Azure Sentinel (scheduled analytics rule), Azure Active Directory Identity Protection
+
+**Description:** Fusion incidents of this type indicate that a user has deployed an Azure resource or resource group - a rare activity - following a suspicious sign-in, with properties not recently seen, to an Azure AD account. This could possibly be an attempt by an attacker to deploy resources or resource groups for malicious purposes after compromising the user account noted in the Fusion incident description.
+The permutations of suspicious Azure AD sign-in alerts with the suspicious resource / resource group deployment by a previously unseen caller alert are:
+
+- **Impossible travel to an atypical location leading to suspicious resource / resource group deployment by a previously unseen caller**
+
+- **Sign-in event from an unfamiliar location leading to suspicious resource / resource group deployment by a previously unseen caller**
+
+- **Sign-in event from an infected device leading to suspicious resource / resource group deployment by a previously unseen caller**
+
+- **Sign-in event from an anonymous IP leading to suspicious resource / resource group deployment by a previously unseen caller**
+
+- **Sign-in event from user with leaked credentials leading to suspicious resource / resource group deployment by a previously unseen caller**
+
 ## Next steps
 
-Now you've learned more about advanced multistage attack detection, you might be interested in the following quickstart to learn how to get visibility into your data and potential threats: [Get started with Azure Sentinel](quickstart-get-visibility.md).
+Now you've learned more about advanced multistage attack detection, you might be interested in the following quickstart to learn how to get visibility into your data and potential threats: [Get started with Azure Sentinel](get-visibility.md).
 
-If you're ready to investigate the incidents that are created for you, see the following tutorial: [Investigate incidents with Azure Sentinel](tutorial-investigate-cases.md).
-
+If you're ready to investigate the incidents that are created for you, see the following tutorial: [Investigate incidents with Azure Sentinel](investigate-cases.md).

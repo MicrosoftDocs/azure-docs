@@ -19,6 +19,8 @@
     items:
     - name: ASP.NET app
       href: cache-web-app-howto.md
+    - name: ASP.NET Core app
+      href: cache-web-app-aspnet-core-howto.md
     - name: .NET Core app
       href: cache-dotnet-core-quickstart.md
     - name: .NET app
@@ -31,6 +33,8 @@
       href: cache-python-get-started.md
     - name: Go app
       href: cache-go-get-started.md
+    - name: Rust app
+      href: cache-rust-get-started.md
 - name: Tutorials
   items:
   - name: ASP.NET
@@ -43,6 +47,14 @@
     items:
     - name: Use Spring Boot Initializer
       href: /azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache
+  - name: Azure Event Grid
+    items:
+    - name: Route events with Azure portal  
+      href: cache-event-grid-quickstart-portal.md
+    - name: Route events with Azure CLI 
+      href: cache-event-grid-quickstart-cli.md
+    - name: Route events with PowerShell 
+      href: cache-event-grid-quickstart-powershell.md
   - name: Create leaderboards
     href: cache-web-app-cache-aside-leaderboard.md
   - name: Deploy a machine learning model 
@@ -67,7 +79,7 @@
         displayName: regulatory, compliance, standards, domains
         href: ./security-controls-policy.md
       - name: Security baseline
-        href: security-baseline.md
+        href: /security/benchmark/azure/baselines/azure-cache-for-redis-security-baseline?toc=/azure/azure-cache-for-redis/TOC.json
     - name: Caching architecture
       href: /azure/architecture/best-practices/caching?toc=%2fazure%2fredis-cache%2ftoc.json
 - name: How-to guides
@@ -92,16 +104,20 @@
       href: cache-how-to-zone-redundancy.md
     - name: Set up geo-replication
       href: cache-how-to-geo-replication.md
+    - name: Set up Enterprise active geo-replication
+      href: cache-how-to-active-geo-replication.md
     - name: Save with reserved capacity
       href: cache-reserved-pricing.md
     - name: Migrate to Azure Cache for Redis
       href: cache-migration-guide.md
+    - name: Migrate from VNet injection to Private Link
+      href: cache-vnet-migration.md
     - name: Planning FAQs
-      href: cache-planning-faq.md
+      href: cache-planning-faq.yml
   - name: Build
     items:
     - name: Development FAQs
-      href: cache-development-faq.md
+      href: cache-development-faq.yml
   - name: Automate
     items:
     - name: Deploy and manage using Azure PowerShell
@@ -126,10 +142,12 @@
       href: cache-administration.md#schedule-updates
     - name: Configure redis-cli.exe access
       href: cache-how-to-redis-cli-tool.md
+    - name: Publishing Azure Cache for Redis events
+      href: cache-event-grid.md
     - name: Remove TLS 1.0 and 1.1
       href: cache-remove-tls-10-11.md
     - name: Management FAQs
-      href: cache-management-faq.md
+      href: cache-management-faq.yml
   - name: Monitor
     items:
     - name: Monitor in Azure portal
@@ -137,7 +155,7 @@
     - name: Set alerts for exceptions
       href: cache-how-to-monitor.md#operations-and-alerts
     - name: Monitoring FAQs
-      href: cache-monitor-troubleshoot-faq.md
+      href: cache-monitor-troubleshoot-faq.yml
   - name: Scale
     items:
     - name: Update to a different size and tier
@@ -155,7 +173,7 @@
     - name: Troubleshoot data loss
       href: cache-troubleshoot-data-loss.md
     - name: Troubleshooting FAQs
-      href: cache-monitor-troubleshoot-faq.md
+      href: cache-monitor-troubleshoot-faq.yml
 - name: Reference
   items:
   - name: Azure Cache for Redis samples
@@ -182,7 +200,7 @@
 - name: Resources
   items:
   - name: Azure Cache for Redis FAQs
-    href: cache-faq.md
+    href: cache-faq.yml
   - name: Videos
     href: https://www.youtube.com/results?search_query=azure+redis+cache
   - name: Microsoft Q&A question page

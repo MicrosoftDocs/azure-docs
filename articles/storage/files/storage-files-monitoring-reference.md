@@ -15,6 +15,13 @@ ms.custom: monitoring
 
 See [Monitoring Azure Files](storage-files-monitoring.md) for details on collecting and analyzing monitoring data for Azure Files.
 
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+
 ## Metrics
 
 The following tables list the platform metrics collected for Azure Files. 
@@ -31,7 +38,7 @@ Azure Files provides the following capacity metrics in Azure Monitor.
 
 #### Azure Files
 
-This table shows [Azure Files metrics](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsfileservices).
+This table shows [Azure Files metrics](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsfileservices).
 
 | Metric | Description |
 | ------------------- | ----------------- |
@@ -39,7 +46,7 @@ This table shows [Azure Files metrics](../../azure-monitor/platform/metrics-supp
 | FileCount   | The number of files in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
 | FileShareCapacityQuota | The upper limit on the amount of storage that can be used by Azure Files Service in bytes. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024|
 | FileShareCount | The number of file shares in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
-| FileShareProvisionedIOPS | The number of provisioned IOPS on a file share. This metric is applicable to premium file storage only. <br/><br/> Unit: bytes <br/> Aggregation Type: Average |
+| FileShareProvisionedIOPS | The number of provisioned IOPS on a file share. This metric is applicable to premium file storage only. <br/><br/> Unit: CountPerSecond <br/> Aggregation Type: Average |
 | FileShareSnapshotCount | The number of snapshots present on the share in storage account's Azure Files service. <br/><br/> Unit:Count <br/> Aggregation Type: Average | 
 |FileShareSnapshotSize|The amount of storage used by the snapshots in storage account's Azure Files service. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average|
 
@@ -83,4 +90,4 @@ The following table lists the properties for Azure Storage resource logs when th
 ## See also
 
 - See [Monitoring Azure Files](storage-files-monitoring-reference.md) for a description of monitoring Azure Storage.
-- See [Monitoring Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

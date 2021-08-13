@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 06/30/2021
 
 ms.author: justinha
 author: justinha
@@ -18,9 +18,12 @@ ms.collection: M365-identity-device-management
 ---
 # Authentication methods in Azure Active Directory - phone options
 
-For direct authentication using text message, you can [Configure and enable users for SMS-based authentication(preview)](howto-authentication-sms-signin.md). SMS-based sign-in is great for front-line workers. With SMS-based sign-in, users don't need to know a username and password to access applications and services. The user instead enters their registered mobile phone number, receives a text message with a verification code, and enters that in the sign-in interface.
+For direct authentication using text message, you can [Configure and enable users for SMS-based authentication](howto-authentication-sms-signin.md). SMS-based sign-in is great for Frontline workers. With SMS-based sign-in, users don't need to know a username and password to access applications and services. The user instead enters their registered mobile phone number, receives a text message with a verification code, and enters that in the sign-in interface.
 
-Users can also verify themselves using a mobile phone or office phone as secondary form of authentication used during Azure AD Multi-Factor Authentication or self-service password reset (SSPR).
+Users can also verify themselves using a mobile phone or office phone as secondary form of authentication used during Azure AD Multi-Factor Authentication or self-service password reset (SSPR). 
+
+> [!NOTE]
+> Phone call verification is not available for Azure AD tenants with trial subscriptions.  For example, signing up for a trial EMS licenses, will not provide the capability for phone call verification.
 
 To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*, for example, *+1 4251234567*.
 
@@ -49,14 +52,14 @@ With phone call verification during SSPR or Azure AD Multi-Factor Authentication
 
 ## Office phone verification
 
-With phone call verification during SSPR or Azure AD Multi-Factor Authentication, an automated voice call is made to the phone number registered by the user. To complete the sign-in process, the user is prompted to press # on their keypad.
+With phone call verification during SSPR or Azure AD Multi-Factor Authentication, an automated voice call is made to the phone number registered by the user. To complete the sign-in process, the user is prompted to press # on their keypad. 
 
 ## Troubleshooting phone options
 
 If you have problems with phone authentication for Azure AD, review the following troubleshooting steps:
 
 * “You've hit our limit on verification calls” or “You’ve hit our limit on text verification codes” error messages during sign-in
-   * Microsoft may limit repeated authentication attempts that are perform by the same user in a short period of time. This limitation does not apply to the Microsoft Authenticator or verification code. If you have hit these limits, you can use the Authenticator App, verification code or try to sign in again in a few minutes.
+   * Microsoft may limit repeated authentication attempts that are performed by the same user in a short period of time. This limitation does not apply to the Microsoft Authenticator or verification code. If you have hit these limits, you can use the Authenticator App, verification code or try to sign in again in a few minutes.
 * "Sorry, we're having trouble verifying your account" error message during sign-in
    * Microsoft may limit or block voice or SMS authentication attempts that are performed by the same user, phone number, or organization due to high number of failed voice or SMS authentication attempts. If you are experiencing this error, you can try another method, such as Authenticator App or verification code, or reach out to your admin for support.
 * Blocked caller ID on a single device.

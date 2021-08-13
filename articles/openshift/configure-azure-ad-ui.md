@@ -1,7 +1,7 @@
 ---
 title: Azure Red Hat OpenShift running OpenShift 4  - Configure Azure Active Directory authentication using the Azure portal and the OpenShift web console
 description: Learn how to configure Azure Active Directory authentication for an Azure Red Hat OpenShift cluster running OpenShift 4 using the Azure portal and the OpenShift web console
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 03/12/2020
 author: sabbour
@@ -13,7 +13,7 @@ ms.custom: mvc, devx-track-azurecli
 
 # Configure Azure Active Directory authentication for an Azure Red Hat OpenShift 4 cluster (Portal)
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Before you begin
 
@@ -64,7 +64,7 @@ Navigate to **Token configuration (preview)** and click on **Add optional claim*
 
 Applications registered in an Azure Active Directory (Azure AD) tenant are, by default, available to all users of the tenant who authenticate successfully. Azure AD allows tenant administrators and developers to restrict an app to a specific set of users or security groups in the tenant.
 
-Follow the instructions on the Azure Active Directory documentation to [assign users and groups to the app](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md#app-registration).
+Follow the instructions on the Azure Active Directory documentation to [assign users and groups to the app](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md).
 
 ## Configure OpenShift OpenID authentication
 

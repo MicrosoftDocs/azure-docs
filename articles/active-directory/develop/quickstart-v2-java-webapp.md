@@ -34,7 +34,7 @@ To run this sample, you need:
 >
 > ### Option 1: Register and automatically configure your app, and then download the code sample
 >
-> 1. Go to the [Azure portal > **Registration an application**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavaQuickstartPage/sourceType/docs) quickstart experience.
+> 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavaQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.
 > 1. Enter a name for your application, and then select **Register**.
 > 1. Follow the instructions in the portal's quickstart experience to download the automatically configured application code.
 >
@@ -44,7 +44,7 @@ To run this sample, you need:
 >
 > To register your application and manually add the app's registration information to it, follow these steps:
 >
-> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 > 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register the application.
 > 1. Search for and select **Azure Active Directory**.
 > 1. Under **Manage**, select **App registrations**.
@@ -64,7 +64,7 @@ To run this sample, you need:
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in the Azure portal
 >
-> To use the code sample in this quickstart, you need to:
+> To use the code sample in this quickstart:
 >
 > 1. Add reply URLs `https://localhost:8443/msal4jsample/secure/aad` and `https://localhost:8443/msal4jsample/graph/me`.
 > 1. Create a client secret.
@@ -157,12 +157,9 @@ To run the web application from an IDE, select run, and then go to the home page
 
 ##### Running the project from Tomcat
 
-If you want to deploy the web sample to Tomcat, you need to make a couple changes to the source code.
+If you want to deploy the web sample to Tomcat, make a couple changes to the source code.
 
-1. Open *ms-identity-java-webapp/pom.xml*.
-    - Under `<name>msal-web-sample</name>`, add `<packaging>war</packaging>`.
-
-2. Open *ms-identity-java-webapp/src/main/java/com.microsoft.azure.msalwebsample/MsalWebSampleApplication*.
+1. Open *ms-identity-java-webapp/src/main/java/com.microsoft.azure.msalwebsample/MsalWebSampleApplication*.
 
     - Delete all source code and replace it with this code:
 
@@ -188,7 +185,7 @@ If you want to deploy the web sample to Tomcat, you need to make a couple change
        }
       ```
 
-3.   Tomcat's default HTTP port is 8080, but you need an HTTPS connection over port 8443. To configure this setting:
+2.   Tomcat's default HTTP port is 8080, but you need an HTTPS connection over port 8443. To configure this setting:
         - Go to *tomcat/conf/server.xml*.
         - Search for the `<connector>` tag, and replace the existing connector with this connector:
 
@@ -201,13 +198,13 @@ If you want to deploy the web sample to Tomcat, you need to make a couple change
                    clientAuth="false" sslProtocol="TLS"/>
           ```
 
-4. Open a Command Prompt window. Go to the root folder of this sample (where the pom.xml file is located), and run `mvn package` to build the project.
+3. Open a Command Prompt window. Go to the root folder of this sample (where the pom.xml file is located), and run `mvn package` to build the project.
     - This command will generate a *msal-web-sample-0.1.0.war* file in your */targets* directory.
     - Rename this file to *msal4jsample.war*.
     - Deploy the WAR file by using Tomcat or any other J2EE container solution.
         - To deploy the msal4jsample.war file, copy it to the */webapps/* directory in your Tomcat installation, and then start the Tomcat server.
 
-5. After the file is deployed, go to https://localhost:8443/msal4jsample by using a browser.
+4. After the file is deployed, go to https://localhost:8443/msal4jsample by using a browser.
 
 
 > [!IMPORTANT]

@@ -27,7 +27,7 @@ landingContent:
     - linkListType: reference
       links:
         - text: Voice assistants FAQ
-          url: faq-voice-assistants.md
+          url: faq-voice-assistants.yml
         - text: Voice assistants pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
     - linkListType: get-started
@@ -43,11 +43,11 @@ landingContent:
     - linkListType: how-to-guide
       links:
         - text: Create application with simple commands
-          url: how-to-custom-commands-create-application-with-simple-commands.md
+          url: ./how-to-develop-custom-commands-application.md
         - text: Add parameters to your commands
-          url: how-to-custom-commands-add-parameters-to-commands.md
+          url: ./how-to-develop-custom-commands-application.md
         - text: Add validations to parameters and prompts for correction
-          url: how-to-custom-commands-add-parameter-configuration.md
+          url: ./how-to-develop-custom-commands-application.md
         - text: Integrate using the Speech SDK
           url: how-to-custom-commands-setup-speech-sdk.md
         - text: Setup Continuous Deployment for your Custom Commands app using Azure DevOps
@@ -74,8 +74,8 @@ landingContent:
           url: ./custom-keyword-basics.md
     - linkListType: reference
       links:
-        - text: Custom Keyword naming guidelines
-          url: ./custom-keyword-overview.md
+        - text: Choosing an effective keyword
+          url: ./keyword-recognition-guidelines.md
 - title: Help and feedback
   linkLists:
   - linkListType: reference

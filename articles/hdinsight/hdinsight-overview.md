@@ -1,9 +1,6 @@
 ---
 title: What is Azure HDInsight
 description: An introduction to HDInsight, and the Apache Hadoop and Apache Spark technology stack and components, including Kafka, Hive, Storm, and HBase for big data analysis.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: contperf-fy21q1
@@ -31,7 +28,7 @@ This section lists the capabilities of Azure HDInsight.
 
 |Capability  |Description  |
 |---------|---------|
-|Cloud native     |     Azure HDInsight enables you to create optimized clusters for Hadoop, Spark, [Interactive query (LLAP)](./interactive-query/apache-interactive-query-get-started.md), Kafka, Storm, HBase, and ML Services on Azure. HDInsight also provides an end-to-end SLA on all your production workloads.  |
+|Cloud native     |     Azure HDInsight enables you to create optimized clusters for Hadoop, Spark, [Interactive query (LLAP)](./interactive-query/apache-interactive-query-get-started.md), Kafka, Storm, HBase on Azure. HDInsight also provides an end-to-end SLA on all your production workloads.  |
 |Low-cost and scalable     | HDInsight enables you to scale workloads up or down. You can reduce costs by creating clusters on demand and paying only for what you use. You can also build data pipelines to operationalize your jobs. Decoupled compute and storage provide better performance and flexibility. |
 |Secure and compliant    | HDInsight enables you to protect your enterprise data assets with Azure Virtual Network, encryption, and integration with Azure Active Directory. HDInsight also meets the most popular industry and government compliance standards.        |
 |Monitoring    | Azure HDInsight integrates with Azure Monitor logs to provide a single interface with which you can monitor all your clusters.        |
@@ -51,25 +48,25 @@ Extract, transform, and load (ETL) is a process where unstructured or structured
 
 You can use HDInsight to perform interactive queries at petabyte scales over structured or unstructured data in any format. You can also build models connecting them to BI tools.
 
-![HDInsight architecture: Data warehousing](./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-data-warehouse.png "HDInsight Data warehousing architecture")
+:::image type="content" source="./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-data-warehouse.png" alt-text="HDInsight architecture: Data warehousing":::
 
 ### Internet of Things (IoT)
 
 You can use HDInsight to process streaming data that's received in real time from different kinds of devices. For more information, [read this blog post from Azure that announces the public preview of Apache Kafka on HDInsight with Azure Managed disks](https://azure.microsoft.com/blog/announcing-public-preview-of-apache-kafka-on-hdinsight-with-azure-managed-disks/).
 
-![HDInsight architecture: Internet of Things](./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-iot.png "HDInsight IoT architecture")
+:::image type="content" source="./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-iot.png" alt-text="HDInsight architecture: Internet of Things":::
 
 ### Data science
 
 You can use HDInsight to build applications that extract critical insights from data. You can also use Azure Machine Learning on top of that to predict future trends for your business. For more information, [read this customer story](https://customers.microsoft.com/story/pros).
 
-![HDInsight architecture: Data science](./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-data-science.png "HDInsight data science architecture")
+:::image type="content" source="./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-data-science.png" alt-text="HDInsight architecture: Data science":::
 
 ### Hybrid
 
 You can use HDInsight to extend your existing on-premises big data infrastructure to Azure to leverage the advanced analytics capabilities of the cloud.
 
-![HDInsight architecture: Hybrid](./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-hybrid.png "HDInsight hybrid architecture")
+:::image type="content" source="./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-hybrid.png" alt-text="HDInsight architecture: Hybrid":::
 
 ## Cluster types in HDInsight
 
@@ -80,7 +77,6 @@ HDInsight includes specific cluster types and cluster customization capabilities
 |[Apache Hadoop](./hadoop/apache-hadoop-introduction.md)|A framework that uses HDFS, YARN resource management, and a simple MapReduce programming model to process and analyze batch data in parallel.|
 |[Apache Spark](./spark/apache-spark-overview.md)|An open-source, parallel-processing framework that supports in-memory processing to boost the performance of big-data analysis applications. See [What is Apache Spark in HDInsight?](./spark/apache-spark-overview.md).|
 |[Apache HBase](./hbase/apache-hbase-overview.md)|A NoSQL database built on Hadoop that provides random access and strong consistency for large amounts of unstructured and semi-structured data--potentially billions of rows times millions of columns. See [What is HBase on HDInsight?](./hbase/apache-hbase-overview.md)|
-|[ML Services](./r-server/r-server-overview.md)|A server for hosting and managing parallel, distributed R processes. It provides data scientists, statisticians, and R programmers with on-demand access to scalable, distributed methods of analytics on HDInsight. See [Overview of ML Services on HDInsight](./r-server/r-server-overview.md).|
 |[Apache Storm](./storm/apache-storm-overview.md)|A distributed, real-time computation system for processing large streams of data fast. Storm is offered as a managed cluster in HDInsight. See [Analyze real-time sensor data using Storm and Hadoop](./storm/apache-storm-overview.md).|
 |[Apache Interactive Query](./interactive-query/apache-interactive-query-get-started.md)|In-memory caching for interactive and faster Hive queries. See [Use Interactive Query in HDInsight](./interactive-query/apache-interactive-query-get-started.md).|
 |[Apache Kafka](./kafka/apache-kafka-introduction.md)|An open-source platform that's used for building streaming data pipelines and applications. Kafka also provides message-queue functionality that allows you to publish and subscribe to data streams. See [Introduction to Apache Kafka on HDInsight](./kafka/apache-kafka-introduction.md).|

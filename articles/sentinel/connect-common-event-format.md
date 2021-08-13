@@ -1,5 +1,5 @@
 ---
-title: Connect CEF data to Azure Sentinel Preview| Microsoft Docs
+title: Connect CEF data to Azure Sentinel | Microsoft Docs
 description: Connect an external solution that sends Common Event Format (CEF) messages to Azure Sentinel, using a Linux machine as a log forwarder.
 services: sentinel
 documentationcenter: na
@@ -13,11 +13,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/01/2020
+ms.date: 07/26/2021
 ms.author: yelevin
 
 ---
 # Connect your external solution using Common Event Format
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 When you connect an external solution that sends CEF messages, there are three steps to connecting with Azure Sentinel:
 
@@ -48,6 +50,8 @@ To use TLS communication between the Syslog source and the Syslog Forwarder, you
  
 ## Prerequisites
 
+An Azure Sentinel workspace is required in order to ingest CEF data into Log Analytics.
+
 Make sure the Linux machine you use as a log forwarder is running one of the following operating systems:
 
 - 64-bit
@@ -76,6 +80,12 @@ Make sure the Linux machine you use as a log forwarder is running one of the fol
  
 Make sure your machine also meets the following requirements: 
 
+- Capacity
+  - Your machine must have a minimum of **4 CPU cores and 8 GB RAM**.
+
+    > [!NOTE]
+    > - A single log forwarder machine using the **rsyslog** daemon has a supported capacity of **up to 8500 events per second (EPS)** collected.
+
 - Permissions
   - You must have elevated permissions (sudo) on your machine. 
 
@@ -91,5 +101,7 @@ In this document, you learned how Azure Sentinel collects CEF logs from security
 - STEP 3: [Verify connectivity](connect-cef-verify.md)
 
 To learn more about what to do with the data you've collected in Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](./tutorial-detect-threats-built-in.md).
+
+- Learn about [CEF and CommonSecurityLog field mapping](cef-name-mapping.md).
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](./detect-threats-built-in.md).

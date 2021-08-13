@@ -7,11 +7,14 @@ author: viv-liu
 ms.author: viviali
 ms.date: 10/4/2019
 ms.topic: conceptual
+
+# This topic applies to administrators and solution developers.
 ---
 
 # Visualize and analyze your Azure IoT Central data in a Power BI dashboard
 
-*This topic applies to administrators and solution developers.*
+> [!Note] 
+> This solution uses [legacy data export features](./howto-export-data-legacy.md). Stay tuned for updated guidance on how to connect to Power BI using the latest data export.
 
 :::image type="content" source="media/howto-connect-powerbi/iot-continuous-data-export.png" alt-text="Power BI solution pipeline":::
 
@@ -22,16 +25,15 @@ Use the Power BI Solution for Azure IoT Central V3 to create a powerful Power BI
 - Filter down to data sent by specific devices
 - View the most recent telemetry data in a table
 
-This solution sets up a pipeline that reads data from your [Continuous Data Export](./howto-export-data.md) Azure Blob storage account. The pipeline uses Azure Functions, Azure Data Factory, and Azure SQL Database to process and transform the data. you can visualize and analyze the data in a Power BI report that you download as a PBIX file. All of the resources are created in your Azure subscription, so you can customize each component to suit your needs.
+This solution sets up a pipeline that reads data from your [legacy data export](./howto-export-data-legacy.md) Azure Blob storage account. The pipeline uses Azure Functions, Azure Data Factory, and Azure SQL Database to process and transform the data. you can visualize and analyze the data in a Power BI report that you download as a PBIX file. All of the resources are created in your Azure subscription, so you can customize each component to suit your needs.
 
 ## Prerequisites
 
-To complete the steps in this how-to guide, you need an active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+To complete the steps in this how-to guide, you need:
 
-Setting up the solution requires the following resources:
+[!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
 
-- A version 3 IoT Central application. To learn how to check your application version, see [About your application](./howto-get-app-info.md). To learn how to create an IoT Central application, see [Create an Azure IoT Central application](./quick-deploy-iot-central.md).
-- Continuous data export configured to export telemetry, devices, and device templates to Azure Blob storage. To learn more, see [How to export IoT data to destinations in Azure](howto-export-data.md).
+- Legacy continuous data export which is configured to export telemetry, devices, and device templates to Azure Blob storage. To learn more, see [legacy data export documentation](howto-export-data-legacy.md).
   - Make sure that only your IoT Central application is exporting data to the blob container.
   - Your [devices must send JSON encoded messages](../../iot-hub/iot-hub-devguide-messages-d2c.md). Devices must specify `contentType:application/JSON` and `contentEncoding:utf-8` or `contentEncoding:utf-16` or `contentEncoding:utf-32` in the message system properties.
 - Power BI Desktop (latest version). See [Power BI downloads](https://powerbi.microsoft.com/downloads/).
@@ -80,4 +82,4 @@ The [Power BI Solution for Azure IoT Central V3](https://appsource.microsoft.com
 
 ## Next steps
 
-Now that you've learned how to visualize your data in Power BI, the suggested next step is to learn [How to manage devices](howto-manage-devices.md).
+Now that you've learned how to visualize your data in Power BI, the suggested next step is to learn [How to manage devices](howto-manage-devices-individually.md).

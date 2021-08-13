@@ -1,7 +1,7 @@
 ---
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
-ms.date: 10/05/2020
+ms.date: 04/19/2021
 ms.topic: conceptual
 ---
 # Understand Azure Policy effects
@@ -42,7 +42,7 @@ meet the designed governance controls of Azure Policy. With a
 [Resource Provider mode](./definition-structure.md#resource-provider-modes), the Resource Provider
 manages the evaluation and outcome and reports the results back to Azure Policy.
 
-- **Disabled** is checked first to determine if the policy rule should be evaluated.
+- **Disabled** is checked first to determine whether the policy rule should be evaluated.
 - **Append** and **Modify** are then evaluated. Since either could alter the request, a change made
   may prevent an audit or deny effect from triggering. These effects are only available with a
   Resource Manager mode.
@@ -51,10 +51,11 @@ manages the evaluation and outcome and reports the results back to Azure Policy.
 - **Audit** is evaluated last.
 
 After the Resource Provider returns a success code on a Resource Manager mode request,
-**AuditIfNotExists** and **DeployIfNotExists** evaluate to determine if additional compliance
+**AuditIfNotExists** and **DeployIfNotExists** evaluate to determine whether additional compliance
 logging or action is required.
 
-Additionally, `PATCH` requests that only modify `tags` related fields restricts policy evaluation to policies containing conditions that inspect `tags` related fields.
+Additionally, `PATCH` requests that only modify `tags` related fields restricts policy evaluation to
+policies containing conditions that inspect `tags` related fields.
 
 ## Append
 
@@ -85,10 +86,10 @@ take either a single **field/value** pair or multiples. Refer to
 
 ### Append examples
 
-Example 1: Single **field/value** pair using a non-**\[\*\]** [alias](definition-structure.md#aliases)
-with an array **value** to set IP rules on a storage account. When the non-**\[\*\]** alias is an
-array, the effect appends the **value** as the entire array. If the array already exists, a deny
-event occurs from the conflict.
+Example 1: Single **field/value** pair using a non-**\[\*\]**
+[alias](definition-structure.md#aliases) with an array **value** to set IP rules on a storage
+account. When the non-**\[\*\]** alias is an array, the effect appends the **value** as the entire
+array. If the array already exists, a deny event occurs from the conflict.
 
 ```json
 "then": {
@@ -129,10 +130,11 @@ resource, but it doesn't stop the request.
 ### Audit evaluation
 
 Audit is the last effect checked by Azure Policy during the creation or update of a resource. For a
-Resource Manager mode, Azure Policy then sends the resource to the Resource Provider. Audit works
-the same for a resource request and an evaluation cycle. For new and updated resources, Azure Policy
-adds a `Microsoft.Authorization/policies/audit/action` operation to the activity log and marks the
-resource as non-compliant.
+Resource Manager mode, Azure Policy then sends the resource to the Resource Provider. When
+evaluating a create or update request for a resource, Azure Policy adds a
+`Microsoft.Authorization/policies/audit/action` operation to the activity log and marks the resource
+as non-compliant. During a standard compliance evaluation cycle, only the compliance status on the
+resource is updated.
 
 ### Audit properties
 
@@ -224,6 +226,12 @@ related resources to match.
     resource group specified in **ResourceGroupName**.
   - For _Subscription_, queries the entire subscription for the related resource.
   - Default is _ResourceGroup_.
+- **EvaluationDelay** (optional)
+  - Specifies when the existence of the related resources should be evaluated. The delay is only used for evaluations that are a result of a create or update resource request.
+  - Allowed values are `AfterProvisioning`, `AfterProvisioningSuccess`, `AfterProvisioningFailure` or an ISO 8601 duration between 10 and 360 minutes.
+  - The _AfterProvisioning_ values inspect the provisioning result of the resource that was evaluated in the policy rule's IF condition. `AfterProvisioning` runs after provisioning is complete, regardless of outcome. If provisioning takes longer than 6 hours it will be treated as a failure when determining _AfterProvisioning_ evaluation delays.
+  - Default is `PT10M` (10 minutes).
+  - Specifying a long evaluation delay may cause the recorded compliance state of the resource to not update until the next [evaluation trigger](../how-to/get-compliance-data.md#evaluation-triggers).
 - **ExistenceCondition** (optional)
   - If not specified, any related resource of **type** satisfies the effect and doesn't trigger the
     audit.
@@ -237,8 +245,8 @@ related resources to match.
 
 ### AuditIfNotExists example
 
-Example: Evaluates Virtual Machines to determine if the Antimalware extension exists then audits
-when missing.
+Example: Evaluates Virtual Machines to determine whether the Antimalware extension exists then
+audits when missing.
 
 ```json
 {
@@ -336,15 +344,18 @@ Similar to AuditIfNotExists, a DeployIfNotExists policy definition executes a te
 when the condition is met.
 
 > [!NOTE]
-> [Nested templates](../../../azure-resource-manager/templates/linked-templates.md#nested-template) are supported with **deployIfNotExists**, but
-> [linked templates](../../../azure-resource-manager/templates/linked-templates.md#linked-template) are currently not supported.
+> [Nested templates](../../../azure-resource-manager/templates/linked-templates.md#nested-template)
+> are supported with **deployIfNotExists**, but
+> [linked templates](../../../azure-resource-manager/templates/linked-templates.md#linked-template)
+> are currently not supported.
 
 ### DeployIfNotExists evaluation
 
-DeployIfNotExists runs about 15 minutes after a Resource Provider has handled a create or update
-resource request and has returned a success status code. A template deployment occurs if there are
-no related resources or if the resources defined by **ExistenceCondition** don't evaluate to true.
-The duration of the deployment depends on the complexity of resources included in the template.
+DeployIfNotExists runs after a configurable delay when a Resource Provider handles a create or update
+subscription or resource request and has returned a success status code. A template deployment
+occurs if there are no related resources or if the resources defined by **ExistenceCondition** don't
+evaluate to true. The duration of the deployment depends on the complexity of resources included in
+the template.
 
 During an evaluation cycle, policy definitions with a DeployIfNotExists effect that match resources
 are marked as non-compliant, but no action is taken on that resource. Existing non-compliant
@@ -377,6 +388,12 @@ related resources to match and the template deployment to execute.
     resource group specified in **ResourceGroupName**.
   - For _Subscription_, queries the entire subscription for the related resource.
   - Default is _ResourceGroup_.
+- **EvaluationDelay** (optional)
+  - Specifies when the existence of the related resources should be evaluated. The delay is only used for evaluations that are a result of a create or update resource request.
+  - Allowed values are `AfterProvisioning`, `AfterProvisioningSuccess`, `AfterProvisioningFailure` or an ISO 8601 duration between 0 and 360 minutes.
+  - The _AfterProvisioning_ values inspect the provisioning result of the resource that was evaluated in the policy rule's IF condition. `AfterProvisioning` runs after provisioning is complete, regardless of outcome. If provisioning takes longer than 6 hours it will be treated as a failure when determining _AfterProvisioning_ evaluation delays.
+  - Default is `PT10M` (10 minutes).
+  - Specifying a long evaluation delay may cause the recorded compliance state of the resource to not update until the next [evaluation trigger](../how-to/get-compliance-data.md#evaluation-triggers).
 - **ExistenceCondition** (optional)
   - If not specified, any related resource of **type** satisfies the effect and doesn't trigger the
     deployment.
@@ -401,7 +418,9 @@ related resources to match and the template deployment to execute.
   - Default is _ResourceGroup_.
 - **Deployment** (required)
   - This property should include the full template deployment as it would be passed to the
-    `Microsoft.Resources/deployments` PUT API. For more information, see the [Deployments REST API](/rest/api/resources/deployments).
+    `Microsoft.Resources/deployments` PUT API. For more information, see the
+    [Deployments REST API](/rest/api/resources/deployments).
+  - Nested `Microsoft.Resources/deployments` within the template should use unique names to avoid contention between multiple policy evaluations. The parent deployment's name can be used as part of the nested deployment name via `[concat('NestedDeploymentName-', uniqueString(deployment().name))]`. 
 
   > [!NOTE]
   > All functions inside the **Deployment** property are evaluated as components of the template,
@@ -411,8 +430,8 @@ related resources to match and the template deployment to execute.
 
 ### DeployIfNotExists example
 
-Example: Evaluates SQL Server databases to determine if transparentDataEncryption is enabled. If
-not, then a deployment to enable is executed.
+Example: Evaluates SQL Server databases to determine whether transparentDataEncryption is enabled.
+If not, then a deployment to enable is executed.
 
 ```json
 "if": {
@@ -424,6 +443,7 @@ not, then a deployment to enable is executed.
     "details": {
         "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
         "name": "current",
+        "evaluationDelay": "AfterProvisioning",
         "roleDefinitionIds": [
             "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
             "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
@@ -502,8 +522,8 @@ Gatekeeper v3 admission control rule.
     passed via **values** from Azure Policy.
 - **constraint** (required)
   - The CRD implementation of the Constraint template. Uses parameters passed via **values** as
-    `{{ .Values.<valuename> }}`. In the example below, these values are `{{ .Values.cpuLimit }}` and
-    `{{ .Values.memoryLimit }}`.
+    `{{ .Values.<valuename> }}`. In the following example, these values are `{{ .Values.cpuLimit }}`
+    and `{{ .Values.memoryLimit }}`.
 - **values** (optional)
   - Defines any parameters and values to pass to the Constraint. Each value must exist in the
     Constraint template CRD.
@@ -603,18 +623,19 @@ Example: Gatekeeper v2 admission control rule to allow only the specified contai
 
 ## Modify
 
-Modify is used to add, update, or remove properties or tags on a resource during creation or update.
-A common example is updating tags on resources such as costCenter. Existing non-compliant resources
-can be remediated with a [remediation task](../how-to/remediate-resources.md). A single Modify rule
-can have any number of operations.
+Modify is used to add, update, or remove properties or tags on a subscription or resource during
+creation or update. A common example is updating tags on resources such as costCenter. Existing
+non-compliant resources can be remediated with a
+[remediation task](../how-to/remediate-resources.md). A single Modify rule can have any number of
+operations.
 
 The following operations are supported by Modify:
 
-- Add, replace or remove resource tags. For tags, a Modify policy should have `mode` set to
+- Add, replace, or remove resource tags. For tags, a Modify policy should have `mode` set to
   _Indexed_ unless the target resource is a resource group.
 - Add or replace the value of managed identity type (`identity.type`) of virtual machines and
   virtual machine scale sets.
-- Add or replace the values of certain aliases (preview).
+- Add or replace the values of certain aliases.
   - Use
     `Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }`
     in Azure PowerShell **4.6.0** or higher to get a list of aliases that can be used with Modify.
@@ -644,7 +665,7 @@ If either of these checks fail, the policy evaluation falls back to the specifie
 **conflictEffect**.
 
 > [!IMPORTANT]
-> It's recommeneded that Modify definitions that include aliases use the _audit_ **conflict effect**
+> It's recommended that Modify definitions that include aliases use the _audit_ **conflict effect**
 > to avoid failing requests using API versions where the mapped property isn't 'Modifiable'. If the
 > same alias behaves differently between API versions, conditional modify operations can be used to
 > determine the modify operation used for each API version.
@@ -665,8 +686,8 @@ needed for remediation and the **operations** used to add, update, or remove tag
   - The role defined must include all operations granted to the
     [Contributor](../../../role-based-access-control/built-in-roles.md#contributor) role.
 - **conflictEffect** (optional)
-  - Determines which policy definition "wins" in the event that more than one policy definition
-    modifies the same property or when the Modify operation doesn't work on the specified alias.
+  - Determines which policy definition "wins" if more than one policy definition modifies the same
+    property or when the Modify operation doesn't work on the specified alias.
     - For new or updated resources, the policy definition with _deny_ takes precedence. Policy
       definitions with _audit_ skip all **operations**. If more than one policy definition has
       _deny_, the request is denied as a conflict. If all policy definitions have _audit_, then none
@@ -700,7 +721,7 @@ needed for remediation and the **operations** used to add, update, or remove tag
 The **operations** property array makes it possible to alter several tags in different ways from a
 single policy definition. Each operation is made up of **operation**, **field**, and **value**
 properties. Operation determines what the remediation task does to the tags, field determines which
-tag is altered, and value defines the new setting for that tag. The example below makes the
+tag is altered, and value defines the new setting for that tag. The following example makes the
 following tag changes:
 
 - Sets the `environment` tag to "Test", even if it already exists with a different value.
@@ -810,7 +831,7 @@ is applied only when evaluating requests with API version greater or equals to '
 
 ## Layering policy definitions
 
-A resource may be impacted by several assignments. These assignments may be at the same scope or at
+A resource may be affected by several assignments. These assignments may be at the same scope or at
 different scopes. Each of these assignments is also likely to have a different effect defined. The
 condition and effect for each policy is independently evaluated. For example:
 
@@ -822,7 +843,7 @@ condition and effect for each policy is independently evaluated. For example:
   - Restricts resource location to 'eastus'
   - Assigned to resource group B in subscription A
   - Audit effect
-  
+
 This setup would result in the following outcome:
 
 - Any resource already in resource group B in 'eastus' is compliant to policy 2 and non-compliant to
@@ -854,4 +875,5 @@ to validate the right policy assignments are affecting the right scopes.
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
-- Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).
+- Review what a management group is with
+  [Organize your resources with Azure management groups](../../management-groups/overview.md).

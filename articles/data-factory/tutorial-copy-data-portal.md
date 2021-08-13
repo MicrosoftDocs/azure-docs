@@ -1,22 +1,18 @@
 ---
 title: Use the Azure portal to create a data factory pipeline
 description: This tutorial provides step-by-step instructions for using the Azure portal to create a data factory with a pipeline. The pipeline uses the copy activity to copy data from Azure Blob storage to Azure SQL Database.
-services: data-factory
-documentationcenter: ''
-author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
-
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 12/14/2020
-ms.author: jingwang
+ms.date: 07/05/2021
+ms.author: jianleishen
 ---
+
 # Copy data from Azure Blob storage to a database in Azure SQL Database by using Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In this tutorial, you create a data factory by using the Azure Data Factory user interface (UI). The pipeline in this data factory copies data from Azure Blob storage to a database in Azure SQL Database. The configuration pattern in this tutorial applies to copying from a file-based data store to a relational data store. For a list of data stores supported as sources and sinks, see the [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -90,13 +86,13 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
    The name of the Azure data factory must be *globally unique*. If you receive an error message about the name value, enter a different name for the data factory. (for example, yournameADFTutorialDataFactory). For naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
 
-     ![New data factory](./media/doc-common-process/name-not-available-error.png)
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="New data factory error message for duplicate name.":::
 
 7. Under **Version**, select **V2**.
 8. Select **Git configuration** tab on the top, and select the **Configure Git later** check box.
 9. Select **Review + create**, and select **Create** after the validation is passed.
 10. After the creation is finished, you see the notice in Notifications center. Select **Go to resource** to navigate to the Data factory page.
-11. Select **Author & Monitor** to launch the Azure Data Factory UI in a separate tab.
+11. Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Azure Data Factory UI in a separate tab.
 
 
 ## Create a pipeline
@@ -108,9 +104,9 @@ In this step, you create a pipeline with a copy activity in the data factory. Th
 
 In this tutorial, you start with creating the pipeline. Then you create linked services and datasets when you need them to configure the pipeline.
 
-1. On the **Let's get started** page, select **Create pipeline**.
+1. On the home page, select **Orchestrate**.
 
-   ![Create pipeline](./media/doc-common-process/get-started-page.png)
+   ![Screenshot that shows the ADF home page.](./media/doc-common-process/get-started-page.png)
 
 1. In the General panel under **Properties**, specify **CopyPipeline** for **Name**. Then collapse the panel by clicking the Properties icon in the top-right corner.
 

@@ -1,150 +1,150 @@
 ---
-title: Integrating Key Vault with DigiCert Certificate Authority
-description: How to integrate Key Vault with DigiCert Certificate Authority
+title: Integrating Key Vault with DigiCert certificate authority
+description: This article describes how to integrate Key Vault with DigiCert certificate authority so you can provision, manage, and deploy certificates for your network.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
-ms.author: sebansal
+ms.author: sebansal 
+ms.custom: devx-track-azurepowershell
 ---
 
-# Integrating Key Vault with DigiCert Certificate Authority
+# Integrating Key Vault with DigiCert certificate authority
 
-Azure Key Vault allows you to easily provision, manage, and deploy digital certificates for your network and to enable secure communications for applications. A Digital certificate is an electronic credential to establish proof of identity in an electronic transaction. 
+Azure Key Vault allows you to easily provision, manage, and deploy digital certificates for your network and to enable secure communications for applications. A digital certificate is an electronic credential that establishes proof of identity in an electronic transaction. 
 
-Azure key vault users can generate DigiCert certificates directly from their Key Vault. Key Vault would ensure end-to-end certificate lifecycle management for those certificates issued by DigiCert through Key Vault’s trusted partnership with DigiCert Certificate Authority.
+Azure Key Vault users can generate DigiCert certificates directly from their key vaults. Key Vault has a trusted partnership with DigiCert certificate authority. This partnership ensures end-to-end certificate lifecycle management for certificates issued by DigiCert.
 
-For more general information about Certificates, see [Azure Key Vault Certificates](./about-certificates.md).
+For more general information about certificates, see [Azure Key Vault certificates](./about-certificates.md).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you start.
 
 ## Prerequisites
 
-To complete this guide, you must have the following resources.
-* A key vault. You can use an existing key vault, or create a new one by following the steps in one of these quickstarts:
-   - [Create a key vault with the Azure CLI](../general/quick-create-cli.md)
-   - [Create a key vault with Azure PowerShell](../general/quick-create-powershell.md)
-   - [Create a key vault with the Azure portal](../general/quick-create-portal.md).
-*	You need to activate DigiCert CertCentral account. [Sign up](https://www.digicert.com/account/signup/) for your CertCentral account.
-*	Administrator level permissions in your accounts.
+To complete the procedures in this article, you need to have:
+* A key vault. You can use an existing key vault or create one by completing the steps in one of these quickstarts:
+   - [Create a key vault by using the Azure CLI](../general/quick-create-cli.md)
+   - [Create a key vault by using Azure PowerShell](../general/quick-create-powershell.md)
+   - [Create a key vault by using the Azure portal](../general/quick-create-portal.md)
+*	An activated DigiCert CertCentral account. [Sign up](https://www.digicert.com/account/signup/) for your CertCentral account.
+*	Administrator-level permissions in your accounts.
 
 
 ### Before you begin
 
-Make sure you have the following information handy from your DigiCert CertCentral account:
--	CertCentral Account ID
+Make sure you have the following information from your DigiCert CertCentral account:
+-	CertCentral account ID
 -	Organization ID
 -	API key
 
-## Adding Certificate Authority in Key Vault 
-After gathering above information from DigiCert CertCentral account, you can now add DigiCert to Certificate Authority list in the key vault.
+## Add the certificate authority in Key Vault 
+After you gather the preceding information from your DigiCert CertCentral account, you can add DigiCert to the certificate authority list in the key vault.
 
 ### Azure portal
 
-1.	To add DigiCert certificate authority, navigate to the key vault you want to add DigiCert. 
-2.	On the Key Vault properties pages, select **Certificates**.
-3.	Select **Certificate Authorities** tab.
-![select certificate authorities](../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png)
-4.	Select **Add** option.
- ![add certificate authorities](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
-5.	On the **Create a certificate Authority** screen choose the following values:
-    - 	**Name**: Add an identifiable Issuer name. Example DigicertCA
-    - 	**Provider**: Select DigiCert from the menu.
-    - 	**Account ID**: Enter your DigiCert CertCentral Account ID
-    - 	**Account Password**: Enter the API key you generated in your DigiCert CertCentral Account
-    - 	**Organization ID**: Enter OrgID gathered from DigiCert CertCentral Account 
-    - 	Click **Create**.
+1.	To add DigiCert certificate authority, go to the key vault you want to add it to. 
+2.	On the Key Vault property page, select **Certificates**.
+3.	Select the **Certificate Authorities** tab:
+:::image type="content" source="../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png" alt-text="Screenshot that shows selecting the Certificate Authorities tab.":::
+4.	Select **Add**:
+:::image type="content" source="../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png" alt-text="Screenshot that shows the Add button on the Certificate Authorities tab.":::
+5.	Under **Create a certificate authority**, enter these values:
+    - 	**Name**: An identifiable issuer name. For example, **DigiCertCA**.
+    - 	**Provider**: **DigiCert**.
+    - 	**Account ID**: Your DigiCert CertCentral account ID.
+    - 	**Account Password**: The API key you generated in your DigiCert CertCentral account.
+    - 	**Organization ID**: The organization ID from your DigiCert CertCentral account. 
+
+1. Select **Create**.
    
-6.	You will see that DigicertCA has now been added in Certificate Authorities list.
+DigicertCA is now in the certificate authority list.
 
 
 ### Azure PowerShell
 
-Azure PowerShell is used to create and manage Azure resources using commands or scripts. Azure hosts Azure Cloud Shell, an interactive shell environment that you can use through your Azure portal in the browser itself.
+You can use Azure PowerShell to create and manage Azure resources by using commands or scripts. Azure hosts Azure Cloud Shell, an interactive shell environment that you can use through the Azure portal in a browser.
 
-If you choose to install and use PowerShell locally, this tutorial requires Azure PowerShell module version 1.0.0 or later. Type `$PSVersionTable.PSVersion` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, you need Azure AZ PowerShell module 1.0.0 or later to complete the procedures here. Type `$PSVersionTable.PSVersion` to determine the version. If you need to upgrade, see [Install Azure AZ PowerShell module](/powershell/azure/install-az-ps). If you're running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure:
 
 ```azurepowershell-interactive
 Login-AzAccount
 ```
 
-1.  Create a **resource group**
+1.  Create an Azure resource group by using [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. 
 
-Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. 
+    ```azurepowershell-interactive
+    New-AzResourceGroup -Name ContosoResourceGroup -Location EastUS
+    ```
 
-```azurepowershell-interactive
-New-AzResourceGroup -Name ContosoResourceGroup -Location EastUS
-```
+2. Create a key vault that has a unique name. Here, `Contoso-Vaultname` is the name for the key vault.
 
-2. Create a **Key Vault**
+   - **Vault name**: `Contoso-Vaultname`
+   - **Resource group name**: `ContosoResourceGroup`
+   - **Location**: `EastUS`
 
-You must use a unique name for your key vault. Here "Contoso-Vaultname" is the name for Key Vault throughout this guide.
+    ```azurepowershell-interactive
+    New-AzKeyVault -Name 'Contoso-Vaultname' -ResourceGroupName 'ContosoResourceGroup' -Location 'EastUS'
+   ```
 
-- **Vault name** Contoso-Vaultname.
-- **Resource group name** ContosoResourceGroup.
-- **Location** EastUS.
+3. Define variables for the following values from your DigiCert CertCentral account:
 
-```azurepowershell-interactive
-New-AzKeyVault -Name 'Contoso-Vaultname' -ResourceGroupName 'ContosoResourceGroup' -Location 'EastUS'
-```
+   - **Account ID** 
+   - **Organization ID** 
+   - **API Key** 
 
-3. Define variables for information gathered from DigiCert CertCentral account.
+   ```azurepowershell-interactive
+   $accountId = "myDigiCertCertCentralAccountID"
+   $org = New-AzKeyVaultCertificateOrganizationDetail -Id OrganizationIDfromDigiCertAccount
+   $secureApiKey = ConvertTo-SecureString DigiCertCertCentralAPIKey -AsPlainText –Force
+   ```
 
-- Define **Account ID** variable
-- Define **Org ID** variable
-- Define **API Key** variable
+4. Set the issuer. Doing so will add Digicert as a certificate authority in the key vault. [Learn more about the parameters.](/powershell/module/az.keyvault/Set-AzKeyVaultCertificateIssuer)
+   ```azurepowershell-interactive
+   Set-AzKeyVaultCertificateIssuer -VaultName "Contoso-Vaultname" -Name "TestIssuer01" -IssuerProvider DigiCert -AccountId $accountId -ApiKey $secureApiKey -OrganizationDetails $org -PassThru
+   ```
 
-```azurepowershell-interactive
-$accountId = "myDigiCertCertCentralAccountID"
-$org = New-AzKeyVaultCertificateOrganizationDetail -Id OrganizationIDfromDigiCertAccount
-$secureApiKey = ConvertTo-SecureString DigiCertCertCentralAPIKey -AsPlainText –Force
-```
+5. Set the policy for the certificate and issuing certificate from DigiCert directly in Key Vault:
 
-4. Set **Issuer**. This will add Digicert as a Certificate Authority in the key vault. To learn more about the parameters, [read here](/powershell/module/az.keyvault/Set-AzKeyVaultCertificateIssuer)
-```azurepowershell-interactive
-Set-AzKeyVaultCertificateIssuer -VaultName "Contoso-Vaultname" -Name "TestIssuer01" -IssuerProvider DigiCert -AccountId $accountId -ApiKey $secureApiKey -OrganizationDetails $org -PassThru
-```
+   ```azurepowershell-interactive
+   $Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=contoso.com" -IssuerName "TestIssuer01" -ValidityInMonths 12 -RenewAtNumberOfDaysBeforeExpiry 60
+   Add-AzKeyVaultCertificate -VaultName "Contoso-Vaultname" -Name "ExampleCertificate" -CertificatePolicy $Policy
+   ```
 
-5. **Setting Policy for the certificate and issuing certificate** from DigiCert directly inside Key Vault.
-
-```azurepowershell-interactive
-$Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=contoso.com" -IssuerName "TestIssuer01" -ValidityInMonths 12 -RenewAtNumberOfDaysBeforeExpiry 60
-Add-AzKeyVaultCertificate -VaultName "Contoso-Vaultname" -Name "ExampleCertificate" -CertificatePolicy $Policy
-```
-
-Certificate has now been successfully issued by Digicert CA inside specified Key Vault through this integration.
+The certificate is now issued by DigiCert certificate authority in the specified key vault.
 
 ## Troubleshoot
 
-If the certificate issued is in 'disabled' status in the Azure portal, proceed to view the **Certificate Operation** to review the DigiCert error message for that certificate.
+If the certificate issued is in disabled status in the Azure portal, view the certificate operation to review the DigiCert error message for the certificate:
 
- ![Certificate operation](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
+:::image type="content" source="../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png" alt-text="Screenshot that shows the Certificate Operation tab.":::
 
-Error message 'Please perform a merge to complete this certificate request.'
-   You would need to merge the CSR signed by the CA to complete this request. Learn more [here](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-signing-request)
+Error message: "Please perform a merge to complete this certificate request."
+   
+Merge the CSR signed by the certificate authority to complete the request. For information about merging a CSR, see [Create and merge a CSR](./create-certificate-signing-request.md).
 
-For more information, see the [Certificate operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) and [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy).
+For more information, see [Certificate operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or update](/rest/api/keyvault/vaults/createorupdate) and [Vaults - Update access policy](/rest/api/keyvault/vaults/updateaccesspolicy).
 
 ## Frequently asked questions
 
-- Can I generate a digicert wildcard certificate through KeyVault? 
-   Yes. It would depend upon how you have configured your digicert account.
-- How can I create **OV-SSL or EV-SSL** certificate with DigiCert? 
-   Key vault supports creating OV and EV SSL certificates. When creating a certificate, click on Advanced Policy Configuration, then specify the Certificate type. Values supported are : OV-SSL, EV-SSL
+- **Can I generate a DigiCert wildcard certificate by using Key Vault?** 
    
-   You would be able to create this type of certificate in key vault if your Digicert account allows. For this type of certificate, the validation is performed by DigiCert and their support team would be able to best help you with the solution, if validation fails. You can add additional information when creating a certificate by defining them in subjectName.
+  Yes, though it depends on how you configured your DigiCert account.
+- **How can I create an OV SSL or EV SSL certificate with DigiCert?**
+ 
+   Key Vault supports the creation of OV and EV SSL certificates. When you create a certificate, select **Advanced Policy Configuration** and then specify the certificate type. Supported values: OV SSL, EV SSL
+   
+   You can create this type of certificate in Key Vault if your DigiCert account allows it. For this type of certificate, validation is performed by DigiCert. If validation fails, the DigiCert support team can help. You can add information when you create a certificate by defining the information in `subjectName`.
 
-Example
-    ```SubjectName="CN = docs.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"
-    ```
+  For example, 
+      `SubjectName="CN = docs.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"`.
    
-- Is there a time delay in creating digicert certificate through integration vs acquiring certificate through digicert directly?
-   No. When creating a certificate, it is the process of verification which may take time and that verification is dependent on process DigiCert follows.
+- **Does it take longer to create a DigiCert certificate via integration than it does to acquire it directly from DigiCert?**
+   
+   No. When you create a certificate, the verification process might take time. DigiCert controls that process.
 
 
 ## Next steps

@@ -1,9 +1,6 @@
 ---
 title: Use Spark to read and write HBase data - Azure HDInsight
 description: Use the Spark HBase Connector to read and write data from a Spark cluster to an HBase cluster.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
@@ -158,11 +155,11 @@ As an example, the following table lists two versions and the corresponding comm
     |Spark version| HDI HBase version  | SHC version    |  Command  |
     | :-----------:| :----------: | :-----------: |:----------- |
     |      2.1    | HDI 3.6 (HBase 1.1) | 1.1.1-2.1-s_2.11    | `spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/` |
-    |      2.4    | HDI 4.0 (HBase 2.0) | 1.1.0.3.1.2.2-1  | `spark-shell --packages com.hortonworks.shc:shc-core:1.1.0.3.1.2.2-1 --repositories http://repo.hortonworks.com/content/groups/public/` |
+    
 
 2. Keep this Spark shell instance open and continue to [Define a catalog and query](#define-a-catalog-and-query). If you don't find the jars that correspond to your versions in the SHC Core repository, continue reading. 
 
-You can build the jars directly from the [spark-hbase-connector](https://github.com/hortonworks-spark/shc) GitHub branch. For example, if you are running with Spark 2.3 and HBase 1.1, complete these steps:
+For subsequent combinations of Spark and HBase versions, these artifacts are no longer published at above repo. You can build the jars directly from the [spark-hbase-connector](https://github.com/hortonworks-spark/shc) GitHub branch. For example, if you are running with Spark 2.4 and HBase 2.1, complete these steps:
 
 1. Clone the repo:
 
@@ -170,10 +167,10 @@ You can build the jars directly from the [spark-hbase-connector](https://github.
     git clone https://github.com/hortonworks-spark/shc
     ```
     
-2. Go to branch-2.3:
+2. Go to branch-2.4:
 
     ```bash
-    git checkout branch-2.3
+    git checkout branch-2.4
     ```
 
 3. Build from the branch (creates a .jar file):
@@ -185,7 +182,7 @@ You can build the jars directly from the [spark-hbase-connector](https://github.
 3. Run the following command (be sure to change the .jar name that corresponds to the .jar file you built):
 
     ```bash
-    spark-shell --jars <path to your jar>,/usr/hdp/current/hbase-client/lib/htrace-core-3.1.0-incubating.jar,/usr/hdp/current/hbase-client/lib/hbase-client.jar,/usr/hdp/current/hbase-client/lib/hbase-common.jar,/usr/hdp/current/hbase-client/lib/hbase-server.jar,/usr/hdp/current/hbase-client/lib/hbase-protocol.jar,/usr/hdp/current/hbase-client/lib/htrace-core-3.1.0-incubating.jar
+    spark-shell --jars <path to your jar>,/usr/hdp/current/hbase-client/lib/shaded-clients/*
     ```
     
 4. Keep this Spark shell instance open and continue to the next section. 

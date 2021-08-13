@@ -2,11 +2,25 @@
 title: Back up SQL Server by using Azure Backup Server
 description: In this article, learn the configuration to back up SQL Server databases by using Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
-ms.date: 03/24/2017
+ms.date: 07/28/2021
 ---
 # Back up SQL Server to Azure by using Azure Backup Server
 
-This article helps you set up backups of SQL Server databases by using Microsoft Azure Backup Server (MABS).
+Microsoft Azure Backup Server (MABS) provides backup and recovery for SQL Server databases. In addition to backing up SQL Server databases, you can run a system backup or full bare-metal backup of the SQL Server computer. Here's what MABS can protect:
+
+- A standalone SQL Server instance
+- A SQL Server Failover Cluster Instance (FCI)
+
+>[!Note]
+>MABS v3 UR2 supports SQL Server Failover Cluster Instance (FCI) using Cluster Shared Volume (CSV).
+>
+>Protection of SQL Server FCI with Storage Spaces Direct on Azure, and SQL Server FCI with Azure shared disks is supported with this feature. The DPM server must be deployed in the Azure Virtual Machine to protect the SQL FCI instance, deployed on the Azure VMs.
+>
+>A SQL Server AlwaysOn availability group with theses preferences:
+>- Prefer Secondary
+>- Secondary only
+>- Primary
+>- Any Replica
 
 To back up a SQL Server database and recover it from Azure:
 
@@ -174,4 +188,4 @@ To recover a protected entity, such as a SQL Server database, from Azure:
 
 ### Next steps
 
-For more information, see [Azure Backup FAQ](backup-azure-backup-faq.md).
+For more information, see [Azure Backup FAQ](backup-azure-backup-faq.yml).

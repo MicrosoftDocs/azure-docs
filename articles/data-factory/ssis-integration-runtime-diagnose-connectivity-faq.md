@@ -1,15 +1,13 @@
 ---
 title: Use the diagnose connectivity feature in the SSIS integration runtime
 description: Troubleshoot connection issues in the SSIS integration runtime by using the diagnose connectivity feature. 
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: integration-services
 ms.topic: conceptual
 ms.author: meiyl
 author: meiyl
 ms.reviewer: sawinark
-manager: yidetu
-ms.date: 06/07/2020
+ms.date: 06/21/2021
 ---
 
 # Use the diagnose connectivity feature in the SSIS integration runtime
@@ -99,6 +97,6 @@ Use the following sections to learn about the most common errors that occur when
 
 ## Next steps
 
-- [Deploy an SSIS project to Azure with SSMS](/sql/integration-services/ssis-quickstart-deploy-ssms)
-- [Run SSIS packages in Azure with SSMS](/sql/integration-services/ssis-quickstart-run-ssms)
-- [Schedule SSIS packages in Azure](/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms?view=sql-server-ver15)
+- [Migrate SSIS jobs with SSMS](how-to-migrate-ssis-job-ssms.md)
+- [Run SSIS packages in Azure with SSDT](how-to-invoke-ssis-package-ssdt.md)
+- [Schedule SSIS packages in Azure](how-to-schedule-azure-ssis-integration-runtime.md)

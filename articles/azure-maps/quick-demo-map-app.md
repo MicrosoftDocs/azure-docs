@@ -3,11 +3,11 @@ title: 'Quickstart: Interactive map search with Azure Maps'
 description: 'Quickstart: Learn how to create interactive, searchable maps. See how to create an Azure Maps account, get a primary key, and use the Web SDK to set up map applications'
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 7/10/2020
+ms.date: 04/26/2021
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ms.custom: mvc
 ---
 
@@ -18,6 +18,8 @@ This article shows you how to use Azure Maps to create a map that gives users an
 * Create your own Azure Maps account.
 * Get your primary key to use in the demo web application.
 * Download and open the demo map application.
+
+This quickstart uses the Azure Maps Web SDK, however the Azure Maps services can be used with any map control. [Here](open-source-projects.md#third-part-map-control-plugins) are some popular open-source map controls that the Azure Maps team has created plugin's for.
 
 ## Prerequisites
 

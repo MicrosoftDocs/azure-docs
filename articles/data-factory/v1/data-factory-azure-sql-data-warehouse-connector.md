@@ -1,21 +1,11 @@
 ---
 title: Copy data to/from Azure Synapse Analytics 
 description: Learn how to copy data to/from Azure Synapse Analytics using Azure Data Factory
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-
-
-ms.assetid: d90fa9bd-4b79-458a-8d40-e896835cfd4a
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 # Copy data to and from Azure Synapse Analytics using Azure Data Factory
@@ -34,11 +24,11 @@ This article explains how to use the Copy Activity in Azure Data Factory to move
 ## Supported scenarios
 You can copy data **from Azure Synapse Analytics** to the following data stores:
 
-[!INCLUDE [data-factory-supported-sinks](../../../includes/data-factory-supported-sinks.md)]
+[!INCLUDE [data-factory-supported-sinks](includes/data-factory-supported-sinks.md)]
 
 You can copy data from the following data stores **to Azure Synapse Analytics**:
 
-[!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
+[!INCLUDE [data-factory-supported-sources](includes/data-factory-supported-sources.md)]
 
 > [!TIP]
 > When copying data from SQL Server or Azure SQL Database to Azure Synapse Analytics, if the table does not exist in the destination store, Data Factory can automatically create the table in Azure Synapse Analytics by using the schema of the table in the source data store. See [Auto table creation](#auto-table-creation) for details.
@@ -256,7 +246,7 @@ To use this feature, create an [Azure Storage linked service](data-factory-azure
 ```
 
 ## Best practices when using PolyBase
-The following sections provide additional best practices to the ones that are mentioned in [Best practices for Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md).
+The following sections provide additional best practices to the ones that are mentioned in [Best practices for Azure Synapse Analytics](../../synapse-analytics/sql/best-practices-dedicated-sql-pool.md).
 
 ### Required database permission
 To use PolyBase, it requires the user being used to load data into Azure Synapse Analytics has the ["CONTROL" permission](/sql/relational-databases/security/permissions-database-engine) on the target database. One way to achieve that is to add that user as a member of "db_owner" role. Learn how to do that by following [this section](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
@@ -329,7 +319,7 @@ Data Factory creates the table in the destination store with the same table name
 | NVarChar | NVarChar (up to 4000) |
 | Xml | Varchar (up to 8000) |
 
-[!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../../includes/data-factory-type-repeatability-for-sql-sources.md)]
+[!INCLUDE [data-factory-type-repeatability-for-sql-sources](includes/data-factory-type-repeatability-for-sql-sources.md)]
 
 ## Type mapping for Azure Synapse Analytics
 As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, Copy activity performs automatic type conversions from source types to sink types with the following 2-step approach:

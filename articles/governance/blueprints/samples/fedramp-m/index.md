@@ -1,15 +1,15 @@
 ---
 title: FedRAMP Moderate blueprint sample overview
 description: Overview of the FedRAMP Moderate blueprint sample. This blueprint sample helps customers assess specific FedRAMP Moderate controls.
-ms.date: 01/08/2021
+ms.date: 04/02/2021
 ms.topic: sample
 ---
 # Overview of the FedRAMP Moderate blueprint sample
 
-The FedRAMP Moderate blueprint sample provides governance guard-rails using [Azure Policy](../../../policy/overview.md)
-that help you assess specific FedRAMP Moderate controls. This blueprint helps customers deploy a
-core set of policies for any Azure-deployed architecture that must implement FedRAMP Moderate
-controls.
+The FedRAMP Moderate blueprint sample provides governance guardrails using
+[Azure Policy](../../../policy/overview.md) that help you assess specific FedRAMP Moderate controls.
+This blueprint helps customers deploy a core set of policies for any Azure-deployed architecture
+that must implement FedRAMP Moderate controls.
 
 ## Control mapping
 
@@ -20,7 +20,7 @@ information, see [Azure Policy](../../../policy/overview.md).
 
 ## Next steps
 
-You've reviewed the overview and of the FedRAMP Moderate blueprint sample. Next, visit the 
+You've reviewed the overview and of the FedRAMP Moderate blueprint sample. Next, visit the
 following articles to learn about the control mapping and how to deploy this sample:
 
 > [!div class="nextstepaction"]

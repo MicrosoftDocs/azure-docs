@@ -2,20 +2,20 @@
 title: Debug SAML-based single sign-on - Azure Active Directory
 description: Debug SAML-based single sign-on to applications in Azure Active Directory.
 services: active-directory
-ms.author: kenwith
-author: kenwith
+ms.author: davidmu
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: troubleshooting
 ms.workload: identity
 ms.date: 02/18/2019
-ms.reviewer: luleon, hirsin, paulgarn
+ms.reviewer: ergreenl
 ---
 
 # Debug SAML-based single sign-on to applications in Azure Active Directory
 
-Learn how to find and fix [single sign-on](what-is-single-sign-on.md) issues for applications in Azure Active Directory (Azure AD) that use SAML-based single sign-on. 
+Learn how to find and fix [single sign-on](what-is-single-sign-on.md) issues for applications in Azure Active Directory (Azure AD) that use SAML-based single sign-on.
 
 ## Before you begin
 
@@ -32,7 +32,7 @@ To download and install the My Apps Secure Sign-in Extension, use one of the fol
 To test SAML-based single sign-on between Azure AD and a target application:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator or other administrator that is authorized to manage applications.
-1. In the left blade, select **Azure Active Directory**, and then select **Enterprise applications**. 
+1. In the left blade, select **Azure Active Directory**, and then select **Enterprise applications**.
 1. From the list of enterprise applications, select the application for which you want to test single sign-on, and then from the options on the left select **Single sign-on**.
 1. To open the SAML-based single sign-on testing experience, go to **Test single sign-on** (step 5). If the **Test** button is greyed out, you need to fill out and save the required attributes first in the **Basic SAML Configuration** section.
 1. In the **Test single sign-on** blade, use your corporate credentials to sign in to the target application. You can sign in as the current user or as a different user. If you sign in as a different user, a prompt will ask you to authenticate.
@@ -72,7 +72,6 @@ If no resolution is provided for the sign-in error, we suggest that you use the 
 1. Verify the issuer in the SAML request is the same identifier you have configured for the application in Azure AD. Azure AD uses the issuer to find an application in your directory.
 1. Verify AssertionConsumerServiceURL is where the application expects to receive the SAML token from Azure AD. You can configure this value in Azure AD, but it's not mandatory if it's part of the SAML request.
 
-
 ## Resolve a sign-in error on the application page
 
 You might sign in successfully and then see an error on the application's page. This occurs when Azure AD issued a token to the application, but the application does not accept the response.
@@ -90,7 +89,7 @@ To resolve the error, follow these steps, or watch this [short video about how t
 
      For more information on the SAML response, see [Single Sign-on SAML protocol](../develop/single-sign-on-saml-protocol.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
-1. Now that you have reviewed the SAML response, see [Error on an application's page after signing in](application-sign-in-problem-application-error.md) for guidance on how to resolve the problem. 
+1. Now that you have reviewed the SAML response, see [Error on an application's page after signing in](application-sign-in-problem-application-error.md) for guidance on how to resolve the problem.
 1. If you're still not able to sign in successfully, you can ask the application vendor what is missing from the SAML response.
 
 ## Next steps

@@ -1,26 +1,23 @@
 ---
 title: Azure DSC extension for Linux
 description: Installs OMI and DSC packages to allow an Azure Linux VM to be configured using Desired State Configuration.
-services: virtual-machines-linux
-documentationcenter: ''
-author: bobbytreed
-manager: carmonm
-editor: ''
-ms.assetid:
-ms.service: virtual-machines-linux
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
-ms.date: 06/12/2018
-ms.author: robreed
+ms.service: virtual-machines
+ms.subservice: extensions
+author: mgoedtel
+ms.author: magoedte
+ms.collection: linux
+ms.date: 06/12/2018 
+ms.custom: devx-track-azurepowershell
+
 ---
+
 # DSC extension for Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
 Desired State Configuration (DSC) is a management platform that you can use to manage your IT and development infrastructure with configuration as code.
 
 > [!NOTE]
-> The DSC extension for Linux and the [Azure Monitor virtual machine extension for Linux](./oms-linux.md) currently present a conflict
+> The DSC extension for Linux and the [Log Analytics virtual machine extension for Linux](./oms-linux.md) currently present a conflict
 > and aren't supported in a side-by-side configuration. Don't use the two solutions together on the same VM.
 
 The DSCForLinux extension is published and supported by Microsoft. The extension installs the OMI and DSC agent on Azure virtual machines. The DSC extension can also do the following actions:
@@ -70,10 +67,10 @@ Here are all the supported protected configuration parameters:
 * `RegistrationUrl`: (optional, string) The URL of the Azure Automation account
 * `RegistrationKey`: (optional, string) The access key of the Azure Automation account
 
-
 ## Scenarios
 
 ### Register an Azure Automation account
+
 protected.json
 ```json
 {
@@ -139,7 +136,6 @@ $publicConfig = '{
 }'
 ```
 
-
 ### Apply an MOF configuration file (in public storage) to the VM
 
 public.json
@@ -188,14 +184,18 @@ $publicConfig = '{
 ```
 
 ### Apply a meta MOF configuration file (in public storage) to the VM
+
 public.json
+
 ```json
 {
   "FileUri": "<meta-mof-file-uri>",
   "ExtensionAction": "Pull"
 }
 ```
+
 PowerShell format
+
 ```powershell
 $publicConfig = '{
   "FileUri": "<meta-mof-file-uri>",
@@ -204,14 +204,18 @@ $publicConfig = '{
 ```
 
 ### Install a custom resource module (a zip file in an Azure storage account) to the VM
+
 protected.json
+
 ```json
 {
   "StorageAccountName": "<storage-account-name>",
   "StorageAccountKey": "<storage-account-key>"
 }
 ```
+
 public.json
+
 ```json
 {
   "ExtensionAction": "Install",
@@ -233,14 +237,19 @@ $publicConfig = '{
 ```
 
 ### Install a custom resource module (a zip file in public storage) to the VM
+
 public.json
+
 ```json
 {
   "ExtensionAction": "Install",
   "FileUri": "<resource-zip-file-uri>"
 }
+
 ```
+
 PowerShell format
+
 ```powershell
 $publicConfig = '{
   "ExtensionAction": "Install",
@@ -249,14 +258,18 @@ $publicConfig = '{
 ```
 
 ### Remove a custom resource module from the VM
+
 public.json
+
 ```json
 {
   "ResourceName": "<resource-name>",
   "ExtensionAction": "Remove"
 }
 ```
+
 PowerShell format
+
 ```powershell
 $publicConfig = '{
   "ResourceName": "<resource-name>",
@@ -268,14 +281,14 @@ $publicConfig = '{
 
 Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when you deploy one or more virtual machines that require post-deployment configuration, such as onboarding to Azure Automation.
 
-The sample Resource Manager template is [201-dsc-linux-azure-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-azure-storage-on-ubuntu) and [201-dsc-linux-public-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-public-storage-on-ubuntu).
+The sample Resource Manager template is [dsc-linux-azure-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/dsc-linux-azure-storage-on-ubuntu) and [dsc-linux-public-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/dsc-linux-public-storage-on-ubuntu).
 
-For more information about the Azure Resource Manager template, see [Authoring Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md).
-
+For more information about the Azure Resource Manager template, see [Authoring Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md).
 
 ## Azure CLI deployment
 
 ### Use [Azure CLI][azure-cli]
+
 Before you deploy the DSCForLinux extension, configure your `public.json` and `protected.json` according to the different scenarios in section 3.
 
 #### Classic
@@ -283,33 +296,40 @@ Before you deploy the DSCForLinux extension, configure your `public.json` and `p
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 The classic deployment mode is also called Azure Service Management mode. You can switch to it by running:
+
 ```
 $ azure config mode asm
 ```
 
 You can deploy the DSCForLinux extension by running:
+
 ```
 $ azure vm extension set <vm-name> DSCForLinux Microsoft.OSTCExtensions <version> \
 --private-config-path protected.json --public-config-path public.json
 ```
 
 To learn the latest extension version available, run:
+
 ```
 $ azure vm extension list
 ```
 
 #### Resource Manager
+
 You can switch to Azure Resource Manager mode by running:
+
 ```
 $ azure config mode arm
 ```
 
 You can deploy the DSCForLinux extension by running:
+
 ```
 $ azure vm extension set <resource-group> <vm-name> \
 DSCForLinux Microsoft.OSTCExtensions <version> \
 --private-config-path protected.json --public-config-path public.json
 ```
+
 > [!NOTE]
 > In Azure Resource Manager mode, `azure vm extension list` isn't available for now.
 >
@@ -335,6 +355,7 @@ $version = '< version>'
 ```
 
 Change the content of $privateConfig and $publicConfig according to different scenarios in the previous section.
+
 ```
 $privateConfig = '{
   "StorageAccountName": "<storage-account-name>",
@@ -349,7 +370,7 @@ $publicConfig = '{
 }'
 ```
 
-```
+```powershell
 Set-AzureVMExtension -ExtensionName $extensionName -VM $vm -Publisher $publisher `
   -Version $version -PrivateConfiguration $privateConfig `
   -PublicConfiguration $publicConfig | Update-AzureVM
@@ -377,6 +398,7 @@ $version = '< version>'
 ```
 
 Change the content of $privateConfig and $publicConfig according to different scenarios in the previous section.
+
 ```
 $privateConfig = '{
   "StorageAccountName": "<storage-account-name>",
@@ -391,7 +413,7 @@ $publicConfig = '{
 }'
 ```
 
-```
+```powershell
 Set-AzVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location `
   -Name $extensionName -Publisher $publisher -ExtensionType $extensionName `
   -TypeHandlerVersion $version -SettingString $publicConfig -ProtectedSettingString $privateConfig
@@ -416,11 +438,10 @@ Extension execution output is logged to the following file:
 Error code: 51 represents either unsupported distribution or unsupported extension action.
 In some cases, DSC Linux extension fails to install OMI when a higher version of OMI already exists in the machine. [error response: (000003)Downgrade not allowed]
 
-
-
 ### Support
 
 If you need more help at any point in this article, contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file an Azure Support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/), and select **Get support**. For information about using Azure Support, read the [Microsoft Azure Support FAQ](https://azure.microsoft.com/support/faq/).
 
 ## Next steps
+
 For more information about extensions, see [Virtual machine extensions and features for Linux](features-linux.md).

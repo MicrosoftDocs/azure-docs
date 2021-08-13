@@ -47,7 +47,7 @@ When you test the QnA pair in the interactive test panel, in the QnA Maker porta
 
 ## Permissions
 
-Granting permissions happens when a secured file from a SharePoint server is added to a knowledge base. Depending on how the SharePoint is set up and the permissions of the person adding the file, this could require:
+Granting permissions happens when a secured file from a server running SharePoint is added to a knowledge base. Depending on how the SharePoint is set up and the permissions of the person adding the file, this could require:
 
 * no additional steps - the person adding the file has all the permissions needed.
 * steps by both [knowledge base manager](#knowledge-base-manager-add-sharepoint-data-source-in-qna-maker-portal) and [Active Directory manager](#active-directory-manager-grant-file-read-access-to-qna-maker).
@@ -127,8 +127,8 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
 There is a workaround to add latest SharePoint content via API using Azure blob storage, below are the steps: 
 1.  Download the SharePoint files locally. The user calling the API needs to have access to SharePoint. 
-1.  Upload them on the Azure blob stoarge. This will create a secure shared access by [using SAS token.](https://docs.microsoft.com/azure/storage/common/storage-sas-overview#how-a-shared-access-signature-works) 
-1. Pass the blob URL generated with the SAS token to the QnA Maker API. To allow the Question Answers extraction from the files, you need to add the suffix file type as '&ext=pdf' or '&ext=doc' at the end of the URL before passing it to QnA Maker API>  
+1.  Upload them on the Azure blob storage. This will create a secure shared access by [using SAS token.](../../../storage/common/storage-sas-overview.md#how-a-shared-access-signature-works) 
+1. Pass the blob URL generated with the SAS token to the QnA Maker API. To allow the Question Answers extraction from the files, you need to add the suffix file type as '&ext=pdf' or '&ext=doc' at the end of the URL before passing it to QnA Maker API.
 
 
 <!--

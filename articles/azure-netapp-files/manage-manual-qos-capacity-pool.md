@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 06/14/2021
 ms.author: b-juche
 ---
 # Manage a manual QoS capacity pool
@@ -21,25 +21,6 @@ ms.author: b-juche
 This article describes how to manage a capacity pool that uses the manual QoS type.  
 
 See [Storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md) and [Performance considerations for Azure NetApp Files](azure-netapp-files-performance-considerations.md) to understand the considerations about QoS types.  
-
-## Register the feature
-The manual QoS type feature is currently in preview. If you are using this feature for the first time, you need to register the feature first.
-  
-1.  Register the feature:
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFlexPool
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFlexPool
-    ```
-You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ## Set up a new manual QoS capacity pool 
 
@@ -54,7 +35,8 @@ To create a new capacity pool using the manual QoS type:
 You can change a capacity pool that currently uses the auto QoS type to use the manual QoS type.  
 
 > [!IMPORTANT]
-> Setting the capacity type to manual QoS is a permanent change. You cannot convert a manual QoS type capacity tool to an auto QoS capacity pool. 
+> Setting the capacity type to manual QoS is a permanent change. You cannot convert a manual QoS type capacity tool to an auto QoS capacity pool.  
+> At conversion time, throughput levels might be capped to conform to the throughput limits for volumes of the manual QoS type. See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits).
 
 1. From the management blade for your NetApp account, click **Capacity pools** to display existing capacity pools.   
  

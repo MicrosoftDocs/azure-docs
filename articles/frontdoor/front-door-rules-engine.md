@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 9/29/2020
 ms.author: duau
-# customer intent: As an IT admin, I want to learn about Front Door and what the Rules Engine feature does. 
+# Customer intent: As an IT admin, I want to learn about Front Door and what the Rules Engine feature does. 
 ---
 
 # What is Rules Engine for Azure Front Door? 

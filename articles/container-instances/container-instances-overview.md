@@ -2,7 +2,7 @@
 title: Serverless containers in Azure
 description: The Azure Container Instances service offers the fastest and simplest way to run isolated containers in Azure, without having to manage virtual machines and without having to adopt a higher-level orchestrator.
 ms.topic: overview
-ms.date: 08/10/2020
+ms.date: 03/22/2021
 ms.custom: "seodec18, mvc"
 ---
 
@@ -16,10 +16,7 @@ Azure Container Instances is a great solution for any scenario that can operate 
 
 Containers offer significant startup benefits over virtual machines (VMs). Azure Container Instances can start containers in Azure in seconds, without the need to provision and manage VMs.
 
-Bring Linux or Windows container images from Docker Hub, a private [Azure container registry](../container-registry/index.yml), or another cloud-based docker registry. Azure Container Instances caches several common base OS images, helping speed deployment of your custom application images.
-
-> [!NOTE]
-> Currently, you can't deploy an image from an on-premises registry to Azure Container Instances.
+Bring Linux or Windows container images from Docker Hub, a private [Azure container registry](../container-registry/index.yml), or another cloud-based docker registry. Visit the [FAQ](container-instances-faq.yml) to learn which registries are supported by ACI. Azure Container Instances caches several common base OS images, helping speed deployment of your custom application images.
 
 ## Container access
 
@@ -38,7 +35,7 @@ Historically, containers have offered application dependency isolation and resou
 
 ### Customer data
 
-The ACI service stores the minimum customer data required to ensure your container groups are running as expected. Storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo. For all other regions, customer data is stored in [Geo](https://azure.microsoft.com/global-infrastructure/geographies/). Please get in touch with Azure Support to learn more.
+The ACI service stores the minimum customer data required to ensure your container groups are running as expected. Storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo and Brazil South (Sao Paulo State) Region of Brazil Geo. For all other regions, customer data is stored in [Geo](https://azure.microsoft.com/global-infrastructure/geographies/). Please get in touch with Azure Support to learn more.
 
 ## Custom sizes
 
@@ -62,10 +59,7 @@ Some features are currently restricted to Linux containers:
 * [Virtual network deployment](container-instances-vnet.md)
 * [GPU resources](container-instances-gpu.md) (preview)
 
-For Windows container deployments, use images based on common [Windows base images](container-instances-faq.md#what-windows-base-os-images-are-supported).
-
-> [!NOTE]
-> Use of Windows Server 2019-based images in Azure Container Instances is in preview.
+For Windows container deployments, use images based on common [Windows base images](/azure/container-instances/container-instances-faq#what-windows-base-os-images-are-supported).
 
 ## Co-scheduled groups
 

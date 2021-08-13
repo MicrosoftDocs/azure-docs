@@ -3,7 +3,7 @@ title: Issues on Internet Explorer (MSAL.js) | Azure
 titleSuffix: Microsoft identity platform
 description: Use the Microsoft Authentication Library for JavaScript (MSAL.js) with Internet Explorer browser.
 services: active-directory
-author: navyasric
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/16/2019
-ms.author: nacanuma
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about issues with MSAL.js library so I can decide if this platform meets my application development needs and requirements.
@@ -36,7 +36,7 @@ This is because Internet Explorer does not support JavaScript promises natively.
 Deploying your application to production (for instance in Azure Web apps) normally works fine, provided the end user has accepted popups. We tested it with Internet Explorer 11.
 
 ### Running locally
-If you want to run and debug locally your application running in Internet Explorer, you need to be aware of the following considerations (assume that you want to run your application as *http://localhost:1234*):
+If you want to run and debug locally your application running in Internet Explorer, be aware of the following considerations (assume that you want to run your application as *http://localhost:1234*):
 
 - Internet Explorer has a security mechanism named "protected mode", which prevents MSAL.js from working correctly. Among the symptoms, after you sign in, the page can be redirected to http://localhost:1234/null.
 

@@ -4,12 +4,12 @@ description: Learn how to use Azure SQL Database geo-replication to support roll
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: 
 ms.topic: how-to
-author: anosov1960
-ms.author: sashan
-ms.reviewer: mathoma, sstein
+author: BustosMSFT
+ms.author: robustos
+ms.reviewer: mathoma
 ms.date: 02/13/2019
 ---
 
@@ -101,16 +101,16 @@ When the preparation steps are complete, the staging environment is ready for th
 
 ```sql
 -- Set the production database to read-only mode
-ALTER DATABASE <Prod_DB>
-SET (ALLOW_CONNECTIONS = NO)
+ALTER DATABASE [<Prod_DB>]
+SET READ_ONLY
 ```
 
-2. Terminate geo-replication by disconnecting the secondary (11). This action creates an independent but fully synchronized copy of the production database. This database will be upgraded. The following example uses Transact-SQL but [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0&preserve-view=true) is also available. 
+2. Terminate geo-replication by disconnecting the secondary (11). This action creates an independent but fully synchronized copy of the production database. This database will be upgraded. The following example uses Transact-SQL but [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary) is also available. 
 
 ```sql
 -- Disconnect the secondary, terminating geo-replication
-ALTER DATABASE <Prod_DB>
-REMOVE SECONDARY ON SERVER <Partner-Server>
+ALTER DATABASE [<Prod_DB>]
+REMOVE SECONDARY ON SERVER [<Partner-Server>]
 ```
 
 3. Run the upgrade script against `contoso-1-staging.azurewebsites.net`, `contoso-dr-staging.azurewebsites.net`, and the staging primary database (12). The database changes will be replicated automatically to the staging secondary.

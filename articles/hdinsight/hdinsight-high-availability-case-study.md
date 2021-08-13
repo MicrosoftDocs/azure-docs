@@ -1,9 +1,6 @@
 ---
 title: Azure HDInsight highly available solution architecture case study
 description: This article is a fictional case study of a possible Azure HDInsight highly available solution architecture.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 keywords: hadoop high availability
 ms.service: hdinsight
 ms.topic: conceptual
@@ -69,7 +66,7 @@ The following image shows Contoso Retail's high availability disaster recovery a
 
 **Hive and Spark** use [Active Primary – On-Demand Secondary](hdinsight-business-continuity-architecture.md#apache-spark) replication models during normal times. The Hive replication process runs periodically and accompanies the Hive Azure SQL metastore and Hive storage account replication. The Spark storage account is periodically replicated using ADF DistCP. The transient nature of these clusters helps optimize costs. Replications are scheduled every 4 hours to arrive at an RPO that is well within the five-hour requirement.
 
-**HBase** replication uses the [Leader – Follower](hdinsight-business-continuity-architecture.md#apache-hbase) model during normal times to ensure that data is always served regardless of the region and the RPO is zero.
+**HBase** replication uses the [Leader – Follower](hdinsight-business-continuity-architecture.md#apache-hbase) model during normal times to ensure that data is always served regardless of the region and the RPO is very low.
 
 If there is a regional failure in the primary region, the webpage and backend content are served from the secondary region for 5 hours with some degree of staleness. If the Azure service health dashboard does not indicate a recovery ETA in the five-hour window, the Contoso Retail will create the Hive and Spark transformation layer in the secondary region, and then point all upstream data sources to the secondary region. Making the secondary region writable would cause a failback process that involves replication back to the primary.
 

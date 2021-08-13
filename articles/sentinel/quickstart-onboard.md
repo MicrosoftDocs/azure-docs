@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Onboard in Azure Sentinel'
-description: In this quickstart, learn how to on-board Azure Sentinel by first enabling Sentinel, and then connecting data sources.
+description: In this quickstart, learn how to on-board Azure Sentinel by first enabling it, and then connecting data sources.
 services: sentinel
 author: yelevin
 ms.author: yelevin
@@ -10,45 +10,60 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 10/14/2020
 ms.custom: references_regions
-#As a security operator, connect all my data sources in one place so I can monitor and protect my environment
+#Customer intent: As a security operator, connect all my data sources in one place so I can monitor and protect my environment.
 ---
 # Quickstart: On-board Azure Sentinel
 
-In this quickstart, learn how to on-board Azure Sentinel. 
+In this quickstart, learn how to on-board Azure Sentinel. To on-board Azure Sentinel, you first need to enable Azure Sentinel, and then connect your data sources.
 
-To on-board Azure Sentinel, you first need to enable Azure Sentinel, and then connect your data sources. Azure Sentinel comes with a number of connectors for Microsoft solutions, available out of the box and providing real-time integration, including Microsoft 365 Defender (formerly Microsoft Threat Protection) solutions, Microsoft 365 sources (including Office 365), Azure AD, Microsoft Defender for Identity (formerly Azure ATP), Microsoft Cloud App Security, Azure Defender alerts from Azure Security Center, and more. In addition, there are built-in connectors to the broader security ecosystem for non-Microsoft solutions. You can also use Common Event Format (CEF), Syslog or REST-API to connect your data sources with Azure Sentinel. 
+Azure Sentinel comes with a number of connectors for Microsoft solutions, available out of the box and providing real-time integration, including Microsoft 365 Defender (formerly Microsoft Threat Protection) solutions, Microsoft 365 sources (including Office 365), Azure AD, Microsoft Defender for Identity (formerly Azure ATP), Microsoft Cloud App Security, Azure Defender alerts from Azure Security Center, and more. In addition, there are built-in connectors to the broader security ecosystem for non-Microsoft solutions. You can also use Common Event Format (CEF), Syslog or REST-API to connect your data sources with Azure Sentinel.
 
 After you connect your data sources, choose from a gallery of expertly created workbooks that surface insights based on your data. These workbooks can be easily customized to your needs.
 
->[!IMPORTANT] 
-> For information about the charges incurred when using Azure Sentinel, see [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel/).
+>[!IMPORTANT]
+> For information about the charges incurred when using Azure Sentinel, see [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel/) and [Azure Sentinel costs and billing](azure-sentinel-billing.md).
 
 ## Global prerequisites
 
 - Active Azure Subscription, if you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- Log Analytics workspace. Learn how to [create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md). For more information about Log Analytics workspaces, see [Designing your Azure Monitor Logs deployment](../azure-monitor/platform/design-logs-deployment.md).
+- Log Analytics workspace. Learn how to [create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md). For more information about Log Analytics workspaces, see [Designing your Azure Monitor Logs deployment](../azure-monitor/logs/design-logs-deployment.md).
 
 - To enable Azure Sentinel, you need contributor permissions to the subscription in which the Azure Sentinel workspace resides. 
 - To use Azure Sentinel, you need either contributor or reader permissions on the resource group that the workspace belongs to.
 - Additional permissions may be needed to connect specific data sources.
-- Azure Sentinel is a paid service. For pricing information see [About Azure Sentinel](https://go.microsoft.com/fwlink/?linkid=2104058).
+- Azure Sentinel is a paid service. For more information, see [About Azure Sentinel](https://go.microsoft.com/fwlink/?linkid=2104058).
+
+For more information, see [Pre-deployment activities and prerequisites for deploying Azure Sentinel](prerequisites.md).
 
 ### Geographical availability and data residency
 
-- Azure Sentinel can run on workspaces in most [GA regions of Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor) except the China and Germany (Sovereign) regions. Sometimes New Log Analytics regions may take some time to onboard Sentinel service. 
+- Azure Sentinel can run on workspaces in most [GA regions of Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor) except the China and Germany (Sovereign) regions. Sometimes New Log Analytics regions may take some time to onboard the Azure Sentinel service. 
 
-- Data generated by Azure Sentinel, such as incidents, bookmarks, and analytics rules, may contain some customer data sourced from the customer's Log Analytics workspaces. This Azure Sentinel-generated data is saved in the geography listed in the following table, according to the geography in which the workspace is located:
+- Data generated by Azure Sentinel, such as incidents, bookmarks, and analytics rules, may contain some customer data sourced from the customer's Log Analytics workspaces. This Azure Sentinel-generated data is saved in the geography or region listed in the following table, according to the geography or region in which the workspace is located:
 
-    | Workspace geography | Azure Sentinel-generated data geography |
+    | Workspace geography/region | Azure Sentinel-generated data geography/region |
     | --- | --- |
-    | United States<br>India<br>Brazil<br>Africa<br>Korea | United States |
-    | Europe<br>France<br>Switzerland | Europe |
+    | United States<br>India<br>Africa | United States |
+    | Europe<br>France | Europe |
     | Australia | Australia |
     | United Kingdom | United Kingdom |
     | Canada | Canada |
     | Japan | Japan |
+    | Southeast Asia (Singapore) | Southeast Asia (Singapore)* |
+    | Brazil | Brazil |
+    | Norway | Norway |
+    | South Africa | South Africa |
+    | Korea | Korea |
+    | Germany | Germany |
+    | United Arab Emirates | United Arab Emirates |
+    | Switzerland | Switzerland |
     |
+
+    \* There is no paired region for Southeast Asia.
+
+    > [!IMPORTANT]
+    > - By enabling certain rules that make use of the machine learning (ML) engine, **you give Microsoft permission to copy relevant ingested data outside of your Azure Sentinel workspace's geography** as may be required by the machine learning engine to process these rules.
 
 ## Enable Azure Sentinel <a name="enable"></a>
 
@@ -85,14 +100,25 @@ Azure Sentinel ingests data from services and apps by connecting to the service 
 1. The gallery is a list of all the data sources you can connect. Select a data source and then the **Open connector page** button.
 
 1. The connector page shows instructions for configuring the connector, and any additional instructions that may be necessary.<br>
-For example, if you select the **Azure Active Directory** data source, which lets you stream logs from Azure AD into Azure Sentinel, you can select what type of logs you wan to get - sign-in logs and/or audit logs. <br> Follow the installation instructions or [refer to the relevant connection guide](connect-data-sources.md) for more information. For information about data connectors, see [Connect Microsoft services](connect-data-sources.md).
+For example, if you select the **Azure Active Directory** data source, which lets you stream logs from Azure AD into Azure Sentinel, you can select what type of logs you want to get - sign-in logs and/or audit logs. <br> Follow the installation instructions or [refer to the relevant connection guide](connect-data-sources.md) for more information. For information about data connectors, see [Connect Microsoft services](connect-data-sources.md).
 
 1. The **Next steps** tab on the connector page shows relevant built-in workbooks, sample queries, and analytics rule templates that accompany the data connector. You can use these as-is or modify them - either way you can immediately get interesting insights across your data. <br>
 
-After your data sources are connected, your data starts streaming into Azure Sentinel and is ready for you to start working with. You can view the logs in the [built-in workbooks](quickstart-get-visibility.md) and start building queries in Log Analytics to [investigate the data](tutorial-investigate-cases.md).
+After your data sources are connected, your data starts streaming into Azure Sentinel and is ready for you to start working with. You can view the logs in the [built-in workbooks](get-visibility.md) and start building queries in Log Analytics to [investigate the data](investigate-cases.md).
 
+For more information, see [Data collection best practices](best-practices-data.md).
 ## Next steps
-In this document, you learned about onboarding and connecting data sources to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
-- Stream data from [Common Event Format appliances](connect-common-event-format.md) into Azure Sentinel.
+
+For more information, see:
+
+- **Alternate deployment options**:
+
+    - [Deploy Azure Sentinel via API](/rest/api/securityinsights/)
+    - [Deploy Azure Sentinel via PowerShell](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0)
+    - [Deploy Azure Sentinel via ARM template](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-all-in-one-accelerator/ba-p/1807933)
+
+- **Get started**:
+    - [Get started with Azure Sentinel](get-visibility.md)
+    - [Create custom analytics rules to detect threats](detect-threats-custom.md)
+    - [Connect your external solution using Common Event Format](connect-common-event-format.md)
+

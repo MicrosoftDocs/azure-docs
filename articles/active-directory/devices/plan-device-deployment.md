@@ -53,7 +53,7 @@ The key benefits of giving your devices an Azure AD identity:
 
 Video:  [Conditional access with device controls](https://youtu.be/NcONUf-jeS4)
 
-FAQs: [Azure AD device management FAQ](faq.md)  and [Settings and data roaming FAQ](enterprise-state-roaming-faqs.md) 
+FAQs: [Azure AD device management FAQ](faq.yml)  and [Settings and data roaming FAQ](enterprise-state-roaming-faqs.yml) 
 
 ## Plan the deployment project
 
@@ -141,6 +141,8 @@ BYOD and corporate owned mobile device are registered by users installing the Co
 * [Android](/mem/intune/user-help/enroll-device-android-company-portal)
 
 * [Windows 10](/mem/intune/user-help/enroll-windows-10-device)
+
+* [macOS](/mem/intune/user-help/enroll-your-device-in-intune-macos-cp)
 
 If registering your devices is the best option for your organization, see the following resources:
 
@@ -238,9 +240,9 @@ Review supported and unsupported platforms for integrated devices:
 
 | Device management tools| Azure AD registered| Azure AD join| Hybrid Azure AD join|
 | - | - | - | - |
-| [Mobile Device Management (MDM) ](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Example: Microsoft Intune| ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png)|  |
-| [Co management with Microsoft Intune and Microsoft Endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 and later)| | ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png)|  |
-| [Group policy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Windows only)| | | ![Checkmark for these values.](./media/plan-device-deployment/check.png)|  |
+| [Mobile Device Management (MDM) ](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Example: Microsoft Intune| ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png)| 
+| [Co management with Microsoft Intune and Microsoft Endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 and later)| | ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png)| 
+| [Group policy](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Windows only)| | | ![Checkmark for these values.](./media/plan-device-deployment/check.png)| 
 
 
 

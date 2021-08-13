@@ -53,5 +53,5 @@ To retrieve accounts that were flagged with AD FS Bad Password attempts, use the
 * [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Azure AD Connect Health Agent Installation](how-to-connect-health-agent-install.md)
 * [Azure AD Connect Health Operations](how-to-connect-health-operations.md)
-* [Azure AD Connect Health FAQ](reference-connect-health-faq.md)
+* [Azure AD Connect Health FAQ](reference-connect-health-faq.yml)
 * [Azure AD Connect Health Version History](reference-connect-health-version-history.md)

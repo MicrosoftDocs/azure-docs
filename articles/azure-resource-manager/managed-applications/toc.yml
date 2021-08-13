@@ -34,7 +34,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/managed-applications-security-baseline?toc=/azure/azure-resource-manager/managed-applications/toc.json
 - name: How-to guides
   items:
   - name: Publishers
@@ -44,7 +44,7 @@
     - name: Test portal interface
       href: test-createuidefinition.md
     - name: Create an Azure application offer
-      href: ../../marketplace/create-new-azure-apps-offer.md?toc=/azure/azure-resource-manager/managed-applications/toc.json
+      href: ../../marketplace/azure-app-offer-setup.md?toc=%2fazure%2fazure-resource-manager%2fmanaged-applications%2ftoc.json
     - name: Request just-in-time access
       href: request-just-in-time-access.md
     - name: Use existing virtual network
@@ -180,6 +180,6 @@
   - name: Resource Manager template best practices
     href: https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md
   - name: Microsoft Q&A
-    href: https://docs.microsoft.com/en-us/answers/topics/azure-managed-applications.html
+    href: /answers/topics/azure-managed-applications.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-managed-app

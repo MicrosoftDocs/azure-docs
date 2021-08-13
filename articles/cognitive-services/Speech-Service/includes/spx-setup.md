@@ -3,7 +3,7 @@ author: v-demjoh
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/15/2020
+ms.date: 04/28/2021
 ms.author: v-demjoh
 ---
 
@@ -14,18 +14,16 @@ ms.author: v-demjoh
 Follow these steps to install the Speech CLI on Windows:
 
 1. On Windows, you need the [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) for your platform. Installing this for the first time may require a restart.
-2. Download the Speech CLI [zip archive](https://aka.ms/speech/spx-zips.zip), then extract it.
-3. Go to the directory where you extracted `spx-zips`. This folder contains program files for the Speech CLI on a variety of platforms. 
-4. Extract the files for your platform (`spx-net471` for .NET Framework 4.7, or `spx-netcore-win-x64` for .NET Core 3.0 on an x64 CPU). Keep in mind that you'll run `spx` from this directory.
+1. Install [.NET Core 3.1 SDK](/dotnet/core/install/windows).
+2. Install the Speech CLI using NuGet by entering this command:
 
-### Run the Speech CLI
-
-1. Open the command prompt or PowerShell, then navigate to the directory where you extracted the Speech CLI.  
-2. Type `spx` to see help commands for the Speech CLI.
+   ```console
+   dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI
+   ```
+Type `spx` to see help for the Speech CLI.
 
 > [!NOTE]
-> Powershell does not check the local directory when looking for a command. In Powershell, change directory to the location of `spx` and call the tool by entering `.\spx`.
-> If you add this directory to your path, Powershell and the Windows command prompt will find `spx` from any directory without including the `.\` prefix.
+> As an alternative to NuGet, you can download and extract the Speech CLI for Windows as a [zip file](https://aka.ms/speech/spx-windows).
 
 ### Font limitations
 
@@ -36,29 +34,52 @@ If you output to a file, a text editor like Notepad or a web browser like Micros
 
 #### [Linux Install](#tab/linuxinstall)
 
+The following Linux distributions are supported for x64 architectures using the Speech CLI:
+
+* CentOS 7/8
+* Debian 9/10 
+* Red Hat Enterprise Linux (RHEL) 7/8
+* Ubuntu 16.04 (until September), Ubuntu 18.04/20.04
+
+> [!NOTE]
+> Additional architectures are supported by the Speech SDK (not the Speech CLI). For more information, see [About the Speech SDK](../speech-sdk.md).
+
 Follow these steps to install the Speech CLI on Linux on an x64 CPU:
 
-1. Install [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0).
-2. Download the Speech CLI [zip archive](https://aka.ms/speech/spx-zips.zip), then extract it.
-3. Go to the root directory `spx-zips` that you extracted from the download, and extract `spx-netcore-30-linux-x64` to a new `~/spx` directory.
-4. In a terminal, type these commands:
-   1. `cd ~/spx`
-   2. `sudo chmod +r+x spx`
-   3. `PATH=~/spx:$PATH`
+1. Install [.NET Core 3.1 SDK](/dotnet/core/install/linux).
+2. Install the Speech CLI using NuGet by entering this command:
+
+    `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI`
+
+3. On RHEL/CentOS Linux, [Configure OpenSSL for Linux](../how-to-configure-openssl-linux.md).
+4. On Ubunutu 20.04 Linux, [install GStreamer](../how-to-use-codec-compressed-audio-input-streams.md).
 
 Type `spx` to see help for the Speech CLI.
 
+> [!NOTE]
+> As an alternative to NuGet, 
+> you can download the Linux binaries as a [zip file](https://aka.ms/speech/spx-linux).
+> Extract `spx-netcore-30-linux-x64.zip` to a new `~/spx` directory, type `sudo chmod +r+x spx` on the binary,
+> and add the `~/spx` path to your PATH system variable.
+
+
 #### [Docker Install (Windows, Linux, macOS)](#tab/dockerinstall)
+
+> [!IMPORTANT]
+> You cannot use your computer's microphone when you run Speech CLI within a Docker container. However, you can read from and save audio files in your local mounted directory. 
+
+> [!NOTE]
+> The following example pulls a public container image from Docker Hub. We recommend that you authenticate with your Docker Hub account (`docker login`) first instead of making an anonymous pull request. To improve reliability when using public content, import and manage the image in a private Azure container registry. [Learn more about working with public images](/azure/container-registry/buffer-gate-public-content).
 
 Follow these steps to install the Speech CLI in a Docker container:
 
-1. <a href="https://www.docker.com/get-started" target="_blank">Install Docker Desktop<span class="docon docon-navigate-external x-hidden-focus"></span></a> for your platform if it isn't already installed.
+1. <a href="https://www.docker.com/get-started" target="_blank">Install Docker Desktop</a> for your platform if it isn't already installed.
 2. In a new command prompt or terminal, type this command:
-   ```shell   
+   ```console   
    docker pull msftspeech/spx
    ```
 3. Type this command. You should see help information for Speech CLI:
-   ```shell 
+   ```console 
    docker run -it --rm msftspeech/spx help
    ```
 
@@ -90,32 +111,29 @@ you must mount a directory in the container to your filesystem where the Speech 
 
 On Windows, your commands will start like this:
 
-```shell
+```console
 docker run -it -v c:\spx-data:/data --rm msftspeech/spx
 ```
 
 On Linux or macOS, your commands will look like the sample below. Replace `ABSOLUTE_PATH` with the absolute path for your mounted directory. This path was returned by the `pwd` command in the previous section. 
 
 If you run this command before setting your key and region, you will get an error telling you to set your key and region:
-```shell   
+```console   
 sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx
 ```
 
 To use the `spx` command installed in a container, always enter the full command shown above, followed by the parameters of your request.
 For example, on Windows, this command sets your key:
 
-```shell
+```console
 docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY
 ```
 
 For more extended interaction with the command line tool, you can start a container with an interactive bash shell by adding an entrypoint parameter.
 On Windows, enter this command to start a container that exposes an interactive command line interface where you can enter multiple `spx` commands:
-```shell
+```console
 docker run -it --entrypoint=/bin/bash -v c:\spx-data:/data --rm msftspeech/spx
 ```
-
-> [!WARNING]
-> You cannot use your computer's microphone when you run Speech CLI within a Docker container. However, you can read from and save audio files in your local mounted directory. 
 
 <!-- Need to troubleshoot issues with docker pull image
 
@@ -158,7 +176,7 @@ To start using the Speech CLI, you need to enter your Speech subscription key an
 Get these credentials by following steps in [Try the Speech service for free](../overview.md#try-the-speech-service-for-free).
 Once you have your subscription key and region identifier (ex. `eastus`, `westus`), run the following commands.
 
-```shell
+```console
 spx config @key --set SUBSCRIPTION-KEY
 spx config @region --set REGION
 ```

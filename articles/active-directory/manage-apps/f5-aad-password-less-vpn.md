@@ -2,15 +2,16 @@
 title: Azure AD secure hybrid access with F5 VPN| Microsoft Docs
 description: Tutorial for Azure Active Directory Single Sign-on (SSO) integration with F5 BIG-IP for Password-less VPN 
 services: active-directory
-author: gargi-sinha
+author: davidmu1
 manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 10/12/2020
-ms.author: gasinh
+ms.author: davidmu
 ms.collection: M365-identity-device-management
+ms.reviewer: miccohen
 ---
 
 # Tutorial for Azure Active Directory single sign-on integration with F5 BIG-IP for Password-less VPN
@@ -19,13 +20,13 @@ In this tutorial, learn how to integrate F5’s BIG-IP based  Secure socket laye
 
 Integrating a BIG-IP SSL-VPN with Azure AD provides [many key benefits](f5-aad-integration.md), including:
 
-- Improved Zero trust governance through [Azure AD pre-authentication and authorization](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization)
+- Improved Zero trust governance through [Azure AD pre-authentication and authorization](../../app-service/overview-authentication-authorization.md)
 
 - [Password-less authentication to the VPN service](https://www.microsoft.com/security/business/identity/passwordless)
 
 - Manage Identities and access from a single control plane - The [Azure portal](https://portal.azure.com/#home)
 
-Despite these great value adds, the classic VPN does however remain predicated on the notion of a network perimeter, where trusted is on the inside and untrusted the outside. This model is no longer effective in achieving a true Zero Trust posture, since corporate assets are no longer confined to the walls of an enterprise data center, but rather across multi-cloud environments with no fixed boundaries. For this reason, we encourage our customers to consider moving to a more Identity driven approach at managing [access on a per application basis](https://docs.microsoft.com/azure/active-directory/fundamentals/five-steps-to-full-application-integration-with-azure-ad).
+Despite these great value adds, the classic VPN does however remain predicated on the notion of a network perimeter, where trusted is on the inside and untrusted the outside. This model is no longer effective in achieving a true Zero Trust posture, since corporate assets are no longer confined to the walls of an enterprise data center, but rather across multi-cloud environments with no fixed boundaries. For this reason, we encourage our customers to consider moving to a more Identity driven approach at managing [access on a per application basis](../fundamentals/five-steps-to-full-application-integration-with-azure-ad.md).
 
 ## Scenario description
 
@@ -42,9 +43,9 @@ Prior experience or knowledge of F5 BIG-IP isn't necessary, however, you'll need
 
 - An Azure AD [free subscription](https://azure.microsoft.com/trial/get-started-active-directory/) or above
 
-- User identities should be [synchronized from their on-premises directory](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis) to Azure AD.
+- User identities should be [synchronized from their on-premises directory](../hybrid/how-to-connect-sync-whatis.md) to Azure AD.
 
-- An account with Azure AD application admin [permissions](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#application-administrator)
+- An account with Azure AD application admin [permissions](../roles/permissions-reference.md#application-administrator)
 
 - An existing BIG-IP infrastructure with routing of client traffic to and from the BIG-IP or [deploy a BIG-IP Virtual Edition into Azure](f5-bigip-deployment-guide.md).
 
@@ -59,7 +60,7 @@ Familiarizing yourself with [F5 BIG-IP terminology](https://www.f5.com/services/
 
 ## Add F5 BIG-IP from the Azure AD gallery
 
-Setting up a SAML federation trust between the BIG-IP allows the Azure AD BIG-IP to hand off the pre-authentication and [Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) to Azure AD, before granting access to the published VPN service.
+Setting up a SAML federation trust between the BIG-IP allows the Azure AD BIG-IP to hand off the pre-authentication and [Conditional Access](../conditional-access/overview.md) to Azure AD, before granting access to the published VPN service.
 
 1. Sign in to the Azure AD portal using an account with application admin rights
 
@@ -100,7 +101,7 @@ Observe the properties of the **User Attributes & Claims** section, as Azure AD 
 
 ![Image shows user attributes claims](media/f5-sso-vpn/user-attributes-claims.png)
 
-Feel free to add any other specific claims your BIG-IP published service might expect, while noting that any claims defined in addition to the default set will only be issued if they exist in Azure AD, as populated attributes. In the same way, directory [roles or group](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-group-claims) memberships also need defining against a user object in Azure AD before they can be issued as a claim.
+Feel free to add any other specific claims your BIG-IP published service might expect, while noting that any claims defined in addition to the default set will only be issued if they exist in Azure AD, as populated attributes. In the same way, directory [roles or group](../hybrid/how-to-connect-fed-group-claims.md) memberships also need defining against a user object in Azure AD before they can be issued as a claim.
 
 ![Image shows federation metadata download link](media/f5-sso-vpn/saml-signing-certificate.png)
 
@@ -294,11 +295,11 @@ With all the settings in place, the APM now requires a front-end virtual server 
 
 - [The end of passwords, go passwordless](https://www.microsoft.com/security/business/identity/passwordless)
 
-- [What is Conditional Access?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access?](../conditional-access/overview.md)
 
 - [Microsoft Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)
 
-- [Five steps to full application integration with Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/five-steps-to-full-application-integration-with-azure-ad)
+- [Five steps to full application integration with Azure AD](../fundamentals/five-steps-to-full-application-integration-with-azure-ad.md)
 
 ## Next steps
 
@@ -307,4 +308,4 @@ Open a browser on a remote Windows client and browse to the url of the **BIG-IP 
 ![Image shows vpn launcher](media/f5-sso-vpn/vpn-launcher.png)
 
 Selecting the VPN tile will install the BIG-IP Edge client and establish a VPN connection  configured for SHA.
-The F5 VPN application should also be visible as a target resource in Azure AD Conditional Access. See our [guidance](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policies) for building Conditional Access policies and also enabling users for Azure AD [password-less authentication](https://www.microsoft.com/security/business/identity/passwordless).
+The F5 VPN application should also be visible as a target resource in Azure AD Conditional Access. See our [guidance](../conditional-access/concept-conditional-access-policies.md) for building Conditional Access policies and also enabling users for Azure AD [password-less authentication](https://www.microsoft.com/security/business/identity/passwordless).

@@ -82,8 +82,8 @@ Scripts can be downloaded from Azure storage or any public location such as a Gi
 
 Learn how to:
 
-- [Create a Linux VM with the Azure CLI and use the Custom Script Extension](./scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fcli%2fazure%2ftoc.json).
-- [Create a Windows VM with Azure PowerShell and use the Custom Script Extension](./scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md?toc=%2fpowershell%2fmodule%2ftoc.json).
+- [Create a Linux VM with the Azure CLI and use the Custom Script Extension](/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-nginx?toc=%2fcli%2fazure%2ftoc.json).
+- [Create a Windows VM with Azure PowerShell and use the Custom Script Extension](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis).
 
 
 ## Packer
@@ -121,7 +121,7 @@ Learn how to:
 
 Learn more about:
 
-- [Azure DevOps Services](/azure/devops/user-guide/index?view=vsts).
+- [Azure DevOps Services](/azure/devops/user-guide/index).
 
 
 ## Jenkins
@@ -139,7 +139,7 @@ Learn how to:
 
 - [Deploy Spot VMs using a Resource Manager template](./linux/spot-template.md).
 - [Create a Windows virtual machine from a Resource Manager template](./windows/ps-template.md).
-- [Download the template for a VM](./windows/download-template.md).
+- [Download the template for a VM](/previous-versions/azure/virtual-machines/windows/download-template).
 - [Create an Azure Image Builder template](./linux/image-builder-json.md).
 
 ## Next steps

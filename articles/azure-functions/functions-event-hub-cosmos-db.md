@@ -27,7 +27,7 @@ In this tutorial, you'll:
 
 To complete this tutorial, you must have the following installed:
 
-- [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8
+- [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8
 - [Apache Maven](https://maven.apache.org), version 3.0 or above
 - [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) version 2.6.666 or above
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
@@ -367,6 +367,7 @@ mvn archetype:generate --batch-mode \
     -DarchetypeArtifactId=azure-functions-archetype \
     -DappName=$FUNCTION_APP \
     -DresourceGroup=$RESOURCE_GROUP \
+    -DappRegion=$LOCATION \
     -DgroupId=com.example \
     -DartifactId=telemetry-functions
 ```
@@ -379,6 +380,7 @@ mvn archetype:generate --batch-mode ^
     -DarchetypeArtifactId=azure-functions-archetype ^
     -DappName=%FUNCTION_APP% ^
     -DresourceGroup=%RESOURCE_GROUP% ^
+    -DappRegion=%LOCATION% ^
     -DgroupId=com.example ^
     -DartifactId=telemetry-functions
 ```

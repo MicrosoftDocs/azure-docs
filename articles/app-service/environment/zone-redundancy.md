@@ -5,12 +5,15 @@ author: ccompy
 
 ms.assetid: 24e3e7eb-c160-49ff-8d46-e947818ef186
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 07/05/2021
 ms.author: ccompy
 ms.custom: seodec18
 ---
-
 # Availability Zone support for App Service Environments
+
+> [!NOTE]
+> This article is about the App Service Environment v2 which is used with Isolated App Service plans
+> 
 
 App Service Environments (ASE) can be deployed into Availability Zones (AZ).  Customers can deploy an internal load balancer (ILB) ASEs into a specific AZ within an Azure region. If you pin your ILB ASE to a specific AZ, the resources used by a ILB ASE will either be pinned to the specified AZ, or deployed in a zone redundant manner.  
 
@@ -26,14 +29,12 @@ Unless the steps described in this article are followed, ILB ASEs are not automa
 Zonal ILB ASEs can be created in any of the following regions:
 
 - Australia East
-- Brazil South
 - Canada Central
 - Central US
 - East US
 - East US 2
 - East US 2 (EUAP)
 - France Central 
-- Germany West Central
 - Japan East
 - North Europe
 - West Europe

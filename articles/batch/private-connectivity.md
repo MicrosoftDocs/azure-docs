@@ -2,7 +2,7 @@
 title: Use private endpoints with Azure Batch accounts
 description: Learn how to connect privately to an Azure Batch account by using private endpoints. 
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 08/03/2021
 ms.custom: references_regions
 ---
 
@@ -15,7 +15,7 @@ By using [Azure Private Link](../private-link/private-link-overview.md), you can
 Private Link allows users to access an Azure Batch account from within the virtual network or from any peered virtual network. Resources mapped to Private Link are also accessible on-premises over private peering through VPN or [Azure ExpressRoute](../expressroute/expressroute-introduction.md). You can connect to an Azure Batch account configured with Private Link by using the [automatic or manual approval method](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow).
 
 > [!IMPORTANT]
-> Support for private connectivity in Azure Batch is currently available for all public regions except Germany Central and Germany Northeast.
+> Support for private connectivity in Azure Batch is currently available for all regions except Germany Central and Germany Northeast.
 
 This article describes the steps to create a private Batch account and access it using a private endpoint.
 

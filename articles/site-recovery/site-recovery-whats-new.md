@@ -2,7 +2,9 @@
 title: What's new in Azure Site Recovery
 description: Provides a summary of new features and the latest updates in the Azure Site Recovery service.
 ms.topic: conceptual
-ms.date: 10/22/2020
+
+ms.date: 07/28/2021
+
 ---
 
 # What's new in Site Recovery
@@ -17,13 +19,74 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 **Update** |  **Unified Setup** | **Configuration server ova** | **Mobility service agent** | **Site Recovery Provider** | **Recovery Services agent**
 --- | --- | --- | --- | --- | ---
+[Rollup 56](https://support.microsoft.com/en-us/topic/update-rollup-56-for-azure-site-recovery-kb5005376-33f27950-1a07-43e5-bf40-4b380a270ef6)  | 9.43.6040.1  | 5.1.6853.0 | 9.43.6040.1| 5.1.6853.0 | 2.0.9226.0
+[Rollup 55](https://support.microsoft.com/topic/b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8)  | 9.42.5941.1 | 5.1.6692.0 | 9.42.5941.1 | 5.1.6692.0  | 2.0.9208.0
+[Rollup 54](https://support.microsoft.com/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533)  | 9.41.5888.1 | 5.1.6620.0 | 9.41.5888.1 | 5.1.6620.0  | 2.0.9202.0
+[Rollup 53](https://support.microsoft.com/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)  | 9.40.5850.1 | 5.1.6537.0 | 9.40.5850.1 | 5.1.6537.0  | 2.0.9202.0
 [Rollup 52](https://support.microsoft.com/help/4597409/)  | 9.39.5796.1 | 5.1.6458.0 | 9.39.5796.1 | 5.1.6458.0  | 2.0.9196.0
 [Rollup 51](https://support.microsoft.com/help/4590304)  | 9.38.5761.1 | 5.1.6400.0 | 9.38.5761.1 | 5.1.6400.0  | 2.0.9193.0
 [Rollup 50](https://support.microsoft.com/help/4582666/) | 9.37.5724.1 | 5.1.6347.0 | 9.37.5724.1 | 5.1.6347.0  | 2.0.9192.0
 [Rollup 49](https://support.microsoft.com/help/4578241/) | 9.36.5696.1 | 5.1.6315.0 | 9.36.5696.1 | 5.1.6315.0 | 2.0.9188.0
-[Rollup 48](https://support.microsoft.com/help/4573888/) | 9.35.5659.1 | 5.1.6200.0 | 9.35.5659.1 | 5.1.6200.0 | 2.0.9186.0
+
 
 [Learn more](service-updates-how-to.md) about update installation and support.
+
+## Updates (July 2021)
+
+### Update rollup 56
+
+[Update rollup 56](https://support.microsoft.com/en-us/topic/update-rollup-56-for-azure-site-recovery-kb5005376-33f27950-1a07-43e5-bf40-4b380a270ef6) provides the following updates:
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
+**Issue fixes/improvements** | A number of fixes and improvement as detailed in the rollup KB article.
+
+**Azure Site Recovery Service** | Made improvements so that enabling replication and re-protect operations are faster by 46%.
+**Azure Site Recovery Portal** | Replication can now be enabled between any two Azure regions around the world. You are no longer limited to enabling replication within your continent.
+
+
+## Updates (April 2021)
+
+### Update rollup 55
+
+[Update rollup 55](https://support.microsoft.com/topic/b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8) provides the following updates:
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup.
+**Issue fixes/improvements** | A number of fixes and improvements as detailed in the rollup.
+**Azure VM disaster recovery** | Support added for cross-continental disaster recovery of Azure VMs.<br/><br/> Rest API support for protection of VMSS Flex.<br/><br/> Now supported for VMs running Oracle Linux 8.2 and 8.3.
+**VMware VM/physical disaster recovery to Azure** | Added support for using Ubuntu-20.04 while setting up master target server.<br/><br/> Now supported for VMs running Oracle Linux 8.2 and 8.3.
+
+
+## Updates (February 2021)
+
+### Update rollup 54
+
+[Update rollup 54](https://support.microsoft.com/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533) provides the following updates:
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup.
+**Issue fixes/improvements** | A number of fixes and improvements as detailed in the rollup.
+**Azure VM disaster recovery** | Zone to Zone Disaster Recovery using Azure Site Recovery is now GA in 4 more regions – North Europe, East US, Central US, and West US 2.<br/>
+**VMware VM/physical disaster recovery to Azure** | The update includes portal support for selecting Proximity Placements Groups for VMware/Physical machines after enabling replication.<br/><br/> Protecting VMware machines with data disk size up to 32 TB is now supported.
+**Hyper-V disaster recovery to Azure** | The update includes portal support for selecting Proximity Placements Groups for Hyper-V machines after enabling replication.
+
+
+## Updates (January 2021)
+
+### Update rollup 53
+
+[Update rollup 53](https://support.microsoft.com/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a) provides the following updates:
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup.
+**Issue fixes/improvements** | A number of fixes and improvements as detailed in the rollup.
+**Azure VM disaster recovery** | Replication for tags is now supported. Any tags added to Azure VMs, disks, and NICs in the source region are replicated to machines in the target region.<br/><br/> Azure VMs running Debian 10 are now supported for replication.
+**VMware VM/physical disaster recovery to Azure** | The update includes logging enhancements for VMware VM replication to Azure, and improved error messaging.<br/><br/> VMware VMs and physical machines running Debian 10 are now supported for replication.
 
 
 ## Updates (November 2020)
@@ -37,7 +100,7 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 **Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup.
 **Issue fixes/improvements** | A number of fixes and improvements as detailed in the rollup, including new Linux support for the Mobility service.
 **Azure VM disaster recovery** | Now supported for VMs running RHEL 8.3 and Oracle Linux 7.9
-**VMware VM/physical disaster recovery to Azure** | Now supported for VMs running RHEL 8.3, Oracle Linux 7.9/8.3.
+**VMware VM/physical disaster recovery to Azure** | Now supported for VMs running RHEL 8.3, Oracle Linux 7.9.
 
 ## Updates (October 2020)
 
@@ -568,7 +631,7 @@ Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
-**Linux support** | Support added for RedHat Enterprise Linux 6.10, CentOS 6.10.<br/><br/> Linux-based VMs that use the GUID partition table (GPT) partition style in legacy BIOS compatibility mode are now supported. Review the [Azure VM FAQ](../virtual-machines/faq-for-disks.md) for more information.
+**Linux support** | Support added for RedHat Enterprise Linux 6.10, CentOS 6.10.<br/><br/> Linux-based VMs that use the GUID partition table (GPT) partition style in legacy BIOS compatibility mode are now supported. Review the [Azure VM FAQ](../virtual-machines/faq-for-disks.yml) for more information.
 **Disaster recovery for VMs after migration** | Support for enabling disaster recovery to a secondary region for an on-premises VMware VM migrated to Azure, without needing to uninstall the Mobility service on the VM before enabling replication.
 **Windows Server 2008** | Support for migrating machines running Windows Server 2008 R2/2008 64-bit and 32-bit.<br/><br/> Migration only (replication and failover). Failback isn't supported.
 

@@ -1,34 +1,32 @@
 ---
 title: Compliance using Azure Policy
-description: Assign built-in policies in Azure Policy to audit compliance of your Azure container registries
+description: Assign built-in policy definitions in Azure Policy to audit compliance of your Azure container registries
 ms.topic: article
-ms.date: 06/11/2020
+ms.date: 08/10/2021
 ---
 
 # Audit compliance of Azure container registries using Azure Policy
 
-[Azure Policy](../governance/policy/overview.md) is a service in Azure that you use to create, assign, and manage policies. These policies enforce different rules and effects over your resources, so those resources stay compliant with your corporate standards and service level agreements.
+[Azure Policy](../governance/policy/overview.md) is a service in Azure that you use to create, assign, and manage policy definitions. These policy definitions enforce different rules and effects over your resources, so those resources stay compliant with your corporate standards and service level agreements.
 
-This article introduces built-in policies for Azure Container Registry. Use these policies to audit new and existing registries for compliance.
+This article introduces built-in policy definitions for Azure Container Registry. Use these definitions to audit new and existing registries for compliance.
 
-There are no charges for using Azure Policy.
+There is no charge for using Azure Policy.
 
 ## Built-in policy definitions
 
 The following built-in policy definitions are specific to Azure Container Registry:
 
-[!INCLUDE [azure-policy-reference-policies-container-registry](../../includes/policy/reference/bycat/policies-container-registry.md)]
+[!INCLUDE [azure-policy-reference-rp-containerreg](../../includes/policy/reference/byrp/microsoft.containerregistry.md)]
 
-See also the built-in network policy definition: [Container Registry should use a virtual network service endpoint](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4857be7-912a-4c75-87e6-e30292bcdf78).
+## Create policy assignments
 
-## Assign policies
-
-* Assign policies using the [Azure portal](../governance/policy/assign-policy-portal.md), [Azure CLI](../governance/policy/assign-policy-azurecli.md), a [Resource Manager template](../governance/policy/assign-policy-template.md), or the Azure Policy SDKs.
+* Create policy assignments using the [Azure portal](../governance/policy/assign-policy-portal.md), [Azure CLI](../governance/policy/assign-policy-azurecli.md), a [Resource Manager template](../governance/policy/assign-policy-template.md), or the Azure Policy SDKs.
 * Scope a policy assignment to a resource group, a subscription, or an [Azure management group](../governance/management-groups/overview.md). Container registry policy assignments apply to existing and new container registries within the scope.
 * Enable or disable [policy enforcement](../governance/policy/concepts/assignment-structure.md#enforcement-mode) at any time.
 
 > [!NOTE]
-> After you assign or update a policy, it takes some time for the assignment to be applied to resources in the defined scope. See information about [policy evaluation triggers](../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
+> After you create or update a policy assignment, it takes some time for the assignment to evaluate resources in the defined scope. See information about [policy evaluation triggers](../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
 
 ## Review policy compliance
 
@@ -48,7 +46,7 @@ When a resource is non-compliant, there are many possible reasons. To determine 
 
 ### Policy compliance in the Azure CLI
 
-You can also use the Azure CLI to get compliance data. For example, use the [az policy assignment list](/cli/azure/policy/assignment#az-policy-assignment-list) command in the CLI to get the policy IDs of the Azure Container Registry policies that are applied:
+You can also use the Azure CLI to get compliance data. For example, use the [az policy assignment list](/cli/azure/policy/assignment#az_policy_assignment_list) command in the CLI to get the policy IDs of the Azure Container Registry policies that are applied:
 
 ```azurecli
 az policy assignment list --query "[?contains(displayName,'Container Registries')].{name:displayName, ID:id}" --output table
@@ -63,14 +61,14 @@ Container Registries should not allow unrestricted network access           /sub
 Container Registries should be encrypted with a Customer-Managed Key (CMK)  /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/cce1ed4f38a147ad994ab60a
 ```
 
-Then run [az policy state list](/cli/azure/policy/state#az-policy-state-list) to return the JSON-formatted compliance state for all resources under a specific policy ID:
+Then run [az policy state list](/cli/azure/policy/state#az_policy_state_list) to return the JSON-formatted compliance state for all resources under a specific policy ID:
 
 ```azurecli
 az policy state list \
   --resource <policyID>
 ```
 
-Or run [az policy state list](/cli/azure/policy/state#az-policy-state-list) to return the JSON-formatted compliance state of a specific registry resource, such as *myregistry*:
+Or run [az policy state list](/cli/azure/policy/state#az_policy_state_list) to return the JSON-formatted compliance state of a specific registry resource, such as *myregistry*:
 
 ```azurecli
 az policy state list \

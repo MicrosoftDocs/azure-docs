@@ -245,16 +245,20 @@ Returns the value that is lesser—the value in **Column set** or the value in t
 
 Includes the basic arithmetic operations: addition and subtraction, division, and multiplication.  Because most operations are binary, requiring two numbers, you first choose the operation, and then choose the column or numbers to use in the first and second arguments.
 
-The order in which you choose the columns for division and subtraction might seem counterintuitive; however, to make it easier to understand the results, the column heading provides the operation name, and the order in which the columns were used.
+The order for division and subtraction are as follows: 
+- Subtract(Arg1_Arg2) = Arg1 - Arg 2
+- Divide(Arg1_Arg2) =  Arg1 / Arg 2
+
+The following table shows some examples
 
 Operation|Num1|Num2|Result column|Result value|
 ----|----|----|----|----
-|Addition|1|5|Add(Num2_Num1)| 4|
+|Addition|1|5|Add(Num2_Num1)| 6|
 |Multiplication|1|5|Multiple(Num2_Num1)|5|
-|Subtraction|1|5|Subtract(Num2_Num1)|4|
-|Subtraction|0|1|Subtract(Num2_Num1)|0|
-|Division|1|5|Divide(Num2_Num1)|5|
-|Division|0|1|Divide(Num2_Num1)|Infinity|
+|Subtraction|5|1|Subtract(Num2_Num1)|4|
+|Subtraction|0|1|Subtract(Num2_Num1)|-1|
+|Division|5|1|Divide(Num2_Num1)|5|
+|Division|1|0|Divide(Num2_Num1)|Infinity|
 
 ### Add
 
@@ -336,7 +340,7 @@ This category includes specialized mathematical functions often used in data sci
 
 ### Beta
 
-Returns the value of Euler’s beta function.  
+Returns the value of Euler's beta function.  
 
 ### EllipticIntegralE
 Returns the value of the incomplete elliptic integral.  

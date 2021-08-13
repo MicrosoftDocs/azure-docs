@@ -1,11 +1,13 @@
 ---
-title: Troubleshoot self-hosted integration runtime in Azure Data Factory
-description: Learn how to troubleshoot self-hosted integration runtime issues in Azure Data Factory. 
-services: data-factory
+title: Troubleshoot self-hosted integration runtime
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to troubleshoot self-hosted integration runtime issues in Azure Data Factory and Azure Synapse Analytics pipelines. 
 author: lrtoyou1223
 ms.service: data-factory
+ms.subservice: integration-runtime
+ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 11/17/2020
+ms.date: 05/31/2021
 ms.author: lle
 ---
 
@@ -13,23 +15,31 @@ ms.author: lle
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article explores common troubleshooting methods for self-hosted integration runtime (IR) in Azure Data Factory.
+This article explores common troubleshooting methods for self-hosted integration runtime (IR) in Azure Data Factory and Synapse workspaces.
 
-## Gather self-hosted IR logs from Azure Data Factory
+## Gather self-hosted IR logs
 
-For failed activities that are running on a self-hosted IR or a shared IR, Azure Data Factory supports viewing and uploading error logs. To get the error report ID, follow the instructions here, and then enter the report ID to search for related known issues.
+For failed activities that are running on a self-hosted IR or a shared IR, the service supports viewing and uploading error logs. To get the error report ID, follow the instructions here, and then enter the report ID to search for related known issues.
 
-1. In Data Factory, select **Pipeline runs**.
+1. On the Monitor page for the service UI, select **Pipeline runs**.
 
 1. Under **Activity runs**, in the **Error** column, select the highlighted button to display the activity logs, as shown in the following screenshot:
 
-    ![Screenshot of the "Activity runs" section on the "All pipeline runs" pane.](media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png)
-
-    The activity logs are displayed for the failed activity run.
-
-    ![Screenshot of the activity logs for the failed activity.](media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png) 
+    # [Azure Data Factory](#tab/data-factory)
     
-1. For further assistance, select **Send logs**.
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png" alt-text="Screenshot of the 'Activity runs' section on the 'All pipeline runs' pane.":::
+    
+    # [Azure Synapse](#tab/synapse-analytics)
+    
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page-synapse.png" alt-text="Screenshot of the 'Activity runs' section on the 'All pipeline runs' pane.":::
+    
+    ---
+    
+    The activity logs are displayed for the failed activity run.
+    
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png" alt-text="Screenshot of the activity logs for the failed activity."::: 
+    
+3. For further assistance, select **Send logs**.
  
    The **Share the self-hosted integration runtime (IR) logs with Microsoft** window opens.
 
@@ -63,36 +73,11 @@ A new activity can throw an OOM error if the IR machine experiences momentary hi
 
 Check the resource usage and concurrent activity execution on the IR node. Adjust the internal and trigger time of activity runs to avoid too much execution on a single IR node at the same time.
 
-
-### SSL/TLS certificate issue
-
-#### Symptoms
-
-When you try to enable a Secure Sockets Layer (SSL)/Transport Layer Security (TLS) certificate (advanced) by choosing the certificate (after you select **Self-hosted IR Configuration Manager** > **Remote access from intranet**), you get the following error:
-
-"Remote access settings are invalid. Identity check failed for outgoing message. The expected DNS identity of the remote endpoint was 'abc.microsoft.com' but the remote endpoint provided DNS claim 'microsoft.com'. If this is a legitimate remote endpoint, you can fix the problem by explicitly specifying DNS identity 'microsoft.com' as the Identity property of EndpointAddress when creating channel proxy."
-
-In the preceding example, the chosen certificate has "microsoft.com" appended to it.
-
-#### Cause
-
-This is a known issue in Windows Communication Foundation (WCF). The WCF SSL/TLS validation checks only for the last DNSName in the **Subject Alternative Name** (SAN) field. 
-
-#### Resolution
-
-A wildcard certificate is supported in the Azure Data Factory v2 self-hosted IR. This issue normally happens because the SSL certificate is incorrect. The last DNSName in the SAN should be valid. 
-
-To verify and correct the DNSName, do the following: 
-
-1. Open Management Console.
-1. Under **Certificate Details**, double-check the value in both the **Subject** and **Subject Alternative Name** boxes. For example, "DNS Name= microsoft.com.com" is not a valid name.
-1. Contact the certificate issuing company to have the incorrect DNSName removed.
-
 ### Concurrent jobs limit issue
 
 #### Symptoms
 
-When you try to increase the concurrent jobs limit from the Azure Data Factory interface, the process hangs in *Updating* status.
+When you try to increase the concurrent jobs limit from UI, the process hangs in *Updating* status.
 
 Example scenario: The maximum concurrent jobs value is currently set to 24, and you want to increase the count so that your jobs can run faster. The minimum value that you can enter is 3, and the maximum value is 32. You increase the value from 24 to 32 and then select the **Update** button. The process gets stuck in *Updating* status, as shown in the following screenshot. You refresh the page, and the value is still displayed as 24. It hasn't been updated to 32 as you had expected.
 
@@ -103,8 +88,8 @@ Example scenario: The maximum concurrent jobs value is currently set to 24, and 
 The limit on the number of concurrent jobs depends on the computer's logic core and memory. Try to adjust the value downward to a value such as 24, and then view the result.
 
 > [!TIP] 
-> -	To learn more about logic core count and to determine your machine's logic core count, see [Four ways to find the number of cores in your CPU on Windows 10](https://www.top-password.com/blog/find-number-of-cores-in-your-cpu-on-windows-10/).
-> -	To learn how to calculate the math.log, go to the [Logarithm calculator](https://www.rapidtables.com/calc/math/Log_Calculator.html).
+> -    To learn more about logic core count and to determine your machine's logic core count, see [Four ways to find the number of cores in your CPU on Windows 10](https://www.top-password.com/blog/find-number-of-cores-in-your-cpu-on-windows-10/).
+> -    To learn how to calculate the math.log, go to the [Logarithm calculator](https://www.rapidtables.com/calc/math/Log_Calculator.html).
 
 
 ### Self-hosted IR high availability (HA) SSL certificate issue
@@ -218,7 +203,7 @@ In the following error, you can clearly see that the *System.ValueTuple* assembl
  
 "\<LogProperties>\<ErrorInfo>[{"Code":0,"Message":"The type initializer for 'Npgsql.PoolManager' threw an exception.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]\</ErrorInfo>\</LogProperties>"
  
-For more information about GAC, see [Global Assembly Cache](https://docs.microsoft.com/dotnet/framework/app-domains/gac).
+For more information about GAC, see [Global Assembly Cache](/dotnet/framework/app-domains/gac).
 
 
 ### Self-hosted integration runtime Authentication Key is missing
@@ -264,7 +249,7 @@ Install drivers for both the source and destination datastores on the destinatio
  
 If the traffic can't pass through the network between two datastores (for example, they're configured in two virtual networks), you might not finish copying in one activity even with the IR installed. If you can't finish copying in a single activity, you can create two copy activities with two IRs, each in a VENT: 
 * Copy one IR from datastore 1 to Azure Blob Storage
-* Copy another IR from Azure Blob Storage to ddatastore 2. 
+* Copy another IR from Azure Blob Storage to datastore 2. 
 
 This solution could simulate the requirement to use the IR to create a bridge that connects two disconnected datastores.
 
@@ -310,6 +295,61 @@ The only way to avoid this issue is to make sure that the two nodes are in crede
     ```
     certutil -importpfx FILENAME.pfx AT_KEYEXCHANGE
     ```
+
+### Self-hosted integration runtime nodes out of the sync issue
+
+#### Symptoms
+
+Self-hosted integration runtime nodes try to sync the credentials across nodes but get stuck in the process and encounter the error message below after a while:
+
+"The Integration Runtime (Self-hosted) node is trying to sync the credentials across nodes. It may take several minutes."
+
+>[!Note]
+>If this error appears for over 10 minutes, please check the connectivity with the dispatcher node.
+
+#### Cause
+
+The reason is that the worker nodes do not have access to the private keys. This can be confirmed from the self-hosted integration runtime logs below:
+
+`[14]0460.3404::05/07/21-00:23:32.2107988 [System] A fatal error occurred when attempting to access the TLS server credential private key. The error code returned from the cryptographic module is 0x8009030D. The internal error state is 10001.`
+
+You have no issue with the sync process when you use the service principal authentication in the linked service. However, when you switch the authentication type to account key, the syncing issue started. This is because the self-hosted integration runtime service runs under a service account (NT SERVICE\DIAHostService) and it need to be added to the private key permissions.
+ 
+
+#### Resolution
+
+To solve this issue, you need to add the self-hosted integration runtime service account (NT SERVICE\DIAHostService) to the private key permissions. You can apply the following steps:
+
+1. Open your Microsoft Management Console (MMC) Run Command.
+
+    :::image type="content" source="./media/self-hosted-integration-runtime-troubleshoot-guide/management-console-run-command.png" alt-text="Screenshot that shows the MMC Run Command":::
+
+1. In the MMC pane, apply the following steps:
+
+    :::image type="content" source="./media/self-hosted-integration-runtime-troubleshoot-guide/add-service-account-to-private-key-1.png" alt-text="Screenshot that shows the second step to add self-hosted IR service account to the private key permissions." lightbox="./media/self-hosted-integration-runtime-troubleshoot-guide/add-service-account-to-private-key-1-expanded.png":::
+
+    1. Select **File**.
+    1. Choose **Add/Remove Snap-in** in th drop-down menu.
+    1. Select **Certificates** in the "Available snap-ins" pane.
+    1. Select **Add**.
+    1. In the pop-up "Certificates snap-in" pane, choose **Computer account**.
+    1. Select **Next**.
+    1. In the "Select Computer" pane, choose **Local computer: the computer this console is running on**.
+    1. Select **Finish**.
+    1. Select **OK** in the "Add or Remove Snap-ins" pane.
+
+1. In the pane of MMC, move on with the following steps:
+
+    :::image type="content" source="./media/self-hosted-integration-runtime-troubleshoot-guide/add-service-account-to-private-key-2.png" alt-text="Screenshot that shows the third step to add self-hosted IR service account to the private key permissions." lightbox="./media/self-hosted-integration-runtime-troubleshoot-guide/add-service-account-to-private-key-2-expanded.png":::
+
+    1. From the left folder list, select **Console Root -> Certificates (Local Computer) -> Personal -> Certificates**.
+    1. Right-click the **Microsoft Intune Beta MDM**.
+    1. Select **All Tasks** in the drop-down list.
+    1. Select **Manage Private Keys**.
+    1. Select **Add** under "Group or user names".
+    1. Select **NT SERVICE\DIAHostService** to grant it full control access to this certificate, apply and safe. 
+    1. Select **Check Names** and then select **OK**.
+    1. In the "Permissions" pane, select **Apply** and then select **OK**.
 
 ## Self-hosted IR setup
 
@@ -371,7 +411,7 @@ Go to the integration runtime event log to check the error.
     
         ![Screenshot of the "Log On" pane for the service account.](media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png)
 
-    1. Check to see whether the logon service account has **Log on as a service** permissions to start the Windows service:
+    1. Check to see whether the logon service account has **Log on as a service** permission to start the Windows service:
 
         ![Screenshot of the "Log on as service" properties pane.](media/self-hosted-integration-runtime-troubleshoot-guide/logon-as-service.png)
 
@@ -484,9 +524,9 @@ Before and after conversion:
 ![Screenshot of the result after the certificate conversion.](media/self-hosted-integration-runtime-troubleshoot-guide/after-certificate-change.png)
 
 ### Self-hosted integration runtime version 5.x
-For the upgrade to version 5.x of the Azure Data Factory self-hosted integration runtime, we require **.NET Framework Runtime 4.7.2** or later. On the download page, you'll find download links for the latest 4.x version and the latest two 5.x versions. 
+For the upgrade to version 5.x of the self-hosted integration runtime, we require **.NET Framework Runtime 4.7.2** or later. On the download page, you'll find download links for the latest 4.x version and the latest two 5.x versions. 
 
-For Azure Data Factory v2 customers:
+For Azure Data Factory v2 and Azure Synapse customers:
 - If automatic update is on and you've already upgraded your .NET Framework Runtime to 4.7.2 or later, the self-hosted integration runtime will be automatically upgraded to the latest 5.x version.
 - If automatic update is on and you haven't upgraded your .NET Framework Runtime to 4.7.2 or later, the self-hosted integration runtime won't be automatically upgraded to the latest 5.x version. The self-hosted integration runtime will stay in the current 4.x version. You can see a warning for a .NET Framework Runtime upgrade in the portal and the self-hosted integration runtime client.
 - If automatic update is off and you've already upgraded your .NET Framework Runtime to 4.7.2 or later, you can manually download the latest 5.x and install it on your machine.
@@ -494,9 +534,9 @@ For Azure Data Factory v2 customers:
 
 
 For Azure Data Factory v1 customers:
-- Self-hosted integration runtime 5.X doesn’t support Azure Data Factory v1.
+- Self-hosted integration runtime 5.X doesn't support Azure Data Factory v1.
 - The self-hosted integration runtime will be automatically upgraded to the latest version of 4.x. And the latest version of 4.x won't expire. 
-- If you try to manually install self-hosted integration runtime 5.x and register the key, you'll be notified that self-hosted integration runtime 5.x doesn’t support Azure Data Factory v1.
+- If you try to manually install self-hosted integration runtime 5.x and register the key, you'll be notified that self-hosted integration runtime 5.x doesn't support Azure Data Factory v1.
 
 
 ## Self-hosted IR connectivity issues
@@ -513,7 +553,7 @@ When you attempt to register the self-hosted integration runtime, Configuration 
 
 #### Cause 
 
-The self-hosted IR can't connect to the Azure Data Factory service back end. This issue is usually caused by network settings in the firewall.
+The self-hosted IR can't connect to the service back end. This issue is usually caused by network settings in the firewall.
 
 #### Resolution
 
@@ -525,10 +565,10 @@ The self-hosted IR can't connect to the Azure Data Factory service back end. Thi
 
     ```powershell
     (New-Object System.Net.WebClient).DownloadString("https://wu2.frontend.clouddatahub.net/")
-    ```
-        
+    ```      
+
    > [!NOTE]     
-   > The service URL might vary, depending on the location of your data factory instance. To find the service URL, select **ADF UI** > **Connections** > **Integration runtimes** > **Edit Self-hosted IR** > **Nodes** > **View Service URLs**.
+   > The service URL might vary, depending on the location of your data factory or Synapse workspace instance. To find the service URL, use the Manage page of the UI in your data factory or Azure Synapse instance to find **Integration runtimes** and click your self-hosted IR to edit it.  There select the **Nodes** tab and click **View Service URLs**.
             
     The following is the expected response:
             
@@ -614,14 +654,14 @@ This behavior occurs when nodes can't communicate with each other.
     - Put all the nodes in the same domain.
     - Add the IP to host mapping in all the hosted VM's host files.
 
-### Connectivity issue between the self-hosted IR and your data factory instance or the self-hosted IR and the data source or sink
+### Connectivity issue between the self-hosted IR and your data factory or Azure Synapse instance or the self-hosted IR and the data source or sink
 
 To troubleshoot the network connectivity issue, you should know 
 how to collect the network trace, understand how to use it, and [analyze the Microsoft Network Monitor (Netmon) trace](#analyze-the-netmon-trace) before applying the Netmon Tools in real cases from the self-hosted IR.
 
 #### Symptoms
 
-You might occasionally need to troubleshoot certain connectivity issues between the self-hosted IR and your data factory instance, as shown in the following screenshot, or between the self-hosted IR and the data source or sink. 
+You might occasionally need to troubleshoot certain connectivity issues between the self-hosted IR and your data factory or Azure Synapse instance, as shown in the following screenshot, or between the self-hosted IR and the data source or sink. 
 
 ![Screenshot of a "Processed HTTP request failed" message](media/self-hosted-integration-runtime-troubleshoot-guide/http-request-error.png)
 
@@ -733,9 +773,9 @@ This notification applies to the following scenarios:
 
 How to determine whether you're affected:
 
-- You *are not* affected if you're defining firewall rules based on fully qualified domain names (FQDNs) that use the approach described in [Set up a firewall configuration and allow list for IP addresses](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway).
+- You *are not* affected if you're defining firewall rules based on fully qualified domain names (FQDNs) that use the approach described in [Set up a firewall configuration and allowlist for IP addresses](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-addresses).
 
-- You *are* affected if you're explicitly enabling the allow list for outbound IPs on your corporate firewall.
+- You *are* affected if you're explicitly enabling the allowlist for outbound IPs on your corporate firewall.
 
    If you're affected, take the following action: by November 8, 2020, notify your network infrastructure team to update your network configuration to use the latest data factory IP addresses. To download the latest IP addresses, go to [Discover service tags by using downloadable JSON files](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
@@ -749,7 +789,7 @@ How to determine whether you're affected:
 
   ![Screenshot of a destination check showing DataFactory as the destination.](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
 
-- You *are* affected if you're explicitly enabling the allow list for outbound IP addresses on your NSG rules setting on the Azure virtual network.
+- You *are* affected if you're explicitly enabling the allowlist for outbound IP addresses on your NSG rules setting on the Azure virtual network.
 
    If you're affected, take the following action: by November 8, 2020, notify your network infrastructure team to update the NSG rules on your Azure virtual network configuration to use the latest data factory IP addresses. To download the latest IP addresses, go to [Discover service tags by using downloadable JSON files](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
@@ -761,7 +801,7 @@ How to determine whether you're affected:
 
 - If you have outbound rule restrictions, check to see whether you're using service tags. If you're using service tags, you're not affected. There's no need to change or add anything because the new IP range is under your existing service tags.
 
-- You *are* affected if you're explicitly enabling the allow list for outbound IP addresses on your NSG rules setting on the Azure virtual network.
+- You *are* affected if you're explicitly enabling the allowlist for outbound IP addresses on your NSG rules setting on the Azure virtual network.
 
   If you're affected, take the following action: by November 8, 2020, notify your network infrastructure team to update the NSG rules on your Azure virtual network configuration to use the latest data factory IP addresses. To download the latest IP addresses, go to [Discover service tags by using downloadable JSON files](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
@@ -769,13 +809,13 @@ How to determine whether you're affected:
 
 #### Symptoms
 
-The self-hosted IR couldn't connect to the Azure Data Factory service.
+The self-hosted IR couldn't connect to the Azure Data Factory or Azure Synapse service.
 
 When you check the self-hosted IR event log or the client notification logs in the CustomLogEvent table, you'll find the following error message:
 
 "The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel. The remote certificate is invalid according to the validation procedure."
 
-The simplest way to check the server certificate of the Data Factory service is to open the Data Factory service URL in your browser. For example, open the [check server certificate link](https://eu.frontend.clouddatahub.net/) on the machine where the self-hosted IR is installed, and then view the server certificate information.
+The simplest way to check the server certificate of the service is to open the service URL in your browser. For example, open the [check server certificate link](https://eu.frontend.clouddatahub.net/) on the machine where the self-hosted IR is installed, and then view the server certificate information.
 
   ![Screenshot of the check server certificate pane of the Azure Data Factory service.](media/self-hosted-integration-runtime-troubleshoot-guide/server-certificate.png)
 
@@ -785,13 +825,13 @@ The simplest way to check the server certificate of the Data Factory service is 
 
 There are two possible reasons for this issue:
 
-- Reason 1: The root CA of the Data Factory service server certificate isn't trusted on the machine where the self-hosted IR is installed. 
-- Reason 2: You're using a proxy in your environment, the server certificate of the Data Factory service is replaced by the proxy, and the replaced server certificate isn't trusted by the machine where the self-hosted IR is installed.
+- Reason 1: The root CA of the service's server certificate isn't trusted on the machine where the self-hosted IR is installed. 
+- Reason 2: You're using a proxy in your environment, the server certificate of the service is replaced by the proxy, and the replaced server certificate isn't trusted by the machine where the self-hosted IR is installed.
 
 #### Resolution
 
-- For reason 1: Make sure that the Data Factory server certificate and its certificate chain are trusted by the machine where the self-hosted IR is installed.
-- For reason 2: Either trust the replaced root CA on the self-hosted IR machine, or configure the proxy not to replace the Data Factory server certificate.
+- For reason 1: Make sure that the service's server certificate and its certificate chain are trusted by the machine where the self-hosted IR is installed.
+- For reason 2: Either trust the replaced root CA on the self-hosted IR machine, or configure the proxy not to replace the service's server certificate.
 
 For more information about trusting certificates on Windows, see [Installing the trusted root certificate](/skype-sdk/sdn/articles/installing-the-trusted-root-certificate).
 
@@ -802,18 +842,6 @@ We've rolled out a new SSL certificate, which is signed from DigiCert. Check to 
 
 If it isn't in the trusted root CA, [download it here](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt ). 
 
-
-## Self-hosted IR sharing
-
-### Sharing a self-hosted IR from a different tenant is not supported 
-
-#### Symptoms
-
-You might notice other data factories (on different tenants) as you're attempting to share the self-hosted IR from the Azure Data Factory UI, but you can't share it across data factories that are on different tenants.
-
-#### Cause
-
-The self-hosted IR can't be shared across tenants.
 
 ## Next steps
 

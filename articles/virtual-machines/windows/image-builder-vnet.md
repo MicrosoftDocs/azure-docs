@@ -1,38 +1,20 @@
 ---
-title: Create a Windows VM with Azure Image Builder using an existing VNET (preview)
+title: Create a Windows VM with Azure Image Builder using an existing VNET 
 description: Create a Windows VM with the Azure Image Builder using an existing VNET
-author: cynthn
-ms.author: cynthn
-ms.date: 05/29/2020
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.service: virtual-machines-windows
-ms.subservice: imaging
-ms.reviewer: danis
+ms.service: virtual-machines
+ms.subervice: image-builder
+ms.colletion: windows
+ms.custom: devx-track-azurepowershell
 ---
 # Use Azure Image Builder for Windows VMs allowing access to an existing Azure VNET
 
 This article shows you how you can use the Azure Image Builder to create a basic customized Windows image that has access to existing resources on a VNET. The build VM you create is deployed to a new or existing VNET you specify in your subscription. When you use an existing Azure VNET, the Azure Image Builder service does not require public network connectivity.
 
-> [!IMPORTANT]
-> Azure Image Builder is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-## Register the features
-
-First, you must register for the Azure Image Builder Service. Registration grants the service permission to create, manage, and delete a staging resource group. The service also has rights to add resources the group that are required for the image build.
-
-```powershell-interactive
-# Register for Azure Image Builder Feature
-
-Register-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
-
-Get-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
-
-# wait until RegistrationState is set to 'Registered'
-```
 ## Set variables and permissions 
 
 You will be using some pieces of information repeatedly. Create some variables to store that information.
@@ -127,13 +109,13 @@ For more information on Image Builder networking, see [Azure Image Builder Servi
 ## Modify the example template and create role
 
 ```powershell-interactive
-$templateUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1a_Creating_a_Custom_Win_Image_on_Existing_VNET/existingVNETWindows.json"
+$templateUrl="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/1a_Creating_a_Custom_Win_Image_on_Existing_VNET/existingVNETWindows.json"
 $templateFilePath = "existingVNETWindows.json"
 
-$aibRoleNetworkingUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json"
+$aibRoleNetworkingUrl="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json"
 $aibRoleNetworkingPath = "aibRoleNetworking.json"
 
-$aibRoleImageCreationUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
+$aibRoleImageCreationUrl="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
 $aibRoleImageCreationPath = "aibRoleImageCreation.json"
 
 # download configs
@@ -253,7 +235,7 @@ $runOutJsonStatus
 ```
 ## Create a VM
 
-Now the build is finished, you can build a VM from the image. Use the examples from the [PowerShell New-AzVM  documentation](/powershell/module/az.compute/new-azvm?view=azps-2.5.0#description).
+Now the build is finished, you can build a VM from the image. Use the examples from the [PowerShell New-AzVM  documentation](/powershell/module/az.compute/new-azvm#description).
 
 ## Clean Up
 
@@ -291,4 +273,4 @@ Remove-AzResourceGroup $imageResourceGroup -Force
 
 ## Next steps
 
-Learn more about [Azure Shared Image Galleries](shared-image-galleries.md).
+Learn more about [Azure Shared Image Galleries](../shared-image-galleries.md).

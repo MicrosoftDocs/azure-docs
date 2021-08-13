@@ -220,6 +220,21 @@ appInsights.addTelemetryInitializer((envelope) => {
 });
 });
 ```
+
+# [Python](#tab/python)
+
+For Python, [OpenCensus Python telemetry processors](api-filtering-sampling.md#opencensus-python-telemetry-processors) can be used.
+
+```python
+def callback_function(envelope):
+   envelope.tags['ai.cloud.role'] = 'new_role_name'
+   
+# AzureLogHandler
+handler.add_telemetry_processor(callback_function)
+
+# AzureExporter
+exporter.add_telemetry_processor(callback_function)
+```
 ---
 
 ### Understanding cloud role name within the context of the Application Map

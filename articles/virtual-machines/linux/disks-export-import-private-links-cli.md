@@ -2,9 +2,9 @@
 title: Azure CLI - Restrict import/export access to managed disks with Private Links
 description: Enable Private Links for your managed disks with Azure CLI. Allowing you to securely export and import disks within only your virtual network.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: overview
-ms.date: 08/11/2020
+ms.date: 07/15/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
@@ -150,5 +150,7 @@ az snapshot create -n $snapshotNameSecuredWithPL \
 
 ## Next steps
 
-- [FAQ on Private Links](../faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
-- [Export/Copy managed snapshots as VHD to a storage account in different region with CLI](../scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md)
+- Upload a VHD to Azure or copy a managed disk to another region - [Azure CLI](disks-upload-vhd-to-managed-disk-cli.md) or [Azure PowerShell module](../windows/disks-upload-vhd-to-managed-disk-powershell.md)
+- Download a VHD - [Windows](../windows/download-vhd.md) or [Linux](download-vhd.md)
+- [FAQ on Private Links](/azure/virtual-machines//faq-for-disks#private-links-for-securely-exporting-and-importing-managed-disks)
+- [Export/Copy managed snapshots as VHD to a storage account in different region with CLI](/previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-vhd)

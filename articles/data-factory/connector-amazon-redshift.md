@@ -1,13 +1,12 @@
 ---
 title: Copy data from Amazon Redshift
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about how to copy data from Amazon Redshift to supported sink data stores by using Azure Data Factory.
-services: data-factory
-ms.author: jingwang
-author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 12/09/2020
 ---
@@ -42,7 +41,7 @@ Specifically, this Amazon Redshift connector supports retrieving data from Redsh
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Amazon Redshift connector.
 

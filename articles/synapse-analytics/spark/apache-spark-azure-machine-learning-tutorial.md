@@ -19,14 +19,14 @@ In this tutorial, you use [automated machine learning](../../machine-learning/co
 
 In this tutorial, you learn how to:
 - Download the data by using Apache Spark and Azure Open Datasets.
-- Transform and clean data by using Apache Spark dataframes.
-- Train an automated machine learning regression model.
+- Transform and clean data by using Apache Spark DataFrames.
+- Train a regression model in automated machine learning.
 - Calculate model accuracy.
 
 ## Before you begin
 
-- Create a serverless Apache Spark Pool by following the [Create a serverless Apache Spark pool quickstart](../quickstart-create-apache-spark-pool-studio.md).
-- Complete the [Azure Machine Learning workspace setup tutorial](../../machine-learning/tutorial-1st-experiment-sdk-setup.md) if you don't have an existing Azure Machine Learning workspace. 
+- Create a serverless Apache Spark pool by following the [Create a serverless Apache Spark pool](../quickstart-create-apache-spark-pool-studio.md) quickstart.
+- Complete the [Azure Machine Learning workspace setup](../../machine-learning/quickstart-create-resources.md) tutorial if you don't have an existing Azure Machine Learning workspace. 
 
 ## Understand regression models
 
@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 
 ### Example based on New York City taxi data
 
-In this example, you use Spark to perform some analysis on taxi trip tip data from New York City (NYC). The data is available through [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/). This subset of the dataset contains information about yellow taxi trips, including information about each trip, the start and end time and locations, and the cost.
+In this example, you use Spark to perform some analysis on taxi-trip tip data from New York City (NYC). The data is available through [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/). This subset of the dataset contains information about yellow taxi trips, including information about each trip, the start and end time and locations, and the cost.
 
 > [!IMPORTANT]
 > There might be additional charges for pulling this data from its storage location. In the following steps, you develop a model to predict NYC taxi fare prices. 
@@ -48,7 +48,7 @@ Here's how:
     > [!Note]
     > Because of the PySpark kernel, you don't need to create any contexts explicitly. The Spark context is automatically created for you when you run the first code cell.
   
-2. Because the raw data is in a Parquet format, you can use the Spark context to pull the file directly into memory as a dataframe. Create a Spark dataframe by retrieving the data via the Open Datasets API. Here, you use the Spark dataframe `schema on read` properties to infer the datatypes and schema. 
+2. Because the raw data is in a Parquet format, you can use the Spark context to pull the file directly into memory as a DataFrame. Create a Spark DataFrame by retrieving the data via the Open Datasets API. Here, you use the Spark DataFrame `schema on read` properties to infer the datatypes and schema. 
    
     ```python
     blob_account_name = "azureopendatastorage"
@@ -56,16 +56,16 @@ Here's how:
     blob_relative_path = "yellow"
     blob_sas_token = r""
 
-    # Allow Spark to read from Blob remotely
+    # Allow Spark to read from the blob remotely
     wasbs_path = 'wasbs://%s@%s.blob.core.windows.net/%s' % (blob_container_name, blob_account_name, blob_relative_path)
     spark.conf.set('fs.azure.sas.%s.%s.blob.core.windows.net' % (blob_container_name, blob_account_name),blob_sas_token)
 
-    # Spark read parquet, note that it won't load any data yet by now
+    # Spark read parquet; note that it won't load any data yet
     df = spark.read.parquet(wasbs_path)
 
     ```
 
-3. Depending on the size of your Spark pool, the raw data might be too large or take too much time to operate on. You can filter this data down to something smaller by using the ```start_date``` and ```end_date``` filters. This applies a filter that returns a month of data. After you have the filtered dataframe, you also run the ```describe()``` function on the new dataframe to see summary statistics for each field. 
+3. Depending on the size of your Spark pool, the raw data might be too large or take too much time to operate on. You can filter this data down to something smaller, like a month of data, by using the ```start_date``` and ```end_date``` filters. After you filter a DataFrame, you also run the ```describe()``` function on the new DataFrame to see summary statistics for each field. 
 
    Based on the summary statistics, you can see that there are some irregularities in the data. For example, the statistics show that the minimum trip distance is less than 0. You need to filter out these irregular data points.
    
@@ -79,13 +79,13 @@ Here's how:
    filtered_df.describe().show()
    ```
 
-4. Next, generate features from the dataset by selecting a set of columns and creating various time-based features from the pickup datetime field. Filter out the outliers that were identified from the earlier step, and then remove the last few columns because they are unnecessary for training.
+4. Generate features from the dataset by selecting a set of columns and creating various time-based features from the pickup `datetime` field. Filter out the outliers that were identified from the earlier step, and then remove the last few columns because they're unnecessary for training.
    
    ```python
    from datetime import datetime
    from pyspark.sql.functions import *
 
-   # To make development easier, faster and less expensive down sample for now
+   # To make development easier, faster, and less expensive, downsample for now
    sampled_taxi_df = filtered_df.sample(True, 0.001, seed=1234)
 
    taxi_df = sampled_taxi_df.select('vendorID', 'passengerCount', 'tripDistance',  'startLon', 'startLat', 'endLon' \
@@ -105,16 +105,16 @@ Here's how:
    taxi_df.show(10)
    ```
    
-   As you can see, this will create a new dataframe with additional columns for the day of the month, pickup hour, weekday, and total trip time. 
+   As you can see, this will create a new DataFrame with additional columns for the day of the month, pickup hour, weekday, and total trip time. 
 
-   ![Picture of taxi dataframe.](./media/azure-machine-learning-spark-notebook/dataset.png#lightbox)
+   ![Picture of taxi DataFrame.](./media/azure-machine-learning-spark-notebook/dataset.png#lightbox)
 
 ## Generate test and validation datasets
 
-After you have your final dataset, you can split the data into training and test sets by using the ```random_ split ``` function in Spark. Using the provided weights, this function randomly splits the data into the training dataset for model training and the validation dataset for testing.
+After you have your final dataset, you can split the data into training and test sets by using the ```random_ split ``` function in Spark. By using the provided weights, this function randomly splits the data into the training dataset for model training and the validation dataset for testing.
 
 ```python
-# Random split dataset using Spark, convert Spark to Pandas
+# Random split dataset using Spark; convert Spark to pandas
 training_data, validation_data = taxi_df.randomSplit([0.8,0.2], 223)
 
 ```
@@ -138,20 +138,20 @@ ws = Workspace(workspace_name = workspace_name,
 
 ```
 
-## Convert a dataframe to an Azure Machine Learning dataset
-To submit a remote experiment, convert your dataset into an Azure Machine Learning ```TabularDatset```. A [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) represents data in a tabular format by parsing the provided files.
+## Convert a DataFrame to an Azure Machine Learning dataset
+To submit a remote experiment, convert your dataset into an Azure Machine Learning ```TabularDatset``` instance. [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) represents data in a tabular format by parsing the provided files.
 
-The following code gets the existing workspace and the default Azure Machine Learning default datastore. It then passes the datastore and file locations to the path parameter to create a new ```TabularDataset```. 
+The following code gets the existing workspace and the default Azure Machine Learning datastore. It then passes the datastore and file locations to the path parameter to create a new ```TabularDataset``` instance. 
 
 ```python
 import pandas 
 from azureml.core import Dataset
 
-# Get the Azure Machine Learning Default Datastore
+# Get the Azure Machine Learning default datastore
 datastore = ws.get_default_datastore()
 training_pd = training_data.toPandas().to_csv('training_pd.csv', index=False)
 
-# Convert into Azure Machine Learning Tabular Dataset
+# Convert into an Azure Machine Learning tabular dataset
 datastore.upload_files(files = ['training_pd.csv'],
                        target_path = 'train-dataset/tabular/',
                        overwrite = True,
@@ -210,12 +210,12 @@ local_run = experiment.submit(automl_config, show_output=True, tags = tags)
 # Use the get_details function to retrieve the detailed output for the run.
 run_details = local_run.get_details()
 ```
-When the experiment has completed, the output returns details about the completed iterations. For each iteration, you see the model type, the run duration, and the training accuracy. The **BEST** field tracks the best-running training score based on your metric type.
+When the experiment has finished, the output returns details about the completed iterations. For each iteration, you see the model type, the run duration, and the training accuracy. The `BEST` field tracks the best-running training score based on your metric type.
 
 ![Screenshot of model output.](./media/azure-machine-learning-spark-notebook/model-output.png)
 
 > [!NOTE]
-> After you submit the automated machine learning experiment, it runs various iterations and model types. This run typically takes 60-90 minutes. 
+> After you submit the automated machine learning experiment, it runs various iterations and model types. This run typically takes 60 to 90 minutes. 
 
 ### Retrieve the best model
 To select the best model from your iterations, use the ```get_output``` function to return the best run and fitted model. The following code retrieves the best run and fitted model for any logged metric or a particular iteration.
@@ -226,7 +226,7 @@ best_run, fitted_model = local_run.get_output()
 ```
 
 ### Test model accuracy
-1. To test the model accuracy, use the best model to run taxi fare predictions on the test dataset. The ```predict``` function uses the best model and predicts the values of y (fare amount) from the validation dataset. 
+1. To test the model accuracy, use the best model to run taxi fare predictions on the test dataset. The ```predict``` function uses the best model and predicts the values of `y` (fare amount) from the validation dataset. 
 
    ```python
    # Test best model accuracy
@@ -235,15 +235,15 @@ best_run, fitted_model = local_run.get_output()
    y_predict = fitted_model.predict(validation_data_pd)
    ```
 
-1. The root-mean-square error is a frequently used measure of the differences between sample values predicted by a model and the values observed. You calculate the root-mean-square error of the results by comparing the `y_test` dataframe to the values predicted by the model. 
+1. The root-mean-square error is a frequently used measure of the differences between sample values predicted by a model and the values observed. You calculate the root-mean-square error of the results by comparing the `y_test` DataFrame to the values predicted by the model. 
 
-   The function ```mean_squared_error``` takes two arrays and calculates the average squared error between them. You then take the square root of the result. This metric indicates roughly how far the taxi fare predictions are from the actual fares values.
+   The function ```mean_squared_error``` takes two arrays and calculates the average squared error between them. You then take the square root of the result. This metric indicates roughly how far the taxi fare predictions are from the actual fare values.
 
    ```python
    from sklearn.metrics import mean_squared_error
    from math import sqrt
 
-   # Calculate Root Mean Square Error
+   # Calculate root-mean-square error
    y_actual = y_test.values.flatten().tolist()
    rmse = sqrt(mean_squared_error(y_actual, y_predict))
 
@@ -257,10 +257,10 @@ best_run, fitted_model = local_run.get_output()
    ```
    The root-mean-square error is a good measure of how accurately the model predicts the response. From the results, you see that the model is fairly good at predicting taxi fares from the dataset's features, typically within $2.00.
 
-1. Run the following code to calculate the mean-absolute-percent error. This metric expresses accuracy as a percentage of the error. It does this by calculating an absolute difference between each predicted and actual value and then summing all the differences. Then, it expresses that sum as a percent of the total of the actual values.
+1. Run the following code to calculate the mean-absolute-percent error. This metric expresses accuracy as a percentage of the error. It does this by calculating an absolute difference between each predicted and actual value and then summing all the differences. Then, it expresses that sum as a percentage of the total of the actual values.
 
    ```python
-   # Calculate MAPE and Model Accuracy 
+   # Calculate mean-absolute-percent error and model accuracy 
    sum_actuals = sum_errors = 0
 
    for actual_val, predict_val in zip(y_actual, y_predict):
@@ -296,26 +296,26 @@ best_run, fitted_model = local_run.get_output()
    import numpy as np
    from sklearn.metrics import mean_squared_error, r2_score
 
-   # Calculate the R2 score using the predicted and actual fare prices
+   # Calculate the R2 score by using the predicted and actual fare prices
    y_test_actual = y_test["fareAmount"]
    r2 = r2_score(y_test_actual, y_predict)
 
-   # Plot the Actual vs Predicted Fare Amount Values
+   # Plot the actual versus predicted fare amount values
    plt.style.use('ggplot')
    plt.figure(figsize=(10, 7))
    plt.scatter(y_test_actual,y_predict)
    plt.plot([np.min(y_test_actual), np.max(y_test_actual)], [np.min(y_test_actual), np.max(y_test_actual)], color='lightblue')
    plt.xlabel("Actual Fare Amount")
    plt.ylabel("Predicted Fare Amount")
-   plt.title("Actual vs Predicted Fare Amont R^2={}".format(r2))
+   plt.title("Actual vs Predicted Fare Amount R^2={}".format(r2))
    plt.show()
 
    ```
-   ![Screenshot of regression plot.](./media/azure-machine-learning-spark-notebook/fare-amount.png)
+   ![Screenshot of a regression plot.](./media/azure-machine-learning-spark-notebook/fare-amount.png)
 
-   From the results, you can see that the R-squared measure accounts for 95 percent of the variance. This is also validated by the actual plot versus the observed plot. The more variance that's accounted for by the regression model, the closer the data points will fall to the fitted regression line.  
+   From the results, you can see that the R-squared measure accounts for 95 percent of the variance. This is also validated by the actual plot versus the observed plot. The more variance that the regression model accounts for, the closer the data points will fall to the fitted regression line.  
 
-## Register model to Azure Machine Learning
+## Register the model to Azure Machine Learning
 After you've validated your best model, you can register it to Azure Machine Learning. Then, you can download or deploy the registered model and receive all the files that you registered.
 
 ```python
@@ -328,9 +328,9 @@ print(model.name, model.version)
 NYCGreenTaxiModel 1
 ```
 ## View results in Azure Machine Learning
-Last, you can also access the results of the iterations by going to the experiment in your Azure Machine Learning workspace. Here, you can dig into additional details on the status of your run, attempted models, and other model metrics. 
+You can also access the results of the iterations by going to the experiment in your Azure Machine Learning workspace. Here, you can get additional details on the status of your run, attempted models, and other model metrics. 
 
-![Screenshot of Azure Machine Learning workspace.](./media/azure-machine-learning-spark-notebook/azure-machine-learning-workspace.png)
+![Screenshot of an Azure Machine Learning workspace.](./media/azure-machine-learning-spark-notebook/azure-machine-learning-workspace.png)
 
 ## Next steps
 - [Azure Synapse Analytics](../index.yml)

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 07/16/2020
+ms.date: 06/17/2021
 ms.author: aahi
 ---
 
@@ -24,15 +24,21 @@ Use the table below to find which model versions are supported by each hosted en
 | Endpoint                        | Supported Versions                                     | latest version |
 |---------------------------------|--------------------------------------------------------|----------------|
 | `/sentiment`                    | `2019-10-01`, `2020-04-01`                             | `2020-04-01`   |
-| `/languages`                    | `2019-10-01`, `2020-07-01`, `2020-09-01`               | `2020-09-01`   |
+| `/languages`                    | `2019-10-01`, `2020-07-01`, `2020-09-01`, `2021-01-05` | `2021-01-05`   |
 | `/entities/linking`             | `2019-10-01`, `2020-02-01`                             | `2020-02-01`   |
-| `/entities/recognition/general` | `2019-10-01`, `2020-02-01`, `2020-04-01`,              | `2020-04-01`   |
-| `/entities/recognition/pii`     | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2020-07-01`  | `2020-07-01`   |
-| `/entities/health`              | `2020-09-03`                           | `2020-09-03`   |
-| `/keyphrases`                   | `2019-10-01`, `2020-07-01`                             | `2020-07-01`   |
+| `/entities/recognition/general` | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2021-01-15`,`2021-06-01`  | `2021-06-01`   |
+| `/entities/recognition/pii`     | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2020-07-01`, `2021-01-15`  | `2021-01-15`   |
+| `/entities/health`              | `2021-05-15`                           | `2021-05-15`   |
+| `/keyphrases`                   | `2019-10-01`, `2020-07-01`, `2021-06-01`  | `2021-06-01`   |
 
 
 You can find details about the updates for these models in [What's new](../whats-new.md).
+
+## Extractive summarization
+
+Extractive summarization is available starting in `version 3.1-preview.1` by using the asynchronous `analyze` endpoint. 
+
+The current model version is: `2021-08-01`
 
 ## Text Analytics for health
 
@@ -40,7 +46,9 @@ The [Text Analytics for Health](../how-tos/text-analytics-for-health.md) contain
 
 | Endpoint                        | Container Image Tag                     | Model version |
 |---------------------------------|-----------------------------------------|---------------|
-| `/entities/health`              | `1.1.013530001-amd64-preview` or latest          | `2020-09-03`  |
+| `/entities/health`              | `3.0.016230002-onprem-amd64` or latest            | `2021-05-15`  |
+| `/entities/health`              | `3.0.015370001-onprem-amd64`            | `2021-03-01`  |
+| `/entities/health`              | `1.1.013530001-amd64-preview`           | `2020-09-03`  |
 | `/entities/health`              | `1.1.013150001-amd64-preview`           | `2020-07-24`  |
 | `/domains/health`               | `1.1.012640001-amd64-preview`           | `2020-05-08`  |
 | `/domains/health`               | `1.1.012420001-amd64-preview`           | `2020-05-08`  |

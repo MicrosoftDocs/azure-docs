@@ -1,32 +1,28 @@
 ---
-title: Script to enable Kdump in SAP HANA (Large Instances)| Microsoft Docs
-description: Script to enable Kdump in SAP HANA (Large Instances) HLI Type I, HLI Type II
+title: Script to enable kdump in SAP HANA (Large Instances)| Microsoft Docs
+description: Learn how to enable the kdump service on Azure HANA Large Instances Type I and Type II.
 services: virtual-machines-linux
 documentationcenter:
-author: prtyag
-manager: hrushib
+author: Ajayan1008
+manager: juergent
 editor:
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
+ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/30/2020
-ms.author: prtyag
+ms.date: 06/22/2021
+ms.author: madhukan
 ms.custom: H1Hack27Feb2017
 
 ---
 
-# Kdump for SAP HANA on Azure Large Instances (HLI)
+# kdump for SAP HANA on Azure Large Instances
 
-Configuring and enabling kdump is a step that is needed to troubleshoot system crashes that do not have a clear cause.
-There are times when a system will unexpectedly crash that cannot be explained by a hardware or infrastructure problem.
-In these cases it can be an operating system or application problem and kdump will allow SUSE to determine why a system crashed.
+In this article, we'll walk through enabling the kdump service on Azure HANA Large
+Instances (HLI) **Type I and Type II**.
 
-## Enable Kdump service
-
-This document describes the details on how to enable Kdump service on Azure HANA Large
-Instance(**Type I and Type II**)
+Configuring and enabling kdump is needed to troubleshoot system crashes that don't have a clear cause. Sometimes a system crash cannot be explained by a hardware or infrastructure problem. In such cases, an operating system or application may have caused the problem. kdump will allow SUSE to determine the reason for the system crash.
 
 ## Supported SKUs
 
@@ -61,33 +57,34 @@ Instance(**Type I and Type II**)
 
 ## Prerequisites
 
-- Kdump service uses `/var/crash` directory to write dumps, make sure the partition corresponds to this directory has sufficient space to accommodate dumps.
+- The kdump service uses the `/var/crash` directory to write dumps. Make sure the partition corresponding to this directory has sufficient space to accommodate dumps.
 
 ## Setup details
 
-- Script to enable Kdump can be found [here](https://github.com/Azure/sap-hana/blob/master/tools/enable-kdump.sh)
-> [!NOTE]
-> this script is made based on our lab setup and Customer is expected to contact OS vendor for any further tuning.
-> Separate LUN is going to be provisioned for the new and existing servers for saving the dumps and script will take care of configuring the file system out of the LUN.
-> Microsoft will not be responsible for analyzing the dump. Customer has to open a ticket with OS vendor to get it analyzed.
+- The script to enable kdump can be found in the [Azure sap-hana-tools on GitHub](https://github.com/Azure/sap-hana-tools/blob/master/tools/enable-kdump.sh)
 
-- Run this script on HANA Large Instance using the below command
+> [!NOTE]
+> This script is made based on our lab setup. You will need to contact your OS vendor for any further tuning.
+> A separate logical unit number (LUN) will be provisioned for new and existing servers for saving the dumps. A script will take care of configuring the file system out of the LUN.
+> Microsoft won't be responsible for analyzing the dump. You will need to open a ticket with your OS vendor to have it analyzed.
+
+- Run this script on your HANA Large Instance by using the following command:
 
     > [!NOTE]
-    > sudo privilege needed to run this command.
+    > Sudo privileges are needed to run this command.
 
     ```bash
     sudo bash enable-kdump.sh
     ```
 
-- If the command outputs Kdump is successfully enabled, please make sure to reboot the system to apply the changes successfully.
+- If the command's output shows kdump is successfully enabled, reboot the system to apply the changes.
 
-- If the command output is Failed to do certain operation, Exiting!!!!, then Kdump service is not enabled. Refer to section [Support issue](#support-issue).
+- If the command's output shows an operation failed, then the kdump service isn't enabled. Refer to a following section, [Support issues](#support-issues).
 
-## Test Kdump
+## Test kdump
 
 > [!NOTE]
->  Below operation will trigger a kernel crash and system reboot.
+>  The following operation will trigger a kernel crash and system reboot.
 
 - Trigger a kernel crash
 
@@ -97,11 +94,11 @@ Instance(**Type I and Type II**)
 
 - After the system reboots successfully, check the `/var/crash` directory for kernel crash logs.
 
-- If the `/var/crash` has directory with current date, then the Kdump is successfully enabled.
+- If the `/var/crash` has a directory with the current date, kdump is successfully enabled.
 
-## Support issue
+## Support issues
 
-If the script fails with an error or Kdump isn't enabled, raise service request with Microsoft support team with following details.
+If the script fails with an error, or kdump isn't enabled, raise a service request with the Microsoft support team. Include the following details:
 
 * HLI subscription ID
 
@@ -113,5 +110,11 @@ If the script fails with an error or Kdump isn't enabled, raise service request 
 
 * Kernel version
 
-## Related Documents
-- To know more on [configuring the kdump](https://www.suse.com/support/kb/doc/?id=3374462)
+For more information, see [configuring the kdump](https://www.suse.com/support/kb/doc/?id=3374462).
+
+## Next steps
+
+Learn about operating system upgrades on HANA Large Instances.
+
+> [!div class="nextstepaction"]
+> [Operating system upgrades](os-upgrade-hana-large-instance.md)

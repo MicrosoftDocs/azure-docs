@@ -65,7 +65,7 @@ App Service has [built-in continuous delivery](deploy-continuous-deployment.md) 
 
 ### Use GitHub Actions
 
-You can also automate your container deployment [with GitHub Actions](deploy-container-github-action.md).  The workflow file below will build and tag the container with the commit ID, push it to a container registry, and update the specified site slot with the new image tag.
+You can also automate your container deployment [with GitHub Actions](./deploy-ci-cd-custom-container.md).  The workflow file below will build and tag the container with the commit ID, push it to a container registry, and update the specified site slot with the new image tag.
 
 ```yaml
 name: Build and deploy a container image to Azure Web Apps
@@ -109,7 +109,7 @@ jobs:
 
 The steps listed earlier apply to other automation utilities such as CircleCI or Travis CI. However, you need to use the Azure CLI to update the deployment slots with new image tags in the final step. To use the Azure CLI in your automation script, generate a Service Principal using the following command.
 
-```shell
+```azurecli
 az ad sp create-for-rbac --name "myServicePrincipal" --role contributor \
    --scopes /subscriptions/{subscription}/resourceGroups/{resource-group} \
    --sdk-auth
@@ -153,3 +153,7 @@ For more information on best practices, visit [App Service Diagnostics](./overvi
 - Click **Best Practices for Availability & Performance** or **Best Practices for Optimal Configuration** to view the current state of your app in regards to these best practices.
 
 You can also use this link to directly open App Service Diagnostics for your resource: `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`.
+
+## More resources
+
+[Environment variables and app settings reference](reference-app-settings.md)

@@ -4,27 +4,26 @@ description: Learn how to access all usage and metered billing metrics for offer
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 11/09/2020
-author: sayantanroy83
-ms.author: sroy
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
+ms.date: 07/15/2021
 ---
 
 # Usage dashboard in commercial marketplace analytics
 
 This article provides information on the Usage dashboard in Partner Center. This dashboard displays all virtual machine (VM) offers normalized usage, raw usage, and metered billing metrics in three separate tabs: VM Normalized usage, VM Raw usage, and metered billing usage.
 
-To access the Usage dashboard in Partner Center, under **Commercial Marketplace**, select **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** > **Usage**.
-
 >[!NOTE]
-> For detailed definitions of analytics terminology, see [Commercial marketplace analytics terminology and common questions](./analytics-faq.md).
+> For detailed definitions of analytics terminology, see [Commercial marketplace analytics terminology and common questions](./analytics-faq.yml).
 
 ## Usage dashboard
 
-The **Usage** dashboard in the **Analyze** menu displays the current orders for all your software as a service (SaaS) offers. You can view graphical representations of the following items:
+The [Usage dashboard](https://go.microsoft.com/fwlink/?linkid=2166106) displays the current orders for all your software as a service (SaaS) offers. You can view graphical representations of the following items:
 
 - Usage trend
 - Normalized usage by offers
-- Normalized usage by other dimensions: VM Size, Sales Channels and Offer Types
+- Normalized usage by other dimensions: VM Size, Sales Channels, and Offer Types
 - Usage by geography
 - Detailed usage table
 - Orders page filters
@@ -35,6 +34,8 @@ The **Usage** dashboard in the **Analyze** menu displays the current orders for 
 ## Elements of the Usage dashboard
 
 The following sections describe how to use the Usage dashboard and how to read the data.
+
+To access the Usage dashboard in Partner Center, under **Commercial Marketplace**, select **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** > **Usage**.
 
 ### Month range
 
@@ -57,7 +58,7 @@ There are two representations of usage hours: VM normalized usage and VM raw usa
 
 This section provides the total usage hours and trend for your usage-based offers in Azure Marketplace. The Normalized usage by offers chart is described below.
 
-- The **normalized usage by offers** stacked column chart displays a breakdown of normalized usage hours for the top 5 offers according to the selected computation period. The top five offers are displayed in a graph, while the rest are grouped in the **Rest All** category.
+- The **normalized usage by offers** stacked column chart displays a breakdown of normalized usage hours for the top five offers according to the selected computation period. The top five offers are displayed in a graph, while the rest are grouped in the **Rest All** category.
 - The stacked column chart depicts a month-by-month growth trend for the selected date range. The month columns represent usage hours from the offers with the highest usage hours for the respective month. The line chart depicts the growth percentage trend plotted on the secondary Y-axis.
 - You can select specific offers in the legend to display only those offers in the graph.
 
@@ -112,46 +113,53 @@ The **usage details** table displays a numbered list of the top 1,000 usage reco
 
 _**Table 1: Dictionary of data terms**_
 
-| Column name | Attribute name | Definition |
-| ------------ | ------------- | ------------- |
-| Marketplace Subscription Id | Marketplace Subscription ID | The unique identifier associated with the Azure subscription the customer used to purchase your commercial marketplace offer. ID was formerly the Azure Subscription GUID. |
-| MonthStartDate | Month Start Date | Month Start Date represents the month of Purchase. |
-| Offer Type | Offer Type | The type of commercial marketplace offering. |
-| Azure License Type | Azure License Type | The type of licensing agreement used by customers to purchase Azure. Also known as the Channel. The possible values are:<ui><li>Cloud Solution Provider</li><li>Enterprise</li><li>Enterprise through Reseller</li><li>Pay as You Go</li></ul> |
-| Marketplace License Type | Marketplace License Type | The billing method of the commercial marketplace offer. The possible values are:<ul><li>Billed Through Azure</li><li>Bring Your Own License</li><li>Free</li><li>Microsoft as Reseller</li></ul> |
-| SKU | SKU | The plan associated with the offer. |
-| Customer Country | Customer Country/Region | The country/region name provided by the customer. Country/region could be different than the country/region in a customer's Azure subscription. |
-| Is Preview SKU | Is Preview SKU | The value shows if you have tagged the SKU as "preview". Value will be "Yes" if the SKU has been tagged accordingly, and only Azure subscriptions authorized by you can deploy and use this image. Value will be "No" if the SKU has not been identified as "preview". |
-| SKU Billing Type | SKU Billing Type | The Billing type associated with each SKU in the offer. The possible values are:<ul><li>Free</li><li>Paid</li></ul> |
-| IsInternal | Deprecated | Deprecated |
-| VM Size | Virtual Machine Size | For VM based offer types, this entity signifies the size of the VM associated with the SKU of the offer. |
-| Cloud Instance Name | Cloud Instance Name | The Microsoft Cloud in which a VM deployment occurred. |
-| ServicePlanName | Deprecated | Deprecated (Same definition as SKU) |
-| Offer Name | Offer Name | The name of the commercial marketplace offering. |
-| DeploymentMethod | Deprecated | Deprecated (Same definition as Offer type)
- |
-| Customer Company Name | Customer Company Name | The company name provided by the customer. The name could be different than the city in a customer's Azure subscription. |
-| Usage Date | Usage Date | The date of usage event generation for usage-based assets. |
-| IsMultisolution | Is Multisolution | Signifies whether the offer is a Multisolution offer type. |
-| Is New Customer | Deprecated | Deprecated |
-| Core Size | Core Size | Number of cores associated with the VM-based offer. |
-| Usage Type | Usage Type | Signifies whether the usage event associated with the offer is one of the following:<ul><li>Normalized usage</li><li>Raw usage</li><li>Metered usage</li></ul> |
-| Trial End Date | Trial End Date | The date the trial period for this order will end or has ended. |
-| Customer Currency (CC) | Customer Currency | The currency used by the customer for the commercial marketplace transaction. |
-| Price (CC) | Price | Unit price of the SKU shown in customer currency. |
-| Payout Currency (PC) | Payout Currency | Publisher is paid for the usage events associated with the asset in the currency configured by the publisher. |
-| Estimated Price (PC) | Estimated Price | Unit price of the SKU in the currency configured by the publisher. |
-| Usage Reference | Usage Reference | A concatenated GUID that is used to connect the Usage Report (in commercial marketplace analytics) with the Payout transaction report. Usage Reference is connected with OrderId and LineItemId in the Payout transaction report. |
-| Usage Unit | Usage Unit | Unit of consumption associated with the SKU. |
-| Customer Id | Customer ID | The unique identifier assigned to a customer. A customer may have zero or more Azure Marketplace subscriptions. |
-| Billing Account Id | Billing Account ID | The identifier of the account on which billing is generated. Map **Billing Account ID** to **customerID** to connect your Payout Transaction Report with the Customer, Order, and Usage Reports. |
-| Usage Quantity | Usage Quantity | The total usage units consumed by the asset which is deployed by the customer.<br>This is based on Usage type item. For example, if the Usage Type is Normalized usage, then Usage Quantity is for Normalized Usage. |
-| NormalizedUsage | Normalized Usage | The total normalized usage units consumed by the asset which is deployed by the customer.<br>Normalized usage hours are defined as the usage hours normalized to account for the number of VM cores ([number of VM cores] x [hours of raw usage]). VMs designated as "SHAREDCORE" use 1/6 (or 0.1666) as the [number of VM cores] multiplier. |
-| MeteredUsage | Metered Usage | The total usage units consumed by the meters that are configured with the offer which is deployed by the customer. |
-| RawUsage | Raw Usage | The total raw usage units consumed by the asset which is deployed by the customer.<br>Raw usage hours are defined as the amount of time VMs have been running in terms of usage units. |
-| Estimated Extended Charge (CC) | Estimated Extended Charge in Customer Currency | Signifies the charges associated with the usage. The column is the product of Price (CC) and Usage Quantity. |
-| Estimated Extended Charge (PC) | Estimated Extended Charge in Payout Currency | Signifies the charges associated with the usage. The column is the product of Estimated Price (PC) and Usage Quantity. |
-||||
+| Column name in<br>user interface | Attribute name | Definition | Column name in programmatic<br>access reports |
+| ------------ | ------------- | ------------- | ------------- |
+| Marketplace Subscription ID | Marketplace Subscription ID | The unique identifier associated with the Azure subscription the customer used to purchase your commercial marketplace offer. ID was formerly the Azure Subscription GUID. | MarketplaceSubscriptionId |
+| MonthStartDate | Month Start Date | Month Start Date represents the month of Purchase. | MonthStartDate |
+| Offer Type | Offer Type | The type of commercial marketplace offering. | OfferType |
+| Azure License Type | Azure License Type | The type of licensing agreement used by customers to purchase Azure. Also known as the Channel. The possible values are:<ul><li>Cloud Solution Provider</li><li>Enterprise</li><li>Enterprise through Reseller</li><li>Pay as You Go</li></ul> | AzureLicenseType |
+| Marketplace License Type | Marketplace License Type | The billing method of the commercial marketplace offer. The possible values are:<ul><li>Billed Through Azure</li><li>Bring Your Own License</li><li>Free</li><li>Microsoft as Reseller</li></ul> | MarketplaceLicenseType |
+| SKU | SKU | The plan associated with the offer. | SKU |
+| Customer Country | Customer Country/Region | The country/region name provided by the customer. Country/region could be different than the country/region in a customer's Azure subscription. | CustomerCountry |
+| Is Preview SKU | Is Preview SKU | The value shows if you have tagged the SKU as "preview". Value will be "Yes" if the SKU has been tagged accordingly, and only Azure subscriptions authorized by you can deploy and use this image. Value will be "No" if the SKU has not been identified as "preview". | IsPreviewSKU |
+| SKU Billing Type | SKU Billing Type | The Billing type associated with each SKU in the offer. The possible values are:<ul><li>Free</li><li>Paid</li></ul> | SKUBillingType |
+| IsInternal | Deprecated | Deprecated | Deprecated |
+| VM Size | Virtual Machine Size | For VM-based offer types, this entity signifies the size of the VM associated with the SKU of the offer. | VMSize |
+| Cloud Instance Name | Cloud Instance Name | The Microsoft Cloud in which a VM deployment occurred. | CloudInstanceName |
+| ServicePlanName | Deprecated | Deprecated (Same definition as SKU) | ServicePlanName |
+| Offer Name | Offer Name | The name of the commercial marketplace offering. | OfferName |
+| DeploymentMethod | Deprecated | Deprecated (Same definition as Offer type) | DeploymentMethod |
+| Customer Company Name | Customer Company Name | The company name provided by the customer. The name could be different than the name in a customer's Azure subscription. | CustomerCompanyName |
+| Usage Date | Usage Date | The date of usage event generation for usage-based assets. | UsageDate |
+| IsMultisolution | Is Multisolution | Signifies whether the offer is a Multisolution offer type. | IsMultisolution |
+| Is New Customer | Deprecated | Deprecated | IsNewCustomer |
+| Core Size | Core Size | Number of cores associated with the VM-based offer. | CoreSize |
+| Usage Type | Usage Type | Signifies whether the usage event associated with the offer is one of the following:<ul><li>Normalized usage</li><li>Raw usage</li><li>Metered usage</li></ul> | UsageType |
+| Trial End Date | Trial End Date | The date the trial period for this order will end or has ended. | TrialEndDate |
+| Customer Currency (CC) | Customer Currency | The currency used by the customer for the commercial marketplace transaction. | CustomerCurrencyCC |
+| Price (CC) | Price | Unit price of the SKU shown in customer currency. | PriceCC |
+| Payout Currency (PC) | Payout Currency | Publisher is paid for the usage events associated with the asset in the currency configured by the publisher. | PayoutCurrencyPC |
+| Estimated Price (PC) | Estimated Price | Unit price of the SKU in the currency configured by the publisher. | EstimatedPricePC |
+| Usage Reference | Usage Reference | A concatenated GUID that is used to connect the Usage Report (in commercial marketplace analytics) with the Payout transaction report. Usage Reference is connected with OrderId and LineItemId in the Payout transaction report. | UsageReference |
+| Usage Unit | Usage Unit | Unit of consumption associated with the SKU. | UsageUnit |
+| Customer ID | Customer ID | The unique identifier assigned to a customer. A customer may have zero or more Azure Marketplace subscriptions. | CustomerId |
+| Billing Account ID | Billing Account ID | The identifier of the account on which billing is generated. Map **Billing Account ID** to **customerID** to connect your Payout Transaction Report with the Customer, Order, and Usage Reports. | BillingAccountId |
+| Usage Quantity | Usage Quantity | The total usage units consumed by the asset that is deployed by the customer.<br>This is based on Usage type item. For example, if the Usage Type is Normalized usage, then Usage Quantity is for Normalized Usage. | UsageQuantity |
+| NormalizedUsage | Normalized Usage | The total normalized usage units consumed by the asset that is deployed by the customer.<br>Normalized usage hours are defined as the usage hours normalized to account for the number of VM cores ([number of VM cores] x [hours of raw usage]). VMs designated as "SHAREDCORE" use 1/6 (or 0.1666) as the [number of VM cores] multiplier. | NormalizedUsage |
+| MeteredUsage | Metered Usage | The total usage units consumed by the meters that are configured with the offer that is deployed by the customer. | MeteredUsage |
+| RawUsage | Raw Usage | The total raw usage units consumed by the asset that is deployed by the customer.<br>Raw usage hours are defined as the amount of time VMs have been running in terms of usage units. | RawUsage |
+| Estimated Extended Charge (CC) | Estimated Extended Charge in Customer Currency | Signifies the charges associated with the usage. The column is the product of Price (CC) and Usage Quantity. | EstimatedExtendedChargeCC |
+| Estimated Extended Charge (PC) | Estimated Extended Charge in Payout Currency | Signifies the charges associated with the usage. The column is the product of Estimated Price (PC) and Usage Quantity. | EstimatedExtended ChargePC |
+| Meter Id | Meter Id | Signifies the meter ID for the offer. | MeterId |
+| Partner Center Detected Anomaly | Partner Center Detected Anomaly | **Applicable for offers with custom meter dimensions**.<br>Signifies whether the publisher reported overage usage for the offer’s custom meter dimension that was is flagged as an anomaly by Partner Center.The possible values are: <ul><li>0 (Not an anomaly)</li><li>1 (Anomaly)</li></ul>_If the publisher doesn’t have offers with custom meter dimensions, and exports this column through programmatic access, then the value will be null._ | PartnerCenterDetectedAnomaly |
+| Publisher Marked Anomaly | Publisher Marked Anomaly | **Applicable for offers with custom meter dimensions**.<br>Signifies whether the publisher acknowledged the overage usage by the customer for the offer’s custom meter dimension as genuine or false. The possible values are:<ul><li>0 (Publisher has marked it as not an anomaly)</li><li>1 (Publisher has marked it as an anomaly)</li></ul>_If the publisher doesn’t have offers with custom meter dimensions, and exports this column through programmatic access, then the value will be null._ | PublisherMarkedAnomaly |
+| New Reported Usage | New Reported Usage | **Applicable for offers with custom meter dimensions**.<br>For overage usage by the customer for the offer’s custom meter dimension identified as anomalous by the publisher. This field specifies the new overage usage reported by the publisher.<br>_If the publisher doesn’t have offers with custom meter dimensions, and exports this column through programmatic access, then the value will be null._ | NewReportedUsage |
+| Action Taken At | Action Taken At | **Applicable for offers with custom meter dimensions**.<br>Specifies the time when the publisher acknowledged the overage usage by the customer for the offer’s custom meter dimension as genuine or false.<br>_If the publisher doesn’t have offers with custom meter dimensions, and exports this column through programmatic access, then the value will be null._ | ActionTakenAt |
+| Action Taken By | Action Taken By | **Applicable for offers with custom meter dimensions**.<br>Specifies the person who acknowledged the overage usage by the customer for the offer’s custom meter dimension as genuine or false.<br>_If the publisher doesn’t have offers with custom meter dimensions, and exports this column through programmatic access, then the value will be null._ | ActionTakenBy |
+| Estimated Financial Impact (USD) | Estimated Financial Impact in USD | **Applicable for offers with custom meter dimensions**.<br>When Partner Center flags an overage usage by the customer for the offer’s custom meter dimension as anomalous, the field specifies the estimated financial impact (in USD) of the anomalous overage usage.<br>_If the publisher doesn’t have offers with custom meter dimensions, and exports this column through programmatic means, then the value will be null._ | EstimatedFinancialImpactUSD |
+| N/A | Resource Id | The fully qualified ID of the resource, including the resource name and resource type. Note that this is a data field available in download reports only.<br>Use the format:<br> /subscriptions/{guid}/resourceGroups/{resource-group-name}/{resource-provider-namespace}/{resource-type}/{resource-name} | N/A |
+|||||
 
 ### Usage page filters
 
@@ -183,10 +191,10 @@ If you have multiple offers that use custom meters, the metered billing usage re
 
 ## Next steps
 
-- For an overview of analytics reports available in the commercial marketplace, see [Access analytic reports for the commercial marketplace in Partner Center](./partner-center-portal/analytics.md).
+- For an overview of analytics reports available in the commercial marketplace, see [Access analytic reports for the commercial marketplace in Partner Center](analytics.md).
 - For graphs, trends, and values of aggregate data that summarize marketplace activity for your offer, see [Summary Dashboard in commercial marketplace analytics](./summary-dashboard.md).
 - For information about your orders in a graphical and downloadable format, see [Orders Dashboard in commercial marketplace analytics](./orders-dashboard.md)
 - For virtual machine (VM) offers usage and metered billing metrics, see [Usage Dashboard in commercial marketplace analytics](usage-dashboard.md).
-- For a list of your download requests over the last 30 days, see [Downloads dashboard in commercial marketplace analytics](./partner-center-portal/downloads-dashboard.md).
-- To see a consolidated view of customer feedback for offers on Azure Marketplace and Microsoft AppSource, see [Ratings & Reviews analytics dashboard in Partner Center](./partner-center-portal/ratings-reviews.md).
-- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Commercial marketplace analytics terminology and common questions](./analytics-faq.md).
+- For a list of your download requests over the last 30 days, see [Downloads dashboard in commercial marketplace analytics](downloads-dashboard.md).
+- To see a consolidated view of customer feedback for offers on Azure Marketplace and Microsoft AppSource, see [Ratings & Reviews analytics dashboard in Partner Center](ratings-reviews.md).
+- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Commercial marketplace analytics terminology and common questions](./analytics-faq.yml).

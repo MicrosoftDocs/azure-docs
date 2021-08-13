@@ -2,14 +2,12 @@
 title: Troubleshoot Azure Automation State Configuration issues
 description: This article tells how to troubleshoot and resolve Azure Automation State Configuration issues.
 services: automation
-ms.service: automation
 ms.subservice:
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/16/2019
-ms.topic: conceptual
-manager: carmonm
+ms.topic: troubleshooting 
+ms.custom: devx-track-azurepowershell
 ---
+
 # Troubleshoot Azure Automation State Configuration issues
 
 This article provides information on troubleshooting and resolving issues that arise while you compile or deploy configurations in Azure Automation State Configuration. For general information about the State Configuration feature, see [Azure Automation State Configuration overview](../automation-dsc-overview.md).
@@ -36,7 +34,7 @@ The [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) module can 
 
 You can install the `xDscDiagnostics` module on your local machine by following the instructions in [Install the stable version module](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module).
 
-To install the `xDscDiagnostics` module on your Azure machine, use [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0). You can also use the **Run command** option in the Azure portal by following the steps in [Run PowerShell scripts in your Windows VM with Run Command](../../virtual-machines/windows/run-command.md).
+To install the `xDscDiagnostics` module on your Azure machine, use [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand). You can also use the **Run command** option in the Azure portal by following the steps in [Run PowerShell scripts in your Windows VM with Run Command](../../virtual-machines/windows/run-command.md).
 
 For information on using **xDscDiagnostics**, see [Using xDscDiagnostics to analyze DSC logs](/powershell/scripting/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs). See also [xDscDiagnostics Cmdlets](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
 
@@ -60,13 +58,13 @@ This error is a temporary issue that's planned to be resolved.
 
 ### Resolution
 
-Use the [Remove-AzAutomationDscConfiguration](/powershell/module/Az.Automation/Remove-AzAutomationDscConfiguration?view=azps-3.7.0) cmdlet to delete the configuration.
+Use the [Remove-AzAutomationDscConfiguration](/powershell/module/Az.Automation/Remove-AzAutomationDscConfiguration) cmdlet to delete the configuration.
 
 ## <a name="failed-to-register-agent"></a>Scenario: Failed to register the DSC Agent
 
 ### Issue
 
-When [Set-DscLocalConfigurationManager](/powershell/module/psdesiredstateconfiguration/set-dsclocalconfigurationmanager?view=powershell-5.1) or another DSC cmdlet, you receive the error:
+When [Set-DscLocalConfigurationManager](/powershell/module/psdesiredstateconfiguration/set-dsclocalconfigurationmanager) or another DSC cmdlet, you receive the error:
 
 ```error
 Registration of the Dsc Agent with the server
@@ -87,7 +85,7 @@ This error is normally caused by a firewall, the machine being behind a proxy se
 
 Verify that your machine has access to the proper endpoints for DSC and try again. For a list of ports and addresses needed, see [Network planning](../automation-dsc-overview.md#network-planning).
 
-## <a name="unauthorized"><a/>Scenario: Status reports return the response code Unauthorized
+## <a name="unauthorized"></a>Scenario: Status reports return the response code Unauthorized
 
 ### Issue
 
@@ -171,7 +169,7 @@ This error typically occurs when the node is assigned to a configuration name, f
 * You can assign a node configuration to a node by using the Azure portal or with a PowerShell cmdlet.
 
   * In the Azure portal, go to **Home** > **Automation Accounts** > (your Automation account) > **State configuration (DSC)**. Then select a node and select **Assign node configuration**.
-  * Use the [Set-AzAutomationDscNode](/powershell/module/Az.Automation/Set-AzAutomationDscNode?view=azps-3.7.0)
+  * Use the [Set-AzAutomationDscNode](/powershell/module/Az.Automation/Set-AzAutomationDscNode)
  cmdlet.
 
 ## <a name="no-mof-files"></a>Scenario: No node configurations (MOF files) were produced when a configuration was compiled
@@ -254,7 +252,7 @@ This error typically occurs when the node is assigned a node configuration name 
 
 ### Issue
 
-When you register a node by using [Register-AzAutomationDSCNode](/powershell/module/az.automation/register-azautomationdscnode?view=azps-3.7.0) or [Register-AzureRMAutomationDSCNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode?view=azurermps-6.13.0), you receive the following error:
+When you register a node by using [Register-AzAutomationDSCNode](/powershell/module/az.automation/register-azautomationdscnode) or [Register-AzureRMAutomationDSCNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode), you receive the following error:
 
 ```error
 One or more errors occurred.
@@ -333,7 +331,7 @@ DSC configurations that take a long time to compile can cause this error.
 
 ### Resolution
 
-You can make your DSC configurations parse faster by explicitly including the `ModuleName` parameter for any [Import-DSCResource](/powershell/scripting/dsc/configurations/import-dscresource?view=powershell-5.1) calls.
+You can make your DSC configurations parse faster by explicitly including the `ModuleName` parameter for any [Import-DSCResource](/powershell/scripting/dsc/configurations/import-dscresource) calls.
 
 ## Next steps
 

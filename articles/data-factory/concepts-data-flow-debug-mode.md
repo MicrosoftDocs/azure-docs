@@ -1,13 +1,14 @@
 ---
 title: Mapping data flow Debug Mode
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Start an interactive debug session when building data flows
 ms.author: makromer
 author: kromerm
-ms.reviewer: douglasl
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 12/04/2020
+ms.custom: synapse
+ms.date: 04/16/2021
 ---
 
 # Mapping data flow Debug Mode
@@ -16,9 +17,11 @@ ms.date: 12/04/2020
 
 ## Overview
 
-Azure Data Factory mapping data flow's debug mode allows you to interactively watch the data shape transform while you build and debug your data flows. The debug session can be used both in Data Flow design sessions as well as during pipeline debug execution of data flows. To turn on debug mode, use the "Data Flow Debug" button at the top of the design surface.
+Azure Data Factory mapping data flow's debug mode allows you to interactively watch the data shape transform while you build and debug your data flows. The debug session can be used both in Data Flow design sessions as well as during pipeline debug execution of data flows. To turn on debug mode, use the **Data Flow Debug** button in the top bar of data flow canvas or pipeline canvas when you have data flow activities.
 
-![Debug slider](media/data-flow/debugbutton.png "Debug slider")
+![Screenshot that shows where is the Debug slider 1](media/data-flow/debug-button.png)
+
+![Screenshot that shows where is the Debug slider 2](media/data-flow/debug-button-4.png)
 
 Once you turn on the slider, you will be prompted to select which integration runtime configuration you wish to use. If AutoResolveIntegrationRuntime is chosen, a cluster with eight cores of general compute with a default 60-minute time to live will be spun up. If you'd like to allow for more idle team before your session times out, you can choose a higher TTL setting. For more information on data flow integration runtimes, see [Data flow performance](concepts-data-flow-performance.md#ir).
 
@@ -35,9 +38,9 @@ In most cases, it's a good practice to build your Data Flows in debug mode so th
 
 ## Cluster status
 
-The cluster status indicator at the top of the design surface turns green when the cluster is ready for debug. If your cluster is already warm, then the green indicator will appear almost instantly. If your cluster wasn't already running when you entered debug mode, then you'll have to wait 5-7 minutes for the cluster to spin up. The indicator will spin until its ready.
+The cluster status indicator at the top of the design surface turns green when the cluster is ready for debug. If your cluster is already warm, then the green indicator will appear almost instantly. If your cluster wasn't already running when you entered debug mode, then the Spark cluster will perform a cold boot. The indicator will spin until the environment is ready for interactive debugging.
 
-When you are finished with your debugging, turn the Debug switch off so that your Azure Databricks cluster can terminate and you'll no longer be billed for debug activity.
+When you are finished with your debugging, turn the Debug switch off so that your Spark cluster can terminate and you'll no longer be billed for debug activity.
 
 ## Debug settings
 
@@ -46,6 +49,8 @@ Once you turn on debug mode, you can edit how a data flow previews data. Debug s
 ![Debug settings](media/data-flow/debug-settings.png "Debug settings")
 
 If you have parameters in your Data Flow or any of its referenced datasets, you can specify what values to use during debugging by selecting the **Parameters** tab.
+
+Use the sampling settings here to point to sample files or sample tables of data so that you do not have to change your source datasets. By using a sample file or table here, you can maintain the same logic and property settings in your data flow while testing against a subset of data.
 
 ![Debug settings parameters](media/data-flow/debug-settings2.png "Debug settings parameters")
 

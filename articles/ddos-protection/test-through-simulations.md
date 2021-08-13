@@ -3,7 +3,7 @@ title: Azure DDoS Protection simulation testing
 description: Learn about how to test through simulations
 services: ddos-protection
 documentationcenter: na
-author: yitoh
+author: aletheatoh
 ms.service: ddos-protection
 ms.devlang: na
 ms.topic: article
@@ -25,6 +25,9 @@ We have partnered with [BreakingPoint Cloud](https://www.ixiacom.com/products/br
 - Document DDoS compliance.
 - Train your network security teams.
 
+> [!NOTE]
+> BreakingPoint Cloud is only available for the Public cloud.
+
 ## Prerequisites
 
 - Before you can complete the steps in this tutorial, you must first create a [Azure DDoS Standard protection plan](manage-ddos-protection.md) with protected public IP addresses.
@@ -38,9 +41,9 @@ We have partnered with [BreakingPoint Cloud](https://www.ixiacom.com/products/br
     |---------      |---------                                          |
     |Target IP address           | Enter one of your public IP address you want to test.                     |
     |Port Number   | Enter _443_.                       |
-    |DDoS Profile | Possible values include **DNS Flood**, **NTPv2 Flood**, **SSDP Flood**, **TCP SYN Flood**, **UDP 64B Flood**, **UDP 128B Flood**, **UDP 256B Flood**, **UDP 512B Flood**, **UDP 1024B Flood**, **UDP 1514B Flood**, **UDP Fragmentation** **UDP Memcached**.|
-    |Test Size       | Possible values include **100K pps, 50 Mbps and 4 source IPs**, **200K pps, 100 Mbps and 8 source IPs**, **400K pps, 200Mbps and 16 source IPs**, **800K pps, 400 Mbps and 32 source IPs**.                                  |
-    |Test Duration | Possible values include **10 Minutes**, **15 Minutes**, **20 Minutes**, **25 Minutes**, **30 Minutes**.|
+    |DDoS Profile | Possible values include `DNS Flood`, `NTPv2 Flood`, `SSDP Flood`, `TCP SYN Flood`, `UDP 64B Flood`, `UDP 128B Flood`, `UDP 256B Flood`, `UDP 512B Flood`, `UDP 1024B Flood`, `UDP 1514B Flood`, `UDP Fragmentation`, `UDP Memcached`.|
+    |Test Size       | Possible values include `100K pps, 50 Mbps and 4 source IPs`, `200K pps, 100 Mbps and 8 source IPs`, `400K pps, 200Mbps and 16 source IPs`, `800K pps, 400 Mbps and 32 source IPs`.                                  |
+    |Test Duration | Possible values include `10 Minutes`, `15 Minutes`, `20 Minutes`, `25 Minutes`, `30 Minutes`.|
 
 It should now appear like this:
 
@@ -59,7 +62,7 @@ Once the resource is under attack, you should see that the value changes from **
 
 ### BreakingPoint Cloud API Script
 
-This [API script](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Breaking%20Point%20SDK) can be used to automate DDoS testing by running once or using cron to schedule regular tests. This is useful to validate that your logging is configured properly and that detection and response procedures are effective. The scripts require a Linux OS (tested with Ubuntu 18.04 LTS) and Python 3. Install prerequisites and API client using the included script or by using the documentation on the [BreakingPoint Cloud](http://breakingpoint.cloud/) website.
+This [API script](https://aka.ms/ddosbreakingpoint) can be used to automate DDoS testing by running once or using cron to schedule regular tests. This is useful to validate that your logging is configured properly and that detection and response procedures are effective. The scripts require a Linux OS (tested with Ubuntu 18.04 LTS) and Python 3. Install prerequisites and API client using the included script or by using the documentation on the [BreakingPoint Cloud](http://breakingpoint.cloud/) website.
 
 ## Next steps
 
