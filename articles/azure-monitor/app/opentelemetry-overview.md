@@ -32,7 +32,7 @@ There are two methods to instrument your application (meaning how telemetry is c
 1.	Manual Instrumentation
 2.	Automatic Instrumentation (Auto-Instrumentation)
 
-Manual instrumentation is installing a package or SDK in your code. Auto-instrumentation is enabling telemetry collection through configuration without touching the application’s code. While highly convenient, it tends to be less configurable and it’s not available in all languages.
+Manual instrumentation is installing a package or SDK in your code. Auto-instrumentation is enabling telemetry collection through configuration without touching the application's code. While highly convenient, it tends to be less configurable and it's not available in all languages.
 
 Manual instrumentation packages consist of our Azure Monitor OpenTelemetry-based exporters/distros **preview** offering in C#, Java, JavaScript (Node.js), and Python. Auto-instrumentation packages consist of our Java 3.X GA OpenTelemetry-based GA offering.
 
