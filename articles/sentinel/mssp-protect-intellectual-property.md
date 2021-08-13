@@ -157,5 +157,5 @@ For more information, see:
 - [Azure Sentinel Technical Playbook for MSSPs](https://cloudpartners.transform.microsoft.com/download?assetname=assets/Azure-Sentinel-Technical-Playbook-for-MSSPs.pdf&download=1)
 - [Manage multiple tenants in Azure Sentinel as an MSSP](multiple-tenants-service-providers.md)
 - [Extend Azure Sentinel across workspaces and tenants](extend-sentinel-across-workspaces-tenants.md)
-- [Visualize and monitor your data](/azure/sentinel/articles/sentinel/monitor-your-data.md)
+- [Visualize and monitor your data](monitor-your-data.md)
 - [Tutorial: Set up automated threat responses in Azure Sentinel](tutorial-respond-threats-playbook.md)

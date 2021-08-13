@@ -745,7 +745,7 @@ Azure Sentinel generates an incident when multiple alerts of different types are
 - [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md)
 - [Microsoft Defender for Identity](connect-azure-atp.md)
 - [Microsoft Cloud App Security](connect-cloud-app-security.md)
-- [Azure Sentinel scheduled analytics rules](/azure/sentinel/articles/sentinel/detect-threats-built-in.md#scheduled). Fusion only considers scheduled analytics rules with tactics information.
+- [Azure Sentinel scheduled analytics rules](detect-threats-built-in.md#scheduled). Fusion only considers scheduled analytics rules with tactics information.
 
 Such Fusion incidents are named **Multiple alerts possibly related to Ransomware activity detected**, and are generated when relevant alerts are detected during a specific time-frame and are associated with the **Execution** and **Defense Evasion** stages of an attack.
 

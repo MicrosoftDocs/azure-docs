@@ -48,7 +48,7 @@ Access the CMMC workbook in the Azure Sentinel **Workbooks** area. Select **Temp
 For more information, see:
 
 - [Azure Sentinel Cybersecurity Maturity Model Certification (CMMC) Workbook](https://techcommunity.microsoft.com/t5/public-sector-blog/azure-sentinel-cybersecurity-maturity-model-certification-cmmc/ba-p/2110524)
-- [Visualize and monitor your data](/azure/sentinel/articles/sentinel/monitor-your-data.md)
+- [Visualize and monitor your data](monitor-your-data.md)
 
 
 ### Third-party data connectors
@@ -133,7 +133,7 @@ The Azure Sentinel Scheduled analytics rule wizard now provides the following en
 -	Expanded autocomplete support.
 -	Real-time query validations. Errors in your query now show as a red block in the scroll bar, and as a red dot in the **Set rule logic** tab name. Additionally, a query with errors cannot be saved.
 
-For more information, see [Create custom analytics rules to detect threats](/azure/sentinel/articles/sentinel/detect-threats-custom.md).
+For more information, see [Create custom analytics rules to detect threats](detect-threats-custom.md).
 ### Az.SecurityInsights PowerShell module (Public preview)
 
 Azure Sentinel now supports the new [Az.SecurityInsights](https://www.powershellgallery.com/packages/Az.SecurityInsights/) PowerShell module.
@@ -197,7 +197,7 @@ After editing an analytics rule on the **Set rule logic** tab, find the **Result
 
 Select **Test with current data** to have Azure Sentinel run a simulation of the last 50 runs of your analytics rule. A graph is generated to show the average number of alerts that the rule would have generated, based on the raw event data evaluated. 
 
-For more information, see [Define the rule query logic and configure settings](/azure/sentinel/articles/sentinel/detect-threats-custom.md#define-the-rule-query-logic-and-configure-settings).
+For more information, see [Define the rule query logic and configure settings](detect-threats-custom.md#define-the-rule-query-logic-and-configure-settings).
 
 ## December 2020
 
