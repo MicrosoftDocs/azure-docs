@@ -132,12 +132,15 @@ In this section, you'll prepare a development environment that's used to build t
 
 In this section, you'll use sample code from the Azure IoT SDK to create a self-signed X.509 certificate. This certificate will then be used to authenticate the device with its individual enrollment entry.
 
->[!IMPORTANT]
->
->* Self-signed certificates are for testing only, and should not be used in production.
->* The default expiration date for a self-signed certificate is one year.
+It is important to note that:
+
+* Self-signed certificates are for testing only, and should not be used in production.
+
+* The default expiration date for a self-signed certificate is one year.
+
 ::: zone pivot="programming-language-csharp"
->* The device ID of the IoT device will be the subject common name on the certificate. Make sure to use a subject name that complies with the [Device ID string requirements](../iot-hub/iot-hub-devguide-identity-registry.md#device-identity-properties).
+
+* The device ID of the IoT device will be the subject common name on the certificate. Make sure to use a subject name that complies with the [Device ID string requirements](../iot-hub/iot-hub-devguide-identity-registry.md#device-identity-properties).
 
 ::: zone-end
 
