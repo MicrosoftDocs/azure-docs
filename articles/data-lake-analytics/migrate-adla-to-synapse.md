@@ -24,7 +24,7 @@ The document shows you how to do the migration from ADLA to Azure Synapse Analyt
 
 1. Look at  [Apache Spark on Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-overview.md), and understand key differences of ADLA and Spark on Azure Synapse Analytics. 
 
-| | ADLA | Spark on Synapse |
+|Item | ADLA | Spark on Synapse |
 | --- | --- |--- |
 | Pricing  |Per Analytic Unit-hour |Per vCore-hour|
 |Engine 	|Azure Data Lake Analytics 	|Apache Spark
