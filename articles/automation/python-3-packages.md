@@ -3,7 +3,7 @@ title: Manage Python 3 packages in Azure Automation
 description: This article tells how to manage Python 3 packages (preview) in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/22/2021
+ms.date: 08/13/2021
 ms.topic: conceptual
 ---
 
@@ -122,6 +122,9 @@ groups = resource_client.resource_groups.list()
 for group in groups:  
     print(group.name) 
 ```
+
+> [!NOTE]
+> The Python `automationassets` package is not available on pypi.org, so it's not available for import onto a Windows machine.
 
 ## Next steps
 
