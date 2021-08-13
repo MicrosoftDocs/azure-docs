@@ -12,11 +12,11 @@ ms.custom: template-concept
 
 # Elastic data map in Azure Purview
 
-Azure Purview Data Map provides the foundation for data discovery and effective data governance. It captures metadata about enterprise data present in analytics, software-as-a-service (SaaS), operation systems on-premises, hybrid, and multi-cloud environments. Purview Data Map is automatically kept up to date with built-in automated scanning and classification system. With an intuitive UI, developers can further programmatically interact with the Data Map using open-source Apache Atlas APIs.
+Azure Purview Data Map provides the foundation for data discovery and effective data governance. It captures metadata about enterprise data present in analytics, software-as-a-service (SaaS), operation systems in the hybrid, on-premises, and multi-cloud environments. Purview Data Map is automatically kept up to date with built-in automated scanning and classification system. With an intuitive UI, developers can further programmatically interact with the Data Map using open-source Apache Atlas APIs.
 
 ## Elastic data map
 
-All Azure Purview accounts have a Data Map that can elastically grow starting at one capacity unit. They scale up and down based on request load within the elasticity window ([check current limits](how-to-manage-quotas.md)). You can request an increase in quota with a larger capacity of elasticity window by completing the [survey here](https://aka.ms/PurviewProdSurvey).
+All Azure Purview accounts have a Data Map that can elastically grow starting at one capacity unit. They can scale up and down based on request load within the elasticity window ([check current limits](how-to-manage-quotas.md)). You can request an increase in quota with a larger capacity of elasticity window by completing the [survey here](https://aka.ms/PurviewProdSurvey).
 
 ## Data map capacity unit
 
@@ -33,11 +33,11 @@ Operation is the throughput measure of the Purview Data Map and it includes the 
 
 ### Storage
 
-Storage is the second component of DataMap that includes technical, business, and semantic metadata. The technical metadata includes schema, data type, columns, and so on that are automatically discovered from Purview scanning and classification. The business metadata includes automated (for example, promoted  from Power BI datasets, descriptions from SQL tables) and manual tagging of descriptions, glossary terms and so on.  
+Storage is the second component of DataMap that includes technical, business, operational and semantic metadata. The technical metadata includes schema, data type, columns, and so on that are automatically discovered from Purview scanning. The business metadata includes automated (for example, promoted  from Power BI datasets, descriptions from SQL tables) and manual tagging of descriptions, glossary terms and so on. Examples of semantic metadata includes the collection mapping to data sources, classifications and so on. The operational metadata include Data factory copy and data flow activity run status, run time. 
 
 ## Data map billing
 
-Customers are at minimum billed for one capacity unit (25 ops/sec and 2GB) and extra billing is based on the consumption of each extra capacity unit rolled up to the hour. The DataMap operations scale in the increments of 25 operations/sec and metadata storage scales in the increments of 2GB size. Purview Data Map can automatically scale up and down within the elasticity window ([check current limits](how-to-manage-quotas.md)). However, to get the next level of elasticity window, support ticket needs to be created.
+Customers are at minimum billed for one capacity unit (25 ops/sec and 2GB) and extra billing is based on the consumption of each extra capacity unit rolled up to the hour. The DataMap operations scale in the increments of 25 operations/sec and metadata storage scales in the increments of 2GB size. Purview Data Map can automatically scale up and down within the elasticity window ([check current limits](how-to-manage-quotas.md)). However, to get the next level or lower the elasticity window, support ticket needs to be created.
 
 Data Map Capacity unit comes with a cap on operations throughput and storage. If storage exceeds the current capacity unit, customers are charged for the next capacity unit even if the operations throughput isn't used. The below table shows the Data Map capacity unit ranges. Contact support if the Data Map capacity unit goes beyond 100 capacity unit.
 
@@ -85,6 +85,8 @@ Based on the Data Map operations/second and metadata storage consumption in this
 
 :::image type="content" source="./media/concept-elastic-data-map/billing-capacity-hours.png" alt-text="Table depicting number of CU hours over time.":::
 
+>[!Important]
+>Purview Data Map can automatically scale up and down within the elasticity window ([check current limits](how-to-manage-quotas.md)). To get the next level or lower the elasticity window, support ticket needs to be created.
 
 ## Working with elastic data map
 
