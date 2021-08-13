@@ -280,61 +280,61 @@ To support a secured logout redirect in your application, first follow the steps
 
 1. In `MyAccountController.cs` controller, add a **SignOut** action using the following code snippet:
 
-  ```csharp
-  [HttpGet("{scheme?}")]
-  public async Task<IActionResult> SignOutAsync([FromRoute] string scheme)
-  {
-      scheme ??= OpenIdConnectDefaults.AuthenticationScheme;
+    ```csharp
+    [HttpGet("{scheme?}")]
+    public async Task<IActionResult> SignOutAsync([FromRoute] string scheme)
+    {
+        scheme ??= OpenIdConnectDefaults.AuthenticationScheme;
 
-      //obtain the id_token
-      var idToken = await HttpContext.GetTokenAsync("id_token");
-      //send the id_token value to the authentication middleware
-      properties.Items["id_token_hint"] = idToken;            
+        //obtain the id_token
+        var idToken = await HttpContext.GetTokenAsync("id_token");
+        //send the id_token value to the authentication middleware
+        properties.Items["id_token_hint"] = idToken;            
 
-      return SignOut(properties,CookieAuthenticationDefaults.AuthenticationScheme,scheme);
-  }
-  ```
+        return SignOut(properties,CookieAuthenticationDefaults.AuthenticationScheme,scheme);
+    }
+    ```
 
 1. In the **Startup.cs** class, parse the `id_token_hint` value and append the value to the authentication request. The following code snippet demonstrates how to pass the `id_token_hint` value to the authentication request:
 
-  ```csharp
-  private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
-  {
-      var id_token_hint = context.Properties.Items.FirstOrDefault(x => x.Key == "id_token_hint").Value;
-      if (id_token_hint != null)
-      {
-          // Send parameter to authentication request
-          context.ProtocolMessage.SetParameter("id_token_hint", id_token_hint);
-      }
+    ```csharp
+    private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
+    {
+        var id_token_hint = context.Properties.Items.FirstOrDefault(x => x.Key == "id_token_hint").Value;
+        if (id_token_hint != null)
+        {
+            // Send parameter to authentication request
+            context.ProtocolMessage.SetParameter("id_token_hint", id_token_hint);
+        }
 
-      await Task.CompletedTask.ConfigureAwait(false);
-  }
-  ```
+        await Task.CompletedTask.ConfigureAwait(false);
+    }
+    ```
 
 1. In the `ConfigureServices` function, add the `SaveTokens` option for **Controllers** have access to the `id_token` value: 
 
-  ```csharp
-  services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
-      .AddMicrosoftIdentityWebApp(options =>
-      {
-          Configuration.Bind("AzureAdB2C", options);
-          options.Events ??= new OpenIdConnectEvents();        
-          options.Events.OnRedirectToIdentityProvider += OnRedirectToIdentityProviderFunc;
-          options.SaveTokens = true;
-      });
-  ```
+    ```csharp
+    services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+        .AddMicrosoftIdentityWebApp(options =>
+        {
+            Configuration.Bind("AzureAdB2C", options);
+            options.Events ??= new OpenIdConnectEvents();        
+            options.Events.OnRedirectToIdentityProvider += OnRedirectToIdentityProviderFunc;
+            options.SaveTokens = true;
+        });
+    ```
 
 1. In the **appsettings.json** configuration file, add your logout redirect URI path to `SignedOutCallbackPath` key.
 
-  ```json
-  "AzureAdB2C": {
-    "Instance": "https://<your-tenant-name>.b2clogin.com",
-    "ClientId": "<web-app-application-id>",
-    "Domain": "<your-b2c-domain>",
-    "SignedOutCallbackPath": "/signout/<your-sign-up-in-policy>",
-    "SignUpSignInPolicyId": "<your-sign-up-in-policy>"
-  }
-  ```
+    ```json
+    "AzureAdB2C": {
+      "Instance": "https://<your-tenant-name>.b2clogin.com",
+      "ClientId": "<web-app-application-id>",
+      "Domain": "<your-b2c-domain>",
+      "SignedOutCallbackPath": "/signout/<your-sign-up-in-policy>",
+      "SignUpSignInPolicyId": "<your-sign-up-in-policy>"
+    }
+    ```
 
 In the above example, the **post_logout_redirect_uri** passed into the logout request will be in the format: `https://your-app.com/signout/<your-sign-up-in-policy>`. This URL must be added to the Application Registration's reply URL's.
 
