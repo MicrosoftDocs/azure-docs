@@ -67,9 +67,9 @@ In this tutorial, you learn how to,
 
 ## Create smart inventory management application
 
-Create the application using following steps:
+Create the application using the following steps:
 
-1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Retial** tab:
+1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Retail** tab:
     :::image type="content" source="media/tutorial-iot-central-smart-inventory-management/iotc-retail-home-page.png" alt-text="Screenshot showing how to create an app from the smart inventory management application template":::
 
 1. Select **Create app** under **smart inventory management**.
