@@ -1,5 +1,5 @@
 ---
-title: Train and deploy a TensorFlow model
+title: REMOVED from TensorFlow 
 titleSuffix: Azure Machine Learning
 description: Learn how Azure Machine Learning enables you to scale out a TensorFlow training job using elastic cloud compute resources.
 services: machine-learning
@@ -14,7 +14,7 @@ ms.topic: how-to
 ---
 # REMOVED from TensorFlow 
 
-This content was removed from the [Train TensorFlow models at scale with Azure Machine Learning](azure-docs-sdg/articles/machine-learning/how-to-train-tensorflow.md) article.  Is there anything here that should be moved to the new [Distributed training with Azure Machine Learning](azure-docs-sdg/articles/machine-learning/concept-distributed-training.md)
+This content was removed from the [Train TensorFlow models at scale with Azure Machine Learning](azure-docs-sdg/articles/machine-learning/how-to-train-tensorflow.md) article.  Is there anything here that should be moved to the new [Distributed training with Azure Machine Learning](azure-docs-sdg/articles/machine-learning/concept-distributed-training.md)?
 
 ### Horovod
 [Horovod](https://github.com/uber/horovod) is an open-source, all reduce framework for distributed training developed by Uber. It offers an easy path to writing distributed TensorFlow code for training.
