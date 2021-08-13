@@ -71,7 +71,7 @@ After the name and description, a skillset has four main properties:
 
 ## Example of a skills array
 
-The skills array specifies which skills to execute. This example shows two built-in skills, with a third for a custom skill that is part of the skillset, but executes externally in a module that you provide.
+The skills array specifies which skills to execute. This example shows two built-in skills that are unrelated. Both will iterate over the same documents, but neither consumes the output of the other.
 
 ```json
 "skills":[
@@ -105,27 +105,6 @@ The skills array specifies which skills to execute. This example shows two built
       {
         "name": "score",
         "targetName": "mySentiment"
-      }
-    ]
-  },
-  {
-    "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-    "description": "Calls an Azure function, which in turn calls Bing Entity Search",
-    "uri": "https://indexer-e2e-webskill.azurewebsites.net/api/InvokeTextAnalyticsV3?code=foo",
-    "httpHeaders": {
-        "Ocp-Apim-Subscription-Key": "foobar"
-    },
-    "context": "/document/orgs/*",
-    "inputs": [
-      {
-        "name": "query",
-        "source": "/document/orgs/*"
-      }
-    ],
-    "outputs": [
-      {
-        "name": "description",
-        "targetName": "companyDescription"
       }
     ]
   }
@@ -177,56 +156,54 @@ Some situations call for referencing each element of an array separately. For ex
 The second skill for sentiment analysis follows the same pattern as the first enricher. It takes `"/document/content"` as input, and returns a sentiment score for each content instance. Since you did not set the `"context"` field explicitly, the output (mySentiment) is now a child of `"/document"`.
 
 ```json
+{
+  "@odata.type": "#Microsoft.Skills.Text.SentimentSkill",
+  "inputs": [
     {
-      "@odata.type": "#Microsoft.Skills.Text.SentimentSkill",
-      "inputs": [
-        {
-          "name": "text",
-          "source": "/document/content"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "score",
-          "targetName": "mySentiment"
-        }
-      ]
-    },
+      "name": "text",
+      "source": "/document/content"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "score",
+      "targetName": "mySentiment"
+    }
+  ]
+}
 ```
 
 ## Adding a custom skill
 
-Recall the structure of the custom Bing entity search enricher:
+Below is an example of a [custom skill](cognitive-search-custom-skill-web-api.md). The URI points to an Azure Function, which in turn invokes the model or transformation that you provide. For more information, see [Define a custom interface](cognitive-search-custom-skill-interface.md).
+
+Context, inputs, and outputs read and write to an enrichment tree, just as the built-in skills do. Notice that the "context" field is set to `"/document/orgs/*"` with an asterisk, meaning the enrichment step is called *for each* organization under `"/document/orgs"`.
+
+Output, in this case a company description, is generated for each organization identified. When referring to the description in a downstream step (for example, in key phrase extraction), you would use the path `"/document/orgs/*/description"` to do so. 
 
 ```json
+{
+  "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+  "description": "This skill calls an Azure function, which in turn calls custom code",
+  "uri": "https://indexer-e2e-webskill.azurewebsites.net/api/InvokeCode?code=foo",
+  "httpHeaders": {
+      "Ocp-Apim-Subscription-Key": "foobar"
+  },
+  "context": "/document/orgs/*",
+  "inputs": [
     {
-      "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-     "description": "This skill calls an Azure function, which in turn calls Bing Entity Search",
-      "uri": "https://indexer-e2e-webskill.azurewebsites.net/api/InvokeTextAnalyticsV3?code=foo",
-      "httpHeaders": {
-          "Ocp-Apim-Subscription-Key": "foobar"
-      },
-      "context": "/document/orgs/*",
-      "inputs": [
-        {
-          "name": "query",
-          "source": "/document/orgs/*"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "description",
-          "targetName": "companyDescription"
-        }
-      ]
+      "name": "query",
+      "source": "/document/orgs/*"
     }
+  ],
+  "outputs": [
+    {
+      "name": "description",
+      "targetName": "companyDescription"
+    }
+  ]
+}
 ```
-
-This definition is a [custom skill](cognitive-search-custom-skill-web-api.md) that calls a web API as part of the enrichment process. For each organization identified by entity recognition, this skill calls a web API to find the description of that organization. The orchestration of when to call the web API and how to flow the information received is handled internally by the enrichment engine. However, the initialization necessary for calling this custom API must be provided in the JSON (such as uri, httpHeaders, and the inputs expected). For guidance in creating a custom web API for the enrichment pipeline, see [How to define a custom interface](cognitive-search-custom-skill-interface.md).
-
-Notice that the "context" field is set to `"/document/orgs/*"` with an asterisk, meaning the enrichment step is called *for each* organization under `"/document/orgs"`. 
-
-Output, in this case a company description, is generated for each organization identified. When referring to the description in a downstream step (for example, in key phrase extraction), you would use the path ```"/document/orgs/*/description"``` to do so. 
 
 ## Skills output
 
