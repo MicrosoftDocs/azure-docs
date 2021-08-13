@@ -63,7 +63,7 @@ For more information and examples using the `aci-wordcount` image, see [Set envi
                 {
                     "name": "init1",
                     "properties": {
-                        "image": "mcr.microsoft.com/aks/e2e/library-busybox",
+                        "image": "mcr.microsoft.com/aks/e2e/library-busybox:master.210714.1",
                         "environmentVariables": [],
                         "volumeMounts": [
                             {
