@@ -27,7 +27,7 @@ properties:
   containers:
   - name: mycontainer
     properties:
-      image: mcr.microsoft.com/oss/nginx/nginx
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
       command:
         - "/bin/sh"
         - "-c"

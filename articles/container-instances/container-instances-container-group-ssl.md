@@ -148,7 +148,7 @@ properties:
   containers:
   - name: nginx-with-ssl
     properties:
-      image: mcr.microsoft.com/oss/nginx/nginx
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
       ports:
       - port: 443
         protocol: TCP
