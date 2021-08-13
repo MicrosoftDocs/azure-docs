@@ -918,6 +918,17 @@ To resolve this issue, delete and recreate the sync group by performing the foll
 4. If cloud tiering was enabled on a server endpoint, delete the orphaned tiered files on the server by performing the steps documented in the [Tiered files are not accessible on the server after deleting a server endpoint](?tabs=portal1%252cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) section.
 5. Recreate the sync group.
 
+<a id="-2134375852"></a>**Sync detected the replica has been restored to an older state**  
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c80254 |
+| **HRESULT (decimal)** | -2134375852 |
+| **Error string** | ECS_E_SYNC_REPLICA_BACK_IN_TIME |
+| **Remediation required** | No |
+
+No action is required. This error occurs because sync detected the replica has been restored to an older state. Sync will now enter a reconciliation mode, where it recreates the sync relationship by merging the contents of the Azure file share and the data on the server endpoint. When reconciliation mode is triggered, the process can be very time consuming depending upon the namespace size. Regular synchronization does not happen until the reconciliation finishes, and files that are different (last modified time or size) between the Azure file share and server endpoint will result in file conflicts.
+
 <a id="-2145844941"></a>**Sync failed because the HTTP request was redirected**  
 
 | Error | Code |
