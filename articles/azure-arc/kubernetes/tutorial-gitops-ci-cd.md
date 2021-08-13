@@ -174,8 +174,8 @@ To avoid having to set an imagePullSecret for every Pod, consider adding the ima
 | AZURE_VOTE_IMAGE_REPO | The full path to the Azure Vote App repo, for example azurearctest.azurecr.io/azvote |
 | ENVIRONMENT_NAME | Dev |
 | MANIFESTS_BRANCH | `master` |
-| MANIFESTS_FOLDER | `azure-vote-manifests` |
-| MANIFESTS_REPO | `azure-cicd-demo-gitops` |
+| MANIFESTS_FOLDER | `azure-vote` |
+| MANIFESTS_REPO | `acr-cicd-demo-gitops` |
 | ORGANIZATION_NAME | Name of Azure DevOps organization |
 | PROJECT_NAME | Name of GitOps project in Azure DevOps |
 | REPO_URL | Full URL for GitOps repo |
