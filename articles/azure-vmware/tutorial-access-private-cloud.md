@@ -2,7 +2,7 @@
 title: Tutorial - Access your private cloud
 description: Learn how to access an Azure VMware Solution private cloud
 ms.topic: tutorial
-ms.date: 03/13/2021
+ms.date: 08/13/2021
 ---
 
 # Tutorial: Access an Azure VMware Solution private cloud
@@ -19,7 +19,7 @@ In this tutorial, you learn how to:
 
 ## Create a new Windows virtual machine
 
-1. In the resource group, select **Add**, search for **Microsoft Windows 10** and select it. Then select **Create**.
+1. In the resource group, select **Add**, search for **Microsoft Windows 10**, and select it. Then select **Create**.
 
    :::image type="content" source="media/tutorial-access-private-cloud/ss8-azure-w10vm-create.png" alt-text="Screenshot of how to add a new Windows 10 VM for a jump box.":::
 
@@ -61,7 +61,7 @@ In this tutorial, you learn how to:
 
 1. In the Windows VM, open a browser and navigate to the vCenter and NSX-T Manager URLs in two tabs. 
 
-1. In the vCenter tab, enter the `cloudadmin@vmcp.local` user credentials from the previous step.
+1. In the vCenter tab, enter the `cloudadmin@vsphere.local` user credentials from the previous step.
 
    :::image type="content" source="media/tutorial-access-private-cloud/ss5-vcenter-login.png" alt-text="Screenshot showing the VMware vSphere sign in page." border="true":::
 
