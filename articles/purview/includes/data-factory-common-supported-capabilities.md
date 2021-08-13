@@ -28,7 +28,7 @@ ms.date: 08/10/2021
 | Azure Table Storage | Yes |
 | Amazon S3 | Yes | 
 | Hive \* | Yes | 
-| SAP Table (when connecting to SAP ECC or SAP S/4HANA) | Yes |
+| SAP Table *(when connecting to SAP ECC or SAP S/4HANA)* | Yes |
 | SQL Server \* | Yes | 
 | Teradata \* | Yes |
 
