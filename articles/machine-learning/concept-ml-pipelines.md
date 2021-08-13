@@ -50,7 +50,7 @@ In short, all of the complex tasks of the machine learning lifecycle can be help
 
 Many programming ecosystems have tools that orchestrate resource, library, or compilation dependencies. Generally, these tools use file timestamps to calculate dependencies. When a file is changed, only it and its dependents are updated (downloaded, recompiled, or packaged). Azure Machine Learning pipelines extend this concept. Like traditional build tools, pipelines calculate dependencies between steps and only perform the necessary recalculations. 
 
-The dependency analysis in Azure Machine Learning pipelines is more sophisticated than simple timestamps though. Every step may run in a different hardware and software environment. Data preparation might be a time-consuming process but not need to run on hardware with powerful GPUs, certain steps might require OS-specific software, you might want to use distributed training, and so forth. 
+The dependency analysis in Azure Machine Learning pipelines is more sophisticated than simple timestamps though. Every step may run in a different hardware and software environment. Data preparation might be a time-consuming process but not need to run on hardware with powerful GPUs, certain steps might require OS-specific software, you might want to use [distributed training](how-to-train-distributed-gpu.md), and so forth. 
 
 Azure Machine Learning automatically orchestrates all of the dependencies between pipeline steps. This orchestration might include spinning up and down Docker images, attaching and detaching compute resources, and moving data between the steps in a consistent and automatic manner.
 
