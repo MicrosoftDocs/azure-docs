@@ -202,8 +202,7 @@ landingContent:
             url: ecosystem-back-up-vms.md
           - text: Migration solutions for VMs
             url: ecosystem-migration-vms.md
-          - text: Deploy JetStream DR 
-            url: deploy-disaster-recovery-using-jetstream.md
+
 
 # card 9
   - title: Resources

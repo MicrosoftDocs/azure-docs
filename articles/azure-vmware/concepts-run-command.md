@@ -2,7 +2,7 @@
 title: Concepts - Run commands in Azure VMware Solution 
 description: Learn about using run commands in Azure VMware Solution. 
 ms.topic: conceptual 
-ms.date: 08/15/2021
+ms.date: 08/23/2021
 ---
 
 
@@ -93,5 +93,4 @@ Now that you've learned about the Run command concepts, you can use the Run comm
 
 - [Configure external identity source for vCenter](tutorial-configure-identity-source-vcenter.md) - vCenter has a built-in local user called cloudadmin and assigned to the CloudAdmin role. The local cloudadmin user is used to set up users in Active Directory (AD). With the Run command feature, you can configure Active Directory over LDAP or LDAPS for vCenter as an external identity source.
 
-- [Deploy disaster recovery using JetStream](deploy-disaster-recovery-using-jetstream.md) - Store data directly to a recovery cluster in vSAN. The data gets captured through I/O filters that run within vSphere. The underlying data store can be VMFS, VSAN, vVol, or any HCI platform. 
 
