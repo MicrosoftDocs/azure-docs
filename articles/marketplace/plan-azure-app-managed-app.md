@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/06/2020
+ms.date: 08/13/2021
 ---
 
 # Plan an Azure managed application for an Azure application offer
@@ -35,27 +35,27 @@ Use an Azure Application: Managed application plan when the following conditions
 > [!NOTE]
 > Managed applications must be deployable through Azure Marketplace. If customer communication is a concern, reach out to interested customers after you've enabled lead sharing.
 
-## Usage of Azure Kubernetes Service (AKS) and Containers in Managed Application
+## Usage of Azure Kubernetes Service (AKS) and containers in managed application
 
-### Azure Application Offers fall into two categories
+### Azure application offers fall into two categories
 
-- Solution Templates – not accessible by the publisher
+- Solution templates – not accessible by the publisher
 - Managed Apps – accessible by the publisher via pre-defined authorization that is granted by the customer at the time of deployment
 
-**Solution Templates:** The Solution Template offers are not changeable by the publisher after customer deployment. Therefore, containers and Azure Kubernetes Service (AKS) resources are not currently allowed in this offer category.
+**Solution Templates:** The Solution templates are not changeable by the publisher after customer deployment. Therefore, containers and Azure Kubernetes Service (AKS) resources are not currently allowed in this offer category.
 
-**Managed Apps:** The Managed App offers allow the publisher to access and control the resources created during deployment in the customer’s subscription. Therefore, containers and Azure Kubernetes Service (AKS) resources *<u>are provisionally allowed</u>* in this offer category.
+**Managed applications:** The Managed Application offers allow the publisher to access and control the resources created during deployment in the customer’s subscription. Therefore, containers and Azure Kubernetes Service (AKS) resources are provisionally allowed in this offer category.
 
-### Rules and Known Issues for AKS and Containers in Managed Apps Offers
+### Rules and known issues for AKS and containers in managed applications
 
-- AKS Node Resource Group does not inherit the Deny Assignment as a part of the Azure Managed App offer. This means the customer will have full access to the AKS Node Resource Group that is created by AKS resource when it is included in the Azure Managed App while the Managed Resource Group will have the proper Deny Assignments.
- 
-- The publisher can include Helm charts and other scripts as part of the Azure Managed Application offer. However, the offer will be treated like a regular Azure Managed Apps deployment and there will be no automatic container-specific processing or Helm chart installation at deployment time. It is the publisher’s responsibility to execute the relevant scripts, either at deployment time, using the usual techniques such as VM custom script extension or Azure Deployment Scripts, or after deployment.
- 
-- Same as with the regular Azure Managed Apps offer, it is the publisher’s responsibility to ensure that the solution deploys successfully and that all components are properly configured, secured, and operational. For example, the publisher can use their own container registry as the source of the images but are fully responsible for the container security, and ongoing vulnerability scanning.
+- AKS Node Resource Group does not inherit the Deny Assignments as a part of the Azure Managed Application. This means the customer will have full access to the AKS Node Resource Group that is created by the AKS resource when it is included in the managed application while the Managed Resource Group will have the proper Deny Assignments.
 
-> [!NOTE]
-> The support for containers and AKS in Managed App offers may be withdrawn when an official Container Offer type is made available in Marketplace. At that time, it might be a requirement to publish all future offers using the new offer type and the existing offers may need to be migrated to the new offer type and retired.
+- The publisher can include Helm charts and other scripts as part of the Azure Managed Application. However, the offer will be treated like a regular managed application deployment and there will be no automatic container-specific processing or Helm chart installation at deployment time. It is the publisher’s responsibility to execute the relevant scripts, either at deployment time, using the usual techniques such as VM custom script extension or Azure Deployment Scripts, or after deployment.
+
+- Same as with the regular Azure Managed Application, it is the publisher’s responsibility to ensure that the solution deploys successfully and that all components are properly configured, secured, and operational. For example, publishers can use their own container registry as the source of the images but are fully responsible for the container security, and ongoing vulnerability scanning.
+
+Note: The support for containers and AKS in Azure Managed Application offers may be withdrawn when an official Container Application offer type is made available in Marketplace. At that time, it might be a requirement to publish all future offers using the new offer type and the existing offers may need to be migrated to the new offer type and retired.
+
 
 ## Deployment package
 
