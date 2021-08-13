@@ -200,7 +200,9 @@ Once you've prepared your list of source and destination targets, its time to [i
 
 Once the Azure AD Connect install has been verified and your pending exports are in order, it's time to disable Okta provisioning to Azure AD.
 
-1. Navigate to your Okta portal, select **Applications**, followed by your Okta app used to provision users to Azure AD. Open provisioning tab and **Integration** section
+1. Navigate to your Okta portal, select **Applications**, followed by your Okta app used to provision users to Azure AD. Open provisioning tab and **Integration** section.
+
+![image shows integration section in Okta](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/integration-section.png)
 
 2. Select **Edit**, uncheck **Enable API integration** option and **Save**.
 
