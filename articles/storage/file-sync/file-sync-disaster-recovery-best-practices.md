@@ -4,7 +4,7 @@ description: Learn about best practices for disaster recovery with Azure File Sy
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/11/2021
+ms.date: 08/13/2021
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -57,13 +57,17 @@ If you decide to use an on-premises backup solution, backups should be performed
 
 In Azure File Sync agent version 9 and above, [Volume Shadow Copy Service (VSS) snapshots](file-sync-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service) (including the **Previous Versions** tab) are supported on volumes with cloud tiering enabled. This allows you to perform self-service restores instead of relying on an admin to perform restores for you. However, you must enable previous version compatibility through PowerShell, which will increase your snapshot storage costs. VSS snapshots don't protect against disasters on the server endpoint itself, so they should only be used alongside cloud-side backups. For details, see [Self Service restore through Previous Versions and VSS](file-sync-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service).
 
-## Geo-redundancy
+## Data redundancy
 
-To ensure a robust disaster recovery solution, consider adding geo-redundancy components to your implementation. With Azure file shares, you have two options for this, [geo-redundant storage (GRS)](../common/storage-redundancy.md#geo-redundant-storage) and [geo-zone-redundant storage (GZRS)](../common/storage-redundancy.md#geo-zone-redundant-storage).
+To ensure a robust disaster recovery solution, consider adding some form of data redundancy to your infrastructure. There are three main redundancy offerings for Azure Files, they are: [zone-redundant storage (ZRS)](../common/storage-redundancy.md#zone-redundant-storage), [geo-redundant storage (GRS)](../common/storage-redundancy.md#geo-redundant-storage) and [geo-zone-redundant storage (GZRS)](../common/storage-redundancy.md#geo-zone-redundant-storage).
 
-[Geo-redundant storage (GRS)](../common/storage-redundancy.md#geo-redundant-storage) copies your data synchronously three times within a single physical location in the primary region using LRS. It then copies your data asynchronously to a single physical location in a secondary region that is hundreds of miles away from the primary region. Geo-zone-redundant storage (GZRS) combines the high availability provided by redundancy across availability zones with protection from regional outages provided by geo-replication. Data in a GZRS storage account is copied across three [Azure availability zones](../../availability-zones/az-overview.md) in the primary region and is also replicated to a secondary geographic region for protection from regional disasters. The main differentiating factor between the two is the price, GZRS will provide more redundancy and safety for your data over GRS but, is more expensive. Neither GRS nor GZRS are compatible with file shares larger than 5-TiB.
+[Geo-redundant storage (GRS)](../common/storage-redundancy.md#geo-redundant-storage) copies your data synchronously three times within a single physical location in the primary region using LRS. It then copies your data asynchronously to a single physical location in a secondary region that is hundreds of miles away from the primary region. Geo-zone-redundant storage (GZRS) combines the high availability provided by redundancy across availability zones with protection from regional outages provided by geo-replication. Data in a GZRS storage account is copied across three [Azure availability zones](../../availability-zones/az-overview.md) in the primary region and is also replicated to a secondary geographic region for protection from regional disasters. Zone-redundant storage (ZRS) replicates your Azure Storage data synchronously across three Azure availability zones in the primary region. Each availability zone is a separate physical location with independent power, cooling, and networking. Cost is the main differentiating factor between each of these offerings.
 
-If you enable GRS on the storage account containing your cloud endpoint, you need to enable it on your Storage Sync Service as well. This ensures all information about your Azure File Sync topology and the data contained in your cloud endpoint is asynchronously copied to the paired secondary region in the event of a disaster.
+Most customers should consider ZRS, it is the least costly and also the most seamless in the event of an outage. If there is some reason that you require geo-redundancy, then consider either GRS or GZRS.
+
+### Geo-redundancy
+
+If you enable either GRS or GZRS on the storage account containing your cloud endpoint, you need to enable it on your Storage Sync Service as well. This ensures all information about your Azure File Sync topology and the data contained in your cloud endpoint is asynchronously copied to the paired secondary region in the event of a disaster.
 
 The Azure File Sync service will automatically fail over to the paired region in the event of a region disaster when the Storage Sync Service is using GRS. If you are using Azure File Sync configured with GRS, there is no action required from you in the event of a disaster. Microsoft will initiate the failover for your service if the primary region is judged to be permanently unrecoverable or unavailable for a long time.
 
