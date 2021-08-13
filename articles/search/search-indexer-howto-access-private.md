@@ -8,7 +8,7 @@ author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 08/13/2021
 ---
 
 # Make indexer connections through a private endpoint
@@ -54,16 +54,13 @@ In the remainder of this article, a mix of Azure portal (or the [Azure CLI](/cli
 
 Follow the below instructions to set up an indexer connection through a private endpoint to a secure Azure resource.
 
-> [!NOTE]
-> The examples in this article are based on the following assumptions:
-> * The name of the search service is _contoso-search_, which exists in the _contoso_ resource group of a subscription with subscription ID _00000000-0000-0000-0000-000000000000_. 
-> * The resource ID of this search service is _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search_.
-
-The rest of the examples show how the _contoso-search_ service can be configured so that its indexers can access data from the secure storage account _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Storage/storageAccounts/contoso-storage_.
+The examples in this article are based on the following assumptions:
+* The name of the search service is _contoso-search_, which exists in the _contoso_ resource group of a subscription with subscription ID _00000000-0000-0000-0000-000000000000_. 
+* The resource ID of this search service is _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search_.
 
 ### Step 1: Secure your Azure resource
 
-The steps for restricting access varies by resource. The following scenarios show three of the more common resources.
+The steps for restricting access varies by resource. The following scenarios show three of the more common types of resources.
 
 - Scenario 1: Data source
 
@@ -102,7 +99,7 @@ When using the second option, you can enter the Azure resource ID manually and c
 
 #### Option 2: Azure CLI
 
-Alternatively, you can make the following API call with the [Azure CLI](/cli/azure/). Use the 2020-08-01-preview API version if you're using a group ID that is in preview. For example, *sites* or *mysqlServer*.
+Alternatively, you can make the following API call with the [Azure CLI](/cli/azure/). Use the 2020-08-01-preview API version if you're using a group ID that is in preview. For example, group IDs *sites* and *mysqlServer* and in preview and require you to use the preview API.
 
 ```dotnetcli
 az rest --method put --uri https://management.azure.com/subscriptions/<search service subscription ID>/resourceGroups/<search service resource group name>/providers/Microsoft.Search/searchServices/<search service name>/sharedPrivateLinkResources/<shared private endpoint name>?api-version=2020-08-01 --body @create-pe.json
@@ -136,7 +133,7 @@ In this step you'll confirm that the provisioning state of the resource changes 
 #### Option 1: Portal
 
 > [!NOTE]
-> The provisioning state will be visible in the portal for both GA and preview group IDs.
+> The provisioning state will be visible in the portal for both GA and group IDs that are in preview.
 
 The portal will show you the state of the shared private endpoint. In the below example the status is "Updating".
 
@@ -215,7 +212,7 @@ If the "Provisioning State" (`properties.provisioningState`) of the resource is 
 
 The below steps show how to configure the indexer to run in the private environment using the REST API. You can also set the execution environment using the JSON editor in the portal.
 
-1. Create the data source definition, schema, and skillset (if you're using one) as you would normally. There are no properties in any of these definitions that vary when using a shared private endpoint.
+1. Create the data source definition, index, and skillset (if you're using one) as you would normally. There are no properties in any of these definitions that vary when using a shared private endpoint.
 
 1. [Create an indexer](/rest/api/searchservice/create-indexer) that points to the data source, index, and skillset that you created in the preceding step. In addition, force the indexer to run in the private execution environment by setting the indexer `executionEnvironment` configuration property to `private`.
 
@@ -233,7 +230,9 @@ The below steps show how to configure the indexer to run in the private environm
     }
     ```
 
-   ![Screenshot showing the creation of an indexer on the Postman user interface.](media\search-indexer-howto-secure-access\create-indexer.png)
+    Below is an example of the request in Postman.
+    
+    ![Screenshot showing the creation of an indexer on the Postman user interface.](media\search-indexer-howto-secure-access\create-indexer.png)    
 
 After the indexer is created successfully, it should connect to the Azure resource over the private endpoint connection. You can monitor the status of the indexer by using the [Indexer Status API](/rest/api/searchservice/get-indexer-status).
 
