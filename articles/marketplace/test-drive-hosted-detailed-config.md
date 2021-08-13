@@ -39,7 +39,7 @@ This article describes how to configure a hosted test drive for Dynamics 365 for
             4. Select **Details**.
             5. Copy the **Web link** from the Details Tab:
 
-                :::image type="content" source="./media/test-drive/testdrive-canvas-app.png" alt-text="An example of Instance Web API.":::
+                :::image type="content" source="./media/test-drive/testdrive-canvas-app.png" alt-text="Shows the TestDrive Canvas App window.":::
 
 	- **Instance web API URL**
         - *Customer Engagement* – The Web API URL for your Dynamics 365 Instance. Retrieve this value by signing into your Microsoft Dynamics 365 instance, selecting **Setting** > **Customization** > **Developer Resources** > **Instance Web API**, and copying the address (URL). Example value:
