@@ -37,7 +37,7 @@ Storage is the second component of DataMap that includes technical, business, op
 
 ## Data map billing
 
-Customers are at minimum billed for one capacity unit (25 ops/sec and 2GB) and extra billing is based on the consumption of each extra capacity unit rolled up to the hour. The DataMap operations scale in the increments of 25 operations/sec and metadata storage scales in the increments of 2GB size. Purview Data Map can automatically scale up and down within the elasticity window ([check current limits](how-to-manage-quotas.md)). However, to get the next level or lower the elasticity window, support ticket needs to be created.
+Customers are at minimum billed for one capacity unit (25 ops/sec and 2GB) and extra billing is based on the consumption of each extra capacity unit rolled up to the hour. The DataMap operations scale in the increments of 25 operations/sec and metadata storage scales in the increments of 2GB size. Purview Data Map can automatically scale up and down within the elasticity window ([check current limits](how-to-manage-quotas.md)). However, to get the next level of elasticity window, support ticket needs to be created.
 
 Data Map Capacity unit comes with a cap on operations throughput and storage. If storage exceeds the current capacity unit, customers are charged for the next capacity unit even if the operations throughput isn't used. The below table shows the Data Map capacity unit ranges. Contact support if the Data Map capacity unit goes beyond 100 capacity unit.
 
@@ -86,7 +86,7 @@ Based on the Data Map operations/second and metadata storage consumption in this
 :::image type="content" source="./media/concept-elastic-data-map/billing-capacity-hours.png" alt-text="Table depicting number of CU hours over time.":::
 
 >[!Important]
->Purview Data Map can automatically scale up and down within the elasticity window ([check current limits](how-to-manage-quotas.md)). To get the next level or lower the elasticity window, support ticket needs to be created.
+>Purview Data Map can automatically scale up and down within the elasticity window ([check current limits](how-to-manage-quotas.md)). To get the next level of the elasticity window, support ticket needs to be created.
 
 ## Working with elastic data map
 
