@@ -34,7 +34,7 @@ You can only connect the disk pool to an Azure VMware Solution private cloud in 
 
 - Scalability and performance requirements of your workloads are identified. For details, see [Planning for Azure disk pools](../virtual-machines/disks-pools-planning.md).
 
-- [Azure VMware Solution private cloud](deploy-azure-vmware-solution.md) deployed with a [virtual network configured](deploy-azure-vmware-solution.md#step-3-connect-to-azure-virtual-network-with-expressroute). For more information, see [Network planning checklist](tutorial-network-checklist.md) and [Configure networking for your VMware private cloud](tutorial-configure-networking.md). 
+- [Azure VMware Solution private cloud](deploy-azure-vmware-solution.md) deployed with a [virtual network configured](deploy-azure-vmware-solution.md#connect-to-azure-virtual-network-with-expressroute). For more information, see [Network planning checklist](tutorial-network-checklist.md) and [Configure networking for your VMware private cloud](tutorial-configure-networking.md). 
 
    - If you select ultra disks, use Ultra Performance for the Azure VMware Solution private cloud and then [enable ExpressRoute FastPath](../expressroute/expressroute-howto-linkvnet-arm.md#configure-expressroute-fastpath).
 
@@ -109,7 +109,7 @@ You'll attach to a disk pool surfaced through an iSCSI target as the VMware data
 
 3. Create and attach an iSCSI datastore in the Azure VMware Solution private cloud cluster using `Microsoft.StoragePool` provided iSCSI target:
 
-   ```azurecli
+   ```bash
    az vmware datastore disk-pool-volume create --name iSCSIDatastore1 --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud --target-id /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/ResourceGroup1/providers/Microsoft.StoragePool/diskPools/mpio-diskpool/iscsiTargets/mpio-iscsi-target --lun-name lun0
    ```
 

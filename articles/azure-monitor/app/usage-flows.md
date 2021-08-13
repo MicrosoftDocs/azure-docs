@@ -1,12 +1,11 @@
 ---
-title: Azure Application Insights User Flows analyzes navigation flows
+title:  Application Insights User Flows analyzes navigation flows
 description: Analyze how users navigate between the pages and features of your web app.
 ms.topic: conceptual
-author: NumberByColors
-ms.author: daviste
-ms.date: 01/24/2018
+author: lgayhardt
+ms.author: lagayhar
+ms.date: 07/30/2021
 
-ms.reviewer: mbullwin
 ---
 
 # Analyze user navigation patterns with User Flows in Application Insights

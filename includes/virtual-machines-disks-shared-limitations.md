@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 07/26/2021
+ ms.date: 08/03/2021
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -35,18 +35,20 @@ Shared ultra disks are available in all regions that support ultra disks by defa
 - Azure Backup is available through [Azure Disk Backup](../articles/backup/disk-backup-overview.md).
 - Only [server-side encryption](../articles/virtual-machines/disk-encryption.md) is supported, [Azure Disk Encryption](../articles/virtual-machines/windows/disk-encryption-overview.md) is not currently supported.
 
-#### Regional availability
+#### Premium SSD regional availability
 
 Shared disks on P1-P15 sizes are currently only available in the following regions:
 - Canada Central
 - Japan East
 - Central US
+- West Central US
 - East US
 - East US 2
 - West US
 - West US 2
+- South Central US
 
-Shared disks on all other other premium SSD sizes are available in all regions that managed disks are available. 
+Shared disks on all other premium SSD sizes are available in all regions that managed disks are available.
 
 
 ### Standard SSDs
@@ -59,3 +61,18 @@ Shared disks on all other other premium SSD sizes are available in all regions t
 - Azure Site Recovery support is not yet available.
 - Azure Backup is available through [Azure Disk Backup](../articles/backup/disk-backup-overview.md).
 - Only [server-side encryption](../articles/virtual-machines/disk-encryption.md) is supported, [Azure Disk Encryption](../articles/virtual-machines/windows/disk-encryption-overview.md) is not currently supported.
+
+#### Standard SSD regional availability
+
+Shared disks on E1-E20 sizes are currently only available in the following regions:
+- Canada Central
+- Japan East
+- Central US
+- West Central US
+- East US
+- East US 2
+- West US
+- West US 2
+- South Central US
+
+Shared disks on all other standard SSD sizes are available in all regions that managed disks are available.

@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure Migrate appliance deployment and discovery
-description: Get help with appliance deployment and server discovery.
+title: Troubleshoot Azure Migrate appliance
+description: Get help to troubleshoot problems that might occur with the Azure Migrate appliance.
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
@@ -9,7 +9,7 @@ ms.date: 07/01/2020
 ---
 
 
-# Troubleshoot the Azure Migrate appliance and discovery
+# Troubleshoot the Azure Migrate appliance
 
 This article helps you troubleshoot issues when deploying the [Azure Migrate](migrate-services-overview.md) appliance, and using the appliance to discover on-premises servers.
 

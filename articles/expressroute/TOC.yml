@@ -148,14 +148,12 @@
       href: monitor-expressroute.md
     - name: Network Insights
       href: expressroute-network-insights.md
-    - name: Configure ExpressRoute Connection Monitoring
+    - name: Configure Connection Monitoring for ExpressRoute
       href: how-to-configure-connection-monitor.md
     - name: ExpressRoute monitoring, metrics, and alerts
       href: expressroute-monitoring-metrics-alerts.md
     - name: View and configure maintenance alerts
       href: maintenance-alerts.md
-    - name: Configure Network Performance Monitor for ExpressRoute
-      href: how-to-npm.md
     - name: Configure custom alerts to monitor advertised routes
       href: how-to-custom-route-alert.md
   - name: Managing peerings
@@ -298,3 +296,5 @@
       href: expressroute-howto-add-gateway-classic.md
     - name: Create and modify public peering
       href: about-public-peering.md
+    - name: Configure Network Performance Monitor for ExpressRoute (deprecated)
+      href: how-to-npm.md

@@ -32,7 +32,7 @@ To perform the backup and recovery process, you must first create a Linux VM tha
 To prepare the environment, complete these steps:
 
 1. [Connect to the VM](#connect-to-the-vm).
-1. [Setup Azure Files Storage](#setup-azure-files-storge-for-the-oracle-archived-redo-log-files)
+1. [Setup Azure Files Storage](#setup-azure-files-storage-for-the-oracle-archived-redo-log-files)
 1. [Prepare the database](#prepare-the-databases).
 
 ### Connect to the VM

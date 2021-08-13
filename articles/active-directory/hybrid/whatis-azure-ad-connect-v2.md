@@ -49,13 +49,13 @@ SQL Server 2019 requires Windows Server 2016 or newer as a server operating syst
 
 You cannot install this version on an older Windows Server version. We suggest you upgrade your Azure AD Connect server to Windows Server 2019, which is the most recent version of the Windows Server operating system. 
 
-This [article](https://docs.microsoft.com/windows-server/get-started-19/install-upgrade-migrate-19) describes the upgrade from older Windows Server versions to Windows Server 2019. 
+This [article](/windows-server/get-started-19/install-upgrade-migrate-19) describes the upgrade from older Windows Server versions to Windows Server 2019. 
 
 ### PowerShell 5.0 
 
 This release of Azure AD Connect contains several cmdlets that require PowerShell 5.0, so this requirement is a new prerequisite for Azure AD Connect.  
 
-More details about PowerShell prerequisites can be found [here](https://docs.microsoft.com/powershell/scripting/windows-powershell/install/windows-powershell-system-requirements?view=powershell-7.1#windows-powershell-50).
+More details about PowerShell prerequisites can be found [here](/powershell/scripting/windows-powershell/install/windows-powershell-system-requirements?view=powershell-7.1#windows-powershell-50).
 
  >[!NOTE]
  >PowerShell 5 is already part of Windows Server 2016 so you probably do not have to take action as long as you are on a recent Window Server version. 
@@ -116,4 +116,4 @@ This is a known issue.  To resolve this, restart your PowerShell session after i
 - [Express settings](how-to-connect-install-express.md)
 - [Customized settings](how-to-connect-install-custom.md)
 
-This article describes the upgrade from older Windows Server versions to Windows Server 2019. 
+This article describes the upgrade from older Windows Server versions to Windows Server 2019.

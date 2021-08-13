@@ -20,3 +20,5 @@
     - name: Form Recognizer           # Destination doc set name
       tocHref: /legal/cognitive-services/form-recognizer      # Destination doc set route
       topicHref: /azure/cognitive-services/form-recognizer/index    # Original doc set route
+
+      
