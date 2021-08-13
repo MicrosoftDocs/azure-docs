@@ -62,8 +62,8 @@ You will need to be a collection admin in order to create a collection. If you a
 ### View Collections
 
 1. Select the triangle icon beside the collection's name to expand or collapse the collection hierarchy. Click the collection names to navigate.
-:::image type="content" source="./media/how-to-create-and-manage-collections/view-collections.png" alt-text="Screenshot of Purview studio collection window, with triangle button next to collection highlighted." border="true":::
 1. Type in the filter box at the top of the list to filter collections.
+:::image type="content" source="./media/how-to-create-and-manage-collections/view-collections.png" alt-text="Screenshot of Purview studio collection window, with triangle button next to collection highlighted." border="true":::
 :::image type="content" source="./media/how-to-create-and-manage-collections/search-collections.png" alt-text="Screenshot of Purview studio collection window, with the search bar at the top of the list highlighted." border="true":::
 1. Select “Refresh” in Root collection’s contextual menu to reload the collection list.
 :::image type="content" source="./media/how-to-create-and-manage-collections/refresh-collections.png" alt-text="Screenshot of Purview studio collection window, with the button next to the Resource name selected, and the refresh button highlighted." border="true":::
