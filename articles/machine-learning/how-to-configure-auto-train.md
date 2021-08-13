@@ -41,6 +41,8 @@ For this article you need,
     * Create a compute instance, which automatically installs the SDK and is preconfigured for ML workflows. See [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) for more information. 
 
     * [Install the `automl` package yourself](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
+
+    [!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
     
     > [!WARNING]
     > Python 3.8 is not compatible with `automl`. 
@@ -368,6 +370,9 @@ A&nbsp;score&nbsp;has&nbsp;been&nbsp;reached| Use `experiment_exit_score` comple
 
 ## Run experiment
 
+> [!WARNING]
+> If you run an experiment with the same configuration settings and primary metric multiple times, you'll likely see variation in each experiments final metrics score and generated models. The algorithms automated ML employs have inherent randomness that can cause slight variation in the models output by the experiment and the recommended model's final metrics score, like accuracy. You'll likely also see results with the same model name, but different hyperparameters used. 
+
 For automated ML, you create an `Experiment` object, which is a named object in a `Workspace` used to run experiments.
 
 ```python
@@ -403,9 +408,6 @@ To help manage child runs and when they can be performed, we recommend you creat
 Configure  `max_concurrent_iterations` in your `AutoMLConfig` object. If it is not configured, then by default only one concurrent child run/iteration is allowed per experiment.  
 
 ## Explore models and metrics
-
-> [!WARNING]
-> The algorithms automated ML employs have inherent randomness that can cause slight variation in a recommended model's final metrics score, like accuracy. Automated ML also performs operations on data such as train-test split, train-validation split or cross-validation when necessary. So if you run an experiment with the same configuration settings and primary metric multiple times, you'll likely see variation in each experiments final metrics score due to these factors. 
 
 Automated ML offers options for you to monitor and evaluate your training results. 
 
