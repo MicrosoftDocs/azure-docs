@@ -6,7 +6,7 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 08/16/2021
+ms.date: 07/23/2021
 ---
 
 # Understanding resource sets
@@ -14,9 +14,11 @@ ms.date: 08/16/2021
 This article helps you understand how Azure Purview uses resource sets to map data assets to logical resources.
 ## Background info
 
-At-scale data processing systems typically store a single table in storage as multiple files. In the Azure Purview data catalog, this concept is represented by using resource sets. A resource set is a single object in the catalog that represents a large number of assets in storage.
+At-scale data processing systems typically store a single table on a disk as multiple files. This concept is represented in Azure Purview by using resource sets. A resource set is a single object in the catalog that represents a large number of assets in storage.
 
 For example, suppose your Spark cluster has persisted a DataFrame into an Azure Data Lake Storage (ADLS) Gen2 data source. Although in Spark the table looks like a single logical resource, on the disk there are likely thousands of Parquet files, each of which represents a partition of the total DataFrame's contents. IoT data and web log data have the same challenge. Imagine you have a sensor that outputs log files several times a second. It won't take long until you have hundreds of thousands of log files from that single sensor.
+
+To address the challenge of mapping large numbers of data assets to a single logical resource, Azure Purview uses resource sets.
 
 ## How Azure Purview detects resource sets
 
@@ -34,7 +36,7 @@ Using this strategy, Azure Purview would map the following resources to the same
 - `https://myaccount.blob.core.windows.net/mycontainer/weblogs/cy_gb/234.json`
 - `https://myaccount.blob.core.windows.net/mycontainer/weblogs/de_Ch/23434.json`
 
-### File types that Azure Purview will not detect as resource sets
+## File types that Azure Purview will not detect as resource sets
 
 Purview intentionally doesn't try to classify most document file types like Word, Excel, or PDF as Resource Sets. The exception is CSV format since that is a common partitioned file format.
 
@@ -42,35 +44,15 @@ Purview intentionally doesn't try to classify most document file types like Word
 
 When Azure Purview detects resources that it thinks are part of a resource set, it switches from a full scan to a sample scan. In a sample scan, it opens only a subset of the files that it thinks are in the resource set. For each file it does open, it uses its schema and runs its classifiers. Azure Purview then finds the newest resource among the opened resources and uses that resource's schema and classifications in the entry for the entire resource set in the catalog.
 
-## Advanced resource sets
+## What Azure Purview stores about resource sets
 
-By default, Azure Purview determines the schema and classifications for resource sets based upon the [resource set file sampling rules](sources-and-scans.md#resource-set-file-sampling). Azure Purview can further enrich your resource set assets through the **Advanced Resource Sets** capability. When advanced resource sets is enabled, additional aggregations are made to compute the the following information about resource sets:
+In addition to single schema and classifications, Azure Purview stores the following information about resource sets:
 
 - Data from the latest partition resource it deep scanned.
 - Aggregate information about the partition resources that make up the resource set.
 - A partition count that shows how many partition resources it found.
 - A schema count that shows how many unique schemas it found in the sample set it did deep scans on. This value is either a number between 1–5, or for values greater than 5, 5+.
 - A list of partition types when more than a single partition type is included in the resource set. For example, an IoT sensor might output both XML and JSON files, although both are logically part of the same resource set.
-
-These properties can be found on the asset details page of the resource set.
-
-:::image type="content" source="media/concept-resource-sets/resource-set-properties.png" alt-text="The properties computed when advanced resource sets is on" border="true":::
-
-Enabling advanced resource sets also allows for the creation of [resource set pattern rules](how-to-resource-set-pattern-rules.md) that customize how Azure Purview groups resource sets during scanning. 
-
-### Turning on advanced resource sets
-
-Advanced resource sets is off by default in all new Azure Purview instances. Advanced resource sets can be enabled from **Account information** in the management hub.
-
-> [!NOTE]
-> All Purview instances created before August 16, 2021 will have advanced resource set turned on by default.
-
-:::image type="content" source="media/concept-resource-sets/advanced-resource-set-toggle.png" alt-text="Turn on Advanced resource set." border="true":::
-
-After enabling advanced resource sets, the additional enrichments will occur on all newly ingested assets.
-
-> [!IMPORTANT]
-> Enabling advanced resource sets will impact the refresh rate of asset and classification insights. When advanced resource sets is on, asset and classification insights will only update twice a day.
 
 ## Built-in resource set patterns
 
@@ -93,7 +75,7 @@ Azure Purview supports the following resource set patterns. These patterns can a
 | Date(yyyy/mm/dd)InPath  | {Year}/{Month}/{Day} | Year/month/day pattern spanning multiple folders |
 
 
-## How resource sets are displayed in the Azure Purview data catalog
+## How resource sets are displayed in the Azure Purview Catalog
 
 When Azure Purview matches a group of assets into a resource set, it attempts to extract the most useful information to use as a display name in the catalog. Some examples of the default naming convention applied: 
 
