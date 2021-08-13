@@ -333,7 +333,7 @@ Last, create new connections that use SNC in all your logic apps that use the SA
 
 Follow these examples to create a logic app  workflow that sends an IDoc message to an SAP server and returns a response:
 
-1. [Create a logic app workflow that is triggered by an HTTP request.](#create-http-request-trigger)
+1. [Create a logic app workflow that is triggered by an HTTP request.](#add-http-request-trigger)
 
 1. [Create an action in your workflow to send a message to SAP.](#create-sap-action-to-send-message)
 
@@ -343,19 +343,14 @@ Follow these examples to create a logic app  workflow that sends an IDoc message
 
 1. [Test your logic app.](#test-your-logic-app-workflow)
 
-### Create HTTP request trigger
+<a name="add-http-request-trigger">
+
+### Add an HTTP request trigger
 
 To have your logic app workflow receive IDocs from SAP, you can use the [Request trigger](../connectors/connectors-native-reqres.md).
 
 > [!TIP]
-> To receive IDocs as plain XML, use the SAP trigger named **When a message is received from SAP**, which supports the SAP plain XML format, 
-> and set the **IDOC Format** parameter to **SapPlainXml**.
-> 
-> To receive IDocs as a flat file, use the same SAP trigger, but set the **IDOC Format** parameter to **FlatFile**. If you also use the 
-> [Flat File Decode action](logic-apps-enterprise-integration-flatfile.md), in your flat file schema, you have to use the `early_terminate_optional_fields` 
-> property and set the value to `true`. This requirement is necessary because the flat file IDOC data record that's sent by SAP on the tRFC call 
-> `IDOC_INBOUND_ASYNCHRONOUS` isn't padded to the full SDATA field length. Azure Logic Apps provides the flat file IDOC original data without padding 
-> as received from SAP. Also, when you combine this SAP trigger with the Flat File Decode action, the schema that's provided to the action must match.
+> To receive IDocs as plain XML or as a flat file, review the section, []().
 
 This section continues with the Request trigger, so first, create a logic app workflow with an endpoint in Azure to send *HTTP POST* requests to your workflow. When your logic app workflow receives these HTTP requests, the trigger fires and runs the next step in your workflow.
  
@@ -371,7 +366,7 @@ This section continues with the Request trigger, so first, create a logic app wo
 
 ### Create SAP action to send message
 
-Next, create an action to send your IDoc message to SAP when your [Request trigger](#create-http-request-trigger) fires. By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. Learn more about the [Safe Typing option](#safe-typing).
+Next, create an action to send your IDoc message to SAP when your [Request trigger](#add-http-request-trigger) fires. By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. Learn more about the [Safe Typing option](#safe-typing).
 
 1. In the workflow designer, under the trigger, select **New step**.
 
@@ -653,7 +648,7 @@ This example uses a logic app workflow that triggers when the app receives a mes
 
    ![Screenshot that shows adding an SAP trigger from the Enterprise tab.](./media/logic-apps-using-sap-connector/add-sap-trigger-ent-tab.png)
 
-1. If your connection already exists, continue with the next step so you can set up your SAP action. However, if you're prompted for connection details, provide the information so that you can create a connection to your on-premises SAP server now.
+1. If your connection already exists, continue with the next step so you can set up your SAP trigger. However, if you're prompted for connection details, provide the information so that you can create a connection to your on-premises SAP server now.
 
    1. Provide a name for the connection.
 
@@ -679,30 +674,36 @@ This example uses a logic app workflow that triggers when the app receives a mes
 
       Azure Logic Apps sets up and tests your connection to make sure that the connection works properly.
 
-1. Provide the [required parameters](#parameters) based on your SAP system configuration. 
+1. Based on your SAP system configuration, provide the [required parameters](#parameters), for example:
 
-   You can [filter the messages that you receive from your SAP server by specifying a list of SAP actions](#filter-with-sap-actions).
+   * To receive IDocs as plain XML, in the **When a message is received from SAP** trigger, which supports the SAP plain XML format, add and set the **IDOC Format** parameter to **SapPlainXml**.
 
-   You can select an SAP action from the file picker:
+   * To receive IDocs as a flat file using the same SAP trigger, add and set the **IDOC Format** parameter to **FlatFile**. When you also use the [Flat File Decode action](logic-apps-enterprise-integration-flatfile.md), in your flat file schema, you have to use the `early_terminate_optional_fields` property and set the value to `true`.
 
-   ![Screenshot that shows adding an SAP action to logic app workflow.](./media/logic-apps-using-sap-connector/select-SAP-action-trigger.png)  
+     This requirement is necessary because the flat file IDOC data record that's sent by SAP on the tRFC call `IDOC_INBOUND_ASYNCHRONOUS` isn't padded to the full SDATA field length. Azure Logic Apps provides the flat file IDOC original data without padding as received from SAP. Also, when you combine this SAP trigger with the Flat File Decode action, the schema that's provided to the action must match.
 
-   Or, you can manually specify an action:
+   * To [filter the messages that you receive from your SAP server, specify a list of SAP actions](#filter-with-sap-actions).
 
-   ![Screenshot that shows manually entering the SAP action that you want to use.](./media/logic-apps-using-sap-connector/manual-enter-SAP-action-trigger.png)
+     For example, select an SAP action from the file picker:
 
-   Here's an example that shows how the action appears when you set up the trigger to receive more than one message.
+     ![Screenshot that shows adding an SAP action to logic app workflow.](./media/logic-apps-using-sap-connector/select-SAP-action-trigger.png)  
 
-   ![Screenshot that shows a trigger example that receives multiple messages.](./media/logic-apps-using-sap-connector/example-trigger.png)
+     Or, you can manually specify an action:
 
-   For more information about the SAP action, review [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations)
+     ![Screenshot that shows manually entering the SAP action that you want to use.](./media/logic-apps-using-sap-connector/manual-enter-SAP-action-trigger.png)
+
+     Here's an example that shows how the action appears when you set up the trigger to receive more than one message.
+
+     ![Screenshot that shows a trigger example that receives multiple messages.](./media/logic-apps-using-sap-connector/example-trigger.png)
+
+     For more information about the SAP action, review [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations)
 
 1. Now save your logic app workflow so you can start receiving messages from your SAP system. On the designer toolbar, select **Save**.
 
    Your logic app workflow is now ready to receive messages from your SAP system.
 
    > [!NOTE]
-   > The SAP trigger is a webhook-based trigger, not a polling trigger. If you're using the data gateway, 
+   > The SAP trigger in these steps is a webhook-based trigger, not a polling trigger. If you're using the data gateway, 
    > the trigger is called from the data gateway only when a message exists, so no polling is necessary.
 
 1. In your logic app workflow's trigger history, check that the trigger registration succeeds.
@@ -924,7 +925,9 @@ To send IDocs from SAP to your logic app workflow, you need the following minimu
 
 1. Save your changes.
 
-1. Register your new **Program ID** with Azure Logic Apps by creating a logic app workflow that starts with the SAP trigger named **When a message is received from SAP**. That way, when you save your workflow, Azure Logic Apps registers the **Program ID** on the SAP Gateway.
+1. Register your new **Program ID** with Azure Logic Apps by creating a logic app workflow that starts with the SAP trigger named **When a message is received from SAP**.
+
+   This way, when you save your workflow, Azure Logic Apps registers the **Program ID** on the SAP Gateway.
 
 1. In your workflow's trigger history, the on-premises data gateway SAP adapter logs, and the SAP Gateway trace logs, check the registration status. In the SAP Gateway monitor dialog box (T-Code SMGW), under **Logged-On Clients**, the new registration should appear as **Registered Server**.
 
@@ -1325,13 +1328,13 @@ The following example is an alternative method to set the transaction identifier
 </Send>
 ```
 
-### Add an HTTP Request trigger
+### Add the Request trigger
 
 1. In the Azure portal, create a blank logic app, which opens the workflow designer.
 
 1. In the search box, enter `http request` as your filter. From the **Triggers** list, select **When a HTTP request is received**.
 
-   ![Add HTTP Request trigger](./media/logic-apps-using-sap-connector/add-http-trigger-logic-app.png)
+   ![Screenshot that shows adding the Request trigger.](./media/logic-apps-using-sap-connector/add-http-trigger-logic-app.png)
 
 1. Now save your logic app so you can generate an endpoint URL for your logic app workflow. On the designer toolbar, select **Save**.
 
