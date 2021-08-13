@@ -50,6 +50,7 @@ With *Azure CNI*, each pod receives an IP address in the IP subnet, and can dire
 * Route tables and user-defined routes are required for using kubenet, which adds complexity to operations.
 * Direct pod addressing isn't supported for kubenet due to kubenet design.
 * Unlike Azure CNI clusters, multiple kubenet clusters can't share a subnet.
+* If you provide your own subnet, you have to manage the Network Security Groups (NSG) associated with that subnet. AKS will not modify any of the NSGs associated with that subnet. You also must ensure the security rules in the NSGs allow traffic between the node and pod CIDR.
 * Features **not supported on kubenet** include:
    * [Azure network policies](use-network-policies.md#create-an-aks-cluster-and-enable-network-policy), but Calico network policies are supported on kubenet
    * [Windows node pools](./windows-faq.md)
@@ -71,7 +72,7 @@ The following basic calculations compare the difference in network models:
   - This node count could only support up to *240* pods (with a default maximum of 30 pods per node with *Azure CNI*)
 
 > [!NOTE]
-> These maximums don't take into account upgrade or scale operations. In practice, you can't run the maximum number of nodes that the subnet IP address range supports. You must leave some IP addresses available for use during scale of upgrade operations.
+> These maximums don't take into account upgrade or scale operations. In practice, you can't run the maximum number of nodes that the subnet IP address range supports. You must leave some IP addresses available for use during scale or upgrade operations.
 
 ### Virtual network peering and ExpressRoute connections
 

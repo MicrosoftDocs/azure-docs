@@ -34,7 +34,7 @@ You should be familiar with the concepts of AI face detection and identification
 
 * [Face detection concepts](../concepts/face-detection.md)
 * [Face recognition concepts](../concepts/face-recognition.md)
-* [How to detect faces in an image](HowtoDetectFacesinImage.md)
+* [Call the detect API](HowtoDetectFacesinImage.md)
 
 ## Detect faces with specified model
 
@@ -111,7 +111,7 @@ If you normally specify a confidence threshold (a value between zero and one tha
 
 ## Next steps
 
-In this article, you learned how to specify the recognition model to use with different Face service APIs. Next, follow a quickstart to get started using face detection.
+In this article, you learned how to specify the recognition model to use with different Face service APIs. Next, follow a quickstart to get started with face detection.
 
 * [Face .NET SDK](../quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
 * [Face Python SDK](../quickstarts/client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python)

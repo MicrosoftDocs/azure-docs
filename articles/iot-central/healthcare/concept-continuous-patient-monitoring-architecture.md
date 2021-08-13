@@ -1,8 +1,8 @@
 ---
 title: Continuous patient monitoring architecture in Azure IoT Central | Microsoft Docs
 description: Tutorial - Learn about a continuous patient monitoring solution architecture.
-author: philmea
-ms.author: philmea
+author: dominicbetts 
+ms.author: dobett 
 ms.date: 12/11/2020
 ms.topic: conceptual
 ms.service: iot-central
@@ -32,7 +32,7 @@ The mobile phone application's primary function is to collect BLE data from medi
 
 ### Export to Azure API for FHIR&reg;
 
-Azure IoT Central is HIPAA-compliant and HITRUST&reg; certified. You can also send patient health data to other services using the [Azure API for FHIR](../../healthcare-apis/fhir/overview.md). Azure API for FHIR is a standards-based API for clinical health data. The [Azure IoT connector for FHIR](../../healthcare-apis/fhir/iot-fhir-portal-quickstart.md) lets you use the Azure API for FHIR as a continuous data export destination from IoT Central.
+Azure IoT Central is HIPAA-compliant and HITRUST&reg; certified. You can also send patient health data to other services using the [Azure API for FHIR](../../healthcare-apis/fhir/overview.md). Azure API for FHIR is a standards-based API for clinical health data. The [Azure IoT connector for FHIR](../../healthcare-apis/azure-api-for-fhir/iot-fhir-portal-quickstart.md) lets you use the Azure API for FHIR as a continuous data export destination from IoT Central.
 
 ### Machine learning
 

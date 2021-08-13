@@ -66,7 +66,7 @@ The following Azure Sentinel content works with any process activity that's norm
     - NOBELIUM - suspicious rundll32.exe execution of vbscript (Normalized Process Events)
     - SUNBURST suspicious SolarWinds child processes (Normalized Process Events)
 
-    For more information, see [Create custom analytics rules to detect threats](tutorial-detect-threats-custom.md).
+    For more information, see [Create custom analytics rules to detect threats](detect-threats-custom.md).
 
 -	**Hunting queries**:
     - Cscript script daily summary breakdown (Normalized Process Events)
@@ -117,7 +117,7 @@ Event fields are common to all schemas and describe the activity itself and the 
 | **EventStartTime**      | Mandatory   | Date/time  |      If the source supports aggregation and the record represents multiple events, this field specifies the time that the first event was generated. Otherwise, this field aliases the [TimeGenerated](#timegenerated) field. |
 | **EventEndTime**        | Mandatory   | Alias      |      Alias to the [TimeGenerated](#timegenerated) field.    |
 | **EventType**           | Mandatory   | Enumerated |    Describes the operation reported by the record. <br><br>For Process records, supported values include: <br>- `ProcessCreated` <br>- `ProcessTerminated` |
-| **EventResult**         | Mandatory   | Enumerated |  Describes the result of the event, normalized to one of the following supported values: <br><br>- `Success`<br>- `Partial`<br>- `Failure`<br>- `NA` (not applicable) <br><br>The source may provide only a value for the **EventResultDetails** field, which must be analyzed to get the **EventResult** value. |
+| **EventResult**         | Mandatory   | Enumerated |  Describes the result of the event, normalized to one of the following supported values: <br><br>- `Success`<br>- `Partial`<br>- `Failure`<br>- `NA` (not applicable) <br><br>The source may provide only a value for the **EventResultDetails** field, which must be analyzed to get the **EventResult** value.<br><br>Note that Process Events commonly report only success. |
 | **EventOriginalUid**    | Optional    | String     |   A unique ID of the original record, if provided by the source.<br><br>Example: `69f37748-ddcd-4331-bf0f-b137f1ea83b`|
 | **EventOriginalType**   | Optional    | String     |   The original event type or ID, if provided by the source.<br><br>Example: `4688`|
 | <a name ="eventproduct"></a>**EventProduct**        | Mandatory   | String     |             The product generating the event. <br><br>Example: `Sysmon`<br><br>**Note**: This field may not be available in the source record. In such cases, this field must be set by the parser.           |
@@ -208,7 +208,7 @@ The process event schema references the following entities, which are central to
 | **TargetProcessFileSize**          | Optional     | String     |    Size of the file that ran the process responsible for the event. |
 | **TargetProcessFileVersion**       | Optional     | String     |The product version from the version information in the target process image file.   <br><br>  Example: `7.9.5.0` |
 | **TargetProcessFileInternalName**  |    Optional          | String  |   The product internal file name from the version information of the image file of the target process. |
-| **TargetProcessFileOriginallName** |       Optional       | String   |   The product original file name from the version information of the image file of the target process. |
+| **TargetProcessFileOriginalName** |       Optional       | String   |   The product original file name from the version information of the image file of the target process. |
 | **TargetProcessIsHidden**          | Optional     | Boolean    |   An indication of whether the target process is in hidden mode.  |
 | **TargetProcessInjectedAddress**   | Optional     | String     |    The memory address in which the responsible target process is stored.           |
 | **TargetProcessMD5**               | Optional     | MD5        | The MD5 hash of the target process image file.   <br><br> Example:  `75a599802f1fa166cdadb360960b1dd0`|
@@ -217,6 +217,7 @@ The process event schema references the following entities, which are central to
 | **TargetProcessSHA512**            | Optional     | SHA512     |   The SHA-512 hash of the target process image file.       |
 | **TargetProcessIMPHASH**           | Optional     | String     |    The Import Hash of all the library DLLs that are used by the target process.    |
 | <a name="targetprocesscommandline"></a> **TargetProcessCommandLine**       | Mandatory    | String     | The command line used to run the target process.   <br><br> Example:  `"choco.exe" -v`  |
+| <a name="targetprocesscurrentdirectory"></a> **TargetProcessCurrentDirectory**       | Optional    | String     | The current directory in which the target process is executed.  <br><br> Example:  `c:\windows\system32`  |
 | **TargetProcessCreationTime**      | Mandatory    | DateTime   |    The product version from the version information of the target process image file.   |
 | **TargetProcessId**| Mandatory    | String     |  The process ID (PID) of the target process.     <br><br>Example: `48610176`<br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows and Linux this value must be numeric. <br><br>If you are using a Windows or Linux machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.         |
 | **TargetProcessGuid**              | Optional    | String     |A generated unique identifier (GUID) of the target process. Enables identifying the process across systems.   <br><br>  Example:  `EF3BD0BD-2B74-60C5-AF5C-010000001E00`  |
@@ -231,7 +232,8 @@ The process event schema references the following entities, which are central to
 For more information, see:
 
 - [Normalization in Azure Sentinel](normalization.md)
-- [Azure Sentinel Authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
+- [Azure Sentinel authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
 - [Azure Sentinel DNS normalization schema reference](dns-normalization-schema.md)
+- [Azure Sentinel file event normalization schema reference (Public preview)](file-event-normalization-schema.md)
 - [Azure Sentinel network normalization schema reference](normalization-schema.md)
-- [Azure Sentinel Registry Event normalization schema reference (Public preview)](registry-event-normalization-schema.md)
+- [Azure Sentinel registry event normalization schema reference (Public preview)](registry-event-normalization-schema.md)

@@ -23,6 +23,7 @@ This article shows you how to use *Azure CNI* networking to create and use a vir
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 * The subnet assigned to the AKS node pool cannot be a [delegated subnet](../virtual-network/subnet-delegation-overview.md).
+* If you provide your own subnet, you have to manage the Network Security Groups (NSG) associated with that subnet. AKS will not modify any of the NSGs associated with that subnet. You also must ensure the security rules in the NSGs allow traffic between the node and pod CIDR ranges.
 
 ## Plan IP addressing for your cluster
 
@@ -146,23 +147,7 @@ The following screenshot from the Azure portal shows an example of configuring t
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-> [!NOTE] 
-> This preview feature is currently available in the following regions:
->
-> * East US
-> * East US 2
-> * North Central US
-> * West Central US
-> * West US
-> * West US 2
-> * Canada Central
-> * Australia East
-> * UK South
-> * North Europe
-> * West Europe
-> * Southeast Asia
-
-A drawback with the traditional CNI is the exhaustion of pod IP addresses as the AKS cluster grows, resulting in the need to rebuild the entire cluster in a bigger subnet. The new dynamic IP allocation capability in Azure CNI solves this problem by allotting pod IPs from a subnet separate from the subnet hosting the AKS cluster.  It offers the following benefits:
+A drawback with the traditional CNI is the exhaustion of pod IP addresses as the AKS cluster grows, resulting in the need to rebuild the entire cluster in a bigger subnet. The new dynamic IP allocation capability in Azure CNI solves this problem by allotting pod IPs from a subnet separate from the subnet hosting the AKS cluster. It offers the following benefits:
 
 * **Better IP utilization**: IPs are dynamically allocated to cluster Pods from the Pod subnet. This leads to better utilization of IPs in the cluster compared to the traditional CNI solution, which does static allocation of IPs for every node.  
 
@@ -173,6 +158,13 @@ A drawback with the traditional CNI is the exhaustion of pod IP addresses as the
 * **Separate VNet policies for pods**: Since pods have a separate subnet, you can configure separate VNet policies for them that are different from node policies. This enables many useful scenarios such as allowing internet connectivity only for pods and not for nodes, fixing the source IP for pod in a node pool using a VNet Network NAT, and using NSGs to filter traffic between node pools.  
 
 * **Kubernetes network policies**: Both the Azure Network Policies and Calico work with this new solution.  
+
+### Additional prerequisites
+
+The [prerequisites][prerequisites] already listed for Azure CNI still apply, but there are a few additional limitations:
+
+* Only linux node clusters and node pools are supported.
+* AKS Engine and DIY clusters are not supported.
 
 ### Install the `aks-preview` Azure CLI
 
@@ -207,13 +199,6 @@ When ready, refresh the registration of the *Microsoft.ContainerService* resourc
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
-
-### Additional prerequisites
-
-The prerequisites already listed for Azure CNI still apply, but there are a few additional limitations:
-
-* Only linux node clusters and node pools are supported.
-* AKS Engine and DIY clusters are not supported.
 
 ### Planning IP addressing
 
@@ -281,7 +266,7 @@ When adding node pool, reference the node subnet using `--vnet-subnet-id` and th
 az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name node2subnet --address-prefixes 10.242.0.0/16 -o none 
 az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name pod2subnet --address-prefixes 10.243.0.0/16 -o none 
 
-az aks nodepool add --cluster-name $clusterName -g $resourceGroup  -n newNodepool \
+az aks nodepool add --cluster-name $clusterName -g $resourceGroup  -n newnodepool \
   --max-pods 250 \
   --node-count 2 \
   --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/node2subnet \
@@ -383,3 +368,4 @@ Learn more about networking in AKS in the following articles:
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [network-comparisons]: concepts-network.md#compare-network-models
 [system-node-pools]: use-system-pools.md
+[prerequisites]: configure-azure-cni.md#prerequisites

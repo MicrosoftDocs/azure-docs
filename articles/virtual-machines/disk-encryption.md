@@ -47,17 +47,6 @@ For now, customer-managed keys have the following restrictions:
 
 Customer-managed keys are available in all regions that managed disks are available.
 
-Automatic key rotation is in preview and only available in the following regions:
-
-- East US
-- East US 2
-- South Central US
-- West US
-- West US 2
-- North Europe
-- West Europe
-- France Central
-
 > [!IMPORTANT]
 > Customer-managed keys rely on managed identities for Azure resources, a feature of Azure Active Directory (Azure AD). When you configure customer-managed keys, a managed identity is automatically assigned to your resources under the covers. If you subsequently move the subscription, resource group, or managed disk from one Azure AD directory to another, the managed identity associated with managed disks isn't transferred to the new tenant, so customer-managed keys may no longer work. For more information, see [Transferring a subscription between Azure AD directories](../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
 

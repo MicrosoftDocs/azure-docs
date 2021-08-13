@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/27/2021
+ms.date: 07/29/2021
 ms.author: bwren 
 ms.custom: devx-track-azurepowershell
 ---
@@ -45,9 +45,9 @@ Also, some solutions, such as [Azure Defender (Security Center)](https://azure.m
 
 ### Log Analytics Dedicated Clusters
 
-[Log Analytics Dedicated Clusters](logs-dedicated-clusters.md) are collections of workspaces in a single managed Azure Data Explorer cluster to support advanced scenarios, like [Customer-Managed Keys](customer-managed-keys.md). Log Analytics Dedicated Clusters use a commitment tier pricing model that must be configured to at least 1000 GB/day. The cluster commitment tier has a 31-day commitment period after the commitment level is increased. During the commitment period, the commitment tier level can't be reduced, but it can be increased at any time. When workspaces are associated to a cluster, the data ingestion billing for those workspaces is done at the cluster level using the configured commitment tier level. Learn more about [creating a Log Analytics Clusters](customer-managed-keys.md#create-cluster) and [associating workspaces to it](customer-managed-keys.md#link-workspace-to-cluster). For information about commitment tier pricing, see the [Azure Monitor pricing page]( https://azure.microsoft.com/pricing/details/monitor/).
+[Log Analytics Dedicated Clusters](logs-dedicated-clusters.md) are collections of workspaces in a single managed Azure Data Explorer cluster to support advanced scenarios, like [Customer-Managed Keys](customer-managed-keys.md). Log Analytics Dedicated Clusters use the same commitment tier pricing model as workspaces, except that a cluster must have a commitment level of at least 500 GB/day. There is no Pay-As-You-Go option for clusters. The cluster commitment tier has a 31-day commitment period after the commitment level is increased. During the commitment period, the commitment tier level can't be reduced, but it can be increased at any time. When workspaces are associated to a cluster, the data ingestion billing for those workspaces is done at the cluster level using the configured commitment tier level. Learn more about [creating a Log Analytics Clusters](customer-managed-keys.md#create-cluster) and [associating workspaces to it](customer-managed-keys.md#link-workspace-to-cluster). For information about commitment tier pricing, see the [Azure Monitor pricing page]( https://azure.microsoft.com/pricing/details/monitor/).
 
-The cluster commitment tier level is programmatically configured with Azure Resource Manager using the `Capacity` parameter under `Sku`. The `Capacity` is specified in units of GB and can have values of 1000, 2000 or 5000 GB/day. Any usage above the commitment level (overage) is billed at that same price per GB as provided by the current commitment tier.  For more information, see [Azure Monitor customer-managed key](customer-managed-keys.md).
+The cluster commitment tier level is programmatically configured with Azure Resource Manager using the `Capacity` parameter under `Sku`. The `Capacity` is specified in units of GB and can have values of 500, 1000, 2000 or 5000 GB/day. Any usage above the commitment level (overage) is billed at that same price per GB as provided by the current commitment tier.  For more information, see [Azure Monitor customer-managed key](customer-managed-keys.md).
 
 There are two modes of billing for usage on a cluster. These can be specified by the `billingType` parameter when [creating a cluster](logs-dedicated-clusters.md#creating-a-cluster) or set after creation. The two modes are: 
 
@@ -135,7 +135,7 @@ To set the pricing tier to other values such as Pay-As-You-Go (called `pergb2018
 
 ## Legacy pricing tiers
 
-Subscriptions that contained a Log Analytics workspace or Application Insights resource on April 2, 2018, or are linked to an Enterprise Agreement that started before February 1, 2019 and is still active, will continue to have access to use the legacy pricing tiers: **Free Trial**, **Standalone (Per GB)**, and **Per Node (OMS)**. Workspaces in the Free Trial pricing tier will have daily data ingestion limited to 500 MB (except for security data types collected by [Azure Defender (Security Center)](../../security-center/index.yml)) and the data retention is limited to seven days. The Free Trial pricing tier is intended only for evaluation purposes. Workspaces in the Standalone or Per Node pricing tiers have user-configurable retention from 30 to 730 days.
+Subscriptions that contained a Log Analytics workspace or Application Insights resource on April 2, 2018, or are linked to an Enterprise Agreement that started before February 1, 2019 and is still active, will continue to have access to use the legacy pricing tiers: **Free Trial**, **Standalone (Per GB)**, and **Per Node (OMS)**. Workspaces in the Free Trial pricing tier will have daily data ingestion limited to 500 MB (except for security data types collected by [Azure Defender (Security Center)](../../security-center/index.yml)) and the data retention is limited to seven days. The Free Trial pricing tier is intended only for evaluation purposes. No SLA is provided for the Free tier.  Workspaces in the Standalone or Per Node pricing tiers have user-configurable retention from 30 to 730 days.
 
 Usage on the Standalone pricing tier is billed by the ingested data volume. It is reported in the **Log Analytics** service and the meter is named "Data Analyzed". 
 
@@ -304,7 +304,7 @@ To get you started, here are the recommended settings for the alert querying the
 - Target: Select your Log Analytics resource
 - Criteria: 
    - Signal name: Custom log search
-   - Search query: `_LogOperation | where Operation == "Data collection Stopped" | where Detail contains "OverQuota"`
+   - Search query: `_LogOperation | where Operation =~ "Data collection stopped" | where Detail contains "OverQuota"`
    - Based on: Number of results
    - Condition: Greater than
    - Threshold: 0

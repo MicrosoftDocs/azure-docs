@@ -7,7 +7,7 @@ ms.date: 09/04/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ms.custom: devx-track-js
 ---
 

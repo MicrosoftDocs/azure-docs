@@ -3,18 +3,13 @@ title: Azure Virtual Desktop Start VM Connect FAQ - Azure
 description: Frequently asked questions and best practices for using the Start VM on Connect feature.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 03/31/2021
+ms.date: 07/29/2021
 ms.author: helohr
 manager: femila
 ---
-# Start VM on Connect FAQ (preview)
+# Start VM on Connect FAQ
 
-> [!IMPORTANT]
-> The Start VM on Connect feature is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-This article covers frequently asked questions about the Start Virtual Machine (VM) on Connect (preview) feature for Azure Virtual Desktop host pools.
+This article covers frequently asked questions about the Start Virtual Machine (VM) on Connect feature for Azure Virtual Desktop host pools.
 
 ## Are VMs automatically deallocated when a user stops using them?
 
@@ -41,6 +36,6 @@ Yes. Users can shut down the VM by using the Start menu within their session, ju
 
 ## Next steps
 
-To learn how to configure Start VM on Connect, see [Start virtual machine on connect (preview)](start-virtual-machine-connect.md).
+To learn how to configure Start VM on Connect, see [Start virtual machine on connect](start-virtual-machine-connect.md).
 
 If you have more general questions about Azure Virtual Desktop, check out our general [FAQ](faq.yml).

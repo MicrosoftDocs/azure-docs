@@ -61,7 +61,7 @@ $accountName = "<storage-account>"
 $scopeName1 = "customer1scope"
 
 New-AzStorageEncryptionScope -ResourceGroupName $rgName `
-    -AccountName $accountName `
+    -StorageAccountName $accountName `
     -EncryptionScopeName $scopeName1 `
     -StorageEncryption
 ```
@@ -101,7 +101,7 @@ Remember to replace the placeholder values in the example with your own values:
 
 ```powershell
 New-AzStorageEncryptionScope -ResourceGroupName $rgName `
-    -AccountName $accountName `
+    -StorageAccountName $accountName `
     -EncryptionScopeName $scopeName2 `
     -KeyUri $keyUri `
     -KeyvaultEncryption

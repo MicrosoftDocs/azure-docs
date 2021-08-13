@@ -156,7 +156,7 @@ There are two modes of schema representation in the analytical store. These mode
 It is possible to use Full Fidelity Schema for SQL (Core) API accounts. Here are the considerations about this possibility:
 
  * This option is only valid for accounts that don't have Synapse Link enabled.
- * It is not possible to turn Synapse Link off to on again, to change from well-defined to full fidelity.
+ * It is not possible to turn Synapse Link off and on again, to reset the default option and change from well-defined to full fidelity.
  * It is not possible to change from well-defined to full fidelity using any other process.
  * MongoDB accounts are not compatible with this possibility of changing the method of representation.
  * Currently this decision cannot be made through the Azure portal.
@@ -167,10 +167,18 @@ It is possible to use Full Fidelity Schema for SQL (Core) API accounts. Here are
  az cosmosdb create --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup --subscription MySubscription --analytical-storage-schema-type "FullFidelity" --enable-analytical-storage true
  ```
  
+> [!NOTE]
+> In the command above, replace `create` with `update` for existing accounts.
+ 
   With the PowerShell:
   ```
    New-AzCosmosDBAccount -ResourceGroupName MyResourceGroup -Name MyCosmosDBDatabaseAccount  -EnableAnalyticalStorage true -AnalyticalStorageSchemaType "FullFidelity"
    ```
+ 
+> [!NOTE]
+> In the command above, replace `New-AzCosmosDBAccount` with `Update-AzCosmosDBAccount` for existing accounts.
+ 
+
 
 #### Well-defined schema representation
 

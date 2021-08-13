@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
@@ -151,8 +151,8 @@ You can use the standard Postgres way to  create users or roles. However, if you
 ### Change the password of the _postgres_ administrative user
 Azure Arc-enabled PostgreSQL Hyperscale comes with the standard Postgres administrative user _postgres_ for which you set the password when you create your server group.
 The general format of the command to change its password is:
-```console
-azdata arc postgres server edit --name <server group name> --admin-password
+```azurecli
+az postgres arc-server edit --name <server group name> --admin-password --k8s-namespace <namespace> --use-k8s
 ```
 
 Where `--admin-password` is a boolean that relates to the presence of a value in the AZDATA_PASSWORD **session** environment variable.
@@ -164,12 +164,13 @@ If the AZDATA_PASSWORD **session** environment variable exists but has not value
 
 1. Delete the AZDATA_PASSWORD **session** environment variable or delete its value
 2. Run the command:
-   ```console
-   azdata arc postgres server edit --name <server group name> --admin-password
+
+   ```azurecli
+   az postgres arc-server edit --name <server group name> --admin-password --k8s-namespace <namespace> --use-k8s
    ```
    For example
-   ```console
-   azdata arc postgres server edit -n postgres01 --admin-password
+   ```azurecli
+   az postgres arc-server edit -n postgres01 --admin-password --k8s-namespace <namespace> --use-k8s
    ```
    You will be prompted to enter the password and to confirm it:
    ```console
@@ -186,12 +187,12 @@ If the AZDATA_PASSWORD **session** environment variable exists but has not value
 #### Change the password of the postgres administrative user using the AZDATA_PASSWORD **session** environment variable:
 1. Set the value of the AZDATA_PASSWORD **session** environment variable to what you want to password to be.
 2. Run the  command:
-   ```console
-   azdata arc postgres server edit --name <server group name> --admin-password
+   ```azurecli
+   az postgres arc-server edit --name <server group name> --admin-password --k8s-namespace <namespace> --use-k8s
    ```
    For example
-   ```console
-   azdata arc postgres server edit -n postgres01 --admin-password
+   ```azurecli
+   az postgres arc-server edit -n postgres01 --admin-password --k8s-namespace <namespace> --use-k8s
    ```
    
    As the password is being updated, the output of the command shows:
