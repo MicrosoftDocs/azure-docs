@@ -22,11 +22,6 @@ Data wrangling in data factory allows you to build interactive Power Query mash-
 
 There are two ways to create a Power Query in Azure Data Factory. One way is to click the plus icon and select **Power Query** in the factory resources pane.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWJd3T]
-
-> [!NOTE]
-> Previously, the data wrangling feature was located in the data flow workflow. Now, you will build your data wrangling mash-up from ```New > Power query```
-
 ![Screenshot that shows Power Query in the factory resources pane.](media/data-flow/power-query-wrangling.png)
 
 The other method is in the activities pane of the pipeline canvas. Open the **Power Query** accordion and drag the **Power Query** activity onto the canvas.
@@ -35,6 +30,8 @@ The other method is in the activities pane of the pipeline canvas. Open the **Po
 
 ## Author a Power Query data wrangling activity
 
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWJd3T]
+> 
 Add a **Source dataset** for your Power Query mash-up. You can either choose an existing dataset or create a new one. After you have saved your mash-up, you can then add the Power Query data wrangling activity to your pipeline and select a sink dataset to tell ADF where to land your data. While you can choose one or more source datasets, only one sink is allowed at this time. Choosing a sink dataset is optional, but at least one source dataset is required.
 
 ![Wrangling](media/wrangling-data-flow/tutorial4.png)
