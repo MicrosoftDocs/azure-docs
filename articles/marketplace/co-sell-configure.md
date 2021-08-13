@@ -48,6 +48,8 @@ The Co-sell option is available for the following offer types.
 
 1. In the menu on the left, select **Co-sell with Microsoft**.
 
+    :::image type="content" source="./media/co-sell/co-sell-with-microsoft-tab-workspaces.png" alt-text="Illustrates the Co-sell with Microsoft page.":::
+
 #### [Classic view](#tab/classic-view)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
