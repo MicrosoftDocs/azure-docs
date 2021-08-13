@@ -417,6 +417,17 @@ Sync sessions may fail for various reasons including the server being restarted 
 
 No action is required; the server will try again. If this error persists for several hours, create a support request.
 
+<a id="-2134364160"></a>**Sync failed because the operation was aborted**  
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c83000 |
+| **HRESULT (decimal)** | -2134364160 |
+| **Error string** | ECS_E_OPERATION_ABORTED |
+| **Remediation required** | No |
+
+No action is required. If this error persists for several hours, create a support request.
+
 <a id="-2134364043"></a>**Sync is blocked until change detection completes post restore**  
 
 | Error | Code |
