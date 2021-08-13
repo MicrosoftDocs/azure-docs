@@ -7,7 +7,7 @@ ms.date: 01/19/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ---
 
 # Search for a location using Azure Maps Search services

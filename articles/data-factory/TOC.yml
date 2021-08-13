@@ -914,6 +914,8 @@ items:
     href: policy-reference.md
   - name: Azure CLI
     href: /cli/azure/datafactory
+  - name: Compute optimized data flows retired
+    href: compute-optimized-data-flow-retire.md
 - name: Resources
   items:
   - name: Whitepapers
