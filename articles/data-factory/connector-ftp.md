@@ -45,7 +45,33 @@ The FTP connector support FTP server running in passive mode. Active mode is not
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties that are used to define Data Factory entities specific to FTP.
+## Create a linked service to an FTP server using UI
+
+Use the following steps to create a linked service to an FTP server in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+
+    # [Synapse Analytics](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+
+---
+
+2. Search for FTP and select the FTP connector.
+
+    :::image type="content" source="media/connector-ftp/ftp-connector.png" alt-text="Select the FTP connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-ftp/configure-ftp-linked-service.png" alt-text="Configure a linked service to an FTP server.":::
+
+## Connector configuration details
+
+The following sections provide details about properties that are used to define entities specific to FTP.
 
 ## Linked service properties
 
