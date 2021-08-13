@@ -20,7 +20,7 @@ ms.author: thwimmer
 
 # Tutorial: Configure Chatwork for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both Chatwork and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Chatwork](https://corp.chatwork.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to do in both Chatwork and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Chatwork](https://corp.chatwork.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## Capabilities Supported
@@ -50,7 +50,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ### 1. Open User Provisioning from the Chatwork admin page
 
-Access the Chatwork admin screen as a user with admin rights. If you have administrator privileges, you will be able to access the User Provisioning page.
+Access the Chatwork admin screen as a user with admin rights. If you have administrator privileges, you'll be able to access the User Provisioning page.
 
 The User Provisioning page contains notes and restrictions for using the user provisioning feature. Check all the items.
 
@@ -58,9 +58,9 @@ The User Provisioning page contains notes and restrictions for using the user pr
 
 ### 2. Configure the SAML login settings.
 
-If you are using Azure AD and user provisioning, you will use your Azure AD ID to log in to Chatwork.
+If you're using Azure AD and user provisioning, you will use your Azure AD ID to log in to Chatwork.
 
-If you are using Azure AD and user provisioning, login to Chatwork using your Azure AD ID. 
+If you're using Azure AD and user provisioning, login to Chatwork using your Azure AD ID. 
 
 ![Configure the SAML login settings](media/chatwork-provisioning-tutorial/chatwork-configure-saml.png)
 
