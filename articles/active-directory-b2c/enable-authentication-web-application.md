@@ -1,6 +1,6 @@
 ---
-title: Enable authentication in a web application using Azure Active Directory B2C building blocks
-description:  The building blocks of Azure Active Directory B2C to sign in and sign up users in an ASP.NET web application.
+title: Enable authentication in a web app by using Azure Active Directory B2C building blocks
+description: This article discusses how to use the building blocks of Azure Active Directory B2C to sign in and sign up users in an ASP.NET web app.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -74,7 +74,7 @@ using Microsoft.Identity.Web.UI;
 
 Because Microsoft Identity Web uses cookie-based authentication to protect your web app, the following code sets the *SameSite* cookie settings. It then reads the `AzureAdB2C` application settings and initiates the middleware controller with its view. 
 
-Replace the `ConfigureServices(IServiceCollection services)` function with the following code snippet. 
+Replace the `ConfigureServices(IServiceCollection services)` function with the following code snippet: 
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -102,7 +102,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-The following code adds the cookie policy and uses the authentication model. Replace the `Configure` function with the following code snippet. 
+The following code adds the cookie policy and uses the authentication model. Replace the `Configure` function with the following code snippet: 
 
 ```csharp
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -144,7 +144,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 
 To add user interface elements, use a partial view that contains logic for checking to see whether users are signed in. If users aren't signed in, the partial view renders the sign-in button. If they are signed in, it shows the user's display name and sign-out button.
   
-Create a new file `_LoginPartial.cshtml` inside the `Views/Shared` folder with the following code snippet:
+Create a new file, *\_LoginPartial.cshtml*, inside the */Views/Shared* folder with the following code snippet:
 
 ```razor
 @using System.Security.Principal
@@ -178,12 +178,12 @@ else
 }
 ```
 
-Modify your *Views\Shared\_Layout.cshtml* file path to include the *_LoginPartial.cshtml* file you added. The *_Layout.cshtml* file is a common layout that gives users a consistent experience as they go from page to page. The layout includes common user interface elements, such as the app header, and footer.
+Modify your */Views/Shared_Layout.cshtml* file path to include the *_LoginPartial.cshtml* file you added. The *_Layout.cshtml* file is a common layout that gives users a consistent experience as they go from page to page. The layout includes common user interface elements, such as the app header and footer.
 
 > [!NOTE]
 > Depending on the .NET Core version you're running and whether you're adding sign-in to an existing app, the UI elements might look different. If so, be sure to include *_LoginPartial* in the proper location within the page layout.
 
-Open the */Views/Shared/_Layout.cshtml*, and then add the following `div` element.
+Open the */Views/Shared/_Layout.cshtml* file, and then add the following `div` element.
 
 ```razor
 <div class="navbar-collapse collapse">
@@ -207,7 +207,7 @@ The preceding Razor code includes a link to the `Claims` action that you'll crea
 
 ## Step 5: Add the claims view
 
-To view the ID token claims under the *Views/Home* folder, add the *Claims.cshtml* view.
+To view the ID token claims, under the */Views/Home* folder, add the *Claims.cshtml* view.
 
 ```razor
 @using System.Security.Claims
@@ -233,9 +233,9 @@ To view the ID token claims under the *Views/Home* folder, add the *Claims.cshtm
 </table>
 ```
 
-In this step, you add the `Claims` action that links the *Claims.cshtml* view to the *Home* controller. The `Claims` action uses the `[Authorize]` attribute, which limits access to the action to authenticated users.  
+In this step, you add the `Claims` action that links the *Claims.cshtml* view to the *Home* controller. The `Claims` action uses the `Authorize` attribute, which limits access to the action to authenticated users.  
 
-In the */Controllers/HomeController.cs* controller, add the following action.
+In the */Controllers/HomeController.cs* controller, add the following action:
 
 ```csharp
 [Authorize]
@@ -275,11 +275,11 @@ The required information is described in the [Configure authentication in a samp
 ## Step 7: Run your application
 
 1. Build and run the project.
-1. Go to https://localhost:5001. 
-1. Select **SignIn/Up**.
+1. Go to [https://localhost:5001](https://localhost:5001). 
+1. Select **Sign Up/In**.
 1. Complete the sign-up or sign-in process.
 
-After you successfully authenticate, you'll see your display name in the navigation bar. To view the claims that the Azure AD B2C token returns to your app, select **Claims**.
+After you're successfully authenticated, you'll see your display name in the navigation bar. To view the claims that the Azure AD B2C token returns to your app, select **Claims**.
 
 ## Next steps
 
