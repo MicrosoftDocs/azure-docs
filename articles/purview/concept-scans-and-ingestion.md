@@ -25,7 +25,7 @@ You have a choice to scan the entire data source or select the entities (folders
 
 A scan rule determines the rules, which are associated to a scan and applied to the data source during scanning process. It contains a list of classifications that can be applied on schemas discovered during scanning or file types to be included for file based sources.
 
- > [Note]
+> [Note]
 > Scoping the scans or Scan rule sets are not available to all data sources. [Scan Rule Sets](create-a-scan-rule-set.md)
 
 ## Ingestion
