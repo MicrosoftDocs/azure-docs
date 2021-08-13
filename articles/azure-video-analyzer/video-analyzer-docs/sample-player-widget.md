@@ -24,7 +24,7 @@ The Video Player page presents the typical player, as seen in the Portal.
 ![Screenshot of video player.](./media/sample-widget-player/widget-video-player.png)
 
 ## Zone Drawer
-The Zone Drawer allows you to create zones by drawing polygons and drawing lines on your video. You can also save these zones and lines to receive the coordinates of your respective zones and lines. Copying these coordinates can be done using the **Copy to clipboard** button.  
+The Zone Drawer allows you to create zones by drawing polygons and drawing lines on your video. You can also save these zones and lines to receive the coordinates of your respective zones and lines.  
   
 **Example:**
 ```json
@@ -64,7 +64,7 @@ The Zone Drawer allows you to create zones by drawing polygons and drawing lines
     ]
   }
 ```
-Zones and lines can be renamed and deleted using the three dots next to each zone and line.  
+Copying these coordinates can be done using the **Copy to clipboard** button. Zones and lines can be renamed and deleted using the three dots next to each zone and line.  
 ![Screenshot of zone drawer.](./media/sample-widget-player/widget-zone-drawer.png)
 
 ## Video Clips
