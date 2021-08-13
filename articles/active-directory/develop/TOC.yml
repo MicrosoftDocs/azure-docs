@@ -139,14 +139,18 @@
     - name: Microsoft Identity Web library
       href: microsoft-identity-web.md
       displayName: auth, library, .NET Core, msal
-  - name: Role-based access control
-    displayName: RBAC basics
+  - name: Permissions and access control
+    displayName: Access control
     items:
-    - name: RBAC for app developers
-      href: custom-rbac-for-developers.md
     - name: Permissions and consent
       displayName: Scopes
       href: v2-permissions-and-consent.md
+    - name: Conditional access
+      href: v2-conditional-access-dev-guide.md
+    - name: Guide to conditional access authentication context
+      href: developer-guide-conditional-access-authentication-context.md
+    - name: RBAC for app developers
+      href: custom-rbac-for-developers.md
   - name: App scenarios and authentication flows
     displayName: Auth flows
     href: authentication-flows-app-scenarios.md
@@ -161,10 +165,6 @@
       href: secure-least-privileged-access.md
     - name: Security best practices for Azure AD application registration
       href: security-best-practices-for-app-registration.md
-    - name: Conditional access
-      href: v2-conditional-access-dev-guide.md
-    - name: Authentication context
-      href: developer-guide-conditional-access-authentication-context.md
   - name: Automatic user provisioning (SCIM)
     href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
 - name: How-to
