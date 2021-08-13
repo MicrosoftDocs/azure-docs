@@ -6,7 +6,7 @@ metadata:
   author: vhorne
   ms.service: firewall
   ms.topic: conceptual
-  ms.date: 06/16/2021
+  ms.date: 08/13/2021
   ms.author: victorh
     
 title: Azure Firewall FAQ
@@ -51,7 +51,7 @@ sections:
           Azure Firewall is integrated with Azure Monitor for viewing and analyzing firewall logs. Logs can be sent to Log Analytics, Azure Storage, or Event Hubs. They can be analyzed in Log Analytics or by different tools such as Excel and Power BI. For more information, see [Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md).
           
       - question: How does Azure Firewall work differently from existing services such as NVAs in the marketplace?
-        answer: Azure Firewall is a basic firewall service that can address certain customer scenarios. It's expected that you'll have a mix of third-party NVAs and Azure Firewall. Working better together is a core priority.
+        answer: Azure Firewall is a managed, cloud-based network security service that protects your virtual network resources. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. It is pre-integrated with third-party security as a service (SECaaS) providers to provide advanced security for your virtual network and branch Internet connections.
 
       - question: What is the difference between Application Gateway WAF and Azure Firewall?
         answer: The Web Application Firewall (WAF) is a feature of Application Gateway that provides centralized inbound protection of your web applications from common exploits and vulnerabilities. Azure Firewall provides inbound protection for non-HTTP/S protocols (for example, RDP, SSH, FTP), outbound network-level protection for all ports and protocols, and application-level protection for outbound HTTP/S.
@@ -72,9 +72,9 @@ sections:
           
       - question: How can I stop and start Azure Firewall?
         answer: |
-          You can use Azure PowerShell *deallocate* and *allocate* methods.
+          You can use Azure PowerShell *deallocate* and *allocate* methods. For a firewall configured for forced tunneling, the procedure is slightly different.
           
-          For example:
+          For example, for a firewall NOT configured for forced tunneling:
           
           ```azurepowershell
           # Stop an existing firewall
@@ -85,7 +85,7 @@ sections:
           ```
           
           ```azurepowershell
-          # Start a firewall
+          # Start the firewall
           
           $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
           $vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
@@ -95,6 +95,28 @@ sections:
           
           Set-AzFirewall -AzureFirewall $azfw
           ```
+
+          For a firewall configured for forced tunneling, stopping is the same. But starting requires the management public IP to be re-associated back to the firewall:
+
+          ```azurepowershell
+          # Stop an existing firewall
+
+          $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+          $azfw.Deallocate()
+          Set-AzFirewall -AzureFirewall $azfw
+          ```
+
+          ```azurepowershell
+          # Start the firewall
+          
+          $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+          $vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
+          $pip= Get-AzureRmPublicIpAddress -Name "azfwpublicip" -ResourceGroupName "RG Name"
+          $mgmtPip2 = Get-AzPublicIpAddress -ResourceGroupName "RG Name" -Name "mgmtpip"
+          $azfw.Allocate($vnet, $pip, $mgmtPip2)
+          $azfw | Set-AzFirewall
+          ```
+
           When you allocate and deallocate, [firewall billing](https://azure.microsoft.com/pricing/details/azure-firewall) stops and starts accordingly.
           
           > [!NOTE]
@@ -189,15 +211,15 @@ sections:
         answer: |
          When a connection has an idle timeout (four minutes of no activity), Azure Firewall gracefully terminates the connection by sending a TCP RST packet.
 
-      - question: How does Azure Firewall handle VM instance shutdowns during VMSS scale in (scale down) or fleet software upgrades?
+      - question: How does Azure Firewall handle VM instance shutdowns during virtual machine scale set scale in (scale down) or fleet software upgrades?
         answer: | 
-         An Azure Firewall VM instance shutdown may occur during VMSS scale in (scale down) or during fleet software upgrade. In these cases, new incoming connections are load balanced to the remaining firewall instances and are not forwarded to the down firewall instance. After 45 seconds the firewall starts rejecting existing connections by sending TCP RST packets. After an additional 45 seconds the firewall VM shuts down. For more information, see [Load Balancer TCP Reset and Idle Timeout](../load-balancer/load-balancer-tcp-reset.md). 
+         An Azure Firewall VM instance shutdown may occur during virtual machine scale set scale in (scale down) or during fleet software upgrade. In these cases, new incoming connections are load balanced to the remaining firewall instances and are not forwarded to the down firewall instance. After 45 seconds the firewall starts rejecting existing connections by sending TCP RST packets. After an additional 45 seconds the firewall VM shuts down. For more information, see [Load Balancer TCP Reset and Idle Timeout](../load-balancer/load-balancer-tcp-reset.md). 
                 
       - question: Does Azure Firewall allow access to Active Directory by default?
         answer: |
           No. Azure Firewall blocks Active Directory access by default. To allow access, configure the AzureActiveDirectory service tag. For more information, see [Azure Firewall service tags](service-tags.md).
           
-      - question: Can I exclude a FQDN or an IP address from Azure Firewall Threat Intelligence based filtering?
+      - question: Can I exclude an FQDN or an IP address from Azure Firewall Threat Intelligence based filtering?
         answer: |
           Yes, you can use Azure PowerShell to do it:
           

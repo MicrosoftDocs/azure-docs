@@ -2,13 +2,16 @@
 title: Overview - Azure Database for MySQL - Flexible Server
 description: Learn about the Azure Database for MySQL Flexible server, a relational database service in the Microsoft cloud based on the MySQL Community Edition.
 author: savjani
-ms.service: mysql
 ms.author: pariks
+ms.service: mysql
 ms.custom: mvc, references_regions
 ms.topic: overview
-ms.date: 6/19/2021
+ms.date: 08/10/2021
 ---
 # Azure Database for MySQL - Flexible Server (Preview)
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
 
 Azure Database for MySQL powered by the MySQL community edition is available in two deployment modes:
 
@@ -86,11 +89,21 @@ See [Compute and Storage concepts](concepts-compute-storage.md) to learn more.
 
 MySQL is one of the popular database engines for running internet-scale web and mobile applications. Many of our customers use it for their online education services, video streaming services, digital payment solutions, e-commerce platforms, gaming services, news portals, government, and healthcare websites. These services are required to serve and scale as the traffic on the web or mobile application increases.
 
-On the applications side, the application is typically developed in Java or php and migrated to run on [Azure virtual machine scale sets](../../virtual-machine-scale-sets/overview.md) or [Azure App Services](../../app-service/overview.md) or are containerized to run on [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md). With virtual machine scale set, App Service or AKS as underlying infrastructure, application scaling is simplified by instantaneously provisioning new VMs and replicating the stateless components of applications to cater to the requests but often, database ends up being a bottleneck as centralized stateful component.
+On the applications side, the application is typically developed in Java or PHP and migrated to run on [Azure virtual machine scale sets](../../virtual-machine-scale-sets/overview.md) or [Azure App Services](../../app-service/overview.md) or are containerized to run on [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md). With virtual machine scale set, App Service or AKS as underlying infrastructure, application scaling is simplified by instantaneously provisioning new VMs and replicating the stateless components of applications to cater to the requests but often, database ends up being a bottleneck as centralized stateful component.
 
 The read replica feature allows you to replicate data from an Azure Database for MySQL flexible server to a read-only server. You can replicate from the source server to **up to 10 replicas**. Replicas are updated asynchronously using the MySQL engine's native [binary log (binlog) file position-based replication technology](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html). You can use a load balancer proxy solution like [ProxySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042) to seamlessly scale out your application workload to read replicas without any application refactoring cost. 
 
 For more information, see [Read Replica concepts](concepts-read-replicas.md).
+
+## Setup Hybrid or Multi-Cloud Data synchronization with Data-in replication
+
+Data-in replication allows you to synchronize data from an external MySQL server into the Azure Database for MySQL Flexible service. The external server can be on-premises, in virtual machines, Azure Database for MySQL Single Server, or a database service hosted by other cloud providers. Data-in replication is based on the binary log (binlog) file position-based. The main scenarios to consider about using Data-in replication are:
+* Hybrid Data Synchronization
+* Multi-Cloud Synchronization
+* Minimal downtime migration to Flexible Server
+
+For more information, see [Data-in replication concepts](concepts-data-in-replication.md).
+
 
 ## Stop/Start server to optimize cost
 
@@ -120,7 +133,14 @@ For more information, see [Monitoring concepts](concepts-monitoring.md).
 
 The service runs the community version of MySQL. This allows full application compatibility and requires minimal refactoring cost to migrate existing applications developed on MySQL engine to Flexible Server. Migration to Flexible Server can be performed using the following option:
 
-- **Dump and Restore** – For offline migrations, where users can afford some downtime, dump and restore using community tools like mysqldump/mydumper can provide fastest way to migrate. See [Migrate using dump and restore](/concepts-migrate-dump-restore.md) for details.
+### Offline Migrations
+*	Using Azure Data Migration Service when network bandwidth between source and Azure is good (for example: High speed ExpressRoute). Learn more with step by step instructions - [Migrate MySQL to Azure Database for MySQL offline using DMS - Azure Database Migration Service](../../dms/tutorial-mysql-azure-mysql-offline-portal.md)
+*	Use mydumper/myloader to take advantage of compression settings to efficiently move data over low speed networks (such as public internet). Learn more with step by step instructions [Migrate large databases to Azure Database for MySQL using mydumper/myloader](../../mysql/concepts-migrate-mydumper-myloader.md)
+
+### Online or Minimal downtime migrations
+Use data-in replication with mydumper/myloader consistent backup/restore for initial seeding. Learn more with step by step instructions - [Tutorial: Minimal Downtime Migration of Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server](../../mysql/howto-migrate-single-flexible-minimum-downtime.md)
+
+For more information, see [Migration Guide for Azure Database for MySQL](../../mysql/migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md)
 
 ## Azure regions
 
@@ -128,22 +148,23 @@ One advantage of running your workload in Azure is its global reach. The flexibl
 
 | Region | Availability | Zone redundant HA |
 | --- | --- | --- |
-| West Europe | :heavy_check_mark: | :heavy_check_mark: |
-| North Europe | :heavy_check_mark: | :heavy_check_mark: |
-| UK South | :heavy_check_mark: | :heavy_check_mark: |
-| East US 2 | :heavy_check_mark: | :heavy_check_mark: |
-| West US 2 | :heavy_check_mark: | :heavy_check_mark: |
+| Australia East | :heavy_check_mark: | :heavy_check_mark: |
+| Brazil South | :heavy_check_mark: | :x: |
+| Canada Central | :heavy_check_mark: | :x: |
 | Central US | :heavy_check_mark: | :x: |
 | East US | :heavy_check_mark: | :heavy_check_mark: |
-| Canada Central | :heavy_check_mark: | :x: |
-| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: |
-| Korea Central | :heavy_check_mark: | :x: |
+| East US 2 | :heavy_check_mark: | :heavy_check_mark: |
+| France Central | :heavy_check_mark: | :heavy_check_mark:|
+| Germany West Central | :heavy_check_mark: | :x: |
 | Japan East | :heavy_check_mark: | :heavy_check_mark: |
-| Australia East | :heavy_check_mark: | :heavy_check_mark: |
-| France Central | :heavy_check_mark: | :x:|
-| Brazil South | :heavy_check_mark: | :x: |
+| Korea Central | :heavy_check_mark: | :x: |
+| North Europe | :heavy_check_mark: | :heavy_check_mark: |
+| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: |
 | Switzerland North | :heavy_check_mark: | :x: |
-
+| UK South | :heavy_check_mark: | :heavy_check_mark: |
+| West US | :heavy_check_mark: | :x: |
+| West US 2 | :heavy_check_mark: | :heavy_check_mark: |
+| West Europe | :heavy_check_mark: | :heavy_check_mark: |
 ## Contacts
 
 For any questions or suggestions you might have on Azure Database for MySQL flexible server, send an email to the Azure Database for MySQL Team ([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). This email address isn't a technical support alias.
@@ -165,4 +186,4 @@ Now that you've read an introduction to Azure Database for MySQL - Single Server
 
 - Build your first app using your preferred language:
   - [Python](connect-python.md)
-  - [Php](connect-php.md)
+  - [PHP](connect-php.md)

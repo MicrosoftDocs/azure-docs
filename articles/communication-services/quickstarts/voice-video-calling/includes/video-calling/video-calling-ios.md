@@ -8,11 +8,9 @@ ms.author: mikben
 
 Get started with Azure Communication Services by using the Communication Services calling SDK to add 1 on 1 video calling to your app. You'll learn how to start and answer a video call using the Azure Communication Services Calling SDK for iOS.
 
-> [!NOTE]
-> This document uses version 1.0.0 of the calling SDK.
+## Sample Code
 
-> [!NOTE]
-> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Video%20Calling)
+If you'd like to skip ahead to the end, you can download this quickstart as a sample on [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Video%20Calling).
 
 ## Prerequisites
 - Obtain an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -71,12 +69,12 @@ import AVFoundation
 ## Object model
 The following classes and interfaces handle some of the major features of the Azure Communication Services Calling SDK for iOS.
 
-| Name      | Description | 
-| :---        |    :----   |
-| CallClient  | The CallClient is the main entry point to the Calling SDK.      |
-| CallAgent  | The CallAgent is used to start and manage calls.        |
-| CommunicationTokenCredential| The CommunicationTokenCredential is used as the token credential to instantiate the CallAgent.    |
-| CommunicationIdentifier | The CommunicationIdentifier is used to represent the identity of the user which can be one of the following: CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication.        |
+| Name                         | Description                                                                                                                                                                        |
+| :--------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| CallClient                   | The CallClient is the main entry point to the Calling SDK.                                                                                                                         |
+| CallAgent                    | The CallAgent is used to start and manage calls.                                                                                                                                   |
+| CommunicationTokenCredential | The CommunicationTokenCredential is used as the token credential to instantiate the CallAgent.                                                                                     |
+| CommunicationIdentifier      | The CommunicationIdentifier is used to represent the identity of the user which can be one of the following: CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication. |
 
 ## Create the Call Agent
 Replace the implementation of the ContentView struct with some simple UI controls that enable a user to initiate and end a call. We will attach business logic to these controls in this quickstart.
@@ -613,7 +611,3 @@ public class RemoteParticipantObserver : NSObject, RemoteParticipantDelegate {
 
 ## Run the code
 You can build and run your app on iOS simulator by selecting Product > Run or by using the (⌘-R) keyboard shortcut.
-
-## Sample Code
-
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Video%20Calling)

@@ -62,11 +62,12 @@ To configure and test Azure AD SSO with Zenya, perform the following steps:
 
 In this section, you retrieve information from Zenya to configure Azure AD single sign-on.
 
-1. Open a web browser, and go to the **SAML2 info** page in Zenya by using the following URL patterns:
+1. Open a web browser and go to the **SAML2 info** page in Zenya by using the following URL patterns:
 	
-     `https://<SUBDOMAIN>.iprova.nl/saml2info` 
-  	 `https://<SUBDOMAIN>.iprova.be/saml2info`
-	 `https://<SUBDOMAIN>.iprova.eu/saml2info` 
+     `https://<SUBDOMAIN>.zenya.work/saml2info`   
+     `https://<SUBDOMAIN>.iprova.nl/saml2info`  
+     `https://<SUBDOMAIN>.iprova.be/saml2info`  
+     `https://<SUBDOMAIN>.iprova.eu/saml2info` 
 
 	![View the Zenya SAML2 info page](media/iprova-tutorial/information.png)
 

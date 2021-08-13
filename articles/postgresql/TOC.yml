@@ -414,6 +414,8 @@
     href: flexible-server/overview.md
   - name: Release notes
     href: flexible-server/release-notes.md   
+  - name: Compare Single Server and Flexible Server
+    href: flexible-server/concepts-compare-single-server-flexible-server.md   
   - name: Quickstarts
     expanded: true
     items:
@@ -428,6 +430,8 @@
         href: flexible-server/quickstart-create-server-arm-template.md
     - name: Connect and query
       items:
+        - name: Connect to a server in VNET 
+          href: flexible-server/quickstart-create-connect-server-vnet.md
         - name: Azure CLI
           href: flexible-server/connect-azure-cli.md
         - name: Python
@@ -459,6 +463,10 @@
     - name: Networking
       href: flexible-server/concepts-networking.md
       displayName: virtual networks, vnet, IP address, public access
+    - name: Firewall rules
+      href: flexible-server/concepts-firewall-rules.md
+    - name: Security
+      href: flexible-server/concepts-security.md
     - name: Limits
       href: flexible-server/concepts-limits.md
     - name: Extensions
@@ -497,6 +505,8 @@
           displayName: query store, performance, optimize
         - name: Query Store best practices
           href: flexible-server/concepts-query-store-best-practices.md
+        - name: Intelligent tuning
+          href: flexible-server/concepts-intelligent-tuning.md
     - name: Replication
       href: flexible-server/concepts-logical.md
       displayName: logical decoding
@@ -528,10 +538,12 @@
           href: flexible-server/how-to-manage-firewall-portal.md
         - name: Azure CLI
           href: flexible-server/how-to-manage-firewall-cli.md
-      - name: TLS/SSL
+      - name: TLS/SSL/SCRAM
         items:
         - name: Connect using TLS/SSL
           href: flexible-server/how-to-connect-tls-ssl.md
+        - name: Connect using SCRAM
+          href: flexible-server/how-to-connect-scram.md          
     - name: Configure server parameters
       items:
       - name: Azure portal
@@ -643,6 +655,8 @@
         href: concepts-hyperscale-high-availability.md
     - name: Replication
       href: concepts-hyperscale-read-replicas.md
+    - name: Connection pooling
+      href: concepts-hyperscale-connection-pool.md
     - name: Monitor and tune
       items:
       - name: Monitor and tune
@@ -695,6 +709,8 @@
       items:
       - name: Azure portal
         href: howto-hyperscale-maintenance.md
+    - name: Restart server group
+      href: howto-hyperscale-restart.md
     - name: Monitor
       items:
       - name: Create alerts on metrics

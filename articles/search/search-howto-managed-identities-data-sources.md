@@ -9,7 +9,7 @@ ms.author: maheff
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 07/02/2021
 ---
 
 # Set up an indexer connection to a data source using a managed identity
@@ -27,9 +27,22 @@ These concerns can be resolved by setting up your connection using a managed ide
 
 ## Using managed identities
 
-[Managed identities](../active-directory/managed-identities-azure-resources/overview.md) is a feature that provides Azure services with an automatically managed identity in Azure Active Directory (Azure AD). You can use this feature in Azure Cognitive Search to create a data source object with a connection string that does not include any credentials. Instead, your search service will be granted access to the data source through Azure role-based access control (Azure RBAC).
+[Managed identities](../active-directory/managed-identities-azure-resources/overview.md) is a feature that provides applications with an automatically managed identity in Azure Active Directory (Azure AD). You can use this feature in Azure Cognitive Search to create a data source object with a connection string that does not include any credentials. Instead, your search service will be granted access to the data source through Azure role-based access control (Azure RBAC).
 
 When setting up a data source using a managed identity, you can change your data source credentials and your indexers will still be able to connect to the data source. You can also create data source objects in your code without having to include an account key or use Key Vault to retrieve an account key.
+
+There are two types of managed identities. Azure Cognitive Search supports system-assigned managed identities and user-assigned managed identities.
+
+### System-assigned managed identity
+
+A [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) can be assigned to a single Azure service. You can assign a system-assigned managed identity to a single Azure Cognitive Search service and it is tied to the lifecycle of that search service.
+
+### User-assigned managed identity (preview)
+
+> [!IMPORTANT]
+>This feature is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The REST API version 2021-04-30-Preview and [Management REST API 2021-04-01-Preview](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) provide this feature.
+
+A [user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) is a standalone Azure resource that can be assigned to one or more Azure services. A single Azure Cognitive Search service can have one or more user-assigned managed identities assigned to it. A single user-assigned managed identity can be assigned to multiple search services.
 
 ## Limitations
 

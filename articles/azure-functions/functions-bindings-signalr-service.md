@@ -50,6 +50,10 @@ To use the SignalR Service annotations in Java functions, you need to add a depe
 </dependency>
 ```
 
+## Connection string settings
+
+Add the `AzureSignalRConnectionString` key to the _host.json_ file that points to the application setting with your connection string. For local development, this value may exist in the _local.settings.json_ file.
+
 ## Next steps
 
 - [Handle messages from SignalR Service  (Trigger binding)](./functions-bindings-signalr-service-trigger.md)

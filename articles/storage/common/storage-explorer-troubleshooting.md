@@ -84,21 +84,30 @@ There are several Azure built-in roles that can provide the permissions needed t
 > [!NOTE]
 > The Owner, Contributor, and Storage Account Contributor roles grant account key access.
 
-## Error: Self-signed certificate in certificate chain (and similar errors)
+## SSL certificate issues
 
-Certificate errors typically occur in one of the following situations:
+### Understanding SSL certificate issues
 
-- The app is connected through a _transparent proxy_. This means a server (such as your company server) is intercepting HTTPS traffic, decrypting it, and then encrypting it by using a self-signed certificate.
-- You're running an application that's injecting a self-signed TLS/SSL certificate into the HTTPS messages that you receive. Examples of applications that inject certificates include antivirus and network traffic inspection software.
+Make sure you have read the [SSL certificates section](./storage-explorer-network.md#ssl-certificates) in the Storage Explorer networking documentation before continuing.
 
-When Storage Explorer sees a self-signed or untrusted certificate, it no longer knows whether the received HTTPS message has been altered. If you have a copy of the self-signed certificate, you can instruct Storage Explorer to trust it by following these steps:
+### Use system proxy
+
+If you are only using features that support the **use system proxy** setting, then you should try using that setting. You can read more about the **system proxy** setting [here](./storage-explorer-network.md#use-system-proxy-preview).
+
+### Importing SSL certificates
+
+If you have a copy of the self-signed certificates, you can instruct Storage Explorer to trust them by following these steps:
 
 1. Obtain a Base-64 encoded X.509 (.cer) copy of the certificate.
 2. Go to **Edit** > **SSL Certificates** > **Import Certificates**, and then use the file picker to find, select, and open the .cer file.
 
-This issue may also occur if there are multiple certificates (root and intermediate). To fix this error, both certificates must be added.
+This issue may also occur if there are multiple certificates (root and intermediate). To fix this error, all certificates must be imported.
 
-If you're unsure of where the certificate is coming from, follow these steps to find it:
+### Finding SSL certificates
+
+If you don't have a copy of the self-signed certificates, try talking to your IT administrator for help.
+
+You you can try following these steps to find them:
 
 1. Install OpenSSL.
     * [Windows](https://slproweb.com/products/Win32OpenSSL.html): Any of the light versions should be sufficient.
@@ -106,18 +115,20 @@ If you're unsure of where the certificate is coming from, follow these steps to 
 2. Run OpenSSL.
     * Windows: Open the installation directory, select **/bin/**, and then double-click **openssl.exe**.
     * Mac and Linux: Run `openssl` from a terminal.
-3. Run `s_client -showcerts -connect microsoft.com:443`.
-4. Look for self-signed certificates. If you're unsure of which certificates are self-signed, make note of anywhere the subject `("s:")` and issuer `("i:")` are the same.
-5. When you find self-signed certificates, for each one, copy and paste everything from (and including) `-----BEGIN CERTIFICATE-----` through `-----END CERTIFICATE-----` into a new .cer file.
+3. Run this command: `s_client -showcerts -connect <hostname>:443`, for any of the Microsoft or Azure hostnames that your storage resources are behind. You can find a list of hostnames that are frequently accessed by Storage Explorer here.
+4. Look for self-signed certificates. If the subject `("s:")` and issuer `("i:")` are the same, then the certificate is most likely self signed.
+5. When you find the self-signed certificates, for each one, copy and paste everything from (and including) `-----BEGIN CERTIFICATE-----` to `-----END CERTIFICATE-----` into a new .cer file.
 6. Open Storage Explorer and go to **Edit** > **SSL Certificates** > **Import Certificates**. Then use the file picker to find, select, and open the .cer files that you created.
 
-If you can't find any self-signed certificates by following these steps, contact us through the feedback tool. You can also open Storage Explorer from the command line by using the `--ignore-certificate-errors` flag. When opened with this flag, Storage Explorer ignores certificate errors.
+### Disabling SSL certificate validation
+
+If you can't find any self-signed certificates by following these steps, contact us through the feedback tool. You can also open Storage Explorer from the command line with the `--ignore-certificate-errors` flag. When opened with this flag, Storage Explorer ignores certificate errors. **This flag is not recommended.**
 
 ## Sign-in issues
 
 ### Understanding sign-in
 
-Make sure you have read the [Sign in to Storage Explorer](./storage-explorer-sign-in.md) documentation.
+Make sure you have read the [Sign in to Storage Explorer](./storage-explorer-sign-in.md) documentation before continuing.
 
 ### Frequently having to reenter credentials
 
@@ -134,7 +145,7 @@ If you have conditional access policies that need to be satisfied for your accou
 
 ### Browser complains about HTTP redirect during sign in
 
-When Storage Explorer performs sign in in your web browser, a redirect to `localhost` is done at the end of the sign in process. Browsers sometimes raise a warning or error that the redirect is being performed with HTTP instead of HTTPS. Some browsers may also try to force the redirect to be performed with HTTPS. If either of these happen, then depending on your browser, you have a variety of options:
+When Storage Explorer performs sign in in your web browser, a redirect to `localhost` is done at the end of the sign in process. Browsers sometimes raise a warning or error that the redirect is being performed with HTTP instead of HTTPS. Some browsers may also try to force the redirect to be performed with HTTPS. If either of these happen, then depending on your browser, you have various options:
 - Ignore the warning.
 - Add an exception for `localhost`.
 - Disable force HTTPS, either globally or just for `localhost`.
@@ -143,7 +154,7 @@ If you are not able to do any of those options, then you can also [change where 
 
 ### Unable to acquire token, tenant is filtered out
 
-If you see an error message saying that a token cannot be acquired because a tenant is filtered out, that means you are trying to access a resource which is in a tenant you have filtered out. To unfilter the tenant, go to the **Account Panel** and make sure the checkbox for the tenant specified in the error is checked. Refer to the [Managing accounts](./storage-explorer-sign-in.md#managing-accounts) for more information on filtering tenants in Storage Explorer.
+If you see an error message saying that a token cannot be acquired because a tenant is filtered out, that means you are trying to access a resource that is in a tenant you have filtered out. To unfilter the tenant, go to the **Account Panel** and make sure the checkbox for the tenant specified in the error is checked. Refer to the [Managing accounts](./storage-explorer-sign-in.md#managing-accounts) for more information on filtering tenants in Storage Explorer.
 
 ### Authentication library failed to start properly
 

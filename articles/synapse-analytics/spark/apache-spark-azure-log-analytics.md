@@ -200,6 +200,30 @@ And you can customize the workbook by Kusto query and configure alerts.
    | order by TimeGenerated asc
    ```
 
+## Write custom application logs
+
+You can use the Apache Log4j library to write custom logs.
+
+Example for Scala:
+
+```scala
+%%spark
+val logger = org.apache.log4j.LogManager.getLogger("com.contoso.LoggerExample")
+logger.info("info message")
+logger.warn("warn message")
+logger.error("error message")
+```
+
+Example for PySpark:
+
+```python
+%%pyspark
+logger = sc._jvm.org.apache.log4j.LogManager.getLogger("com.contoso.PythonLoggerExample")
+logger.info("info message")
+logger.warn("warn message")
+logger.error("error message")
+```
+
 ## Create and manage alerts using Azure Log Analytics
 
 Azure Monitor alerts allow users to use a Log Analytics query to evaluate metrics and logs every set frequency, and fire an alert based on the results.

@@ -28,7 +28,7 @@ The smartphone app sends telemetry that includes values from the accelerometer s
 
 1. Enter **Phone turned over** as the rule name.
 
-1. In the **Target devices** section, select **Smartphone** as the **Device template**. This option filters the devices the rule applies to by device template type. You can add more filter criteria by selecting **+ Filter**.
+1. In the **Target devices** section, select **IoT Plug and Play mobile** as the **Device template**. This option filters the devices the rule applies to by device template type. You can add more filter criteria by selecting **+ Filter**.
 
 1. In the **Conditions** section, you define what triggers your rule. Use the following information to define a single condition based on accelerometer z-axis telemetry. This rule uses aggregation so you receive a maximum of one email for each device every five minutes:
 
@@ -53,7 +53,7 @@ The smartphone app sends telemetry that includes values from the accelerometer s
     | Notes        | Your phone is face down! |
 
     > [!TIP]
-    > To receive an email notification, the email address must be a [user ID in the application](howto-administer.md), and the user must have signed in to the application at least once.
+    > To receive an email notification, the email address must be a [user ID in the application](howto-manage-users-roles.md), and the user must have signed in to the application at least once.
 
     :::image type="content" source="media/quick-configure-rules/rule-action.png" alt-text="Screenshot that shows an email action added to the rule":::
 

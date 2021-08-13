@@ -2,25 +2,48 @@
   href: index.yml
 
 - name: Overview
+  expanded: true
   items:
   - name: About Azure Web PubSub service
     href: overview.md
-
+  - name: About Hubs, groups and connections
+    href: key-concepts.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Try the live demo
-    href: quickstart-live-demo.md
-  - name: Start with a simple chatroom serverless application
-    href: quickstart-serverless.md
-
+  - name: Create instance
+    expanded: true
+    items:
+    - name: Portal
+      href: howto-develop-create-instance.md
+    - name: CLI
+      href: quickstart-cli-create.md
+  - name: Connect to the instance
+    items:
+    - name: Pub/sub from the browser
+      href: quickstart-live-demo.md
+    - name: Pub/sub from CLI
+      href: quickstart-cli-try.md
+    - name: Pub/sub using Service SDK
+      href: quickstart-use-sdk.md
+- name: Tutorials
+  items:
+    - name: Serverless Development
+      expanded: true
+      items:
+      - name: Build a serverless chat with Azure Function
+        href: quickstart-serverless.md
+    - name: Publish and subscribe messages
+      href: https://azure.github.io/azure-webpubsub/getting-started/publish-messages/js-publish-message
+    - name: Client streaming using service-supported subprotocol
+      href: https://azure.github.io/azure-webpubsub/getting-started/using-pubsub-subprotocol/js-work-with-subprotocols
+    - name: Authentication and permissions
+      href: https://azure.github.io/azure-webpubsub/getting-started/auth-and-permissions/js-auth-and-permissions
 - name: How-to guides
   expanded: true
   items:
   - name: Develop
     items:
-    - name: Create instance
-      href: howto-develop-create-instance.md
     - name: Publish and subscribe messages
       href: https://azure.github.io/azure-webpubsub/getting-started/publish-messages/js-publish-message
     - name: Work with subprotocols
@@ -31,6 +54,12 @@
     items:
     - name: Protect the access key
       href: howto-secure-rotate-access-key.md
+    - name: Use Azure Private Endpoints
+      href: howto-secure-private-endpoints.md
+    - name: Manage network access control
+      href: howto-secure-network-access-control.md
+    - name: Secure outbound traffic through Shared Private Endpoints
+      href: howto-secure-shared-private-endpoints.md
   - name: Troubleshooting
     items:
     - name: Collect network trace
@@ -45,13 +74,16 @@
   - name: Billing model
     href: concept-billing-model.md
 
+- name: Samples
+  href: https://aka.ms/awps/samples
+
 - name: Reference 
   items:
   - name: REST API
     href: /rest/api/webpubsub
-  - name: PubSub WebSocket Subprotocol
+  - name: WebSocket Subprotocols supported by Web PubSub
     href: https://azure.github.io/azure-webpubsub/references/pubsub-websocket-subprotocol
-  - name: Web PubSub CloudEvents 
+  - name: CloudEvents protocol for Web PubSub
     href: https://azure.github.io/azure-webpubsub/references/protocol-cloudevents
   - name: Server SDKs
     href: choose-server-sdks.md

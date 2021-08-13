@@ -44,6 +44,9 @@ There are two gateway patterns:
 
 * In the *transparent gateway* pattern, the IoT Edge hub module behaves like IoT Central and handles connections from devices registered in IoT Central. Messages pass from downstream devices to IoT Central as if there's no gateway between them.
 
+    > [!NOTE]
+    > IoT Central currently doesn't support connecting an IoT Edge device as a downstream device to an IoT Edge transparent gateway. This is because all devices that connect to IoT Central are provisioned using the Device Provisioning Service (DPS) and DPS doesn't support nested IoT Edge scenarios.
+
 * In the *translation gateway* pattern, devices that can't connect to IoT Central on their own, connect to a custom IoT Edge module instead. The module in the IoT Edge device processes incoming downstream device messages and then forwards them to IoT Central.
 
 The transparent and translation gateway patterns aren't mutually exclusive. A single IoT Edge device can function as both a transparent gateway and a translation gateway.
@@ -276,6 +279,10 @@ You can also install the IoT Edge runtime in the following environments:
 If you selected an IoT Edge device to be a gateway device, you can add downstream relationships to device models for devices you want to connect to the gateway device.
 
 To learn more, see [How to connect devices through an IoT Edge transparent gateway](how-to-connect-iot-edge-transparent-gateway.md).
+
+## Monitor your IoT Edge devices
+
+To learn how to remotely monitor your IoT Edge fleet using Azure Monitor and built-in metrics integration, see [Collect and transport metrics](../../iot-edge/how-to-collect-and-transport-metrics.md).
 
 ## Next steps
 

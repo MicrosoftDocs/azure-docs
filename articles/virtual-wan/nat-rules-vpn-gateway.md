@@ -11,12 +11,7 @@ ms.author: cherylmc
 
 ---
 
-# Configure NAT Rules for your Virtual WAN VPN gateway - Preview
-
-> [!IMPORTANT]
-> NAT rules are currently in public preview.
-> This preview version is provided without a service level agreement and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Configure NAT Rules for your Virtual WAN VPN gateway
 
 You can configure your Virtual WAN VPN gateway with static one-to-one NAT rules. A NAT rule provides a mechanism to set up one-to-one translation of IP addresses. NAT can be used to interconnect two IP networks that have incompatible or overlapping IP addresses. A typical scenario is branches with overlapping IPs that want to access Azure VNet resources.
 

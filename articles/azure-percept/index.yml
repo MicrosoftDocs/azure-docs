@@ -104,8 +104,10 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Advanced development overview
+          - text: Advanced development on Azure Percept
             url: overview-advanced-code.md
+          - text: Vision AI module and workload
+            url: azureeyemodule-overview.md
       - linkListType: how-to-guide
         links:
           - text: Dev Tools Pack Installer
@@ -113,12 +115,14 @@ landingContent:
 
   - title: Keep your Azure Percept DK up to date
     linkLists:
-      - linkListType: overview
+      - linkListType: concept
         links:
-          - text: Azure Percept DK update experience overview
+          - text: Azure Percept DK update experience
             url: overview-update-experience.md
       - linkListType: how-to-guide
         links:
+          - text: Select the update package
+            url: how-to-select-update-package.md
           - text: Set up over-the-air (OTA) updates
             url: how-to-set-up-over-the-air-updates.md
           - text: Update your device over-the-air (OTA)

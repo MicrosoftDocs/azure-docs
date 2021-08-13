@@ -3,13 +3,13 @@ title: "Speech Studio overview - Speech service"
 titleSuffix: Azure Cognitive Services
 description: Speech Studio is a set of UI-based tools for building and integrating features from Azure Speech service in your applications.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2021
-ms.author: trbye
+ms.author: lajanuar
 ---
 
 # What is Speech Studio?
@@ -18,16 +18,12 @@ ms.author: trbye
 
 ## Set up your Azure account
 
-You need to have an Azure account and Speech service subscription before you can use [Speech Studio](https://speech.microsoft.com). If you don't have an account and subscription, [try the Speech service for free](overview.md#try-the-speech-service-for-free).
+You need to have an Azure account and add a Speech service resource before you can use [Speech Studio](https://speech.microsoft.com). If you don't have an account and resource, [try the Speech service for free](overview.md#try-the-speech-service-for-free).
 
-> [!NOTE]
-> Please be sure to create a standard (S0) subscription. Free (F0) subscriptions aren't supported.
+After you create an Azure account and a Speech service resource:
 
-After you create an Azure account and a Speech service subscription:
-
-1. Sign in to the [Speech Studio](https://speech.microsoft.com).
-1. Select the subscription you need to work in and create a speech project.
-1. If you want to modify your subscription, select the cog button in the top menu.
+1. Sign in to the [Speech Studio](https://speech.microsoft.com) with your Azure account.
+1. Select the Speech service resource you need to get started. (You can change the resources anytime in "Settings" in the top menu.)
 
 ## Speech Studio features
 

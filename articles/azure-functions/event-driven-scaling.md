@@ -42,6 +42,12 @@ You may wish to restrict the maximum number of instances an app used to scale ou
 az resource update --resource-type Microsoft.Web/sites -g <RESOURCE_GROUP> -n <FUNCTION_APP-NAME>/config/web --set properties.functionAppScaleLimit=<SCALE_LIMIT>
 ```
 
+```azurepowershell
+$resource = Get-AzResource -ResourceType Microsoft.Web/sites -ResourceGroupName <RESOURCE_GROUP> -Name <FUNCTION_APP-NAME>/config/web
+$resource.Properties.functionAppScaleLimit = <SCALE_LIMIT>
+$resource | Set-AzResource -Force
+```
+
 ## Best practices and patterns for scalable apps
 
 There are many aspects of a function app that impacts how it scales, including host configuration, runtime footprint, and resource efficiency.  For more information, see the [scalability section of the performance considerations article](functions-best-practices.md#scalability-best-practices). You should also be aware of how connections behave as your function app scales. For more information, see [How to manage connections in Azure Functions](manage-connections.md).

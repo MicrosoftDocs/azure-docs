@@ -1,18 +1,20 @@
 ---
-title: 'Quickstart: Add an application to your Azure Active Directory (Azure AD) tenant'
+title: 'Quickstart: Add an application to your tenant'
+titleSuffix: Azure AD
 description: This quickstart uses the Azure portal to add a gallery application to your Azure Active Directory (Azure AD) tenant.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 10/29/2019
-ms.author: mtillman
+ms.date: 07/23/2021
+ms.author: davidmu
+ms.reviewer: ergreenl
 ---
 
-# Quickstart: Add an application to your Azure Active Directory (Azure AD) tenant
+# Quickstart: Add an application to your tenant
 
 Azure Active Directory (Azure AD) has a gallery that contains thousands of pre-integrated applications. Many of the applications your organization uses are probably already in the gallery.
 
@@ -37,24 +39,19 @@ To add an application to your Azure AD tenant, you need:
 
 To add an application to your Azure AD tenant:
 
-1. In the [Azure portal](https://portal.azure.com), on the left navigation panel, select **Azure Active Directory**.
-2. In the **Azure Active Directory** pane, select **Enterprise applications**. The **All applications** pane opens and displays a random sample of the applications in your Azure AD tenant.
-3. In the **Enterprise applications** pane, select **New application**. 
-    ![Select New application to add a gallery app to your tenant](media/add-application-portal/new-application.png)
-4. Switch to the new gallery preview experience: In the banner at the top of the **Add an application page**, select the link that says **Click here to try out the new and improved app gallery**.
-5. The **Browse Azure AD Gallery (Preview)** pane opens and displays tiles for cloud platforms, on-premises applications, and featured applications. Applications listed in the **Featured applications** section have icons indicating whether they support federated single sign-on (SSO) and provisioning. 
+1. In the [Azure portal](https://portal.azure.com), in the **Azure services** pane select **Enterprise applications**. The **All applications** pane opens and displays a random sample of the applications in your Azure AD tenant.
+2. In the **Enterprise applications** pane, select **New application**.
+3. The **Browse Azure AD Gallery** pane opens and displays tiles for cloud platforms, on-premises applications, and featured applications. Applications listed in the **Featured applications** section have icons indicating whether they support federated single sign-on (SSO) and provisioning.
+4. Switch back to the legacy app galley experience: In the banner at the top of the **Add an application page**, select the link that says **You're in the new and improved app gallery experience. Click here to switch back to the legacy app gallery experience**.
     ![Search for an app by name or category](media/add-application-portal/browse-gallery.png)
-6. You can browse the gallery for the application you want to add, or search for the application by entering its name in the search box. Then select the application from the results. 
-7. The next step depends on the way the developer of the application implemented single sign-on (SSO). Single sign-on can be implemented by app developers in four ways. The four ways are SAML, OpenID Connect, Password, and Linked. When you add an app, you can choose to filter and see only apps using a particular SSO implementation as shown in the screenshot. For example, a popular standard to implement SSO is called Security Assertion Markup Language (SAML). Another standard that is popular is called OpenId Connect (OIDC). The way you configure SSO with these standards is different so take note of the type of SSO that is implemented by the app that you are adding.
-
-    :::image type="content" source="media/add-application-portal/sso-types.png" alt-text="Screenshot shows the SSO types selector." lightbox="media/add-application-portal/sso-types.png":::
+5. You can browse the gallery for the application you want to add, or search for the application by entering its name in the search box. Then select the application from the results.
+6. The next step depends on the way the developer of the application implemented single sign-on (SSO). Single sign-on can be implemented by app developers in four ways. The four ways are SAML, OpenID Connect, Password, and Linked. When you add an app, you can choose to filter and see only apps using a particular SSO implementation as shown in the screenshot. For example, a popular standard to implement SSO is called Security Assertion Markup Language (SAML). Another standard that is popular is called OpenId Connect (OIDC). The way you configure SSO with these standards is different so take note of the type of SSO that is implemented by the app that you are adding.
 
     - If the developer of the app used the **OIDC standard** for SSO then select **Sign Up**. A setup page appears. Next, go to the quickstart on setting up OIDC-based single sign-on.
     :::image type="content" source="media/add-application-portal/sign-up-oidc-sso.png" alt-text="Screenshot shows adding an OIDC-based SSO app.":::
 
     - If the developer of the app used the **SAML standard** for SSO then select **Create**. A getting started page appears with the options for configuring the application for your organization. In the form, you can edit the name of the application to match the needs of your organization. Next, go to the quickstart on setting up SAML-based single sign-on.
     :::image type="content" source="media/add-application-portal/create-application.png" alt-text="Screenshot shows adding an SAML-based SSO app.":::
-
 
 > [!IMPORTANT]
 > There are some key differences between SAML-based and OIDC-based SSO implementations. With SAML-based apps you can add multiple instances of the same app. For example, GitHub1, GitHub2, etc.. For OIDC-based apps you can only add one instance of an app. If you have already added an OIDC-based app and try to add the same app again and provide consent twice, it will not be added again in the tenant.

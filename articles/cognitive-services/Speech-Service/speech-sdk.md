@@ -3,13 +3,13 @@ title: About the Speech SDK - Speech service
 titleSuffix: Azure Cognitive Services
 description: The Speech software development kit (SDK) exposes many of the Speech service capabilities, making it easier to develop speech-enabled applications.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.author: trbye
+ms.author: lajanuar
 ---
 
 # About the Speech SDK
@@ -43,12 +43,14 @@ The Speech SDK exposes many features from the Speech service, but not all of the
 
 **Text-to-speech (TTS)** is available on the following platforms:
 
-  - C++/Windows & Linux
-  - C#/Windows & UWP & Unity
+  - C++/Windows & Linux & macOS
+  - C# (Framework & .NET Core)/Windows & UWP & Unity & Xamarin & Linux & macOS
   - Java (Jre and Android)
+  - JavaScript (Browser and NodeJS)
   - Python
   - Swift
   - Objective-C
+  - Go
   - TTS REST API can be used in every other situation.
 
 ### Voice assistants
@@ -130,7 +132,7 @@ The Speech Service delivers great functionality with its default models across s
 
 ### Custom Speech-to-text
 
-When using speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models to address ambient noise or industry-specific vocabulary. The creation and management of no-code Custom Speech models is available through the [Custom Speech Portal](https://aka.ms/customspeech). Once the Custom Speech model is published, it can be consumed by the Speech SDK.
+When using speech-to-text for recognition and transcription in a unique environment, you can create and train custom acoustic, language, and pronunciation models to address ambient noise or industry-specific vocabulary. The creation and management of no-code Custom Speech models is available through the [Custom Speech Portal](./custom-speech-overview.md). Once the Custom Speech model is published, it can be consumed by the Speech SDK.
 
 ### Custom Text-to-speech
 

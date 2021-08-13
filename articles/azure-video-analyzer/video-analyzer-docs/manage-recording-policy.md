@@ -3,7 +3,7 @@ title: Manage recording policy with Azure Video Analyzer
 description: This topic explains how to manage recording policy with Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 04/04/2021
+ms.date: 06/01/2021
 
 ---
 # Manage recording policy with Video Analyzer

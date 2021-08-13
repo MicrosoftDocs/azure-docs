@@ -284,6 +284,8 @@ azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccoun
 
 **--decompress** Automatically decompress files when downloading, if their content-encoding indicates that they are compressed. The supported content-encoding values are `gzip` and `deflate`. File extensions of `.gz`/`.gzip` or `.zz` aren't necessary, but will be removed if present.
 
+**--disable-auto-decoding**    False by default to enable automatic decoding of illegal chars on Windows. Can be set to `true` to disable automatic decoding.
+
 **--exclude-attributes** string   (Windows only) Excludes files whose attributes match the attribute list. For example: A;S;R
 
 **--exclude-blob-type** string    Optionally specifies the type of blob (`BlockBlob`/ `PageBlob`/ `AppendBlob`) to exclude when copying blobs from the container or the account. Use of this flag is not applicable for copying data from non-Azure service to service. More than one blob should be separated by `;`. 

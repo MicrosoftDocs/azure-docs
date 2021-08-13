@@ -1,9 +1,9 @@
 ---
-author: trevorbye
+author: laujan
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/25/2020
-ms.author: trbye
+ms.author: lajanuar
 ms.custom: devx-track-csharp
 ---
 
@@ -47,19 +47,19 @@ using Microsoft.CognitiveServices.Speech.Audio;
 
 ## Create a speech configuration
 
-To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig). This class includes information about your subscription, like your key and associated region, endpoint, host, or authorization token.
+To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig). This class includes information about your subscription, like your speech key and associated location/region, endpoint, host, or authorization token.
 
 > [!NOTE]
 > Regardless of whether you're performing speech recognition, speech synthesis, translation, or intent recognition, you'll always create a configuration.
 
 There are a few ways that you can initialize a [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig):
 
-* With a subscription: pass in a key and the associated region.
+* With a subscription: pass in a key and the associated location/region.
 * With an endpoint: pass in a Speech service endpoint. A key or authorization token is optional.
 * With a host: pass in a host address. A key or authorization token is optional.
-* With an authorization token: pass in an authorization token and the associated region.
+* With an authorization token: pass in an authorization token and the associated location/region.
 
-In this example, you create a [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) using a subscription key and region. Get these credentials by following steps in [Try the Speech service for free](../../../overview.md#try-the-speech-service-for-free). You also create some basic boilerplate code to use for the rest of this article, which you modify for different customizations.
+In this example, you create a [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) using a speech key and location/region. Get these credentials by following steps in [Try the Speech service for free](../../../overview.md#try-the-speech-service-for-free). You also create some basic boilerplate code to use for the rest of this article, which you modify for different customizations.
 
 ```csharp
 public class Program
@@ -71,7 +71,7 @@ public class Program
 
     static async Task SynthesizeAudioAsync()
     {
-        var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+        var config = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     }
 }
 ```
@@ -85,7 +85,7 @@ To start, create an `AudioConfig` to automatically write the output to a `.wav` 
 ```csharp
 static async Task SynthesizeAudioAsync()
 {
-    var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    var config = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     using var audioConfig = AudioConfig.FromWavFileOutput("path/to/write/file.wav");
 }
 ```
@@ -95,7 +95,7 @@ Next, instantiate a `SpeechSynthesizer` with another `using` statement. Pass you
 ```csharp
 static async Task SynthesizeAudioAsync()
 {
-    var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    var config = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     using var audioConfig = AudioConfig.FromWavFileOutput("path/to/write/file.wav");
     using var synthesizer = new SpeechSynthesizer(config, audioConfig);
     await synthesizer.SpeakTextAsync("A simple test to write to a file.");
@@ -111,7 +111,7 @@ In some cases, you may want to directly output synthesized speech directly to a 
 ```csharp
 static async Task SynthesizeAudioAsync()
 {
-    var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    var config = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     using var synthesizer = new SpeechSynthesizer(config);
     await synthesizer.SpeakTextAsync("Synthesizing directly to speaker output.");
 }
@@ -135,7 +135,7 @@ This time, you save the result to a [`SpeechSynthesisResult`](/dotnet/api/micros
 ```csharp
 static async Task SynthesizeAudioAsync()
 {
-    var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    var config = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     using var synthesizer = new SpeechSynthesizer(config, null);
 
     var result = await synthesizer.SpeakTextAsync("Getting the response as an in-memory stream.");
@@ -162,7 +162,7 @@ In this example, you specify a high-fidelity RIFF format `Riff24Khz16BitMonoPcm`
 ```csharp
 static async Task SynthesizeAudioAsync()
 {
-    var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    var config = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     config.SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm);
 
     using var synthesizer = new SpeechSynthesizer(config, null);
@@ -199,7 +199,7 @@ Next, you need to change the speech synthesis request to reference your XML file
 ```csharp
 public static async Task SynthesizeAudioAsync()
 {
-    var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    var config = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     using var synthesizer = new SpeechSynthesizer(config, null);
 
     var ssml = File.ReadAllText("./ssml.xml");

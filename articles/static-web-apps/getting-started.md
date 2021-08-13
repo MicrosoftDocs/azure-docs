@@ -41,8 +41,11 @@ Next, open Visual Studio Code and go to **File > Open Folder** to open the clone
 1. Under the _Static Web Apps_ label, select the **plus sign**.
 
     :::image type="content" source="media/getting-started/extension-create-button.png" alt-text="Application name":::
+    
+    > [!NOTE]
+    > The Azure Static Web Apps Visual Studio Code extension streamlines the creating process by using a series of default values. If you want to have fine-grained control of the creation process, open the command palate and select **Azure Static Web Apps: Create Static Web App... (Advanced)**.
 
-1. The command palate opens at the top of the editor and prompts you to select a subscription name.
+1. The command palette opens at the top of the editor and prompts you to select a subscription name.
 
     Select your subscription and press <kbd>Enter</kbd>.
 

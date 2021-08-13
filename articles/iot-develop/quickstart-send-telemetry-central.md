@@ -16,8 +16,6 @@ zone_pivot_groups: iot-develop-set1
 
 **Applies to**: [Device application developers](about-iot-develop.md#device-application-development)
 
-In this quickstart, you learn a basic Azure IoT application development workflow. First you create an Azure IoT Central application for hosting devices. Then you use an Azure IoT device SDK sample to run a simulated temperature controller, connect it securely to IoT Central, and send telemetry.
-
 :::zone pivot="programming-language-ansi-c"
 
 [!INCLUDE [iot-develop-send-telemetry-central-c](../../includes/iot-develop-send-telemetry-central-c.md)]

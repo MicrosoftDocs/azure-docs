@@ -120,7 +120,7 @@ sections:
       - question: |
           Is Log Analytics storage immutable?
         answer: |
-          Data in database storage cannot be altered once ingested but can be deleted via [*purge* API path for deleting private data](./logs/personal-data-mgmt.md#delete). Although data cannot be altered, some certifications require that data is kept immutable and cannot be changed or deleted in storage. Data immutability can be achieved using [data export](./logs/logs-data-export.md) to a storage account that is configured as [immutable storage](../storage/blobs/storage-blob-immutability-policies-manage.md).
+          Data in database storage cannot be altered once ingested but can be deleted via [*purge* API path for deleting private data](./logs/personal-data-mgmt.md#delete). Although data cannot be altered, some certifications require that data is kept immutable and cannot be changed or deleted in storage. Data immutability can be achieved using [data export](./logs/logs-data-export.md) to a storage account that is configured as [immutable storage](../storage/blobs/immutable-policy-configure-version-scope.md).
           
       - question: |
           What is a Log Analytics workspace?
@@ -188,7 +188,8 @@ sections:
       - question: |
           What's the difference between the Azure Monitor agents?
         answer: |
-          Azure Diagnostic extension is for Azure virtual machines and collects data to Azure Monitor Metrics, Azure Storage, and Azure Event Hubs. The Log Analytics agent is for virtual machines in Azure, another cloud environment, or on-premises and collects data to Azure Monitor Logs. The Dependency agent requires the Log Analytics agent and collected process details and dependencies. See [Overview of the Azure Monitor agents](agents/agents-overview.md).
+          Azure Diagnostic extension is for Azure virtual machines and collects data to Azure Monitor Metrics, Azure Storage, and Azure Event Hubs. The Log Analytics agent is for virtual machines in Azure, another cloud environment, or on-premises and collects data to Azure Monitor Logs. The Dependency agent requires the Log Analytics agent and collected process details and dependencies. 
+          The Azure Monitor Agent is the new, improved agent that will consolidate the features from all the above mentioned agents over time, whilst providing additional benefits like centralized data collection, filtering, multi homing and more. See [Overview of the Azure Monitor agents](agents/agents-overview.md).
           
       - question: |
           Does my agent traffic use my ExpressRoute connection?
@@ -248,26 +249,23 @@ sections:
           Specify an existing or new [Action Group](alerts/action-groups.md) so that when the log alert matches criteria, you are notified if you have a heartbeat missing for more than 15 minutes.
           
       - question: |
-          What are the firewall requirements for Azure Monitor agents?
+          What are the firewall requirements for Log Analytics agents?
         answer: |
           See [Network firewall requirements](agents/log-analytics-agent.md#network-requirements)for details on firewall requirements.
           
           
-  - name: Azure Monitor Agent (preview)
+  - name: Azure Monitor Agent
     questions:
       - question: |
           What is the upgrade path from Log Analytics agents to Azure Monitor Agent? How do we migrate?
         answer: |
-          There’s currently no “auto-update” path since this involves complete uninstallation of existing agents on your machines and installing the new agent. As such we expect customers to plan for migration at the most suitable time based on feature parity.
-          The more important reason is that with the new agent, data collection setup is much simpler, centralized, and configurable for subsets of machines connected to same or multiple destinations **using the power of Data Collection Rules, which overcomes a lot of limitations of existing Log Analytics agent setup**.
-          
-          **As such, we recommend looking at your data collection needs holistically, and creating the right DCRs first, and then performing the agent update to go along with this new setup**. To do so, you can follow the guidance on how to deploy at scale. 
+          See [Migrating from Log Analytics agent](./agents/azure-monitor-agent-migration.md)
           
           
       - question: |
-          What’s the upgrade path from Log Analytics Agent (MMA) to Azure Monitor Agent (AMA) for monitoring SCOM? Can we use AMA for SCOM scenarios?
+          What’s the upgrade path from Log Analytics Agent (MMA) to Azure Monitor Agent (AMA) for monitoring System Center Operations Manager (SCOM)? Can we use AMA for SCOM scenarios?
         answer: |
-          Here's how AMA impacts the two SCOM related monitor scenarios:
+          Here's how AMA impacts the two System Center Operations Manager (SCOM) related monitor scenarios:
           - **Scenario 1**: For monitoring the Windows operating system of SCOM, the upgrade path is same as any other machine, wherein you can migrate from MMA (versions 2016, 2019) to AMA as soon as your required parity features are available on AMA.
           - **Scenario 2**: For onboarding/connecting SCOM to Log Analytics workspaces, since this is enabled via a SCOM connector for Log Analytics/Azure Monitor, neither MMA nor AMA is required to be installed on the SCOM management server. As such there is no impact to this use case from AMA perspective.  
           
@@ -276,11 +274,10 @@ sections:
           
           
       - question: |
-          Will the new Azure Monitor agent support data collection for the various Log Analytics solutions?
+          Will the new Azure Monitor agent support data collection for the various Log Analytics solutions and Azure services like Security Center, Sentinel, etc.?
         answer: |
-          What you’re familiar as solutions or management packs, now become VM extensions that use the Azure Monitor Agent extension to send data to Azure Monitor. When you enable a solution on AMA, you hence see an additional VM extension installed, when applicable.
-          Over time, AMA will be the only agent that uploads data to Azure Monitor (or additional supported destinations). 
-          The solution specific VM extensions exist to collect scenario specific data or perform transformation/processing as required, and then use AMA to route the final data to Azure Monitor. 
+          Review the list of [AMA extensions currently available in preview](./agents/azure-monitor-agent-overview.md#supported-services-and-features). These are the same solutions and services now available using the new Azure Monitor agent instead. 
+          You may see additional extensions getting installed for the solution/service, this is to collect additional data or perform transformation/processing as required for the solution/service, and then use AMA to route the final data to Azure Monitor. 
           
           Here’s a diagram explaining the **new extensibility architecture**:
           
@@ -290,23 +287,13 @@ sections:
       - question: |
           Which Log Analytics solutions are supported on the new Azure Monitor Agent?
         answer: |
-          Log Analytics solutions can be enabled using the new Azure Monitor Agent either as natively supported or by installing the additional VM extension for the solution.
-          
-          | **Solution (VM extension)** | **Availability on Azure Monitor Agent (AMA)** |
-          |:---|:---|
-          | **Azure Security Center** | Private preview on AMA |
-          | **Sentinel** | Private preview on AMA |
-          | **Change Tracking** | Supported as File Integrity Monitoring (FIM) in ASC private preview on AMA |
-          | **Update Management** | You can use the Update Management v2 (private preview) that doesn’t need any agent |
-          | **VM Insights with metrics support** | Private preview on AMA |
-          | **VM Insights guest health (new)** | Public preview: [VM insights guest health (preview)](vm/vminsights-health-overview.md) |
-          | **SQL Monitoring (new)** | Public preview exclusively on AMA: [SQL insights (preview)](insights/sql-insights-overview.md) |
+          See [Supported services and features](agents/azure-monitor-agent-overview.md#supported-services-and-features).
           
           
       - question: |
           How can I collect Windows security events using the new Azure Monitor Agent?
         answer: |
-          There's two ways you can collect Security events using the new agent, when sending to Log Analytics workspace(s):
+          There are two ways you can collect Security events using the new agent, when sending to a Log Analytics workspace:
           - You can use AMA to natively collect Security Events, same as other Windows Events. These flow to the ['Event'](/azure/azure-monitor/reference/tables/Event) table in your Log Analytics workspace.
           - If you have Sentinel enabled on the workspace, the Security Events flow via AMA into the ['SecurityEvent'](/azure/azure-monitor/reference/tables/SecurityEvent) table instead (same as using Log Analytics Agent). This will always require the solution to be enabled first.
           
@@ -322,11 +309,9 @@ sections:
           It does not have full parity yet with existing agents. Here are some high-level gaps:
           
           - **Comparison with Log Analytics Agents (MMA/OMS)**
-          	-	Not all Log Analytics Solutions are supported today. See table above
+          	-	Not all Log Analytics Solutions are supported today. See [what's supported](agents/azure-monitor-agent-overview.md#supported-services-and-features)
           	-	No support for Private Links 
-          	-	No support for proxy servers or Log Analytics (OMS) gateway
           	-	No support for collecting custom logs or IIS logs
-          	-	No support for Hybrid Runbook workers
           
           - **Comparison with Azure Diagnostic Extensions (WAD/LAD)**
           	-	No support for Event Hubs and Storage accounts as destinations
@@ -335,13 +320,13 @@ sections:
       - question: |
           Does the new Azure Monitor Agent support non-Azure environments (other clouds, on-premises)?
         answer: |
-          Both on-premises machines and machines connected to other clouds are supported for servers today, once you have the Azure ARC agent installed. For purposes of running AMA and DCR, the ARC requirement comes at **no additional cost or resource consumption**, since the ARC agent is only used an installation mechanism and isn’t performing any operations unless you enable them
+          Both on-premises machines and machines connected to other clouds are supported for servers today, once you have the Azure Arc agent installed. For purposes of running AMA and DCR, the ARC requirement comes at **no additional cost or resource consumption**, since the ARC agent is only used an installation mechanism and isn’t performing any operations unless you enable them
           
           
       - question: |
           What types of machines does the new Azure Monitor Agent support?
         answer: |
-          You can directly install them on Virtual Machines, Virtual Machines Scale Sets, and ARC enabled Servers only. 
+          You can directly install them on Virtual Machines, Virtual Machines Scale Sets, and Arc enabled Servers only. 
           
           
       - question: |
@@ -378,14 +363,13 @@ sections:
           *I'm having trouble setting up my:*
           
           * [.NET app](app/asp-net-troubleshoot-no-data.md)
-          * [Monitoring an already-running app](app/monitor-performance-live-website-now.md#troubleshoot)
           * [Azure diagnostics](agents/diagnostics-extension-to-application-insights.md)
           * [Java web app](app/java-2x-troubleshoot.md)
           
           *I get no data from my server:*
           
           * [Set firewall exceptions](app/ip-addresses.md)
-          * [Set up an ASP.NET server](app/monitor-performance-live-website-now.md)
+          * [Set up an ASP.NET server](app/status-monitor-v2-overview.md)
           * [Set up a Java server](app/java-2x-agent.md)
           
           *How many Application Insights resources should I deploy:*
@@ -468,13 +452,6 @@ sections:
           We do not recommend using this method of populating the API version. The newest version can represent preview releases which may contain breaking changes. Even with newer non-preview releases, the API versions are not always backwards compatible with existing templates, or in some cases the API version may not be available to all subscriptions.
 
       - question: |
-          What is Status Monitor?
-        answer: |
-          A desktop app that you can use in your IIS web server to help configure Application Insights in web apps. It doesn't collect telemetry: you can stop it when you are not configuring an app.
-          
-          [Learn more](app/monitor-performance-live-website-now.md#questions).
-          
-      - question: |
           What telemetry is collected by Application Insights?
         answer: |
           From server web apps:
@@ -482,7 +459,7 @@ sections:
           * HTTP requests
           * [Dependencies](app/asp-net-dependencies.md). Calls to: SQL Databases; HTTP calls to external services; Azure Cosmos DB, table, blob storage, and queue.
           * [Exceptions](app/asp-net-exceptions.md) and stack traces.
-          * [Performance Counters](app/performance-counters.md) - If you use [Status Monitor](app/monitor-performance-live-website-now.md), [Azure monitoring for App Services](app/azure-web-apps.md), [Azure monitoring for VM or virtual machine scale set](app/azure-vm-vmss-apps.md), or the [Application Insights collectd writer](app/java-2x-collectd.md).
+          * [Performance Counters](app/performance-counters.md) - If you use [Azure Monitor Application Insights Agent](app/status-monitor-v2-overview.md), [Azure monitoring for VM or virtual machine scale set](app/azure-vm-vmss-apps.md), or the [Application Insights collectd writer](app/java-2x-collectd.md).
           * [Custom events and metrics](app/api-custom-events-metrics.md) that you code.
           * [Trace logs](app/asp-net-trace-logs.md) if you configure the appropriate collector.
           
@@ -593,8 +570,8 @@ sections:
           | What you should see | How to get it | Why you want it |
           | --- | --- | --- |
           | Availability charts |[Web tests](app/monitor-web-app-availability.md) |Know your web app is up |
-          | Server app perf: response times, ... |[Add Application Insights to your project](app/asp-net.md) or [Install AI Status Monitor on server](app/monitor-performance-live-website-now.md) (or write your own code to [track dependencies](app/api-custom-events-metrics.md#trackdependency)) |Detect perf issues |
-          | Dependency telemetry |[Install AI Status Monitor on server](app/monitor-performance-live-website-now.md) |Diagnose issues with databases or other external components |
+          | Server app perf: response times, ... |[Add Application Insights to your project](app/asp-net.md) or [Install Azure Monitor Application Insights Agent on server](app/status-monitor-v2-overview.md) (or write your own code to [track dependencies](app/api-custom-events-metrics.md#trackdependency)) |Detect perf issues |
+          | Dependency telemetry |[Install Azure Monitor Application Insights Agent on server](app/status-monitor-v2-overview.md) |Diagnose issues with databases or other external components |
           | Get stack traces from exceptions |[Insert TrackException calls in your code](app/asp-net-exceptions.md) (but some are reported automatically) |Detect and diagnose exceptions |
           | Search log traces |[Add a logging adapter](app/asp-net-trace-logs.md) |Diagnose exceptions, perf issues |
           | Client usage basics: page views, sessions, ... |[JavaScript initializer in web pages](app/javascript.md) |Usage analytics |
@@ -822,7 +799,7 @@ sections:
   - name: Container insights
     questions:
       - question: |
-          What does 'Other Processe' represent under the Node view?
+          What does 'Other Processes' represent under the Node view?
         answer: |
           **Other processes** are intended to help you clearly understand the root cause of the high resource usage on your node. This enables you to distinguish usage between containerized processes vs non-containerized processes.
           

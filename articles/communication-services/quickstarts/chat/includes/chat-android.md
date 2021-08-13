@@ -6,14 +6,14 @@ author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
 ---
 
-> [!NOTE]
-> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add-chat)
+## Sample Code
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add-chat).
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ Before you get started, make sure to:
 
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Install [Android Studio](https://developer.android.com/studio), we will be using Android Studio to create an Android application for the quickstart to install dependencies.
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../create-communication-resource.md). You'll need to **record your resource endpoint** for this quickstart.
+- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../create-communication-resource.md). You'll need to **record your resource endpoint** for this quickstart.
 - Create **two** Communication Services Users and issue them a user access token [User Access Token](../../access-tokens.md). Be sure to set the scope to **chat**, and **note the token string and the userId string**. In this quickstart, we will create a thread with an initial participant and then add a second participant to the thread.
 
 ## Setting up
@@ -37,14 +37,16 @@ Before you get started, make sure to:
 
 We'll use Gradle to install the necessary Communication Services dependencies. From the command line, navigate inside the root directory of the `ChatQuickstart` project. Open the app's build.gradle file and add the following dependencies to the `ChatQuickstart` target:
 
-```
-implementation 'com.azure.android:azure-communication-common:1.0.1'
-implementation 'com.azure.android:azure-communication-chat:1.0.0'
+```groovy
+implementation 'com.azure.android:azure-communication-common:' + $azureCommunicationCommonVersion
+implementation 'com.azure.android:azure-communication-chat:' + $azureCommunicationChatVersion
 implementation 'org.slf4j:slf4j-log4j12:1.7.29'
 ```
 
+Please refer to https://search.maven.org/artifact/com.azure.android/azure-communication-common and https://search.maven.org/artifact/com.azure.android/azure-communication-chat for the latest version numbers.
+
 #### Exclude meta files in packaging options in root build.gradle
-```
+```groovy
 android {
    ...
     packagingOptions {
@@ -68,7 +70,7 @@ To import the library into your project using the [Maven](https://maven.apache.o
 <dependency>
   <groupId>com.azure.android</groupId>
   <artifactId>azure-communication-chat</artifactId>
-  <version>1.0.0</version>
+  <version><!-- Please refer to https://search.maven.org/artifact/com.azure.android/azure-communication-chat for the latest version --></version>
 </dependency>
 ```
 
@@ -101,7 +103,7 @@ Copy the following code into class `MainActivity` in file `MainActivity.java`:
     private String firstUserAccessToken = "<first_user_access_token>";
     private String threadId = "<thread_id>";
     private String chatMessageId = "<chat_message_id>";
-    private final String sdkVersion = "1.0.0";
+    private final String sdkVersion = "<chat_sdk_version>";
     private static final String APPLICATION_ID = "Chat Quickstart App";
     private static final String SDK_NAME = "azure-communication-com.azure.android.communication.chat";
     private static final String TAG = "Chat Quickstart App";
@@ -147,6 +149,7 @@ Copy the following code into class `MainActivity` in file `MainActivity.java`:
 1. Replace `<resource>` with your Communication Services resource.
 2. Replace `<first_user_id>` and `<second_user_id>` with valid Communication Services user IDs that were generated as part of prerequisite steps.
 3. Replace `<first_user_access_token>` with the Communication Services access token for `<first_user_id>` that was generated as part of prerequisite steps.
+4. Replace `<chat_sdk_version>` with the version of Azure Communication Chat SDK.
 
 In following steps, we'll replace the placeholders with sample code using the Azure Communication Services Chat library.
 
@@ -228,15 +231,28 @@ Replace the comment `<SEND A MESSAGE>` with the following code:
 
 ```java
 // The chat message content, required.
-final String content = "Test message 1";
+final String content = "Please take a look at the attachment";
+
 // The display name of the sender, if null (i.e. not specified), an empty name will be set.
 final String senderDisplayName = "An important person";
+
+// Use metadata optionally to include any additional data you want to send along with the message.
+// This field provides a mechanism for developers to extend chat message functionality and add
+// custom information for your use case. For example, when sharing a file link in the message, you
+// might want to add 'hasAttachment:true' in metadata so that recipient's application can parse
+// that and display accordingly.
+final Map<String, String> metadata = new HashMap<String, String>();
+metadata.put("hasAttachment", "true");
+metadata.put("attachmentUrl", "https://contoso.com/files/attachment.docx");
+
 SendChatMessageOptions chatMessageOptions = new SendChatMessageOptions()
     .setType(ChatMessageType.TEXT)
     .setContent(content)
-    .setSenderDisplayName(senderDisplayName);
+    .setSenderDisplayName(senderDisplayName)
+    .setMetadata(metadata);
 
-// A string is the response returned from sending a message, it is an id, which is the unique ID of the message.
+// A string is the response returned from sending a message, it is an id, which is the unique ID
+// of the message.
 chatMessageId = chatThreadAsyncClient.sendMessage(chatMessageOptions).get().getId();
 
 ```
@@ -371,7 +387,6 @@ readReceiptsPagedAsyncStream.forEach(readReceipt -> {
 });
 
 ```
-
 
 ## Run the code
 

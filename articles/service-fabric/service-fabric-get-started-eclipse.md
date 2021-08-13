@@ -1,12 +1,9 @@
 ---
 title: Azure Service Fabric plug-in for Eclipse 
 description: Learn about getting started with Azure Service Fabric in Java using eclipse and the Service Fabric provided plug-in. 
-author: rapatchi
-
 ms.topic: conceptual
 ms.date: 04/06/2018
-ms.author: rapatchi
-ms.custom: devx-track-java
+ms.custom: devx-track-java, contperf-fy21q4
 ---
 
 # Service Fabric plug-in for Eclipse Java application development
@@ -32,7 +29,7 @@ Install Eclipse Neon or later from the [Eclipse site](https://www.eclipse.org). 
 -   To check for and install updates for Eclipse, go to **Help** > **Check for Updates**.
 
 Install the Service Fabric plug-in, in Eclipse, go to **Help** > **Install New Software**.
-1. In the **Work with** box, enter https:\//dl.microsoft.com/eclipse.
+1. In the **Work with** box, enter `https://servicefabricdownloads.blob.core.windows.net/eclipse/`.
 2. Click **Add**.
 
    ![Service Fabric plug-in for Eclipse][sf-eclipse-plugin-install]
@@ -45,7 +42,7 @@ If you already have the Service Fabric plug-in installed, install the latest ver
 3. Once you update the Service Fabric plug-in, also refresh the Gradle project.  Right click **build.gradle**, then select **Refresh**.
 
 > [!NOTE]
-> If installing or updating the Service Fabric plug-in is slow, it might be due to an Eclipse setting. Eclipse collects metadata on all changes to update sites that are registered with your Eclipse instance. To speed up the process of checking for and installing a Service Fabric plug-in update, go to **Available Software Sites**. Clear the check boxes for all sites except for the one that points to the Service Fabric plug-in location (https:\//dl.microsoft.com/eclipse/azure/servicefabric).
+> If installing or updating the Service Fabric plug-in is slow, it might be due to an Eclipse setting. Eclipse collects metadata on all changes to update sites that are registered with your Eclipse instance. To speed up the process of checking for and installing a Service Fabric plug-in update, go to **Available Software Sites**. Clear the check boxes for all sites except for the one that points to the Service Fabric plug-in location ('https://servicefabricdownloads.blob.core.windows.net/eclipse/').
 
 > [!NOTE]
 >If Eclipse isn't working as expected on your Mac, or needs you run as super user), go to the **ECLIPSE_INSTALLATION_PATH** folder and navigate to the subfolder **Eclipse.app/Contents/MacOS**. Start Eclipse by running `./eclipse`.

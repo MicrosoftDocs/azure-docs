@@ -46,7 +46,7 @@ Before installing the Azure AD modules on your computer:
 
 1. Ensure that the Microsoft .NET Framework 3.5.x feature is enabled on your computer. It's likely that your computer has a newer version installed, but backward compatibility with older versions of the .NET Framework can be enabled or disabled. 
 
-2. Install the 64-bit version of the [Microsoft Online Services Sign-in Assistant](https://www.microsoft.com/Download/details.aspx?id=28177).
+2. Install the 64-bit version of the [Microsoft Online Services Sign-in Assistant](/microsoft-365/enterprise/connect-to-microsoft-365-powershell?view=o365-worldwide#step-1-install-the-required-software-1).
 
 3. Run Windows PowerShell as an administrator to create an elevated Windows PowerShell command prompt.
 

@@ -1,18 +1,18 @@
 ---
 title: Automate application deployments to Azure Spring Cloud
 description: Describes how to use the Azure Spring Cloud task for Azure Pipelines.
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/12/2021
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
 # Automate application deployments to Azure Spring Cloud
 
-Continuous integration and continuous delivery tools let you quickly deploy updates to existing applications with minimal effort and risk. Azure DevOps helps you organize and control these key jobs. 
+Continuous integration and continuous delivery tools let you quickly deploy updates to existing applications with minimal effort and risk. Azure DevOps helps you organize and control these key jobs.
 
 This article shows you how to use the [Azure Spring Cloud task for Azure Pipelines](/azure/devops/pipelines/tasks/deploy/azure-spring-cloud) to deploy applications.
 
@@ -23,6 +23,7 @@ Read [this article](/azure/devops/pipelines/library/connect-to-azure) to learn h
 ## Build and deploy apps
 
 ::: zone pivot="programming-language-csharp"
+
 ### Deploy artifacts
 
 You can build and deploy your projects using a series of tasks. This snippet defines variables, a .NET Core task to build the application, and an Azure Spring Cloud task to deploy the application.
@@ -77,6 +78,7 @@ steps:
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
+
 ### Deploy artifacts
 
 #### To production
@@ -104,7 +106,6 @@ steps:
 The deployment shown in the previous section immediately receives application traffic upon deployment. Sometimes, developers want to test their applications in the production environment but before the application receives any customer traffic.
 
 The following snippet builds the application the same way as above and then deploys it to a staging deployment. In this example, the staging deployment must already exist. For an alternative approach, see [Blue-green deployment strategies](concepts-blue-green-deployment-strategies.md).
-
 
 ```yaml
 steps:
@@ -143,9 +144,9 @@ It is possible to deploy directly to Azure without a separate build step.
     DeploymentName: 'default'
     Package: $(Build.SourcesDirectory)
 ```
+
 ::: zone-end
 
 ## Next steps
 
 * [Quickstart: Deploy your first Azure Spring Cloud application](./quickstart.md)
-

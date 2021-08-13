@@ -30,7 +30,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Get started with a live demo 
+          - text: Get started with a chatroom live demo 
             url: quickstart-live-demo.md
           - text: Start with a simple chatroom serverless application 
             url: quickstart-serverless.md

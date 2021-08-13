@@ -7,7 +7,7 @@ manager: anvalent
 services: azure-communication-services
 
 ms.author: joseys
-ms.date: 04/14/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
@@ -30,7 +30,7 @@ First, we'll create a webhook. Your Communication Services resource will use Eve
 
 You can write your own custom webhook to receive these event notifications. It's important for this webhook to respond to inbound messages with the validation code to successfully subscribe the webhook to the event service.
 
-```
+```csharp
 [HttpPost]
 public async Task<ActionResult> PostAsync([FromBody] object request)
   {
@@ -59,7 +59,6 @@ public async Task<ActionResult> PostAsync([FromBody] object request)
   }
 ```
 
-
 The above code depends on the `Microsoft.Azure.EventGrid` NuGet package. To learn more about Event Grid endpoint validation, visit the [endpoint validation documentation](../../../event-grid/receive-events.md#endpoint-validation)
 
 We'll then subscribe this webhook to the `recording` event:
@@ -68,7 +67,7 @@ We'll then subscribe this webhook to the `recording` event:
 2. Select `Event Subscription` as shown below.
 ![Screenshot showing event grid UI](./media/call-recording/image1-event-grid.png)
 3. Configure the event subscription and select `Call Recording File Status Update` as the `Event Type`. Select `Webhook` as the `Endpoint type`.
-![Create Event Subscription](./media/call-recording/image2-create-subscription.png)
+![Create Event Subscription](./media/call-recording/image2-create-event-subscription.png)
 4. Input your webhook's URL into `Subscriber Endpoint`.
 ![Subscribe to Event](./media/call-recording/image3-subscribe-to-event.png)
 
@@ -77,7 +76,7 @@ Your webhook will now be notified whenever your Communication Services resource 
 ## Notification schema
 When the recording is available to download, your Communication Services resource will emit a notification with the following event schema. The document IDs for the recording can be fetched from the `documentId` fields of each `recordingChunk`.
 
-```
+```json
 {
     "id": string, // Unique guid for event
     "topic": string, // Azure Communication Services resource id
@@ -126,7 +125,7 @@ To download recorded media and metadata, use HMAC authentication to authenticate
 
 Create an `HttpClient` and add the necessary headers using the `HmacAuthenticationUtils` provided below:
 
-```
+```csharp
   var client = new HttpClient();
 
   // Set Http Method
@@ -152,7 +151,7 @@ Create an `HttpClient` and add the necessary headers using the `HmacAuthenticati
   // Hash the content of the request.
   var contentHashed = HmacAuthenticationUtils.CreateContentHash(serializedPayload);
 
-  // Add HAMC headers.
+  // Add HMAC headers.
   HmacAuthenticationUtils.AddHmacHeaders(request, contentHashed, accessKey, method);
 
   // Make a request to the Azure Communication Services APIs mentioned above
@@ -164,7 +163,7 @@ The below utilities can be used to manage your HMAC workflow.
 
 **Create content hash**
 
-```
+```csharp
 public static string CreateContentHash(string content)
 {
     var alg = SHA256.Create();
@@ -187,7 +186,7 @@ public static string CreateContentHash(string content)
 
 **Add HMAC headers**
 
-```
+```csharp
 public static void AddHmacHeaders(HttpRequestMessage requestMessage, string contentHash, string accessKey)
 {
     var utcNowString = DateTimeOffset.UtcNow.ToString("r", CultureInfo.InvariantCulture);

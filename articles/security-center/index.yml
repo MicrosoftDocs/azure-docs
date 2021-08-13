@@ -76,7 +76,7 @@ landingContent:
           - text: Exempt a resource from a recommendation
             url: exempt-resource.md
           - text: Track your scores over time
-            url: custom-dashboards-azure-workbooks.md#use-the-secure-score-over-time-report
+            url: custom-dashboards-azure-workbooks.md#use-the-secure-score-over-time-workbook
 
   # Card
   - title: Mitigate threats

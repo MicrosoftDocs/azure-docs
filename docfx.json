@@ -14,13 +14,28 @@
           "**/_themes/**",
           "**/includes/**",
           "**/obj/**",
-          "**/*.graffle"
+          "**/*.graffle",
+          "healthcare-apis/**"
         ]
       },
       {
         "group": "grp-iot-edge",
         "src": "articles/iot-edge",
         "dest": "./iot-edge/",
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [
+            "**/_themes/**",
+            "**/includes/**",
+            "**/obj/**"
+        ]
+      },
+      {
+        "group": "healthcare-apis",
+        "src": "articles/healthcare-apis",
+        "dest": "./healthcare-apis/",
         "files": [
           "**/*.md",
           "**/*.yml"
@@ -59,13 +74,30 @@
         "exclude": [
           "iot-edge/**",
           "**/_themes/**",
-          "**/obj/**"
+          "**/obj/**",
+          "healthcare-apis/**"
         ]
       },
       {
         "group": "grp-iot-edge",
         "src": "articles/iot-edge",
         "dest": "./iot-edge/",
+        "files": [
+          "**/*.gif",
+          "**/*.jpeg",
+          "**/*.jpg",
+          "**/*.png",
+          "**/*.svg"
+        ],
+        "exclude": [
+          "**/_themes/**",
+          "**/obj/**"
+        ]
+      },
+      {
+        "group": "healthcare-apis",
+        "src": "articles/healthcare-apis",
+        "dest": "./healthcare-apis/",
         "files": [
           "**/*.gif",
           "**/*.jpeg",
@@ -252,7 +284,8 @@
         "articles/container-instances/**/*.md": "macolso",
         "articles/container-registry/**/*.md": "dlepow",
         "articles/data-lake-analytics/*.md": "xujxu",
-        "articles/defender-for-iot/*.md": "shhazam-ms",
+        "articles/defender-for-iot/organizations/*.md": "shhazam-ms",
+        "articles/defender-for-iot/device-builders/*.md": "elazark",
         "articles/dev-spaces/**/*.md": "zr-msft",
         "articles/devtest-labs/**/*.md": "juliako",
         "articles/event-grid/**/*.md": "spelluru",
@@ -274,8 +307,7 @@
         "articles/media-services/**/*.md": "Juliako",
         "articles/notebooks/*.md": "JoshuaPartlow",
         "articles/service-bus-messaging/*.md": "spelluru",
-        "articles/service-fabric/*.md": "erikadoyle",
-        "articles/service-fabric-mesh/*.md": "erikadoyle",
+        "articles/service-fabric/*.md": "sukanyamsft",
         "articles/service-health/*.md": "stephbaron",
         "articles/site-recovery/*.md": "JYOTHIRMAISURI",
         "articles/stream-analytics/*.md": "jasonwhowell",
@@ -377,7 +409,6 @@
         "articles/managed-instance-apache-cassandra/**/*.md": "https://feedback.azure.com/forums/263030-azure-cosmos-db?category_id=398548",
         "articles/cost-management-billing/**/*.md": "https://feedback.azure.com/forums/170030-signup-and-billing",
         "articles/cost-management-billing/costs/**/*.md": "https://feedback.azure.com/forums/906772-cost-management",
-        "articles/cost-management-billing/cloudyn/**/*.md": "https://feedback.azure.com/forums/906772-cost-management?query=cloudyn",
         "articles/cost-management-billing/manage/**/*.md": "https://feedback.azure.com/forums/170030-signup-and-billing",
         "articles/cost-management-billing/reservations/**/*.md": "https://feedback.azure.com/forums/926206-azure-reservations",
         "articles/data-catalog/**/*.md": "https://feedback.azure.com/forums/906052-data-catalog",
@@ -513,7 +544,8 @@
         "articles/baremetal-infrastructure/**/*.md": "gwallace",
         "articles/batch/**/*.md": "evansma",
         "articles/cognitive-services/**/*.md": "nitinme",
-        "articles/defender-for-iot/*.md": "raynew",
+        "articles/defender-for-iot/organizations/*.md": "raynew",
+        "articles/defender-for-iot/device-builders/*.md": "raynew",
         "articles/devtest-labs/**/*.md": "femila",
         "articles/lab-services/**/*.md": "femila",
         "articles/migrate/**/*.md": "evansma",
@@ -596,7 +628,8 @@
         "articles/container-instances/**/*.md": "macolso",
         "articles/container-registry/**/*.md": "danlep",
         "articles/data-lake-analytics/*.md": "xujiang1",
-        "articles/defender-for-iot/*.md": "shhazam",
+        "articles/defender-for-iot/organizations/*.md": "shhazam",
+        "articles/defender-for-iot/device-builders/*.md": "v-ekrieg",
         "articles/dev-spaces/**/*.md": "zarhoads",
         "articles/devtest-labs/**/*.md": "juliako",
         "articles/event-grid/**/*.md": "spelluru",
@@ -621,8 +654,7 @@
         "articles/migrate/*.md": "raynew",
         "articles/notebooks/*.md": "joshuapa",
         "articles/service-bus-messaging/*.md": "spelluru",
-        "articles/service-fabric/*.md": "edoyle",
-        "articles/service-fabric-mesh/*md": "edoyle",
+        "articles/service-fabric/*.md": "sukanyas",
         "articles/service-health/*.md": "stbaron",
         "articles/site-recovery/*.md": "v-jysur",
         "articles/stream-analytics/*.md": "jasonh",
@@ -707,7 +739,8 @@
         "articles/container-registry/**/*.md": "container-registry",
         "articles/dev-spaces/**/*.md": "azure-dev-spaces",
         "articles/devtest-labs/**/*.md": "devtest-lab",
-        "articles/defender-for-iot/*.md": "defender-for-iot",
+        "articles/defender-for-iot/organizations/*.md": "defender-for-iot",
+        "articles/defender-for-iot/device-builders/*.md": "defender-for-iot",
         "articles/event-grid/**/*.md": "event-grid",
         "articles/event-hubs/*.md": "event-hubs",
         "articles/governance/*.md": "governance",
@@ -729,7 +762,6 @@
         "articles/remote-rendering/**/*.md": "azure-remote-rendering",
         "articles/service-bus-messaging/*.md": "service-bus-messaging",
         "articles/service-fabric/*.md": "service-fabric",
-        "articles/service-fabric-mesh/*.md": "service-fabric-mesh",
         "articles/service-health/**/*.md": "service-health",
         "articles/site-recovery/*.md": "site-recovery",
         "articles/terraform/**/*.md": "terraform",
@@ -786,13 +818,20 @@
         "articles/media-services/latest/*.md": "rest-v3",
         "articles/media-services/live-video-analytics-edge/*.md": "lva-edge",
         "articles/media-services/previous/*.md": "rest-v2",
-        "articles/media-services/video-indexer/*.md": "video-indexer"
+        "articles/media-services/video-indexer/*.md": "video-indexer",
+        "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.md": "azure-video-analyzer-media",
+        "articles/azure-video-analyzer/video-analyzer-docs/*.md": "video-analyzer-subservice",
+        "articles/cosmos-db/mongodb/*.md": "cosmosdb-mongo",
+        "articles/cosmos-db/cassandra/*.md": "cosmosdb-cassandra",
+        "articles/cosmos-db/graph/*.md": "cosmosdb-graph",
+        "articles/cosmos-db/table/*.md": "cosmosdb-table"
       },
       "monikerRange": {
         "articles/iot-edge/**/*.md": ">=iotedge-2018-06"
       },
       "recommendations": {
-        "articles/cognitive-services/Translator/**/*.md": false
+        "articles/cognitive-services/Translator/**/*.md": false,
+        "articles/azure-video-analyzer/video-analyzer-docs/*.md": false
       },
       "no-loc": {
         "articles/governance/policy/**/*.md": "[audit, deny, modify, disabled, auditifnotexists, deployifnotexists]",
@@ -832,6 +871,10 @@
         "articles/data-share/**/*.yml": ["Azure","Azure Data Share"],
         "articles/defender-for-iot/*.md": ["Azure","Defender for IoT"],
         "articles/defender-for-iot/**/*.yml": ["Azure","Defender for IoT"],
+        "articles/defender-for-iot/organizations/*.md": ["Azure","Defender for IoT"],
+        "articles/defender-for-iot/organizations/**/*.yml": ["Azure","Defender for IoT"],
+        "articles/defender-for-iot/device-builders/*.md": ["Azure","Defender for IoT"],
+        "articles/defender-for-iot/device-builders/**/*.yml": ["Azure","Defender for IoT"],
         "articles/digital-twins/**/*.md": ["Azure","IoT","Azure Digital Twins"],
         "articles/digital-twins/**/*.yml": ["Azure","IoT","Azure Digital Twins"],
         "articles/event-grid/**/*.md": ["Azure","Azure Event Grid"],
@@ -850,8 +893,8 @@
         "articles/iot-fundamentals/**/*.yml": ["Azure","IoT"],
         "articles/iot-hub/**/*.md": ["Azure","IoT","Azure IoT Hub"],
         "articles/iot-hub/**/*.yml": ["Azure","IoT","Azure IoT Hub"],
-        "articles/iot-pnp/**/*.md": ["Azure","IoT","IoT Plug and Play"],
-        "articles/iot-pnp/**/*.yml": ["Azure","IoT","IoT Plug and Play"],
+        "articles/iot-develop/**/*.md": ["Azure","IoT","IoT Plug and Play", "IoT device devloper"],
+        "articles/iot-develop/**/*.yml": ["Azure","IoT","IoT Plug and Play", "IoT device devloper"],
         "articles/managed-instance-apache-cassandra/**/*.md": ["Azure","Azure Managed instance for Apache Cassandra"],
         "articles/managed-instance-apache-cassandra/**/*.yml": ["Azure","Azure Managed instance for Apache Cassandra"],
         "articles/mariadb/**/*.md": ["Azure","Azure Database for MariaDB"],
@@ -937,6 +980,8 @@
         "articles/data-factory/**/*.md": "Azure Data Factory",
         "articles/data-factory/**/*.yml": "Azure Data Factory",
         "articles/defender-for-iot/*.md": "Azure Defender for IoT",
+        "articles/defender-for-iot/organizations/*.md": "Azure Defender for IoT",
+        "articles/defender-for-iot/device-builders/*.md": "Azure Defender for IoT",
         "articles/dev-spaces/**/*.md": "Azure Dev Spaces",
         "articles/devtest-labs/**/*.md": "Azure DevTest Labs",
         "articles/event-grid/**/*.md": "Azure Event Grid",
@@ -967,7 +1012,6 @@
         "articles/scheduler/*.md": "Azure Scheduler",
         "articles/service-bus-messaging/*.md": "Azure Service Bus",
         "articles/service-fabric/*.md": "Azure Service Fabric",
-        "articles/service-fabric-mesh/*.md": "Azure Service Fabric Mesh",
         "articles/service-health/**/*.md": "Azure Service Health",
         "articles/service-health/*.yml": "Azure Service Health",
         "articles/site-recovery/**/*.md": "Azure Site Recovery",
