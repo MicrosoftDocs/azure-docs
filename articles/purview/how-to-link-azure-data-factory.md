@@ -57,7 +57,6 @@ Follow the steps below to connect an existing Data Factory accounts to your Purv
 
     A warning message will be displayed if any of the selected Data Factories are already connected to other Purview account. By selecting OK, the Data Factory connection with the other Purview account will be disconnected. No additional confirmations are required.
 
-
     :::image type="content" source="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png" alt-text="Screenshot showing warning to disconnect Azure Data Factory." lightbox="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png":::
 
 >[!Note]
@@ -123,9 +122,9 @@ Refer to [supported data stores](how-to-lineage-sql-server-integration-services.
 
 ## Monitor lineage reporting status
 
-After you run the Azure Data Factory pipeline, in the [pipeline monitoring view](.../data-factory/monitor-visually.md#monitor-pipeline-runs), you can check the lineage reporting status by clicking the following **Lineage status** button.
+After you run the Azure Data Factory pipeline, in the [pipeline monitoring view](.../data-factory/monitor-visually.md#monitor-pipeline-runs), you can check the lineage reporting status by clicking the following **Lineage status** button. The same information is also available in the activity output JSON -> `reportLineageToPurvew` section.
 
-:::image type="content" source="./media/how-to-link-azure-data-factory/monitor-lineage-reporting-status.png" alt-text="Monitor the lineage reporting status in pipeline monitoring view"
+:::image type="content" source="./media/how-to-link-azure-data-factory/monitor-lineage-reporting-status.png" alt-text="Monitor the lineage reporting status in pipeline monitoring view":::
 
 ## Supported lineage patterns
 
