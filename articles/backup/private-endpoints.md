@@ -533,7 +533,7 @@ To configure a proxy server for Azure VM or on-premises machine, follow these st
 
 The following diagram shows a setup with a proxy server whose VNet is linked to a private DNS zone with required DNS entries. Proxy server can also have its own custom DNS server, and the above domains can be conditionally forwarded to 169.63.129.16.
 
-:::image type="content" source="./media/private-endpoints/setup-with-proxy-server.png" alt-text="Diagram showing a setup with a proxy server.":::
+:::image type="content" source="./media/private-endpoints/setup-with-proxy-server-inline.png" alt-text="Diagram showing a setup with a proxy server." lightbox="./media/private-endpoints/setup-with-proxy-server-expanded.png":::
 
 ### Create DNS entries when the DNS server/DNS zone is present in another subscription
 

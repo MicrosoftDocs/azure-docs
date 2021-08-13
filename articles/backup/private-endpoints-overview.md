@@ -72,7 +72,7 @@ If you have configured a DNS proxy server, using  third-party proxy servers and 
 
 The following example shows Azure firewall used as DNS proxy to redirect the domain name queries for Recovery Services vault, blob, queues and AAD to 169.63.129.16.
 
-:::image type="content" source="./media/private-endpoints-overview/azure-firewall-used-as-dns-proxy.png" alt-text="Diagram showing the use of Azure firewall as DNS proxy to redirect the domain name queries.":::
+:::image type="content" source="./media/private-endpoints-overview/azure-firewall-used-as-dns-proxy-inline.png" alt-text="Diagram showing the use of Azure firewall as DNS proxy to redirect the domain name queries." lightbox="./media/private-endpoints-overview/azure-firewall-used-as-dns-proxy-expanded.png":::
 
 For more information, see [Creating and using private endpoints](private-endpoints.md).
 
