@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
    | **Username** | Enter the user name for logging on to the VM. |
    | **Password** | Enter the password for logging on to the VM. |
    | **Confirm password** | Enter the password for logging on to the VM. |
-   | **Public inbound ports** | Select **None**. <ul><li>To control access to the VM only when you want to access it, then use [JIT access ](../security-center/security-center-just-in-time.md#jit-configure).</li><li>To securely access the jump box server from the internet without exposing any network port, use an [Azure Bastion](../bastion/tutorial-create-host-portal.md).  |
+   | **Public inbound ports** | Select **None**. <ul><li>To control access to the VM only when you want to access it, then use [JIT access ](../security-center/security-center-just-in-time.md#jit-configure).</li><li>To securely access the jump box server from the internet without exposing any network port, use an [Azure Bastion](../bastion/tutorial-create-host-portal.md).</li></ul>  |
 
 
 1. Once validation passes, select **Create** to start the virtual machine creation process.
