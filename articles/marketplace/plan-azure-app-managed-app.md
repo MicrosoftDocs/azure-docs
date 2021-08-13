@@ -39,7 +39,7 @@ Use an Azure Application: Managed application plan when the following conditions
 
 ### Azure Application Offers fall into two categories
 
-- Solution Templates – not accessible by the publisher
+- Solution template – not accessible by the publisher
 - Managed Apps – accessible by the publisher via pre-defined authorization that is granted by the customer at the time of deployment
 
 **Solution Templates:** The Solution Template offers are not changeable by the publisher after customer deployment. Therefore, containers and Azure Kubernetes Service (AKS) resources are not currently allowed in this offer category.
