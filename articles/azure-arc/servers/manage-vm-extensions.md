@@ -1,7 +1,7 @@
 ---
 title: VM extension management with Azure Arc-enabled servers
 description: Azure Arc-enabled servers can manage deployment of virtual machine extensions that provide post-deployment configuration and automation tasks with non-Azure VMs.
-ms.date: 08/09/2021
+ms.date: 08/11/2021
 ms.topic: conceptual
 ---
 
@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 Virtual machine (VM) extensions are small applications that provide post-deployment configuration and automation tasks on Azure VMs. For example, if a virtual machine requires software installation, anti-virus protection, or to run a script in it, a VM extension can be used.
 
-Azure Arc-enabled servers enables you to deploy and remove Azure VM extensions to non-Azure Windows and Linux VMs, simplifying the management of your hybrid machine through their lifecycle. VM extensions can be managed using the following methods on your hybrid machines or servers managed by Arc-enabled servers:
+Azure Arc-enabled servers enables you to deploy, remove, and update Azure VM extensions to non-Azure Windows and Linux VMs, simplifying the management of your hybrid machine through their lifecycle. VM extensions can be managed using the following methods on your hybrid machines or servers managed by Arc-enabled servers:
 
 - The [Azure portal](manage-vm-extensions-portal.md)
 - The [Azure CLI](manage-vm-extensions-cli.md)
@@ -18,6 +18,9 @@ Azure Arc-enabled servers enables you to deploy and remove Azure VM extensions t
 
 > [!NOTE]
 > Azure Arc-enabled servers does not support deploying and managing VM extensions to Azure virtual machines. For Azure VMs, see the following [VM extension overview](../../virtual-machines/extensions/overview.md) article.
+
+> [!NOTE]
+> Currently you can only update extensions from the Azure portal. Performing this operation from the Azure CLI, Azure PowerShell, or using an Azure Resource Manager template is not supported at this time.
 
 ## Key benefits
 

@@ -180,7 +180,7 @@ Azure Spring Cloud supports using existing subnets and route tables.
 
 If your custom subnets do not contain route tables, Azure Spring Cloud creates them for each of the subnets and adds rules to them throughout the instance lifecycle. If your custom subnets contain route tables, Azure Spring Cloud acknowledges the existing route tables during instance operations and adds/updates and/or rules accordingly for operations.
 
-> [!Warning] 
+> [!Warning]
 > Custom rules can be added to the custom route tables and updated. However, rules are added by Azure Spring Cloud and these must not be updated or removed. Rules such as 0.0.0.0/0 must always exist on a given route table and map to the target of your internet gateway, such as an NVA or other egress gateway. Use caution when updating rules when only your custom rules are being modified.
 
 
