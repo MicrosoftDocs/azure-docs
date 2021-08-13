@@ -231,9 +231,37 @@ In this section, you'll prepare a development environment that's used to build t
 
    * **Registration ID**: Enter a registration ID to identify the enrollment. Use only lowercase alphanumeric and dash ('-') characters. For example, *symm-key-device-007*.
 
-   * **IoT Hub Device ID:** Enter a device identifier. For example, *device-007*.
+   * **IoT Hub Device ID:** Enter a device identifier.
 
-    :::image type="content" source="./media/quick-create-simulated-device-symm-key/create-individual-enrollment.png" alt-text="Add individual enrollment for symmetric key attestation in the portal":::
+    :::zone pivot="programming-language-ansi-c"
+
+    :::image type="content" source="./media/quick-create-simulated-device-symm-key/create-individual-enrollment.png" alt-text="Enter device enrollment information.":::
+
+    ::: zone-end
+
+    :::zone pivot="programming-language-csharp"
+
+    :::image type="content" source="./media/quick-create-simulated-device-symm-key/create-individual-enrollment-csharp.png" alt-text="Enter C# device enrollment information.":::
+
+    ::: zone-end
+
+    :::zone pivot="programming-language-nodejs"
+
+    :::image type="content" source="./media/quick-create-simulated-device-symm-key/create-individual-enrollment-nodejs.png" alt-text="Enter Node.js device enrollment information.":::
+
+    ::: zone-end
+
+    :::zone pivot="programming-language-python"
+
+    :::image type="content" source="./media/quick-create-simulated-device-symm-key/create-individual-enrollment-python.png" alt-text="Enter Python device enrollment information.":::
+
+    ::: zone-end
+
+    ::: zone pivot="programming-language-java"
+
+    :::image type="content" source="./media/quick-create-simulated-device-symm-key/create-individual-enrollment-java.png" alt-text="Enter Java device enrollment information.":::
+
+    ::: zone-end
 
 7. Select **Save**. A **Primary Key** and **Secondary Key** are generated and added to the enrollment entry, and you are taken back to the **Manage enrollments** page.
 
@@ -603,7 +631,7 @@ To update and run the provisioning sample with your device information:
 
     `azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-symmetrickey-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningSymmetricKeySampleSample.java`
 
-4. Replace the vallue of the following variables for your DPS and device enrollement(replace `<id-scope>` with the ID Scope of your Device Provisioning Service ID Scope, `<registration-id>` with the registration id of your device, `<primarykey>` with the primary key of your device, `<provisioning-host>` with the service endpoint URl of your Device Provisioning Service):
+4. Replace the value of the following variables for your DPS and device enrollment(replace `<id-scope>` with the ID Scope of your Device Provisioning Service ID Scope, `<registration-id>` with the registration id of your device, `<primarykey>` with the primary key of your device, `<provisioning-host>` with the service endpoint URl of your Device Provisioning Service):
 
     ```java
     private static final String SCOPE_ID = "<id-scope>";
@@ -653,7 +681,34 @@ To update and run the provisioning sample with your device information:
 
 5. If your device was provisioned successfully, the device ID should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh** at the top of the page.
 
-    :::image type="content" source="./media/quick-create-simulated-device-symm-key/hub-registration.png" alt-text="[Device is registered with the IoT hub":::
+    :::zone pivot="programming-language-ansi-c"
+
+    :::image type="content" source="./media/quick-create-simulated-device-symm-key/hub-registration.png" alt-text="Device is registered with the IoT hub":::
+
+    ::: zone-end
+    :::zone pivot="programming-language-csharp"
+
+    :::image type="content" source="./media/quick-create-simulated-device-symm-key/hub-registration-csharp.png" alt-text="CSharp device is registered with the IoT hub":::
+
+    ::: zone-end
+
+    :::zone pivot="programming-language-nodejs"
+
+    :::image type="content" source="./media/quick-create-simulated-device-symm-key/hub-registration-nodejs.png" alt-text="Node.js device is registered with the IoT hub":::
+
+    ::: zone-end
+
+    :::zone pivot="programming-language-python"
+
+    :::image type="content" source="./media/quick-create-simulated-device-symm-key/hub-registration-python.png" alt-text="Python device is registered with the IoT hub":::
+
+    ::: zone-end
+
+    ::: zone pivot="programming-language-java"
+
+    :::image type="content" source="./media/quick-create-simulated-device-symm-key/hub-registration-java.png" alt-text="Java device is registered with the IoT hub":::
+
+    ::: zone-end
 
 > [!NOTE]
 > If you changed the *initial device twin state* from the default value in the enrollment entry for your device, it can pull the desired twin state from the hub and act accordingly. For more information, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).

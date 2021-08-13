@@ -209,14 +209,13 @@ To create the X.509 certificate:
 
 5. At the top of the page, select **+ Add individual enrollment**.
 
+::: zone pivot="programming-language-ansi-c"
+
 6. In the **Add Enrollment** page, enter the following information.
 
     * **Mechanism:** Select **X.509** as the identity attestation *Mechanism*.
-    * **Primary certificate .pem or .cer file:** Choose **Select a file** to select the certificate file, *X509testcert.pem*, you created earlier.
-
-::: zone pivot="programming-language-ansi-c"
-
-* **IoT Hub Device ID:** Enter *test-docs-cert-device* to give the device an ID.
+    * **Primary certificate .pem or .cer file:** Choose **Select a file** to select the certificate file, *X509testcert.pem* that you created in the previous section.
+    * **IoT Hub Device ID:** Enter *test-docs-cert-device* to give the device an ID.
 
     [![Add individual enrollment for X.509 attestation in the portal](./media/quick-create-simulated-device-x509/device-enrollment.png)](./media/quick-create-simulated-device-x509/device-enrollment.png#lightbox)
 
@@ -226,19 +225,23 @@ To create the X.509 certificate:
 
 ::: zone pivot="programming-language-csharp"
 
-* Leave **Device ID** blank. Your device will be provisioned with its device ID set to the common name (CN) in the X.509 certificate, **iothubx509device1**. This common name will also be the name used for the registration ID for the individual enrollment entry. 
+6. In the **Add Enrollment** page, enter the following information.
 
-* Optionally, you can provide the following information:
-
-    * Select an IoT hub linked with your provisioning service.
-    * Update the **Initial device twin state** with the desired initial configuration for the device.
+    * **Mechanism:** Select **X.509** as the identity attestation *Mechanism*.
+    * **Primary certificate .pem or .cer file:** Choose **Select a file** to select the certificate file, *certificate.cer* that you created in the previous section.
+    * Leave **IoT Hub Device ID:** blank. Your device will be provisioned with its device ID set to the common name (CN) in the X.509 certificate, **iothubx509device1**. This common name will also be the name used for the registration ID for the individual enrollment entry.
+    * Optionally, you can provide the following information:
+        * Select an IoT hub linked with your provisioning service.
+        * Update the **Initial device twin state** with the desired initial configuration for the device.
 
     [![Add individual enrollment for X.509 attestation in the portal](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png#lightbox)
 
-   On successful enrollment, your X.509 enrollment entry appears as **iothubx509device1** under the *Registration ID* column in the *Individual Enrollments* tab.
 ::: zone-end
 
-7. Select **Save**.
+7. Select **Save**. You'll be returned to **Manage enrollments**.
+
+8. Select **Individual Enrollments**. Your X.509 enrollment entry should appear in the registration table.
+
 
 ## Prepare and run the device provisioning code
 
@@ -289,9 +292,11 @@ In this section, update the sample code to send the device's boot sequence to yo
 
 ::: zone pivot="programming-language-csharp"
 
-1. From the **Overview** blade for your provisioning service, note the **_ID Scope_** value.
+1. In the top of the left-hand menu, select **Overview**.
 
-    ![Extract Device Provisioning Service endpoint information from the portal blade](./media/quick-create-simulated-device-x509-csharp/copy-scope.png) 
+2. Copy the value of **_ID Scope_**.
+
+    :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope.png" alt-text="Copy the ID scope from the overview page of DPS":::
 
 2. Type the following command to build and run the X.509 device provisioning sample. Replace the `<IDScope>` value with the ID Scope for your provisioning service. 
 
