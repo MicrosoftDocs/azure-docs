@@ -133,8 +133,9 @@ Your new delegation endpoint must:
 2. Verify that the request is coming from Azure API Management (optional, but highly recommended for security)
    
    * Compute an HMAC-SHA512 of a string based on the **productId**, **userId**, and **salt** query parameters:
-     
-     > HMAC(**salt** + '\n' + **productId** + '\n' + **userId**)
+     ```
+     HMAC(**salt** + '\n' + **productId** + '\n' + **userId**)
+     ```
    * Compare the above-computed hash to the value of the **sig** query parameter. If the two hashes match, move on to the next step. Otherwise, deny the request.
 3. Process the product subscription based on the operation type requested in **operation** (for example: billing, further questions, etc.).
 4. Upon successful user subscription to the product on your side, subscribe the user to the API Management product by [calling the REST API for subscriptions].
