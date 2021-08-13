@@ -13,6 +13,11 @@ ms.date: 10/14/2020
 
 # Make indexer connections through a private endpoint
 
+> [!NOTE]
+> You can use the [trusted Microsoft service approach](../storage/common/storage-network-security.md#trusted-microsoft-services) to bypass virtual network or IP restrictions on a storage account. You can also enable the search service to access data in the storage account. To do so, see [Indexer access to Azure Storage with the trusted service exception](search-indexer-howto-access-trusted-service-exception.md).
+> 
+> However, when you use this approach, communication between Azure Cognitive Search and your storage account happens via the public IP address of the storage account, over the secure Microsoft backbone network.
+
 Many Azure resources, such as Azure storage accounts, can be configured to accept connections from a list of virtual networks and refuse outside connections that originate from a public network. If you're using an indexer to index data in Azure Cognitive Search, and your data source is on a private network, you can create an outbound [private endpoint connection](../private-link/private-endpoint-overview.md) to reach the data.
 
 This indexer connection method is subject to the following two requirements:
@@ -58,18 +63,13 @@ The rest of the examples show how the _contoso-search_ service can be configured
 
 ### Step 1: Secure your Azure resource
 
-Configure the Azure resource that you want the indexer to connect with to allow access only from select networks.
+The steps for restricting access varies by resource. The following scenarios show three of the more common resources.
 
 - Scenario 1: Data source
 
-    Below is an example of how to configure an Azure storage account. If you select this option and leave the set empty, it means that no traffic from virtual networks is allowed.
+    Below is an example of how to configure an Azure storage account. If you select this option and leave the page empty, it means that no traffic from virtual networks is allowed.
 
     ![Screenshot of the "Firewalls and virtual networks" pane for Azure storage, showing the option to allow access to selected networks.](media\search-indexer-howto-secure-access\storage-firewall-noaccess.png)
-
-    > [!NOTE]
-    > You can use the [trusted Microsoft service approach](../storage/common/storage-network-security.md#trusted-microsoft-services) to bypass virtual network or IP restrictions on a storage account. You can also enable the search service to access data in the storage account. To do so, see [Indexer access to Azure Storage with the trusted service exception](search-indexer-howto-access-trusted-service-exception.md).
-    > 
-    > However, when you use this approach, communication between Azure Cognitive Search and your storage account happens via the public IP address of the storage account, over the secure Microsoft backbone network.
 
 - Scenario 2: Azure Key Vault
 
@@ -90,9 +90,9 @@ The following section describes how to create a shared private link resource eit
 > [!NOTE]
 > The portal only supports creating a shared private endpoint using group ID values that are GA. For MySQL and Azure Functions, use the Azure CLI steps described in option 2 below.
 
-To request Azure Cognitive Search to create an outbound private endpoint connection, via the Shared Private Access blade, click on "Add Shared Private Access". On the dialog that opens on the right, you can choose to "Connect to an Azure resource in my directory" or "Connect to an Azure resource by resource ID or alias".
+To request Azure Cognitive Search to create an outbound private endpoint connection, via the Shared Private Access blade, click on "Add Shared Private Access". On the blade that opens on the right, you can choose to "Connect to an Azure resource in my directory" or "Connect to an Azure resource by resource ID or alias".
 
-When using the first option (recommended), the dialog pane will help guide you to pick the appropriate Azure resource and will help fill in other properties such as the group ID of the resource and the resource type.
+When using the first option (recommended), the blade will help guide you to pick the appropriate Azure resource and will autofill in other properties such as the group ID of the resource and the resource type.
 
    ![Screenshot of the "Add Shared Private Access" pane, showing a guided experience for creating a shared private link resource. ](media\search-indexer-howto-secure-access\new-shared-private-link-resource.png)
 
@@ -215,11 +215,7 @@ If the "Provisioning State" (`properties.provisioningState`) of the resource is 
 
 The below steps show how to configure the indexer to run in the private environment using the REST API. You can also set the execution environment using the JSON editor in the portal.
 
-1. [Create a data source](/rest/api/searchservice/create-data-source) that points to the secure storage account and an appropriate container within the storage account. The following screenshot shows this request in Postman. This can also be done in the portal.
-
-   ![Screenshot showing the creation of a data source on the Postman user interface.](media\search-indexer-howto-secure-access\create-datasource.png )
-
-1. Similarly, [create an index](/rest/api/searchservice/create-index) and, optionally, [create a skillset](/rest/api/searchservice/create-skillset) by using the REST API.
+1. Create the data source definition, schema, and skillset (if you're using one) as you would normally. There are no properties in any of these definitions that vary when using a shared private endpoint.
 
 1. [Create an indexer](/rest/api/searchservice/create-indexer) that points to the data source, index, and skillset that you created in the preceding step. In addition, force the indexer to run in the private execution environment by setting the indexer `executionEnvironment` configuration property to `private`.
 
