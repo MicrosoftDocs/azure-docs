@@ -143,7 +143,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	1. **Select Users** from the dropdown in the **SSO Recovery Users**.
 
-	1. Download **SP Metadata** file and upload the metadata file into the **Basic SAML Configuration** section in the Azure Portal.
+	1. Download **SP Metadata** file and upload the metadata file into the **Basic SAML Configuration** section in the Azure portal.
 
 	1. Copy **Federation Metadata XML** from the Azure portal into Notepad and paste the content into the **IDP MetaData XML** textbox.
 
