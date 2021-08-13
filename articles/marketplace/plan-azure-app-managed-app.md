@@ -46,7 +46,7 @@ Use an Azure Application: Managed application plan when the following conditions
 
 **Managed applications:** The Managed Application offers allow the publisher to access and control the resources created during deployment in the customer’s subscription. Therefore, containers and Azure Kubernetes Service (AKS) resources *<u>are provisionally allowed</u>* in this offer category.
 
-### Rules and Known Issues for AKS and Containers in Managed Apps Offers
+### Rules and known issues for AKS and containers in managed applications
 
 - AKS Node Resource Group does not inherit the Deny Assignments as a part of the Azure Managed Application. This means the customer will have full access to the AKS Node Resource Group that is created by the AKS resource when it is included in the managed application while the Managed Resource Group will have the proper Deny Assignments.
  
