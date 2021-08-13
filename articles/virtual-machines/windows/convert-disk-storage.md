@@ -114,7 +114,7 @@ Follow these steps:
 3. If the VM isn't stopped, select **Stop** at the top of the VM **Overview** pane, and wait for the VM to stop.
 4. In the pane for the VM, select **Disks** from the menu.
 5. Select the disk that you want to convert.
-6. Select **Configuration** from the menu.
+6. Select **Size + performance** from the menu.
 7. Change the **Account type** from the original disk type to the desired disk type.
 8. Select **Save**, and close the disk pane.
 
