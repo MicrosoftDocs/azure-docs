@@ -140,6 +140,8 @@
         href: migrate-application-authentication-to-azure-active-directory.md
       - name: Use the AD FS application activity report
         href: migrate-adfs-application-activity.md
+      - name: Migrate applications from Okta to Azure AD
+        href: okta-to-azure-active-directory-migration-guide.md
     - name: Secure legacy apps 
       items:
       - name: Secure hybrid access with Azure AD 
