@@ -314,7 +314,7 @@ Last, create new connections that use SNC in all your logic apps that use the SA
    1. Update the base64-encoded binary PSE for all connections that use SAP ISE X.509 in your ISE.
    1. Import the new certificates into your copy of the PSE.
    1. Encode the PSE file as a base64-encoded binary.
-   1. Edit the API connection for your SAP connector and save the new PSE file there.
+   1. Edit the API connection for your SAP connector, and save the new PSE file there.
 
    The connector detects the PSE change and updates its own copy during the next connection request.
 
@@ -331,7 +331,7 @@ Last, create new connections that use SNC in all your logic apps that use the SA
 
 ## Send IDoc messages to SAP server
 
-Follow these examples to create a logic app  workflow that sends an IDoc message to an SAP server and returns a response:
+Follow these examples to create a logic app workflow that sends an IDoc message to an SAP server and returns a response:
 
 1. [Create a logic app workflow that is triggered by an HTTP request.](#add-http-request-trigger)
 
@@ -347,10 +347,10 @@ Follow these examples to create a logic app  workflow that sends an IDoc message
 
 ### Add an HTTP request trigger
 
-To have your logic app workflow receive IDocs from SAP, you can use the [Request trigger](../connectors/connectors-native-reqres.md).
+To have your logic app workflow receive IDocs from SAP over XML HTTP, you can use the [Request trigger](../connectors/connectors-native-reqres.md).
 
 > [!TIP]
-> To receive IDocs as plain XML or as a flat file, review the section, [Receive message from SAP](#receive-message-sap).
+> To receive IDocs over Common Programming Interface Communication (CPIC) as plain XML or as a flat file, review the section, [Receive message from SAP](#receive-message-sap).
 
 This section continues with the Request trigger, so first, create a logic app workflow with an endpoint in Azure to send *HTTP POST* requests to your workflow. When your logic app workflow receives these HTTP requests, the trigger fires and runs the next step in your workflow.
  
@@ -587,7 +587,7 @@ Now add a response action to your logic app's workflow and include the output fr
 
 #### Create RFC request-response
 
-You must create a request and response pattern if you need to receive replies by using a remote function call (RFC) to Azure Logic Apps from SAP ABAP. To receive IDocs in your logic app workflow, you should make its first action an [Response action](../connectors/connectors-native-reqres.md#add-a-response-action) with a status code of `200 OK` and no content. This recommended step completes the SAP LUW asynchronous transfer over tRFC immediately, which leaves the SAP CPIC conversation available again. You can then add further actions in your logic app workflow to process the received IDoc without blocking further transfers.
+You must create a request and response pattern if you need to receive replies by using a remote function call (RFC) to Azure Logic Apps from SAP ABAP. To receive IDocs in your logic app workflow, you should make the workflow's first action a [Response action](../connectors/connectors-native-reqres.md#add-a-response-action) with a status code of `200 OK` and no content. This recommended step completes the SAP Logical Unit of Work (LUW) asynchronous transfer over tRFC immediately, which leaves the SAP CPIC conversation available again. You can then add further actions in your logic app workflow to process the received IDoc without blocking further transfers.
 
 > [!NOTE]
 > The SAP trigger receives IDocs over tRFC, which doesn't have a response parameter by design.
@@ -735,13 +735,13 @@ If you receive a **500 Bad Gateway** or **400 Bad Request** error with a message
 
 * **Option 2:** If you're using the on-premises data gateway, you can add the gateway service name to the port mapping in `%windir%\System32\drivers\etc\services` and then restart the on-premises data gateway service, for example:
 
-  ```output
+  ```text
   sapgw00  3300/tcp
   ```
 
 You might get a similar error when SAP application server or message server name resolves to the IP address. For ISE, you must specify the IP address for your SAP application server or message server. For the on-premises data gateway, you can instead add the name to the IP address mapping in `%windir%\System32\drivers\etc\hosts`, for example:
 
-```output
+```text
 10.0.1.9 SAPDBSERVER01 # SAP System Server VPN IP by computer name
 10.0.1.9 SAPDBSERVER01.someguid.xx.xxxxxxx.cloudapp.net # SAP System Server VPN IP by fully qualified computer name
 ```
