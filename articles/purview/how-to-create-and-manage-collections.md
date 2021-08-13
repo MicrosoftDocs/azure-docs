@@ -1,5 +1,5 @@
 ---
-title: How to create and manage collections in Azure Purview
+title: How to create and manage collections
 description: This article explains how to create and manage collections within Azure Purview.
 author: viseshag
 ms.author: viseshag
@@ -62,8 +62,11 @@ You will need to be a collection admin in order to create a collection. If you a
 ### View Collections
 
 1. Select the triangle icon beside the collection's name to expand or collapse the collection hierarchy. Click the collection names to navigate.
+
 :::image type="content" source="./media/how-to-create-and-manage-collections/view-collections.png" alt-text="Screenshot of Purview studio collection window, with triangle button next to collection highlighted." border="true":::
+
 1. Type in the filter box at the top of the list to filter collections.
+
 :::image type="content" source="./media/how-to-create-and-manage-collections/search-collections.png" alt-text="Screenshot of Purview studio collection window, with the search bar at the top of the list highlighted." border="true":::
 1. Select “Refresh” in Root collection’s contextual menu to reload the collection list.
 :::image type="content" source="./media/how-to-create-and-manage-collections/refresh-collections.png" alt-text="Screenshot of Purview studio collection window, with the button next to the Resource name selected, and the refresh button highlighted." border="true":::
@@ -78,10 +81,10 @@ In Purview since permissions are managed through collections it is important to 
 
 All assigned roles apply to sources, assets, and other objects within the collection where the role is applied.
 
-1. **Collection admins** - can edit the collection, its details, and add subcollections. They can also add data curators, data readers, and other Purview roles to a collection scope. Collection admins that are automatically inherited from a parent collection can't be removed.
-1. **Data source admins** - can manage data sources and data scans.
-1. **Data curators** - can perform create, read, modify, and delete actions on catalog data objects and establish relationships between objects.
-1. **Data readers** - can access but not modify catalog data objects.
+- **Collection admins** - can edit the collection, its details, and add subcollections. They can also add data curators, data readers, and other Purview roles to a collection scope. Collection admins that are automatically inherited from a parent collection can't be removed.
+- **Data source admins** - can manage data sources and data scans.
+- **Data curators** - can perform create, read, modify, and delete actions on catalog data objects and establish relationships between objects.
+- **Data readers** - can access but not modify catalog data objects.
 
 ### Add role assignments
 
@@ -119,9 +122,9 @@ Collections permissions are inherited automatically from the parent collection. 
     1. If you don’t have read permission on a collection, the assets under that collection will not be listed in search results. If you get the direct URL of one asset and open it, you will see the no access page. In this case please contact your Purview admin to grant you the access. You can click the “Refresh” button to check the permission again.
     :::image type="content" source="./media/how-to-create-and-manage-collections/no-access.png" alt-text="Screenshot of Purview studio asset window where the user has no permissions, and has no access to information or options." border="true":::
     1. If you have the read permission to one collection but don’t have the write permission, you can browse the asset details page, but the following operations are disabled:
-        1. Edit the asset. The “Edit” button will be disabled.
-        1. Delete the asset. The “Delete” button will be disabled.
-        1. Move asset to another collection. The “...” button on the right-top corner of Collection path section will be hidden.
+        - Edit the asset. The “Edit” button will be disabled.
+        - Delete the asset. The “Delete” button will be disabled.
+        - Move asset to another collection. The “...” button on the right-top corner of Collection path section will be hidden.
     :::image type="content" source="./media/how-to-create-and-manage-collections/read-access-only.png" alt-text="Screenshot of Purview studio asset window where the user has only read permissions, and has only partial access to options." border="true":::
     1. The assets in “Hierarchy” section are also affected by permissions. Assets without read permission will be grayed.
     :::image type="content" source="./media/how-to-create-and-manage-collections/hierarchy-permissions.png" alt-text="Screenshot of Purview studio hierarchy window where the user has only read permissions, and has no access to options." border="true":::
