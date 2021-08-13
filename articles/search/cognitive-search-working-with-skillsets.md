@@ -22,6 +22,8 @@ From the onset of skillset processing to its conclusion, skills read and write t
 
 ## Skillset definition
 
+A skillset is an array of one or more *skills* that represent an atomic enrichment operation, like translating text, extracting key phrases, or performing optical character recognition from an image file. Skills can be the [built-in skills](cognitive-search-predefined-skills.md) from Microsoft, or [custom skills](cognitive-search-create-custom-skill-example.md) that contain models or processing logic that you provide. It produces enriched documents that are either consumed during indexing or projected to a knowledge store.
+
 Skills have a type, a context, and inputs and outputs that are often chained together. The following example demonstrates two [built-in skills](cognitive-search-predefined-skills.md) that work together and introduces some of the terminology of skillset definition. 
 
 + Skill #1 is a [Text Split skill](cognitive-search-skill-textsplit.md) that accepts the contents of the "reviews_text" source field as input, and splits that content into "pages" of 5000 characters as output. Splitting large text into smaller chunks can produce better outcomes during natural language processing.
@@ -81,11 +83,11 @@ For more detail about how inputs and outputs are formulated, see [How to referen
 
 ## Enrichment tree
 
-An enriched document is a temporary data structure created during skillset execution that collects all of the changes introduced through skills. It also includes any un-enriched fields retrieved verbatim from the external data source. An enriched document exists for the duration of skillset execution, but can be cached or persisted to a knowledge store. 
+An enriched document is a temporary tree-like data structure created during skillset execution that collects all of the changes introduced through skills, and represents them in a hierarchy of addressable nodes. Nodes also include any un-enriched fields that are passed in verbatim from the external data source. An enriched document exists for the duration of skillset execution, but can be cached or persisted to a knowledge store. 
 
 Initially, an enriched document is simply the content extracted from a data source during [*document cracking*](search-indexer-overview.md#document-cracking), where text and images are extracted from the source and made available for language or image analysis. 
 
-Articulation of the root node of an enrichment tree varies for each data source type. The following table shows the state of a document entering into the enrichment pipeline for several supported data sources:
+The initial content is the *root node*. It's usually a whole document or a normalized image. How it's articulated in an enrichment tree varies for each data source type. The following table shows the state of a document entering into the enrichment pipeline for several supported data sources:
 
 |Data Source\Parsing Mode|Default|JSON, JSON Lines & CSV|
 |---|---|---|
@@ -93,7 +95,7 @@ Articulation of the root node of an enrichment tree varies for each data source 
 |Azure SQL|/document/{column1}<br>/document/{column2}<br>…|N/A |
 |Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|N/A|
 
-As skills execute, they add new nodes to the enrichment tree. These new nodes can then be used as inputs for downstream skills, and will eventually be projected into a knowledge store, or mapped to index fields. Skills that create content, such as translated strings, will write their output to the enriched document. Likewise, skills that consume the output of upstream skills will read from the enriched document to get the necessary inputs. 
+As skills execute, output is added  to the enrichment tree as new nodes. These nodes can then be used as inputs for downstream skills, and will eventually be projected into a knowledge store, or mapped to index fields. Skills that create content, such as translated strings, will write their output to the enriched document. Likewise, skills that consume the output of upstream skills will read from the enriched document to get the necessary inputs. 
 
 :::image type="content" source="media/cognitive-search-working-with-skillsets/skillset-def-enrichment-tree.png" alt-text="Skills read and write from enrichment tree" border="false":::
 
@@ -104,7 +106,7 @@ Enrichments aren't mutable: once created, nodes cannot be edited. As your skills
 Because a skill's inputs and outputs are reading from and writing to enrichment trees, one of tasks you'll complete as part of skillset design is creating [output field mappings](cognitive-search-output-field-mapping.md) that move content out of the enrichment tree, and into a field in a search index or knowledge store.
 
 > [!NOTE]
-> The enrichment tree format enables the enrichment pipeline to attach metadata to even primitive data types. This will not be a valid JSON object, but can be projected into a valid JSON format in projection definitions in a knowledge store. For more information, see [Shaper skill](cognitive-search-skill-shaper.md).
+> The enrichment tree format enables the enrichment pipeline to attach metadata to even primitive data types. The metadata will not be a valid JSON object, but can be projected into a valid JSON format in projection definitions in a knowledge store. For more information, see [Shaper skill](cognitive-search-skill-shaper.md).
 
 ## Context
 
