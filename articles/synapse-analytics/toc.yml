@@ -968,7 +968,7 @@ items:
       - name: SAP HANA
         href: ../data-factory/connector-sap-hana.md?context=/azure/synapse-analytics/context/context
       - name: SAP Table
-        href: ../data-factory/connector-sap-table.md?context=/azure/synapse-analytics/context/context
+        href: ../data-factory/connector-sap-table.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: ServiceNow
         href: ../data-factory/connector-servicenow.md?context=/azure/synapse-analytics/context/context
       - name: SFTP
