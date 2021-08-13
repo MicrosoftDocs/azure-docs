@@ -58,6 +58,8 @@ landingContent:
             url: concepts-monitoring.md
           - text: Logical replication
             url: concepts-logical.md
+          - text: Intelligent tuning
+            url: concepts-intelligent-tuning.md
       - linkListType: how-to-guide
         links:
           - text: Manage server
@@ -76,6 +78,7 @@ landingContent:
             url: howto-configure-and-access-logs.md
           - text: Schedule maintenance
             url: how-to-maintenance-portal.md
+
 # Card
   - title: Business continuity
     linkLists:

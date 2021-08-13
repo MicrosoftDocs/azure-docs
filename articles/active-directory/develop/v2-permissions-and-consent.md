@@ -43,6 +43,8 @@ In OAuth 2.0, these types of permission sets are called *scopes*. They're also o
 
 An app most commonly requests these permissions by specifying the scopes in requests to the Microsoft identity platform authorize endpoint. However, some high-privilege permissions can be granted only through administrator consent. They can be requested or granted by using the [administrator consent endpoint](#admin-restricted-permissions). Keep reading to learn more.
 
+In requests to the authorization, token or consent endpoints for the Microsoft Identity platform, if the resource identifier is omitted in the scope parameter, the resource is assumed to be Microsoft Graph. For example, `scope=User.Read` is equivalent to `https://graph.microsoft.com/User.Read`.
+
 ## Permission types
 
 The Microsoft identity platform supports two types of permissions: *delegated permissions* and *application permissions*.

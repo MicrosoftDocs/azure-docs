@@ -91,11 +91,11 @@
     topicHref: /azure/applied-ai-services/
     items:
     - name: Immersive Reader
-      tocHref: /azure/cognitive-services/immersive-reader/
-      topicHref: /azure/cognitive-services/immersive-reader/
+      tocHref: /azure/applied-ai-services/immersive-reader/
+      topicHref: /azure/applied-ai-services/immersive-reader/
     - name: Metrics Advisor
-      tocHref: /azure/cognitive-services/metrics-advisor/
-      topicHref: /azure/cognitive-services/metrics-advisor/
+      tocHref: /azure/applied-ai-services/metrics-advisor/
+      topicHref: /azure/applied-ai-services/metrics-advisor/
     - name: Form Recognizer
       tocHref: /azure/cognitive-services/form-recognizer/
       topicHref: /azure/cognitive-services/form-recognizer/
