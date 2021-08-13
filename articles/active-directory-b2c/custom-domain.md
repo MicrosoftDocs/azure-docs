@@ -57,19 +57,37 @@ When using custom domains, consider the following:
 
 ## Step 1. Add a custom domain name to your Azure AD B2C tenant
 
-Follow the guidance for how to [add and validate your custom domain in Azure AD](../active-directory/fundamentals/add-custom-domain.md). After the domain is verified, delete the DNS TXT record you created.
+Every new Azure AD B2C tenant comes with an initial domain name, &lt;domainname&gt;.onmicrosoft.com. You can't change or delete the initial domain name, but you can add a custom domain. 
 
-> [!IMPORTANT]
-> For these steps, be sure to sign in to your **Azure AD B2C** tenant and select the **Azure Active Directory** service.
+Follow these steps to add a custom domain to your Azure AD B2C tenant:
 
-Verify each subdomain you plan to use. Verifying just the top-level domain isn't sufficient. For example, to be able to sign-in with *login.contoso.com* and *account.contoso.com*, you need to verify both subdomains and not just the top-level domain *contoso.com*.  
+1. [Add your custom domain name to Azure AD](../active-directory/fundamentals/add-custom-domain.md#add-your-custom-domain-name-to-azure-ad).
+    > [!IMPORTANT]
+    > For these steps, be sure to sign in to your **Azure AD B2C** tenant and select the **Azure Active Directory** service.
 
-> [!TIP]
-> You can manage your custom domain with any publicly available DNS service, such as GoDaddy. If you don't have a DNS server, you can use App Service domains. To use App Service domains:
->
-> 1. [Buy a custom domain name](../app-service/manage-custom-dns-buy-domain.md). 
-> 1. [Add your custom domain in Azure AD](../active-directory/fundamentals/add-custom-domain.md). 
-> 1. Validate the domain name by [managing custom DNS records](../app-service/manage-custom-dns-buy-domain.md#manage-custom-dns-records).
+1. [Add your DNS information to the domain registrar](../active-directory/fundamentals/add-custom-domain.md#add-your-dns-information-to-the-domain-registrar). After you add your custom domain name to Azure AD, create a DNS `TXT`, or `MX` record for your domain. Creating this DNS record for your domain verifies ownership of your domain name.
+
+    The following examples demonstrate TXT records for *login.contoso.com* and *account.contoso.com*:
+
+    |Name (hostname)  |Type  |Data  |
+    |---------|---------|---------|
+    |login   | TXT  | MS=ms12345678  |
+    |account | TXT  | MS=ms87654321  |
+    
+    The TXT record must be associated with the subdomain, or hostname of the domain. For example, the *login* part of the *contoso.com* domain. If the hostname is empty or `@`, Azure AD will not be able to verify the custom domain you added. In the following examples, both records are wrongly configured.
+    
+    |Name (hostname)  |Type  |Data  |
+    |---------|---------|---------|
+    | | TXT  | MS=ms12345678  |
+    | @ | TXT  | MS=ms12345678  | 
+    
+    > [!TIP]
+    > You can manage your custom domain with any publicly available DNS service, such as GoDaddy. If you don't have a DNS server, you can use  [Azure DNS zone](../dns/dns-getstarted-portal.md), or [App Service domains](../app-service/manage-custom-dns-buy-domain.md).
+
+1. [Verify your custom domain name](../active-directory/fundamentals/add-custom-domain.md#verify-your-custom-domain-name). Verify each subdomain, or hostname you plan to use. Verifying just the top-level domain isn't sufficient. For example, to be able to sign-in with *login.contoso.com* and *account.contoso.com*, you need to verify both subdomains and not just the top-level domain *contoso.com*. 
+
+    After the domain is verified, **delete** the DNS TXT record you created.
+
     
 ## Step 2. Create a new Azure Front Door instance
 
@@ -356,15 +374,18 @@ After you add the custom domain and configure your application, users will still
     1. Make sure the [custom domain](../frontdoor/front-door-custom-domain.md) is configured properly. The `CNAME` record for your custom domain must point to your Azure Front Door default frontend host (for example, contoso.azurefd.net).
     1. Make sure the [Azure Front Door backend pool configuration](#22-add-backend-and-backend-pool) points to the tenant where you set up the custom domain name, and where your user flow or custom policies are stored.
 
+
+### Azure AD B2C returns the resource you are looking for has been removed, had its name changed, or is temporarily unavailable.
+
+- **Symptom** - After you configure a custom domain, when you try to sign in with the custom domain, you get *the resource you are looking for has been removed, had its name changed, or is temporarily unavailable* error message.
+- **Possible causes** - This issue could be related to the Azure AD custom domain verification. 
+- **Resolution**:  Make sure the custom domain is [registered and **successfully verified**](#step-1-add-a-custom-domain-name-to-your-azure-ad-b2c-tenant) in your Azure AD B2C tenant.
+
 ### Identify provider returns an error
 
 - **Symptom** - After you configure a custom domain, you're able to sign in with local accounts. But when you sign in with credentials from external [social or enterprise identity providers](add-identity-provider.md), the identity provider presents an error message.
 - **Possible causes** - When Azure AD B2C takes the user to sign in with a federated identity provider, it specifies the redirect URI. The redirect URI is the endpoint to where the identity provider returns the token. The redirect URI is the same domain your application uses with the authorization request. If the redirect URI is not yet registered in the identity provider, it may not trust the new redirect URI, which results in an error message. 
 - **Resolution** -  Follow the steps in [Configure your identity provider](#configure-your-identity-provider) to add the new redirect URI. 
-
-## Domain name validation issues
-
-
 
 ## Frequently asked questions
 
