@@ -56,12 +56,12 @@ The only supported authentication for an erwin Mart source is **Server Authentic
 
 To register a new erwin Mart in your data catalog, do the following:
 
-1.  Navigate to your Purview account.
-2.  Select **Sources** on the left navigation.
-3.  Select **Register.**
-4.  On Register sources, select **erwin**. Select **Continue.**
+1. Navigate to your Purview account.
+1. Select **Data Map** on the left navigation.
+1. Select **Register**
+1. On Register sources, select **erwin**. Select **Continue.**
     :::image type="content" source="media/register-scan-erwin-source/register-sources.png" alt-text="register erwin source" border="true":::
-    
+
 On the Register sources (erwin) screen, do the following:
 
 1.  Enter a **Name** that the data source will be listed within the

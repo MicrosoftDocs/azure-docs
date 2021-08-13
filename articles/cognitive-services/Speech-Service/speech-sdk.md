@@ -3,13 +3,13 @@ title: About the Speech SDK - Speech service
 titleSuffix: Azure Cognitive Services
 description: The Speech software development kit (SDK) exposes many of the Speech service capabilities, making it easier to develop speech-enabled applications.
 services: cognitive-services
-author: trevorbye
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.author: trbye
+ms.author: nitinme
 ---
 
 # About the Speech SDK
@@ -43,12 +43,14 @@ The Speech SDK exposes many features from the Speech service, but not all of the
 
 **Text-to-speech (TTS)** is available on the following platforms:
 
-  - C++/Windows & Linux
-  - C#/Windows & UWP & Unity
+  - C++/Windows & Linux & macOS
+  - C# (Framework & .NET Core)/Windows & UWP & Unity & Xamarin & Linux & macOS
   - Java (Jre and Android)
+  - JavaScript (Browser and NodeJS)
   - Python
   - Swift
   - Objective-C
+  - Go
   - TTS REST API can be used in every other situation.
 
 ### Voice assistants

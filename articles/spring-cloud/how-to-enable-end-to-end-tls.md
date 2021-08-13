@@ -12,12 +12,11 @@ ms.custom: devx-track-java
 
 # Enable end-to-end TLS for an application
 
-This topic shows you how to enable end-to-end SSL/TLS to secure traffic from an ingress controller to applications that support HTTPS. 
-After you enable end-to-end TLS and load a cert from keyvault, all communications within Azure Spring Cloud are secured with TLS.
+This topic shows you how to enable end-to-end SSL/TLS to secure traffic from an ingress controller to applications that support HTTPS. After you enable end-to-end TLS and load a cert from keyvault, all communications within Azure Spring Cloud are secured with TLS.
 
    ![Graph of communications secured by TLS.](media/enable-end-to-end-tls/secured-tls.png)
 
-## Prerequisites 
+## Prerequisites
 
 - A deployed Azure Spring Cloud instance. Follow our [quickstart on deploying via the Azure CLI](./quickstart.md) to get started.
 - If you're unfamiliar with end-to-end TLS, see the [end-to-end TLS sample](https://github.com/Azure-Samples/spring-boot-secure-communications-using-end-to-end-tls-ssl).

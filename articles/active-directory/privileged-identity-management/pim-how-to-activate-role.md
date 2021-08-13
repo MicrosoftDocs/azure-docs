@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/03/2021
+ms.date: 07/27/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -24,9 +24,7 @@ If you have been made *eligible* for an administrative role, then you must *acti
 
 This article is for administrators who need to activate their Azure AD role in Privileged Identity Management.
 
-# [New version](#tab/new)
-
-## Activate a role for new version
+## Activate a role
 
 When you need to assume an Azure AD role, you can request activation by opening **My roles** in Privileged Identity Management.
 

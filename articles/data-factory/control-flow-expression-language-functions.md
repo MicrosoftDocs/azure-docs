@@ -1,22 +1,25 @@
 ---
-title: Expression and functions in Azure Data Factory 
-description: This article provides information about expressions and functions that you can use in creating data factory entities.
+title: Expression and functions
+titleSuffix: Azure Data Factory & Azure Synapse
+description: This article provides information about expressions and functions that you can use in creating Azure Data Factory and Azure Synapse Analytics pipeline entities.
 author: minhe-msft
 ms.author: hemin
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 07/16/2021
 ---
 
-# Expressions and functions in Azure Data Factory
+# Expressions and functions in Azure Data Factory and Azure Synapse Analytics
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-functions-variables.md)
-> * [Current version](control-flow-expression-language-functions.md)
+> * [Current version/Synapse version](control-flow-expression-language-functions.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article provides details about expressions and functions supported by Azure Data Factory. 
+This article provides details about expressions and functions supported by Azure Data Factory and Azure Synapse Analytics. 
 
 ## Expressions
 
@@ -65,6 +68,18 @@ You can use @activity('activity name') to capture output of activity and make de
 The below example shows a complex example that references a deep sub-field of activity output. To reference a pipeline parameter that evaluates to a sub-field, use [] syntax instead of dot(.) operator (as in case of subfield1 and subfield2), as part of an activity output.
 
 `@activity('*activityName*').output.*subfield1*.*subfield2*[pipeline().parameters.*subfield3*].*subfield4*`
+
+Creating files dynamically and naming them is common pattern. Let us explore few dynamic file naming examples.
+
+  1. Append Date to a filename:  `@concat('Test_',  formatDateTime(utcnow(), 'yyyy-dd-MM'))` 
+  
+  2. Append DateTime in customer timezone : `@concat('Test_',  convertFromUtc(utcnow(), 'Pacific Standard Time'))`
+  
+  3. Append Trigger Time :` @concat('Test_',  pipeline().TriggerTime)`
+  
+  4. Output a custom filename in a Mapping Data Flow when outputting to a single file with date : `'Test_' + toString(currentDate()) + '.csv'`
+
+In above cases, 4 dynamic filenames are created starting with Test_. 
 
 ### Dynamic content editor
 
@@ -185,8 +200,7 @@ Baba's book store
 ```
 
 ### Tutorial
-This [tutorial](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) walks you through how to pass parameters between a pipeline and activity as well as between the activities.
-
+This [tutorial](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) walks you through how to pass parameters between a pipeline and activity as well as between the activities.  The tutorial specifically demonstrates steps for an Azure Data Factory although steps for a Synapse workspace are nearly equivalent but with a slightly different user interface.
   
 ## Functions
 

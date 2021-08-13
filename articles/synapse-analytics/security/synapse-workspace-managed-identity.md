@@ -1,12 +1,12 @@
 ---
 title: Managed identity in Synapse workspace
 description: An article that explains managed identity in Azure Synapse workspace
-author: RonyMSFT 
+author: meenalsri
 ms.service: synapse-analytics 
 ms.topic: overview
 ms.subservice: security 
 ms.date: 10/16/2020 
-ms.author: ronytho 
+ms.author: mesrivas 
 ms.reviewer: jrasnick
 ---
 

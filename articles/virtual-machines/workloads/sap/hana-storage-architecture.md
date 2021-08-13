@@ -11,7 +11,7 @@ ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/10/2020
+ms.date: 07/22/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
 
@@ -22,7 +22,7 @@ In this article, we'll look at the storage architecture for deploying SAP HANA o
 
 The storage layout for SAP HANA on Azure (Large Instances) is configured by SAP HANA on the classic deployment model per SAP recommended guidelines. For more information on the guidelines, see [SAP HANA storage requirements](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html).
 
-HANA Large Instance of the Type I class comes with four times the memory volume as storage volume. This isn't the case for the Type II class of HANA Large Instance units, which come with a volume intended for storing HANA transaction log backups. For more information, see [Install and configure SAP HANA (Large Instances) on Azure](hana-installation.md).
+Type I class of HANA Large Instances come with four times the memory volume as storage volume. Whereas Type II class of HANA Large Instances come with a volume intended for storing HANA transaction log backups. For more information, see [Install and configure SAP HANA (Large Instances) on Azure](hana-installation.md).
 
 See the following table for storage allocation. The table lists the rough capacity for volumes provided with the different HANA Large Instance units.
 
@@ -116,9 +116,9 @@ The following examples show what it might look like running multiple SAP HANA in
 There are other variations as well. 
 
 ## Encryption of data at rest
-The storage for HANA Large Instances uses transparent encryption for the data, as it's stored on the disks. In deployments prior to the end of 2018, you could choose to have the volumes encrypted. If you decided against that option, you could request to have the volumes encrypted online. The move from non-encrypted to encrypted volumes is transparent and doesn't require downtime. 
+The storage for HANA Large Instances uses transparent encryption for the data, as it's stored on the disks. In deployments before the end of 2018, you could have the volumes encrypted. If you decided against that option, you could have the volumes encrypted online. The move from non-encrypted to encrypted volumes is transparent and doesn't require downtime. 
 
-With the Type I class of SKUs, the volume storing the boot LUN is encrypted. In Revision 3 HANA Large Instance stamps using the Type II class of SKUs of HANA Large Instance, you need to encrypt the boot LUN with OS methods. In Revision 4 HANA Large Instance stamps using Type II units, the volume storing the boot LUN is encrypted at rest by default. 
+With the Type I class of SKUs of HANA Large Instance, the volume storing the boot LUN is encrypted. In Revision 3 HANA Large Instance stamps using Type II class of SKUs, you need to encrypt the boot LUN with OS methods. In Revision 4 HANA Large Instance stamps using Type II class of SKUs, the volume storing the boot LUN is encrypted at rest by default. 
 
 ## Required settings for larger HANA instances on HANA Large Instances
 

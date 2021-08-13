@@ -25,6 +25,8 @@
           href: quickstart-java-spring-app.md
         - name: Python
           href: quickstart-python.md
+        - name: JavaScript/Node.js
+          href: quickstart-javascript.md
     - name: Feature management
       items:
         - name: ASP.NET Core
@@ -58,7 +60,9 @@
       items:
         - name: .NET Core
           href: enable-dynamic-configuration-dotnet-core-push-refresh.md
-    - name: Key Vault references
+        - name: Java Spring
+          href: enable-dynamic-configuration-java-spring-push-refresh.md
+    - name: Use Key Vault references
       items:
         - name: Use Key Vault references
           items:
