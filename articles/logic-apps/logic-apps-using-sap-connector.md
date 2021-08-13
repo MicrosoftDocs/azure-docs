@@ -676,7 +676,7 @@ This example uses a logic app workflow that triggers when the app receives a mes
 
       Azure Logic Apps sets up and tests your connection to make sure that the connection works properly.
 
-1. Based on your SAP system configuration, provide the [required parameters](#parameters), for example:
+1. Based on your SAP system configuration, provide the [required parameters](#parameters), and add any other parameters available for this trigger, for example:
 
    * To receive IDocs as plain XML, in the **When a message is received from SAP** trigger, which supports the SAP plain XML format, add and set the **IDOC Format** parameter to **SapPlainXml**.
 
