@@ -48,7 +48,7 @@ Use an Azure Application: Managed application plan when the following conditions
 
 ### Rules and Known Issues for AKS and Containers in Managed Apps Offers
 
-- AKS Node Resource Group does not inherit the Deny Assignment as a part of the Azure Managed App offer. This means the customer will have full access to the AKS Node Resource Group that is created by AKS resource when it is included in the Azure Managed App while the Managed Resource Group will have the proper Deny Assignments.
+- AKS Node Resource Group does not inherit the Deny Assignments as a part of the Azure Managed Application. This means the customer will have full access to the AKS Node Resource Group that is created by the AKS resource when it is included in the managed application while the Managed Resource Group will have the proper Deny Assignments.
  
 - The publisher can include Helm charts and other scripts as part of the Azure Managed Application offer. However, the offer will be treated like a regular Azure Managed Apps deployment and there will be no automatic container-specific processing or Helm chart installation at deployment time. It is the publisher’s responsibility to execute the relevant scripts, either at deployment time, using the usual techniques such as VM custom script extension or Azure Deployment Scripts, or after deployment.
  
