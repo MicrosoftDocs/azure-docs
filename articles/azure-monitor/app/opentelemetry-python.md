@@ -32,17 +32,17 @@ Add code to xyz.file in your application
 
 Replace placeholder connection string with YOUR connection string.
 
-//language specific screen shot here
+//language specific screenshot here
 
 Find the connection string on your Application Insights Resource.
 
-//screen shot
+//screenshot
 
 3. Confirm Data is Flowing
 Generate requests in your application and open your Application Insights Resource.
 It may take up to a couple minutes for data to start flowing.
 
-//screen shot
+//screenshot
 
 ## Enable OTLP Exporter
 You may want to enable the OTLP Exporter alongside your Azure Monitor Exporter to send your telemetry to two locations.
@@ -64,13 +64,13 @@ OpenTelemetry SDKs provide built-in sampling as a way to control data volume and
 
 ## Modify Telemetry
 ### Filter Telemetry
-You may use a Span Processor to filter out telemetry prior to leaving your application.
+You may use a Span Processor to filter out telemetry before leaving your application.
 
     ```python
     Placeholder
     ```
 
-See [GitHub Repo](link) for more details.
+For more information, see [GitHub Repo](link).
 
 ### Set Cloud Role Name
 You may use the Resource API to set Cloud Role Name.
@@ -79,7 +79,7 @@ You may use the Resource API to set Cloud Role Name.
     Placeholder
     ```
 
-See [GitHub Repo](link) for more details.
+For more information, see [GitHub Repo](link).
 
 ### Add Span Attributes
 You may use X to add attributes such as business-specific dimensions.
@@ -88,7 +88,7 @@ You may use X to add attributes such as business-specific dimensions.
     Placeholder
     ```
 
-See [GitHub Repo](link) for more details.
+For more information, see [GitHub Repo](link).
 
 ## Instrumentation Libraries
 Microsoft has tested and validated that the following instrumentation libraries will work with the **Preview** Release.
@@ -112,7 +112,7 @@ Placeholder
 ## Support
 - Review Troubleshooting steps in this article
 - For Azure support issues, file an Azure SDK GitHub issue or open a CSS Ticket.
-- For OpenTelemetry issues, reach out directly to the [OpenTelemetry community](https://opentelemetry.io/community/).
+- For OpenTelemetry issues, contact the [OpenTelemetry community](https://opentelemetry.io/community/) directly.
 
 ## Feedback
 - Fill out the OpenTelemetry community’s [customer feedback survey](https://docs.google.com/forms/d/e/1FAIpQLScUt4reClurLi60xyHwGozgM9ZAz8pNAfBHhbTZ4gFWaaXIRQ/viewform).
@@ -121,7 +121,7 @@ Placeholder
 - Open a GitHub issue against this official documentation page.
 
 ## Next Steps
-- [Azure Monitor Exporter Github Repository](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-opentelemetry-exporter/README.md)
-- [Azure Montor PyPI Package](https://pypi.org/project/pip/)
+- [Azure Monitor Exporter GitHub Repository](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-opentelemetry-exporter/README.md)
+- [Azure Monitor PyPI Package](https://pypi.org/project/pip/)
 - [Azure Monitor Sample Application](https://github.com/Azure-Samples/azure-monitor-opentelemetry-python)
 - [OpenTelemetry Community Language GitHub Repository](https://github.com/open-telemetry/opentelemetry-python)
