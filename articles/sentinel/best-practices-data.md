@@ -22,7 +22,7 @@ The free data connectors will start showing value from Azure Sentinel as soon as
 
 For your [partner](partner-data-connectors.md) and [custom](create-custom-connector.md) data connectors, start by setting up [Syslog](connect-syslog.md) and [CEF](connect-common-event-format.md) connectors, with the highest priority first, as well as any Linux-based devices.
 
-If your data ingestion becomes too expensive, too quickly, stop or filter the logs forwarded using the [Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-overview).
+If your data ingestion becomes too expensive, too quickly, stop or filter the logs forwarded using the [Azure Monitor Agent](../azure-monitor/agents/azure-monitor-agent-overview.md).
 
 > [!TIP]
 > Custom data connectors enable you to ingest data into Azure Sentinel from data sources not currently supported by built-in functionality, such as via agent, Logstash, or API. For more information, see [Resources for creating Azure Sentinel custom connectors](create-custom-connector.md).
@@ -59,7 +59,7 @@ Standard configuration for data collection may not work well for your organizati
 |---------|---------|---------|
 |**Requires log filtering**     | Use Logstash <br><br>Use Azure Functions <br><br> Use LogicApps <br><br> Use custom code (.NET, Python)  |  While filtering can lead to cost savings, and ingests only the required data, some Azure Sentinel features are not supported, such as [UEBA](identify-threats-with-entity-behavior-analytics.md), [entity pages](identify-threats-with-entity-behavior-analytics.md#entity-pages), [machine learning](bring-your-own-ml.md), and [fusion](fusion.md). <br><br>When configuring log filtering, you'll need to make updates in resources such as threat hunting queries and analytics rules     |
 |**Agent cannot be installed**     |Use Windows Event Forwarding, supported with the [Azure Monitor Agent](connect-windows-security-events.md#connector-options)       |   Using Windows Event forwarding lowers load-balancing events per second from the Windows Event Collector, from 10,000 events to 500-1000 events.|
-|**Servers do not connect to the internet**     | Use the [Log Analytics gateway](/azure/azure-monitor/agents/gateway)        | Configuring a proxy to your agent requires extra firewall rules to allow the Gateway to work.        |
+|**Servers do not connect to the internet**     | Use the [Log Analytics gateway](../azure-monitor/agents/gateway.md)        | Configuring a proxy to your agent requires extra firewall rules to allow the Gateway to work.        |
 |**Requires tagging and enrichment at ingestion**     |Use Logstash to inject a ResourceID <br><br>Use an ARM template to inject the ResourceID into on-premises machines <br><br>Ingest the resource ID into separate workspaces        | Log Analytics doesn't support RBAC for custom tables <br><br>Azure Sentinel doesn’t support row-level RBAC <br><br>**Tip**: You may want to adopt cross workspace design and functionality for Azure Sentinel.        |
 |**Requires splitting operation and security logs**     | Use the [Microsoft Monitor Agent or Azure Monitor Agent](connect-windows-security-events.md) multi-home functionality        |  Multi-home functionality requires more deployment overhead for the agent.       |
 |**Requires custom logs**     |   Collect files from specific folder paths <br><br>Use API ingestion <br><br>Use PowerShell <br><br>Use Logstash     |   You may have issues filtering your logs. <br><br>Custom methods are not supported. <br><br>Custom connectors may require developer skills.       |
@@ -71,7 +71,7 @@ Standard configuration for data collection may not work well for your organizati
 |---------|---------|---------|
 |**Requires log filtering**     | Use Syslog-NG <br><br>Use Rsyslog <br><br>Use FluentD configuration for the agent <br><br> Use the Azure Monitor Agent/Microsoft Monitoring Agent <br><br> Use Logstash  |  Some Linux distributions may not be supported by the agent. <br> <br>Using Syslog or FluentD requires developer knowledge. <br><br>For more information, see [Connect to Windows servers to collect security events](connect-windows-security-events.md) and [Resources for creating Azure Sentinel custom connectors](create-custom-connector.md).      |
 |**Agent cannot be installed**     |  Use a Syslog forwarder, such as (syslog-ng or rsyslog.       |         |
-|**Servers do not connect to the internet**       | Use the [Log Analytics gateway](/azure/azure-monitor/agents/gateway)        | Configuring a proxy to your agent requires extra firewall rules to allow the Gateway to work.          |
+|**Servers do not connect to the internet**       | Use the [Log Analytics gateway](../azure-monitor/agents/gateway.md)        | Configuring a proxy to your agent requires extra firewall rules to allow the Gateway to work.          |
 |**Requires tagging and enrichment at ingestion**      | Use Logstash for enrichment, or custom methods, such as API or EventHubs.         | You may have extra effort required for filtering.    |
 |**Requires splitting operation and security logs**     |  Use the [Azure Monitor Agent](connect-windows-security-events.md) with the multi-homing configuration.       |         |
 |**Requires custom logs**     |    Create a custom collector using the Microsoft Monitoring (Log Analytics) agent.      |      |
@@ -105,7 +105,7 @@ If you need to collect Microsoft Office data, outside of the standard connector 
 |---------|---------|---------|
 |**Filter logs from other platforms**     | Use Logstash <br><br>Use the Azure Monitor Agent / Microsoft Monitoring (Log Analytics) agent       |    Custom collection has extra ingestion costs. <br><br>You may have a challenge of collecting all Windows events vs only security events.     |
 |**Agent cannot be used**     |   Use Windows Event Forwarding      | You may need to load balance efforts across your resources.        |
-|**Servers are in air-gapped network**     | Use the [Log Analytics gateway](/azure/azure-monitor/agents/gateway)        | Configuring a proxy to your agent requires firewall rules to allow the Gateway to work.        |
+|**Servers are in air-gapped network**     | Use the [Log Analytics gateway](../azure-monitor/agents/gateway.md)        | Configuring a proxy to your agent requires firewall rules to allow the Gateway to work.        |
 |**RBAC, tagging, and enrichment at ingestion**     |    Create custom collection via Logstash or the Log Analytics API.     |  RBAC is not supported for custom tables <br><br>Row-level RBAC is not supported for any tables.       |
 |     |         |         |
 

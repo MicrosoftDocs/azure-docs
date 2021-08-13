@@ -154,5 +154,5 @@ az snapshot create -n $snapshotNameSecuredWithPL \
 
 - Upload a VHD to Azure or copy a managed disk to another region - [Azure CLI](disks-upload-vhd-to-managed-disk-cli.md) or [Azure PowerShell module](../windows/disks-upload-vhd-to-managed-disk-powershell.md)
 - Download a VHD - [Windows](../windows/download-vhd.md) or [Linux](download-vhd.md)
-- [FAQ on Private Links](/azure/virtual-machines//faq-for-disks#private-links-for-securely-exporting-and-importing-managed-disks)
+- [FAQ on Private Links](/azure/virtual-machines/faq-for-disks#private-links-for-securely-exporting-and-importing-managed-disks)
 - [Export/Copy managed snapshots as VHD to a storage account in different region with CLI](/previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-vhd)

@@ -120,4 +120,4 @@ To explore workloads to migrate and approach to take, see the [Azure Disk Storag
 - [Migrate to Azure file shares](../files/storage-files-migration-overview.md)
 - [Migrate to Data Lake Storage with WANdisco LiveData Platform for Azure](../blobs/migrate-gen2-wandisco-live-data-platform.md)
 - [Copy or move data to Azure Storage with AzCopy](./storage-use-azcopy-v10.md)
-- [Migrate large datasets to Azure Blob Storage with AzReplicate](https://aka.ms/AzReplicate)
+- [Migrate large datasets to Azure Blob Storage with AzReplicate](/samples/azure/azreplicate/azreplicate/)

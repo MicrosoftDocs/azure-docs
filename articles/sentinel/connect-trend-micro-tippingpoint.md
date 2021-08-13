@@ -77,4 +77,4 @@ In this document, you learned how to connect Trend Micro TippingPoint to Azure S
 
 - Learn how to [get visibility into your data, and potential threats](get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).
-- [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
+- [Use workbooks](/azure/sentinel/articles/sentinel/monitor-your-data.md) to monitor your data.
