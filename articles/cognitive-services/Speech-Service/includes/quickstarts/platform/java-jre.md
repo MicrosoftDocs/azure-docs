@@ -39,7 +39,7 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
 
 ## Gradle config
 
-Gradle configs require both a custom repository, and an explicit reference to the dependency extension `.jar`. 
+Gradle configs require both a custom repository, and an explicit reference to the dependency extension `.jar`.
 
 ```groovy
 // build.gradle
@@ -51,7 +51,7 @@ repositories {
 }
 
 dependencies {
-    implementation group: 'com.microsoft.cognitiveservices.speech', name: 'client-sdk', version: "1.17.0", ext: "jar"
+    implementation group: 'com.microsoft.cognitiveservices.speech', name: 'client-sdk', version: "1.18.0", ext: "jar"
 }
 ```
 
