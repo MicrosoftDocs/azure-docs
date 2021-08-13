@@ -191,7 +191,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
           <DisplayName>Technical profile for BioCatch API to return session information</DisplayName> 
 
-          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" /> 
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
 
           <Metadata> 
 
