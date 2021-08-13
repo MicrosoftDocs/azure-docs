@@ -886,7 +886,7 @@ items:
       - name: Hive
         href: ../data-factory/connector-hive.md?context=/azure/synapse-analytics/context/context
       - name: HTTP
-        href: ../data-factory/connector-http.md?context=/azure/synapse-analytics/context/context
+        href: ../data-factory/connector-http.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: HubSpot
         href: ../data-factory/connector-hubspot.md?context=/azure/synapse-analytics/context/context
       - name: Impala
