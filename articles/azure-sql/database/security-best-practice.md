@@ -677,7 +677,7 @@ Restrict access to the storage account to support Separation of Duties and to se
 **How to implement**:
 
 - When saving Audit logs to Azure Storage, make sure that access to the Storage Account is restricted to the minimal security principles. Control who has access to the storage account.
-- For more information, see [Authorizing access to Azure Storage](../../storage/common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+- For more information, see [Authorizing access to Azure Storage](../../storage/common/authorize-data-access.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 **Best practices**:
 

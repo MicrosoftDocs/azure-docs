@@ -58,9 +58,12 @@ When deploying GPU resources, set CPU and memory resources appropriate for the w
 
 * **CUDA drivers** - Container instances with GPU resources are pre-provisioned with NVIDIA CUDA drivers and container runtimes, so you can use container images developed for CUDA workloads.
 
-  We support only CUDA 9.0 at this stage. For example, you can use the following base images for your Docker file:
+  We support only CUDA 9.0 at this stage. For example, you can use the following base images for your Dockerfile:
   * [nvidia/cuda:9.0-base-ubuntu16.04](https://hub.docker.com/r/nvidia/cuda/)
   * [tensorflow/tensorflow: 1.12.0-gpu-py3](https://hub.docker.com/r/tensorflow/tensorflow)
+
+  > [!NOTE]
+  > To improve reliability when using a public container image from Docker Hub, import and manage the image in a private Azure container registry, and update your Dockerfile to use your privately managed base image. [Learn more about working with public images](../container-registry/buffer-gate-public-content.md).
     
 ## YAML example
 
