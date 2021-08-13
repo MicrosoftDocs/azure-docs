@@ -23,8 +23,8 @@ Check out the answers to the following common questions.
 If you have **Azure Policy** blocking all applications from creating **Storage account** and **EventHub namespace**, you need to make policy exception using tag, which can be entered during the process of creating a Purview account. The main reason is that for each Purview Account created, it needs to create a managed Resource Group and within this resource group, a Storage account and an
 EventHub namespace.
 
-    >[!IMPORTANT]
-    >You don't have to follow this step if you don't have Azure Policy or an existing Azure Policy is not blocking the creation of **Storage account** and **EventHub namespace**.
+>[!IMPORTANT]
+>You don't have to follow this step if you don't have Azure Policy or an existing Azure Policy is not blocking the creation of **Storage account** and **EventHub namespace**.
 
     1. Navigate to the Azure portal and search for **Policy**
     1. Follow [Create a custom policy definition](../governance/policy/tutorials/create-custom-policy-definition.md) or modify existing policy to add two exceptions with `not` operator and `resourceBypass` tag:
