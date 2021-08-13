@@ -32,43 +32,39 @@ Use the following procedure to access the agent:
 
 2. Create an application.
 
-    ```shell
+    ```azurecli
       az spring-cloud app create --name "appName" --is-public true \
       -s "resourceName" -g "resourceGroupName"
     ```
 
 3. Create a deployment with the **New Relic** agent and **Environment Variables**.
 
-    ```shell
+    ```azurecli
     az spring-cloud app deploy --name "appName" --jar-path app.jar \
        -s "resourceName" -g "resourceGroupName" \
        --jvm-options="-javaagent:/opt/agents/newrelic/java/newrelic-agent.jar" \
        --env NEW_RELIC_APP_NAME=appName NEW_RELIC_LICENSE_KEY=newRelicLicenseKey
     ```
 
-  Azure Spring Cloud pre-installs the **New Relic** Java agent to the following path. Customers can leverage the agent from applications' **Jvm Options**, as well as configure the agent using the [New Relic Java agent environment variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
-
-  ```shell
-  /opt/agents/newrelic/java/newrelic-agent.jar
-  ```
+  Azure Spring Cloud pre-installs the **New Relic** Java agent to */opt/agents/newrelic/java/newrelic-agent.jar*. Customers can leverage the agent from applications' **JVM Options**, as well as configure the agent using the [New Relic Java agent environment variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
 
 ## Portal
 
-You can also leverage this agent from portal with the following procedure. 
+You can also leverage this agent from portal with the following procedure.
 
 1. Find the app from **Settings**/**Apps** in the navigation pane.
 
    [ ![Find app to monitor](media/new-relic-monitoring/find-app.png) ](media/new-relic-monitoring/find-app.png)
 
-2. Click the application to jump to the **Overview** page.
+2. Select the application to jump to the **Overview** page.
 
    [ ![Overview page](media/new-relic-monitoring/overview-page.png) ](media/new-relic-monitoring/overview-page.png)
 
-3. Click **Configuration** in the left navigation pane to add/update/delete the **Environment Variables** of the application.
+3. Select **Configuration** in the left navigation pane to add/update/delete the **Environment Variables** of the application.
 
    [ ![Update environment](media/new-relic-monitoring/configurations-update-environment.png) ](media/new-relic-monitoring/configurations-update-environment.png)
 
-4. Click **General settings** to add/update/delete the **Jvm Option** of the application.
+4. Select **General settings** to add/update/delete the **JVM Option** of the application.
 
    [ ![Update JVM Option](media/new-relic-monitoring/update-jvm-option.png) ](media/new-relic-monitoring/update-jvm-option.png)
 
@@ -77,20 +73,20 @@ You can also leverage this agent from portal with the following procedure.
    [ ![App summary page](media/new-relic-monitoring/app-summary-page.png) ](media/new-relic-monitoring/app-summary-page.png)
 
 6. View the application customers-service **Summary** page from **New Relic** dashboard.
- 
-   [ ![Customers-service page](media/new-relic-monitoring/customers-service.png) ](media/new-relic-monitoring/customers-service.png)  
 
-7. View the **Service Map** page from **New Relic** dashboard.  
+   [ ![Customers-service page](media/new-relic-monitoring/customers-service.png) ](media/new-relic-monitoring/customers-service.png)
 
-   [ ![Service map page](media/new-relic-monitoring/service-map.png) ](media/new-relic-monitoring/service-map.png) 
+7. View the **Service Map** page from **New Relic** dashboard.
+
+   [ ![Service map page](media/new-relic-monitoring/service-map.png) ](media/new-relic-monitoring/service-map.png)
 
 8. View **JVMs** of the application from **New Relic** dashboard.
 
-   [ ![JVM page](media/new-relic-monitoring/jvm-page.png) ](media/new-relic-monitoring/jvm-page.png) 
+   [ ![JVM page](media/new-relic-monitoring/jvm-page.png) ](media/new-relic-monitoring/jvm-page.png)
 
 9. View the application profile from **New Relic** dashboard.
 
-   [ ![Application profile](media/new-relic-monitoring/profile-app.png) ](media/new-relic-monitoring/profile-app.png) 
+   [ ![Application profile](media/new-relic-monitoring/profile-app.png) ](media/new-relic-monitoring/profile-app.png)
 
 ## New Relic Java Agent Logging
 
@@ -123,4 +119,5 @@ The **New Relic** Java agent will update/upgrade the JDK regularly. The agent up
 For a vnet injection instance of Azure Spring Cloud, you need to make sure the outbound traffic is configured correctly for the **New Relic** Java agent. For more information, see [Networks of New Relic](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents).
 
 ## Next steps
-*  [Distributed tracing and App Insights](how-to-distributed-tracing.md)
+
+* [Distributed tracing and App Insights](how-to-distributed-tracing.md)

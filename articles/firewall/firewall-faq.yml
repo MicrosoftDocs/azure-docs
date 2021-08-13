@@ -6,7 +6,7 @@ metadata:
   author: vhorne
   ms.service: firewall
   ms.topic: conceptual
-  ms.date: 06/16/2021
+  ms.date: 08/13/2021
   ms.author: victorh
     
 title: Azure Firewall FAQ
@@ -72,9 +72,9 @@ sections:
           
       - question: How can I stop and start Azure Firewall?
         answer: |
-          You can use Azure PowerShell *deallocate* and *allocate* methods.
+          You can use Azure PowerShell *deallocate* and *allocate* methods. For a firewall configured for forced tunneling, the procedure is slightly different.
           
-          For example:
+          For example, for a firewall NOT configured for forced tunneling:
           
           ```azurepowershell
           # Stop an existing firewall
@@ -85,7 +85,7 @@ sections:
           ```
           
           ```azurepowershell
-          # Start a firewall
+          # Start the firewall
           
           $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
           $vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
@@ -95,6 +95,28 @@ sections:
           
           Set-AzFirewall -AzureFirewall $azfw
           ```
+
+          For a firewall configured for forced tunneling, stopping is the same. But starting requires the management public IP to be re-associated back to the firewall:
+
+          ```azurepowershell
+          # Stop an existing firewall
+
+          $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+          $azfw.Deallocate()
+          Set-AzFirewall -AzureFirewall $azfw
+          ```
+
+          ```azurepowershell
+          # Start the firewall
+          
+          $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+          $vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
+          $pip= Get-AzureRmPublicIpAddress -Name "azfwpublicip" -ResourceGroupName "RG Name"
+          $mgmtPip2 = Get-AzPublicIpAddress -ResourceGroupName "RG Name" -Name "mgmtpip"
+          $azfw.Allocate($vnet, $pip, $mgmtPip2)
+          $azfw | Set-AzFirewall
+          ```
+
           When you allocate and deallocate, [firewall billing](https://azure.microsoft.com/pricing/details/azure-firewall) stops and starts accordingly.
           
           > [!NOTE]
