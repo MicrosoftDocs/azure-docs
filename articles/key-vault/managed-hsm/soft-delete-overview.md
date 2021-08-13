@@ -35,7 +35,7 @@ You can't reuse the name of an HSM resource that's been soft-deleted until the r
 
 ## Purge protection
 
-Purge protection is an optional behavior. It's not enabled by default. You can turn it on by using [Azure CLI](./recovery.md?tabs=azure-cli) or [PowerShell](./recovery.md?tabs=azure-powershell).
+Purge protection is an optional behavior. It's not enabled by default. You can turn it on by using the [Azure CLI](./recovery.md?tabs=azure-cli) or [PowerShell](./recovery.md?tabs=azure-powershell).
 
 When purge protection is on, an HSM or key in the deleted state can't be purged until the retention period ends. Soft-deleted HSMs and keys can still be recovered, which ensures the retention policy will be in effect.
 
@@ -58,7 +58,7 @@ When you delete the key, Managed HSM will schedule the deletion of the underlyin
 Soft-deleted resources are kept for a set period of time: 90 days. During the soft-delete retention interval, these conditions apply:
 
 - You can list all the HSMs and keys in the soft-delete state for your subscription. You can also access deletion and recovery information about them.
-  - Only users with the Managed HSM Contributor role can list deleted HSMs. We recommend that you create a custom role with these permissions for handling deleted vaults.
+- Only users with the Managed HSM Contributor role can list deleted HSMs. We recommend that you create a custom role with these permissions for handling deleted vaults.
 - Managed HSM names must be unique in a given location. When you create a key, you can't use a name if the HSM contains a key with that name in a deleted state.
 - Only users with the Managed HSM Contributor role can list, view, recover, and purge managed HSMs.
 - Only users with Managed HSM Crypto Officer role can list, view, recover, and purge keys.
@@ -74,4 +74,4 @@ Managed HSM is a single-tenant service. When you create a managed HSM, the servi
 These articles describe the main scenarios for using soft-delete:
 
 - [How to use Managed HSM soft-delete with PowerShell](./recovery.md?tabs=azure-powershell) 
-- [How to use Managed HSM soft-delete with CLI](./recovery.md?tabs=azure-cli)
+- [How to use Managed HSM soft-delete with the Azure CLI](./recovery.md?tabs=azure-cli)
