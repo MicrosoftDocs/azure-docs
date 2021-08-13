@@ -10,6 +10,8 @@ items:
   items:
   - name: Create a Purview account - Azure portal
     href: create-catalog-portal.md
+  - name: Create a Collection - Azure Portal
+    href: quickstart-create-collection.md
   - name: Create a Purview account - Azure PowerShell
     href: create-catalog-powershell.md
   - name: Create a Purview account - .NET SDK
@@ -78,6 +80,8 @@ items:
     href: /azure/purview/frequently-asked-questions.yml
 - name: How-to guides
   items:
+  - name: Create and manage collections
+    href: how-to-create-and-manage-collections.md
   - name: Register & scan
     items:
     - name: Manage Credentials
