@@ -72,9 +72,13 @@ Depending on the transaction option used, subscription charges are as follows:
 
 Publishers who want to change the usage fees associated with an offer, should first remove the offer (or the specific plan within the offer) from the commercial marketplace. Removal should be done in accordance with the requirements of the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement). Then the publisher can publish a new offer (or plan within an offer) that includes the new usage fees. For information, about removing an offer or plan, see [Stop distribution of an offer or plan](./update-existing-offer.md#stop-distribution-of-an-offer-or-plan).
 
-### Determine tansactable? offer type and pricing plan
+### Determine offer type and pricing plan
 
-Use this flowchart to determine the appropriate *transactable* offer type and pricing plan for selling software through the commercial marketplace.
+Use this flowchart to determine the appropriate *transactable* offer type and pricing plan for selling software through the commercial marketplace. This chart assumes you the publisher have a clear understanding of your software deployment and license/billing model.
+
+Generally, SaaS offers are a good fit if you want customers/users to just subscribe and use your service, with the publisher (you) taking the responsibility of deploying, managing, and running the software in your cloud infrastructure.
+
+Virtual Machine or Azure App offers are a good fit if you want customer/users to deploy, manage, and run your packaged app or service (as a VM Image and/or other Azure services in the ARM template) in their own cloud infrastructure.
 
 [![Shows a flowchart for determining offer type and pricing plan.](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png)](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png#lightbox)
 &nbsp;&nbsp;&nbsp;<sup>(1)</sup> Contact [Microsoft Office Hours](https://microsoftcloudpartner.eventbuilder.com/MarketplaceDeveloperOfficeHours) or [support](/azure/marketplace/support).<br>
