@@ -119,8 +119,6 @@ A PRT can get a multi-factor authentication (MFA) claim in specific scenarios. W
 * **MFA during WAM interactive sign in**: During a token request through WAM, if a user is required to do MFA to access the app, the PRT that is renewed during this interaction is imprinted with an MFA claim.
    * In this case, the MFA claim is not updated continuously, so the MFA duration is based on the lifetime set on the directory.
    * When a previous existing PRT and RT are used for access to an app, the PRT and RT will be regarded as the first proof of authentication. A new AT will be required with a second proof and an imprinted MFA claim. This will also issue a new PRT and RT.
-* **MFA during device registration**: If an admin has configured their device settings in Azure AD to [require MFA to register devices](device-management-azure-portal.md#configure-device-settings), the user needs to do MFA to complete the registration. During this process, the PRT that is issued to the user has the MFA claim obtained during the registration. This capability only applies to the registered owner of the device, not to other users who sign in to that device.
-   * Similar to the WAM interactive sign in, the MFA claim is not updated continuously, so the MFA duration is based on the lifetime set on the directory.
 
 Windows 10 maintains a partitioned list of PRTs for each credential. So, there’s a PRT for each of Windows Hello for Business, password, or smartcard. This partitioning ensures that MFA claims are isolated based on the credential used, and not mixed up during token requests.
 
