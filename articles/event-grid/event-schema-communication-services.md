@@ -46,7 +46,7 @@ Azure Communication Services emits the following event types:
 | Microsoft.Communication.ChatMessageEditedInThread | Published when a message is edited in a chat thread |  
 | Microsoft.Communication.ChatMessageDeletedInThread | Published when a message is deleted in  a chat thread  |  
 | Microsoft.Communication.RecordingFileStatusUpdated | Published when recording file is available |
-| Microsoft.Communication.UserDisconnected | Published after an ACS user is designated as having disconnected from the ACS services |
+| Microsoft.Communication.UserDisconnected | Published after a Communication Services user is designated as having disconnected from the Communication Services |
 
 You can use the Azure portal or Azure CLI to subscribe to events emitted by your Communication Services resource. Get started with handling events by looking at [How to handle SMS Events in Communication Services](../communication-services/quickstarts/telephony-sms/handle-sms-events.md)
 
@@ -118,7 +118,19 @@ This section contains an example of what that data would look like for each even
     "MessageId": "Incoming_20200918002745d29ebbea-3341-4466-9690-0a03af35228e",
     "From": "15555555555",
     "To": "15555555555",
-    "Message": "Great to connect with ACS events ",
+    "Message": "Great to connect with 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    events ",
     "ReceivedTimestamp": "2020-09-18T00:27:45.32Z"
   },
   "eventType": "Microsoft.Communication.SMSReceived",
