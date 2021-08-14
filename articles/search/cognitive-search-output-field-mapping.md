@@ -1,7 +1,7 @@
 ---
 title: Map skill output fields
 titleSuffix: Azure Cognitive Search
-description: Export the enriched content created by an skillset by mapping output fields to fields in a search index.
+description: Export the enriched content created by a skillset by mapping its output fields to fields in a search index.
 
 author: LiamCavanagh
 ms.author: liamca

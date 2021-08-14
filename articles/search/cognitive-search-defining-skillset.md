@@ -27,7 +27,7 @@ Some usage rules for skillsets include the following:
 Recall that indexers drive skillset execution, which means that you will also need to create an [indexer](search-howto-create-indexers.md), [data source](search-data-sources-gallery.md), and [search index](search-what-is-an-index.md) before you can test your skillset.
 
 > [!TIP]
-> In the early stages of skillset design, we recommend that you enable [enrichment caching](cognitive-search-incremental-indexing-conceptual.md) to lower the cost of development.
+> Enable [enrichment caching](cognitive-search-incremental-indexing-conceptual.md) to reuse the content you've already processed and lower the cost of development.
 
 ## Skillset definition
 
@@ -61,17 +61,17 @@ Start with the basic structure. In the [REST API](/rest/api/searchservice/create
 
 After the name and description, a skillset has four main properties:
 
-+ `skills` array, an unordered collection of skills, for which the search service determines the sequence of execution based on the inputs required for each skill. If skills are independent, they will execute in parallel. Skills can be utilitarian (like splitting text), transformational (based on AI from Cognitive Services), or custom skills that you provide. An example of a skills array is provided below.
++ `skills` array, an unordered [collection of skills](cognitive-search-predefined-skills.md), for which the search service determines the sequence of execution based on the inputs required for each skill. If skills are independent, they will execute in parallel. Skills can be utilitarian (like splitting text), transformational (based on AI from Cognitive Services), or custom skills that you provide. An example of a skills array is provided in the following section.
 
 + `cognitiveServices` is used for [billable skills](cognitive-search-predefined-skills.md) that call Cognitive Services APIs. Remove this section if you aren't using billable skills or Custom Entity Lookup. [Attach a resource](cognitive-search-attach-cognitive-services.md) if you are.
 
-+ `knowledgeStore`, (optional) specifies an Azure Storage account and settings for projecting skillset output into tables, blobs, and files in Azure Storage. Remove this section if you don't need a knowledge store, otherwise [specify a knowledge store](knowledge-store-create-rest.md).
++ `knowledgeStore`, (optional) specifies an Azure Storage account and settings for projecting skillset output into tables, blobs, and files in Azure Storage. Remove this section if you don't need it, otherwise [specify a knowledge store](knowledge-store-create-rest.md).
 
 + `encryptionKey`, (optional) specifies an Azure Key Vault and [customer-managed keys](search-security-manage-encryption-keys.md) used to encrypt sensitive content in a skillset definition. Remove this property if you aren't using customer-managed encryption.
 
 ## Add a skills array
 
-Within a skillset definition, the skills array specifies which skills to execute. The following example introduces you to its composition by showing you two unrelated, built-in skills. Notice that each skill has a type, context, inputs, and outputs. 
+Within a skillset definition, the skills array specifies which skills to execute. The following example introduces you to its composition by showing you two unrelated, [built-in skills](cognitive-search-predefined-skills.md). Notice that each skill has a type, context, inputs, and outputs. 
 
 ```json
 "skills":[
@@ -206,11 +206,11 @@ Output, in this case a company description, is generated for each organization i
 }
 ```
 
-## Sending output to an index
+## Send output to an index
 
-As each skill executes, its output is added as nodes in a document's enrichment tree. Enriched documents exist in the pipeline as temporary data structures. For full visibility into what a skill is actually producing from your content, you will need to send the output to persistent storage in a search index or a [knowledge store](knowledge-store-concept-intro.md).
+As each skill executes, its output is added as nodes in a document's enrichment tree. Enriched documents exist in the pipeline as temporary data structures. To create a permanent data structure, and gain full visibility into what a skill is actually producing, you will need to send the output to a search index or a [knowledge store](knowledge-store-concept-intro.md).
 
-In the early stages of skillset evaluation, you'll want to check results with minimal effort. The search index is simpler to set up. For each skill output, [define an output field mapping](cognitive-search-output-field-mapping.md) in the indexer, and a field in the index.
+In the early stages of skillset evaluation, you'll want to check preliminary results with minimal effort. We recommend the search index because it's simpler to set up. For each skill output, [define an output field mapping](cognitive-search-output-field-mapping.md) in the indexer, and a field in the index.
 
 :::image type="content" source="media/cognitive-search-defining-skillset/skillset-indexer-index-combo.png" alt-text="Object diagram showing how a persons entity is defined in skill output, indexer field mapping, and index field":::
 
