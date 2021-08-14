@@ -75,17 +75,32 @@ kubectl delete mutatingwebhookconfiguration arcdata.microsoft.com-webhook-{names
 ## Overview
 
 Creating the Azure Arc data controller has the following high level steps:
-1. Create the custom resource definitions for the Arc data controller, Azure SQL managed instance, and PostgreSQL Hyperscale. **[Requires Kubernetes Cluster Administrator Permissions]**
-2. Create a namespace in which the data controller will be created. **[Requires Kubernetes Cluster Administrator Permissions]**
-3. Create the bootstrapper service including the replica set, service account, role, and role binding.
-4. Create a secret for the data controller administrator username and password.
-5. Create the webhook deployment job, cluster role and cluster role binding. **[Requires Kubernetes Cluster Administrator Permissions]**
-6. Create the data controller.
+1. Create the custom resource definitions for the Arc data controller, Azure SQL managed instance, and PostgreSQL Hyperscale. 
+
+   > [!IMPORTANT]
+   > Requires Kubernetes Cluster Administrator Permissions]
+
+1. Create a namespace in which the data controller will be created. 
+
+   > [!IMPORTANT]
+   > Requires Kubernetes Cluster Administrator Permissions]
+
+1. Create the bootstrapper service including the replica set, service account, role, and role binding.
+1. Create a secret for the data controller administrator username and password.
+1. Create the webhook deployment job, cluster role and cluster role binding. 
+
+   > [!IMPORTANT]
+   > Requires Kubernetes Cluster Administrator Permissions]
+
+1. Create the data controller.
 
 
 ## Create the custom resource definitions
 
-Run the following command to create the custom resource definitions.  **[Requires Kubernetes Cluster Administrator Permissions]**
+Run the following command to create the custom resource definitions.  
+
+   > [!IMPORTANT]
+   > Requires Kubernetes Cluster Administrator Permissions]
 
 ```console
 kubectl create -f https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/custom-resource-definitions.yaml
@@ -189,7 +204,10 @@ First, create a copy of the [template file](https://raw.githubusercontent.com/mi
 
 Edit the file and replace `{{namespace}}` in all places with the name of the namespace you created in the previous step. **Save the file.**
 
-Run the following command to create the cluster role and cluster role bindings.  **[Requires Kubernetes Cluster Administrator Permissions]**
+Run the following command to create the cluster role and cluster role bindings.  
+
+   > [!IMPORTANT]
+   > Requires Kubernetes Cluster Administrator Permissions]
 
 ```console
 kubectl create -n arc -f <path to the edited template file on your computer>
