@@ -71,6 +71,8 @@
       href: scenario-route-through-nva.md
     - name: Route through an NVA - custom
       href: scenario-route-through-nvas-custom.md
+    - name: BGP peering with virtual hub
+      href: scenario-bgp-peering-hub.md
     - name: Azure Firewall - custom
       href: scenario-route-between-vnets-firewall.md
     - name: Application Gateway and backend pools
@@ -167,16 +169,20 @@
         href: openvpn-azure-ad-tenant-multi-app.md
   - name: Routing
     items:
-    - name: How to configure virtual hub routing
+    - name: Configure virtual hub routing
       href: how-to-virtual-hub-routing.md
-    - name: How to view virtual hub effective routes
+    - name: View virtual hub effective routes
       href: effective-routes-virtual-hub.md
+    - name: How to configure routing intent and policies
+      href: how-to-routing-policies.md
     - name: Route traffic from a virtual hub to an NVA (legacy)
       items:
         - name: Azure portal
           href: virtual-wan-route-table-nva-portal.md
         - name: Azure PowerShell
           href: virtual-wan-route-table-nva.md
+    - name: Configure BGP peering with virtual hub
+      href: create-bgp-peering-hub-portal.md
   - name: Security
     items:
     - name: Install Azure Firewall in a hub

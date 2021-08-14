@@ -15,7 +15,7 @@ There are two ways to interconnectivity in the Azure VMware Solution private clo
 
 - [**Full on-premises to private cloud interconnectivity**](#on-premises-interconnectivity) extends the basic Azure-only implementation to include interconnectivity between on-premises and Azure VMware Solution private clouds.
  
-In this article, we'll cover the key concepts that establish networking and interconnectivity, including requirements and limitations. This article provides you with the information you need to know to configure your networking to work with Azure VMware Solution.
+This article covers the key concepts that establish networking and interconnectivity, including requirements and limitations. In addition, this article provides you with the information you need to know to work with Azure VMware Solution to configure your networking.
 
 ## Azure VMware Solution private cloud use cases
 
@@ -64,7 +64,7 @@ Now that you've covered Azure VMware Solution network and interconnectivity conc
 
 - [Azure VMware Solution storage concepts](concepts-storage.md)
 - [Azure VMware Solution identity concepts](concepts-identity.md)
-- [How to enable Azure VMware Solution resource](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider)
+- [Enabling the Azure VMware Solution resource provider](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider)
 
 <!-- LINKS - external -->
 [enable Global Reach]: ../expressroute/expressroute-howto-set-global-reach.md
