@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/14/2021
+ms.date: 08/15/2021
 ---
 
 # Create a skillset in Azure Cognitive Search
@@ -27,7 +27,7 @@ Some usage rules for skillsets include the following:
 Recall that indexers drive skillset execution, which means that you will also need to create an [indexer](search-howto-create-indexers.md), [data source](search-data-sources-gallery.md), and [search index](search-what-is-an-index.md) before you can test your skillset.
 
 > [!TIP]
-> In the early stages of skillset design, we recommend that you enable [enrichment caching](cognitive-search-incremental-indexing-conceptual.md) to lower the cost of development. You might also consider projecting skillset output to a [knowledge store](knowledge-store-concept-intro.md) so that you can view output more easily. Both caching and knowledge store require Azure Storage. You can use the same resource for both tasks.
+> In the early stages of skillset design, we recommend that you enable [enrichment caching](cognitive-search-incremental-indexing-conceptual.md) to lower the cost of development.
 
 ## Skillset definition
 
@@ -178,9 +178,9 @@ The second skill for sentiment analysis follows the same pattern as the first en
 
 Below is an example of a [custom skill](cognitive-search-custom-skill-web-api.md). The URI points to an Azure Function, which in turn invokes the model or transformation that you provide. For more information, see [Define a custom interface](cognitive-search-custom-skill-interface.md).
 
-Context, inputs, and outputs read and write to an enrichment tree, just as the built-in skills do. Notice that the "context" field is set to `"/document/orgs/*"` with an asterisk, meaning the enrichment step is called *for each* organization under `"/document/orgs"`.
+Although the custom skill is executing code that is external to the pipeline, in a skills array, it's just another skill. Like the built-in skills, it has a type, context, inputs, and outputs. It also reads and writes to an enrichment tree, just as the built-in skills do. Notice that the "context" field is set to `"/document/orgs/*"` with an asterisk, meaning the enrichment step is called *for each* organization under `"/document/orgs"`.
 
-Output, in this case a company description, is generated for each organization identified. When referring to the description in a downstream step (for example, in key phrase extraction), you would use the path `"/document/orgs/*/description"` to do so. 
+Output, in this case a company description, is generated for each organization identified. When referring to the description in a downstream step (for example, in key phrase extraction), you would use the path `"/document/orgs/*/companyDescription"` to do so. 
 
 ```json
 {
