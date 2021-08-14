@@ -15,9 +15,6 @@ ms.date: 06/08/2021
 
 Data wrangling in data factory allows you to build interactive Power Query mash-ups natively in ADF and then execute those at scale inside of an ADF pipeline.
 
-> [!NOTE]
-> Power Query activity in ADF is currently available in public preview
-
 ## Create a Power Query activity
 
 There are two ways to create a Power Query in Azure Data Factory. One way is to click the plus icon and select **Power Query** in the factory resources pane.
