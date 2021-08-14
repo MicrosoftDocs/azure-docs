@@ -20,6 +20,7 @@ The diagram shows the integrated monitoring architecture of integrated security 
  
 :::image type="content" source="media/azure-security-integration/azure-integrated-security-architecture.png" alt-text="Diagram showing the architecture of Azure Integrated Security." border="false":::
 
+**Log Analytics agent** collects log data from Azure, Azure VMware Solution, and on-premises VMs. The log data is sent to Azure Monitor Logs and stored in a **Log Analytics Workspace**. Each workspace has its own data repository and configuration to store data.  Once the logs are collected, **Azure Security Center** assesses the vulnerability status of Azure VMware Solution VMs and raises an alert for any critical vulnerability. Once assessed, Azure Security Center forwards the vulnerability status to Azure Sentinel to create an incident and map with other threats.  Azure Security Center is connected to Azure Sentinel using Azure Security Center Connector. 
 
 ## Prerequisites
 
