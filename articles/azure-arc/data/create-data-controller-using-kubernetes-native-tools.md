@@ -75,6 +75,7 @@ kubectl delete mutatingwebhookconfiguration arcdata.microsoft.com-webhook-{names
 ## Overview
 
 Creating the Azure Arc data controller has the following high level steps:
+
 1. Create the custom resource definitions for the Arc data controller, Azure SQL managed instance, and PostgreSQL Hyperscale. 
 
    > [!IMPORTANT]
