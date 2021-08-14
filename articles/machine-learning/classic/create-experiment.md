@@ -1,5 +1,5 @@
 ---
-title: 'ML Studio (classic): Quickstart: Create a data science experiment - Azure'
+title: 'ML Studio (classic): Create a data science experiment - Azure'
 description: This machine learning quickstart walks you through an easy data science experiment. We'll predict the price of a car using a regression algorithm.
 services: machine-learning
 ms.service: machine-learning
@@ -13,14 +13,13 @@ ms.date: 02/06/2019
 #Customer intent: As a citizen data scientist, I want to learn how to create a data science experiment so that I can do the same process to answer my own data science questions.
 ---
 
-# Quickstart: Create your first data science experiment in Machine Learning Studio (classic)
+# Create your first data science experiment in Machine Learning Studio (classic)
 
 **APPLIES TO:**  ![This is a check mark, which means that this article applies to Machine Learning Studio (classic).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![This is an X, which means that this article does not apply to Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
+[!INCLUDE [ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)]
 
-[!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
-
-In this quickstart, you create a machine learning experiment in [Machine Learning Studio (classic)](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio) that predicts the price of a car based on different variables such as make and technical specifications.
+In this article, you create a machine learning experiment in [Machine Learning Studio (classic)](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio) that predicts the price of a car based on different variables such as make and technical specifications.
 
 If you're brand new to machine learning, the video series [Data Science for Beginners](data-science-for-beginners-the-5-questions-data-science-answers.md) is a great introduction to machine learning using everyday language and concepts.
 

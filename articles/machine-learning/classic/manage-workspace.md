@@ -15,6 +15,7 @@ ms.date: 02/27/2017
 
 **APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
+[!INCLUDE [ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)]
 
 > [!NOTE]
 > For information on managing Web services in the Machine Learning Web Services portal, see [Manage a Web service using the Machine Learning Web Services portal](manage-new-webservice.md).

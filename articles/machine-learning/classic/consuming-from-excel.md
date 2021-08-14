@@ -15,11 +15,11 @@ ms.date: 02/01/2018
 
 **APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
+[!INCLUDE [ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)]
+
 Machine Learning Studio (classic) makes it easy to call web services directly from Excel without the need to write any code.
 
 If you are using Excel 2013 (or later) or Excel Online, then we recommend that you use the Excel [Excel add-in](excel-add-in-for-web-services.md).
-
-
 
 ## Steps
 Publish a web service. [Tutorial 3: Deploy credit risk model](tutorial-part3-credit-risk-deploy.md) explains how to do it. Currently the Excel workbook feature is only supported for Request/Response services that have a single output (that is, a single scoring label). 

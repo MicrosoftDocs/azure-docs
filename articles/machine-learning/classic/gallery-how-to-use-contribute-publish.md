@@ -15,8 +15,7 @@ ms.date: 01/11/2019
 
 **APPLIES TO:**  ![This is a check mark, which means that this article applies to Machine Learning Studio (classic).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![This is an X, which means that this article does not apply to Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
-
-
+[!INCLUDE [ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)]
 
 **[Azure AI Gallery](https://gallery.azure.ai)** is a community-driven site for discovering and sharing solutions built with Azure AI.
 The Gallery has a variety of resources that you can use to develop your own analytics solutions.

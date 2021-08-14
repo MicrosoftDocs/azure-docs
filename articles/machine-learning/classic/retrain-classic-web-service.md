@@ -15,6 +15,7 @@ ms.date: 02/14/2019
 
 **APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![X indicating no.](../../../includes/media/aml-applies-to-skus/no.png)[Does not apply to.](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
+[!INCLUDE [ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)]
 
 Retraining machine learning models is one way to ensure they stay accurate and based on the most relevant data available. This article will show you how to retrain a classic Studio (classic) web service. For a guide on how to retrain a new Studio (classic) web service, [view this how-to article.](retrain-machine-learning-model.md)
 
