@@ -100,7 +100,7 @@ Now that you've given the Purview Managed Identity permissions to connect to the
 
 5. Select **Test Connection** before continuing to next steps. If **Test Connection** failed, select **View Report** to see the detailed status and troubleshoot the problem
     1. Access - Failed status means the user authentication failed. Scans using managed identity will always pass because no user authentication required. [Check if you have provided correct authentication for delegated authentication](register-scan-power-bi-tenant.md#register-and-scan-a-cross-tenant-power-bi)
-    1. Assets (+ lineage) - Failed status means the Purview - Power BI authorization has failed. Make sure the [Purview managed identity is added to the security group associated in Power BI admin portal](register-scan-power-bi-tenant#create-a-security-group-for-permissions)
+    1. Assets (+ lineage) - Failed status means the Purview - Power BI authorization has failed. Make sure the [Purview managed identity is added to the security group associated in Power BI admin portal](register-scan-power-bi-tenant.md#create-a-security-group-for-permissions)
     1. Detailed metadata (Enhanced) - Failed status means the Power BI admin portal is disabled for the following setting - **Enhance admin APIs responses with detailed metadata**
     
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-test-connection-status-report.png" alt-text="test connection status report":::
