@@ -49,10 +49,10 @@ To create and work with datasets, you need:
     * Work on your own Jupyter notebook and [install the SDK yourself](/python/api/overview/azure/ml/install).
 
 > [!NOTE]
-> Some dataset classes have dependencies on the [azureml-dataprep](https://pypi.org/project/azureml-dataprep/) package, which is only compatible with 64-bit Python. For If you are developing on Linux, these classes are supported only on the following distributions:  Red Hat Enterprise Linux (7, 8), Ubuntu (18.04),  Debian (9), and CentOS (7). If you are using unsupported distros, please follow [this guide](/dotnet/core/install/linux) to install .NET Core 2.1 to proceed.
+> Some dataset classes have dependencies on the [azureml-dataprep](https://pypi.org/project/azureml-dataprep/) package, which is only compatible with 64-bit Python. If you are developing on __Linux__, these classes rely on .NET Core 2.1, and are only supported on specific distributions. For more information on the supported distros, see the .NET Core 2.1 column in the [Install .NET on Linux](/dotnet/core/install/linux) article.
 
 > [!IMPORTANT]
-> While the package may work on older versions of these Linux distros, we do not recommend using a distro that is out of mainstream support. Distros that are out of mainstream support may have security vulnerabilities, as they do not receive the latest updates. We recommend using the latest supported version of your distro, or the latest one supported with the azureml-dataprep package.
+> While the package may work on older versions of Linux distros, we do not recommend using a distro that is out of mainstream support. Distros that are out of mainstream support may have security vulnerabilities, as they do not receive the latest updates. We recommend using the latest supported version of your distro that is compatible with .
 
 ## Compute size guidance
 
