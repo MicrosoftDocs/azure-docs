@@ -11,7 +11,7 @@
   - name: Create your first experiment
     displayName: quickstart
     href: create-experiment.md
-    name: Train & deploy a predictive model
+  - name: Train & deploy a predictive model
     items: 
     - name: '1: Create predictive experiment'
       href: tutorial-part1-credit-risk.md 
