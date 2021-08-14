@@ -76,23 +76,14 @@ kubectl delete mutatingwebhookconfiguration arcdata.microsoft.com-webhook-{names
 
 Creating the Azure Arc data controller has the following high level steps:
 
+   > [!IMPORTANT]
+   > Some of the steps below require Kubernetes cluster administrator permissions
+
 1. Create the custom resource definitions for the Arc data controller, Azure SQL managed instance, and PostgreSQL Hyperscale. 
-
-   > [!IMPORTANT]
-   > Requires Kubernetes Cluster Administrator Permissions]
-
 1. Create a namespace in which the data controller will be created. 
-
-   > [!IMPORTANT]
-   > Requires Kubernetes Cluster Administrator Permissions]
-
 1. Create the bootstrapper service including the replica set, service account, role, and role binding.
 1. Create a secret for the data controller administrator username and password.
 1. Create the webhook deployment job, cluster role and cluster role binding. 
-
-   > [!IMPORTANT]
-   > Requires Kubernetes Cluster Administrator Permissions]
-
 1. Create the data controller.
 
 
@@ -101,7 +92,7 @@ Creating the Azure Arc data controller has the following high level steps:
 Run the following command to create the custom resource definitions.  
 
    > [!IMPORTANT]
-   > Requires Kubernetes Cluster Administrator Permissions]
+   > Requires Kubernetes cluster administrator permissions
 
 ```console
 kubectl create -f https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/custom-resource-definitions.yaml
@@ -208,7 +199,7 @@ Edit the file and replace `{{namespace}}` in all places with the name of the nam
 Run the following command to create the cluster role and cluster role bindings.  
 
    > [!IMPORTANT]
-   > Requires Kubernetes Cluster Administrator Permissions]
+   > Requires Kubernetes cluster administrator permissions
 
 ```console
 kubectl create -n arc -f <path to the edited template file on your computer>
