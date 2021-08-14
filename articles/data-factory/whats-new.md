@@ -1,17 +1,17 @@
 ---
-title: What's New in Azure Data Factory 
-description: This What's New page highlights new features and improvements for Azure Data Factory.
+title: What's new in Azure Data Factory 
+description: This page highlights new features and recent improvements for Azure Data Factory. Azure Data Factory is a managed cloud service that's built for complex hybrid extract-transform-load (ETL), extract-load-transform (ELT), and data integration projects.
 author: pennyzhou-msft
 ms.author: xupzhou
-ms.reviewer: xupzhou
 ms.service: data-factory
+ms.subservice: concepts
 ms.topic: overview
 ms.date: 07/14/2021
 ---
 
-# What's New in Azure Data Factory
+# What's new in Azure Data Factory
 
-Azure Data Factory receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
+The Azure Data Factory service is improved on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
 - The latest releases
 - Known issues
@@ -19,7 +19,7 @@ Azure Data Factory receives improvements on an ongoing basis. To stay up to date
 - Deprecated functionality
 - Plans for changes
 
-This page will be updated monthly, so revisit it regularly. 
+This page is updated monthly, so revisit it regularly. 
 
 ## July 2021
 <br>
@@ -53,8 +53,3 @@ This page will be updated monthly, so revisit it regularly.
 - [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-data-factory)
 - [Twitter](https://twitter.com/AzDataFactory?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor)
 - [Videos](https://www.youtube.com/channel/UC2S0k7NeLcEm5_IhHUwpN0g/featured)
-
-
-
-
-

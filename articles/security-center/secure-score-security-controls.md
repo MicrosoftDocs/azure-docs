@@ -128,12 +128,13 @@ In some cases, you'll see a control max score greater than zero, but the impact 
 
 ## Next steps
 
-This article described the secure score and the security controls it introduces. For related material, see the following articles:
+This article described the secure score and the included security controls. 
+
+> [!div class="nextstepaction"]
+> [Access and track your secure score](secure-score-access-and-track.md)
+
+For related material, see the following articles:
 
 - [Learn about the different elements of a recommendation](security-center-recommendations.md)
 - [Learn how to remediate recommendations](security-center-remediate-recommendations.md)
 - [View the GitHub-based tools for working programmatically with secure score](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score)
-
-
-> [!div class="nextstepaction"]
-> [Access and track your secure score](secure-score-access-and-track.md)

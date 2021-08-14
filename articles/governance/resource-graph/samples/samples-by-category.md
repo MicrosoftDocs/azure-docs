@@ -1,7 +1,7 @@
 ---
 title: List of sample Azure Resource Graph queries by category
 description: List sample queries for Azure Resource-Graph. Categories include Tags, Azure Advisor, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 07/21/2021
+ms.date: 08/13/2021
 ms.topic: sample
 ms.custom: generated
 ---
@@ -23,6 +23,10 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 
 [!INCLUDE [azure-resource-graph-samples-cat-azure-arc-enabled-kubernetes](../../../../includes/resource-graph/samples/bycat/azure-arc-enabled-kubernetes.md)]
 
+## Azure Arc-enabled servers
+
+[!INCLUDE [azure-resource-graph-samples-cat-azure-arc-enabled-servers](../../../../includes/resource-graph/samples/bycat/azure-arc-enabled-servers.md)]
+
 ## Azure Container Registry
 
 [!INCLUDE [azure-resource-graph-samples-cat-azure-container-registry](../../../../includes/resource-graph/samples/bycat/azure-container-registry.md)]
@@ -43,7 +47,7 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 
 [!INCLUDE [azure-resource-graph-samples-cat-azure-policy](../../../../includes/resource-graph/samples/bycat/azure-policy.md)]
 
-## Azure Policy Guest Configuration
+## Azure Policy guest configuration
 
 [!INCLUDE [azure-resource-graph-samples-cat-azure-policy-guest-configuration](../../../../includes/resource-graph/samples/bycat/azure-policy-guest-configuration.md)]
 
@@ -71,9 +75,17 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 
 [!INCLUDE [azure-resource-graph-samples-cat-general](../../../../includes/resource-graph/samples/bycat/general.md)]
 
+## Management groups
+
+[!INCLUDE [azure-resource-graph-samples-cat-management-groups](../../../../includes/resource-graph/samples/bycat/management-groups.md)]
+
 ## Networking
 
 [!INCLUDE [azure-resource-graph-samples-cat-networking](../../../../includes/resource-graph/samples/bycat/networking.md)]
+
+## Resource health
+
+[!INCLUDE [azure-resource-graph-samples-cat-resource-health](../../../../includes/resource-graph/samples/bycat/resource-health.md)]
 
 ## Tags
 

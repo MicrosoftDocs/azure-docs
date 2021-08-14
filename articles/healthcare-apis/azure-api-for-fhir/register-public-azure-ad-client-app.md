@@ -6,7 +6,7 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 08/05/2021
 ms.author: cavoeg
 ---
 
@@ -24,7 +24,7 @@ The quickstart provides general information about how to [register an applicatio
 
 2. In the **Azure Active Directory** blade, click **App registrations**:
 
-    ![Azure portal. New App Registration.](media/how-to-aad/portal-aad-new-app-registration.png)
+    ![Azure portal. New App Registration.](media/add-azure-active-directory/portal-aad-new-app-registration.png)
 
 3. Click the **New registration**.
 
@@ -34,7 +34,7 @@ The quickstart provides general information about how to [register an applicatio
 
 2. Provide a reply URL. The reply URL is where authentication codes will be returned to the client application. You can add more reply URLs and edit existing ones later.
 
-    ![Azure portal. New public App Registration.](media/how-to-aad/portal-aad-register-new-app-registration-PUB-CLIENT-NAME.png)
+    ![Azure portal. New public App Registration.](media/add-azure-active-directory/portal-aad-register-new-app-registration-pub-client-name.png)
 
 
 To configure your [desktop](../../active-directory/develop/scenario-desktop-app-registration.md), [mobile](../../active-directory/develop/scenario-mobile-app-registration.md) or [single-page](../../active-directory/develop/scenario-spa-app-registration.md) application as public application:
@@ -59,16 +59,16 @@ Similarly to the [confidential client application](register-confidential-azure-a
     
     If you are referencing a different Resource Application, select your [FHIR API Resource Application Registration](register-resource-azure-ad-client-app.md) that you created previously under **My APIs**:
 
-    ![Azure portal. New public API permissions - Azure API for FHIR Default](media/public-client-app/api-permissions.png)
+    ![Azure portal. New public API permissions - Azure API for FHIR Default](media/public-client-application/api-permissions.png)
 
 
 2. Select the permissions that you would like the application to be able to request:
-    ![Azure portal. App permissions](media/public-client-app/app-permissions.png)
+    ![Azure portal. App permissions](media/public-client-application/app-permissions.png)
 
 ## Validate FHIR server authority
 If the application you registered in this article and your FHIR server are in the same Azure AD tenant, you are good to proceed to the next steps.
 
-If you configure your client application in a different Azure AD tenant from your FHIR server, you will need to update the **Authority**. In Azure API for FHIR, you do set the Authority under Settings --> Authentication. Set your Authority to **https://login.microsoftonline.com/\<TENANT-ID>**.
+If you configure your client application in a different Azure AD tenant from your FHIR server, you will need to update the **Authority**. In Azure API for FHIR, you do set the Authority under Settings --> Authentication. Set your Authority to ``https://login.microsoftonline.com/\<TENANT-ID>`.
 
 ## Next steps
 

@@ -4,19 +4,22 @@ description: This article describes how to configure Azure RBAC for FHIR.
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 07/21/2021
+ms.date: 08/03/2021
 ms.author: zxue
 ---
 
 # Configure Azure RBAC for the FHIR service
 
-In this article, you'll learn how to use [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/) to assign access to the Healthcare APIs data plane. Azure RBAC is the preferred methods for assigning data plane access when data plane users are managed in the Azure Active Directory tenant associated with your Azure subscription. 
+> [!IMPORTANT]
+> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+In this article, you'll learn how to use [Azure role-based access control (Azure RBAC)](../../role-based-access-control/index.yml) to assign access to the Healthcare APIs data plane. Azure RBAC is the preferred methods for assigning data plane access when data plane users are managed in the Azure Active Directory tenant associated with your Azure subscription. 
 
 ## Assign roles
 
 To grant users, service principals, or groups access to the FHIR data plane, select the FHIR service from the Azure portal. Select **Access control (IAM)**, and then select the **Role assignments** tab. Select **+Add**, and then select **Add role assignment**.
  
-If the role assignment option is grayed out, ask your Azure subscription administrator to grant you with the permissions to the subscription or the resource group, for example, “User Access Administrator”. For more information about the Azure built-in roles, see [Azure built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+If the role assignment option is grayed out, ask your Azure subscription administrator to grant you with the permissions to the subscription or the resource group, for example, “User Access Administrator”. For more information about the Azure built-in roles, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
 [ ![Access control role assignment.](media/rbac/role-assignment.png) ](media/rbac/role-assignment.png#lightbox)
 
@@ -47,7 +50,3 @@ In this article, you've learned how to assign Azure roles for the FHIR data plan
 
 >[!div class="nextstepaction"]
 >[Access FHIR service with Postman](using-postman.md)
-
-
-
-

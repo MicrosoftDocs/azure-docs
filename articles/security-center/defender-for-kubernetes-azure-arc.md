@@ -100,7 +100,7 @@ A dedicated recommendation in Azure Security Center provides:
 
     | Property | Description |
     |----------|-------------|
-    | logAnalyticsWorkspaceResourceID | **Optional**. Full resource ID of your own Log Analytics workspace.<br>When not provided, the default workspace of the region will be used.<br><br>To get the full resource ID, run the following command to display the list of workspaces in your subscriptions in the default JSON format:<br>```az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json```<br><br>The Log Analytics workspace resource ID has the following syntax:<br>/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.OperationalInsights/workspaces/{your-workspace-name}. <br>Learn more in [Log Analytics workspaces](../azure-monitor/logs/data-platform-logs.md#log-analytics-workspaces) |
+    | logAnalyticsWorkspaceResourceID | **Optional**. Full resource ID of your own Log Analytics workspace.<br>When not provided, the default workspace of the region will be used.<br><br>To get the full resource ID, run the following command to display the list of workspaces in your subscriptions in the default JSON format:<br>```az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json```<br><br>The Log Analytics workspace resource ID has the following syntax:<br>/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.OperationalInsights/workspaces/{your-workspace-name}. <br>Learn more in [Log Analytics workspaces](../azure-monitor/logs/data-platform-logs.md#log-analytics-and-workspaces) |
     | auditLogPath |**Optional**. The full path to the audit log files.<br>When not provided, the default path ``/var/log/kube-apiserver/audit.log`` will be used.<br>For AKS Engine, the standard path is ``/var/log/kubeaudit/audit.log`` |
 
     The below command shows an example usage of all optional fields:
@@ -113,7 +113,7 @@ A dedicated recommendation in Azure Security Center provides:
 
 ### Use Azure Resource Manager to deploy the Azure Defender extension
 
-To use Azure Resource Manager to deploy the Azure Defender extension, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../azure-monitor/logs/data-platform-logs.md#log-analytics-workspaces).
+To use Azure Resource Manager to deploy the Azure Defender extension, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../azure-monitor/logs/data-platform-logs.md#log-analytics-and-workspaces).
 
 You can use the **azure-defender-extension-arm-template.json** Resource Manager template from Security Center's [installation examples](https://aka.ms/kubernetes-extension-installation-examples).
 
@@ -124,7 +124,7 @@ You can use the **azure-defender-extension-arm-template.json** Resource Manager 
 
 ### Use REST API to deploy the Azure Defender extension 
 
-To use the REST API to deploy the Azure Defender extension, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../azure-monitor/logs/data-platform-logs.md#log-analytics-workspaces).
+To use the REST API to deploy the Azure Defender extension, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../azure-monitor/logs/data-platform-logs.md#log-analytics-and-workspaces).
 
 > [!TIP]
 > The simplest way to use the API to deploy the Azure Defender extension is with the supplied **Postman Collection JSON** example from Security Center's [installation examples](https://aka.ms/kubernetes-extension-installation-examples).
