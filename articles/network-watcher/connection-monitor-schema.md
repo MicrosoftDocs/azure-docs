@@ -116,7 +116,7 @@ The following table lists the fields in the Connection Monitor Path data schema 
 | MinRoundTripTimeMs	| The minimum round-trip time (in milliseconds) for the test |
 | MaxRoundTripTimeMs	| The maximum round-trip time for the test |
 | AvgRoundTripTimeMs	| The average round-trip time for the test |
-| JitterMs	| The mean deviation roundtrip time for the test |
+| JitterMs	| The mean deviation round-trip time for the test |
 | HopAddresses | The hop addresses identified for the test |
 | HopTypes	| The hop types identified for the test |
 | HopLinkTypes	| The hop link types identified for the test |
