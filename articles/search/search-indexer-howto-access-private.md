@@ -52,7 +52,7 @@ In the remainder of this article, a mix of Azure portal (or the [Azure CLI](/cli
 
 ## Set up indexer connection through private endpoint
 
-Follow the below instructions to set up an indexer connection through a private endpoint to a secure Azure resource.
+Use the following instructions to set up an indexer connection through a private endpoint to a secure Azure resource.
 
 The examples in this article are based on the following assumptions:
 * The name of the search service is _contoso-search_, which exists in the _contoso_ resource group of a subscription with subscription ID _00000000-0000-0000-0000-000000000000_. 
@@ -64,19 +64,19 @@ The steps for restricting access varies by resource. The following scenarios sho
 
 - Scenario 1: Data source
 
-    Below is an example of how to configure an Azure storage account. If you select this option and leave the page empty, it means that no traffic from virtual networks is allowed.
+    The following is an example of how to configure an Azure storage account. If you select this option and leave the page empty, it means that no traffic from virtual networks is allowed.
 
     ![Screenshot of the "Firewalls and virtual networks" pane for Azure storage, showing the option to allow access to selected networks.](media\search-indexer-howto-secure-access\storage-firewall-noaccess.png)
 
 - Scenario 2: Azure Key Vault
 
-    Below is an example of how to configure Azure Key Vault.
+    The following is an example of how to configure Azure Key Vault.
  
     ![Screenshot of the "Firewalls and virtual networks" pane for Azure Key Vault, showing the option to allow access to selected networks.](media\search-indexer-howto-secure-access\key-vault-firewall-noaccess.png)
     
 - Scenario 3: Azure Functions
 
-    No network setting changes are needed for Azure Functions. Later in the steps below when you create the shared private endpoint the Function will automatically only allow access through private link after the creation of a shared private endpoint to the Function.
+    No network setting changes are needed for Azure Functions. Later in the following steps, when you create the shared private endpoint the Function will automatically only allow access through private link after the creation of a shared private endpoint to the Function.
 
 ### Step 2: Create a shared private link resource to the Azure resource
 
@@ -85,7 +85,7 @@ The following section describes how to create a shared private link resource eit
 #### Option 1: Portal
 
 > [!NOTE]
-> The portal only supports creating a shared private endpoint using group ID values that are GA. For MySQL and Azure Functions, use the Azure CLI steps described in option 2 below.
+> The portal only supports creating a shared private endpoint using group ID values that are GA. For MySQL and Azure Functions, use the Azure CLI steps described in option 2, which follows.
 
 To request Azure Cognitive Search to create an outbound private endpoint connection, via the Shared Private Access blade, click on "Add Shared Private Access". On the blade that opens on the right, you can choose to "Connect to an Azure resource in my directory" or "Connect to an Azure resource by resource ID or alias".
 
@@ -105,7 +105,7 @@ Alternatively, you can make the following API call with the [Azure CLI](/cli/azu
 az rest --method put --uri https://management.azure.com/subscriptions/<search service subscription ID>/resourceGroups/<search service resource group name>/providers/Microsoft.Search/searchServices/<search service name>/sharedPrivateLinkResources/<shared private endpoint name>?api-version=2020-08-01 --body @create-pe.json
 ```
 
-Below is an example of the contents of the *create-pe.json* file:
+The following is an example of the contents of the *create-pe.json* file:
 
 ```json
 {
@@ -135,7 +135,7 @@ In this step you'll confirm that the provisioning state of the resource changes 
 > [!NOTE]
 > The provisioning state will be visible in the portal for both GA and group IDs that are in preview.
 
-The portal will show you the state of the shared private endpoint. In the below example the status is "Updating".
+The portal will show you the state of the shared private endpoint. In the following example the status is "Updating".
 
 ![Screenshot of the "Add Shared Private Access" pane, showing the resource creation in progress. ](media\search-indexer-howto-secure-access\new-shared-private-link-resource-progress.png)
 
@@ -162,7 +162,7 @@ az rest --method get --uri https://management.azure.com/subscriptions/00000000-0
 >
 > Other providers, such as Azure Cosmos DB or Azure SQL Server, offer similar storage resource provider APIs for managing private endpoint connections.
 
-1. In the Azure portal, navigate to the Azure resource that you're connecting to and select the **Networking** tab. Then navigate to the section that lists the private endpoint connections. Below is an example for a storage account. After the asynchronous operation has succeeded, there should be a request for a private endpoint connection with the request message from the previous API call.
+1. In the Azure portal, navigate to the Azure resource that you're connecting to and select the **Networking** tab. Then navigate to the section that lists the private endpoint connections. Following is an example for a storage account. After the asynchronous operation has succeeded, there should be a request for a private endpoint connection with the request message from the previous API call.
 
    ![Screenshot of the Azure portal, showing the "Private endpoint connections" pane.](media\search-indexer-howto-secure-access\storage-privateendpoint-approval.png)
 
@@ -186,7 +186,7 @@ Alternatively you can also obtain the "Connection state" by using the [GET API](
 az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01
 ```
 
-This would return a JSON, where the connection state would show up as "status" under the "properties" section. Below is an example for a storage account.
+This would return a JSON, where the connection state would show up as "status" under the "properties" section. Following is an example for a storage account.
 
 ```json
 {
@@ -210,7 +210,7 @@ If the "Provisioning State" (`properties.provisioningState`) of the resource is 
 > [!NOTE]
 > You can perform this step before the private endpoint connection is approved. Until the private endpoint connection is approved, any indexer that tries to communicate with a secure resource (such as the storage account) will end up in a transient failure state. New indexers will fail to be created. As soon as the private endpoint connection is approved, indexers can access the private storage account.
 
-The below steps show how to configure the indexer to run in the private environment using the REST API. You can also set the execution environment using the JSON editor in the portal.
+The following steps show how to configure the indexer to run in the private environment using the REST API. You can also set the execution environment using the JSON editor in the portal.
 
 1. Create the data source definition, index, and skillset (if you're using one) as you would normally. There are no properties in any of these definitions that vary when using a shared private endpoint.
 
@@ -230,7 +230,7 @@ The below steps show how to configure the indexer to run in the private environm
     }
     ```
 
-    Below is an example of the request in Postman.
+    Following is an example of the request in Postman.
     
     ![Screenshot showing the creation of an indexer on the Postman user interface.](media\search-indexer-howto-secure-access\create-indexer.png)    
 
