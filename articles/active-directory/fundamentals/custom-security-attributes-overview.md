@@ -1,5 +1,5 @@
 ---
-title: What are custom security attributes in Azure AD? (Preview)
+title: What are custom security attributes in Azure AD? (Preview) - Azure Active Directory
 description: Learn about custom security attributes in Azure Active Directory.
 services: active-directory
 author: rolyon
@@ -39,8 +39,14 @@ Custom security attributes is a feature of Azure Active Directory (Azure AD) tha
 - Available tenant-wide​
 - Include a description
 - Support different data types: Boolean, integer, string​
-- Support predefined or free-form values​
-- Support single or multi-valued​
+- Support single value or multiple values
+- Support user-defined free-form values​ or predefined values
+
+The following example shows how you can specify values that are single, multiple, free-form, or predefined.
+
+![Custom security attribute examples assigned to a user.](./media/custom-security-attributes-overview/attribute-values-examples.png)
+
+![Custom security attribute examples assigned to a user.](./media/custom-security-attributes-overview/attribute-values-multiple-predefined.png)
 
 ## Objects that support custom security attributes
 
@@ -79,13 +85,16 @@ To better understand custom security attributes, you can refer back to the follo
 
 ## Custom security attribute properties
 
-The following table lists the properties you can specify for a custom security attribute. Some properties are immutable and cannot be changed later.
+The following table lists the properties you can specify for custom security attribute sets and custom security attributes. Some properties are immutable and cannot be changed later.
 
 | Property | Required | Can be changed later | Description |
 | --- | --- | --- | --- |
+| Attribute set name  | :heavy_check_mark: |  | Name of the custom security attribute set. |
+| Attribute set description |  | :heavy_check_mark: | A short description of the custom security attribute. |
+| Maximum number of attributes |  | :heavy_check_mark: | Maximum number of custom security attributes for the custom security attribute set. |
 | Attribute set | :heavy_check_mark: |  | A group of related custom security attributes. Every custom security attribute must be part of a custom security attribute set. |
 | Attribute name  | :heavy_check_mark: |  | Name of the custom security attribute. |
-| Description |  | :heavy_check_mark: | A short description of the custom security attribute. |
+| Attribute description |  | :heavy_check_mark: | A short description of the custom security attribute. |
 | Data type | :heavy_check_mark: |  | The data type for the custom security attribute values (Boolean, integer, or string). |
 | Allow multiple values to be assigned | :heavy_check_mark: |  | Indicates whether multiple values can be assigned to the custom security attribute. |
 | Only allow predefined values to be assigned | :heavy_check_mark: |  | Indicates whether only predefined values can be assigned to the custom security attribute. Can later be changed from Yes to No, but cannot be changed from No to Yes. |
@@ -100,12 +109,13 @@ Here are some of the limits and constraints for a custom security attributes.
 > [!div class="mx-tableFixed"]
 > | Resource | Limit |
 > | --- | --- |
-> | Custom security attributes in a custom security attribute set | 500 |
-> | Custom security attribute name | 32 characters long including unicode characters |
+> | Custom security attribute set name | 32 characters long including Unicode characters |
+> | Custom security attribute set description | 128 characters |
+> | Maximum number of custom security attributes in a custom security attribute set | 500 |
+> | Custom security attribute name | 32 characters long including Unicode characters |
 > | Custom security attribute description | 128 characters |
-> | Custom security ttribute set name | 32 characters long including unicode characters |
-> | Number of predefined values per custom security attribute | 100 |
-> | Number of custom security attribute values that can assigned per security principal (values can be distributed across single and multi-valued custom security attributes) | 50 |
+> | Maximum number of predefined values per custom security attribute | 100 |
+> | Maximum number of custom security attribute values that can assigned per security principal (values can be distributed across single and multi-valued custom security attributes) | 50 |
 
 ## Azure AD roles
 
@@ -117,8 +127,7 @@ Azure AD provides built-in roles to work with custom security attributes. The At
 > | Attribute Definition Administrator | Manage attribute sets in the catalog<br/>Manage security attribute definitions |
 > | Attribute Definition Reader | Read attribute set in the catalog<br/>Read security attribute definitions |
 > | Attribute Assignment Administrator | Read attribute set in the catalog<br/>Read security attribute definitions<br/>Read security attributes values for devices<br/>Manage security attributes values for devices<br/>Read security attributes values for service principals<br/>Manage security attributes values for service principals<br/>Read security attributes values for users<br/>Manage security attributes values for users |
-> | Attribute Assignment Reader | Read attribute set in the catalog<br/>Read security attribute definitions
-Read security attributes values for devices<br/>Read security attributes values for service principals<br/>Read security attributes values for users |
+> | Attribute Assignment Reader | Read attribute set in the catalog<br/>Read security attribute definitions<br/>Read security attributes values for devices<br/>Read security attributes values for service principals<br/>Read security attributes values for users |
 
 > [!IMPORTANT]
 > [Global Administrator](../roles/permissions-reference.md#global-administrator) and [Global Reader](../roles/permissions-reference.md#global-reader) do not have permissions to read or manage custom security attributes. To work with custom security attributes, you must be assigned one of these roles.
