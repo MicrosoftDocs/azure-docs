@@ -32,91 +32,117 @@ Before getting started, you should have the following prerequisites completed be
 1. In the [Azure portal](https://portal.azure.com), browse to the **Resource group** page.
 2. Select the name of your Healthcare APIs workspace.
 
-   [ ![Select workspace resource group](media/select-workspace-resource-group.png) ](media/select-workspace-resource-group.png#lightbox)
+   [ ![Select workspace resource group.](media/select-workspace-resource-group.png) ](media/select-workspace-resource-group.png#lightbox)
 
-3. Select **Deploy IoT Connectors**, or select the **IoT Connector** blade.
+3. Select the **IoT Connector** blade.
 
-   [ ![IoT Connector](media/iot-connector-blade.png) ](media/iot-connector-blade.png#lightbox)
+   [ ![IoT Connector.](media/iot-connector-blade.png) ](media/iot-connector-blade.png#lightbox)
 
 4. Next, select **Add IoT Connector**.
 
    [ ![Add IoT Connector](media/add-iot-connector.png) ](media/add-iot-connector.png#lightbox)
 
+   Proceed to the next section to configure the properties of the IoT Connector.
+
 ## Configure IoT Connector to ingest data
 
-1. Under the **Basics** tab, enter the Instance Details.
+1. Under the **Basics** tab, enter the **Instance Details**.
 
-   [ ![IoT configure instance details](media/basics-instance-details.png) ](media/basics-instance-details.png#lightbox)
+   [ ![IoT configure instance details.](media/basics-instance-details.png) ](media/basics-instance-details.png#lightbox)
 
-2. Enter a name for the IoT Connector.
+2. Enter the **IoT Connector name**.
 
-3. Enter a name of the Azure Event Hub.
+3. Enter the **Event Hub name**.
 
-   The Event Hub name is also known as the Host Name and is obtained when you select the **Events** blade.
+   The Event Hub name is located by selecting the name of the **Event Hubs Instance** in the **Azure Recent resources** page. 
 
-   [ ![Event hub name](media/event-hub-hostname.png) ](media/event-hub-hostname.png#lightbox)
+   [ ![Event hub name.](media/event-hub-hostname.png) ](media/event-hub-hostname.png#lightbox)
 
    For information about Azure event hubs, see [Quickstart: Create an event hub using Azure portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create#create-an-event-hubs-namespace).
 
-4. Enter a name for the Consumer Group.
+4. Enter the **Consumer Group**.
 
-   The Consumer Group name is located in your Event Hub namespace by selecting the **Consumer group** blade.
+   The Consumer Group name is located by selecting the name of the Event Hubs instance in the **Azure Recent resources** page and by selecting the **Consumer groups** blade.
 
-   [ ![Consumer group  name](media/consumer-group-name.png) ](media/consumer-group-name.png#lightbox)
+   [ ![Consumer group  name.](media/consumer-group-name.png) ](media/consumer-group-name.png#lightbox)
 
    For information about Consumer Groups,  see [Features and terminology in Azure Event Hubs](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#event-consumers).
 
 5. Enter the name of the **Fully Qualified Namespace**.
 
-   A Fully Qualified Namespace is the **Host name** located on the **Event Hubs Overview** page. 
+    The **Fully Qualified Namespace** is the **Host name** located on the **Event Hubs Overview** page.  
 
-   For more information about Event Hub namespaces, see [Namespace](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#namespace) in the Features and terminology in Azure Event Hubs document].
+    Before you select **Review + Create**, you must configure the **Destination** properties because they’re required fields for creating and deploying an IoT Connector.
 
-6. To review and create the IoT Connector, select **Review + create**, or select **Next: Destination >**. To enter the destination mapping properties associated with the IoT Connector, refer to the instructions in the following section. 
+    For more information about Event Hub namespaces, see [Namespace](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#namespace) in the Features and terminology in Azure Event Hubs document.
+
+6. (Optional) Select **Next: Destination >**. 
+
+   The Device Mapper is a tool to visualize the mapping configuration for normalizing a device's input data, and then transform it to FHIR resources. Developers can use this tool to edit and test devices, FHIR mappings, and export the data to upload to an IoT Connector in the Azure portal. This tool also helps developers understand their device's mapping configurations. 
 
 ## Configure destination mapping properties
 
 1. Under the **Destination** tab, enter the destination mapping properties associated with the IoT Connector.
 
-   [ ![Configure destination properties](media/configure-destination-properties.png) ](media/configure-destination-properties.png#lightbox)
+   [ ![Configure destination properties.](media/configure-destination-properties.png) ](media/configure-destination-properties.png#lightbox)
 
 2. Enter the name of the **FHIR Server**.
 
+   The **FHIR Server** (also known as the **FHIR service**) name is located by selecting the name of your FHIR service in the **Azure Recent resources** page. In the **FHIR service Overview** page, select the **Properties** blade. Copy and paste the **Resource ID** string to the **FHIR Server** text field.
+
+    [ ![Enter FHIR server name.](media/fhir-service-resource-id.png) ](media/fhir-service-resource-id.png#lightbox) 
+
 3. Enter the **Destination Name**.
+
+   The **Destination Name** is a friendly name of the app. Enter a unique name for your app. As an example, you can name it `iotmedicdevice`.
 
 4. Select **Create** or **Lookup** for the **ResolutionType**.
 
-5. Under **Destination Mapping**, enter the JSON code inside the code editor.
-For more information about the Mapper Tool, see [IoMT Connector Data Mapper Tool](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper).
+   When you select **Look up**, this option allows you to select from a list if you have more IoT connectors created. The lookup feature looks for the destination maps of the other apps that have been previously created.
 
-6.To review and create the IoT Connector, select **Review + create**, or select **Next: Device Mapping >**. 
-To enter the device mapping properties associated with the IoT Connector, refer to the instructions in the following section.
+
+5. Under **Destination Mapping**, enter the JSON code inside the code editor.
+
+   For information about the Mapper Tool, see [IoMT Connector Data Mapper Tool.](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper).
+
+6. You may select **Review + create**, or you can select **Next: Device Mapping >**. 
+
+   To enter the device mapping properties associated with the IoT Connector, refer to the instructions in the next section.
 
 ## Configure device mapping properties
 
-1. Under the **Device Mapping** tab, enter the device mapping JSON code associated with the IoT Connector.
+1. (Optional) Under the **Device Mapping** tab, enter the device mapping JSON code associated with the IoT Connector.
 
-   [ ![Configure device mapping](media/configure-device-mapping.png) ](media/configure-device-mapping.png#lightbox)
-2. To review and create the IoT Connector, select **Review + create**, or select **Next: Tags >**. 
+   [ ![Configure device mapping.](media/configure-device-mapping.png) ](media/configure-device-mapping.png#lightbox)
 
-To enter the tagging properties associated with the IoT Connector, refer to the instructions in the following section.
+2. Select **Review + create**, or select **Next: Tags >** to configure the tagging properties associated with the IoT Connector. 
 
 ## Configure tags
 
 1. Under the **Tags** tab, enter the tag properties associated with the IoT Connector.
 
-   [ ![Tag properties](media/tag-properties.png) ](media/tag-properties.png#lightbox)
+   [ ![Tag properties.](media/tag-properties.png) ](media/tag-properties.png#lightbox)
 
+   Tags are name and value pairs used for categorizing resources. For information about tags, see [Use tags to organize your Azure resources and management hierarchy](../../azure-resource-manager/management/tag-resources.md).
+ 
 2. Enter a **Name**.
 3. Enter a **Value**.
 4. Select **Review + create**.
-5. When you notice the green validation checkmark, select **Create** to deploy the IoT Connector.
+5. You should notice a **Validation success** message as shown in the sample image below. 
 
-Tags are name/value pairs used for categorizing resources. For more information about tags, see [Use tags to organize your Azure resources and management hierarchy](../../azure-resource-manager/management/tag-resources.md).
+   [ ![Validation success message.](media/iot-connector-validation-success.png) ](media/iot-connector-validation-success.png#lightbox) 
+ 
+   If your IoT Connector didn’t validate, review the validation failure message, and troubleshoot the issue. It’s recommended that you review the properties under each IoT Connector tab that you configured.
+
+6. Select **Create**.
+
+   The newly deployed IoT Connector will appear in the list of **Azure Recent resources**.
+
+   [ ![Deployed IoT Connector listed in the Azure Recent resources list.](media/azure-resources-iot-connector-deployed.png) ](media/azure-resources-iot-connector-deployed.png#lightbox)  
 
 ## Next steps
 
-In this article, you've learned how to deploy an IoT Connector in the Azure portal.  For an overview of the IoT Connector, see
+In this article, you've learned how to deploy an IoT Connector in the Azure portal. For an overview of the IoT Connector, see
 
 >[!div class="nextstepaction"]
 >[IoT Connector overview](iot-connector-overview.md)
