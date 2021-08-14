@@ -113,7 +113,7 @@ Now that you've given the Purview Managed Identity permissions to connect to the
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan.png" alt-text="Save and run Power BI screen image":::
 
-## Register and scan a cross-tenant Power BI
+## Register and scan a cross-tenant Power BI 
 
 In a cross-tenant scenario, you can use PowerShell to register and scan your Power BI tenants. You can browse, and search assets of remote tenant using Azure Purview Studio through the UI experience. 
 
