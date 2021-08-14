@@ -71,7 +71,7 @@ If you are new to Azure or unfamiliar with any of the services previously mentio
 ## Enable Azure Update Management
 
 
-1.  Before you can add Log Analytics to Azure Update Management, you first need to [Create an Azure Automation account](../automation/automation-create-standalone-account.md). 
+1. Before you can add Log Analytics to Azure Update Management, you first need to [Create an Azure Automation account](../automation/automation-create-standalone-account.md). 
 
    >[!TIP]
    >You can [use an Azure Resource Manager (ARM) template to create an Automation account](../automation/quickstart-create-automation-account-template.md). Using an ARM template takes fewer steps compared to other deployment methods.
