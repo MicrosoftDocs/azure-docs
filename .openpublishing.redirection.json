@@ -28465,6 +28465,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/storage/blobs/storage-blob-rehydration.md",
+      "redirect_url": "/azure/storage/blobs/archive-rehydrate-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/storage/blobs/data-lake-storage-quickstart-create-account.md",
       "redirect_url": "/azure/storage/common/storage-account-create",
       "redirect_document_id": false
