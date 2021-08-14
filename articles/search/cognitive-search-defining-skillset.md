@@ -71,7 +71,7 @@ After the name and description, a skillset has four main properties:
 
 ## Add a skills array
 
-The skills array specifies which skills to execute. The following example introduces you to its composition by showing you two unrelated, built-in skills. Each skill has a type, context, inputs, and outputs. 
+Within a skillset definition, the skills array specifies which skills to execute. The following example introduces you to its composition by showing you two unrelated, built-in skills. Notice that each skill has a type, context, inputs, and outputs. 
 
 ```json
 "skills":[
@@ -117,7 +117,7 @@ The skills array specifies which skills to execute. The following example introd
 
 ### How built-in skills are structured
 
-Each built-in skill is unique in terms of its input values and the parameters it takes. The documentation for each skill describes all of the properties of a given skill. Although there are difference, most skills share a common set of parameters and are similarly patterned. To illustrate several points, the [Entity Recognition skill](cognitive-search-skill-entity-recognition-v3.md) provides an example:
+Each skill is unique in terms of its input values and the parameters it takes. The documentation for each skill describes all of the properties of a given skill. Although there are difference, most skills share a common set of parameters and are similarly patterned. To illustrate several points, the [Entity Recognition skill](cognitive-search-skill-entity-recognition-v3.md) provides an example:
 
 ```json
 {
@@ -210,33 +210,15 @@ Output, in this case a company description, is generated for each organization i
 
 As each skill executes, its output is added as nodes in a document's enrichment tree. Enriched documents exist in the pipeline as temporary data structures. For full visibility into what a skill is actually producing from your content, you will need to send the output to persistent storage in a search index or a [knowledge store](knowledge-store-concept-intro.md).
 
-If you are evaluating how well the skill performs against your content, the search index is simpler to set up. For each skill output, [define an output field mapping](cognitive-search-output-field-mapping.md) in the indexer, and a field in the index.
+In the early stages of skillset evaluation, you'll want to check results with minimal effort. The search index is simpler to set up. For each skill output, [define an output field mapping](cognitive-search-output-field-mapping.md) in the indexer, and a field in the index.
 
 :::image type="content" source="media/cognitive-search-defining-skillset/skillset-indexer-index-combo.png" alt-text="Object diagram showing how a persons entity is defined in skill output, indexer field mapping, and index field":::
 
 After running the indexer, you can use [Search Explorer](search-explorer.md) to return documents from the index and check the contents of each field to determine what the skillset detected or created.
 
-The following example shows the results of an entity recognition skill that detected persons, locations, organizations, and other entities in a chunk of text. Viewing the results in Search Explorer can help you determine whether a skill is adding value.
+The following example shows the results of an entity recognition skill that detected persons, locations, organizations, and other entities in a chunk of text. Viewing the results in Search Explorer can help you determine whether a skill adds value to your solution.
 
 :::image type="content" source="media/cognitive-search-defining-skillset/doc-in-search-explorer.png" alt-text="A document in Search Explorer":::
-
-<!-- For example, consider the following example of unstructured text:
-
-*"In its fourth quarter, Microsoft logged $1.1 billion in revenue from LinkedIn, the social networking company it bought last year. The acquisition enables Microsoft to combine LinkedIn capabilities with its CRM and Office capabilities. Stockholders are excited with the progress so far."*
-
-Using the sentiment analyzer and entity recognition, a likely outcome would be a generated structure similar to the following illustration:
-
-![Sample output structure](media/cognitive-search-defining-skillset/enriched-doc.png "Sample output structure")
-
-To persist the enrichments for consumption outside of the pipeline, follow one or more these approaches:
-
-+ Map skill outputs to [fields in a search index](cognitive-search-output-field-mapping.md)
-+ Map skill outputs to [data shapes](knowledge-store-projection-shape.md) for subsequent [projection into a knowledge store](knowledge-store-projections-examples.md)
-+ Send whole, enriched documents to blob storage via knowledge store
-
-You can also [cache enrichments](cognitive-search-incremental-indexing-conceptual.md), but the storage and format is not intended to be human-readable. -->
-
-<a name="next-step"></a>
 
 ## Next steps
 
