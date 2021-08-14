@@ -22,9 +22,11 @@ Automanage for Windows Server Services brings new capabilities specifically to _
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+> [!NOTE]
+> Hotpatch (preview) capabilities can be evaluated on _Windows Server 2022 Datacenter: Azure Edition (Core) Preview_.  Hotpatch on _Windows Server 2019 Datacenter: Azure Edition Preview_ is no longer available to evaluate.
+
 Automanage for Windows Server capabilities can be found in one or more of these _Windows Server Azure Edition_ images: 
 
-- Windows Server 2019 Datacenter: Azure Edition (Core)
 - Windows Server 2022 Datacenter: Azure Edition (Desktop Experience)
 - Windows Server 2022 Datacenter: Azure Edition (Core)
 
@@ -36,7 +38,6 @@ Capabilities vary by image, see [getting started](#getting-started-with-windows-
 
 Hotpatch is available in public preview on the following images:
 
-- Windows Server 2019 Datacenter: Azure Edition (Core)
 - Windows Server 2022 Datacenter: Azure Edition (Core)
 
 Hotpatch gives you the ability to apply security updates on your VM without rebooting.  Additionally, Automanage for Windows Server automates the onboarding, configuration, and orchestration of Hotpatching.  To learn more, see [Hotpatch](automanage-hotpatch.md).  
@@ -68,7 +69,6 @@ It's important to consider up front, which Automanage for Windows Server capabil
 
 |Image|Capabilities|
 |--|--|
-| Windows Server 2019 Datacenter: Azure Edition (Core) | Hotpatch | 
 |Windows Server 2022  Datacenter: Azure Edition (Desktop experience) | SMB over QUIC, Extended Network | 
 | Windows Server 2022 Datacenter: Azure Edition (Core) | Hotpatch, SMB over QUIC, Extended Network | 
 

@@ -24,7 +24,6 @@ Automanage supports the following Windows Server versions:
 - Windows Server 2012/R2
 - Windows Server 2016
 - Windows Server 2019
-- Windows Server 2019 Azure Edition
 - Windows Server 2022
 - Windows Server 2022 Azure Edition
 
