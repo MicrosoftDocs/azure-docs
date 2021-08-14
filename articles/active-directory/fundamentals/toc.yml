@@ -107,6 +107,8 @@
       href: active-directory-licensing-whatis-azure-portal.md
     - name: Default user permissions
       href: users-default-permissions.md
+  - name: Custom security attributes
+    href: custom-security-attributes-overview.md
   - name: Architecture
     items:
     - name: Azure AD architecture
