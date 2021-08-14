@@ -22,7 +22,7 @@ Connection Monitor provides unified end-to-end connection monitoring in Azure Ne
 
 Here are some use cases for Connection Monitor:
 
-- Your front-end web server virtual machine (VM) communicates with a database server VM in a multitier application. You want to check network connectivity between the two VMs.
+- Your front-end web server virtual machine (VM) communicates with a database server VM in a multiple-tier application. You want to check network connectivity between the two VMs.
 - You want VMs in the East US region to ping VMs in the Central US region, and you want to compare cross-region network latencies.
 - You have multiple on-premises office sites in Seattle, Washington, and in Ashburn, Virginia. Your office sites connect to Microsoft 365 URLs. For your users of Microsoft 365 URLs, compare the latencies between Seattle and Ashburn.
 - Your hybrid application needs connectivity to an Azure Storage endpoint. Your on-premises site and your Azure application connect to the same Azure Storage endpoint. You want to compare the latencies of the on-premises site to the latencies of the Azure application.
@@ -37,7 +37,7 @@ Here are some benefits of Connection Monitor:
 * Support for connectivity checks that are based on HTTP, TCP, and ICMP 
 * Metrics and Log Analytics support for both Azure and non-Azure test setups
 
-There are two types of logs or data ingested into Log Analytics. The Test data (NWConnectionMonitorTestResult query) is updated based on monitoring frequency of a particular test group. The Path data (NWConnectionMonitorPathResult query) is updated when there is significant change in loss percentage or round trip time. Therefore, for some time duration test data might keep getting updated while path data is not frequently updated, because both are independent.
+There are two types of logs or data ingested into Log Analytics. The test data (NWConnectionMonitorTestResult query) is updated based on monitoring frequency of a particular test group. The path data (NWConnectionMonitorPathResult query) is updated when there is significant change in loss percentage or round-trip time. For some time durations, test data might keep getting updated while path data is not frequently updated, because both are independent.
 
 ## Connection Monitor Tests schema
 
@@ -71,11 +71,11 @@ The following table lists the fields in the Connection Monitor Tests data schema
 | TestResult	| The result of the test |
 | TestResultCriterion	| The result criterion of the test |
 | ChecksFailedPercentThreshold	| The checks failed percent threshold set for the test |
-| RoundTripTimeMsThreshold	| The round trip threshold (in milliseconds) set for the test |
-| MinRoundTripTimeMs	| The minimum round trip time (in milliseconds) for the test |
-| MaxRoundTripTimeMs	| The maximum round trip time for the test |
-| AvgRoundTripTimeMs	| The average round trip time for the test |
-| JitterMs	| The mean deviation round trip time for the test |
+| RoundTripTimeMsThreshold	| The round-trip threshold (in milliseconds) set for the test |
+| MinRoundTripTimeMs	| The minimum round-trip time (in milliseconds) for the test |
+| MaxRoundTripTimeMs	| The maximum round-trip time for the test |
+| AvgRoundTripTimeMs	| The average round-trip time for the test |
+| JitterMs	| The mean deviation round-trip time for the test |
 | AdditionalData	| The additional data for the test |
 
 
@@ -112,11 +112,11 @@ The following table lists the fields in the Connection Monitor Path data schema 
 | PathTestResult	| The result of the test |
 | PathResultCriterion	| The result criterion of the test | 
 | ChecksFailedPercentThreshold	| The checks failed percent threshold set for the test |
-| RoundTripTimeMsThreshold	| The round trip threshold (in milliseconds) set for the test |
-| MinRoundTripTimeMs	| The minimum round trip time (in milliseconds) for the test |
-| MaxRoundTripTimeMs	| The maximum round trip time for the test |
-| AvgRoundTripTimeMs	| The average round trip time for the test |
-| JitterMs	| The mean deviation round trip time for the test |
+| RoundTripTimeMsThreshold	| The round-trip threshold (in milliseconds) set for the test |
+| MinRoundTripTimeMs	| The minimum round-trip time (in milliseconds) for the test |
+| MaxRoundTripTimeMs	| The maximum round-trip time for the test |
+| AvgRoundTripTimeMs	| The average round-trip time for the test |
+| JitterMs	| The mean deviation roundtrip time for the test |
 | HopAddresses | The hop addresses identified for the test |
 | HopTypes	| The hop types identified for the test |
 | HopLinkTypes	| The hop link types identified for the test |
