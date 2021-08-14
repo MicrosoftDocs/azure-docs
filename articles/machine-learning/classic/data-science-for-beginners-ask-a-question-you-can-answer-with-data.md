@@ -12,7 +12,7 @@ ms.date: 03/22/2019
 ---
 # Ask a question you can answer with data
 
-[!INCLUDE [ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)]
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 ## Video 3: Data Science for Beginners series
 
