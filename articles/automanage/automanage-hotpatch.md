@@ -19,7 +19,7 @@ ms.custom: devx-track-azurepowershell
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!NOTE]
-> Hotpatch (preview) capabilities can be evaluated on _Windows Server 2022 Datacenter: Azure Edition (Core) Preview_.  Hotpatch on _Windows Server 2019 Datacenter: Azure Edition Preview_ is no longer available to evaluate.
+> Hotpatch can be evaluated on _Windows Server 2022 Datacenter: Azure Edition (Core) Preview_.  Hotpatch on _Windows Server 2019 Datacenter: Azure Edition Preview_ is no longer available to evaluate.
 
 Hotpatching is a new way to install updates on supported _Windows Server Azure Edition_ virtual machines (VMs) that doesn’t require a reboot after installation. This article covers information about Hotpatch for supported _Windows Server Azure Edition_ VMs, which has the following benefits:
 * Lower workload impact with less reboots
@@ -213,7 +213,7 @@ There are some important considerations to running a supported _Windows Server A
 
 ### Can I upgrade from my existing Windows Server OS?
 
-* Upgrading from existing versions of Windows Server (such as Windows Server 2016 or Windows Server 2019) to _Windows Server 2022 Datacenter: Azure Edition_ is supported. 
+* Yes, upgrading from existing versions of Windows Server (such as Windows Server 2016 or Windows Server 2019) to _Windows Server 2022 Datacenter: Azure Edition_ is supported. 
 
 ### Can I use Hotpatch for production workloads during the preview?
 

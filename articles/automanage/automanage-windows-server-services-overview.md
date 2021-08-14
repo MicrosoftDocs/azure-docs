@@ -23,7 +23,7 @@ Automanage for Windows Server Services brings new capabilities specifically to _
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!NOTE]
-> Hotpatch (preview) capabilities can be evaluated on _Windows Server 2022 Datacenter: Azure Edition (Core) Preview_.  Hotpatch on _Windows Server 2019 Datacenter: Azure Edition Preview_ is no longer available to evaluate.
+> Hotpatch can be evaluated on _Windows Server 2022 Datacenter: Azure Edition (Core) Preview_.  Hotpatch on _Windows Server 2019 Datacenter: Azure Edition Preview_ is no longer available to evaluate.
 
 Automanage for Windows Server capabilities can be found in one or more of these _Windows Server Azure Edition_ images: 
 
