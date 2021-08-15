@@ -42,11 +42,9 @@ Custom security attributes is a feature of Azure Active Directory (Azure AD) tha
 - Support single value or multiple values
 - Support user-defined free-form values​ or predefined values
 
-The following example shows how you can specify values that are single, multiple, free-form, or predefined.
+The following example shows how you can specify custom security attribute values that are single, multiple, free-form, or predefined.
 
 ![Custom security attribute examples assigned to a user.](./media/custom-security-attributes-overview/attribute-values-examples.png)
-
-![Custom security attribute examples assigned to a user.](./media/custom-security-attributes-overview/attribute-values-multiple-predefined.png)
 
 ## Objects that support custom security attributes
 
