@@ -114,6 +114,8 @@
           href: manage-application-permissions.md
       - name: Manage user assignment for an app
         href: assign-user-or-group-access-portal.md
+      - name: Assign custom security attributes
+        href: custom-security-attributes-apps.md
       - name: Create collections on My Apps
         href: access-panel-collections.md
       - name: Use self-service app access
