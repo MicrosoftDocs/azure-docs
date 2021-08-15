@@ -137,5 +137,5 @@ Azure AD provides built-in roles to work with custom security attributes. The At
 ## Next steps
 
 - [Add or deactivate custom security attributes in Azure AD](../fundamentals/custom-security-attributes-add.md)
-- [Assign or remove custom security attributes for a user](../enterprise-users/users-attributes-add.md)
+- [Assign or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md)
 - [Assign or remove custom security attributes for an application](../manage-apps/add-application-portal-attributes.md)
