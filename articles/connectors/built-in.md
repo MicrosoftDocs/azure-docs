@@ -357,7 +357,7 @@ Azure Logic Apps provides the following built-in actions, which either require a
         [**Flat file encoding**<br>(*Multi-tenant only*)][flat-file-encode-doc]
         \
         \
-        Decode XML before after receiving the content from a trading partner.
+        Decode XML after receiving the content from a trading partner.
     :::column-end:::
     :::column:::
         [![Integration account icon][integration-account-icon]][integration-account-doc]
