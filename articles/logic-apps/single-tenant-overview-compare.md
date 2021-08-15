@@ -1,11 +1,11 @@
 ---
-title: Overview - Single-tenant Azure Logic Apps
+title: Single-tenant versus multi-tenant Azure Logic Apps
 description: Learn the differences between single-tenant, multi-tenant, and integration service environment (ISE) for Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, ladolan, azla
+ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 08/13/2021
 ---
 
 # Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps
@@ -185,17 +185,23 @@ The single-tenant model and **Logic App (Standard)** resource type include many 
 
     The authoring capability is currently available only in Visual Studio Code, but isn't enabled by default. To create these connectors, [switch your project from extension bundle-based (Node.js) to NuGet package-based (.NET)](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring). For more information, see [Azure Logic Apps Running Anywhere - Built-in connector extensibility](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
-  * You can use the B2B actions for Liquid Operations and XML Operations without an integration account. To use these actions, you need to have Liquid maps, XML maps, or XML schemas that you can upload through the respective actions in the Azure portal or add to your Visual Studio Code project's **Artifacts** folder using the respective **Maps** and **Schemas** folders.
+  * You can use the following actions for Liquid Operations and XML Operations without an integration account. These operations include the following actions:
 
-  * **Logic app (Standard)** resources can run anywhere because the Azure Logic Apps service generates Shared Access Signature (SAS) connection strings that these logic apps can use for sending requests to the cloud connection runtime endpoint. The Logic Apps service saves these connection strings with other application settings so that you can easily store these values in Azure Key Vault when you deploy in Azure.
+    * XML: **Transform XML** and **XML Validation**
+
+    * Liquid: **Transform JSON To JSON**, **Transform JSON To TEXT**, **Transform XML To JSON**, and **Transform XML To Text**
+
+    > [!NOTE]
+    > To use these actions, you need to have Liquid maps, XML maps, or XML schemas that you can upload through the respective actions in the 
+    > Azure portal or add to your Visual Studio Code project's **Artifacts** folder using the respective **Maps** and **Schemas** folders.
+
+  * **Logic app (Standard)** resources can run anywhere because Azure Logic Apps generates Shared Access Signature (SAS) connection strings that these logic apps can use for sending requests to the cloud connection runtime endpoint. Azure Logic Apps service saves these connection strings with other application settings so that you can easily store these values in Azure Key Vault when you deploy in Azure.
 
     > [!NOTE]
     > By default, a **Logic App (Standard)** resource has the [system-assigned managed identity](../logic-apps/create-managed-service-identity.md) 
     > automatically enabled to authenticate connections at run time. This identity differs from the authentication 
     > credentials or connection string that you use when you create a connection. If you disable this identity, 
     > connections won't work at run time. To view this setting, on your logic app's menu, under **Settings**, select **Identity**.
-
-* Stateless workflows run only in memory so that they finish more quickly, respond faster, have higher throughput, and cost less to run because the run histories and data between actions don't persist in external storage. Optionally, you can enable run history for easier debugging. For more information, see [Stateful versus stateless workflows](#stateful-stateless).
 
 * You can locally run, test, and debug your logic apps and their workflows in the Visual Studio Code development environment.
 
@@ -244,11 +250,11 @@ For the **Logic App (Standard)** resource, these capabilities have changed, or t
       > in the portal, the function action no longer works due to the invalid key. To fix this problem, you need 
       > to recreate the connection to the function that you want to call or update your app's settings with the new key.
 
-    * The built-in [Inline Code action](logic-apps-add-run-inline-code.md) is renamed **Inline Code Operations**, no longer requires an integration account, and has [updated limits](logic-apps-limits-and-config.md).
+    * The built-in action, [Inline Code](logic-apps-add-run-inline-code.md), is renamed **Inline Code Operations**, no longer requires an integration account, and has [updated limits](logic-apps-limits-and-config.md).
 
     * The built-in action, [Azure Logic Apps - Choose a Logic App workflow](logic-apps-http-endpoint.md) is now **Workflow Operations - Invoke a workflow in this workflow app**.
 
-    * Some [built-in B2B triggers and actions for integration accounts](../connectors/managed.md#integration-account-connectors) are unavailable, for example, the **Flat File** encoding and decoding actions.
+    * Some [built-in triggers and actions for integration accounts](../connectors/managed.md#integration-account-connectors) are unavailable, for example, the **Flat File** encoding and decoding actions.
 
     * [Custom managed connectors](../connectors/apis-list.md#custom-apis-and-connectors) currently aren't currently supported. However, you can create *custom built-in operations* when you use Visual Studio Code. For more information, review [Create single-tenant based workflows using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring).
 

@@ -1,5 +1,5 @@
 ---
-title: Managed connectors for Azure Logic Apps
+title: Managed connector operations
 description: Use Microsoft-managed triggers and actions to create automated workflows that integrate other apps, data, services, and systems using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
@@ -8,13 +8,15 @@ ms.topic: conceptual
 ms.date: 05/16/2021
 ---
 
-# Managed connectors for Logic Apps
+# Managed connectors in Azure Logic Apps
 
 [Managed connectors](apis-list.md) provide ways for you to access other services and systems where [built-in triggers and actions](built-in.md) aren't available. You can use these triggers and actions to create workflows that integrate data, apps, cloud-based services, and on-premises systems. Compared to built-in triggers and actions, these connectors are usually tied to a specific service or system such as Azure Blob Storage, Office 365, SQL, Salesforce, or SFTP servers. Managed by Microsoft and hosted in Azure, managed connectors usually require that you first create a connection from your workflow and authenticate your identity. Both recurrence-based and webhook-based triggers are available, so if you use a recurrence-based trigger, review the [Recurrence behavior overview](apis-list.md#recurrence-behavior).
 
-For a smaller number of services, systems and protocols, such as Azure Service Bus, Azure Functions, Azure Blob, Azure App Services, Azure API Management, SQL, AS2, and so on, Logic Apps also provides built-in operations. The number and range varies based on whether you create a multi-tenant logic app or single-tenant logic app. In a few cases, both a built-in version and a managed connector version are available. In most cases, the built-in version provides better performance, capabilities, pricing, and so on. For example, to [exchange B2B messages using the AS2 protocol](../logic-apps/logic-apps-enterprise-integration-as2.md), select the built-in version unless you need tracking capabilities, which are available only in the (deprecated) managed connector version.
+For a small number of services, systems and protocols, Azure Logic Apps provides built-in operations along with their [managed connector versions](managed.md). The number and range available varies based on whether you create a Consumption plan-based logic app resource that runs in multi-tenant Azure Logic Apps, or a Standard plan-based logic app resource that runs in single-tenant Azure Logic Apps. For more information, review [Single-tenant versus multi-tenant and integration service environment (ISE)](single-tenant-overview-compare.md). In most cases, the built-in version provides better performance, capabilities, pricing, and so on.
 
-Some managed connectors for Logic Apps belong to multiple sub-categories. For example, the SAP connector is both an [enterprise connector](#enterprise-connectors) and an [on-premises connector](#on-premises-connectors).
+For example, if you create a single-tenant logic app, built-in operations are available for Azure Service Bus, Azure Event Hubs, SQL Server, and MQ. In a few cases, both a built-in version and a managed connector version are available. In most cases, the built-in version provides better performance, capabilities, pricing, and so on. If you create a multi-tenant logic app, built-in operations are available for Azure Functions, Azure App Services, and Azure API Management.
+
+Some managed connectors in Azure Logic Apps belong to multiple sub-categories. For example, the SAP connector is both an [enterprise connector](#enterprise-connectors) and an [on-premises connector](#on-premises-connectors).
 
 * [Standard connectors](#standard-connectors) provide access to services such as Azure Blob Storage, Office 365, SharePoint, Salesforce, Power BI, OneDrive, and many more.
 * [Enterprise connectors](#enterprise-connectors) provide access to enterprise systems, such as SAP, IBM MQ, and IBM 3270.
@@ -26,11 +28,9 @@ Some managed connectors for Logic Apps belong to multiple sub-categories. For ex
 
 Azure Logic Apps provides these popular Standard connectors for building automated workflows using these services and systems. Some Standard connectors also support [on-premises systems](#on-premises-connectors) or [integration accounts](#integration-account-connectors).
 
-Some Logic Apps Standard connectors support [on-premises systems](#on-premises-connectors) or [integration accounts](#integration-account-connectors).
-
 :::row:::
     :::column:::
-        [![Azure Service Bus managed connector icon in Logic Apps][azure-service-bus-icon]][azure-service-bus-doc]
+        [![Azure Service Bus icon][azure-service-bus-icon]][azure-service-bus-doc]
         \
         \
         [**Azure Service Bus**][azure-service-bus-doc]
@@ -39,7 +39,7 @@ Some Logic Apps Standard connectors support [on-premises systems](#on-premises-c
         Manage asynchronous messages, sessions, and topic subscriptions with the most commonly used connector in Logic Apps.
     :::column-end:::
     :::column:::
-        [![SQL Server managed connector icon in Logic Apps][sql-server-icon]][sql-server-doc]
+        [![SQL Server icon][sql-server-icon]][sql-server-doc]
         \
         \
         [**SQL Server**][sql-server-doc]
@@ -48,7 +48,7 @@ Some Logic Apps Standard connectors support [on-premises systems](#on-premises-c
         Connect to your SQL Server on premises or an Azure SQL Database in the cloud so that you can manage records, run stored procedures, or perform queries.
     :::column-end:::
     :::column:::
-        [![Azure Blog Storage managed connector icon in Logic Apps][azure-blob-storage-icon]][azure-blob-storage-doc]
+        [![Azure Blog Storage icon][azure-blob-storage-icon]][azure-blob-storage-doc]
         \
         \
         [**Azure Blob Storage**][azure-blob-storage-doc]
@@ -57,7 +57,7 @@ Some Logic Apps Standard connectors support [on-premises systems](#on-premises-c
         Connect to your Azure Storage account so that you can create and manage blob content.
     :::column-end:::
     :::column:::
-        [![Office 365 Outlook managed connector icon in Logic Apps][office-365-outlook-icon]][office-365-outlook-doc]
+        [![Office 365 Outlook icon][office-365-outlook-icon]][office-365-outlook-doc]
         \
         \
         [**Office 365 Outlook**][office-365-outlook-doc]
@@ -68,7 +68,7 @@ Some Logic Apps Standard connectors support [on-premises systems](#on-premises-c
 :::row-end:::
 :::row:::
     :::column:::
-        [![STFP-SSH managed connector icon in Logic Apps][sftp-ssh-icon]][sftp-ssh-doc]
+        [![STFP-SSH icon][sftp-ssh-icon]][sftp-ssh-doc]
         \
         \
         [**STFP-SSH**][sftp-ssh-doc]
@@ -77,7 +77,7 @@ Some Logic Apps Standard connectors support [on-premises systems](#on-premises-c
         Connect to SFTP servers that you can access from the internet by using SSH so that you can work with your files and folders.
     :::column-end:::
     :::column:::
-        [![SharePoint Online managed connector icon in Logic Apps][sharepoint-online-icon]][sharepoint-online-doc]
+        [![SharePoint Online icon][sharepoint-online-icon]][sharepoint-online-doc]
         \
         \
         [**SharePoint Online**][sharepoint-online-doc]
@@ -86,7 +86,7 @@ Some Logic Apps Standard connectors support [on-premises systems](#on-premises-c
         Connect to SharePoint Online so that you can manage files, attachments, folders, and more.
     :::column-end:::
     :::column:::
-        [![Azure Queues managed connector icon in Logic Apps][azure-queues-icon]][azure-queues-doc]
+        [![Azure Queues icon][azure-queues-icon]][azure-queues-doc]
         \
         \
         [**Azure Queues**][azure-queues-doc]
@@ -95,7 +95,7 @@ Some Logic Apps Standard connectors support [on-premises systems](#on-premises-c
         Connect to your Azure Storage account so that you can create and manage queues and messages.
     :::column-end:::
     :::column:::
-        [![FTP managed connector icon in Logic Apps][ftp-icon]][ftp-doc]
+        [![FTP icon][ftp-icon]][ftp-doc]
         \
         \
         [**FTP**][ftp-doc]
@@ -106,7 +106,7 @@ Some Logic Apps Standard connectors support [on-premises systems](#on-premises-c
 :::row-end:::
 :::row:::
     :::column:::
-        [![File System managed connector icon in Logic Apps][file-system-icon]][file-system-doc]
+        [![File System icon][file-system-icon]][file-system-doc]
         \
         \
         [**File System**][file-system-doc]
@@ -115,7 +115,7 @@ Some Logic Apps Standard connectors support [on-premises systems](#on-premises-c
         Connect to your on-premises file share so that you can create and manage files.
     :::column-end:::
     :::column:::
-        [![Azure Event Hubs managed connector icon in Logic Apps][azure-event-hubs-icon]][azure-event-hubs-doc]
+        [![Azure Event Hubs icon][azure-event-hubs-icon]][azure-event-hubs-doc]
         \
         \
         [**Azure Event Hubs**][azure-event-hubs-doc]
@@ -124,7 +124,7 @@ Some Logic Apps Standard connectors support [on-premises systems](#on-premises-c
         Consume and publish events through an Event Hub. For example, get output from your logic app with Event Hubs, and then send that output to a real-time analytics provider.
     :::column-end:::
     :::column:::
-        [![Azure Event Grid managed connector icon in Logic Apps][azure-event-grid-icon]][azure-event-grid-doc]
+        [![Azure Event Grid icon][azure-event-grid-icon]][azure-event-grid-doc]
         \
         \
         [**Azure Event Grid**][azure-event-grid-doc]
@@ -133,7 +133,7 @@ Some Logic Apps Standard connectors support [on-premises systems](#on-premises-c
         Monitor events published by an Event Grid, for example, when Azure resources or third-party resources change.
     :::column-end:::
     :::column:::
-        [![Salesforce managed connector icon in Logic Apps][salesforce-icon]][salesforce-doc]
+        [![Salesforce icon][salesforce-icon]][salesforce-doc]
         \
         \
         [**Salesforce**][salesforce-doc]
@@ -145,31 +145,31 @@ Some Logic Apps Standard connectors support [on-premises systems](#on-premises-c
 
 ## On-premises connectors
 
-Before you can create a connection to an on-premises system, you must first [download, install, and set up an on-premises data gateway][gateway-doc]. This gateway provides a secure communication channel without having to set up the necessary network infrastructure. 
+Before you can create a connection to an on-premises system, you must first [download, install, and set up an on-premises data gateway][gateway-doc]. This gateway provides a secure communication channel without having to set up the necessary network infrastructure.
 
-The following connectors are some commonly used [Standard connectors](#standard-connectors) that Logic Apps provides for accessing data and resources in on-premises systems. For the on-premises connectors list, see [Supported data sources](../logic-apps/logic-apps-gateway-connection.md#supported-connections).
+The following connectors are some commonly used [Standard connectors](#standard-connectors) that Azure Logic Apps provides for accessing data and resources in on-premises systems. For the on-premises connectors list, see [Supported data sources](../logic-apps/logic-apps-gateway-connection.md#supported-connections).
 
 :::row:::
     :::column:::
-        [![Biztalk Server on-premises connector icon in Logic Apps][biztalk-server-icon]][biztalk-server-doc]
+        [![Biztalk Server icon][biztalk-server-icon]][biztalk-server-doc]
         \
         \
         [**Biztalk Server**][biztalk-server-doc]
     :::column-end:::
     :::column:::
-        [![File System on-premises connector icon in Logic Apps][file-system-icon]][file-system-doc]
+        [![File System icon][file-system-icon]][file-system-doc]
         \
         \
         [**File System**][file-system-doc]
     :::column-end:::
     :::column:::
-        [![IBM Db2 on-premises connector icon in Logic Apps][ibm-db2-icon]][ibm-db2-doc]
+        [![IBM DB2 icon][ibm-db2-icon]][ibm-db2-doc]
         \
         \
-        [**IBM Db2**][ibm-db2-doc]
+        [**IBM DB2**][ibm-db2-doc]
     :::column-end:::
     :::column:::
-        [![IBM Informix on-premises connector icon in Logic Apps][ibm-informix-icon]][ibm-informix-doc]
+        [![IBM Informix icon][ibm-informix-icon]][ibm-informix-doc]
         \
         \
         [**IBM Informix**][ibm-informix-doc]
@@ -177,25 +177,25 @@ The following connectors are some commonly used [Standard connectors](#standard-
 :::row-end:::
 :::row:::
     :::column:::
-        [![MySQL on-premises connector icon in Logic Apps][mysql-icon]][mysql-doc]
+        [![MySQL icon][mysql-icon]][mysql-doc]
         \
         \
         [**MySQL**][mysql-doc]
     :::column-end:::
     :::column:::
-        [![Oracle DB on-premises connector icon in Logic Apps][oracle-db-icon]][oracle-db-doc]
+        [![Oracle DB icon][oracle-db-icon]][oracle-db-doc]
         \
         \
         [**Oracle DB**][oracle-db-doc]
     :::column-end:::
     :::column:::
-        [![PostgreSQL on-premises connector icon in Logic Apps][postgre-sql-icon]][postgre-sql-doc]
+        [![PostgreSQL icon][postgre-sql-icon]][postgre-sql-doc]
         \
         \
         [**PostgreSQL**][postgre-sql-doc]
     :::column-end:::
     :::column:::
-        [![SharePoint Server on-premises connector icon in Logic Apps][sharepoint-server-icon]][sharepoint-server-doc]
+        [![SharePoint Server icon][sharepoint-server-icon]][sharepoint-server-doc]
         \
         \
         [**SharePoint Server**][sharepoint-server-doc]
@@ -203,13 +203,13 @@ The following connectors are some commonly used [Standard connectors](#standard-
 :::row-end:::
 :::row:::
     :::column:::
-        [![SQL Server on-premises connector icon in Logic Apps][sql-server-icon]][sql-server-doc]
+        [![SQL Server icon][sql-server-icon]][sql-server-doc]
         \
         \
         [**SQL Server**][sql-server-doc]
     :::column-end:::
     :::column:::
-        [![Teradata on-premises connector icon in Logic Apps][teradata-icon]][teradata-doc]
+        [![Teradata icon][teradata-icon]][teradata-doc]
         \
         \
         [**Teradata**][teradata-doc]
@@ -220,6 +220,8 @@ The following connectors are some commonly used [Standard connectors](#standard-
     :::column-end:::
 :::row-end:::
 
+<a name="integration-account-connectors"></a>
+
 ## Integration account connectors
 
 Integration account connectors specifically support [business-to-business (B2B) communication scenarios](../logic-apps/logic-apps-enterprise-integration-overview.md) in Azure Logic Apps. After you [create an integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) and define your B2B artifacts, such as trading partners, agreements, maps, and schemas, you can use integration account connectors to encode and decode messages, transform content, and more.
@@ -227,30 +229,31 @@ Integration account connectors specifically support [business-to-business (B2B) 
 For example, if you use Microsoft BizTalk Server, you can create a connection from your workflow using the [BizTalk Server on-premises connector](#on-premises-connectors). You can then extend or perform BizTalk-like operations in your workflow by using these integration account connectors.
 
 > [!NOTE]
-> Before you can use integration account connectors, you must [link your logic app to an integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
-
+> Before you can use integration account connectors, you must [link your logic app resource to an integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). 
+> However, in single-tenant Azure Logic Apps (Standard), some integration account operations are available as built-in operations that don't require linking your logic app resource to an 
+> integration account, for example, Liquid operations and XML operations.
 
 :::row:::
     :::column:::
-        [![AS2 decoding action icon in Logic Apps][as2-icon]][as2-doc]
+        [![AS2 decoding icon][as2-icon]][as2-doc]
         \
         \
         [**AS2 decoding**][as2-doc]
     :::column-end:::
     :::column:::
-        [![AS2 encoding action icon in Logic Apps][as2-icon]][as2-doc]
+        [![AS2 encoding icon][as2-icon]][as2-doc]
         \
         \
         [**AS2 encoding**][as2-doc]
     :::column-end:::
     :::column:::
-        [![EDIFACT decoding action icon in Logic Apps][edifact-icon]][edifact-decode-doc]
+        [![EDIFACT decoding icon][edifact-icon]][edifact-decode-doc]
         \
         \
         [**EDIFACT decoding**][edifact-decode-doc]
     :::column-end:::
     :::column:::
-        [![EDIFACT encoding action icon in Logic Apps][edifact-icon]][edifact-encode-doc]
+        [![EDIFACT encoding icon][edifact-icon]][edifact-encode-doc]
         \
         \
         [**EDIFACT encoding**][edifact-encode-doc]
@@ -258,51 +261,51 @@ For example, if you use Microsoft BizTalk Server, you can create a connection fr
 :::row-end:::
 :::row:::
     :::column:::
-        [![Flat file decoding action icon in Logic Apps][flat-file-decode-icon]][flat-file-decode-doc]
+        [![Flat file decoding icon][flat-file-decode-icon]][flat-file-decode-doc]
         \
         \
         [**Flat file decoding**][flat-file-decode-doc]
     :::column-end:::
     :::column:::
-        [![Flat file encoding action icon in Logic Apps][flat-file-encode-icon]][flat-file-encode-doc]
+        [![Flat file encoding icon][flat-file-encode-icon]][flat-file-encode-doc]
         \
         \
         [**Flat file encoding**][flat-file-encode-doc]
     :::column-end:::
     :::column:::
-        [![Integration account action icon in Logic Apps][integration-account-icon]][integration-account-doc]
+        [![Integration account icon][integration-account-icon]][integration-account-doc]
         \
         \
         [**Integration account**][integration-account-doc]
     :::column-end:::
     :::column:::
-        [![Liquid transforms action icon in Logic Apps][liquid-icon]][json-liquid-transform-doc]
+        [![Liquid operations icon][liquid-icon]][json-liquid-transform-doc]
         \
         \
-        [**Liquid transforms**][json-liquid-transform-doc]
+        [**Liquid operations**][json-liquid-transform-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        [![X12 decoding action icon in Logic Apps][x12-icon]][x12-decode-doc]
+        [![X12 decoding icon][x12-icon]][x12-decode-doc]
         \
         \
         [**X12 decoding**][x12-decode-doc]
     :::column-end:::
     :::column:::
-        [![X12 encoding action icon in Logic Apps][x12-icon]][x12-encode-doc]
+        [![X12 encoding icon][x12-icon]][x12-encode-doc]
         \
         \
         [**X12 encoding**][x12-encode-doc]
     :::column-end:::
     :::column:::
-        [![XML transforms action icon in Logic Apps][xml-transform-icon]][xml-transform-doc]
+        [![Transform XML icon][xml-transform-icon]][xml-transform-doc]
         \
         \
-        [**XML transforms**][xml-transform-doc]
+        [**Transform XML**][xml-transform-doc]
     :::column-end:::
     :::column:::
-        [![XML validation action icon in Logic Apps][xml-validate-icon]][xml-validate-doc]
+        [![XML validation icon][xml-validate-icon]][xml-validate-doc]
         \
         \
         [**XML validation**][xml-validate-doc]
@@ -315,19 +318,19 @@ The following connectors provide access to enterprise systems for an additional 
 
 :::row:::
     :::column:::
-        [![IBM 3270 enterprise connector icon in Logic Apps][ibm-3270-icon]][ibm-3270-doc]
+        [![IBM 3270 icon][ibm-3270-icon]][ibm-3270-doc]
         \
         \
         [**IBM 3270** enterprise connector][ibm-3270-doc]
     :::column-end:::
     :::column:::
-        [![IBM MQ enterprise connector icon in Logic Apps][ibm-mq-icon]][ibm-mq-doc]
+        [![IBM MQ icon][ibm-mq-icon]][ibm-mq-doc]
         \
         \
         [**IBM MQ** enterprise connector][ibm-mq-doc]
     :::column-end:::
     :::column:::
-        [![SAP enterprise connector icon in Logic Apps][sap-icon]][sap-connector-doc]
+        [![SAP icon][sap-icon]][sap-connector-doc]
         \
         \
         [**SAP** enterprise connector][sap-connector-doc]
@@ -335,7 +338,6 @@ The following connectors provide access to enterprise systems for an additional 
     :::column:::
     :::column-end:::
 :::row-end:::
-
 
 ## ISE connectors
 
@@ -346,25 +348,25 @@ In an integration service environment (ISE), these managed connectors also have 
 
 :::row:::
     :::column:::
-        [![AS2 ISE connector icon in Logic Apps][as2-icon]][as2-doc]
+        [![AS2 ISE icon][as2-icon]][as2-doc]
         \
         \
         [**AS2** ISE][as2-doc]
     :::column-end:::
     :::column:::
-        [![Azure Automation ISE connector icon in Logic Apps][azure-automation-icon]][azure-automation-doc]
+        [![Azure Automation ISE icon][azure-automation-icon]][azure-automation-doc]
         \
         \
         [**Azure Automation** ISE][azure-automation-doc]
     :::column-end:::
     :::column:::
-        [![Azure Blob Storage ISE connector icon in Logic Apps][azure-blob-storage-icon]][azure-blob-storage-doc]
+        [![Azure Blob Storage ISE icon][azure-blob-storage-icon]][azure-blob-storage-doc]
         \
         \
         [**Azure Blob Storage** ISE][azure-blob-storage-doc]
     :::column-end:::
     :::column:::
-        [![Azure Cosmos DB ISE connector icon in Logic Apps][azure-cosmos-db-icon]][azure-cosmos-db-doc]
+        [![Azure Cosmos DB ISE icon][azure-cosmos-db-icon]][azure-cosmos-db-doc]
         \
         \
         [**Azure Cosmos DB** ISE][azure-cosmos-db-doc]
@@ -372,25 +374,25 @@ In an integration service environment (ISE), these managed connectors also have 
 :::row-end:::
 :::row:::
     :::column:::
-        [![Azure Event Hubs ISE connector icon in Logic Apps][azure-event-hubs-icon]][azure-event-hubs-doc]
+        [![Azure Event Hubs ISE icon][azure-event-hubs-icon]][azure-event-hubs-doc]
         \
         \
         [**Azure Event Hubs** ISE][azure-event-hubs-doc]
     :::column-end:::
     :::column:::
-        [![Azure Event Grid ISE connector icon in Logic Apps][azure-event-grid-icon]][azure-event-grid-doc]
+        [![Azure Event Grid ISE icon][azure-event-grid-icon]][azure-event-grid-doc]
         \
         \
         [**Azure Event Grid** ISE][azure-event-grid-doc]
     :::column-end:::
     :::column:::
-        [![Azure File Storage ISE connector icon in Logic Apps][azure-file-storage-icon]][azure-file-storage-doc]
+        [![Azure File Storage ISE icon][azure-file-storage-icon]][azure-file-storage-doc]
         \
         \
         [**Azure File Storage** ISE][azure-file-storage-doc]
     :::column-end:::
     :::column:::
-        [![Azure Key Vault ISE connector icon in Logic Apps][azure-key-vault-icon]][azure-key-vault-doc]
+        [![Azure Key Vault ISE icon][azure-key-vault-icon]][azure-key-vault-doc]
         \
         \
         [**Azure Key Vault** ISE][azure-key-vault-doc]
@@ -398,25 +400,25 @@ In an integration service environment (ISE), these managed connectors also have 
 :::row-end:::
 :::row:::
     :::column:::
-        [![Azure Monitor Logs ISE connector icon in Logic Apps][azure-monitor-logs-icon]][azure-monitor-logs-doc]
+        [![Azure Monitor Logs ISE icon][azure-monitor-logs-icon]][azure-monitor-logs-doc]
         \
         \
         [**Azure Monitor Logs** ISE][azure-monitor-logs-doc]
     :::column-end:::
     :::column:::
-        [![Azure Service Bus ISE connector icon in Logic Apps][azure-service-bus-icon]][azure-service-bus-doc]
+        [![Azure Service Bus ISE icon][azure-service-bus-icon]][azure-service-bus-doc]
         \
         \
         [**Azure Service Bus** ISE][azure-service-bus-doc]
     :::column-end:::
     :::column:::
-        [![Azure Synapse Analytics ISE connector icon in Logic Apps][azure-sql-data-warehouse-icon]][azure-sql-data-warehouse-doc]
+        [![Azure Synapse Analytics ISE icon][azure-sql-data-warehouse-icon]][azure-sql-data-warehouse-doc]
         \
         \
         [**Azure Synapse Analytics** ISE][azure-sql-data-warehouse-doc]
     :::column-end:::
     :::column:::
-        [![Azure Table Storage ISE connector icon in Logic Apps][azure-table-storage-icon]][azure-table-storage-doc]
+        [![Azure Table Storage ISE icon][azure-table-storage-icon]][azure-table-storage-doc]
         \
         \
         [**Azure Table Storage** ISE][azure-table-storage-doc]
@@ -424,51 +426,51 @@ In an integration service environment (ISE), these managed connectors also have 
 :::row-end:::
 :::row:::
     :::column:::
-        [![Azure Queues ISE connector icon in Logic Apps][azure-queues-icon]][azure-queues-doc]
+        [![Azure Queues ISE icon][azure-queues-icon]][azure-queues-doc]
         \
         \
         [**Azure Queues** ISE][azure-queues-doc]
     :::column-end:::
     :::column:::
-        [![EDIFACT ISE connector icon in Logic Apps][edifact-icon]][edifact-doc]
+        [![EDIFACT ISE icon][edifact-icon]][edifact-doc]
         \
         \
         [**EDIFACT** ISE][edifact-doc]
     :::column-end:::
     :::column:::
-        [![File System ISE connector icon in Logic Apps][file-system-icon]][file-system-doc]
+        [![File System ISE icon][file-system-icon]][file-system-doc]
         \
         \
         [**File System** ISE][file-system-doc]
     :::column-end:::
     :::column:::
-        [![FTP ISE connector icon in Logic Apps][ftp-icon]][ftp-doc]
+        [![FTP ISE icon][ftp-icon]][ftp-doc]
         \
         \
         [**FTP** ISE][ftp-doc]
     :::column-end:::
-:::row-end:::   
+:::row-end:::
 :::row:::
     :::column:::
-        [![IBM 3270 ISE connector icon in Logic Apps][ibm-3270-icon]][ibm-3270-doc]
+        [![IBM 3270 ISE icon][ibm-3270-icon]][ibm-3270-doc]
         \
         \
         [**IBM 3270** ISE][ibm-3270-doc]
     :::column-end:::
     :::column:::
-        [![IBM DB2 ISE connector icon in Logic Apps][ibm-db2-icon]][ibm-db2-doc]
+        [![IBM DB2 ISE icon][ibm-db2-icon]][ibm-db2-doc]
         \
         \
         [**IBM DB2** ISE][ibm-db2-doc]
     :::column-end:::
     :::column:::
-        [![IBM MQ ISE connector icon in Logic Apps][ibm-mq-icon]][ibm-mq-doc]
+        [![IBM MQ ISE icon][ibm-mq-icon]][ibm-mq-doc]
         \
         \
         [**IBM MQ** ISE][ibm-mq-doc]
     :::column-end:::
     :::column:::
-        [![SAP ISE connector icon in Logic Apps][sap-icon]][sap-connector-doc]
+        [![SAP ISE icon][sap-icon]][sap-connector-doc]
         \
         \
         [**SAP** ISE][sap-connector-doc]
@@ -476,25 +478,25 @@ In an integration service environment (ISE), these managed connectors also have 
 :::row-end:::
 :::row:::
     :::column:::
-        [![SFTP-SSH ISE connector icon in Logic Apps][sftp-ssh-icon]][sftp-ssh-doc]
+        [![SFTP-SSH ISE icon][sftp-ssh-icon]][sftp-ssh-doc]
         \
         \
         [**SFTP-SSH** ISE][sftp-ssh-doc]
     :::column-end:::
     :::column:::
-        [![SMTP ISE connector icon in Logic Apps][smtp-icon]][smtp-doc]
+        [![SMTP ISE icon][smtp-icon]][smtp-doc]
         \
         \
         [**SMTP** ISE][smtp-doc]
     :::column-end:::
     :::column:::
-        [![SQL Server ISE connector icon in Logic Apps][sql-server-icon]][sql-server-doc]
+        [![SQL Server ISE icon][sql-server-icon]][sql-server-doc]
         \
         \
         [**SQL Server** ISE][sql-server-doc]
     :::column-end:::
     :::column:::
-        [![X12 ISE connector icon in Logic Apps][x12-icon]][x12-doc]
+        [![X12 ISE icon][x12-icon]][x12-doc]
         \
         \
         [**X12** ISE][x12-doc]
@@ -590,7 +592,6 @@ For more information, see these topics:
 [wordpress-icon]: ./media/apis-list/wordpress.png
 [youtube-icon]: ./media/apis-list/youtube.png
 
-
 <!--Managed connector doc links-->
 [azure-automation-doc]: /connectors/azureautomation/ "Create and manage automation jobs for your cloud and on-premises infrastructure"
 [azure-blob-storage-doc]: ./connectors-create-api-azureblobstorage.md "Manage files in your blob container with Azure blob storage connector"
@@ -650,7 +651,6 @@ For more information, see these topics:
 [xml-transform-icon]: ./media/apis-list/xsl-transform.png
 
 <!-- Integration account connector docs -->
-
 [as2-doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Encode and decode messages that use the AS2 protocol"
 [edifact-doc]: ../logic-apps/logic-apps-enterprise-integration-edifact.md "Encode and decode messages that use the EDIFACT protocol"
 [edifact-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Decode messages that use the EDIFACT protocol"
@@ -665,11 +665,8 @@ For more information, see these topics:
 [xml-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Transform XML messages"
 [xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Validate XML messages"
 
-
 <!--Other doc links-->
 [gateway-doc]: ../logic-apps/logic-apps-gateway-connection.md "Connect to data sources on-premises from logic apps with on-premises data gateway"
-
-
 
 <!--Integration account connector icons -->
 [as2-icon]: ./media/apis-list/as2.png
@@ -683,7 +680,6 @@ For more information, see these topics:
 [xml-transform-icon]: ./media/apis-list/xsl-transform.png
 
 <!-- Integration account connector docs -->
-
 [as2-doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Encode and decode messages that use the AS2 protocol"
 [edifact-doc]: ../logic-apps/logic-apps-enterprise-integration-edifact.md "Encode and decode messages that use the EDIFACT protocol"
 [edifact-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Decode messages that use the EDIFACT protocol"
