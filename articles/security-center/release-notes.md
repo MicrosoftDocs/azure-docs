@@ -33,7 +33,7 @@ Updates in August include:
 - [Azure Defender for container registries now scans for vulnerabilities in registries protected with Azure Private Link](#azure-defender-for-container-registries-now-scans-for-vulnerabilities-in-registries-protected-with-azure-private-link)
 - [Security Center can now auto provision the Azure Policy's Guest Configuration extension (in preview)](#security-center-can-now-auto-provision-the-azure-policys-guest-configuration-extension-in-preview)
 - [Recommendations to enable Azure Defender plans now support "Enforce"](#recommendations-to-enable-azure-defender-plans-now-support-enforce)
-- [CSV exports to be limited to 20 MB](#csv-exports-to-be-limited-to-20-mb)
+- [CSV exports of recommendation data now limited to 20 MB](#csv-exports-of-recommendation-data-now-limited-to-20-mb)
 - [Recommendations page now includes multiple views](#recommendations-page-now-includes-multiple-views)
 
 ### Microsoft Defender for Endpoint for Linux now supported by Azure Defender for servers (in preview)
@@ -126,9 +126,7 @@ With this update, the enforce option is now available on the recommendations to 
 
 Learn more about these options in [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md).
 
-### CSV exports now limited to 20 MB
-
-**Estimated date for change:** August 2021
+### CSV exports of recommendation data now limited to 20 MB
 
 We're instituting a limit of 20 MB when exporting Security Center recommendations data.
 
@@ -147,7 +145,7 @@ Learn more about [performing a CSV export of your security recommendations](cont
 The recommendations page now has two tabs to provide alternate ways to view the recommendations relevant to your resources:
 
 - **Secure score recommendations** - Use this tab to view the list of recommendations grouped by security control. Learn more about these controls in [Security controls and their recommendations](secure-score-security-controls.md#security-controls-and-their-recommendations).
-- **All recommendations** - Use this tab to view the list of recommendations as a flat list. This tab is also great for understanding which initiative generated the recommendation. Learn more about initiatives and their relationship to recommendations in [What are security policies, initiatives, and recommendations?](security-policy-concept.md).
+- **All recommendations** - Use this tab to view the list of recommendations as a flat list. This tab is also great for understanding which initiative (including regulatory compliance standards) generated the recommendation. Learn more about initiatives and their relationship to recommendations in [What are security policies, initiatives, and recommendations?](security-policy-concept.md).
 
 :::image type="content" source="media/release-notes/recommendations-tabs.png" alt-text="Tabs to change the view of the recommendations list in Azure Security Center.":::
 
