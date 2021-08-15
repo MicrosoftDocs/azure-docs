@@ -73,6 +73,8 @@ The following procedure describes how to create a metric alert rule in Azure por
 
 ![Condition selected](media/alerts-activity-log/condition-selected-new.png)
 
+:::image type="content" source="media/alerts-activity-log/condition-selected-new.png" alt-text="Condition selected." lightbox="media/alerts-activity-log/condition-selected-new.png":::
+
 10. Fill in **Alert details** like **Alert rule name**, **Description**.and **Severity**.
 
 > [!NOTE]
