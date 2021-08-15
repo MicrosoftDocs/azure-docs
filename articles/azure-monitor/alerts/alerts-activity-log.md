@@ -89,7 +89,7 @@ An alternative way to create an activity log alert is to start with an activity 
 
 1. In the **Azure Monitor - Activity log** blade, you can filter or find the desired event and then create an alert on future similar events by using the **Add activity log alert** button. 
 
-![Add alert from activity log](media/alerts-activity-log/create-alert-rule-from-activity-log-event.png)
+![Add alert from activity log](media/alerts-activity-log/create-alert-rule-from-activity-log-event-new1.png)
 
 2. The alert rule creation blade will open with the alert rule scope and condition already filled according to the previously selected activity log event. You can edit and modify the scope and condition at this stage if needed. Note that by default, the exact scope and condition for the new rule are copied 'as is' from the original event attributes. For example, the exact resource on which the event occurred, and the specific user/service name who initiated the event are included by default in the new alert rule. If you would like to make the alert rule more general, you need to modify the scope and condition accordingly, as explained in stages 3-9 above. 
 
