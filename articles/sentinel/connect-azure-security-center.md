@@ -71,9 +71,9 @@ As Azure Defender itself is enabled per subscription, the Azure Defender connect
 1. You can select whether you want the alerts from Azure Defender to automatically generate incidents in Azure Sentinel. Under **Create incidents**, select **Enabled** to turn on the default analytics rule that automatically [creates incidents from alerts](create-incidents-from-alerts.md). You can then edit this rule under **Analytics**, in the  **Active rules** tab.
 
     > [!TIP]
-    > When configuring [custom analytics rules](tutorial-detect-threats-custom.md) for alerts from Azure Defender, consider the alert severity to avoid opening incidents for informational alerts. 
+    > When configuring [custom analytics rules](detect-threats-custom.md) for alerts from Azure Defender, consider the alert severity to avoid opening incidents for informational alerts. 
     >
-    > Informational alerts in Azure Security Center don't represent a security risk on their own, and are relevant only in the context of an existing, open incident. For more information, see [Security alerts and incidents in Azure Security Center](/azure/security-center/security-center-alerts-overview).
+    > Informational alerts in Azure Security Center don't represent a security risk on their own, and are relevant only in the context of an existing, open incident. For more information, see [Security alerts and incidents in Azure Security Center](../security-center/security-center-alerts-overview.md).
     > 
     
 
@@ -97,6 +97,6 @@ As Azure Defender itself is enabled per subscription, the Azure Defender connect
 
 In this document, you learned how to connect Azure Defender to Azure Sentinel and synchronize alerts between them. To learn more about Azure Sentinel, see the following articles:
 
-- Learn how to [get visibility into your data and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
-- Write your own rules to [detect threats](tutorial-detect-threats-custom.md).
+- Learn how to [get visibility into your data and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).
+- Write your own rules to [detect threats](detect-threats-custom.md).

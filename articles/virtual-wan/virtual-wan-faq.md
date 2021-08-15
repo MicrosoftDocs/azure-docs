@@ -105,6 +105,11 @@ Virtual WAN supports up to 20 Gbps aggregate throughput both for VPN and Express
 
 A virtual network gateway VPN is limited to 30 tunnels. For connections, you should use Virtual WAN for large-scale VPN. You can connect up to 1,000 branch connections per region (virtual hub) with aggregate of 20 Gbps per hub. A connection is an active-active tunnel from the on-premises VPN device to the virtual hub. You can have one hub per region, which means you can connect more than 1,000 branches across hubs.
 
+### What is the recommended Packets per Second limit per IPSEC tunnel?
+
+It is recommended to send around 95,000 PPS with GCMAES256 algorithm for both IPSEC Encryption and Integrity for optimal performance. Though traffic is not blocked if greater than 95,000 PPS are sent, performance degradation such as latency and packet drops can be expected. Please create additional tunnels if greater PPS is required.
+
+
 ### What is a Virtual WAN gateway scale unit?
 
 A scale unit is a unit defined to pick an aggregate throughput of a gateway in Virtual hub. 1 scale unit of VPN = 500 Mbps. 1 scale unit of ExpressRoute = 2 Gbps. Example: 10 scale unit of VPN would imply 500 Mbps * 10 = 5 Gbps
@@ -308,6 +313,12 @@ Yes. For a list of Managed Service Provider (MSP) solutions enabled via Azure Ma
 ### How does Virtual WAN Hub routing differ from Azure Route Server in a VNet?
 
 Azure Route Server provides a Border Gateway Protocol (BGP) peering service that can be used by NVAs (Network Virtual Appliance) to learn routes from the route server in a DIY hub VNet. Virtual WAN routing provides multiple capabilities including VNet-to-VNet transit routing, custom routing, custom route association and propagation, and a zero-touch fully meshed hub service along with connectivity services of ExpressRoute, Site VPN, Remote User/Large Scale P2S VPN, and Secure hub (Azure Firewall) capabilities. When you establish a BGP peering between your NVA and Azure Route Server, you can advertise IP addresses from your NVA to your virtual network. For all advanced routing capabilities such as transit routing, custom routing, etc., you can use Virtual WAN routing.
+
+### If I am using a third-party security provider (ZScalar, iBoss or Checkpoint) to secure my internet traffic why don't I see the VPN site associated to the third-party security provider in Azure Portal?
+
+When you choose to deploy a security partner provider to protect Internet access for your users, the third-party security provider creates a VPN site on your behalf. Because the third-party security provider is created automatically by the provider and is not a user-created VPN site, this VPN site will not show up in Azure Portal.
+
+For more information regarding the available options third-party security providers and how to set this up, please review this [document](../firewall-manager/deploy-trusted-security-partner.md)
 
 ## Next steps
 

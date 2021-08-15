@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/21/2018
+ms.date: 08/11/2021
 ms.author: alkohli
 ---
 
@@ -23,7 +23,7 @@ ms.author: alkohli
 
 Microsoft Azure StorSimple uses cloud storage as an extension of the on-premises solution and automatically tiers data across on-premises storage and the cloud. Data is stored in the cloud in a deduped and compressed format for maximum efficiency and to lower costs. As the data is stored in StorSimple format, it is not readily consumable by other cloud applications that you may want to use.
 
-The StorSimple Data Manager enables you to seamlessly access and use the StorSimple format data in the cloud. It does this by transforming StorSimple format into native blobs and files, which you can use with other services such as Azure Media Services, Azure HDInsights, and Azure Machine Learning.
+The StorSimple Data Manager enables you to seamlessly access and use the StorSimple format data in the cloud. It does this by transforming StorSimple format into native blobs and files, which you can use with other services such as Azure Media Services, Azure HDInsight, and Azure Machine Learning.
 
 This article provides an overview of the StorSimple Data Manager solution. It also explains how you can use this service to write applications that use StorSimple data and other Azure services in the cloud.
 
@@ -87,10 +87,12 @@ The StorSimple Data Manager does not collect or display any personal information
 ## Known Limitations
 
 The service currently has the following limitations:
-- The StorSimple Data Manager currently does not work with volumes that are bitlocker encrypted. You will see job failures if you try to run the service with an encrypted drive.
+- The StorSimple Data Manager currently does not work with volumes that are BitLocker encrypted. You will see job failures if you try to run the service with an encrypted drive.
+- A firewall can't be enabled on the storage account where StorSimple backups are stored. If you enable a firewall on the storage account, jobs will fail. 
 - Some metadata of files (including ACLs) will not be retained in the transformed data.
 - This service works only with NTFS volumes.
-- File path lengths need to be less than 256 characters else the job will fail.
+- The StorSimple Data Manager doesn't support migration of Virtual Hard Disks (VHDs). To migrate VHDs, you can use either Azure Data Box or the Azure File Sync service.
+- File path lengths need to be fewer than 256 characters else the job will fail.
 
 ## Next steps
 

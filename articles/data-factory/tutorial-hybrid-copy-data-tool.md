@@ -4,6 +4,7 @@ description: Create an Azure Data Factory and then use the Copy Data tool to cop
 ms.author: abnarain
 author: nabhishek
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 07/08/2021

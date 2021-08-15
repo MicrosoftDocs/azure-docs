@@ -2,7 +2,7 @@
 title: Azure Monitor Resource Logs supported services and categories
 description: Reference of Azure Monitor Understand the supported services and event schema for Azure resource logs.
 ms.topic: reference
-ms.date: 07/19/2021
+ms.date: 08/04/2021
 ---
 
 # Supported categories for Azure Resource Logs
@@ -18,7 +18,7 @@ A combination of the resource type (available in the `resourceId` property) and 
 
 ## Costs
 
-[Azure Monitor Log Analytics](https://azure.microsoft.com/pricing/details/monitor/), [Azure Storage](https://azure.microsoft.com/en-us/product-categories/storage/), [Event hub](https://azure.microsoft.com/en-us/pricing/details/event-hubs/), and partners who integrate directly with Azure Monitor ([for example Datadog](/azure/partner-solutions/datadog/overview)) have costs associated with ingesting data and storing data. Check the previous links to pricing pages for these services to understand those costs. Resource logs are just one type of data you can send to these locations. 
+[Azure Monitor Log Analytics](https://azure.microsoft.com/pricing/details/monitor/), [Azure Storage](https://azure.microsoft.com/product-categories/storage/), [Event hub](https://azure.microsoft.com/pricing/details/event-hubs/), and partners who integrate directly with Azure Monitor ([for example Datadog](../../partner-solutions/datadog/overview.md)) have costs associated with ingesting data and storing data. Check the previous links to pricing pages for these services to understand those costs. Resource logs are just one type of data you can send to these locations. 
 
 In addition, there may be costs to export some categories of resource logs to those locations. Those logs with possible export costs are listed in the table below. For more information on export pricing, see the *Platform Logs* section in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
@@ -29,6 +29,7 @@ Following is a list of the types of logs available for each resource type.
 Some categories may only be supported for specific types of resources. See the resource-specific documentation if you feel you are missing a resource. For example, Microsoft.Sql/servers/databases categories aren't available for all types of databases. For more information, see [information on SQL Database diagnostic logging](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md). 
 
 If you think there is something is missing, you can open a GitHub comment at the bottom of this article.
+
 
 ## Microsoft.AAD/DomainServices
 
@@ -532,12 +533,18 @@ If you think there is something is missing, you can open a GitHub comment at the
 |Request|Request|No|
 
 
-## Microsoft.HealthcareApis/services
+## Microsoft.HealthcareApis/workspaces/dicomservices
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AuditLogs|Audit logs|No|
-|DiagnosticLogs|Diagnostic logs|Yes|
+|AuditLogs|Audit logs|Yes|
+
+
+## Microsoft.HealthcareApis/workspaces/fhirservices
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AuditLogs|FHIR Audit logs|Yes|
 
 
 ## microsoft.insights/autoscalesettings
@@ -767,7 +774,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Audit|Audit|No|
+|Audit|Audit|Yes|
 
 
 ## Microsoft.PowerBI/tenants
@@ -775,7 +782,6 @@ If you think there is something is missing, you can open a GitHub comment at the
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |Engine|Engine|No|
-
 
 ## Microsoft.PowerBI/tenants/workspaces
 
@@ -863,6 +869,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 |ResourceUsageStats|Resource Usage Statistics|No|
 |SQLSecurityAuditEvents|SQL Security Audit Event|No|
 
+
 ## Microsoft.Sql/managedInstances/databases
 
 |Category|Category Display Name|Costs To Export|
@@ -871,6 +878,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 |QueryStoreRuntimeStatistics|Query Store Runtime Statistics|No|
 |QueryStoreWaitStatistics|Query Store Wait Statistics|No|
 |SQLInsights|SQL Insights|No|
+
 
 ## Microsoft.Sql/servers/databases
 
@@ -892,6 +900,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 |SQLSecurityAuditEvents|SQL Security Audit Event|No|
 |Timeouts|Timeouts|No|
 |Waits|Waits|No|
+
 
 ## Microsoft.Storage/storageAccounts/blobServices
 
@@ -955,6 +964,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |BigDataPoolAppsEnded|Big Data Pool Applications Ended|No|
+
 
 ## Microsoft.Synapse/workspaces/sqlPools
 
@@ -1020,6 +1030,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 |AppServiceIPSecAuditLogs|IPSecurity Audit Logs|No|
 |AppServicePlatformLogs|App Service Platform logs|No|
 |FunctionAppLogs|Function Application Logs|No|
+
 
 ## Next Steps
 

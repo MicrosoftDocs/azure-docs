@@ -18,7 +18,7 @@ This article describes how the Azure Percept speech module interacts with IoT Hu
 - IoT Hub can send control requests to speech module via the Module method.
 - IoT Hub can get speech module status via the Module method.
 
-For more details, please refer to [Understand and use module twins in IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins).
+For more details, please refer to [Understand and use module twins in IoT Hub](../iot-hub/iot-hub-devguide-module-twins.md).
 
 
 ## Speech module states

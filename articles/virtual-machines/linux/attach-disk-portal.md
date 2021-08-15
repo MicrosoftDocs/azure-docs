@@ -4,7 +4,7 @@ description: Use the portal to attach new or existing data disk to a Linux VM.
 author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 08/13/2021
 ms.author: cynthn
 ms.subservice: disks
 ms.collection: linux
