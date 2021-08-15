@@ -5,7 +5,7 @@ author: TerryLanfear
 ms.author: terrylan
 ms.service: security
 ms.topic: reference
-ms.date: 07/15/2021
+ms.date: 08/15/2021
 ---
 
 
@@ -15,6 +15,7 @@ This article describes feature availability in the Microsoft Azure and Azure Gov
 
 - [Azure Sentinel](#azure-sentinel)
 - [Azure Security Center](#azure-security-center)
+- [Azure Defender for IoT](#azure-defender-for-iot)
 
 > [!NOTE]
 > Additional security services will be added to this article soon.
@@ -285,18 +286,17 @@ Office 365 GCC is paired with Azure Active Directory (Azure AD) in Azure. Office
 | - Office 365 DoD | - | GA |
 |  |  |
 
-## Azure Defender for IoT 
+## Azure Defender for IoT
 
-Azure Defender for IoT lets you accelerate IoT/OT innovation with comprehensive security across all your IoT/OT devices. For end-user organizations, Azure Defender for IoT offers agentless, network-layer security that is rapidly deployed, works with diverse industrial equipment, and interoperates with Azure Sentinel and other SOC tools. Deploy on-premises or in Azure-connected environments. For IoT device builders, the Azure Defender for IoT security agents allow you to build security directly into your new IoT devices and Azure IoT projects. The micro agent has flexible deployment options, including the ability to deploy as a binary package or modify source code. And the micro agent is available for standard IoT operating systems like Linux and Azure RTOS. For more information, see the [Azure Defender for IoT product documentation](../../defender-for-iot/index.yml). 
+Azure Defender for IoT lets you accelerate IoT/OT innovation with comprehensive security across all your IoT/OT devices. For end-user organizations, Azure Defender for IoT offers agentless, network-layer security that is rapidly deployed, works with diverse industrial equipment, and interoperates with Azure Sentinel and other SOC tools. Deploy on-premises or in Azure-connected environments. For IoT device builders, the Azure Defender for IoT security agents allow you to build security directly into your new IoT devices and Azure IoT projects. The micro agent has flexible deployment options, including the ability to deploy as a binary package or modify source code. And the micro agent is available for standard IoT operating systems like Linux and Azure RTOS. For more information, see the [Azure Defender for IoT product documentation](../../defender-for-iot/index.yml).
 
 The following table displays the current Azure Defender for IoT feature availability in Azure, and Azure Government.
 
-### For organizations 
+### For organizations
 
 | Feature | Azure | Azure Government |
 |--|--|--|
 | [On-premises device discovery and inventory](../../defender-for-iot/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md) | GA | GA |
-| Cloud device discovery and inventory | Private Preview | Not Available |
 | [Vulnerability management](../../defender-for-iot/how-to-create-risk-assessment-reports.md) | GA | GA |
 | [Threats detection with IoT, and OT behavioral analytics](../../defender-for-iot/how-to-work-with-alerts-on-your-sensor.md) | GA | GA |
 | [Automatic Threat Intelligence Updates](../../defender-for-iot/how-to-work-with-threat-intelligence-packages.md) | GA | GA |
@@ -307,7 +307,7 @@ The following table displays the current Azure Defender for IoT feature availabi
 | - [Ticketing system and CMDB (Service Now)](../../defender-for-iot/integration-servicenow.md) | GA | GA |
 | - [Sensor Provisioning](../../defender-for-iot/how-to-manage-sensors-on-the-cloud.md) | GA | GA |
 
-### For device builders 
+### For device builders
 
 | Feature | Azure | Azure Government |
 |--|--|--|
