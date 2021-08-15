@@ -25,7 +25,7 @@ Your enterprise may have more than one paying entity. If this is the case you ca
 Before you subscribe, you should have a sense of how many devices you would like your subscriptions to cover.
 
 Users can also work with trial subscription, which supports monitoring a limited number of devices for 30 days.
-See [Azure Defender pricing](https://azure.microsoft.com/en-us/pricing/details/azure-defender/) information on committed device prices.
+See [Azure Defender pricing](https://azure.microsoft.com/pricing/details/azure-defender/) information on committed device prices.
 
 ### Before you begin
 
@@ -38,7 +38,7 @@ To get started with Azure Defender for IoT, you must have a Microsoft Azure subs
 
 - If have an account: https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade.
 
-- If you don’t have an account: https://azure.microsoft.com/en-us/free/.
+- If you don’t have an account: https://azure.microsoft.com/free/.
 
 #### User permission requirements
 
