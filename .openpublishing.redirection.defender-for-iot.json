@@ -1,7 +1,7 @@
 {
     "redirections": [
         {
-            "source_path_from_root": "articles/defender-for-iot/device-builders/quickstart-building-the-defender-micro-agent-from-source.md",
+            "source_path_from_root": "/articles/defender-for-iot/device-builders/quickstart-building-the-defender-micro-agent-from-source.md",
             "redirect_url": "/azure/defender-for-iot/device-builders/overview",
             "redirect_document_id": false
         },
