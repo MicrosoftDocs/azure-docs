@@ -28,7 +28,8 @@ details.
 ||[Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md)|Yes| Yes| No| Yes| Yes| Yes|
 ||[Azure Dedicated SQL pool (formerly SQL DW)](register-scan-azure-synapse-analytics.md)|Yes| Yes| No| Yes| Yes| Yes|
 ||[Azure Synapse Analytics (Workspace)](register-scan-synapse-workspace.md)|Yes| Yes| No| Yes| Yes| Yes|
-|Database|[Google BigQuery](register-scan-google-bigquery-source.md)|Yes| Yes| No| No| No| Yes|
+|Database|[Cassandra](register-scan-cassandra-source.md)|Yes| Yes| No| No| No| Yes|
+||[Google BigQuery](register-scan-google-bigquery-source.md)|Yes| Yes| No| No| No| Yes|
 ||[Hive Metastore DB](register-scan-oracle-source.md)|Yes| Yes| No| No| No| Yes|
 ||[Oracle DB](register-scan-oracle-source.md)|Yes| Yes| No| No| No| Yes|
 ||[SQL Server](register-scan-on-premises-sql-server.md)|Yes| Yes| No| Yes| Yes| Yes|
