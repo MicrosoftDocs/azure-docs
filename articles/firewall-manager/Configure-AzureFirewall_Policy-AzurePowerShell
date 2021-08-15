@@ -1,17 +1,16 @@
-# Tutorial: Configure Azure Firewall policy using the Azure PowerShell
+# Tutorial: Configure Azure Firewall Policy using the Azure PowerShell
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > *Set up a test network environment
 > *Create Azure Firewall Policy
-> *Create Firewall Policy Network Rule Collection group
-> *Create Azure firewall Policy Network Rule collection with new network rules
-> *Create an Azure Firewall Policy Network Rules in existing Rule Collection
-> *Create Firewall Policy Application Rule Collection group
+> *Create Azure Firewall Policy Network Rule Collection group
+> *Create Azure Firewall Policy Network Rule collection with new network rules
+> *Create an Azure Firewall Policy Network Rules in existing rule collection
+> *Create Firewall Policy Application Rule collection group
 > *Create Azure Firewall  Policy Application Rule collection with new application rules
-> *Create an Azure Firewall Policy Application Rule in an existing Rule collection
-
+> *Create an Azure Firewall Policy Application Rule in an existing rule collection
 
 ## Prerequisites
 
@@ -53,19 +52,20 @@ $firewallpolicy = Get-AzFirewallPolicy -Name EUS-Policy -ResourceGroupName Test-
 $newnetworkrulecollectiongroup = New-AzFirewallPolicyRuleCollectionGroup  -Name "NetworkRuleCollectionGroup" -Priority 200 -ResourceGroupName Test-FWPolicy-RG -FirewallPolicyName EUS-Policy
 $networkrulecollectiongroup = Get-AzFirewallPolicyRuleCollectionGroup -Name "NetworkRuleCollectionGroup" -ResourceGroupName Test-FWPolicy-RG -AzureFirewallPolicyName EUS-Policy
 ```
-## Create Azure firewall Policy Network Rule collection and add new rules
+## Create Azure firewall Policy Network Rule collection with new rules
 Before creating Rule collection, create network rules and store them in variables.
+
 # Create a new Azure Firewall Policy Network Rule
 ```azurepowershell
 $networkrule1= New-AzFirewallPolicyNetworkRule -Name NwRule1 -Description testRule1  -SourceAddress 10.0.0.0/24 -Protocol TCP -DestinationAddress 192.168.0.1/32 -DestinationPort 22 
 $networkrule2= New-AzFirewallPolicyNetworkRule -Name NWRule2 -Description TestRule2  -SourceAddress 10.0.0.0/24 -Protocol UDP -DestinationAddress 192.168.0.10/32 -DestinationPort 1434
 ```
-# Network Rule collection and add new rules
+# Create Network Rule collection and add new rules
 ```azurepowershell
 $newrulecollectionconfig=New-AzFirewallPolicyFilterRuleCollection -Name myfirstrulecollection -Priority 1000 -Rule $networkrule1,$networkrule2 -ActionType Allow
 $newrulecollection = $networkrulecollectiongroup.Properties.RuleCollection.Add($newrulecollectionconfig)
 ```
-# Update Network Rule collection Group with new rule collection
+# Update Network Rule collection Group
 ```azurepowershell
 Set-AzFirewallPolicyRuleCollectionGroup -Name "NetworkRuleCollectionGroup" -Priority "200" -FirewallPolicyObject $firewallpolicy -RuleCollection $networkrulecollectiongroup.Properties.RuleCollection
 ```
@@ -76,7 +76,7 @@ Write-Output  $output
 ```
 ## Create an Azure Firewall Policy Network Rules in existing Rule collection
 
-# Get Existing Network Rule Group collection
+# Get existing Network Rule Group collection
 ```azurepowershell
 $firewallpolicy = Get-AzFirewallPolicy -Name EUS-Policy -ResourceGroupName Test-FWPolicy-RG
 $networkrulecollectiongroup = Get-AzFirewallPolicyRuleCollectionGroup -Name "NetworkRuleCollectionGroup" -ResourceGroupName Test-FWPolicy-RG -AzureFirewallPolicyName EUS-Policy 
@@ -101,6 +101,107 @@ Set-AzFirewallPolicyRuleCollectionGroup -Name "NetworkRuleCollectionGroup" -Fire
 $output = $getexistingrullecollection.Properties.GetRuleCollectionByName("myfirstrulecollection").Name
 Write-output $output
 ```
+# Output Summary
+``azurepowershell
+PS C:\WINDOWS\system32> $output
+
+
+Action             : Microsoft.Azure.Commands.Network.Models.PSAzureFirewallPolicyFilterRuleCollectionAction
+Rules              : {apprule1, apprule2, newapprule01, newapprule02}
+ActionText         : {
+                       "type": "Allow"
+                     }
+RulesText          : [
+                       {
+                         "ruleType": "ApplicationRule",
+                         "name": "apprule1",
+                         "sourceAddresses": [
+                           "192.168.0.1/32"
+                         ],
+                         "targetFqdns": [
+                           "*.contoso.com"
+                         ],
+                         "fqdnTags": null,
+                         "protocols": [
+                           {
+                             "protocolType": "Https",
+                             "port": 443
+                           }
+                         ],
+                         "sourceIpGroups": null,
+                         "webCategories": null,
+                         "targetUrls": null,
+                         "terminateTLS": null
+                       },
+                       {
+                         "ruleType": "ApplicationRule",
+                         "name": "apprule2",
+                         "sourceAddresses": [
+                           "192.168.0.10/32"
+                         ],
+                         "targetFqdns": [
+                           "www.contosoweb.com"
+                         ],
+                         "fqdnTags": null,
+                         "protocols": [
+                           {
+                             "protocolType": "Https",
+                             "port": 443
+                           }
+                         ],
+                         "sourceIpGroups": null,
+                         "webCategories": null,
+                         "targetUrls": null,
+                         "terminateTLS": null
+                       },
+                       {
+                         "ruleType": "ApplicationRule",
+                         "name": "newapprule01",
+                         "sourceAddresses": [
+                           "192.168.0.5/32"
+                         ],
+                         "targetFqdns": [
+                           "*.contosoabc.com"
+                         ],
+                         "fqdnTags": null,
+                         "protocols": [
+                           {
+                             "protocolType": "Https",
+                             "port": 443
+                           }
+                         ],
+                         "sourceIpGroups": null,
+                         "webCategories": null,
+                         "targetUrls": null,
+                         "terminateTLS": null
+                       },
+                       {
+                         "ruleType": "ApplicationRule",
+                         "name": "newapprule02",
+                         "sourceAddresses": [
+                           "192.168.0.15/32"
+                         ],
+                         "targetFqdns": [
+                           "www.contosowebabcd.com"
+                         ],
+                         "fqdnTags": null,
+                         "protocols": [
+                           {
+                             "protocolType": "Https",
+                             "port": 443
+                           }
+                         ],
+                         "sourceIpGroups": null,
+                         "webCategories": null,
+                         "targetUrls": null,
+                         "terminateTLS": null
+                       }
+                     ]
+Name               : myapprulecollection
+Priority           : 1000
+RuleCollectionType : FirewallPolicyFilterRuleCollection
+PS C:\WINDOWS\system32> 
+``
 
 ## Create Azure firewall  Policy Application Rule collection and add new rules
 
@@ -114,7 +215,7 @@ $newapprulecollectiongroup = New-AzFirewallPolicyRuleCollectionGroup  -Name "App
 $apprule1= New-AzFirewallPolicyApplicationRule -Name apprule1 -Description testapprule1 -SourceAddress 192.168.0.1/32 -TargetFqdn "*.contoso.com" -Protocol HTTPS
 $apprule2= New-AzFirewallPolicyApplicationRule -Name apprule2 -Description testapprule2  -SourceAddress 192.168.0.10/32 -TargetFqdn "www.contosoweb.com" -Protocol HTTPS
 ```
-# Create new Application rule collection with rules
+# Create new Application rule collection with new rules
 ```azurepowershell
 $apprulecollectiongroup =Get-AzFirewallPolicyRuleCollectionGroup -Name "ApplicationRuleCollectionGroup" -ResourceGroupName Test-FWPolicy-RG -AzureFirewallPolicyName EUS-Policy
 
@@ -122,7 +223,7 @@ $apprulecollection=New-AzFirewallPolicyFilterRuleCollection -Name myapprulecolle
 $newapprulecollection = $apprulecollectiongroup.Properties.RuleCollection.Add($apprulecollection) 
 ```
 
-# Update Application Rule collection Group with new rule collection
+# Update Application Rule collection Group
 ```azurepowershell
 Set-AzFirewallPolicyRuleCollectionGroup -Name "ApplicationRuleCollectionGroup" -FirewallPolicyObject $firewallpolicy -Priority 300 -RuleCollection $apprulecollectiongroup.Properties.RuleCollection 
 ```
@@ -131,6 +232,105 @@ Set-AzFirewallPolicyRuleCollectionGroup -Name "ApplicationRuleCollectionGroup" -
 ```azurepowershell
 $output = $apprulecollectiongroup.Properties.GetRuleCollectionByName("myapprulecollection")
 Write-Output $output
+
+# Network and Application Policy Rule Output
+
+PS C:\WINDOWS\system32> $output
+Action             : Microsoft.Azure.Commands.Network.Models.PSAzureFirewallPolicyFilterRuleCollectionAction
+Rules              : {apprule1, apprule2, newapprule01, newapprule02}
+ActionText         : {
+                       "type": "Allow"
+                     }
+RulesText          : [
+                       {
+                         "ruleType": "ApplicationRule",
+                         "name": "apprule1",
+                         "sourceAddresses": [
+                           "192.168.0.1/32"
+                         ],
+                         "targetFqdns": [
+                           "*.contoso.com"
+                         ],
+                         "fqdnTags": null,
+                         "protocols": [
+                           {
+                             "protocolType": "Https",
+                             "port": 443
+                           }
+                         ],
+                         "sourceIpGroups": null,
+                         "webCategories": null,
+                         "targetUrls": null,
+                         "terminateTLS": null
+                       },
+                       {
+                         "ruleType": "ApplicationRule",
+                         "name": "apprule2",
+                         "sourceAddresses": [
+                           "192.168.0.10/32"
+                         ],
+                         "targetFqdns": [
+                           "www.contosoweb.com"
+                         ],
+                         "fqdnTags": null,
+                         "protocols": [
+                           {
+                             "protocolType": "Https",
+                             "port": 443
+                           }
+                         ],
+                         "sourceIpGroups": null,
+                         "webCategories": null,
+                         "targetUrls": null,
+                         "terminateTLS": null
+                       },
+                       {
+                         "ruleType": "ApplicationRule",
+                         "name": "newapprule01",
+                         "sourceAddresses": [
+                           "192.168.0.5/32"
+                         ],
+                         "targetFqdns": [
+                           "*.contosoabc.com"
+                         ],
+                         "fqdnTags": null,
+                         "protocols": [
+                           {
+                             "protocolType": "Https",
+                             "port": 443
+                           }
+                         ],
+                         "sourceIpGroups": null,
+                         "webCategories": null,
+                         "targetUrls": null,
+                         "terminateTLS": null
+                       },
+                       {
+                         "ruleType": "ApplicationRule",
+                         "name": "newapprule02",
+                         "sourceAddresses": [
+                           "192.168.0.15/32"
+                         ],
+                         "targetFqdns": [
+                           "www.contosowebabcd.com"
+                         ],
+                         "fqdnTags": null,
+                         "protocols": [
+                           {
+                             "protocolType": "Https",
+                             "port": 443
+                           }
+                         ],
+                         "sourceIpGroups": null,
+                         "webCategories": null,
+                         "targetUrls": null,
+                         "terminateTLS": null
+                       }
+                     ]
+Name               : myapprulecollection
+Priority           : 1000
+RuleCollectionType : FirewallPolicyFilterRuleCollection
+PS C:\WINDOWS\system32> 
 ```
 
 ## Create an Azure Firewall Manager Policy Application Rule in existing Rule collection
@@ -144,6 +344,8 @@ $newapprule2 = New-AzFirewallPolicyApplicationRule -Name newapprule02 -Descripti
 $apprulecollection = $apprulecollectiongroup.Properties.RuleCollection | where {$_.Name -match "myapprulecollection"}
 $apprulecollection.Rules.Add($newapprule1)
 $apprulecollection.Rules.Add($newapprule2)
+
+# Update Application Rule collection Group  
 Set-AzFirewallPolicyRuleCollectionGroup -Name "ApplicationRuleCollectionGroup" -FirewallPolicyObject $firewallpolicy -Priority 300 -RuleCollection $apprulecollectiongroup.Properties.RuleCollection
 ```
 # Output
@@ -151,6 +353,107 @@ Set-AzFirewallPolicyRuleCollectionGroup -Name "ApplicationRuleCollectionGroup" -
 $Output = $apprulecollectiongroup.Properties.GetRuleCollectionByName("myapprulecollection")
 Write-Output $output
 ```
+
+# Output Summary 
+```azurepowershell
+
+Action             : Microsoft.Azure.Commands.Network.Models.PSAzureFirewallPolicyFilterRuleCollectionAction
+Rules              : {apprule1, apprule2, newapprule01, newapprule02}
+ActionText         : {
+                       "type": "Allow"
+                     }
+RulesText          : [
+                       {
+                         "ruleType": "ApplicationRule",
+                         "name": "apprule1",
+                         "sourceAddresses": [
+                           "192.168.0.1/32"
+                         ],
+                         "targetFqdns": [
+                           "*.contoso.com"
+                         ],
+                         "fqdnTags": null,
+                         "protocols": [
+                           {
+                             "protocolType": "Https",
+                             "port": 443
+                           }
+                         ],
+                         "sourceIpGroups": null,
+                         "webCategories": null,
+                         "targetUrls": null,
+                         "terminateTLS": null
+                       },
+                       {
+                         "ruleType": "ApplicationRule",
+                         "name": "apprule2",
+                         "sourceAddresses": [
+                           "192.168.0.10/32"
+                         ],
+                         "targetFqdns": [
+                           "www.contosoweb.com"
+                         ],
+                         "fqdnTags": null,
+                         "protocols": [
+                           {
+                             "protocolType": "Https",
+                             "port": 443
+                           }
+                         ],
+                         "sourceIpGroups": null,
+                         "webCategories": null,
+                         "targetUrls": null,
+                         "terminateTLS": null
+                       },
+                       {
+                         "ruleType": "ApplicationRule",
+                         "name": "newapprule01",
+                         "sourceAddresses": [
+                           "192.168.0.5/32"
+                         ],
+                         "targetFqdns": [
+                           "*.contosoabc.com"
+                         ],
+                         "fqdnTags": null,
+                         "protocols": [
+                           {
+                             "protocolType": "Https",
+                             "port": 443
+                           }
+                         ],
+                         "sourceIpGroups": null,
+                         "webCategories": null,
+                         "targetUrls": null,
+                         "terminateTLS": null
+                       },
+                       {
+                         "ruleType": "ApplicationRule",
+                         "name": "newapprule02",
+                         "sourceAddresses": [
+                           "192.168.0.15/32"
+                         ],
+                         "targetFqdns": [
+                           "www.contosowebabcd.com"
+                         ],
+                         "fqdnTags": null,
+                         "protocols": [
+                           {
+                             "protocolType": "Https",
+                             "port": 443
+                           }
+                         ],
+                         "sourceIpGroups": null,
+                         "webCategories": null,
+                         "targetUrls": null,
+                         "terminateTLS": null
+                       }
+                     ]
+Name               : myapprulecollection
+Priority           : 1000
+RuleCollectionType : FirewallPolicyFilterRuleCollection
+PS C:\WINDOWS\system32> 
+```
+
 ## Next steps
 
 Learn more about Azure Firewall Manager deployment: [Azure Firewall Manager deployment overview](deployment-overview.md).
