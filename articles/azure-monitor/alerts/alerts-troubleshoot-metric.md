@@ -280,7 +280,7 @@ When a metric exhibits large fluctuation, Dynamic Thresholds will build a wider 
 2. The median values are close to zero
 3. The metric exhibits an irregular behavior with high variance (there are spikes or dips in the data)
 
-When the lower bound has a negative value, this means that it's plausible for the metric to reach a zero value given the metric's irregular behavior. You may consider choosing a higher sensitivity or a larger *Aggregation granularity (Period)* to make the model less sensitive, or using the *Ignore data before* option to exclude a recent irregulaity from the historical data used to build the model.
+When the lower bound has a negative value, this means that it's plausible for the metric to reach a zero value given the metric's irregular behavior. You may consider choosing a higher sensitivity or a larger *Aggregation granularity (Period)* to make the model less sensitive, or using the *Ignore data before* option to exclude a recent irregularity from the historical data used to build the model.
 
 ## The Dynamic Thresholds alert rule is too noisy (fires too much)
 To reduce the sensitivity of your Dynamic Thresholds alert rule, use one of the following options:
