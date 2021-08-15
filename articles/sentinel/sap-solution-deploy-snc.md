@@ -1,6 +1,6 @@
 ---
 title: Deploy the Azure Sentinel SAP data connector with Secure Network Communications (SNC)  | Microsoft Docs
-description: Learn how to deploy the Azure Sentinel data connector for SAP environments with a secure connection via SNC.
+description: Learn how to deploy the Azure Sentinel data connector for SAP environments with a secure connection via SNC, for the NetWeaver/ABAP interface based logs.
 author: batamig
 ms.author: bagol
 ms.service: azure-sentinel
@@ -13,7 +13,7 @@ ms.subservice: azure-sentinel
 
 # Deploy the Azure Sentinel SAP data connector with SNC
 
-This article describes how to deploy the Azure Sentinel SAP data connector when you have a secure connection to SAP via Secure Network Communications (SNC).
+This article describes how to deploy the Azure Sentinel SAP data connector when you have a secure connection to SAP via Secure Network Communications (SNC) for the NetWeaver/ABAP interface based logs.
 
 > [!NOTE]
 > The default, and most recommended process for deploying the Azure Sentinel SAP data connector is by [using an Azure VM](sap-deploy-solution.md). This article is intended for advanced users.
@@ -114,9 +114,17 @@ We recommend that you perform this procedure after you have a [key vault](#creat
     cp <**nwrfc750X_X-xxxxxxx.zip**> /home/$(pwd)/sapcon/<sap-sid>/
     ```
 
-1. Edit the **systemconfig.ini** file as needed, using the embedded comments as a guide. For more information, see [Manually configure the SAP data connector](sap-solution-deploy-alternate.md#manually-configure-the-sap-data-connector).
+1. Edit the **systemconfig.ini** file as needed, using the embedded comments as a guide.
 
-1. Define the logs that you want to ingest into Azure Sentinel using the instructions in the **systemconfig.ini** file. For example, see [Define the SAP logs that are sent to Azure Sentinel](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-azure-sentinel).
+    You'll need to edit all configurations except for the key vault secrets. For more information, see [Manually configure the SAP data connector](sap-solution-deploy-alternate.md#manually-configure-the-sap-data-connector).
+
+1. Define the logs that you want to ingest into Azure Sentinel using the instructions in the **systemconfig.ini** file. 
+
+    For example, see [Define the SAP logs that are sent to Azure Sentinel](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-azure-sentinel).
+
+    > [!NOTE]
+    > Relevant logs for SNC communications are only those logs that are retrieved via the NetWeaver / ABAP interface. SAP Control and HANA logs are out of scope for SNC.
+    >
 
 1. Define the following configurations using the instructions in the **systemconfig.ini** file:
 
@@ -211,7 +219,11 @@ After deploying your SAP data connector, perform the following SAP system proced
     S4H-ABAPX509CERT = 'MIIDJjCCAtCgAwIBAgIBNzA ... NgalgcTJf3iUjZ1e5Iv5PLKO' (Relevant certificate code)
     ```
 
-If you're using fixed Docker values, define the parameters as follows:
+    > [!NOTE]
+    > By default, the `<Interprefix>` value is your SID, such as `A4H-<ABAPSNCPARTNERNAME>`.
+    >
+
+If you're entering secrets directly to the configuration file, define the parameters as follows:
 
 ```ini
 [Secrets Source]
