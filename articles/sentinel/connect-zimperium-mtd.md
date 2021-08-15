@@ -67,7 +67,7 @@ In this document, you learned how to connect Zimperium Mobile Threat Defense to 
 
 - Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).
 
-- [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
+- [Use workbooks](/azure/sentinel/articles/sentinel/monitor-your-data.md) to monitor your data.
 
 To learn more about Zimperium, see the following:
 
@@ -76,4 +76,3 @@ To learn more about Zimperium, see the following:
 - [Zimperium Mobile Security Blog](https://blog.zimperium.com)
 
 - [Zimperium Customer Support Portal](https://support.zimperium.com)
-

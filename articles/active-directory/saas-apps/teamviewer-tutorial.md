@@ -33,6 +33,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * TeamViewer supports **SP** initiated SSO.
+* TeamViewer supports [**Automated** user provisioning and deprovisioning](teamviewer-provisioning-tutorial.md) (recommended).
 
 ## Add TeamViewer from the gallery
 
