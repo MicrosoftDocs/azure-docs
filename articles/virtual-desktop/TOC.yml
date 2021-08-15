@@ -240,10 +240,14 @@
     href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
   - name: Azure command-line interface (CLI)
     href: /cli/azure/
-  - name: Azure example scenarios
+  - name: Azure Virtual Desktop for the Enterprise
     href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop
   - name: Email discovery
     href: /windows-server/remote/remote-desktop-services/rds-email-discovery
+  - name: Protect AVD with Azure Firewall
+    href: /firewall/protect-windows-virtual-desktop.md
+  - name: Desktop Virtualization - Microsoft CAF for Azure
+    href: /cloud-adoption-framework/docs/scenarios/wvd/index.md
 - name: Resources
   items:
   - name: PowerShell
@@ -268,4 +272,5 @@
     href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/
   - name: Azure Advisor
     href: ../advisor/advisor-overview.md
+ 
 
