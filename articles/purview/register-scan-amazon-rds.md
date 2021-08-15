@@ -295,8 +295,6 @@ To ensure that your RDS connection will be allowed from the load balancer you cr
 
     When you’re done, select **Next** to continue.
 
-    For example:
-
 1.	In the **Register targets** page, enter your RDS database IP address, and then select **Include as pending below**.
 
 1.	After you see the new target listed in the **Targets** table, select **Create target group** at the bottom of the page.
@@ -386,8 +384,6 @@ After the [Load Balancer is created](#step-4-create-a-load-balancer) and its Sta
     1. In the **Allow principals** tab, select **Add principals**.
     1. In the **Principals to add > ARN** field, enter `arn:aws:iam::181328463391:root`.
     1. Select **Add principals**.
-
-    For example:
 
     > [!NOTE]
     > When adding an identity, use an asterisk (*****) to add permissions for all principals. This enables all principals, in all AWS accounts to create an endpoint to your endpoint service. For more information, see the [AWS documentation](https://docs.aws.amazon.com/vpc/latest/privatelink/add-endpoint-service-permissions.html).
