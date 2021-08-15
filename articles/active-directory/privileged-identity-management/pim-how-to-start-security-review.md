@@ -72,7 +72,7 @@ This article describes how to create one or more access reviews for privileged A
     > [!NOTE]
     > Selecting more than one role will create multiple access reviews. For example, selecting five roles will create five separate access reviews.
 
-12. In **assignment type**, scope the review by how the principal was assigned to the role. Choose **(Preview) eligible assignments only** to review eligible assignments (regardless of activation status when the review is created) or **(Preview) active assignments only** to review active assignments. Choose **all active and eligible assignments** to review all assignments regardless of type.
+12. In **assignment type**, scope the review by how the principal was assigned to the role. Choose **eligible assignments only** to review eligible assignments (regardless of activation status when the review is created) or **active assignments only** to review active assignments. Choose **all active and eligible assignments** to review all assignments regardless of type.
 
     <kbd> ![Reviewers list of assignment types](./media/pim-how-to-start-security-review/assignment-type-select.png) </kbd>
 
