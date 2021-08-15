@@ -270,6 +270,10 @@
       href: license-users-groups.md
     - name: Restore a deleted user
       href: active-directory-users-restore.md
+  - name: Custom security attributes
+    items:
+    - name: Add or deactivate attributes
+      href: custom-security-attributes-add.md
 - name: Troubleshooting
   expanded: true
   items:
