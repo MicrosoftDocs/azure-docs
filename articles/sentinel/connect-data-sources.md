@@ -10,11 +10,11 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: how-to
+ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/17/2021
+ms.date: 08/15/2021
 ms.author: yelevin
 
 ---
@@ -22,7 +22,7 @@ ms.author: yelevin
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-After you enable Azure Sentinel, the first thing you need to do is connect your data sources. Azure Sentinel comes with many connectors for Microsoft products, available out of the box and providing real-time integration. For example, service-to-service connectors include Microsoft 365 Defender connectors and Microsoft 365 sources, such as Office 365, Azure Active Directory (Azure AD), Microsoft Defender for Identity, and Microsoft Cloud App Security.
+To get any use out of Azure Sentinel after you've enabled it, the first thing you need to do is connect your data sources. Azure Sentinel comes with many connectors for Microsoft products, available out of the box and providing real-time integration. For example, service-to-service connectors include Microsoft 365 Defender connectors and Microsoft 365 sources, such as Office 365, Azure Active Directory (Azure AD), Microsoft Defender for Identity, and Microsoft Cloud App Security.
 
 You can also enable built-in connectors to the broader security ecosystem for non-Microsoft products. For example, you can use [Syslog](#syslog), [Common Event Format (CEF)](#common-event-format-cef), or [REST APIs](#rest-api-integration) to connect your data sources with Azure Sentinel.
 
@@ -30,20 +30,18 @@ For more information, see [Azure Sentinel partner data connectors](partner-data-
 
 ## Enable a data connector
 
-To enable a data connector in Azure Sentinel:
-
-1. On the Azure Sentinel left navigation menu, select **Data connectors**. The **Data connectors** page shows the full list of connectors that Azure Sentinel provides, and their status. Select the connector you want to connect, and then select **Open connector page**. 
+The **Data connectors** page, accessible from the Azure Sentinel navigation menu, shows the full list of connectors that Azure Sentinel provides, and their status. Select the connector you want to connect, and then select **Open connector page**. 
 
    ![Data connectors gallery](./media/collect-data/collect-data-page.png)
    
    For more information, see [Service-to-service integration](#service-to-service-integration) and [Azure Sentinel partner data connectors](partner-data-connectors.md).
    
 
-1. On the connector page, make sure you've fulfilled all the prerequisites, and follow the instructions to connect the data to Azure Sentinel. It may take some time for the logs to start syncing with Azure Sentinel. After you connect, you see a summary of the data in the **Data received** graph, and the connectivity status of the data types.
+You'll need to have fulfilled all the prerequisites, and you'll see complete instructions on the connector page to ingest the data to Azure Sentinel. It may take some time for data to start arriving. After you connect, you see a summary of the data in the **Data received** graph, and the connectivity status of the data types.
 
    ![Configure data connectors](./media/collect-data/opened-connector-page.png)
   
-1. Select the **Next steps** tab to see content that Azure Sentinel provides for the specific data type.
+In the **Next steps** tab, you'll see additional content that Azure Sentinel provides for the specific data type - sample queries, visualization workbooks, and analytics rule templates to help you detect and investigate threats.
 
    ![Next steps for connectors](./media/collect-data/data-insights.png)
 

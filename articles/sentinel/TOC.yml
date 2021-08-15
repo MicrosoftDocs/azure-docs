@@ -45,6 +45,8 @@
       href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=%2fazure%2fsentinel%2fTOC.json
   - name: Data collection and analysis
     items:
+    - name: Connect data sources
+      href: connect-data-sources.md
     - name: Normalization and the Azure Sentinel Information Model (ASIM)
       href: normalization.md
     - name: Classifying data with entities
@@ -99,196 +101,26 @@
     href: migration.md
   - name: Collect data
     items:
-    - name: Connect data sources
-      href: connect-data-sources.md
-    - name: Connect service-to-service
-      items:
-      - name: AWS CloudTrail
-        href: connect-aws.md
-      - name: Azure Active Directory
-        href: connect-azure-active-directory.md
-      - name: Azure Activity Log
-        href: connect-azure-activity.md
-      - name: Azure AD Identity Protection
-        href: connect-azure-ad-identity-protection.md
-      - name: Azure Defender alerts from ASC
-        href: connect-azure-security-center.md
-      - name: Azure DDoS Protection
-        href: connect-azure-ddos-protection.md
-      - name: Azure Firewall
-        href: connect-azure-firewall.md
-      - name: Azure Information Protection
-        href: connect-azure-information-protection.md
-      - name: Azure Key Vault
-        href: connect-azure-key-vault.md
-      - name: Azure Kubernetes Service (AKS)
-        href: connect-azure-kubernetes-service.md
-      - name: Azure SQL database logs
-        href: connect-azure-sql-logs.md
-      - name: Azure Storage accounts
-        href: connect-azure-storage-account.md
-      - name: Azure Web Application Firewall (WAF)
-        href: connect-azure-waf.md
-      - name: Defender for IoT (formerly ASC for IoT)
-        href: connect-asc-iot.md
-      - name: Domain name server
-        href: connect-dns.md
-      - name: Dynamics 365
-        href: connect-dynamics-365.md
-      - name: Microsoft 365 Defender
-        href: connect-microsoft-365-defender.md
-        expanded: true
-        items:
-        - name: Cloud App Security
-          href: connect-cloud-app-security.md
-        - name: Microsoft Defender for Endpoint (formerly MDATP)
-          href: connect-microsoft-defender-advanced-threat-protection.md
-        - name: Microsoft Defender for Identity (formerly Azure ATP)
-          href: connect-azure-atp.md
-        - name: Microsoft Defender for Office 365 (formerly Office 365 ATP)
-          href: connect-office-365-advanced-threat-protection.md
-      - name: Office 365 (includes Teams)
-        href: connect-office-365.md
-      - name: Windows firewall
-        href: connect-windows-firewall.md
-      - name: Windows security events
-        href: connect-windows-security-events.md
-      - name: Windows Virtual Desktop
-        href: connect-windows-virtual-desktop.md
-    - name: Partner data connectors
+    - name: Find your data source
       href: partner-data-connectors.md
-    - name: Connect partner data sources
+    - name: REST-API connection instructions (TBA)
+      href: connect-rest-api.md
+    - name: Log Analytics agent connection instructions
       items:
-      - name: Agari Phishing Defense and Brand Protection
-        href: connect-agari-phishing-defense.md
-      - name: Alcide kAudit
-        href: connect-alcide-kaudit.md
-      - name: Alsid for Active Directory
-        href: connect-alsid-active-directory.md
-      - name: Apache HTTP Server
-        href: connect-apache-http-server.md
-      - name: Barracuda WAF
-        href: connect-barracuda.md
-      - name: Barracuda CloudGen Firewall
-        href: connect-barracuda-cloudgen-firewall.md
-      - name: BETTER Mobile Threat Defense
-        href: connect-better-mtd.md
-      - name: Beyond Security beSECURE
-        href: connect-besecure.md
-      - name: Cisco Meraki
-        href: connect-cisco-meraki.md
-      - name: Cisco Umbrella
-        href: connect-cisco-umbrella.md
-      - name: Cisco Unified Computing System
-        href: connect-cisco-ucs.md
-      - name: Citrix Analytics (Security)
-        href: connect-citrix-analytics.md
-      - name: F5 BIG-IP
-        href: connect-f5-big-ip.md
-      - name: Forcepoint DLP
-        href: connect-forcepoint-dlp.md
-      - name: Google Workspace (G Suite)
-        href: connect-google-workspace.md
-      - name: Infoblox NIOS
-        href: connect-infoblox.md
-      - name: Juniper SRX
-        href: connect-juniper-srx.md
-      - name: NXLog DNS logs
-        href: connect-nxlog-dns.md
-      - name: NXLog LinuxAudit
-        href: connect-nxlog-linuxaudit.md
-      - name: Okta SSO
-        href: connect-okta-single-sign-on.md
-      - name: Orca Security
-        href: connect-orca-security-alerts.md
-      - name: Perimeter 81
-        href: connect-perimeter-81-logs.md
-      - name: Proofpoint On Demand
-        href: connect-proofpoint-pod.md
-      - name: Proofpoint TAP
-        href: connect-proofpoint-tap.md
-      - name: Pulse Connect Secure
-        href: connect-pulse-connect-secure.md
-      - name: Qualys VM
-        href: connect-qualys-vm.md
-      - name: Salesforce Service Cloud
-        href: connect-salesforce-service-cloud.md
-      - name: Sophos Cloud Optix
-        href: connect-sophos-cloud-optix.md
-      - name: Sophos XG Firewall
-        href: connect-sophos-xg-firewall.md
-      - name: Squadra Technologies secRMM
-        href: connect-squadra-secrmm.md
-      - name: Squid Proxy
-        href: connect-squid-proxy.md
-      - name: Symantec ICDX
-        href: connect-symantec.md
-      - name: Symantec Proxy SG
-        href: connect-symantec-proxy-sg.md
-      - name: Symantec VIP
-        href: connect-symantec-vip.md
-      - name: Syslog
-        href: connect-syslog.md
-      - name: VMware Carbon Black Cloud Endpoint Standard
-        href: connect-vmware-carbon-black.md
-      - name: VMware ESXi
-        href: connect-vmware-esxi.md
-      - name: Zimperium Mobile Threat Defense
-        href: connect-zimperium-mtd.md
-      - name: Connect using Logstash
-        href: connect-logstash.md
-      - name: CEF-based solutions
+      - name: Connect CEF log sources
         href: connect-common-event-format.md
-        items:
-        - name: STEP 1 Deploy the log forwarder
-          href: connect-cef-agent.md
-        - name: STEP 2 Configure your security solution
-          href: connect-cef-solution-config.md
-          items:
-          - name: AI Vectra Detect
-            href: connect-ai-vectra-detect.md
-          - name: Akamai Security Events
-            href: connect-akamai-security-events.md
-          - name: Aruba ClearPass
-            href: connect-aruba-clearpass.md
-          - name: Broadcom Symantec DLP
-            href: connect-broadcom-symantec-dlp.md
-          - name: Check Point
-            href: connect-checkpoint.md
-          - name: Cisco ASA
-            href: connect-cisco.md
-          - name: Citrix WAF
-            href: connect-citrix-waf.md
-          - name: CyberArk Enterprise Password Vault
-            href: connect-cyberark.md
-          - name: ExtraHop Reveal(x)
-            href: connect-extrahop.md
-          - name: F5 ASM
-            href: connect-f5.md
-          - name: Forcepoint CASB, NGFW
-            href: connect-forcepoint-casb-ngfw.md
-          - name: Fortinet
-            href: connect-fortinet.md
-          - name: Illusive Networks AMS
-            href: connect-illusive-attack-management-system.md
-          - name: Imperva WAF Gateway
-            href: connect-imperva-waf-gateway.md
-          - name: One Identity Safeguard
-            href: connect-one-identity.md
-          - name: Palo Alto Networks
-            href: connect-paloalto.md
-          - name: Thycotic Secret Server
-            href: connect-thycotic-secret-server.md
-          - name: Trend Micro Deep Security
-            href: connect-trend-micro.md
-          - name: Trend Micro TippingPoint
-            href: connect-trend-micro-tippingpoint.md
-          - name: WireX Systems NFP
-            href: connect-wirex-systems.md
-          - name: Zscaler
-            href: connect-zscaler.md
-        - name: STEP 3 Validate connectivity
-          href: connect-cef-verify.md
+      - name: Deploy a log forwarder
+        href: connect-log-forwarder.md
+      - name: Troubleshoot CEF data collection
+        href: connect-cef-verify.md
+      - name: Connect Syslog sources
+        href: connect-syslog.md
+      - name: Connect custom log sources
+        href: connect-custom-logs.md
+    - name: Azure Functions connection instructions
+      href: connect-azure-functions-template.md
+    - name: Data source collection instructions
+      href: partner-data-connectors-reference.md
     - name: Create a custom connector
       href: create-custom-connector.md
     - name: Connect Azure Stack VMs

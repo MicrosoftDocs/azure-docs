@@ -43,7 +43,7 @@ There are three steps to configuring Syslog collection:
 
 - Configure your Linux device or appliance. This refers to the device on which the Log Analytics agent will be installed, whether it is the same device that originates the events or a log collector that will forward them.
 
-- Configure your application's logging settings according to the location of the Syslog daemon that will be sending events to the agent. (This step is not addressed in this document.)
+- Configure your application's logging settings according to the location of the Syslog daemon that will be sending events to the agent.
 
 - Configure the Log Analytics agent itself. This is done from within Azure Sentinel, and the configuration is sent to all installed agents.
 
@@ -87,6 +87,10 @@ There are three steps to configuring Syslog collection:
 >
 > 1. You must run the following command on those machines to disable the synchronization of the agent with the Syslog configuration in Azure Sentinel. This ensures that the configuration change you made in the previous step does not get overwritten.<br>
 > `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
+
+## Configure your application's logging settings
+
+Many applications have Syslog-based connectors appearing in the Data connectors gallery.
 
 ## Configure the Log Analytics agent
 
@@ -145,6 +149,6 @@ This detection requires a specific configuration of the Syslog data connector:
 In this document, you learned how to connect Syslog on-premises appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).
-- [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
+- [Use workbooks](monitor-your-data.md) to monitor your data.
 
 {"mode":"full","isActive":false}

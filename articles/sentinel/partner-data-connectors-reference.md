@@ -31,31 +31,11 @@ ms.author: yelevin
 
 ### Extra steps for deployment of this connector
 
-#### Before deployment
-
-**(Optional) Enable the Security Graph API**
-
-The Agari Function App allows you to share threat intelligence with Azure Sentinel via the Security Graph API. To use this feature, you'll need to enable the [Sentinel Threat Intelligence Platforms connector](connect-threat-intelligence.md) and also [register an application](/graph/auth-register-app-v2) in Azure Active Directory.
-
-This process will give you three pieces of information for use when [deploying the Function App](connect-azure-functions-template.md): the **Graph tenant ID**, the **Graph client ID**, and the **Graph client secret** (see the *Application settings* in the table above).
-
-#### After deployment
-
-**Assign the necessary permissions to your Function App**
-
-The Agari connector uses an environment variable to store log access timestamps. In order for the application to write to this variable, permissions must be assigned to the system assigned identity.
-
-1. In the Azure portal, navigate to **Function App**.
-
-1. In the **Function App** blade, select your Function App from the list, then select **Identity** under **Settings** in the Function App's navigation menu.
-
-1. In the **System assigned** tab, set the **Status** to **On**. 
-
-1. Select **Save**, and an **Azure role assignments** button will appear. Click it.
-
-1. In the **Azure role assignments** screen, select **Add role assignment**. Set **Scope** to **Subscription**, select your subscription from the **Subscription** drop-down, and set **Role** to **App Configuration Data Owner**. 
-
-1. Select **Save**.
+| Stage | Instruction |
+| --- | --- |
+| **Before deployment** | **(Optional) Enable the Security Graph API**<br><br>The Agari Function App allows you to share threat intelligence with Azure Sentinel via the Security Graph API. To use this feature, you'll need to enable the [Sentinel Threat Intelligence Platforms connector](connect-threat-intelligence.md) and also [register an application](/graph/auth-register-app-v2) in Azure Active Directory.<br>This process will give you three pieces of information for use when [deploying the Function App](connect-azure-functions-template.md): the **Graph tenant ID**, the **Graph client ID**, and the **Graph client secret** (see the *Application settings* in the table above). |
+| **After deployment** | **Assign the necessary permissions to your Function App**<br><br>The Agari connector uses an environment variable to store log access timestamps. In order for the application to write to this variable, permissions must be assigned to the system assigned identity.<br><ol><li>In the Azure portal, navigate to **Function App**.<li>In the **Function App** blade, select your Function App from the list, then select **Identity** under **Settings** in the Function App's navigation menu.<li>In the **System assigned** tab, set the **Status** to **On**.<li>Select **Save**, and an **Azure role assignments** button will appear. Click it.<li>In the **Azure role assignments** screen, select **Add role assignment**. Set **Scope** to **Subscription**, select your subscription from the **Subscription** drop-down, and set **Role** to **App Configuration Data Owner**.<li> Select **Save**. |
+|
 
 ## AI Analyst (AIA) by Darktrace (Preview)
 
