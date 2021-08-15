@@ -96,7 +96,7 @@ For more information on connecting your own storage account, see [Customer-owned
 If you use Log Analytics solutions that require an Automation account, such as Update Management, Change Tracking, or Inventory, you should also set up a separate Private Link for your Automation account. For more information, see [Use Azure Private Link to securely connect networks to Azure Automation](../../automation/how-to/private-link-security.md).
 
 > [!NOTE]
-> Some products and Azure portal experiences query data through Azure Resource Manager and therefore won't be able to query data over a Private Link, unless Private Link settings are applied to the Resource Manager as well. To overcome this, you can configure your resources to accept queries from public networks as explained in [Controlling network access to your resources](./private-link-design.md#controlling-network-access-to-your-resources) (Ingestion can remain limited to Private Link networks).
+> Some products and Azure portal experiences query data through Azure Resource Manager and therefore won't be able to query data over a Private Link, unless Private Link settings are applied to the Resource Manager as well. To overcome this, you can configure your resources to accept queries from public networks as explained in [Controlling network access to your resources](./private-link-design.md#control-network-access-to-your-resources) (Ingestion can remain limited to Private Link networks).
 We've identified the following products and experiences query workspaces through Azure Resource Manager:
 > * LogicApp connector
 > * Update Management solution
