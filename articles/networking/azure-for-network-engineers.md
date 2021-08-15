@@ -3,7 +3,7 @@ title: 'Azure ExpressRoute: Azure for Network Engineers'
 description: This page explains to traditional network engineers how networks work in Azure.
 documentationcenter: na
 services: networking
-author: osamaz
+author: osamazia
 manager: tracsman
 ms.service: virtual-network
 ms.topic: article
