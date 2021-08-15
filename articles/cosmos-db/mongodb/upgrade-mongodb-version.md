@@ -79,7 +79,7 @@ If you are upgrading from version 3.2, you will need to replace the existing end
 
     :::image type="content" source="./media/upgrade-mongodb-version/select-upgrade.png" alt-text="Review upgrade guidance and select upgrade." border="true":::
 
-1. After you start the upgrade, the **Feature** menu is greyed out and the status is set to *Pending*. The upgrade takes around 15 minutes to complete. This process will not affect the existing functionality or operations of your database account. After it's complete, the **Update MongoDB server version** status will show the upgraded version. Please [contact support](https://azure.microsoft.com/en-us/support/create-ticket/) if there was an issue processing your request.
+1. After you start the upgrade, the **Feature** menu is greyed out and the status is set to *Pending*. The upgrade takes around 15 minutes to complete. This process will not affect the existing functionality or operations of your database account. After it's complete, the **Update MongoDB server version** status will show the upgraded version. Please [contact support](https://azure.microsoft.com/support/create-ticket/) if there was an issue processing your request.
 
 1. The following are some considerations after upgrading your account:
 
