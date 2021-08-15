@@ -6,19 +6,19 @@
   - name: Machine Learning Studio (classic)
     displayName: overview
     href: studio-classic-overview.md
-- name: Quickstarts
+- name: Tutorials
   items:
   - name: Create your first experiment
     displayName: quickstart
     href: create-experiment.md
-- name: Tutorials
-  items:
-  - name: '1: Create predictive experiment'
-    href: tutorial-part1-credit-risk.md 
-  - name: '2: Train & evaluate solution'
-    href: tutorial-part2-credit-risk-train.md
-  - name: '3: Deploy web service'
-    href: tutorial-part3-credit-risk-deploy.md
+  - name: Train & deploy a predictive model
+    items: 
+    - name: '1: Create predictive experiment'
+      href: tutorial-part1-credit-risk.md 
+    - name: '2: Train & evaluate solution'
+      href: tutorial-part2-credit-risk-train.md
+    - name: '3: Deploy web service'
+      href: tutorial-part3-credit-risk-deploy.md
 - name: Samples
   items:
   - name: Available datasets
