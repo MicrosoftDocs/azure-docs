@@ -255,7 +255,7 @@ public static async Task CheckSiteAvailable(
     DurableHttpResponse response = 
         await context.CallHttpAsync(HttpMethod.Get, url);
 
-    if (response.StatusCode >= 400)
+    if ((int)response.StatusCode == 400)
     {
         // handling of error codes goes here
     }
