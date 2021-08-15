@@ -12,7 +12,7 @@ ms.date: 05/16/2021
 
 [Managed connectors](apis-list.md) provide ways for you to access other services and systems where [built-in triggers and actions](built-in.md) aren't available. You can use these triggers and actions to create workflows that integrate data, apps, cloud-based services, and on-premises systems. Compared to built-in triggers and actions, these connectors are usually tied to a specific service or system such as Azure Blob Storage, Office 365, SQL, Salesforce, or SFTP servers. Managed by Microsoft and hosted in Azure, managed connectors usually require that you first create a connection from your workflow and authenticate your identity. Both recurrence-based and webhook-based triggers are available, so if you use a recurrence-based trigger, review the [Recurrence behavior overview](apis-list.md#recurrence-behavior).
 
-For a small number of services, systems and protocols, Azure Logic Apps provides built-in operations along with their [managed connector versions](managed.md). The number and range available varies based on whether you create a Consumption plan-based logic app resource that runs in multi-tenant Azure Logic Apps, or a Standard plan-based logic app resource that runs in single-tenant Azure Logic Apps. For more information, review [Single-tenant versus multi-tenant and integration service environment (ISE)](single-tenant-overview-compare.md). In most cases, the built-in version provides better performance, capabilities, pricing, and so on.
+For a small number of services, systems and protocols, Azure Logic Apps provides built-in operations along with their [managed connector versions](managed.md). The number and range available vary based on whether you create a Consumption plan-based logic app resource that runs in multi-tenant Azure Logic Apps, or a Standard plan-based logic app resource that runs in single-tenant Azure Logic Apps. For more information, review [Single-tenant versus multi-tenant and integration service environment (ISE)](single-tenant-overview-compare.md). In most cases, the built-in version provides better performance, capabilities, pricing, and so on.
 
 For example, if you create a single-tenant logic app, built-in operations are available for Azure Service Bus, Azure Event Hubs, SQL Server, and MQ. In a few cases, both a built-in version and a managed connector version are available. In most cases, the built-in version provides better performance, capabilities, pricing, and so on. If you create a multi-tenant logic app, built-in operations are available for Azure Functions, Azure App Services, and Azure API Management.
 
@@ -229,9 +229,8 @@ Integration account connectors specifically support [business-to-business (B2B) 
 For example, if you use Microsoft BizTalk Server, you can create a connection from your workflow using the [BizTalk Server on-premises connector](#on-premises-connectors). You can then extend or perform BizTalk-like operations in your workflow by using these integration account connectors.
 
 > [!NOTE]
-> Before you can use integration account connectors, you must [link your logic app resource to an integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). 
-> However, in single-tenant Azure Logic Apps (Standard), some integration account operations are available as built-in operations that don't require linking your logic app resource to an 
-> integration account, for example, Liquid operations and XML operations.
+> Before you can use integration account connectors in multi-tenant, Consumption plan-based Azure Logic Apps, you must 
+> [link your logic app resource to an integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). 
 
 :::row:::
     :::column:::
@@ -258,34 +257,6 @@ For example, if you use Microsoft BizTalk Server, you can create a connection fr
         \
         [**EDIFACT encoding**][edifact-encode-doc]
     :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        [![Flat file decoding icon][flat-file-decode-icon]][flat-file-decode-doc]
-        \
-        \
-        [**Flat file decoding**][flat-file-decode-doc]
-    :::column-end:::
-    :::column:::
-        [![Flat file encoding icon][flat-file-encode-icon]][flat-file-encode-doc]
-        \
-        \
-        [**Flat file encoding**][flat-file-encode-doc]
-    :::column-end:::
-    :::column:::
-        [![Integration account icon][integration-account-icon]][integration-account-doc]
-        \
-        \
-        [**Integration account**][integration-account-doc]
-    :::column-end:::
-    :::column:::
-        [![Liquid operations icon][liquid-icon]][json-liquid-transform-doc]
-        \
-        \
-        [**Liquid operations**][json-liquid-transform-doc]
-    :::column-end:::
-:::row-end:::
-:::row:::
     :::column:::
         [![X12 decoding icon][x12-icon]][x12-decode-doc]
         \
@@ -298,18 +269,7 @@ For example, if you use Microsoft BizTalk Server, you can create a connection fr
         \
         [**X12 encoding**][x12-encode-doc]
     :::column-end:::
-    :::column:::
-        [![Transform XML icon][xml-transform-icon]][xml-transform-doc]
-        \
-        \
-        [**Transform XML**][xml-transform-doc]
-    :::column-end:::
-    :::column:::
-        [![XML validation icon][xml-validate-icon]][xml-validate-doc]
-        \
-        \
-        [**XML validation**][xml-validate-doc]
-    :::column-end:::
+:::row-end:::
 :::row-end:::
 
 ## Enterprise connectors
@@ -321,19 +281,19 @@ The following connectors provide access to enterprise systems for an additional 
         [![IBM 3270 icon][ibm-3270-icon]][ibm-3270-doc]
         \
         \
-        [**IBM 3270** enterprise connector][ibm-3270-doc]
+        [**IBM 3270**][ibm-3270-doc]
     :::column-end:::
     :::column:::
         [![IBM MQ icon][ibm-mq-icon]][ibm-mq-doc]
         \
         \
-        [**IBM MQ** enterprise connector][ibm-mq-doc]
+        [**IBM MQ**][ibm-mq-doc]
     :::column-end:::
     :::column:::
         [![SAP icon][sap-icon]][sap-connector-doc]
         \
         \
-        [**SAP** enterprise connector][sap-connector-doc]
+        [**SAP**][sap-connector-doc]
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -642,54 +602,16 @@ For more information, see these topics:
 <!--Integration account connector icons -->
 [as2-icon]: ./media/apis-list/as2.png
 [edifact-icon]: ./media/apis-list/edifact.png
-[flat-file-encode-icon]: ./media/apis-list/flat-file-encoding.png
-[flat-file-decode-icon]: ./media/apis-list/flat-file-decoding.png
-[integration-account-icon]: ./media/apis-list/integration-account.png
-[liquid-icon]: ./media/apis-list/liquid-transform.png
 [x12-icon]: ./media/apis-list/x12.png
-[xml-validate-icon]: ./media/apis-list/xml-validation.png
-[xml-transform-icon]: ./media/apis-list/xsl-transform.png
 
 <!-- Integration account connector docs -->
 [as2-doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Encode and decode messages that use the AS2 protocol"
 [edifact-doc]: ../logic-apps/logic-apps-enterprise-integration-edifact.md "Encode and decode messages that use the EDIFACT protocol"
 [edifact-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Decode messages that use the EDIFACT protocol"
 [edifact-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Encode messages that use the EDIFACT protocol"
-[flat-file-decode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Learn about enterprise integration flat file"
-[flat-file-encode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Learn about enterprise integration flat file"
-[integration-account-doc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "Manage metadata for integration account artifacts"
-[json-liquid-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "Transform JSON with Liquid templates"
 [x12-doc]: ../logic-apps/logic-apps-enterprise-integration-x12.md "Encode and decode messages that use the X12 protocol"
 [x12-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-decode.md "Decode messages that use the X12 protocol"
 [x12-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "Encode messages that use the X12 protocol"
-[xml-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Transform XML messages"
-[xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Validate XML messages"
 
 <!--Other doc links-->
 [gateway-doc]: ../logic-apps/logic-apps-gateway-connection.md "Connect to data sources on-premises from logic apps with on-premises data gateway"
-
-<!--Integration account connector icons -->
-[as2-icon]: ./media/apis-list/as2.png
-[edifact-icon]: ./media/apis-list/edifact.png
-[flat-file-encode-icon]: ./media/apis-list/flat-file-encoding.png
-[flat-file-decode-icon]: ./media/apis-list/flat-file-decoding.png
-[integration-account-icon]: ./media/apis-list/integration-account.png
-[liquid-icon]: ./media/apis-list/liquid-transform.png
-[x12-icon]: ./media/apis-list/x12.png
-[xml-validate-icon]: ./media/apis-list/xml-validation.png
-[xml-transform-icon]: ./media/apis-list/xsl-transform.png
-
-<!-- Integration account connector docs -->
-[as2-doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Encode and decode messages that use the AS2 protocol"
-[edifact-doc]: ../logic-apps/logic-apps-enterprise-integration-edifact.md "Encode and decode messages that use the EDIFACT protocol"
-[edifact-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Decode messages that use the EDIFACT protocol"
-[edifact-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Encode messages that use the EDIFACT protocol"
-[flat-file-decode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Learn about enterprise integration flat file"
-[flat-file-encode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Learn about enterprise integration flat file"
-[integration-account-doc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "Manage metadata for integration account artifacts"
-[json-liquid-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "Transform JSON with Liquid templates"
-[x12-doc]: ../logic-apps/logic-apps-enterprise-integration-x12.md "Encode and decode messages that use the X12 protocol"
-[x12-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-decode.md "Decode messages that use the X12 protocol"
-[x12-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "Encode messages that use the X12 protocol"
-[xml-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Transform XML messages"
-[xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Validate XML messages"

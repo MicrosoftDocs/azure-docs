@@ -12,7 +12,7 @@ ms.date: 08/16/2021
 
 [Built-in triggers and actions](apis-list.md) provide ways for you to [control your workflow's schedule and structure](#control-workflow), [run your own code](#run-code-from-workflows), [manage or manipulate data](#manage-or-manipulate-data), and complete other tasks in your workflows. Different from [managed connectors](managed.md), many built-in operations aren't tied to a specific service, system, or protocol. For example, you can start almost any workflow on a schedule by using the Recurrence trigger. Or, you can have your workflow wait until called by using the Request trigger. All built-in operations run natively in Azure Logic Apps, and most don't require that you create a connection before you use them.
 
-For a small number of services, systems and protocols, Azure Logic Apps provides built-in operations along with their [managed connector versions](managed.md). The number and range available varies based on whether you create a Consumption plan-based logic app resource that runs in multi-tenant Azure Logic Apps, or a Standard plan-based logic app resource that runs in single-tenant Azure Logic Apps. For more information, review [Single-tenant versus multi-tenant and integration service environment (ISE)](single-tenant-overview-compare.md). In most cases, the built-in version provides better performance, capabilities, pricing, and so on.
+For a small number of services, systems and protocols, Azure Logic Apps provides built-in operations along with their [managed connector versions](managed.md). The number and range available vary based on whether you create a Consumption plan-based logic app resource that runs in multi-tenant Azure Logic Apps, or a Standard plan-based logic app resource that runs in single-tenant Azure Logic Apps. For more information, review [Single-tenant versus multi-tenant and integration service environment (ISE)](single-tenant-overview-compare.md). In most cases, the built-in version provides better performance, capabilities, pricing, and so on.
 
 For example, if you create a single-tenant logic app, built-in operations are available for Azure Service Bus, Azure Event Hubs, SQL Server, and MQ. In a few cases, both a built-in version and a managed connector version are available. In most cases, the built-in version provides better performance, capabilities, pricing, and so on. If you create a multi-tenant logic app, built-in operations are available for Azure Functions, Azure App Services, and Azure API Management.
 
@@ -218,7 +218,7 @@ Azure Logic Apps provides the following built-in actions for structuring and con
         [**Terminate**][terminate-doc]
         \
         \
-        Stop an actively running logic app workflow. 
+        Stop an actively running logic app workflow.
     :::column-end:::
     :::column:::
         [![Until action icon][until-icon]][until-doc]
@@ -250,22 +250,22 @@ Azure Logic Apps provides the following built-in actions for working with data o
         Perform operations with data.
         \
         \
-        **Compose**: Create a single output from multiple inputs with various types. 
+        **Compose**: Create a single output from multiple inputs with various types.
         \
         \
-        **Create CSV table**: Create a comma-separated-value (CSV) table from an array with JSON objects. 
+        **Create CSV table**: Create a comma-separated-value (CSV) table from an array with JSON objects.
         \
         \
-        **Create HTML table**: Create an HTML table from an array with JSON objects. 
+        **Create HTML table**: Create an HTML table from an array with JSON objects.
         \
         \
-        **Filter array**: Create an array from items in another array that meet your criteria. 
+        **Filter array**: Create an array from items in another array that meet your criteria.
         \
         \
-        **Join**: Create a string from all items in an array and separate those items with the specified delimiter. 
+        **Join**: Create a string from all items in an array and separate those items with the specified delimiter.
         \
         \
-        **Parse JSON**: Create user-friendly tokens from properties and their values in JSON content so that you can use those properties in your workflow. 
+        **Parse JSON**: Create user-friendly tokens from properties and their values in JSON content so that you can use those properties in your workflow.
         \
         \
         **Select**: Create an array with JSON objects by transforming items or values in another array and mapping those items to specified properties.
@@ -280,22 +280,22 @@ Azure Logic Apps provides the following built-in actions for working with data o
         Perform operations with timestamps.
         \
         \
-        **Add to time**: Add the specified number of units to a timestamp. 
+        **Add to time**: Add the specified number of units to a timestamp.
         \
         \
-        **Convert time zone**: Convert a timestamp from the source time zone to the target time zone. 
+        **Convert time zone**: Convert a timestamp from the source time zone to the target time zone.
         \
         \
-        **Current time**: Return the current timestamp as a string. 
+        **Current time**: Return the current timestamp as a string.
         \
         \
-        **Get future time**: Return the current timestamp plus the specified time units. 
+        **Get future time**: Return the current timestamp plus the specified time units.
         \
         \
-        **Get past time**: Return the current timestamp minus the specified time units. 
+        **Get past time**: Return the current timestamp minus the specified time units.
         \
         \
-        **Subtract from time**: Subtract a number of time units from a timestamp..
+        **Subtract from time**: Subtract a number of time units from a timestamp.
     :::column-end:::
     :::column:::
         [![Variables action icon][variables-icon]][variables-doc]
@@ -307,7 +307,7 @@ Azure Logic Apps provides the following built-in actions for working with data o
         Perform operations with variables.
         \
         \
-        **Append to array variable**: Insert a value as the last item in an array stored by a variable. 
+        **Append to array variable**: Insert a value as the last item in an array stored by a variable.
         \
         \
         **Append to string variable**: Insert a value as the last character in a string stored by a variable.
@@ -316,23 +316,87 @@ Azure Logic Apps provides the following built-in actions for working with data o
         **Decrement variable**: Decrease a variable by a constant value.
         \
         \
-        **Increment variable**: Increase a variable by a constant value. 
+        **Increment variable**: Increase a variable by a constant value.
         \
         \
-        **Initialize variable**: Create a variable and declare its data type and initial value. 
+        **Initialize variable**: Create a variable and declare its data type and initial value.
         \
         \
-        **Set variable**: Assign a different value to an existing variable. 
+        **Set variable**: Assign a different value to an existing variable.
     :::column-end:::
     :::column:::
     :::column-end:::
 :::row-end:::
 
-<a name="single-tenant-built-in-operations"></a>
+## Integration account built-in actions
 
-## Single-tenant Azure Logic Apps (Standard)
+Azure Logic Apps provides the following built-in actions, which either require an integration account when using multi-tenant, Consumption plan-based Azure Logic Apps or don't require an integration account when using single-tenant, Standard plan-based Azure Logic Apps:
 
-Integration account operations in multi-tenant Azure Logic Apps (Consumption) require linking your logic app resource to an integration account. operations in multi-tenant Azure Logic Apps (Consumption) require linking an integration account to your logic app resource. operations that require an integration account  actually don't require anintegration 
+> [!NOTE]
+> Before you can use integration account action in multi-tenant, Consumption plan-based Azure Logic Apps, you must 
+> [link your logic app resource to an integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). 
+> However, in single-tenant, Standard plan-based Azure Logic Apps, some integration account operations don't require linking your 
+> logic app resource to an integration account, for example, Liquid operations and XML operations. To use these actions, you need 
+> to have Liquid maps, XML maps, or XML schemas that you can upload through the respective actions in the Azure portal or add to 
+> your Visual Studio Code project's **Artifacts** folder using the respective **Maps** and **Schemas** folders.
+
+:::row:::
+    :::column:::
+        [![Flat file decoding icon][flat-file-decode-icon]][flat-file-decode-doc]
+        \
+        \
+        [**Flat file decoding**<br>(*Multi-tenant only*)][flat-file-decode-doc]
+    :::column-end:::
+    :::column:::
+        [![Flat file encoding icon][flat-file-encode-icon]][flat-file-encode-doc]
+        \
+        \
+        [**Flat file encoding**<br>(*Multi-tenant only*)][flat-file-encode-doc]
+    :::column-end:::
+    :::column:::
+        [![Integration account icon][integration-account-icon]][integration-account-doc]
+        \
+        \
+        [**Integration Account Artifact Lookup**<br>(*Multi-tenant only*)][integration-account-doc]
+    :::column-end:::
+    :::column:::
+        [![Liquid operations icon][liquid-icon]][json-liquid-transform-doc]
+        \
+        \
+        [**Liquid operations**][json-liquid-transform-doc]
+        \
+        \
+        Convert the following formats by using Liquid templates.
+        \
+        \
+        **Transform JSON to JSON**: 
+        \
+        \
+        **Transform JSON to TEXT**: 
+        \
+        \
+        **Transform XML to JSON**: 
+        \
+        \
+        **Transform XML to TEXT**: 
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![Transform XML icon][xml-transform-icon]][xml-transform-doc]
+        \
+        \
+        [**Transform XML**][xml-transform-doc]
+    :::column-end:::
+    :::column:::
+        [![XML validation icon][xml-validate-icon]][xml-validate-doc]
+        \
+        \
+        [**XML validation**][xml-validate-doc]
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
 
 ## Next steps
 
@@ -364,6 +428,14 @@ Integration account operations in multi-tenant Azure Logic Apps (Consumption) re
 [until-icon]: ./media/apis-list/until.png
 [variables-icon]: ./media/apis-list/variables.png
 
+<!--Built-in integration account connector icons -->
+[flat-file-encode-icon]: ./media/apis-list/flat-file-encoding.png
+[flat-file-decode-icon]: ./media/apis-list/flat-file-decoding.png
+[integration-account-icon]: ./media/apis-list/integration-account.png
+[liquid-icon]: ./media/apis-list/liquid-transform.png
+[xml-validate-icon]: ./media/apis-list/xml-validation.png
+[xml-transform-icon]: ./media/apis-list/xsl-transform.png
+
 <!--Built-in doc links-->
 [azure-api-management-doc]: ../api-management/get-started-create-service-instance.md "Create an Azure API Management service instance for managing and publishing your APIs"
 [azure-app-services-doc]: ../logic-apps/logic-apps-custom-api-host-deploy-call.md "Integrate logic apps with App Service API Apps"
@@ -392,3 +464,11 @@ Integration account operations in multi-tenant Azure Logic Apps (Consumption) re
 [terminate-doc]: ../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action "Stop or cancel an actively running workflow for your logic app"
 [until-doc]: ../logic-apps/logic-apps-control-flow-loops.md#until-loop "Repeat actions until the specified condition is true or some state has changed"
 [variables-doc]: ../logic-apps/logic-apps-create-variables-store-values.md "Perform operations with variables, such as initialize, set, increment, decrement, and append to string or array variable"
+
+<!--Built-in integration account doc links-->
+[flat-file-decode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Learn about enterprise integration flat file"
+[flat-file-encode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Learn about enterprise integration flat file"
+[integration-account-doc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "Manage metadata for integration account artifacts"
+[json-liquid-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "Transform JSON with Liquid templates"
+[xml-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Transform XML messages"
+[xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Validate XML messages"
