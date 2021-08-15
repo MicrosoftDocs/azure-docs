@@ -132,7 +132,7 @@ The following table describes the required domains for communication:
 
 If &ast;.afs.azure.net or &ast;.one.microsoft.com is too broad, you can limit the server's communication by allowing communication to only explicit regional instances of the Azure Files Sync service. Which instance(s) to choose depends on the region of the storage sync service you have deployed and registered the server to. That region is called "Primary endpoint URL" in the table below.
 
-For business continuity and disaster recovery (BCDR) reasons you may have specified your Azure file shares in a globally redundant (GRS) storage account. If that is the case, then your Azure file shares will fail over to the paired region in the event of a lasting regional outage. Azure File Sync uses the same regional pairings as storage. So if you use GRS storage accounts, you need to enable additional URLs to allow your server to talk to the paired region for Azure File Sync. The table below calls this "Paired region". Additionally, there is a traffic manager profile URL that needs to be enabled as well. This will ensure network traffic can be seamlessly re-routed to the paired region in the event of a fail-over and is called "Discovery URL" in the table below.
+For business continuity and disaster recovery (BCDR) reasons you may have specified your Azure file shares in a geo-redundant (GRS) storage account. If that is the case, then your Azure file shares will fail over to the paired region in the event of a lasting regional outage. Azure File Sync uses the same regional pairings as storage. So if you use GRS storage accounts, you need to enable additional URLs to allow your server to talk to the paired region for Azure File Sync. The table below calls this "Paired region". Additionally, there is a traffic manager profile URL that needs to be enabled as well. This will ensure network traffic can be seamlessly re-routed to the paired region in the event of a fail-over and is called "Discovery URL" in the table below.
 
 | Cloud  | Region | Primary endpoint URL | Paired region | Discovery URL |
 |--------|--------|----------------------|---------------|---------------|
@@ -170,7 +170,7 @@ For business continuity and disaster recovery (BCDR) reasons you may have specif
 
 - If you use locally redundant (LRS) or zone redundant (ZRS) storage accounts, you only need to enable the URL listed under "Primary endpoint URL".
 
-- If you use globally redundant (GRS) storage accounts, enable three URLs.
+- If you use geo-redundant (GRS) storage accounts, enable three URLs.
 
 **Example:** You deploy a storage sync service in `"West US"` and register your server with it. The URLs to allow the server to communicate to for this case are:
 
