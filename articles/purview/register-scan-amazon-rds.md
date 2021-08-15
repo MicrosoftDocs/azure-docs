@@ -378,8 +378,6 @@ After the [Load Balancer is created](#step-4-create-a-load-balancer) and its Sta
 
 1.	In the **Create endpoint service** page, clear the selection for the **Require acceptance for endpoint** option.
 
-<!--    - **Enable private DNS name**-->
-
 1.	At the bottom of the page, select **Create Service** > **Close**.
 
 1.	Back in the **Endpoint services** page:
@@ -443,17 +441,18 @@ If an error of `Invalid Availability Zone` appears in Azure Purview, make sure t
 - **us-east-1a**
 - **us-east-1b**
 - **us-east-1c**
- 
+
 For more information, see the [AWS documentation](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-getting-started.html).
 
 ### RDS errors
 
 The following errors may appear in Azure Purview:
 
-- `Unknown database`
-- `Failed to login to the Sql data source. The given auth credential does not have permission on the target database.`
+- `Unknown database`. In this case, the database defined doesn't exist. Check to see that the configured database name is correct
 
-MISSING TROUBLESHOOTING STEPS
+- `Failed to login to the Sql data source. The given auth credential does not have permission on the target database.` In this case, your username and password is incorrect. Check your credentials and update them as needed.
+
+
 ## Next steps
 
 Learn more about Azure Purview Insight reports:
