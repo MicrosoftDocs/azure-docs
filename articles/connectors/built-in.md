@@ -366,19 +366,7 @@ Azure Logic Apps provides the following built-in actions, which either require a
         [**Liquid operations**][json-liquid-transform-doc]
         \
         \
-        Convert the following formats by using Liquid templates.
-        \
-        \
-        **Transform JSON to JSON**: 
-        \
-        \
-        **Transform JSON to TEXT**: 
-        \
-        \
-        **Transform XML to JSON**: 
-        \
-        \
-        **Transform XML to TEXT**: 
+        Convert the following formats by using Liquid templates: <p><p>- JSON to JSON <br>- JSON to TEXT <br>- XML to JSON <br>- XML to TEXT
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -387,12 +375,18 @@ Azure Logic Apps provides the following built-in actions, which either require a
         \
         \
         [**Transform XML**][xml-transform-doc]
+        \
+        \
+        Convert the source XML format to another XML format.
     :::column-end:::
     :::column:::
         [![XML validation icon][xml-validate-icon]][xml-validate-doc]
         \
         \
         [**XML validation**][xml-validate-doc]
+        \
+        \
+        Validate XML documents against the specified schema.
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -433,8 +427,8 @@ Azure Logic Apps provides the following built-in actions, which either require a
 [flat-file-decode-icon]: ./media/apis-list/flat-file-decoding.png
 [integration-account-icon]: ./media/apis-list/integration-account.png
 [liquid-icon]: ./media/apis-list/liquid-transform.png
+[xml-transform-icon]: ./media/apis-list/xml-transform.png
 [xml-validate-icon]: ./media/apis-list/xml-validation.png
-[xml-transform-icon]: ./media/apis-list/xsl-transform.png
 
 <!--Built-in doc links-->
 [azure-api-management-doc]: ../api-management/get-started-create-service-instance.md "Create an Azure API Management service instance for managing and publishing your APIs"
