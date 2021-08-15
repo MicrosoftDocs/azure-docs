@@ -18,9 +18,9 @@ ms.author: yelevin
 
 ## Agari Phishing Defense and Brand Protection (Preview)
 
-| Connector | Agari Phishing Defense and Brand Protection |
+| Data ingestion method: | [Azure Functions and the REST API](connect-azure-functions-template.md) |
 | --- | --- |
-| **Data ingestion method:** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
+| **Log Analytics table(s)** | agari_bpalerts_log_CL<br>agari_apdtc_log_CL<br>agari_apdpolicy_log_CL |
 | **Azure Function App code** | https://aka.ms/sentinel-agari-functionapp |
 | **API credentials** | <li>Client ID<li>Client Secret<li>(Optional: Graph Tenant ID, Graph Client ID, Graph Client Secret) |
 | **Vendor documentation/<br>installation instructions** | <li>[Quick Start](https://developers.agari.com/agari-platform/docs/quick-start)<li>[Agari Developers Site](https://developers.agari.com/agari-platform) |
@@ -100,9 +100,9 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 
 ## Atlassian Confluence Audit (Preview)
 
-| Connector | [Atlassian Confluence Audit](https://www.atlassian.com/software/confluence) |
+| Data ingestion method: | [Atlassian Confluence Audit](https://www.atlassian.com/software/confluence) |
 | --- | --- |
-| **Data ingestion method:** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
+| **Log Analytics table(s)** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
 | **Azure Function App code** | https://aka.ms/sentinel-confluenceauditapi-functionapp |
 | **API credentials** | <li>ConfluenceAccessToken<li>ConfluenceUsername<li>ConfluenceHomeSiteName |
 | **Vendor documentation/<br>installation instructions** | <li>[API Documentation](https://developer.atlassian.com/cloud/confluence/rest/api-group-audit/)<li>[Requirements and instructions for obtaining credentials](https://developer.atlassian.com/cloud/confluence/rest/intro/#auth)<li>[View the audit log](https://support.atlassian.com/confluence-cloud/docs/view-the-audit-log/) |
@@ -115,9 +115,9 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 
 ## Atlassian Jira Audit (Preview)
 
-| Connector | Atlassian Jira Audit |
+| Data ingestion method: | Atlassian Jira Audit |
 | --- | --- |
-| **Data ingestion method:** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
+| **Log Analytics table(s)** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
 | **Azure Function App code** | https://aka.ms/sentinel-jiraauditapi-functionapp |
 | **API credentials** | <li>JiraAccessToken<li>JiraUsername<li>JiraHomeSiteName |
 | **Vendor documentation/<br>installation instructions** | <li>[API Documentation - Audit records](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-audit-records/)<li>[Requirements and instructions for obtaining credentials](https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/#authentication) |
@@ -146,9 +146,9 @@ For more information about connecting to Azure Sentinel, see [Connect Aruba Clea
 
 ## Cisco Umbrella (Preview)
 
-| Connector | Cisco Umbrella |
+| Data ingestion method: | Cisco Umbrella |
 | --- | --- |
-| **Data ingestion method:** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
+| **Log Analytics table(s)** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
 | **Azure Function App code** | https://aka.ms/sentinel-CiscoUmbrellaConn-functionapp |
 | **API credentials** | <li>AWS Access Key Id<li>AWS Secret Access Key<li>AWS S3 Bucket Name |
 | **Vendor documentation/<br>installation instructions** | <li>[Logging to Amazon S3](https://docs.umbrella.com/deployment-umbrella/docs/log-management#section-logging-to-amazon-s-3) |
@@ -161,9 +161,9 @@ For more information about connecting to Azure Sentinel, see [Connect Aruba Clea
 
 ## ESET Enterprise Inspector (Preview)
 
-| Connector | ESET Enterprise Inspector |
+| Data ingestion method: | ESET Enterprise Inspector |
 | --- | --- |
-| **Data ingestion method:** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
+| **Log Analytics table(s)** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
 | **Azure Function App code** |  |
 | **API credentials** | <li>EEI Username<li>EEI Password<li>Base URL |
 | **Vendor documentation/<br>installation instructions** | <li>[ESET Enterprise Inspector REST API documentation](https://help.eset.com/eei/1.5/en-US/api.html) |
@@ -185,9 +185,9 @@ For more information about connecting to Azure Sentinel, see [Connect Fortinet t
 
 ## Google Workspace (G-Suite) (Preview)
 
-| Connector | Google Workspace (G-Suite) |
+| Data ingestion method: | Google Workspace (G-Suite) |
 | --- | --- |
-| **Data ingestion method:** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
+| **Log Analytics table(s)** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
 | **Azure Function App code** | https://aka.ms/sentinel-GWorkspaceReportsAPI-functionapp |
 | **API credentials** | <li>GooglePickleString |
 | **Vendor documentation/<br>installation instructions** | <li>[API Documentation](https://developers.google.com/admin-sdk/reports/v1/reference/activities)<li>Get credentials at [Perform Google Workspace Domain-Wide Delegation of Authority](https://developers.google.com/admin-sdk/reports/v1/guides/delegation)<li>[Convert token.pickle file to pickle string](https://aka.ms/sentinel-GWorkspaceReportsAPI-functioncode) |
@@ -200,9 +200,9 @@ For more information about connecting to Azure Sentinel, see [Connect Fortinet t
 
 ## Netskope (Preview)
 
-| Connector | Netskope |
+| Data ingestion method: | Netskope |
 | --- | --- |
-| **Data ingestion method:** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
+| **Log Analytics table(s)** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
 | **Azure Function App code** | https://aka.ms/sentinel-netskope-functioncode |
 | **API credentials** | <li>Netskope API Token |
 | **Vendor documentation/<br>installation instructions** | <li>[Netskope Cloud Security Platform](https://www.netskope.com/platform)<li>[Netskope API Documentation](https://innovatechcloud.goskope.com/docs/Netskope_Help/en/rest-api-v1-overview.html)<li>[Obtain an API Token](https://innovatechcloud.goskope.com/docs/Netskope_Help/en/rest-api-v2-overview.html) |
@@ -215,9 +215,9 @@ For more information about connecting to Azure Sentinel, see [Connect Fortinet t
 
 ## Okta Single Sign-On (Preview)
 
-| Connector | Okta Single Sign-On |
+| Data ingestion method: | Okta Single Sign-On |
 | --- | --- |
-| **Data ingestion method:** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
+| **Log Analytics table(s)** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
 | **Azure Function App code** | https://aka.ms/sentineloktaazurefunctioncodev2 |
 | **API credentials** | <li>API Token |
 | **Vendor documentation/<br>installation instructions** | <li>[Okta System Log API Documentation](https://developer.okta.com/docs/reference/api/system-log/)<li>[Create an API token](https://developer.okta.com/docs/guides/create-an-api-token/create-the-token/)<li>[Connect Okta SSO to Azure Sentinel](connect-okta-single-sign-on.md) |
@@ -228,9 +228,9 @@ For more information about connecting to Azure Sentinel, see [Connect Fortinet t
 
 ## Proofpoint On Demand (POD) Email Security (Preview)
 
-| Connector | Proofpoint On Demand (POD) Email Security |
+| Data ingestion method: | Proofpoint On Demand (POD) Email Security |
 | --- | --- |
-| **Data ingestion method:** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
+| **Log Analytics table(s)** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
 | **Azure Function App code** | https://aka.ms/sentinel-proofpointpod-functionapp |
 | **API credentials** | <li>ProofpointClusterID<li>ProofpointToken |
 | **Vendor documentation/<br>installation instructions** | <li>[Sign in to the Proofpoint Community](https://proofpointcommunities.force.com/community/s/article/How-to-request-a-Community-account-and-gain-full-customer-access?utm_source=login&utm_medium=recommended&utm_campaign=public)<li>[Proofpoint API documentation and instructions](https://proofpointcommunities.force.com/community/s/article/Proofpoint-on-Demand-Pod-Log-API) |
@@ -243,9 +243,9 @@ For more information about connecting to Azure Sentinel, see [Connect Fortinet t
 
 ## Proofpoint Targeted Attack Protection (TAP) (Preview)
 
-| Connector | Proofpoint Targeted Attack Protection (TAP) |
+| Data ingestion method: | Proofpoint Targeted Attack Protection (TAP) |
 | --- | --- |
-| **Data ingestion method:** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
+| **Log Analytics table(s)** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
 | **Azure Function App code** | https://aka.ms/sentinelproofpointtapazurefunctioncode |
 | **API credentials** | <li>API Username<li>API Password |
 | **Vendor documentation/<br>installation instructions** | <li>[Proofpoint SIEM API Documentation](https://help.proofpoint.com/Threat_Insight_Dashboard/API_Documentation/SIEM_API) |
@@ -256,9 +256,9 @@ For more information about connecting to Azure Sentinel, see [Connect Fortinet t
 
 ## Qualys VM KnowledgeBase (KB) (Preview)
 
-| Connector | Qualys VM KnowledgeBase (KB) |
+| Data ingestion method: | Qualys VM KnowledgeBase (KB) |
 | --- | --- |
-| **Data ingestion method:** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
+| **Log Analytics table(s)** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
 | **Azure Function App code** | https://aka.ms/sentinel-qualyskb-functioncode |
 | **API credentials** | <li>API Username<li>API Password |
 | **Vendor documentation/<br>installation instructions** | <li>[QualysVM API User Guide](https://www.qualys.com/docs/qualys-api-vmpc-user-guide.pdf) |
@@ -283,9 +283,9 @@ For more information about connecting to Azure Sentinel, see [Connect Fortinet t
 
 ## Qualys Vulnerability Management (VM) (Preview)
 
-| Connector | Qualys Vulnerability Management (VM) |
+| Data ingestion method: | Qualys Vulnerability Management (VM) |
 | --- | --- |
-| **Data ingestion method:** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
+| **Log Analytics table(s)** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
 | **Azure Function App code** | https://aka.ms/sentinelqualysvmazurefunctioncode |
 | **API credentials** | <li>API Username<li>API Password |
 | **Vendor documentation/<br>installation instructions** | <li>[QualysVM API User Guide](https://www.qualys.com/docs/qualys-api-vmpc-user-guide.pdf) |
@@ -308,9 +308,9 @@ For more information about connecting to Azure Sentinel, see [Connect Fortinet t
 
 ## Salesforce Service Cloud (Preview)
 
-| Connector | Salesforce Service Cloud |
+| Data ingestion method: | Salesforce Service Cloud |
 | --- | --- |
-| **Data ingestion method:** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
+| **Log Analytics table(s)** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
 | **Azure Function App code** | https://aka.ms/sentinel-SalesforceServiceCloud-functionapp |
 | **API credentials** | <li>Salesforce API Username<li>Salesforce API Password<li>Salesforce Security Token<li>Salesforce Consumer Key<li>Salesforce Consumer Secret |
 | **Vendor documentation/<br>installation instructions** | <li>[Salesforce REST API Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/quickstart.htm) |
@@ -323,9 +323,9 @@ For more information about connecting to Azure Sentinel, see [Connect Fortinet t
 
 ## SentinelOne (Preview)
 
-| Connector | SentinelOne |
+| Data ingestion method: | SentinelOne |
 | --- | --- |
-| **Data ingestion method:** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
+| **Log Analytics table(s)** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
 | **Azure Function App code** | https://aka.ms/sentinel-SentinelOneAPI-functionapp |
 | **API credentials** | <li>SentinelOneAPIToken<li>SentinelOneUrl (`https://<SOneInstanceDomain>.sentinelone.net`) |
 | **Vendor documentation/<br>installation instructions** | <li>https://`<SOneInstanceDomain>`.sentinelone.net/api-doc/overview<li>See instructions below |
@@ -353,9 +353,9 @@ Follow the instructions to obtain the credentials.
 
 ## Trend Micro XDR (Preview)
 
-| Connector | Trend Micro XDR |
+| Data ingestion method: | Trend Micro XDR |
 | --- | --- |
-| **Data ingestion method:** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
+| **Log Analytics table(s)** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
 | **Azure Function App code** |  |
 | **API credentials** | <li>API Token |
 | **Vendor documentation/<br>installation instructions** | <li>https://automation.trendmicro.com/xdr/home<li>[Obtaining API Keys for Third-Party Access](https://docs.trendmicro.com/en-us/enterprise/trend-micro-xdr-help/ObtainingAPIKeys) |
@@ -366,9 +366,9 @@ Follow the instructions to obtain the credentials.
 
 ## VMware Carbon Black Endpoint Standard (Preview)
 
-| Connector | VMware Carbon Black Endpoint Standard |
+| Data ingestion method: | VMware Carbon Black Endpoint Standard |
 | --- | --- |
-| **Data ingestion method:** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
+| **Log Analytics table(s)** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
 | **Azure Function App code** | https://aka.ms/sentinelcarbonblackazurefunctioncode |
 | **API credentials** | **API access level** (for *Audit* and *Event* logs):<li>API ID<li>API Key<br>**SIEM access level** (for *Notification* events):<li>SIEM API ID<li>SIEM API Key |
 | **Vendor documentation/<br>installation instructions** | <li>[Carbon Black API Documentation](https://developer.carbonblack.com/reference/carbon-black-cloud/cb-defense/latest/rest-api/)<li>[Creating an API Key](https://developer.carbonblack.com/reference/carbon-black-cloud/authentication/#creating-an-api-key) |
@@ -379,9 +379,9 @@ Follow the instructions to obtain the credentials.
 
 ## Workplace from Facebook (Preview)
 
-| Connector | Workplace from Facebook |
+| Data ingestion method: | Workplace from Facebook |
 | --- | --- |
-| **Data ingestion method:** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
+| **Log Analytics table(s)** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
 | **Azure Function App code** | https://aka.ms/sentinel-WorkplaceFacebook-functionapp |
 | **API credentials** | <li>WorkplaceAppSecret<li>WorkplaceVerifyToken |
 | **Vendor documentation/<br>installation instructions** | <li>[Configure Webhooks](https://developers.facebook.com/docs/workplace/reference/webhooks)<li>[Configure permissions](https://developers.facebook.com/docs/workplace/reference/permissions) |
@@ -415,9 +415,9 @@ Follow the instructions to obtain the credentials.
 
 ## Zoom Reports (Preview)
 
-| Connector | Zoom Reports |
+| Data ingestion method: | Zoom Reports |
 | --- | --- |
-| **Data ingestion method:** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
+| **Log Analytics table(s)** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
 | **Azure Function App code** | https://aka.ms/sentinel-ZoomAPI-functionapp |
 | **API credentials** | <li>ZoomApiKey<li>ZoomApiSecret |
 | **Vendor documentation/<br>installation instructions** | <li>[Get credentials using JWT With Zoom](https://marketplace.zoom.us/docs/guides/auth/jwt) |

@@ -10,10 +10,10 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/17/2020
+ms.date: 08/15/2021
 ms.author: yelevin
 
 ---
@@ -27,12 +27,12 @@ When the Log Analytics agent is installed on your VM or appliance, the installat
 
 For more information, see [Syslog data sources in Azure Monitor](../azure-monitor/agents/data-sources-syslog.md).
 
-:::image type="content" source="media/connect-syslog/syslog-diagram.png" alt-text="{alt-text}":::
+:::image type="content" source="media/connect-syslog/syslog-diagram.png" alt-text="This diagram shows the data flow from syslog sources to the Azure Sentinel workspace, where the Log Analytics agent is installed directly on the data source device.":::
 
 
 For some device types that don't allow local installation of the Log Analytics agent, the agent can be installed instead on a dedicated Linux-based log forwarder. The originating device must be configured to send Syslog events to the Syslog daemon on this forwarder instead of the local daemon. The Syslog daemon on the forwarder sends events to the Log Analytics agent over UDP. If this Linux forwarder is expected to collect a high volume of Syslog events, its Syslog daemon sends events to the agent over TCP instead. In either case, the agent then sends the events from there to your Log Analytics workspace in Azure Sentinel.
 
-:::image type="content" source="media/connect-syslog/syslog-forwarder-diagram.png" alt-text="{alt-text}":::
+:::image type="content" source="media/connect-syslog/syslog-forwarder-diagram.png" alt-text="This diagram shows the data flow from syslog sources to the Azure Sentinel workspace, where the Log Analytics agent is installed on a separate log-forwarding device.":::
 
 > [!NOTE]
 > - If your appliance supports **Common Event Format (CEF) over Syslog**, a more complete data set is collected, and the data is parsed at collection. You should choose this option and follow the instructions in [Get CEF-formatted logs from your device or appliance into Azure Sentinel](connect-common-event-format.md).
@@ -43,7 +43,7 @@ There are three steps to configuring Syslog collection:
 
 - Configure your Linux device or appliance. This refers to the device on which the Log Analytics agent will be installed, whether it is the same device that originates the events or a log collector that will forward them.
 
-- Configure your application's logging settings according to the location of the Syslog daemon that will be sending events to the agent.
+- Configure your application's logging settings corresponding to the location of the Syslog daemon that will be sending events to the agent.
 
 - Configure the Log Analytics agent itself. This is done from within Azure Sentinel, and the configuration is sent to all installed agents.
 
@@ -52,6 +52,8 @@ There are three steps to configuring Syslog collection:
 1. From the Azure Sentinel navigation menu, select **Data connectors**.
 
 1. From the connectors gallery, select **Syslog** and then select **Open connector page**.
+
+    If your device type is listed in the Azure Sentinel **Data connectors gallery**, choose the connector for your device instead of the generic Syslog connector. If there are extra or special instructions for your device type, you will see them, along with custom content like workbooks and analytics rule templates, on the connector page for your device.
 
 1. Install the Linux agent. Under **Choose where to install the agent:**
     
@@ -74,7 +76,7 @@ There are three steps to configuring Syslog collection:
         If you want to keep a local copy of the Linux agent installation file, select the **Download Linux Agent** link above the "Download and onboard agent" command.
     
    > [!NOTE]
-   > Make sure you configure security settings for these computers according to your organization's security policy. For example, you can configure the network settings to align with your organization's network security policy, and change the ports and protocols in the daemon to align with the security requirements.
+   > Make sure you configure security settings for these devices according to your organization's security policy. For example, you can configure the network settings to align with your organization's network security policy, and change the ports and protocols in the daemon to align with the security requirements.
 
 > [!NOTE]
 > **Using the same machine to forward both plain Syslog *and* CEF messages**
@@ -88,9 +90,12 @@ There are three steps to configuring Syslog collection:
 > 1. You must run the following command on those machines to disable the synchronization of the agent with the Syslog configuration in Azure Sentinel. This ensures that the configuration change you made in the previous step does not get overwritten.<br>
 > `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
 
-## Configure your application's logging settings
+## Configure your device's logging settings
 
-Many applications have Syslog-based connectors appearing in the Data connectors gallery.
+Many device types have their own data connectors appearing in the **Data connectors** gallery. Some of these connectors require special additional instructions to properly set up log collection in Azure Sentinel. These instructions can include the implementation of a parser based on a Kusto function. 
+
+All connectors listed in the gallery will display any specific instructions on their respective connector pages in the portal, as well as in their sections of the [partner data connectors reference](partner-data-connectors-reference.md) page.
+
 
 ## Configure the Log Analytics agent
 
