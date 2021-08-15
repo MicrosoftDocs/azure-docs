@@ -37,7 +37,7 @@ Schedule the following Azure Sentinel activities regularly to ensure continued s
 
 - **Data connectors**. Review the status, date, and time of the last log received from each data connector to ensure that data is flowing. Check for new connectors, and review ingestion to ensure set limits haven't been exceeded. For more information, see [Data collection best practices](best-practices-data.md) and [Connect data sources](connect-data-sources.md).
 
-- **Log Analytics Agent**. Verify that servers and workstations are actively connected to the workspace, and troubleshoot and remediate any failed connections.   For more information, see     [Log Analytics Agent overview](/azure/azure-monitor/agents/log-analytics-agent).
+- **Log Analytics Agent**. Verify that servers and workstations are actively connected to the workspace, and troubleshoot and remediate any failed connections.   For more information, see     [Log Analytics Agent overview](../azure-monitor/agents/log-analytics-agent.md).
 
 - **Playbook failures**. Verify playbook run statuses and troubleshoot any failures.   For more information, see [Tutorial: Use playbooks with automation rules in Azure Sentinel](tutorial-respond-threats-playbook.md).
 
@@ -118,8 +118,8 @@ Entity behavior in Azure Sentinel allows users to review and investigate actions
 
 To maximize threat intelligence-based detections, make sure to use [threat intelligence data connectors](connect-threat-intelligence-tip.md) to ingest indicators of compromise:
 
-- Connect data sources required by the [Fusion](fusion.md) and [TI Map alerts](import-threat-intelligence.md)
-- Ingest indicators from [TAXII and TIP platforms](connect-threat-intelligence.md)
+- Connect data sources required by the [Fusion](fusion.md) and [TI Map alerts](./understand-threat-intelligence.md)
+- Ingest indicators from [TAXII and TIP platforms](./connect-threat-intelligence-tip.md)
 
 Use indicators of compromise in analytics rules, when threat hunting, investigating logs, or generating more incidents.
 

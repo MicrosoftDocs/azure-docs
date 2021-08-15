@@ -141,7 +141,7 @@ The following fields are common to all ASIM schemas. Common fields are listed bo
 | **AdditionalFields**    | Optional    | Dynamic    | If your source provides additional information worth preserving, either keep it with the original field names or create the dynamic **AdditionalFields** field, and add to it the extra information as key/value pairs.    |
 
 > [!NOTE]
-> Log Analytics also adds other fields that are less relevant to security use cases. For more information, see [Standard columns in Azure Monitor Logs](/azure/azure-monitor/logs/log-standard-columns).
+> Log Analytics also adds other fields that are less relevant to security use cases. For more information, see [Standard columns in Azure Monitor Logs](../azure-monitor/logs/log-standard-columns.md).
 >
 
 

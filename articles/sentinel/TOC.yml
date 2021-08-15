@@ -144,7 +144,7 @@
     - name: Visualize collected data
       href: get-visibility.md
     - name: Use Azure Monitor workbooks
-      href: tutorial-monitor-your-data.md
+      href: /azure/sentinel/articles/sentinel/monitor-your-data.md
   - name: Detect threats and analyze data
     items:
     - name: Use built-in rules
