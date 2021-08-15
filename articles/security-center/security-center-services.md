@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 08/05/2021
+ms.date: 08/15/2021
 ms.custom: references_regions
 ms.author: memildin
 ---
@@ -95,18 +95,18 @@ For information about when recommendations are generated for each of these prote
 
 ## Feature support in government and sovereign clouds
 
-| Feature/Service                                                                                                                                                             | Azure          | Azure Government               | Azure China 21Vianet   |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|--------------------------------|---------------|
-| **Security Center free features**                                                                                                                                           |                |                                |               |
-| - [Continuous export](./continuous-export.md)                                                                                                                               | GA             | GA                             | GA            |
-| - [Workflow automation](./continuous-export.md)                                                                                                                             | GA             | GA                             | GA            |
-| - [Recommendation exemption rules](./exempt-resource.md)                                                                                                                    | Public Preview | Not Available                  | Not Available |
-| - [Alert suppression rules](./alerts-suppression-rules.md)                                                                                                                  | GA             | GA                             | GA            |
-| - [Email notifications for security alerts](./security-center-provide-security-contact-details.md)                                                                          | GA             | GA                             | GA            |
-| - [Auto provisioning for agents and extensions](./security-center-enable-data-collection.md)                                                                                | GA             | GA                             | GA            |
-| - [Asset inventory](./asset-inventory.md)                                                                                                                                   | GA             | GA                             | GA            |
-| - [Azure Monitor Workbooks reports in Azure Security Center's workbooks gallery](./custom-dashboards-azure-workbooks.md)                                                    | GA             | GA                             | GA            |
-| **Azure Defender plans and extensions**                                                                                                                                     |                |                                |               |
+| Feature/Service                                                                                                                                           | Azure          | Azure Government               | Azure China 21Vianet   |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|--------------------------------|---------------|
+| **Security Center free features**                                                                                                                         |                |                                |               |
+| - [Continuous export](./continuous-export.md)                                                                                                             | GA             | GA                             | GA            |
+| - [Workflow automation](./continuous-export.md)                                                                                                           | GA             | GA                             | GA            |
+| - [Recommendation exemption rules](./exempt-resource.md)                                                                                                  | Public Preview | Not Available                  | Not Available |
+| - [Alert suppression rules](./alerts-suppression-rules.md)                                                                                                | GA             | GA                             | GA            |
+| - [Email notifications for security alerts](./security-center-provide-security-contact-details.md)                                                        | GA             | GA                             | GA            |
+| - [Auto provisioning for agents and extensions](./security-center-enable-data-collection.md)                                                              | GA             | GA                             | GA            |
+| - [Asset inventory](./asset-inventory.md)                                                                                                                 | GA             | GA                             | GA            |
+| - [Azure Monitor Workbooks reports in Azure Security Center's workbooks gallery](./custom-dashboards-azure-workbooks.md)                                  | GA             | GA                             | GA            |
+| **Azure Defender plans and extensions**                                                                                                                   |                |                                |               |
 | - [Azure Defender for servers](./defender-for-servers-introduction.md)                                                                                    | GA             | GA                             | GA            |
 | - [Azure Defender for App Service](./defender-for-app-service-introduction.md)                                                                            | GA             | Not Available                  | Not Available |
 | - [Azure Defender for DNS](./defender-for-dns-introduction.md)                                                                                            | GA             | Not Available                  | GA            |
@@ -122,7 +122,8 @@ For information about when recommendations are generated for each of these prote
 | - [Azure Defender for Storage](./defender-for-storage-introduction.md) <sup>[6](#footnote6)</sup>                                                         | GA             | GA                             | Not Available |
 | - [Threat protection for Cosmos DB](./other-threat-protections.md#threat-protection-for-azure-cosmos-db-preview)                                          | Public Preview | Not Available                  | Not Available |
 | - [Kubernetes workload protection](./kubernetes-workload-protections.md)                                                                                  | GA             | GA                             | GA            |
-| **Azure Defender for servers features** <sup>[7](#footnote7)</sup>                                                                                                          |                |                                |               |
+| - [Bi-directional alert synchronization with Sentinel](../sentinel/connect-azure-security-center.md)                                                      | Public Preview | Not Available                  | Not Available |
+| **Azure Defender for servers features** <sup>[7](#footnote7)</sup>                                                                                        |                |                                |               |
 | - [Just-in-time VM access](./security-center-just-in-time.md)                                                                                             | GA             | GA                             | GA            |
 | - [File integrity monitoring](./security-center-file-integrity-monitoring.md)                                                                             | GA             | GA                             | GA            |
 | - [Adaptive application controls](./security-center-adaptive-application.md)                                                                              | GA             | GA                             | GA            |
@@ -133,7 +134,7 @@ For information about when recommendations are generated for each of these prote
 | - [Microsoft Defender for Endpoint deployment and integrated license](./security-center-wdatp.md)                                                         | GA             | GA                             | Not Available |
 | - [Connect AWS account](./quickstart-onboard-aws.md)                                                                                                      | GA             | Not Available                  | Not Available |
 | - [Connect GCP account](./quickstart-onboard-gcp.md)                                                                                                      | GA             | Not Available                  | Not Available |
-|                                                                                                                                                                             |                |                                |
+|                                                                                                                                                           |                |                                |               |
 
 <sup><a name="footnote1" /></a>1</sup> Partially GA: The ability to disable specific findings from vulnerability scans is in public preview.
 
