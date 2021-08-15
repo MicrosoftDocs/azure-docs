@@ -274,6 +274,10 @@
     items:
     - name: Add or deactivate attributes
       href: custom-security-attributes-add.md
+    - name: Manage access to attributes
+      href: custom-security-attributes-manage.md
+    - name: Troubleshoot attributes
+      href: custom-security-attributes-troubleshoot.md
 - name: Troubleshooting
   expanded: true
   items:

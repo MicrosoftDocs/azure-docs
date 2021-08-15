@@ -1,18 +1,20 @@
 ---
-title: Assign or remove custom security attributes for an application (Preview) - Azure Active Directory
-description: Assign or remove custom security attributes for an application that has been registered with your Azure Active Directory (Azure AD) tenant.
+title: Troubleshoot custom security attributes in Azure AD (Preview) - Azure Active Directory
+description: Learn how to troubleshoot custom security attributes in Azure Active Directory.
 services: active-directory
 author: rolyon
-ms.service: active-directory
-ms.subservice: app-mgmt
-ms.topic: how-to
-ms.workload: identity
-ms.date: 09/15/2021
 ms.author: rolyon
+ms.service: active-directory
+ms.subservice: fundamentals
+ms.workload: identity
+ms.topic: how-to
+ms.date: 09/15/2021
+ms.collection: M365-identity-device-management
 ---
 
-# Assign or remove custom security attributes for an application (Preview)
+# Troubleshoot custom security attributes in Azure AD (Preview)
 
 > [!IMPORTANT]
 > Custom security attributes are currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
