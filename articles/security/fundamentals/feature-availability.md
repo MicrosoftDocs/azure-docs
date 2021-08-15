@@ -13,8 +13,8 @@ ms.date: 08/15/2021
 
 This article describes feature availability in the Microsoft Azure and Azure Government clouds for the following security services:
 
-- [Azure Sentinel](#azure-sentinel)
 - [Azure Security Center](#azure-security-center)
+- [Azure Sentinel](#azure-sentinel)
 - [Azure Defender for IoT](#azure-defender-for-iot)
 
 > [!NOTE]
@@ -56,9 +56,9 @@ For more information, see the [Azure Security Center product documentation](../.
 The following table displays the current Security Center feature availability in Azure and Azure Government.
 
 
-| Feature/Service                                                                                                                                                             | Azure          | Azure Government               |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|--------------------------------|
-| **Security Center free features**                                                                                                                                           |                |                                |
+| Feature/Service                                                                                                                                                               | Azure          | Azure Government               |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|--------------------------------|
+| **Security Center free features**                                                                                                                                             |                |                                |
 | - [Continuous export](../../security-center/continuous-export.md)                                                                                                             | GA             | GA                             |
 | - [Workflow automation](../../security-center/continuous-export.md)                                                                                                           | GA             | GA                             |
 | - [Recommendation exemption rules](../../security-center/exempt-resource.md)                                                                                                  | Public Preview | Not Available                  | 
@@ -67,7 +67,7 @@ The following table displays the current Security Center feature availability in
 | - [Auto provisioning for agents and extensions](../../security-center/security-center-enable-data-collection.md)                                                              | GA             | GA                             | 
 | - [Asset inventory](../../security-center/asset-inventory.md)                                                                                                                 | GA             | GA                             | 
 | - [Azure Monitor Workbooks reports in Azure Security Center's workbooks gallery](../../security-center/custom-dashboards-azure-workbooks.md)                                  | GA             | GA                             | 
-| **Azure Defender plans and extensions**                                                                                                                                     |                |                                | 
+| **Azure Defender plans and extensions**                                                                                                                                       |                |                                | 
 | - [Azure Defender for servers](../../security-center/defender-for-servers-introduction.md)                                                                                    | GA             | GA                             | 
 | - [Azure Defender for App Service](../../security-center/defender-for-app-service-introduction.md)                                                                            | GA             | Not Available                  | 
 | - [Azure Defender for DNS](../../security-center/defender-for-dns-introduction.md)                                                                                            | GA             | Not Available                  | 
@@ -83,7 +83,8 @@ The following table displays the current Security Center feature availability in
 | - [Azure Defender for Storage](../../security-center/defender-for-storage-introduction.md) <sup>[6](#footnote6)</sup>                                                         | GA             | GA                             |
 | - [Threat protection for Cosmos DB](../../security-center/other-threat-protections.md#threat-protection-for-azure-cosmos-db-preview)                                          | Public Preview | Not Available                  |
 | - [Kubernetes workload protection](../../security-center/kubernetes-workload-protections.md)                                                                                  | GA             | GA                             |
-| **Azure Defender for servers features** <sup>[7](#footnote7)</sup>                                                                                                          |                |                                |
+| - [Bi-directional alert synchronization with Sentinel](../../sentinel/connect-azure-security-center.md)                                                                          | Public Preview | Not Available                  | 
+| **Azure Defender for servers features** <sup>[7](#footnote7)</sup>                                                                                                            |                |                                |
 | - [Just-in-time VM access](../../security-center/security-center-just-in-time.md)                                                                                             | GA             | GA                             |
 | - [File integrity monitoring](../../security-center/security-center-file-integrity-monitoring.md)                                                                             | GA             | GA                             |
 | - [Adaptive application controls](../../security-center/security-center-adaptive-application.md)                                                                              | GA             | GA                             |
@@ -94,7 +95,7 @@ The following table displays the current Security Center feature availability in
 | - [Microsoft Defender for Endpoint deployment and integrated license](../../security-center/security-center-wdatp.md)                                                         | GA             | GA                             |
 | - [Connect AWS account](../../security-center/quickstart-onboard-aws.md)                                                                                                      | GA             | Not Available                  |
 | - [Connect GCP account](../../security-center/quickstart-onboard-gcp.md)                                                                                                      | GA             | Not Available                  |
-|                                                                                                                                                                             |                |                                |
+|                                                                                                                                                                               |                |                                |
 
 <sup><a name="footnote1" /></a>1</sup> Partially GA: The ability to disable specific findings from vulnerability scans is in public preview.
 
