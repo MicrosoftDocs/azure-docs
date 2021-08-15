@@ -8,7 +8,7 @@ ms.date: 08/08/2021
 ---
 # Configuration set pattern
 
-Create predefined sets of configuration for resources based on a single parameter, like an environment type. Use Bicep parameters and object variables to determine the configuration for each resource based on the parameter value.
+Rather than define lots of individual parameters, create predefined sets of values. During deployment, select the set of values to use.
 
 ## Context and problem
 
@@ -47,7 +47,7 @@ Accept a single parameter that indicates the environment type, such as productio
 
 ::: code language="bicep" source="code/patterns-configuration-set/main.bicep" range="5-9" :::
 
-Then create a _map variable_, which is an object that defines the specific configuration depending on the environment type:
+Then create a _map variable_, which is an object that defines the specific configuration depending on the environment type. Notice that the variable has two objects named `Production` and `NonProduction`. These names match the allowed values for the parameter in the preceding example:
 
 ::: code language="bicep" source="code/patterns-configuration-set/main.bicep" range="16-49" :::
 
@@ -63,4 +63,4 @@ When you define the resources, use the configuration map to define the resource 
 
 ## Next steps
 
-[Learn about the Configuration Set pattern.](patterns-configuration-set.md)
+[Learn about the shared variable file pattern.](patterns-shared-variable-file.md)

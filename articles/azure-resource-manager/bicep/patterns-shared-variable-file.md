@@ -8,7 +8,7 @@ ms.date: 08/08/2021
 ---
 # Shared variable file pattern
 
-Create shared variables in a JSON file. Load the shared JSON file within your Bicep file. When using arrays, concatenate the shared values with deployment-specific values in your Bicep code.
+Reduce the repetition of shared values in your Bicep files. Instead, load those values from a shared JSON file within your Bicep file. When using arrays, concatenate the shared values with deployment-specific values in your Bicep code.
 
 ## Context and problem
 
@@ -63,4 +63,4 @@ Define the NSG resource. Use the `concat()` function to combine the two arrays t
 
 ## Next steps
 
-[Return to the list of patterns for Bicep code.](patterns-overview.md)
+[Learn about the configuration set pattern.](patterns-configuration-set.md)

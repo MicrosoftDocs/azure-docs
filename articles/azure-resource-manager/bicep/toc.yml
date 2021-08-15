@@ -87,8 +87,6 @@
       href: best-practices.md
     - name: Patterns
       items:
-      - name: Overview
-        href: patterns-overview.md
       - name: Configuration set
         href: patterns-configuration-set.md
       - name: Shared variable file
