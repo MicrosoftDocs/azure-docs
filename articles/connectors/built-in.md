@@ -12,9 +12,9 @@ ms.date: 08/16/2021
 
 [Built-in triggers and actions](apis-list.md) provide ways for you to [control your workflow's schedule and structure](#control-workflow), [run your own code](#run-code-from-workflows), [manage or manipulate data](#manage-or-manipulate-data), and complete other tasks in your workflows. Different from [managed connectors](managed.md), many built-in operations aren't tied to a specific service, system, or protocol. For example, you can start almost any workflow on a schedule by using the Recurrence trigger. Or, you can have your workflow wait until called by using the Request trigger. All built-in operations run natively in Azure Logic Apps, and most don't require that you create a connection before you use them.
 
-For a small number of services, systems and protocols, Azure Logic Apps provides built-in operations along with their [managed connector versions](managed.md). The number and range available vary based on whether you create a Consumption plan-based logic app resource that runs in multi-tenant Azure Logic Apps, or a Standard plan-based logic app resource that runs in single-tenant Azure Logic Apps. For more information, review [Single-tenant versus multi-tenant and integration service environment (ISE)](../logic-apps/single-tenant-overview-compare.md). In most cases, the built-in version provides better performance, capabilities, pricing, and so on.
+For a smaller number of services, systems and protocols, Azure Logic Apps provides built-in operations, such as Azure App Services, Azure Functions, Azure API Management and for calling other Azure Logic Apps logic app workflows. The number and range available vary based on whether you create a Consumption plan-based logic app resource that runs in multi-tenant Azure Logic Apps, or a Standard plan-based logic app resource that runs in single-tenant Azure Logic Apps. For more information, review [Single-tenant versus multi-tenant and integration service environment (ISE)](../logic-apps/single-tenant-overview-compare.md). In most cases, the built-in version provides better performance, capabilities, pricing, and so on.
 
-For example, if you create a single-tenant logic app, built-in operations are available for Azure Service Bus, Azure Event Hubs, SQL Server, and MQ. In a few cases, both a built-in version and a managed connector version are available. In most cases, the built-in version provides better performance, capabilities, pricing, and so on. If you create a multi-tenant logic app, built-in operations are available for Azure Functions, Azure App Services, and Azure API Management.
+For example, if you create a single-tenant logic app, both built-in operations and [managed connector operations]((managed.md)) are available for a few services, specifically Azure Service Bus, Azure Event Hubs, SQL Server, DB2, and MQ. In few cases, a built-in operation is available only in one environment, for example, Flat File is currently available only in multi-tenant, while IBM Host File is available only in single-tenant. In most cases, the built-in version provides better performance, capabilities, pricing, and so on.
 
 The following list describes only some of the tasks that you can accomplish with [built-in triggers and actions](#general-built-in-triggers-and-actions):
 
@@ -346,18 +346,27 @@ Azure Logic Apps provides the following built-in actions, which either require a
         \
         \
         [**Flat file decoding**<br>(*Multi-tenant only*)][flat-file-decode-doc]
+        \
+        \
+        Encode XML before sending the content to a trading partner.
     :::column-end:::
     :::column:::
         [![Flat file encoding icon][flat-file-encode-icon]][flat-file-encode-doc]
         \
         \
         [**Flat file encoding**<br>(*Multi-tenant only*)][flat-file-encode-doc]
+        \
+        \
+        Decode XML before after receiving the content from a trading partner.
     :::column-end:::
     :::column:::
         [![Integration account icon][integration-account-icon]][integration-account-doc]
         \
         \
         [**Integration Account Artifact Lookup**<br>(*Multi-tenant only*)][integration-account-doc]
+        \
+        \
+        Get custom metadata for artifacts, such as trading partners, agreements, schemas, and so on, in your integration account.
     :::column-end:::
     :::column:::
         [![Liquid operations icon][liquid-icon]][json-liquid-transform-doc]
