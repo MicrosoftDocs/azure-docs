@@ -96,7 +96,7 @@ For information about when recommendations are generated for each of these prote
 ## Feature support in government and sovereign clouds
 
 | Feature/Service                                                                                                                                           | Azure          | Azure Government               | Azure China 21Vianet   |
-|------------------------------------------------------------------------------------------------------------------------------------------------- ---------|----------------|--------------------------------|---------------|
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|--------------------------------|---------------|
 | **Security Center free features**                                                                                                                         |                |                                |               |
 | - [Continuous export](./continuous-export.md)                                                                                                             | GA             | GA                             | GA            |
 | - [Workflow automation](./continuous-export.md)                                                                                                           | GA             | GA                             | GA            |
