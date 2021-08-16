@@ -10,7 +10,7 @@ ms.date: 11/01/2017
 ms.custom: devx-track-azurepowershell
 ---
 
-# Tutorial: Build your first Azure data factory using Data Factory REST API
+# Tutorial: Build your first Azure Data Factory using Data Factory REST API
 > [!div class="op_single_selector"]
 > * [Overview and prerequisites](data-factory-build-your-first-pipeline.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
@@ -24,7 +24,7 @@ ms.custom: devx-track-azurepowershell
 > [!NOTE]
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Quickstart: Create a data factory using Azure Data Factory](../quickstart-create-data-factory-rest-api.md).
 
-In this article, you use Data Factory REST API to create your first Azure data factory. To do the tutorial using other tools/SDKs, select one of the options from the drop-down list.
+In this article, you use Data Factory REST API to create your first Azure Data Factory. To do the tutorial using other tools/SDKs, select one of the options from the drop-down list.
 
 The pipeline in this tutorial has one activity: **HDInsight Hive activity**. This activity runs a hive script on an Azure HDInsight cluster that transforms input data to produce output data. The pipeline is scheduled to run once a month between the specified start and end times.
 
@@ -466,7 +466,7 @@ Run the Invoke-Command and the next one until you see the slice in **Ready** sta
 You can also use Azure portal to monitor slices and troubleshoot any issues. See [Monitor pipelines using Azure portal](data-factory-monitor-manage-pipelines.md) details.
 
 ## Summary
-In this tutorial, you created an Azure data factory to process data by running Hive script on a HDInsight hadoop cluster. You used the Data Factory Editor in the Azure portal to do the following steps:
+In this tutorial, you created an Azure Data Factory to process data by running Hive script on a HDInsight hadoop cluster. You used the Data Factory Editor in the Azure portal to do the following steps:
 
 1. Created an Azure **data factory**.
 2. Created two **linked services**:
