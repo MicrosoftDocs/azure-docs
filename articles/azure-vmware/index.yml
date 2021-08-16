@@ -133,7 +133,7 @@ landingContent:
           - text: Configure port mirroring 
             url: configure-port-mirroring-azure-vmware-solution.md
           - text: Configure GitHub Enterprise Server
-            url: ./configure-github-enterprise-server.md
+            url: configure-github-enterprise-server.md
           - text: Enable public internet access
             url: enable-public-internet-access.md
           - text: Configure a site-to-site VPN in vWAN
