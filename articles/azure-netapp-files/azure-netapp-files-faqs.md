@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/08/2021
+ms.date: 08/09/2021
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -96,6 +96,10 @@ For the complete list of API operations, see [Azure NetApp Files REST API](/rest
 Yes, you can create [custom Azure policies](../governance/policy/tutorials/create-custom-policy-definition.md). 
 
 However, you cannot create Azure policies (custom naming policies) on the Azure NetApp Files interface. See [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md#considerations).
+
+### When I delete an Azure NetApp Files volume, is the data deleted safely? 
+
+Deletion of an Azure NetApp Files volume is performed in the backend (physical infrastructure layer) programmatically with immediate effect. The delete operation includes deleting keys used for encrypting data at rest. There is no option for any scenario to recover a deleted volume once the delete operation is executed successfully (via interfaces such as the Azure portal and the API.)
 
 ## Performance FAQs
 
@@ -334,6 +338,12 @@ Using Azure NetApp Files NFS or SMB volumes with AVS is supported in the followi
 
 Yes. Azure NetApp Files is a first-party service. It fully adheres to Azure Resource Provider standards. As such, Azure NetApp Files can be integrated into Azure Policy via *custom policy definitions*. For information about how to implement custom policies for Azure NetApp Files, see 
 [Azure Policy now available for Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure/azure-policy-now-available-for-azure-netapp-files/m-p/2282258) on Microsoft Tech Community. 
+
+### Which Unicode Character Encoding is supported by Azure NetApp Files for the creation and display of file and directory names?   
+
+Azure NetApp Files only supports file and directory names that are encoded with the UTF-8 Unicode Character Encoding format for both NFS and SMB volumes.
+
+If you try to create files or directories with names that use supplementary characters or surrogate pairs such as non-regular characters and emoji that are not supported by UTF-8, the operation will fail. In this case, an error from a Windows client might read “The file name you specified is not valid or too long. Specify a different file name.” 
 
 ## Next steps  
 

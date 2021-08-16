@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-
+ms.custom: devplatv2
 author: wenxwei
 ms.author: wenxwei
 ms.date: 06/22/2021

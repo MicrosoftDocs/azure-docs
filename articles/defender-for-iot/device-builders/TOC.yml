@@ -1,4 +1,5 @@
 - name: Azure Defender for IoT for device builders
+  href: index.yml
   items:
 - name: Overview
   displayName: IoT, OT, getting started
@@ -10,7 +11,7 @@
   - name: What is Agent-based solution architecture
     href: architecture-agent-based.md
 - name: Quickstarts
-  expanded: false
+  expanded: true
   items:
   - name: Onboard to Defender for IoT agent-based solution
     displayName: IoT Hub, existing, enable
@@ -20,9 +21,6 @@
     href: quickstart-standalone-agent-binary-installation.md
   - name: Create a Defender IoT micro agent module twin (Preview)
     href: quickstart-create-micro-agent-module-twin.md
-  - name: Build the Defender for IoT micro agent from source code (Preview)
-    displayName: baseline, configuration, customize, distribution
-    href: quickstart-building-the-defender-micro-agent-from-source.md
   - name: Configure Defender-IoT-micro-agent for Azure RTOS
     href: quickstart-azure-rtos-security-module.md
   - name: Add Azure resources to your IoT solution

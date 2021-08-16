@@ -19,7 +19,7 @@ In Visual Studio, create a new project with the **Blank App (Universal Windows)*
 
 ### Install the package
 
-Right click your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling`. Make sure Include Preleased is checked and your package source is from
+Right click your project and go to `Manage Nuget Packages` to install `[Azure.Communication.Calling](https://www.nuget.org/packages/Azure.Communication.Calling)`. Make sure Include Preleased is checked and your package source is from
 https://www.nuget.org/api/v2/. 
 
 ### Request access

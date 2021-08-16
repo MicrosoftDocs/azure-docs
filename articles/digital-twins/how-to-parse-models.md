@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to use the parser library to parse DTDL models.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 4/10/2020
+ms.date: 8/13/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q3
@@ -88,4 +88,4 @@ The following code shows an example of how to use the parser library to reflect 
 ## Next steps
 
 Once you are done writing your models, see how to upload them (and do other management operations) with the DigitalTwinsModels APIs:
-* [How-to: Manage DTDL models](how-to-manage-model.md)
+* [Manage DTDL models](how-to-manage-model.md)

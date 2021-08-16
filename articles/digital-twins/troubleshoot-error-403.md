@@ -81,12 +81,12 @@ Next, select *API permissions* from the menu bar to verify that this app registr
 
 #### Fix issues
 
-If any of this appears differently than described, follow the instructions on how to set up an app registration in [How-to: Create an app registration](./how-to-create-app-registration-portal.md).
+If any of this appears differently than described, follow the instructions on how to set up an app registration in [Create an app registration](./how-to-create-app-registration-portal.md).
 
 ## Next steps
 
 Read the setup steps for creating and authenticating a new Azure Digital Twins instance:
-* [How-to: Set up an instance and authentication (CLI)](how-to-set-up-instance-cli.md)
+* [Set up an instance and authentication (CLI)](how-to-set-up-instance-cli.md)
 
 Read more about security and permissions on Azure Digital Twins:
-* [Concepts: Security for Azure Digital Twins solutions](concepts-security.md)
+* [Security for Azure Digital Twins solutions](concepts-security.md)

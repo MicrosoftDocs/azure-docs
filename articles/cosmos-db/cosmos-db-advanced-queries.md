@@ -16,8 +16,8 @@ ms.author: esarroyo
 
 > [!div class="op_single_selector"]
 > * [SQL (Core) API](cosmos-db-advanced-queries.md)
-> * [MongoDB API](queries-mongo.md)
-> * [Cassandra API](queries-cassandra.md)
+> * [MongoDB API](mongodb/diagnostic-queries-mongodb.md)
+> * [Cassandra API](cassandra/diagnostic-queries-cassandra.md)
 > * [Gremlin API](queries-gremlin.md)
 >
 

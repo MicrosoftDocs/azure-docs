@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand how to route events within Azure Digital Twins and to other Azure Services.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 10/12/2020
+ms.date: 6/1/2021
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -47,7 +47,7 @@ Alternatively, the event message also contains the ID of the source twin that se
 
 The compute resource also needs to establish security and access permissions independently.
 
-To walk through the process of setting up an Azure function to process digital twin events, see [How-to: Set up an Azure function for processing data](how-to-create-azure-function.md).
+To walk through the process of setting up an Azure function to process digital twin events, see [Set up twin-to-twin event handling](how-to-send-twin-to-twin-events.md).
 
 ## Create an endpoint
 
@@ -101,7 +101,7 @@ Before setting the dead-letter location, you must have a storage account with a 
 
 To learn more about SAS tokens, see: [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../storage/common/storage-sas-overview.md)
 
-To learn how to set up an endpoint with dead-lettering, see [How-to: Manage endpoints and routes in Azure Digital Twins](how-to-manage-routes.md#create-an-endpoint-with-dead-lettering).
+To learn how to set up an endpoint with dead-lettering, see [Manage endpoints and routes in Azure Digital Twins](how-to-manage-routes.md#create-an-endpoint-with-dead-lettering).
 
 ### Types of event messages
 
@@ -112,7 +112,7 @@ Different types of events in IoT Hub and Azure Digital Twins produce different t
 ## Next steps
 
 See how to set up and manage an event route:
-* [How-to: Manage endpoints and routes](how-to-manage-routes.md)
+* [Manage endpoints and routes](how-to-manage-routes.md)
 
 Or, see how to use Azure Functions to route events within Azure Digital Twins:
-* [How-to: Set up an Azure function for processing data](how-to-create-azure-function.md)
+* [Set up twin-to-twin event handling](how-to-send-twin-to-twin-events.md).

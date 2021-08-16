@@ -135,6 +135,7 @@ The drawing tools support keyboard shortcuts. These keyboard shortcuts are funct
 | `C` | Completes any drawing that is in progress and sets the drawing mode to idle. Focus will move to top-level map element.  |
 | `Escape` | Cancels any drawing that is in progress and sets the drawing mode to idle. Focus will move to top-level map element.  |
 | `F` | Adds a coordinate to a point, line, or polygon if the mouse is over the map. Equivalent action of clicking the map when in click or hybrid mode. This shortcut allows for more precise and faster drawings. You can use one hand to position the mouse and other to press the button without moving the mouse from the press gesture. |
+| `Delete` or `Backspace` | If shapes is selected while the edit mode, delete them.  |
 
 ## Next steps
 

@@ -8,7 +8,7 @@ author: palma21
 
 ---
 
-# Enable Container Storage Interface (CSI) drivers for Azure disks and Azure Files on Azure Kubernetes Service (AKS) (preview)
+# Enable Container Storage Interface (CSI) drivers for Azure disks and Azure Files on Azure Kubernetes Service (AKS)
 
 The Container Storage Interface (CSI) is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes. By adopting and using CSI, Azure Kubernetes Service (AKS) can write, deploy, and iterate plug-ins to expose new or improve existing storage systems in Kubernetes without having to touch the core Kubernetes code and wait for its release cycles.
 
@@ -25,47 +25,7 @@ The CSI storage driver support on AKS allows you to natively use:
 
 - This feature can only be set at cluster creation time.
 - The minimum Kubernetes minor version that supports CSI drivers is v1.17.
-- During the preview, the default storage class will still be the [same in-tree storage class](concepts-storage.md#storage-classes). After this feature is generally available, the default storage class will be the `managed-csi` storage class and in-tree storage classes will be removed.
-- During the first preview phase, only Azure CLI is supported.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-### Register the `EnableAzureDiskFileCSIDriver` preview feature
-
-To create an AKS cluster that can use CSI drivers for Azure disks and Azure Files, you must enable the `EnableAzureDiskFileCSIDriver` feature flag on your subscription.
-
-Register the `EnableAzureDiskFileCSIDriver` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "EnableAzureDiskFileCSIDriver"
-```
-
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableAzureDiskFileCSIDriver')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-### Install aks-preview CLI extension
-
-To create an AKS cluster or a node pool that can use the CSI storage drivers, you need the latest *aks-preview* Azure CLI extension. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-``` 
-
+- The default storage class will be the `managed-csi` storage class.
 
 ## Create a new cluster that can use CSI storage drivers
 

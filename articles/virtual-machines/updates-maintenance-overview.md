@@ -5,10 +5,10 @@ author: mimckitt
 ms.author: mimckitt
 ms.service: virtual-machines
 ms.topic: overview
-ms.date: 03/08/2021
+ms.date: 08/10/2021
 ms.reviewer: cynthn
 ---
-    
+
 # Updates and maintenance overview
 This article provides an overview of the various update and maintenance options for Azure virtual machines (VMs).
 
@@ -35,17 +35,17 @@ Enabling [automatic VM guest patching](automatic-vm-guest-patching.md) for your 
 [Automatic VM guest patching](automatic-vm-guest-patching.md) has the following characteristics:
 - Patches classified as *Critical* or *Security* are automatically downloaded and applied on the VM.
 - Patches are applied during off-peak hours in the VM's time zone.
-- Patch orchestration is managed by Azure and patches are applied following [availability-first principles](automatic-vm-guest-patching.md#availability-first-patching).
+- Patch orchestration is managed by Azure and patches are applied following [availability-first principles](automatic-vm-guest-patching.md#availability-first-updates).
 - Virtual machine health, as determined through platform health signals, is monitored to detect patching failures.
 - Works for all VM sizes.
 
 
-## Automatic extension upgrade (Preview)
+## Automatic extension upgrade
 
-[Automatic Extension Upgrade](automatic-extension-upgrade.md) is available in preview for Azure VMs and Azure Virtual Machine Scale Sets. When Automatic Extension Upgrade is enabled on a VM or scale set, the extension is upgraded automatically whenever the extension publisher releases a new version for that extension.
+[Automatic Extension Upgrade](automatic-extension-upgrade.md) is available for Azure VMs and Azure Virtual Machine Scale Sets. When Automatic Extension Upgrade is enabled on a VM or scale set, the extension is upgraded automatically whenever the extension publisher releases a new version for that extension.
 
  Automatic Extension Upgrade has the following features:
-- Supported for Azure VMs and Azure Virtual Machine Scale Sets. Service Fabric Virtual Machine Scale Sets are currently not supported.
+- Supported for Azure VMs and Azure Virtual Machine Scale Sets.
 - Upgrades are applied in an availability-first deployment model.
 - For a Virtual Machine Scale Set, no more than 20% of the scale set virtual machines will be upgraded in a single batch. The minimum batch size is one virtual machine.
 - Works for all VM sizes, and for both Windows and Linux extensions.
@@ -54,7 +54,7 @@ Enabling [automatic VM guest patching](automatic-vm-guest-patching.md) for your 
 - Each supported extension is enrolled individually, and you can choose which extensions to upgrade automatically.
 - Supported in all public cloud regions.
 
-## Hotpatch 
+## Hotpatch
 
 [Hotpatching](../automanage/automanage-hotpatch.md?context=/azure/virtual-machines/context/context) is a new way to install updates on new Windows Server Azure Edition virtual machines (VMs) that doesn’t require a reboot after installation. Hotpatch for Windows Server Azure Edition VMs, has the following benefits:
 
@@ -69,23 +69,23 @@ You can use [Update Management in Azure Automation](../automation/update-managem
 
 ## Maintenance control
 
-Manage platform updates, that don't require a reboot, using [maintenance control](maintenance-control.md). Azure frequently updates its infrastructure to improve reliability, performance, security or launch new features. Most updates are transparent to users. Some sensitive workloads, like gaming, media streaming, and financial transactions, can't tolerate even few seconds of a VM freezing or disconnecting for maintenance. Maintenance control gives you the option to wait on platform updates and apply them within a 35-day rolling window. 
+Manage platform updates, that don't require a reboot, using [maintenance control](maintenance-control.md). Azure frequently updates its infrastructure to improve reliability, performance, security or launch new features. Most updates are transparent to users. Some sensitive workloads, like gaming, media streaming, and financial transactions, can't tolerate even few seconds of a VM freezing or disconnecting for maintenance. Maintenance control gives you the option to wait on platform updates and apply them within a 35-day rolling window.
 
 Maintenance control lets you decide when to apply updates to your isolated VMs and Azure dedicated hosts.
 
 With [maintenance control](maintenance-control.md), you can:
 - Batch updates into one update package.
-- Wait up to 35 days to apply updates. 
+- Wait up to 35 days to apply updates.
 - Automate platform updates by configuring a maintenance schedule or by using [Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler).
-- Maintenance configurations work across subscriptions and resource groups. 
+- Maintenance configurations work across subscriptions and resource groups.
 
 
 ## Scheduled events
 
-Scheduled Events is an Azure Metadata Service that gives your application time to prepare for virtual machine (VM) maintenance. It provides information about upcoming maintenance events (for example, reboot) so that your application can prepare for them and limit disruption. It's available for all Azure Virtual Machines types, including PaaS and IaaS on both Windows and Linux. 
+Scheduled Events is an Azure Metadata Service that gives your application time to prepare for virtual machine (VM) maintenance. It provides information about upcoming maintenance events (for example, reboot) so that your application can prepare for them and limit disruption. It's available for all Azure Virtual Machines types, including PaaS and IaaS on both Windows and Linux.
 
 For information on Scheduled Events, see [Scheduled Events for Windows VMs](./windows/scheduled-events.md) and [Scheduled Events for Linux](./linux/scheduled-events.md)
 
 ## Next steps
 
-Review the [Availability and scale](availability.md) documentation for more ways to increase the uptime of your applications and services. 
+Review the [Availability and scale](availability.md) documentation for more ways to increase the uptime of your applications and services.

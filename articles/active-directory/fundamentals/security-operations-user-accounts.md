@@ -80,9 +80,9 @@ The log files you use for investigation and monitoring are:
 
 * [Azure Key Vault logs](../../key-vault/general/logging.md?tabs=Vault)
 
-* Risky Users log
+* [Risky Users log](../identity-protection/howto-identity-protection-investigate-risk.md)
 
-* UserRiskEvents log
+* [UserRiskEvents log](../identity-protection/howto-identity-protection-investigate-risk.md)
 
 From the Azure portal you can view the Azure AD Audit logs and download as comma separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Azure AD logs with other tools that allow for greater automation of monitoring and alerting:
 
@@ -185,6 +185,7 @@ As you design and operationalize a log monitoring and alerting strategy, conside
 | Azure AD Threat Intelligence user risk detection| High| Azure AD Risk Detection logs| UX: Azure AD threat intelligence <br><br>API: See [riskDetection resource type - Microsoft Graph beta](/graph/api/resources/riskdetection?view=graph-rest-beta)| See [What is risk? Azure AD Identity Protection](../identity-protection/concept-identity-protection-risks.md) |
 | Anonymous IP address sign-in risk detection| Varies| Azure AD Risk Detection logs| UX: Anonymous IP address <br><br>API: See [riskDetection resource type - Microsoft Graph beta](/graph/api/resources/riskdetection?view=graph-rest-beta)| See [What is risk? Azure AD Identity Protection](../identity-protection/concept-identity-protection-risks.md) |
 | Atypical travel sign-in risk detection| Varies| Azure AD Risk Detection logs| UX: Atypical travel <br><br>API: See [riskDetection resource type - Microsoft Graph beta](/graph/api/resources/riskdetection?view=graph-rest-beta)| See [What is risk? Azure AD Identity Protection](../identity-protection/concept-identity-protection-risks.md) |
+| Anomalous Token| Varies| Azure AD Risk Detection logs| UX: Anomalous Token <br><br>API: See [riskDetection resource type - Microsoft Graph beta](/graph/api/resources/riskdetection?view=graph-rest-beta)| See [What is risk? Azure AD Identity Protection](../identity-protection/concept-identity-protection-risks.md) |
 | Malware linked IP address sign-in risk detection| Varies| Azure AD Risk Detection logs| UX: Malware linked IP address <br><br>API: See [riskDetection resource type - Microsoft Graph beta](/graph/api/resources/riskdetection?view=graph-rest-beta)| See [What is risk? Azure AD Identity Protection](../identity-protection/concept-identity-protection-risks.md) |
 | Suspicious browser sign-in risk detection| Varies| Azure AD Risk Detection logs| UX: Suspicious browser <br><br>API: See [riskDetection resource type - Microsoft Graph beta](/graph/api/resources/riskdetection?view=graph-rest-beta)| See [What is risk? Azure AD Identity Protection](../identity-protection/concept-identity-protection-risks.md) |
 | Unfamiliar sign-in properties sign-in risk detection| Varies| Azure AD Risk Detection logs| UX: Unfamiliar sign-in properties <br><br>API: See [riskDetection resource type - Microsoft Graph beta](/graph/api/resources/riskdetection?view=graph-rest-beta)| See [What is risk? Azure AD Identity Protection](../identity-protection/concept-identity-protection-risks.md) |
