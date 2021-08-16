@@ -1,12 +1,12 @@
 ---
 title: Integrate Azure Automation State Configuration with Azure Monitor Logs
-description: This article tells how to send Desired State Configuration reporting data from Azure Automation State Configuration to Azure Monitor logs.
+description: This article tells how to send Desired State Configuration reporting data from Azure Automation State Configuration to Azure Monitor Logs.
 services: automation
 ms.service: automation
 ms.subservice: dsc
 author: mgoedtel
 ms.author: magoedte
-ms.date: 08/10/2021
+ms.date: 08/16/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 manager: carmonm
@@ -16,7 +16,7 @@ manager: carmonm
 
 Azure Automation State Configuration retains node status data for 30 days. You can send node status data to [Azure Monitor Logs](../azure-monitor/logs/data-platform-logs.md) if you prefer to retain this data for a longer period. Compliance status is visible in the Azure portal or with PowerShell, for nodes and for individual DSC resources in node configurations.
 
-Azure Monitor logs provides greater operational visibility to your Automation State Configuration data and can help address incidents more quickly. With Azure Monitor logs you can:
+Azure Monitor Logs provides greater operational visibility to your Automation State Configuration data and can help address incidents more quickly. With Azure Monitor Logs you can:
 
 - Get compliance information for managed nodes and individual resources.
 - Trigger an email or alert based on compliance status.
@@ -36,9 +36,9 @@ To start sending your Automation State Configuration reports to Azure Monitor Lo
 - At least one Azure Automation State Configuration node. For more information, see [Onboarding machines for management by Azure Automation State Configuration](automation-dsc-onboarding.md).
 - The [xDscDiagnostics](https://www.powershellgallery.com/packages/xDscDiagnostics/2.7.0.0) module, version 2.7.0.0 or greater. For installation steps, see [Troubleshoot Azure Automation Desired State Configuration](./troubleshoot/desired-state-configuration.md).
 
-## Set up integration with Azure Monitor logs
+## Set up integration with Azure Monitor Logs
 
-To begin importing data from Azure Automation State Configuration into Azure Monitor Logs, complete the steps further below. For steps using the Portal, see [Forward Azure Automation job data to Azure Monitor logs](./automation-manage-send-joblogs-log-analytics.md).
+To begin importing data from Azure Automation State Configuration into Azure Monitor Logs, complete the following steps. For steps using the Portal, see [Forward Azure Automation job data to Azure Monitor Logs](./automation-manage-send-joblogs-log-analytics.md).
 
 1. From your machine, sign in to your Azure subscription with the PowerShell [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet and follow the on-screen directions.
 
@@ -167,9 +167,9 @@ AzureDiagnostics
 
 This query displays a chart of the node status over time.
 
-## Azure Monitor logs records
+## Azure Monitor Logs records
 
-Azure Automation diagnostics create two categories of records in Azure Monitor logs:
+Azure Automation diagnostics create two categories of records in Azure Monitor Logs:
 
 * Node status data (`DscNodeStatusData`)
 * Resource status data (`DscResourceStatusData`)
@@ -196,7 +196,7 @@ Azure Automation diagnostics create two categories of records in Azure Monitor l
 | ReportStartTime_t | Date and time when the report was started. |
 | ReportEndTime_t | Date and time when the report completed. |
 | NumberOfResources_d | The number of DSC resources called in the configuration applied to the node. |
-| SourceSystem | The source system identifying how Azure Monitor logs has collected the data. Always `Azure` for Azure diagnostics. |
+| SourceSystem | The source system identifying how Azure Monitor Logs has collected the data. Always `Azure` for Azure diagnostics. |
 | ResourceId |The resource identifier of the Azure Automation account. |
 | ResultDescription | The resource description for this operation. |
 | SubscriptionId | The Azure subscription ID (GUID) for the Automation account. |
@@ -227,7 +227,7 @@ Azure Automation diagnostics create two categories of records in Azure Monitor l
 | ErrorCode_s | The error code if the resource failed. |
 | ErrorMessage_s |The error message if the resource failed. |
 | DscResourceDuration_d |The time, in seconds, that the DSC resource ran. |
-| SourceSystem | How Azure Monitor logs collected the data. Always `Azure` for Azure diagnostics. |
+| SourceSystem | How Azure Monitor Logs collected the data. Always `Azure` for Azure diagnostics. |
 | ResourceId |The identifier of the Azure Automation account. |
 | ResultDescription | The description for this operation. |
 | SubscriptionId | The Azure subscription ID (GUID) for the Automation account. |
@@ -244,5 +244,5 @@ Azure Automation diagnostics create two categories of records in Azure Monitor l
 - For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation).
 - For pricing information, see [Azure Automation State Configuration pricing](https://azure.microsoft.com/pricing/details/automation/).
 - To see an example of using Azure Automation State Configuration in a continuous deployment pipeline, see [Set up continuous deployment with Chocolatey](automation-dsc-cd-chocolatey.md).
-- To learn more about how to construct different search queries and review the Automation State Configuration logs with Azure Monitor logs, see [Log searches in Azure Monitor logs](../azure-monitor/logs/log-query-overview.md).
-- To learn more about Azure Monitor logs and data collection sources, see [Collecting Azure storage data in Azure Monitor logs overview](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).
+- To learn more about how to construct different search queries and review the Automation State Configuration logs with Azure Monitor Logs, see [Log searches in Azure Monitor Logs](../azure-monitor/logs/log-query-overview.md).
+- To learn more about Azure Monitor Logs and data collection sources, see [Collecting Azure storage data in Azure Monitor Logs overview](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).
