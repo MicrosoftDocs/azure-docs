@@ -57,9 +57,6 @@ This section describes how to create a trial subscription for a sensor.
 1. Select **Onboard subscription**.
 1. In the Pricing page, select **Start with a Trial**.
 1. Select a subscription from the Onboard trial subscription pane and then select **Evaluate**.
-
-:::image type="content" source="media/how-to-manage-subscriptions/evaluation_subscription.png" alt-text="use a trial subscription.":::
-
 1. Confirm your evaluation.
 1. Onboard a sensor or set up a sensor, if required.
 
