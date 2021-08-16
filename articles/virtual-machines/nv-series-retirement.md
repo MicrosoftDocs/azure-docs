@@ -1,5 +1,5 @@
 ---
-title: NV-series-retirement
+title: NV-series retirement
 description: NV-series retirement starting September 1, 2021
 author: vikancha-MSFT
 ms.service: virtual-machines
@@ -22,6 +22,6 @@ The current VM size retirement only impacts the VM sizes in the [NV-series](nv-s
 
 You will need to resize or deallocate your NV virtual machines. We recommend moving your GPU visualization/graphics workloads to another [GPU Accelerated Virtual Machine size](sizes-gpu.md).
 
-[Learn more](NV-series-migration-guide.md) about migrating your workloads to other GPU Azure Virtual Machine sizes. 
+[Learn more](nv-series-migration-guide.md) about migrating your workloads to other GPU Azure Virtual Machine sizes. 
 
-If you have questions, contact us. You may also reach us directly at [Azure GPU Feedback](mailto:azuregpufeedback@service.microsoft.com).  
+If you have questions, contact us through cusotmer support.
