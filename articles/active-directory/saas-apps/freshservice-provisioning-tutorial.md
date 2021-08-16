@@ -23,7 +23,7 @@ ms.author: Zhchia
 This tutorial describes the steps you need to perform in both Freshservice Provisioning and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users to [Freshservice Provisioning](https://effy.co.in/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md). 
 
 
-## Capabilities Supported
+## Capabilities supported
 > [!div class="checklist"]
 > * Create users in Freshservice Provisioning
 > * Remove users in Freshservice Provisioning when they do not require access anymore
@@ -68,7 +68,7 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users in Freshservice Provisioning based on user assignments in Azure AD.
 
-### To configure automatic user provisioning for Freshservice Provisioning in Azure AD:
+### To configure automatic user provisioning for Freshservice Provisioning in Azure AD
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
