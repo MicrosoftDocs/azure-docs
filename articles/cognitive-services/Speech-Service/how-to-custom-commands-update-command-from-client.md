@@ -3,13 +3,13 @@ title: 'Update a command from a client app'
 titleSuffix: Azure Cognitive Services
 description: Learn how to update a command from a client application.
 services: cognitive-services
-author: nitinme
+author: laujan
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.author: nitinme
+ms.author: lajanuar
 ---
 
 # Update a command from a client app
