@@ -6,6 +6,8 @@
   - name: Machine Learning Studio (classic)
     displayName: overview
     href: studio-classic-overview.md
+  - name: Migrate to Azure Machine Learning
+    href: ../migrate-overview.md
 - name: Tutorials
   items:
   - name: Create your first experiment
