@@ -185,7 +185,7 @@ There are some non-interactive scenarios, such as continuous integration pipelin
 
 ## Disable local accounts (preview)
 
-When deploying an AKS Cluster, local accounts are enabled by default. Even when enabling RBAC or Azure Active Directory integration, `--admin` access still exists, essentially as a non-auditable backdoor option. With this in mind, AKS offers users the ability to disable local accounts via a flag, `disable-local`. A field, `properties.disableLocalAccounts`, has also been added to the managed cluster API to indicate whether the feature has been enabled on the cluster.
+When deploying an AKS Cluster, local accounts are enabled by default. Even when enabling RBAC or Azure Active Directory integration, `--admin` access still exists, essentially as a non-auditable backdoor option. With this in mind, AKS offers users the ability to disable local accounts via a flag, `disable-local-accounts`. A field, `properties.disableLocalAccounts`, has also been added to the managed cluster API to indicate whether the feature has been enabled on the cluster.
 
 > [!NOTE]
 > On clusters with Azure AD integration enabled, users belonging to a group specified by `aad-admin-group-object-ids` will still be able to gain access via non-admin credentials. On clusters without Azure AD integration enabled and `properties.disableLocalAccounts` set to true, obtaining both user and admin credentials will fail.
@@ -216,10 +216,10 @@ az provider register --namespace Microsoft.ContainerService
 
 ### Create a new cluster without local accounts
 
-To create a new AKS cluster without any local accounts, use the [az aks create][az-aks-create] command with the `disable-local` flag:
+To create a new AKS cluster without any local accounts, use the [az aks create][az-aks-create] command with the `disable-local-accounts` flag:
 
 ```azurecli-interactive
-az aks create -g <resource-group> -n <cluster-name> --enable-aad --aad-admin-group-object-ids <aad-group-id> --disable-local
+az aks create -g <resource-group> -n <cluster-name> --enable-aad --aad-admin-group-object-ids <aad-group-id> --disable-local-accounts
 ```
 
 In the output, confirm local accounts have been disabled by checking the field `properties.disableLocalAccounts` is set to true:
@@ -242,10 +242,10 @@ Operation failed with status: 'Bad Request'. Details: Getting static credential 
 
 ### Disable local accounts on an existing cluster
 
-To disable local accounts on an existing AKS cluster, use the [az aks update][az-aks-update] command with the `disable-local` flag:
+To disable local accounts on an existing AKS cluster, use the [az aks update][az-aks-update] command with the `disable-local-accounts` flag:
 
 ```azurecli-interactive
-az aks update -g <resource-group> -n <cluster-name> --enable-aad --aad-admin-group-object-ids <aad-group-id> --disable-local
+az aks update -g <resource-group> -n <cluster-name> --enable-aad --aad-admin-group-object-ids <aad-group-id> --disable-local-accounts
 ```
 
 In the output, confirm local accounts have been disabled by checking the field `properties.disableLocalAccounts` is set to true:
