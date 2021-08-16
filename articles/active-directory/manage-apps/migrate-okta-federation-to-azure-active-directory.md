@@ -20,7 +20,7 @@ In this tutorial, learn how to federate your existing Office 365 tenants with Ok
 
 Migrating federation to Azure Active Directory (AD) can be done in a staged manner to ensure the desired authentication experience for users. Also, to test reverse federation access back to remaining Okta SSO applications.
 
-## Pre-requisites
+## Prerequisites
 
 - Office 365 tenant federated to Okta for SSO
 - Configure Azure AD Connect server or Azure AD connect cloud provisioning agents for user provisioning to
