@@ -14,7 +14,7 @@ ms.author: mimckitt
 # Previous generations of virtual machine sizes
 
 > [!TIP]
-> Try the **[Virtual Machine selector tool](https://aka.ms/vm-selector)** to find other sizes that best fit your workload.
+> Try the **[Virtual machines selector tool](https://aka.ms/vm-selector)** to find other sizes that best fit your workload.
 
 This section provides information on previous generations of virtual machine sizes. These sizes can still be used, but there are newer generations available.
 
