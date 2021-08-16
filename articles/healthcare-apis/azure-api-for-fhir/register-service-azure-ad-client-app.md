@@ -6,7 +6,7 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 08/05/2021
+ms.date: 08/16/2021
 ms.author: cavoeg
 ---
 
@@ -71,4 +71,4 @@ The service client needs a secret (password) to obtain a token.
 In this article, you've learned how to register a service client application in Azure Active Directory. Next, test access to your FHIR server using Postman.
  
 >[!div class="nextstepaction"]
->[Access Azure API for FHIR with Postman](access-fhir-postman-tutorial.md)
+>[Access the FHIR service using Postman](../fhir/using-postman.md)
