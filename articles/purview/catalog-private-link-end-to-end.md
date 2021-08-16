@@ -111,7 +111,7 @@ Using the one of the deployment options explained further in this guide, you can
    
 8. Follow the same steps when you select **portal** for **Target sub-resource**.
    
-9.  From your Azure Purview account, under **Settings** select **Networking**, and then select **Ingestion private endpoint connections**.
+9. From your Azure Purview account, under **Settings** select **Networking**, and then select **Ingestion private endpoint connections**.
 
 10. Under Ingestion private endpoint connections, select **+ New** to create a new ingestion private endpoint.
 
@@ -175,6 +175,9 @@ Once you deploy ingestion private endpoints for your Azure Purview, you need to 
 Follow the steps in [Create and manage a self-hosted integration runtime](manage-integration-runtimes.md) to set up a self-hosted IR. Then set up your scan on the Azure source by choosing that self-hosted IR in the **Connect via integration runtime** dropdown list to ensure network isolation.
     
    :::image type="content" source="media/catalog-private-link/shir-for-azure.png" alt-text="Screenshot that shows running an Azure scan by using self-hosted IR.":::
+
+> [!IMPORTANT]
+> If you have created your Azure Purview account after 18th August 2021, make sure you download and install the latest version of self-hosted integration runtime from [Microsoft download center](https://www.microsoft.com/download/details.aspx?id=39717).
 
 ## Firewalls to restrict public access
 

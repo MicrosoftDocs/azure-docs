@@ -16,6 +16,9 @@ This article describes how to create and manage a self-hosted integration runtim
 > [!NOTE]
 > The Purview Integration Runtime cannot be shared with an Azure Synapse Analytics or Azure Data Factory Integration Runtime on the same machine. It needs to be installed on a separated machine.
 
+> [!IMPORTANT]
+> If you have created your Azure Purview account after 18th August 2021, make sure you download and install the latest version of self-hosted integration runtime from [Microsoft download center](https://www.microsoft.com/download/details.aspx?id=39717).
+
 ## Create a self-hosted integration runtime
 
 1. On the home page of Purview Studio, select **Management Center** from the left navigation pane.

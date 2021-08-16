@@ -46,8 +46,9 @@ ms.date: 08/16/2021
   
   :::image type="content" source="media/catalog-private-link/purview-private-link-tr01.png" alt-text="Screenshot that shows how to troubleshoot Azure Purview with Private Endpoints."::: 
 
-
-5. From self-hosted integration runtime VM, test network connectivity and name resolution to Purview endpoint:
+5. If you have created your Azure Purview account after 18th August 2021, make sure you download and install the latest version of self-hosted integration runtime from [Microsoft download center](https://www.microsoft.com/download/details.aspx?id=39717).
+   
+6. From self-hosted integration runtime VM, test network connectivity and name resolution to Purview endpoint:
 
   :::image type="content" source="media/catalog-private-link/purview-private-link-tr02.png" alt-text="Screenshot that shows how to troubleshoot Azure Purview with Private Endpoints."::: 
 
