@@ -22,78 +22,79 @@ This article lists significant changes to Azure Monitor documentation.
 
 **New articles**
 
-- [Migrating from Log Analytics agent](/azure/azure-monitoragents/azure-monitor-agent-migration.md)
+- [Migrating from Log Analytics agent](agents/azure-monitor-agent-migration.md)
 
 **Updated articles**
 
-- [Azure Monitor agent overview](/azure/azure-monitoragents/azure-monitor-agent-overview.md)
+- [Azure Monitor agent overview](agents/azure-monitor-agent-overview.md)
 
 ### Alerts
 
 **Updated articles**
 
-- [Common alert schema definitions](/azure/azure-monitoralerts/alerts-common-schema-definitions.md)
-- [Create a log alert with a Resource Manager template](/azure/azure-monitoralerts/alerts-log-create-templates.md)
-- [Resource Manager template samples for log alert rules in Azure Monitor](/azure/azure-monitoralerts/resource-manager-alerts-log.md)
+- [Common alert schema definitions](alerts/alerts-common-schema-definitions.md)
+- [Create a log alert with a Resource Manager template](alerts/alerts-log-create-templates.md)
+- [Resource Manager template samples for log alert rules in Azure Monitor](alerts/resource-manager-alerts-log.md)
 
 ### Application Insights
 
 **New articles**
 
-- [Standard test](/azure/azure-monitorapp/availability-standard-tests.md)
+- [Standard test](app/availability-standard-tests.md)
 
 **Updated articles**
 
-- [Use Azure Application Insights to understand how customers are using your application](/azure/azure-monitorapp/tutorial-users.md)
-- [Application Insights cohorts](/azure/azure-monitorapp/usage-cohorts.md)
-- [Discover how customers are using your application with Application Insights Funnels](/azure/azure-monitorapp/usage-funnels.md)
-- [Impact analysis with Application Insights](/azure/azure-monitorapp/usage-impact.md)
-- [Usage analysis with Application Insights](/azure/azure-monitorapp/usage-overview.md)
-- [User retention analysis for web applications with Application Insights](/azure/azure-monitorapp/usage-retention.md)
-- [Users, sessions, and events analysis in Application Insights](/azure/azure-monitorapp/usage-segmentation.md)
-- [Troubleshooting Application Insights Agent (formerly named Status Monitor v2)](/azure/azure-monitorapp/status-monitor-v2-troubleshoot.md)
-- [Monitor availability with URL ping tests](/azure/azure-monitorapp/monitor-web-app-availability.md)
+- [Use Azure Application Insights to understand how customers are using your application](app/tutorial-users.md)
+- [Application Insights cohorts](app/usage-cohorts.md)
+- [Discover how customers are using your application with Application Insights Funnels](app/usage-funnels.md)
+- [Impact analysis with Application Insights](app/usage-impact.md)
+- [Usage analysis with Application Insights](app/usage-overview.md)
+- [User retention analysis for web applications with Application Insights](app/usage-retention.md)
+- [Users, sessions, and events analysis in Application Insights](app/usage-segmentation.md)
+- [Troubleshooting Application Insights Agent (formerly named Status Monitor v2)](app/status-monitor-v2-troubleshoot.md)
+- [Monitor availability with URL ping tests](app/monitor-web-app-availability.md)
 
 ### Containers
 
 **New articles**
 
-- [How to query logs from Container insights](/azure/azure-monitorcontainers/container-insights-log-query.md)
+- [How to query logs from Container insights](containers/container-insights-log-query.md)
+- [Monitoring Azure Kubernetes Service (AKS) with Azure Monitor](../aks/monitor-aks.md)
 
 **Updated articles**
 
-- [How to create log alerts from Container insights](/azure/azure-monitorcontainers/container-insights-log-alerts.md)
+- [How to create log alerts from Container insights](containers/container-insights-log-alerts.md)
 
 ### Essentials
 
 **Updated articles**
 
-- [Supported metrics with Azure Monitor](/azure/azure-monitoressentials/metrics-supported.md)
-- [Supported categories for Azure Resource Logs](/azure/azure-monitoressentials/resource-logs-categories.md)
+- [Supported metrics with Azure Monitor](essentials/metrics-supported.md)
+- [Supported categories for Azure Resource Logs](essentials/resource-logs-categories.md)
 
 ### Insights
 
 **Updated articles**
 
-- [Monitor Surface Hubs with Azure Monitor to track their health](/azure/azure-monitorinsights/surface-hubs.md)
+- [Monitor Surface Hubs with Azure Monitor to track their health](insights/surface-hubs.md)
 
 ### Logs
 
 **Updated articles**
 
-- [Azure Monitor Logs Dedicated Clusters](/azure/azure-monitorlogs/logs-dedicated-clusters.md)
-- [Log Analytics workspace data export in Azure Monitor (preview)](/azure/azure-monitorlogs/logs-data-export.md)
+- [Azure Monitor Logs Dedicated Clusters](logs/logs-dedicated-clusters.md)
+- [Log Analytics workspace data export in Azure Monitor (preview)](logs/logs-data-export.md)
 
 ### Virtual Machines
 
 **Updated articles**
 
-- [Monitor virtual machines with Azure Monitor: Configure monitoring](/azure/azure-monitorvm/monitor-virtual-machine-configure.md)
-- [Monitor virtual machines with Azure Monitor: Security monitoring](/azure/azure-monitorvm/monitor-virtual-machine-security.md)
-- [Monitor virtual machines with Azure Monitor: Workloads](/azure/azure-monitorvm/monitor-virtual-machine-workloads.md)
-- [Monitor virtual machines with Azure Monitor](/azure/azure-monitorvm/monitor-virtual-machine.md)
-- [Monitor virtual machines with Azure Monitor: Alerts](/azure/azure-monitorvm/monitor-virtual-machine-alerts.md)
-- [Monitor virtual machines with Azure Monitor: Analyze monitoring data](/azure/azure-monitorvm/monitor-virtual-machine-analyze.md)
+- [Monitor virtual machines with Azure Monitor: Configure monitoring](vm/monitor-virtual-machine-configure.md)
+- [Monitor virtual machines with Azure Monitor: Security monitoring](vm/monitor-virtual-machine-security.md)
+- [Monitor virtual machines with Azure Monitor: Workloads](vm/monitor-virtual-machine-workloads.md)
+- [Monitor virtual machines with Azure Monitor](vm/monitor-virtual-machine.md)
+- [Monitor virtual machines with Azure Monitor: Alerts](vm/monitor-virtual-machine-alerts.md)
+- [Monitor virtual machines with Azure Monitor: Analyze monitoring data](vm/monitor-virtual-machine-analyze.md)
 
 ### Visualizations
 
