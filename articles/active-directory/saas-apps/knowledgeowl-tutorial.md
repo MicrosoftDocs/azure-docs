@@ -175,11 +175,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	h. Click **Save** at the bottom of the page.
 
-	![Screenshot shows the Save button.](./media/knowledgeowl-tutorial/sso-settings-saml-save.png)
+	   ![Screenshot shows the Save button.](./media/knowledgeowl-tutorial/sso-settings-saml-save.png)
 
 	i. Open the **SAML Attribute Map** tab to map attributes and perform the following steps:
 
-	![Screenshot shows Map SAML Attributes where you can make the changes described here.](./media/knowledgeowl-tutorial/sso-settings-direct-attribute-fields.png)
+	   ![Screenshot shows Map SAML Attributes where you can make the changes described here.](./media/knowledgeowl-tutorial/sso-settings-direct-attribute-fields.png)
 
 	* Enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ssoid` into the **SSO ID** textbox.
 	* Enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` into the **Username/Email** textbox.
@@ -188,7 +188,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	j. Click **Save** at the bottom of the page.
 
-	![Screenshot shows the Save button1.](./media/knowledgeowl-tutorial/sso-settings-direct-attribute-save.png)
+	   ![Screenshot shows the Save button1.](./media/knowledgeowl-tutorial/sso-settings-direct-attribute-save.png)
 
 ### Create KnowledgeOwl test user
 
