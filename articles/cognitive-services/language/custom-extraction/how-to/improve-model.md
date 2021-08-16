@@ -12,13 +12,13 @@ ms.date: 07/15/2021
 ms.author: aahi
 ---
 
-# Improve model performance
+# Improve the performance of custom text extraction models 
 
 After you've trained your model you reviewed its evaluation details, you can start to improve model performance. In this article, you will review inconsistencies between the predicted classes and classes tagged by the model, and examine data distribution.
 
 ## Prerequisites
 
-* Successfully created a [Custom text classification project](create-project.md).
+* Successfully created a [Custom text classification project](../quickstart.md).
 * Completed [model training](train-model.md) successfully.
 * Viewed [model evaluation details](view-model-evaluation.md).
 
@@ -57,7 +57,7 @@ Use the following information to help guide model improvements.
 
 By examining data distribution in your files, you can decide if any entity is underrepresented. Data imbalance happens when tags are not distributed equally among your entities, and is a risk to your model's performance. For example, if *entity 1* has 50 tags while *entity 2* has 10 tags only, this a clear case of data imbalance where *entity 1* is over represented, and *entity 2* is underrepresented. In this case the model is biased towards extracting *entity 1* and might overlook *entity 2*. More complex issues may come from data imbalance if the schema is ambiguous. If the two entities are some how similar and *entity 2* is under represented the model most likely will extract it as *entity 1*.
 
-In the [evaluation metrics](ct-how-to-view-model-evaluation.md#evaluation-metrics), entities that are over represented tends to have a higher recall than other entities, while under represented entities have lower recall.
+In [model evaluation](view-model-evaluation.md), entities that are over represented tends to have a higher recall than other entities, while under represented entities have lower recall.
 
 To examine data distribution in your dataset:
 

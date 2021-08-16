@@ -1,7 +1,7 @@
 ---
 title: How to send a custom text classification job
 titleSuffix: Azure Cognitive Services
-description: Learn about sending a request for custom text classification.
+description: Learn about sending a request for custom text extraction.
 services: cognitive-services
 author: aahill
 manager: nitinme

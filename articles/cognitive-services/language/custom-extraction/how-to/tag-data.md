@@ -12,7 +12,7 @@ ms.date: 07/15/2021
 ms.author: aahi
 ---
 
-# Tag your data in language studio
+# Tag your data for custom extraction in language studio
 
 Before building your custom entity extraction models, you need to have tagged data. If your data is not tagged already, you can tag it in the language studio.
 
