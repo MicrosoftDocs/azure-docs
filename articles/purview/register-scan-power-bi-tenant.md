@@ -107,7 +107,7 @@ Now that you've given the Purview Managed Identity permissions to connect to the
  
 1. Set up a scan trigger. Your options are **Once**, **Every 7 days**, and **Every 30 days**.
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/scan-trigger.png" alt-text="Image showing the Purview scan scheduler.":::
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/scan-trigger.png" alt-text="Screenshot of the Purview scan scheduler.":::
 
 6. On **Review new scan**, select **Save and Run** to launch your scan.
 
