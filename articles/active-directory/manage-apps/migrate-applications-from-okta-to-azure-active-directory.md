@@ -183,14 +183,14 @@ directory**, any Azure AD directory **Multitenant** followed by **Register**.
 
 4. After registering the application, navigate to the **App Registrations** page under **Azure Active Directory**, and open the newly created registration.
 
-Depending on the [application scenario,](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios) various configuration actions
-might be needed. As most scenarios require App Client Secret, we'll cover those examples.
+   Depending on the [application scenario,](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios) various configuration actions
+   might be needed. As most scenarios require App client secret, we'll cover those examples.
 
 5. On the **Overview** page, record the Application (client) ID for use in your application later.
 
 ![image to shows application client id](media/migrate-applications-from-okta-to-azure-active-directory/application-client-id.png)
 
-6. After recording the Application ID, select **Certificates & Secrets** on the left menu. Select **New Client Secret** and give it a name and set its expiration accordingly.
+6. After recording the Application ID, select **Certificates & Secrets** on the left menu. Select **New client secret** and give it a name and set its expiration accordingly.
 
 ![image to shows new client secret](media/migrate-applications-from-okta-to-azure-active-directory/new-client-secret.png)
 
