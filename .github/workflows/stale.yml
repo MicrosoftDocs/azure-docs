@@ -20,7 +20,7 @@ jobs:
         exempt-pr-labels: keep-open
         operations-per-run: 700
         ascending: true
-        start-date: '2020-08-07'
+        start-date: '2020-10-15'
         stale-pr-message: >
           This pull request has been inactive for at least 14 days.
           If you are finished with your changes, don't forget to sign off. See the [contributor guide](https://review.docs.microsoft.com/help/contribute/contribute-how-to-write-pull-request-automation) for instructions.
