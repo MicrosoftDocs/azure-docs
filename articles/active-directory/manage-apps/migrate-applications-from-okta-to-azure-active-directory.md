@@ -88,7 +88,7 @@ To migrate a SAML 2.0 application to Azure AD, first configure the application i
 
 To complete the migration process, repeat configuration steps for all applications discovered in the Okta tenant.
 
-1. Navigate to [Azure AD portal](https://aad.portal.azure.com), and select **Azure Active Directory** > **Enterprise Applications** > **New Application**.
+1. Navigate to [Azure AD portal](https://aad.portal.azure.com), and select **Azure Active Directory** > **Enterprise applications** > **New application**.
 
 ![image to shows list of new applications](media/migrate-applications-from-okta-to-azure-active-directory/list-of-new-applications.png)
 
@@ -117,7 +117,7 @@ Settings** > **New from Metadata File**
 
 ![image to shows creating saml provider](media/migrate-applications-from-okta-to-azure-active-directory/create-saml-provider.png)
 
-8. Record the following values for use in Azure - **Entity ID**, **Login URL**, and **Logout URL** and select the option to **Download Metadata**.
+8. Record the following values for use in Azure - **Entity ID**, **Login URL**, and **Logout URL** and select the option to **Download metadata**.
 
 ![image to shows record values in Azure](media/migrate-applications-from-okta-to-azure-active-directory/record-values-for-azure.png)
 
@@ -168,7 +168,7 @@ First configure the application in your Azure AD tenant for application access. 
 
 To complete the migration process, repeat configuration steps for all applications discovered in the Okta tenant.
 
-1. Navigate to [Azure AD Portal](https://aad.portal.azure.com), and select **Azure Active Directory** > **Enterprise Applications**. Under the **All Applications** menu, select **New Application**.
+1. Navigate to [Azure AD Portal](https://aad.portal.azure.com), and select **Azure Active Directory** > **Enterprise applications**. Under the **All applications** menu, select **New application**.
 
 2. Select **Create your own application**. On the side menu that pops up, give the OIDC app a name and select the radial for **Register an application you're working on to integrate with Azure AD** and then select **Create**.
 
@@ -181,7 +181,7 @@ directory**, any Azure AD directory **Multitenant** followed by **Register**.
 
 ![image to shows Azure AD directory multitenant](media/migrate-applications-from-okta-to-azure-active-directory/multitenant-azure-ad-directory.png)
 
-4. After registering the application, navigate to the **App Registrations** page under **Azure Active Directory**, and open the newly created registration.
+4. After registering the application, navigate to the **App registrations** page under **Azure Active Directory**, and open the newly created registration.
 
    Depending on the [application scenario,](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios) various configuration actions
    might be needed. As most scenarios require App client secret, we'll cover those examples.
