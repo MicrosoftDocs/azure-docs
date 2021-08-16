@@ -23,7 +23,7 @@ In addition to consolidating this functionality into a single agent, the Azure M
 - **Scope of monitoring:** Centrally configure collection for different sets of data from different sets of VMs.
 - **Linux multi-homing:** Send data from Linux VMs to multiple workspaces.
 - **Windows event filtering:** Use XPATH queries to filter which Windows events are collected.
-- **Improved extension management:** Azure Monitor agent uses a new method of handling extensibility that's more transparent and controllable than management packs and Linux plug-ins in the current Log Analytics agents.
+- **Improved extension management:** The Azure Monitor agent uses a new method of handling extensibility that's more transparent and controllable than management packs and Linux plug-ins in the current Log Analytics agents.
 
 ### Current limitations
 When compared with the existing agents, this new agent doesn't yet have full parity.
@@ -45,9 +45,17 @@ The Azure Monitor agent uses [data collection rules](data-collection-rule-overvi
 ## Should I switch to the Azure Monitor agent?
 The Azure Monitor agent replaces the [legacy agents for Azure Monitor](agents-overview.md). To start transitioning your VMs off the current agents to the new agent, consider the following factors:
 
-- **Environment requirements:** The Azure Monitor agent supports [these operating systems](./agents-overview.md#supported-operating-systems) today. Support for future operating system versions, environment support, and networking requirements will most likely be provided in this new agent. Assess whether your environment is supported by the Azure Monitor agent. If not, you might need to stay with the current agent. If the Azure Monitor agent supports your current environment, consider transitioning to it.
-- **Current and new feature requirements:** The Azure Monitor agent introduces several new capabilities such as filtering, scoping, and multi-homing. But it isn't at parity yet with the current agents for other functionality such as custom log collection and integration with all solutions. ([See the solutions in preview](/azure/azure-monitor/faq#which-log-analytics-solutions-are-supported-on-the-new-azure-monitor-agent).) Most new capabilities in Azure Monitor will be made available only with the Azure Monitor agent. Over time, more functionality will be available only in the new agent. Consider whether the Azure Monitor agent has the features you require and if there are some features that you can temporarily do without to get other important features in the new agent. If the Azure Monitor agent has all the core capabilities you require, consider transitioning to it. If there are critical features that you require, continue with the current agent until the Azure Monitor agent reaches parity.
-- **Tolerance for rework:** If you're setting up a new environment with resources such as deployment scripts and onboarding templates, assess the effort involved. If the setup will take a significant amount of work, consider setting up your new environment with the new agent as it's now generally available. A deprecation date will be published for the Log Analytics agents in August 2021. The current agents will be supported for several years after deprecation begins.
+- **Environment requirements:** The Azure Monitor agent supports [these operating systems](./agents-overview.md#supported-operating-systems) today. Support for future operating system versions, environment support, and networking requirements will most likely be provided in this new agent. 
+ 
+  Assess whether your environment is supported by the Azure Monitor agent. If not, you might need to stay with the current agent. If the Azure Monitor agent supports your current environment, consider transitioning to it.
+- **Current and new feature requirements:** The Azure Monitor agent introduces several new capabilities, such as filtering, scoping, and multi-homing. But it isn't at parity yet with the current agents for other functionality, such as custom log collection and integration with all solutions. ([See the solutions in preview](/azure/azure-monitor/faq#which-log-analytics-solutions-are-supported-on-the-new-azure-monitor-agent).) 
+ 
+  Most new capabilities in Azure Monitor will be made available only with the Azure Monitor agent. Over time, more functionality will be available only in the new agent. Consider whether the Azure Monitor agent has the features you require and if there are some features that you can temporarily do without to get other important features in the new agent. 
+  
+  If the Azure Monitor agent has all the core capabilities you require, consider transitioning to it. If there are critical features that you require, continue with the current agent until the Azure Monitor agent reaches parity.
+- **Tolerance for rework:** If you're setting up a new environment with resources such as deployment scripts and onboarding templates, assess the effort involved. If the setup will take a significant amount of work, consider setting up your new environment with the new agent as it's now generally available. 
+ 
+  A deprecation date will be published for the Log Analytics agents in August 2021. The current agents will be supported for several years after deprecation begins.
 
 ## Supported resource types
 Azure virtual machines, virtual machine scale sets, and Azure Arc–enabled servers are currently supported. Azure Kubernetes Service and other compute resource types aren't currently supported.
