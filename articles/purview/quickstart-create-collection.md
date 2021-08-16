@@ -12,7 +12,7 @@ ms.custom: template-quickstart
 # Quickstart: Create a collection and assign permissions in Purview
 
 > [!NOTE]
-> At this time, this quickstart only applies for Purview resources created on or after August 16th. Resources created before August 16th are able to create collections, but do not manage permissions through those collections. For information on creating a collection for a Purview resource created before August 16th, see our [**legacy collection guide**](#legacy-collection-guide) at the bottom of the page.
+> At this time, this quickstart only applies for Purview instances created on or after August 18th. Instances created before August 18th are able to create collections, but do not manage permissions through those collections. For information on creating a collection for a Purview instance created before August 18th, see our [**legacy collection guide**](#legacy-collection-guide) at the bottom of the page.
 
 Collections are Purview's tool to manage ownership and access control across assets, sources, and information. They also organize your sources and assets into categories that are customized to your team or business to match your management experience with your data. This guide will take you through setting up your first collection and collection admin to prepare your Purview environment for your organization.
 
@@ -73,7 +73,7 @@ All assigned roles apply to sources, assets, and other objects within the collec
 ## Legacy collection guide
 
 > [!NOTE]
-> This legacy collection guide is only for Purview resources created before August 16th. Resources created after that time should follow the guide above.
+> This legacy collection guide is only for Purview instances created before August 18th. Instances created after that time should follow the guide above.
 
 ### Create a legacy collection
 

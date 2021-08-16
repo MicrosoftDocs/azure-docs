@@ -15,7 +15,7 @@ ms.custom: template-how-to
 Collections in Purview can be used to organize assets and sources by your business' flow, but they are also the tool used to manage access across Purview. This guide will take you through the creation and management of these collections, as well as cover steps about how to register sources and add assets into your collections.
 
 > [!NOTE]
-> At this time, this quickstart only applies for Purview resources created on or after August 16th. Resources created before August 16th are able to create collections, but do not manage permissions through those collections. For information on creating a collection for a Purview resource created before August 16th, see our [**legacy collection guide**](#legacy-collection-guide) at the bottom of the page.
+> At this time, this quickstart only applies for Purview instances created **on or after August 18th**. Instances created before August 18th are able to create collections, but do not manage permissions through those collections. For information on creating a collection for a Purview instances created before August 18th, see our [**legacy collection guide**](#legacy-collection-guide) at the bottom of the page.
 
 ## Prerequisites
 
@@ -146,20 +146,14 @@ Collections permissions are inherited automatically from the parent collection. 
 ### Search by collection
 
 In Azure Purview, the search bar is located at the top of the Purview studio UX.
-<!-- RESOLVE THESE IMAGES -->
-:::image type="content" source="./media/how-to-search-catalog/purview-search-bar.png" alt-text="Screenshot showing the location of the Azure Purview search bar" border="true":::
+:::image type="content" source="./media/how-to-create-and-manage-collections/purview-search-bar.png" alt-text="Screenshot showing the location of the Azure Purview search bar" border="true":::
 
 When you click on the search bar, you can see your recent search history and recently accessed assets. Select "View all" to see all of the recently viewed assets.
-<!-- RESOLVE THESE IMAGES -->
-:::image type="content" source="./media/how-to-search-catalog/search-no-keywords.png" alt-text="Screenshot showing the search bar before any keywords have been entered" border="true":::
-<!-- RESOLVE THESE IMAGES -->
+:::image type="content" source="./media/how-to-create-and-manage-collections/search-no-keywords.png" alt-text="Screenshot showing the search bar before any keywords have been entered" border="true":::
 Enter in keywords that help identify your asset such as its name, data type, classifications, and glossary terms. As you enter in keywords relating to your desired asset, Azure Purview displays suggestions on what to search and potential asset matches. To complete your search, click on "View search results" or press "Enter".
-<!-- RESOLVE THESE IMAGES -->
-:::image type="content" source="./media/how-to-search-catalog/search-keywords.png" alt-text="Screenshot showing the search bar as a user enters in keywords" border="true":::
-<!-- RESOLVE THESE IMAGES -->
+:::image type="content" source="./media/how-to-create-and-manage-collections/search-keywords.png" alt-text="Screenshot showing the search bar as a user enters in keywords" border="true":::
 The search results page shows a list of assets that match the keywords provided in order of relevance. There are various factors that can affect the relevance score of an asset. You can filter down the list more by selecting specific collections, data stores, classifications, contacts, labels, and glossary terms that apply to the asset you are looking for.
-<!-- RESOLVE THESE IMAGES -->
-:::image type="content" source="./media/how-to-search-catalog/search-results.png" alt-text="Screenshot showing the results of a search" border="true":::
+:::image type="content" source="./media/how-to-create-and-manage-collections/search-results.png" alt-text="Screenshot showing the results of a search" border="true":::
 
  Click on your desired asset to view the asset details page where you can view properties including schema, lineage, and asset owners.
 :::image type="content" source="./media/how-to-create-and-manage-collections/search-by-collection.png" alt-text="Screenshot showing search results with collections." border="true":::
@@ -194,7 +188,7 @@ Note that the collections listed here are restricted to subcollections of the da
 ## Legacy collection guide
 
 > [!NOTE]
-> This legacy collection guide is only for Purview resources created before August 16th. Resources created after that time should follow the guide above.
+> This legacy collection guide is only for Purview instances created before August 18th. Instances created after that time should follow the guide above.
 
 Legacy collections only organize sources in the data map, and do not manage permissions for these sources.
 
