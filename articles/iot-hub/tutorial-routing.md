@@ -159,7 +159,8 @@ Now set up the routing for the storage account. You go to the Message Routing pa
 
 9. Complete the rest of the routing query information. This query specifies the criteria for sending messages to the storage container you just added as an endpoint. Fill in the fields on the screen.
 
-??
+10. Fill in the rest of the fields.
+
    **Name**: Enter a name for your route. This tutorial uses **ContosoStorageRoute**. Next, specify the endpoint for end storage. This tutorial uses ContosoStorageEndpoint.
      
    Specify **Data source**: Select **Device Telemetry Messages** from the dropdown list.   
