@@ -107,7 +107,7 @@ When you tag entities, the tags are saved as in the following JSON format. If yo
 }
 ```
 
-## Description of data
+The following list describe the various JSON properties of the sample above.
 
 * `entityNames`: An array of entity names. Index of the entity within the array is used as its id.
 * `documents`: An array of tagged documents.
@@ -115,7 +115,7 @@ When you tag entities, the tags are saved as in the following JSON format. If yo
   * `culture`: culture/language of the document. Use the standard culture locale, to learn more about supported cultures and their locales click [here](ct-reference-language-support.md).
   * `entities`: Specifies the entity recognition tags.
     * `regionStart`: The inclusive character position of the start of the text.
-    * `regionLength`: The length of the bounding box in terms of UTF16 characters. <br>
+    * `regionLength`: The length of the bounding box in terms of UTF16 characters.
     Training only considers the data in this region, so if this is a tagged file please set the `regionStart` to **0** and the `regionLength` to the last index of last char in the file. You can also set this region if you want to introduce negative sample to training by defining your region to a portion of the file where no tags exist.
     * `labels`: All tags occurring within the bounding box.
       * `entity`: The index of the entity in the “entityNames” array.
@@ -125,4 +125,4 @@ When you tag entities, the tags are saved as in the following JSON format. If yo
 
 ## Next Steps
 
-* [Train your model](ct-how-to-train-model.md)
+* [Train your model](train-model.md)
