@@ -229,7 +229,7 @@ Default Okta authorization server should be mapped to Microsoft Graph scopes/per
 
 ![image to shows default okta authorization](media/migrate-applications-from-okta-to-azure-active-directory/default-okta-authorization.png)
 
-## Next steps
+## Next steps 
 
 - [Migrate Okta federation to Azure AD](migrate-okta-federation-to-azure-active-directory.md)
 
