@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 08/03/2021
+ ms.date: 08/16/2021
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -37,23 +37,11 @@ Shared ultra disks are available in all regions that support ultra disks by defa
 
 #### Premium SSD regional availability
 
-Shared disks on P1-P15 sizes are currently only available in the following regions:
-- Canada Central
-- Japan East
-- Central US
-- West Central US
-- East US
-- East US 2
-- West US
-- West US 2
-- South Central US
-
-Shared disks on all other premium SSD sizes are available in all regions that managed disks are available.
+Shared disks on all premium SSD sizes are available in all regions that managed disks are available.
 
 
 ### Standard SSDs
 
-- Must email SharedDiskFeedback@microsoft .com for your subscription to be able to deploy shared standard SSDs.
 - Can only be enabled on data disks, not OS disks.
 - When using Availability sets and virtual machine scale sets with Azure shared disks, [storage fault domain alignment](../articles/virtual-machines/availability.md) with virtual machine fault domain is not enforced for the shared data disk.
 - When using [proximity placement groups (PPG)](../articles/virtual-machines/windows/proximity-placement-groups.md), all virtual machines sharing a disk must be part of the same PPG.
@@ -64,15 +52,4 @@ Shared disks on all other premium SSD sizes are available in all regions that ma
 
 #### Standard SSD regional availability
 
-Shared disks on E1-E20 sizes are currently only available in the following regions:
-- Canada Central
-- Japan East
-- Central US
-- West Central US
-- East US
-- East US 2
-- West US
-- West US 2
-- South Central US
-
-Shared disks on all other standard SSD sizes are available in all regions that managed disks are available.
+Shared disks on all standard SSD sizes are available in all regions that managed disks are available.
