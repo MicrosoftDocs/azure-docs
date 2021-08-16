@@ -1630,6 +1630,8 @@
         href: rewatch-tutorial.md
       - name: RFPIO
         href: rfpio-tutorial.md
+      - name: Rhombus Systems
+        href: rhombus-systems-tutorial.md  
       - name: RightAnswers
         href: rightanswers-tutorial.md
       - name: RightCrowd Workforce Management
@@ -2387,6 +2389,8 @@
         href: foodee-provisioning-tutorial.md
       - name: Fortes Change Cloud
         href: fortes-change-cloud-provisioning-tutorial.md
+      - name: Freshservice Provisioning
+        href: freshservice-provisioning-tutorial.md
       - name: Fuze
         href: fuze-provisioning-tutorial.md
     - name: G - M
