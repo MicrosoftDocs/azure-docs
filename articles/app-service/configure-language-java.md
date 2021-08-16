@@ -61,20 +61,20 @@ Otherwise, your deployment method will depend on your archive type:
 
 ### Java SE
 
-To deploy .jar files to Java SE, use the `/api/zipdeploy/` endpoint of the Kudu site. For more information on this API, please see [this documentation](./deploy-zip.md#rest). 
+To deploy .jar files to Java SE, use the `/api/publish/` endpoint of the Kudu site. For more information on this API, please see [this documentation](./deploy-zip.md#deploy-warjarear-packages). 
 
 > [!NOTE]
 >  Your .jar application must be named `app.jar` for App Service to identify and run your application. The Maven Plugin (mentioned above) will automatically rename your application for you during deployment. If you do not wish to rename your JAR to *app.jar*, you can upload a shell script with the command to run your .jar app. Paste the absolute path to this script in the [Startup File](/azure/app-service/faq-app-service-linux#built-in-images) textbox in the Configuration section of the portal. The startup script does not run from the directory into which it is placed. Therefore, always use absolute paths to reference files in your startup script (for example: `java -jar /home/myapp/myapp.jar`).
 
 ### Tomcat
 
-To deploy .war files to Tomcat, use the `/api/wardeploy/` endpoint to POST your archive file. For more information on this API, please see [this documentation](./deploy-zip.md#deploy-war-file).
+To deploy .war files to Tomcat, use the `/api/wardeploy/` endpoint to POST your archive file. For more information on this API, please see [this documentation](./deploy-zip.md#deploy-warjarear-packages).
 
 ::: zone pivot="platform-linux"
 
 ### JBoss EAP
 
-To deploy .war files to JBoss, use the `/api/wardeploy/` endpoint to POST your archive file. For more information on this API, please see [this documentation](./deploy-zip.md#deploy-war-file).
+To deploy .war files to JBoss, use the `/api/wardeploy/` endpoint to POST your archive file. For more information on this API, please see [this documentation](./deploy-zip.md#deploy-warjarear-packages).
 
 To deploy .ear files, [use FTP](deploy-ftp.md). Your .ear application will be deployed to the context root defined in your application's configuration. For example, if the context root of your app is `<context-root>myapp</context-root>`, then you can browse the site at the `/myapp` path: `http://my-app-name.azurewebsites.net/myapp`. If you want you web app to be served in the root path, ensure that your app sets the context root to the root path: `<context-root>/</context-root>`. For more information, see [Setting the context root of a web application](https://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch06.html).
 

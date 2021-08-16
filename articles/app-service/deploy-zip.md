@@ -51,7 +51,7 @@ The above endpoint does not work for Linux App Services at this time. Consider u
 
 # [Azure CLI](#tab/cli)
 
-Deploy a ZIP package to your web app by using the [az webapp deploy](cli/azure/webapp?view=azure-cli-latest#az_webapp_deploy) command. The CLI command uses the [Kudu publish API](#kudu-publish-api-reference) to deploy the files and can be fully customized.
+Deploy a ZIP package to your web app by using the [az webapp deploy](/cli/azure/webapp#az_webapp_deploy) command. The CLI command uses the [Kudu publish API](#kudu-publish-api-reference) to deploy the files and can be fully customized.
 
 The following example deploys a ZIP package. Specify the path to your local ZIP package for `--src-path`.
 
@@ -99,7 +99,7 @@ The deployment process places the package on the shared file drive correctly (se
 
 # [Azure CLI](#tab/cli)
 
-Deploy a WAR package to Tomcat or JBoss EAP by using the [az webapp deploy](cli/azure/webapp?view=azure-cli-latest#az_webapp_deploy) command. Specify the path to your local Java package for `--src-path`.
+Deploy a WAR package to Tomcat or JBoss EAP by using the [az webapp deploy](/cli/azure/webapp#az_webapp_deploy) command. Specify the path to your local Java package for `--src-path`.
 
 ```azurecli-interactive
 az webapp deploy --resource-group <group-name> --name <app-name> --src-path ./<package-name>.war
@@ -131,7 +131,7 @@ For more information, see [Kudu publish API reference](#kudu-publish-api-referen
 
 # [Azure CLI](#tab/cli)
 
-Deploy a startup script, library, and static file to your web app by using the [az webapp deploy](cli/azure/webapp?view=azure-cli-latest#az_webapp_deploy) command with the `--type` parameter.
+Deploy a startup script, library, and static file to your web app by using the [az webapp deploy](/cli/azure/webapp#az_webapp_deploy) command with the `--type` parameter.
 
 If you deploy a startup script this way, App Service automatically uses your script to start your app.
 
