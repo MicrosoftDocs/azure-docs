@@ -53,8 +53,6 @@ The [Orders dashboard](https://go.microsoft.com/fwlink/?linkid=2165914) displays
 
 The following sections describe how to use the Orders dashboard and how to read the data.
 
-To access the Orders dashboard in the Partner Center, under **Commercial Marketplace**, select **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** > **Orders**.
-
 ### Month range
 
 #### [Workspaces view](#tab/Workspaces-view)

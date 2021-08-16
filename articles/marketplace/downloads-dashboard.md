@@ -7,7 +7,7 @@ ms.topic: article
 author: shganesh-dev
 ms.author: shganesh
 ms.reviewer: sroy
-ms.date: 08/21/2020
+ms.date: 09/01/2021
 ---
 
 # Downloads dashboard in commercial marketplace analytics
@@ -23,9 +23,25 @@ The [Downloads dashboard](https://go.microsoft.com/fwlink/?linkid=2165766) displ
 
 You will receive a pop-up notification containing a link to the **Downloads** dashboard whenever you request a download with over 1000 rows of data. These data downloads will be available for a 30-day period and then removed.
 
-## Lifetime export of commercial marketplace Analytics reports
+## Access the Downloads dashboard
 
-To access the Downloads dashboard, open the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** dashboard under the commercial marketplace.
+#### [Workspaces view](#tab/Workspaces-view)
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. On the Home page, select the **Insights** tile.
+
+    :::image type="content" source="./media/workspaces/partner-center-insights-tile.png" alt-text="Illustrates the Insights tile on the Partner Center Home page.":::
+
+1. In the left menu, select **Downloads**.
+
+#### [Classic view](#tab/classic-view)
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. In the left-nav, select **Commercial Marketplace** > **Analyze** > **Downloads**.
+
+---
+
+## Lifetime export of commercial marketplace Analytics reports
 
 On the Downloads page, end user can do the following:
 

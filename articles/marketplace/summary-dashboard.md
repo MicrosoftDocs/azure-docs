@@ -50,25 +50,22 @@ The following sections describe how to use the summary dashboard and how to read
 
 ### Month range
 
-#### [Workspaces view](#tab/Workspaces-view) 
+#### [Workspaces view](#tab/Workspaces-view)
 
 You can find a month range selection at the top-right corner of each page. Customize the output of the **Summary** page graphs by selecting a month range based on the past specified number of months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
 
 [ ![Illustrates the monthly range options on the summary dashboard.](./media/summary-dashboard/summary-dashboard-workspaces.png) ](./media/summary-dashboard/summary-dashboard-workspaces.png#lightbox)
 
-> [!NOTE]
-> All metrics in the visualization widgets and export reports honor the computation period selected by the user.
-
-#### [Classic view](#tab/classic-view) 
+#### [Classic view](#tab/classic-view)
 
 You can find a month range selection at the top-right corner of each page. Customize the output of the **Summary** page graphs by selecting a month range based on the past 3, 6, or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
 
 :::image type="content" source="./media/summary-dashboard/summary-dashboard.png" alt-text="Illustrates the monthly range options on the summary dashboard.":::
 
+---
+
 > [!NOTE]
 > All metrics in the visualization widgets and export reports honor the computation period selected by the user.
-
----
 
 ### Orders widget
 

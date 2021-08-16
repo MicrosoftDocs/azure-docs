@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 03/23/2021
+ms.date: 09/01/2021
 ---
 
 # Marketplace Insights dashboard in commercial marketplace analytics
@@ -31,17 +31,43 @@ The Marketplace Insights dashboard provides clickstream data, which shouldn't be
 > [!NOTE]
 > The maximum latency between users visiting offers on Azure Marketplace or AppSource and reporting in Partner Center is 48 hours.
 
+## Access the Marketplace insights dashboard
+
+#### [Workspaces view](#tab/Workspaces-view)
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. On the Home page, select the **Insights** tile.
+
+    :::image type="content" source="./media/workspaces/partner-center-insights-tile.png" alt-text="Illustrates the Insights tile on the Partner Center Home page.":::
+
+1. In the left menu, select **Marketplace insights**.
+
+#### [Classic view](#tab/classic-view)
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. In the left-nav, select **Commercial Marketplace** > **Analyze** > **Marketplace insights**.
+
+---
+
 ## Elements of the Marketplace Insights dashboard
 
 The Marketplace Insights dashboard displays web telemetry details for Azure Marketplace and AppSource in two separate tabs. The following sections describe how to use the Marketplace Insights dashboard and how to read the data.
 
-To access the **Marketplace Insights** dashboard in Partner Center, under Commercial Marketplace, select **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** > **Marketplace Insights**.
-
 ### Month range
+
+#### [Workspaces view](#tab/Workspaces-view)
+
+You can find a month range selection at the top-right corner of each page. Customize the output of the **Marketplace Insights** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
+
+:::image type="content" source="./media/insights-dashboard/month-filters-workspaces.png" alt-text="Illustrates the month filters on the Marketplace Insights dashboard.":::
+
+#### [Classic view](#tab/classic-view)
 
 You can find a month range selection at the top-right corner of each page. Customize the output of the **Marketplace Insights** page graphs by selecting a month range based on the past 6, or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
 
 :::image type="content" source="./media/insights-dashboard/month-filters.png" alt-text="Illustrates the month filters on the Marketplace Insights dashboard.":::
+
+---
 
 > [!NOTE]
 > All metrics in the visualization widgets and export reports honor the computation period selected by the user.

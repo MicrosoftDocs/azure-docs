@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 07/15/2021
+ms.date: 09/01/2021
 ---
 
 # Usage dashboard in commercial marketplace analytics
@@ -31,17 +31,43 @@ The [Usage dashboard](https://go.microsoft.com/fwlink/?linkid=2166106) displays 
 > [!NOTE]
 > The maximum latency between usage event generation and reporting in Partner Center is 48 hours.
 
+## Access the Usage dashboard
+
+#### [Workspaces view](#tab/Workspaces-view)
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. On the Home page, select the **Insights** tile.
+
+    :::image type="content" source="./media/workspaces/partner-center-insights-tile.png" alt-text="Illustrates the Insights tile on the Partner Center Home page.":::
+
+1. In the left menu, select **Usage**.
+
+#### [Classic view](#tab/classic-view)
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. In the left-nav, select **Commercial Marketplace** > **Analyze** > **Usage**.
+
+---
+
 ## Elements of the Usage dashboard
 
 The following sections describe how to use the Usage dashboard and how to read the data.
 
-To access the Usage dashboard in Partner Center, under **Commercial Marketplace**, select **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** > **Usage**.
-
 ### Month range
+
+#### [Workspaces view](#tab/Workspaces-view)
+
+You can find a month range selection at the top-right corner of each page. Customize the output of the **Usage** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
+
+:::image type="content" source="./media/usage-dashboard/month-filter-workspaces.png" alt-text="Illustrates the Month filters on the Usage dashboard.":::
+
+#### [Classic view](#tab/classic-view)
 
 You can find a month range selection at the top-right corner of each page. Customize the output of the **Usage** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
 
 :::image type="content" source="./media/usage-dashboard/month-filter.png" alt-text="Illustrates the Month filters on the Usage dashboard.":::
+
+---
 
 ### Usage trend
 

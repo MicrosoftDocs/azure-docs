@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 06/10/2021
+ms.date: 09/01/2021
 ---
 
 # License dashboard in commercial marketplace analytics
@@ -22,11 +22,29 @@ This article provides information about the License dashboard in the commercial 
 
 ## Check license usage
 
+#### [Workspaces view](#tab/Workspaces-view)
+
 To check license usage of ISV apps in Partner Center, do the following:
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. On the Home page, select the **Insights** tile.
+
+    :::image type="content" source="./media/workspaces/partner-center-insights-tile.png" alt-text="Illustrates the Insights tile on the Partner Center Home page.":::
+
+1. In the left menu, select **License**.
+
+:::image type="content" source="./media/license-dashboard/license-dashboard.png" alt-text="Screenshot of the License dashboard in Partner Center.":::
+
+#### [Classic view](#tab/classic-view)
+
+To check license usage of ISV apps in Partner Center, do the following:
+
 1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165507).
 1. In the left-navigation menu, select **Commercial Marketplace** > **Analyze** > **License**.
 
 :::image type="content" source="./media/license-dashboard/license-dashboard.png" alt-text="Screenshot of the License dashboard in Partner Center.":::
+
+---
 
 ## Elements of the License dashboard
 
