@@ -33,36 +33,36 @@ Before beginning any migration efforts, it is strongly recommended to save your 
 
 1. Sign in to the Azure portal.
 
-1. Go to the `IoT Hub` and select `IoT Edge` under **Automatic Device Management**.
+1. Go to the **IoT Hub** and select **IoT Edge** under **Automatic Device Management**.
 
 1. Under IoT Edge, select the IoT Edge device that you want to migrate to Azure Video Analyzer.
 
    :::image type="content" source="./media/migrate-live-video-analytics-to-azure-video-analyzer/iot-edge.png" alt-text="Screenshot that shows IoT Edge devices.":::
 
-1. Click on **Set modules**, and then click on **Review + create**
+1. Select **Set modules**, and then select **Review + create**
 
    :::image type="content" source="./media/migrate-live-video-analytics-to-azure-video-analyzer/set-modules.png" alt-text="Screenshot that shows the Deployment Manifest.":::
 
 1. Copy the **Deployment** section in the window and save in a safe location.
 
-1. Click on the `X` in the top-right hand of the portal.  
+1. Select the **X** in the top-right hand of the portal.  
 
     > [!NOTE]
-    > *Do not* click on `Create`.  Review the deployment manifest and locate the lvaEdge node under modules.  If you have an env node under the lvaEdge node note the values of LOCAL_EDGE_USER and lOCAL_GROUP_ID, you will need these later in the document.
+    > *Do not* select **Create**.  Review the deployment manifest and locate the *lvaEdge* node under modules.  If you have an env node under the *lvaEdge* node note the values of LOCAL_EDGE_USER and lOCAL_GROUP_ID, you will need these later in the document.
 
     :::image type="content" source="./media/migrate-live-video-analytics-to-azure-video-analyzer/deployment-manifest-env.png" alt-text="Screenshot that shows the deployment Manifest and the env section for the local edge user and group.":::
 
 ### Save the Live Video Analytics topologies
 
-1. To save your Live Video Analytics media graph, click on the Live Video Analytics module under the IoT Edge device.  In the example below the container name is lvaEdge.
+1. To save your Live Video Analytics media graph, select the Live Video Analytics module under the IoT Edge device.  In the example below the container name is *lvaEdge*.
 
    :::image type="content" source="./media/migrate-live-video-analytics-to-azure-video-analyzer/live-video-analytics-edge.png" alt-text="Screenshot that shows the Live Video Analytics IoT Edge module container name.":::
 
-1. Click on `Direct method`.
+1. Select **Direct method**.
 
    :::image type="content" source="./media/migrate-live-video-analytics-to-azure-video-analyzer/direct-method.png" alt-text="Screenshot that shows the direct method calls for Live Video Analytics.":::
 
-1. Enter `GraphTopologyList` in the Method name field and enter the following code in the payload:
+1. Enter **GraphTopologyList** in the Method name field and enter the following code in the payload:
 
     ```JSON
     {
@@ -72,7 +72,7 @@ Before beginning any migration efforts, it is strongly recommended to save your 
 
    :::image type="content" source="./media/migrate-live-video-analytics-to-azure-video-analyzer/method-name.png" alt-text="Screenshot that shows the IoT Edge direct method call.":::
 
-1. Click`Invoke Method`.
+1. Select **Invoke Method**.
 
     :::image type="content" source="./media/migrate-live-video-analytics-to-azure-video-analyzer/invoke-method.png" alt-text="Screenshot that shows the invoke method.":::
 
@@ -80,9 +80,9 @@ Before beginning any migration efforts, it is strongly recommended to save your 
 
     :::image type="content" source="./media/migrate-live-video-analytics-to-azure-video-analyzer/topology-result.png" alt-text="Screenshot that shows  the result of the GraphTopologyList method.":::
 
-1. Repeat steps 9 through 11 but replace `GraphTopologyList` with `GraphInstanceList` and save the result section.  This is a list of your graph instances. Note the names of all active instances.
+1. Repeat the process, but replace `GraphTopologyList` with `GraphInstanceList` and save the result section.  This is a list of your graph instances. Note the names of all active instances.
 
-1.  Once you have created a backup copy of your Live Video Analytics settings, you can then **deactivate all active media graphs** by entering `GraphInstanceDeactivate` in the Method name field and then entering the following:
+1.  After you have created a backup copy of your Live Video Analytics settings, you can then *deactivate all active media graphs* by entering **GraphInstanceDeactivate** in **Method name** and then entering the following code:
 
     ```json
     {
@@ -92,20 +92,20 @@ Before beginning any migration efforts, it is strongly recommended to save your 
     ```
 
     > [!NOTE]
-    > Replace Graph_Name with the name of active instances found in step 12.  Repeat this process until all active graphs are deactivated. 
+    > Replace Graph_Name with the name of active instances in the new results.  Repeat this process until all active graphs are deactivated. 
 
 ## Azure Video Analyzer: Device preparation 
 
 To start the migration, the IoT Edge device needs to be configured to run the Azure Video Analyzer module. The Azure Video Analyzer Module should run on an IoT Edge device with a non-privileged local user account. The module needs certain local folders for storing application configuration data. The RTSP camera simulator module needs video files with which it can synthesize a live video feed. 
 
-1. Log into the IoT Edge device via SSH.
+1. Sign in to the IoT Edge device via SSH.
 
     > [!Note]
-    > Based on the review of your IoT Edge device manifest file (step 6 under the section "Create a Backup of the Current Settings") you will either need to create a new user / group on the IoT Edge device or reuse the ones that were created under Live Video Analytics.
+    > Based on the review of your IoT Edge device manifest file (step 6 under the section "Create a Backup of the Current Settings") you will either need to create a new user/group on the IoT Edge device or reuse the ones that were created under Live Video Analytics.
 
-    If the IoT Edge device has been configured with a local user and group ID for Live Video Analytics (found in the deployment manifest) you can skip step 1, but note the user and group name and value it will be used later in this document.  If you are also using a unique folder structure for your Live Video Analytics deployment (found in the deployment manifest), replace "videoanalyzer" with those values and omit the first two lines in step 2.  
+    If the IoT Edge device has been configured with a local user and group ID for Live Video Analytics (found in the deployment manifest) you can skip step 1, but note the user and group name and value it will be used later in this document.  If you are also using a unique folder structure for your Live Video Analytics deployment (found in the deployment manifest), replace *videoanalyzer* with those values and omit the first two lines in step 2.  
 
-    The following example shows a unique folder structure for a Live Video Analytics deployment.  Note that the 'applicationDataDirectory' is /var/lib/videofiles.  For this example Live Video Analytics has localedgeuser and localedgegroup created on the IoT Edge device.
+    The following example shows a unique folder structure for a Live Video Analytics deployment.  Note that the 'applicationDataDirectory' is /var/lib/videofiles. For this example, Live Video Analytics has *localedgeuser* and *localedgegroup* created on the IoT Edge device.
 
     ```
     "lvaEdge": {
@@ -128,7 +128,7 @@ To start the migration, the IoT Edge device needs to be configured to run the Az
             },
     ```
 
-    You would then run the following code:
+    Then run the following code:
 
      ```
        sudo mkdir -p /var/lib/videofiles/tmp/ 
@@ -146,7 +146,7 @@ To start the migration, the IoT Edge device needs to be configured to run the Az
    sudo chown -R localedgeuser:localedgegroup /home/localedgeuser/
    ```
 
-1. Create the avaedge folder structure with the following code:
+1. Create the *avaedge* folder structure with the following code:
 
    ```bash
    sudo mkdir -p /var/lib/videoanalyzer 
@@ -210,15 +210,15 @@ When you create an Azure Video Analyzer account, you have to associate an Azure 
 
 1. Go to your Video Analyzer account.
 
-1. Select `Edge Modules` in the Edge pane.
+1. Select **Edge Modules** in the **Edge** pane.
 
     :::image type="content" source="./media/migrate-live-video-analytics-to-azure-video-analyzer/azure-video-analyzer-edge-module.png" alt-text="Screenshot that shows Azure Video Analyzer account Edge module creation.":::
 
-1. Select `Add edge modules`, enter **avaedge** as the name of the new edge module and select `Add`.
+1. Select **Add edge modules**, enter **avaedge** as the name of the new edge module and select **Add**.
 
     :::image type="content" source="./media/migrate-live-video-analytics-to-azure-video-analyzer/add-edge-modules.png" alt-text="Screenshot that shows how to add edge modules.":::
 
-1. The `Copy the provisioning token` pane will appear on the right-hand side of your screen.  Copy the snippet under `Recommended desired properties for IoT module deployment`.  You will need this in a later step.
+1. The **Copy the provisioning token** pane will appear on the right. Under **Recommended desired properties for IoT module deployment**, copy the snippet.  You will need this in a later step.
 
     :::image type="content" source="./media/migrate-live-video-analytics-to-azure-video-analyzer/provisioning-token.png" alt-text="Screenshot that shows the provisioning token pane.":::
 
@@ -226,19 +226,19 @@ When you create an Azure Video Analyzer account, you have to associate an Azure 
 
 1.  Go to your Azure IoT Hub.
 
-1. Select `IoT Edge` under **Automatic Device Management**.
+1. Under **Automatic Device Management**, choose **Select IoT Edge**.
 
 1. Select the Device ID value for your IT Edge device.
 
 1. Select Set modules.
 
-1. Select `Add` and then select `IoT Edge Module Marketplace` from the dropdown menu.
+1. Select **Add** and then select **IoT Edge Module Marketplace** from the dropdown menu.
 
 1. Enter Azure Video Analyzer in the search field.
 
-1. Click on Azure Video Analyzer.
+1. Select Azure Video Analyzer.
 
-1. In the Set modules pane click on AzureVideoAnalyzerEdge.
+1. In the **Set modules pane**, select **AzureVideoAnalyzerEdge**.
 
     :::image type="content" source="./media/migrate-live-video-analytics-to-azure-video-analyzer/azure-video-analyzer-edge.png" alt-text="Screenshot that shows the IoT Edge add module Azure Video Analyzer.":::
 
@@ -292,15 +292,15 @@ When you create an Azure Video Analyzer account, you have to associate an Azure 
       > [!NOTE]
       > `<Provisioning Token Value>` is a placeholder for your provisioning token captured earlier in Generate Azure Video Analyzer Edge module token section step 4.
 
-1. Click Update at the bottom.
+1. Select **Update**.
 
 1. Select **Routes**.
 1. Under **NAME**, enter **AVAToHub**. Under **VALUE**, enter __FROM /messages/modules/avaedge/outputs/* INTO $upstream__. 
-1. Remove the route **LVAToHub** by clicking on the trash can icon to the right of the route.
+1. Remove the route **LVAToHub** by selecting the trash can icon to the right of the route.
 
     :::image type="content" source="./media/migrate-live-video-analytics-to-azure-video-analyzer/delete-route.png" alt-text="Screenshot that shows how to delete the Live Video Analytics I O T Edge route.":::
 
-1. Under Modules locate your lvaEdge module and remove it by clicking on the trash can icon on the right.
+1. Under **Modules**, locate your *lvaEdge* module and remove it by selecting the trash can icon on the right.
 
     :::image type="content" source="./media/migrate-live-video-analytics-to-azure-video-analyzer/delete-live-video-analytics-edge.png" alt-text="Screenshot that shows how to delete the Live Video Analytics IoT Edge module.":::
 
@@ -344,23 +344,23 @@ There are some differences between the Media Graph topologies that Live Video An
 
 ### Set and activate the pipeline topology
 
-After you convert the Media Graph topology (Live Video Analytics) over to the Pipeline Topology (Azure Video Analyzer), you will need to set the Pipeline on the avaedge module.
+After you convert the Media Graph topology (Live Video Analytics) over to the Pipeline Topology (Azure Video Analyzer), you will need to set the Pipeline on the *avaedge* module.
 
-1. To set your topology click on the Azure Video Analyzer Edge module under the IoT Edge device.  In the example below the container name is avaedge.
+1. To set your topology, select the Azure Video Analyzer Edge module under the IoT Edge device.  In the example below the container name is *avaedge*.
 
     :::image type="content" source="./media/migrate-live-video-analytics-to-azure-video-analyzer/azure-video-analyzer-container.png" alt-text="Screenshot that shows the Live Video Analytics IoT Edge module.":::
 
-1. Click on `Direct method`.
+1. Select **Direct method**.
 
     :::image type="content" source="./media/migrate-live-video-analytics-to-azure-video-analyzer/direct-method.png" alt-text="Screenshot that shows direct method calls for Live Video Analytics.":::
 
-1. Enter `pipelineTopologySet` in the Method name field and enter the converted pipeline JSON in the payload.
+1. Enter **pipelineTopologySet** in **Method name** and enter the converted pipeline JSON in the payload.
 
-1. Click `Invoke Method`.
+1. Select **Invoke Method**.
 
       In the return field, you should see "status": 201 followed by your topology.  This status indicates that a new topology was created.
 
-1. Next we need to create the live pipeline by using the topology.  Use steps 1-3, however, in the Method name field enter `livePipelineSet` and in the payload field enter:
+1. Next we need to create the live pipeline by using the topology.  Use steps 1-3, however, in the Method name field enter **livePipelineSet** and in the payload field enter:
 
    ```JSON
          {
@@ -390,11 +390,11 @@ After you convert the Media Graph topology (Live Video Analytics) over to the Pi
    > [!NOTE]
    > Replace `<live pipeline name>`, `<Name of the set topology>`, `<RTSP camera string>`, `<Camera User Password>` values with the ones for your enviroment. 
 
-1. Click `Invoke Method`.
+1. Select **Invoke Method**.
    
       In the return field, you should see "status": 201 followed by your live pipeline.  This status indicates that a new pipeline was created.
 
-2. Finally activate your live pipeline by following steps 1-3, however, in the Method name field enter `livePipelineActivate` and in the payload field enter:
+2. Finally, activate your live pipeline by following steps 1-3, however, in **Method name**, enter **livePipelineActivate** and in the payload field enter:
 
       ```JSON
          {
@@ -406,7 +406,7 @@ After you convert the Media Graph topology (Live Video Analytics) over to the Pi
     > [!NOTE]
     > Replace `<live pipeline name>` with the live pipeline name set above.
 
-4. Click `Invoke Method`.
+4. Select **Invoke Method**.
    
    In the return field, you should see "status": 200.  This status indicates that a new pipeline was activated.
 
@@ -427,7 +427,7 @@ Both Live Video Analytics and Azure Video Analyzer use direct method calls.  As 
 
 ## Miscellaneous changes 
 
-- Appsettings.json: Update the appsettings.json file so that moduleId refers to your module. That is, set it to avaeEdge. 
+- Appsettings.json: Update the appsettings.json file so that moduleId refers to your module. That is, set it to *avaeEdge*. 
 
 - There is a minor change to the [gRPC contract](https://github.com/Azure/video-analyzer/tree/main/contracts/grpc). While your existing gRPC extension should still work, it's advisable to update the prototype files. The change is a new line in inferencing.proto : string sequence_id=14.
 
