@@ -42,8 +42,8 @@ You must have minimum of 10 docs in your project for the [evaluation](view-model
 
 3. Enter a new model name, or select an existing model from the **Model name** dropdown.
 
-![train-model-1](../../media/extraction/ct-train-model-1.png)
-    :::image type="content" source="../media/train-model.png" alt-text="A screenshot showing the model training screen." lightbox="../media/train model.png":::
+    :::image type="content" source="../media/train-model.png" alt-text="A screenshot showing the model training screen." lightbox="../media/train-model.png":::
+
 4. Click on the **Train** button at the bottom of the page.
 
 5. If the model you selected is already trained, a pop up will appear to confirm overwriting the last model state.
