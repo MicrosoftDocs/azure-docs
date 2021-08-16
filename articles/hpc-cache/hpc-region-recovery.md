@@ -18,7 +18,7 @@ The key is using back-end storage that is accessible from multiple regions. This
 
 As your workflow proceeds in your primary region, data is saved in the long-term storage outside of the region. If the cache region becomes unavailable, you can create a duplicate Azure HPC Cache instance in a secondary region, connect to the same storage, and resume work from the new cache.
 
-> [!NOTE:]
+> [!NOTE]
 > This failover plan does not cover an outage in your storage account region. Azure HPC Cache does not support geographically redundant storage accounts (GRS or GZRS) because their asynchronous copying between regions is not consistent enough for HPC Cache workflows. Consider a manual backup strategy if you need to protect against storage outages.
 
 ## Planning for regional failover
@@ -34,7 +34,7 @@ To set up a cache that is prepared for possible failover, follow these steps:
    1. Details about client machines, if they are located in the same region as the cache
    1. Mount command for use by cache clients
 
-   > [!NOTE]
+   > [NOTE]
    > Azure HPC Cache can be created programmatically, either through an [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) or by directly accessing its API. Contact the Azure HPC Cache team for details.
 
 ## Failover example
@@ -56,3 +56,6 @@ All clients will need to mount the new cache, even if the clients were not affec
 ## Learn more
 
 The Azure application architecture guide includes more information about how to [recover from a region-wide service disruption](<https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region>).
+
+test: [/architecture](/architecture/resiliency/recovery-loss-azure-region)
+test: [/azure](/azure/architecture/resiliency/recovery-loss-azure-region)
