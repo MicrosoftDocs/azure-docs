@@ -73,7 +73,7 @@ If you haven't already done so, be sure to familiarize yourself with the basic [
 
 ## Review the generated import manifest
 
-Example:
+An example manifest output is below. If you have questions about any of the items, view the complete [import manifest schema](import-schema.md). 
 ```json
 {
   "updateId": {
