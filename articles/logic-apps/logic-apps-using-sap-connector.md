@@ -961,7 +961,7 @@ To send IDocs from SAP to your logic app workflow, you need the following minimu
        > tRFC Monitor (T-Code SM58) when you attempt to send an IDoc to SAP:
        >
        > * **Function IDOC_INBOUND_ASYNCHRONOUS not found**
-       > * **Non-ABAP RFC client (partner type) not supported**
+       > * **Non-ABAP RFC client (partner type ) not supported**
        >
        > For more information from SAP, review the following notes (login required):
        > 
@@ -973,7 +973,6 @@ To send IDocs from SAP to your logic app workflow, you need the following minimu
        > [!NOTE]
        > SAP .NET Client libraries support only Unicode character encoding. If you get the error `Non-ABAP RFC client (partner type ) not supported` when sending IDOC from SAP
        >  to Azure Logic Apps, check that the **Communication Type with Target System** value is set to **Unicode**.
-       >   Target System** is set to **Unicode**.
 
 1. Save your changes.
 
