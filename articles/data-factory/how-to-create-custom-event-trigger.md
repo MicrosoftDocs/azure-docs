@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 05/07/2021
 ---
 
-# Create a custom event trigger to run a pipeline in Azure Data Factory (preview)
+# Create a custom event trigger to run a pipeline in Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -88,6 +88,37 @@ Data Factory expects events to follow the [Event Grid event schema](../event-gri
    :::image type="content" source="media/how-to-create-custom-event-trigger/custom-event-3-parameters.png" alt-text="Screenshot of the parameters page to reference data payload in custom event.":::
 
 1. After you've entered the parameters, select **OK**.
+
+## Advanced filtering
+
+Custom event trigger supports advanced filtering capabilities, similar to [Event Grid Advanced Filtering](../event-grid/event-filtering#advanced-filtering). This allows pipelines to trigger based upon the _values_ of event payload. For instance, you may have a field in the event payload, named _Department_ and pipeline should only trigger if _Department_ equals to _Finance_. You may also specify complex logic, such as _date_ field in list [1, 2, 3, 4, 5], _month_ field __not__ in list [11, 12], _tag_ field contains any of ['Fiscal Year 2021', 'FiscalYear2021', 'FY2021'].
+
+ :::image type="content" source="media/how-to-create-custom-event-trigger/custom-event-5-advanced-filters.png" alt-text="Screenshot of setting advanced filters for customer event trigger":::
+
+As of today custom event trigger supports a __subset__ of advanced filtering operations in Event Grid. Following filter conditions are supported:
+
+* [NumberIn](../event-grid/event-filtering#numberin)
+* [NumberNotIn](../event-grid/event-filtering#numbernotin)
+* [NumberLessThan](../event-grid/event-filtering#numberlessthan)
+* [NumberGreaterThan](../event-grid/event-filtering#numbergreaterthan)
+* [NumberLessThanOrEquals](../event-grid/event-filtering#numberlessthanorequals)
+* [NumberGreaterThanOrEquals](../event-grid/event-filtering#numbergreaterthanorequals)
+* [BoolEquals](../event-grid/event-filtering#boolequals)
+* [StringContains](../event-grid/event-filtering#stringcontains)
+* [StringBeginsWith](../event-grid/event-filtering#stringbeginswith)
+* [StringEndsWith](../event-grid/event-filtering#stringendswith)
+* [StringIn](../event-grid/event-filtering#stringin)
+* [StringNotIn](../event-grid/event-filtering#stringnotin)
+
+Click **+New** to add new filter conditions. 
+
+Additionally, custom event triggers obey the [same limitations as event grid](../event-grid/event-filtering#limitations), including:
+
+* 5 advanced filters and 25 filter values across all the filters per custom event trigger
+* 512 characters per string value
+* 5 values for in and not in operators
+* keys cannot have . (dot) character in them, for example, john.doe@contoso.com. Currently, there's no support for escape characters in keys.
+* The same key can be used in more than one filter.
 
 ## JSON schema
 
