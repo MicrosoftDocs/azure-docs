@@ -127,7 +127,7 @@ Setting | Details
 --- | ---
 Syntax | `UnifiedAgent.exe /Role \<MS/MT> /InstallLocation \<Install Location> /Platform "VmWare" /Silent`
 Setup logs | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log`
-`/Role` | Mandatory installation parameter. Specifies whether the Mobility service (MS) or master target (MT) should be installed.
+`/Role` | Mandatory installation parameter. Specifies whether the Mobility service (Agent) or master target (MasterTarget) should be installed.  Note: in prior versions, the correct switches were Mobility Service (MS)  or master target (MT)
 `/InstallLocation`| Optional parameter. Specifies the Mobility service installation location (any folder).
 `/Platform` | Mandatory. Specifies the platform on which the Mobility service is installed: <br/> **VMware** for VMware VMs/physical servers. <br/> **Azure** for Azure VMs.<br/><br/> If you're treating Azure VMs as physical machines, specify **VMware**.
 `/Silent`| Optional. Specifies whether to run the installer in silent mode.
@@ -150,10 +150,10 @@ Agent configuration logs | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurat
    tar -xvf Microsoft-ASR_UA_version_LinuxVersion_GA_date_release.tar.gz
    ```
 
-2. Install as follows:
+2. Install as follows (root account is not required, but root permissions are required):
 
    ```shell
-   sudo ./install -d <Install Location> -r MS -v VmWare -q
+   sudo ./install -d <Install Location> -r Agent -v VmWare -q
    ```
 
 3. After the installation is finished, the Mobility service must be registered to the configuration server. Run the following command to register the Mobility service with the configuration server.
