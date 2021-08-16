@@ -42,7 +42,7 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: SDK - Python
+          - text: Python SDK
             url: https://pypi.org/project/azure-mgmt-hybridnetwork/1.0.0/
-          - text: SDK - Java
+          - text: Java SDK
             url: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/hybridnetwork/azure-resourcemanager-hybridnetwork
