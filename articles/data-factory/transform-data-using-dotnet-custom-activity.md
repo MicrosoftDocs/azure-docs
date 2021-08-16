@@ -21,7 +21,7 @@ ms.date: 11/26/2018
 There are two types of activities that you can use in an Azure Data Factory or Synapse pipeline.
 
 - [Data movement activities](copy-activity-overview.md) to move data between [supported source and sink data stores](copy-activity-overview.md#supported-data-stores-and-formats).
-- [Data transformation activities](transform-data.md) to transform data using compute services such as Azure HDInsight, Azure Batch, and Azure Machine Learning.
+- [Data transformation activities](transform-data.md) to transform data using compute services such as Azure HDInsight, Azure Batch, and ML Studio (classic).
 
 To move data to/from a data store that the service does not support, or to transform/process data in a way that isn't supported by the service, you can create a **Custom activity** with your own data movement or transformation logic and use the activity in a pipeline. The custom activity runs your customized code logic on an **Azure Batch** pool of virtual machines.
 
