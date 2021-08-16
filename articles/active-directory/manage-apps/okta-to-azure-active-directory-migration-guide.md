@@ -31,4 +31,4 @@ All the flows mentioned in the article can be tackled separately without impacti
 
 ## Next steps
 
-Choose any of the workloads mentioned in this article and start implementing it. 
+Choose any of the workloads mentioned in this article and start implementing it 
