@@ -93,7 +93,7 @@ $output = $networkrulecollectiongroup.Properties.GetRuleCollectionByName("myfirs
 Write-Output  $output
 ```
 
-## Create network rules in an existing rule collection
+## Add network rules to an existing rule collection
 
 Now that you have an existing rule collection, you can add more rules to it.
 
@@ -169,7 +169,7 @@ $output = $apprulecollectiongroup.Properties.GetRuleCollectionByName("myapprulec
 Write-Output $output
 ```
 
-## Create application rules in an existing rule collection
+## Add application rules to an existing rule collection
 
 Now that you have an existing rule collection, you can add more rules to it.
 
