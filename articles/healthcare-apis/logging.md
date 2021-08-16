@@ -54,8 +54,8 @@ Below is one example of the AuditLog.
 
 ## Next steps
 
-You can find latest supported metrics for the Healthcare APIs with Azure Monitor [here](https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-supported).
+You can find latest supported metrics for the Healthcare APIs with Azure Monitor [here](https://docs.microsoft.com/azure/azure-monitor/essentials/metrics-supported).
 
-For more details on DICOM service logs and metrics, see [here](https://docs.microsoft.com/en-us/azure/healthcare-apis/dicom/enable-diagnostic-logging).
+For more details on DICOM service logs and metrics, see [here](https://docs.microsoft.com/azure/healthcare-apis/dicom/enable-diagnostic-logging).
 
 For more details on IoT Connector logs and metrics, see [here](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/iot-metrics-display).
