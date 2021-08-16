@@ -13,7 +13,7 @@ ms.date: 08/16/2021
 
 **APPLIES TO**: :::image type="icon" source="./media/applies-to/yes.png" border="false":::Azure Database for MySQL - Flexible Server
 
-Setup and run [GitHub Actions](https://docs.github.com/en/actions) to deploy database updates to [Azure Database for MySQL Flexible Server](https://azure.microsoft.com/services/mysql/).
+This guide shows your how to setup and run [GitHub Actions](https://docs.github.com/en/actions). Github action workflows can be used to deploy database updates to [Azure Database for MySQL Flexible Server](https://azure.microsoft.com/services/mysql/).
 
 
 ## Prerequisites
