@@ -10,7 +10,7 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/10/2021
+ms.date: 08/16/2021
 ms.author: gasinh
 ms.subservice: app-mgmt
 ---
@@ -42,8 +42,7 @@ Azure AD Connect server should be chosen if your organization needs to take adva
 - Support for writeback
 
 >[!NOTE]
->All pre-requisites should be taken into consideration when
-installing Azure AD Connect or Azure AD cloud provisioning. Refer to [this article to learn more](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites) before installation.  
+>All pre-requisites should be taken into consideration when installing Azure AD Connect or Azure AD cloud provisioning. Refer to [this article to learn more](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites) before installation.  
 
 ## High-level migration tasks
 
