@@ -25,18 +25,20 @@ landingContent:
             url: azure-vmware-solution-platform-updates.md
       - linkListType: concept
         links:
-          - text: Private cloud and clusters
-            url: concepts-private-clouds-clusters.md
-          - text: Networking and interconnectivity
-            url: concepts-networking.md
-          - text: Storage 
-            url: concepts-storage.md
-          - text: Access and identity 
+          - text: Access and identity
             url: concepts-identity.md
           - text: API Management
             url: concepts-api-management.md
           - text: Hub and spoke
             url: concepts-hub-and-spoke.md
+          - text: Monitor and protect 
+            url: concepts-monitor-protection.md
+          - text: Networking and interconnectivity
+            url: concepts-networking.md
+          - text: Private clouds and clusters
+            url: concepts-private-clouds-clusters.md
+          - text: Storage
+            url: concepts-storage.md
 
 # card 2
   - title: FAQ
