@@ -123,28 +123,15 @@ This section outlines variations and considerations when using **Azure Bot Servi
 
 ### [Azure Bot Service](/azure/bot-service/)
 
-The following Azure Bot Service **features are not currently available** in Azure Government:
+The following Azure Bot Service **features are not currently available** in Azure Government (updated 8/16/2021):
 
-- BotBuilder V3 Bot Templates
-- Channels
-    - Cortana channel
-    - Skype for Business Channel
+- Bot Framework Composer integration
+- Channels (due to availability of dependent services)
     - Teams Channel
-    - Slack Channel
-    - Office 365 Email Channel
-    - Facebook Messenger Channel
-    - Telegram Channel
-    - Kik Messenger Channel
-    - GroupMe Channel
-    - Skype Channel
-- Application Insights related capabilities including the Analytics Tab
-- Speech Priming Feature
-- Payment Card Feature
-
-Commonly used services in bot applications that are not currently available in Azure Government:
-
-- Application Insights
-- Speech Service
+    - Direct Line Speech Channel
+    - Telephony Channel (Preview)
+    - Microsoft Search Channel (Preview)
+    - Kik Channel (deprecated)
 
 For more information, see [How do I create a bot that uses US Government data center](/azure/bot-service/bot-service-resources-faq-ecosystem#how-do-i-create-a-bot-that-uses-the-us-government-data-center).
 
