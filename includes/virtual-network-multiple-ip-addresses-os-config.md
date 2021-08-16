@@ -321,3 +321,80 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 	- **10.0.0.1** to your default gateway
 	- **eth2** to the name of your secondary NIC
 </details>
+	
+### Debian GNU/Linux
+
+<details>
+  <summary>Expand</summary>
+
+1. Open a terminal window.
+2. Make sure you are the root user. If you are not, enter the following command:
+
+   ```bash
+   sudo -i
+   ```
+
+3. Update the configuration file of the network interface (assuming ‘eth0’).
+
+   * Open the network interface file using below command:
+	 
+ ```bash
+    vi /etc/network/interfaces
+   ```
+	
+   * You should see the following lines at the end of the file:
+	
+```bash
+   auth eth0
+   iface eth0 inet dhcp
+   ```
+	
+   * Keep the existing line item for dhcp as it is. The primary IP address remains configured as it was previously.
+   * Add the following lines after the lines that exist in this file:
+
+```bash
+   iface eth0 inet static
+   address <your private IP address here> 
+   netmask <your subnet mask> 
+   ```
+
+4. Save the file by using the following command:
+
+   ```bash
+   :wq! 
+   ```
+
+5. Restart networking services for the changes to take effect. For Debian 8 and above, this can be done using below command :
+
+   ```bash
+   systemctl restart networking
+   ```
+   For prior versions of Debian, you can use below commands:
+	
+   ```bash
+   service networking restart
+   ```
+8. Verify the IP address is added to the network interface with the following command:
+
+   ```bash
+   ip addr list eth0
+    ```
+
+  You should see the IP address you added as part of the list. Example:
+	
+  ```bash
+   1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+  2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 00:0d:3a:1d:1d:64 brd ff:ff:ff:ff:ff:ff
+    inet 10.2.0.5/24 brd 10.2.0.255 scope global eth0
+       valid_lft forever preferred_lft forever
+    inet 10.2.0.6/24 brd 10.2.0.255 scope global secondary eth0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::20d:3aff:fe1d:1d64/64 scope link
+       valid_lft forever preferred_lft forever
+   ```
