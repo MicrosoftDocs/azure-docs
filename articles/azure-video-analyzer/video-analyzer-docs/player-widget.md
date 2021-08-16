@@ -274,7 +274,7 @@ If you want to create a player widget dynamically, you can use this for JavaScri
 <script async type="module" src="https://unpkg.com/@azure/video-analyzer-widgets@latest/dist/global.min.js"></script>
 ```
 
-If you use this method to import, you will need to create the player object programmatically, after the import is complete. In the preceding example, you added the module to the page by using the `ava-player` HTML tag. To create a player object through code, you can do the following:
+If you use this method to import, you will need to create the player object programmatically, after the import is complete. In the preceding example, you added the module to the page by using the `ava-player` HTML tag. To create a player object through code, you can do the following in JavaScript:
 
 ```javascript
 const avaPlayer = new ava.widgets.player();
