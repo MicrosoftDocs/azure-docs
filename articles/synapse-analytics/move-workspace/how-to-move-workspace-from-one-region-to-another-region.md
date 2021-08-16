@@ -4,9 +4,10 @@ description: This article will teach you how to move the Synapse Workspace from 
 author: phanir
 ms.service: synapse-analytics 
 ms.topic: how-to
-ms.date: 08/12/2021
+ms.date: 08/16/2021
 ms.author: phanir
 ms.reviewer: jrasnick
+
 
 ---
 
