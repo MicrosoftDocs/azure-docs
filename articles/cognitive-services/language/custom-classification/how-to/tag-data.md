@@ -18,7 +18,7 @@ Before building your custom text classification models, you need to have tagged 
 
 ## Prerequisites
 
-* a [created project](create-project.md) with a valid resource and storage account.
+* a [created project](../quickstart/using-language-studio.md) with a valid resource and storage account.
 
 ## File format
 

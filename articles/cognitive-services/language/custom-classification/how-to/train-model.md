@@ -35,7 +35,7 @@ Before starting the training process, files in your dataset are divided into thr
 
 ## Prerequisites
 
-* Successfully created a [Custom text classification project](create-project.md)
+* Successfully created a [Custom text classification project](../quickstart/using-language-studio.md)
 
 * Finished [tagging your data](tag-data.md).
     * You can create and train multiple [models](../definitions.md#model) within the same [project](../definitions.md#project). However, if you re-train a specific model it will overwrite the previous state.
