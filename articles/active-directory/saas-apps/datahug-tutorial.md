@@ -138,7 +138,7 @@ When Datahug, provisioning is a manual task.
 
 1. Sign in to your Datahug company site as an administrator.
 
-2. However over the **cog** in the top right-hand corner and click **Settings**.
+2. Hover over the **cog** in the top right-hand corner and click **Settings**.
    
 	![Screenshot that shows the "Datahug" homepage with "Cog" icon selected and "Settings" selected in the drop-down menu.](./media/datahug-tutorial/settings.png)
 
