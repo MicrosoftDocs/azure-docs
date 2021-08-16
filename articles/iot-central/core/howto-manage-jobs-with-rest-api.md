@@ -30,6 +30,8 @@ For the reference documentation for the IoT Central REST API, see [Azure IoT Cen
 > [!TIP]
 > The [preview API](/rest/api/iotcentral/2021-04-30preview/jobs) includes support for the new [organizations feature](howto-create-organizations.md).
 
+To learn how to create and manage jobs in the UI, see [Manage devices in bulk in your Azure IoT Central application](howto-manage-devices-in-bulk.md).
+
 ## Job payloads
 
 Many of the APIs described in this article include a definition that looks like the following JSON snippet:

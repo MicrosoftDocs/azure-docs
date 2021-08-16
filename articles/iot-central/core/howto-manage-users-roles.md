@@ -99,13 +99,18 @@ Users in the **Org Viewer** role can view items such as devices and their data, 
 
 If your solution requires finer-grained access controls, you can create roles with custom sets of permissions. To create a custom role, navigate to the **Roles** page in the **Administration** section of your application, and choose one of these options:
 
+- Select **+ New**, add a name and description for your role, and select **Application** or **Organization** as the role type. This option lets you create a role definition from scratch.
 - Navigate to an existing role and select **Copy**. This option lets you start with an existing role definition that you can then customize.
-- Select **+ New role**, and add a name and description for your role. This option lets you create a role definition from scratch.
 
 > [!WARNING]
-> If you make a copy of an organizational role and then add permissions, you won't be able to use the role as an organizational role.
+> You can't change the role type after you create a role.
 
-You can add users to your custom role in the same way that you add users to a built-in role.
+When you invite a user to your application, if you associate the user with:
+
+- The root organization, then only **Application** roles are available.
+- Any other organization, then only **Organization** roles are available.
+
+You can add users to your custom role in the same way that you add users to a built-in role:
 
 :::image type="content" source="media/howto-manage-users-roles/create-custom-role-pnp.png" alt-text="Screenshot to build a custom role.":::
 
@@ -231,6 +236,16 @@ When you define a custom role, you choose the set of permissions that a user is 
 | Add | View <br/> Other dependencies:  View custom roles |
 | Delete | View <br/> Other dependencies:  View custom roles |
 | Full Control | View, Add, Delete <br/> Other dependencies:  View custom roles |
+
+**Organization management permissions**
+
+| Name | Dependencies |
+| ---- | -------- |
+| View | None |
+| Update | View |
+| Create | View, Update |
+| Delete | View |
+| Full Control | View, Update, Create, Delete |
 
 > [!NOTE]
 > A user who is in a custom role that grants them the permission to add other users, can only add users to a role with same or fewer permissions than their own role.
