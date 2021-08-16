@@ -275,6 +275,9 @@ ALTER TABLE dbo.FactInternetSales_NewSales SWITCH PARTITION 2 TO dbo.FactInterne
 
 ### Table partitioning source control
 
+> [!NOTE]
+> If your source control tool is not configured to ignore partition schemas, altering a table's schema to update partitions may cause a table to be dropped and recreated as part of the deployment. Check that your continuous integration/continuous deployment (CICD) tool allows for this. In SQL Server Data Tools (SSDT), look for the Advanced Publish Settings "Ignore partition schemes" and "Ignore table options". 
+
 To avoid your table definition from **rusting** in your source control system, you may want to consider the following approach:
 
 1. Create the table as a partitioned table but with no partition values
