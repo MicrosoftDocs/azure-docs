@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 08/12/2021
+ms.date: 08/16/2021
 ms.author: alkohli
 ---
 
@@ -43,29 +43,25 @@ To find out whether a domain issue is preventing a share connection:
 
 ## Account locked out of share
 
-If you see the following error when you try to connect to an SMB share on your device, the share user account has been locked after multiple attempts to connect with an incorrect password:
+After five attempts to connect to a share on your device with an incorrect share password, the share will be locked, and you won't be able to connect to the share for 15 minutes. 
 
-"The referenced account is currently locked out and may not be logged on to."
+The failed connection attempts may include background processes, such as retries, which you may not be aware of.
 
-After five attempts to connect to a share with an incorrect share password, the share will be locked, and you won't be able to connect to the share for 15 minutes. The failed connection attempts may include background processes, such as retries, which you may not be aware of.
+- If you're connecting from your host computer via SMB, you'll see this error: "The referenced account is currently locked out and may not be logged on to."
 
-The following example shows the output from one such connection attempt.
+  The following example shows the output from one such connection attempt.
 
-```
-C:\Users\Databoxuser>net use \\10.126.167.22\podpmresourcesa_BlockBlob /u:10.126.167.22\podpmresourcesa
-Enter the password for '10.126.167.22\podpmresourcesa' to connect to '10.126.167.22':
-System error 1909 has occurred.
+  ```
+  C:\Users\Databoxuser>net use \\10.126.167.22\podpmresourcesa_BlockBlob /u:10.126.167.22\podpmresourcesa
+  Enter the password for '10.126.167.22\podpmresourcesa' to connect to '10.126.167.22':
+  System error 1909 has occurred.
+  
+  The referenced account is currently locked out and may not be logged on to.
+  ```
 
-The referenced account is currently locked out and may not be logged on to.
-```
+- If you're connecting via the data copy service, you'll see the following notification on the **Connect and copy** pane in the local web UI of your device:
 
-In the local web UI, you'll see the following notification on the **Connect and copy** pane when the user account for a share is locked.
-
-![Screenshot of the Connect and Copy pane in the local Web UI for a Data Box. A locked share account notification is highlighted.](media/data-box-troubleshoot-share-access/share-lock-01.png)
-
-After 15 minutes, the lock will clear, and you'll be able to provide the user account credentials to access the share on the **Copy data** pane. 
-
-![Screenshot of the Copy Data pane in the local Web UI for a Data Box. A notification that the share user account has been unlocked is highlighted.](media/data-box-troubleshoot-share-access/share-lock-02.png)
+  ![Screenshot of the Connect and Copy pane in the local Web UI for a Data Box. A locked share account notification is highlighted.](media/data-box-troubleshoot-share-access/share-lock-01.png)
 
 
 To connect to an SMB share after a share account lockout, do these steps:
@@ -74,17 +70,15 @@ To connect to an SMB share after a share account lockout, do these steps:
 
     ![Screenshot of Access Share And Copy Data screen for an SMB share on a Data Box. Copy icons for the account, username, and password are highlighted.](media/data-box-troubleshoot-share-access/get-share-credentials-01.png)
 
-1. After 15 minutes, the lock will clear. You can connect to the share using either of the following methods:
+1. After 15 minutes, the lock will clear. You can now connect to the share.
 
-   - To connect to the share via SMB from your host computer, run the following command:  
+   - To connect to the share from your host computer via SMB, run the following command. For a procedure, see [Copy data to Data Box via SMB](data-box-deploy-copy-data.md#connect-to-data-box).
   
      `net use \\<IP address of the device>\<share name> /u:<IP address of the device>\<user name for the share>`
 
-     For a procedure, see [Copy data to Data Box via SMB](data-box-deploy-copy-data.md#connect-to-data-box).
+   - To connect to a share using the data copy service, open the **Copy data** pane in the local web UI. A notification will indicate the user account has been unlocked. You can now [copy data to the Data Box](data-box-deploy-copy-data-via-copy-service.md#copy-data-to-data-box), providing the needed share credentials.
 
-   - To connect to a share using the data copy service, open the **Copy data** pane in the local web UI. A notification will indicate the user account has been unlocked. You can [copy data to the Data Box](data-box-deploy-copy-data-via-copy-service.md#copy-data-to-data-box), providing the needed share credentials.
-
-    ![Screenshot of the Copy Data pane in the local Web UI for a Data Box. A notification that the share user account has been unlocked is highlighted.](media/data-box-troubleshoot-share-access/share-lock-02.png)
+     ![Screenshot of the Copy Data pane in the local Web UI for a Data Box. A notification that the share user account has been unlocked is highlighted.](media/data-box-troubleshoot-share-access/share-lock-02.png)
 
 
 ## Check for a blocking group policy
