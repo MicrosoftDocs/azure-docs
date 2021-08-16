@@ -2,7 +2,7 @@
 title: Record and download calls with Event Grid - An Azure Communication Services quickstart
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you'll learn how to record and download calls using Event Grid.
-author: jken
+author: GrantMeStrength
 manager: anvalent
 services: azure-communication-services
 

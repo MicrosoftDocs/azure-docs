@@ -2,7 +2,7 @@
 title: Azure Communication Services Call Automation API overview
 titleSuffix: An Azure Communication Services concept document
 description: Provides an overview of the Call Automation feature and APIs.
-author: jken
+author: GrantMeStrength
 manager: anvalent
 services: azure-communication-services
 
