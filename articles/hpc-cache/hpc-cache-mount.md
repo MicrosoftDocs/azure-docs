@@ -138,4 +138,5 @@ You can select different mount addresses for different clients manually, or by c
 
 ## Next steps
 
+* Learn more about how to use all of your cache's throughput by [balancing client load](client-load-balancing.md).
 * To move data to the cache's storage targets, read [Populate new Azure Blob storage](hpc-cache-ingest.md).

@@ -87,5 +87,7 @@ items:
     href: customer-keys.md
   - name: Use Azure NetApp Files with Azure HPC Cache
     href: hpc-cache-netapp.md
+  - name: Load balance client traffic
+    href: client-load-balancing.md
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?service=hpc-cache

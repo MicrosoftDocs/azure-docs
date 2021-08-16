@@ -4,7 +4,7 @@ description: How to configure a DNS server for round-robin load balancing for Az
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 08/11/2021
+ms.date: 08/16/2021
 ms.author: v-erkel
 ---
 
@@ -12,7 +12,7 @@ ms.author: v-erkel
 
 This article explains some basic methods for balancing client traffic to all the mount points on your Azure HPC Cache.
 
-Your cache has at least three different IP addresses. Caches with large throughput values have up to 12. It's important to use all of the IP addresses to get the full benefits of Azure HPC Cache.
+Every HPC Cache has at least three different IP addresses, and caches with larger throughput values can have up to 12. It's important to use all of the IP addresses to get the full benefits of Azure HPC Cache.
 
 There are various options for load-balancing your client mounts:
 
@@ -80,7 +80,7 @@ For optimal performance, configure your DNS server to handle client-facing clust
 The HPC Cache server is shown on the left, and its mount IP addresses appear in the center. The circles on the right side of the diagram show the corresponding DNS name for each client mount point. Configure each client access point with A records and pointers as illustrated.
 
 :::image type="complex" source="media/rrdns-diagram-hpc.png" alt-text="Diagram showing client mount point DNS configuration.":::
-   <detail The diagram shows connections among three categories of elements: the single HPC Cache entity (at the left), three IP addresses (middle column), and three client interfaces (right column). A single circle at the left labeled "HPC Cache" is connected by arrows pointing toward three circles labeled with IP addresses: 10.0.0.10, 10.0.0.11, and 10.0.0.12. The arrows from the HPC Cache circle to the three IP circles have the caption "A". Each of the IP address circles is connected by two arrows to a circle labeled as a client interface - the circle with IP 10.0.0.10 is connected to "client-IP-10", the circle with IP 10.0.0.11 is connected to "client-IP-11", and the circle with IP 10.0.0.12 is connected to "client-IP-11". The connections between the IP address circles and the client interface circles are two arrows: one arrow labeled "PTR" that points from the IP address circle to the client interface circle, and one arrow labeled "A" that points from the client interface circle to the IP address circle.>
+   <The diagram shows connections among three categories of elements: the single HPC Cache entity (at the left), three IP addresses (middle column), and three client interfaces (right column). A single circle at the left labeled "HPC Cache" is connected by arrows pointing toward three circles labeled with IP addresses: 10.0.0.10, 10.0.0.11, and 10.0.0.12. The arrows from the HPC Cache circle to the three IP circles have the caption "A". Each of the IP address circles is connected by two arrows to a circle labeled as a client interface - the circle with IP 10.0.0.10 is connected to "client-IP-10", the circle with IP 10.0.0.11 is connected to "client-IP-11", and the circle with IP 10.0.0.12 is connected to "client-IP-11". The connections between the IP address circles and the client interface circles are two arrows: one arrow labeled "PTR" that points from the IP address circle to the client interface circle, and one arrow labeled "A" that points from the client interface circle to the IP address circle.>
 :::image-end:::
 
 <!-- ![HPC Cache round-robin DNS diagram](media/rrdns-diagram-hpc.png) -->
@@ -117,4 +117,5 @@ When your DNS system is ready, use the **Networking** page in the portal to tell
 
 ## Next steps
 
-***some things***
+* For help balancing client load, [contact support](hpc-cache-support-ticket.md).
+* To move data to the cache's storage targets, read [Populate new Azure Blob storage](hpc-cache-ingest.md).
