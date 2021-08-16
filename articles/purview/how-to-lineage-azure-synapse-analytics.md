@@ -37,17 +37,17 @@ You can create pipelines with Copy activity in Azure Synapse workspace. You don'
 
 After you run the Azure Synapse pipeline, in the Synapse pipeline monitoring view, you can check the lineage reporting status by clicking the following **Lineage status** button. The same information is also available in the activity output JSON -> `reportLineageToPurvew` section.
 
-:::image type="content" source="../data-factory/media/data-factory-purview/monitor-lineage-reporting-status.png" alt-text="Monitor the lineage reporting status in pipeline monitoring view":::
+:::image type="content" source="../data-factory/media/data-factory-purview/monitor-lineage-reporting-status.png" alt-text="Monitor the lineage reporting status in pipeline monitoring view.":::
 
 ### Step 4: View lineage information in your Purview account
 
 In your Purview account, you can browse assets and choose type "Azure Synapse Analytics". You can also search the Data Catalog using keywords.
 
-:::image type="content" source="./media/how-to-lineage-azure-synapse-analytics/browse-azure-synapse-assets.png" alt-text="Browse Azure Synapse assets in Purview"
+:::image type="content" source="./media/how-to-lineage-azure-synapse-analytics/browse-azure-synapse-assets.png" alt-text="Browse the Azure Synapse assets in Purview."
 
 Select the Synapse account -> pipeline -> activity, you can view the lineage information.
 
-:::image type="content" source="./media/how-to-lineage-azure-synapse-analytics/browse-azure-synapse-pipeline-lineage.png" alt-text="Browse Azure Synapse pipeline lineage in Purview" lightbox="./media/how-to-lineage-azure-synapse-analytics/browse-azure-synapse-pipeline-lineage.png":::
+:::image type="content" source="./media/how-to-lineage-azure-synapse-analytics/browse-azure-synapse-pipeline-lineage.png" alt-text="Browse the Azure Synapse pipeline lineage in Purview." lightbox="./media/how-to-lineage-azure-synapse-analytics/browse-azure-synapse-pipeline-lineage.png":::
 
 ## Next steps
 
