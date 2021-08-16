@@ -65,6 +65,8 @@ Fix any [condition format or syntax](conditions-format.md) issues. Alternatively
 
 When you try to add a role assignment with a condition, **Principal** does not appear in the **Attribute source** list.
 
+![Screenshot showing Principal in Attribute source list when adding a condition.](./media/conditions-troubleshoot/attribute-source-principal.png)
+
 **Cause**
 
 You don't meet one or more of the requirements to use principal attributes.
