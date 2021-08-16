@@ -72,7 +72,7 @@ set ENDPOINT_NAME=YOUR_ENDPOINT_NAME
 > [!NOTE]
 > Endpoint names must be unique within an Azure region. For example, in the Azure westus2 region, there can be only one endpoint with the name `my-endpoint`. 
 
-## Define the endpoint and deployment configurations
+## Review the endpoint and deployment configurations
 
 The following snippet shows the *endpoints/online/managed/saferollout/endpoint.yml* file: 
 
