@@ -52,7 +52,7 @@ To enable vulnerability scans of images stored in your Azure Resource Manager-ba
 
 1. To view the findings, go to the **Recommendations** page. If issues were found, you'll see the recommendation **Vulnerabilities in Azure Container Registry images should be remediated**
 
-    ![Recommendation to remediate issues ](media/monitor-container-security/acr-finding.png)
+    ![Recommendation to remediate issues .](media/monitor-container-security/acr-finding.png)
 
 1. Select the recommendation. 
 
@@ -60,29 +60,29 @@ To enable vulnerability scans of images stored in your Azure Resource Manager-ba
 
 1. Select a specific registry to see the repositories within it that have vulnerable repositories.
 
-    ![Select a registry](media/monitor-container-security/acr-finding-select-registry.png)
+    ![Select a registry.](media/monitor-container-security/acr-finding-select-registry.png)
 
     The registry details page opens with the list of affected repositories.
 
 1. Select a specific repository to see the repositories within it that have vulnerable images.
 
-    ![Select a repository](media/monitor-container-security/acr-finding-select-repository.png)
+    ![Select a repository.](media/monitor-container-security/acr-finding-select-repository.png)
 
     The repository details page opens. It lists the vulnerable images together with an assessment of the severity of the findings.
 
 1. Select a specific image to see the vulnerabilities.
 
-    ![Select images](media/monitor-container-security/acr-finding-select-image.png)
+    ![Select images.](media/monitor-container-security/acr-finding-select-image.png)
 
     The list of findings for the selected image opens.
 
-    ![List of findings](media/monitor-container-security/acr-findings.png)
+    ![List of findings.](media/monitor-container-security/acr-findings.png)
 
 1. To learn more about a finding, select the finding. 
 
     The findings details pane opens.
 
-    [![Findings details pane](media/monitor-container-security/acr-finding-details-pane.png)](media/monitor-container-security/acr-finding-details-pane.png#lightbox)
+    [![Findings details pane.](media/monitor-container-security/acr-finding-details-pane.png)](media/monitor-container-security/acr-finding-details-pane.png#lightbox)
 
     This pane includes a detailed description of the issue and links to external resources to help mitigate the threats.
 
@@ -134,12 +134,12 @@ To create a rule:
 1. Define your criteria.
 1. Select **Apply rule**.
 
-    :::image type="content" source="./media/defender-for-container-registries-usage/new-disable-rule-for-registry-finding.png" alt-text="Create a disable rule for VA findings on registry":::
+    :::image type="content" source="./media/defender-for-container-registries-usage/new-disable-rule-for-registry-finding.png" alt-text="Create a disable rule for VA findings on registry.":::
 
 1. To view, override, or delete a rule: 
     1. Select **Disable rule**.
     1. From the scope list, subscriptions with active rules show as **Rule applied**.
-        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Modify or delete an existing rule":::
+        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Modify or delete an existing rule.":::
     1. To view or delete the rule, select the ellipsis menu ("...").
 
 

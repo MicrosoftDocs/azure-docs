@@ -151,7 +151,7 @@
         href: concepts-connectivity-architecture.md
         displayName: security, architecture
       - name: Threat protection with Azure Defender
-        href: ../security-center/defender-for-databases-introduction.md
+        href: ../security-center/defender-for-databases-usage.md?toc=/azure/postgresql/toc.json&bc=/azure/postgresql/breadcrumb/toc.json
         displayName: security, advanced threat protection
       - name: Azure AD authentication
         href: concepts-aad-authentication.md
@@ -353,11 +353,6 @@
       - name: Troubleshoot data encryption
         href: howto-data-encryption-troubleshoot.md
         displayName: debug, security, encryption
-    - name: Advanced threat protection
-      items:
-      - name: Azure portal
-        href: howto-database-threat-protection-portal.md
-        displayName: advanced thread, security
     - name: Virtual network
       items:
       - name: Azure portal
@@ -419,6 +414,8 @@
     href: flexible-server/overview.md
   - name: Release notes
     href: flexible-server/release-notes.md   
+  - name: Compare Single Server and Flexible Server
+    href: flexible-server/concepts-compare-single-server-flexible-server.md   
   - name: Quickstarts
     expanded: true
     items:
@@ -433,6 +430,8 @@
         href: flexible-server/quickstart-create-server-arm-template.md
     - name: Connect and query
       items:
+        - name: Connect to a server in VNET 
+          href: flexible-server/quickstart-create-connect-server-vnet.md
         - name: Azure CLI
           href: flexible-server/connect-azure-cli.md
         - name: Python
@@ -464,6 +463,10 @@
     - name: Networking
       href: flexible-server/concepts-networking.md
       displayName: virtual networks, vnet, IP address, public access
+    - name: Firewall rules
+      href: flexible-server/concepts-firewall-rules.md
+    - name: Security
+      href: flexible-server/concepts-security.md
     - name: Limits
       href: flexible-server/concepts-limits.md
     - name: Extensions
@@ -471,7 +474,9 @@
     - name: Scheduled maintenance
       href: flexible-server/concepts-maintenance.md
     - name: Connection pooling (PgBouncer)
-      href: flexible-server/concepts-pgbouncer.md      
+      href: flexible-server/concepts-pgbouncer.md   
+    - name: Server parameters
+      href: flexible-server/concepts-server-parameters.md      
     - name: Business continuity
       items:
       - name: Business continuity overview
@@ -500,6 +505,8 @@
           displayName: query store, performance, optimize
         - name: Query Store best practices
           href: flexible-server/concepts-query-store-best-practices.md
+        - name: Intelligent tuning
+          href: flexible-server/concepts-intelligent-tuning.md
     - name: Replication
       href: flexible-server/concepts-logical.md
       displayName: logical decoding
@@ -531,10 +538,12 @@
           href: flexible-server/how-to-manage-firewall-portal.md
         - name: Azure CLI
           href: flexible-server/how-to-manage-firewall-cli.md
-      - name: TLS/SSL
+      - name: TLS/SSL/SCRAM
         items:
         - name: Connect using TLS/SSL
           href: flexible-server/how-to-connect-tls-ssl.md
+        - name: Connect using SCRAM
+          href: flexible-server/how-to-connect-scram.md          
     - name: Configure server parameters
       items:
       - name: Azure portal
@@ -591,7 +600,7 @@
     items:
     - name: Create server group
       items:
-      - name: Basic tier (preview)
+      - name: Basic tier
         href: quickstart-create-hyperscale-basic-tier.md
       - name: Standard tier
         href: quickstart-create-hyperscale-portal.md
@@ -646,6 +655,8 @@
         href: concepts-hyperscale-high-availability.md
     - name: Replication
       href: concepts-hyperscale-read-replicas.md
+    - name: Connection pooling
+      href: concepts-hyperscale-connection-pool.md
     - name: Monitor and tune
       items:
       - name: Monitor and tune
@@ -698,6 +709,8 @@
       items:
       - name: Azure portal
         href: howto-hyperscale-maintenance.md
+    - name: Restart server group
+      href: howto-hyperscale-restart.md
     - name: Monitor
       items:
       - name: Create alerts on metrics
@@ -717,6 +730,9 @@
       - name: Troubleshoot connection errors
         href: howto-hyperscale-troubleshoot-common-connection-issues.md
         displayName: connection errors, hyperscale
+      - name: Troubleshoot read-only access
+        href: howto-hyperscale-troubleshoot-read-only.md
+        displayName: read-only, hyperscale
       - name: Useful diagnostic queries
         href: howto-hyperscale-useful-diagnostic-queries.md
   - name: API Reference

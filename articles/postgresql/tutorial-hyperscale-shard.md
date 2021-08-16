@@ -46,7 +46,7 @@ can check the active workers in the
 [pg_dist_node](reference-hyperscale-metadata.md#worker-node-table) table.
 
 ```sql
-select nodeid from pg_dist_node where isactive;
+select nodeid, nodename from pg_dist_node where isactive;
 ```
 ```
  nodeid | nodename

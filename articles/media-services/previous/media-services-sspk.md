@@ -80,6 +80,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Guangzhou Dimai Digital Limited Co.
 * Guangzhou Shikun Electronics., Ltd.
 * Hisilicon Technologies Co., Ltd.
+* LG Electronics, Inc.
 * MediaTek Inc.
 * Montage LZ Technologies Hong Kong Limited
 * Panasonic Corporation
@@ -89,12 +90,14 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * ZTE Corporation
 
 ## Microsoft Smooth Streaming Client Final Product Agreement Licensees
+* Advanced Digital Broadcast SA
 * AmTRAN Technology Co., Ltd 
 * Arcadyan Technology Corporation
 * Arcelik A.S
 * Compal Electronics, Inc.
 * Enseo, LLC
 * EXPRESS LUCK TECHNOLOGY LIMITED
+* FAIRWIT HONGKONG CO., LIMITED
 * Fluendo S.A.
 * FUNAI ELECTRIC CO., LTD
 * Hisense Broadband Multimedia Technologies Co.,Ltd.
@@ -102,11 +105,12 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Hisense Visual Technology Co., Ltd
 * HKC Corporation Limited
 * Hong Kong Konka Ltd
-* Innolux Corporation
 * Jinpin Electrical Company Ltd.Zhuhai.S.E.Z
 * KAONMEDIA CO., Ltd.
 * KDDI Corporation
 * K-Tronics (Suzhou) Technology Co., Ltd.
+* LG Electronics, Inc.
+* Liberty Global Technology Services BV
 * Mega Fame Electronics Co. Limited
 * MINGCAI NEW CENTURY (HK) CO., LIMITED
 * MIRC Electronics Limited
@@ -126,10 +130,12 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * SKARDIN INDUSTRIAL CORP
 * Sky CP Ltd
 * SMARDTV GLOBAL SAS
+* Sony Corporation
 * SoftAtHome
 * Technicolor Delivery Technologies, SAS
 * Top Victory Investments, Ltd.
 * Vizio, Inc.
+* Walton Hi-Tech Industries Ltd.
 * ZTE CORPORATION
 
 ## Media Services learning paths

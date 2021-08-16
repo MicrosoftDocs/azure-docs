@@ -1,6 +1,6 @@
 ---
-title: Publish built-in apps in Windows Virtual Desktop - Azure
-description: How to publish built-in apps in Windows Virtual Desktop.
+title: Publish built-in apps in Azure Virtual Desktop - Azure
+description: How to publish built-in apps in Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 04/30/2020
@@ -8,12 +8,12 @@ ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
 ---
-# Publish built-in apps in Windows Virtual Desktop
+# Publish built-in apps in Azure Virtual Desktop
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/publish-apps-2019.md).
+>This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/publish-apps-2019.md).
 
-This article will tell you how to publish apps in your Windows Virtual Desktop environment.
+This article will tell you how to publish apps in your Azure Virtual Desktop environment.
 
 ## Publish built-in apps
 
@@ -28,7 +28,7 @@ To publish a built-in app:
    ```
 
 >[!NOTE]
-> Windows Virtual Desktop only supports publishing apps with install locations that begin with `C:\Program Files\WindowsApps`.
+> Azure Virtual Desktop only supports publishing apps with install locations that begin with `C:\Program Files\WindowsApps`.
 
 ## Update app icons
 
@@ -44,6 +44,6 @@ New-AzWvdApplication -Name -ResourceGroupName -ApplicationGroupName -FilePath "s
 
 ## Next steps
 
-- Learn about how to configure feeds to organize how apps are displayed for users at [Customize feed for Windows Virtual Desktop users](customize-feed-for-virtual-desktop-users.md).
+- Learn about how to configure feeds to organize how apps are displayed for users at [Customize feed for Azure Virtual Desktop users](customize-feed-for-virtual-desktop-users.md).
 - Learn about the MSIX app attach feature at [Set up MSIX app attach](app-attach.md).
 

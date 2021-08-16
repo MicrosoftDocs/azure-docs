@@ -2,7 +2,8 @@
 title: Registry roles and permissions
 description: Use Azure role-based access control (Azure RBAC) and identity and access management (IAM) to provide fine-grained permissions to resources in an Azure container registry.
 ms.topic: article
-ms.date: 10/14/2020
+ms.date: 06/07/2021
+ms.custom: devx-track-azurepowershell
 ---
 
 # Azure Container Registry roles and permissions
@@ -11,17 +12,17 @@ The Azure Container Registry service supports a set of [built-in Azure roles](..
 
 | Role/Permission       | [Access Resource Manager](#access-resource-manager) | [Create/delete registry](#create-and-delete-registry) | [Push image](#push-image) | [Pull image](#pull-image) | [Delete image data](#delete-image-data) | [Change policies](#change-policies) |   [Sign images](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
-| Owner | X | X | X | X | X | X |  |  
-| Contributor | X | X | X |  X | X | X |  |  
+| Owner | X | X | X | X | X | X |  |
+| Contributor | X | X | X |  X | X | X |  |
 | Reader | X |  |  | X |  |  |  |
-| AcrPush |  |  | X | X | |  |  |  
-| AcrPull |  |  |  | X |  |  |  |  
+| AcrPush |  |  | X | X | |  |  |
+| AcrPull |  |  |  | X |  |  |  |
 | AcrDelete |  |  |  |  | X |  |  |
 | AcrImageSigner |  |  |  |  |  |  | X |
 
 ## Assign roles
 
-See [Steps to add a role assignment](../role-based-access-control/role-assignments-steps.md) for high-level steps to add a role assignment to an existing user, group, service principal, or managed identity. You can use the Azure portal, Azure CLI, or other Azure tools.
+See [Steps to add a role assignment](../role-based-access-control/role-assignments-steps.md) for high-level steps to add a role assignment to an existing user, group, service principal, or managed identity. You can use the Azure portal, Azure CLI, Azure PowerShell, or other Azure tools.
 
 When creating a service principal, you also configure its access and permissions to Azure resources such as a container registry. For an example script using the Azure CLI, see [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md#create-a-service-principal).
 
@@ -39,11 +40,19 @@ Likewise, nodes running your containers need the **AcrPull** role, but shouldn't
 
 ### Visual Studio Code Docker extension
 
-For tools like the Visual Studio Code [Docker extension](https://code.visualstudio.com/docs/azure/docker), additional resource provider access is required to list the available Azure container registries. In this case, provide your users access to the **Reader** or **Contributor** role. These roles allow `docker pull`, `docker push`, `az acr list`, `az acr build`, and other capabilities. 
+For tools like the Visual Studio Code [Docker extension](https://code.visualstudio.com/docs/azure/docker), additional resource provider access is required to list the available Azure container registries. In this case, provide your users access to the **Reader** or **Contributor** role. These roles allow `docker pull`, `docker push`, `az acr list`, `az acr build`, and other capabilities.
 
 ## Access Resource Manager
 
-Azure Resource Manager access is required for the Azure portal and registry management with the [Azure CLI](/cli/azure/). For example, to get a list of registries by using the `az acr list` command, you need this permission set. 
+### [Azure CLI](#tab/azure-cli)
+
+Azure Resource Manager access is required for the Azure portal and registry management with the [Azure CLI](/cli/azure/). For example, to get a list of registries by using the `az acr list` command, you need this permission set.
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+Azure Resource Manager access is required for the Azure portal and registry management with [Azure PowerShell](/powershell/azure/). For example, to get a list of registries by using the `Get-AzContainerRegistry` cmdlet, you need this permission set.
+
+---
 
 ## Create and delete registry
 
@@ -51,7 +60,7 @@ The ability to create and delete Azure container registries.
 
 ## Push image
 
-The ability to `docker push` an image, or push another [supported artifact](container-registry-image-formats.md) such as a Helm chart, to a registry. Requires [authentication](container-registry-authentication.md) with the registry using the authorized identity. 
+The ability to `docker push` an image, or push another [supported artifact](container-registry-image-formats.md) such as a Helm chart, to a registry. Requires [authentication](container-registry-authentication.md) with the registry using the authorized identity.
 
 ## Pull image
 
@@ -71,9 +80,11 @@ The ability to sign images, usually assigned to an automated process, which woul
 
 ## Custom roles
 
-As with other Azure resources, you can create [custom roles](../role-based-access-control/custom-roles.md) with fine-grained permissions to Azure Container Registry. Then assign the custom roles to users, service principals, or other identities that need to interact with a registry. 
+As with other Azure resources, you can create [custom roles](../role-based-access-control/custom-roles.md) with fine-grained permissions to Azure Container Registry. Then assign the custom roles to users, service principals, or other identities that need to interact with a registry.
 
 To determine which permissions to apply to a custom role, see the list of Microsoft.ContainerRegistry [actions](../role-based-access-control/resource-provider-operations.md#microsoftcontainerregistry), review the permitted actions of the [built-in ACR roles](../role-based-access-control/built-in-roles.md), or run the following command:
+
+### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az provider operation show --namespace Microsoft.ContainerRegistry
@@ -83,6 +94,16 @@ To define a custom role, see [Steps to create a custom role](../role-based-acces
 
 > [!IMPORTANT]
 > In a custom role, Azure Container Registry doesn't currently support wildcards such as `Microsoft.ContainerRegistry/*` or `Microsoft.ContainerRegistry/registries/*` that grant access to all matching actions. Specify any required action individually in the role.
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Get-AzProviderOperation -OperationSearchString Microsoft.ContainerRegistry/*
+```
+
+To define a custom role, see [Steps to create a custom role](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role).
+
+---
 
 ### Example: Custom role to import images
 
@@ -116,7 +137,7 @@ To create or update a custom role using the JSON description, use the [Azure CLI
 
 ## Next steps
 
-* Learn more about assigning Azure roles to an Azure identity by using the [Azure portal](../role-based-access-control/role-assignments-portal.md), the [Azure CLI](../role-based-access-control/role-assignments-cli.md), or other Azure tools.
+* Learn more about assigning Azure roles to an Azure identity by using the [Azure portal](../role-based-access-control/role-assignments-portal.md), the [Azure CLI](../role-based-access-control/role-assignments-cli.md), [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md), or other Azure tools.
 
 * Learn about [authentication options](container-registry-authentication.md) for Azure Container Registry.
 

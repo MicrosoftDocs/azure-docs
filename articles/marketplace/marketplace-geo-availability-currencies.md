@@ -191,7 +191,7 @@ Individual prices (which, depending on how they were set, may have been influenc
 
 For details on how to enter prices for specific offer types, refer to these articles:
 
-- [Create an Azure application offer](create-new-azure-apps-offer.md)
+- [Create an Azure application offer](azure-app-offer-setup.md)
 - [Create an Azure container offer](azure-container-offer-setup.md)
 - [Create an Azure virtual machine offer](azure-vm-create.md)
 - [Create a consulting service offer](./create-consulting-service-offer.md)
@@ -200,5 +200,5 @@ For details on how to enter prices for specific offer types, refer to these arti
 - [Create a Dynamics 365 Business Central offer](dynamics-365-business-central-offer-setup.md)
 - [Create an IoT Edge module offer](iot-edge-offer-setup.md)
 - [Create a Managed Service offer](./plan-managed-service-offer.md)
-- [Create a Power BI app](partner-center-portal/create-power-bi-app-offer.md)
+- [Create a Power BI app](./power-bi-app-offer-setup.md)
 - [Create a SaaS offer](./create-new-saas-offer.md)

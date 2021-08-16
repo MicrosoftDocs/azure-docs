@@ -13,12 +13,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/05/2021
+ms.date: 08/06/2021
 ms.author: b-juche
 ---
 # Create an SMB volume for Azure NetApp Files
 
-Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMB3, or dual protocol (NFSv3 and SMB). A volume's capacity consumption counts against its pool's provisioned capacity. 
+Azure NetApp Files supports creating volumes using NFS (NFSv3 or NFSv4.1), SMB3, or dual protocol (NFSv3 and SMB, or NFSv4.1 and SMB). A volume's capacity consumption counts against its pool's provisioned capacity. 
 
 This article shows you how to create an SMB3 volume. For NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volumes.md). For dual-protocol volumes, see [Create a dual-protocol volume](create-volumes-dual-protocol.md).
 
@@ -44,7 +44,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
     * **Volume name**      
         Specify the name for the volume that you are creating.   
 
-        A volume name must be unique within each capacity pool. It must be at least three characters long. You can use any alphanumeric characters.   
+        A volume name must be unique within each capacity pool. It must be at least three characters long. The name must begin with a letter. It can contain letters, numbers, underscores ('_'), and hyphens ('-') only. 
 
         You can't use `default` or `bin` as the volume name.
 
@@ -83,12 +83,19 @@ Before creating an SMB volume, you need to create an Active Directory connection
         ![Show advanced selection](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
 4. Click **Protocol** and complete the following information:  
-    * Select **SMB** as the protocol type for the volume. 
-    * Select your **Active Directory** connection from the drop-down list.
-    * Specify the name of the shared volume in  **Share name**.
-    * If you want to enable encryption for SMB3, select **Enable SMB3 Protocol Encryption**.   
+    * Select **SMB** as the protocol type for the volume.  
+
+    * Select your **Active Directory** connection from the drop-down list.  
+    
+    * Specify a unique **share name** for the volume. This share name is used when you create mount targets. The requirements for the share name are as follows:   
+        - It must be unique within each subnet in the region. 
+        - It must start with an alphabetical character.
+        - It can contain only letters, numbers, or dashes (`-`). 
+        - The length must not exceed 80 characters.   
+        
+    * <a name="smb3-encryption"></a>If you want to enable encryption for SMB3, select **Enable SMB3 Protocol Encryption**.   
         This feature enables encryption for in-flight SMB3 data. SMB clients not using SMB3 encryption will not be able to access this volume.  Data at rest is encrypted regardless of this setting.  
-        See [SMB Encryption FAQs](azure-netapp-files-faqs.md#smb-encryption-faqs) for additional information. 
+        See [SMB encryption](azure-netapp-files-smb-performance.md#smb-encryption) for additional information. 
 
         The **SMB3 Protocol Encryption** feature is currently in preview. If this is your first time using this feature, register the feature before using it: 
 
@@ -106,7 +113,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
         ```
         
         You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status.  
-    * If you want to enable Continuous Availability for the SMB volume, select **Enable Continuous Availability**.    
+    * <a name="continuous-availability"></a>If you want to enable Continuous Availability for the SMB volume, select **Enable Continuous Availability**.    
 
         > [!IMPORTANT]   
         > The SMB Continuous Availability feature is currently in public preview. You need to submit a waitlist request for accessing the feature through the **[Azure NetApp Files SMB Continuous Availability Shares Public Preview waitlist submission page](https://aka.ms/anfsmbcasharespreviewsignup)**. Wait for an official confirmation email from the Azure NetApp Files team before using the Continuous Availability feature.   
@@ -164,7 +171,7 @@ You can set permissions for a file or folder by using the **Security** tab of th
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Configure ADDS LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md) 
 * [Convert existing SMB volumes to use Continuous Availability](convert-smb-continuous-availability.md)
-* [SMB FAQs](azure-netapp-files-faqs.md#smb-faqs)
+* [SMB encryption](azure-netapp-files-smb-performance.md#smb-encryption)
 * [Troubleshoot SMB or dual-protocol volumes](troubleshoot-dual-protocol-volumes.md)
 * [Learn about virtual network integration for Azure services](../virtual-network/virtual-network-for-azure-services.md)
 * [Install a new Active Directory forest using Azure CLI](/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm)

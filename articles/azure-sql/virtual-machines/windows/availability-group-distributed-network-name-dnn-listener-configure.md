@@ -46,6 +46,7 @@ Before you complete the steps in this article, you should already have:
 - Configured your [Always On availability group](availability-group-overview.md). 
 - Installed the latest version of [PowerShell](/powershell/azure/install-az-ps). 
 - Identified the unique port that you will use for the DNN listener. The port used for a DNN listener must be unique across all replicas of the availability group or failover cluster instance.  No other connection can share the same port.
+- The client connecting to the DNN listener must support the `MultiSubnetFailover=True` parameter in the connection string. 
 
 
 
@@ -173,8 +174,15 @@ Test the connectivity to your DNN listener with these steps:
 
 ## Port considerations
 
-DNN listeners are designed to listen on all IP addresses, but on a specific, unique port. The DNS entry for the listener name should resolve to the addresses of all replicas in the availability group. This is done automatically with the PowerShell script provided in the [Create Script](#create-script) section. Since DNN listeners accept connections on all IP addresses, it is critical that the listener port be unique, and not in use by any other replica in the availability group. Since SQL Server always listens on port 1433, either directly or via the SQL Browser service, port 1433 cannot be used for any DNN listener.
+DNN listeners are designed to listen on all IP addresses, but on a specific, unique port. The DNS entry for the listener name should resolve to the addresses of all replicas in the availability group. This is done automatically with the PowerShell script provided in the [Create Script](#create-script) section. Since DNN listeners accept connections on all IP addresses, it is critical that the listener port be unique, and not in use by any other replica in the availability group. Since SQL Server listens on port 1433 by default, either directly or via the SQL Browser service, using port 1433 for the DNN listener is strongly discouraged. 
 
 ## Next steps
 
-To learn more about SQL Server HADR features in Azure, see [Availability groups](availability-group-overview.md) and [Failover cluster instance](failover-cluster-instance-overview.md). You can also learn [best practices](hadr-cluster-best-practices.md) for configuring your environment for high availability and disaster recovery. 
+Once the availability group is deployed, consider optimizing the [HADR settings for SQL Server on Azure VMs](hadr-cluster-best-practices.md). 
+
+
+To learn more, see:
+
+- [Windows Server Failover Cluster with SQL Server on Azure VMs](hadr-windows-server-failover-cluster-overview.md)
+- [Always On availability groups with SQL Server on Azure VMs](availability-group-overview.md)
+- [Always On availability groups overview](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)

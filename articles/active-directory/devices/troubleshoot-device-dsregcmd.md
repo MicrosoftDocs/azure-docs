@@ -54,7 +54,7 @@ This section lists the device join state parameters. The table below lists the c
 
 ## Device details
 
-Displayed only when the device is Azure AD joined or hybrid Azure AD joined (not Azure AD registered). This section lists device identifying details stored in the cloud.
+Displayed only when the device is Azure AD joined or hybrid Azure AD joined (not Azure AD registered). This section lists device identifying details stored in Azure AD.
 
 - **DeviceId:** Unique ID of the device in the Azure AD tenant
 - **Thumbprint:** Thumbprint of the device certificate
@@ -62,6 +62,14 @@ Displayed only when the device is Azure AD joined or hybrid Azure AD joined (not
 - **KeyContainerId:** -	ContainerId of the device private key associated with the device certificate
 - **KeyProvider:** KeyProvider (Hardware/Software) used to store the device private key.
 - **TpmProtected:** "YES" if the device private key is stored in a Hardware TPM.
+
+> [!NOTE]
+> **DeviceAuthStatus** field was added in **Windows 10 May 2021 Update (version 21H1)**.
+
+- **DeviceAuthStatus:** Performs a check to determine device's health in Azure AD.  
+"SUCCESS" if the device is present and Enabled in Azure AD.  
+"FAILED. Device is either disabled or deleted" if the device is either disabled or deleted, [More Info](faq.yml#why-do-my-users-see-an-error-message-saying--your-organization-has-deleted-the-device--or--your-organization-has-disabled-the-device--on-their-windows-10-devices).  
+"FAILED. ERROR" if the test was unable to run. This test requires network connectivity to Azure AD.  
 
 ### Sample device details output
 
@@ -76,6 +84,7 @@ Displayed only when the device is Azure AD joined or hybrid Azure AD joined (not
             KeyContainerId : 13e68a58-xxxx-xxxx-xxxx-a20a2411xxxx
                KeyProvider : Microsoft Software Key Storage Provider
               TpmProtected : NO
+          DeviceAuthStatus : SUCCESS
 +----------------------------------------------------------------------+
 ```
 
@@ -132,7 +141,7 @@ This section lists the status of various attributes for the user currently logge
 - **CanReset:** Denotes if the Windows Hello key can be reset by the user.
 - **Possible values:** DestructiveOnly, NonDestructiveOnly, DestructiveAndNonDestructive, or Unknown if error.
 - **WorkplaceJoined:** Set to "YES" if Azure AD registered accounts have been added to the device in the current NTUSER context.
-- **WamDefaultSet:** Set to "YES" if a WAM default WebAccount is created for the logged in user. This field could display an error if dsreg /status is run from an elevated command prompt.
+- **WamDefaultSet:** Set to "YES" if a WAM default WebAccount is created for the logged in user. This field could display an error if dsregcmd /status is run from an elevated command prompt.
 - **WamDefaultAuthority:** Set to "organizations" for Azure AD.
 - **WamDefaultId:** Always "https://login.microsoft.com" for Azure AD.
 - **WamDefaultGUID:** The WAM provider's (Azure AD/Microsoft account) GUID for the default WAM WebAccount.
@@ -172,6 +181,34 @@ This section can be ignored for Azure AD registered devices.
 - **EnterprisePrtExpiryTime:** Set to the time in UTC when the PRT is going to expire if it is not renewed.
 - **EnterprisePrtAuthority:** ADFS authority URL
 
+>[!NOTE]
+> The following PRT diagnostics fields were added in **Windows 10 May 2021 Update (version 21H1)**
+
+>[!NOTE]
+> Diagnostic info displayed under **AzureAdPrt** field are for AzureAD PRT acquisition/refresh and diagnostic info displayed under **EnterprisePrt** and for Enterprise PRT acquisition/refresh respectively.
+
+>[!NOTE]
+>Diagnostic is info is displayed only if the acquisition/refresh failure happened after the the last successful PRT update time (AzureAdPrtUpdateTime/EnterprisePrtUpdateTime).  
+>On a shared device this diagnostic info could be form a different user's logon attempt.
+
+- **AcquirePrtDiagnostics:** Set to "PRESENT" if acquire PRT diagnostic info is present in the logs.  
+This field is skipped if no diagnostics info is available.
+- **Previous Prt Attempt:** Local time in UTC at which the failed PRT attempt occurred.  
+- **Attempt Status:** Client error code returned (HRESULT).
+- **User Identity:** UPN of the user for whom the PRT attempt happened.
+- **Credential Type:** Credential used to acquire/refresh PRT. Common credential types are Password and NGC (Windows Hello).
+- **Correlation ID:** Correlation ID sent by the server for the failed PRT attempt.
+- **Endpoint URI:** Last endpoint accessed before the failure.
+- **HTTP Method:** HTTP method used to access the endpoint.
+- **HTTP Error:** WinHttp transport error code. WinHttp errors can be found [here](/windows/win32/winhttp/error-messages).
+- **HTTP Status:** HTTP status returned by the endpoint.
+- **Server Error Code:** Error code from server.  
+- **Server Error Description:** Error message from server.
+- **RefreshPrtDiagnostics:** Set to "PRESENT" if acquire PRT diagnostic info is present in the logs.  
+This field is skipped if no diagnostics info is available.
+The diagnostic info fields are same as **AcquirePrtDiagnostics**
+
+
 ### Sample SSO state output
 
 ```
@@ -179,10 +216,20 @@ This section can be ignored for Azure AD registered devices.
 | SSO State                                                            |
 +----------------------------------------------------------------------+
 
-                AzureAdPrt : YES
-      AzureAdPrtUpdateTime : 2019-01-24 19:15:26.000 UTC
-      AzureAdPrtExpiryTime : 2019-02-07 19:15:26.000 UTC
+                AzureAdPrt : NO
        AzureAdPrtAuthority : https://login.microsoftonline.com/96fa76d0-xxxx-xxxx-xxxx-eb60cc22xxxx
+     AcquirePrtDiagnostics : PRESENT
+      Previous Prt Attempt : 2020-07-18 20:10:33.789 UTC
+            Attempt Status : 0xc000006d
+             User Identity : john@contoso.com
+           Credential Type : Password
+            Correlation ID : 63648321-fc5c-46eb-996e-ed1f3ba7740f
+              Endpoint URI : https://login.microsoftonline.com/96fa76d0-xxxx-xxxx-xxxx-eb60cc22xxxx/oauth2/token/
+               HTTP Method : POST
+                HTTP Error : 0x0
+               HTTP status : 400
+         Server Error Code : invalid_grant
+  Server Error Description : AADSTS50126: Error validating credentials due to invalid username or password.
              EnterprisePrt : YES
    EnterprisePrtUpdateTime : 2019-01-24 19:15:33.000 UTC
    EnterprisePrtExpiryTime : 2019-02-07 19:15:33.000 UTC
@@ -288,8 +335,8 @@ The following example shows diagnostics tests are passing but the registration a
 
 This section displays the output of sanity checks performed on a device joined to the cloud.
 
-- **AadRecoveryEnabled:** If "YES", the keys stored in the device are not usable and the device is marked for recovery. The next sign in will trigger the recovery flow and re-register the device.
-- **KeySignTest:** If "PASSED" the device keys are in good health. If KeySignTest fails, the device will usually be marked for recovery. The next sign in will trigger the recovery flow and re-register the device. For hybrid Azure AD joined devices the recovery is silent. While Azure AD joined or Azure AD registered, devices will prompt for user authentication to recover and re-register the device if necessary. **The KeySignTest requires elevated privileges.**
+- **AadRecoveryEnabled:** If "YES", the keys stored in the device are not usable and the device is marked for recovery. The next sign-in will trigger the recovery flow and re-register the device.
+- **KeySignTest:** If "PASSED" the device keys are in good health. If KeySignTest fails, the device will usually be marked for recovery. The next sign-in will trigger the recovery flow and re-register the device. For hybrid Azure AD joined devices the recovery is silent. While Azure AD joined or Azure AD registered, devices will prompt for user authentication to recover and re-register the device if necessary. **The KeySignTest requires elevated privileges.**
 
 #### Sample post-join diagnostics output
 
@@ -311,7 +358,7 @@ This section performs the prerequisite checks for the provisioning of Windows He
 > You may not see NGC prerequisite check details in dsregcmd /status if the user already successfully configured WHFB.
 
 - **IsDeviceJoined:** Set to "YES" if the device is joined to Azure AD.
-- **IsUserAzureAD:** Set to "YES" if the logged in user is present in Azure AD .
+- **IsUserAzureAD:** Set to "YES" if the logged in user is present in Azure AD.
 - **PolicyEnabled:** Set to "YES" if the WHFB policy is enabled on the device.
 - **PostLogonEnabled:** Set to "YES" if WHFB enrollment is triggered natively by the platform. If it's set to "NO", it indicates that Windows Hello for Business enrollment is triggered by a custom mechanism
 - **DeviceEligible:** Set to "YES" if the device meets the hardware requirement for enrolling with WHFB.

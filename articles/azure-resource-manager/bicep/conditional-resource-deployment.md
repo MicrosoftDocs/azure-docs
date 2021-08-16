@@ -5,12 +5,12 @@ description: Describes how to conditionally deploy a resource in Bicep.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 07/30/2021
 ---
 
 # Conditional deployment in Bicep
 
-Sometimes you need to optionally deploy a resource in Bicep. Use the `if` keyword to specify whether the resource is deployed. The value for the condition resolves to true or false. When the value is true, the resource is created. When the value is false, the resource isn't created. The value can only be applied to the whole resource.
+Sometimes you need to optionally deploy a resource or module in Bicep. Use the `if` keyword to specify whether the resource or module is deployed. The value for the condition resolves to true or false. When the value is true, the resource is created. When the value is false, the resource isn't created. The value can only be applied to the whole resource or module.
 
 > [!NOTE]
 > Conditional deployment doesn't cascade to [child resources](child-resource-name-type.md). If you want to conditionally deploy a resource and its child resources, you must apply the same condition to each resource type.
@@ -28,7 +28,17 @@ resource dnsZone 'Microsoft.Network/dnszones@2018-05-01' = if (deployZone) {
 }
 ```
 
-Conditions may be used with dependency declarations. If the identifier of conditional resource is specified in `dependsOn` of another resource (explicit dependency), the dependency is ignored if the condition evaluates to false at template deployment time. If the condition evaluates to true, the dependency is respected. Referencing a property of a conditional resource (implicit dependency) is allowed but may produce a runtime error in some cases.
+The next example conditionally deploys a module.
+
+```bicep
+param deployZone bool
+
+module dnsZone 'dnszones.bicep' = if (deployZone) {
+  name: 'myZoneModule'
+}
+```
+
+Conditions may be used with dependency declarations. For [explicit dependencies](resource-declaration.md#set-resource-dependencies), Azure Resource Manager automatically removes it from the required dependencies when the resource isn't deployed. For implicit dependencies, referencing a property of a conditional resource is allowed but may produce a deployment error.
 
 ## New or existing resource
 
@@ -59,8 +69,6 @@ resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting =
 ```
 
 When the parameter `newOrExisting` is set to **new**, the condition evaluates to true. The storage account is deployed. However, when `newOrExisting` is set to **existing**, the condition evaluates to false and the storage account isn't deployed.
-
-For a complete example template that uses the `condition` element, see [VM with a new or existing Virtual Network, Storage, and Public IP](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-new-or-existing-conditions).
 
 ## Runtime functions
 
@@ -93,10 +101,8 @@ resource vmName_omsOnboarding 'Microsoft.Compute/virtualMachines/extensions@2017
 output mgmtStatus string = ((!empty(logAnalytics)) ? 'Enabled monitoring for VM!' : 'Nothing to enable')
 ```
 
-You set a [resource as dependent](./resource-declaration.md#set-resource-dependencies) on a conditional resource exactly as you would any other resource. When a conditional resource isn't deployed, Azure Resource Manager automatically removes it from the required dependencies.
-
 ## Next steps
 
-* For a Microsoft Learn module that covers conditional deployment, see [Manage complex cloud deployments by using advanced ARM template features](/learn/modules/manage-deployments-advanced-arm-template-features/).
-* For recommendations about creating templates, see [ARM template best practices](../templates/template-best-practices.md).
-* To create multiple instances of a resource, see [Resource iteration in Bicep](./loop-resources.md).
+* For a Microsoft Learn module about conditions and loops, see [Build flexible Bicep templates by using conditions and loops](/learn/modules/build-flexible-bicep-templates-conditions-loops/).
+* For recommendations about creating Bicep files, see [Best practices for Bicep](best-practices.md).
+* To create multiple instances of a resource, see [Resource iteration in Bicep](loop-resources.md).

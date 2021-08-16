@@ -7,4 +7,4 @@ ms.author: juliako
 ---
 
 > [!NOTE]
-> For the latest version of the service, see [Azure Video Analyzer](https://aka.ms/video-analyzer-landing).
+> For the latest version of the service, see [Azure Video Analyzer](../../../azure-video-analyzer/video-analyzer-docs/index.yml).

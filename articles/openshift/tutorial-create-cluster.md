@@ -23,6 +23,15 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an OpenShift cluster. The default Azure resource quota for a new Azure subscription does not meet this requirement. To request an increase in your resource limit, see [Standard quota: Increase limits by VM series](../azure-portal/supportability/per-vm-quota-requests.md).
 
+* For example to check the current subscription quota of the smallest supported virtual machine familly SKU "Standard DSv3":
+
+    ```azurecli-interactive
+    LOCATION=eastus
+    az vm list-usage -l $LOCATION \
+    --query "[?contains(name.value, 'standardDSv3Family')]" \
+    -o table
+    ```
+
 ARO pull secret does not change the cost of the RH OpenShift license for ARO.
 
 ### Verify your permissions
@@ -111,7 +120,7 @@ Next, you will create a virtual network containing two empty subnets. If you hav
    An Azure resource group is a logical group in which Azure resources are deployed and managed. When you create a resource group, you are asked to specify a location. This location is where resource group metadata is stored, and it is also where your resources run in Azure if you don't specify another region during resource creation. Create a resource group using the [az group create](/cli/azure/group#az_group_create) command.
     
    > [!NOTE] 
-   > Azure Red Hat OpenShift is not available in all regions where an Azure resource group can be created. See [Available regions](https://azure.microsoft.com/en-gb/global-infrastructure/services/?products=openshift) for information on where Azure Red Hat OpenShift is supported.
+   > Azure Red Hat OpenShift is not available in all regions where an Azure resource group can be created. See [Available regions](https://azure.microsoft.com/global-infrastructure/services/?products=openshift) for information on where Azure Red Hat OpenShift is supported.
 
    ```azurecli-interactive
    az group create \

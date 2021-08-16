@@ -11,13 +11,13 @@ ms.date: 04/20/2021
 
 # Detailed configuration for hosted test drives
 
-This article describes how to configure a hosted test drive for Dynamics 365 for Customer Engagement or Dynamics 365 for Operations.
+This article describes how to configure a hosted test drive for Dynamics 365 for Customer Engagement & Power Apps or Dynamics 365 for Operations.
 
-## Configure for Dynamics 365 Customer Engagement
+## Configure for Dynamics 365 Customer Engagement & Power Apps
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/).
+1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165507).
 2. If you can't access the above link, you need to submit a request [here](https://appsource.microsoft.com/partners/list-an-app) to publish your application. Once we review the request, you will be granted access to start the publish process.
-3. Find an existing **Dynamics 365 for Customer Engagement** offer or create a new **Dynamics 365 for Customer Engagement** offer.
+3. Find an existing **Dynamics 365 for Customer Engagement & Power Apps** offer or create a new **Dynamics 365 for Customer Engagement & Power Apps** offer.
 4. Select the **Enable a test drive** check box and select a **Type of test drive** (see bullet below), then select **Save**.
 
     [![Selecting the 'Enable a test drive' check box.](media/test-drive/enable-test-drive-check-box.png)](media/test-drive/enable-test-drive-check-box.png#lightbox)
@@ -31,15 +31,29 @@ This article describes how to configure a hosted test drive for Dynamics 365 for
 
     - **Max concurrent test drives** – The number of concurrent users that can have an active test drive running at the same time. Each user will consume a Dynamics license while their test drive is active, so ensure you have at least this many Dynamics licenses available for test drive users. We recommended 3 to 5.
 	- **Test drive duration** – The number of hours the user's test drive will be active. After the time has expired, the user will be deprovisioned from your tenant. We recommended 2-24 hours depending on the complexity of your app. The user can always request another test drive if they run out of time and want to access the test drive again.
-	- **Instance URL** – The URL the test drive user will be sent to when they start the test drive. This is typically the URL of your Dynamics 365 instance on which your app and sample data is installed. Example value: `https://testdrive.crm.dynamics.com`.
-	- **Instance web API URL** – The Web API URL for your Dynamics 365 Instance. Retrieve this value by signing into your Microsoft Dynamics 365 instance and navigating to **Setting** > **Customization** > **Developer Resources** > **Instance Web API** and copy the address (URL). Example value:
+	- **Instance URL**
+	    - *Customer Engagement* – The URL the test drive user will be sent to when they start the test drive. This is typically the URL of your Dynamics 365 instance on which your app and sample data is installed. Example value: `https://testdrive.crm.dynamics.com`.
+	    - *Canvas App (Power Apps)*
+	        1. Open the **PowerApps portal** page and sign in.
+            2. Select **Apps** and then the ellipses at the app.
+            4. Select **Details**.
+            5. Copy the **Web link** from the **Details** tab:
 
-        :::image type="content" source="./media/test-drive/sample-web-api-url.png" alt-text="An example of Instance Web API.":::
+                :::image type="content" source="./media/test-drive/testdrive-canvas-app.png" alt-text="Shows the TestDrive Canvas App window.":::
 
-	- **Role name** – The name of the custom Dynamics 365 security role you created for test drive or you can use an existing role. A new role should have minimum required privileges added to the role to sign into a Customer Engagement instance. Refer to [Minimum privileges required to sign into Microsoft Dynamics 365](https://community.dynamics.com/crm/b/crminogic/archive/2016/11/24/minimum-privileges-required-to-login-microsoft-dynamics-365). This is the role that will be assigned to users during their test drive. Example value: `testdriverole`.
+	- **Instance web API URL**
+        - *Customer Engagement* – The Web API URL for your Dynamics 365 Instance. Retrieve this value by signing into your Microsoft Dynamics 365 instance, selecting **Setting** > **Customization** > **Developer Resources** > **Instance Web API**, and copying the address (URL). Example value:
+
+            :::image type="content" source="./media/test-drive/sample-web-api-url.png" alt-text="An example of Instance Web API.":::
+
+        - *Canvas App (Power Apps)* – If you are not using CE/Dataverse as a backend to your Canvas App, use `https://localhost` as a placeholder.
+
+    - **Role name**
+        - *Customer Engagement* – The name of the custom Dynamics 365 security role you created for test drive or you can use an existing role. A new role should have minimum required privileges added to the role to sign into a Customer Engagement instance. Refer to [Minimum privileges required to sign into Microsoft Dynamics 365](https://community.dynamics.com/crm/b/crminogic/archive/2016/11/24/minimum-privileges-required-to-login-microsoft-dynamics-365). This is the role that will be assigned to users during their test drive. Example value: `testdriverole`.
+        - *Canvas App (Power Apps)* – Use "NA" when not using CE/Dataverse as the backend data source.
 	
-        > [!IMPORTANT]
-        > Ensure the security group check is not added. This allows the user to be synced to the Customer Engagement instance.
+    > [!IMPORTANT]
+    > Ensure the security group check is not added. This allows the user to be synced to the Customer Engagement instance.
 
 	- **Azure Active Directory tenant ID** – The ID of the Azure tenant for your Dynamics 365 instance. To retrieve this value, sign in to Azure portal and navigate to **Azure Active Directory** > **Properties** and copy the directory ID. Example value: 172f988bf-86f1-41af-91ab-2d7cd01112341.
 	- **Azure Active Directory tenant name** – The name of the Azure Tenant for your Dynamics 365 Instance. Use the format `<tenantname>.onmicrosoft.com`. Example Value: `testdrive.onmicrosoft.com`.
@@ -56,9 +70,10 @@ This article describes how to configure a hosted test drive for Dynamics 365 for
 
 ## Configure for Dynamics 365 Operations
 
+1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165507).
 2. If you can't access the above link, you need to submit a request [here](https://appsource.microsoft.com/partners/list-an-app) to publish your application. Once we review the request, you will be granted access to start the publish process.
 3. Find an existing **Dynamics 365 for Operations** offer or create a new **Dynamics 365 for Operations** offer.
-4. Select the **Enable a test drive** check box and select a **Type of test drive** (see bullet below), then select **Save**.
+4. Select the **Enable a test drive** check box and select a **Type of test drive** (see bullet below), then select **Save draft**.
 
     [![Select the 'Enable a test drive' check box.](media/test-drive/enable-test-drive-check-box-operations.png)](media/test-drive/enable-test-drive-check-box-operations.png#lightbox)
 

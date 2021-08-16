@@ -5,7 +5,7 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 10/13/2020
+ms.date: 07/08/2021
 ms.author: sngun
 ms.custom: devx-track-dotnet, contperf-fy21q2
 
@@ -34,7 +34,7 @@ The [.NET v3 SDK](https://github.com/Azure/azure-cosmos-dotnet-v3) is released. 
 - Support custom serializer to allow System.Text.JSON usage
 - Integrated batch and bulk support
 
-## Hosting recommendations
+## <a id="hosting"></a> Hosting recommendations
 
 **For query-intensive workloads, use Windows 64-bit instead of Linux or Windows 32-bit host processing**
 
@@ -122,6 +122,27 @@ The Azure Cosmos DB SDKs are constantly being improved to provide the best perfo
 **Use a singleton Azure Cosmos DB client for the lifetime of your application**
 
 Each `DocumentClient` instance is thread-safe and performs efficient connection management and address caching when operating in direct mode. To allow efficient connection management and better SDK client performance, we recommend that you use a single instance per `AppDomain` for the lifetime of the application.
+
+**Avoid blocking calls**
+
+Cosmos DB SDK should be designed to process many requests simultaneously. Asynchronous APIs allow a small pool of threads to handle thousands of concurrent requests by not waiting on blocking calls. Rather than waiting on a long-running synchronous task to complete, the thread can work on another request.
+
+A common performance problem in apps using the Cosmos DB SDK is blocking calls that could be asynchronous. Many synchronous blocking calls lead to [Thread Pool starvation](/archive/blogs/vancem/diagnosing-net-core-threadpool-starvation-with-perfview-why-my-service-is-not-saturating-all-cores-or-seems-to-stall) and degraded response times.
+
+**Do not**:
+
+* Block asynchronous execution by calling [Task.Wait](/dotnet/api/system.threading.tasks.task.wait) or [Task.Result](/dotnet/api/system.threading.tasks.task-1.result).
+* Use [Task.Run](/dotnet/api/system.threading.tasks.task.run) to make a synchronous API asynchronous.
+* Acquire locks in common code paths. Cosmos DB .NET SDK is most performant when architected to run code in parallel.
+* Call [Task.Run](/dotnet/api/system.threading.tasks.task.run) and immediately await it. ASP.NET Core already runs app code on normal Thread Pool threads, so calling Task.Run only results in extra unnecessary Thread Pool scheduling. Even if the scheduled code would block a thread, Task.Run does not prevent that.
+* Do not use ToList() on `DocumentClient.CreateDocumentQuery(...)` which uses blocking calls to synchronously drain the query. Use [AsDocumentQuery()](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/a4348f8cc0750434376b02ae64ca24237da28cd7/samples/code-samples/Queries/Program.cs#L690) to drain the query asynchronously.
+
+**Do**:
+
+* Call the Cosmos DB .NET APIs asynchronously.
+* The entire call stack is asynchronous in order to benefit from [async/await](/dotnet/csharp/programming-guide/concepts/async/) patterns.
+
+A profiler, such as [PerfView](https://github.com/Microsoft/perfview), can be used to find threads frequently added to the [Thread Pool](/windows/desktop/procthread/thread-pools). The `Microsoft-Windows-DotNETRuntime/ThreadPoolWorkerThread/Start` event indicates a thread added to the thread pool.
 
 **Increase System.Net MaxConnections per host when using gateway mode**
 

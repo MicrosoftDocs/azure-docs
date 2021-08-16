@@ -7,12 +7,12 @@ ms.date: 12/07/2020
 ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ---
 
 # StylesObject Schema reference guide for dynamic Maps
 
- The `StylesObject` is a `StyleObject` array representing stateset styles. Use the Azure Maps Creator [Feature State service](/rest/api/maps/v2/featurestate) to apply your stateset styles to indoor map data features. Once you've created your stateset styles and associated them with indoor map features, you can use them to create dynamic indoor maps. For more information on creating dynamic indoor maps, see [Implement dynamic styling for Creator  indoor maps](indoor-map-dynamic-styling.md).
+ The `StylesObject` is a `StyleObject` array representing stateset styles. Use the Azure Maps Creator [Feature State service](/rest/api/maps/v2/feature-state) to apply your stateset styles to indoor map data features. Once you've created your stateset styles and associated them with indoor map features, you can use them to create dynamic indoor maps. For more information on creating dynamic indoor maps, see [Implement dynamic styling for Creator  indoor maps](indoor-map-dynamic-styling.md).
 
 ## StyleObject
 

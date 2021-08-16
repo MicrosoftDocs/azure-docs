@@ -8,8 +8,8 @@ ms.subservice: backup-restore
 ms.custom: 
 ms.devlang: 
 ms.topic: quickstart
-author: danimir 
-ms.author: danil
+author: misliplavo 
+ms.author: mlazic
 ms.reviewer: mathoma
 ms.date: 12/14/2018
 ---
@@ -21,8 +21,8 @@ In this quickstart, you'll use SQL Server Management Studio (SSMS) to restore a 
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
 > [!NOTE]
-> For more information on migration using Azure Database Migration Service, see [SQL Managed Instance migration using Database Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md).
-> For more information on various migration methods, see [SQL Server migration to Azure SQL Managed Instance](migrate-to-instance-from-sql-server.md).
+> For more information on migration using Azure Database Migration Service, see [Tutorial: Migrate SQL Server to an Azure Managed Instance using Database Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md).
+> For more information on various migration methods, see [SQL Server to Azure SQL Managed Instance Guide](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md).
 
 ## Prerequisites
 

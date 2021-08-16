@@ -1,13 +1,15 @@
 ---
 title: Sink transformation in mapping data flow
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to configure a sink transformation in mapping data flow.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/06/2021
+ms.date: 07/27/2021
 ---
 
 # Sink transformation in mapping data flow
@@ -16,7 +18,7 @@ ms.date: 04/06/2021
 
 After you finish transforming your data, write it into a destination store by using the sink transformation. Every data flow requires at least one sink transformation, but you can write to as many sinks as necessary to complete your transformation flow. To write to additional sinks, create new streams via new branches and conditional splits.
 
-Each sink transformation is associated with exactly one Azure Data Factory dataset object or linked service. The sink transformation determines the shape and location of the data you want to write to.
+Each sink transformation is associated with exactly one dataset object or linked service. The sink transformation determines the shape and location of the data you want to write to.
 
 ## Inline datasets
 
@@ -29,6 +31,15 @@ Inline datasets are recommended when you use flexible schemas, one-off sink inst
 To use an inline dataset, select the format you want in the **Sink type** selector. Instead of selecting a sink dataset, you select the linked service you want to connect to.
 
 ![Screenshot that shows Inline selected.](media/data-flow/inline-selector.png "Screenshot that shows Inline selected.")
+
+## Workspace DB (Synapse workspaces only)
+
+When using data flows in Azure Synapse workspaces, you will have an additional option to sink your data directly into a database type that is inside your Synapse workspace. This will alleviate the need to add linked services or datasets for those databases.
+
+> [!NOTE]
+> The Azure Synapse Workspace DB connector is currently in public preview and can only work with Spark Lake databases at this time
+
+![Screenshot that shows workspace db selected.](media/data-flow/syms-sink.png "Screenshot that shows Inline selected.")
 
 ##  <a name="supported-sinks"></a> Supported sink types
 
@@ -50,7 +61,7 @@ Mapping data flow follows an extract, load, and transform (ELT) approach and wor
 
 Settings  specific to these connectors are located on the **Settings** tab. Information and data flow script examples on these settings are located in the connector documentation.
 
-Azure Data Factory has access to more than [90 native connectors](connector-overview.md). To write data to those other sources from your data flow, use the Copy Activity to load that data from a supported sink.
+The service has access to more than [90 native connectors](connector-overview.md). To write data to those other sources from your data flow, use the Copy Activity to load that data from a supported sink.
 
 ## Sink settings
 
@@ -62,7 +73,7 @@ The following video explains a number of different sink options for text-delimit
 
 ![Screenshot that shows Sink settings.](media/data-flow/sink-settings.png "Screenshot that shows Sink settings.")
 
-**Schema drift**: [Schema drift](concepts-data-flow-schema-drift.md) is the ability of Data Factory to natively handle flexible schemas in your data flows without needing to explicitly define column changes. Enable **Allow schema drift** to write additional columns on top of what's defined in the sink data schema.
+**Schema drift**: [Schema drift](concepts-data-flow-schema-drift.md) is the ability of the service to natively handle flexible schemas in your data flows without needing to explicitly define column changes. Enable **Allow schema drift** to write additional columns on top of what's defined in the sink data schema.
 
 **Validate schema**: If validate schema is selected, the data flow will fail if any column of the incoming source schema isn't found in the source projection, or if the data types don't match. Use this setting to enforce that the source data meets the contract of your defined projection. It's useful in database source scenarios to signal that column names or types have changed.
 
@@ -106,11 +117,11 @@ By default, data is written to multiple sinks in a nondeterministic order. The e
 
 ### Sink groups
 
-You can group sinks together by applying the same order number for a series of sinks. ADF will treat those sinks as groups that can execute in parallel. Options for parallel execution will surface in the pipeline data flow activity.
+You can group sinks together by applying the same order number for a series of sinks. The service will treat those sinks as groups that can execute in parallel. Options for parallel execution will surface in the pipeline data flow activity.
 
 ## Error row handling
 
-When writing to databases, certain rows of data may fail due to constraints set by the destination. By default, a data flow run will fail on the first error it gets. In certain connectors, you can choose to **Continue on error** that allows your data flow to complete even if individual rows have errors. Currently, this capability is only available in Azure SQL Database. For more information, see [error row handling in Azure SQL DB](connector-azure-sql-database.md#error-row-handling).
+When writing to databases, certain rows of data may fail due to constraints set by the destination. By default, a data flow run will fail on the first error it gets. In certain connectors, you can choose to **Continue on error** that allows your data flow to complete even if individual rows have errors. Currently, this capability is only available in Azure SQL Database and Azure Synapse. For more information, see [error row handling in Azure SQL DB](connector-azure-sql-database.md#error-row-handling).
 
 Below is a video tutorial on how to use database error row handling automatically in your sink transformation.
 

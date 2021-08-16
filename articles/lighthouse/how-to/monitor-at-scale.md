@@ -1,7 +1,7 @@
 ---
 title: Monitor delegated resources at scale
-description: Learn how to effectively use Azure Monitor Logs in a scalable way across the customer tenants you're managing.
-ms.date: 05/10/2021
+description: Azure Lighthouse helps you use Azure Monitor Logs in a scalable way across customer tenants.
+ms.date: 08/12/2021
 ms.topic: how-to
 ---
 
@@ -38,7 +38,6 @@ You can create a Log Analytics workspace by using the [Azure portal](../../azure
 > New-AzADServicePrincipal -ApplicationId 1215fb39-1d15-4c05-b2e3-d519ac3feab4
 > New-AzADServicePrincipal -ApplicationId 6da94f3c-0d67-4092-a408-bb5d1cb08d2d 
 > ```
->
 
 ## Deploy policies that log data
 
@@ -51,6 +50,24 @@ When you've determined which policies to deploy, you can [deploy them to your de
 ## Analyze the gathered data
 
 After you've deployed your policies, data will be logged in the Log Analytics workspaces you've created in each customer tenant. To gain insights across all managed customers, you can use tools such as [Azure Monitor Workbooks](../../azure-monitor/visualize/workbooks-overview.md) to gather and analyze information from multiple data sources.
+
+## Query data across customer workspaces
+
+You can run [log queries](../../azure-monitor/logs/log-query-overview.md) to retrieve data across Log Analytics workspaces in different customer tenants by creating a union that includes multiple workspaces. By including the TenantID column, you can see which results belong to which tenants.
+
+The following example query creates a union on the AzureDiagnostics table across workspaces in two separate customer tenants. The results show the Category, ResourceGroup, and TenantID columns.
+
+``` Kusto
+union AzureDiagnostics,
+workspace("WS-customer-tenant-1").AzureDiagnostics,
+workspace("WS-customer-tenant-2").AzureDiagnostics
+| project Category, ResourceGroup, TenantId
+```
+
+For more examples of queries across multiple Log Analytics workspaces, see [Query across resources with Azure Monitor](../../azure-monitor/logs/cross-workspace-query.md).
+
+> [!IMPORTANT]
+> If you use an automation account used to query data from a Log Analytics workspace, that automation account must be created in the same tenant as the workspace.
 
 ## View alerts across customers
 

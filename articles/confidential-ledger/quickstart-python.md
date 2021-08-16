@@ -18,7 +18,7 @@ Microsoft Azure Confidential Ledger is a new and highly secure service for manag
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[API reference documentation](/python/api/overview/azure/keyvault-secrets-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-secrets) | [Package (Python Package Index)](https://pypi.org/project/azure-keyvault-secrets/)
+[API reference documentation](/python/api/overview/azure/keyvault-secrets-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/confidentialledger) | [Package (Python Package Index) Management Library](https://pypi.org/project/azure-mgmt-confidentialledger/)| [Package (Python Package Index) Client Library](https://pypi.org/project/azure-confidentialledger/)
 
 ## Prerequisites
 
@@ -100,10 +100,10 @@ We'll finish setup by setting some variables for use in your application: the re
 ```python
 resource_group = "myResourceGroup"
 ledger_name = "<your-unique-ledger-name>"
-subscription_id "<azure-subscription-id>"
+subscription_id = "<azure-subscription-id>"
 
 identity_url = "https://identity.confidential-ledger.core.azure.com"
-ledger_url = "https://" + ledger_name + ".eastus.cloudapp.azure.com"
+ledger_url = "https://" + ledger_name + ".confidential-ledger.azure.com"
 ```
 
 ### Use the control plane client library
@@ -144,7 +144,7 @@ confidential_ledger_mgmt.ledger.begin_create(resource_group, ledger_name, ledger
 To verify that your ledger was successfully created, view its details using the `get` function.
 
 ```python
-myledger = ledger = confidential_ledger_mgmt.ledger.get(resource_group, ledger_name)
+myledger = confidential_ledger_mgmt.ledger.get(resource_group, ledger_name)
 
 print("Here are the details of your newly created ledger:")
 print (f"- Name: {myledger.name}")
@@ -215,7 +215,7 @@ from azure.confidentialledger.identity_service import ConfidentialLedgerIdentity
 
 rg = "myResourceGroup"
 ledger_name = "<unique-ledger-name>"
-subscription_id "<azure-subscription-id>"
+subscription_id = "<azure-subscription-id>"
 
 identity_url = "https://identity.confidential-ledger.core.azure.com"
 ledger_url = "https://" + ledger_name + ".eastus.cloudapp.azure.com"

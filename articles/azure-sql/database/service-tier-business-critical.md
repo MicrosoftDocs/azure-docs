@@ -8,9 +8,9 @@ ms.subservice: service-overview
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: mathoma
+author: danimir
+ms.author: danil
+ms.reviewer: mathoma, urmilano
 ms.date: 12/04/2018
 ---
 # Business Critical tier - Azure SQL Database and Azure SQL Managed Instance 
@@ -43,11 +43,11 @@ In addition, Business Critical cluster has built-in [Read Scale-Out](read-scale-
 Business Critical service tier is designed for applications that require low-latency responses from the underlying SSD storage (1-2 ms in average), fast recovery if the underlying infrastructure fails, or need to off-load reports, analytics, and read-only queries to the free of charge readable secondary replica of the primary database.
 
 The key reasons why you should choose Business Critical service tier instead of General Purpose tier are:
--	**Low I/O latency requirements** – workloads that need a fast response from the storage layer (1-2 milliseconds in average) should use Business Critical tier. 
--	**Frequent communication between application and database**. Applications that cannot leverage application-layer caching or [request batching](../performance-improve-use-batching.md) and need to send many SQL queries that must be quickly processed are good candidates for the Business Critical tier.
--	**Large number of updates** – insert, update, and delete operations modify the data pages in memory (dirty page) that must be saved to data files with `CHECKPOINT` operation. Potential database engine process crash or a failover of the database with a large number of dirty pages might increase recovery time in General Purpose tier. Use Business Critical tier if you have a workload that causes many in-memory changes. 
--	**Long running transactions that modify data**. Transactions that are opened for a longer time prevent log file truncation, which might increase log size and number of [Virtual log files (VLF)](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide#physical_arch). High number of VLFs can slow down recovery of database after failover.
--	**Workload with reporting and analytic queries** that can be redirected to the free-of-charge secondary read-only replica.
+-    **Low I/O latency requirements** – workloads that need a fast response from the storage layer (1-2 milliseconds in average) should use Business Critical tier. 
+-    **Frequent communication between application and database**. Applications that cannot leverage application-layer caching or [request batching](../performance-improve-use-batching.md) and need to send many SQL queries that must be quickly processed are good candidates for the Business Critical tier.
+-    **Large number of updates** – insert, update, and delete operations modify the data pages in memory (dirty page) that must be saved to data files with `CHECKPOINT` operation. Potential database engine process crash or a failover of the database with a large number of dirty pages might increase recovery time in General Purpose tier. Use Business Critical tier if you have a workload that causes many in-memory changes. 
+-    **Long running transactions that modify data**. Transactions that are opened for a longer time prevent log file truncation, which might increase log size and number of [Virtual log files (VLF)](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide#physical_arch). High number of VLFs can slow down recovery of database after failover.
+-    **Workload with reporting and analytic queries** that can be redirected to the free-of-charge secondary read-only replica.
 - **Higher resiliency and faster recovery from failures**. In a case of system failure, the database on primary instance will be disabled and one of the secondary replicas will be immediately became new read-write primary database that is ready to process queries. The database engine doesn't need to analyze and redo transactions from the log file and load all data in the memory buffer.
 - **Advanced data corruption protection**. Business Critical tier leverages database replicas behind-the-scenes for business continuity purposes, and so the service also then leverages automatic page repair, which is the same technology used for SQL Server database [mirroring and availability groups](/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring). In the event that a replica cannot read a page due to a data integrity issue, a fresh copy of the page will be retrieved from another replica, replacing the unreadable page without data loss or customer downtime. This functionality is applicable in General Purpose tier if the database has geo-secondary replica.
 - **Higher availability** - Business Critical tier in Multi-AZ configuration guarantees 99.995% availability, compared to 99.99% of General Purpose tier.

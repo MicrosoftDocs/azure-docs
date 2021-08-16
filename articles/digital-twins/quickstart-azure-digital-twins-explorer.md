@@ -44,23 +44,36 @@ You'll also need to download the materials for the sample graph used in the quic
 
     :::image type="content" source="media/quickstart-azure-digital-twins-explorer/download-building-scenario.png" alt-text="Screenshot of the digital-twins-explorer/client/examples/buildingScenario.xlsx file in GitHub. The Download button is highlighted." lightbox="media/quickstart-azure-digital-twins-explorer/download-building-scenario.png":::
 
-## Set up Azure Digital Twins and Azure Digital Twins Explorer
+## Set up Azure Digital Twins
 
-The first step in working with Azure Digital Twins is to set up an Azure Digital Twins instance. After you create an instance of the service, you can connect to the instance in Azure Digital Twins Explorer and populate it with the sample data later in the quickstart.
+The first step in working with Azure Digital Twins is to create an Azure Digital Twins instance. After you create an instance of the service, you can connect to the instance in Azure Digital Twins Explorer, which you'll use to work with the instance throughout the quickstart.
 
 The rest of this section walks you through these steps.
 
-### Set up an Azure Digital Twins instance
+### Create an Azure Digital Twins instance
 
-To work with Azure Digital Twins in this article, you first need to *set up an Azure Digital Twins instance*. You also need the required permissions for using it.
+[!INCLUDE [digital-twins-setup-portal.md](../../includes/digital-twins-setup-portal.md)]
 
-Follow the instructions in [Set up an instance and authentication](how-to-set-up-instance-portal.md). The instructions contain information to help you verify that you've completed each step successfully.
+3. Fill in the fields on the **Basics** tab of setup, including your Subscription, Resource group, Location, and a Resource name for your new instance. Check the **Assign Azure Digital Twins Data Owner Role** box to give yourself permissions to manage data in the instance.
+
+    >[!NOTE]
+    > If the Assign Azure Digital Twins Data Owner Role box is greyed out, it means you don't have permissions in your Azure subscription to manage user access to resources. You can continue creating the instance in this section, and then should have someone with the necessary permissions [assign you this role on the instance](how-to-set-up-instance-portal.md#assign-the-role-using-azure-identity-management-iam) before completing the rest of this quickstart.
+    >
+    > Common roles that meet this requirement are **Owner**, **Account admin**, or the combination of **User Access Administrator** and **Contributor**.  
+
+4. Select **Review + Create** to finish creating your instance.
+
+    :::image type="content" source= "media/quickstart-azure-digital-twins-explorer/create-azure-digital-twins-basics.png" alt-text="Screenshot of the Create Resource process for Azure Digital Twins in the Azure portal. The described values are filled in.":::
+    
+5. You will see a summary page showing the details you've entered. Confirm and create the instance by selecting **Create**.
+
+This will take you to an Overview page tracking deployment status of the instance.
 
 ### Open instance in Azure Digital Twins Explorer
 
-Next, open Azure Digital Twins Explorer for your instance in the [Azure portal](https://portal.azure.com). 
+When the instance is finished deploying, use the **Go to resource** button to navigate to the instance's Overview page in the portal.
 
-To do this, go to the Azure portal and navigate to your new Azure Digital Twins instance, by searching for its name in the portal search bar.
+:::image type="content" source= "media/quickstart-azure-digital-twins-explorer/deployment-complete.png" alt-text="Screenshot of the deployment page for Azure Digital Twins in the Azure portal. The page indicates that deployment is complete.":::
 
 Next, select the **Open Azure Digital Twins Explorer (preview)** button.
 
@@ -289,4 +302,4 @@ You may also want to delete the sample project folder from your local machine.
 Next, continue on to the Azure Digital Twins tutorials to build out your own Azure Digital Twins scenario and interaction tools.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Code a client app](tutorial-code.md)
+> [Code a client app](tutorial-code.md)

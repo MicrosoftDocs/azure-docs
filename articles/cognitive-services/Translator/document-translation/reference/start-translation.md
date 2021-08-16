@@ -9,13 +9,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 04/21/2021
+ms.date: 06/22/2021
 ms.author: v-jansk
 ---
 
 # Start translation
 
-Use this API to start a bulk (batch) translation request with the Document Translation service. Each request can contain multiple documents and must contain a source and destination container for each document.
+Use this API to start a translation request with the Document Translation service. Each request can contain multiple documents and must contain a source and destination container for each document.
 
 The prefix and suffix filter (if supplied) are used to filter folders. The prefix is applied to the subpath after the container name.
 

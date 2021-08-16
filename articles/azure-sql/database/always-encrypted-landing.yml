@@ -117,7 +117,7 @@ landingContent:
           - text: Bulk load encrypted data to columns using Always Encrypted
             url: /sql/relational-databases/security/encryption/migrate-sensitive-data-protected-by-always-encrypted
           - text: Using Always Encrypted with Azure Data Factory
-            url: https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#using-always-encrypted
+            url: ../../data-factory/connector-azure-sql-database.md#using-always-encrypted
 
 
   # Card

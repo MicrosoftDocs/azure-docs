@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio (classic): Export & delete your data - Azure'
-description: In-product data stored by Azure Machine Learning Studio (classic) is available for export and deletion through the Azure portal and also through authenticated REST APIs. Telemetry data can be accessed through the Azure Privacy Portal. This article shows you how.
+description: In-product data stored by Machine Learning Studio (classic) is available for export and deletion through the Azure portal and also through authenticated REST APIs. Telemetry data can be accessed through the Azure Privacy Portal. This article shows you how.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -12,14 +12,14 @@ ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
 ---
 
-# Export and delete in-product user data from Azure Machine Learning Studio (classic)
+# Export and delete in-product user data from Machine Learning Studio (classic)
 
 **APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 
 
-You can delete or export in-product data stored by Azure Machine Learning Studio (classic) by using the Azure portal, the Studio (classic) interface, PowerShell, and authenticated REST APIs. This article tells you how. 
+You can delete or export in-product data stored by Machine Learning Studio (classic) by using the Azure portal, the Studio (classic) interface, PowerShell, and authenticated REST APIs. This article tells you how. 
 
 Telemetry data can be accessed through the Azure Privacy portal. 
 
@@ -70,8 +70,8 @@ Users can also delete their entire workspace:
 ![Delete a free workspace in Machine Learning Studio (classic)](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)
  
 ## Export Studio (classic) data with PowerShell
-Use PowerShell to export all your information to a portable format from Azure Machine Learning Studio (classic) using commands. For information, see the [PowerShell module for Azure Machine Learning Studio (classic)](powershell-module.md) article.
+Use PowerShell to export all your information to a portable format from Machine Learning Studio (classic) using commands. For information, see the [PowerShell module for Machine Learning Studio (classic)](powershell-module.md) article.
 
 ## Next steps
 
-For documentation covering web services and commitment plan billing, see [Azure Machine Learning Studio (classic) REST API reference](/rest/api/machinelearning/).
+For documentation covering web services and commitment plan billing, see [Machine Learning Studio (classic) REST API reference](/rest/api/machinelearning/).

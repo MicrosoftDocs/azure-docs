@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/13/2021
+ms.date: 08/12/2021
 
 ms.author: justinha
 author: justinha
@@ -58,7 +58,7 @@ If a user's device has been lost or stolen, you can block Azure AD Multi-Factor 
 
 ### Block a user
 
-To block a user, complete the following steps:
+To block a user, complete the following steps, or watch [this short video](https://www.youtube.com/watch?v=WdeE1On4S1o&feature=youtu.be)
 
 1. Browse to **Azure Active Directory** > **Security** > **MFA** > **Block/unblock users**.
 1. Select **Add** to block a user.
@@ -95,7 +95,11 @@ To enable and configure fraud alerts, complete the following steps:
 
 ### View fraud reports
 
-Select **Azure Active Directory** > **Sign-ins** > **Authentication Details**. The fraud report is now part of the standard Azure AD Sign-ins report and it will show in the **"Result Detail"** as MFA denied, Fraud Code Entered.
+When a user reports fraud, the event shows up in the Sign-ins report (as a sign-in that was rejected by the user) and in the Audit logs.
+
+- To view fraud reports in the Sign-ins report, click **Azure Active Directory** > **Sign-ins** > **Authentication Details**. The fraud report is part of the standard Azure AD Sign-ins report and appears in the **Result Detail** as **MFA denied, Fraud Code Entered**.
+
+- To view fraud reports in the Audit logs, click **Azure Active Directory** > **Audit Logs**. The fraud report appears under Activity type **Fraud reported - user is blocked for MFA** or **Fraud reported - no action taken** based on the tenant-level settings for fraud report.
  
 ## Notifications
 

@@ -8,14 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 05/18/2021
+ms.date: 07/06/2021
 ms.author: aahi
 ---
 # Text Analytics API v3 language support 
 
 #### [Sentiment Analysis](#tab/sentiment-analysis)
 
-| Language              | Language code | v3 support | Starting v3 model version: |              Notes |
+> [!NOTE]
+> Languages are added as new [model versions](concepts/model-versioning.md) are released for specific Text Analytics features. The current model version for Sentiment Analysis is `2020-04-01`.
+
+| Language              | Language code | v3.x support | Starting v3 model version: |              Notes |
 |:----------------------|:-------------:|:----------:|:--------------------------:|-------------------:|
 | Chinese-Simplified    |   `zh-hans`   |     ✓      |         2019-10-01         | `zh` also accepted |
 | Chinese-Traditional   |   `zh-hant`   |    ✓      |         2019-10-01         |                    |
@@ -33,7 +36,7 @@ ms.author: aahi
 | Spanish               |     `es`      |     ✓      |         2019-10-01         |                    |
 | Turkish               |     `tr`      |     ✓       |         2020-04-01        |                    |
 
-### Opinion mining (v3.1-preview only)
+### Opinion mining (v3.1 only)
 
 | Language              | Language code | Starting with v3 model version: |              Notes |
 |:----------------------|:-------------:|:------------------------------------:|-------------------:|
@@ -44,8 +47,9 @@ ms.author: aahi
 
 > [!NOTE]
 > * Only "Person", "Location" and "Organization" entities are returned for languages marked with *.
+> * Languages are added as new [model versions](concepts/model-versioning.md) are released for specific Text Analytics features. The current model version for NER is `2021-06-01`.
 
-| Language               | Language code | v3 support | Starting with v3 model version: |       Notes        |
+| Language               | Language code | v3.x support | Starting with v3 model version: |       Notes        |
 |:-----------------------|:-------------:|:----------:|:-------------------------------:|:------------------:|
 | Arabic                 |     `ar`      |      ✓*    |               2019-10-01        |                    |
 | Chinese-Simplified     |   `zh-hans`   |     ✓      |               2021-01-15        | `zh` also accepted |
@@ -71,37 +75,73 @@ ms.author: aahi
 | Swedish               |     `sv`      |     ✓*      |               2019-10-01        |                    |
 | Turkish               |     `tr`      |     ✓*      |               2019-10-01        |                    |
 
-#### [Key phrase extraction](#tab/key-phrase-extraction)
+#### [Key Phrase Extraction](#tab/key-phrase-extraction)
 
-| Language              | Language code |  v3 support | Available starting with v3 model version: |       Notes        |
+> [!NOTE]
+> Languages are added as new [model versions](concepts/model-versioning.md) are released for specific Text Analytics features. The current model version for Key Phrase Extraction is `2021-06-01`.
+
+| Language              | Language code |  v3.x support | Starting with v3 model version: |       Notes        |
 |:----------------------|:-------------:|:----------:|:-----------------------------------------:|:------------------:|
-| Danish                |     `da`      |     ✓     |                2019-10-01                 |                    |
+| Afrikaans             |     `af`      |     ✓      |                2020-07-01                 |                    |
+| Bulgarian             |     `bg`      |     ✓      |                2020-07-01                 |                    |
+| Catalan               |     `ca`      |     ✓      |                2020-07-01                 |                    |
+| Chinese-Simplified    |     `zh-hans` |     ✓      |                2021-06-01                 |                    |
+| Croatian              |     `hr`      |     ✓      |                2020-07-01                 |                    |
+| Danish                |     `da`      |     ✓      |                2019-10-01                 |                    |
 | Dutch                 |     `nl`      |     ✓      |                2019-10-01                 |                    |
 | English               |     `en`      |     ✓      |                2019-10-01                 |                    |
+| Estonian              |     `et`      |     ✓      |                2020-07-01                 |                    |
 | Finnish               |     `fi`      |     ✓      |                2019-10-01                 |                    |
 | French                |     `fr`      |     ✓      |                2019-10-01                 |                    |
 | German                |     `de`      |     ✓      |                2019-10-01                 |                    |
+| Greek                 |     `el`      |     ✓      |                2020-07-01                 |                    |
+| Hungarian             |     `hu`      |     ✓      |                2020-07-01                 |                    |
 | Italian               |     `it`      |     ✓      |                2019-10-01                 |                    |
+| Indonesian            |     `id`      |     ✓      |                2020-07-01                 |                    |
 | Japanese              |     `ja`      |     ✓      |                2019-10-01                 |                    |
 | Korean                |     `ko`      |     ✓      |                2019-10-01                 |                    |
+| Latvian               |     `lv`      |     ✓      |                2020-07-01                 |                    |
 | Norwegian  (Bokmål)   |     `no`      |     ✓      |                2020-07-01                 | `nb` also accepted |
 | Polish                |     `pl`      |    ✓      |                2019-10-01                 |                    |
 | Portuguese (Brazil)   |    `pt-BR`    |     ✓      |                2019-10-01                 |                    |
 | Portuguese (Portugal) |    `pt-PT`    |    ✓      |                2019-10-01                 | `pt` also accepted |
+| Romanian              |     `ro`      |     ✓      |                2020-07-01                 |                    |
 | Russian               |     `ru`      |     ✓      |                2019-10-01                 |                    |
 | Spanish               |     `es`      |     ✓      |                2019-10-01                 |                    |
+| Slovak                |     `sk`      |     ✓      |                2020-07-01                 |                    |
+| Slovenian             |     `sl`      |     ✓      |                2020-07-01                 |                    |
 | Swedish               |     `sv`      |     ✓      |                2019-10-01                 |                    |
+| Turkish               |     `tr`      |     ✓      |                2020-07-01                 |                    |
 
-#### [Entity linking](#tab/entity-linking)
+#### [Entity Linking](#tab/entity-linking)
 
-| Language | Language code |  v3 support | Available starting with v3 model version: | Notes |
+> [!NOTE]
+> Languages are added as new [model versions](concepts/model-versioning.md) are released for specific Text Analytics features. The current model version for Entity Linking is `2020-02-01`.
+
+| Language | Language code |  v3.x support | Starting with v3 model version: | Notes |
 |:---------|:-------------:|:----------:|:-----------------------------------------:|:-----:|
 | English  |     `en`      |     ✓      |                2019-10-01                 |       |
 | Spanish  |     `es`      |    ✓      |                2019-10-01                 |       |
 
+#### [Text Analytics for health](#tab/health)
+
+> [!NOTE]
+> * The container uses different model versions than the API endpoints and SDK.
+> * Languages are added as new model versions are released for specific Text Analytics features. The current [model versions](concepts/model-versioning.md) for Text Analytics for health are:
+>    * API and SDK: `2021-05-15`
+>    * Container: `2021-03-01`
+
+
+| Language | Language code |  v3.x support | Starting with v3 model version: | Notes |
+|:---------|:-------------:|:----------:|:-----------------------------------------:|:-----:|
+| English  |     `en`      |     ✓      |                API endpoint: 2019-10-01 <br> Container: 2020-04-16                |       |
+
 #### [Personally Identifiable Information (PII)](#tab/pii)
 
-| Language               | Language code | v3 support | Starting with v3 model version: |       Notes        |
+> [!NOTE]
+> Languages are added as new [model versions](concepts/model-versioning.md) are released for specific Text Analytics features. The current model version for PII is `2021-01-15`.
+
+| Language               | Language code | v3.x support | Starting with v3 model version: |       Notes        |
 |:-----------------------|:-------------:|:----------:|:-------------------------------:|:------------------:|
 | Chinese-Simplified     |   `zh-hans`   |     ✓      |               2021-01-15        | `zh` also accepted |
 | English                |     `en`      |     ✓      |               2020-07-01        |                    |
@@ -116,11 +156,14 @@ ms.author: aahi
 
 #### [Language Detection](#tab/language-detection)
 
+> [!NOTE]
+> Languages are added as new [model versions](concepts/model-versioning.md) are released for specific Text Analytics features. The current model version for Language Detection is `2021-01-05`.
+
 The Text Analytics API can detect a wide range of languages, variants, dialects, and some regional/cultural languages, and return detected languages with their name and code. Text Analytics Language Detection language code parameters conform to [BCP-47](https://tools.ietf.org/html/bcp47) standard with most of them conforming to [ISO-639-1](https://www.iso.org/iso-639-language-codes.html) identifiers. 
 
 If you have content expressed in a less frequently used language, you can try Language Detection to see if it returns a code. The response for languages that cannot be detected is `unknown`.
 
-| Language | Language Code | v3 support | Available starting with v3 model version: |
+| Language | Language Code | v3.x support | Starting with v3 model version: |
 |:-|:-:|:-:|:-:|
 |Afrikaans|`af`|✓|    |
 |Albanian|`sq`|✓|    |
@@ -239,8 +282,24 @@ If you have content expressed in a less frequently used language, you can try La
 |Zulu|`zu`|✓|2021-01-05|
 
 
+#### [Text summarization](#tab/summarization)
+
+| Language | Language code |  v3.x support | Starting with v3 model version: | Notes |
+|:---------|:-------------:|:----------:|:-----------------------------------------:|:-----:|
+| Chinese-Simplified     |   `zh-hans`   |     ✓      |               2021-08-01        | `zh` also accepted |
+| English  |     `en`      |     ✓      |                2021-08-01                 |       |
+| French                 |     `fr`      |     ✓      |               2021-08-01        |                    |
+| German                 |     `de`      |     ✓      |               2021-08-01        |                    |
+| Italian               |     `it`      |     ✓       |               2021-08-01        |                    |
+| Japanese              |     `ja`      |     ✓       |               2021-08-01        |                    |
+| Korean                |     `ko`      |     ✓       |               2021-08-01        |                    |
+| Spanish               |     `es`      |     ✓       |               2021-08-01        |                    |
+| Portuguese (Brazil)   |    `pt-BR`    |     ✓       |               2021-08-01        |                    |
+| Portuguese (Portugal) |    `pt-PT`    |     ✓       |               2021-08-01        | `pt` also accepted |
+
 ---
 
 ## See also
 
 * [What is the Text Analytics API?](overview.md)   
+* [Model versions](concepts/model-versioning.md)

@@ -13,7 +13,7 @@ ms.topic: conceptual
 
 # Visualize and analyze your Azure IoT Central data in a Power BI dashboard
 
-> [!Note] 
+> [!Important]
 > This solution uses [legacy data export features](./howto-export-data-legacy.md). Stay tuned for updated guidance on how to connect to Power BI using the latest data export.
 
 :::image type="content" source="media/howto-connect-powerbi/iot-continuous-data-export.png" alt-text="Power BI solution pipeline":::
@@ -82,4 +82,4 @@ The [Power BI Solution for Azure IoT Central V3](https://appsource.microsoft.com
 
 ## Next steps
 
-Now that you've learned how to visualize your data in Power BI, the suggested next step is to learn [How to manage devices](howto-manage-devices.md).
+Now that you've learned how to visualize your data in Power BI, the suggested next step is to learn [How to manage devices](howto-manage-devices-individually.md).

@@ -7,7 +7,7 @@ ms.date: 05/03/2021
 
 # App Service, Functions, and Logic Apps on Azure Arc (Preview)
 
-You can run App Service, Functions, and Logic Apps an Azure Arc enabled Kubernetes cluster. The Kubernetes cluster can be on-premises or hosted in a third-party cloud. This approach lets app developers take advantage of the features of App Service. At the same time, it lets their IT administrators maintain corporate compliance by hosting the App Service apps on internal infrastructure. It also lets other IT operators safeguard their prior investments in other cloud providers by running App Service on existing Kubernetes clusters.
+You can run App Service, Functions, and Logic Apps on an Azure Arc enabled Kubernetes cluster. The Kubernetes cluster can be on-premises or hosted in a third-party cloud. This approach lets app developers take advantage of the features of App Service. At the same time, it lets their IT administrators maintain corporate compliance by hosting the App Service apps on internal infrastructure. It also lets other IT operators safeguard their prior investments in other cloud providers by running App Service on existing Kubernetes clusters.
 
 > [!NOTE]
 > To learn how to set up your Kubernetes cluster for App Service, Functions, and Logic Apps, see [Create an App Service Kubernetes environment (Preview)](manage-create-arc-environment.md).
@@ -57,7 +57,7 @@ The following table describes the role of each pod that is created by default:
 
 The App Service Kubernetes environment resource is required before apps may be created. It enables configuration common to apps in the custom location, such as the default DNS suffix.
 
-Only one Kubernetes environment resource may created in a custom location. In most cases, a developer who creates and deploys apps doesn't need to be directly aware of the resource. It can be directly inferred from the provided custom location ID. However, when defining Azure Resource Manager templates, any plan resource needs to reference the resource ID of the environment directly. The custom location values of the plan and the specified environment must match.
+Only one Kubernetes environment resource may be created in a custom location. In most cases, a developer who creates and deploys apps doesn't need to be directly aware of the resource. It can be directly inferred from the provided custom location ID. However, when defining Azure Resource Manager templates, any plan resource needs to reference the resource ID of the environment directly. The custom location values of the plan and the specified environment must match.
 
 ## FAQ for App Service, Functions, and Logic Apps on Azure Arc (Preview)
 
@@ -108,6 +108,10 @@ By default, logs from system components are sent to the Azure team. Application 
 ### What do I do if I see a provider registration error?
 
 When creating a Kubernetes environment resource, some subscriptions may see a "No registered resource provider found" error. The error details may include a set of locations and api versions that are considered valid. If this happens, it may be that the subscription needs to be re-registered with the Microsoft.Web provider, an operation which has no impact on existing applications or APIs. To re-register, use the Azure CLI to run `az provider register --namespace Microsoft.Web --wait`. Then re-attempt the Kubernetes environment command.
+
+### Can I deploy the Application services extension on an ARM64 based cluster?
+
+ARM64 based clusters are not supported at this time.  
 
 ## Next steps
 

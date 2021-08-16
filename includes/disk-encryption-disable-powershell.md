@@ -22,6 +22,6 @@ You can disable encryption using Azure PowerShell, the Azure CLI, or with a Reso
      ```
 - **Disable encryption with a Resource Manager template:** 
 
-    1. Click **Deploy to Azure** from the [Disable disk encryption on running Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm-without-aad) template.
+    1. Click **Deploy to Azure** from the [Disable disk encryption on running Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/decrypt-running-windows-vm-without-aad) template.
     2. Select the subscription, resource group, location, VM, volume type, legal terms, and agreement.
     3.  Click **Purchase** to disable disk encryption on a running Windows VM. 

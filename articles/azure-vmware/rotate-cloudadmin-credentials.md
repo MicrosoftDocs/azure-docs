@@ -59,6 +59,5 @@ In this step, you'll update HCX Connector with the updated credentials.
 
 Now that you've covered resetting vCenter Server and NSX-T Manager credentials for Azure VMware Solution, you may want to learn about:
 
-- [Configure NSX network components in Azure VMware Solution](configure-nsx-network-components-azure-portal.md)
-- [Monitor and manage Azure VMware Solution VMs](lifecycle-management-of-azure-vmware-solution-vms.md)
-- [Deploy disaster recovery of virtual machines using Azure VMware Solution](disaster-recovery-for-virtual-machines.md)
+- [Integrating Azure native services in Azure VMware Solution](integrate-azure-native-services.md)
+- [Deploying disaster recovery for Azure VMware Solution workloads using VMware HCX](deploy-disaster-recovery-using-vmware-hcx.md)

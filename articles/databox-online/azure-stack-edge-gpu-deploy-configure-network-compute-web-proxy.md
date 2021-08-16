@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 05/11/2021
+ms.date: 07/07/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
@@ -63,12 +63,13 @@ Follow these steps to configure the network for your device.
 
     As you configure the network settings, keep in mind:
 
-   * If DHCP is enabled in your environment, network interfaces are automatically configured. An IP address, subnet, gateway, and DNS are automatically assigned.
-   * If DHCP isn't enabled, you can assign static IPs if needed.
-   * You can configure your network interface as IPv4.
-   * On 25-Gbps interfaces, you can set the RDMA (Remote Direct Access Memory) mode to iWarp or RoCE (RDMA over Converged Ethernet). Where low latencies are the primary requirement and scalability is not a concern, use RoCE. When latency is a key requirement, but ease-of-use and scalability are also high priorities, iWARP is the best candidate.
-   * Network Interface Card (NIC) Teaming or link aggregation is not supported with Azure Stack Edge. 
-   * Serial number for any port corresponds to the node serial number.
+    * Make sure that Port 5 and Port 6 are connected for Network Function Manager deployments. For more information, see [Tutorial: Deploy network functions on Azure Stack Edge (Preview)](../network-function-manager/deploy-functions.md).
+    * If DHCP is enabled in your environment, network interfaces are automatically configured. An IP address, subnet, gateway, and DNS are automatically assigned.
+    * If DHCP isn't enabled, you can assign static IPs if needed.
+    * You can configure your network interface as IPv4.
+    * On 25-Gbps interfaces, you can set the RDMA (Remote Direct Access Memory) mode to iWarp or RoCE (RDMA over Converged Ethernet). Where low latencies are the primary requirement and scalability is not a concern, use RoCE. When latency is a key requirement, but ease-of-use and scalability are also high priorities, iWARP is the best candidate.
+    * Network Interface Card (NIC) Teaming or link aggregation is not supported with Azure Stack Edge. 
+    * Serial number for any port corresponds to the node serial number.
 
     Once the device network is configured, the page updates as shown below.
 
@@ -106,7 +107,7 @@ Follow these steps to enable compute and configure compute network.
 1. Assign **Kubernetes external service IPs**. These are also the load balancing IP addresses. These contiguous IP addresses are for services that you want to expose outside of the Kubernetes cluster and you specify the static IP range depending on the number of services exposed. 
     
     > [!IMPORTANT]
-    > We strongly recommend that you specify a minimum of 1 IP address for Azure Stack Edge Pro Hub service to access compute modules. You can then optionally specify additional IP addresses for other services/IoT Edge modules (1 per service/module) that need to be accessed from outside the cluster. The service IP addresses can be updated later. 
+    > We strongly recommend that you specify a minimum of 1 IP address for Azure Stack Edge Hub service to access compute modules. You can then optionally specify additional IP addresses for other services/IoT Edge modules (1 per service/module) that need to be accessed from outside the cluster. The service IP addresses can be updated later. 
     
 1. Select **Apply**.
 

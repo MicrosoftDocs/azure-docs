@@ -8,10 +8,10 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 08/12/2021
 ---
 
-# How to estimate and manage costs of an Azure Cognitive Search service
+# Estimate and manage costs of an Azure Cognitive Search service
 
 In this article, learn about the pricing model, billable events, and tips for managing the cost of running an Azure Cognitive Search service.
 
@@ -44,13 +44,14 @@ A solution built on Azure Cognitive Search can incur costs in the following ways
 
 + Bandwidth charges (outbound data transfer)
 
-+ Add-on services required for specific capabilities or features:
++ Add-on services required for specific capabilities or premium features:
 
-  + AI enrichment (requires [Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/))
-  + knowledge store (requires [Azure Storage](https://azure.microsoft.com/pricing/details/storage/))
-  + incremental enrichment (requires [Azure Storage](https://azure.microsoft.com/pricing/details/storage/), applies to AI enrichment)
-  + customer-managed keys and double encryption (requires [Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/))
-  + private endpoints for a no-internet access model (requires [Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/))
+  + AI enrichment using billable skills (requires [Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/)). Image extraction is also billable.
+  + Knowledge store (requires [Azure Storage](https://azure.microsoft.com/pricing/details/storage/))
+  + Incremental enrichment (requires [Azure Storage](https://azure.microsoft.com/pricing/details/storage/), applies to AI enrichment)
+  + Customer-managed keys and double encryption (requires [Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/))
+  + Private endpoints for a no-internet access model (requires [Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/))
+  + Semantic search is a premium feature on Standard tiers (see the [Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/) for costs). You can [disable semantic search](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch) to prevent accidental usage.
 
 ### Service costs
 
@@ -76,16 +77,19 @@ You can eliminate data egress charges entirely if you create the Azure Cognitive
 
 ### AI enrichment with Cognitive Services
 
-For [AI enrichment](cognitive-search-concept-intro.md), you should plan to [attach a billable Azure Cognitive Services resource](cognitive-search-attach-cognitive-services.md), in the same region as Azure Cognitive Search, at the S0 pricing tier for pay-as-you-go processing. There's no fixed cost associated with attaching Cognitive Services. You pay only for the processing you need.
+For [AI enrichment](cognitive-search-concept-intro.md) using billable skills, you should plan to [attach a billable Azure Cognitive Services resource](cognitive-search-attach-cognitive-services.md), in the same region as Azure Cognitive Search, at the S0 pricing tier for pay-as-you-go processing. There's no fixed cost associated with attaching Cognitive Services. You pay only for the processing you need.
 
 | Operation | Billing impact |
 |-----------|----------------|
 | Document cracking, text extraction | Free |
-| Document cracking, image extraction | Billed according to the number of images extracted from your documents. In an [indexer configuration](/rest/api/searchservice/create-indexer#indexer-parameters), **imageAction** is the parameter that triggers image extraction. If **imageAction** is set to "none" (the default), you won't be charged for image extraction. The rate for image extraction is documented on the [pricing details](https://azure.microsoft.com/pricing/details/search/) page for Azure Cognitive Search.|
-| [Built-in cognitive skills](cognitive-search-predefined-skills.md) | Billed at the same rate as if you had performed the task by using Cognitive Services directly. |
-| Custom skills | A custom skill is functionality you provide. The cost of using a custom skill depends entirely on whether custom code is calling other metered services. |
+| Document cracking, image extraction | Billed according to the number of images extracted from your documents. In an [indexer configuration](/rest/api/searchservice/create-indexer#indexer-parameters), **imageAction** is the parameter that triggers image extraction. If **imageAction** is set to "none" (the default), you won't be charged for image extraction. See the [pricing page](https://azure.microsoft.com/pricing/details/search/) page for image extract charges. |
+| [Built-in skills](cognitive-search-predefined-skills.md) based on Cognitive Services | Billed at the same rate as if you had performed the task by using Cognitive Services directly. You can process 20 documents per indexer per day for free. Larger or more frequent workloads require a key. |
+| [Built-in skills](cognitive-search-predefined-skills.md) that do not add enrichments | None. Non-billable utility skills include Conditional, Shaper, Text Merge, Text Split. There is no billing impact, no Cognitive Services key requirement, and no 20 document limit. |
+| Custom skills | A custom skill is functionality you provide. The cost of using a custom skill depends entirely on whether custom code is calling other metered services.  There is no Cognitive Services key requirement and no 20 document limit on custom skills.|
+| [Custom Entity Lookup](cognitive-search-skill-custom-entity-lookup.md) | Metered by Azure Cognitive Search. See the [pricing page](https://azure.microsoft.com/pricing/details/search/#pricing) for details. |
 
-The [incremental enrichment (preview)](cognitive-search-incremental-indexing-conceptual.md) feature allows you to provide a cache that enables the indexer to be more efficient at running only the cognitive skills that are necessary if you modify your skillset in the future, saving you time and money.
+> [!TIP]
+> [Incremental enrichment (preview)](cognitive-search-incremental-indexing-conceptual.md) lowers the cost of skillset processing by caching and reusing enrichments that are unaffected by changes made to a skillset. Caching requires Azure Storage (see [pricing](/pricing/details/storage/blobs/) but the cumulative cost of skillset execution is lower if existing enrichments can be reused.
 
 ## Tips for managing costs
 
@@ -107,7 +111,7 @@ In terms of the service itself, the only way to lower your bill is to reduce rep
 
 ## Next steps
 
-Learn how to monitor and manage costs across your Azure subscription.
+Want to optimize and save on your cloud spending?
 
 > [!div class="nextstepaction"]
-> [Azure Cost Management and Billing documentation](../cost-management-billing/cost-management-billing-overview.md)
+> [Start analyzing costs with Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

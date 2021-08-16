@@ -5,12 +5,17 @@ author: ccompy
 
 ms.assetid: 3c7eaefa-1850-4643-8540-428e8982b7cb
 ms.topic: overview
-ms.date: 04/19/2018
+ms.date: 07/28/2021
 ms.author: ccompy
 ms.custom: mvc, seodec18
 ---
 
 # Introduction to the App Service Environments #
+> [!NOTE]
+> This article is about the App Service Environment v2 which is used with Isolated App Service plans
+> 
+
+
 ## Overview ##
 
 The Azure App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. This capability can host your:
@@ -40,7 +45,7 @@ ASEs host applications from only one customer and do so in one of their VNets. C
 
 ## Dedicated environment ##
 
-An ASE is dedicated exclusively to a single subscription and can host 100 App Service Plan instances. The range can span 100 instances in a single App Service plan to 100 single-instance App Service plans, and everything in between.
+An ASE is dedicated environment that is exclusive to a single customer and can host 200 App Service plan total instances. A single Isolated SKU App Service plan can have up to 100 instances in it. When you add up all the instances from all of the App Service plans in that ASE, the total must be less than or equal to 200.
 
 An ASE is composed of front ends and workers. Front ends are responsible for HTTP/HTTPS termination and automatic load balancing of app requests within an ASE. Front ends are automatically added as the App Service plans in the ASE are scaled out.
 
@@ -72,7 +77,7 @@ For more information on how ASEs work with virtual networks and on-premises netw
 
 App Service Environment has two versions: ASEv1 and ASEv2. The preceding information was based on ASEv2. This section shows you the differences between ASEv1 and ASEv2. 
 
-In ASEv1, you need to manage all of the resources manually. That includes the front ends, workers, and IP addresses used for IP-based SSL. Before you can scale out your App Service plan, you need to first scale out the worker pool where you want to host it.
+In ASEv1, you need to manage all of the resources manually. That includes the front ends, workers, and IP addresses used for IP-based TLS/SSL bindings. Before you can scale out your App Service plan, you need to first scale out the worker pool where you want to host it.
 
 ASEv1 uses a different pricing model from ASEv2. In ASEv1, you pay for each vCPU allocated. That includes vCPUs used for front ends or workers that aren't hosting any workloads. In ASEv1, the default maximum-scale size of an ASE is 55 total hosts. That includes workers and front ends. One advantage to ASEv1 is that it can be deployed in a classic virtual network and a Resource Manager virtual network. To learn more about ASEv1, see [App Service Environment v1 introduction][ASEv1Intro].
 

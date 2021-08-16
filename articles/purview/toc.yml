@@ -68,8 +68,10 @@ items:
     href: concept-insights.md
   - name: Supported Browsers
     href: supported-browsers.md
+  - name: Asset normalization
+    href: concept-asset-normalization.md
   - name: Frequently asked questions
-    href: frequently-asked-questions.md
+    href: ./frequently-asked-questions.yml
 - name: How-to guides
   items:
   - name: Register & scan
@@ -89,18 +91,27 @@ items:
       items:
       - name: Manage data sources
         href: manage-data-sources.md
-      - name: Purview connectors overview
+      - name: Azure Purview Connectors
         href: purview-connector-overview.md
       - name: Azure Multiple Source
         href: register-scan-azure-multiple-sources.md
-      - name: Azure Synapse Analytics (Workspace)
+      - name: Azure Synapse Analytics workspaces
         href: register-scan-synapse-workspace.md
       - name: Azure Blob Storage
         href: register-scan-azure-blob-storage-source.md
-        displayName: Register and scan azure blob storage
+        displayName: Register and scan Azure Blob Storage
+      - name: Azure Files
+        href: register-scan-azure-files-storage-source.md
+        displayName: Register and scan Azure Files
       - name: Azure Cosmos DB
         href: register-scan-azure-cosmos-database.md
         displayName: Register and scan Azure Cosmos DB
+      - name: Azure Database for MySQL
+        href: register-scan-azure-mysql-database.md
+        displayName: Register and scan an Azure database for MySQL
+      - name: Azure Database for PostgreSQL
+        href: register-scan-azure-postgresql.md
+        displayName: Register and scan an Azure database for PostgreSQL        
       - name: Azure Data Explorer
         href: register-scan-azure-data-explorer.md
         displayName: Register and scan Azure Data Explorer Kusto
@@ -118,8 +129,16 @@ items:
         displayName: Register and scan Azure SQL DB Managed Instance
       - name: Azure Dedicated SQL pool (formerly SQL DW)
         href: register-scan-azure-synapse-analytics.md
+      - name: Cassandra
+        href: register-scan-cassandra-source.md
+      - name: Erwin
+        href: register-scan-erwin-source.md
+      - name: Google BigQuery
+        href: register-scan-google-bigquery-source.md
       - name: Hive Metastore Database
         href: register-scan-hive-metastore-source.md
+      - name: Looker
+        href: register-scan-looker-source.md
       - name: On-premises SQL server
         href: register-scan-on-premises-sql-server.md
       - name: Oracle
@@ -160,6 +179,8 @@ items:
       href: how-to-browse-catalog.md
     - name: Search Data Catalog
       href: how-to-search-catalog.md
+    - name: View, edit, and delete Catalog assets
+      href: catalog-asset-details.md
   - name: Lineage 
     items:
     - name: Lineage user guide
@@ -168,10 +189,28 @@ items:
       href: how-to-link-azure-data-factory.md
     - name: Azure Data Share lineage
       href: how-to-link-azure-data-share.md
+    - name: Cassandra lineage
+      href: how-to-lineage-cassandra.md
+    - name: Erwin lineage
+      href: how-to-lineage-erwin.md
+    - name: Looker lineage
+      href: how-to-lineage-looker.md
+    - name: Google BigQuery lineage
+      href: how-to-lineage-google-bigquery.md
+    - name: Oracle lineage
+      href: how-to-lineage-oracle.md
     - name: Power BI lineage
       href: how-to-lineage-powerbi.md
+    - name: SAP S/4HANA lineage
+      href: how-to-lineage-saps4hana.md
+    - name: SAP ECC lineage
+      href: how-to-lineage-sapecc.md
     - name: Spark lineage
       href: how-to-lineage-spark-atlas-connector.md
+    - name: SQL Server Integration Services lineage
+      href: how-to-lineage-sql-server-integration-services.md
+    - name: Teradata lineage
+      href: how-to-lineage-teradata.md
   - name: Monitor
     items:
     - name: Monitor with Azure Monitor
@@ -204,6 +243,8 @@ items:
   items:
     - name: Supported classifications
       href: supported-classifications.md
+    - name: Azure Purview product glossary
+      href: reference-purview-glossary.md
     - name: ABAP function deployment guide
       href: abap-functions-deployment-guide.md
 - name: Resources

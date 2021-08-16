@@ -2,7 +2,7 @@
 title: Retrieve IoT Edge logs - Azure IoT Edge
 description: IoT Edge module log retrieval and upload to Azure Blob Storage. 
 author: v-tcassi
-manager: philmea
+
 ms.author: v-tcassi
 ms.date: 11/12/2020
 ms.topic: conceptual
@@ -29,7 +29,7 @@ While not required, for best compatibility with this feature, the recommended lo
 <{Log Level}> {Timestamp} {Message Text}
 ```
 
-`{Timestamp}` should be formatted as `yyyy-MM-dd hh:mm:ss.fff zzz`, and `{Log Level}` should follow the table below, which derives its severity levels from the [Severity code in the Syslog standard](https://wikipedia.org/wiki/Syslog#Severity_level).
+`{Timestamp}` should be formatted as `yyyy-MM-dd HH:mm:ss.fff zzz`, and `{Log Level}` should follow the table below, which derives its severity levels from the [Severity code in the Syslog standard](https://wikipedia.org/wiki/Syslog#Severity_level).
 
 | Value | Severity |
 |-|-|
@@ -47,6 +47,9 @@ The [Logger class in IoT Edge](https://github.com/Azure/iotedge/blob/master/edge
 ## Retrieve module logs
 
 Use the **GetModuleLogs** direct method to retrieve the logs of an IoT Edge module.
+
+>[!TIP]
+>The IoT Edge troubleshooting page in the Azure portal provides a simplified experience for viewing module logs. For more information, see [Monitor and troubleshoot IoT Edge devices from the Azure portal](troubleshoot-in-portal.md).
 
 This method accepts a JSON payload with the following schema:
 

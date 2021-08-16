@@ -8,7 +8,7 @@ ms.service: azure-functions
 
 #### Built-in log streaming
 
-Use the `logstream` option to start receiving streaming logs of a specific function app running in Azure, as in the following example:
+Use the [`func azure functionapp logstream` command](../articles/azure-functions/functions-core-tools-reference.md#func-azure-functionapp-list-functions) to start receiving streaming logs of a specific function app running in Azure, as in the following example:
 
 ```bash
 func azure functionapp logstream <FunctionAppName>

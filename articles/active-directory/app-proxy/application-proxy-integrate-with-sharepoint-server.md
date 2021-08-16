@@ -21,7 +21,7 @@ This step-by-step guide explains how to integrate an on-premises SharePoint farm
 
 To perform the configuration, you need the following resources:
 - A SharePoint 2013 farm or newer.
-- An Azure AD tenant with a plan that includes Application Proxy. Learn more about [Azure AD plans and pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+- An Azure AD tenant with a plan that includes Application Proxy. Learn more about [Azure AD plans and pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 - A [custom, verified domain](../fundamentals/add-custom-domain.md) in the Azure AD tenant.
 - On-premises Active Directory synchronized with Azure AD Connect, through which users can [sign in to Azure](../hybrid/plan-connect-user-signin.md).
 - An Application Proxy connector installed and running on a machine within the corporate domain.

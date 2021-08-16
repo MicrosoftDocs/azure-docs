@@ -41,5 +41,5 @@ The following table includes links to bash scripts built using the Azure CLI.
 | [Create a scheduled backup for an app](./scripts/cli-backup-scheduled.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an App Service app and creates a scheduled backup for it. |
 | [Restores an app from a backup](./scripts/cli-backup-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Restores an App Service app from a backup. |
 |**Monitor app**||
-| [Monitor an appÂ with web server logs](./scripts/cli-monitor.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an App Service app, enables logging for it, and downloads the logs to your local machine. |
+| [Monitor an app with web server logs](./scripts/cli-monitor.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an App Service app, enables logging for it, and downloads the logs to your local machine. |
 | | |

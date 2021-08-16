@@ -4,7 +4,7 @@ description: Use the Form Recognizer Java client library to create a forms proce
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/25/2021
@@ -18,7 +18,7 @@ ms.author: lajanuar
 
 > [!IMPORTANT]
 >
-> * This quickstart uses SDK version **3.1.0** and targets API version **2.1**.
+> * This quickstart uses SDK version **3.1.1** and targets API version **2.1**.
 >
 > * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons.
 
@@ -70,7 +70,7 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.1.0")
+    implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.1.1")
 }
 ```
 
@@ -113,7 +113,7 @@ In the application's **main** method, add calls for the methods used in this qui
 
 ## Object model
 
-With Form Recognizer, you can create two different client types. The first, `FormRecognizerClient` is used to query the service to recognized form fields and content. The second, `FormTrainingClient` is use to create and Manage custom models that you can use to improve recognition.
+With Form Recognizer, you can create two different client types. The first, `FormRecognizerClient` is used to query the service to recognized form fields and content. The second, `FormTrainingClient` is uses to create and manage custom models to improve recognition.
 
 ### FormRecognizerClient
 

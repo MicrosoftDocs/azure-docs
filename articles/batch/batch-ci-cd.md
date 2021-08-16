@@ -17,7 +17,7 @@ This article explains how to set up CI/CD processes using [Azure Pipelines](/azu
 
 To follow the steps in this article, you need an [Azure DevOps organization](/azure/devops/organizations/accounts/create-organization). You'll also need to [create a project in Azure DevOps](/azure/devops/organizations/projects/create-project).
 
-It's helpful to have a basic understanding of [Source control](/azure/devops/user-guide/source-control) and [Azure Resource Manager template syntax](../azure-resource-manager/templates/template-syntax.md) before you start.
+It's helpful to have a basic understanding of [Source control](/azure/devops/user-guide/source-control) and [Azure Resource Manager template syntax](../azure-resource-manager/templates/syntax.md) before you start.
 
 ## Create an Azure Pipeline
 

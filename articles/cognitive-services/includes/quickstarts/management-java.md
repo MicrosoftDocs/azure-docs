@@ -6,7 +6,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 3/22/2021
+ms.date: 06/04/2021
 ms.author: pafarley
 ---
 
@@ -17,6 +17,7 @@ ms.author: pafarley
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
 * The current version of the [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * The [Gradle build tool](https://gradle.org/install/), or another dependency manager.
+* [!INCLUDE [terms-azure-portal](./terms-azure-portal.md)]
 
 
 [!INCLUDE [Create a service principal](./create-service-principal.md)]
@@ -116,6 +117,8 @@ To view all of the resources under your Azure account (across all resource group
 The following method deletes the specified resource from the given resource group.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/azure_management_service/quickstart.java?name=snippet_delete)]
+
+If you need to recover a deleted resource, see [Recover deleted Cognitive Services resources](../../manage-resources.md).
 
 ## See also
 

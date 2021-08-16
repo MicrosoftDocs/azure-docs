@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 04/07/2021
+ms.date: 08/03/2021
 ---
 # PostgreSQL extensions in Azure Database for PostgreSQL – Hyperscale (Citus)
 
@@ -15,6 +15,14 @@ PostgreSQL provides the ability to extend the functionality of your database by 
 ## Use PostgreSQL extensions
 
 PostgreSQL extensions must be installed in your database before you can use them. To install a particular extension, run the [CREATE EXTENSION](https://www.postgresql.org/docs/current/static/sql-createextension.html) command from the psql tool to load the packaged objects into your database.
+
+> [!NOTE]
+> If `CREATE EXTENSION` fails with a permission denied error, try the
+> `create_extension()` function instead. For instance:
+>
+> ```sql
+> SELECT create_extension('postgis');
+> ```
 
 Azure Database for PostgreSQL - Hyperscale (Citus) currently supports a subset of key extensions as listed here. Extensions other than the ones listed aren't supported. You can't create your own extension with Azure Database for PostgreSQL.
 
@@ -29,7 +37,7 @@ The versions of each extension installed in a server group sometimes differ base
 > [!div class="mx-tableFixed"]
 > | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** |
 > |---|---|---|---|---|
-> | [citus](https://github.com/citusdata/citus) | Citus distributed database. | 9.5-1 | 9.5-1 | 10.0-2 |
+> | [citus](https://github.com/citusdata/citus) | Citus distributed database. | 9.5-2 | 10.0-3 | 10.0-3 |
 
 ### Data types extensions
 
@@ -38,14 +46,14 @@ The versions of each extension installed in a server group sometimes differ base
 > |---|---|---|---|---|
 > | [citext](https://www.postgresql.org/docs/current/static/citext.html) | Provides a case-insensitive character string type. | 1.5 | 1.6 | 1.6 |
 > | [cube](https://www.postgresql.org/docs/current/static/cube.html) | Provides a data type for multidimensional cubes. | 1.4 | 1.4 | 1.4 |
-> | [hll](https://github.com/citusdata/postgresql-hll) | Provides a HyperLogLog data structure. | 2.14 | 2.15 | 2.15 |
+> | [hll](https://github.com/citusdata/postgresql-hll) | Provides a HyperLogLog data structure. | 2.15 | 2.15 | 2.15 |
 > | [hstore](https://www.postgresql.org/docs/current/static/hstore.html) | Provides a data type for storing sets of key-value pairs. | 1.5 | 1.6 | 1.7 |
 > | [isn](https://www.postgresql.org/docs/current/static/isn.html) | Provides data types for international product numbering standards. | 1.2 | 1.2 | 1.2 |
 > | [lo](https://www.postgresql.org/docs/current/lo.html) | Large Object maintenance. | 1.1 | 1.1 | 1.1 |
 > | [ltree](https://www.postgresql.org/docs/current/static/ltree.html) | Provides a data type for hierarchical tree-like structures. | 1.1 | 1.1 | 1.2 |
 > | [seg](https://www.postgresql.org/docs/current/seg.html) | Data type for representing line segments or floating-point intervals. | 1.3 | 1.3 | 1.3 |
 > | [tdigest](https://github.com/tvondra/tdigest) | Data type for on-line accumulation of rank-based statistics such as quantiles and trimmed means. | 1.0 | 1.0 | 1.0 |
-> | [topn](https://github.com/citusdata/postgresql-topn/) | Type for top-n JSONB. | 2.2.2 | 2.3.1 | 2.3.1 |
+> | [topn](https://github.com/citusdata/postgresql-topn/) | Type for top-n JSONB. | 2.3.1 | 2.3.1 | 2.3.1 |
 
 ### Full-text search extensions
 
@@ -68,11 +76,10 @@ The versions of each extension installed in a server group sometimes differ base
 > | [intagg](https://www.postgresql.org/docs/current/intagg.html) | Integer aggregator and enumerator (obsolete). | 1.1 | 1.1 | 1.1 |
 > | [intarray](https://www.postgresql.org/docs/current/static/intarray.html) | Provides functions and operators for manipulating null-free arrays of integers. | 1.2 | 1.2 | 1.3 |
 > | [moddatetime](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.9) | Functions for tracking last modification time. | 1.0 | 1.0 | 1.0 |
-> | [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Manages partitioned tables by time or ID. | 4.1 | 4.4.1 | 4.4.1 |
+> | [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Manages partitioned tables by time or ID. | 4.5.1 | 4.5.1 | 4.5.1 |
 > | [pg\_trgm](https://www.postgresql.org/docs/current/static/pgtrgm.html) | Provides functions and operators for determining the similarity of alphanumeric text based on trigram matching. | 1.4 | 1.4 | 1.5 |
 > | [pgcrypto](https://www.postgresql.org/docs/current/static/pgcrypto.html) | Provides cryptographic functions. | 1.3 | 1.3 | 1.3 |
 > | [refint](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.5) | Functions for implementing referential integrity (obsolete). | 1.0 | 1.0 | 1.0 |
-> | session\_analytics | Functions for querying hstore arrays. | | | |
 > | [tablefunc](https://www.postgresql.org/docs/current/static/tablefunc.html) | Provides functions that manipulate whole tables, including crosstab. | 1.0 | 1.0 | 1.0 |
 > | [tcn](https://www.postgresql.org/docs/current/tcn.html) | Triggered change notifications. | 1.0 | 1.0 | 1.0 |
 > | [timetravel](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.6) | Functions for implementing time travel. | 1.0 | | |
@@ -105,7 +112,7 @@ The versions of each extension installed in a server group sometimes differ base
 > | [file\_fdw](https://www.postgresql.org/docs/current/file-fdw.html) | Foreign-data wrapper for flat file access. | 1.0 | 1.0 | 1.0 |
 > | [pageinspect](https://www.postgresql.org/docs/current/pageinspect.html) | Inspect the contents of database pages at a low level. | 1.7 | 1.7 | 1.8 |
 > | [pg\_buffercache](https://www.postgresql.org/docs/current/static/pgbuffercache.html) | Provides a means for examining what's happening in the shared buffer cache in real time. | 1.3 | 1.3 | 1.3 |
-> | [pg\_cron](https://github.com/citusdata/pg_cron) | Job scheduler for PostgreSQL. | 1.1 | 1.3 | 1.3 |
+> | [pg\_cron](https://github.com/citusdata/pg_cron) | Job scheduler for PostgreSQL. | 1.3 | 1.3 | 1.3 |
 > | [pg\_freespacemap](https://www.postgresql.org/docs/current/pgfreespacemap.html) | Examine the free space map (FSM). | 1.2 | 1.2 | 1.2 |
 > | [pg\_prewarm](https://www.postgresql.org/docs/current/static/pgprewarm.html) | Provides a way to load relation data into the buffer cache. | 1.2 | 1.2 | 1.2 |
 > | [pg\_stat\_statements](https://www.postgresql.org/docs/current/static/pgstatstatements.html) | Provides a means for tracking execution statistics of all SQL statements executed by a server. See the "pg_stat_statements" section for information about this extension. | 1.6 | 1.7 | 1.8 |
@@ -124,11 +131,11 @@ The versions of each extension installed in a server group sometimes differ base
 > [!div class="mx-tableFixed"]
 > | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** |
 > |---|---|---|---|---|
-> | [PostGIS](https://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | Spatial and geographic objects for PostgreSQL. | 2.5.1 | 3.0.3 | 3.0.3 |
-> | address\_standardizer, address\_standardizer\_data\_us | Used to parse an address into constituent elements. Used to support geocoding address normalization step. | 2.5.1 | 3.0.3 | 3.0.3 |
-> | postgis\_sfcgal | PostGIS SFCGAL functions. | 2.5.1 | 3.0.3 | 3.0.3 |
-> | postgis\_tiger\_geocoder | PostGIS tiger geocoder and reverse geocoder. | 2.5.1 | 3.0.3 | 3.0.3 |
-> | postgis\_topology | PostGIS topology spatial types and functions. | 2.5.1 | 3.0.3 | 3.0.3 |
+> | [PostGIS](https://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | Spatial and geographic objects for PostgreSQL. | 2.5.5 | 3.0.3 | 3.0.3 |
+> | address\_standardizer, address\_standardizer\_data\_us | Used to parse an address into constituent elements. Used to support geocoding address normalization step. | 2.5.5 | 3.0.3 | 3.0.3 |
+> | postgis\_sfcgal | PostGIS SFCGAL functions. | 2.5.5 | 3.0.3 | 3.0.3 |
+> | postgis\_tiger\_geocoder | PostGIS tiger geocoder and reverse geocoder. | 2.5.5 | 3.0.3 | 3.0.3 |
+> | postgis\_topology | PostGIS topology spatial types and functions. | 2.5.5 | 3.0.3 | 3.0.3 |
 
 
 ## pg_stat_statements

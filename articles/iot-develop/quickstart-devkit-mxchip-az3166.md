@@ -30,9 +30,9 @@ You'll complete the following tasks:
 * [Git](https://git-scm.com/downloads) for cloning the repository
 * Hardware
 
-    > * The [MXCHIP AZ3166 IoT DevKit](https://aka.ms/iot-devkit) (MXCHIP DevKit)
-    > * Wi-Fi 2.4 GHz
-    > * USB 2.0 A male to Micro USB male cable
+    * The [MXCHIP AZ3166 IoT DevKit](https://www.seeedstudio.com/AZ3166-IOT-Developer-Kit.html) (MXCHIP DevKit)
+    * Wi-Fi 2.4 GHz
+    * USB 2.0 A male to Micro USB male cable
 
 ## Prepare the development environment
 
@@ -62,7 +62,7 @@ To install the tools:
 
 1. From File Explorer, navigate to the following path in the repo and run the setup script named *get-toolchain.bat*:
 
-    > *getting-started\tools\get-toolchain.bat*
+    *getting-started\tools\get-toolchain.bat*
 
 1. After the installation, open a new console window to recognize the configuration changes made by the setup script. Use this console to complete the remaining programming tasks in the quickstart. You can use Windows CMD, PowerShell, or Git Bash for Windows.
 1. Run the following code to confirm that CMake version 3.14 or later is installed.
@@ -81,7 +81,7 @@ To connect the MXCHIP DevKit to Azure, you'll modify a configuration file for Wi
 
 1. Open the following file in a text editor:
 
-    > *getting-started\MXChip\AZ3166\app\azure_config.h*
+    *getting-started\MXChip\AZ3166\app\azure_config.h*
 
 1. Set the Wi-Fi constants to the following values from your local environment.
 
@@ -103,13 +103,13 @@ To connect the MXCHIP DevKit to Azure, you'll modify a configuration file for Wi
 
 ### Build the image
 
-In your console or in File Explorer, run the script *rebuild.bat* at the following path to build the image:
+1. In your console or in File Explorer, run the script *rebuild.bat* at the following path to build the image:
 
-> *getting-started\MXChip\AZ3166\tools\rebuild.bat*
+    *getting-started\MXChip\AZ3166\tools\rebuild.bat*
 
-After the build completes, confirm that the binary file was created in the following path:
+1. After the build completes, confirm that the binary file was created in the following path:
 
-> *getting-started\MXChip\AZ3166\build\app\mxchip_azure_iot.bin*
+    *getting-started\MXChip\AZ3166\build\app\mxchip_azure_iot.bin*
 
 ### Flash the image
 
@@ -132,13 +132,13 @@ You can use the **Termite** app to monitor communication and confirm that your d
 
 1. Start **Termite**.
     > [!TIP]
-    > If you are unable to connect Termite to your devkit, install the [ST-LINK driver](https://my.st.com/content/ccc/resource/technical/software/driver/files/stsw-link009.zip) and try again. See  [Troubleshooting](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md) for additional steps.
+    > If you are unable to connect Termite to your devkit, install the [ST-LINK driver](https://www.st.com/en/development-tools/stsw-link009.html) and try again. See  [Troubleshooting](troubleshoot-embedded-device-quickstarts.md) for additional steps.
 1. Select **Settings**.
 1. In the **Serial port settings** dialog, check the following settings and update if needed:
     * **Baud rate**: 115,200
     * **Port**: The port that your MXCHIP DevKit is connected to. If there are multiple port options in the dropdown, you can find the correct port to use. Open Windows **Device Manager**, and view **Ports** to identify which port to use.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166/termite-settings.png" alt-text="Confirm settings in the Termite app":::
+    :::image type="content" source="media/quickstart-devkit-mxchip-az3166/termite-settings.png" alt-text="Screenshot of serial port settings in the Termite app":::
 
 1. Select OK.
 1. Press the **Reset** button on the device. The button is labeled on the device and located near the Micro USB connector.
@@ -189,9 +189,9 @@ Keep Termite open to monitor device output in the following steps.
 To view the device status in IoT Central portal:
 1. From the application dashboard, select **Devices** on the side navigation menu.
 1. Confirm that the **Device status** is updated to **Provisioned**.
-1. Confirm that the **Device template** is updated to **Getting Started Guide**.
+1. Confirm that the **Device template** is updated to **MXCHIP Getting Started Guide**.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166/iot-central-device-view-status.png" alt-text="View device status in IoT Central":::
+    :::image type="content" source="media/quickstart-devkit-mxchip-az3166/iot-central-device-view-status.png" alt-text="Screenshot of device status in IoT Central":::
 
 ## View telemetry
 
@@ -203,7 +203,7 @@ To view telemetry in IoT Central portal:
 1. Select the device from the device list.
 1. View the telemetry as the device sends messages to the cloud in the **Overview** tab.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166/iot-central-device-telemetry.png" alt-text="View device telemetry in IoT Central":::
+    :::image type="content" source="media/quickstart-devkit-mxchip-az3166/iot-central-device-telemetry.png" alt-text="Screenshot of device telemetry in IoT Central":::
 
     > [!NOTE]
     > You can also monitor telemetry from the device by using the Termite app.
@@ -217,7 +217,7 @@ To call a method in IoT Central portal:
 1. Select the **Commands** tab from the device page.
 1. In the **State** dropdown, select **True**, and then select **Run**.  The LED light should turn on.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166/iot-central-invoke-method.png" alt-text="Call a direct method on a device":::
+    :::image type="content" source="media/quickstart-devkit-mxchip-az3166/iot-central-invoke-method.png" alt-text="Screenshot of calling a direct method on a device in IoT Central":::
 
 1. In the **State** dropdown, select **False**, and then select **Run**. The LED light should turn off.
 
@@ -227,11 +227,11 @@ You can view the device information from IoT Central.
 
 Select **About** tab from the device page.
 
-:::image type="content" source="media/quickstart-devkit-mxchip-az3166/iot-central-device-about.png" alt-text="View information about the device in IoT Central":::
+:::image type="content" source="media/quickstart-devkit-mxchip-az3166/iot-central-device-about.png" alt-text="Screenshot of device information in IoT Central":::
 
 ## Troubleshoot and debug
 
-If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
+If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](troubleshoot-embedded-device-quickstarts.md).
 
 For debugging the application, see [Debugging with Visual Studio Code](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md).
 
@@ -249,6 +249,8 @@ In this quickstart, you built a custom image that contains Azure RTOS sample cod
 
 As a next step, explore the following articles to learn more about using the IoT device SDKs to connect devices to Azure IoT. 
 
+> [!div class="nextstepaction"]
+> [Connect an MXCHIP AZ3166 devkit to IoT Hub](quickstart-devkit-mxchip-az3166-iot-hub.md)
 > [!div class="nextstepaction"]
 > [Connect a simulated device to IoT Central](quickstart-send-telemetry-central.md)
 > [!div class="nextstepaction"]

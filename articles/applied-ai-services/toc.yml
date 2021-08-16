@@ -14,15 +14,15 @@
   - name: Azure Form Recognizer
     href: ../cognitive-services/form-recognizer/quickstarts/get-started-with-form-recognizer.md
   - name: Azure Metrics Advisor
-    href: ../cognitive-services/metrics-advisor/quickstarts/web-portal.md
+    href: ./metrics-advisor/quickstarts/web-portal.md
   - name: Azure Immersive Reader
-    href: ../cognitive-services/immersive-reader/quickstarts/client-libraries.md
+    href: ./immersive-reader/quickstarts/client-libraries.md
   - name: Azure Cognitive Search
     href: ../search/search-get-started-portal.md
   - name: Azure Video Analyzer
-    href: https://aka.ms/video-analytics-qs
+    href: ../azure-video-analyzer/video-analyzer-docs/detect-motion-emit-events-quickstart.md
   - name: Azure Bot Service
-    href: https://docs.microsoft.com/composer/quickstart-create-bot
+    href: /composer/quickstart-create-bot
 - name: Resources
   items:
   - name: Partner spotlight

@@ -2,7 +2,7 @@
 title: Resources without 800 count limit
 description: Lists the Azure resource types that can have more than 800 instances in a resource group.
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 07/13/2021
 ---
 
 # Resources not limited to 800 instances per resource group
@@ -23,7 +23,6 @@ For some resource types, you need to contact support to have the 800 instance li
 
 ## Microsoft.AzureStack
 
-* edgeSubscriptions
 * linkedSubscriptions
 * registrations
 * registrations/customerSubscriptions
@@ -114,6 +113,7 @@ For some resource types, you need to contact support to have the 800 instance li
 ## microsoft.insights
 
 * metricalerts
+* scheduledqueryrules
 
 ## Microsoft.Logic
 
@@ -131,6 +131,7 @@ For some resource types, you need to contact support to have the 800 instance li
 * netAppAccounts/capacityPools/volumes
 * netAppAccounts/capacityPools/volumes/mountTargets
 * netAppAccounts/capacityPools/volumes/snapshots
+* netAppAccounts/snapshotPolicies
 * netAppAccounts/volumeGroups
 
 ## Microsoft.Network
@@ -167,7 +168,7 @@ For some resource types, you need to contact support to have the 800 instance li
 * privateDnsZones/virtualNetworkLinks
 * privateEndpoints
 * privateLinkServices
-* publicIPAddresses - By default, limited to 800 instances. That limit can be increased by contacting support.
+* publicIPAddresses
 * serviceEndpointPolicies
 * trafficmanagerprofiles
 * virtualNetworkTaps
@@ -203,20 +204,20 @@ For some resource types, you need to contact support to have the 800 instance li
 * accounts/accountQuotaPolicies
 * accounts/groupPolicies
 * accounts/jobs
+* accounts/models
 * accounts/storageContainers
-
-## Microsoft.Storage
-
-* storageAccounts
 
 ## Microsoft.Sql
 
 * servers/databases
 
-## Microsoft.Web
+## Microsoft.Storage
 
-* apiManagementAccounts/apis
-* sites
+* storageAccounts
+
+## Microsoft.StreamAnalytics
+
+* streamingjobs - By default, limited to 800 instances. That limit can be increased by contacting support.
 
 ## Next steps
 

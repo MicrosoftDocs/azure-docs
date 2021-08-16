@@ -2,7 +2,7 @@
 title: Template structure and syntax
 description: Describes the structure and properties of Azure Resource Manager templates (ARM templates) using declarative JSON syntax.
 ms.topic: conceptual
-ms.date: 05/17/2021
+ms.date: 06/22/2021
 ---
 
 # Understand the structure and syntax of ARM templates
@@ -32,7 +32,7 @@ In its simplest structure, a template has the following elements:
 |:--- |:--- |:--- |
 | $schema |Yes |Location of the JavaScript Object Notation (JSON) schema file that describes the version of the template language. The version number you use depends on the scope of the deployment and your JSON editor.<br><br>If you're using [Visual Studio Code with the Azure Resource Manager tools extension](quickstart-create-templates-use-visual-studio-code.md), use the latest version for resource group deployments:<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>Other editors (including Visual Studio) may not be able to process this schema. For those editors, use:<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>For subscription deployments, use:<br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>For management group deployments, use:<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>For tenant deployments, use:<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
 | contentVersion |Yes |Version of the template (such as 1.0.0.0). You can provide any value for this element. Use this value to document significant changes in your template. When deploying resources using the template, this value can be used to make sure that the right template is being used. |
-| apiProfile |No | An API version that serves as a collection of API versions for resource types. Use this value to avoid having to specify API versions for each resource in the template. When you specify an API profile version and don't specify an API version for the resource type, Resource Manager uses the API version for that resource type that is defined in the profile.<br><br>The API profile property is especially helpful when deploying a template to different environments, such as Azure Stack and global Azure. Use the API profile version to make sure your template automatically uses versions that are supported in both environments. For a list of the current API profile versions and the resources API versions defined in the profile, see [API Profile](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>For more information, see [Track versions using API profiles](templates-cloud-consistency.md#track-versions-using-api-profiles). |
+| apiProfile |No | An API version that serves as a collection of API versions for resource types. Use this value to avoid having to specify API versions for each resource in the template. When you specify an API profile version and don't specify an API version for the resource type, Resource Manager uses the API version for that resource type that is defined in the profile.<br><br>The API profile property is especially helpful when deploying a template to different environments, such as Azure Stack and global Azure. Use the API profile version to make sure your template automatically uses versions that are supported in both environments. For a list of the current API profile versions and the resources API versions defined in the profile, see [API Profile](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>For more information, see [Track versions using API profiles](./template-cloud-consistency.md#track-versions-using-api-profiles). |
 | [parameters](#parameters) |No |Values that are provided when deployment is executed to customize resource deployment. |
 | [variables](#variables) |No |Values that are used as JSON fragments in the template to simplify template language expressions. |
 | [functions](#functions) |No |User-defined functions that are available within the template. |
@@ -76,7 +76,7 @@ The available properties for a parameter are:
 | maxLength |No |The maximum length for string, secure string, and array type parameters, this value is inclusive. |
 | description |No |Description of the parameter that is displayed to users through the portal. For more information, see [Comments in templates](#comments). |
 
-For examples of how to use parameters, see [Parameters in ARM templates](template-parameters.md).
+For examples of how to use parameters, see [Parameters in ARM templates](./parameters.md).
 
 ## Variables
 
@@ -111,7 +111,7 @@ The following example shows the available options for defining a variable:
 
 For information about using `copy` to create several values for a variable, see [Variable iteration](copy-variables.md).
 
-For examples of how to use variables, see [Variables in ARM template](template-variables.md).
+For examples of how to use variables, see [Variables in ARM template](./variables.md).
 
 ## Functions
 
@@ -156,7 +156,7 @@ When defining a user function, there are some restrictions:
 | output-type |Yes |Type of the output value. Output values support the same types as function input parameters. |
 | output-value |Yes |Template language expression that is evaluated and returned from the function. |
 
-For examples of how to use custom functions, see [User-defined functions in ARM template](template-user-defined-functions.md).
+For examples of how to use custom functions, see [User-defined functions in ARM template](./user-defined-functions.md).
 
 ## Resources
 
@@ -225,9 +225,9 @@ You define resources with the following structure:
 | type |Yes |Type of the resource. This value is a combination of the namespace of the resource provider and the resource type (such as `Microsoft.Storage/storageAccounts`). To determine available values, see [template reference](/azure/templates/). For a child resource, the format of the type depends on whether it's nested within the parent resource or defined outside of the parent resource. See [Set name and type for child resources](child-resource-name-type.md). |
 | apiVersion |Yes |Version of the REST API to use for creating the resource. When creating a new template, set this value to the latest version of the resource you're deploying. As long as the template works as needed, keep using the same API version. By continuing to use the same API version, you minimize the risk of a new API version changing how your template works. Consider updating the API version only when you want to use a new feature that is introduced in a later version. To determine available values, see [template reference](/azure/templates/). |
 | name |Yes |Name of the resource. The name must follow URI component restrictions defined in RFC3986. Azure services that expose the resource name to outside parties validate the name to make sure it isn't an attempt to spoof another identity. For a child resource, the format of the name depends on whether it's nested within the parent resource or defined outside of the parent resource. See [Set name and type for child resources](child-resource-name-type.md). |
-| comments |No |Your notes for documenting the resources in your template. For more information, see [Comments in templates](template-syntax.md#comments). |
+| comments |No |Your notes for documenting the resources in your template. For more information, see [Comments in templates](#comments). |
 | location |Varies |Supported geo-locations of the provided resource. You can select any of the available locations, but typically it makes sense to pick one that is close to your users. Usually, it also makes sense to place resources that interact with each other in the same region. Most resource types require a location, but some types (such as a role assignment) don't require a location. See [Set resource location](resource-location.md). |
-| dependsOn |No |Resources that must be deployed before this resource is deployed. Resource Manager evaluates the dependencies between resources and deploys them in the correct order. When resources aren't dependent on each other, they're deployed in parallel. The value can be a comma-separated list of a resource names or resource unique identifiers. Only list resources that are deployed in this template. Resources that aren't defined in this template must already exist. Avoid adding unnecessary dependencies as they can slow your deployment and create circular dependencies. For guidance on setting dependencies, see [Define the order for deploying resources in ARM templates](define-resource-dependency.md). |
+| dependsOn |No |Resources that must be deployed before this resource is deployed. Resource Manager evaluates the dependencies between resources and deploys them in the correct order. When resources aren't dependent on each other, they're deployed in parallel. The value can be a comma-separated list of a resource names or resource unique identifiers. Only list resources that are deployed in this template. Resources that aren't defined in this template must already exist. Avoid adding unnecessary dependencies as they can slow your deployment and create circular dependencies. For guidance on setting dependencies, see [Define the order for deploying resources in ARM templates](./resource-dependency.md). |
 | tags |No |Tags that are associated with the resource. Apply tags to logically organize resources across your subscription. |
 | sku | No | Some resources allow values that define the SKU to deploy. For example, you can specify the type of redundancy for a storage account. |
 | kind | No | Some resources allow a value that defines the type of resource you deploy. For example, you can specify the type of Cosmos DB to create. |
@@ -265,7 +265,7 @@ The following example shows the structure of an output definition:
 | value |No |Template language expression that is evaluated and returned as output value. Specify either **value** or **copy**. |
 | copy |No | Used to return more than one value for an output. Specify **value** or **copy**. For more information, see [Output iteration in ARM templates](copy-outputs.md). |
 
-For examples of how to use outputs, see [Outputs in ARM template](template-outputs.md).
+For examples of how to use outputs, see [Outputs in ARM template](./outputs.md).
 
 <a id="comments"></a>
 
@@ -279,9 +279,7 @@ For inline comments, you can use either `//` or `/* ... */`.
 
 > [!NOTE]
 >
-> To deploy templates with comments, use Azure PowerShell or Azure CLI. For CLI, use version 2.3.0 or later, and specify the `--handle-extended-json-format` switch.
->
-> Comments aren't supported when you deploy the template through the Azure portal, a DevOps pipeline, or the REST API.
+> When using Azure CLI to deploy templates with comments, use version 2.3.0 or later, and specify the `--handle-extended-json-format` switch.
 
 ```json
 {
@@ -401,8 +399,8 @@ You can break a string into multiple lines. For example, see the `location` prop
 
 ## Next steps
 
-* To view complete templates for many different types of solutions, see the [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/).
+* To view complete templates for many different types of solutions, see the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/).
 * For details about the functions you can use from within a template, see [ARM template functions](template-functions.md).
 * To combine several templates during deployment, see [Using linked and nested templates when deploying Azure resources](linked-templates.md).
-* For recommendations about creating templates, see [ARM template best practices](template-best-practices.md).
-* For answers to common questions, see [Frequently asked questions about ARM templates](frequently-asked-questions.md).
+* For recommendations about creating templates, see [ARM template best practices](./best-practices.md).
+* For answers to common questions, see [Frequently asked questions about ARM templates](frequently-asked-questions.yml).

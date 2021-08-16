@@ -2,7 +2,7 @@
 title: Deploy resources with Azure CLI and template
 description: Use Azure Resource Manager and Azure CLI to deploy resources to Azure. The resources are defined in a Resource Manager template.
 ms.topic: conceptual
-ms.date: 05/07/2021
+ms.date: 07/15/2021
 ---
 
 # Deploy resources with ARM templates and Azure CLI
@@ -170,7 +170,7 @@ For more information, see [Azure Resource Manager template specs](template-specs
 
 ## Preview changes
 
-Before deploying your template, you can preview the changes the template will make to your environment. Use the [what-if operation](template-deploy-what-if.md) to verify that the template makes the changes that you expect. What-if also validates the template for errors.
+Before deploying your template, you can preview the changes the template will make to your environment. Use the [what-if operation](./deploy-what-if.md) to verify that the template makes the changes that you expect. What-if also validates the template for errors.
 
 ## Parameters
 
@@ -231,6 +231,19 @@ az deployment group create --name addstorage  --resource-group myResourceGroup \
 
 Use double quotes around the JSON that you want to pass into the object.
 
+You can use a variable to contain the parameter values. In Bash, set the variable to all of the parameter values and add it to the deployment command.
+
+```azurecli-interactive
+params="prefix=start suffix=end"
+
+az deployment group create \
+  --resource-group testgroup \
+  --template-file <path-to-template> \
+  --parameters $params
+``` 
+
+However, if you're using Azure CLI with Windows Command Prompt (CMD) or PowerShell, set the variable to a JSON string. Escape the quotation marks: `$params = '{ \"prefix\": {\"value\":\"start\"}, \"suffix\": {\"value\":\"end\"} }'`.
+
 ### Parameter files
 
 Rather than passing parameters as inline values in your script, you may find it easier to use a JSON file that contains the parameter values. The parameter file must be a local file. External parameter files aren't supported with Azure CLI.
@@ -273,5 +286,5 @@ To deploy a template with multi-line strings or comments using Azure CLI with ve
 
 * To roll back to a successful deployment when you get an error, see [Rollback on error to successful deployment](rollback-on-error.md).
 * To specify how to handle resources that exist in the resource group but aren't defined in the template, see [Azure Resource Manager deployment modes](deployment-modes.md).
-* To understand how to define parameters in your template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* To understand how to define parameters in your template, see [Understand the structure and syntax of ARM templates](./syntax.md).
 * For tips on resolving common deployment errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](common-deployment-errors.md).

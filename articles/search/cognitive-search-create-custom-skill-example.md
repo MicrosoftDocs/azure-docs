@@ -2,10 +2,8 @@
 title: 'Custom skill example using Bing Entity Search API'
 titleSuffix: Azure Cognitive Search
 description: Demonstrates using the Bing Entity Search service in a custom skill mapped to an AI-enriched indexing pipeline in Azure Cognitive Search.
-
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
@@ -20,7 +18,7 @@ In this example, learn how to create a web API custom skill. This skill will acc
 
 + Read about [custom skill interface](cognitive-search-custom-skill-interface.md) article if you aren't familiar with the input/output interface that a custom skill should implement.
 
-+ [!INCLUDE [cognitive-services-bing-entity-search-signup-requirements](../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
++ Create a [Bing Search v7 resource](https://ms.portal.azure.com/#create/Microsoft.BingSearch) through the Azure Portal. A free tier is available and sufficient for this example.
 
 + Install [Visual Studio 2019](https://www.visualstudio.com/vs/) or later, including the Azure development workload.
 
@@ -32,15 +30,13 @@ Although this example uses an Azure Function to host a web API, it isn't require
 
 1. In Visual Studio, select **New** > **Project** from the File menu.
 
-1. In the New Project dialog, select **Installed**, expand **Visual C#** > **Cloud**, select **Azure Functions**, type a Name for your project, and select **OK**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other non-alphanumeric characters.
-
-1. Select **Azure Functions v2 (.NET Core)**. You could also do it with version 1, but the code written below is based on the v2 template.
+1. In the New Project dialog, select **Azure Functions** as the template and select **Next**. Type a name for your project, and select **Create**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other non-alphanumeric characters.
 
 1. Select the type to be **HTTP Trigger**
 
 1. For Storage Account, you may select **None**, as you won't need any storage for this function.
 
-1. Select **OK** to create the function project and HTTP triggered function.
+1. Select **Create** to create the function project and HTTP triggered function.
 
 ### Modify the code to call the Bing Entity Search Service
 
@@ -72,7 +68,7 @@ namespace SampleSkills
     {
         #region Credentials
         // IMPORTANT: Make sure to enter your credential and to verify the API endpoint matches yours.
-        static readonly string bingApiEndpoint = "https://api.cognitive.microsoft.com/bing/v7.0/entities/";
+        static readonly string bingApiEndpoint = "https://api.bing.microsoft.com/v7.0/entities";
         static readonly string key = "<enter your api key here>";  
         #endregion
 
@@ -310,7 +306,7 @@ namespace SampleSkills
 
 Make sure to enter your own *key* value in the `key` constant based on the key you got when signing up for the Bing entity search API.
 
-This sample includes all necessary code in a single file for convenience. You can find a slightly more structured version of that same skill in [the power skills repository](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Text/BingEntitySearch).
+This sample includes all necessary code in a single file for convenience. You can find a slightly more structured version of that same skill in [the power skills repository](https://github.com/Azure-Samples/azure-search-power-skills/tree/main/Text/BingEntitySearch).
 
 Of course, you may rename the file from `Function1.cs` to `BingEntitySearch.cs`.
 

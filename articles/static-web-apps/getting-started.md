@@ -5,13 +5,13 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  quickstart
-ms.date: 08/13/2020
+ms.date: 06/16/2021
 ms.author: cshoe
 ---
 
 # Quickstart: Building your first static site with Azure Static Web Apps
 
-Azure Static Web Apps publishes a website by building apps from a code repository. In this quickstart, you deploy an  application to Azure Static Web apps using the Visual Studio Code extension.
+Azure Static Web Apps publishes a website by building an app from a code repository. In this quickstart, you deploy an application to Azure Static Web apps using the Visual Studio Code extension.
 
 If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
 
@@ -27,7 +27,7 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 
 [!INCLUDE [clone the repository](../../includes/static-web-apps-get-started-clone-repo.md)]
 
-Next, open Visual Studio Code and go to **File > Open Folder** to open the repository you cloned to your machine in the editor.
+Next, open Visual Studio Code and go to **File > Open Folder** to open the cloned repository in the editor.
 
 ## Create a static web app
 
@@ -36,34 +36,38 @@ Next, open Visual Studio Code and go to **File > Open Folder** to open the repos
     :::image type="content" source="media/getting-started/extension-azure-logo.png" alt-text="Azure Logo":::
 
     > [!NOTE]
-    > Azure and GitHub sign in are required. If you are not already signed in to Azure and GitHub from Visual Studio Code, the extension will prompt you to sign in to both during the creation process.
+    > You are required to sign in to Azure and GitHub in Visual Studio Code to continue. If you are not already authenticated, the extension will prompt you to sign in to both services during the creation process.
 
 1. Under the _Static Web Apps_ label, select the **plus sign**.
 
     :::image type="content" source="media/getting-started/extension-create-button.png" alt-text="Application name":::
+    
+    > [!NOTE]
+    > The Azure Static Web Apps Visual Studio Code extension streamlines the creating process by using a series of default values. If you want to have fine-grained control of the creation process, open the command palate and select **Azure Static Web Apps: Create Static Web App... (Advanced)**.
 
-1. The command palate opens at the top of the editor and prompts you to name your application.
+1. The command palette opens at the top of the editor and prompts you to select a subscription name.
 
-    Type **my-first-static-web-app** and press **Enter**.
+    Select your subscription and press <kbd>Enter</kbd>.
+
+    :::image type="content" source="media/getting-started/extension-subscription.png" alt-text="Select an Azure Subscription":::
+
+1. Next, name your application.
+
+    Type **my-first-static-web-app** and press <kbd>Enter</kbd>.
 
     :::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Create Static Web App":::
 
 1. Select the presets that match your application type.
 
     # [No Framework](#tab/vanilla-javascript)
+
     :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="Application presets: No framework":::
 
-    Enter **./** as the location for the application files.
-
-    :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Application files location":::
-
-    Select **Skip for now** as the location for the Azure Functions API.
-
-    :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="API location":::
-
-    Enter **./** as the build output location.
+    Enter **./** as the location for the application files and press <kbd>Enter</kbd>.
 
     :::image type="content" source="media/getting-started/extension-build-location.png" alt-text="Application build output location":::
+
+    Enter **./** as the build output location and press <kbd>Enter</kbd>.
 
     # [Angular](#tab/angular)
 
@@ -74,10 +78,6 @@ Next, open Visual Studio Code and go to **File > Open Folder** to open the repos
     Enter **./** as the location for the application files.
 
     :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Application files location: Angular":::
-
-    Select **Skip for now** as the location for the Azure Functions API.
-
-    :::image type="content" source="media/getting-started/extension-api-location.png" alt-text="API location: Angular":::
 
     Enter **dist/angular-basic** as the build output location.
 
@@ -93,17 +93,15 @@ Next, open Visual Studio Code and go to **File > Open Folder** to open the repos
 
     ---
 
-1. Select a location nearest you and press **Enter**.
-
-    :::image type="content" source="media/getting-started/extension-location.png" alt-text="Resource location":::
-
 1. Once the app is created, a confirmation notification is shown in Visual Studio Code.
 
     :::image type="content" source="media/getting-started/extension-confirmation.png" alt-text="Created confirmation":::
 
-    Next, click on the button **Open Actions in GitHub**. This page shows you the build status of the application.
+    As the deployment is in progress, the Visual Studio Code extension reports the build status to you.
 
-    Once the GitHub Action is complete, then you can browse to the published website.
+    :::image type="content" source="media/getting-started/extension-waiting-for-deployment.png" alt-text="Waiting for deployment":::
+
+    Once the deployment is complete, you can navigate directly to your website.
 
 1. To view the website in the browser, right-click on the project in the Static Web Apps extension, and select **Browse Site**.
 

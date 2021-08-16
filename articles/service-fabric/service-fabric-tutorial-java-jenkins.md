@@ -35,12 +35,14 @@ In this tutorial series you learn how to:
 
 You can set up Jenkins either inside or outside a Service Fabric cluster. The following instructions show how to set it up outside a cluster using a provided Docker image. However, a preconfigured Jenkins build environment can also be used. The following container image comes installed with the Service Fabric plugin and is ready for use with Service Fabric immediately.
 
-1. Pull the Service Fabric Jenkins container image: `docker pull mcr.microsoft.com/azuredocs/jenkins:v10`. This image comes with Service Fabric Jenkins plugin pre-installed.
+[!INCLUDE [pull-image-include](../../includes/pull-image-include.md)]
+
+1. Pull the Service Fabric Jenkins container image: `docker pull rapatchi/jenkins:v10`. This image comes with Service Fabric Jenkins plugin pre-installed.
 
 1. Run the container image with the location where your Azure certificates are stored on your mounted local machine.
 
     ```bash
-    docker run -itd -p 8080:8080 -v /service-fabric-java-quickstart/AzureCluster mcr.microsoft.com/azuredocs/jenkins:v10
+    docker run -itd -p 8080:8080 -v /service-fabric-java-quickstart/AzureCluster rapatchi/jenkins:v10
     ```
 
 1. Get the ID of the container image instance. You can list all the Docker containers with the command ``docker ps –a``

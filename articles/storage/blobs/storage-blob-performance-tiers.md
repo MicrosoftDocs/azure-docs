@@ -78,7 +78,7 @@ You can't move data that's stored in a premium block blob storage account betwee
 
 Evaluate hot, cool, and archive in GPv2 and Blob storage accounts.
 
-- [Learn about rehydrating blob data from the archive tier](storage-blob-rehydration.md)
+- [Learn about rehydrating blob data from the archive tier](archive-rehydrate-overview.md)
 - [Evaluate usage of your current storage accounts by enabling Azure Storage metrics](./monitor-blob-storage.md)
 - [Check hot, cool, and archive pricing in Blob storage and GPv2 accounts by region](https://azure.microsoft.com/pricing/details/storage/)
 - [Check data transfers pricing](https://azure.microsoft.com/pricing/details/data-transfers/)

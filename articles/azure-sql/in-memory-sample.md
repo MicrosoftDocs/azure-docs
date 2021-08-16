@@ -7,8 +7,8 @@ ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: sample
-author: jovanpop-msft
-ms.author: jovanpop
+author: srinia
+ms.author: srinia
 ms.reviewer: mathoma
 ms.date: 12/18/2018
 ---

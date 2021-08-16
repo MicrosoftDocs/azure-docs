@@ -1,12 +1,13 @@
 ---
 title: Upload and index videos with Azure Video Analyzer for Media (formerly Video Indexer)
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: This topic demonstrates how to use APIs to upload and index your videos with Azure Video Analyzer for Media (formerly Video Indexer).
 author: Juliako
 manager: femila
 
 ms.service: azure-video-analyzer
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 05/12/2021
 ms.author: juliako
 ---

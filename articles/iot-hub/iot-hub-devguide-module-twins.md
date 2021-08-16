@@ -218,13 +218,13 @@ In addition to these operations, the solution back end can query the module twin
 
 The module app operates on the module twin using the following atomic operations:
 
-* **Retrieve module twin**. This operation returns the module twin document (including tags and desired and reported system properties) for the currently connected module.
+* **Retrieve module twin**. This operation returns the module twin document (including desired and reported system properties) for the currently connected module.
 
 * **Partially update reported properties**. This operation enables the partial update of the reported properties of the currently connected module. This operation uses the same JSON update format that the solution back end uses for a partial update of desired properties.
 
 * **Observe desired properties**. The currently connected module can choose to be notified of updates to the desired properties when they happen. The module receives the same form of update (partial or full replacement) executed by the solution back end.
 
-All the preceding operations require the **ModuleConnect** permission, as defined in the [Control Access to IoT Hub](iot-hub-devguide-security.md) article.
+All the preceding operations require the **DeviceConnect** permission, as defined in the [Control Access to IoT Hub](iot-hub-devguide-security.md) article.
 
 The [Azure IoT device SDKs](iot-hub-devguide-sdks.md) make it easy to use the preceding operations from many languages and platforms.
 

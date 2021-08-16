@@ -1,27 +1,28 @@
 ---
-title: Connectors for Azure Logic Apps
-description: Overview about using connectors to build automated workflows with Azure Logic Apps. Learn how different triggers, actions, and connectors work.
+title: Connectors overview for Azure Logic Apps
+description: Learn about connectors and how they help you quickly and easily build automated integration workflows using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm, azla
+ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 04/20/2021
+ms.date: 07/01/2021
 ms.custom: contperf-fy21q4
 ---
 
-# Connectors for Azure Logic Apps
+# About connectors in Azure Logic Apps
 
-In Azure Logic Apps, *connectors* help you quickly access data, events, and other resources from other apps, services, systems, protocols, and platforms. When you use connectors, you can build logic app workflows that use, process, and integrate information across cloud-based, on-premises, and hybrid environments - often without having to write any code.
+When you build workflows using Azure Logic Apps, you can use *connectors* to help you quickly and easily access data, events, and resources in other apps, services, systems, protocols, and platforms - often without writing any code. A connector provides prebuilt operations that you can use as steps in your workflows. Azure Logic Apps provides hundreds of connectors that you can use. If no connector is available for the resource that you want to access, you can use the generic HTTP operation to communicate with the service, or you can [create a custom connector](#custom-apis-and-connectors).
 
-You can choose from hundreds of connectors to use in your workflows. As a result, this documentation focuses on some popular and commonly used connectors for Logic Apps. For complete information about connectors across Logic Apps, Microsoft Power Automate, and Microsoft Power Apps, review the [Connectors documentation](/connectors). For information on pricing, review the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md), and [Logic Apps pricing details](https://azure.microsoft.com/pricing/details/logic-apps/).
+This overview offers an introduction to connectors, how they generally work, and the more popular and commonly used connectors in Azure Logic Apps. For more information, review the following documentation:
 
-> [!NOTE]
-> To integrate your workflow with a service or API that doesn't have a connector, you can either call 
-> the service over a protocol, such as HTTP, or [create a custom connector](#custom-apis-and-connectors).
+* [Connectors overview for Azure Logic Apps, Microsoft Power Automate, and Microsoft Power Apps](/connectors)
+* [Connectors reference for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Pricing and billing models in Azure Logic Apps](../logic-apps/logic-apps-pricing.md)
+* [Azure Logic Apps pricing details](https://azure.microsoft.com/pricing/details/logic-apps/)
 
 ## What are connectors?
 
-Connectors provide *triggers* and *actions* that you use to perform tasks in your logic app's workflow. Each trigger and action has properties that you can configure. Some triggers and actions require that you [create and configure connections](#connection-configuration) so that your workflow can access a specific service or system.
+Technically, a connector is a proxy or a wrapper around an API that the underlying service uses to communicate with Azure Logic Apps. This connector provides operations that you use in your workflows to perform tasks. An operation is available either as a *trigger* or *action* with properties you can configure. Some triggers and actions also require that you first [create and configure a connection](#connection-configuration) to the underlying service or system, for example, so that you can authenticate access to a user account.
 
 ### Triggers
 
@@ -40,7 +41,7 @@ An *action* is an operation that follows the trigger and performs some kind of t
 
 ## Connector categories
 
-In Logic Apps, most triggers and actions are available in either a *built-in* version or *managed connector* version. A small number of triggers and actions are available in both versions. The versions available depend on whether you create a multi-tenant logic app or a single-tenant logic app, which is currently available only in [single-tenant Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md).
+In Logic Apps, most triggers and actions are available in either a *built-in* version or *managed connector* version. A few triggers and actions are available in both versions. The versions available depend on whether you create a multi-tenant logic app or a single-tenant logic app, which is currently available only in [single-tenant Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md).
 
 [Built-in triggers and actions](built-in.md) run natively on the Logic Apps runtime, don't require creating connections, and perform these kinds of tasks:
 
@@ -115,7 +116,7 @@ To make sure that your workflow runs at your specified start time and doesn't mi
 
 * When DST takes effect, manually adjust the recurrence so that your workflow continues to run at the expected time. Otherwise, the start time shifts one hour forward when DST starts and one hour backward when DST ends. For more information and examples, review [Recurrence for daylight saving time and standard time](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-saving-standard-time).
 
-* If you're using a **Recurrence** trigger, specify a time zone, a start date and time. In addition, configure specific times to run subsequent recurrences in the properties **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies. However, some time windows might still cause problems when the time shifts.
+* If you're using a **Recurrence** trigger, specify a time zone, a start date, and start time. In addition, configure specific times to run subsequent recurrences in the properties **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies. However, some time windows might still cause problems when the time shifts.
 
 * Consider using a [**Sliding Window** trigger](connectors-native-sliding-window.md) instead of a **Recurrence** trigger to avoid missed recurrences.
 
@@ -129,7 +130,7 @@ For workflows that need direct access to resources in an Azure virtual network, 
 
 Custom connectors created within an ISE don't work with the on-premises data gateway. However, these connectors can directly access on-premises data sources that are connected to an Azure virtual network hosting the ISE. So, logic apps in an ISE most likely don't need the data gateway when communicating with those resources. If you have custom connectors that you created outside an ISE that require the on-premises data gateway, logic apps in an ISE can use those connectors.
 
-In the Logic Apps Designer, when you browse the built-in triggers and actions or managed connectors that you want to use for logic apps in an ISE, the **CORE** label appears on built-in triggers and actions, while the **ISE** label appears on managed connectors that are specifically designed to work with an ISE.
+In the Logic Apps Designer, when you browse the built-in triggers and actions or managed connectors that you want to use for logic apps in an ISE, the **CORE** label appears on built-in triggers and actions, while the **ISE** label appears on managed connectors that are designed to work with an ISE.
 
 :::row:::
     :::column:::
@@ -181,4 +182,4 @@ The following table includes known issues for Logic Apps connectors.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create custom APIs you can call from Logic Apps](/logic-apps/logic-apps-create-api-app)
+> [Create custom APIs you can call from Logic Apps](../logic-apps/logic-apps-create-api-app.md)

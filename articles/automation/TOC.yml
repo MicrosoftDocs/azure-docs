@@ -10,15 +10,12 @@
     href: whats-new.md
 - name: Quickstarts
   items:
-    - name: Create an Automation account
+    - name: Create Automation account - Portal
       href: automation-quickstart-create-account.md
     - name: Create a PowerShell runbook
       href: automation-quickstart-create-runbook.md
     - name: Enable Desired State Configuration for a machine
       href: automation-quickstart-dsc-configuration.md
-    - name: Create Automation account - ARM template
-      displayName: Resource Manager
-      href: quickstart-create-automation-account-template.md
 - name: Tutorials
   items:
     - name: Create a graphical runbook
@@ -68,10 +65,14 @@
           href: quickstart-create-automation-account-template.md
         - name: Managed identity
           items:
-            - name: Enable managed identity
+            - name: Using system-assigned managed identity
               href: enable-managed-identity-for-automation.md
-            - name: Disable managed identity
+            - name: Using user-assigned managed identity
+              href: add-user-assigned-identity.md
+            - name: Disable system-assigned managed identity
               href: disable-managed-identity-for-automation.md
+            - name: Remove user-assigned managed identity
+              href: remove-user-assigned-identity.md
             - name: Troubleshoot managed identity
               href: troubleshoot/managed-identity.md
         - name: Run As account
@@ -214,8 +215,6 @@
                   href: automation-dsc-config-from-server.md
                 - name: Convert configurations to composite resources
                   href: automation-dsc-create-composite.md
-                - name: Remediate non-compliant servers
-                  href: automation-dsc-remediate.md 
         - name: Change tracking and inventory
           items:
             - name: Overview
@@ -274,8 +273,12 @@
           href: update-management/overview.md
         - name: Supported regions for linked Log Analytics workspace
           href: how-to/region-mappings.md
+        - name: Plan your deployment
+          href: update-management/plan-deployment.md
         - name: Enable
           items:
+            - name: System prerequisites
+              href: update-management/operating-system-requirements.md
             - name: Enable using Azure Resource Manager template
               href: update-management/enable-from-template.md
             - name: Enable from the Azure portal

@@ -7,7 +7,7 @@ ms.date: 04/26/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ms.custom: mvc, devx-track-python
 ---
 
@@ -165,7 +165,7 @@ for loc in range(len(searchPolyResponse["results"])):
 
 ## Upload the reachable range and charging points to Azure Maps Data service
 
-On a map, you'll want to visualize the charging stations and the boundary for the maximum reachable range of the electric vehicle. To do so, upload the boundary data and charging stations data as geojson objects to Azure Maps Data service. Use the [Data Upload API](/rest/api/maps/data%20v2/uploadpreview). 
+On a map, you'll want to visualize the charging stations and the boundary for the maximum reachable range of the electric vehicle. To do so, upload the boundary data and charging stations data as geojson objects to Azure Maps Data service. Use the [Data Upload API](/rest/api/maps/data-v2/upload-preview). 
 
 To upload the boundary and charging point data to Azure Maps Data service, run the following two cells:
 
@@ -328,7 +328,7 @@ routeData = {
 
 ## Visualize the route
 
-To help visualize the route, you first upload the route data as a geojson object to Azure Maps Data service . To do so, use the Azure Maps [Data Upload API](/rest/api/maps/data%20v2/uploadpreview). Then, call the rendering service, [Get Map Image API](/rest/api/maps/render/getmapimage), to render the route on the map, and visualize it.
+To help visualize the route, you first upload the route data as a geojson object to Azure Maps Data service . To do so, use the Azure Maps [Data Upload API](/rest/api/maps/data-v2/upload-preview). Then, call the rendering service, [Get Map Image API](/rest/api/maps/render/getmapimage), to render the route on the map, and visualize it.
 
 To get an image for the rendered route on the map, run the following script:
 
@@ -385,7 +385,7 @@ To explore the Azure Maps APIs that are used in this tutorial, see:
 
 * [Get Route Range](/rest/api/maps/route/getrouterange)
 * [Post Search Inside Geometry](/rest/api/maps/search/postsearchinsidegeometry)
-* [Data Upload](/rest/api/maps/data%20v2/uploadpreview)
+* [Data Upload](/rest/api/maps/data-v2/upload-preview)
 * [Render - Get Map Image](/rest/api/maps/render/getmapimage)
 * [Post Route Matrix](/rest/api/maps/route/postroutematrix)
 * [Get Route Directions](/rest/api/maps/route/getroutedirections)

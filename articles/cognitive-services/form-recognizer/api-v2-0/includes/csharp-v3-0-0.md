@@ -1,10 +1,10 @@
 ---
-title: "Reference: Form Recognizer 3.1.0 client library for .NET"
+title: "Reference: Form Recognizer 3.1.1 client library for .NET"
 description: Use the Form Recognizer client library for .NET to create a forms processing app that extracts key/value pairs and table data from your custom documents.
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/25/2021
@@ -79,7 +79,7 @@ In the application's **Main** method, add a call to the asynchronous tasks used 
 
 ## Object model
 
-With Form Recognizer, you can create two different client types. The first, `FormRecognizerClient` is used to query the service to recognized form fields and content. The second, `FormTrainingClient` is use to create and manage custom models that you can use to improve recognition.
+With Form Recognizer, you can create two different client types. The first, `FormRecognizerClient` is used to query the service to recognized form fields and content. The second, `FormTrainingClient` is used to create and manage custom models to improve recognition.
 
 ### FormRecognizerClient
 

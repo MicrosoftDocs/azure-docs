@@ -3,7 +3,7 @@ title: 'Tutorial - Migrate web services from Google Maps | Microsoft Azure Maps'
 description: Tutorial on how to migrate web services from Google Maps to Microsoft Azure Maps
 author: rbrundritt
 ms.author: richbrun
-ms.date: 08/19/2020
+ms.date: 06/23/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -55,7 +55,7 @@ The following service APIs aren't currently available in Azure Maps:
 - Nearest Roads - This is achievable using the Web SDK as shown [here](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Basic%20snap%20to%20road%20logic), but not available as a service currently.
 - Static street view
 
-Azure Maps has several additional REST web services that may be of interest:
+Azure Maps has several other REST web services that may be of interest:
 
 - [Spatial operations](/rest/api/maps/spatial): Offload complex spatial calculations and operations, such as geofencing, to a service.
 - [Traffic](/rest/api/maps/traffic): Access real-time traffic flow and incident data.
@@ -116,7 +116,7 @@ This table cross-references the Google Maps API parameters with the comparable A
 
 Review [best practices for search](how-to-use-best-practices-for-search.md).
 
-The Azure Maps reverse geocoding API has some additional features, which aren't available in Google Maps. These features might be useful to integrate with your application, as you migrate your app:
+The Azure Maps reverse geocoding API has some other features, which aren't available in Google Maps. These features might be useful to integrate with your application, as you migrate your app:
 
 * Retrieve speed limit data
 * Retrieve road use information: local road, arterial, limited access, ramp, and so on
@@ -198,7 +198,6 @@ The Azure Maps routing service provides the following APIs for calculating route
 
 - [**Calculate route**](/rest/api/maps/route/getroutedirections): Calculate a route and have the request processed immediately. This API supports both GET and POST requests. POST requests are recommended when specifying a large number of waypoints or when using lots of the route options to ensure that the URL request doesn't become too long and cause issues. The POST Route Direction in Azure Maps has an option can that take in thousands of [supporting points](/rest/api/maps/route/postroutedirections#supportingpoints) and will use them to recreate a logical route path between them (snap to road). 
 - [**Batch route**](/rest/api/maps/route/postroutedirectionsbatchpreview): Create a request containing up to 1,000 route request and have them processed over a period of time. All the data will be processed in parallel on the server and when completed the full result set can be downloaded.
-- [**Mobility services (Preview)**](/rest/api/maps/mobility): Calculate routes and directions using public transit.
 
 The table cross-references the Google Maps API parameters with the comparable API parameters in Azure Maps.
 
@@ -216,28 +215,26 @@ The table cross-references the Google Maps API parameters with the comparable AP
 | `origin`                       | `query`                            |
 | `region`                       | *N/A* – This feature is geocoding related. Use the *countrySet* parameter when using the Azure Maps geocoding API.  |
 | `traffic_model`               | *N/A* – Can only specify if traffic data should be used with the *traffic* parameter. |
-| `transit_mode`                | See [Mobility services (Preview) documentation](/rest/api/maps/mobility) |
-| `transit_routing_preference` | See [Mobility services (Preview) documentation](/rest/api/maps/mobility) |
 | `units`                        | *N/A* – Azure Maps only uses the metric system.  |
 | `waypoints`                    | `query`                            |
 
 > [!TIP]
 > By default, the Azure Maps route API only returns a summary. It returns the distance and times and the coordinates for the route path. Use the `instructionsType` parameter to retrieve turn-by-turn instructions. And, use the `routeRepresentation` parameter to filter out the summary and route path.
 
-Azure Maps routing API has additional features, that aren't available in Google Maps. When migrating your app, consider using these features, you might find them useful.
+Azure Maps routing API has other features that aren't available in Google Maps. When migrating your app, consider using these features, you might find them useful.
 
 * Support for route type: shortest, fastest, trilling, and most fuel efficient.
-* Support for additional travel modes: bus, motorcycle, taxi, truck, and van.
+* Support for other travel modes: bus, motorcycle, taxi, truck, and van.
 * Support for 150 waypoints.
 * Compute multiple travel times in a single request; historic traffic, live traffic, no traffic.
-* Avoid additional road types: carpool roads, unpaved roads, already used roads.
+* Avoid other road types: carpool roads, unpaved roads, already used roads.
 * Specify custom areas to avoid.
 * Limit the elevation, which the route may ascend.
 * Route based on engine specifications. Calculate routes for combustion or electric vehicles based on engine specifications, and the remaining fuel or charge.
 * Support commercial vehicle route parameters. Such as, vehicle dimensions, weight, number of axels, and cargo type.
 * Specify maximum vehicle speed.
 
-In addition to this, the route service in Azure Maps supports [calculating routable ranges](/rest/api/maps/route/getrouterange). Calculating routable ranges is also known as isochrones. It entails generating a polygon covering an area that can be traveled to in any direction from an origin point. All under a specified amount of time or amount of fuel or charge.
+In addition, the route service in Azure Maps supports [calculating routable ranges](/rest/api/maps/route/getrouterange). Calculating routable ranges is also known as isochrones. It entails generating a polygon covering an area that can be traveled to in any direction from an origin point. All under a specified amount of time or amount of fuel or charge.
 
 Review the [best practices for routing](how-to-use-best-practices-for-routing.md) documentation.
 
@@ -289,7 +286,7 @@ Add markers using the `markers` parameter in the URL. The `markers` parameter ta
 &markers=markerStyles|markerLocation1|markerLocation2|...
 ```
 
-To add additional styles, use the `markers` parameters
+To add other styles, use the `markers` parameters
 to the URL with a different style and set of locations.
 
 Specify marker locations with the "latitude,longitude" format.
@@ -321,7 +318,7 @@ Add markers to a static map image by specifying the `pins` parameter in the URL.
 &pins=iconType|pinStyles||pinLocation1|pinLocation2|...
 ```
 
-To use additional styles, add additional `pins` parameters to the URL with a different style and set of locations.
+To use other styles, add extra `pins` parameters to the URL with a different style and set of locations.
 
 In Azure Maps, the pin location needs to be in the "longitude latitude" format. Google Maps uses "latitude,longitude" format. A space, not a comma, separates longitude and latitude in the Azure Maps format.
 
@@ -372,7 +369,7 @@ Add lines and polygon to a static map image using the `path` parameter in the UR
 &path=pathStyles|pathLocation1|pathLocation2|...
 ```
 
-Use additional styles by adding additional `path` parameters to the URL with a different style and set of locations.
+Use other styles by adding extra `path` parameters to the URL with a different style and set of locations.
 
 Path locations are specified with the `latitude1,longitude1|latitude2,longitude2|…` format. Paths can be encoded or contain addresses for points.
 
@@ -399,7 +396,7 @@ Add lines and polygons to a static map image by specifying the `path` parameter 
 &path=pathStyles||pathLocation1|pathLocation2|...
 ```
 
-When it comes to path locations, Azure Maps requires the coordinates to be in "longitude latitude" format. Google Maps uses "latitude,longitude" format. A space, not a comma, separates longitude and latitude in the Azure Maps format. Azure Maps doesn't support encoded paths or addresses for points. Upload larger data sets as a GeoJSON file into the Azure Maps Data Storage API as documented [here](how-to-render-custom-data.md#get-data-from-azure-maps-data-storage).
+When it comes to path locations, Azure Maps requires the coordinates to be in "longitude latitude" format. Google Maps uses "latitude,longitude" format. A space, not a comma, separates longitude and latitude in the Azure Maps format. Azure Maps doesn't support encoded paths or addresses for points. Upload larger data sets as a GeoJSON file into the Azure Maps Data Storage API as documented [here](how-to-render-custom-data.md#upload-pins-and-path-data).
 
 Add path styles with the `optionNameValue` format. Separate multiple styles by pipe (\|) characters, like this `optionName1Value1|optionName2Value2`. The option names and values aren't separated. Use the following style option names to style paths in Azure Maps:
 
@@ -465,7 +462,7 @@ This table cross-references the Google Maps API parameters with the comparable A
 | `location`                  | `query`             |
 | `timestamp`                 | `timeStamp`         |
 
-In addition to this API, Azure Maps provides a number of time zone APIs. These APIs convert the time based on the names or the IDs of the time zone:
+In addition to this API, Azure Maps provides many time zone APIs. These APIs convert the time based on the names or the IDs of the time zone:
 
 - [**Time zone by ID**](/rest/api/maps/timezone/gettimezonebyid): Returns current, historical, and future time zone information for the specified IANA time zone ID.
 - [**Time zone Enum IANA**](/rest/api/maps/timezone/gettimezoneenumiana): Returns a full list of IANA time zone IDs. Updates to the IANA service are reflected in the system within one day.

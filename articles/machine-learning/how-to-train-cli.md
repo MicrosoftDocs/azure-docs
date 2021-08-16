@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-
 author: lostmygithubaccount
 ms.author: copeters
-ms.date: 05/25/2021
+ms.date: 06/18/2021
 ms.reviewer: laobri
+ms.custom: devx-track-azurecli, devplatv2
 ---
 
 # Train models (create jobs) with the 2.0 CLI (preview)
@@ -26,7 +26,7 @@ Training a machine learning model is typically an iterative process. Modern tool
 
 ## Prerequisites
 
-- To use the CLI, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+- To use the CLI, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 - [Install and set up the Azure CLI extension for Machine Learning](how-to-configure-cli.md)
 - Clone the examples repository:
 
@@ -60,14 +60,13 @@ For instance, look at the `jobs/train/lightgbm/iris` project directory in the ex
 
 ```tree
 .
-├── environment.yml
 ├── job-sweep.yml
 ├── job.yml
 └── src
     └── main.py
 ```
 
-This directory contains two job files, a conda environment file, and a source code subdirectory `src`. While this example only has a single file under `src`, the entire subdirectory is recursively uploaded and available for use in the job.
+This directory contains two job files and a source code subdirectory `src`. While this example only has a single file under `src`, the entire subdirectory is recursively uploaded and available for use in the job.
 
 The basic command job is configured via the `job.yml`:
 
@@ -75,7 +74,7 @@ The basic command job is configured via the `job.yml`:
 
 This job can be created and run via `az ml job create` using the `--file/-f` parameter. However, the job targets a compute named `cpu-cluster` which does not yet exist. To run the job locally first, you can override the compute target with `--set`:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-train-cli.sh" id="lightgbm_iris_local":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="lightgbm_iris_local":::
 
 While running this job locally is slower than running `python main.py` in a local Python environment with the required packages, the above allows you to:
 
@@ -89,17 +88,19 @@ While running this job locally is slower than running `python main.py` in a loca
 > [Docker](https://docker.io) needs to be installed and running locally. Python needs to be installed in the job's environment. For local runs which use `inputs`, the Python package `azureml-dataprep` needs to be installed in the job's environment.
 
 > [!TIP]
-> This will take a few minutes to pull the base Docker image and create the conda environment on top of it. Use prebuilt Docker images to avoid the image build time.
+> This will take a few minutes to pull the base Docker image. Use prebuilt Docker images to avoid the image build time.
 
 ## Create compute
 
 You can create an Azure Machine Learning compute cluster from the command line. For instance, the following commands will create one cluster named `cpu-cluster` and one named `gpu-cluster`.
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/setup.sh" id="create_computes":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/create-compute.sh" id="create_computes":::
 
-Note that you are not charged for compute at this point as `cpu-cluster` and `gpu-cluster` will remain at 0 nodes until a job is submitted. Learn more about how to [plan and manage cost for AmlCompute](concept-plan-manage-cost.md#use-azure-machine-learning-compute-cluster-amlcompute).
+Note that you are not charged for compute at this point as `cpu-cluster` and `gpu-cluster` will remain at 0 nodes until a job is submitted. Learn more about how to [manage and optimize cost for AmlCompute](how-to-manage-optimize-cost.md#use-azure-machine-learning-compute-cluster-amlcompute).
 
 Use `az ml compute create -h` for more details on compute create options.
+
+[!INCLUDE [arc-enabled-kubernetes](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
 
 ## Basic Python training job
 
@@ -122,11 +123,11 @@ Creating this job uploads any specified local assets, like the source code direc
 
 To run the lightgbm/iris training job:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-train-cli.sh" id="lightgbm_iris":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="lightgbm_iris":::
 
 Once the job is complete, you can download the outputs:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-train-cli.sh" id="download_outputs":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="download_outputs":::
 
 > [!IMPORTANT]
 > Replace `$run_id` with your run ID, which can be found in the console output or in the studio's run details page.
@@ -156,14 +157,14 @@ You can modify the `job.yml` into `job-sweep.yml` to sweep over hyperparameters:
 
 Create job and open in the studio:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-train-cli.sh" id="lightgbm_iris_sweep":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="lightgbm_iris_sweep":::
 
 > [!TIP]
 > Hyperparameter sweeps can be used with distributed command jobs.
 
 ## Distributed training
 
-You can specify the `distributed` section in a command job. Azure ML supports distributed training for PyTorch, Tensorflow, and MPI compatible frameworks. PyTorch and TensorFlow enable native distributed training for the respective frameworks, such as `tf.distributed.Strategy` APIs for TensorFlow.
+You can specify the `distribution` section in a command job. Azure ML supports distributed training for PyTorch, Tensorflow, and MPI compatible frameworks. PyTorch and TensorFlow enable native distributed training for the respective frameworks, such as `tf.distributed.Strategy` APIs for TensorFlow.
 
 Be sure to set the `compute.instance_count`, which defaults to 1, to the desired number of nodes for the job.
 
@@ -175,11 +176,11 @@ An example YAML file for distributed PyTorch training on the CIFAR-10 dataset:
 
 Notice this refers to local data, which is not present in the cloned examples repository. You first need to download, extract, and relocate the CIFAR-10 dataset locally, placing it in the proper location in the project directory:
 
-:::code language="bash" source="~/azureml-examples-main/cli/how-to-train-cli.sh" id="download_cifar":::
+:::code language="bash" source="~/azureml-examples-main/cli/train.sh" id="download_cifar":::
 
 Create the job and open in the studio:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-train-cli.sh" id="pytorch_cifar":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="pytorch_cifar":::
 
 ### TensorFlow
 
@@ -189,7 +190,7 @@ An example YAML file for distributed TensorFlow training on the MNIST dataset:
 
 Create the job and open in the studio:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-train-cli.sh" id="tensorflow_mnist":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="tensorflow_mnist":::
 
 ### MPI
 
@@ -203,7 +204,7 @@ An example YAML specification, which runs a TensorFlow job on MNIST using Horovo
 
 Create the job and open in the studio:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-train-cli.sh" id="tensorflow_mnist_horovod":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/train.sh" id="tensorflow_mnist_horovod":::
 
 ## Next steps
 

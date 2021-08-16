@@ -29,7 +29,9 @@ For basic specs, storage capacities, and disk details, see [GPU Windows VM sizes
 
 | OS | Driver |
 | -------- |------------- |
-| Windows 10 Enterprise multi-session - Build 1909 <br/><br/>Windows 10 - Build 1909<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [20.Q4](https://download.microsoft.com/download/f/1/6/f16e6275-a718-40cd-a366-9382739ebd39/AMD-Azure-NVv4-Driver-20Q4.exe) (.exe) |
+| Windows 10 - Build 2009, 2004, 1909 <br/><br/>Windows 10 Enterprise multi-session - Build 2009, 2004, 1909 <br/><br/>Windows Server 2016 (version 1607)<br/><br/>Windows Server 2019 (version 1909) | [21.Q2](https://download.microsoft.com/download/3/4/8/3481cf8d-1706-49b0-aa09-08c9468305ab/AMD-Azure-NVv4-Windows-Driver-21Q2.exe) (.exe) |
+
+Previous supported driver version for Windows builds up to 1909 is [20.Q4](https://download.microsoft.com/download/f/1/6/f16e6275-a718-40cd-a366-9382739ebd39/AMD-Azure-NVv4-Driver-20Q4.exe) (.exe)
 
  > [!NOTE]
    >  If you use build 1903/1909 then you may need to update the following group policy for optimal performance. These changes are not needed for any other Windows builds.
@@ -37,12 +39,12 @@ For basic specs, storage capacities, and disk details, see [GPU Windows VM sizes
    >  [Computer Configuration->Policies->Windows Settings->Administrative Templates->Windows Components->Remote Desktop Services->Remote Desktop Session Host->Remote Session    Environment], set the Policy [Use WDDM graphics display driver for Remote Desktop Connections] to Disabled.
    >  
 
-
+ 
 ## Driver installation
 
 1. Connect by Remote Desktop to each NVv4-series VM.
 
-2. If you need to uninstall the previous driver version then download the AMD cleanup utility [here](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe) Please do not use the utility that comes with the previous version of the driver.
+2. If you need to uninstall the previous driver version then download the [AMD cleanup utility](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe) Please do not use the utility that comes with the previous version of the driver.
 
 3. Download and install the latest driver.
 

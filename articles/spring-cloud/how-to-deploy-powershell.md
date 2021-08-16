@@ -1,8 +1,8 @@
 ---
 title: How to deploy Azure Spring Cloud with Azure PowerShell
 description: How to deploy Azure Spring Cloud with Azure PowerShell
-author: bmitchell287
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.topic: conceptual
 ms.service: spring-cloud
 ms.devlang: azurepowershell
@@ -22,23 +22,23 @@ before you begin.
 
 [!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
 
-  > [!IMPORTANT]
-  > While the **Az.SpringCloud** PowerShell module is in preview, you must install it separately using
-  > the `Install-Module` cmdlet. After this PowerShell module becomes generally available, it will be
-  > part of future Az PowerShell module releases and available by default from within Azure Cloud
-  > Shell.
+   > [!IMPORTANT]
+   > While the **Az.SpringCloud** PowerShell module is in preview, you must install it separately using
+   > the `Install-Module` cmdlet. After this PowerShell module becomes generally available, it will be
+   > part of future Az PowerShell module releases and available by default from within Azure Cloud
+   > Shell.
 
-  ```azurepowershell-interactive
-  Install-Module -Name Az.SpringCloud
-  ```
+   ```azurepowershell-interactive
+   Install-Module -Name Az.SpringCloud
+   ```
 
 * If you have multiple Azure subscriptions, choose the appropriate subscription in which the
   resources should be billed. Select a specific subscription using the
   [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
 
-  ```azurepowershell-interactive
-  Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
-  ```
+   ```azurepowershell-interactive
+   Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
+   ```
 
 ## Create a resource group
 

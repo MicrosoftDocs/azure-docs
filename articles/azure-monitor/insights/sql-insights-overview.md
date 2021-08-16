@@ -17,7 +17,7 @@ There is no direct cost for SQL insights. All costs are incurred by the virtual 
 
 **Virtual machines**
 
-For virtual machines, you're charged based on the pricing published on the [virtual machines pricing page](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/). The number of virtual machines required will vary based on the number of connection strings you want to monitor. We recommend to allocate 1 virtual machine of size Standard_B2s for every 100 connection strings. See [Azure virtual machine requirements](sql-insights-enable.md#azure-virtual-machine-requirements) for more details.
+For virtual machines, you're charged based on the pricing published on the [virtual machines pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). The number of virtual machines required will vary based on the number of connection strings you want to monitor. We recommend to allocate 1 virtual machine of size Standard_B2s for every 100 connection strings. See [Azure virtual machine requirements](sql-insights-enable.md#azure-virtual-machine-requirements) for more details.
 
 **Log Analytics workspaces**
 
@@ -118,4 +118,4 @@ The tables below have the following columns:
 ## Next steps
 
 - See [Enable SQL insights](sql-insights-enable.md) for instructions on enabling SQL insights
-- See [Frequently asked questions](../faq.md#sql-insights-preview) for frequently asked questions about SQL insights
+- See [Frequently asked questions](/azure/azure-monitor/faq#sql-insights-preview) for frequently asked questions about SQL insights

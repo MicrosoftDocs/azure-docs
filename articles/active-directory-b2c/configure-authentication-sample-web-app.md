@@ -7,7 +7,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/25/2021
+ms.date: 06/11/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -34,11 +34,9 @@ The sign-in flow involves following steps:
 
 When the ID token is expired, or the app session is invalidated, the app initiates a new authentication request, and redirects the user to Azure AD B2C. If the Azure AD B2C [SSO session](session-behavior.md) is active, Azure AD B2C issues an access token without prompting the user to sign in again. If the Azure AD B2C session expires or becomes invalid, the user is prompted to sign-in again.
 
-The sign-out flow involves following steps:
+### Sign-out
 
-1. From the app, the user selects **Sign-out**.
-1. The app clears its session cookies, and redirects the user to Azure AD B2C to terminate Azure AD B2C session.
-1. The user is redirected back to the app.  
+[!INCLUDE [active-directory-b2c-app-integration-sign-out-flow](../../includes/active-directory-b2c-app-integration-sign-out-flow.md)] 
 
 ## Prerequisites
 
@@ -59,9 +57,7 @@ A computer that's running either:
 
 ## Step 1: Configure your user flow
 
-When a user wants to sign in to your application, the application initiates an authentication request to the authorization endpoint via a [user flow](user-flow-overview.md). The user flow  defines and controls the user experience, for example during sign-up or sign-in. When the user completes the user flow, Azure AD B2C generates a token and redirects the user back to your application.
-
-If you haven't done so already, [create a user flow](add-sign-up-and-sign-in-policy.md).
+[!INCLUDE [active-directory-b2c-app-integration-add-user-flow](../../includes/active-directory-b2c-app-integration-add-user-flow.md)]
 
 ## Step 2: Register a web application
 
@@ -96,18 +92,7 @@ For web apps that request an ID token directly from Azure AD B2C, enable the imp
 1. Under **Implicit grant**, select the **ID tokens** check box.
 1. Select **Save**.
 
-## Step 3: Get your tenant name
-
-To integrate your app with your Azure AD B2C tenant, you need to specify your tenant name in the app configuration file. Follow these steps to get your tenant name:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
-1. In the **Overview**, copy the first part of the **Domain name**. 
-
-![Get your tenant name](./media/configure-authentication-sample-web-app/get-azure-ad-b2c-tenant-name.png)  
-
-
-## Step 4: Get the web app sample
+## Step 3: Get the web app sample
 
 [Download the zip file](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/refs/heads/master.zip), or clone the sample web application from GitHub. 
 
@@ -117,16 +102,18 @@ git clone https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-op
 
 Extract the sample file to a folder where the total character length of the path is less than 260.
 
-## Step 5: Configure the sample application
+## Step 4: Configure the sample application
 
 In the sample folder, under the `1-WebApp-OIDC/1-5-B2C/` folder, open the **WebApp-OpenIDConnect-DotNet.csproj** project with Visual Studio or Visual Studio Code. 
 
 Under the project root folder, open the `appsettings.json` file. This file contains information about your Azure AD B2C identity provider. Update the following properties of the app settings: 
 
-* **Instance** -  Replace `<your-tenant-name>` with your tenant name. For example, `https://contoso.b2clogin.com`.
-* **Domain** - Replace `<your-b2c-domain>` with your Azure AD B2C full domain name. For example, `contoso.onmicrosoft.com`.
-* **Client ID** -  Replace `<web-app-application-id>` with the Application ID from [Step 2](#step-2-register-a-web-application).
-* **Policy name** -  Replace `<your-sign-up-in-policy>` with the user flows you created in [Step 1](#step-1-configure-your-user-flow).
+|Section  |Key  |Value  |
+|---------|---------|---------|
+|AzureAdB2C|Instance| The first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name). For example, `https://contoso.b2clogin.com`.|
+|AzureAdB2C|Domain| Your Azure AD B2C tenant full [tenant name](tenant-management.md#get-your-tenant-name). For example, `contoso.onmicrosoft.com`.|
+|AzureAdB2C|ClientId| The web API application ID from [step 2](#step-2-register-a-web-application).|
+|AzureAdB2C|SignUpSignInPolicyId|The user flows, or custom policy you created in [step 1](#step-1-configure-your-user-flow).|
 
 Your final configuration file should look like the following JSON:
 
@@ -140,7 +127,7 @@ Your final configuration file should look like the following JSON:
 }
 ```
 
-## Step 6: Run the sample application
+## Step 5: Run the sample application
 
 1. Build and run the project.
 1. Browse to https://localhost:5001. 
@@ -156,7 +143,7 @@ After successful authentication, you'll see your display name in the navigation 
 
 ## Deploy your application 
 
-In a production application, the app registration redirect URI is typically a publicly-accessible endpoint where your app is running, like `https://contoso.com/signin-oidc`. 
+In a production application, the app registration redirect URI is typically a publicly accessible endpoint where your app is running, like `https://contoso.com/signin-oidc`. 
 
 You can add and modify redirect URIs in your registered applications at any time. The following restrictions apply to redirect URIs:
 

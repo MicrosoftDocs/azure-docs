@@ -34,7 +34,7 @@ The authentication process begins when a claimant asserts its control of one of 
 
 <sup data-htmlnode="">1</sup> OATH-TOTP SHA-1 tokens of the 30-second or 60-second variety.
 
-<sup data-htmlnode="">2</sup> For more information on device join states, see [Azure AD device identity documentation](https://docs.microsoft.com/azure/active-directory/devices/). 
+<sup data-htmlnode="">2</sup> For more information on device join states, see [Azure AD device identity documentation](../devices/index.yml). 
 
 ## Why SMS isn't recommended 
 
@@ -54,4 +54,4 @@ SMS text messages meet the NIST standard, but NIST doesn't recommend them. The r
 
 [Achieve NIST AAL2 with Azure AD](nist-authenticator-assurance-level-2.md)
 
-[Achieve NIST AAL3 with Azure AD](nist-authenticator-assurance-level-3.md) 
+[Achieve NIST AAL3 with Azure AD](nist-authenticator-assurance-level-3.md)

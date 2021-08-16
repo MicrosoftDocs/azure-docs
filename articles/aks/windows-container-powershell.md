@@ -3,7 +3,7 @@ title: Create a Windows Server container on an AKS cluster by using PowerShell
 description: Learn how to quickly create a Kubernetes cluster, deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using PowerShell.
 services: container-service
 ms.topic: article
-ms.date: 03/12/2021 
+ms.date: 03/12/2021
 ms.custom: devx-track-azurepowershell
 
 
@@ -30,7 +30,7 @@ If you choose to use PowerShell locally, this article requires that you install 
 module and connect to your Azure account using the
 [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) cmdlet. For more information
 about installing the Az PowerShell module, see
-[Install Azure PowerShell][install-azure-powershell]. You also must install the Az.Aks PowerShell module: 
+[Install Azure PowerShell][install-azure-powershell]. You also must install the Az.Aks PowerShell module:
 
 ```azurepowershell-interactive
 Install-Module Az.Aks
@@ -95,7 +95,7 @@ Use the `ssh-keygen` command-line utility to generate an SSH key pair. For more 
 To run an AKS cluster that supports node pools for Windows Server containers, your cluster needs to
 use a network policy that uses [Azure CNI][azure-cni-about] (advanced) network plugin. For more
 detailed information to help plan out the required subnet ranges and network considerations, see
-[configure Azure CNI networking][use-advanced-networking]. Use the [New-AzAks][new-azaks] cmdlet
+[configure Azure CNI networking][use-advanced-networking]. Use the [New-AzAksCluster][new-azakscluster] cmdlet
 below to create an AKS cluster named **myAKSCluster**. The following example creates the necessary
 network resources if they don't exist.
 
@@ -131,7 +131,7 @@ The above command creates a new node pool named **npwin** and adds it to the **m
 creating a node pool to run Windows Server containers, the default value for **VmSize** is
 **Standard_D2s_v3**. If you choose to set the **VmSize** parameter, check the list of
 [restricted VM sizes][restricted-vm-sizes]. The minimum recommended size is **Standard_D2s_v3**. The
-previous command also uses the default subnet in the default vnet created when running `New-AzAks`.
+previous command also uses the default subnet in the default vnet created when running `New-AzAksCluster`.
 
 ## Connect to the cluster
 
@@ -201,7 +201,7 @@ spec:
         app: sample
     spec:
       nodeSelector:
-        "beta.kubernetes.io/os": windows
+        "kubernetes.io/os": windows
       containers:
       - name: sample
         image: mcr.microsoft.com/dotnet/framework/samples:aspnetapp
@@ -322,7 +322,7 @@ Kubernetes cluster tutorial.
 [new-azresourcegroup]: /powershell/module/az.resources/new-azresourcegroup
 [azure-cni-about]: concepts-network.md#azure-cni-advanced-networking
 [use-advanced-networking]: configure-azure-cni.md
-[new-azaks]: /powershell/module/az.aks/new-azaks
+[new-azakscluster]: /powershell/module/az.aks/new-azakscluster
 [restricted-vm-sizes]: quotas-skus-regions.md#restricted-vm-sizes
 [import-azakscredential]: /powershell/module/az.aks/import-azakscredential
 [kubernetes-deployment]: concepts-clusters-workloads.md#deployments-and-yaml-manifests

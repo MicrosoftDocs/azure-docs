@@ -93,7 +93,7 @@ landingContent:
           - text: Tileset service
             url: /rest/api/maps/v2/tileset
           - text: Feature stateset service
-            url: /rest/api/maps/v2/featurestate
+            url: /rest/api/maps/v2/feature-state
                     
   # Card
   - title: Developing with Web SDK
@@ -157,14 +157,12 @@ landingContent:
             url: android-map-add-line-layer.md
           - text: Add a polygon layer
             url: how-to-add-shapes-to-android-map.md
+          - text: Add heat map layer
+            url: map-add-heat-map-layer-android.md
+          - text: Cluster point data
+            url: clustering-point-data-android-sdk.md
           - text: Use data-driven style expressions
             url: data-driven-style-expressions-android-sdk.md
-          - text: Add a tile layer to a map
-            url: how-to-add-tile-layer-android-map.md
-          - text: Add a shapes to a map
-            url: how-to-add-shapes-to-android-map.md
-          - text: Show traffic data
-            url: how-to-show-traffic-android.md
 
   # Card
   - title: Developing with Location-Based Services
@@ -243,6 +241,14 @@ landingContent:
             url: power-bi-visual-manage-access.md
 
   # Card
+  - title: Azure Maps in Power Apps
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Interactive map component
+            url: /powerapps/maker/canvas-apps/geospatial-component-map
+
+  # Card
   - title: Developing with Mobility services
     linkLists:
       - linkListType: concept
@@ -268,7 +274,7 @@ landingContent:
           - text: Weather services concepts
             url: weather-services-concepts.md
           - text: Weather services FAQ
-            url: weather-services-faq.md
+            url: weather-services-faq.yml
       - linkListType: tutorial
         links:
           - text: Analyze weather data using Azure Notebooks (Python)

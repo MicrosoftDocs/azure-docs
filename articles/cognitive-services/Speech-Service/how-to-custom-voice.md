@@ -3,13 +3,13 @@ title: "Get started with Custom Neural Voice - Speech service"
 titleSuffix: Azure Cognitive Services
 description: "Custom Neural Voice is a set of online tools that allow you to create a recognizable, one-of-a-kind voice for your brand. All it takes to get started are a handful of audio files and the associated transcriptions."
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/18/2021
-ms.author: trbye
+ms.author: lajanuar
 ---
 
 # Get started with Custom Neural Voice
@@ -67,7 +67,7 @@ Prepare test scripts for your voice model that cover the different use cases for
 
 ### Tuning and adjustment
 
-The style and the characteristics of the trained voice model depend on the style and the quality of the recordings from the voice talent used for training. However, several adjustments can be made using [SSML (Speech Synthesis Markup Language)](/azure/cognitive-services/speech-service/speech-synthesis-markup?tabs=csharp) when you make the API calls to your voice model to generate synthetic speech. SSML is the markup language used to communicate with the TTS service to convert text into audio. The adjustments include change of pitch, rate, intonation, and pronunciation correction.  If the voice model is built with multiple styles, SSML can also be used to switch the styles.
+The style and the characteristics of the trained voice model depend on the style and the quality of the recordings from the voice talent used for training. However, several adjustments can be made using [SSML (Speech Synthesis Markup Language)](./speech-synthesis-markup.md?tabs=csharp) when you make the API calls to your voice model to generate synthetic speech. SSML is the markup language used to communicate with the TTS service to convert text into audio. The adjustments include change of pitch, rate, intonation, and pronunciation correction.  If the voice model is built with multiple styles, SSML can also be used to switch the styles.
 
 ## Migrate to Custom Neural Voice
 

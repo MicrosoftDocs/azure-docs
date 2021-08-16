@@ -64,7 +64,7 @@ The following sections list best practices for identity and access security usin
 
 ## Centralize identity management
 
-In a [hybrid identity](https://resources.office.com/ww-landing-M365E-EMS-IDAM-Hybrid-Identity-WhitePaper.html?) scenario we recommend that you integrate your on-premises and cloud directories. Integration enables your IT team to manage accounts from one location, regardless of where an account is created. Integration also helps your users be more productive by providing a common identity for accessing both cloud and on-premises resources.
+In a hybrid identity scenario we recommend that you integrate your on-premises and cloud directories. Integration enables your IT team to manage accounts from one location, regardless of where an account is created. Integration also helps your users be more productive by providing a common identity for accessing both cloud and on-premises resources.
 
 **Best practice**: Establish a single Azure AD instance. Consistency and a single authoritative sources will increase clarity and reduce security risks from human errors and configuration complexity.
 **Detail**: Designate a single Azure AD directory as the authoritative source for corporate and organizational accounts.
@@ -109,7 +109,7 @@ In a mobile-first, cloud-first world, you want to enable single sign-on (SSO) to
 By using the same identity solution for all your apps and resources, you can achieve SSO. And your users can use the same set of credentials to sign in and access the resources that they need, whether the resources are located on-premises or in the cloud.
 
 **Best practice**: Enable SSO.  
-**Detail**: Azure AD [extends on-premises Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md) to the cloud. Users can use their primary work or school account for their domain-joined devices, company resources, and all of the web and SaaS applications that they need to get their jobs done. Users don’t have to remember multiple sets of usernames and passwords, and their application access can be automatically provisioned (or deprovisioned) based on their organization group memberships and their status as an employee. And you can control that access for gallery apps or for your own on-premises apps that you’ve developed and published through the [Azure AD Application Proxy](../../active-directory/manage-apps/application-proxy.md).
+**Detail**: Azure AD [extends on-premises Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md) to the cloud. Users can use their primary work or school account for their domain-joined devices, company resources, and all of the web and SaaS applications that they need to get their jobs done. Users don’t have to remember multiple sets of usernames and passwords, and their application access can be automatically provisioned (or deprovisioned) based on their organization group memberships and their status as an employee. And you can control that access for gallery apps or for your own on-premises apps that you’ve developed and published through the [Azure AD Application Proxy](../../active-directory/app-proxy/application-proxy.md).
 
 Use SSO to enable users to access their [SaaS applications](../../active-directory/manage-apps/what-is-single-sign-on.md) based on their work or school account in Azure AD. This is applicable not only for Microsoft SaaS apps, but also other apps, such as [Google Apps](../../active-directory/saas-apps/google-apps-tutorial.md) and [Salesforce](../../active-directory/saas-apps/salesforce-tutorial.md). You can configure your application to use Azure AD as a [SAML-based identity](../../active-directory/fundamentals/active-directory-whatis.md) provider. As a security control, Azure AD does not issue a token that allows users to sign in to the application unless they have been granted access through Azure AD. You can grant access directly, or through a group that users are a member of.
 
@@ -337,7 +337,7 @@ An active identity monitoring system can quickly detect suspicious behavior and 
 Organizations that don’t actively monitor their identity systems are at risk of having user credentials compromised. Without knowledge that suspicious activities are taking place through these credentials, organizations can’t mitigate this type of threat.
 
 ## Use Azure AD for storage authentication
-[Azure Storage](../../storage/common/storage-auth-aad.md) supports authentication and authorization with Azure AD for Blob storage and Queue storage. With Azure AD authentication, you can use the Azure role-based access control to grant specific permissions to users, groups, and applications down to the scope of an individual blob container or queue.
+[Azure Storage](../../storage/blobs/authorize-access-azure-active-directory.md) supports authentication and authorization with Azure AD for Blob storage and Queue storage. With Azure AD authentication, you can use the Azure role-based access control to grant specific permissions to users, groups, and applications down to the scope of an individual blob container or queue.
 
 We recommend that you use [Azure AD for authenticating access to storage](https://azure.microsoft.com/blog/azure-storage-support-for-azure-ad-based-access-control-now-generally-available/).
 

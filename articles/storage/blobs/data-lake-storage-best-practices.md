@@ -20,7 +20,7 @@ Azure Data Lake Storage Gen2 offers POSIX access controls for Azure Active Direc
 
 ### Use security groups versus individual users
 
-When working with big data in Data Lake Storage Gen2, it is likely that a service principal is used to allow services such as Azure HDInsight to work with the data. However, there might be cases where individual users need access to the data as well. In all cases, strongly consider using Azure Active Directory [security groups](../common/storage-auth-aad.md) instead of assigning individual users to directories and files.
+When working with big data in Data Lake Storage Gen2, it is likely that a service principal is used to allow services such as Azure HDInsight to work with the data. However, there might be cases where individual users need access to the data as well. In all cases, strongly consider using Azure Active Directory [security groups](../common/authorize-data-access.md) instead of assigning individual users to directories and files.
 
 Once a security group is assigned permissions, adding or removing users from the group doesn’t require any updates to Data Lake Storage Gen2. This also helps ensure you don't exceed the maximum number of access control entries per access control list (ACL). Currently, that number is 32, (including the four POSIX-style ACLs that are always associated with every file and directory): the owning user, the owning group, the mask, and other. Each directory can have two types of ACL, the access ACL and the default ACL, for a total of 64 access control entries. For more information about these ACLs, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 

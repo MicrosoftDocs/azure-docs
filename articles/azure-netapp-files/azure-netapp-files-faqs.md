@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 08/09/2021
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -53,9 +53,9 @@ No, Azure NetApp Files does not currently support dual stack (IPv4 and IPv6) VNe
 
 ### Can the network traffic between the Azure VM and the storage be encrypted?
 
-Data traffic between NFSv4.1 clients and Azure NetApp Files volumes can be encrypted using Kerberos with AES-256 encryption. See [Configure NFSv4.1 Kerberos encryption for Azure NetApp Files](configure-kerberos-encryption.md) for details.   
+Azure NetApp Files data traffic is inherently secure by design, as it does not provide a public endpoint and data traffic stays within customer-owned VNet. Data-in-flight is not encrypted by default. However, data traffic from an Azure VM (running an NFS or SMB client) to Azure NetApp Files is as secure as any other Azure-VM-to-VM traffic. 
 
-Data traffic between NFSv3 or SMB3 clients to Azure NetApp Files volumes is not encrypted. However, the traffic from an Azure VM (running an NFS or SMB client) to Azure NetApp Files is as secure as any other Azure-VM-to-VM traffic. This traffic is local to the Azure data-center network. 
+NFSv3 protocol does not provide support for encryption, so this data-in-flight cannot be encrypted. However, NFSv4.1 and SMB3 data-in-flight encryption can optionally be enabled. Data traffic between NFSv4.1 clients and Azure NetApp Files volumes can be encrypted using Kerberos with AES-256 encryption. See [Configure NFSv4.1 Kerberos encryption for Azure NetApp Files](configure-kerberos-encryption.md) for details. Data traffic between SMB3 clients and Azure NetApp Files volumes can be encrypted using the AES-CCM algorithm on SMB 3.0, and the AES-GCM algorithm on SMB 3.1.1 connections. See [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) for details. 
 
 ### Can the storage be encrypted at rest?
 
@@ -97,6 +97,10 @@ Yes, you can create [custom Azure policies](../governance/policy/tutorials/creat
 
 However, you cannot create Azure policies (custom naming policies) on the Azure NetApp Files interface. See [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md#considerations).
 
+### When I delete an Azure NetApp Files volume, is the data deleted safely? 
+
+Deletion of an Azure NetApp Files volume is performed in the backend (physical infrastructure layer) programmatically with immediate effect. The delete operation includes deleting keys used for encrypting data at rest. There is no option for any scenario to recover a deleted volume once the delete operation is executed successfully (via interfaces such as the Azure portal and the API.)
+
 ## Performance FAQs
 
 ### What should I do to optimize or tune Azure NetApp Files performance?
@@ -124,6 +128,18 @@ Azure NetApp Files provides volume performance metrics. You can also use Azure M
 ### What’s the performance impact of Kerberos on NFSv4.1?
 
 See [Performance impact of Kerberos on NFSv4.1 volumes](performance-impact-kerberos.md) for information about security options for NFSv4.1, the performance vectors tested, and the expected performance impact. 
+
+### Does Azure NetApp Files support SMB Direct?
+
+No, Azure NetApp Files does not support SMB Direct. 
+
+### Is NIC Teaming supported in Azure?
+
+NIC Teaming is not supported in Azure. Although multiple network interfaces are supported on Azure virtual machines, they represent a logical rather than a physical construct. As such, they provide no fault tolerance.  Also, the bandwidth available to an Azure virtual machine is calculated for the machine itself and not any individual network interface.
+
+### Are jumbo frames supported?
+
+Jumbo frames are not supported with Azure virtual machines.
 
 ## NFS FAQs
 
@@ -179,9 +195,9 @@ Yes, you must create an Active Directory connection before deploying an SMB volu
 
 ### How many Active Directory connections are supported?
 
-Azure NetApp Files does not support multiple Active Directory (AD) connections in a single *region*, even if the AD connections are in different NetApp accounts. However, you can have multiple AD connections in a single *subscription*, as long as the AD connections are in different regions. If you need multiple AD connections in a single region, you can use separate subscriptions to do so. 
+You can configure only one Active Directory (AD) connection per subscription and per region. See [Requirements for Active Directory connections](create-active-directory-connections.md#requirements-for-active-directory-connections) for additional information. 
 
-An AD connection is configured per NetApp account; the AD connection is visible only through the NetApp account it is created in.
+However, you can map multiple NetApp accounts that are under the same subscription and same region to a common AD server created in one of the NetApp accounts. See [Map multiple NetApp accounts in the same subscription and region to an AD connection](create-active-directory-connections.md#shared_ad). 
 
 ### Does Azure NetApp Files support Azure Active Directory? 
 
@@ -209,43 +225,6 @@ Use the **JSON View** link on the volume overview pane, and look for the **start
 
 No. However, Azure NetApp Files SMB shares can serve as a DFS Namespace (DFS-N) folder target.   
 To use an Azure NetApp Files SMB share as a DFS-N folder target, provide the Universal Naming Convention (UNC) mount path of the Azure NetApp Files SMB share by using the [DFS Add Folder Target](/windows-server/storage/dfs-namespaces/add-folder-targets#to-add-a-folder-target) procedure.  
-
-### SMB encryption FAQs
-
-This section answers commonly asked questions about SMB encryption (SMB 3.0 and SMB 3.1.1).
-
-#### What is SMB encryption?  
-
-[SMB encryption](/windows-server/storage/file-server/smb-security) provides end-to-end encryption of SMB data and protects data from eavesdropping occurrences on untrusted networks. SMB encryption is supported on SMB 3.0 and greater. 
-
-#### How does SMB encryption work?
-
-When sending a request to the storage, the client encrypts the request, which the storage then decrypts. Responses are similarly encrypted by the server and decrypted by the client.
-
-#### Which clients support SMB encryption?
-
-Windows 10, Windows 2012, and later versions support SMB encryption.
-
-#### With Azure NetApp Files, at what layer is SMB encryption enabled?  
-
-SMB encryption is enabled at the share level.
-
-#### What forms of SMB encryption are used by Azure NetApp Files?
-
-SMB 3.0 employs AES-CCM algorithm, while SMB 3.1.1 employs the AES-GCM algorithm
-
-#### Is SMB encryption required?
-
-SMB encryption is not required. As such, it is only enabled for a given share if the user requests that Azure NetApp Files enable it. Azure NetApp Files shares are never exposed to the internet. They are only accessible from within a given VNet, over VPN or express route, so Azure NetApp Files shares are inherently secure. The choice to enable SMB encryption is entirely up to the user. Be aware of the anticipated performance penalty before enabling this feature.
-
-#### <a name="smb_encryption_impact"></a>What is the anticipated impact of SMB encryption on client workloads?
-
-Although SMB encryption has impact to both the client (CPU overhead for encrypting and decrypting messages) and the storage (reductions in throughput), the following table highlights storage impact only. You should test the encryption performance impact against your own applications before deploying workloads into production.
-
-|     I/O profile    	|     Impact    	|
-|-	|-	|
-|     Read and write workloads    	|     10% to 15%     	|
-|     Metadata intensive    	|     5%  	|
 
 ## Capacity management FAQs
 
@@ -359,6 +338,12 @@ Using Azure NetApp Files NFS or SMB volumes with AVS is supported in the followi
 
 Yes. Azure NetApp Files is a first-party service. It fully adheres to Azure Resource Provider standards. As such, Azure NetApp Files can be integrated into Azure Policy via *custom policy definitions*. For information about how to implement custom policies for Azure NetApp Files, see 
 [Azure Policy now available for Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure/azure-policy-now-available-for-azure-netapp-files/m-p/2282258) on Microsoft Tech Community. 
+
+### Which Unicode Character Encoding is supported by Azure NetApp Files for the creation and display of file and directory names?   
+
+Azure NetApp Files only supports file and directory names that are encoded with the UTF-8 Unicode Character Encoding format for both NFS and SMB volumes.
+
+If you try to create files or directories with names that use supplementary characters or surrogate pairs such as non-regular characters and emoji that are not supported by UTF-8, the operation will fail. In this case, an error from a Windows client might read “The file name you specified is not valid or too long. Specify a different file name.” 
 
 ## Next steps  
 

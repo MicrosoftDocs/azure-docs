@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/17/2021
+ms.date: 08/13/2021
 ms.author: tamram
 ms.subservice: common
 ---
@@ -21,6 +21,9 @@ When deciding which redundancy option is best for your scenario, consider the tr
 - How your data is replicated in the primary region
 - Whether your data is replicated to a second region that is geographically distant to the primary region, to protect against regional disasters
 - Whether your application requires read access to the replicated data in the secondary region if the primary region becomes unavailable for any reason
+
+> [!NOTE]
+> The features and regional availability described in this article are also available to accounts that have a hierarchical namespace.
 
 ## Redundancy in the primary region
 
@@ -124,7 +127,6 @@ Only general-purpose v2 storage accounts support GZRS and RA-GZRS. For more info
 GZRS and RA-GZRS are supported in the following regions:
 
 - (Africa) South Africa North
-- (Asia Pacific) East Asia
 - (Asia Pacific) Southeast Asia
 - (Asia Pacific) Australia East
 - (Asia Pacific) Central India
@@ -140,7 +142,6 @@ GZRS and RA-GZRS are supported in the following regions:
 - (US) Central US
 - (US) East US
 - (US) East US 2
-- (US) North Central US
 - (US) South Central US
 - (US) West US 2
 
@@ -201,9 +202,12 @@ The following table indicates whether your data is durable and available in a gi
 
 The following table shows which redundancy options are supported by each Azure Storage service.
 
-| LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
-|:-|:-|:-|:-|
-| Blob storage<br />Queue storage<br />Table storage<br />Azure Files<br />Azure managed disks | Blob storage<br />Queue storage<br />Table storage<br />Azure Files | Blob storage<br />Queue storage<br />Table storage<br />Azure Files<br /> | Blob storage<br />Queue storage<br />Table storage<br />Azure Files<br /> |
+| LRS | ZRS | GRS | RA-GRS | GZRS | RA-GZRS |
+|---|---|---|---|---|---|
+| Blob storage <br />Queue storage <br />Table storage <br />Azure Files<sup>1,</sup><sup>2</sup> <br />Azure managed disks | Blob storage <br />Queue storage <br />Table storage <br />Azure Files<sup>1,</sup><sup>2</sup> | Blob storage <br />Queue storage <br />Table storage <br />Azure Files<sup>1</sup> | Blob storage <br />Queue storage <br />Table storage <br /> | Blob storage <br />Queue storage <br />Table storage <br />Azure Files<sup>1</sup> | Blob storage <br />Queue storage <br />Table storage <br /> |
+
+<sup>1</sup> Standard file shares are supported on LRS and ZRS. Standard file shares are supported on GRS and GZRS as long as they are less than or equal to five TiB in size.<br />
+<sup>2</sup> Premium file shares are supported on LRS and ZRS.<br />
 
 ### Supported storage account types
 

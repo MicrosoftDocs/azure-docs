@@ -47,7 +47,7 @@ In the following steps, set up a blob container in Azure Storage to store hetero
 
 1. In Container, click **Upload** to upload the sample files you downloaded in the first step. Notice that you have a wide range of content types, including images and application files that are not full text searchable in their native formats.
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/sample-data.png" alt-text="Source files in Azure blob storage" border="false":::
+   :::image type="content" source="media/cognitive-search-quickstart-blob/sample-data.png" alt-text="Source files in Azure Blob Storage" border="false":::
 
 You are now ready to move on the Import data wizard.
 
@@ -161,7 +161,7 @@ Query strings are case-sensitive so if you get an "unknown field" message, check
 
 You've now created your first skillset and learned important concepts useful for prototyping an enriched search solution using your own data.
 
-Some key concepts that we hope you picked up include the dependency on Azure data sources. A skillset is bound to an indexer, and indexers are Azure and source-specific. Although this quickstart uses Azure Blob storage, other Azure data sources are possible. For more information, see [Indexers in Azure Cognitive Search](search-indexer-overview.md). 
+Some key concepts that we hope you picked up include the dependency on Azure data sources. A skillset is bound to an indexer, and indexers are Azure and source-specific. Although this quickstart uses Azure Blob Storage, other Azure data sources are possible. For more information, see [Indexers in Azure Cognitive Search](search-indexer-overview.md). 
 
 Another important concept is that skills operate over content types, and when working with heterogeneous content, some inputs will be skipped. Also, large files or fields might exceed the indexer limits of your service tier. It's normal to see warnings when these events occur. 
 

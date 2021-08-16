@@ -20,7 +20,7 @@ Azure Security Center's features cover the two broad pillars of cloud security:
 
 The Azure Defender dashboard in Security Center provides visibility and control of the CWP features for your environment:
 
-:::image type="content" source="./media/azure-defender/sample-defender-dashboard.png" alt-text="An example of the Azure Defender dashboard" lightbox="./media/azure-defender/sample-defender-dashboard.png":::
+:::image type="content" source="./media/azure-defender/sample-defender-dashboard.png" alt-text="An example of the Azure Defender dashboard." lightbox="./media/azure-defender/sample-defender-dashboard.png":::
 
 ## What resource types can Azure Defender secure?
 

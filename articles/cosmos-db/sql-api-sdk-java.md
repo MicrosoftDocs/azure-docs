@@ -339,7 +339,7 @@ Microsoft will provide notification at least **12 months** in advance of retirin
 | 0.9.0-prelease |December 10, 2014 |February 29, 2016 |
 
 ## FAQ
-[!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
+[!INCLUDE [cosmos-db-sdk-faq](includes/cosmos-db-sdk-faq.md)]
 
 ## See also
 To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.

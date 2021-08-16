@@ -71,8 +71,6 @@
           href: ../../search/search-howto-move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Cosmos DB
           href: ../../cosmos-db/how-to-move-regions.md?toc=/azure/azure-resource-manager/management/toc.json
-        - name: Azure Dev Spaces
-          href: ../../dev-spaces/faq.md?toc=/azure/azure-resource-manager/management/toc.json#can-i-migrate-my-aks-cluster-with-azure-dev-spaces-to-another-region
         - name: Azure Event Hubs
           href: ../../event-hubs/move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure IoT Hub
@@ -81,8 +79,10 @@
           href: microsoft-resources-move-regions.md
         - name: Azure Storage
           href: ../../storage/common/storage-account-move.md?toc=/azure/azure-resource-manager/management/toc.json
-        - name: Azure SQL
+        - name: Azure SQL DB & MI
           href: ../../azure-sql/database/move-resources-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
+        - name: SQL Server on Azure VM
+          href: ../../azure-sql/virtual-machines/windows/move-sql-vm-different-region.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure VMs
           href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Logic apps
@@ -113,10 +113,12 @@
       href: /azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json
     - name: Use tags
       href: tag-resources.md
-    - name: Policies - compliance
+    - name: Azure Policy definitions - compliance
       href: tag-policies.md
     - name: Supported resource types
       href: tag-support.md
+    - name: Azure Resource Graph queries
+      href: ./resource-graph-samples.md
   - name: Manage resource groups
     items:
     - name: Azure portal

@@ -57,10 +57,7 @@ There's more than one way to deploy Azure Firewall Manager, but the following ge
    - Easily route traffic to your secured hub for filtering and logging without User Defined Routes (UDR) on spoke Virtual Networks using the Secured Virtual Hub Route Setting page.
 
 > [!NOTE]
-> - You can't have more than one hub per virtual wan per region. But you can add multiple virtual WANs in the region to achieve this.
 > - You can't have overlapping IP spaces for hubs in a vWAN.
-> - Your hub VNet connections must be in the same region as the hub.
->
 > For more known issues, see [What is Azure Firewall Manager?](overview.md#known-issues)
 
 ## Convert virtual networks

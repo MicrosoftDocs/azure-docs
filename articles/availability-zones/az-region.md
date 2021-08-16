@@ -4,9 +4,9 @@ description: To create highly available and resilient applications in Azure, Ava
 author: prsandhu
 ms.service: azure
 ms.topic: conceptual
-ms.date: 05/27/2021
+ms.date: 08/04/2021
 ms.author: prsandhu
-ms.reviewer: cynthn
+ms.reviewer: cnthn
 ms.custom: fasttrack-edit, mvc, references_regions
 ---
 
@@ -48,14 +48,14 @@ To achieve comprehensive business continuity on Azure, build your application ar
 | Brazil South       | France Central       | South Africa North* | Australia East |
 | Canada Central     | Germany West Central |                     | Central India* |
 | Central US         | North Europe         |                     | Japan East     |
-| East US            | UK South             |                     | Korea Central* |
-| East US 2          | West Europe          |                     | Southeast Asia |
-| South   Central US |                      |                     |                |
+| East US            | Norway East*         |                     | Korea Central* |
+| East US 2          | UK South             |                     | Southeast Asia |
+| South   Central US | West Europe          |                     |                |
 | US Gov Virginia    |                      |                     |                |
 | West   US 2        |                      |                     |                |
-| West   US 3*       |                      |                     |                |
+| West   US 3        |                      |                     |                |
 
-\* To learn more about Availability Zones and available services support in these regions, contact your Microsoft sales or customer representative. For the upcoming regions that will support Availability Zones, see [Azure geographies](https://azure.microsoft.com/en-us/global-infrastructure/geographies/).
+\* To learn more about Availability Zones and available services support in these regions, contact your Microsoft sales or customer representative. For the upcoming regions that will support Availability Zones, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 
 ## Azure Services supporting Availability Zones
@@ -79,7 +79,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 |     [Azure Backup](../backup/backup-create-rs-vault.md#set-storage-redundancy)                                                | :large_blue_diamond:  |
 |     [Azure Cosmos   DB](../cosmos-db/high-availability.md#availability-zone-support)                                           | :large_blue_diamond:  |
 |     [Azure Data   Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md)                             | :large_blue_diamond:  |
-|     [Azure DNS: Azure DNS Private Zones](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal)                   | :large_blue_diamond:  |
+|     [Azure DNS: Azure DNS Private Zones](../dns/private-dns-getstarted-portal.md)                   | :large_blue_diamond:  |
 |     [Azure Express   Route](../expressroute/designing-for-high-availability-with-expressroute.md)                                       | :large_blue_diamond:  |
 |     [Azure Public   IP](../virtual-network/public-ip-addresses.md)                                           | :large_blue_diamond:  |
 |     Azure SQL   Database ([General Purpose Tier](../azure-sql/database/high-availability-sla.md))                 | :large_blue_diamond:  |
@@ -118,27 +118,29 @@ To achieve comprehensive business continuity on Azure, build your application ar
 |     [App Service Environments](../app-service/environment/zone-redundancy.md)                                    | :large_blue_diamond:  |
 |     [Azure Active Directory Domain Services](../active-directory-domain-services/overview.md)                      | :large_blue_diamond:  |
 |     [Azure API Management](../api-management/zone-redundancy.md)                      | :large_blue_diamond:  |
+|     [Azure App Configuration](../azure-app-configuration/faq.yml#how-does-app-configuration-ensure-high-data-availability)   | :large_blue_diamond:  |    
 |     [Azure Bastion](../bastion/bastion-overview.md)                                               | :large_blue_diamond:  |
 |     [Azure Cache for Redis](../azure-cache-for-redis/cache-high-availability.md)                              | :large_blue_diamond:  |
 |     [Azure Cognitive Search](../search/search-performance-optimization.md#availability-zones)               | :large_blue_diamond:  |
 |     Azure Cognitive Services: [Text Analytics](../cognitive-services/text-analytics/index.yml)                    | :large_blue_diamond:  |
 |     [Azure Data Explorer](/azure/data-explorer/create-cluster-database-portal)                               | :large_blue_diamond:  |
-|     [Azure Data Factory](https://docs.microsoft.com/azure/data-factory)                               | :large_blue_diamond:  |
+|     [Azure Data Factory](../data-factory/index.yml)                               | :large_blue_diamond:  |
 |     Azure Database for MySQL – [Flexible Server](../mysql/flexible-server/concepts-high-availability.md)                  | :large_blue_diamond:  |
 |     Azure Database for PostgreSQL – [Flexible Server](../postgresql/flexible-server/overview.md)             | :large_blue_diamond:  |
-|     [Azure DDoS Protection](../ddos-protection/ddos-faq.md)                                       | :large_blue_diamond:  |
+|     [Azure DDoS Protection](../ddos-protection/ddos-faq.yml)                                       | :large_blue_diamond:  |
 |     [Azure Disk Encryption](../virtual-machines/disks-redundancy.md)                                       | :large_blue_diamond:  |
 |     [Azure Firewall](../firewall/deploy-availability-zone-powershell.md)                                              | :large_blue_diamond:  |
 |     [Azure Firewall Manager](../firewall-manager/quick-firewall-policy.md)                                      | :large_blue_diamond:  |
 |     [Azure Kubernetes Service (AKS)](../aks/availability-zones.md)                              | :large_blue_diamond:  |
+|     [Azure Media Services (AMS)](../media-services/latest/concept-availability-zones.md)        | :large_blue_diamond:  |
 |     [Azure Private Link](../private-link/private-link-overview.md)                                          | :large_blue_diamond:  |
 |     [Azure Site Recovery](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md)                                         | :large_blue_diamond:  |
 |     Azure SQL: [Virtual Machine](../azure-sql/database/high-availability-sla.md)                                  | :large_blue_diamond:  |
 |     [Azure Web Application Firewall](../firewall/deploy-availability-zone-powershell.md)                              | :large_blue_diamond:  |
 |     [Container Registry](../container-registry/zone-redundancy.md)                                          | :large_blue_diamond:  |
 |     [Event Grid](../event-grid/overview.md)                                                  | :large_blue_diamond:  |
-|     [Network Watcher](../network-watcher/frequently-asked-questions.md#service-availability-and-redundancy)                                             | :large_blue_diamond:  |
-|     Network Watcher: [Traffic Analytics](../network-watcher/frequently-asked-questions.md#service-availability-and-redundancy)                          | :large_blue_diamond:  |
+|     [Network Watcher](/azure/network-watcher/frequently-asked-questions#service-availability-and-redundancy)                                             | :large_blue_diamond:  |
+|     Network Watcher: [Traffic Analytics](/azure/network-watcher/frequently-asked-questions#service-availability-and-redundancy)                          | :large_blue_diamond:  |
 |     [Power BI Embedded](/power-bi/admin/service-admin-failover#what-does-high-availability)                                           | :large_blue_diamond:  |
 |     [Premium Blob Storage](../storage/blobs/storage-blob-performance-tiers.md)                                        | :large_blue_diamond:  |
 |     Storage: [Azure Premium Files](../storage/files/storage-files-planning.md)                                | :large_blue_diamond:  |

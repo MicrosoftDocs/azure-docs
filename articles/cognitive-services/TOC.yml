@@ -28,6 +28,8 @@
     href: plan-manage-costs.md
   - name: Diagnostic logging
     href: diagnostic-logging.md
+  - name: Manage resources
+    href: manage-resources.md
   - name: Deploy
     items:
     - name: Containers
@@ -68,6 +70,8 @@
       href: ./encryption/cognitive-services-encryption-keys-portal.md
     - name: Authenticate requests to Cognitive Services
       href: authentication.md
+    - name: Configure data loss prevention
+      href: cognitive-services-data-loss-prevention.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/cognitive-services-security-baseline?toc=/azure/cognitive-services/TOC.json
     - name: Security controls by Azure Policy

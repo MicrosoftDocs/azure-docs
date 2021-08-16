@@ -20,7 +20,7 @@ sections:
          Yes, the process to enable Customer-Managed Keys with Azure Key Vault for Applied AI Services varies by product. Use these links for service-specific instructions:
          - [Cognitive Search encryption of data at rest](../search/search-security-manage-encryption-keys.md)
          - [Form Recognizer encryption of data at rest](../cognitive-services/form-recognizer/encrypt-data-at-rest.md)
-         - [Metrics Advisor encryption of data at rest](../cognitive-services/metrics-advisor/encryption.md#customer-managed-keys-with-azure-key-vault)
+         - [Metrics Advisor encryption of data at rest](./metrics-advisor/encryption.md)
          - [Video Analyzer encryption of data at rest](../azure-video-analyzer/video-analyzer-docs/customer-managed-keys.md)
 additionalContent: |
   ## Next Steps

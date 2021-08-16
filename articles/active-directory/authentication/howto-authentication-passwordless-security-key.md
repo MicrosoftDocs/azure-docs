@@ -62,7 +62,7 @@ There are some optional settings for managing security keys per tenant.
 **General**
 
 - **Allow self-service set up** should remain set to **Yes**. If set to no, your users will not be able to register a FIDO key through the MySecurityInfo portal, even if enabled by Authentication Methods policy.  
-- **Enforce attestation** setting to **Yes** requires the FIDO security key metadata to be published and verified with the FIDO Alliance Metadata Service, and also pass Microsoft’s additional set of validation testing. For more information, see [What is a Microsoft-compatible security key?](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key)
+- **Enforce attestation** setting to **Yes** requires the FIDO security key metadata to be published and verified with the FIDO Alliance Metadata Service, and also pass Microsoft’s additional set of validation testing. For more information, see [What is a Microsoft-compatible security key?](/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key)
 
 **Key Restriction Policy**
 
@@ -128,7 +128,7 @@ Administrator provisioning and de-provisioning of security keys is not available
 
 ### UPN changes
 
-We are working on supporting a feature that allows UPN change on hybrid Azure AD joined and Azure AD joined devices. If a user's UPN changes, you can no longer modify FIDO2 security keys to account for the change. The resolution is to reset the device and the user has to re-register.
+If a user's UPN changes, you can no longer modify FIDO2 security keys to account for the change. The solution for a user with a FIDO2 security key is to login to MySecurityInfo, delete the old key, and add a new one.
 
 ## Next steps
 

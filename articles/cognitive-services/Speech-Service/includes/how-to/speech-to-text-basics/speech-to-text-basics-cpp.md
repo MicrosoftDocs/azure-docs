@@ -1,9 +1,9 @@
 ---
-author: trevorbye
+author: laujan
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/06/2020
-ms.author: trbye
+ms.author: lajanuar
 ---
 One of the core features of the Speech service is the ability to recognize and transcribe human speech (often referred to as speech-to-text). In this quickstart, you learn how to use the Speech SDK in your apps and products to perform high-quality speech-to-text conversion.
 
@@ -25,13 +25,13 @@ Before you can do anything, you'll need to install the Speech SDK. Depending on 
 
 ## Create a speech configuration
 
-To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig). This class includes information about your subscription, like your key and associated region, endpoint, host, or authorization token. Create a [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig) by using your key and region. See the [Find keys and region](../../../overview.md#find-keys-and-region) page to find your key-region pair.
+To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig). This class includes information about your subscription, like your key and associated location/region, endpoint, host, or authorization token. Create a [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig) by using your key and region. See the [Find keys and location/region](../../../overview.md#find-keys-and-locationregion) page to find your key-location/region pair.
 
 ```cpp
 using namespace std;
 using namespace Microsoft::CognitiveServices::Speech;
 
-auto config = SpeechConfig::FromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
+auto config = SpeechConfig::FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
 ```
 
 There are a few other ways that you can initialize a [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig):
@@ -109,7 +109,7 @@ switch (result->Reason)
             if (cancellation->Reason == CancellationReason::Error) {
                 cout << "CANCELED: ErrorCode= " << (int)cancellation->ErrorCode << std::endl;
                 cout << "CANCELED: ErrorDetails=" << cancellation->ErrorDetails << std::endl;
-                cout << "CANCELED: Did you update the subscription info?" << std::endl;
+                cout << "CANCELED: Did you update the speech key and location/region info?" << std::endl;
             }
         }
         break;
@@ -168,7 +168,7 @@ recognizer->Canceled.Connect([&recognitionEnd](const SpeechRecognitionCanceledEv
         {
             cout << "CANCELED: ErrorCode=" << (int)e.ErrorCode << "\n"
                  << "CANCELED: ErrorDetails=" << e.ErrorDetails << "\n"
-                 << "CANCELED: Did you update the subscription info?" << std::endl;
+                 << "CANCELED: Did you update the speech key and location/region info?" << std::endl;
 
             recognitionEnd.set_value(); // Notify to stop recognition.
         }
@@ -225,7 +225,7 @@ Single words or complete phrases can be added to a Phrase List. During recogniti
 > [!IMPORTANT]
 > The Phrase List feature is available in the following languages: en-US, de-DE, en-AU, en-CA, en-GB, en-IN, es-ES, fr-FR, it-IT, ja-JP, pt-BR, zh-CN
 >
-> For other locales and if you have a large number of phrases, [training a custom model](../../../custom-speech-overview.md) will likely be the better choice to improve accuracy.
+> The Phrase List feature should be used with no more than a few hundred phrases. If you have a larger list or for languages that are not currently supported, [training a custom model](../../../custom-speech-overview.md) will likely be the better choice to improve accuracy.
 >
 > Do not use the Phrase List feature with custom endpoints. Instead, train a custom model that includes the phrases.
 

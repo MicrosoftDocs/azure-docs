@@ -41,7 +41,7 @@ The Hive Metastore source supports Full scan to extract metadata from a **Hive M
     > [!Note]
     > The driver should be accessible to all accounts in the VM. Do not install it in a user account.
 
-5.  Supported Hive versions are 2.x to 3.x.
+5.  Supported Hive versions are 2.x to 3.x. Supported Databricks versions are 8.0 and above. 
 
 ## Setting up authentication for a scan
 
@@ -54,9 +54,9 @@ following:
 
 1.  Navigate to your Purview account.
 
-2.  Select **Sources** on the left navigation.
+2.  Select **Data Map** on the left navigation.
 
-3.  Select **Register.**
+3.  Select **Register**
 
 4.  On Register sources, select Hive **Metastore**. Select **Continue.**
 
@@ -69,10 +69,10 @@ On the Register sources (Hive Metastore) screen, do the following:
 
 2.  Enter the **Hive Cluster URL.** The Cluster URL can be either
     obtained from the Ambari URL or from Databricks workspace URL. For
-    example, hive.azurehdinsight.net
+    example, hive.azurehdinsight.net or adb-19255636414785.5.azuredatabricks.net
 
 3.  Enter the **Hive Metastore Server URL.** For example,
-    sqlserver://hive.database.windows.net
+    sqlserver://hive.database.windows.net or jdbc:spark://adb-19255636414785.5.azuredatabricks.net:443
 
 4.  Select a collection or create a new one (Optional)
 
@@ -87,8 +87,7 @@ To create and run a new scan, do the following:
 
 1.  In the Management Center, click on Integration runtimes. Make sure a
     self-hosted integration runtime is set up. If it is not set up, use
-    the steps mentioned
-    [here](./manage-integration-runtimes.md)
+    the steps mentioned [here](./manage-integration-runtimes.md)
     to setup a self-hosted integration runtime
 
 2.  Navigate to **Sources**.
@@ -99,55 +98,81 @@ To create and run a new scan, do the following:
 
 5.  Provide the below details:
 
-    a.  **Name**: The name of the scan
+    1. **Name**: The name of the scan
 
-    b.  **Connect via integration runtime**: Select the configured
-        self-hosted integration runtime.
+    1. **Connect via integration runtime**: Select the configured self-hosted integration runtime.
 
-    c.  **Credential**: Select the credential to connect to your data
-        source. Make sure to:
+    1. **Credential**: Select the credential to connect to your data source. Make sure to:
 
-    -   Select Basic Authentication while creating a credential.
-    -   Provide the Metastore username in the User name input field
-    -   Store the Metastore password in the secret key.
+       - Select Basic Authentication while creating a credential.
+       - Provide the Metastore username in the User name input field
+       - Store the Metastore password in the secret key.
 
-    To understand more on credentials, refer to the link [here](manage-credentials.md)
+       To understand more on credentials, refer to the link [here](manage-credentials.md). 
 
-    d. **Metastore JDBC Driver Location**: Specify the path to the JDBC
-    driver location on your VM where self-host integration runtime is
-    running. This should be the path to valid JARs folder location.
+       **Databricks usage**: Navigate to your Databricks cluster -> Apps -> Launch Web Terminal. Run the cmdlet **cat /databricks/hive/conf/hive-site.xml**
 
-    > [!Note]
-    > The driver should be accessible to all accounts in the VM. Please do not install in a user account.
+       The username and password can be accessed from the two properties as shown below
 
-    e.  **Metastore JDBC Driver Class**: Provide the connection driver class
-    name. For example,\com.microsoft.sqlserver.jdbc.SQLServerDriver
+       :::image type="content" source="media/register-scan-hive-metastore-source/databricks-credentials.png" alt-text="databricks-username-password-details" border="true":::
 
-    f.  **Metastore JDBC URL**: Provide the Connection URL value and define
-    connection to Metastore DB server URL. For example,
-    jdbc:sqlserver://hive.database.windows.net;database=hive;encrypt=true;trustServerCertificate=true;create=false;loginTimeout=300
+    1. **Metastore JDBC Driver Location**: Specify the path to the JDBC driver location on your VM where self-host integration runtime is running. This should be the path to valid JARs folder location.
 
-    g.  **Metastore database name**: Provide the Hive Metastore Database name
+       If you are scanning Databricks, refer to the section on Databricks below.
 
-    h.  **Schema**: Specify a list of Hive schemas to import. For example,
-    schema1; schema2. All user schemas are imported if that list is
-    empty. All system schemas (for example, SysAdmin) and objects are
-    ignored by default. When the list is empty, all available schemas
-    are imported.
-    Acceptable schema name patterns using SQL LIKE expressions syntax include using %, e.g. A%; %B; %C%; D
+       > [!Note]
+       > The driver should be accessible to all accounts in the VM. Please do not install in a user account.
 
-    -   start with A or    
-    -   end with B or    
-    -   contain C or    
-    -   equal D
+    1. **Metastore JDBC Driver Class**: Provide the connection driver class name. For example,\com.microsoft.sqlserver.jdbc.SQLServerDriver.
+    
+       **Databricks usage**: Navigate to your Databricks cluster -> Apps -> Launch Web Terminal. Run the cmdlet **cat /databricks/hive/conf/hive-site.xml**
+    
+       The driver class can be accessed from the property as shown below.
+    :::image type="content" source="media/register-scan-hive-metastore-source/databricks-driver-class-name.png" alt-text="databricks-driver-class-details" border="true":::
 
-    Usage of NOT and special characters are not acceptable.
+    1. **Metastore JDBC URL**: Provide the Connection URL value and define connection to Metastore DB server URL. For example,     `jdbc:sqlserver://hive.database.windows.net;database=hive;encrypt=true;trustServerCertificate=true;create=false;loginTimeout=300`.
 
-    i.  **Maximum memory available**: Maximum memory (in GB) available on
-    customer's VM to be used by scanning processes. This is dependent on
-    the size of Hive Metastore database to be scanned.
+       **Databricks usage**: Navigate to your Databricks cluster -> Apps -> Launch Web Terminal. Run the cmdlet **cat /databricks/hive/conf/hive-site.xml**
+    
+       The JDBC URL can be accessed from the Connection URL property as shown below.
+       
+       :::image type="content" source="media/register-scan-hive-metastore-source/databricks-jdbc-connection.png" alt-text="databricks-jdbc-url-details" border="true":::
+    
+       > [!NOTE]
+       > When you copy the URL from *hive-site.xml*, be sure you remove `amp;` from the string or the scan will fail.
 
-    :::image type="content" source="media/register-scan-hive-metastore-source/scan.png" alt-text="scan hive source" border="true":::
+       To this URL, append the path to the location where SSL certificate is placed on your VM. The SSL certificate can be downloaded from [here](../mysql/howto-configure-ssl.md).
+
+       The metastore JDBC URL will be:
+    
+       `jdbc:mariadb://consolidated-westus2-prod-metastore-addl-1.mysql.database.azure.com:3306/organization1829255636414785?trustServerCertificate=true&amp;useSSL=true&sslCA=D:\Drivers\SSLCert\BaltimoreCyberTrustRoot.crt.pem`
+
+    1. **Metastore database name**: Provide the Hive Metastore Database name.
+    
+       If you are scanning Databricks, refer to the section on Databricks below.
+
+       **Databricks usage**: Navigate to your Databricks cluster -> Apps -> Launch Web Terminal. Run the cmdlet **cat /databricks/hive/conf/hive-site.xml**
+
+       The database name can be accessed from the JDBC URL property as shown below. For Example: organization1829255636414785
+       
+       :::image type="content" source="media/register-scan-hive-metastore-source/databricks-data-base-name.png" alt-text="databricks-database-name-details" border="true":::
+
+    1. **Schema**: Specify a list of Hive schemas to import. For example, schema1; schema2. 
+    
+        All user schemas are imported if that list is empty. All system schemas (for example, SysAdmin) and objects are ignored by default. 
+
+        When the list is empty, all available schemas are imported. Acceptable schema name patterns using SQL LIKE expressions syntax include using %, e.g. A%; %B; %C%; D
+
+        - start with A or    
+        - end with B or    
+        - contain C or    
+        - equal D
+
+        Usage of NOT and special characters are not acceptable.
+
+     1. **Maximum memory available**: Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of Hive Metastore database to be scanned.
+
+        :::image type="content" source="media/register-scan-hive-metastore-source/scan.png" alt-text="scan hive source" border="true":::
 
 6.  Click on **Continue**.
 
