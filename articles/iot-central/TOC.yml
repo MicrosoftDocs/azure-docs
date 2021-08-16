@@ -148,16 +148,6 @@
       href: core/overview-iot-central-operator.md
     - name: What are application templates?
       href: core/concepts-app-templates.md
-    - name: Industry specific application templates
-      items:
-      - name: Retail Overview
-        href: retail/overview-iot-central-retail.md
-      - name: Energy Overview
-        href: energy/overview-iot-central-energy.md
-      - name: Government Overview
-        href: government/overview-iot-central-government.md      
-      - name: Healthcare Overview
-        href: healthcare/overview-iot-central-healthcare.md
         
     - name: What are device templates?
       href: core/concepts-device-templates.md

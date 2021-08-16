@@ -208,7 +208,7 @@ These are the alerts that were part of Azure Defender for Resource Manager, and 
 - ARM_VMAccessUnusualPasswordReset
 - ARM_VMAccessUnusualSSHReset
 
-Learn more about the [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) and [Azure Defender for servers](defender-for-servers-introduction.md).
+Learn more about the [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) and [Azure Defender for servers](defender-for-servers-introduction.md) plans.
 
 
 ### Enhancements to recommendation to enable Azure Disk Encryption (ADE)
