@@ -13,6 +13,7 @@ ms.date: 11/13/2019
 ms.subservice: app-mgmt
 ms.author: davidmu
 ms.collection: M365-identity-device-management
+ms.reviewer: napuri
 ---
 
 # Application management best practices

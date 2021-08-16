@@ -1,7 +1,7 @@
 ---
 title: What is the Azure Machine Learning designer?
 titleSuffix: Azure Machine Learning
-description: Learn about the concepts that make up the drag-and-drop Azure Machine Learning designer.
+description: Learn what the Azure Machine Learning designer is and what tasks you can use it for. The drag-and-drop UI enables model training and deployment. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -16,7 +16,8 @@ ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4
 
 Azure Machine Learning designer is a drag-and-drop interface used to train and deploy models in Azure Machine Learning. This article describes the tasks you can do in the designer.
 
-To get started with the designer, see [Tutorial: Train a no-code regression model](tutorial-designer-automobile-price-train-score.md).
+ - To get started with the designer, see [Tutorial: Train a no-code regression model](tutorial-designer-automobile-price-train-score.md). 
+ - To learn about the components available in the designer, see the [Algorithm and component reference](/azure/machine-learning/algorithm-module-reference/module-reference).
 
 ![Azure Machine Learning designer example](./media/concept-designer/designer-drag-and-drop.gif)
 
@@ -89,7 +90,6 @@ Use compute resources from your workspace to run your pipeline and host your dep
 | Compute target | Training | Deployment |
 | ---- |:----:|:----:|
 | Azure Machine Learning compute | ✓ | |
-| Azure Machine Learning compute instance | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
 Compute targets are attached to your [Azure Machine Learning workspace](concept-workspace.md). You manage your compute targets in your workspace in the [Azure Machine Learning studio](https://ml.azure.com).

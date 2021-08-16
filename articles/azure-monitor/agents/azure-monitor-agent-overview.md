@@ -25,6 +25,16 @@ In addition to consolidating this functionality into a single agent, the Azure M
 - Windows event filtering: Use XPATH queries to filter which Windows events are collected.
 - Improved extension management: Azure Monitor agent uses a new method of handling extensibility that is more transparent and controllable than management packs and Linux plug-ins in the current Log Analytics agents.
 
+### Current limitations
+When compared with the existing agents, this new agent does not yet have full parity:  
+- **Comparison with Log Analytics Agents (MMA/OMS)**
+	- Not all Log Analytics Solutions are supported today. See [what's supported](#supported-services-and-features)
+	- No support for Private Links 
+	- No support for collecting custom logs or IIS logs
+          
+- **Comparison with Azure Diagnostic Extensions (WAD/LAD)**
+	- No support for Event Hubs and Storage accounts as destinations
+
 ### Changes in data collection
 The methods for defining data collection for the existing agents are distinctly different from each other, and each have challenges that are addressed with Azure Monitor agent.
 

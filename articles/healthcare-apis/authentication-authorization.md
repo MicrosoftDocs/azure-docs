@@ -18,11 +18,11 @@ This article provides an overview of the authentication and authorization proces
 
 ## Authentication
 
-The Healthcare APIs is a collection of secured managed services using [Azure Active Directory (Azure AD)](https://review.docs.microsoft.com/azure/active-directory/), a global identity provider that supports [OAuth 2.0](https://oauth.net/2/).
+The Healthcare APIs is a collection of secured managed services using [Azure Active Directory (Azure AD)](../active-directory/index.yml), a global identity provider that supports [OAuth 2.0](https://oauth.net/2/).
 
 For the Healthcare APIs services to access Azure resources, such as storage accounts and event hubs, you must **enable the system managed identity**, and **grant proper permissions** to the managed identity. For more information, see [Azure managed identities](../active-directory/managed-identities-azure-resources/overview.md).
 
-The Healthcare APIs does not support other identity providers. However, customers can use their own identity provider to secure applications, and enable them to interact with the Healthcare APIs by managing client applications and user data access controls.
+The Healthcare APIs do not support other identity providers. However, customers can use their own identity provider to secure applications, and enable them to interact with the Healthcare APIs by managing client applications and user data access controls.
 
 The client applications are registered in the Azure AD and can be used to access the Healthcare APIs. User data access controls are done in the applications or services that implement business logic.
 
@@ -40,7 +40,7 @@ The FHIR service of the Healthcare APIs provides the following roles:
 
 The DICOM service of the Healthcare APIs provides the following roles:
 
-* **DICOM Data Owner**: Can read, write and delete DICOM data.
+* **DICOM Data Owner**: Can read, write, and delete DICOM data.
 * **DICOM Data Read**: Can read DICOM data.
 
 The IoT Connector does not require application roles, but it does rely on the “Azure Event Hubs Data Receiver” to retrieve data stored in the event hub of the customer’s subscription.
@@ -69,7 +69,7 @@ For obtaining an access token for the Healthcare APIs, these are the steps using
 
 In the **client credentials flow**, permissions are granted directly to the application itself. When the application presents a token to a resource, the resource enforces that the application itself has authorization to perform an action since there is no user involved in the authentication. Therefore, it is different from the **authorization code flow** in the following ways:
 
-- The user or the client does not need to login interactively
+- The user or the client does not need to log in interactively
 - The authorization code is not required.
 - The access token is obtained directly through application permissions.
 
@@ -97,16 +97,16 @@ You can use online tools such as [https://jwt.ms](https://jwt.ms/) or [https://j
 |appid                   |e97e1b8c-xxx            |This is the application ID of the client using the token. The application can act as itself or on behalf of a user. The application ID typically represents an application object, but it can also represent a service principal object in Azure AD.|
 |appidacr                |1                       |Indicates how the client was authenticated. For a public client, the value is "0". If client ID and client secret are used, the value is "1". If a client certificate was used for authentication, the value is "2".|
 |idp                     |https://sts.windows.net/{tenantid}/|Records the identity provider that authenticated the subject of the token. This value is identical to the value of the Issuer claim unless the user account is not in the same tenant as the issuer - guests, for instance. If the claim is not present, it means that the value of iss can be used instead. For personal accounts being used in an organizational context (for instance, a personal account invited to an Azure AD tenant), the idp claim may be 'live.com' or an STS URI containing the Microsoft account tenant 9188040d-6c67-4c5b-b112-36a304b66dad.|
-|oid                     |e.g., tenantid         |The is the immutable identifier for an object in the Microsoft identity system, in this case, a user account. This ID uniquely identifies the user across applications - two different applications signing in the same user will receive the same value in the oid claim. The Microsoft Graph will return this ID as the ID property for a given user account. Because the oid allows multiple apps to correlate users, the profile scope is required to receive this claim. Note: If a single user exists in multiple tenants, the user will contain a different object ID in each tenant - they are considered different accounts, even though the user logs into each account with the same credentials.|
+|oid                     |For example, tenantid         |This is the immutable identifier for an object in the Microsoft identity system, in this case, a user account. This ID uniquely identifies the user across applications - two different applications signing in the same user will receive the same value in the oid claim. The Microsoft Graph will return this ID as the ID property for a given user account. Because the oid allows multiple apps to correlate users, the profile scope is required to receive this claim. Note: If a single user exists in multiple tenants, the user will contain a different object ID in each tenant - they are considered different accounts, even though the user logs into each account with the same credentials.|
 |rh                       |0.ARoxxx              |An internal claim used by Azure to revalidate tokens. It should be ignored.|
-|sub                      |e.g., tenantid        |The principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. The subject is a pairwise identifier - it is unique to a particular application ID. Therefore, if a single user signs into two different apps using two different client IDs, those apps will receive two different values for the subject claim. This may or may not be desired depending on your architecture and privacy requirements.|
-|tid                      |e.g., tenantid        |A GUID that represents the Azure AD tenant that the user is from. For work and school accounts, the GUID is the immutable tenant ID of the organization that the user belongs to. For personal accounts, the value is 9188040d-6c67-4c5b-b112-36a304b66dad. The profile scope is required in order to receive this claim.
+|sub                      |For example, tenantid        |The principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. The subject is a pairwise identifier - it is unique to a particular application ID. Therefore, if a single user signs into two different apps using two different client IDs, those apps will receive two different values for the subject claim. This may or may not be desired depending on your architecture and privacy requirements.|
+|tid                      |For example, tenantid        |A GUID that represents the Azure AD tenant that the user is from. For work and school accounts, the GUID is the immutable tenant ID of the organization that the user belongs to. For personal accounts, the value is 9188040d-6c67-4c5b-b112-36a304b66dad. The profile scope is required in order to receive this claim.
 |uti                      |bY5glsxxx             |An internal claim used by Azure to revalidate tokens. It should be ignored.|
 |ver                      |1                     |Indicates the version of the token.|
  
 **The access token is valid for one hour by default. You can obtain a new token or renew it using the refresh token before it expires.**
 
-To obtain an access token, you can use tools such as Postman, the Rest Client extension in Visual Studio Code, PowerShell, CLI, curl and the [Azure AD authentication libraries](../active-directory/develop/reference-v2-libraries.md).
+To obtain an access token, you can use tools such as Postman, the Rest Client extension in Visual Studio Code, PowerShell, CLI, curl, and the [Azure AD authentication libraries](../active-directory/develop/reference-v2-libraries.md).
 
 ## Next steps
 

@@ -49,7 +49,7 @@ Basic Virtual WAN provides Site-to-site VPN only. In order for remote users to c
 
 ## <a name="other considerations"></a>Additional information
 
-Virtual WAN supports one hub per region/location. For location information, see the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) article. Each hub supports up to 10,000 remote user connections, 1,000 branch connection, four ExpressRoute circuits and up to 500 Virtual Network connections. As you scale up the remote users, if you have any questions, don't hesitate to seek help by sending an email to azurevirtualwan@microsoft.com. If you require technical support, be sure to open a support ticket from the Azure portal and help will be on the way.
+Virtual WAN supports multiple hubs per region/location. For location information, see the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) article. Each hub supports up to 10,000 remote user connections, 1,000 branch connection, four ExpressRoute circuits and up to 500 Virtual Network connections. As you scale up the remote users, if you have any questions, don't hesitate to seek help by sending an email to azurevirtualwan@microsoft.com. If you require technical support, be sure to open a support ticket from the Azure portal and help will be on the way.
 
 ## <a name="faq"></a>FAQ
 

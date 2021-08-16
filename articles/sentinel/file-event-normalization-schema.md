@@ -35,7 +35,7 @@ For more information about normalization in Azure Sentinel, see [Normalization a
 Azure Sentinel provides the following built-in, product-specific file event parsers:
 
 - **Sysmon file activity events** (Events 11, 23, and 26), collected using the Log Analytics Agent or Azure Monitor Agent.
-- **Microsoft Office 365 Sharepoint and OneDrive events**, collected using the Office Activity connector.
+- **Microsoft Office 365 SharePoint and OneDrive events**, collected using the Office Activity connector.
 - **Microsoft 365 Defender for Endpoints file events**
 - **Azure Storage**, including Blob, File, Queue, and Table Storage.
 
@@ -60,7 +60,7 @@ The following Azure Sentinel **Analytics rules** works with any file activity th
 - NOBELIUM - Domain, Hash and IP IOCs - May 2021
 - SUNSPOT log file creation 
 
-For more information, see [Create custom analytics rules to detect threats](tutorial-detect-threats-custom.md).
+For more information, see [Create custom analytics rules to detect threats](detect-threats-custom.md).
 
 
 ## Schema details
@@ -113,7 +113,7 @@ Event fields are common to all schemas and describe the activity itself and the 
 
 
 
-### File Event-specific fields
+### File event specific fields
 
 The fields listed in the table below are specific to File events, but are similar to fields in other schemas and follow similar naming conventions.
 
@@ -171,7 +171,7 @@ For example: `JohnDoe` (**Actor**) uses `Windows File Explorer` (**Acting proces
 | **TargetFileSHA512**| Optional| SHA512|The SHA-512 hash of the source file. |
 |**Hash**|Alias | |Alias to the best available Target File hash. |
 |**TargetFileSize** |Optional | Integer|The size of the target file in bytes. |
-| **TargetUrl**|Optional | String|When the operation is initiated using HTTP or HTTPS, the URL used. <br><br>Example: `https://console.aws.amazon.com/console/home?...` |
+| **TargetUrl**|Optional | String|When the operation is initiated using HTTP or HTTPS, the URL used. <br><br>Example: `https://onedrive.live.com/?authkey=...` |
 | | | | |
 
 

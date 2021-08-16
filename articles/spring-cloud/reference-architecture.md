@@ -1,7 +1,7 @@
 ---
 ms.date: 02/16/2021
 ms.topic: reference-architecture
-author: kriation
+author: karlerickson
 title: Azure Spring Cloud reference architecture
 ms.author: akaleshian
 ms.service: spring-cloud

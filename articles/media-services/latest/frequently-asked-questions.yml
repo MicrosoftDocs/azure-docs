@@ -91,7 +91,7 @@ sections:
           Yes.  You'll find more information in the [Encode with an auto-generated bitrate ladder](./encode-autogen-bitrate-ladder.md) page.
       - question: Can I analyze an audio or video file?
         answer: |
-          Yes you can. Azure Media Services v3 lets you extract insights from your video and audio files with Azure Video Analyzer for Media. Media Services v3 analyzer presets can be used to extract those insights. If you want more detailed insights, use Video Indexer directly. To understand when to use Video Indexer vs. Media Services analyzer presets, check out the [comparison document](../../azure-video-analyzer/video-analyzer-for-media-docs/compare-video-indexer-with-media-services-presets.md).
+          Yes you can. Azure Media Services v3 lets you extract insights from your video and audio files with Azure Video Analyzer for Media. Media Services v3 analyzer presets can be used to extract those insights. If you want more detailed insights, use [Azure Video Analyzer for Media (formerly Video Indexer)](../../azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview.md) directly. To understand when to use Video Analyzer for Media vs. Media Services analyzer presets, check out the [comparison document](../../azure-video-analyzer/video-analyzer-for-media-docs/compare-video-indexer-with-media-services-presets.md).
       - question: What is a Media Services Live Event?
         answer: |
           A Media Services live event is the process of ingesting live video feeds and broadcasting them through an RTMPS protocol or Smooth Streaming. For more information about Media Services Live Events, see [Live events and live outputs in Media Services](live-event-outputs-concept.md)

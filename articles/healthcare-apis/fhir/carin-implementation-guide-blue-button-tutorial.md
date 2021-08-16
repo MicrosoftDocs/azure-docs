@@ -8,10 +8,13 @@ ms.topic: tutorial
 ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
-ms.date: 05/27/2021
+ms.date: 08/03/2021
 ---
 
 # CARIN Implementation Guide for Blue Button&#174;
+
+> [!IMPORTANT]
+> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 In this tutorial, we'll walk through setting up the FHIR service in the Azure Healthcare APIs (hear by called the FHIR service) to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the [CARIN Implementation Guide for Blue Button](https://build.fhir.org/ig/HL7/carin-bb/index.html) (C4BB IG).
 
@@ -49,25 +52,25 @@ Outside of defining search parameters, the other update you need to make to pass
 
 To assist with creation of these search parameters and profiles, we have a [sample http file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/C4BB/C4BB.http) that includes all the steps outlined above in a single file. Once you've uploaded all the necessary profiles and search parameters, you can run the capability statement test in Touchstone.
 
-:::image type="content" source="media/cms-tutorials/capability-test-script-execution-results.png" alt-text="Capability test script execution results.":::
+:::image type="content" source="media/centers-medicare-services-tutorials/capability-test-script-execution-results.png" alt-text="Capability test script execution results.":::
 
 ## Touchstone read test
 
 After testing the capabilities statement, we will test the [read capabilities](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/01-Read&activeOnly=false&contentEntry=TEST_SCRIPTS) of the FHIR service against the C4BB IG. This test is testing conformance against the eight profiles you loaded in the first test. You will need to have resources loaded that conform to the profiles. The best path would be to test against resources that you already have in your database, but we also have an [http file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/C4BB/C4BB_Sample_Resources.http) available with sample resources pulled from the examples in the IG that you can use to create the resources and test against.
 
-:::image type="content" source="media/cms-tutorials/test-execution-results-touchstone.png" alt-text="Touchstone read test execution results.":::
+:::image type="content" source="media/centers-medicare-services-tutorials/test-execution-results-touchstone.png" alt-text="Touchstone read test execution results.":::
 
 ## Touchstone EOB query test
 
 The next test we'll review is the [EOB query test](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/02-EOBQuery&activeOnly=false&contentEntry=TEST_SCRIPTS). If you've already completed the read test, you have all the data loaded that you'll need. This test validates that you can search for specific `Patient` and `ExplanationOfBenefit` resources using various parameters.
 
-:::image type="content" source="media/cms-tutorials/test-execution-touchstone-eob-query-test.png" alt-text="Touchstone EOB query execution results.":::
+:::image type="content" source="media/centers-medicare-services-tutorials/test-execution-touchstone-eob-query-test.png" alt-text="Touchstone EOB query execution results.":::
 
 ## Touchstone error handling test
 
 The final test we'll walk through is testing [error handling](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/99-ErrorHandling&activeOnly=false&contentEntry=TEST_SCRIPTS). The only step you need to do is delete an ExplanationOfBenefit resource from your database and use the ID of the deleted `ExplanationOfBenefit` resource in the test.
 
-:::image type="content" source="media/cms-tutorials/test-execution-touchstone-error-handling.png" alt-text="Touchstone EOB error handling results.":::
+:::image type="content" source="media/centers-medicare-services-tutorials/test-execution-touchstone-error-handling.png" alt-text="Touchstone EOB error handling results.":::
 
 
 ## Next steps

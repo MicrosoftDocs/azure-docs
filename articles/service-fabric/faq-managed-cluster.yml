@@ -4,7 +4,8 @@ metadata:
   description: Frequently asked questions about Service Fabric managed clusters, including capabilities, use cases, and common scenarios.
   ms.topic: troubleshooting
   ms.author: micraft
-  ms.date: 7/14/21
+  author: craftyhouse
+  ms.date: 7/14/2021
   ms.custom: references_regions
     
 title: Service Fabric managed clusters frequently asked questions
@@ -95,5 +96,4 @@ sections:
           
       - question: |
           Can I deploy applications with managed identities?
-        answer: |
-          Yes, applications with managed identities can be deployed to a Service Fabric managed cluster. For more information see, [Application managed identities](./concepts-managed-identity.md).
+        answer:  Yes, applications with managed identities can be deployed to a Service Fabric managed cluster. For more information see, [Application managed identities](./concepts-managed-identity.md).

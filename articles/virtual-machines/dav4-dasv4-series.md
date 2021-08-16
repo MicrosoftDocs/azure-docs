@@ -22,15 +22,16 @@ The Dav4-series and Dasv4-series are new sizes utilizing AMD's 2.35Ghz EPYC<sup>
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported (*Requires a minimum of 4 vCPU*)<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 <br>
+
 
 Dav4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor that can achieve a boosted maximum frequency of 3.35GHz. The Dav4-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads. Data disk storage is billed separately from virtual machines. To use premium SSD, use the Dasv4 sizes. The pricing and billing meters for Dasv4 sizes are the same as the Dav4-series.
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max NICs | Expected network bandwidth (Mbps) |
 |-----|-----|-----|-----|-----|-----|-----|-----|
-| Standard_D2a_v4 |  2  | 8  | 50  | 4  | 3000 / 46 / 23   | 2 | 2000 |
+| Standard_D2a_v4<sup>1</sup> |  2  | 8  | 50  | 4  | 3000 / 46 / 23   | 2 | 2000 |
 | Standard_D4a_v4 |  4  | 16 | 100 | 8  | 6000 / 93 / 46   | 2 | 4000 |
 | Standard_D8a_v4 |  8  | 32 | 200 | 16 | 12000 / 187 / 93 | 4 | 8000 |
 | Standard_D16a_v4|  16 | 64 | 400 |32  | 24000 / 375 / 187 |8 | 10000 |
@@ -38,6 +39,8 @@ Dav4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor 
 | Standard_D48a_v4| 48 | 192| 1200 | 32 | 96000 / 1000 / 500 | 8 | 24000 |
 | Standard_D64a_v4| 64 | 256 | 1600 | 32 | 96000 / 1000 / 500 | 8 | 32000 |
 | Standard_D96a_v4| 96 | 384 | 2400 | 32 | 96000 / 1000 / 500 | 8 | 40000 |
+
+<sup>1</sup> Accelerated networking can only be applied to a single NIC. 
 
 ## Dasv4-series
 
@@ -47,7 +50,7 @@ Dav4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor 
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported (*Requires a minimum of 4 vCPU*)<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 <br>
 
@@ -55,7 +58,7 @@ Dasv4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps |  Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Expected network bandwidth (Mbps) |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-| Standard_D2as_v4|2|8|16|4|4000 / 32 (50)|3200 / 48| 4000/200 | 2 | 2000 |
+| Standard_D2as_v4<sup>2</sup>|2|8|16|4|4000 / 32 (50)|3200 / 48| 4000/200 | 2 | 2000 |
 | Standard_D4as_v4|4|16|32|8|8000 / 64 (100)|6400 / 96| 8000/200 |2 | 4000 |
 | Standard_D8as_v4|8|32|64|16|16000 / 128 (200)|12800 / 192| 16000/400 |4 | 8000 |
 | Standard_D16as_v4|16|64|128|32|32000 / 255 (400)|25600 / 384| 32000/800 |8 | 10000 |
@@ -65,6 +68,7 @@ Dasv4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor
 | Standard_D96as_v4|96|384|768|32|192000 / 1020 (2400)|80000 / 1200| 80000/2000 |8 | 40000 |
 
 <sup>1</sup>  Dasv4-series VMs can [burst](./disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
+<sup>2</sup> Accelerated networking can only be applied to a single NIC. 
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

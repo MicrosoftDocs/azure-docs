@@ -251,7 +251,7 @@ Here are some queries that you can enter into the Log search bar to help you mon
     AzureDiagnostics
     | where TimeGenerated > ago(12h)
     | where ResourceType == "EXPRESSROUTECIRCUITS"
-    | project TimeGenerated, ResourceType , network s, path s, OperationName
+    | project TimeGenerated, ResourceType , network_s, path_s, OperationName
     ```
 
 * To query for BGP informational messages by level, resource type, and network.
@@ -260,7 +260,7 @@ Here are some queries that you can enter into the Log search bar to help you mon
     AzureDiagnostics
     | where Level == "Informational"
     | where ResourceType == "EXPRESSROUTECIRCUITS"
-    | project TimeGenerated, ResourceId , Level, ResourceType , network s, path s
+    | project TimeGenerated, ResourceId , Level, ResourceType , network_s, path_s
     ```
 
 * To query for Traffic graph BitInPerSeconds in the last one hour.

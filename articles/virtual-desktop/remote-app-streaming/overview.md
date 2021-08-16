@@ -3,7 +3,7 @@ title: What is Azure Virtual Desktop remote app streaming? - Azure
 description: An overview of Azure Virtual Desktop remote app streaming.
 author: Heidilohr
 ms.topic: overview
-ms.date: 07/14/2021
+ms.date: 08/06/2021
 ms.author: helohr
 manager: femila
 ---
@@ -22,13 +22,15 @@ In order to set up an Azure Virtual Desktop deployment for your custom apps that
 
 - Your custom app. See [How to host custom apps with Azure Virtual Desktop](custom-apps.md) to learn about the types of apps Azure Virtual Desktop supports and how you can serve them to your customers.
 
-- Your domain join credentials. If you don't already have an identity management system compatible with Azure Virtual Desktop, you'll need to set up identity management for your host pool.
+- Your domain join credentials. If you don't already have an identity management system compatible with Azure Virtual Desktop, you'll need to set up identity management for your host pool. To learn more, see [Set up managed identities](identities.md).
 
 - An Azure subscription. If you don't already have a subscription, make sure to [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Get started
 
-Now that you're ready, let's take a look at how you can set up your Azure Virtual Desktop deployment.
+Now that you're ready, let's take a look at how you can set up your Azure Virtual Desktop deployment. You have two options to set yourself up for success. You can either set up your deployment manually or automatically. The next two sections will describe the differences between these two methods.
+
+### Set up Azure Virtual Desktop manually
 
 You can set up your deployment manually by following these tutorials:
 
@@ -39,6 +41,13 @@ You can set up your deployment manually by following these tutorials:
 3. [Create a host pool to validate service updates](../create-validation-host-pool.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 
 4. [Set up service alerts](../set-up-service-alerts.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+
+### Set up Azure Virtual Desktop automatically
+
+If you'd prefer an automatic process, you can use the getting started feature to set up your deployment for you. For more information, check out these articles:
+
+- [Deploy Azure Virtual Desktop with the getting started feature](../getting-started-feature.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) (When following these instructions, make sure to follow the instructions in [For subscriptions with Azure AD DS or AD DS](../getting-started-feature.md#for-subscriptions-with-azure-ad-ds-or-ad-ds). This method gives you better identity management and app compatibility while also giving you the power to fine-tune identity-related infrastructure costs. The method for subscriptions that don't already have Azure AD DS or AD DS doesn't give you these benefits.)
+- [Troubleshoot the getting started feature](../troubleshoot-getting-started.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 
 ## Customize and manage Azure Virtual Desktop
 
