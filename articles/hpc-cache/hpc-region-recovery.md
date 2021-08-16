@@ -10,7 +10,7 @@ ms.author: v-erkel
 
 # Use multiple caches for regional failover recovery
 
-Each Azure HPC Cache instance runs within a particular subscription and in one region. This means that your cache workflow could possibly be disrupted if the region has a full outage.
+Each Azure HPC Cache instance runs within a particular subscription and in one region. This means that your cache workflow could possibly be disrupted if the cache's region has a full outage.
 
 This article describes a strategy to reduce risk of work disruption by using a second region for cache failover.
 
