@@ -289,6 +289,8 @@
             href: connect-zscaler.md
         - name: STEP 3 Validate connectivity
           href: connect-cef-verify.md
+    - name: Create a codeless connector
+      href: create-codeless-connector.md
     - name: Create a custom connector
       href: create-custom-connector.md
     - name: Connect Azure Stack VMs
