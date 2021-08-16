@@ -3,7 +3,7 @@ author: alkohli
 ms.service: databox  
 ms.subservice: heavy
 ms.topic: include
-ms.date: 08/04/2021
+ms.date: 08/16/2021
 ms.author: alkohli
 ---
 
@@ -20,4 +20,5 @@ ms.author: alkohli
   - To improve performance during data uploads, we recommend that you [enable large file shares on the storage account and increase share capacity to 100 TiB](../articles/storage/files/storage-how-to-create-file-share.md#enable-large-files-shares-on-an-existing-account). Large file shares are only supported for storage accounts with locally redundant storage (LRS).
   - If there are any errors when uploading data to Azure, an error log is created in the target storage account. The path to this error log is available when the upload is complete, and you can review the log to take corrective action. Don't delete data from the source without verifying the uploaded data.
   - File metadata and NTFS permissions can be preserved when the data is uploaded to Azure Files using guidance in [Preserving file ACLs, attributes, and timestamps with Azure Data Box](../articles/databox/data-box-file-acls-preservation.md).
+  - The hierarchy of the files is maintained while uploading to the cloud. For example, you copied a file at this path: `<container folder>\A\B\C.txt`. This file is uploaded to the same virtual path in cloud.
   
