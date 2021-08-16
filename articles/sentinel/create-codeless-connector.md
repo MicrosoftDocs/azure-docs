@@ -274,7 +274,7 @@ TableName
 |---------|---------|---------|
 | **title**	| String | A title for your instructions (optional) |
 | **description** | 	String	| A meaningful description for your instructions (optional) |
-| **instructions** |	[ConnectorInstructionModelBase<T>[]](#connectorinstructionmodelbase-t-abstract-type)	| An array of instruction widgets |
+| **instructions** |	[ConnectorInstructionModelBase<T>[]](#connectorinstructionmodelbase---abstract-type)	| An array of instruction widgets |
 | **innerSteps**	| [InstructionStep[]](#instructionstep) | An array of inner instruction steps (Optional) |
 | **bottomBorder** | 	Boolean	| When `true`, adds a bottom border to the instructions area on the connector page in Azure Sentinel |
 | **isComingSoon** |	Boolean	| When `true`, adds a **Coming soon** title on the connector page in Azure Sentinel |
@@ -290,7 +290,7 @@ TableName
 
 #### Supported widgets
 
-The following widgets are implemented in the [ConnectorInstructionModelBase<T> - abstract type](#connectorinstructionmodelbaset---abstract-type) attribute.
+The following widgets are implemented in the [ConnectorInstructionModelBase<T> - abstract type](#connectorinstructionmodelbase---abstract-type) attribute.
 
 |Type  |Parameters Object  |Description  |
 |---------|---------|---------|
@@ -452,7 +452,7 @@ For example:
 
 This section describes the configuration for how data is polled from your data source for a codeless data connector.
 
-The following code shows the syntax of the `pollingConfig` section of the [CCP configuration file](#ccp-configuration-file):
+The following code shows the syntax of the `pollingConfig` section of the [CCP configuration](#connector-configuration) file.
 
 ```rest
 "pollingConfig": {
