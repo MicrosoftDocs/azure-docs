@@ -66,7 +66,7 @@ The quality of data you train your model with affects model performance greatly.
 
 * Consider where your data comes from. If you are collecting data from one person or department, you are likely missing diversity that will be important for your model to learn about all usage scenarios.
 
-## Data Tagging
+## Data tagging
 
 * **Tag precisely**: Tag each entity to its right type always. Only include what you want extracted, avoid unnecessary data in your tag. Imprecise tags can lead to poor results.
 
@@ -78,8 +78,8 @@ The quality of data you train your model with affects model performance greatly.
 
 * There is no specific number of tags you will need. Consider starting with 20 tags per entity. This is highly dependent on your schema and entities ambiguity; ambiguous entity types need more tags. This also depends on the quality of your tagging.
 
-> [!NOTE]
-> The precision, consistency and completeness of your tagged data are key factors to determining model performance.
+   > [!NOTE]
+   > The precision, consistency and completeness of your tagged data are key factors to determining model performance.
 
 * View the model evaluation details after training is completed. 
 
@@ -89,6 +89,6 @@ The quality of data you train your model with affects model performance greatly.
 
     By improving your model, you can view the incorrect predictions your model made against the validation set, so you can tag your data better. Examine data distribution to make sure that each entity is well represented in your dataset.
 
-## Next Steps
+## Next steps
 
 * [Text extraction overview](../overview.md)
