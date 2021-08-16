@@ -310,9 +310,9 @@ The following widgets are implemented in the [ConnectorInstructionModelBase<T> -
 
 #### CopyableLabel
 
-Shows a text box with a button on the right to copy the text box value. For example:
+Shows a field with a button on the right to copy the field value. For example:
 
-<image TBD>
+:::image type="content" source="media/create-codeless-connector/copy-field-value.png" alt-text="Screenshot of a copy value button in a field.":::
 
 **Sample code**:
 
@@ -346,9 +346,11 @@ instructions: [
 
 Defines an inline information message. For example:
 
-<image TBD>
+:::image type="content" source="media/create-codeless-connector/inline-information-message.png" alt-text="Screenshot of an inline information message.":::
 
 In contrast, the following image shows a *non*-inline information message:
+
+:::image type="content" source="media/create-codeless-connector/non-inline-information-message.png" alt-text="Screenshot of a non-inline information message.":::
 
 **Sample code**:
 
@@ -383,7 +385,9 @@ instructions: [
 
 Displays a link to other pages in the Azure portal, as a button or a link. For example:
 
-<image tbd>
+:::image type="content" source="media/create-codeless-connector/link-by-button.png" alt-text="Screenshot of a link added as a button.":::
+
+:::image type="content" source="media/create-codeless-connector/link-by-text.png" alt-text="Screenshot of a link added as inline text.":::
 
 **Sample code**:
 
@@ -411,7 +415,7 @@ To define an inline link using markdown, use the following example as a guide:
 
 The code sample listed above shows an inline link that looks like the following image:
 
-<image tbd>
+:::image type="content" source="media/create-codeless-connector/sample-markdown-link-text.png" alt-text="Screenshot of the link text created by the earlier sample markdown.":::
 
 To define a link as an ARM template, use the following example as a guide:
 
@@ -422,13 +426,14 @@ To define a link as an ARM template, use the following example as a guide:
 
 The code sample listed above shows an link button that looks like the following image:
 
- 
+ :::image type="content" source="media/create-codeless-connector/sample-markdown-link-button.png" alt-text="Screenshot of the link button created by the earlier sample markdown.":::
 #### Instruction steps group
 
 Displays a group of instructions, expandable (accordion) or non-expandable, separate from the main instructions section.
 
 For example:
 
+:::image type="content" source="media/create-codeless-connector/accordion-instruction-area.png" alt-text="Screenshot of an expandable, extra instruction group.":::
 
 **Parameters**: `InstructionStepsGroupModelParameters`
 
