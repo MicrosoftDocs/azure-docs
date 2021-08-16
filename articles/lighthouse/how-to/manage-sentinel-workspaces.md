@@ -1,7 +1,7 @@
 ---
 title: Manage Azure Sentinel workspaces at scale
 description: Azure Lighthouse helps you effectively manage Azure Sentinel across delegated customer resources.
-ms.date: 03/02/2021
+ms.date: 08/16/2021
 ms.topic: how-to
 ---
 
@@ -33,6 +33,9 @@ This centralized model of deployment has the following advantages:
 
 > [!NOTE]
 > You can manage delegated resources that are located in different [regions](../../availability-zones/az-overview.md#regions). However, delegation of subscriptions across a [national cloud](../../active-directory/develop/authentication-national-cloud.md) and the Azure public cloud, or across two separate national clouds, isn't supported.
+
+> [!IMPORTANT]
+> If all workspaces are created in customer tenants, the Microsoft.SecurityInsights & Microsoft.OperationalInsights resource provider must also be [registered](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) on a subscription in the managing tenant.
 
 ## Granular Azure role-based access control (Azure RBAC)
 
