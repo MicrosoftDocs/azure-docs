@@ -347,7 +347,7 @@
         "articles/azure-cache-for-redis/**/*.md": "https://feedback.azure.com/forums/169382-cache",
         "articles/azure-databricks/**/*.md": "https://feedback.azure.com/forums/909463-azure-databricks",
         "articles/azure-functions/**/*.md": "https://feedback.azure.com/forums/355860-azure-functions",
-        "articles/azure-government/**/*.md": "https://feedback.azure.com/forums/558487-azure-government",
+        "articles/azure-government/**/*.md": "",
         "articles/azure-maps/**/*.md": "https://feedback.azure.com/forums/909172-azure-maps",
         "articles/azure-monitor/**/*.md": "https://feedback.azure.com/forums/913690-azure-monitor",
         "articles/azure-monitor/app/**/*.md": "https://feedback.azure.com/forums/357324-azure-monitor-application-insights",
@@ -824,7 +824,8 @@
         "articles/cosmos-db/mongodb/*.md": "cosmosdb-mongo",
         "articles/cosmos-db/cassandra/*.md": "cosmosdb-cassandra",
         "articles/cosmos-db/graph/*.md": "cosmosdb-graph",
-        "articles/cosmos-db/table/*.md": "cosmosdb-table"
+        "articles/cosmos-db/table/*.md": "cosmosdb-table",
+        "articles/cosmos-db/sql/*.md": "cosmosdb-sql"
       },
       "monikerRange": {
         "articles/iot-edge/**/*.md": ">=iotedge-2018-06"

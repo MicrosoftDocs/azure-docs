@@ -7,7 +7,7 @@ ms.date: 07/29/2021
 
 # Azure VMware Solution identity concepts
 
-Azure VMware Solution private clouds are provisioned with a vCenter Server and NSX-T Manager. You use vCenter to manage virtual machine (VM) workloads and NSX-T Manager to manage and extend the private cloud. Access and identity management use the CloudAdmin role for vCenter and restricted administrator rights for NSX-T Manager. 
+Azure VMware Solution private clouds are provisioned with a vCenter Server and NSX-T Manager. You'll use vCenter to manage virtual machine (VM) workloads and NSX-T Manager to manage and extend the private cloud. The CloudAdmin role is used for vCenter and restricted administrator rights for NSX-T Manager. 
 
 ## vCenter access and identity
 
@@ -80,7 +80,7 @@ To prevent creating roles that can't be assigned or deleted, clone the CloudAdmi
 
 1. Right-click the object and select **Add Permission**.
 
-1. In the **Add Permission** window, select the Identity Source in the **User** drop-down where the group or user can be found.
+1. Select the Identity Source in the **User** drop-down where the group or user can be found.
 
 1. Search for the user or group after selecting the Identity Source under the **User** section. 
 
@@ -93,7 +93,7 @@ To prevent creating roles that can't be assigned or deleted, clone the CloudAdmi
 >[!NOTE]
 >NSX-T [!INCLUDE [nsxt-version](includes/nsxt-version.md)] is currently supported for all new private clouds.
 
-Use the *admin* account to access NSX-T Manager. It has full privileges and lets you create and manage Tier-1 (T1) Gateways, segments (logical switches), and all services. In addition, the privileges give you access to the NSX-T Tier-0 (T0) Gateway. A change to the T0 Gateway could result in degraded network performance or no private cloud access. Open a support request in the Azure portal to request any changes to your NSX-T T0 Gateway.
+Use the *admin* account to access NSX-T Manager. It has full privileges and lets you create and manage Tier-1 (T1) gateways, segments (logical switches), and all services. In addition, the privileges give you access to the NSX-T Tier-0 (T0) gateway. A change to the T0 gateway could result in degraded network performance or no private cloud access. Open a support request in the Azure portal to request any changes to your NSX-T T0 gateway.
 
  
 ## Next steps

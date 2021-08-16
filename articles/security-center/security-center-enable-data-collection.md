@@ -217,7 +217,7 @@ To manually install the Log Analytics agent:
    - [Install the Log Analytics agent for Windows](../virtual-machines/extensions/oms-windows.md)
    - [Install the Log Analytics agent for Linux](../virtual-machines/extensions/oms-linux.md)
 
-1. To deploy agents on your existing VMs, follow the instructions in [Collect data about Azure Virtual Machines](../azure-monitor/vm/quick-collect-azurevm.md) (the section **Collect event and performance data** is optional).
+1. To deploy agents on your existing VMs, follow the instructions in [Collect data about Azure Virtual Machines](../azure-monitor/vm/monitor-virtual-machine.md) (the section **Collect event and performance data** is optional).
 
 1. To use PowerShell to deploy the agents, use the instructions from the virtual machines documentation:
 
