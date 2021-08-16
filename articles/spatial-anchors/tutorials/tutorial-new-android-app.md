@@ -166,13 +166,13 @@ dependencyResolutionManagement {
 }
 ```
 
-Right-click `app\java\<PackageName>`->**New**->**Java Class**. Set **Name** to _MyFirstApp_, and **Class**. A file called `MyFirstApp.java` will be created. Add the following import to it:
+Right-click `app\java\<PackageName>`->**New**->**Java Class**. Set **Name** to _MyFirstApp_, and select **Class**. A file called `MyFirstApp.java` will be created. Add the following import to it:
 
 ```java
 import com.microsoft.CloudServices;
 ```
 
-Define `android.app.Application` as its superclass 
+Define `android.app.Application` as its superclass.
 ```java
 public class MyFirstApp extends android.app.Application {...
 ```
@@ -204,7 +204,7 @@ Then, add the following member variables into your `MainActivity` class:
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=52-56&highlight=3-5)]
 
-Next, let's add the following `initializeSession()` method inside your `mainActivity` class. Once called, it will ensure an Azure Spatial Anchors session is created and properly initialized during the startup of your app. This code makes sure that the sceneview session passed to ASA session via the cloudSession.setSession call is not null by having early return.
+Next, let's add the following `initializeSession()` method inside your `mainActivity` class. Once called, it will ensure an Azure Spatial Anchors session is created and properly initialized during the startup of your app. This code makes sure that the sceneview session passed to ASA session via the `cloudSession.setSession` call is not null by having early return.
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=92-107,155)]
 
@@ -247,10 +247,10 @@ Finally, let's hook everything together. In your `handleTap()` method, add the f
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?range=159-167,179-209&highlight=26-39)]
 
-[Redeploy](#trying-it-out) your app once more. Move around your device, tap the screen, and place your sphere. This time, though, your sphere will change its color from black towards white, as camera frames are collected. Once we have enough frames, the sphere will turn into yellow, and the cloud upload will start. Make sure your phone is connected to the internet. Once the upload finishes, your sphere will turn blue. Optionally, you could also use the `Logcat` window inside Android Studio to monitor the log messages your app is sending. For example, the session progress during frame captures, and the anchor identifier that the cloud returns once the upload is completed.
+[Redeploy](#trying-it-out) your app once more. Move around your device, tap the screen, and place your sphere. This time, though, your sphere will change its color from black to white, as camera frames are collected. Once we have enough frames, the sphere will turn to yellow, and the cloud upload will start. Make sure your phone is connected to the internet. Once the upload finishes, your sphere will turn blue. Optionally, you can monitor the `Logcat` window in Android Studio to view the log messages your app is sending. Examples of messages that would be logged include the session progress during the frames-capture and the anchor identifier that the cloud returns once the upload is completed.
 
 > [!NOTE]
-> If you are not seeing the value of `recommendedSessionProgress` (in your debug logs referred to as `Session progress`) change make sure you are **both moving and rotating** your phone around the sphere you have placed.
+> If you are not seeing the value of `recommendedSessionProgress` (in your debug logs referred to as `Session progress`) change then make sure you are **both moving and rotating** your phone around the sphere you have placed.
 
 
 ## Locate your cloud spatial anchor
@@ -275,7 +275,7 @@ That's it! [Redeploy](#trying-it-out) your app one last time to try out the whol
 
 ## Putting everything together
 
-Here is how the complete `MainActivity` class file should look like, after all
+Here is how the complete `MainActivity` class file should look, after all
 the different elements have been put together. You can use it as a reference to
 compare against your own file, and spot if you may have any differences left.
 
