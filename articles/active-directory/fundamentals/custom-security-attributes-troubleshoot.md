@@ -20,13 +20,13 @@ ms.collection: M365-identity-device-management
 
 ## Symptom - Custom security attributes page is disabled
 
-When signed in to the Azure portal as Global Administrator or Global Reader and you try to access the **Custom security attributes** page, it is disabled.
+When signed in to the Azure portal as Global Administrator and you try to access the **Custom security attributes** page, it is disabled.
 
 ![Custom security attributes page disabled in Azure portal.](./media/custom-security-attributes-troubleshoot/attributes-disabled.png)
 
 **Cause**
 
-[Global Administrator](../roles/permissions-reference.md#global-administrator) and [Global Reader](../roles/permissions-reference.md#global-reader) do not have permissions to read or manage custom security attributes. To work with custom security attributes, you must be assigned an attribute role.
+The [Global Administrator](../roles/permissions-reference.md#global-administrator), [Global Reader](../roles/permissions-reference.md#global-reader), and [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator) roles do not have permissions to read or manage custom security attributes. To work with custom security attributes, you must be assigned a custom security attribute role.
 
 **Solution**
 
