@@ -60,7 +60,7 @@ To configure Azure Key Vault to store the workspace key, follow these steps:
 5. Copy the following Spark configuration, save it as *spark_loganalytics_conf.txt*, and fill in the following parameters:
 
    - `<LOG_ANALYTICS_WORKSPACE_ID>`: The Azure Monitor Logs workspace ID.
-   - `<AZURE_KEY_VAULT_NAME>`: The Azure Key Vault name you configured.
+   - `<AZURE_KEY_VAULT_NAME>`: The Key Vault name you configured.
    - `<AZURE_KEY_VAULT_SECRET_KEY_NAME>` (optional): The secret name in the key vault for the workspace key. The default is `SparkLogAnalyticsSecret`.
 
 ```properties
@@ -71,17 +71,17 @@ spark.synapse.logAnalytics.keyVault.key.secret <AZURE_KEY_VAULT_SECRET_KEY_NAME>
 ```
 
 > [!NOTE]
-> You can also store the workspace ID in Azure Key Vault. Refer to the preceding steps, and store the workspace ID with the secret name `SparkLogAnalyticsWorkspaceId`. Alternatively, you can use the configuration `spark.synapse.logAnalytics.keyVault.key.workspaceId` to specify the workspace ID secret name in Azure Key Vault.
+> You can also store the workspace ID in Key Vault. Refer to the preceding steps, and store the workspace ID with the secret name `SparkLogAnalyticsWorkspaceId`. Alternatively, you can use the configuration `spark.synapse.logAnalytics.keyVault.key.workspaceId` to specify the workspace ID secret name in Key Vault.
 
 #### Option 3. Configure with a linked service
 
 > [!NOTE]
 > You need to grant read secret permission to the users who will submit Spark applications. For more information, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../../key-vault/general/rbac-guide.md).
 
-To configure an Azure Key Vault linked service in Azure Synapse Analytics Studio to store the workspace key, follow these steps:
+To configure a Key Vault linked service in Azure Synapse Analytics Studio to store the workspace key, follow these steps:
 
 1. Follow all the steps in the preceding section, "Option 2."
-2. Create an Azure Key Vault linked service in Azure Synapse Analytics Studio:
+2. Create a Key Vault linked service in Azure Synapse Analytics Studio:
 
     a. Go to **Synapse Studio** > **Manage** > **Linked services**, and then select **New**.
 
@@ -108,10 +108,10 @@ spark.synapse.logAnalytics.keyVault.linkedServiceName <LINKED_SERVICE_NAME>
 | spark.synapse.logAnalytics.enabled                  | false                        | To enable the Azure Monitor Logs sink for the Spark applications, true. Otherwise, false.                                                                                                                  |
 | spark.synapse.logAnalytics.workspaceId              | -                            | The destination Azure Monitor Logs workspace ID.                                                                                                                                                          |
 | spark.synapse.logAnalytics.secret                   | -                            | The destination Azure Monitor Logs workspace secret.                                                                                                                                                      |
-| spark.synapse.logAnalytics.keyVault.linkedServiceName   | -                            | The Azure Key Vault linked service name for the Azure Monitor Logs workspace ID and key.                                                                                                                       |
-| spark.synapse.logAnalytics.keyVault.name            | -                            | The Azure Key Vault name for the Azure Monitor Logs ID and key.                                                                                                                                                |
-| spark.synapse.logAnalytics.keyVault.key.workspaceId | SparkLogAnalyticsWorkspaceId | The Azure Key Vault secret name for the Azure Monitor Logs workspace ID.                                                                                                                                       |
-| spark.synapse.logAnalytics.keyVault.key.secret      | SparkLogAnalyticsSecret      | The Azure Key Vault secret name for the Azure Monitor Logs workspace key.                                                                                                                                      |
+| spark.synapse.logAnalytics.keyVault.linkedServiceName   | -                            | The Key Vault linked service name for the Azure Monitor Logs workspace ID and key.                                                                                                                       |
+| spark.synapse.logAnalytics.keyVault.name            | -                            | The Key Vault name for the Azure Monitor Logs ID and key.                                                                                                                                                |
+| spark.synapse.logAnalytics.keyVault.key.workspaceId | SparkLogAnalyticsWorkspaceId | The Key Vault secret name for the Azure Monitor Logs workspace ID.                                                                                                                                       |
+| spark.synapse.logAnalytics.keyVault.key.secret      | SparkLogAnalyticsSecret      | The Key Vault secret name for the Azure Monitor Logs workspace key.                                                                                                                                      |
 | spark.synapse.logAnalytics.uriSuffix       | ods.opinsights.azure.com     | The destination Azure Monitor Logs workspace [URI suffix][uri_suffix]. If your workspace isn't in Azure global, you need to update the URI suffix according to the respective cloud. |
 
 > [!NOTE]  
