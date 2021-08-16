@@ -71,11 +71,11 @@ When a user or group submits a request to extend a role assignment, administrato
 
 In addition to using following the link from email, administrators can approve or deny requests by going to the Privileged Identity Management administration portal and selecting **Approve requests** in the left pane.
 
-![Azure resources - Approve requests page listing requests and links to approve or deny](./media/pim-how-to-renew-extend/aadpim-rbac-extend-admin-approve-grid.png)
+![Azure resources - Approve requests page listing requests and links to approve or deny](./media/pim-how-to-renew-extend/extend-admin-approve-list.png)
 
 When an Administrator selects **Approve** or **Deny**, the details of the request are shown, along with a field to provide a business justification for the audit logs.
 
-![Approve role assignment request with requestor reason, assignment type, start time, end time, and reason](./media/pim-how-to-renew-extend/aadpim-rbac-extend-admin-approve-blade.png)
+![Approve role assignment request with requestor reason, assignment type, start time, end time, and reason](./media/pim-how-to-renew-extend/extend-admin-approve-form.png)
 
 When approving a request to extend role assignment, administrators can choose a new start date, end date, and assignment type. Changing assignment type might be necessary if the administrator wants to provide limited access to complete a specific task (one day, for example). In this example, the administrator can change the assignment from **Eligible** to **Active**. This means they can provide access to the requestor without requiring them to activate.
 
