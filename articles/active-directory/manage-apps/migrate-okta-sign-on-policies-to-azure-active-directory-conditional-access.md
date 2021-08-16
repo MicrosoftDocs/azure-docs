@@ -197,7 +197,7 @@ See the [end-user documentation for MFA enrollment](https://docs.microsoft.com/a
 
 ### Step 6 - Enable CA policies
 
-1. To roll out testing, change the policies created in the earlier examples to **Enabled test user login**.
+1. To roll out testing, change the policies created in the earlier examples to **Enabled test user login**. 
 
 ![image shows enable test user](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/enable-test-user.png)
 
