@@ -203,4 +203,4 @@ The following steps show how to use the developer tools in Firefox. For more inf
 ## Next steps
 
 - Read more about the [Azure portal](azure-portal-overview.md).
-- Learn how to [open a support request](how-to-create-azure-support-request.md) in the Azure portal.
+- Learn how to [open a support request](supportability/how-to-create-azure-support-request.md) in the Azure portal.
