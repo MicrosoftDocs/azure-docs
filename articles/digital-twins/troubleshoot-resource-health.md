@@ -5,9 +5,10 @@ titleSuffix: Azure Digital Twins
 description: See how to use Azure Resource Health to check the health of your Azure Digital Twins instance.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 10/6/2020
+ms.date: 8/21/2021
 ms.topic: how-to
 ms.service: digital-twins
+ms.custom: contperf-fy22q1
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
