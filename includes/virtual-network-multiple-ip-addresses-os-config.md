@@ -337,26 +337,26 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 3. Update the configuration file of the network interface (assuming ‘eth0’).
 
    * Open the network interface file using below command:
-	 
- ```bash
-    vi /etc/network/interfaces
-   ```
+ 	 
+     ```bash
+     vi /etc/network/interfaces
+     ```
 	
    * You should see the following lines at the end of the file:
 	
-```bash
-   auth eth0
-   iface eth0 inet dhcp
-   ```
+      ```bash
+      auth eth0
+      iface eth0 inet dhcp
+      ```
 	
    * Keep the existing line item for dhcp as it is. The primary IP address remains configured as it was previously.
    * Add the following lines after the lines that exist in this file:
 
-```bash
-   iface eth0 inet static
-   address <your private IP address here> 
-   netmask <your subnet mask> 
-   ```
+     ```bash
+     iface eth0 inet static
+     address <your private IP address here> 
+     netmask <your subnet mask> 
+     ```
 
 4. Save the file by using the following command:
 
