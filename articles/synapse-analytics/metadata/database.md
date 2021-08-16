@@ -18,7 +18,8 @@ Azure Synapse Analytics allows the different computational workspace engines to 
 
 A database created with a Spark job will become visible with that same name to all current and future Spark pools in the workspace, including the serverless SQL pool engine. You cannot add custom objects (external tables, views, procedures) directly in this replicated database using the serverless SQL pool.
 
-The Spark default database, called `default`, will also be visible in the serverless SQL pool context as a database called `default`.
+The Spark default database, called `default`, will also be visible in the serverless SQL pool context as a database called `default`. 
+You can't create a database in Spark and then create another database with the same name in serverless. Eligible objects will get synced.
 
 Since the databases are synchronized to serverless SQL pool asynchronously, there will be a delay until they appear.
 
@@ -27,15 +28,6 @@ Since the databases are synchronized to serverless SQL pool asynchronously, ther
 Use Spark to manage Spark created databases. For example, delete it through a Spark pool job, and create tables in it from Spark.
 
 If you create objects in a Spark created database using serverless SQL pool, or try to drop the database, the operation will succeed. But, the original Spark database won't be changed.
-
-## How name conflicts are handled
-
-If the name of a Spark database conflicts with the name of an existing serverless SQL pool database, a suffix is appended in serverless SQL pool to the Spark database. The suffix in serverless SQL pool is `_<workspace name>-ondemand-DefaultSparkConnector`.
-
-For example, if a Spark database called `mydb` gets created in the Azure Synapse workspace `myws` and a serverless SQL pool database with that name already exists, then the Spark database in serverless SQL pool will have to be referenced using the name `mydb_myws-ondemand-DefaultSparkConnector`.
-
-> [!CAUTION]
-> Caution: You should not take a dependency on this behavior.
 
 ## Security model
 

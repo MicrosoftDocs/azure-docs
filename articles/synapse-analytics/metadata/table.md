@@ -72,11 +72,11 @@ Spark tables provide different data types than the Synapse SQL engines. The foll
 | `char`                                      | `char`                |
 | `StringType`, `String`, `varchar`           | `Varchar(n)`          | **Spark**: *StringType* represents character string values. *VarcharType(n)* is a variant of StringType which has a length limitation. Data writing will fail if the input string exceeds the length limitation. This type can only be used in table schema, not functions/operators.<br> *CharType(n)* is a variant of *VarcharType(n)* which is fixed length. Reading column of type *CharType(n)* always returns string values of length n. Char type column comparison will pad the short one to the longer length. <br> **SQL**: In *Varchar(n)* n can be max 8000, and if it is partitioned column, n can be max 2048. <br> Use it with collation `Latin1_General_100_BIN2_UTF8`. |
 | `BinaryType`, `binary`                      | `varbinary(n)`        | **SQL**: In *Varbinary(n)* n can be max 8000, and if it is partitioned column, n can be max 2048. |
-| `array`, `map`, `struct`                    | `varchar(max)`     | **SQL**: Serializes into JSON with collation `Latin1_General_100_BIN2_UTF8` |
+| `array`, `map`, `struct`                    | `varchar(max)`        | **SQL**: Serializes into JSON with collation `Latin1_General_100_BIN2_UTF8` |
 
-* Collation used is Latin1_General_100_BIN2_UTF8.
+\* Collation used is Latin1_General_100_BIN2_UTF8.
 
-** ArrayType, MapType, and StructType are represented as JSONs.
+\** ArrayType, MapType, and StructType are represented as JSONs.
 
 ## Security model
 
@@ -158,7 +158,7 @@ For example, with SparkSQL run:
 ```sql
 CREATE TABLE mytestdb.myexternalparquettable
     USING Parquet
-    LOCATION "abfss://<storage-name>@arcadialake.dfs.core.windows.net/<fs>/synapse/workspaces/<synapse_ws>/warehouse/mytestdb.db/myparquettable/"
+    LOCATION "abfss://<storage-name>.dfs.core.windows.net/<fs>/synapse/workspaces/<synapse_ws>/warehouse/mytestdb.db/myparquettable/"
 ```
 
 Replace the placeholder `<storage-name>` with the ADLS gen2 storage account name that you are using, `<fs>` with the file system name you're using and the placeholder `<synapse_ws>` with the name of the synapse workspace you're using to run this example.
