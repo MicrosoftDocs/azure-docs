@@ -105,7 +105,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 | --- | --- |
 | **Log Analytics table(s)** | alcide_kaudit_activity_1_CL<br>alcide_kaudit_detections_1_CL<br>alcide_kaudit_selections_count_1_CL<br>alcide_kaudit_selections_details_1_CL |
 | **Vendor documentation/<br>installation instructions** | [Alcide kAudit installation guide](https://awesomeopensource.com/project/alcideio/kaudit?categoryPage=29#before-installing-alcide-kaudit) |
-| **Supported by** | |
+| **Supported by** | [Alcide](https://www.alcide.io/company/contact-us/) |
 |
 
 ## Alsid for Active Directory
@@ -117,7 +117,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 | **Kusto function alias:** | afad_parser |
 | **Kusto function URL:** | https://aka.ms/sentinel-alsidforad-parser |
 | **Vendor documentation/<br>installation instructions** | See below |
-| **Supported by** | |
+| **Supported by** | [Alsid](https://www.alsid.com/contact-us/) |
 |
 
 ### Configuration instructions
@@ -134,7 +134,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 
 ## Amazon Web Services - Cloudtrail
 
-| Data ingestion method: | Built-in |
+| Data ingestion method: | Azure service |
 | --- | --- |
 | **Log Analytics table(s)** | AWSCloudTrail |
 | **Vendor documentation/<br>installation instructions** | [Connect data sources](connect-data-sources.md) |
@@ -206,147 +206,119 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 
 ## Azure Active Directory
 
-| Data ingestion method: | Azure Active Directory|
+| Data ingestion method: | Azure service |
 | --- | --- |
-| **Log Analytics table(s)** | Built-in |
-| **Azure Function App code** | |
-| **API credentials** |  |
-| **Connector deployment instructions** | [Connect data sources](connect-data-sources.md) |
-| **Application settings** | |
+| **Log Analytics table(s)** | SigninLogs<br>AuditLogs<br>AADNonInteractiveUserSignInLogs<br>AADServicePrincipalSignInLogs<br>AADManagedIdentitySignInLogs<br>AADProvisioningLogs<br>ADFSSignInLogs |
 | **Supported by** | Microsoft |
 |
 
 ## Azure Active Directory Identity Protection
 
-| Data ingestion method: | Azure Active Directory Identity Protection, including audit logs and sign-in logs|
+| Data ingestion method: | Azure service |
 | --- | --- |
-| **Log Analytics table(s)** | Built-in |
-| **Azure Function App code** | |
-| **API credentials** |  |
-| **Connector deployment instructions** | [Connect data sources](connect-data-sources.md) |
-| **Application settings** | |
+| **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
 |
 
 ## Azure Activity
 
-| Data ingestion method: | Azure Activity|
+- **Configurable by Azure Policy**
+
+| Data ingestion method: | Azure service |
 | --- | --- |
-| **Log Analytics table(s)** | Built-in |
-| **Azure Function App code** | |
-| **API credentials** |  |
-| **Connector deployment instructions** | [Connect data sources](connect-data-sources.md) |
-| **Application settings** | |
+| **Log Analytics table(s)** | AzureActivity |
 | **Supported by** | Microsoft |
 |
 
 ## Azure DDoS Protection
 
-| Data ingestion method: | Azure DDoS Protection|
+| Data ingestion method: | Azure service |
 | --- | --- |
-| **Log Analytics table(s)** | Built-in |
-| **Azure Function App code** | |
-| **API credentials** |  |
-| **Connector deployment instructions** | [Connect data sources](connect-data-sources.md) |
-| **Application settings** | |
+| **Log Analytics table(s)** | AzureDiagnostics |
+| **Diagnostics** | DDoSProtectionNotifications<br>DDoSMitigationFlowLogs<br>DDoSMitigationReports |
 | **Supported by** | Microsoft |
 |
 
 ## Azure Defender
 
-| Data ingestion method: |Azure Defender alerts from Azure Security Center|
+| Data ingestion method: | Azure service |
 | --- | --- |
-| **Log Analytics table(s)** | Built-in |
-| **Azure Function App code** | |
-| **API credentials** |  |
-| **Connector deployment instructions** | [Connect data sources](connect-data-sources.md) |
-| **Application settings** | |
+| **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
 |
 
 ## Azure Defender for IoT
 
-| Data ingestion method: | Azure Defender for IoT (formerly Azure Security Center for IoT)|
+| Data ingestion method: | Azure service |
 | --- | --- |
-| **Log Analytics table(s)** | Built-in |
-| **Azure Function App code** | |
-| **API credentials** |  |
-| **Connector deployment instructions** | [Connect data sources](connect-data-sources.md) |
-| **Application settings** | |
+| **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
 |
 
 ## Azure Firewall
 
-| Data ingestion method: | Azure Firewall|
+| Data ingestion method: | Azure service |
 | --- | --- |
-| **Log Analytics table(s)** | Built-in |
-| **Azure Function App code** | |
-| **API credentials** |  |
-| **Connector deployment instructions** | [Connect data sources](connect-data-sources.md) |
-| **Application settings** | |
+| **Log Analytics table(s)** | AzureDiagnostics |
+| **Diagnostics** | AzureFirewallApplicationRule<br>AzureFirewallNetworkRule |
 | **Supported by** | Microsoft |
 |
 
 ## Azure Information Protection
 
-| Data ingestion method: | Amazon Web Services - Cloudtrail|
+| Data ingestion method: | Azure service |
 | --- | --- |
-| **Log Analytics table(s)** | Built-in |
-| **Azure Function App code** | |
-| **API credentials** |  |
-| **Connector deployment instructions** | [Connect data sources](connect-data-sources.md) |
-| **Application settings** | |
+| **Log Analytics table(s)** | InformationProtectionLogs_CL |
 | **Supported by** | Microsoft |
 |
 
-For more information, see [How to modify the reports and create custom queries](/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries).
+- For more information, see [How to modify the reports and create custom queries](/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries).
 
 ## Azure Key Vault
 
-| Data ingestion method: |Azure Key Vault]|
+- **Configurable by Azure Policy**
+
+| Data ingestion method: | Azure service |
 | --- | --- |
-| **Log Analytics table(s)** | Built-in |
-| **Azure Function App code** | |
-| **API credentials** |  |
-| **Connector deployment instructions** | [Connect data sources](connect-data-sources.md) |
-| **Application settings** | |
+| **Log Analytics table(s)** | KeyVaultData |
 | **Supported by** | Microsoft |
 |
 
 ## Azure Kubernetes Service (AKS)
 
-| Data ingestion method: | Azure Kubernetes Service (AKS)|
+- **Configurable by Azure Policy**
+
+| Data ingestion method: | Azure service |
 | --- | --- |
-| **Log Analytics table(s)** | Built-in |
-| **Azure Function App code** | |
-| **API credentials** |  |
-| **Connector deployment instructions** | [Connect data sources](connect-data-sources.md) |
-| **Application settings** | |
+| **Log Analytics table(s)** | kube-apiserver<br>kube-audit<br>kube-audit-admin<br>kube-controller-manager<br>kube-scheduler<br>cluster-autoscaler<br>guard |
+| **Supported by** | Microsoft |
+|
+
+## Azure SQL Databases
+
+- **Configurable by Azure Policy**
+
+| Data ingestion method: | Azure service |
+| --- | --- |
+| **Log Analytics table(s)** | SQLSecurityAuditEvents<br>SQLInsights<br>AutomaticTuning<br>QueryStoreWaitStatistics<br>Errors<br>DatabaseWaitStatistics<br>Timeouts<br>Blocks<br>Deadlocks<br>Basic<br>InstanceAndAppAdvanced<br>WorkloadManagement<br>DevOpsOperationsAudit |
 | **Supported by** | Microsoft |
 |
 
 ## Azure Storage Account
 
-| Data ingestion method: | Azure Storage Account|
+- **Configurable by Azure Policy**
+
+| Data ingestion method: | Azure service |
 | --- | --- |
-| **Log Analytics table(s)** | Built-in |
-| **Azure Function App code** | |
-| **API credentials** |  |
-| **Connector deployment instructions** | [Connect data sources](connect-data-sources.md) |
-| **Application settings** | |
+| **Log Analytics table(s)** | StorageBlobLogs<br>StorageQueueLogs<br>StorageTableLogs<br>StorageFileLogs |
 | **Supported by** | Microsoft |
 |
 
 ## Azure Web Application Firewall (WAF)
 
-| Data ingestion method: | Azure Web Application Firewall (WAF), (formerly Microsoft WAF)|
+| Data ingestion method: | Azure service |
 | --- | --- |
-| **Log Analytics table(s)** | Built-in |
-| **Azure Function App code** | |
-| **API credentials** |  |
-| **Connector deployment instructions** | [Connect data sources](connect-data-sources.md) |
-| **Application settings** | |
+| **Log Analytics table(s)** | AzureDiagnostics |
 | **Supported by** | Microsoft |
 |
 
@@ -373,27 +345,21 @@ For more information, see [How to modify the reports and create custom queries](
 
 ## BETTER Mobile Threat Defense
 
-| Data ingestion method: |  |
+| Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
 | **Log Analytics table(s)** |  |
-| **API credentials** ||
 | **Vendor documentation/<br>installation instructions** |  |
-| **Connector deployment instructions** | |
-| **Application settings** |  |
-| **Supported by** | |
+| **Supported by** |  |
 |
 
 ## Beyond Security beSECURE
 
 
-| Data ingestion method: |  |
+| Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
 | **Log Analytics table(s)** |  |
-| **API credentials** ||
 | **Vendor documentation/<br>installation instructions** |  |
-| **Connector deployment instructions** | |
-| **Application settings** |  |
-| **Supported by** | |
+| **Supported by** |  |
 |
 
 
@@ -502,15 +468,11 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 
 ## Citrix Analytics (Security)
 
-
-| Data ingestion method: |  |
+| Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
 | **Log Analytics table(s)** |  |
-| **API credentials** ||
 | **Vendor documentation/<br>installation instructions** |  |
-| **Connector deployment instructions** | |
-| **Application settings** |  |
-| **Supported by** | |
+| **Supported by** |  |
 |
 
 ## Citrix Web App Firewall (WAF) (Preview)
@@ -525,9 +487,12 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 
 The Cognni data connector offers a quick and simple integration to Azure Sentinel. You can use Cognni to autonomously map previously unclassified important information and detect related incidents. Cognni helps you recognize risks to your important information, understand the severity of the incidents, and investigate the details you need to remediate, fast enough to make a difference.
 
-**Data ingestion method:** [REST API](connect-data-sources.md#rest-api-integration-on-the-provider-side).
-
+| Data ingestion method: | [REST-API](connect-rest-api-template.md) |
+| --- | --- |
+| **Log Analytics table(s)** |  |
+| **Vendor documentation/<br>installation instructions** |  |
 | **Supported by** | [Cognni](https://cognni.ai/contact-support/)
+|
 
 ## CyberArk Enterprise Password Vault (EPV) Events (Preview)
 
@@ -543,31 +508,26 @@ The Cognni data connector offers a quick and simple integration to Azure Sentine
 
 The Cyberpion Security Logs data connector ingests logs from the Cyberpion system directly into Azure Sentinel. For more information, see [Azure Sentinel](https://www.cyberpion.com/resource-center/integrations/azure-sentinel/) in the Cyberpion documentation.
 
-**Data ingestion method:** [REST API](connect-data-sources.md#rest-api-integration-on-the-provider-side).
-
-| **Supported by** | Cyberpion
+| Data ingestion method: | [REST-API](connect-rest-api-template.md) |
+| --- | --- |
+| **Log Analytics table(s)** |  |
+| **Vendor documentation/<br>installation instructions** |  |
+| **Supported by** | Cyberpion |
+|
 
 ## Domain name server
 
-| Data ingestion method: | Domain name server|
+| Data ingestion method: | Azure service |
 | --- | --- |
-| **Log Analytics table(s)** | Built-in |
-| **Azure Function App code** | |
-| **API credentials** |  |
-| **Connector deployment instructions** | [Connect data sources](connect-data-sources.md) |
-| **Application settings** | |
+| **Log Analytics table(s)** |  |
 | **Supported by** | Microsoft |
 |
 
 ## Dynamics 365
 
-| Data ingestion method: | Dynamics 365|
+| Data ingestion method: | Azure service |
 | --- | --- |
-| **Log Analytics table(s)** | Built-in |
-| **Azure Function App code** | |
-| **API credentials** |  |
-| **Connector deployment instructions** | [Connect data sources](connect-data-sources.md) |
-| **Application settings** | |
+| **Log Analytics table(s)** |  |
 | **Supported by** | Microsoft |
 |
 
@@ -731,16 +691,13 @@ For more information about connecting to Azure Sentinel, see [Connect ExtraHop R
 
 ## F5 BIG-IP
 
-
-| Data ingestion method: |  |
+| Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
 | **Log Analytics table(s)** |  |
-| **API credentials** ||
 | **Vendor documentation/<br>installation instructions** |  |
-| **Connector deployment instructions** | |
-| **Application settings** |  |
-| **Supported by** | |
+| **Supported by** |  |
 |
+
 ## F5 Networks (ASM)
 
 | Data ingestion method: | [Common Event Format (CEF)](connect-common-event-format.md) over Syslog |
@@ -777,9 +734,12 @@ The Forcepoint DLP data connector automatically exports DLP incident data from F
 
 For more information about connecting to Azure Sentinel, see [Connect Forcepoint DLP to Azure Sentinel](connect-forcepoint-dlp.md).
 
-**Data ingestion method:** [REST API](connect-data-sources.md#rest-api-integration-on-the-provider-side).
-
+| Data ingestion method: | [REST-API](connect-rest-api-template.md) |
+| --- | --- |
+| **Log Analytics table(s)** |  |
+| **Vendor documentation/<br>installation instructions** |  |
 | **Supported by** | [Forcepoint](https://support.forcepoint.com/) |
+|
 
 ## Forcepoint Next Generation Firewall (NGFW) (Preview)
 
@@ -811,6 +771,13 @@ For more information about connecting to Azure Sentinel, see [Connect Forcepoint
 | 
 
 ## GitHub Enterprise Cloud Audit Log - Polling (Preview)
+
+| Data ingestion method: | [REST-API](connect-rest-api-template.md) |
+| --- | --- |
+| **Log Analytics table(s)** |  |
+| **Vendor documentation/<br>installation instructions** |  |
+| **Supported by** |  |
+|
 
 ## Google Workspace (G-Suite) (Preview)
 
@@ -879,74 +846,49 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 
 ## Microsoft 365 Defender
 
-| Data ingestion method: | Microsoft 365 Defender, including Microsoft 365 Defender incidents and raw data from Microsoft 365 Defender for Endpoint|
+| Data ingestion method: | Azure service |
 | --- | --- |
-| **Log Analytics table(s)** | Built-in |
-| **Azure Function App code** | |
-| **API credentials** |  |
-| **Connector deployment instructions** | [Connect data sources](connect-data-sources.md) |
-| **Application settings** | |
+| **Log Analytics table(s)** | SecurityAlert<br>SecurityIncident<br>DeviceEvents<br>DeviceFileEvents<br>DeviceImageLoadEvents<br>DeviceInfo<br>DeviceLogonEvents<br>DeviceNetworkEvents<br>DeviceNetworkInfo<br>DeviceProcessEvents<br>DeviceRegistryEvents<br>DeviceFileCertificateInfo |
 | **Supported by** | Microsoft |
 |
 
 ## Microsoft Cloud App Security (MCAS)
 
-| Data ingestion method: | Microsoft Cloud App Security (MCAS)|
+| Data ingestion method: | Azure service |
 | --- | --- |
-| **Log Analytics table(s)** | Built-in |
-| **Azure Function App code** | |
-| **API credentials** |  |
-| **Connector deployment instructions** | [Connect data sources](connect-data-sources.md) |
-| **Application settings** | |
+| **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
 |
 
 ## Microsoft Defender for Endpoint
 
-| Data ingestion method: | Microsoft Defender for Endpoint (formerly Microsoft Defender Advanced Threat Protection)|
+| Data ingestion method: | Azure service |
 | --- | --- |
-| **Log Analytics table(s)** | Built-in |
-| **Azure Function App code** | |
-| **API credentials** |  |
-| **Connector deployment instructions** | [Connect data sources](connect-data-sources.md) |
-| **Application settings** | |
+| **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
 |
 
 ## Microsoft Defender for Identity
 
-| Data ingestion method: | Microsoft Defender for Identity (formerly Azure Advanced Threat Protection)|
+| Data ingestion method: | Azure service |
 | --- | --- |
-| **Log Analytics table(s)** | Built-in |
-| **Azure Function App code** | |
-| **API credentials** |  |
-| **Connector deployment instructions** | [Connect data sources](connect-data-sources.md) |
-| **Application settings** | |
+| **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
 |
 
 ## Microsoft Defender for Office 365
 
-| Data ingestion method: | Microsoft Defender for Office 365 (formerly Office 365 Advanced Threat Protection)|
+| Data ingestion method: | Azure service |
 | --- | --- |
-| **Log Analytics table(s)** | Built-in |
-| **Azure Function App code** | |
-| **API credentials** |  |
-| **Connector deployment instructions** | [Connect data sources](connect-data-sources.md) |
-| **Application settings** | |
+| **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
 |
 
-
 ## Microsoft Office 365
 
-| Data ingestion method: |Office 365, including Microsoft Teams|
+| Data ingestion method: | Azure service |
 | --- | --- |
-| **Log Analytics table(s)** | Built-in |
-| **Azure Function App code** | |
-| **API credentials** |  |
-| **Connector deployment instructions** | [Connect data sources](connect-data-sources.md) |
-| **Application settings** | |
+| **Log Analytics table(s)** | OfficeActivity |
 | **Supported by** | Microsoft |
 |
 
@@ -993,7 +935,12 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 
 The NXLog BSM macOS data connector uses the Sun BSM Auditing API to capture audit events directly from the kernel on the macOS platform. This data connector can efficiently export macOS audit events to Azure Sentinel in real time. For more information, see the [NXLog Azure Sentinel User Guide](https://nxlog.co/documentation/nxlog-user-guide/sentinel.html).
 
-**Data ingestion method:** [REST API](connect-data-sources.md#rest-api-integration-on-the-provider-side).
+| Data ingestion method: | [REST-API](connect-rest-api-template.md) |
+| --- | --- |
+| **Log Analytics table(s)** |  |
+| **Vendor documentation/<br>installation instructions** |  |
+| **Supported by** |  |
+|
 
 | **Supported by** | [NXLog](https://nxlog.co/community-forum)
 
@@ -1003,7 +950,12 @@ The NXLog DNS Logs data connector uses Event Tracing for Windows (ETW) to collec
 
 For more information about connecting to Azure Sentinel, see [Connect NXLog (Windows) DNS Logs to Azure Sentinel](connect-nxlog-dns.md).
 
-**Data ingestion method:** [REST API](connect-data-sources.md#rest-api-integration-on-the-provider-side).
+| Data ingestion method: | [REST-API](connect-rest-api-template.md) |
+| --- | --- |
+| **Log Analytics table(s)** |  |
+| **Vendor documentation/<br>installation instructions** |  |
+| **Supported by** |  |
+|
 
 | **Supported by** | [NXLog](https://nxlog.co/community-forum)
 
@@ -1013,7 +965,12 @@ The NXLog LinuxAudit data connector supports custom audit rules and collects log
 
 For more information about connecting to Azure Sentinel, see [Connect NXLog LinuxAudit to Azure Sentinel](connect-nxlog-linuxaudit.md).
 
-**Data ingestion method:** [REST API](connect-data-sources.md#rest-api-integration-on-the-provider-side).
+| Data ingestion method: | [REST-API](connect-rest-api-template.md) |
+| --- | --- |
+| **Log Analytics table(s)** |  |
+| **Vendor documentation/<br>installation instructions** |  |
+| **Supported by** |  |
+|
 
 | **Supported by** | [NXLog](https://nxlog.co/community-forum)
 
@@ -1071,9 +1028,15 @@ The Orca Security Alerts connector automatically exports Alerts logs to Azure Se
 
 For more information about connecting to Azure Sentinel, see [Connect Orca Security to Azure Sentinel](connect-orca-security-alerts.md).
 
-**Data ingestion method:** [REST API](connect-data-sources.md#rest-api-integration-on-the-provider-side).
+| Data ingestion method: | [REST-API](connect-rest-api-template.md) |
+| --- | --- |
+| **Log Analytics table(s)** |  |
+| **Vendor documentation/<br>installation instructions** |  |
+| **Supported by** |  |
+|
 
 | **Supported by** | [Orca Security](http://support.orca.security/)
+
 ## OSSEC (Preview)
 
 | Data ingestion method: | [Common Event Format (CEF)](connect-common-event-format.md) over Syslog, with a Kusto function parser |
@@ -1102,7 +1065,12 @@ The Perimeter 81 Activity Logs data connector connects Perimeter 81 activity log
 
 For more information about connecting to Azure Sentinel, see [Connect Perimeter 81 logs to Azure Sentinel](connect-perimeter-81-logs.md).
 
-**Data ingestion method:** [REST API](connect-data-sources.md#rest-api-integration-on-the-provider-side).
+| Data ingestion method: | [REST-API](connect-rest-api-template.md) |
+| --- | --- |
+| **Log Analytics table(s)** |  |
+| **Vendor documentation/<br>installation instructions** |  |
+| **Supported by** |  |
+|
 
 | **Supported by** | [Perimeter 81](https://support.perimeter81.com/)
 
@@ -1231,13 +1199,9 @@ If a longer timeout duration is required, consider upgrading to an [App Service 
 
 ## Security events (Windows)
 
-| Data ingestion method: | Amazon Web Services - Cloudtrail|
+| Data ingestion method: | Azure service |
 | --- | --- |
-| **Log Analytics table(s)** | Built-in |
-| **Azure Function App code** | |
-| **API credentials** |  |
-| **Connector deployment instructions** | [Connect data sources](connect-data-sources.md) |
-| **Application settings** | |
+| **Log Analytics table(s)** |  |
 | **Supported by** | Microsoft |
 |
 
@@ -1289,7 +1253,12 @@ The Sophos Cloud Optix data connector connects your Sophos Cloud Optix logs to A
 
 For more information about connecting to Azure Sentinel, see [Connect Sophos Cloud Optix to Azure Sentinel](connect-sophos-cloud-optix.md).
 
-**Data ingestion method:** [REST API](connect-data-sources.md#rest-api-integration-on-the-provider-side).
+| Data ingestion method: | [REST-API](connect-rest-api-template.md) |
+| --- | --- |
+| **Log Analytics table(s)** |  |
+| **Vendor documentation/<br>installation instructions** |  |
+| **Supported by** |  |
+|
 
 | **Supported by** | [Sophos](https://secure2.sophos.com/en-us/support.aspx)
 
@@ -1310,7 +1279,12 @@ The Squadra Technologies secRMM data connector pushes USB removable storage secu
 
 For more information about connecting to Azure Sentinel, see [Connect Squadra Technologies secRMM to Azure Sentinel](connect-squadra-secrmm.md).
 
-**Data ingestion method:** [REST API](connect-data-sources.md#rest-api-integration-on-the-provider-side).
+| Data ingestion method: | [REST-API](connect-rest-api-template.md) |
+| --- | --- |
+| **Log Analytics table(s)** |  |
+| **Vendor documentation/<br>installation instructions** |  |
+| **Supported by** |  |
+|
 
 | **Supported by** | [Squadra Technologies](https://www.squadratechnologies.com/Contact.aspx)
 
@@ -1332,7 +1306,12 @@ The Symantec ICDx data connector connects Symantec security solutions logs to Az
 
 For more information about connecting to Azure Sentinel, see [Connect Symantec ICDx to Azure Sentinel](connect-symantec.md).
 
-**Data ingestion method:** [REST API](connect-data-sources.md#rest-api-integration-on-the-provider-side).
+| Data ingestion method: | [REST-API](connect-rest-api-template.md) |
+| --- | --- |
+| **Log Analytics table(s)** |  |
+| **Vendor documentation/<br>installation instructions** |  |
+| **Supported by** |  |
+|
 
 | **Supported by** | [Broadcom Symantec](https://support.broadcom.com/security)
 
@@ -1455,17 +1434,19 @@ For more information about connecting to Azure Sentinel, see [Connect Trend Micr
 
 ## Windows firewall
 
-| Data ingestion method: | Amazon Web Services - Cloudtrail|
+| Data ingestion method: | Azure service |
 | --- | --- |
-| **Log Analytics table(s)** | Built-in |
-| **Azure Function App code** | |
-| **API credentials** |  |
-| **Connector deployment instructions** | [Connect data sources](connect-data-sources.md) |
-| **Application settings** | |
+| **Log Analytics table(s)** |  |
 | **Supported by** | Microsoft |
 |
 
+## Windows security events
 
+| Data ingestion method: | Azure service |
+| --- | --- |
+| **Log Analytics table(s)** |  |
+| **Supported by** | Microsoft |
+|
 
 ## Workplace from Facebook (Preview)
 
@@ -1509,7 +1490,12 @@ Zimperium Mobile Threat Defense data connector connects the Zimperium threat log
 
 For more information about connecting to Azure Sentinel, see [Connect Zimperium to Azure Sentinel](connect-zimperium-mtd.md).
 
-**Data ingestion method:** [REST API](connect-data-sources.md#rest-api-integration-on-the-provider-side).
+| Data ingestion method: | [REST-API](connect-rest-api-template.md) |
+| --- | --- |
+| **Log Analytics table(s)** |  |
+| **Vendor documentation/<br>installation instructions** |  |
+| **Supported by** |  |
+|
 
 | **Supported by** | [Zimperium](https://www.zimperium.com/support)
 
