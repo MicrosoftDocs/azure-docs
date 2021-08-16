@@ -113,8 +113,7 @@ Azure AD administrators can access the renewal request from the link in the emai
 
 When an administrator selects **Approve** or **Deny**, the details of the request are shown along with a field to provide a business justification for the audit logs.
 
-![Approve role assignment request with requestor reason, assignment type, start time, end time, and reason](./media/pim-how-to-renew-extend/![Approve role assignment request with requestor reason, assignment type, start time, end time, and reason](./media/pim-how-to-renew-extend/extend-admin-approve-form.png)
-.png)
+![Approve role assignment request with requestor reason, assignment type, start time, end time, and reason](./media/pim-how-to-renew-extend/extend-admin-approve-form.png)
 
 When approving a request to renew role assignment, administrators must enter a new start date, end date, and assignment type.
 
