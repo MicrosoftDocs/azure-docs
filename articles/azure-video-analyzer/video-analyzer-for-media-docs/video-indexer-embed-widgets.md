@@ -222,8 +222,8 @@ If you use a video player other than Azure Media Player, you must manually manip
         function jumpTo(evt) {
           var origin = evt.origin || evt.originalEvent.origin;
         
-          // Validate that the event comes from the videobreakdown domain.
-          if ((origin === "https://www.videobreakdown.com") && evt.data.time !== undefined){
+          // Validate that the event comes from the videoindexer domain.
+          if ((origin === "https://www.videoindexer.ai") && evt.data.time !== undefined){
                 
             // Call your player's "jumpTo" implementation.
             playerInstance.currentTime = evt.data.time;
