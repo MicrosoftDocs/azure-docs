@@ -15,7 +15,7 @@ Azure VMware Solution supports the following operations:
 
 - [Configure an external identity source](tutorial-configure-identity-source-vcenter.md)
 
-- [View and edit the storage policy](concepts-storage.md#storage-policies-and-fault-tolerance) 
+- [View and edit the storage policy](tutorial-configure-storage-policy.md) 
 
 
 ## View the status of a task
