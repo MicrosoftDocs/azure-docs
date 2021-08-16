@@ -49,7 +49,7 @@ For more information, see [Connect to your data connector from Azure Sentinel](#
 
 ## Supported REST API actions
 
-This section describes the API actions supported by the CCP, as well as the REST API endpoints provided to manage the connector:
+This section describes the API actions supported by the CCP, and the REST API endpoints provided to manage the connector:
 
 ### GET
 
@@ -168,13 +168,12 @@ The `connectorUiConfig` section of the configuration file includes the following
 |**sampleQueries**     | [SampleQuery[]](#samplequery)       | Sample queries for the customer to understand how to find the data in the event log, to be displayed in the **Next steps** tab.        |
 |**dataTypes**     | [DataTypes[]](#datatypes)        | A list of all data types for your connector, and a query to fetch the time of the last event for each data type.        |
 |**connectivityCriterias**     |   [ConnectivityCriteria[]](#connectivitycriteria)      |An object that defines how to verify if the connector is correctly defined.          |
-|**availability**     | `{`<br>`  status: Number,`<br>`  isPreview: Boolean`<br>`}`        |  One of the following: <br><br>- **1**: Connector is available to customers <br>- **isPreview**: Indicates that the connector is not yet generally available.       |
+|**availability**     | `{`<br>`  status: Number,`<br>`  isPreview: Boolean`<br>`}`        |  One of the following values: <br><br>- **1**: Connector is available to customers <br>- **isPreview**: Indicates that the connector is not yet generally available.       |
 |**permissions**     | [RequiredConnectorPermissions[]](#requiredconnectorpermissions)        | Lists the permissions required to enable or disable the connector.        |
 |**instructionsSteps**     | [InstructionStep[]](#instructionstep)        |     An array of widget parts that explain how to install the connector, displayed on the **Instructions** tab.    |
 |**metadata**     |   [Metadata](#metadata)      |  ARM template metadata, for deploying the connector as an ARM template.       |
 |     |         |         |
 
- 
 ### GraphQuery
 
 |Name  |Type  |Description  |
@@ -230,21 +229,21 @@ TableName
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-| **tenant** | ENUM | Lists required permissions as one or more of the following: `GlobalAdmin`, `SecurityAdmin`,  `SecurityReader`, `InformationProtection` <br><br>For example, this will display in Azure Sentinel as: **Tenant Permissions: Requires `Global Administrator` or `Security Administrator` on the workspace's tenant**|
-| **licenses** | ENUM | Lists required licenses as one of the following: `OfficeIRM`,`OfficeATP`, `Office365`, `AadP1P2`, `Mcas`, `Aatp`, `Mdatp`, `Mtp`, `IoT` <br><br>For example, this will display in Azure Sentinel as: **License: Required Azure AD Premium P2**|
-| **customs** | `{`<br>`  name:string,`<br>` description:string`<br>`}` | Description of any custom permissions required for your data connection. <br><br>For example, this will display in Azure Sentinel as: **Subscription: Contributor permissions to the subscription of your IoT Hub.** |
-| **resourceProvider**	| [ResourceProviderPermissions](#resourceproviderpermissions) | Description of prerequisites for your Azure resource. <br><br>For example, this will display in Azure Sentinel as: <br>**Workspace: write permission is required. **<br>**Keys: read permissions to shared keys for the workspace are required.**|
+| **tenant** | ENUM | Lists required permissions as one or more of the following values: `GlobalAdmin`, `SecurityAdmin`,  `SecurityReader`, `InformationProtection` <br><br>For example, the **tenant** value displays displays in Azure Sentinel as: **Tenant Permissions: Requires `Global Administrator` or `Security Administrator` on the workspace's tenant**|
+| **licenses** | ENUM | Lists required licenses as one of the following values: `OfficeIRM`,`OfficeATP`, `Office365`, `AadP1P2`, `Mcas`, `Aatp`, `Mdatp`, `Mtp`, `IoT` <br><br>For example, the **licenses** value displays in Azure Sentinel as: **License: Required Azure AD Premium P2**|
+| **customs** | `{`<br>`  name:string,`<br>` description:string`<br>`}` | Description of any custom permissions required for your data connection. <br><br>For example, the **customs** value displays in Azure Sentinel as: **Subscription: Contributor permissions to the subscription of your IoT Hub.** |
+| **resourceProvider**	| [ResourceProviderPermissions](#resourceproviderpermissions) | Description of prerequisites for your Azure resource. <br><br>For example, the **resourceProvider** value displays in Azure Sentinel as: <br>**Workspace: write permission is required. **<br>**Keys: read permissions to shared keys for the workspace are required.**|
 | | |
 
 #### ResourceProviderPermissions
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-| **provider** | 	ENUM	| Resource provider, one of the following: <br>`Microsoft.OperationalInsights/workspaces` <br>`Microsoft.OperationalInsights/solutions`<br>`Microsoft.OperationalInsights/workspaces/datasources`<br>`microsoft.aadiam/diagnosticSettings`<br>`Microsoft.OperationalInsights/workspaces/sharedKeys`<br>`Microsoft.Authorization/policyAssignments` |
+| **provider** | 	ENUM	| Resource provider, one of the following values: <br>`Microsoft.OperationalInsights/workspaces` <br>`Microsoft.OperationalInsights/solutions`<br>`Microsoft.OperationalInsights/workspaces/datasources`<br>`microsoft.aadiam/diagnosticSettings`<br>`Microsoft.OperationalInsights/workspaces/sharedKeys`<br>`Microsoft.Authorization/policyAssignments` |
 | **providerDisplayName** | 	String	| Query that should return one row, indicating the last time that data was received, or no data if there is no relevant data. |
 | **permissionsDisplayText** | 	String	| Display text for *Read*, *Write*, or *Read and Write* permissions |
-| **requiredPermissions** | 	[RequiredPermissionSet](#requiredpermissionset) | Describes the minimum permissions required for the connector. One of the following: `read`, `write`, `delete`, `action` |
-| **Scope** | 	ENUM	 | One of the following: `Subscription`, `ResourceGroup`, `Workspace` |
+| **requiredPermissions** | 	[RequiredPermissionSet](#requiredpermissionset) | Describes the minimum permissions required for the connector. One of the following values: `read`, `write`, `delete`, `action` |
+| **Scope** | 	ENUM	 | One of the following values: `Subscription`, `ResourceGroup`, `Workspace` |
 | | | |
 
 ### RequiredPermissionSet
@@ -265,7 +264,7 @@ TableName
 | **kind** 	| String | 	`dataConnector`<!--description--> |
 | **source** | 	`{`<br>`  kind:string`<br>`  name:string`<br>`}`|<!--description-->|
 | **author** | `{`<br>`  name:string`<br>`}`| <!--description-->|
-| **support** |	`{`<br>`      "tier": string,`<br>`      "name": string,`<br>`"email": string,`<br>      "link": string`<br>`    }`| <!--description-->|
+| **support** |	`{`<br>`      "tier": string,`<br>`      "name": string,`<br>`"email": string,`<br>      `"link": string`<br>`    }`| <!--description-->|
 | | | |
 
 ### InstructionStep
@@ -274,13 +273,13 @@ TableName
 |---------|---------|---------|
 | **title**	| String | A title for your instructions (optional) |
 | **description** | 	String	| A meaningful description for your instructions (optional) |
-| **instructions** |	[ConnectorInstructionModelBase<T>[]](#connectorinstructionmodelbase---abstract-type)	| An array of instruction widgets |
+| **instructions** |	[ConnectorInstructionModelBase[]](#connectorinstructionmodelbase---abstract-type)	| An array of instruction widgets |
 | **innerSteps**	| [InstructionStep[]](#instructionstep) | An array of inner instruction steps (Optional) |
 | **bottomBorder** | 	Boolean	| When `true`, adds a bottom border to the instructions area on the connector page in Azure Sentinel |
 | **isComingSoon** |	Boolean	| When `true`, adds a **Coming soon** title on the connector page in Azure Sentinel |
 | | | |
 
-#### ConnectorInstructionModelBase<T> - abstract type
+#### ConnectorInstructionModelBase - abstract type
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
@@ -290,7 +289,7 @@ TableName
 
 #### Supported widgets
 
-The following widgets are implemented in the [ConnectorInstructionModelBase<T> - abstract type](#connectorinstructionmodelbase---abstract-type) attribute.
+The following widgets are implemented in the [ConnectorInstructionModelBase- abstract type](#connectorinstructionmodelbase---abstract-type) attribute.
 
 |Type  |Parameters Object  |Description  |
 |---------|---------|---------|
@@ -306,7 +305,6 @@ The following widgets are implemented in the [ConnectorInstructionModelBase<T> -
 |**APIKey**     |  `ApiKeyAuthInstructionParameters`       |  An array of API keys       |
 |**[LinkInstructionModel](#linkinstructionmodel)**     | `LinkInstructionModelParameters`        | Links to another page in the Azure portal, displayed as a button or a link. |
 |     |         |         |
-
 
 #### CopyableLabel
 
@@ -341,7 +339,7 @@ instructions: [
 |**wideLabel**     |Boolean         | Optional. Determines a wide label for long strings. By default, set to `false`.        |
 |    |         |         |
 
- 
+
 #### InfoMessage
 
 Defines an inline information message. For example:
@@ -380,7 +378,7 @@ instructions: [
 |     |         |         |
 
 
- 
+
 #### LinkInstructionModel
 
 Displays a link to other pages in the Azure portal, as a button or a link. For example:
@@ -401,9 +399,9 @@ new LinkInstructionModel({ linkType: LinkType.OpenAzureActivityLog } )
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|**linkType**     |   ENUM      |  One of the following: <br><br>`InstallAgentOnWindowsVirtualMachine`<br>`InstallAgentOnWindowsNonAzure`<br> `InstallAgentOnLinuxVirtualMachine`<br> `InstallAgentOnLinuxNonAzure`<br>`OpenSyslogSettings`<br>`OpenCustomLogsSettings`<br>`OpenWaf`<br> `OpenAzureFirewall` `OpenMicrosoftAzureMonitoring` <br> `OpenFrontDoors` <br>`OpenCdnProfile` <br>`AutomaticDeploymentCEF` <br> `OpenAzureInformationProtection` <br> `OpenAzureActivityLog` <br> `OpenIotPricingModel` <br> `OpenPolicyAssignment` <br> `OpenAllAssignmentsBlade` <br> `OpenCreateDataCollectionRule`       |
+|**linkType**     |   ENUM      |  One of the following values: <br><br>`InstallAgentOnWindowsVirtualMachine`<br>`InstallAgentOnWindowsNonAzure`<br> `InstallAgentOnLinuxVirtualMachine`<br> `InstallAgentOnLinuxNonAzure`<br>`OpenSyslogSettings`<br>`OpenCustomLogsSettings`<br>`OpenWaf`<br> `OpenAzureFirewall` `OpenMicrosoftAzureMonitoring` <br> `OpenFrontDoors` <br>`OpenCdnProfile` <br>`AutomaticDeploymentCEF` <br> `OpenAzureInformationProtection` <br> `OpenAzureActivityLog` <br> `OpenIotPricingModel` <br> `OpenPolicyAssignment` <br> `OpenAllAssignmentsBlade` <br> `OpenCreateDataCollectionRule`       |
 |**policyDefinitionGuid**     | String        |  Optional. For policy-based connectors, the GUID of the built-in policy definition.        |
-|**assignMode**     |   ENUM      |   Optional. For policy-based connectors, the assign mode. One of the following: `Initiative`, `Policy`      |
+|**assignMode**     |   ENUM      |   Optional. For policy-based connectors, the assign mode. One of the following values: `Initiative`, `Policy`      |
 |**dataCollectionRuleType**     |  ENUM       |   Optional. For DCR-based connectors. One of the following: `SecurityEvent`,  `ForwardEvent`       |
 |     |         |         |
 
@@ -424,7 +422,7 @@ To define a link as an ARM template, use the following example as a guide:
 [![Deploy To Azure]({0})]({1})
 ```
 
-The code sample listed above shows an link button that looks like the following image:
+The code sample listed above shows a link button that looks like the following image:
 
  :::image type="content" source="media/create-codeless-connector/sample-markdown-link-button.png" alt-text="Screenshot of the link button created by the earlier sample markdown.":::
 #### Instruction steps group
@@ -472,7 +470,7 @@ The `pollingConfig` section includes the following properties:
 
 |Name  |Description  |Options  |
 |---------|---------|---------|
-|**id**     |   Uniquely identifies a rule / configuration entry, using one of the following: <br><br>- A GUID (recommended) <br>- A document ID, if the data source resides in a Cosmos DB       |  Mandatory, string       |
+|**id**     |   Uniquely identifies a rule / configuration entry, using one of the following values: <br><br>- A GUID (recommended) <br>- A document ID, if the data source resides in a Cosmos DB       |  Mandatory, string       |
 |**auth**     |   Describes the authentication properties for polling the data.     |    For more information, see  [auth configuration](#auth-configuration).   |
 |<a name="authtype"></a>**auth.authType**     |   Defines the type of authentication, nested inside the `auth` object.       |  Mandatory, supports the following values: `Basic`, `APIKey`, `OAuth2`, `Session`        |
 |**request**     |  Describes the request payload for polling the data, such as the API endpoint.       | Mandatory, nested JSON. For more information, see [request configuration](#request-configuration).         |
@@ -485,13 +483,13 @@ For more information, see [Sample pollingConfig code](#sample-pollingconfig-code
 
 ### auth configuration
 
-The `auth` section of the `[pollingConfig](#polling-configuration)` configuration includes the following parameters, depending on the type defined in the [authType](#authtype) element: 
+The `auth` section of the `[pollingConfig](#polling-configuration)` configuration includes the following parameters, depending on the type defined in the [authType](#authtype) element:
 
 #### APIKey authType parameters
 
 |Name  |Description  |Options  |
 |---------|---------|---------|
-|**APIKeyName**     |Defines the name of your API key as one of the following: <br><br>- `XAuthToken` <br>- `Authorization`        | Optional, string        |
+|**APIKeyName**     |Defines the name of your API key as one of the following values: <br><br>- `XAuthToken` <br>- `Authorization`        | Optional, string        |
 |**IsAPIKeyInPostPayload**     |    <!--description-->     |   Boolean: false/true      |
 |**APIKeyIdentifier**     |  Defines the name of the identifier for the API key. <br><br>For example, where the authorization is defined as  `"Authorization": "token <secret>"`, this parameter is defined as: `{APIKeyIdentifier: “token”})`     |   Optional, string      |
 | | | |

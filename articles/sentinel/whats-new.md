@@ -30,7 +30,7 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## August 2021
 
-- 
+- [Codeless data connectors (Public preview)](#codeless-data-connectors-public-preview)
 - [Advanced incident search (Public preview)](#advanced-incident-search-public-preview)
 - [Fusion detection for Ransomware (Public preview)](#fusion-detection-for-ransomware-public-preview)
 - [Watchlist templates for UEBA data](#watchlist-templates-for-ueba-data-public-preview)
@@ -40,7 +40,10 @@ If you're looking for items older than six months, you'll find them in the [Arch
 ### Codeless data connectors (Public preview)
 
 Azure Sentinel now supports codeless connectors, which support flexible data connections without advanced development for each new connector.
-The Codeless Connector Platform (CCP) provides a configuration file that can be used by both customers and partners to create custom connectors connector. Deploy the codeless connector to your own workspace, or as a solution to Azure Sentinel's solution's gallery. Connectors created using the CCP are fully SaaS, without any requirements for service installations, and also include health monitoring and full support from Azure Sentinel.
+
+The Codeless Connector Platform (CCP) provides a configuration file that can be used by both customers and partners to create custom connectors.
+
+Deploy a codeless connector to your own workspace, or as a solution to Azure Sentinel's solution's gallery. Connectors created using the CCP are fully SaaS, without any requirements for service installations, and also include health monitoring and full support from Azure Sentinel.
 
 For more information, see [Create a codeless connector for Azure Sentinel](create-codeless-connector.md).
 
