@@ -59,7 +59,7 @@ ARM templates let you deploy groups of related resources. In a single template, 
       },
       "vmSku": {
         "type": "string",
-        "defaultValue": "Standard_D2s_v3",
+        "defaultValue": "Standard_D1_v2",
         "metadata": {
           "description": "Size of VMs in the VM Scale Set."
         }
@@ -72,7 +72,7 @@ ARM templates let you deploy groups of related resources. In a single template, 
       },
       "instanceCount": {
         "type": "int",
-        "defaultValue": 3,
+        "defaultValue": 1,
         "minValue": 1,
         "maxValue": 100,
         "metadata": {
@@ -104,7 +104,7 @@ ARM templates let you deploy groups of related resources. In a single template, 
       },
       "_artifactsLocation": {
         "type": "string",
-        "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/application-workloads/python/vmss-bottle-autoscale/azuredeploy.json",
+        "defaultValue": "[deployment().properties.templatelink.uri]",
         "metadata": {
           "description": "The base URI where artifacts required by this template are located"
         }
@@ -122,12 +122,16 @@ ARM templates let you deploy groups of related resources. In a single template, 
       "subnetPrefix": "10.0.0.0/24",
       "networkApiVersion": "2020-11-01",
       "virtualNetworkName": "[concat(parameters('vmssName'), 'vnet')]",
-      "networkSecurityGroupName": "[concat(parameters('vmssName'), 'nsg')]",
       "publicIPAddressName": "[concat(parameters('vmssName'), 'pip')]",
       "subnetName": "[concat(parameters('vmssName'), 'subnet')]",
       "loadBalancerName": "[concat(parameters('vmssName'), 'lb')]",
       "publicIPAddressID": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]",
+      "networkSecurityGroupName": "[concat(parameters('vmssName'), 'nsg')]",
       "bePoolName": "[concat(parameters('vmssName'), 'bepool')]",
+      "lbRuleName": "[concat(parameters('vmssName'), 'lbrule')]",
+      "lbProbeName": "[concat(parameters('vmssName'), 'lbprobe')]",
+      "bePoolConfigID": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', variables('loadBalancerName'),variables('bePoolName'))]",
+      "lbProbeID": "[resourceId('Microsoft.Network/loadBalancers/probes', variables('loadBalancerName'),variables('lbProbeName'))]",
       "nicName": "[concat(parameters('vmssName'), 'nic')]",
       "ipConfigName": "[concat(parameters('vmssName'), 'ipconfig')]",
       "frontEndIPConfigID": "[resourceId('Microsoft.Network/loadBalancers/frontendIPConfigurations', variables('loadBalancerName'),'loadBalancerFrontEnd')]",
@@ -151,14 +155,34 @@ ARM templates let you deploy groups of related resources. In a single template, 
       }
     },
     "resources": [
+              {
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "apiVersion": "2020-06-01",
+            "name": "[variables('networkSecurityGroupName')]",
+            "location": "[parameters('location')]",
+            "properties": {
+                "securityRules": [
+                    {
+                        "name": "AllowPort9000",
+                        "properties": {
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "9000",
+                            "sourceAddressPrefix": "Internet",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 100,
+                            "direction": "Inbound"
+                        }
+                    }
+                ]
+            }
+        },
       {
         "type": "Microsoft.Network/virtualNetworks",
         "apiVersion": "2020-06-01",
         "name": "[variables('virtualNetworkName')]",
         "location": "[parameters('location')]",
-        "dependsOn": [
-          "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
-        ],
         "properties": {
           "addressSpace": {
             "addressPrefixes": [
@@ -179,13 +203,6 @@ ARM templates let you deploy groups of related resources. In a single template, 
         }
       },
       {
-        "apiVersion": "2020-05-01",
-        "type": "Microsoft.Network/networkSecurityGroups",
-        "name": "[variables('networkSecurityGroupName')]",
-        "location": "[parameters('location')]",
-        "properties": {}
-      },
-      {
         "type": "Microsoft.Network/publicIPAddresses",
         "apiVersion": "2020-06-01",
         "name": "[variables('publicIPAddressName')]",
@@ -194,6 +211,7 @@ ARM templates let you deploy groups of related resources. In a single template, 
           "name": "Standard"
         },
         "properties": {
+
           "publicIPAllocationMethod": "Static",
           "dnsSettings": {
             "domainNameLabel": "[parameters('vmssName')]"
@@ -226,6 +244,41 @@ ARM templates let you deploy groups of related resources. In a single template, 
             {
               "name": "[variables('bePoolName')]"
             }
+          ],
+          "probes": [
+            {
+              "name": "[variables('lbProbeName')]",
+              "properties": {
+                "port": 9000,
+                "protocol": "Tcp",
+                "numberOfProbes": 2,
+                "intervalInSeconds": 5
+              }
+            }
+          ],
+          "loadBalancingRules": [
+            {
+              "name": "[variables('lbRuleName')]",
+              "properties": {
+                "frontendIPConfiguration": {
+                  "id": "[variables('frontEndIPConfigID')]"
+                },
+                "backendAddressPool": {
+                  "id": "[variables('bePoolConfigID')]"
+                },
+                "probe": {
+                  "id": "[variables('lbProbeID')]"
+                },
+                "loadDistribution": "Default",
+                "backendPort": 9000,
+                "frontendPort": 9000,
+                "protocol": "Tcp",
+                "idleTimeoutInMinutes": 4,
+                "enableFloatingIP": false,
+                "enableTcpReset": false,
+                "disableOutboundSnat": false
+              }
+             }
           ]
         }
       },
@@ -272,10 +325,10 @@ ARM templates let you deploy groups of related resources. In a single template, 
                       {
                         "name": "[variables('ipConfigName')]",
                         "properties": {
+                          "primary": true,
                           "subnet": {
                             "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]"
                           },
-                          "primary": true,
                           "loadBalancerBackendAddressPools": [
                             {
                               "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', variables('loadBalancerName'), variables('bePoolName'))]"
@@ -329,7 +382,7 @@ ARM templates let you deploy groups of related resources. In a single template, 
               "capacity": {
                 "minimum": "1",
                 "maximum": "10",
-                "default": "3"
+                "default": "1"
               },
               "rules": [
                 {
