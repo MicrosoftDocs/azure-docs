@@ -41,7 +41,7 @@ Protecting your actual data is a key component of a disaster recovery solution. 
 
 ### Back up your data in the cloud
 
-You should use [Azure Backup](../../backup/azure-file-share-backup-overview.md) as your cloud backup solution. Azure Backup handles backup scheduling, retention, and restores, amongst other things. If you prefer, you could manually take [share snapshots](../files/storage-snapshots-files.md?toc=/azure/storage/file-sync/toc.json) and configure your own scheduling and retention solution but, this isn't ideal. Alternatively, you can use third-party solutions to directly back up your Azure file shares.
+You should use [Azure Backup](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json) as your cloud backup solution. Azure Backup handles backup scheduling, retention, and restores, amongst other things. If you prefer, you could manually take [share snapshots](../files/storage-snapshots-files.md?toc=/azure/storage/file-sync/toc.json) and configure your own scheduling and retention solution but, this isn't ideal. Alternatively, you can use third-party solutions to directly back up your Azure file shares.
 
 If a disaster happens, you can restore from a share snapshot, which is a point in time, read-only copy of your file share. Since these snapshots are read-only, they won't be affected by ransomware. For large datasets, in which full share restore operations take a long time, you can enable direct user access to the snapshot so that users can copy the data they need to their local drive, while the restore completes.
 
@@ -79,3 +79,7 @@ Although you can manually request a failover of your Storage Sync Service to you
 > You must contact support to request your Storage Sync Service be failed over if you are initiating this process manually. If you attempt to create a new Storage Sync Service using the same server endpoints in the secondary region may result in extra data staying in your storage account since the previous installation of Azure File Sync won't be cleaned up.
 
 Once a failover occurs, server endpoints will switch over to sync with the cloud endpoint in the secondary region automatically. However, the server endpoints must reconcile with the cloud endpoints. This may result in file conflicts as the data in the secondary region may not be caught up to the primary.
+
+## Next steps
+
+[Learn about Azure file share backup](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffile-sync%2ftoc.json)
