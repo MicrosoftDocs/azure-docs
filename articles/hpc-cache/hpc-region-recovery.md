@@ -55,7 +55,4 @@ All clients will need to mount the new cache, even if the clients were not affec
 
 ## Learn more
 
-The Azure application architecture guide includes more information about how to [recover from a region-wide service disruption](<https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region>).
-
-test: [/architecture](/architecture/resiliency/recovery-loss-azure-region)
-test: [/azure](/azure/architecture/resiliency/recovery-loss-azure-region)
+The Azure application architecture guide includes more information about how to [recover from a region-wide service disruption](/azure/architecture/resiliency/recovery-loss-azure-region).
