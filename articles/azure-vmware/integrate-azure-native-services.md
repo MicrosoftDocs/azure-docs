@@ -90,7 +90,7 @@ If you are new to Azure or unfamiliar with any of the services previously mentio
 
 ## Enable Azure Security Center
 
-assesses the vulnerability of Azure VMware Solution VMs and raise alerts as needed. These security alerts can be forwarded to Azure Monitor for resolution. For more information, see [Supported features for VMs](../security-center/security-center-services.md).
+Assess the vulnerability of Azure VMware Solution VMs and raise alerts as needed. These security alerts can be forwarded to Azure Monitor for resolution. For more information, see [Supported features for VMs](../security-center/security-center-services.md).
 
 Azure Security Center offers many features, including:
 - File integrity monitoring
