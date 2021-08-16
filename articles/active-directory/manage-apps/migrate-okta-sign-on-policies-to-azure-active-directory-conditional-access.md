@@ -10,7 +10,7 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/10/2021
+ms.date: 08/16/2021
 ms.author: gasinh
 ms.subservice: app-mgmt
 ---
