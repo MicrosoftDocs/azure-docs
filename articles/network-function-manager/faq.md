@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: network-function-manager
 ms.topic: article
-ms.date: 06/30/2021
+ms.date: 07/01/2021
 ms.author: cherylmc
 ms.custom: references_regions
 
