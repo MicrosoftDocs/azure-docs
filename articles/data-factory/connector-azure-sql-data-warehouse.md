@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/06/2021
+ms.date: 08/16/2021
 ---
 
 # Copy and transform data in Azure Synapse Analytics by using Azure Data Factory or Synapse pipelines
@@ -35,7 +35,7 @@ For Copy activity, this Azure Synapse Analytics connector supports these functio
 
 - Copy data by using SQL authentication and Azure Active Directory (Azure AD) Application token authentication with a service principal or managed identities for Azure resources.
 - As a source, retrieve data by using a SQL query or stored procedure. You can also choose to parallel copy from an Azure Synapse Analytics source, see the [Parallel copy from Azure Synapse Analytics](#parallel-copy-from-azure-synapse-analytics) section for details.
-- As a sink, load data by using [PolyBase](#use-polybase-to-load-data-into-azure-synapse-analytics) or [COPY statement](#use-copy-statement) or bulk insert. We recommend PolyBase or COPY statement for better copy performance. The connector also supports automatically creating destination table if not exists based on the source schema.
+- As a sink, load data by using [COPY statement](#use-copy-statement) or [PolyBase](#use-polybase-to-load-data-into-azure-synapse-analytics) or bulk insert. We recommend COPY statement or PolyBase for better copy performance. The connector also supports automatically creating destination table with DISTRIBUTION = ROUND_ROBIN if not exists based on the source schema.
 
 > [!IMPORTANT]
 > If you copy data by using an Azure Integration Runtime, configure a [server-level firewall rule](../azure-sql/database/firewall-configure.md) so that Azure services can access the [logical SQL server](../azure-sql/database/logical-servers.md).
