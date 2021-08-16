@@ -197,7 +197,7 @@ The Filestream feature, which allows you to store unstructured data such as text
 **Recommendation**   
 Upload the unstructured files to Azure Blob storage and store metadata related to these files (name, type, URL location, storage key etc.) in Azure SQL Managed Instance. You may have to re-engineer your application to enable streaming blobs to and from Azure SQL Managed Instance. Alternatively, migrate to SQL Server on Azure Virtual Machine.
 
-More information: [Streaming Blobs To and From SQL Azure blog](https://azure.microsoft.com/en-in/blog/streaming-blobs-to-and-from-sql-azure/)
+More information: [Streaming Blobs To and From SQL Azure blog](https://azure.microsoft.com/blog/streaming-blobs-to-and-from-sql-azure/)
 
 ## Heterogeneous MS DTC<a id="MIHeterogeneousMSDTCTransactSQL"></a>
 

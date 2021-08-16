@@ -77,7 +77,7 @@ You can use Spring Data Azure Cosmos DB in your [Azure Spring Cloud](https://azu
 | Content | Link |
 |---|---|
 |**SDK download**| [Maven](https://mvnrepository.com/artifact/com.azure/azure-spring-data-cosmos) |
-|**API documentation** | [Java API reference documentation](/java/api/overview/azure/spring-data-cosmos-readme?view=azure-java-stable) |
+|**API documentation** | [Java API reference documentation](/java/api/overview/azure/spring-data-cosmos-readme?view=azure-java-stable&preserve-view=true) |
 |**Contribute to SDK** | [Azure SDK for Java Central Repo on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-cosmos) | 
 |**Get started** | [Quickstart: Build a Spring Data Azure Cosmos DB app to manage Azure Cosmos DB SQL API data](./create-sql-api-spring-data.md) <br> [GitHub repo with quickstart code](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started) | 
 |**Basic code samples** | [Azure Cosmos DB: Spring Data Azure Cosmos DB examples for the SQL API](sql-api-spring-data-sdk-samples.md) <br> [GitHub repo with sample code](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples)|

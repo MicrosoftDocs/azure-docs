@@ -414,6 +414,8 @@
     href: flexible-server/overview.md
   - name: Release notes
     href: flexible-server/release-notes.md   
+  - name: Compare Single Server and Flexible Server
+    href: flexible-server/concepts-compare-single-server-flexible-server.md   
   - name: Quickstarts
     expanded: true
     items:
@@ -428,6 +430,8 @@
         href: flexible-server/quickstart-create-server-arm-template.md
     - name: Connect and query
       items:
+        - name: Connect to a server in VNET 
+          href: flexible-server/quickstart-create-connect-server-vnet.md
         - name: Azure CLI
           href: flexible-server/connect-azure-cli.md
         - name: Python
@@ -501,6 +505,8 @@
           displayName: query store, performance, optimize
         - name: Query Store best practices
           href: flexible-server/concepts-query-store-best-practices.md
+        - name: Intelligent tuning
+          href: flexible-server/concepts-intelligent-tuning.md
     - name: Replication
       href: flexible-server/concepts-logical.md
       displayName: logical decoding
@@ -594,7 +600,7 @@
     items:
     - name: Create server group
       items:
-      - name: Basic tier (preview)
+      - name: Basic tier
         href: quickstart-create-hyperscale-basic-tier.md
       - name: Standard tier
         href: quickstart-create-hyperscale-portal.md

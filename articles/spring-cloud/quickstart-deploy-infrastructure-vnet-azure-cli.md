@@ -2,7 +2,7 @@
 title: Quickstart - Provision Azure Spring Cloud using Azure CLI
 description: This quickstart shows you how to use Azure CLI to deploy a Spring Cloud cluster into an existing virtual network.
 services: azure-cli
-author: vinodramasubbu
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.custom: devx-track-azurecli, devx-track-java
@@ -152,7 +152,7 @@ To deploy the Azure Spring Cloud cluster using the Azure CLI script, follow thes
    az account list-locations --output table
    ```
 
-1. Create a resource group to deploy the resource to. 
+1. Create a resource group to deploy the resource to.
 
    ```azurecli
    az group create --name <your-resource-group-name> --location <location-name>
@@ -167,25 +167,15 @@ To deploy the Azure Spring Cloud cluster using the Azure CLI script, follow thes
 1. Enter the following values when prompted by the script:
 
    - The Azure subscription ID that you saved earlier.
-
    - The Azure location name that you saved earlier.
-
    - The name of the resource group that you created earlier.
-
    - The name of the virtual network resource group where you'll deploy your resources.
-
    - The name of the spoke virtual network (for example, *vnet-spoke*).
-
    - The name of the subnet to be used by the Spring Cloud App Service (for example, *snet-app*).
-
    - The name of the subnet to be used by the Spring Cloud runtime service (for example, *snet-runtime*).
-
    - The name of the resource group for the Azure Log Analytics workspace to be used for storing diagnostic logs.
-
    - The name of the Azure Log Analytics workspace (for example, *la-cb5sqq6574o2a*).
-
    - The CIDR ranges from your virtual network to be used by Azure Spring Cloud (for example, *XX.X.X.X/16,XX.X.X.X/16,XX.X.X.X/16*).
-
    - The key/value pairs to be applied as tags on all resources that support tags. For more information, see [Use tags to organize your Azure resources and management hierarchy](../azure-resource-manager/management/tag-resources.md). Use a space-separated list to apply multiple tags (for example, *environment=Dev BusinessUnit=finance*).
 
 After you provide this information, the script will create and deploy the Azure resources.
@@ -198,7 +188,7 @@ You can either use the Azure portal to check the deployed resources, or use Azur
 
 If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When no longer needed, delete the resource group, which deletes the resources in the resource group. To delete the resource group by using Azure CLI, use the following commands:
 
-```azurecli-interactive
+```azurecli
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 az group delete --name $resourceGroupName &&

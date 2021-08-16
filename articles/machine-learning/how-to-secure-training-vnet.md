@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 07/20/2021
+ms.date: 08/04/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
 
 ---
@@ -121,6 +121,9 @@ In this article you learn how to secure the following training compute resources
 ### Azure Databricks
 
 * In addition to the __databricks-private__ and __databricks-public__ subnets used by Azure Databricks, the __default__ subnet created for the virtual network is also required.
+* Azure Databricks does not use a private endpoint to communicate with the virtual network.
+
+For more information on using Azure Databricks in a virtual network, see [Deploy Azure Databricks in your Azure Virtual Network](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).
 
 ### Azure HDInsight or virtual machine
 
@@ -202,6 +205,12 @@ except ComputeTargetException:
 When the creation process finishes, you train your model by using the cluster in an experiment. For more information, see [Select and use a compute target for training](how-to-set-up-training-targets.md).
 
 [!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
+
+### Inbound traffic
+
+[!INCLUDE [udr info for computes](../../includes/machine-learning-compute-user-defined-routes.md)]
+
+For more information on input and output traffic requirements for Azure Machine Learning, see [Use a workspace behind a firewall](how-to-access-azureml-behind-firewall.md).
 
 ## Azure Databricks
 
