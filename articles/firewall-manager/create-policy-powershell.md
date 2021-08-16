@@ -50,11 +50,11 @@ $testVnet = New-AzVirtualNetwork -Name Test-FWPolicy-VNET -ResourceGroupName Tes
 New-AzFirewallPolicy -Name EUS-Policy -ResourceGroupName Test-FWPolicy-RG -Location "EAST US"
 ```
 
-## Create Azure Firewall Policy Network Rule collection and add new rules
+## Create a network rule collection group and add new rules
 
-First, you create the Rule Collection Group, then add the rule collection with the rules.
+First, you create the rule collection group, then add the rule collection with the rules.
 
-### Create the Firewall Policy Network Rule Collection group
+### Create the network rule collection group
 
 ```azurepowershell
 $firewallpolicy = Get-AzFirewallPolicy -Name EUS-Policy -ResourceGroupName Test-FWPolicy-RG
