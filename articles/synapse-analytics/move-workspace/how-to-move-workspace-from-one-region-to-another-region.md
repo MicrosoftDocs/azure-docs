@@ -265,7 +265,7 @@ To create a Spark pool from Azure portal, you can refer to the link
 [Quickstart: Create a new serverless Apache Spark pool using the Azure portal](../quickstart-create-apache-spark-pool-portal.md)
 
 
-You can also create the Spark pool using Synapse Studio by following the steps mentioned in the link [Quickstart: Create a serverless Apache Spark pool using Synapse Studio](quickstart-create-apache-spark-pool-studio.md)
+You can also create the Spark pool from the Synapse Studio by following the steps mentioned in the link [Quickstart: Create a serverless Apache Spark pool using Synapse Studio](../quickstart-create-apache-spark-pool-studio.md)
 
 ***Azure PowerShell***
 
@@ -293,12 +293,13 @@ az synapse spark pool create --name $sparkPoolName --workspace-name $workspaceNa
 
 ### Restoring from Geo-redundant backups
 Follow the steps mentioned in below article to restore the Dedicated SQL Pools from geo-backup using Azure portal and PowerShell.
+
 [Geo-restore a dedicated SQL pool in Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-restore-from-geo-backup.md)
 
 
 ### Restoring using restore points of source region workspace Dedicated SQL Pool
 
-Restore the Dedicated SQL Pool to target region workspace using the restore points of source region workspace Dedicated SQL Pool. You can use Azure portal, Synapse Studio, or PowerShell to restore from restore points. If source region is not accessible due to any region, then you cannot restore using this option.
+Restore the Dedicated SQL Pool to target region workspace using the restore points of source region workspace Dedicated SQL Pool. You can use Azure portal, Synapse Studio, or PowerShell to restore from restore points. If source region is not accessible due to any reason, then you cannot restore using this option.
 
 ***Synapse Studio*** 
 
@@ -371,7 +372,8 @@ Following is the screenshot from the Azure DevOps Repro, which has the workspace
 
 :::image type="content" source="../media/how-to-move-workspace/devops-repo-workspace-publish.png" alt-text="workspace-publish":::
 
-You can use this workspace template to deploy the Artifacts, Pipelines etc., to a workspace using Azure DevOps release pipeline as shown in the following screenshot.
+You can use the workspace template to deploy the Artifacts, Pipelines etc., to a workspace using Azure DevOps release pipeline as shown in the following screenshot.
+
 :::image type="content" source="../../iot-edge/media/how-to-devops-starter/release-pipeline.png" alt-text="synapse-release-pipeline":::
 
 If the workspace is not integrated with GitHub or Azure DevOps, then you will have to manually recreate or write custom PowerShell or Azure CLI scripts to deploy all the artifacts, pipelines, linked services, credentials, triggers, and spark definition on the target region workspace.
@@ -386,7 +388,7 @@ You can follow along the steps mentioned in the link [Create and configure a sel
 
 ## Step 8: Assigning Azure Role to Managed Identity
 
- Assign Storage Blob Contributor access to the Managed Identity of the new Workspace on the default attached ADLS Gen-2 account. You should assign access on other storage accounts as well where SA-MI is used for authentication. Any permissions given to individual AAD users and groups should be reassigned to the storage account in the target region.
+ Assign Storage Blob Contributor access to the Managed Identity of the new workspace on the default attached ADLS Gen-2 account. You should assign access on other storage accounts as well where SA-MI is used for authentication. Assign Storage Blob Contributor or Storage Blob Reader access to AAD users and group to all the required storage accounts.
 
 ### Azure portal
 You can follow the steps mentioned in the link [Grant permissions to workspace managed identity](../security/how-to-grant-workspace-managed-identity-permissions.md) to assign Storage Blob Data Contributor role to managed identity of the workspace.
@@ -427,7 +429,9 @@ az role assignment create --assignee $workSpaceIdentityObjectID `
 
 ## Step 9: Assigning Synapse RBAC Roles
 We need to add all the users who would need access to the target workspace with separate roles and permissions. Below PowerShell and CLI script is adding AAD user to the Synapse Administrator role in the target region workspace. 
-You get all the Synapse RBAC role names from the link [Synapse RBAC Roles](../security/synapse-workspace-synapse-rbac-roles.md).
+You can get all the Synapse RBAC role names from the below link.
+
+ [Synapse RBAC Roles](../security/synapse-workspace-synapse-rbac-roles.md).
 
 ### Synapse Studio
 Use the steps mentioned in the link [How to manage Synapse RBAC role assignments in Synapse Studio](../security/how-to-manage-synapse-rbac-role-assignments.md) to add or delete Synapse RBAC assignments from Synapse Studio.
@@ -450,7 +454,7 @@ Get-AzSynapseRoleAssignment -WorkspaceName $workspaceName
 
 You can get the ObjectId's and RoleId's in the source region workspace by running Get-AzSynapseRoleAssignment command. Assign the same Synapse RBAC roles to the AAD users or groups in the target region workspace.
 
-Instead of using -ObjectId as parameter, you can also use -SignInName where you provide email address or the user principal name of the user. You can refer the link [Synapse RBAC](/powershell/module/az.synapse/new-azsynapseroleassignment?view=azps-6.3.0&preserve-view=true) to know more about the available options. 
+Instead of using -ObjectId as parameter, you can also use -SignInName where you provide email address or the user principal name of the user. You can refer the link [Synapse RBAC - PowerShell Cmdlet](/powershell/module/az.synapse/new-azsynapseroleassignment?view=azps-6.3.0&preserve-view=true) to know more about the available options. 
 
 ### Azure CLI
 
@@ -466,10 +470,10 @@ az synapse role assignment create `
 
 ```
 
-You can refer the link [Synapse RBAC](/cli/azure/synapse/role/assignment?view=azure-cli-latest&preserve-view=true)  to know more about the available options. 
+You can refer the link [Synapse RBAC - CLI](/cli/azure/synapse/role/assignment?view=azure-cli-latest&preserve-view=true)  to know more about the available options. 
 
 ## Step 10: Uploading workspace packages
-Upload all required workspace packages to the new workspace. To automate the process of uploading the workspace packages, you can use the below SDK. 
+Upload all required workspace packages to the new workspace. To automate the process of uploading the workspace packages, you can use the SDK mentioned in the below link. 
 
 [https://www.nuget.org/packages/Azure.Analytics.Synapse.Artifacts/1.0.0-preview.10](https://www.nuget.org/packages/Azure.Analytics.Synapse.Artifacts/1.0.0-preview.10)
 
