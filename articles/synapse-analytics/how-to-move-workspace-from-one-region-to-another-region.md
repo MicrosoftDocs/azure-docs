@@ -19,7 +19,7 @@ This document is a step-by-step guide to move Azure Synapse workspace from one A
 
 ## Prerequisites
 - Integrate source region Synapse Workspace with Azure DevOps or GitHub.
-- [Az PowerShell](/powershell/azure/install-az-ps?view=azps-6.3.0) and [AZ CLI](/cli/azure/install-azure-cli) modules installed on the computer from where scripts are executed.
+- [Az PowerShell](/powershell/azure/install-az-ps?view=azps-6.3.0&preserve-view=true) and [AZ CLI](/cli/azure/install-azure-cli) modules installed on the computer from where scripts are executed.
 - All dependent services like Azure Machine Learning, Azure Storage, Private link hubs need to be recreated in target region or moved to target region if the service supports region move. 
 - To move Azure Storage to a different region,follow the steps mentioned in  article 
 [Move an Azure Storage account to another region](../storage/common/storage-account-move.md)
@@ -110,7 +110,7 @@ New-AzSynapseWorkspace -ResourceGroupName $resourceGroupName `
                         -SqlAdministratorLoginCredential $creds 
 ```
 
-If you want to create the workspace with a Managed workspace Virtual Network, then you need to add extra parameter "ManagedVirtualNetwork" to the script. You can refer the link [Managed Virtual Network Config](/powershell/module/az.synapse/new-azsynapsemanagedvirtualnetworkconfig?view=azps-6.3.0) to know more about the options available.
+If you want to create the workspace with a Managed workspace Virtual Network, then you need to add extra parameter "ManagedVirtualNetwork" to the script. You can refer the link [Managed Virtual Network Config](/powershell/module/az.synapse/new-azsynapsemanagedvirtualnetworkconfig?view=azps-6.3.0&preserve-view=true) to know more about the options available.
 
 
 ```powershell
@@ -190,7 +190,7 @@ az synapse workspace create `
   --sql-admin-login-password $sqlPassword `
   --location $regionName
 ```
-To enable managed virtual network, include the parameter --enable-managed-virtual-network in the above script.You can refer the link [workspace managed virtual network](/cli/azure/synapse/workspace?view=azure-cli-latest) to know more options.
+To enable managed virtual network, include the parameter --enable-managed-virtual-network in the above script.You can refer the link [workspace managed virtual network](/cli/azure/synapse/workspace?view=azure-cli-latest&preserve-view=true) to know more options.
 
 ```azurecli
 az synapse workspace create `
@@ -301,7 +301,7 @@ Restore the Dedicated SQL Pool to target region workspace using the restore poin
 
 From Synapse studio, you can restore the SQL Pool from any workspace in the subscription using the *Restore Points*. While creating the SQL Pool, under Additional settings, select Restore point and select the workspace as shown in the following screenshot. If you have created a user-defined restore point, then, you can use that to restore the SQL Pool else you can select the latest automatic restore point.
 
-:::image type="content" source="media/how-to-move-workspace/restore-sql-pool.png" alt-text="restore-sql-pool":::
+:::image type="content" source="media/how-to-move-workspace/restore-sql-pool.png" alt-text="Restoring Sql Pool":::
 
 
 ***Azure PowerShell***
@@ -447,7 +447,7 @@ Get-AzSynapseRoleAssignment -WorkspaceName $workspaceName
 
 You can get the ObjectId's and RoleId's in the source region workspace by running Get-AzSynapseRoleAssignment command. Assign the same Synapse RBAC roles to the AAD users or groups in the target region workspace.
 
-Instead of using -ObjectId as parameter, you can also use -SignInName where you provide email address or the user principal name of the user. You can refer the link [Synapse RBAC](/powershell/module/az.synapse/new-azsynapseroleassignment?view=azps-6.3.0) to know more about the available options. 
+Instead of using -ObjectId as parameter, you can also use -SignInName where you provide email address or the user principal name of the user. You can refer the link [Synapse RBAC](/powershell/module/az.synapse/new-azsynapseroleassignment?view=azps-6.3.0&preserve-view=true) to know more about the available options. 
 
 ### Azure CLI
 
@@ -463,7 +463,7 @@ az synapse role assignment create `
 
 ```
 
-You can refer the link [Synapse RBAC](/cli/azure/synapse/role/assignment?view=azure-cli-latest)  to know more about the available options. 
+You can refer the link [Synapse RBAC](/cli/azure/synapse/role/assignment?view=azure-cli-latest&preserve-view=true)  to know more about the available options. 
 
 ## Step 10: Uploading workspace packages
 Upload all required workspace packages to the new workspace. To automate the process of uploading the workspace packages, you can use the below SDK. 
@@ -481,8 +481,8 @@ You can follow the steps mentioned in the link [Create a Managed private endpoin
 
 ## Next steps
 
-Learn more about [Managed workspace virtual network](./synapse-workspace-managed-vnet.md).
+Learn more about [Azure Synapse Analytics Managed Virtual Network](security/synapse-workspace-managed-vnet.md).
 
-Learn more about [Managed private endpoints](./synapse-workspace-managed-private-endpoints.md).
+Learn more about [Synapse Managed private endpoints](security/synapse-workspace-managed-private-endpoints.md)
 
 Learn more about [Connect to workspace resources from a restricted network](security/how-to-connect-to-workspace-from-restricted-network.md)
