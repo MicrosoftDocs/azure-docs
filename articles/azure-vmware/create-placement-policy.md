@@ -11,7 +11,7 @@ ms.date: 8/16/2021
 # Create a placement policy in Azure VMware Solution (Preview)
 
 >[!IMPORTANT]
->Azure VMware Solution placement policy (Preview) is currently in preview. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Before you can use the preview feature, [you'll need to register it](https://ms.portal.azure.com/#blade/Microsoft_Azure_Resources/PreviewFeaturesBlade). Search for and select **DRS Placement Policy** and then select **Register**. Also, search for and select **Early Access** and then select **Register**.
+>Azure VMware Solution placement policy (Preview) is currently in preview. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). To use the preview feature, [you'll need to register both the _DRS Placement Policy_ and _Early Access_ features](https://ms.portal.azure.com/#blade/Microsoft_Azure_Resources/PreviewFeaturesBlade).  Search for and select the features, and then select **Register**.
 
 In Azure VMware Solution, clusters in a private cloud are a managed resource. As a result, the cloudadmin role can't make certain changes to the cluster from the vSphere Client, including the management of Distributed Resource Scheduler (DRS) rules.
 
