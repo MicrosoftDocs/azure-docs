@@ -48,7 +48,8 @@ SELECT * FROM [db].dbo.[spark_table]
 | `BinaryType`, `binary`                      | `varbinary(n)`        | **SQL**: In *Varbinary(n)* n can be max 8000, and if it is partitioned column, n can be max 2048. |
 | `array`, `map`, `struct`                    | `varchar(max)`        | **SQL**: Serializes into JSON with collation `Latin1_General_100_BIN2_UTF8` |
 
-\* Collation used is Latin1_General_100_BIN2_UTF8.
+\* Database Level Collation  is  Latin1_General_100_CI_AS_SC_UTF8
+\* String Column Level Collation  is  Latin1_General_100_BIN2_UTF8
 
 \** ArrayType, MapType, and StructType are represented as JSONs.
 

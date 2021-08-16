@@ -25,9 +25,7 @@ Since the databases are synchronized to serverless SQL pool asynchronously, ther
 
 ## Manage a Spark created database
 
-Use Spark to manage Spark created databases. For example, delete it through a Spark pool job, and create tables in it from Spark.
-
-If you create objects in a Spark created database using serverless SQL pool, or try to drop the database, the operation will succeed. But, the original Spark database won't be changed.
+You need to use Spark to manage Spark created databases. For example, delete it through a Spark pool job, and create tables in it from Spark. Objects can't be modified using serverless SQL pool, if you try it, the operation will fail.
 
 ## Security model
 
