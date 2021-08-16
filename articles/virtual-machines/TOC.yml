@@ -268,6 +268,10 @@
       - name: GPU compute migration guide
         displayName: GPU compute migration guide
         href: ./n-series-migration.md
+      - name: NV-series retirement
+        href: nv-series-retirement.md
+      - name: NV-series migration guide
+        href: nv-series-migration-guide.md
     - name: FPGA - accelerated compute
       items:
       - name: Overview
