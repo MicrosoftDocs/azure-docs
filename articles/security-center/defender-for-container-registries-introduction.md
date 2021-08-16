@@ -3,7 +3,7 @@ title: Azure Defender for container registries - the benefits and features
 description: Learn about the benefits and features of Azure Defender for container registries.
 author: memildin
 ms.author: memildin
-ms.date: 07/05/2021
+ms.date: 08/16/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
