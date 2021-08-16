@@ -11,6 +11,13 @@ This article lists significant changes to Azure Monitor documentation.
 
 ## July, 2021
 
+### General
+
+**Updated articles**
+
+- [Azure Monitor Frequently Asked Questions](faq.yml)
+- [Deploy Azure Monitor at scale using Azure Policy](deploy-scale.md)
+
 ### Agents
 
 **New articles**
@@ -64,13 +71,6 @@ This article lists significant changes to Azure Monitor documentation.
 - [Supported metrics with Azure Monitor](/azure/azure-monitoressentials/metrics-supported.md)
 - [Supported categories for Azure Resource Logs](/azure/azure-monitoressentials/resource-logs-categories.md)
 
-### General
-
-**Updated articles**
-
-- [Visualizing data from Azure Monitor](visualizations.md)
-- [Azure Monitor docs: What's new for June, 2021](whats-new.md)
-
 ### Insights
 
 **Updated articles**
@@ -95,6 +95,11 @@ This article lists significant changes to Azure Monitor documentation.
 - [Monitor virtual machines with Azure Monitor: Alerts](/azure/azure-monitorvm/monitor-virtual-machine-alerts.md)
 - [Monitor virtual machines with Azure Monitor: Analyze monitoring data](/azure/azure-monitorvm/monitor-virtual-machine-analyze.md)
 
+### Visualizations
+
+**Updated articles**
+
+- [Visualizing data from Azure Monitor](visualizations.md)
 ## June, 2021
 ### Agents
 
@@ -154,16 +159,6 @@ This article lists significant changes to Azure Monitor documentation.
 - [Supported categories for Azure Resource Logs](essentials/resource-logs-categories.md)
 - [Resource Manager template samples for diagnostic settings in Azure Monitor](essentials/resource-manager-diagnostic-settings.md)
 
-### General
-
-**New articles**
-
-- [Azure Monitor Frequently Asked Questions](faq.yml)
-
-**Updated articles**
-
-- [Deploy Azure Monitor at scale using Azure Policy](deploy-scale.md)
-- [Azure Monitor docs: What's new for May, 2021](whats-new.md)
 
 ### Insights
 
@@ -191,7 +186,6 @@ This article lists significant changes to Azure Monitor documentation.
 - [Monitor virtual machines with Azure Monitor - Security monitoring](vm/monitor-virtual-machine-security.md)
 - [Monitoring virtual machines with Azure Monitor - Workloads](vm/monitor-virtual-machine-workloads.md)
 - [Monitoring virtual machines with Azure Monitor](vm/monitor-virtual-machine.md)
-- [VM insights Generally Available (GA) Frequently Asked Questions](vm/vminsights-ga-release-faq.yml)
 
 **Updated articles**
 
