@@ -47,7 +47,7 @@ After five attempts to connect to a share on your device with an incorrect share
 
 The failed connection attempts may include background processes, such as retries, which you may not be aware of.
 
-- If you're connecting from your host computer via SMB, you'll see this error: "The referenced account is currently locked out and may not be logged on to."
+- If you're trying to connect from your host computer via SMB, you'll see this error: "The referenced account is currently locked out and may not be logged on to."
 
   The following example shows the output from one such connection attempt.
 
@@ -59,9 +59,9 @@ The failed connection attempts may include background processes, such as retries
   The referenced account is currently locked out and may not be logged on to.
   ```
 
-- If you're connecting via the data copy service, you'll see the following notification on the **Connect and copy** pane in the local web UI of your device:
+- If you're using the data copy service, you'll get the following notification in the local web UI of your device:
 
-  ![Screenshot of the Connect and Copy pane in the local Web UI for a Data Box. A locked share account notification is highlighted.](media/data-box-troubleshoot-share-access/share-lock-01.png)
+  ![Screenshot of the Notifications pane in the local Web UI for a Data Box. A notification for a locked share account is highlighted.](media/data-box-troubleshoot-share-access/share-lock-01.png)
 
 
 To connect to an SMB share after a share account lockout, do these steps:
@@ -76,9 +76,9 @@ To connect to an SMB share after a share account lockout, do these steps:
   
      `net use \\<IP address of the device>\<share name> /u:<IP address of the device>\<user name for the share>`
 
-   - To connect to a share using the data copy service, open the **Copy data** pane in the local web UI. A notification will indicate the user account has been unlocked. You can now [copy data to the Data Box](data-box-deploy-copy-data-via-copy-service.md#copy-data-to-data-box), providing the needed share credentials.
+   - To connect to a share using the data copy service, check for a notification that indicates the user account has been unlocked, as shown below. On the **Copy data** pane, you can now [copy data to the Data Box](data-box-deploy-copy-data-via-copy-service.md#copy-data-to-data-box).
 
-     ![Screenshot of the Copy Data pane in the local Web UI for a Data Box. A notification that the share user account has been unlocked is highlighted.](media/data-box-troubleshoot-share-access/share-lock-02.png)
+     ![Screenshot of Copy Data pane in Data Box local Web UI.Notification that the share user account was unlocked and the Data Copy option are highlighted.](media/data-box-troubleshoot-share-access/share-lock-02.png)
 
 
 ## Check for a blocking group policy
