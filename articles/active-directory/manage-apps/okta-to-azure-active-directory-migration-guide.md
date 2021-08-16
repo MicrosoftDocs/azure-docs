@@ -2,7 +2,7 @@
 
 title: Okta to Azure AD migration guide
 titleSuffix: Active Directory
-description: Learn how to migrate from Okta to Azure Active Directory
+description: Learn how to migrate your application authentication from Okta to Azure Active Directory
 services: active-directory
 
 author: gargi-sinha
@@ -15,7 +15,7 @@ ms.author: gasinh
 ms.subservice: app-mgmt
 ---
 
-# Migrate your applications from Okta to Azure Active Directory
+# Migrate your application authentication from Okta to Azure Active Directory
 
 For organizations considering upgrading from Okta to Azure Active Directory (Azure AD) for their Identity and Access Management (IAM), there are multiple workloads or flows to consider.  
 
