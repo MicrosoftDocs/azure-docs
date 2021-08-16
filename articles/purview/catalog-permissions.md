@@ -79,7 +79,7 @@ This is one way an organization might structure their data: Starting with their 
 So for our example above, the [data reader role](#roles) can access information within the catalog, but not manage or edit it. Adding the Data Reader permission to a group on the root collection and allowing inheritance will give all users in that group reader permissions on Purview sources and assets. [Restricting inheritance](how-to-create-and-manage-collections.md#restrict-inheritance) on the Revenue group will control access to those assets. Users who need access to revenue information can be added separately to the revenue collection.
 Similarly with the Data Curator and Data Source Admin roles, permissions for those groups will start at the collection where they are assigned, and trickle down to subcollections that have not restricted inheritance. Below we have assigned permissions for several groups at collections levels in the Americas sub collection.
 
-:::image type="content" source="./media/catalog-permissions/collection-permissions-example.png" alt-text="Chart showing a sample collections hierarchy broken up by region and department." border="true":::
+:::image type="content" source="./media/catalog-permissions/collection-permissions-example.png" alt-text="Chart showing a sample collections hierarchy broken up by region and department showing permissions distribution." border="true":::
 
 ### Adding users to roles
 
