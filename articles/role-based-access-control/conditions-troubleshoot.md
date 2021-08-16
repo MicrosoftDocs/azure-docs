@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 05/06/2021
+ms.date: 09/15/2021
 ms.author: rolyon
 
 #Customer intent: 
@@ -60,6 +60,24 @@ Your condition is not formatted correctly.
 **Solution**
 
 Fix any [condition format or syntax](conditions-format.md) issues. Alternatively, add the condition using the [visual editor in the Azure portal](conditions-role-assignments-portal.md).
+
+## Symptom - Principal does not appear in Attribute source when adding a condition
+
+When you try to add a role assignment with a condition, **Principal** does not appear in the **Attribute source** list.
+
+**Cause**
+
+You don't meet one or more of the requirements to use principal attributes.
+
+**Solution**
+
+To use principal attributes, you must have **all** of the following:
+
+- Azure AD Premium P1 or P2 license
+- Azure AD permissions, such as the Attribute Assignment Administrator role
+- Custom security attributes defined in Azure AD
+
+For more information about custom security attributes, see [Add or deactivate custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-add.md).
 
 ## Symptom - Resource attribute is not valid error when adding a condition using Azure PowerShell
 
