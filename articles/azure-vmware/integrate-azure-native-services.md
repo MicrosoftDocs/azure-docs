@@ -25,6 +25,7 @@ If you are new to Azure or unfamiliar with any of the services previously mentio
 
 ## Enable Azure Update Management
 
+[Azure Update Management](../automation/update-management/overview.md) in Azure Automation manages operating system updates for your Windows and Linux machines in a hybrid environment. It monitors patching compliance and forwards patching deviation alerts to Azure Monitor for remediation. Azure Update Management must connect to your Log Analytics workspace to use stored data to assess the status of updates on your VMs.
 
 1. Before you can add Log Analytics Workspace to Azure Update Management, you first need to [Create an Azure Automation account](../automation/automation-create-standalone-account.md). 
 
