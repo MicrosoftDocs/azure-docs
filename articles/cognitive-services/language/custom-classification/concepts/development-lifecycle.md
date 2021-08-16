@@ -61,7 +61,7 @@ Custom text classification supports two types of projects. You will choose one w
 * Single class classification: You can only assign a single classification for each file of your dataset.
 * Multiple class classification: You can assign multiple classifications for each file of your dataset.
 
-See the [quickstart](../quickstart/using-language-studio.md) article for details on creating a new project. 
+See the [quickstart](../quickstart/using-language-studio.md) article for details on creating a new project. After your project is created, you can see your project's details and change the description by clicking the **Project settings** on the left navigation menu. 
 
 ## Tag your data
 

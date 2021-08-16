@@ -71,7 +71,7 @@ To start training your model:
     > * If the model you selected is already trained, a pop-up will appear to confirm overwriting the last model state.
     > * Training can take up to a few hours.
 
-## Deploy model
+## Deploy your model
 
 Generally after training a model you would review it's evaluation details and made adjustments if necessary. in this quickstart, you will just deploy your model, and make it available for you to try. 
 

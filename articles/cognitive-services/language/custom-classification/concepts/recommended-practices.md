@@ -48,7 +48,7 @@ Make sure that all the scenarios/classes are adequately represented in your data
 Include less frequent classes in your data, if the model was not exposed a certain scenario/class in training it won't be able to recognize it in runtime.
 
 > [!NOTE]
-> If your files are in multiple languages, select the **multiple languages** option during [project creation](../how-to/create-project.md) and set the **language** option to the language of the majority of your files.
+> If your files are in multiple languages, select the **multiple languages** option during [project creation](../quickstart/using-language-studio.md) and set the **language** option to the language of the majority of your files.
 
 
 * Avoid duplicate files in your data. Duplicate data has a negative effect on training process, model metrics, and model performance.
@@ -67,5 +67,5 @@ Include less frequent classes in your data, if the model was not exposed a certa
 
 ## Next steps
 
-* [Create a project](../how-to/create-project.md)
+* [Create a project](../quickstart/using-language-studio.md)
 * [Tag data](../how-to/tag-data.md)
