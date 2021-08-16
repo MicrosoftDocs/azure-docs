@@ -24,8 +24,8 @@ Choosing an Azure region is very important, and the choice of region is influenc
 For an Azure Stack Edge Pro GPU device, the choice of region is determined by the following factors:
 
 - Regions where the Azure Stack Edge service is available.
-- The regions where the storage accounts that store Azure Stack Edge data should be located for the best performance.
-- The countries/regions that the Azure Stack Edge device can be shipped to.
+- Regions where the storage accounts that store Azure Stack Edge data should be located for the best performance.
+- Countries/regions that the Azure Stack Edge device can be shipped to.
 
 This article describes the region availability for the Azure Stack Edge service and for Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices.
 
