@@ -1,5 +1,5 @@
 ---
-title: Build a web app using Azure Cosmos DB's API for MongoDB and .NET SDK
+title: Build a web API using Azure Cosmos DB's API for MongoDB and .NET SDK
 description: Presents a .NET code sample you can use to connect to and query using Azure Cosmos DB's API for MongoDB.
 author: gahl-levy
 ms.author: gahllevy
@@ -8,11 +8,11 @@ ms.subservice: cosmosdb-mongo
 
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 10/15/2020
+ms.date: 8/13/2021
 ms.custom: devx-track-csharp
 ---
 
-# Quickstart: Build a .NET web app using Azure Cosmos DB's API for MongoDB 
+# Quickstart: Build a .NET web API using Azure Cosmos DB's API for MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
@@ -23,138 +23,193 @@ ms.custom: devx-track-csharp
 > * [Golang](create-mongodb-go.md)
 >  
 
-Azure Cosmos DB is Microsoft’s fast NoSQL database with open APIs for any scale. You can quickly create and query document, key/value and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Cosmos DB. 
-
-This quickstart demonstrates how to create a Cosmos account with [Azure Cosmos DB's API for MongoDB](mongodb-introduction.md). You'll then build and deploy a tasks list web app built using the [MongoDB .NET driver](https://docs.mongodb.com/ecosystem/drivers/csharp/).
+This quickstart demonstrates how to:
+1. Create an [Azure Cosmos DB API for MongoDB account](mongodb-introduction.md) 
+2. Build a product catalog web API using the [MongoDB .NET driver](https://docs.mongodb.com/ecosystem/drivers/csharp/)
+3. Import sample data
 
 ## Prerequisites to run the sample app
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
-* An Azure Cosmos DB account.
+* [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0)
+* An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You can also [try Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments.
 
 If you don't already have Visual Studio, download [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload installed with setup.
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)] 
 
 <a id="create-account"></a>
 ## Create a database account
 
 [!INCLUDE [cosmos-db-create-dbaccount](../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
-The sample described in this article is compatible with MongoDB.Driver version 2.6.1.
+## Learn the object model
 
-## Clone the sample app
+Before you continue building the application, let's look into the hierarchy of resources in the API for MongoDB and the object model that's used to create and access these resources. The API for MongoDB creates resources in the following order:
 
-Run the following commands in a GitHub enabled command windows such as [Git bash](https://git-scm.com/downloads):
+* Azure Cosmos DB API for MongoDB account
+* Databases 
+* Collections 
+* Documents
+
+To learn more about the hierarchy of entities, see the [Azure Cosmos DB resource model](../account-databases-containers-items.md) article.
+
+## Install the sample app template
+
+This sample is a dotnet project template, which can be installed to create a local copy. Run the following commands in a command window:
 
 ```bash
-mkdir "C:\git-samples"
-cd "C:\git-samples"
-git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-getting-started.git
+mkdir "C:\cosmos-samples"
+cd "C:\cosmos-samples"
+dotnet new -i Microsoft.Azure.Cosmos.Templates
+dotnet new cosmosmongo-webapi
 ```
 
 The preceding commands:
 
-1. Create the *C:\git-samples* directory for the sample. Chose a folder appropriate for your operating system.
-1. Change your current directory to the *C:\git-samples* folder.
-1. Clone the sample into the *C:\git-samples* folder.
+1. Create the *C:\cosmos-samples* directory for the sample. Choose a folder appropriate for your operating system.
+1. Change your current directory to the *C:\cosmos-samples* folder.
+1. Install the project template, making it available globally from the dotnet CLI.
+1. Create a local sample app using the project template.
 
-If you don't wish to use git, you can also [download the project as a ZIP file](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-getting-started/archive/master.zip).
+If you don't wish to use the dotnet CLI, you can also [download the project templates as a ZIP file](https://github.com/Azure/azure-cosmos-dotnet-templates). This sample is in the `Templates/APIForMongoDBQuickstart-WebAPI` folder.
 
 ## Review the code
 
-1. In Visual Studio, right-click on the project in **Solution Explorer** and then click **Manage NuGet Packages**.
-1. In the NuGet **Browse** box, type *MongoDB.Driver*.
-1. From the results, install the **MongoDB.Driver** library. This installs the MongoDB.Driver package as well as all dependencies.
+The following steps are optional. If you're interested in learning how the database resources are created in the code, review the following snippets. Otherwise, skip ahead to [Update the application settings](#update-the-application-settings).
 
-The following steps are optional. If you're interested in learning how the database resources are created in the code, review the following snippets. Otherwise, skip ahead to [Update your connection string](#update-the-connection-string).
+### Setup connection
 
-The following snippets are from the *DAL/Dal.cs* file.
+The following snippet is from the *Services/MongoService.cs* file.
 
-* The following code initializes the client:
+* The following class represents the client and is injected by the .NET framework into services that consume it:
 
     ```cs
-        MongoClientSettings settings = new MongoClientSettings();
-        settings.Server = new MongoServerAddress(host, 10255);
-        settings.UseSsl = true;
-        settings.SslSettings = new SslSettings();
-        settings.SslSettings.EnabledSslProtocols = SslProtocols.Tls12;
+        public class MongoService
+        {
+            private static MongoClient _client;
 
-        MongoIdentity identity = new MongoInternalIdentity(dbName, userName);
-        MongoIdentityEvidence evidence = new PasswordEvidence(password);
+            public MongoService(IDatabaseSettings settings)
+            {
+                _client = new MongoClient(settings.MongoConnectionString);
+            }
 
-        settings.Credential = new MongoCredential("SCRAM-SHA-1", identity, evidence);
-
-        MongoClient client = new MongoClient(settings);
+            public MongoClient GetClient()
+            {
+                return _client;
+            }
+        }
     ```
 
-* The following code retrieves the database and the collection:
+### Setup product catalog data service
 
-    ```cs
-    private string dbName = "Tasks";
-    private string collectionName = "TasksList";
+The following snippets are from the *Services/ProductService.cs* file.
 
-    var database = client.GetDatabase(dbName);
-    var todoTaskCollection = database.GetCollection<MyTask>(collectionName);
-    ```
+* The following code retrieves the database and the collection and will create them if they don't already exist:
 
-* The following code retrieves all documents:
+    ```csharp
+    private readonly IMongoCollection<Product> _products;        
 
-    ```cs
-    collection.Find(new BsonDocument()).ToList();
-    ```
-
-The following code creates a task and insert it into the collection:
-
-   ```csharp
-    public void CreateTask(MyTask task)
+    public ProductService(MongoService mongo, IDatabaseSettings settings)
     {
-        var collection = GetTasksCollectionForEdit();
-        try
-        {
-            collection.InsertOne(task);
-        }
-        catch (MongoCommandException ex)
-        {
-            string msg = ex.Message;
-        }
+        var db = mongo.GetClient().GetDatabase(settings.DatabaseName);
+        _products = db.GetCollection<Product>(settings.ProductCollectionName);
     }
-   ```
-   Similarly, you can update and delete documents by using the [collection.UpdateOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.updateOne/index.html) and [collection.DeleteOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.deleteOne/index.html) methods.
+    ```
 
-## Update the connection string
+* The following code retrieves a document by sku, a unique product identifier:
 
-From the Azure portal copy the connection string information:
+    ```csharp
+    public Task<Product> GetBySkuAsync(string sku)
+    {
+        return _products.Find(p => p.Sku == sku).FirstOrDefaultAsync();
+    }
+    ```
 
-1. In the [Azure portal](https://portal.azure.com/), select your Cosmos account, in the left navigation click **Connection String**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the Username, Password, and Host into the Dal.cs file in the next step.
+* The following code creates a product and inserts it into the collection:
 
-2. Open the *DAL/Dal.cs* file.
+    ```csharp
+    public Task CreateAsync(Product product)
+    {
+        _products.InsertOneAsync(product);
+    }
+    ```
 
-3. Copy the **username** value from the portal (using the copy button) and make it the value of the **username** in the **Dal.cs** file.
+* The following code finds and updates a product:
 
-4. Copy the **host** value from the portal and make it the value of the **host** in the **Dal.cs** file.
+    ```csharp
+    public Task<Product> UpdateAsync(Product update)
+    {
+        return _products.FindOneAndReplaceAsync(
+            Builders<Product>.Filter.Eq(p => p.Sku, update.Sku), 
+            update, 
+            new FindOneAndReplaceOptions<Product> { ReturnDocument = ReturnDocument.After });
+    }
+    ```
 
-5. Copy the **password** value from the portal and make it the value of the **password** in your **Dal.cs** file.
+    Similarly, you can delete documents by using the [collection.DeleteOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.deleteOne/index.html) method.
 
-<!-- TODO Store PW correctly-->
+## Update the application settings
+
+From the Azure portal, copy the connection string information:
+
+1. In the [Azure portal](https://portal.azure.com/), select your Cosmos DB account, in the left navigation select **Connection String**, and then select **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the primary connection string into the appsettings.json file in the next step.
+
+2. Open the *appsettings.json* file.
+
+3. Copy the **primary connection string** value from the portal (using the copy button) and make it the value of the **DatabaseSettings.MongoConnectionString** property in the **appsettings.json** file.
+
+4. Review the **database name** value in the **DatabaseSettings.DatabaseName** property in the **appsettings.json** file.
+
+5. Review the **collection name** value in the **DatabaseSettings.ProductCollectionName** property in the **appsettings.json** file.
+
 > [!WARNING]
 > Never check passwords or other sensitive data into source code.
 
 You've now updated your app with all the info it needs to communicate with Cosmos DB.
 
-## Run the web app
+## Load sample data
 
-1. Click CTRL + F5 to run the app. The default browser is launched with the app. 
-1. Click **Create** in the browser and create a few new tasks in your task list app.
+[Download](https://www.mongodb.com/try/download/database-tools) [mongoimport](https://docs.mongodb.com/database-tools/mongoimport/#mongodb-binary-bin.mongoimport), a CLI tool that easily imports small amounts of JSON, CSV, or TSV data. We will use mongoimport to load the sample product data provided in the `Data` folder of this project.
 
-<!-- 
-## Deploy the app to Azure 
-1. In VS, right click .. publish
-2. This is so easy, why is this critical step missed?
--->
-## Review SLAs in the Azure portal
+From the Azure portal, copy the connection information and enter it in the command below: 
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../includes/cosmos-db-tutorial-review-slas.md)]
+```bash
+mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --db cosmicworks --collection products --ssl --jsonArray --writeConcern="{w:0}" --file Data/products.json
+```
+
+1. In the [Azure portal](https://portal.azure.com/), select your Azure Cosmos DB API for MongoDB account, in the left navigation select **Connection String**, and then select **Read-write Keys**. 
+
+1. Copy the **HOST** value from the portal (using the copy button) and enter it in place of **<HOST>**.
+
+1. Copy the **PORT** value from the portal (using the copy button) and enter it in place of **<PORT>**.
+
+1. Copy the **USERNAME** value from the portal (using the copy button) and enter it in place of **<USERNAME>**.
+
+1. Copy the **PASSWORD** value from the portal (using the copy button) and enter it in place of **<PASSWORD>**.
+
+1. Review the **database name** value and update it if you created something other than `cosmicworks`.
+
+1. Review the **collection name** value and update it if you created something other than `products`.
+
+> [!Note]
+> If you would like to skip this step you can create documents with the correct schema using the POST endpoint provided as part of this web api project.
+
+## Run the app
+
+From Visual Studio, select CTRL + F5 to run the app. The default browser is launched with the app.
+
+If you prefer the CLI, run the following command in a command window to start the sample app. This command will also install project dependencies and build the project, but will not automatically launch the browser.
+
+```bash
+dotnet run
+```
+
+After the application is running, navigate to [https://localhost:5001/swagger/index.html](https://localhost:5001/swagger/index.html) to see the [swagger documentation](https://swagger.io/) for the web api and to submit sample requests.
+
+Select the API you would like to test and select "Try it out".
+
+:::image type="content" source="./media/create-mongodb-dotnet/try-swagger.png" alt-text="Try API endpoints with Swagger":::
+
+Enter any necessary parameters and select "Execute."
 
 ## Clean up resources
 
@@ -162,7 +217,7 @@ You've now updated your app with all the info it needs to communicate with Cosmo
 
 ## Next steps
 
-In this quickstart, you've learned how to create a Cosmos account, create a collection and run a console app. You can now import additional data to your Cosmos database. 
+In this quickstart, you've learned how to create an API for MongoDB account, create a database and a collection with code, and run a web API app. You can now import additional data to your database. 
 
 > [!div class="nextstepaction"]
 > [Import MongoDB data into Azure Cosmos DB](../../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)

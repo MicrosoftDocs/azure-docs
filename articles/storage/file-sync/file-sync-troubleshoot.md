@@ -4,7 +4,7 @@ description: Troubleshoot common issues in a deployment on Azure File Sync, whic
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 4/20/2021
+ms.date: 8/16/2021
 ms.author: jeffpatt
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
@@ -354,6 +354,7 @@ To see these errors, run the **FileSyncErrorsReport.ps1** PowerShell script (loc
 | 0x80c80205 | -2134375931 | ECS_E_SYNC_ITEM_SKIP | The file or directory was skipped but will be synced during the next sync session. If this error is reported when downloading the item, the file or directory name is more than likely invalid. | No action required if this error is reported when uploading the file. If the error is reported when downloading the file, rename the file or directory in question. See [Handling unsupported characters](?tabs=portal1%252cazure-portal#handling-unsupported-characters) for more information. |
 | 0x800700B7 | -2147024713 | ERROR_ALREADY_EXISTS | Creation of a file or directory cannot be synced because the item already exists in the destination and sync is not aware of the change. | No action required. Sync will stop logging this error once change detection runs on the destination and sync is aware of this new item. |
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | The file cannot be synced because the Azure file share limit is reached. | To resolve this issue, see [You reached the Azure file share storage limit](?tabs=portal1%252cazure-portal#-2134351810) section in the troubleshooting guide. |
+| 0x80c83008 | -2134364152 | ECS_E_CANNOT_CREATE_AZURE_STAGED_FILE | The file cannot be synced because the Azure file share limit is reached.  | To resolve this issue, see [You reached the Azure file share storage limit](?tabs=portal1%252cazure-portal#-2134351810) section in the troubleshooting guide. |
 | 0x80c8027C | -2134375812 | ECS_E_ACCESS_DENIED_EFS | The file is encrypted by an unsupported solution (like NTFS EFS). | Decrypt the file and use a supported encryption solution. For a list of support solutions, see the [Encryption](file-sync-planning.md#encryption) section of the planning guide. |
 | 0x80c80283 | -2160591491 | ECS_E_ACCESS_DENIED_DFSRRO | The file is located on a DFS-R read-only replication folder. | File is located on a DFS-R read-only replication folder. Azure Files Sync does not support server endpoints on DFS-R read-only replication folders. See [planning guide](file-sync-planning.md#distributed-file-system-dfs) for more information. |
 | 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | The file has a delete pending state. | No action required. File will be deleted once all open file handles are closed. |
@@ -364,6 +365,7 @@ To see these errors, run the **FileSyncErrorsReport.ps1** PowerShell script (loc
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | The file was changed during sync, so it needs to be synced again. | No action required. |
 | 0x80070017 | -2147024873 | ERROR_CRC | The file cannot be synced due to CRC error. This error can occur if a tiered file was not recalled prior to deleting a server endpoint or if the file is corrupt. | To resolve this issue, see [Tiered files are not accessible on the server after deleting a server endpoint](?tabs=portal1%252cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) to remove tiered files that are orphaned. If the error continues to occur after removing orphaned tiered files, run [chkdsk](/windows-server/administration/windows-commands/chkdsk) on the volume. |
 | 0x80c80200 | -2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | The file cannot be synced because the maximum number of conflict files has been reached. Azure File Sync supports 100 conflict files per file. To learn more about file conflicts, see Azure File Sync [FAQ](../files/storage-files-faq.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json#afs-conflict-resolution). | To resolve this issue, reduce the number of conflict files. The file will sync once the number of conflict files is less than 100. |
+| 0x80c8027d | -2134375811 | ECS_E_DIRECTORY_RENAME_FAILED | Rename of a directory cannot be synced because files or folders within the directory have open handles. | No action required. The rename of the directory will be synced once all open file handles within the directory are closed. |
 
 #### Handling unsupported characters
 If the **FileSyncErrorsReport.ps1** PowerShell script shows per-item sync errors due to unsupported characters (error code 0x8007007b or 0x80c80255), you should remove or rename the characters at fault from the respective file names. PowerShell will likely print these characters as question marks or empty rectangles since most of these characters have no standard visual encoding. 
@@ -405,6 +407,9 @@ Sync sessions may fail for various reasons including the server being restarted 
 
 [!INCLUDE [storage-sync-files-bad-connection](../../../includes/storage-sync-files-bad-connection.md)]
 
+> [!Note]  
+> Once network connectivity to the Azure File Sync service is restored, sync may not resume immediately. By default, Azure File Sync will initiate a sync session every 30 minutes if no changes are detected within the server endpoint location. To force a sync session, restart the Storage Sync Agent (FileSyncSvc) service or make a change to a file or directory within the server endpoint location.
+
 <a id="-2134376372"></a>**The user request was throttled by the service.**  
 
 | Error | Code |
@@ -415,6 +420,17 @@ Sync sessions may fail for various reasons including the server being restarted 
 | **Remediation required** | No |
 
 No action is required; the server will try again. If this error persists for several hours, create a support request.
+
+<a id="-2134364160"></a>**Sync failed because the operation was aborted**  
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c83000 |
+| **HRESULT (decimal)** | -2134364160 |
+| **Error string** | ECS_E_OPERATION_ABORTED |
+| **Remediation required** | No |
+
+No action is required. If this error persists for several hours, create a support request.
 
 <a id="-2134364043"></a>**Sync is blocked until change detection completes post restore**  
 
@@ -541,7 +557,14 @@ This error occurs if the Azure File Sync agent version installed on the server i
 | **Error string** | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED |
 | **Remediation required** | Yes |
 
-This error occurs when the Azure file share storage limit has been reached, which can happen if a quota is applied for an Azure file share or if the usage exceeds the limits for an Azure file share. For more information, see the [current limits for an Azure file share](../files/storage-files-scale-targets.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json).
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c80249 |
+| **HRESULT (decimal)** | -2134375863 |
+| **Error string** | ECS_E_NOT_ENOUGH_REMOTE_STORAGE |
+| **Remediation required** | Yes |
+
+Sync sessions fail with either of these errors when the Azure file share storage limit has been reached, which can happen if a quota is applied for an Azure file share or if the usage exceeds the limits for an Azure file share. For more information, see the [current limits for an Azure file share](../files/storage-files-scale-targets.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json).
 
 1. Navigate to the sync group within the Storage Sync Service.
 2. Select the cloud endpoint within the sync group.
@@ -648,6 +671,20 @@ By setting this registry value, the Azure File Sync agent will accept any locall
 
 [!INCLUDE [storage-sync-files-bad-connection](../../../includes/storage-sync-files-bad-connection.md)]
 
+> [!Note]  
+> Once network connectivity to the Azure File Sync service is restored, sync may not resume immediately. By default, Azure File Sync will initiate a sync session every 30 minutes if no changes are detected within the server endpoint location. To force a sync session, restart the Storage Sync Agent (FileSyncSvc) service or make a change to a file or directory within the server endpoint location.
+
+<a id="-2147012721"></a>**Sync failed because the server was unable to decode the response from the Azure File Sync service**  
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80072f8f |
+| **HRESULT (decimal)** | -2147012721 |
+| **Error string** | WININET_E_DECODING_FAILED |
+| **Remediation required** | Yes |
+
+This error typically occurs if a network proxy is modifying the response from the Azure File Sync service. Please check your proxy configuration.
+
 <a id="-2134375680"></a>**Sync failed due to a problem with authentication.**  
 
 | Error | Code |
@@ -730,7 +767,7 @@ This error occurs because the server endpoint deletion failed and the endpoint i
 | **Error string** | ECS_E_NOT_ENOUGH_LOCAL_STORAGE |
 | **Remediation required** | Yes |
 
-This error occurs because the volume has filled up. This error commonly occurs because files outside the server endpoint are using up space on the volume. Free up space on the volume by adding additional server endpoints, moving files to a different volume, or increasing the size of the volume the server endpoint is on.
+Sync sessions fail with one of these errors because either the volume has insufficient disk space or disk quota limit is reached. This error commonly occurs because files outside the server endpoint are using up space on the volume. Free up space on the volume by adding additional server endpoints, moving files to a different volume, or increasing the size of the volume the server endpoint is on. If a disk quota is configured on the volume using [File Server Resource Manager](https://docs.microsoft.com/windows-server/storage/fsrm/fsrm-overview) or [NTFS quota](https://docs.microsoft.com/windows-server/administration/windows-commands/fsutil-quota), increase the quota limit.
 
 <a id="-2134364145"></a><a id="replica-not-ready"></a>**The service is not yet ready to sync with this server endpoint.**  
 
@@ -803,6 +840,9 @@ This error occurs because the Cloud Tiering filter driver (StorageSync.sys) vers
 | **Remediation required** | No |
 
 This error occurs because the Azure File Sync service is unavailable. This error will auto-resolve when the Azure File Sync service is available again.
+
+> [!Note]  
+> Once network connectivity to the Azure File Sync service is restored, sync may not resume immediately. By default, Azure File Sync will initiate a sync session every 30 minutes if no changes are detected within the server endpoint location. To force a sync session, restart the Storage Sync Agent (FileSyncSvc) service or make a change to a file or directory within the server endpoint location.
 
 <a id="-2146233088"></a>**Sync failed due to an exception.**  
 
@@ -898,6 +938,17 @@ To resolve this issue, delete and recreate the sync group by performing the foll
 3. Delete the sync group.
 4. If cloud tiering was enabled on a server endpoint, delete the orphaned tiered files on the server by performing the steps documented in the [Tiered files are not accessible on the server after deleting a server endpoint](?tabs=portal1%252cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) section.
 5. Recreate the sync group.
+
+<a id="-2134375852"></a>**Sync detected the replica has been restored to an older state**  
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c80254 |
+| **HRESULT (decimal)** | -2134375852 |
+| **Error string** | ECS_E_SYNC_REPLICA_BACK_IN_TIME |
+| **Remediation required** | No |
+
+No action is required. This error occurs because sync detected the replica has been restored to an older state. Sync will now enter a reconciliation mode, where it recreates the sync relationship by merging the contents of the Azure file share and the data on the server endpoint. When reconciliation mode is triggered, the process can be very time consuming depending upon the namespace size. Regular synchronization does not happen until the reconciliation finishes, and files that are different (last modified time or size) between the Azure file share and server endpoint will result in file conflicts.
 
 <a id="-2145844941"></a>**Sync failed because the HTTP request was redirected**  
 
@@ -1166,6 +1217,8 @@ If files fail to tier to Azure Files:
 | 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | The file failed to tier due to insufficient system resources. | If the error persists, investigate which application or kernel-mode driver is exhausting system resources. |
 | 0x8e5e03fe | -1906441218 | JET_errDiskIO | The file failed to tier due to an I/O error when writing to the cloud tiering database. | If the error persists, run chkdsk on the volume and check the storage hardware. |
 | 0x8e5e0442 | -1906441150 | JET_errInstanceUnavailable | The file failed to tier because the cloud tiering database is not running. | To resolve this issue, restart the FileSyncSvc service or server. If the error persists, run chkdsk on the volume and check the storage hardware. |
+| 0x80C80285 | -2160591493 | ECS_E_GHOSTING_SKIPPED_BY_CUSTOM_EXCLUSION_LIST | The file cannot be tiered because the file type is excluded from tiering. | To tier files with this file type, modify the GhostingExclusionList registry setting which is located under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync. |
+| 0x80C86050 | -2160615504 | ECS_E_REPLICA_NOT_READY_FOR_TIERING | The file failed to tier because the current sync mode is initial upload or reconciliation. | No action required. The file will be tiered once sync completes initial upload or reconciliation. |
 
 
 
@@ -1195,6 +1248,9 @@ If files fail to be recalled:
 | 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | The file failed to recall due to insufficient system resources. | If the error persists, investigate which application or kernel-mode driver is exhausting system resources. |
 | 0x8007000e | -2147024882 | ERROR_OUTOFMEMORY | The file failed to recall due to insufficient memory. | If the error persists, investigate which application or kernel-mode driver is causing the low memory condition. |
 | 0x80070070 | -2147024784 | ERROR_DISK_FULL | The file failed to recall due to insufficient disk space. | To resolve this issue, free up space on the volume by moving files to a different volume, increase the size of the volume, or force files to tier by using the Invoke-StorageSyncCloudTiering cmdlet. |
+| 0x80072f8f | -2147012721 | WININET_E_DECODING_FAILED | The file failed to recall because the server was unable to decode the response from the Azure File Sync service. | This error typically occurs if a network proxy is modifying the response from the Azure File Sync service. Please check your proxy configuration. |
+| 0x80090352 | -2146892974 | SEC_E_ISSUING_CA_UNTRUSTED | The file failed to recall because your organization is using a TLS terminating proxy or a malicious entity is intercepting the traffic between your server and the Azure File Sync service. | If you are certain this is expected (because your organization is using a TLS terminating proxy), follow the steps documented for error [CERT_E_UNTRUSTEDROOT](https://docs.microsoft.com/azure/storage/file-sync/file-sync-troubleshoot?tabs=portal1%2Cazure-portal#-2146762487) to resolve this issue. |
+| 0x80c86047 | -2134351801 | ECS_E_AZURE_SHARE_SNAPSHOT_NOT_FOUND | The file failed to recall because it's referencing a version of the file which no longer exists in the Azure file share. | This issue can occur if the tiered file was restored from backup. To resolve this issue, please open a support request. |
 
 ### Tiered files are not accessible on the server after deleting a server endpoint
 Tiered files on a server will become inaccessible if the files are not recalled prior to deleting a server endpoint.
@@ -1286,6 +1342,18 @@ Unintended recalls also might occur in other scenarios, like when you are browsi
 
 > [!NOTE]
 >Use Event ID 9059 in the Telemetry event log to determine which application(s) is causing recalls. This event provides application recall distribution for a server endpoint and is logged once an hour.
+
+### Process exclusions for Azure File Sync
+
+If you want to configure your antivirus or other applications to skip scanning for files accessed by Azure File Sync, configure the following process exclusions:
+
+- C:\Program Files\Azure\StorageSyncAgent\AfsAutoUpdater.exe
+- C:\Program Files\Azure\StorageSyncAgent\FileSyncSvc.exe
+- C:\Program Files\Azure\StorageSyncAgent\MAAgent\MonAgentLauncher.exe
+- C:\Program Files\Azure\StorageSyncAgent\MAAgent\MonAgentHost.exe
+- C:\Program Files\Azure\StorageSyncAgent\MAAgent\MonAgentManager.exe
+- C:\Program Files\Azure\StorageSyncAgent\MAAgent\MonAgentCore.exe
+- C:\Program Files\Azure\StorageSyncAgent\MAAgent\Extensions\XSyncMonitoringExtension\AzureStorageSyncMonitor.exe
 
 ### TLS 1.2 required for Azure File Sync
 

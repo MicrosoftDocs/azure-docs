@@ -9,7 +9,7 @@ ms.author: karler
 ms.custom: devx-track-java
 ---
 
-# Bind Azure Cache for Redis to your Azure Spring Cloud application 
+# Bind Azure Cache for Redis to your Azure Spring Cloud application
 
 **This article applies to:** ✔️ Java
 
@@ -24,6 +24,7 @@ Instead of manually configuring your Spring Boot applications, you can automatic
 If you don't have a deployed Azure Spring Cloud instance, follow the steps in the [quickstart on deploying an Azure Spring Cloud app](./quickstart.md).
 
 ## Prepare your Java project
+
 1. Add the following dependency to your project's pom.xml file:
 
     ```xml
@@ -32,10 +33,10 @@ If you don't have a deployed Azure Spring Cloud instance, follow the steps in th
         <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
     </dependency>
     ```
+
 1. Remove any `spring.redis.*` properties from the `application.properties` file
 
 1. Update the current deployment using `az spring-cloud app update` or create a new deployment using `az spring-cloud app deployment create`.
-
 
 ## Bind your app to the Azure Cache for Redis
 
@@ -47,12 +48,14 @@ If you don't have a deployed Azure Spring Cloud instance, follow the steps in th
 1. Restart the app. The binding should now work.
 
 1. To ensure the service binding is correct, select the binding name and verify its details. The `property` field should look like this:
-    ```
+
+    ```properties
     spring.redis.host=some-redis.redis.cache.windows.net
     spring.redis.port=6380
     spring.redis.password=abc******
     spring.redis.ssl=true
     ```
+
 #### [Terraform](#tab/Terraform)
 
 The following Terraform script shows how to set up an Azure Spring Cloud app with Azure Cache for Redis.
@@ -120,7 +123,9 @@ resource "azurerm_spring_cloud_active_deployment" "example" {
   deployment_name     = azurerm_spring_cloud_java_deployment.example.name
 }
 ```
+
 ---
+
 ## Next steps
 
 In this article, you learned how to bind your Azure Spring Cloud application to Azure Cache for Redis. To learn more about binding services to your application, see [Bind to an Azure Database for MySQL instance](./how-to-bind-mysql.md).

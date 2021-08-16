@@ -35,7 +35,7 @@ For more information about normalization in Azure Sentinel, see [Normalization a
 Azure Sentinel provides the following built-in, product-specific file event parsers:
 
 - **Sysmon file activity events** (Events 11, 23, and 26), collected using the Log Analytics Agent or Azure Monitor Agent.
-- **Microsoft Office 365 Sharepoint and OneDrive events**, collected using the Office Activity connector.
+- **Microsoft Office 365 SharePoint and OneDrive events**, collected using the Office Activity connector.
 - **Microsoft 365 Defender for Endpoints file events**
 - **Azure Storage**, including Blob, File, Queue, and Table Storage.
 
@@ -60,7 +60,7 @@ The following Azure Sentinel **Analytics rules** works with any file activity th
 - NOBELIUM - Domain, Hash and IP IOCs - May 2021
 - SUNSPOT log file creation 
 
-For more information, see [Create custom analytics rules to detect threats](tutorial-detect-threats-custom.md).
+For more information, see [Create custom analytics rules to detect threats](/azure/sentinel/articles/sentinel/detect-threats-custom.md).
 
 
 ## Schema details

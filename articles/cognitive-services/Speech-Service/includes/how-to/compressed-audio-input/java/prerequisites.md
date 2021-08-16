@@ -1,9 +1,9 @@
 ---
-author: trevorbye
+author: laujan
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
-ms.author: trbye
+ms.author: lajanuar
 ---
 
 Handling compressed audio is implemented using [GStreamer](https://gstreamer.freedesktop.org). For licensing reasons GStreamer binaries are not compiled and linked with the Speech SDK. Instead, you'll need to use the prebuilt binaries for Android. To download the prebuilt libraries, see [installing for Android development](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c).
