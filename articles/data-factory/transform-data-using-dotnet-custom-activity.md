@@ -384,5 +384,5 @@ See the following articles that explain how to transform data in other ways:
 * [MapReduce activity](transform-data-using-hadoop-map-reduce.md)
 * [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md)
 * [Spark activity](transform-data-using-spark.md)
-* [Azure Machine Learning Studio (classic) Batch Execution activity](transform-data-using-machine-learning.md)
+* [ML Studio (classic) Batch Execution activity](transform-data-using-machine-learning.md)
 * [Stored procedure activity](transform-data-using-stored-procedure.md)
