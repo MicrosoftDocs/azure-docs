@@ -18,6 +18,14 @@ Azure Automation receives improvements on an ongoing basis. To stay up to date w
 
 This page is updated monthly, so revisit it regularly.
 
+## August 2021
+
+### Azure Policy Guest Configuration
+
+**Type:** Plan for change
+
+Customers should evaluate and plan for migration from Azure Automation State Configuration to Azure Policy Guest Configuration (preview). For more information, see [Azure Policy Guest Configuration](../governance/policy/concepts/guest-configuration.md).
+
 ## July 2021
 
 ### Preview Support for User Assigned Managed Identities
