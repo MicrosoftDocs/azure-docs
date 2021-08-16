@@ -9,7 +9,7 @@ ms.date: 08/16/2021
 
 This article should be used if you have deployed Live Video Analytics Edge Module to an IoT Edge device and you are currently running media graphs to process feeds from Real Time Streaming Protocol (RTSP) cameras.
 
-If you are not using RTSP cameras and are using one of the [quickstarts or tutorials on Live Video Analytics](../../azure/media-services/live-video-analytics-edge.md), you should simply switch to the corresponding [quickstart or tutorial with Azure Video Analyzer](../../azure-video-analyzer/video-analyzer-docs/overview.md).
+If you are not using RTSP cameras and are using one of the [quickstarts or tutorials on Live Video Analytics](../live-video-analytics-edge/overview.md), you should simply switch to the corresponding [quickstart or tutorial with Azure Video Analyzer](../../azure-video-analyzer/video-analyzer-docs/overview.md).
 
 The instructions below apply to migrating Live Video Analytics to Azure Video Analyzer for a single IoT Edge device.  The steps would need to be repeated for each separate IoT Edge device.
 
@@ -33,7 +33,7 @@ Before beginning any migration efforts, it is strongly recommended to save your 
 
 1. Sign in to the Azure portal.
 
-1. Navigate to the `IoT Hub` and select `IoT Edge` under `Automatic Device Management'.
+1. Go to the `IoT Hub` and select `IoT Edge` under **Automatic Device Management**.
 
 1. Under IoT Edge, select the IoT Edge device that you want to migrate to Azure Video Analyzer.
 
@@ -224,7 +224,7 @@ When you create an Azure Video Analyzer account, you have to associate an Azure 
 
 ### Deploy the Azure Video Analyzer Edge module
 
-1.  Navigate to your Azure IoT Hub.
+1.  Go to your Azure IoT Hub.
 
 1. Select `IoT Edge` under **Automatic Device Management**.
 
@@ -348,7 +348,7 @@ After you convert the Media Graph topology (Live Video Analytics) over to the Pi
 
 1. To set your topology click on the Azure Video Analyzer Edge module under the IoT Edge device.  In the example below the container name is avaedge.
 
-    :::image type="content" source="./media/migrate-live-video-analytics-to-azure-video-analyzer/live-video-analytics-edge.png" alt-text="Screenshot that shows the Live Video Analytics IoT Edge module.":::
+    :::image type="content" source="./media/migrate-live-video-analytics-to-azure-video-analyzer/azure-video-analyzer-container.png" alt-text="Screenshot that shows the Live Video Analytics IoT Edge module.":::
 
 1. Click on `Direct method`.
 
