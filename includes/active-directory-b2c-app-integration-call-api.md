@@ -13,4 +13,4 @@ After the authentication is completed, users interact with the app, which invoke
 Authorization: Bearer <token>
 ```
 
-If the access token scope doesn't match the web API scopes, the authentication library obtains a new access token with the correct scopes.
+If the access token's scope doesn't match the web API's scopes, the authentication library obtains a new access token with the correct scopes.
