@@ -1,5 +1,5 @@
 ---
-title: NV-series-migration-guide
+title: nv-series migration guide
 description: NV-series migration guide
 author: vikancha-MSFT
 ms.service: virtual-machines
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 01/12/2020
 ms.author: vikancha
 ---
-# Prologue 
+#  NV-series migration guide 
 
 As more powerful GPU VM sizes  become available in Microsoft Azure datacenters, we recommend assessing your workloads and migrating the virtual machines (VMs) in the NV and NV_Promo series. These legacy VMs can be migrated into new VM series such as NVsv3 and NVasv4 series for better performance with reduced cost. NVsv3 VM series is powered by the Nvidia M60 GPUs and NVasv4 series by AMD Radeon Instinct MI25 GPUs.  The main difference between the NV, NV_Promo series, and the newer NVsv3 and NVasv4 is improved performance, support for premium storage and the option to choose from a fractional GPU size to multi-GPU configurations. Both NVsv3 and NVasv4 series have more modern cores and greater capacity.  
 
