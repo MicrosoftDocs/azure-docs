@@ -64,7 +64,7 @@ To start training your model:
 
 2. Select the model you want to train from the **Model name** dropdown. If you don’t have models already, type in the name of your model and click on **create new model**.
 
-    :::image type="content" source="../media/train-model-1.png" alt-text="Select the model you want to train" lightbox="../media/train-model-1.png":::
+    :::image type="content" source="media/train-model.png" alt-text="Select the model you want to train" lightbox="media/train-model.png":::
 
 3. Click on the **Train** button at the bottom of the page.
 
@@ -96,7 +96,7 @@ Generally after training a model you would review it's evaluation details and ma
 
 5. In the **Result** tab, you can see the predicted classes for your text. You can also view the JSON response under the **JSON** tab. 
 
-    :::image type="content" source="../media/test-model-results.png" alt-text="View the test results" lightbox="../media/test-model-results.png":::
+    :::image type="content" source="media/test-model-results.png" alt-text="View the test results" lightbox="media/test-model-results.png":::
 
 ## Clean up resources
 

@@ -20,12 +20,13 @@ This API is similar to the [Named Entity Recognition API](../named-entity-recogn
 
 Building custom models can be a complex process that requires AI expertise; Custom Text analytics abstracts you from the need of in house AI expertise, you bring the data and we take care of the rest. Your data can be previously tagged or you can tag it within the [Language Studio](https://language.azure.com).
 
-<!--
+
 This documentation contains the following article types:
 * [Quickstarts](../README.md#Quickstarts) are getting-started instructions to guide you through making requests to the service.
 
 * [Concepts](../README.md#Concepts) provide explanations of the service functionality and features.
 
+<!--
 * How-to guides contain instructions for using the service in more specific or customized ways.
 -->
 
@@ -33,7 +34,7 @@ This documentation contains the following article types:
 
 Using the custom extraction API typically involves several different steps. 
 
-:::image type="content" source="../custom-classification/media/development-lifecycle.png" alt-text="The development lifecycle" lightbox="media/development-lifecycle.png":::
+:::image type="content" source="../custom-classification/media/development-lifecycle.png" alt-text="The development lifecycle" lightbox="../custom-classification/media/development-lifecycle.png":::
 
 1. **Define schema**: Know your data and identify the entities you want extracted, avoid ambiguity.
 
@@ -48,6 +49,6 @@ Using the custom extraction API typically involves several different steps.
 
 5. **Improve model**: After reviewing model evaluation details, you can go ahead and learn how you can improve the model.
 
-6. **Deploy model**: Deploying a model is to make it available for use via the [Analyze API](../../extras/Microsoft.CustomText.Runtime.v3.1-preview.1.json).
+6. **Deploy model**: Deploying a model is to make it available for use.
 
 7. **Extract entities**: Use your custom modeled for entity extraction tasks.

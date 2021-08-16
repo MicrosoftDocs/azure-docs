@@ -1,7 +1,7 @@
 ---
 title: Recommended practices for custom entity extraction
 titleSuffix: Azure Cognitive Services
-description: Learn how use custom text extraction with the Language Services API.
+description: Learn about recommended practices when using the custom text extraction API.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -22,7 +22,7 @@ The schema defines the entity types/categories that you need your model to extra
 
 * Review files in your dataset to be familiar with their format and structure.
 
-* Identify the [entities](ct-concept-definitions.md#entity) you want to extract from the data.
+* Identify the entities you want to extract from the data.
 
 For example, if you are extracting entities from support emails, you might need to extract *Customer name*, *Product name*, *Customer's problem*, *Request date*, and *Contact information*.
 
@@ -50,7 +50,7 @@ If you need to start your model with synthetic data, you can do that - but note 
 
 * Balance data distribution to represent expected data at runtime.
 Make sure that all the scenarios/entities are adequately represented in your dataset.
-Include less frequent cases in your data, if the model was not exposed a certain scenario/entity in training it wont be able to recognize it in runtime.
+Include less frequent cases in your data, if the model was not exposed a certain scenario/entity in training it won't be able to recognize it in runtime.
 
 For example, if you are training your model to extract entities from legal documents, which come in many different formats and use different language, you should provide examples that span this diversity as you would expect to see in real life.
 
@@ -76,7 +76,7 @@ For example, if you are training your model to extract entities from legal docum
 > [!NOTE]
 > The precision, consistency and completeness of your tagged data are key factors to determining model performance.
 
-* View model evaluation details after training is completed. Model evaluation is against the test set, this is a blind set which was not introduced to the model during training. By doing this you get sense of who the model performs in real life scenarios.
+* View the model evaluation details after training is completed. Model evaluation is against the test set, this is a blind set which was not introduced to the model during training. By doing this you get sense of who the model performs in real life scenarios.
 
 * Improve your model. By doing this you can view the incorrect predictions your model made against the validation set so this is a chance to tag your data better. Examine data distribution to make sure that each entity is well represented in your dataset.
 
