@@ -4,7 +4,7 @@ description: Techniques to provide failover capabilities for disaster recovery w
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 08/16/2021
 ms.author: v-erkel
 ---
 
@@ -17,6 +17,9 @@ This article describes a strategy to reduce risk of work disruption by using a s
 The key is using back-end storage that is accessible from multiple regions. This storage can be either an on-premises NAS system with appropriate DNS support, or Azure Blob storage that resides in a different region from the cache.
 
 As your workflow proceeds in your primary region, data is saved in the long-term storage outside of the region. If the cache region becomes unavailable, you can create a duplicate Azure HPC Cache instance in a secondary region, connect to the same storage, and resume work from the new cache.
+
+> [!NOTE:]
+> This failover plan does not cover an outage in your storage account region. Azure HPC Cache does not support geographically redundant storage accounts (GRS or GZRS) because their asynchronous copying between regions is not consistent enough for HPC Cache workflows. Consider a manual backup strategy if you need to protect against storage outages.
 
 ## Planning for regional failover
 
