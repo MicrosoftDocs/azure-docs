@@ -21,7 +21,7 @@ In this tutorial, learn how organizations can migrate from global or application
 
 This tutorial assumes you have an Office 365 tenant federated to Okta for sign-on and multifactor authentication (MFA). You should also have Azure AD Connect server or Azure AD Connect cloud provisioning agents configured for user provisioning to Azure AD.
 
-## Pre-requisites
+## Prerequisites
 
 When switching from Okta sign on to Azure AD CA, it's important to understand licensing requirements. Azure AD CA requires users have an Azure AD Premium P1 License assigned before registration for Azure AD MFA.
 
