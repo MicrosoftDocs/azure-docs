@@ -971,7 +971,7 @@ To send IDocs from SAP to your logic app workflow, you need the following minimu
     1. On the **Unicode** tab, for **Communication Type with Target System**, select **Unicode**.
 
        > [!NOTE]
-       > Only Unicode character encoding is supported by SAP .NET Client libraries. If you get the error `Non-ABAP RFC client
+       > SAP .NET Client libraries support only Unicode character encoding. If you get the error `Non-ABAP RFC client (partner type ) not supported` when sending IDOC from SAP
        >  (partner type ) not supported` when sending IDOC from SAP to Logic Apps, check that the **Communication Type with
        >   Target System** is set to **Unicode**.
 
