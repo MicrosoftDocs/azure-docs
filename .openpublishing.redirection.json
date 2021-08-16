@@ -12720,7 +12720,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/azure/azure-sql/managed-instance/migrate-to-instance-from-sql-server.md",
+      "source_path_from_root": "/articles/azure-sql/managed-instance/migrate-to-instance-from-sql-server.md",
       "redirect_url": "/azure/azure-sql/migration-guides/managed-instance/sql-server-to-managed-instance-guide",
       "redirect_document_id": true
     },
@@ -13559,6 +13559,11 @@
       "redirect_url": "/azure/azure-toolkit-for-intelliJ",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/azure-vmware/concepts-monitor-protection.md",
+      "redirect_url": "/azure/azure-vmware/integrate-azure-native-services",
+      "redirect_document_id": false
+    },   
     {
       "source_path_from_root": "/articles/azure-vmware/tutorial-deploy-vmware-hcx.md",
       "redirect_url": "/azure/azure-vmware/configure-vmware-hcx",
@@ -56657,6 +56662,16 @@
     {
       "source_path_from_root": "/articles/store-sendgrid-php-how-to-send-email.md",
       "redirect_url": "https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal.md",
+      "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/load-balancer/egress-only.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal",
       "redirect_document_id": false
     },
     {

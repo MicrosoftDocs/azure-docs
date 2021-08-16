@@ -2,18 +2,14 @@
 title: 'Tutorial: Configure TimeClock 365 for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to TimeClock 365.
 services: active-directory
-documentationcenter: ''
 author: Zhchia
 writer: Zhchia
 manager: beatrizd
-
 ms.assetid: dc5e95c8-d878-43dd-918e-69e1686b4db6
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/16/2021
 ms.author: Zhchia
 ---
