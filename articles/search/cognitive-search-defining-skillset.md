@@ -140,15 +140,19 @@ Each skill is unique in terms of its input values and the parameters it takes. T
 }
 ```
 
-+ Common parameters include `"odata.type"` which uniquely identifies the skill, `inputs`, and `outputs`. The other properties, namely`"categories"` and `"defaultLanguageCode"`, are examples of properties that are specific to Entity Recognition. 
+Common parameters include `"odata.type"`, `inputs`, and `outputs`. The other properties, namely`"categories"` and `"defaultLanguageCode"`, are examples of properties that are specific to Entity Recognition. 
 
-+ `"context"` is a node in an enrichment tree and it represents the level at which operations take place. All skills have this property. If the `"context"` field is not explicitly set, the default context is the document. In the example, the context is the whole document, meaning that the entity recognition skill is called once per document.
++ `"odata.type"` uniquely identifies each skill. You can find the type in the [skill reference documentation](cognitive-search-predefined-skills).
 
-  The context also determines where outputs are also produced in the enrichment tree. In this example, the skill returns a property called `organizations`, captured as `orgs`, which is added as a child node of `"/document"`. In downstream skills, the path to this newly-created enrichment node is `"/document/orgs"`. For a particular document, the value of `"/document/orgs"` is an array of organizations extracted from the text (for example: `["Microsoft", "LinkedIn"]`).
++ `"context"` is a node in an enrichment tree and it represents the level at which operations take place. All skills have this property. If the `"context"` field is not explicitly set, the default context is `document`. In the example, the context is the whole document, meaning that the entity recognition skill is called once per document.
 
-+ This skill has one input called "text", with a source input set to `"/document/content"`. An input's name is a valid value that's defined for the skill. The source is a path to a node in the enrichment tree. In this example, the skill operates on the *content* field of each document, which is a standard field created by the Azure Blob indexer. 
+  The context also determines where outputs are also produced in the enrichment tree. In this example, the skill returns a property called `organizations`, captured as `orgs`, which is added as a child node of `"/document"`. In downstream skills, the path to this newly-created enrichment node is `"/document/orgs"`. For a particular document, the value of `"/document/orgs"` is an array of organizations extracted from the text (for example: `["Microsoft", "LinkedIn"]`). For more information about path syntax, see [Referencing annotations in a skillset](cognitive-search-concept-annotations-syntax.md).
 
-+ Outputs exist only during processing. To chain this output to a downstream skill's input, reference the output as `"/document/orgs"`. To send output to a field in a search index, [create an output field mapping](cognitive-search-output-field-mapping.md) in an indexer. To send output to a knowledge store, [create a projection](knowledge-store-projection-overview.md).
++ `"inputs"` are name-value pairs that specify what a skill will operate on. Skills are equipped to handle specific inputs by name, as defined in the skills reference documentation. The name indicates which input is being used. This example has one input called "text", with a source input set to the `"/document/content"` node in an enrichment tree. In an enrichment tree, *document* is the root node. If the document is retrieved using an Azure Blob indexer, the *content* field of each document is a standard field created by the indexer. 
+
++ `"outputs` represents the output of the skill. Each skill is designed to emit specific kinds of output, which are referenced by name in the skillset. In the case of Entity Recognition, "organizations" is one of the outputs it supports. The documentation for each skill describes the outputs it produces.
+
+Outputs exist only during processing. To chain this output to a downstream skill's input, reference the output as `"/document/orgs"`. To send output to a field in a search index, [create an output field mapping](cognitive-search-output-field-mapping.md) in an indexer. To send output to a knowledge store, [create a projection](knowledge-store-projection-overview.md).
 
 Outputs from the one skill can conflict with outputs from a different skill. If you have multiple skills returning the same output, use the `targetName` for name disambiguation in enrichment node paths.
 
@@ -212,17 +216,17 @@ As each skill executes, its output is added as nodes in a document's enrichment 
 
 In the early stages of skillset evaluation, you'll want to check preliminary results with minimal effort. We recommend the search index because it's simpler to set up. For each skill output, [define an output field mapping](cognitive-search-output-field-mapping.md) in the indexer, and a field in the index.
 
-:::image type="content" source="media/cognitive-search-defining-skillset/skillset-indexer-index-combo.png" alt-text="Object diagram showing how a persons entity is defined in skill output, indexer field mapping, and index field":::
+:::image type="content" source="media/cognitive-search-defining-skillset/skillset-indexer-index-combo.png" alt-text="Object diagram showing how a persons entity is defined in skill output, indexer field mapping, and index field.":::
 
 After running the indexer, you can use [Search Explorer](search-explorer.md) to return documents from the index and check the contents of each field to determine what the skillset detected or created.
 
 The following example shows the results of an entity recognition skill that detected persons, locations, organizations, and other entities in a chunk of text. Viewing the results in Search Explorer can help you determine whether a skill adds value to your solution.
 
-:::image type="content" source="media/cognitive-search-defining-skillset/doc-in-search-explorer.png" alt-text="A document in Search Explorer":::
+:::image type="content" source="media/cognitive-search-defining-skillset/doc-in-search-explorer.png" alt-text="Screenshot of a document in Search Explorer.":::
 
 ## Next steps
 
 Context and input source fields are paths to nodes in an enrichment tree. As a next step, learn more about the syntax for setting up paths to nodes in an enrichment tree.
 
 > [!div class="nextstepaction"]
-> [Referencing annotations in a skillset](cognitive-search-concept-annotations-syntax.md).
+> [Referencing annotations in a skillset](cognitive-search-concept-annotations-syntax.md)
