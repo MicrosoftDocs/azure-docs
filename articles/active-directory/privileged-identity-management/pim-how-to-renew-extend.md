@@ -120,9 +120,7 @@ When approving a request to renew role assignment, administrators must enter a n
 
 ### Admin renew
 
-Administrators can renew expired role assignments from the **Members** tab in the left navigation menu of a resource. They can also renew expired role assignments from within the **Expired** roles tab of an Azure AD role.
-
-To view a list of all expired role assignments, on the **Members** screen, select **Expired roles**.
+They can also renew expired role assignments from within the **Expired** roles tab of an Azure AD role. To view a list of all expired role assignments, on the **Members** screen, select **Expired roles**.
 
 ![Azure AD roles - Members page listing expired roles with links to renew](./media/pim-how-to-renew-extend/aadpim-rbac-renew-from-member-blade.png)
 
