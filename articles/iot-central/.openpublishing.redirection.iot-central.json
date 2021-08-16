@@ -1192,7 +1192,77 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/government/how-to-configure-connected-field-services.md",
-      "redirect_url": "/azure/iot-central/government/concepts-connectedwastemanagement-architecture#business-applications",
+      "redirect_url": "/azure/iot-central/government/tutorial-connected-waste-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/government/concepts-connectedwastemanagement-architecture.md",
+      "redirect_url": "/azure/iot-central/government/tutorial-connected-waste-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/government/concepts-waterconsumptionmonitoring-architecture.md",
+      "redirect_url": "/azure/iot-central/government/tutorial-water-consumption-monitoring",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/government/concepts-waterqualitymonitoring-architecture.md",
+      "redirect_url": "/azure/iot-central/government/tutorial-water-quality-monitoring",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/retail/overview-iot-central-retail.md",
+      "redirect_url": "/azure/iot-central/core/concepts-app-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/energy/overview-iot-central-energy.md",
+      "redirect_url": "/azure/iot-central/core/concepts-app-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/government/overview-iot-central-government.md",
+      "redirect_url": "/azure/iot-central/core/concepts-app-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/healthcare/overview-iot-central-healthcare.md",
+      "redirect_url": "/azure/iot-central/core/concepts-app-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/energy/concept-iot-central-smart-meter-app.md",
+      "redirect_url": "/azure/iot-central/energy/tutorial-smart-meter-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/energy/concept-iot-central-solar-panel-app.md",
+      "redirect_url": "/azure/iot-central/energy/tutorial-solar-panel-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/retail/store-analytics-architecture.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-in-store-analytics-create-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/retail/architecture-smart-inventory-management.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-iot-central-smart-inventory-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/retail/architecture-digital-distribution-center.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-iot-central-digital-distribution-center",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/retail/architecture-micro-fulfillment-center.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-micro-fulfillment-center",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/retail/architecture-video-analytics.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-video-analytics-deploy",
       "redirect_document_id": false
     }
   ]

@@ -3,13 +3,13 @@ title: "Speech CLI configuration options - Speech service"
 titleSuffix: Azure Cognitive Services
 description: Learn how to create and manage configuration files for use with the Azure Speech CLI.
 services: cognitive-services
-author: erhopf
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 01/13/2021
-ms.author: erhopf
+ms.author: lajanuar
 ---
 
 # Speech CLI configuration options

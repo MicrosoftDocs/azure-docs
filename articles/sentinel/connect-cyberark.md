@@ -52,4 +52,4 @@ To query the CyberArk EPV logs in Log Analytics, enter `CommonSecurityLog` at th
 In this document, you learned how to connect CyberArk Enterprise Password Vault logs to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).
-- [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
+- [Use workbooks](/azure/sentinel/articles/sentinel/monitor-your-data.md) to monitor your data.

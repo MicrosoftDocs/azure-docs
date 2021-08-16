@@ -72,7 +72,7 @@ This article describes how to create one or more access reviews for privileged A
     > [!NOTE]
     > Selecting more than one role will create multiple access reviews. For example, selecting five roles will create five separate access reviews.
 
-12. In **assignment type**, scope the review by how the principal was assigned to the role. Choose **(Preview) eligible assignments only** to review eligible assignments (regardless of activation status when the review is created) or **(Preview) active assignments only** to review active assignments. Choose **all active and eligible assignments** to review all assignments regardless of type.
+12. In **assignment type**, scope the review by how the principal was assigned to the role. Choose **eligible assignments only** to review eligible assignments (regardless of activation status when the review is created) or **active assignments only** to review active assignments. Choose **all active and eligible assignments** to review all assignments regardless of type.
 
     <kbd> ![Reviewers list of assignment types](./media/pim-how-to-start-security-review/assignment-type-select.png) </kbd>
 
@@ -121,7 +121,7 @@ This article describes how to create one or more access reviews for privileged A
 
 1. Set **Mail notifications** to **Enable** to have Azure AD send email notifications to reviewers when an access review starts, and to administrators when a review completes.
 
-1. Set **Reminders** to **Enable** to have Azure AD send reminders of access reviews in progress to reviewers who have not completed their review.
+1. Set **Reminders** to **Enable** to have Azure AD send reminders of access reviews in progress to all reviewers. Reviewers will receive the reminders halfway through the duration of the review, regardless of whether they have completed their review at that time.
 1. The content of the email sent to reviewers is auto-generated based on the review details, such as review name, resource name, due date, etc. If you need a way to communicate additional information such as additional instructions or contact information, you can specify these details in the **Additional content for reviewer email** which will be included in the invitation and reminder emails sent to assigned reviewers. The highlighted section below is where this information will be displayed.
 
     ![Content of the email sent to reviewers with highlights](./media/pim-how-to-start-security-review/email-info.png) 

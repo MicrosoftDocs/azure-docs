@@ -71,7 +71,7 @@ items:
   - name: Asset normalization
     href: concept-asset-normalization.md
   - name: Frequently asked questions
-    href: /azure/purview/frequently-asked-questions.yml
+    href: ./frequently-asked-questions.yml
 - name: How-to guides
   items:
   - name: Register & scan
@@ -189,12 +189,30 @@ items:
       href: how-to-link-azure-data-factory.md
     - name: Azure Data Share lineage
       href: how-to-link-azure-data-share.md
+    - name: Azure Synapse Analytics lineage
+      href: how-to-lineage-azure-synapse-analytics.md
+    - name: Cassandra lineage
+      href: how-to-lineage-cassandra.md
+    - name: Erwin lineage
+      href: how-to-lineage-erwin.md
+    - name: Looker lineage
+      href: how-to-lineage-looker.md
+    - name: Google BigQuery lineage
+      href: how-to-lineage-google-bigquery.md
+    - name: Oracle lineage
+      href: how-to-lineage-oracle.md
     - name: Power BI lineage
       href: how-to-lineage-powerbi.md
+    - name: SAP S/4HANA lineage
+      href: how-to-lineage-saps4hana.md
+    - name: SAP ECC lineage
+      href: how-to-lineage-sapecc.md
     - name: Spark lineage
       href: how-to-lineage-spark-atlas-connector.md
     - name: SQL Server Integration Services lineage
       href: how-to-lineage-sql-server-integration-services.md
+    - name: Teradata lineage
+      href: how-to-lineage-teradata.md
   - name: Monitor
     items:
     - name: Monitor with Azure Monitor

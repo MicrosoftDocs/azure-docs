@@ -1,7 +1,7 @@
 ---
 title: Onboard a customer to Azure Lighthouse
 description: Learn how to onboard a customer to Azure Lighthouse, allowing their resources to be accessed and managed by users in your tenant.
-ms.date: 07/16/2021
+ms.date: 08/16/2021
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
 ---
@@ -171,7 +171,7 @@ The template you choose will depend on whether you are onboarding an entire subs
 If you want to include [eligible authorizations](create-eligible-authorizations.md#create-eligible-authorizations-using-azure-resource-manager-templates) (currently in public preview), select the corresponding template from the [delegated-resource-management-eligible-authorizations section of our samples repo](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-eligible-authorizations).
 
 > [!TIP]
-> While you can't onboard an entire management group in one deployment, you can [deploy a policy at the management group level](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-delegate-management-groups). The policy uses the [deployIfNotExists effect](../../governance/policy/concepts/effects.md#deployifnotexists) to check if each subscription within the management group has been delegated to the specified managing tenant, and if not, will create the assignment based on the values you provide. You will then have access to all of the subscriptions in the management group, although you'll have to work on them as individual subscriptions (rather than taking actions on the management group as a whole).
+> While you can't onboard an entire management group in one deployment, you can deploy a policy to [onboard each subscription in a management group](onboard-management-group.md). You'll then have access to all of the subscriptions in the management group, although you'll have to work on them as individual subscriptions (rather than taking actions on the management group resource directly).
 
 The following example shows a modified **delegatedResourceManagement.parameters.json** file that can be used to onboard a subscription. The resource group parameter files (located in the [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management) folder) are similar, but also include an **rgName** parameter to identify the specific resource group(s) to be onboarded.
 
