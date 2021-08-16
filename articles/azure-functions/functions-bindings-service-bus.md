@@ -86,7 +86,7 @@ This section describes the global configuration settings available for this bind
             },
             "batchOptions": {
                 "maxMessageCount": 1000,
-                "operationTimeout": "00:01:00"
+                "operationTimeout": "00:01:00",
                 "autoComplete": true
             }
         }
