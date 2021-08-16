@@ -6,7 +6,7 @@ ms.service: mysql
 ms.author: jtoland
 ms.custom: mvc
 ms.topic: conceptual
-ms.date: 08/12/2021
+ms.date: 08/17/2021
 ---
 
 # What's new in Azure Database for MySQL - Flexible Server (Preview)?
@@ -23,7 +23,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **High availability within a single zone using Same-Zone High Availability**
 
-  The service now provides customers with the flexibility to choose the preferred availability zone for their standby server when they enable high availability. With this feature, customers can place a standby server in the same zone as the primary server, which reduces the replication lag between primary and standby. This also provides for lower latencies between the application server and database server if placed within the same Azure zone. [Learn more](concepts-high-availability.md/#Same-Zone-High-Availability).
+  The service now provides customers with the flexibility to choose the preferred availability zone for their standby server when they enable high availability. With this feature, customers can place a standby server in the same zone as the primary server, which reduces the replication lag between primary and standby. This also provides for lower latencies between the application server and database server if placed within the same Azure zone. [Learn more](https://aka.ms/mysql-ha-concept).
 
 - **Standby zone selection using Zone-Redundant High Availability**
 
