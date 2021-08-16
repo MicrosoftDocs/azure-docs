@@ -41,7 +41,7 @@ Azure AD Connect server should be chosen if your organization needs to take adva
 
 - Support for writeback
 
->[!NOTE\]
+>[!NOTE]
 >All pre-requisites should be taken into consideration when
 installing Azure AD Connect or Azure AD cloud provisioning. Refer to [this article to learn more](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites) before installation.  
 
