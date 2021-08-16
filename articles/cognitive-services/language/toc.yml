@@ -50,6 +50,16 @@ items:
       href: custom-classification/concepts/evaluation.md
     - name: Data limits
       href: custom-classification/concepts/data-limits.md
+  - name: Custom text extraction
+    items:
+    - name: Overview
+      href: custom-extraction/overview.md
+    - name: Quickstart
+      href: custom-extraction/quickstart.md
+    - name: Concepts
+      items:
+        - name: Recommended practices
+          href: custom-extraction/concepts/recommended-practices.md
 - name: Entity linking
   items:
   - name: Overview
