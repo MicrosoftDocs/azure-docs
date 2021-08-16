@@ -114,7 +114,7 @@ conceptualContent:
         - url: /cli/azure/ml/
           itemType: reference
           text: V2 CLI (preview)
-        - url: /algorithm-module-reference/module-reference/
+        - url: ./algorithm-module-reference/module-reference.md
           itemType: reference
           text: Algorithm & module reference  
     # Card
