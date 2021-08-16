@@ -50,7 +50,6 @@ items:
       href: custom-classification/concepts/evaluation.md
     - name: Data limits
       href: custom-classification/concepts/data-limits.md
-    - name: Custom text extraction
   - name: Custom text extraction
     items:
     - name: Overview
