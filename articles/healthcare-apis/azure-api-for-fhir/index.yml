@@ -40,8 +40,6 @@ landingContent:
         links:
           - text: Deploy javascript app to read data from FHIR service
             url: tutorial-web-app-fhir-server.md
-          - text: Access FHIR API with Postman
-            url: access-fhir-postman-tutorial.md
           - text: SMART integration for third-party apps & medical records
             url: use-smart-on-fhir-proxy.md
           - text: Receive device data through Azure IoT Hub

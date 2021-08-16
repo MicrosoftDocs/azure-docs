@@ -77,7 +77,7 @@ items:
     - name: Get access token using CLI
       href: get-healthcare-apis-access-token-cli.md
   
-  - name: Access FHIR service with Postman
+  - name: Access using Postman
     href: using-postman.md
 
 - name: Concepts
