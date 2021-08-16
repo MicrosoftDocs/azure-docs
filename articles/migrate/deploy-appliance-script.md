@@ -64,7 +64,9 @@ Check that the zipped file is secure, before you deploy it.
 
 ### Run the script
 
-1. Extract the zipped file to a folder on the server that will host the appliance.  Make sure you don't run the script on a server with an existing Azure Migrate appliance.
+1. Extract the zipped file to a folder on the server that will host the appliance.
+> [!NOTE]
+> Make sure you don't run the script on a server with an existing Azure Migrate appliance. Running the script on the Azure Migrate appliance will remove the working configuration and replace it with the new configuration.
 2. Launch PowerShell on the above server with administrative (elevated) privilege.
 3. Change the PowerShell directory to the folder where the contents have been extracted from the downloaded zipped file.
 4. Run the script named **AzureMigrateInstaller.ps1** by running the following command:
