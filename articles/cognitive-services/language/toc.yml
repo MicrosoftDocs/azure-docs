@@ -40,22 +40,27 @@ items:
       href: custom-classification/how-to/view-model-evaluation.md
   - name: Concepts
     items:
+    - name: Development lifecycle
+      href: custom-classification/concepts/development-lifecycle.md
     - name: Recommended practices
       href: custom-classification/concepts/recommended-practices.md
     - name: Definitions
       href: custom-classification/definitions.md
     - name: Evaluation metrics
       href: custom-classification/concepts/evaluation.md
-- name: Custom text extraction
-  items:
-  - name: Overview
-    href: custom-extraction/overview.md
-  - name: Quickstart
-    href: custom-extraction/quickstart.md
-  - name: Concepts
+    - name: Data limits
+      href: custom-classification/concepts/data-limits.md
+    - name: Custom text extraction
+  - name: Custom text extraction
     items:
-      - name: Recommended practices
-        href: custom-extraction/concepts/recommended-practices.md
+    - name: Overview
+      href: custom-extraction/overview.md
+    - name: Quickstart
+      href: custom-extraction/quickstart.md
+    - name: Concepts
+      items:
+        - name: Recommended practices
+          href: custom-extraction/concepts/recommended-practices.md
 - name: Entity linking
   items:
   - name: Overview
