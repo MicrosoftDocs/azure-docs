@@ -31,8 +31,6 @@ landingContent:
             url: concepts-api-management.md
           - text: Hub and spoke
             url: concepts-hub-and-spoke.md
-          - text: Monitor and protect 
-            url: concepts-monitor-protection.md
           - text: Networking and interconnectivity
             url: concepts-networking.md
           - text: Private clouds and clusters

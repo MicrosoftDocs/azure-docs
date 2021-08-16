@@ -88,6 +88,8 @@ Recommendations and assessments provide you with the security health details of 
 
 ## Deploy an Azure Sentinel workspace
 
+Azure Sentinel provides security analytics, alert detection, and automated threat response across an environment. It's a cloud-native, security information event management (SIEM) solution  that's built on top of a Log Analytics Workspace.
+
 Since Azure Sentinel is built on top of a Log Analytics workspace, you'll only need to select the workspace you want to use.
 
 1. In the Azure portal, search for **Azure Sentinel**, and select it.

@@ -13559,7 +13559,11 @@
       "redirect_url": "/azure/azure-toolkit-for-intelliJ",
       "redirect_document_id": false
     },
-   
+    {
+      "source_path_from_root": "/articles/azure-vmware/concepts-monitor-protection.md",
+      "redirect_url": "/azure/azure-vmware/integrate-azure-native-services",
+      "redirect_document_id": false
+    },   
     {
       "source_path_from_root": "/articles/azure-vmware/tutorial-deploy-vmware-hcx.md",
       "redirect_url": "/azure/azure-vmware/configure-vmware-hcx",
