@@ -182,7 +182,7 @@ Now set up the routing for the Service Bus queue. You go to the Message Routing 
 
 3. On the **Add a Route** pane, Select +**Add** above the endpoints. Select **Service Bus Queue**. You see the **Add Service Bus Endpoint** pane.
 
-   ![Adding a service bus endpoint](./media/tutorial-routing/00005-setup-sbq-endpoint.png)
+   ![Adding a 1st service bus endpoint](./media/tutorial-routing/00005-setup-sbq-endpoint.png)
 
 4. Fill in the rest of the fields:
 
@@ -194,7 +194,7 @@ Now set up the routing for the Service Bus queue. You go to the Message Routing 
 
 5. Select **Create** to add the Service Bus queue endpoint. You return to the **Add a route** pane.
 
-   ![Adding a service bus endpoint](./media/tutorial-routing/00006-save-sbq-endpoint.png)
+   ![Adding 2nd service bus endpoint](./media/tutorial-routing/00006-save-sbq-endpoint.png)
 
 6. Now you complete the rest of the routing query information. This query specifies the criteria for sending messages  to the Service Bus queue you just added as an endpoint. Fill in the fields on the screen. 
 
