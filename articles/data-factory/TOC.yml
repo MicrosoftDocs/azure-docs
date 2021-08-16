@@ -1,3 +1,4 @@
+items: 
 - name: Data Factory Documentation
   href: index.yml
 - name: Switch to version 1 documentation
@@ -6,7 +7,7 @@
   items:
   - name: Introduction to Data Factory
     href: introduction.md
-  - name: What's New in Azure Data Factory
+  - name: What's new in Azure Data Factory
     href: whats-new.md
   - name: Compare current version to version 1
     href: compare-versions.md
@@ -162,7 +163,7 @@
   - name: Lineage
     items:
     - name: Push Data Factory lineage data to Azure Purview
-      href: turorial-push-lineage-to-purview.md
+      href: tutorial-push-lineage-to-purview.md
   - name: End-to-end labs
     items:
     - name: Data integration using data factory and data share
@@ -716,8 +717,11 @@
         - name: Automation scripts of self-hosted integration runtime
           href: self-hosted-integration-runtime-automation-scripts.md
           displayName: self hosted
-        - name: Run Self-Hosted Integration Runtime in Windows container
+        - name: Run self-Hosted Integration Runtime in Windows container
           href: how-to-run-self-hosted-integration-runtime-in-windows-container.md
+          displayName: self hosted
+        - name: Diagnostic tool for self-hosted integration runtime
+          href: self-hosted-integration-runtime-diagnostic-tool.md
           displayName: self hosted
       displayName: self hosted, runtime
     - name: Azure-SSIS integration runtime
@@ -910,6 +914,8 @@
     href: policy-reference.md
   - name: Azure CLI
     href: /cli/azure/datafactory
+  - name: Compute optimized data flows retired
+    href: compute-optimized-data-flow-retire.md
 - name: Resources
   items:
   - name: Whitepapers

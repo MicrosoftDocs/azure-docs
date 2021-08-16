@@ -63,11 +63,11 @@ It may take up to 20 minutes until your logs start to appear in Log Analytics.
 
 In this document, you learned how to connect Zimperium Mobile Threat Defense to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
 
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).
 
-- [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
+- [Use workbooks](/azure/sentinel/articles/sentinel/monitor-your-data.md) to monitor your data.
 
 To learn more about Zimperium, see the following:
 
@@ -76,4 +76,3 @@ To learn more about Zimperium, see the following:
 - [Zimperium Mobile Security Blog](https://blog.zimperium.com)
 
 - [Zimperium Customer Support Portal](https://support.zimperium.com)
-

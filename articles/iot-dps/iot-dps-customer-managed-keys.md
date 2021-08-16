@@ -1,13 +1,13 @@
 ---
 title: Azure Device Provisioning Service data encryption at rest via customer-managed keys| Microsoft Docs
 description: Encryption of data at rest with customer-managed keys for Device Provisioning Service
-author: lizross
+author: wesmc7777
 manager: nberdy
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
 ms.date: 02/24/2020
-ms.author: lizross
+ms.author: wesmc
 ---
 
 # Encryption of data at rest with customer-managed keys for Device Provisioning Service

@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 09/22/2020
+ms.date: 07/27/2021
 #Customer intent: As a data scientist, I want to understand the purpose of a workspace for Azure Machine Learning.
 ---
 
@@ -17,7 +17,7 @@ ms.date: 09/22/2020
 
 The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning.  The workspace keeps a history of all training runs, including logs, metrics, output, and a snapshot of your scripts. You use this information to determine which training run produces the best model.  
 
-Once you have a model you like, you register it with the workspace. You then use the registered model and scoring scripts to deploy to Azure Container Instances, Azure Kubernetes Service, or to a field-programmable gate array (FPGA) as a REST-based HTTP endpoint. You can also deploy the model to an Azure IoT Edge device as a module.
+Once you have a model you like, you register it with the workspace. You then use the registered model and scoring scripts to deploy to Azure Container Instances, Azure Kubernetes Service, or to a field-programmable gate array (FPGA) as a REST-based HTTP endpoint.
 
 ## Taxonomy 
 
@@ -140,7 +140,7 @@ To learn more about planning a workspace for your organization's requirements, s
 
 To get started with Azure Machine Learning, see:
 
-+ [Azure Machine Learning overview](overview-what-is-azure-ml.md)
++ [What is Azure Machine Learning?](overview-what-is-azure-machine-learning.md)
 + [Create and manage a workspace](how-to-manage-workspace.md)
 + [Tutorial: Get started with Azure Machine Learning](quickstart-create-resources.md)
 + [Tutorial: Create your first classification model with automated machine learning](tutorial-first-experiment-automated-ml.md) 

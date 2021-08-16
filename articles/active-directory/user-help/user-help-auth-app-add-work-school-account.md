@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 05/11/2021
+ms.date: 08/09/2021
 ms.author: curtand
 ms.reviewer: olhaun
 ---
@@ -41,11 +41,11 @@ To add an account by signing into your work or school account using your credent
 
    - If you don’t have enough authentication methods on your account to get a strong authentication token, you can't proceed to add an account.
 
-   - If you receive the message `You might be signing in from a location that is restricted by your admin`, your admin hasn't enabled this feature for you. You can try to set up your account by scanning a QR Code from the **Additional security verification** page or in [Security info](https://mysignins.microsoft.com/security-info).
+   - If you receive the message `You might be signing in from a location that is restricted by your admin`, your admin hasn't enabled this feature for you and probably set up a Security Information Registration Conditional Access policy. Contact the administrator for your work or school account to use this authentication method.
 
-1. If you are allowed by your admin to use phone sign-in using the Authenticator app, you'll be able to go through device registration to get set up for passwordless phone sign-in and Azure Multi-Factor Authentication (MFA). However, you'll still be able to set up MFA whether or not you are enabled for phone sign-in.
+1. If you are allowed by your admin to use phone sign-in using the Authenticator app, you'll be able to go through device registration to get set up for passwordless phone sign-in and Azure AD Multi-Factor Authentication. However, you'll still be able to set up multifactor authentication whether or not you are enabled for phone sign-in.
 
-1. At this point, you could be asked to scan a QR Code provided by your organization to set up an on-premises multi-factor authentication account in the app. You're required to do this only if your organization uses on-premises MFA Server.
+1. At this point, you might be asked to scan a QR Code provided by your organization to set up an on-premises multi-factor authentication account in the app. You're required to do this only if your organization uses on-premises MFA Server.
 
 1. On your device, tap the account and verify in the full-screen view that your account is correct. For additional security, the verification code changes every 30 seconds preventing someone from using a code multiple times.
 
@@ -65,7 +65,10 @@ To add an account by scanning a QR Code, do the following:
 1. Open the Microsoft Authenticator app, select the plus icon ![Select the plus icon on either iOS or Android devices](media/user-help-auth-app-add-work-school-account/plus-icon.png) and select **Add account**, and then select **Work or school account,** followed by **Scan a QR Code**.
    If you don't have an account set up in the Authenticator app, you'll see a large blue button that says **Add account**.
 
-If you aren't prompted to use your camera to scan a QR Code, in your phone's settings, ensure that the Authenticator app has access to the phone camera.
+If you aren't prompted to use your camera to scan a QR Code, in your phone's settings, ensure that the Authenticator app has access to the phone camera. After you add your account using a QR code, you can set up phone sign-in. If you receive the message "You might be signing in from a location that is restricted by your admin," your admin hasn't enabled this feature for you and probably set up a Security Information Registration Conditional Access policy. Contact the administrator for your work or school account to use this authentication method. If you *are* allowed by your admin to use phone sign-in using the Authenticator app, you'll be able to go through device registration to get set up for passwordless phone sign-in and Azure AD Multi-Factor Authentication.
+
+>[!Note]
+> For US government organizations, the only way that you can add a phone sign-in account is by adding it using the [Sign in with your credentials](#sign-in-with-your-credentials) option, instead of upgrading from a QR-code based account.
 
 ## Sign in on a remote computer
 

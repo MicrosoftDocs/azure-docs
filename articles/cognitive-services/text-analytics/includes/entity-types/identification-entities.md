@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include 
-ms.date: 04/16/2021
+ms.date: 08/11/2021
 ms.author: aahi
 ---
 
@@ -31,7 +31,7 @@ This category contains the following entity:
 
         American Banker Association (ABA) transit routing numbers. Also returned with `domain=phi`.
 
-        To get this entity category, add `ABARoutingNumber` to the `pii-categories` parameter. `ABARoutingNumber` will also be returned in the API response if detected.
+        To get this entity category, add `ABARoutingNumber` to the `piiCategories` parameter. `ABARoutingNumber` will also be returned in the API response if detected.
       
     :::column-end:::
     :::column span="2":::
@@ -59,7 +59,7 @@ This category contains the following entity:
 
         SWIFT codes for payment instruction information. Also returned with `domain=phi`.
 
-        To get this entity category, add `SWIFTCode` to the `pii-categories` parameter. `SWIFTCode` will be returned in the API response if detected.
+        To get this entity category, add `SWIFTCode` to the `piiCategories` parameter. `SWIFTCode` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="2":::
@@ -86,7 +86,7 @@ This category contains the following entity:
 
         Credit card numbers. Also returned with `domain=phi`.
 
-        To get this entity category, add `CreditCardNumber` to the `pii-categories` parameter. `CreditCardNumber` will be returned in the API response if detected.
+        To get this entity category, add `CreditCardNumber` to the `piiCategories` parameter. `CreditCardNumber` will be returned in the API response if detected.
 
     :::column-end:::
     :::column span="2":::
@@ -113,7 +113,7 @@ This category contains the following entity:
 
         IBAN codes for payment instruction information. Also returned with `domain=phi`.
 
-        To get this entity category, add `InternationlBankingAccountNumber` to the `pii-categories` parameter. `InternationlBankingAccountNumber` will be returned in the API response if detected.
+        To get this entity category, add `InternationalBankingAccountNumber` to the `piiCategories` parameter. `InternationalBankingAccountNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="2":::
@@ -146,7 +146,7 @@ The following entities are grouped and listed by country:
         **Details**
         Also returned with `domain=phi`.
         
-        To get this entity category, add `ARNationalIdentityNumber` to the `pii-categories` parameter. `ARNationalIdentityNumber` will be returned in the API response if detected.
+        To get this entity category, add `ARNationalIdentityNumber` to the `piiCategories` parameter. `ARNationalIdentityNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -170,7 +170,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
         **Details**
 
-        To get this entity category, add `ATIdentityCard` to the `pii-categories` parameter. `ATIdentityCard` will be returned in the API response if detected.
+        To get this entity category, add `ATIdentityCard` to the `piiCategories` parameter. `ATIdentityCard` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -188,7 +188,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `ATTaxIdentificationNumber` to the `pii-categories` parameter. `ATTaxIdentificationNumber` will be returned in the API response if detected.
+        To get this entity category, add `ATTaxIdentificationNumber` to the `piiCategories` parameter. `ATTaxIdentificationNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -205,7 +205,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `ATValueAddedTaxNumber` to the `pii-categories` parameter. `ATValueAddedTaxNumber` will be returned in the API response if detected.
+        To get this entity category, add `ATValueAddedTaxNumber` to the `piiCategories` parameter. `ATValueAddedTaxNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -229,7 +229,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
         **Details**
 
-        To get this entity category, add `AUDriversLicenseNumber` to the `pii-categories` parameter. `AUDriversLicenseNumber` will be returned in the API response if detected.
+        To get this entity category, add `AUDriversLicenseNumber` to the `piiCategories` parameter. `AUDriversLicenseNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -248,7 +248,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `AUBusinessNumber` to the `pii-categories` parameter. `AUBusinessNumber` will be returned in the API response if detected.
+        To get this entity category, add `AUBusinessNumber` to the `piiCategories` parameter. `AUBusinessNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -265,7 +265,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `AUCompanyNumber` to the `pii-categories` parameter. `AUCompanyNumber` will be returned in the API response if detected.
+        To get this entity category, add `AUCompanyNumber` to the `piiCategories` parameter. `AUCompanyNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -282,7 +282,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `AUDriversLicense` to the `pii-categories` parameter. `AUDriversLicense` will be returned in the API response if detected.
+        To get this entity category, add `AUDriversLicense` to the `piiCategories` parameter. `AUDriversLicense` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -300,7 +300,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `AUMedicalAccountNumber` to the `pii-categories` parameter. `AUMedicalAccountNumber` will be returned in the API response if detected.
+        To get this entity category, add `AUMedicalAccountNumber` to the `piiCategories` parameter. `AUMedicalAccountNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -318,7 +318,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `ATPassportNumber` to the `pii-categories` parameter. `ATPassportNumber` will be returned in the API response if detected.
+        To get this entity category, add `ATPassportNumber` to the `piiCategories` parameter. `ATPassportNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -335,7 +335,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `ATTaxIdentificationNumber` to the `pii-categories` parameter. `ATTaxIdentificationNumber` will be returned in the API response if detected.
+        To get this entity category, add `ATTaxIdentificationNumber` to the `piiCategories` parameter. `ATTaxIdentificationNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -358,7 +358,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
         **Details**
 
-        To get this entity category, add `BENationalNumber` to the `pii-categories` parameter. `BENationalNumber` will be returned in the API response if detected.
+        To get this entity category, add `BENationalNumber` to the `piiCategories` parameter. `BENationalNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -377,7 +377,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `BEValueAddedTaxNumber` to the `pii-categories` parameter. `BEValueAddedTaxNumber` will be returned in the API response if detected.
+        To get this entity category, add `BEValueAddedTaxNumber` to the `piiCategories` parameter. `BEValueAddedTaxNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -402,7 +402,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
         **Details**
 
-        To get this entity category, add `BRLegalEntityNumber` to the `pii-categories` parameter. `BRLegalEntityNumber` will be returned in the API response if detected.
+        To get this entity category, add `BRLegalEntityNumber` to the `piiCategories` parameter. `BRLegalEntityNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -421,7 +421,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `BRCPFNumber` to the `pii-categories` parameter. `BRCPFNumber` will be returned in the API response if detected.
+        To get this entity category, add `BRCPFNumber` to the `piiCategories` parameter. `BRCPFNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -439,7 +439,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `BRNationalIDRG` to the `pii-categories` parameter. `BRNationalIDRG` will be returned in the API response if detected.
+        To get this entity category, add `BRNationalIDRG` to the `piiCategories` parameter. `BRNationalIDRG` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -462,7 +462,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
         **Details**
 
-        To get this entity category, add `CABankAccountNumber` to the `pii-categories` parameter. `CABankAccountNumber` will be returned in the API response if detected.
+        To get this entity category, add `CABankAccountNumber` to the `piiCategories` parameter. `CABankAccountNumber` will be returned in the API response if detected.
     
         Also returned with `domain=phi`.
     :::column-end:::
@@ -482,7 +482,7 @@ The following entities are grouped and listed by country:
 
     :::column span="2":::
 
-        To get this entity category, add `CADriversLicenseNumber` to the `pii-categories` parameter. `CADriversLicenseNumber` will be returned in the API response if detected.
+        To get this entity category, add `CADriversLicenseNumber` to the `piiCategories` parameter. `CADriversLicenseNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -503,7 +503,7 @@ The following entities are grouped and listed by country:
 
     :::column span="2":::
 
-        To get this entity category, add `CAHealthServiceNumber` to the `pii-categories` parameter. `CAHealthServiceNumber` will be returned in the API response if detected.
+        To get this entity category, add `CAHealthServiceNumber` to the `piiCategories` parameter. `CAHealthServiceNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -522,7 +522,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `CAPassportNumber` to the `pii-categories` parameter. `CAPassportNumber` will be returned in the API response if detected.
+        To get this entity category, add `CAPassportNumber` to the `piiCategories` parameter. `CAPassportNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -539,7 +539,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `CAPersonalHealthIdentification` to the `pii-categories` parameter. `CAPersonalHealthIdentification` will be returned in the API response if detected.
+        To get this entity category, add `CAPersonalHealthIdentification` to the `piiCategories` parameter. `CAPersonalHealthIdentification` will be returned in the API response if detected.
 
         Also returned with `domain=phi`.
       
@@ -558,7 +558,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `CASocialInsuranceNumber` to the `pii-categories` parameter. `CASocialInsuranceNumber` will be returned in the API response if detected.
+        To get this entity category, add `CASocialInsuranceNumber` to the `piiCategories` parameter. `CASocialInsuranceNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -581,7 +581,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
         **Details**
 
-        To get this entity category, add `CLIdentityCardNumber` to the `pii-categories` parameter. `CLIdentityCardNumber` will be returned in the API response if detected.
+        To get this entity category, add `CLIdentityCardNumber` to the `piiCategories` parameter. `CLIdentityCardNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -605,7 +605,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
         **Details**
 
-        To get this entity category, add `CNResidentIdentityCardNumber` to the `pii-categories` parameter. `CNResidentIdentityCardNumber` will be returned in the API response if detected.
+        To get this entity category, add `CNResidentIdentityCardNumber` to the `piiCategories` parameter. `CNResidentIdentityCardNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -630,7 +630,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
         **Details**
 
-        To get this entity category, add `EUDebitCardNumber` to the `pii-categories` parameter. `EUDebitCardNumber` will be returned in the API response if detected.
+        To get this entity category, add `EUDebitCardNumber` to the `piiCategories` parameter. `EUDebitCardNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -649,7 +649,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `EUDriversLicenseNumber` to the `pii-categories` parameter. `EUDriversLicenseNumber` will be returned in the API response if detected.
+        To get this entity category, add `EUDriversLicenseNumber` to the `piiCategories` parameter. `EUDriversLicenseNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -667,7 +667,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `EUGPSCoordinates` to the `pii-categories` parameter. `EUGPSCoordinates` will be returned in the API response if detected.
+        To get this entity category, add `EUGPSCoordinates` to the `piiCategories` parameter. `EUGPSCoordinates` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -684,7 +684,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `EUNationalIdentificationNumber` to the `pii-categories` parameter. `EUNationalIdentificationNumber` will be returned in the API response if detected.
+        To get this entity category, add `EUNationalIdentificationNumber` to the `piiCategories` parameter. `EUNationalIdentificationNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -702,7 +702,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `EUPassportNumber` to the `pii-categories` parameter. `EUPassportNumber` will be returned in the API response if detected.
+        To get this entity category, add `EUPassportNumber` to the `piiCategories` parameter. `EUPassportNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -719,7 +719,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `EUSocialSecurityNumber` to the `pii-categories` parameter. `EUSocialSecurityNumber` will be returned in the API response if detected.
+        To get this entity category, add `EUSocialSecurityNumber` to the `piiCategories` parameter. `EUSocialSecurityNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -737,7 +737,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `EUTaxIdentificationNumber` to the `pii-categories` parameter. `EUTaxIdentificationNumber` will be returned in the API response if detected.
+        To get this entity category, add `EUTaxIdentificationNumber` to the `piiCategories` parameter. `EUTaxIdentificationNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -759,7 +759,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
         **Details**
 
-        To get this entity category, add `FRDriversLicenseNumber` to the `pii-categories` parameter. `FRDriversLicenseNumber` will be returned in the API response if detected.
+        To get this entity category, add `FRDriversLicenseNumber` to the `piiCategories` parameter. `FRDriversLicenseNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -778,7 +778,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `FRHealthInsuranceNumber` to the `pii-categories` parameter. `FRHealthInsuranceNumber` will be returned in the API response if detected.
+        To get this entity category, add `FRHealthInsuranceNumber` to the `piiCategories` parameter. `FRHealthInsuranceNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -795,7 +795,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `FRNationalID` to the `pii-categories` parameter. `FRNationalID` will be returned in the API response if detected.
+        To get this entity category, add `FRNationalID` to the `piiCategories` parameter. `FRNationalID` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -813,7 +813,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `FRPassportNumber` to the `pii-categories` parameter. `FRPassportNumber` will be returned in the API response if detected.
+        To get this entity category, add `FRPassportNumber` to the `piiCategories` parameter. `FRPassportNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -830,7 +830,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `FRSocialSecurityNumber` to the `pii-categories` parameter. `FRSocialSecurityNumber` will be returned in the API response if detected.
+        To get this entity category, add `FRSocialSecurityNumber` to the `piiCategories` parameter. `FRSocialSecurityNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -848,7 +848,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `FRTaxIdentificationNumber` to the `pii-categories` parameter. `FRTaxIdentificationNumber` will be returned in the API response if detected.
+        To get this entity category, add `FRTaxIdentificationNumber` to the `piiCategories` parameter. `FRTaxIdentificationNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -865,7 +865,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `FRValueAddedTaxNumber` to the `pii-categories` parameter. `FRValueAddedTaxNumber` will be returned in the API response if detected.
+        To get this entity category, add `FRValueAddedTaxNumber` to the `piiCategories` parameter. `FRValueAddedTaxNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -887,7 +887,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
         **Details**
 
-        To get this entity category, add `DEDriversLicenseNumber` to the `pii-categories` parameter. `DEDriversLicenseNumber` will be returned in the API response if detected.
+        To get this entity category, add `DEDriversLicenseNumber` to the `piiCategories` parameter. `DEDriversLicenseNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -906,7 +906,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `DEIdentityCardNumber` to the `pii-categories` parameter. `DEIdentityCardNumber` will be returned in the API response if detected.
+        To get this entity category, add `DEIdentityCardNumber` to the `piiCategories` parameter. `DEIdentityCardNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -924,7 +924,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `DEPassportNumber` to the `pii-categories` parameter. `DEPassportNumber` will be returned in the API response if detected.
+        To get this entity category, add `DEPassportNumber` to the `piiCategories` parameter. `DEPassportNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -941,7 +941,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `DETaxIdentificationNumber` to the `pii-categories` parameter. `DETaxIdentificationNumber` will be returned in the API response if detected.
+        To get this entity category, add `DETaxIdentificationNumber` to the `piiCategories` parameter. `DETaxIdentificationNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -959,7 +959,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
         **Details**
 
-        To get this entity category, add `DEValueAddedNumber` to the `pii-categories` parameter. `DEValueAddedNumber` will be returned in the API response if detected.
+        To get this entity category, add `DEValueAddedNumber` to the `piiCategories` parameter. `DEValueAddedNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -981,7 +981,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
         **Details**
 
-        To get this entity category, add `HKIdentityCardNumber` to the `pii-categories` parameter. `HKIdentityCardNumber` will be returned in the API response if detected.
+        To get this entity category, add `HKIdentityCardNumber` to the `piiCategories` parameter. `HKIdentityCardNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -1005,7 +1005,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
         **Details**
 
-        To get this entity category, add `HUPersonalIdentificationNumber` to the `pii-categories` parameter. `HUPersonalIdentificationNumber` will be returned in the API response if detected.
+        To get this entity category, add `HUPersonalIdentificationNumber` to the `piiCategories` parameter. `HUPersonalIdentificationNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -1023,7 +1023,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `HUTaxIdentificationNumber` to the `pii-categories` parameter. `HUTaxIdentificationNumber` will be returned in the API response if detected.
+        To get this entity category, add `HUTaxIdentificationNumber` to the `piiCategories` parameter. `HUTaxIdentificationNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -1040,7 +1040,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `HUValueAddedNumber` to the `pii-categories` parameter. `HUValueAddedNumber` will be returned in the API response if detected.
+        To get this entity category, add `HUValueAddedNumber` to the `piiCategories` parameter. `HUValueAddedNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -1062,7 +1062,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
         **Details**
 
-        To get this entity category, add `INPermanentAccount` to the `pii-categories` parameter. `INPermanentAccount` will be returned in the API response if detected.
+        To get this entity category, add `INPermanentAccount` to the `piiCategories` parameter. `INPermanentAccount` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -1082,7 +1082,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
         **Details**
 
-        To get this entity category, add `INUniqueIdentificationNumber` to the `pii-categories` parameter. `INUniqueIdentificationNumber` will be returned in the API response if detected.
+        To get this entity category, add `INUniqueIdentificationNumber` to the `piiCategories` parameter. `INUniqueIdentificationNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -1107,7 +1107,7 @@ The following entities are grouped and listed by country:
 
         **Details**
 
-        To get this entity category, add `IDIdentityCardNumber` to the `pii-categories` parameter. `IDIdentityCardNumber` will be returned in the API response if detected.
+        To get this entity category, add `IDIdentityCardNumber` to the `piiCategories` parameter. `IDIdentityCardNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -1131,7 +1131,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
         **Details**
 
-        To get this entity category, add `IEPersonalPublicServiceNumber` to the `pii-categories` parameter. `IEPersonalPublicServiceNumber` will be returned in the API response if detected.
+        To get this entity category, add `IEPersonalPublicServiceNumber` to the `piiCategories` parameter. `IEPersonalPublicServiceNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -1150,7 +1150,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `IEPersonalPublicServiceNumberV2` to the `pii-categories` parameter. `IEPersonalPublicServiceNumberV2` will be returned in the API response if detected.
+        To get this entity category, add `IEPersonalPublicServiceNumberV2` to the `piiCategories` parameter. `IEPersonalPublicServiceNumberV2` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -1173,7 +1173,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
         **Details**
 
-        To get this entity category, add `ILNationalID` to the `pii-categories` parameter. `ILNationalID` will be returned in the API response if detected.
+        To get this entity category, add `ILNationalID` to the `piiCategories` parameter. `ILNationalID` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -1191,7 +1191,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `ILBankAccountNumber` to the `pii-categories` parameter. `ILBankAccountNumber` will be returned in the API response if detected.
+        To get this entity category, add `ILBankAccountNumber` to the `piiCategories` parameter. `ILBankAccountNumber` will be returned in the API response if detected.
     
         Also returned with `domain=phi`.
     :::column-end:::
@@ -1214,7 +1214,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
         **Details**
 
-        To get this entity category, add `ITDriversLicenseNumber` to the `pii-categories` parameter. `ITDriversLicenseNumber` will be returned in the API response if detected.
+        To get this entity category, add `ITDriversLicenseNumber` to the `piiCategories` parameter. `ITDriversLicenseNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -1233,7 +1233,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `ITFiscalCode` to the `pii-categories` parameter. `ITFiscalCode` will be returned in the API response if detected.
+        To get this entity category, add `ITFiscalCode` to the `piiCategories` parameter. `ITFiscalCode` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -1250,7 +1250,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `ITValueAddedTaxNumber` to the `pii-categories` parameter. `ITValueAddedTaxNumber` will be returned in the API response if detected.
+        To get this entity category, add `ITValueAddedTaxNumber` to the `piiCategories` parameter. `ITValueAddedTaxNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -1273,7 +1273,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
         **Details**
 
-        To get this entity category, add `JPBankAccountNumber` to the `pii-categories` parameter. `JPBankAccountNumber` will be returned in the API response if detected.
+        To get this entity category, add `JPBankAccountNumber` to the `piiCategories` parameter. `JPBankAccountNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -1292,7 +1292,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `JPDriversLicenseNumber` to the `pii-categories` parameter. `JPDriversLicenseNumber` will be returned in the API response if detected.
+        To get this entity category, add `JPDriversLicenseNumber` to the `piiCategories` parameter. `JPDriversLicenseNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -1310,7 +1310,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `JPMyNumberPersonal` to the `pii-categories` parameter. `JPMyNumberPersonal` will be returned in the API response if detected.
+        To get this entity category, add `JPMyNumberPersonal` to the `piiCategories` parameter. `JPMyNumberPersonal` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -1327,7 +1327,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `JPMyNumberCorporate` to the `pii-categories` parameter. `JPMyNumberCorporate` will be returned in the API response if detected.
+        To get this entity category, add `JPMyNumberCorporate` to the `piiCategories` parameter. `JPMyNumberCorporate` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -1344,7 +1344,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `ITValueAddedTaxNumber` to the `pii-categories` parameter. `ITValueAddedTaxNumber` will be returned in the API response if detected.
+        To get this entity category, add `ITValueAddedTaxNumber` to the `piiCategories` parameter. `ITValueAddedTaxNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -1362,7 +1362,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `JPResidenceCardNumber` to the `pii-categories` parameter. `JPResidenceCardNumber` will be returned in the API response if detected.
+        To get this entity category, add `JPResidenceCardNumber` to the `piiCategories` parameter. `JPResidenceCardNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -1380,7 +1380,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `JPSocialInsuranceNumber` to the `pii-categories` parameter. `JPSocialInsuranceNumber` will be returned in the API response if detected.
+        To get this entity category, add `JPSocialInsuranceNumber` to the `piiCategories` parameter. `JPSocialInsuranceNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -1398,7 +1398,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `JPPassportNumber` to the `pii-categories` parameter. `JPPassportNumber` will be returned in the API response if detected.
+        To get this entity category, add `JPPassportNumber` to the `piiCategories` parameter. `JPPassportNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -1420,7 +1420,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
         **Details**
 
-        To get this entity category, add `LUNationalIdentificationNumberNatural` to the `pii-categories` parameter. `LUNationalIdentificationNumberNatural` will be returned in the API response if detected.
+        To get this entity category, add `LUNationalIdentificationNumberNatural` to the `piiCategories` parameter. `LUNationalIdentificationNumberNatural` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -1438,7 +1438,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `LUNationalIdentificationNumberNonNatural` to the `pii-categories` parameter. `LUNationalIdentificationNumberNonNatural` will be returned in the API response if detected.
+        To get this entity category, add `LUNationalIdentificationNumberNonNatural` to the `piiCategories` parameter. `LUNationalIdentificationNumberNonNatural` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -1460,7 +1460,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
         **Details**
 
-        To get this entity category, add `MTIdentityCardNumber` to the `pii-categories` parameter. `MTIdentityCardNumber` will be returned in the API response if detected.
+        To get this entity category, add `MTIdentityCardNumber` to the `piiCategories` parameter. `MTIdentityCardNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -1478,7 +1478,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `MTTaxIDNumber` to the `pii-categories` parameter. `MTTaxIDNumber` will be returned in the API response if detected.
+        To get this entity category, add `MTTaxIDNumber` to the `piiCategories` parameter. `MTTaxIDNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -1501,7 +1501,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
         **Details**
 
-        To get this entity category, add `NZBankAccountNumber` to the `pii-categories` parameter. `NZBankAccountNumber` will be returned in the API response if detected.
+        To get this entity category, add `NZBankAccountNumber` to the `piiCategories` parameter. `NZBankAccountNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -1519,7 +1519,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `NZDriversLicenseNumber` to the `pii-categories` parameter. `NZDriversLicenseNumber` will be returned in the API response if detected.
+        To get this entity category, add `NZDriversLicenseNumber` to the `piiCategories` parameter. `NZDriversLicenseNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -1536,7 +1536,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `NZInlandRevenueNumber` to the `pii-categories` parameter. `NZInlandRevenueNumber` will be returned in the API response if detected.
+        To get this entity category, add `NZInlandRevenueNumber` to the `piiCategories` parameter. `NZInlandRevenueNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -1553,7 +1553,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `NZMinistryOfHealthNumber` to the `pii-categories` parameter. `NZMinistryOfHealthNumber` will be returned in the API response if detected.
+        To get this entity category, add `NZMinistryOfHealthNumber` to the `piiCategories` parameter. `NZMinistryOfHealthNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -1571,7 +1571,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `NZSocialWelfareNumber` to the `pii-categories` parameter. `NZSocialWelfareNumber` will be returned in the API response if detected.
+        To get this entity category, add `NZSocialWelfareNumber` to the `piiCategories` parameter. `NZSocialWelfareNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -1594,7 +1594,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
         **Details**
 
-        To get this entity category, add `PHUnifiedMultiPurposeIDNumber` to the `pii-categories` parameter. `PHUnifiedMultiPurposeIDNumber` will be returned in the API response if detected.
+        To get this entity category, add `PHUnifiedMultiPurposeIDNumber` to the `piiCategories` parameter. `PHUnifiedMultiPurposeIDNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -1618,7 +1618,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
         **Details**
 
-        To get this entity category, add `PTCitizenCardNumber` to the `pii-categories` parameter. `PTCitizenCardNumber` will be returned in the API response if detected.
+        To get this entity category, add `PTCitizenCardNumber` to the `piiCategories` parameter. `PTCitizenCardNumber` will be returned in the API response if detected.
           
         Also returned with `domain=phi`.
     :::column-end:::
@@ -1637,7 +1637,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `PTTaxIdentificationNumber` to the `pii-categories` parameter. `PTTaxIdentificationNumber` will be returned in the API response if detected.
+        To get this entity category, add `PTTaxIdentificationNumber` to the `piiCategories` parameter. `PTTaxIdentificationNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -1660,7 +1660,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
         **Details**
 
-        To get this entity category, add `PTTaxIdentificationNumber` to the `pii-categories` parameter. `PTTaxIdentificationNumber` will be returned in the API response if detected.
+        To get this entity category, add `PTTaxIdentificationNumber` to the `piiCategories` parameter. `PTTaxIdentificationNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -1684,7 +1684,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
         **Details**
 
-        To get this entity category, add `ZAIdentificationNumber` to the `pii-categories` parameter. `ZAIdentificationNumber` will be returned in the API response if detected.
+        To get this entity category, add `ZAIdentificationNumber` to the `piiCategories` parameter. `ZAIdentificationNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -1709,7 +1709,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
         **Details**
 
-        To get this entity category, add `KRResidentRegistrationNumber` to the `pii-categories` parameter. `KRResidentRegistrationNumber` will be returned in the API response if detected.
+        To get this entity category, add `KRResidentRegistrationNumber` to the `piiCategories` parameter. `KRResidentRegistrationNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -1733,7 +1733,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
         **Details**
 
-        To get this entity category, add `ESDNI` to the `pii-categories` parameter. `ESDNI` will be returned in the API response if detected.
+        To get this entity category, add `ESDNI` to the `piiCategories` parameter. `ESDNI` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -1751,7 +1751,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `ESSocialSecurityNumber` to the `pii-categories` parameter. `ESSocialSecurityNumber` will be returned in the API response if detected.
+        To get this entity category, add `ESSocialSecurityNumber` to the `piiCategories` parameter. `ESSocialSecurityNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -1769,7 +1769,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `ESTaxIdentificationNumber` to the `pii-categories` parameter. `ESTaxIdentificationNumber` will be returned in the API response if detected.
+        To get this entity category, add `ESTaxIdentificationNumber` to the `piiCategories` parameter. `ESTaxIdentificationNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -1791,7 +1791,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
         **Details**
 
-        To get this entity category, add `CHSocialSecurityNumber` to the `pii-categories` parameter. `CHSocialSecurityNumber` will be returned in the API response if detected.
+        To get this entity category, add `CHSocialSecurityNumber` to the `piiCategories` parameter. `CHSocialSecurityNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -1815,7 +1815,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
         **Details**
 
-        To get this entity category, add `TWNationalID` to the `pii-categories` parameter. `TWNationalID` will be returned in the API response if detected.
+        To get this entity category, add `TWNationalID` to the `piiCategories` parameter. `TWNationalID` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -1834,7 +1834,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `TWResidentCertificate` to the `pii-categories` parameter. `TWResidentCertificate` will be returned in the API response if detected.
+        To get this entity category, add `TWResidentCertificate` to the `piiCategories` parameter. `TWResidentCertificate` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -1852,7 +1852,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `TWPassportNumber` to the `pii-categories` parameter. `TWPassportNumber` will be returned in the API response if detected.
+        To get this entity category, add `TWPassportNumber` to the `piiCategories` parameter. `TWPassportNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -1874,7 +1874,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
         **Details**
 
-        To get this entity category, add `UKDriversLicenseNumber` to the `pii-categories` parameter. `UKDriversLicenseNumber` will be returned in the API response if detected.
+        To get this entity category, add `UKDriversLicenseNumber` to the `piiCategories` parameter. `UKDriversLicenseNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -1894,7 +1894,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `UKNationalInsuranceNumber` to the `pii-categories` parameter. `UKNationalInsuranceNumber` will be returned in the API response if detected.
+        To get this entity category, add `UKNationalInsuranceNumber` to the `piiCategories` parameter. `UKNationalInsuranceNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -1912,7 +1912,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `UKNationalHealthNumber` to the `pii-categories` parameter. `UKNationalHealthNumber` will be returned in the API response if detected.
+        To get this entity category, add `UKNationalHealthNumber` to the `piiCategories` parameter. `UKNationalHealthNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -1930,7 +1930,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `UKNationalInsuranceNumber` to the `pii-categories` parameter. `UKNationalInsuranceNumber` will be returned in the API response if detected.
+        To get this entity category, add `UKNationalInsuranceNumber` to the `piiCategories` parameter. `UKNationalInsuranceNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -1948,7 +1948,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `USUKPassportNumber` to the `pii-categories` parameter. `USUKPassportNumber` will be returned in the API response if detected.
+        To get this entity category, add `USUKPassportNumber` to the `piiCategories` parameter. `USUKPassportNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -1965,7 +1965,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `UKUniqueTaxpayerNumber` to the `pii-categories` parameter. `UKUniqueTaxpayerNumber` will be returned in the API response if detected.
+        To get this entity category, add `UKUniqueTaxpayerNumber` to the `piiCategories` parameter. `UKUniqueTaxpayerNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -1988,7 +1988,7 @@ The following entities are grouped and listed by country:
     :::column span="2":::
         **Details**
 
-        To get this entity category, add `USSocialSecurityNumber` to the `pii-categories` parameter. `USSocialSecurityNumber` will be returned in the API response if detected.
+        To get this entity category, add `USSocialSecurityNumber` to the `piiCategories` parameter. `USSocialSecurityNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -2007,7 +2007,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `USDriversLicenseNumber` to the `pii-categories` parameter. `USDriversLicenseNumber` will be returned in the API response if detected.
+        To get this entity category, add `USDriversLicenseNumber` to the `piiCategories` parameter. `USDriversLicenseNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -2025,7 +2025,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `USUKPassportNumber` to the `pii-categories` parameter. `USUKPassportNumber` will be returned in the API response if detected.
+        To get this entity category, add `USUKPassportNumber` to the `piiCategories` parameter. `USUKPassportNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -2042,7 +2042,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `USIndividualTaxpayerIdentification` to the `pii-categories` parameter. `USIndividualTaxpayerIdentification` will be returned in the API response if detected.
+        To get this entity category, add `USIndividualTaxpayerIdentification` to the `piiCategories` parameter. `USIndividualTaxpayerIdentification` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="":::
@@ -2059,7 +2059,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `DrugEnforcementAgencyNumber` to the `pii-categories` parameter. `DrugEnforcementAgencyNumber` will be returned in the API response if detected.
+        To get this entity category, add `DrugEnforcementAgencyNumber` to the `piiCategories` parameter. `DrugEnforcementAgencyNumber` will be returned in the API response if detected.
       
         Also returned with `domain=phi`.
     :::column-end:::
@@ -2077,7 +2077,7 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-        To get this entity category, add `USBankAccountNumber` to the `pii-categories` parameter. `USBankAccountNumber` will be returned in the API response if detected.
+        To get this entity category, add `USBankAccountNumber` to the `piiCategories` parameter. `USBankAccountNumber` will be returned in the API response if detected.
         
         Also returned with `domain=phi`.
     :::column-end:::

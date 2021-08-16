@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 08/09/2021
 ms.author: lajanuar
 ---
 
@@ -23,12 +23,12 @@ The Layout API extracts text, tables with table headers included, selection mark
 
 ![Layout example](./media/layout-demo.gif)
 
-## Try it out
+## Try it
 
 To try out the Form Recognizer Layout Service, go to the online sample UI tool:
 
 > [!div class="nextstepaction"]
-> [Try Form Recognizer](https://aka.ms/fott-2.1-ga)
+> [Try layout model](https://aka.ms/fott-2.1-ga "Start with the layout prebuilt model to extract data from your forms.")
 
 You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer Layout API.
 

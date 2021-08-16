@@ -12,7 +12,6 @@ ms.custom: include file
 ms.author: mikben
 ---
 
-[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-chat.md)]
 
 ## Sample Code
 Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/add-chat).
@@ -45,7 +44,7 @@ Open the Podfile, and add the following dependencies to the `ChatQuickstart` tar
 
 ```
 pod 'AzureCommunicationCommon', '~> 1.0'
-pod 'AzureCommunicationChat', '~> 1.0'
+pod 'AzureCommunicationChat', '~> 1.0.1'
 ```
 
 Install the dependencies with the following command: `pod install`. Note that this also creates an Xcode workspace.
