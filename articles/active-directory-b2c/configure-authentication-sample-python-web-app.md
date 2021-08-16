@@ -197,8 +197,8 @@ Open the *app_config.py* file. This file contains information about your Azure A
 
 |Key  |Value  |
 |---------|---------|
-|`ENDPOINT`| The URI of your web API (for example, https://localhost:44332/hello.)|
-|`SCOPE`| The web API [scopes](#configure-scopes) that you created.|
+|`ENDPOINT`| The URI of your web API (for example, https://localhost:44332/hello).|
+|`SCOPE`| The web API [scopes](#step-71-configure-scopes) that you created.|
 | | |
 
 Your final configuration file should look like the following Python code:
@@ -225,7 +225,7 @@ ENDPOINT = 'https://localhost:44332'
 SCOPE = ["https://contoso.onmicrosoft.com/api/demo.read", "https://contoso.onmicrosoft.com/api/demo.write"] 
 ```
 
-### Run the sample app
+### Step 7.5: Run the sample app
 
 1. In your console or terminal, switch to the directory that contains the sample. 
 1. Stop the app. and then rerun it.
@@ -233,7 +233,7 @@ SCOPE = ["https://contoso.onmicrosoft.com/api/demo.read", "https://contoso.onmic
 
     ![Screenshot showing how to call a web API.](./media/configure-authentication-sample-python-web-app/call-web-api.png)
 
-## Deploy your application 
+## Step 8: Deploy your application 
 
 In a production application, the app registration redirect URI is ordinarily a publicly accessible endpoint where your app is running, such as `https://contoso.com/getAToken`. 
 
