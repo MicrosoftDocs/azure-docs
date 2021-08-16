@@ -3,13 +3,13 @@ title: Create Keyword quickstart - Speech service
 titleSuffix: Azure Cognitive Services
 description: Your device is always listening for a keyword (or phrase). When the user says the keyword, the device sends all subsequent audio to the cloud, until the user stops speaking. Customizing your keyword is an effective way to differentiate your device and strengthen your branding.
 services: cognitive-services
-author: nitinme
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/03/2020
-ms.author: nitinme
+ms.author: lajanuar
 ms.custom: devx-track-csharp
 zone_pivot_groups: keyword-quickstart
 ---

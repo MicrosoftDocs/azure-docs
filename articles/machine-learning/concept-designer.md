@@ -1,14 +1,14 @@
 ---
 title: What is the Azure Machine Learning designer?
 titleSuffix: Azure Machine Learning
-description: Learn about the concepts that make up the drag-and-drop Azure Machine Learning designer.
+description: Learn what the Azure Machine Learning designer is and what tasks you can use it for. The drag-and-drop UI enables model training and deployment. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
-ms.date: 06/11/2021
+ms.date: 08/03/2021
 ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4
 ---
 
@@ -16,7 +16,8 @@ ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4
 
 Azure Machine Learning designer is a drag-and-drop interface used to train and deploy models in Azure Machine Learning. This article describes the tasks you can do in the designer.
 
-To get started with the designer, see [Tutorial: Train a no-code regression model](tutorial-designer-automobile-price-train-score.md)
+ - To get started with the designer, see [Tutorial: Train a no-code regression model](tutorial-designer-automobile-price-train-score.md). 
+ - To learn about the components available in the designer, see the [Algorithm and component reference](/azure/machine-learning/algorithm-module-reference/module-reference).
 
 ![Azure Machine Learning designer example](./media/concept-designer/designer-drag-and-drop.gif)
 
@@ -31,22 +32,22 @@ The designer uses your Azure Machine Learning [workspace](concept-workspace.md) 
 
 ## Model training and deployment
 
-The designer gives you a visual canvas to build, test, and deploy machine learning models. With the designer you can:
+Use a visual canvas to build an end-to-end machine learning workflow. Train, test, and deploy models all in the designer:
 
-+ Drag-and-drop [datasets](#datasets) and [modules](#module) onto the canvas.
-+ Connect the modules to create a [pipeline draft](#pipeline-draft).
-+ Submit a [pipeline run](#pipeline-run) using the compute resources in your Azure Machine Learning workspace.
-+ Convert your **training pipelines** to **inference pipelines**.
-+ [Publish](#publish) your pipelines to a REST **pipeline endpoint** to submit a new pipeline that runs with different parameters and datasets.
+1. Drag-and-drop [datasets](#datasets) and [modules](#module) onto the canvas.
+1. Connect the modules to create a [pipeline draft](#pipeline-draft).
+1. Submit a [pipeline run](#pipeline-run) using the compute resources in your Azure Machine Learning workspace.
+1. Convert your **training pipelines** to **inference pipelines**.
+1. [Publish](#publish) your pipelines to a REST **pipeline endpoint** to submit a new pipeline that runs with different parameters and datasets.
     + Publish a **training pipeline** to reuse a single pipeline to train multiple models while changing parameters and datasets.
     + Publish a **batch inference pipeline** to make predictions on new data by using a previously trained model.
-+ [Deploy](#deploy) a **real-time inference pipeline** to a real-time endpoint to make predictions on new data in real time.
+1. [Deploy](#deploy) a **real-time inference pipeline** to a real-time endpoint to make predictions on new data in real time.
 
 ![Workflow diagram for training, batch inference, and real-time inference in the designer](./media/concept-designer/designer-workflow-diagram.png)
 
 ## Pipeline
 
-A [pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) consists of datasets and analytical modules, which you connect. Pipelines have many uses: you can make a pipeline that trains a single model, or one that trains multiple models. You can create a pipeline that makes predictions in real time or in batch, or make a pipeline that only cleans data. Pipelines let you reuse your work and organize your projects.
+A [pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) consists of datasets and algorithmic modules, which you connect. Pipelines have many uses: you can make a pipeline that trains a single model, or one that trains multiple models. You can create a pipeline that makes predictions in real time or in batch, or make a pipeline that only cleans data. Pipelines let you reuse your work and organize your projects.
 
 ### Pipeline draft
 
@@ -63,19 +64,19 @@ When you're ready to run your pipeline draft, you submit a pipeline run.
 
 ### Pipeline run
 
-Each time you run a pipeline, the configuration of the pipeline and its results are stored in your workspace as a **pipeline run**. You can go back to any pipeline run to inspect it for troubleshooting or auditing purposes. **Clone** a pipeline run to create a new pipeline draft for you to edit.
+Each time you run a pipeline, the configuration of the pipeline and its results are stored in your workspace as a **pipeline run**. You can go back to any pipeline run to inspect it for troubleshooting or auditing. **Clone** a pipeline run to create a new pipeline draft for you to edit.
 
 Pipeline runs are grouped into [experiments](concept-azure-machine-learning-architecture.md#experiments) to organize run history. You can set the experiment for every pipeline run. 
 
 ## Datasets
 
-A machine learning dataset makes it easy to access and work with your data. Several sample datasets are included in the designer for you to experiment with. You can [register](how-to-create-register-datasets.md) more datasets as you need them.
+A machine learning dataset makes it easy to access and work with your data. Several [sample datasets](samples-designer.md#datasets) are included in the designer for you to experiment with. You can [register](how-to-create-register-datasets.md) more datasets as you need them.
 
 ## Module
 
 A module is an algorithm that you can perform on your data. The designer has several modules ranging from data ingress functions to training, scoring, and validation processes.
 
-A module may have a set of parameters that you can use to configure the module's internal algorithms. When you select a module on the canvas, the module's parameters are displayed in the Properties pane to the right of the canvas. You can modify the parameters in that pane to tune your model. You can set the compute resources for individual modules in the designer. 
+A module may have a set of parameters that you can use to configure the module's internal algorithms. When you select a module on the canvas, the module's parameters are displayed in the Properties pane to the right of the canvas. You can modify the parameters in that pane to tune your pipeline. You can set the compute resources for individual modules in the designer. 
 
 :::image type="content" source="./media/concept-designer/properties.png" alt-text="Module properties":::
 
@@ -89,7 +90,6 @@ Use compute resources from your workspace to run your pipeline and host your dep
 | Compute target | Training | Deployment |
 | ---- |:----:|:----:|
 | Azure Machine Learning compute | ✓ | |
-| Azure Machine Learning compute instance | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
 Compute targets are attached to your [Azure Machine Learning workspace](concept-workspace.md). You manage your compute targets in your workspace in the [Azure Machine Learning studio](https://ml.azure.com).
