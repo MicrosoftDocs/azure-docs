@@ -26,11 +26,11 @@ Connect-AzAccount
 Select-AzSubscription -Subscription "<sub name>"
 ```
 
-## Set up the network
+## Set up the network and policy
 
-First, create a resource group and a Virtual Network and then configure Azure Firewall policy
+First, create a resource group and a virtual network. Then create an Azure Firewall policy.
 
-## Create a resource group
+### Create a resource group
 
 The resource group contains all the resources used in this procedure.
 
@@ -38,13 +38,13 @@ The resource group contains all the resources used in this procedure.
 New-AzResourceGroup -Name Test-FWpolicy-RG -Location "East US"
 ```
 
-## Create a virtual network
+### Create a virtual network
 
 ```azurepowershell
 $ServerSubnet = New-AzVirtualNetworkSubnetConfig -Name subnet-1 -AddressPrefix 10.0.0.0/24
 $testVnet = New-AzVirtualNetwork -Name Test-FWPolicy-VNET -ResourceGroupName Test-FWPolicy-RG -Location "East US" -AddressPrefix 10.0.0.0/8 -Subnet $ServerSubnet
 ```
-## Create a firewall policy
+### Create a firewall policy
 
 ```azurepowershell
 New-AzFirewallPolicy -Name EUS-Policy -ResourceGroupName Test-FWPolicy-RG -Location "EAST US"
