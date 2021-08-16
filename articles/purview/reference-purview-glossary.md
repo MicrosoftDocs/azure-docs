@@ -35,7 +35,7 @@ An asset where Azure Purview extracts schema and applies classifications during 
 A regular expression included in a classification rule that represents the column names that you want to match.
 ## Contact
 An individual who is associated with an entity in the data catalog 
-## Control plane
+## Control plane operation
 Operations that manage resources in your subscription, such as role-based access control and Azure policy, that are sent to the Azure Resource Manager end point. 
 ## Credential
 A verification of identity or tool used in an access control system. Credentials can be used to authenticate an individual or group for the purpose of granting access to a data asset. 
@@ -45,7 +45,7 @@ Azure Purview features that enable customers to view and manage the metadata for
 Azure Purview features that enable customers to manage their data estate, such as scanning, lineage, and movement.
 ## Data pattern
 A regular expression that represents the data that is stored in a data field. For example, a data pattern for employee ID could be Employee{GUID}.
-## Data plane
+## Data plane operation
 An operation within a specific Azure Purview instance, such as editing an asset or creating a glossary term. Each instance has predefined roles, such as ""data reader"" and ""data curator"" that control which data plane operations a user can perform.
 ## Discovered asset
 An asset that Azure Purview identifies in a data source during the scanning process. The number of discovered assets includes all files or tables before resource set grouping.
