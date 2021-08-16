@@ -236,7 +236,7 @@ Before you create the credential, you need to first give the signed-in user the 
     ![Screenshot that shows the Add role assignment page in the Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
   >[!IMPORTANT]
-  >By default, container creators get the Owner role assigned. The Owner role isn't enough on its own. Your account needs the Storage Blob Data Reader role. For more information, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../../storage/common/storage-auth-aad-rbac-portal.md).
+  >By default, container creators get the Owner role assigned. The Owner role isn't enough on its own. Your account needs the Storage Blob Data Reader role. For more information, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../../storage/blobs/assign-azure-role-data-access.md).
 
 ## Set up Verifiable Credentials Preview
 
@@ -399,5 +399,3 @@ Now that you have the sample code that issues a verifiable credential from your 
 
 > [!div class="nextstepaction"]
 > [Tutorial - Issue and verify verifiable credentials by using your tenant](issue-verify-verifiable-credentials-your-tenant.md)
-
-

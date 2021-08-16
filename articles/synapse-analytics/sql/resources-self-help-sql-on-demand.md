@@ -37,7 +37,7 @@ If the issue still continues, create a [support ticket](../../azure-portal/suppo
 ### Query fails because file cannot be opened
 
 If your query fails with the error 'File cannot be opened because it does not exist or it is used by another process' and you're sure both file exist and it's not used by another process it means serverless SQL pool can't access the file. This problem usually happens because your Azure Active Directory identity doesn't have rights to access the file or because a firewall is blocking access to the file. By default, serverless SQL pool is trying to access the file using your Azure Active Directory identity. To resolve this issue, you need to have proper rights to access the file. Easiest way is to grant yourself 'Storage Blob Data Contributor' role on the storage account you're trying to query. 
-- [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/common/storage-auth-aad-rbac-portal.md). 
+- [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/blobs/assign-azure-role-data-access.md). 
 - [Visit Control storage account access for serverless SQL pool in Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
 
 #### Alternative to Storage Blob Data Contributor role
@@ -545,47 +545,20 @@ FORMAT='csv', FIELDQUOTE = '0x0b', FIELDTERMINATOR ='0x0b', ROWTERMINATOR = '0x0
 If this query fails, the caller does not have permission to read the underlying storage files. 
 
 Easiest way is to grant yourself 'Storage Blob Data Contributor' role on the storage account you're trying to query. 
-- [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/common/storage-auth-aad-rbac-portal.md). 
+- [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/blobs/assign-azure-role-data-access.md). 
 - [Visit Control storage account access for serverless SQL pool in Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
 
 ### Partitioning column returns NULL values
 
-If you are using views over the `OPENROWSET` function that read partitioned Delta Lake folder, you might get the value `NULL` instead of the actual column values for the partitioning columns. An example of a view that references `Year` and `Month` partitioning columns is shown in the following example:
+**Status**: Resolved
 
-```sql
-create or alter view test as
-select top 10 * 
-from openrowset(bulk 'https://storageaccount.blob.core.windows.net/path/to/delta/lake/folder',
-                format = 'delta') 
-     with (ID int, Year int, Month int, Temperature float) 
-                as rows
-```
-
-Due to the known issue, the `OPENROWSET` function with the `WITH` clause cannot read the values from the partitioning columns. The [partitioned views](create-use-views.md#delta-lake-partitioned-views) on Delta Lake should not have the `OPENROWSET` function with the `WITH` clause. You need to use the `OPENROWSET` function that doesn't have explicitly specified schema.
-
-**Workaround:** Remove the `WITH` clause from the `OPENROWSET` function that is used in the views - example:
-
-```sql
-create or alter view test as
-select top 10 * 
-from openrowset(bulk 'https://storageaccount.blob.core.windows.net/path/to/delta/lake/folder',
-                format = 'delta') 
-   --with (ID int, Year int, Month int, Temperature float) 
-                as rows
-```
+**Release**: July 2021
 
 ### Query failed because of a topology change or compute container failure
 
-Some Delta Lake queries on partitioned data sets might fail with this error message if your database collation is not `Latin1_General_100_BIN2_UTF8`. Create a database with `Latin1_General_100_BIN2_UTF8` collation and execute the queries on that database instead of master and other databases with the default collation.
+**Status**: Resolved
 
-```sql
-CREATE DATABASE mydb 
-    COLLATE Latin1_General_100_BIN2_UTF8;
-```
-
-The queries executed via master database are affected with this issue. This is not applicable on all queries that are reading partitioned data. The data sets partitioned by string columns are affected by this issue.
-
-**Workaround:** Execute the queries on a custom database with `Latin1_General_100_BIN2_UTF8` database collation.
+**Release**: July 2021
 
 ### Column of type 'VARCHAR' is not compatible with external data type 'Parquet column is of nested type'
 

@@ -195,6 +195,8 @@
       href: active-directory-deployment-checklist-p2.md
     - name: Azure Active Directory deployment plans
       href: active-directory-deployment-plans.md
+    - name: Azure Active Directory B2C deployment plans
+      href: azure-active-directory-b2c-deployment-plans.md
   - name: Data storage
     items:
     - name: Identity data storage for Europe

@@ -23,7 +23,7 @@ The [prebuilt Docker images for model inference](concept-prebuilt-docker-images-
 
 * [Pre-installed python packages](#preinstalled): You provide a directory containing preinstalled Python packages. During deployment, this directory is mounted into the container for your entry script (`score.py`) to use.
 
-    Use this approach __for production deployments__. Since the directory containing the packages is mounted to the image, it can be used even when your deployments don't have public internet access. We For example, when deployed into a secured Azure Virtual Network.
+    Use this approach __for production deployments__. Since the directory containing the packages is mounted to the image, it can be used even when your deployments don't have public internet access. For example, when deployed into a secured Azure Virtual Network.
 
 > [!IMPORTANT]
 > Using prebuilt docker images with Azure Machine Learning is currently in preview. Preview functionality is provided "as-is", with no guarantee of support or service level agreement. For more information, see the [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -168,6 +168,13 @@ Here are some things that may cause this problem:
 
 
 * For more information on how to load a registered or local model, see [Where and how to deploy](how-to-deploy-and-where.md?tabs=azcli#define-a-dummy-entry-script).
+
+## Bug Fixes
+
+### 2021-07-26
+
+* `AZUREML_EXTRA_REQUIREMENTS_TXT` and `AZUREML_EXTRA_PYTHON_LIB_PATH` are now always relative to the directory of the score script.
+For example, if the both the requirements.txt and score script is in **my_folder**, then `AZUREML_EXTRA_REQUIREMENTS_TXT` will need to be set to requirements.txt. No longer will `AZUREML_EXTRA_REQUIREMENTS_TXT` be set to **my_folder/requirements.txt**.
 
 ## Next steps
 

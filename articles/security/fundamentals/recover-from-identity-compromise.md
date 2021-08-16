@@ -38,7 +38,7 @@ If this has happened to your organization, you are in a race against the attacke
 
 - **Attackers with administrative control of an environment's identity infrastructure** can use that control to create, modify, or delete identities and identity permissions in that environment.
 
-    In an on-premises compromise, if trusted SAML token-signing certificates are *not* stored in an [HSM](/azure/key-vault/keys/hsm-protected-keys), the attack includes access to that trusted SAML token-signing certificate.
+    In an on-premises compromise, if trusted SAML token-signing certificates are *not* stored in an [HSM](../../key-vault/keys/hsm-protected-keys.md), the attack includes access to that trusted SAML token-signing certificate.
 
 - **Attackers can then use the certificate to forge SAML tokens** to impersonate any of the organization's existing users and accounts without requiring access to account credentials, and without leaving any traces.
 
@@ -85,7 +85,7 @@ We recommend that customers follow updates from system providers, including both
 
 Check for updates in the following Microsoft security products, and implement any recommended changes:
 
-- [Azure Sentinel](/azure/sentinel/)
+- [Azure Sentinel](../../sentinel/index.yml)
 - [Microsoft 365 security solutions and services](/microsoft-365/security/)
 - [Windows 10 Enterprise Security](/windows/security/)
 - [Microsoft Cloud App Security ](/cloud-app-security/)
@@ -94,14 +94,14 @@ Implementing new updates will help identify any prior campaigns and prevent futu
 
 Therefore, we recommend also taking the following actions:
 
-- Make sure that you've applied the [Azure security benchmark documentation](/security/benchmark/azure/), and are monitoring compliance via [Azure Security Center](/azure/security-center/).
+- Make sure that you've applied the [Azure security benchmark documentation](/security/benchmark/azure/), and are monitoring compliance via [Azure Security Center](../../security-center/index.yml).
 
-- Incorporate threat intelligence feeds into your SIEM, such as by configuring Microsoft 365 data connectors in [Azure Sentinel](/azure/sentinel/import-threat-intelligence).
+- Incorporate threat intelligence feeds into your SIEM, such as by configuring Microsoft 365 data connectors in [Azure Sentinel](../../sentinel/understand-threat-intelligence.md).
 
 For more information, see Microsoft's security documentation:
 
 - [Microsoft security documentation](/security/)
-- [Azure security documentation](/azure/security/)
+- [Azure security documentation](../index.yml)
 
 ## Investigate your environment
 
@@ -129,9 +129,9 @@ Microsoft's security services provide extensive resources for detailed investiga
 Investigate and review cloud environment logs  for suspicious actions and attacker indications of compromise. For example, check the following logs:
 
 - [Unified Audit Logs (UAL)](/powershell/module/exchange/search-unifiedauditlog)
-- [Azure Active Directory (Azure AD) logs](/azure/active-directory/reports-monitoring/overview-monitoring)
+- [Azure Active Directory (Azure AD) logs](../../active-directory/reports-monitoring/overview-monitoring.md)
 - [Microsoft Exchange on-premises logs](/exchange/mail-flow/transport-logs/transport-logs)
-- VPN logs, such as from [VPN Gateway](/azure/vpn-gateway/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log)
+- VPN logs, such as from [VPN Gateway](../../vpn-gateway/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md)
 - Engineering system logs
 - Antivirus and endpoint detection logs
 
@@ -174,8 +174,8 @@ Azure Sentinel has many built-in resources to help in your investigation, such a
 
 For more information, see:
 
-- [Visualize and analyze your environment](/azure/sentinel/quickstart-get-visibility)
-- [Detect threats out of the box](/azure/sentinel/tutorial-detect-threats-built-in).
+- [Visualize and analyze your environment](/azure/security/fundamentals/articles/sentinel/get-visibility.md)
+- [Detect threats out of the box](/azure/security/fundamentals/articles/sentinel/detect-threats-built-in.md).
 
 ### Monitoring with Microsoft 365 Defender
 
@@ -200,7 +200,7 @@ The following table describes more methods for using Azure Active directory logs
 
 |Method  |Description  |
 |---------|---------|
-|**Analyze risky sign-in events**     |  Azure Active Directory and its Identity Protection platform may generate risk events associated with the use of attacker-generated SAML tokens. <br><br>These events might be labeled as *unfamiliar properties*, *anonymous IP address*, *impossible travel*, and so on. <br><br>We recommend that you closely analyze all risk events associated with accounts that have administrative privileges, including any that may have been automatically been dismissed or remediated. For example, a risk event or an anonymous IP address might be automatically remediated because the user passed MFA. <br><br>Make sure to use [ADFS Connect Health](/azure/active-directory/hybrid/how-to-connect-health-adfs) so that all authentication events are visible in Azure AD. |
+|**Analyze risky sign-in events**     |  Azure Active Directory and its Identity Protection platform may generate risk events associated with the use of attacker-generated SAML tokens. <br><br>These events might be labeled as *unfamiliar properties*, *anonymous IP address*, *impossible travel*, and so on. <br><br>We recommend that you closely analyze all risk events associated with accounts that have administrative privileges, including any that may have been automatically been dismissed or remediated. For example, a risk event or an anonymous IP address might be automatically remediated because the user passed MFA. <br><br>Make sure to use [ADFS Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md) so that all authentication events are visible in Azure AD. |
 |**Detect domain authentication properties**     |  Any attempt by the attacker to manipulate domain authentication policies will be recorded in the Azure Active Directory Audit logs, and reflected in the Unified Audit log. <br><br> For example, review any events associated with **Set domain authentication** in the Unified Audit Log, Azure AD Audit logs, and / or your SIEM environment to verify that all activities listed were expected and planned.   |
 |**Detect credentials for OAuth applications**     |  Attackers who have gained control of a privileged account may search for an application with the ability to access any user's email in the organization, and then add attacker-controlled credentials to that application. <br><br>For example, you may want to search for any of the following activities, which would be consistent with attacker behavior: <br>- Adding or updating service principal credentials <br>- Updating application certificates and secrets <br>- Adding an app role assignment grant to a user <br>- Adding Oauth2PermissionGrant |
 |**Detect e-mail access by applications**     |  Search for access to email by applications in your environment. For example, use the [Microsoft 365 Advanced Auditing features](/microsoft-365/compliance/mailitemsaccessed-forensics-investigations) to investigate compromised accounts. |
@@ -224,7 +224,7 @@ We recommend the following actions to ensure your general security posture:
 
 - **Review [Microsoft Secure Score](/microsoft-365/security/mtp/microsoft-secure-score)** for security fundamentals recommendations customized for the Microsoft products and services you consume.
 
-- **Ensure that your organization has EDR and SIEM solutions in place**, such as [Microsoft 365 Defender for Endpoint](/microsoft-365/security/defender/microsoft-365-defender) and [Azure Sentinel](/azure/sentinel/overview).
+- **Ensure that your organization has EDR and SIEM solutions in place**, such as [Microsoft 365 Defender for Endpoint](/microsoft-365/security/defender/microsoft-365-defender) and [Azure Sentinel](../../sentinel/overview.md).
 
 - **Review Microsoft’s [Enterprise access model](/security/compass/privileged-access-access-model)**.
 
@@ -234,9 +234,9 @@ We recommend the following actions to ensure identity-related security posture:
 
 - **Review Microsoft's [Five steps to securing your identity infrastructure](steps-secure-identity.md)**, and prioritize the steps as appropriate for your identity architecture.
 
-- **[Consider migrating to Azure AD Security Defaults](/azure/active-directory/fundamentals/concept-fundamentals-security-defaults)** for your authentication policy.
+- **[Consider migrating to Azure AD Security Defaults](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md)** for your authentication policy.
 
-- **Eliminate your organization’s use of legacy authentication**, if systems or applications still require it. For more information, see [Block legacy authentication to Azure AD with Conditional Access](/azure/active-directory/conditional-access/block-legacy-authentication).
+- **Eliminate your organization’s use of legacy authentication**, if systems or applications still require it. For more information, see [Block legacy authentication to Azure AD with Conditional Access](../../active-directory/conditional-access/block-legacy-authentication.md).
 
     > [!NOTE]
     > The Exchange Team is planning to [disable Basic Authentication for the EAS, EWS, POP, IMAP, and RPS protocols](https://developer.microsoft.com/en-us/office/blogs/deferred-end-of-support-date-for-basic-authentication-in-exchange-online/) in the second half of 2021.
@@ -290,7 +290,7 @@ The following sections include the following types of recommendations for remedi
 
 If your organization has lost control of the token-signing certificates or federated trust, the most assured approach is to remove trust, and switch to cloud-mastered identity while remediating on-premises.
 
-Removing trust and switching to cloud-mastered identity requires careful planning and an in-depth understanding of the business operation effects of isolating identity. For more information, see [Protecting Microsoft 365 from on-premises attacks](/azure/active-directory/fundamentals/protect-m365-from-on-premises-attacks).
+Removing trust and switching to cloud-mastered identity requires careful planning and an in-depth understanding of the business operation effects of isolating identity. For more information, see [Protecting Microsoft 365 from on-premises attacks](../../active-directory/fundamentals/protect-m365-from-on-premises-attacks.md).
 
 ### Rotate your SAML token-signing certificate
 
@@ -380,7 +380,7 @@ If there was an attack, you don't want the attacker to retain access at all. Mak
 
     For more information, see:
 
-    - [Revoke user access in Azure Active Directory](/azure/active-directory/enterprise-users/users-revoke-access)
+    - [Revoke user access in Azure Active Directory](../../active-directory/enterprise-users/users-revoke-access.md)
     - [Revoke-AzureADUserAllRefreshToken PowerShell docs](/powershell/module/azuread/revoke-azureaduserallrefreshtoken)
 
 
@@ -389,7 +389,7 @@ If there was an attack, you don't want the attacker to retain access at all. Mak
 
 If, instead of [rotating your SAML token-signing certificate](#rotate-your-saml-token-signing-certificate), you decide to replace the ADFS servers with clean systems, you'll need to remove the existing ADFS from your environment, and then build a new one. 
 
-For more information, see [Remove a configuration](/azure/active-directory/cloud-provisioning/how-to-configure#remove-a-configuration). 
+For more information, see [Remove a configuration](../../active-directory/cloud-sync/how-to-configure.md#remove-a-configuration). 
 
 ### Cloud remediation activities
 
@@ -397,10 +397,10 @@ In addition to the recommendations listed earlier in this article, we also recom
 
 |Activity  |Description  |
 |---------|---------|
-|**Reset passwords**     |   Reset passwords on any [break-glass accounts](/azure/active-directory/roles/security-emergency-access) and reduce the number of break-glass accounts to the absolute minimum required.    |
+|**Reset passwords**     |   Reset passwords on any [break-glass accounts](../../active-directory/roles/security-emergency-access.md) and reduce the number of break-glass accounts to the absolute minimum required.    |
 |**Restrict privileged access accounts**     |    Ensure that service and user accounts with privileged access are cloud-only accounts, and do not use on-premise accounts that are synced or federated to Azure Active Directory.  |
 |**Enforce MFA**     | Enforce Multi-Factor Authentication (MFA) across all elevated users in the tenant. We recommend enforcing MFA across all users in the tenant.       |
-|**Limit administrative access**     |    Implement [Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure) (PIM) and conditional access to limit administrative access.  <br><br>For Microsoft 365 users, implement [Privileged Access Management](https://techcommunity.microsoft.com/t5/microsoft-security-and/privileged-access-management-in-office-365-is-now-generally/ba-p/261751) (PAM) to limit access to sensitive abilities, such as eDiscovery, Global Admin, Account Administration, and more.    |
+|**Limit administrative access**     |    Implement [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) (PIM) and conditional access to limit administrative access.  <br><br>For Microsoft 365 users, implement [Privileged Access Management](https://techcommunity.microsoft.com/t5/microsoft-security-and/privileged-access-management-in-office-365-is-now-generally/ba-p/261751) (PAM) to limit access to sensitive abilities, such as eDiscovery, Global Admin, Account Administration, and more.    |
 |**Review / reduce delegated permissions and consent grants**     |  Review and reduce all Enterprise Applications delegated permissions or [consent grants](/graph/auth-limit-mailbox-access) that allow any of the following functionalities: <br><br>- Modification of privileged users and roles <br>- Reading, sending email, or accessing all mailboxes <br>- Accessing OneDrive, Teams, or SharePoint content <br>- Adding Service Principals that can read/write to the directory <br>- Application Permissions versus Delegated Access       |
 |     |         |
 
@@ -438,7 +438,7 @@ In addition to the recommended actions listed above, we recommend that you consi
 
     For more information, see:
 
-    - [Revoke user access in an emergency in Azure Active Directory](/azure/active-directory/enterprise-users/users-revoke-access)
+    - [Revoke user access in an emergency in Azure Active Directory](../../active-directory/enterprise-users/users-revoke-access.md)
     - [Revoke-AzureADUserAllRefreshToken PowerShell documentation](/powershell/module/azuread/revoke-azureaduserallrefreshtoken)
 
 

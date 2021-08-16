@@ -1,7 +1,7 @@
 ---
 title: Index of policy samples
 description: Index of built-ins for Azure Policy. Categories Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 05/04/2021
+ms.date: 07/16/2021
 ms.topic: sample
 ---
 # Azure Policy Samples
@@ -41,6 +41,7 @@ The following are the [Regulatory Compliance](../concepts/regulatory-compliance.
 - [IRS 1075 September 2016](./irs-1075-sept2016.md)
 - [ISO 27001:2013](./iso-27001.md)
 - [New Zealand ISM Restricted](./new-zealand-ism.md)
+- [NIST SP 800-53 R5](./nist-sp-800-53-r5.md)
 - [NIST SP 800-53 R4](./nist-sp-800-53-r4.md)
 - [NIST SP 800-171 R2](./nist-sp-800-171-r2.md)
 - [UK OFFICIAL and UK NHS](./ukofficial-uknhs.md)

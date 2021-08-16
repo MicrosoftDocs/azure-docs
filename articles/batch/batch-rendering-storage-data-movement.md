@@ -13,9 +13,9 @@ ms.topic: how-to
 
 There are multiple options for making the scene and asset files available to the rendering applications on the pool VMs:
 
-* [Azure blob storage](../storage/blobs/storage-blobs-introduction.md):
+* [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md):
   * Scene and asset files are uploaded to blob storage from a local file system. When the application is run by a task, then the required files are copied from blob storage onto the VM so they can be accessed by the rendering application. The output files are written by the rendering application to the VM disk and then copied to blob storage.  If necessary, the output files can be downloaded from blob storage to a local file system.
-  * Azure blob storage is a simple and cost-effective option for smaller projects.  As all asset files are required on each pool VM, then once the number and size of asset files increases care needs to be taken to ensure the file transfers are as efficient as possible.  
+  * Azure Blob Storage is a simple and cost-effective option for smaller projects.  As all asset files are required on each pool VM, then once the number and size of asset files increases care needs to be taken to ensure the file transfers are as efficient as possible.  
 * Azure storage as a file system using [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md):
   * For Linux VMs, a storage account can be exposed and used as a file system when the blobfuse virtual file system driver is used.
   * This option has the advantage that it is very cost-effective, as no VMs are required for the file system, plus blobfuse caching on the VMs avoids repeated downloads of the same files for multiple jobs and tasks.  Data movement is also simple as the files are simply blobs and standard APIs and tools, such as azcopy, can be used to copy file between an on-premises file system and Azure storage.
@@ -25,7 +25,7 @@ There are multiple options for making the scene and asset files available to the
   * With a file system, files can be read or written directly to the file system or can be copied between file system and the pool VMs.
   * A shared file system allows a large number of assets shared between projects and jobs to be utilized, with rendering tasks only accessing what is required.
 
-## Using Azure blob storage
+## Using Azure Blob Storage
 
 A blob storage account or a general-purpose v2 storage account should be used.  These two storage account types can be configured with significantly higher limits compared to a general-purpose v1 storage account, as detailed in [this blog post](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).  When configured, the higher limits will enable much better performance and scalability, especially when there are many pool VMs accessing the storage account.
 
@@ -80,7 +80,7 @@ As files are simply blobs in Azure Storage, then standard blob APIs, tools, and 
 
 ## Using Azure Files with Windows VMs
 
-[Azure Files](../storage/files/storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the SMB protocol.  Azure Files is based on Azure blob storage; it is [cost-efficient](https://azure.microsoft.com/pricing/details/storage/files/) and can be configured with data replication to another region so globally redundant.  [Scale targets](../storage/files/storage-files-scale-targets.md#azure-files-scale-targets) should be reviewed to determine if Azure Files should be used given the forecast pool size and number of asset files.
+[Azure Files](../storage/files/storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the SMB protocol.  Azure Files is based on Azure Blob Storage; it is [cost-efficient](https://azure.microsoft.com/pricing/details/storage/files/) and can be configured with data replication to another region so globally redundant.  [Scale targets](../storage/files/storage-files-scale-targets.md#azure-files-scale-targets) should be reviewed to determine if Azure Files should be used given the forecast pool size and number of asset files.
 
 There is [documentation](../storage/files/storage-how-to-use-files-windows.md) covering how to mount an Azure File share.
 
@@ -127,6 +127,6 @@ Azure Files are supported by all the main APIs and tools that have Azure Storage
 
 For more information about the storage options see the in-depth documentation:
 
-* [Azure blob storage](../storage/blobs/storage-blobs-introduction.md)
+* [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)
 * [Blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md)
 * [Azure Files](../storage/files/storage-files-introduction.md)

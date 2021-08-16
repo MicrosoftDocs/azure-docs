@@ -37,11 +37,11 @@ highlightedContent:
       itemType: overview
       url: ./kubernetes/overview.md
     # Card
-    - title: Azure Arc-enabled data services (preview)
+    - title: Azure Arc-enabled data services 
       itemType: overview
       url: ./data/overview.md
     # Card
-    - title: SQL Server on Azure Arc-enabled servers (preview)
+    - title: SQL Server on Azure Arc-enabled servers
       itemType: overview
       url: /sql/sql-server/azure-arc/overview
 
@@ -64,7 +64,7 @@ conceptualContent:
           text: Admission control policies using Azure Policy
         - url: /sql/sql-server/azure-arc/overview
           itemType: overview
-          text: Enable Arc-enabled SQL Server (preview)
+          text: Connect Arc-enabled SQL Server
       # footerLink (optional)
       footerLink:
         url: ./servers/index.yml
@@ -89,7 +89,7 @@ conceptualContent:
         url: ./kubernetes/index.yml
         text: See more
     # Card
-    - title: Azure Arc-enabled data services (preview)
+    - title: Azure Arc-enabled data services 
       links:
         - url: ./data/install-client-tools.md
           itemType: deploy
@@ -125,7 +125,7 @@ conceptualContent:
           itemType: overview
           text: Azure Automation overview
     # Card
-    - title: SQL Server on Azure Arc-enabled servers (preview)
+    - title: Azure Arc-enabled SQL Server
       links:
         - url: /sql/sql-server/azure-arc/assess
           itemType: how-to-guide

@@ -1,7 +1,7 @@
 ---
 title: What Azure Backup Server V3 RTM can back up
 description: This article provides a protection matrix listing all workloads, data types, and installations that Azure Backup Serve V3 RTM protects.
-ms.date: 11/13/2018
+ms.date: 07/27/2021
 ms.topic: conceptual
 ---
 
@@ -72,7 +72,7 @@ The following matrix lists what can be protected with Azure Backup Server V3 RTM
 |Hyper-V host - MABS protection agent on Hyper-V host server, cluster, or VM|Windows Server 2008 R2 SP1 - Enterprise and Standard|Physical server<br /><br />On-premises Hyper-V virtual machine|V3, V2|Protect: Hyper-V computers, cluster shared volumes (CSVs)<br /><br />Recover: Virtual machine, Item-level recovery of files and folder, volumes, virtual hard drives|
 |Hyper-V host - MABS protection agent on Hyper-V host server, cluster, or VM|Windows Server 2008 SP2|Physical server<br /><br />On-premises Hyper-V virtual machine|Not supported|Protect: Hyper-V computers, cluster shared volumes (CSVs)<br /><br />Recover: Virtual machine, Item-level recovery of files and folder, volumes, virtual hard drives|
 |VMware VMs|VMware vCenter/vSphere ESX/ESXi  Licensed Version 5.5/6.0/6.5 |Physical server, <br/>On-premises Hyper-V VM, <br/> Windows VM in VMware|V3, V2|VMware VMs on cluster-shared volumes (CSVs), NFS, and SAN storage<br /> Item-level recovery of files and folders is available only for Windows VMs, VMware vApps are not supported.|
-|VMware VMs|[VMware vSphere Licensed Version 6.7](backup-azure-backup-server-vmware.md#vmware-vsphere-67) |Physical server, <br/>On-premises Hyper-V VM, <br/> Windows VM in VMware|V3|VMware VMs on cluster-shared volumes (CSVs), NFS, and SAN storage<br /> Item-level recovery of files and folders is available only for Windows VMs, VMware vApps are not supported.|
+|VMware VMs|[VMware vSphere Licensed version 6.7 and 7.0](backup-azure-backup-server-vmware.md#vmware-vsphere-67-and-70) |Physical server, <br/>On-premises Hyper-V VM, <br/> Windows VM in VMware|V3|VMware VMs on cluster-shared volumes (CSVs), NFS, and SAN storage<br /> Item-level recovery of files and folders is available only for Windows VMs, VMware vApps are not supported.|
 |Linux|Linux running as [Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) or [VMware](backup-azure-backup-server-vmware.md) guest|Physical server, <br/>On-premises Hyper-V VM, <br/> Windows VM in VMware|V3, V2|Hyper-V must be running on Windows Server 2012 R2 or Windows Server 2016. Protect: Entire virtual machine<br /><br />Recover: Entire virtual machine <br/><br/> Only file-consistent snapshots are supported. <br/><br/> For a complete list of supported Linux distributions and versions, see the article, [Linux on distributions endorsed by Azure](../virtual-machines/linux/endorsed-distros.md).|
 
 ## Azure ExpressRoute support

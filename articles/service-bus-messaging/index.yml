@@ -104,8 +104,6 @@ landingContent:
             url: service-bus-manage-with-ps.md        
           - text: Monitor Service Bus using Azure Monitor
             url: monitor-service-bus-reference.md
-          - text: Set up diagnostic logs
-            url: service-bus-diagnostic-logs.md
           - text: Suspend and reactivate messaging entities
             url: entity-suspend.md
           - text: Use Azure Resource Manager templates

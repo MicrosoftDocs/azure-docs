@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sagopal
 author: saachigopal
-ms.date: 10/20/2020
+ms.date: 08/11/2021
 ms.topic: conceptual
 ms.custom: how-to
 ---
@@ -16,7 +16,7 @@ ms.custom: how-to
 
 In this article, learn how to use a custom Docker image when you're training models with Azure Machine Learning. You'll use the example scripts in this article to classify pet images by creating a convolutional neural network. 
 
-Azure Machine Learning provides a default Docker base image. You can also use Azure Machine Learning environments to specify a different base image, such as one of the maintained [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers) or your own [custom image](how-to-deploy-custom-docker-image.md#create-a-custom-base-image). Custom base images allow you to closely manage your dependencies and maintain tighter control over component versions when running training jobs.
+Azure Machine Learning provides a default Docker base image. You can also use Azure Machine Learning environments to specify a different base image, such as one of the maintained [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers) or your own [custom image](./how-to-deploy-custom-container.md). Custom base images allow you to closely manage your dependencies and maintain tighter control over component versions when running training jobs.
 
 ## Prerequisites
 
@@ -83,7 +83,7 @@ It's also possible to use a custom Dockerfile. Use this approach if you need to 
 ```python 
 # Specify Docker steps as a string. 
 dockerfile = r"""
-FROM mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04
+FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210615.v1
 RUN echo "Hello from custom container!"
 """
 
@@ -98,8 +98,8 @@ fastai_env.docker.base_dockerfile = "./Dockerfile"
 
 >[!IMPORTANT]
 > Azure Machine Learning only supports Docker images that provide the following software:
-> * Ubuntu 16.04 or greater.
-> * Conda 4.5.# or greater.
+> * Ubuntu 18.04 or greater.
+> * Conda 4.7.# or greater.
 > * Python 3.6+.
 > * A POSIX compliant shell available at /bin/sh is required in any container image used for training. 
 
@@ -137,6 +137,11 @@ except ComputeTargetException:
 print(compute_target.get_status().serialize())
 ```
 
+
+>[!IMPORTANT]
+>Use CPU SKUs for any image build on compute. 
+
+
 ## Configure your training job
 
 For this tutorial, use the training script *train.py* on [GitHub](https://github.com/Azure/azureml-examples/blob/main/python-sdk/workflows/train/fastai/pets/src/train.py). In practice, you can take any custom training script and run it, as is, with Azure Machine Learning.
@@ -169,4 +174,4 @@ run.wait_for_completion(show_output=True)
 ## Next steps
 In this article, you trained a model by using a custom Docker image. See these other articles to learn more about Azure Machine Learning:
 * [Track run metrics](how-to-log-view-metrics.md) during training.
-* [Deploy a model](how-to-deploy-custom-docker-image.md) by using a custom Docker image.
+* [Deploy a model](./how-to-deploy-custom-container.md) by using a custom Docker image.

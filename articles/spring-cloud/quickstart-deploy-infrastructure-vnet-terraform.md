@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Provision Azure Spring Cloud using Terraform
 description: This quickstart shows you how to use Terraform to deploy a Spring Cloud cluster into an existing virtual network.
-author: aluna033
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.custom: devx-track-java
@@ -33,7 +33,7 @@ The configuration file used in this quickstart is from the [Azure Spring Cloud r
 
 ```hcl
 provider "azurerm" {
-    features {} 
+    features {}
 }
 
 resource "azurerm_resource_group" "sc_corp_rg" {
@@ -50,24 +50,24 @@ resource "azurerm_application_insights" "sc_app_insights" {
 }
 
 resource "azurerm_spring_cloud_service" "sc" {
-  name                = var.sc_service_name 
+  name                = var.sc_service_name
   resource_group_name = var.resource_group_name
   location            = var.location
-  
+
   network {
     app_subnet_id                   = "/subscriptions/${var.subscription}/resourceGroups/${var.azurespringcloudvnetrg}/providers/Microsoft.Network/virtualNetworks/${var.vnet_spoke_name}/subnets/${var.app_subnet_id}"
     service_runtime_subnet_id       = "/subscriptions/${var.subscription}/resourceGroups/${var.azurespringcloudvnetrg}/providers/Microsoft.Network/virtualNetworks/${var.vnet_spoke_name}/subnets/${var.service_runtime_subnet_id}"
     cidr_ranges                     = var.sc_cidr
   }
-  
+
   timeouts {
       create = "60m"
       delete = "2h"
   }
-  
+
   depends_on = [azurerm_resource_group.sc_corp_rg]
   tags = var.tags
-  
+
 }
 
 resource "azurerm_monitor_diagnostic_setting" "sc_diag" {
@@ -106,27 +106,19 @@ To apply the configuration, follow these steps:
 
    - A deployment location from the regions where Azure Spring Cloud is available, as shown in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud&regions=all). You'll need the short form of the location name. To get this value, use the following command to generate a list of Azure locations, then look up the **Name** value for the region you selected.
 
-      ```azurecli
-      az account list-locations --output table
-      ```
+   ```azurecli
+   az account list-locations --output table
+   ```
 
    - The name of the resource group you'll deploy to.
-
    - A name of your choice for the Spring Cloud Deployment.
-
    - The name of the virtual network resource group where you'll deploy your resources.
-
    - The name of the spoke virtual network (for example, *vnet-spoke*).
-
    - The name of the subnet to be used by the Spring Cloud App Service (for example, *snet-app*).
-
    - The name of the subnet to be used by the Spring Cloud runtime service (for example, *snet-runtime*).
-
    - The name of the Azure Log Analytics workspace.
-
    - The CIDR ranges from your virtual network to be used by Azure Spring Cloud (for example, *XX.X.X.X/16,XX.X.X.X/16,XX.X.X.X/16*).
-
-   - The key/value pairs to be applied as tags on all resources that support tags. For more information, see [Use tags to organize your Azure resources and management hierarchy](/azure/azure-resource-manager/management/tag-resources). 
+   - The key/value pairs to be applied as tags on all resources that support tags. For more information, see [Use tags to organize your Azure resources and management hierarchy](../azure-resource-manager/management/tag-resources.md).
 
 1. Run the following command to initialize the Terraform modules:
 
@@ -164,7 +156,7 @@ In this quickstart, you deployed an Azure Spring Cloud instance into an existing
 
 - Deploy one of the following sample applications from the locations below:
    - [Pet Clinic App with MySQL Integration](https://github.com/azure-samples/spring-petclinic-microservices) (Microservices with MySQL backend).
-   - [Simple Hello World](spring-cloud-quickstart.md?tabs=Azure-CLI&pivots=programming-language-java).
+   - [Simple Hello World](./quickstart.md?pivots=programming-language-java&tabs=Azure-CLI).
 - Use [custom domains](tutorial-custom-domain.md) with Azure Spring Cloud.
 - Expose Azure Spring Cloud applications to the internet using [Azure Application Gateway](expose-apps-gateway-azure-firewall.md).
 - View the secure end-to-end [Azure Spring Cloud reference architecture](reference-architecture.md), which is based on the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).

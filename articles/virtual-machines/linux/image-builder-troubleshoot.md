@@ -12,8 +12,18 @@ ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshoot Azure Image Builder Service
-
 This article helps you troubleshoot and resolve common issues you may encounter when using Azure Image Builder Service.
+
+## Prerequisites
+When you're creating a build, please ensure your build meets the following prerequisites:
+	
+- The Image Builder Service communicates to the build VM using WinRM or SSH, DO NOT disable these settings as part of the build.
+- Image Builder will create resources as part of the build, please verify Azure Policy does not prevent AIB from creating or using necessary resources.
+  - Create IT_ resource group
+  - Create storage account without firewall
+- Verify Azure Policy does not install unintended features on the build VM such as Azure Extensions.
+-	Ensure Image Builder has the correct permissions to read/write images and to connect to Azure storage. Please review the permissions documentation for [CLI](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-permissions-cli) or [PowerShell](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-permissions-powershell).
+- Image Builder will fail the build if the script(s)/in-line commands fails with errors (non-zero exit codes), ensure you have tested and verified custom scripts run without error (exit code 0) or require user input. For more info, see the following [documentation](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-virtual-desktop#tips-for-building-windows-images).
 
 AIB failures can happen in 2 areas:
 - Image Template submission

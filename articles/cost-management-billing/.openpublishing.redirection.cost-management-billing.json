@@ -1046,9 +1046,14 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/cost-management/costs/open-support-request.md",
+            "source_path_from_root": "/articles/cost-management-billing/costs/open-support-request.md",
             "redirect_url": "/azure/cost-management-billing/cost-management-billing-overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/understand/mca-faq.md",
+            "redirect_url": "/azure/cost-management-billing/microsoft-customer-agreement/microsoft-customer-agreement-faq",
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/cost-management/use-reports.md",

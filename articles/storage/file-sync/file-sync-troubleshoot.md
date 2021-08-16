@@ -330,8 +330,8 @@ To see these errors, run the **FileSyncErrorsReport.ps1** PowerShell script (loc
 > [!Note]  
 > If the FileSyncErrorsReport.ps1 script returns "There were no file errors found" or does not list per-item errors for the sync group, the cause is either:
 >
->- Cause 1: The last completed sync session did not have per-item errors. The portal should be updated soon to show 0 Files Not Syncing. 
->    - Check the [Event ID 9102](?tabs=server%252cazure-portal#broken-sync) in the Telemetry event log to confirm the PerItemErrorCount is 0. 
+>- Cause 1: The last completed sync session did not have per-item errors. The portal should be updated soon to show 0 Files Not Syncing. By default, the FileSyncErrorsReport.ps1 script will only show per-item errors for the last completed sync session. To view per-item errors for all sync sessions, use the -ReportAllErrors parameter.
+>    - Check the most recent [Event ID 9102](?tabs=server%252cazure-portal#broken-sync) in the Telemetry event log to confirm the PerItemErrorCount is 0. 
 >
 >- Cause 2: The ItemResults event log on the server wrapped due to too many per-item errors and the event log no longer contains errors for this sync group.
 >    - To prevent this issue, increase the ItemResults event log size. The ItemResults event log can be found under "Applications and Services Logs\Microsoft\FileSync\Agent" in Event Viewer. 
@@ -354,6 +354,7 @@ To see these errors, run the **FileSyncErrorsReport.ps1** PowerShell script (loc
 | 0x80c80205 | -2134375931 | ECS_E_SYNC_ITEM_SKIP | The file or directory was skipped but will be synced during the next sync session. If this error is reported when downloading the item, the file or directory name is more than likely invalid. | No action required if this error is reported when uploading the file. If the error is reported when downloading the file, rename the file or directory in question. See [Handling unsupported characters](?tabs=portal1%252cazure-portal#handling-unsupported-characters) for more information. |
 | 0x800700B7 | -2147024713 | ERROR_ALREADY_EXISTS | Creation of a file or directory cannot be synced because the item already exists in the destination and sync is not aware of the change. | No action required. Sync will stop logging this error once change detection runs on the destination and sync is aware of this new item. |
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | The file cannot be synced because the Azure file share limit is reached. | To resolve this issue, see [You reached the Azure file share storage limit](?tabs=portal1%252cazure-portal#-2134351810) section in the troubleshooting guide. |
+| 0x80c83008 | -2134364152 | ECS_E_CANNOT_CREATE_AZURE_STAGED_FILE | The file cannot be synced because the Azure file share limit is reached.  | To resolve this issue, see [You reached the Azure file share storage limit](?tabs=portal1%252cazure-portal#-2134351810) section in the troubleshooting guide. |
 | 0x80c8027C | -2134375812 | ECS_E_ACCESS_DENIED_EFS | The file is encrypted by an unsupported solution (like NTFS EFS). | Decrypt the file and use a supported encryption solution. For a list of support solutions, see the [Encryption](file-sync-planning.md#encryption) section of the planning guide. |
 | 0x80c80283 | -2160591491 | ECS_E_ACCESS_DENIED_DFSRRO | The file is located on a DFS-R read-only replication folder. | File is located on a DFS-R read-only replication folder. Azure Files Sync does not support server endpoints on DFS-R read-only replication folders. See [planning guide](file-sync-planning.md#distributed-file-system-dfs) for more information. |
 | 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | The file has a delete pending state. | No action required. File will be deleted once all open file handles are closed. |
@@ -415,6 +416,17 @@ Sync sessions may fail for various reasons including the server being restarted 
 | **Remediation required** | No |
 
 No action is required; the server will try again. If this error persists for several hours, create a support request.
+
+<a id="-2134364160"></a>**Sync failed because the operation was aborted**  
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c83000 |
+| **HRESULT (decimal)** | -2134364160 |
+| **Error string** | ECS_E_OPERATION_ABORTED |
+| **Remediation required** | No |
+
+No action is required. If this error persists for several hours, create a support request.
 
 <a id="-2134364043"></a>**Sync is blocked until change detection completes post restore**  
 
@@ -541,7 +553,14 @@ This error occurs if the Azure File Sync agent version installed on the server i
 | **Error string** | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED |
 | **Remediation required** | Yes |
 
-This error occurs when the Azure file share storage limit has been reached, which can happen if a quota is applied for an Azure file share or if the usage exceeds the limits for an Azure file share. For more information, see the [current limits for an Azure file share](../files/storage-files-scale-targets.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json).
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c80249 |
+| **HRESULT (decimal)** | -2134375863 |
+| **Error string** | ECS_E_NOT_ENOUGH_REMOTE_STORAGE |
+| **Remediation required** | Yes |
+
+Sync sessions fail with either of these errors when the Azure file share storage limit has been reached, which can happen if a quota is applied for an Azure file share or if the usage exceeds the limits for an Azure file share. For more information, see the [current limits for an Azure file share](../files/storage-files-scale-targets.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json).
 
 1. Navigate to the sync group within the Storage Sync Service.
 2. Select the cloud endpoint within the sync group.
@@ -730,7 +749,7 @@ This error occurs because the server endpoint deletion failed and the endpoint i
 | **Error string** | ECS_E_NOT_ENOUGH_LOCAL_STORAGE |
 | **Remediation required** | Yes |
 
-This error occurs because the volume has filled up. This error commonly occurs because files outside the server endpoint are using up space on the volume. Free up space on the volume by adding additional server endpoints, moving files to a different volume, or increasing the size of the volume the server endpoint is on.
+Sync sessions fail with one of these errors because the volume on the server has filled up. This error commonly occurs because files outside the server endpoint are using up space on the volume. Free up space on the volume by adding additional server endpoints, moving files to a different volume, or increasing the size of the volume the server endpoint is on.
 
 <a id="-2134364145"></a><a id="replica-not-ready"></a>**The service is not yet ready to sync with this server endpoint.**  
 
@@ -898,6 +917,17 @@ To resolve this issue, delete and recreate the sync group by performing the foll
 3. Delete the sync group.
 4. If cloud tiering was enabled on a server endpoint, delete the orphaned tiered files on the server by performing the steps documented in the [Tiered files are not accessible on the server after deleting a server endpoint](?tabs=portal1%252cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) section.
 5. Recreate the sync group.
+
+<a id="-2134375852"></a>**Sync detected the replica has been restored to an older state**  
+
+| Error | Code |
+|-|-|
+| **HRESULT** | 0x80c80254 |
+| **HRESULT (decimal)** | -2134375852 |
+| **Error string** | ECS_E_SYNC_REPLICA_BACK_IN_TIME |
+| **Remediation required** | No |
+
+No action is required. This error occurs because sync detected the replica has been restored to an older state. Sync will now enter a reconciliation mode, where it recreates the sync relationship by merging the contents of the Azure file share and the data on the server endpoint. When reconciliation mode is triggered, the process can be very time consuming depending upon the namespace size. Regular synchronization does not happen until the reconciliation finishes, and files that are different (last modified time or size) between the Azure file share and server endpoint will result in file conflicts.
 
 <a id="-2145844941"></a>**Sync failed because the HTTP request was redirected**  
 

@@ -2,7 +2,7 @@
 title: Custom topics in Azure Event Grid
 description: Describes custom topics in Azure Event Grid. 
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/27/2021
 ---
 
 # Custom topics in Azure Event Grid
@@ -62,6 +62,9 @@ The following sections provide links to tutorials to create custom topics using 
 |---------|---------|
 | [Resource Manager template: custom topic and WebHook endpoint](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventgrid/event-grid) | A Resource Manager template that creates a custom topic and subscription for that custom topic. It sends events to a WebHook. |
 | [Resource Manager template: custom topic and Event Hubs endpoint](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventgrid/event-grid-event-hubs-handler)| A Resource Manager template that creates a subscription for a custom topic. It sends events to an Azure Event Hubs. |
+
+> [!NOTE]
+> Azure Digital Twins can route event notifications to custom topics that you create with Event Grid. For more information, see [Manage endpoints and routes in Azure Digital Twins](../digital-twins/how-to-manage-routes.md).
 
 ## Next steps
 See the following articles: 

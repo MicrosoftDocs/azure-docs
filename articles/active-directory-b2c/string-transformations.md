@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/08/2021
+ms.date: 07/20/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -714,6 +714,44 @@ Use this claims transformation to parse the domain name after the @ symbol of th
   - **emailAddress**: joe@outlook.com
 - Output claims:
     - **domain**: outlook.com
+
+## SetClaimIfBooleansMatch
+
+Checks that a boolean claim is `true`, or `false`. If yes, sets the output claims with the value present in `outputClaimIfMatched` input parameter.
+
+| Item | TransformationClaimType | Data Type | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | claimToMatch | string | The claim type, which is to be checked. Null value throws an exception. |
+| InputParameter | matchTo | string | The value to be compared with `claimToMatch` input claim. Possible values: `true`, or `false`.  |
+| InputParameter | outputClaimIfMatched | string | The value to be set if input claim equals to the `matchTo` input parameter. |
+| OutputClaim | outputClaim | string | If the `claimToMatch` input claim equals to the `matchTo` input parameter, this output claim contains the value of `outputClaimIfMatched` input parameter. |
+
+For example, the following claims transformation checks if the value of **hasPromotionCode** claim is equal to `true`. If yes, return the value to *Promotion code not found*.
+
+```xml
+<ClaimsTransformation Id="GeneratePromotionCodeError" TransformationMethod="SetClaimIfBooleansMatch">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="hasPromotionCode" TransformationClaimType="claimToMatch" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="matchTo" DataType="string" Value="true" />
+    <InputParameter Id="outputClaimIfMatched" DataType="string" Value="Promotion code not found." />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="promotionCode" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### Example
+
+- Input claims:
+    - **claimToMatch**: true
+- Input parameters:
+    - **matchTo**: true
+    - **outputClaimIfMatched**: "Promotion code not found."
+- Output claims:
+    - **outputClaim**: "Promotion code not found."
 
 ## SetClaimsIfRegexMatch
 

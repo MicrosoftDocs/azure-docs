@@ -6,7 +6,7 @@ services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: how-to
-ms.date: 07/13/2021
+ms.date: 07/14/2021
 ms.author: allensu 
 ms.custom: devx-track-azurepowershell
 
@@ -42,7 +42,7 @@ $vnet = Get-AzVirtualNetwork @net
 $vnet | Set-AzVirtualNetwork
 ```
 ## Azure CLI
-This section describes how to disable subnet private endpoint policies using Azure CLI. Use [az network vnet subnet update](//cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) to disable the policy.
+This section describes how to disable subnet private endpoint policies using Azure CLI. Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) to disable the policy.
 
 ```azurecli
 az network vnet subnet update \ 

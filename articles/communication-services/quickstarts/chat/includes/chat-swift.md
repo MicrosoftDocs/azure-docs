@@ -12,7 +12,6 @@ ms.custom: include file
 ms.author: mikben
 ---
 
-[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-chat.md)]
 
 ## Sample Code
 Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/add-chat).
@@ -44,8 +43,8 @@ From the command line, go inside the root directory of the `ChatQuickstart` iOS 
 Open the Podfile, and add the following dependencies to the `ChatQuickstart` target:
 
 ```
-pod 'AzureCommunication', '~> 1.0.0-beta.11'
-pod 'AzureCommunicationChat', '~> 1.0.0-beta.11'
+pod 'AzureCommunicationCommon', '~> 1.0'
+pod 'AzureCommunicationChat', '~> 1.0.1'
 ```
 
 Install the dependencies with the following command: `pod install`. Note that this also creates an Xcode workspace.
@@ -61,7 +60,7 @@ In this quickstart, you add your code to `viewController`, and view the output i
 At the top of `viewController.swift`, import the `AzureCommunication` and `AzureCommunicatonChat` libraries:
 
 ```
-import AzureCommunication
+import AzureCommunicationCommon
 import AzureCommunicationChat
 ```
 
@@ -335,3 +334,5 @@ semaphore.wait()
 ## Run the code
 
 In Xcode hit the Run button to build and run the project. In the console you can view the output from the code and the logger output from the ChatClient.
+
+**Note:** Set `Build Settings > Build Options > Enable Bitcode` to `No`. Currently the AzureCommunicationChat SDK for iOS does not support enabling bitcode, the following [Github issue](https://github.com/Azure/azure-sdk-for-ios/issues/787) is tracking this.

@@ -6,6 +6,8 @@
       href: overview.md
     - name: Release notes
       href: release-notes.md
+    - name: Azure Arc validated partners
+      href: validation-program.md
     - name: Data collection and reporting
       href: privacy-data-collection-and-reporting.md
 - name: Quickstarts
@@ -38,7 +40,7 @@
             href: create-data-controller-indirect-azure-data-studio.md
           - name: Azure portal
             href: create-data-controller-indirect-azure-portal.md
-          - name: azdata CLI
+          - name: Azure (az) CLI
             href: create-data-controller-indirect-cli.md
           - name: Kubernetes tools
             href: create-data-controller-using-kubernetes-native-tools.md
@@ -118,24 +120,6 @@
           href: postgresql-hyperscale-server-group-placement-on-kubernetes-cluster-nodes.md
     - name: How-to
       items:
-        - name: Install tools
-          items:
-            - name: Azure Data CLI (azdata)
-              items:
-            - name: Install
-              href: /sql/azdata/install/deploy-install-azdata?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-            - name: macOS
-              href: /sql/azdata/install/deploy-install-azdata-macos?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-            - name: Windows
-              href: /sql/azdata/install/deploy-install-azdata-installer?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-            - name: Linux with apt
-              href: /sql/azdata/install/deploy-install-azdata-linux-package?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-            - name: Linux with yum
-              href: /sql/azdata/install/deploy-install-azdata-yum?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-            - name: Linux with zypper
-              href: /sql/azdata/install/deploy-install-azdata-zypper?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-            - name: Linux with pip
-              href: /sql/azdata/install/deploy-install-azdata-pip?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
         - name: Manage
           items:
             - name: Backup & restore
@@ -172,7 +156,7 @@
               href: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
         - name: Troubleshoot
           href: troubleshoot-postgresql-hyperscale-server-group.md
-- name: Azure Arc-enabled SQL Managed Instance (preview)
+- name: Azure Arc-enabled SQL Managed Instance
   items:
     - name: Overview
       items:
@@ -180,6 +164,8 @@
           href: managed-instance-overview.md
         - name: Features
           href: managed-instance-features.md
+        - name: Service tiers
+          href: service-tiers.md
     - name: Quickstarts
       items:
         - name: Create SQL Managed Instance
@@ -212,30 +198,34 @@
               href: restore-adventureworks-sample-db.md
 - name: Reference
   items:
-  - name: azdata
+  - name: Release version log
+    href: version-log.md
+  - name: az arcdata extension
     items:
-    - name: azdata
-      href: /sql/azdata/reference/reference-azdata?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-    - name: notebook
-      href: /sql/azdata/reference/reference-azdata-notebook?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-    - name: postgres
-      href: /sql/azdata/reference/reference-azdata-postgres?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-    - name: arc-postgres
-      href: /sql/azdata/reference/reference-azdata-arc-postgres?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-    - name: arc-postgres-backup
-      href: /sql/azdata/reference/reference-azdata-arc-postgres-backup?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-    - name: arc-postgres-endpoint
-      href: /sql/azdata/reference/reference-azdata-arc-postgres-endpoint?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-    - name: arc-postgres-server
-      href: /sql/azdata/reference/reference-azdata-arc-postgres-server?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-    - name: arc-postgres-server-backup
-      href: /sql/azdata/reference/reference-azdata-arc-postgres-server-backup?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-    - name: arc-postgres-server-config
-      href: /sql/azdata/reference/reference-azdata-arc-postgres-server-config?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-    - name: arc-resource
-      href: /sql/azdata/reference/reference-azdata-arc-resource?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
-    - name: arc-resource-kind
-      href: /sql/azdata/reference/reference-azdata-arc-resource-kind?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+    - name: Overview
+      href: ./reference/overview.md
+    - name: arcdata dc
+      href: ./reference/reference-az-arcdata-dc.md
+    - name: arcdata dc config
+      href: ./reference/reference-az-arcdata-dc-config.md
+    - name: arcdata dc endpoint
+      href: ./reference/reference-az-arcdata-dc-endpoint.md
+    - name: arcdata dc status
+      href: ./reference/reference-az-arcdata-dc-status.md
+    - name: arcdata resource-kind
+      href: ./reference/reference-az-arcdata-resource-kind.md
+    - name: postgres arc-server
+      href: ./reference/reference-az-postgres-arc-server.md
+    - name: postgres arc-server endpoint
+      href: ./reference/reference-az-postgres-arc-server-endpoint.md
+    - name: sql mi-arc
+      href: ./reference/reference-az-sql-mi-arc.md
+    - name: sql mi-arc endpoint
+      href: ./reference/reference-az-sql-mi-arc-endpoint.md
+    - name: sql mi-arc config
+      href: ./reference/reference-az-sql-mi-arc-config.md
+    - name: sql mi-arc dag
+      href: ./reference/reference-az-sql-mi-arc-dag.md
 - name: Resources
   items:
     - name: Plan for deployment

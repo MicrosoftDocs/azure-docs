@@ -8,6 +8,8 @@
     href: core/overview-iot-central-tour.md
   - name: Recent updates
     items:
+    - name: June 2021 new and updated features
+      href: https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-june-2021/
     - name: May 2021 new and updated features
       href: https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-may-2021/
     - name: April 2021 new and updated features
@@ -146,46 +148,14 @@
       href: core/concepts-app-templates.md
     - name: Industry specific application templates
       items:
-      - name: Retail
-        items:
-        - name: Overview
-          href: retail/overview-iot-central-retail.md
-        - name: In-store analytics checkout architecture
-          href: retail/store-analytics-architecture.md
-        - name: Smart inventory management architecture
-          href: retail/architecture-smart-inventory-management.md
-        - name: Connected logistics architecture
-          href: retail/architecture-connected-logistics.md
-        - name: Digital distribution center
-          href: retail/architecture-digital-distribution-center.md
-        - name: Micro-fulfillment center architecture
-          href: retail/architecture-micro-fulfillment-center.md
-        - name: Video analytics - object and motion detection
-          href: retail/architecture-video-analytics.md
-      - name: Energy
-        items:
-        - name: Overview
-          href: energy/overview-iot-central-energy.md
-        - name: Smart meter app architecture
-          href: energy/concept-iot-central-smart-meter-app.md
-        - name: Solar panel app architecture
-          href: energy/concept-iot-central-solar-panel-app.md
-      - name: Government
-        items:
-        - name: Overview
-          href: government/overview-iot-central-government.md
-        - name: Connected waste monitoring architecture
-          href: government/concepts-connectedwastemanagement-architecture.md 
-        - name: Water consumption monitoring architecture
-          href: government/concepts-waterconsumptionmonitoring-architecture.md 
-        - name: Water quality monitoring architecture
-          href: government/concepts-waterqualitymonitoring-architecture.md        
-      - name: Healthcare
-        items:
-        - name: Overview
-          href: healthcare/overview-iot-central-healthcare.md
-        - name: Continuous patient monitoring architecture
-          href: healthcare/concept-continuous-patient-monitoring-architecture.md
+      - name: Retail Overview
+        href: retail/overview-iot-central-retail.md
+      - name: Energy Overview
+        href: energy/overview-iot-central-energy.md
+      - name: Government Overview
+        href: government/overview-iot-central-government.md      
+      - name: Healthcare Overview
+        href: healthcare/overview-iot-central-healthcare.md
         
     - name: What are device templates?
       href: core/concepts-device-templates.md
@@ -250,8 +220,6 @@
           href: core/howto-connect-powerbi.md
         - name: Connect other IoT clouds
           href: core/howto-build-iotc-device-bridge.md
-        - name: Connect your application with Dynamics 365 Field Services
-          href: government/how-to-configure-connected-field-services.md
     - name: Use the REST API
       items:
         - name: Authenticate and authorize REST API calls
@@ -323,7 +291,7 @@
     - name: IoT solution accelerators
       href: ../iot-accelerators/index.yml
     - name: IoT Plug and Play
-      href: ../iot-pnp/index.yml
+      href: ../iot-develop/index.yml
     - name: Azure Maps
       href: ../azure-maps/index.yml
     - name: Time Series Insights

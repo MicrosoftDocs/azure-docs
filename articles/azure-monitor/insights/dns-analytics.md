@@ -31,7 +31,7 @@ The following table describes the connected sources that are supported by this s
 | **Connected source** | **Support** | **Description** |
 | --- | --- | --- |
 | [Windows agents](../agents/agent-windows.md) | Yes | The solution collects DNS information from Windows agents. |
-| [Linux agents](../vm/quick-collect-linux-computer.md) | No | The solution does not collect DNS information from direct Linux agents. |
+| [Linux agents](../vm/monitor-virtual-machine.md) | No | The solution does not collect DNS information from direct Linux agents. |
 | [System Center Operations Manager management group](../agents/om-agents.md) | Yes | The solution collects DNS information from agents in a connected Operations Manager management group. A direct connection from the Operations Manager agent to Azure Monitor is not required. Data is forwarded from the management group to the Log Analytics workspace. |
 | [Azure storage account](../essentials/resource-logs.md#send-to-log-analytics-workspace) | No | Azure storage isn't used by the solution. |
 

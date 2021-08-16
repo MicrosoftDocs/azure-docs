@@ -481,6 +481,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/defender-for-iot/organizations/resources-sensor-deployment-checklist.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-set-up-your-network#predeployment-checklist",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/defender-for-iot/troubleshoot-agent.md",
             "redirect_url": "/azure/defender-for-iot/device-builders/troubleshoot-agent",
             "redirect_document_id": false

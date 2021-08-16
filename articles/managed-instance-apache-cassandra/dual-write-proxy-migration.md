@@ -40,13 +40,13 @@ The following image illustrates the approach.
 
 We recommend selecting Azure Databricks runtime version 7.5, which supports Spark 3.0.
 
-:::image type="content" source="../cosmos-db/media/cassandra-migrate-cosmos-db-databricks/databricks-runtime.png" alt-text="Screenshot that shows finding the Azure Databricks runtime version.":::
+:::image type="content" source="../cosmos-db/cassandra/media/migrate-data-databricks/databricks-runtime.png" alt-text="Screenshot that shows finding the Azure Databricks runtime version.":::
 
 ## Add Spark dependencies
 
 You need to add the Apache Spark Cassandra Connector library to your cluster to connect to both native and Azure Cosmos DB Cassandra endpoints. In your cluster, select **Libraries** > **Install New** > **Maven**, and then add `com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.0.0` in Maven coordinates.
 
-:::image type="content" source="../cosmos-db/media/cassandra-migrate-cosmos-db-databricks/databricks-search-packages.png" alt-text="Screenshot that shows searching for Maven packages in Azure Databricks.":::
+:::image type="content" source="../cosmos-db/cassandra/media/migrate-data-databricks/databricks-search-packages.png" alt-text="Screenshot that shows searching for Maven packages in Azure Databricks.":::
 
 Select **Install**, and then restart the cluster when installation is complete.
 
@@ -143,7 +143,7 @@ java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar source-server destination-
 ```
 
 > [!NOTE]
-> Installing the proxy on cluster nodes does not require restart of the nodes. However, if you have many application clients and prefer to have the proxy running on the standard Cassandra port 9042 in order to eliminate any application-level code changes, you need to change the [Apache Cassandra default port](https://cassandra.apache.org/doc/latest/faq/#what-ports-does-cassandra-use). You then need to restart the nodes in your cluster, and configure the source port to be the new port that you defined for your source Cassandra cluster. 
+> Installing the proxy on cluster nodes does not require restart of the nodes. However, if you have many application clients and prefer to have the proxy running on the standard Cassandra port 9042 in order to eliminate any application-level code changes, you need to change the [Apache Cassandra default port](https://cassandra.apache.org/doc/latest/cassandra/faq/#what-ports-does-cassandra-use). You then need to restart the nodes in your cluster, and configure the source port to be the new port that you defined for your source Cassandra cluster. 
 >
 > In the following example, we change the source Cassandra cluster to run on port 3074, and we start the cluster on port 9042:
 >

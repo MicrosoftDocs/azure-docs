@@ -19,7 +19,7 @@ groups:
   - id: url-test-tool-curl
     title: cURL
   - id: url-test-tool-postman
-    title: Postman  
+    title: Postman
 #Owner: kraigb
 - id: python-frameworks-01
   title: Web framework
@@ -1261,6 +1261,19 @@ groups:
   pivots:
   - id: programming-language-ansi-c
     title: C
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-nodejs
+    title: Node.js
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
+- id: iot-hub-set1
+# Owner: philmea
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
   - id: programming-language-csharp
     title: C#
   - id: programming-language-nodejs

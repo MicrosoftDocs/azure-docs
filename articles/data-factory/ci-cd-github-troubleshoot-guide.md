@@ -1,10 +1,13 @@
 ---
 title: Troubleshoot CI-CD, Azure DevOps, and GitHub issues in ADF
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Use different methods to troubleshoot CI-CD issues in ADF. 
 author: ssabat
 ms.author: susabat
 ms.reviewer: susabat
 ms.service: data-factory
+ms.subservice: ci-cd
+ms.custom: synapse
 ms.topic: troubleshooting
 ms.date: 06/27/2021
 ---
@@ -177,11 +180,11 @@ You cannot connect to GIT Enterprise because of permission issues. You can see e
 #### Cause
 
 * You have not configured Oauth for ADF. 
-* Your URL is misconfigured. The repoConfiguration should be of type [FactoryGitHubConfiguration](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.datafactory.models.factorygithubconfiguration?view=azure-dotnet)
+* Your URL is misconfigured. The repoConfiguration should be of type [FactoryGitHubConfiguration](/dotnet/api/microsoft.azure.management.datafactory.models.factorygithubconfiguration?view=azure-dotnet&preserve-view=true)
 
 #### Resolution 
 
-You  grant  Oauth access to ADF at first. Then, you have to use correct URL to connect to GIT Enterprise. The configuration must be set to the customer organization(s). For example, ADF will try *https://hostname/api/v3/search/repositories?q=user%3<customer credential>....* at first and fail. Then, it will try *https://hostname/api/v3/orgs/<org>/<repo>...*, and succeed. 
+You  grant  Oauth access to ADF at first. Then, you have to use correct URL to connect to GIT Enterprise. The configuration must be set to the customer organization(s). For example, ADF will try *https://hostname/api/v3/search/repositories?q=user%3&lt;customer credential&gt;....* at first and fail. Then, it will try *https://hostname/api/v3/orgs/&lt;org&gt;/&lt;repo&gt;...*, and succeed.  
  
 ### Cannot recover from a deleted data factory
 
@@ -259,7 +262,7 @@ You want to perform CI/CD during progress and queuing stage of pipeline run.
 When pipeline is in progress/queued stage, you have to monitor the pipeline and  activities at first. Then, you can decide to wait until pipeline to finish or you can cancel the pipeline run. 
  
 #### Resolution
-You can monitor the pipeline using **SDK**, **Azure Monitor** or [ADF Monitor](https://docs.microsoft.com/azure/data-factory/monitor-visually). Then, you can follow [ADF CI/CD Best Practices](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd) to guide you further. 
+You can monitor the pipeline using **SDK**, **Azure Monitor** or [ADF Monitor](./monitor-visually.md). Then, you can follow [ADF CI/CD Best Practices](./continuous-integration-deployment.md#best-practices-for-cicd) to guide you further. 
 
 ### Perform **UNIT TESTING** during ADF development and deployment
 
