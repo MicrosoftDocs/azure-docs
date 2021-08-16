@@ -612,10 +612,10 @@ Login error: Login failed for user '<token-identified principal>'.
 ```
 For service principals login should be created with Application ID as SID (not with Object ID). There is a known limitation for service principals which is preventing Synapse service to fetch Application Id from Azure AD Graph when creating role assignment for another SPI/app.  
 
-#### Mitigation #1
+#### Solution #1
 Navigate to Azure Portal > Synapse Studio > Manage > Access control and manually add Synapse Administrator or Synapse SQL Administrator for desired Service Principal.
 
-#### Mitigation #2
+#### Solution #2
 You need to manually create a proper login through SQL code:
 ```sql
 use master
@@ -626,9 +626,9 @@ ALTER SERVER ROLE sysadmin ADD MEMBER [<service_principal_name>];
 go
 ```
 
-#### Mitigation #3
-You can also setup service principal Synapse Admin using Powershell. You need to have [Az.Synapse module](https://docs.microsoft.com/powershell/module/az.synapse/?view=azps-6.3.0) installed.
-The mitigation is to use cmdlet New-AzSynapseRoleAssignment with `-ObjectId "parameter"` - and in that parameter field to provide Application ID (instead of Object ID) using workspace admin Azure service principal credentials. Powershell script:
+#### Solution #3
+You can also setup service principal Synapse Admin using PowerShell. You need to have [Az.Synapse module](/powershell/module/az.synapse) installed.
+The solution is to use cmdlet New-AzSynapseRoleAssignment with `-ObjectId "parameter"` - and in that parameter field to provide Application ID (instead of Object ID) using workspace admin Azure service principal credentials. PowerShell script:
 ```azurepowershell
 $spAppId = "<app_id_which_is_already_an_admin_on_the_workspace>"
 $SPPassword = "<application_secret>"
