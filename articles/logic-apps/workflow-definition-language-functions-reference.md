@@ -62,7 +62,7 @@ you get a combined string, for example, "SophiaOwen":
 
 Either way, both examples assign the result to the `customerName` property.
 
-### Considerations for using functions in expressions
+## Considerations for using functions
 
 * Function parameters are evaluated from left to right.
 
