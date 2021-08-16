@@ -1,5 +1,5 @@
 ---
-title: Step-by-Step guide to move Azure Synapse Analytics Workspace from region to another
+title: Step-by-Step guide to move Azure Synapse workspace from region to another
 description: This article will teach you how to move the Synapse Workspace from one region to another region. 
 author: phanir
 ms.service: synapse-analytics 
@@ -10,9 +10,9 @@ ms.reviewer: jrasnick
 
 ---
 
-# Step-by-Step guide to move Azure Synapse Analytics Workspace from one region to another
+# Step-by-Step guide to move Azure Synapse workspace from one region to another
 
-This document is a step-by-step guide to move Azure Synapse Analytics Workspace from one Azure region to another region. 
+This document is a step-by-step guide to move Azure Synapse workspace from one Azure region to another region. 
 > [!NOTE]
 > Steps mentioned in this document is not actually moving the workspace but we are creating a new workspace in another region using the backups and artifacts from source region workspace.
 
@@ -31,7 +31,7 @@ This document is a step-by-step guide to move Azure Synapse Analytics Workspace 
 - **Availability of new Azure Region**: Scenarios where new Azure region is available and there are project or business requirements to move the workspace and other Azure  resources to the newly available Azure region.
 - **Wrong region selected**: Wrong region was selected at the first place while creating the Azure resources.
 
-## Steps to move Azure Synapse Analytics workspace to another region
+## Steps to move Azure Synapse workspace to another region
 
 Moving Azure Synapse workspace from region to another region is a multi-step process. Following are the high-level steps:
 
