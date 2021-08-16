@@ -2387,6 +2387,8 @@
         href: foodee-provisioning-tutorial.md
       - name: Fortes Change Cloud
         href: fortes-change-cloud-provisioning-tutorial.md
+      - name: Freshservice Provisioning
+        href: freshservice-provisioning-tutorial.md
       - name: Fuze
         href: fuze-provisioning-tutorial.md
     - name: G - M

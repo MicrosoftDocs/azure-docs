@@ -48,10 +48,10 @@ var poolParameters = new Pool(name: "yourPoolName")
         Identity = new BatchPoolIdentity
         {
             Type = PoolIdentityType.UserAssigned,
-            UserAssignedIdentities = new Dictionary<string, BatchPoolIdentityUserAssignedIdentitiesValue>
+            UserAssignedIdentities = new Dictionary<string, UserAssignedIdentities>
             {
                 ["Your Identity Resource Id"] =
-                    new BatchPoolIdentityUserAssignedIdentitiesValue()
+                    new UserAssignedIdentities()
             }
         }
     };

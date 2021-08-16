@@ -7,7 +7,7 @@ author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 08/06/2021
+ms.date: 08/12/2021
 ms.author: duau
 
 ---
@@ -117,7 +117,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[NOS](https://www.nos.pt/empresas/corporate/cloud/cloud/Pages/nos-cloud-connect.aspx)** |Supported |Supported |Amsterdam2 |
 | **[NTT Communications](https://www.ntt.com/en/services/network/virtual-private-network.html)** |Supported |Supported |Amsterdam, Hong Kong SAR, London, Los Angeles, Osaka, Singapore, Sydney, Tokyo, Washington DC |
 | **[NTT EAST](https://business.ntt-east.co.jp/service/crossconnect/)** |Supported |Supported |Tokyo |
-| **[NTT Global DataCenters EMEA](https://hello.global.ntt/)** |Supported |Supported |Amsterdam2, Berlin |
+| **[NTT Global DataCenters EMEA](https://hello.global.ntt/)** |Supported |Supported |Amsterdam2, Berlin, Frankfurt, London2 |
 | **[NTT SmartConnect](https://cloud.nttsmc.com/cxc/azure.html)** |Supported |Supported |Osaka |
 | **[Ooredoo Cloud Connect](https://www.ooredoo.qa/portal/OoredooQatar/cloud-connect-expressroute)** |Supported |Supported |Marseille |
 | **[Optus](https://www.optus.com.au/enterprise/)** |Supported |Supported |Melbourne, Sydney |

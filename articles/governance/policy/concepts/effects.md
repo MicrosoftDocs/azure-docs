@@ -635,7 +635,7 @@ The following operations are supported by Modify:
   _Indexed_ unless the target resource is a resource group.
 - Add or replace the value of managed identity type (`identity.type`) of virtual machines and
   virtual machine scale sets.
-- Add or replace the values of certain aliases (preview).
+- Add or replace the values of certain aliases.
   - Use
     `Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }`
     in Azure PowerShell **4.6.0** or higher to get a list of aliases that can be used with Modify.
