@@ -90,5 +90,5 @@ After setting up Office 365 data connectors, you can use cross-tenant Azure Sent
 
 - Learn about [Azure Sentinel](../../sentinel/overview.md).
 - Review the [Azure Sentinel pricing page](https://azure.microsoft.com/pricing/details/azure-sentinel/).
+- Explore [Azure Sentinel All in One](https://github.com/Azure/Azure-Sentinel/tree/master/Tools/Sentinel-All-In-One), a project to speed up deployment and initial configuration tasks of an Azure Sentinel environment
 - Learn about [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md).
-

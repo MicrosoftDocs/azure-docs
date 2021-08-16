@@ -91,5 +91,4 @@ alertsmanagementresources
 
 - Try out the [Activity Logs by Domain](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) workbook on GitHub.
 - Explore this [MVP-built sample workbook](https://github.com/scautomation/Azure-Automation-Update-Management-Workbooks), which tracks patch compliance reporting by [querying Update Management logs](../../automation/update-management/query-logs.md) across multiple Log Analytics workspaces.
-- Explore [Azure Sentinel All in One](https://github.com/Azure/Azure-Sentinel/tree/master/Tools/Sentinel-All-In-One), a project to speed up deployment and initial configuration tasks of an Azure Sentinel environment
 - Learn about other [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md).
