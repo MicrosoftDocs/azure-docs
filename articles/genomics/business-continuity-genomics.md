@@ -5,7 +5,7 @@ description: This overview describes the capabilities that Microsoft Genomics pr
 keywords: business continuity, disaster recovery
 
 services: genomics
-author: grhuynh
+author: vigunase
 manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics

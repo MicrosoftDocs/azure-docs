@@ -4,7 +4,7 @@ titleSuffix: Microsoft Genomics
 description: Learn about troubleshooting strategies for using Microsoft Genomics, including error messages and how to resolve them.
 keywords: troubleshooting, error, debugging
 services: genomics
-author: ruchir
+author: vigunase
 ms.author: ruchir
 ms.service: genomics
 ms.workload: genomics
