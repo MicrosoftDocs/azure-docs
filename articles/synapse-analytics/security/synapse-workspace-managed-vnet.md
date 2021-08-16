@@ -45,8 +45,6 @@ If you leave the checkbox unchecked, then your workspace won't have a Virtual Ne
 >[!IMPORTANT]
 >You can only use private links in a workspace that has a Managed workspace Virtual Network.
 
-![Enable Managed workspace Virtual Network](./media/synapse-workspace-managed-vnet/enable-managed-vnet-1.png)
-
 :::image type="content" source="./media/synpase-workspace-ip-firewall/azure-synapse-analytics-networking-managed-virtual-network-allow-outbound-data-traffic.png" lightbox="./media/synpase-workspace-ip-firewall/azure-synapse-analytics-networking-managed-virtual-network-allow-outbound-data-traffic.png" alt-text="Screenshot of the Create Synapse workspace networking page, with the Managed virtual network option Enabled and the Allow outbound data traffic only to approved targets option to Yes.":::
 
 After you choose to associate a Managed workspace Virtual Network with your workspace, you can protect against data exfiltration by allowing outbound connectivity from the Managed workspace Virtual Network only to approved targets using [Managed private endpoints](./synapse-workspace-managed-private-endpoints.md). Select **Yes** to limit outbound traffic from the Managed workspace Virtual Network to targets through Managed private endpoints. 
