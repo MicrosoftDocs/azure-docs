@@ -8,11 +8,9 @@ author: asudbring
 # Customer intent: As someone with a basic network background who's new to Azure, I want to create an Azure Private Link service by using the Azure portal
 ms.service: private-link
 ms.topic: quickstart
-ms.date: 01/18/2021
+ms.date: 08/18/2021
 ms.author: allensu
-
 ---
-
 # Quickstart: Create a Private Link service by using the Azure portal
 
 Get started creating a Private Link service that refers to your service.  Give Private Link access to your service or resource deployed behind an Azure Standard Load Balancer.  Users of your service have private access from their virtual network.
@@ -33,141 +31,167 @@ In this section, you'll create a virtual network and an internal Azure Load Bala
 
 In this section, you create a virtual network and subnet to host the load balancer that accesses your Private Link service.
 
-1. On the upper-left side of the screen, select **Create a resource > Networking > Virtual network** or search for **Virtual network** in the search box.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In **Create virtual network**, enter or select this information in the **Basics** tab:
+2. On the upper-left side of the screen, select **Create a resource > Networking > Virtual network** or search for **Virtual network** in the search box.
+
+3. Select **Create**. 
+
+4. In **Create virtual network**, enter or select this information in the **Basics** tab:
 
     | **Setting**          | **Value**                                                           |
     |------------------|-----------------------------------------------------------------|
     | **Project Details**  |                                                                 |
     | Subscription     | Select your Azure subscription                                  |
-    | Resource Group   | Select **CreatePrivLinkService-rg** |
+    | Resource Group   | Select **Create new**. Enter **CreatePrivLinkService-rg**. </br> Select **OK**. |
     | **Instance details** |                                                                 |
     | Name             | Enter **myVNet**                                    |
-    | Region           | Select **East US 2** |
+    | Region           | Select **(US) East US** |
 
-3. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
+5. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
 
-4. In the **IP Addresses** tab, enter this information:
+6. In the **IP Addresses** tab, enter this information:
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
     | IPv4 address space | Enter **10.1.0.0/16** |
 
-5. Under **Subnet name**, select the word **default**.
+7. Under **Subnet name**, select the word **default**.
 
-6. In **Edit subnet**, enter this information:
+8. In **Edit subnet**, enter this information:
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
-    | Subnet name | Enter **mySubnet** |
+    | Subnet name | Enter **myBackendSubnet** |
     | Subnet address range | Enter **10.1.0.0/24** |
 
-7. Select **Save**.
+9. Select **Save**.
 
-8. Select the **Review + create** tab or select the **Review + create** button.
+10. Select the **Review + create** tab or select the **Review + create** button.
 
-9. Select **Create**.
+11. Select **Create**.
 
-### Create a standard load balancer
+### Create NAT gateway
 
-Use the portal to create a standard internal load balancer. 
+In this section, you'll create a NAT gateway and assign it to the subnet in the virtual network you created previously.
 
-1. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Load Balancer**.
+1. On the upper-left side of the screen, select **Create a resource > Networking > NAT gateway** or search for **NAT gateway** in the search box.
 
-2. In the **Basics** tab of the **Create load balancer** page, enter, or select the following information: 
+2. Select **Create**. 
+
+3. In **Create network address translation (NAT) gateway**, enter or select this information in the **Basics** tab:
+
+    | **Setting**          | **Value**                                                           |
+    |------------------|-----------------------------------------------------------------|
+    | **Project Details**  |                                                                 |
+    | Subscription     | Select your Azure subscription.                                  |
+    | Resource Group   | Select **CreatePrivLinkService-rg**. |
+    | **Instance details** |                                                                 |
+    | Name             | Enter **myNATGateway**                                    |
+    | Region           | Select **(US) East US 2**  |
+    | Availability Zone | Select **None**. |
+    | Idle timeout (minutes) | Enter **10**. |
+
+4. Select the **Outbound IP** tab, or select the **Next: Outbound IP** button at the bottom of the page.
+
+5. In the **Outbound IP** tab, enter or select the following information:
+
+    | **Setting** | **Value** |
+    | ----------- | --------- |
+    | Public IP addresses | Select **Create a new public IP address**. </br> In **Name**, enter **myNATgatewayIP**. </br> Select **OK**. |
+
+6. Select the **Subnet** tab, or select the **Next: Subnet** button at the bottom of the page.
+
+7. In the **Subnet** tab, select **myVNet** in the **Virtual network** pull-down.
+
+8. Check the box next to **myBackendSubnet**.
+
+9. Select the **Review + create** tab, or select the blue **Review + create** button at the bottom of the page.
+
+10. Select **Create**.
+
+### Create load balancer
+
+In this section, you create a load balancer that load balances virtual machines.
+
+During the creation of the load balancer, you'll configure:
+
+* Frontend IP address
+* Backend pool
+* Inbound load-balancing rules
+
+1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
+
+2. In the **Load balancer** page, select **Create**.
+
+3. In the **Basics** tab of the **Create load balancer** page, enter, or select the following information: 
 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
+    | **Project details** |   |
     | Subscription               | Select your subscription.    |    
-    | Resource group         | Select **CreatePrivLinkService-rg** created in the previous step.|
+    | Resource group         | Select **CreatePrivLinkService-rg**. |
+    | **Instance details** |   |
     | Name                   | Enter **myLoadBalancer**                                   |
-    | Region         | Select **East US 2**.                                        |
+    | Region         | Select **(US) East US 2**.                                        |
     | Type          | Select **Internal**.                                        |
-    | SKU           | Select **Standard** |
-    | Virtual network | Select **myVNet** created in the previous step. |
-    | Subnet  | Select **mySubnet** created in the previous step. |
-    | IP address assignment | Select **Dynamic**. |
-    | Availability zone | Select **Zone-redundant** |
+    | SKU           | Leave the default **Standard**. |
 
-3. Accept the defaults for the remaining settings, and then select **Review + create**.
+4. Select **Next: Frontend IP configuration** at the bottom of the page.
 
-4. In the **Review + create** tab, select **Create**.   
+5. In **Frontend IP configuration**, select **+ Add a frontend IP**.
 
-## Create load balancer resources
+6. Enter **LoadBalancerFrontend** in **Name**.
 
-In this section, you configure:
+7. Select **myBackendSubnet** in **Subnet**.
 
-* Load balancer settings for a backend address pool.
-* A health probe.
-* A load balancer rule.
+8. Select **Dynamic** for **Assignment**.
 
-### Create a backend pool
+9. Select **Zone-redundant** in **Availability zone**.
 
-A backend address pool contains the IP addresses of the virtual (NICs) connected to the load balancer. 
+    > [!NOTE]
+    > In regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../availability-zones/az-overview.md).
 
-Create the backend address pool **myBackendPool** to include virtual machines for load-balancing internet traffic.
+10. Select **Add**.
 
-1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer** from the resources list.
+11. Select **Next: Backend pools** at the bottom of the page.
 
-2. Under **Settings**, select **Backend pools**, then select **Add**.
+12. In the **Backend pools** tab, select **+ Add a backend pool**.
 
-3. On the **Add a backend pool** page, for name, type **myBackendPool**, as the name for your backend pool, and then select **Add**.
+13. Enter **myBackendPool** for **Name** in **Add backend pool**.
 
-### Create a health probe
+14. Select **NIC** or **IP Address** for **Backend Pool Configuration**.
 
-The load balancer monitors the status of your app with a health probe. 
+15. Select **IPv4** or **IPv6** for **IP version**.
 
-The health probe adds or removes VMs from the load balancer based on their response to health checks. 
+16. Select **Add**.
 
-Create a health probe named **myHealthProbe** to monitor the health of the VMs.
+17. Select the **Next: Inbound rules** button at the bottom of the page.
 
-1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer** from the resources list.
+18. In **Load balancing rule** in the **Inbound rules** tab, select **+ Add a load balancing rule**.
 
-2. Under **Settings**, select **Health probes**, then select **Add**.
-    
+19. In **Add load balancing rule**, enter or select the following information:
+
     | Setting | Value |
     | ------- | ----- |
-    | Name | Enter **myHealthProbe**. |
+    | Name | Enter **myHTTPRule** |
+    | IP Version | Select **IPv4** or **IPv6** depending on your requirements. |
+    | Frontend IP address | Select **LoadBalancerFrontend**. |
     | Protocol | Select **TCP**. |
-    | Port | Enter **80**.|
-    | Interval | Enter **15** for number of **Interval** in seconds between probe attempts. |
-    | Unhealthy threshold | Select **2** for number of **Unhealthy threshold** or consecutive probe failures that must occur before a VM is considered unhealthy.|
-    | | |
-
-3. Leave the rest the defaults and Select **OK**.
-
-### Create a load balancer rule
-
-A load balancer rule is used to define how traffic is distributed to the VMs. You define the frontend IP configuration for the incoming traffic and the backend IP pool to receive the traffic. The source and destination port are defined in the rule. 
-
-In this section, you'll create a load balancer rule:
-
-* Named **myHTTPRule**.
-* In the frontend named **LoadBalancerFrontEnd**.
-* Listening on **Port 80**.
-* Directs load balanced traffic to the backend named **myBackendPool** on **Port 80**.
-
-1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer** from the resources list.
-
-2. Under **Settings**, select **Load-balancing rules**, then select **Add**.
-
-3. Use these values to configure the load-balancing rule:
-    
-    | Setting | Value |
-    | ------- | ----- |
-    | Name | Enter **myHTTPRule**. |
-    | IP Version | Select **IPv4** |
-    | Frontend IP address | Select **LoadBalancerFrontEnd** |
-    | Protocol | Select **TCP**. |
-    | Port | Enter **80**.|
+    | Port | Enter **80**. |
     | Backend port | Enter **80**. |
-    | Backend pool | Select **myBackendPool**.|
-    | Health probe | Select **myHealthProbe**. |
-    | Idle timeout (minutes) | Move the slider to **15** minutes. |
+    | Backend pool | Select **myBackendPool**. |
+    | Health probe | Select **Create new**. </br> In **Name**, enter **myHealthProbe**. </br> Select **HTTP** in **Protocol**. </br> Leave the rest of the defaults, and select **OK**. |
+    | Session persistence | Select **None**. |
+    | Idle timeout (minutes) | Enter or select **15**. |
     | TCP reset | Select **Enabled**. |
+    | Floating IP | Select **Disabled**. |
 
-4. Leave the rest of the defaults and then select **OK**.
+20. Select **Add**.
+
+21. Select the blue **Review + create** button at the bottom of the page.
+
+22. Select **Create**.
 
 ## Create a private link service
 
@@ -190,7 +214,7 @@ In this section, you'll create a Private Link service behind a standard load bal
     | Resource Group | Select **CreatePrivLinkService-rg**. |
     | **Instance details** |  |
     | Name | Enter **myPrivateLinkService**. |
-    | Region | Select **East US 2**. |
+    | Region | Select **(US) East US 2**. |
 
 6. Select the **Outbound settings** tab or select **Next: Outbound settings** at the bottom of the page.
 
@@ -217,7 +241,6 @@ In this section, you'll create a Private Link service behind a standard load bal
 
 Your private link service is created and can receive traffic. If you want to see traffic flows, configure your application behind your standard load balancer.
 
-
 ## Create private endpoint
 
 In this section, you'll map the private link service to a private endpoint. A virtual network contains the private endpoint for the private link service. This virtual network contains the resources that will access your private link service.
@@ -235,7 +258,7 @@ In this section, you'll map the private link service to a private endpoint. A vi
     | Resource Group   | Select **CreatePrivLinkService-rg** |
     | **Instance details** |                                                                 |
     | Name             | Enter **myVNetPE**                                    |
-    | Region           | Select **East US 2** |
+    | Region           | Select **(US) East US 2** |
 
 3. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
 
@@ -279,7 +302,7 @@ In this section, you'll map the private link service to a private endpoint. A vi
     | Resource group | Select **CreatePrivLinkService-rg**. You created this resource group in the previous section.|
     | **Instance details** |  |
     | Name  | Enter **myPrivateEndpoint**. |
-    | Region | Select **East US 2**. |
+    | Region | Select **(US) East US 2**. |
 
 6. Select the **Resource** tab or the **Next: Resource** button at the bottom of the page.
     
@@ -319,16 +342,18 @@ In this section, you'll find the IP address of the private endpoint that corresp
 4. In the **Overview** page of **myPrivateEndpoint**, select the name of the network interface associated with the private endpoint.  The network interface name begins with **myPrivateEndpoint.nic**.
 
 5. In the **Overview** page of the private endpoint nic, the IP address of the endpoint is displayed in **Private IP address**.
-    
 
 ## Clean up resources
 
 When you're done using the private link service, delete the resource group to clean up the resources used in this quickstart.
 
 1. Enter **CreatePrivLinkService-rg** in the search box at the top of the portal, and select **CreatePrivLinkService-rg** from the search results.
-1. Select **Delete resource group**.
-1. In **TYPE THE RESOURCE GROUP NAME**, enter **CreatePrivLinkService-rg**.
-1. Select **Delete**.
+
+2. Select **Delete resource group**.
+
+3. In **TYPE THE RESOURCE GROUP NAME**, enter **CreatePrivLinkService-rg**.
+
+4. Select **Delete**.
 
 ## Next steps
 
