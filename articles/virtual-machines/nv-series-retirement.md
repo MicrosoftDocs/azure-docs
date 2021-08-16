@@ -24,4 +24,4 @@ You will need to resize or deallocate your NV virtual machines. We recommend mov
 
 [Learn more](nv-series-migration-guide.md) about migrating your workloads to other GPU Azure Virtual Machine sizes. 
 
-If you have questions, contact us through cusotmer support.
+If you have questions, contact us through customer support.
