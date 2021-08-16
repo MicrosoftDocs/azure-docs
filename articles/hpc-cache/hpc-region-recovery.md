@@ -59,4 +59,3 @@ The Azure application architecture guide includes more information about how to 
 
 test: [/architecture](/architecture/resiliency/recovery-loss-azure-region)
 test: [/azure](/azure/architecture/resiliency/recovery-loss-azure-region)
-
