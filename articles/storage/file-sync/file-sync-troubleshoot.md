@@ -761,7 +761,7 @@ This error occurs because the server endpoint deletion failed and the endpoint i
 | **Error string** | ECS_E_NOT_ENOUGH_LOCAL_STORAGE |
 | **Remediation required** | Yes |
 
-Sync sessions fail with one of these errors because the volume on the server has filled up. This error commonly occurs because files outside the server endpoint are using up space on the volume. Free up space on the volume by adding additional server endpoints, moving files to a different volume, or increasing the size of the volume the server endpoint is on.
+Sync sessions fail with one of these errors because either the volume has insufficient disk space or disk quota limit is reached. This error commonly occurs because files outside the server endpoint are using up space on the volume. Free up space on the volume by adding additional server endpoints, moving files to a different volume, or increasing the size of the volume the server endpoint is on. If a disk quota is configured on the volume using [File Server Resource Manager](https://docs.microsoft.com/windows-server/storage/fsrm/fsrm-overview) or [NTFS quota](https://docs.microsoft.com/windows-server/administration/windows-commands/fsutil-quota), increase the quota limit.
 
 <a id="-2134364145"></a><a id="replica-not-ready"></a>**The service is not yet ready to sync with this server endpoint.**  
 
