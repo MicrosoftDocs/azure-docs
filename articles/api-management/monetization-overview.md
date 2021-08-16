@@ -88,7 +88,7 @@ Design a revenue model based on the outcome of the steps above. You can work acr
 
 | Dimension | Description |
 | --------- | ----------- |
-| **Quality of service** | Put constraints on the service level you are offering by setting a cap on API usage. Define a quota for the API calls that can be made over a period of time (e.g. 50,000 calls per month) and then block calls once that quota is reached. <br> You can also set a rate limit, throttling the number of calls that can be made in a short period (e.g. 100 calls per second). <br> Caps and rate limits are applied in conjunction, preventing users from consuming their monthly quota in a short intensive burst of API calls. |
+| **Quality of service** | Put constraints on the service level you are offering by setting a cap on API usage. Define a quota for the API calls that can be made over a period of time (for example, 50,000 calls per month) and then block calls once that quota is reached. <br> You can also set a rate limit, throttling the number of calls that can be made in a short period (for example, 100 calls per second). <br> Caps and rate limits are applied in conjunction, preventing users from consuming their monthly quota in a short intensive burst of API calls. |
 | **Price** | Define the unit price to be paid for each API call. |
 
 Maximize the lifetime value (LTV) you generate from each customer by designing a revenue model that supports your customer at each stage of the customer journey.
@@ -103,7 +103,7 @@ Maximize the lifetime value (LTV) you generate from each customer by designing a
     - Provide clear documentation about the different options.
     - Give your customers tools for choosing the revenue model that best suits their needs.
 
-Identify the range of required pricing models. A *pricing model* describes a specific set of rules for the API provider to turn consumption by the the API consumer into revenue.
+Identify the range of required pricing models. A *pricing model* describes a specific set of rules for the API provider to turn consumption by the API consumer into revenue.
 
 For example, to support the [customer stages above](#step-1---understand-your-customer), we would need six types of subscription:
 
@@ -120,17 +120,17 @@ Your revenue model will define the set of API products. Each API product impleme
 
 While pricing models generally shouldn't change, you may need to adapt the configuration and application of pricing models for your revenue model. For example, you may want to adjust your prices to match a competitor.
 
-Bringing this to life, and building on the examples above, the pricing models could be applied to create an overall revenue model as follows:
+Building on the examples above, the pricing models could be applied to create an overall revenue model as follows:
 
 | Customer lifecycle stage | Pricing model | Pricing model configuration | Quality of Service |
 | ------------------------ | ------------------------- | ------------------ | ----------------------------------------------------------------------------------------------------------- |
 | Investigation | Free | Not implemented. | Quota set to limit the Consumer to 100 calls/month. |
-| Implementation | Freemium | Graduated tiers: <ul> <li>First tier flat amount is $0.</li> <li>Next tiers per unit amount charge set to charge $0.20/100 calls.</li></ul> | No quota set. Consumer can continue to make and pay for calls with a rate limit of 100 calls/minute. |
-| Preview | Metered | Price set to charge consumer $0.15/100 calls. | No quota set. Consumer can continue to make and pay for calls at a rate limit of 200 calls/minute. |
+| Implementation | Freemium | Graduated tiers: <ul> <li>First tier flat amount is $0.</li> <li>Next tiers per unit amount charge set to charge $0.20/100 calls.</li></ul> | No quotas set. Consumer can continue to make and pay for calls with a rate limit of 100 calls/minute. |
+| Preview | Metered | Price set to charge consumer $0.15/100 calls. | No quotas set. Consumer can continue to make and pay for calls at a rate limit of 200 calls/minute. |
 | Initial production usage | Tier | Price set to charge consumer $14.95/month. | Quota set to limit the consumer to 50,000 calls/month with a rate limit of 100 calls/minute. |
-| Initial growth | Tier + Overage | Graduated tiers: <ul><li>First tier flat amount is $89.95/month for first 100,000 calls.</li><li>Next tiers per unit amount charge set to charge $0.10/100 calls.</li></ul> | No quota set. Consumer can continue to make and pay for additional calls at a rate limit of 100 calls/minute. |
-| Scale | Tier + Overage | Graduated tiers:<ul><li>First tier flat amount is $449.95/month for first 500,000 calls.</li><li>Next tiers per unit amount charge set to charge $0.06/100 calls.</li></ul> | No quota set. Consumer can continue to make and pay for additional calls at a rate limit of 1,200 calls/minute. |
-| Global growth | Unit | Graduated tiers, where every tier flat amount is $749.95/month for 1,500,000 calls. | No quota set. Consumer can continue to make and pay for additional calls at a rate limit of 3,500 calls/minute. |
+| Initial growth | Tier + Overage | Graduated tiers: <ul><li>First tier flat amount is $89.95/month for first 100,000 calls.</li><li>Next tiers per unit amount charge set to charge $0.10/100 calls.</li></ul> | No quotas set. Consumer can continue to make and pay for extra calls at a rate limit of 100 calls/minute. |
+| Scale | Tier + Overage | Graduated tiers:<ul><li>First tier flat amount is $449.95/month for first 500,000 calls.</li><li>Next tiers per unit amount charge set to charge $0.06/100 calls.</li></ul> | No quotas set. Consumer can continue to make and pay for extra calls at a rate limit of 1,200 calls/minute. |
+| Global growth | Unit | Graduated tiers, where every tier flat amount is $749.95/month for 1,500,000 calls. | No quotas set. Consumer can continue to make and pay for extra calls at a rate limit of 3,500 calls/minute. |
 
 **Two examples of how to interpret the revenue model based on the table above:**
 
@@ -141,9 +141,9 @@ Bringing this to life, and building on the examples above, the pricing models co
     * Be rate limited to 100 calls/minute.
 
 * **Scale phase of the lifecycle**
-   Implemented by applying the **Tier + Overage** pricing model where consumers:
+   Implemented by applying the **Tier + Overage** pricing model, where consumers:
     * Pay $449.95/month for first 500,000 calls. 
-    * Are charged an additional $0.06/100 additional calls if they exceed first limit. 
+    * Are charged an extra $0.06/100 calls past the first 50,000. 
     * Rate limited to 1,200 calls/minute.
 
 ### Step 5 - Calibrate
@@ -169,7 +169,7 @@ Choose an appropriate solution to collect payment for usage of your APIs.  Provi
 
 Use Azure API Management to accelerate and de-risk the implementation by using built-in capabilities provided in API Management. For more information about the specific features in API Management, see [how API Management supports monetization](monetization-support.md).
 
-Use the same approach as the sample project to implement a solution that builds flexibility into how you codify your monetization strategy in the underlying systems. This will enable you to respond dynamically and to minimize the risk and cost of making changes.
+Implement a solution that builds flexibility into how you codify your monetization strategy in the underlying systems using the same approach as the sample project. With flexible coding, you can respond dynamically and minimize the risk and cost of making changes.
 
 For a description of how the sample project works from an API consumer perspective see [how the sample project works in practice].
 
