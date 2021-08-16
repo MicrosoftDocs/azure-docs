@@ -60,7 +60,7 @@ The following Azure Sentinel **Analytics rules** works with any file activity th
 - NOBELIUM - Domain, Hash and IP IOCs - May 2021
 - SUNSPOT log file creation 
 
-For more information, see [Create custom analytics rules to detect threats](/azure/sentinel/articles/sentinel/detect-threats-custom.md).
+For more information, see [Create custom analytics rules to detect threats](detect-threats-custom.md).
 
 
 ## Schema details

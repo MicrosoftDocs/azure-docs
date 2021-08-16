@@ -150,17 +150,6 @@
     - name: Overview
       displayName: Sizes, sizing, resize, ACU, compute
       href: sizes.md
-    - name: Change the VM size
-      items:
-      - name: CLI
-        displayName: Change, resize, update size
-        href: ./linux/change-vm-size.md
-      - name: Portal or PowerShell
-        displayName: Change, resize, update size
-        href: ./windows/resize-vm.md
-    - name: Generation 2 VMs
-      displayName: Gen2, generation, gen1
-      href: generation-2.md
     - name: General purpose
       items:
       - name: Overview
@@ -295,26 +284,15 @@
         href: hbv3-series.md
       - name: HC-series
         href: hc-series.md
-    - name: States and billing
-      href: states-billing.md
-    - name: vCPU quotas
-      items:
-      - name: CLI
-        displayName: vCPU, quota, limit
-        href: ./linux/quotas.md
-      - name: PowerShell
-        displayName: vCPU, quota, limit
-        href: ./windows/quotas.md
-    - name: Azure VMs with no temp disk
-      href: azure-vms-no-temp-disk.yml
-    - name: Azure VM sizes naming conventions
-      href: vm-naming-conventions.md
-    - name: Previous generations
-      displayName: older, retired, expired, deprecated
-      href: sizes-previous-gen.md
+    - name: Generation 2 VMs
+      displayName: Gen2, generation, gen1
+      href: generation-2.md
     - name: Isolated sizes
       displayName: isolated VM, sole-tenant, sole
       href: isolation.md
+    - name: Previous generations
+      displayName: older, retired, expired, deprecated
+      href: sizes-previous-gen.md
     - name: Azure compute units (ACU)
       href: acu.md
     - name: Benchmark scores
@@ -324,6 +302,30 @@
         href: ./linux/compute-benchmark-scores.md
       - name: Windows
         href: ./windows/compute-benchmark-scores.md
+    - name: vCPU quotas
+      items:
+      - name: CLI
+        displayName: vCPU, quota, limit
+        href: ./linux/quotas.md
+      - name: PowerShell
+        displayName: vCPU, quota, limit
+        href: ./windows/quotas.md
+    - name: Virtual machines selector tool
+      href: https://aka.ms/vm-selector
+    - name: Change the VM size
+      items:
+      - name: CLI
+        displayName: Change, resize, update size
+        href: ./linux/change-vm-size.md
+      - name: Portal or PowerShell
+        displayName: Change, resize, update size
+        href: ./windows/resize-vm.md
+    - name: States and billing
+      href: states-billing.md
+    - name: Azure VMs with no temp disk
+      href: azure-vms-no-temp-disk.yml
+    - name: Azure VM sizes naming conventions
+      href: vm-naming-conventions.md
   - name: Dedicated hosts
     displayName: sole-tenant, sole tenant, isolated, isolation
     items:

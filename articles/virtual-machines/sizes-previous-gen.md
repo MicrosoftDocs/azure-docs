@@ -15,6 +15,9 @@ ms.author: mimckitt
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
+> [!TIP]
+> Try the **[Virtual machines selector tool](https://aka.ms/vm-selector)** to find other sizes that best fit your workload.
+
 This section provides information on previous generations of virtual machine sizes. These sizes can still be used, but there are newer generations available.
 
 ## F-series
