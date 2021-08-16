@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 Privileged role administrators can review privileged access once an [access review has been started](pim-create-azuread-roles-and-resource-roles-review.md). Privileged Identity Management (PIM) in Azure Active Directory (Azure AD) will automatically send an email that prompts users to review their access. If a user doesn't receive an email, you can send them the instructions for [how to perform an access review](pim-perform-azuread-roles-and-resource-roles-review.md).
 
-After the access review period is over, or after all the users have finished their self-review, follow the steps in this article to manage the review and see the results.
+Once the review has been created, follow the steps in this article to manage the review and see the results.
 
 ## Manage access reviews
 
@@ -42,7 +42,7 @@ On the detail page for the access review, there are a number of options availabl
 
 ### Stop an Access Review
 
-The **Stop** button is selectable only when the review instance is active. All access reviews have an end date, but you can use this button to finish it early. If any users haven't been reviewed by this time, they won't be able to after you stop the review. You cannot restart a review after it's been stopped.
+The **Stop** button is selectable only when the review instance is active. All access reviews have an end date, but you can use this button to finish it early. You cannot restart a review after it's been stopped.
 
 ### Reset an Access Review
 
@@ -50,7 +50,7 @@ When the review instance is active and at least one decision has been made by re
 
 ### Apply an Access Review
 
-After an access review is completed, either because you've reached the end date or stopped it manually, the **Apply** button implements the outcome of the review. If an user's access was denied during the review, this is the step that will remove their role assignment. If the **Auto apply** setting is configured on review creation, this button will always be disabled because the review will be applied automatically instead of manually.
+After an access review is completed, either because you've reached the end date or stopped it manually, the **Apply** button removes denied users' access to the role. If a user's access was denied during the review, this is the step that will remove their role assignment. If the **Auto apply** setting is configured on review creation, this button will always be disabled because the review will be applied automatically instead of manually.
 
 ### Delete an Access Review
 

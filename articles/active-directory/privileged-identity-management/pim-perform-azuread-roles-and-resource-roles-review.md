@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # Perform an access review of Azure resource and Azure AD roles in Privileged Identity Management
 
-Privileged Identity Management (PIM) simplifies how enterprises manage privileged access to resources in Azure Active Directory (AD) and other Microsoft online services like Microsoft 365 or Microsoft Intune. Follow the steps in this article to successfully self-review your assigned roles.
+Privileged Identity Management (PIM) simplifies how enterprises manage privileged access to resources in Azure Active Directory (AD) and other Microsoft online services like Microsoft 365 or Microsoft Intune. Follow the steps in this article to complete reviews of access to roles.
 
 If you are assigned to an administrative role, your organization's privileged role administrator may ask you to regularly confirm that you still need that role for your job. You might get an email that includes a link, or you can go straight to the [Azure portal](https://portal.azure.com) and begin.
 
@@ -43,11 +43,11 @@ If you don't have the Privileged Identity Management service pinned to your dash
 
 ## Approve or deny access
 
-You can approve or deny access based on whether you still use this role or not. Choose **Approve** if you want to stay in the role, or **Deny** if you don't need the access anymore. Your status changes only after the reviewer applies the results. Common scenarios in which certain denied users cannot have results applied to them may include the following:
+You can approve or deny access based on whether the user still needs access to the role. Choose **Approve** if you want them to stay in the role, or **Deny** if they do not need the access anymore. The users' assignment status will not change until the review closes and the administrator applies the results. Common scenarios in which certain denied users cannot have results applied to them may include the following:
 
 - **Reviewing members of a synced on-premises Windows AD group**: If the group is synced from an on-premises Windows AD, the group cannot be managed in Azure AD and therefore membership cannot be changed.
-- **Reviewing a resource (role, group, application) with nested groups assigned**: For users who have membership through a nested group, the access review will not remove their membership to the nested group and therefore they will retain access to the resource being reviewed.
-- **User not found or other errors**: These may also result if an apply result is not being supported.
+- **Reviewing a role with nested groups assigned**: For users who have membership through a nested group, the access review will not remove their membership to the nested group and therefore they will retain access to the role being reviewed.
+- **User not found or other errors**: These may also result in an apply result not being supported.
 
 Follow these steps to find and complete the access review:
 
