@@ -1,10 +1,10 @@
 ---
-title: Complete an access review of Azure resource and Azure AD roles in Privileged Identity Management - Azure AD | Microsoft Docs
+title: Complete an access review of Azure resource and Azure AD roles in PIM - Azure AD | Microsoft Docs
 description: Learn how to complete an access review of Azure resource and Azure AD roles Privileged Identity Management in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -12,19 +12,19 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 8/9/2021
+ms.date: 8/27/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 
-# Complete an access review of Azure resource and Azure AD roles in Privileged Identity Management
+# Complete an access review of Azure resource and Azure AD roles in PIM
 
 Privileged role administrators can review privileged access once an [access review has been started](pim-create-azuread-roles-and-resource-roles-review.md). Privileged Identity Management (PIM) in Azure Active Directory (Azure AD) will automatically send an email that prompts users to review their access. If a user doesn't receive an email, you can send them the instructions for [how to perform an access review](pim-perform-azuread-roles-and-resource-roles-review.md).
 
-Once the review has been created, follow the steps in this article to manage the review and see the results.
+Once the review has been created, follow the steps in this article to complete the review and see the results.
 
-## Manage access reviews
+## Complete access reviews
 
 1. Login to the [Azure portal](https://portal.azure.com/). For **Azure resources**, navigate to **Privileged Identity Management** and select **Azure resources** under **Manage** from the dashboard. For **Azure AD roles**, select **Azure AD roles** from the same dashboard.
 
@@ -36,13 +36,13 @@ Once the review has been created, follow the steps in this article to manage the
 
     <kbd>![Azure AD roles - Access reviews list showing role, owner, start date, end date, and status](media/pim-complete-azuread-roles-and-resource-roles-review/rbac-azure-ad-roles-home-list.png)</kbd>
 
-On the detail page for the access review, there are a number of options available for managing the review. For both **Azure resources** and **Azure AD roles**, the options are as follows:
+On the detail page, the following options are available for managing the review of **Azure resources** and **Azure AD roles**:
 
 ![Options for managing a review in Azure resources - Stop, Reset, Apply, Delete](media/pim-complete-azuread-roles-and-resource-roles-review/rbac-access-review-menu.png)
 
 ### Stop an Access Review
 
-The **Stop** button is selectable only when the review instance is active. All access reviews have an end date, but you can use this button to finish it early. You cannot restart a review after it's been stopped.
+All access reviews have an end date, but you can use the **Stop** button to finish it early. The **Stop** button is only selectable when the review instance is active. You cannot restart a review after it's been stopped.
 
 ### Reset an Access Review
 
@@ -54,7 +54,7 @@ After an access review is completed, either because you've reached the end date 
 
 ### Delete an Access Review
 
-If you are not interested in the review any further, delete it. The **Delete** button removes the review from the Privileged Identity Management service.
+If you are not interested in the review any further, delete it. To remove the access review from the Privileged Identity Management service, select the **Delete** button.
 
 > [!IMPORTANT]
 > You will not be required to confirm this destructive change, so verify that you want to delete that review.
@@ -83,5 +83,5 @@ On the **Reviewers** page, you may view and add reviewers to your existing acces
 
 ## Next steps
 
-- [Create an access review of Azure resource or Azure AD roles in PIM](pim-create-azuread-roles-and-resource-roles-review.md)
-- [Perform an access review of Azure resource or Azure AD roles in PIM](pim-perform-azuread-roles-and-resource-roles-review.md)
+- [Create an access review of Azure resource and Azure AD roles in PIM](pim-create-azuread-roles-and-resource-roles-review.md)
+- [Perform an access review of Azure resource and Azure AD roles in PIM](pim-perform-azuread-roles-and-resource-roles-review.md)
