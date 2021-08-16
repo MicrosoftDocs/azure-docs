@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 08/11/2021
+ms.date: 08/16/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -1138,6 +1138,30 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Recommendation**:  Grant the user with permission to read or write to the folder or files on SFTP server.
  
+### Error code:  SftpAuthenticationFailure
+
+- **Message**: `Meet authentication failure when connect to Sftp server '%server;' using '%type;' authentication type. Please make sure you are using the correct authentication type and the credential is valid. For more details, see our troubleshooting docs.`
+
+- **Cause**: The specified credential (your password or private key) is invalid.
+
+- **Recommendation**: Check your credential.
+
+- **Cause**: The specified authentication type is not allowed or not sufficient to complete the authentication in your SFTP server.
+
+- **Recommendation**: Apply the following options to use the correct authentication type:
+    - If your server requires a password, use "Basic".
+    - If your server requires a private key, use "SSH public key authentication".
+    - If your server requires both a password and a private key, use "Multiple factor authentication".
+
+- **Cause**: Your SFTP server requires keyboard-interactive for authentication, but you provided password.
+
+- **Recommendation**: 
+
+    Keyboard-interactive is a special authentication method, which is different from the password. It means that when logging into a server, you must enter the password manually, and you cannot use the previously saved password. But Azure Data Factory (ADF) is a scheduled data transfer service, and there is no pop-up input box allowing you to provide the password at the runtime. <br/> 
+    
+    As a compromise, an option is provided to simulate the input in the background instead of your real manual input, which is equivalent to changing the keyboard-interactive to a password. If you can accept this security concern, follow the steps below to enable it:<br/> 
+    1. On the ADF portal, hover on the SFTP linked service, and open its payload by selecting the code button.
+    1. Add `"allowKeyboardInteractiveAuth": true` in the "typeProperties" section.
  
 ## SharePoint Online list
 
