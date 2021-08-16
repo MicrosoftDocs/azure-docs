@@ -58,6 +58,14 @@ sections:
           - Azure VMware Solution to vNet is through an internal ExpressRoute circuit and is free of cost within the same region as Azure VMware Solution. However, if the internal ExpressRoute circuit is connected cross-region, data transfer charges apply.
           - Azure VMware Solution to on-premises is done through vNet or ExpressRoute Global Reach (between the internal ExpressRoute and external ExpressRoute). It's still free provided the connection to vNet (mentioned above) or using ExpressRoute Global Reach is within the region where Azure VMware Solution is deployed. Naturally, the Azure egress cost through external ExpressRoute is applicable. 
 
+          |   | Inboud charges | Outbound charges |
+          | --- | --- | --- |
+          | Internal ExpressRoute	| No |	No |
+          | Internal ExpressRoute to a different region |	No |	Yes |
+          | External ExpressRoute |	No	| Metered, Yes<br />Unmetered, No |
+          | Global Reach | No | No |
+          | Global Reach to a different region	| Yes |	Yes |
+
       - question: When does metering begin and end for trial Azure VMware Solution clusters?
         answer: Trial clusters are limited to three hosts used for 30-day evaluations of Azure VMware Solution private clouds. After 30 days, clusters are automatically metered per their respective rates. If the trial clusters are deleted before the 30-day end date, the Azure VMware Solution trial will end at the time of deletion.
 
