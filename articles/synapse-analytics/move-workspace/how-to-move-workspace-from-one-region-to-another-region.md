@@ -374,7 +374,8 @@ Following is the screenshot from the Azure DevOps Repro, which has the workspace
 
 You can use the workspace template to deploy the Artifacts, Pipelines etc., to a workspace using Azure DevOps release pipeline as shown in the following screenshot.
 
-:::image type="content" source="../../iot-edge/media/how-to-devops-starter/release-pipeline.png" alt-text="synapse-release-pipeline":::
+:::image type="content" source="../media/how-to-move-workspace/release-pipeline.png" alt-text="synapse-release-pipeline":::
+
 
 If the workspace is not integrated with GitHub or Azure DevOps, then you will have to manually recreate or write custom PowerShell or Azure CLI scripts to deploy all the artifacts, pipelines, linked services, credentials, triggers, and spark definition on the target region workspace.
 
