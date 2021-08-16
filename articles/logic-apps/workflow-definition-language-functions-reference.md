@@ -3,9 +3,9 @@ title: Reference guide for functions in expressions
 description: Reference guide to functions in expressions for Azure Logic Apps and Power Automate
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm, azla
+ms.reviewer: estfan, azla
 ms.topic: reference
-ms.date: 07/16/2021
+ms.date: 08/16/2021
 ---
 
 # Reference guide to using functions in expressions for Azure Logic Apps and Power Automate
@@ -13,11 +13,10 @@ ms.date: 07/16/2021
 For workflow definitions in [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Power Automate](/flow/getting-started), some [expressions](../logic-apps/logic-apps-workflow-definition-language.md#expressions) get their values from runtime actions that might not yet exist when your workflow starts running. To reference these values or process the values in these expressions, you can use *functions* provided by the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
-> This reference page applies to both Azure Logic Apps and Power Automate, 
-> but appears in the Azure Logic Apps documentation. Although this page refers 
-> specifically to logic apps, these functions work for both flows and logic apps. 
-> For more information about functions and expressions in Power Automate, see 
-> [Use expressions in conditions](/flow/use-expressions-in-conditions).
+> This reference page applies to both Azure Logic Apps and Power Automate, but appears in the 
+> Azure Logic Apps documentation. Although this page refers specifically to logic app workflows, 
+> these functions work for both flows and logic app workflows. For more information about functions 
+> and expressions in Power Automate, see [Use expressions in conditions](/flow/use-expressions-in-conditions).
 
 For example, you can calculate values by using math functions, such as the [add()](../logic-apps/workflow-definition-language-functions-reference.md#add) function, when you want the sum from integers or floats. Here are other example tasks that you can perform with functions:
 
@@ -63,9 +62,11 @@ you get a combined string, for example, "SophiaOwen":
 
 Either way, both examples assign the result to the `customerName` property.
 
-Here are some other notes about functions in expressions:
+### Considerations for using functions in expressions
 
 * Function parameters are evaluated from left to right.
+
+* The designer doesn't evaluate runtime expressions that are used as function parameters at design time. The designer requires that all expressions can be fully evaluated at design time.
 
 * In the syntax for parameter definitions, a question mark (?) that appears after a parameter means the parameter is optional. For example, see [getFutureTime()](#getFutureTime).
 
@@ -206,11 +207,13 @@ Logic Apps automatically or implicitly performs base64 encoding or decoding, so 
 * `decodeDataUri(<value>)`
 
 > [!NOTE]
-> If you manually add any of these functions to your workflow through the Logic App Designer, for example, by using the expression editor, navigate away 
-> from the designer, and return to the designer, the function disappears from the designer, leaving behind only the parameter values. This behavior also 
-> happens if you select a trigger or action that uses this function without editing the function's parameter values. This result affects only the function's 
-> visibility and not the effect. In code view, the function is unaffected. However, if you edit the function's parameter values, the function and its effect 
-> are both removed from code view, leaving behind only the function's parameter values.
+> If you manually add any of these functions while using the workflow designer, either directly to a trigger 
+> or action or by using the expression editor, navigate away from the designer, and then return to the designer, 
+> the function disappears from the designer, leaving behind only the parameter values. This behavior also happens 
+> if you select a trigger or action that uses this function without editing the function's parameter values. 
+> This result affects only the function's visibility and not the effect. In code view, the function is unaffected. 
+> However, if you edit the function's parameter values, the function and its effect are both removed from code view, 
+> leaving behind only the function's parameter values.
 
 <a name="math-functions"></a>
 
