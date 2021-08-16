@@ -168,4 +168,4 @@ sudo apt-get install defender-iot-micro-agent=<version>
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Building the Defender micro agent from source code](quickstart-building-the-defender-micro-agent-from-source.md)
+> [Quickstart: Create a Defender IoT micro agent module twin (Preview)](quickstart-create-micro-agent-module-twin.md)

@@ -190,47 +190,47 @@ You can schedule the automatic start and stop of a compute instance by using a R
 
 ```json
 "schedules": {
-    "value": {
-    "computeStartStop": [
-        {
-        "TriggerType": "Cron",
-        "Cron": {
-            "StartTime": "2021-03-10T21:21:07",
-            "TimeZone": "Pacific Standard Time",
-            "Expression": "0 18 * * *"
-        },
-        "Action": "Stop",
-        "Status": "Enabled"
-        },
-        {
-        "TriggerType": "Cron",
-        "Cron": {
-            "StartTime": "2021-03-10T21:21:07",
-            "TimeZone": "Pacific Standard Time",
-            "Expression": "0 8 * * *"
-        },
-        "Action": "Start",
-        "Status": "Enabled"
-        },
-        { 
-        "triggerType": "Recurrence", 
-        "recurrence": { 
-            "frequency": "Day", 
-            "interval": 1, 
-            "timeZone": "Pacific Standard Time", 
-          "schedule": { 
-            "hours": [18], 
-            "minutes": [0], 
-            "weekDays": [ 
-                "Saturday", 
-                "Sunday"
-            ] 
-            } 
-        }, 
-        "Action": "Stop", 
-        "Status": "Enabled" 
-        } 
-    ]
+  "computeStartStop": [
+      {
+      "triggerType": "Cron",
+      "cron": {
+          "startTime": "2021-03-10T21:21:07",
+          "timeZone": "Pacific Standard Time",
+          "expression": "0 18 * * *"
+      },
+      "action": "Stop",
+      "status": "Enabled"
+      },
+      {
+      "triggerType": "Cron",
+      "cron": {
+          "startTime": "2021-03-10T21:21:07",
+          "timeZone": "Pacific Standard Time",
+          "expression": "0 8 * * *"
+      },
+      "action": "Start",
+      "status": "Enabled"
+      },
+      { 
+      "triggerType": "Recurrence", 
+      "recurrence": { 
+          "frequency": "Day", 
+          "interval": 1,
+          "timeZone": "Pacific Standard Time", 
+        "schedule": { 
+          "hours": [18], 
+          "minutes": [0], 
+          "weekDays": [ 
+              "Saturday", 
+              "Sunday"
+          ] 
+          } 
+      }, 
+      "action": "Stop", 
+      "status": "Enabled" 
+      } 
+  ]
+}
 ```
 
 * Action can have value of “Start” or “Stop”.
