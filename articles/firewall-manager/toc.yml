@@ -15,7 +15,7 @@
     href: quick-firewall-policy.md
   - name: Create and update policy
     displayname: PowerShell
-    href: create-policy-powershell
+    href: create-policy-powershell.md
 - name: Tutorials
   items:
   - name: Secure your virtual hub - portal

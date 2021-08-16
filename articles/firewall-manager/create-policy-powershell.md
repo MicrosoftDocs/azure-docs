@@ -19,7 +19,7 @@ In this quickstart, you use Azure PowerShell to create an Azure Firewall policy 
 
 ## Open Azure Cloud Shell
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Sign in to Azure
 
