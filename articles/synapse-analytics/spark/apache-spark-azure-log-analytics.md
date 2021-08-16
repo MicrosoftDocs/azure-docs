@@ -28,7 +28,7 @@ Consult one of the following resources to create this workspace:
 
 ### Step 2: Prepare a Spark configuration file
 
-Use either of the following options to prepare the file.
+Use any of the following options to prepare the file.
 
 #### Option 1: Configure with Azure Monitor Logs workspace ID and key 
 
