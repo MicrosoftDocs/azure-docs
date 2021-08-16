@@ -1,7 +1,7 @@
 ---
 title: Monitor delegated resources at scale
 description: Azure Lighthouse helps you use Azure Monitor Logs in a scalable way across customer tenants.
-ms.date: 06/30/2021
+ms.date: 08/12/2021
 ms.topic: how-to
 ---
 
@@ -38,7 +38,6 @@ You can create a Log Analytics workspace by using the [Azure portal](../../azure
 > New-AzADServicePrincipal -ApplicationId 1215fb39-1d15-4c05-b2e3-d519ac3feab4
 > New-AzADServicePrincipal -ApplicationId 6da94f3c-0d67-4092-a408-bb5d1cb08d2d 
 > ```
->
 
 ## Deploy policies that log data
 
@@ -66,6 +65,9 @@ workspace("WS-customer-tenant-2").AzureDiagnostics
 ```
 
 For more examples of queries across multiple Log Analytics workspaces, see [Query across resources with Azure Monitor](../../azure-monitor/logs/cross-workspace-query.md).
+
+> [!IMPORTANT]
+> If you use an automation account used to query data from a Log Analytics workspace, that automation account must be created in the same tenant as the workspace.
 
 ## View alerts across customers
 

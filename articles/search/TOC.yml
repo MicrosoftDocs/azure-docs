@@ -182,7 +182,7 @@
       href: search-manage-azure-cli.md
     - name: Move service across regions
       href: search-howto-move-across-regions.md
-    - name: Troubleshoot issues with creating Shared Private Link Resources
+    - name: Troubleshoot issues with creating Shared Private Link Resource
       href: troubleshoot-shared-private-link-resources.md
   - name: Security
     items:
@@ -362,7 +362,7 @@
     items:
     - name: Attach a Cognitive Services resource
       href: cognitive-search-attach-cognitive-services.md
-    - name: Define a skillset
+    - name: Create a skillset
       href: cognitive-search-defining-skillset.md
     - name: Reference an annotation    
       href: cognitive-search-concept-annotations-syntax.md
