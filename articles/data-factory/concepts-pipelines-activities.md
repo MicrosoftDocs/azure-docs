@@ -44,7 +44,7 @@ Azure Data Factory and Azure Synapse Analytics support the following transformat
 
 Data transformation activity | Compute environment
 ---------------------------- | -------------------
-[Data Flow](control-flow-execute-data-flow-activity.md) | Azure Databricks managed by Azure Data Factory
+[Data Flow](control-flow-execute-data-flow-activity.md) | Apache Spark clusters managed by Azure Data Factory
 [Azure Function](control-flow-azure-function-activity.md) | Azure Functions
 [Hive](transform-data-using-hadoop-hive.md) | HDInsight [Hadoop]
 [Pig](transform-data-using-hadoop-pig.md) | HDInsight [Hadoop]

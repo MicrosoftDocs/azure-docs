@@ -12,7 +12,6 @@ ms.custom: include file
 ms.author: mikben
 ---
 
-[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include-chat.md)]
 
 ## Sample Code
 Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/add-chat).

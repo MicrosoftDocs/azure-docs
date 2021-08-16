@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: how-to
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 05/25/2021
+ms.date: 08/11/2021
 ---
 
 # Interactive debugging with Visual Studio Code
@@ -458,7 +458,7 @@ Local web service deployments require a working Docker installation on your loca
 
     myenv = Environment.from_conda_specification(name="env", file_path="myenv.yml")
     myenv.docker.base_image = None
-    myenv.docker.base_dockerfile = "FROM mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04"
+    myenv.docker.base_dockerfile = "FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210615.v1"
     inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
     package = Model.package(ws, [model], inference_config)
     package.wait_for_creation(show_output=True)  # Or show_output=False to hide the Docker build logs.
