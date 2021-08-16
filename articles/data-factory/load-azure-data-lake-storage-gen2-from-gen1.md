@@ -34,11 +34,11 @@ This article shows you how to use the Data Factory copy data tool to copy data f
 
 1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**.
    
-   ![Data Factory selection in the New pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+   ![Screenshot showing the Data Factory selection in the New pane.](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
 2. On the **New data factory** page, provide values for the fields that are shown in the following image: 
       
-   ![New Data factory page](./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory.png)
+   ![Screenshot showing the New Data factory page.](./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory.png)
  
     * **Name**: Enter a globally unique name for your Azure data factory. If you receive the error "Data factory name \"LoadADLSDemo\" is not available," enter a different name for the data factory. For example, use the name _**yourname**_**ADFTutorialDataFactory**. Create the data factory again. For the naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
     * **Subscription**: Select your Azure subscription in which to create the data factory. 
