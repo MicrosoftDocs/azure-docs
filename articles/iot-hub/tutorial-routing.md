@@ -5,7 +5,7 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 08/11/2021
+ms.date: 08/16/2021
 ms.author: robinsh
 ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics', devx-track-azurecli]
 #Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message. This step of the tutorial needs to show me how to set up my base resources using CLI and the Azure Portal.
@@ -139,7 +139,7 @@ Now set up the routing for the storage account. You go to the Message Routing pa
 
 5. Enter a name for the endpoint. This tutorial uses **ContosoStorageEndpoint**.
 
-   ![Name the endpoint.](./media/tutorial-routing/00002-add-a-storage-endpoint.png)
+   ![Name the endpoint](./media/tutorial-routing/00002-add-a-storage-endpoint.png)
 
 ** THESE INSTRUCTIONS ARE REALLY MESSED UP. **
 
