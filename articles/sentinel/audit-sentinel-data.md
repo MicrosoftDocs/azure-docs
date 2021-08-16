@@ -253,4 +253,4 @@ Use Azure Sentinel's own features to monitor events and actions that occur withi
 
 In Azure Sentinel, use the **Workspace audit** workbook to audit the activities in your SOC environment.
 
-For more information, see [Visualize and monitor your data](/azure/sentinel/articles/sentinel/monitor-your-data.md).
+For more information, see [Visualize and monitor your data](monitor-your-data.md).

@@ -44,4 +44,4 @@ This article explains how to connect your Zscaler Internet Access appliance to A
 In this document, you learned how to connect Zscaler Internet Access to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](./detect-threats-built-in.md).
-- [Use workbooks](/azure/sentinel/articles/sentinel/monitor-your-data.md) to monitor your data.
+- [Use workbooks](monitor-your-data.md) to monitor your data.
