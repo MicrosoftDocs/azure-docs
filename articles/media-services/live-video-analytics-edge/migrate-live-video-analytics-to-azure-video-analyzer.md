@@ -56,7 +56,7 @@ Before beginning any migration efforts, it is strongly recommended to save your 
 
 1. To save your Live Video Analytics media graph, click on the Live Video Analytics module under the IoT Edge device.  In the example below the container name is lvaEdge.
 
-   :::image type="content" source="./media/migrate-live-video-analytics-to-azure-video-analyzer/live-video-analytics-edge.png" alt-text="Screenshot that shows the Live Video Analytics IoT Edge module.":::
+   :::image type="content" source="./media/migrate-live-video-analytics-to-azure-video-analyzer/live-video-analytics-edge.png" alt-text="Screenshot that shows the Live Video Analytics IoT Edge module container name.":::
 
 1. Click on `Direct method`.
 
