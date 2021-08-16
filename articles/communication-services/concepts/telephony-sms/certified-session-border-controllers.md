@@ -43,7 +43,7 @@ Note the certification granted to a major version. That means that firmware with
 ### Conceptual documentation
 
 - [Phone number types in Azure Communication Services](./plan-solution.md)
-- [Plan for Azure direct routing](./sip-interface-infrastructure.md)
+- [Plan for Azure direct routing](./direct-routing-infrastructure.md)
 - [Pair the Session Border Controller and configure voice routing](./direct-routing-provisioning.md)
 - [Pricing](../pricing.md)
 

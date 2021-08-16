@@ -80,30 +80,30 @@ export MYSQL_DATABASE_NAME=petclinic
     Welcome to the MySQL monitor.  Commands end with ; or \g.
     Your MySQL connection id is 64379
     Server version: 5.6.39.0 MySQL Community Server (GPL)
-    
+
     Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
-    
+
     Oracle is a registered trademark of Oracle Corporation and/or its
     affiliates. Other names may be trademarks of their respective
     owners.
-    
+
     Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-    
+
     mysql> CREATE DATABASE petclinic;
     Query OK, 1 row affected (0.10 sec)
-    
+
     mysql> CREATE USER 'root' IDENTIFIED BY 'petclinic';
     Query OK, 0 rows affected (0.11 sec)
-    
+
     mysql> GRANT ALL PRIVILEGES ON petclinic.* TO 'root';
     Query OK, 0 rows affected (1.29 sec)
-    
+
     mysql> CALL mysql.az_load_timezone();
     Query OK, 3179 rows affected, 1 warning (6.34 sec)
-    
+
     mysql> SELECT name FROM mysql.time_zone_name;
     ...
-    
+
     mysql> quit
     Bye
     ```
@@ -157,5 +157,6 @@ az spring-cloud app update --name visits-service \
 ```
 
 ## Next steps
+
 * [Bind an Azure Database for MySQL instance to your Azure Spring Cloud application](how-to-bind-mysql.md)
 * [Use a managed identity to connect Azure SQL Database to an Azure Spring Cloud app](./connect-managed-identity-to-azure-sql.md)
