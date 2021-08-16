@@ -50,22 +50,20 @@ When the assignment end date and time is within 14 days, the button to **Extend*
 
 To request an extension of this role assignment, select **Extend** to open the request form.
 
-![Extend role assignment pane with a Reason box](./media/pim-how-to-renew-extend/aadpim-rbac-extend-role-assignment-request.png)
+![Extend role assignment pane with a Reason box](./media/pim-how-to-renew-extend/extend-role-assignment-request.png)
 
-To view information about the original assignment, expand **Assignment details**. Enter a reason for the extension request, and then select **Extend**.
+Enter a reason for the extension request, and then select **Extend**.
 
 >[!NOTE]
 >We recommend including the details of why the extension is necessary, and for how long the extension should be granted (if you have this information).
 
-![Extend role assignment pane with Assignment details expanded](./media/pim-how-to-renew-extend/aadpim-rbac-extend-form-complete.png)
+Administrators receive an email notification to review the extension request. If a request to extend has already been submitted, an Azure notification appears in the portal.
 
-In a matter of moments, administrators receive an email notification requesting that they review the extension request. If a request to extend has already been submitted, an Azure notification appears in the portal.
-
-![Notification explaining that there is already an existing pending role assignment extension](./media/pim-how-to-renew-extend/aadpim-rbac-extend-failed-existing-request.png)
+![Notification explaining that there is already an existing pending role assignment extension](./media/pim-how-to-renew-extend/extend-notification.png)
 
 Go to the **Pending requests** page to view the status of your request or to cancel it.
 
-![Azure AD roles - Pending requests page listing any pending requested and a link to Cancel](./media/pim-how-to-renew-extend/aadpim-rbac-extend-cancel-request.png)
+![Azure AD roles - Pending requests page listing any pending requested and a link to Cancel](./media/pim-how-to-renew-extend/pending-requests.png)
 
 ### Admin approved extension
 
