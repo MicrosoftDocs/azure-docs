@@ -6,17 +6,17 @@ author: alkohli
 
 ms.service: storsimple
 ms.topic: how-to
-ms.date: 08/12/2021 
+ms.date: 08/16/2021 
 ms.author: alkohli
 
 ---
 # Options to migrate data from StorSimple 8000 series
 
 > [!IMPORTANT]
-> On December 31, 2022 the StorSimple 8000 series will reach end of support (EOS) status. EOS implies that Microsoft will no longer support hardware and software of these devices, and the service itself will be discontinued.</br></br>
-> We recommend that StorSimple 8000 series customers migrate to one of the alternatives described his document.
+> Starting December 31, 2022, the StorSimple 8000 series will reach end of support (EOS) status. Microsoft will no longer support hardware and software of these devices, and the service will be discontinued.</br></br>
+> We recommend that StorSimple 8000 series customers migrate to one of the alternatives described in this document.
 
-StorSimple 8000 series is reaching [end of Support](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series) in December 2022. The customers who are running StorSimple 8000 series can upgrade to other Azure first party hybrid services. This article describes the Azure hybrid options available to migrate data.
+StorSimple 8000 series reaches [end of Support](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series) in December 2022. The customers who are running StorSimple 8000 series can upgrade to other Azure first-party hybrid services. This article describes the Azure hybrid options available to migrate data.
 
 ## Migration options
 
@@ -76,7 +76,7 @@ Learn more about how to evolve to a cloud-consolidated enterprise at https://www
 
 ### Q. When do the StorSimple 8000 series devices reach end of service?
 
-A. StorSimple 8000 series reach [end of support](https://support.microsoft.com/[lifecycle/search?alpha=Azure%20StorSimple%208000%20Series) in December 2022. The end of support implies that Microsoft will no longer be able to provide support for both hardware and software of these devices after December 2022. That includes service support and software patches/security patches, and the service itself will be discontinued on December 31, 2022. We strongly recommend that you start formulating a plan to migrate the data from your devices now.
+A. StorSimple 8000 series reach [end of support](https://support.microsoft.com/[lifecycle/search?alpha=Azure%20StorSimple%208000%20Series) in December 2022. Starting on that date, Microsoft will no longer provide support for both hardware and software of these devices. That includes service support and software patches/security patches, and the service itself will be discontinued. We strongly recommend that you start formulating a plan to migrate the data from your devices now.
 
 ### Q. What happens to the data I have stored in Azure?  
 
