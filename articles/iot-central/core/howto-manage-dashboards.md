@@ -24,7 +24,7 @@ The following screenshot shows the dashboard in an application created from the 
 
 :::image type="content" source="media/howto-manage-dashboards/dashboard-custom-app.png" alt-text="Screenshot of dashboard for applications based on the Custom Application template.":::
 
-In the **Create dashboard** panel, give your dashboard a name and select either **Organization** or **Personal** as the dashboard type If you're creating an organization dashboard, choose the [organization](howto-create-organizations.md) the dashboard is associated with. An organization dashboard and its tiles only show the devices that are visible to the organization.
+In the **Create dashboard** panel, give your dashboard a name and select either **Organization** or **Personal** as the dashboard type If you're creating an organization dashboard, choose the [organization](howto-create-organizations.md) the dashboard is associated with. An organization dashboard and its tiles only show the devices that are visible to the organization and any of its sub-organizations.
 
 After you create the dashboard, choose items from the library to add to the dashboard. The library contains the tiles and dashboard primitives you use to customize the dashboard:
 

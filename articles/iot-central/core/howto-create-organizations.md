@@ -5,7 +5,7 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/01/2021
+ms.date: 08/20/2021
 ms.topic: how-to
 ---
 
@@ -19,7 +19,7 @@ Organizations are hierarchical:
 
 When you create your first organization hierarchy, you'll see that the name of your application is at the root. Each organization you add becomes a child or leaf organization. Organization hierarchies use inheritance. For example, in the hierarchy shown in the previous diagram:
 
-- *Fabrikam* users have access to devices in *Europe*, *Spain*, *Portugal*, *Americas*, *Canada*, *USA*, and *Mexico*.
+- *Adatum Solar* users have access to devices in *United States*, *Canada*, *Europe*, and *Latin America*.
 - *Contoso* users have access to all devices in all organizations in the hierarchy.
 
 Users in sibling organizations can't see each other's others devices.
@@ -42,6 +42,9 @@ To start using organizations, you need to define your organization hierarchy. Ea
 To reassign an organization to a new parent, select **Edit** and choose a new parent.
 
 To delete an organization, you must delete or move to another organization any associated items such as dashboards, devices, users, device groups, and jobs.
+
+> [!TIP]
+> You can also use the REST API to create and manage organizations.
 
 ## Assign devices
 
@@ -128,9 +131,4 @@ When you start adding organizations, all existing devices, users, and experience
 
 ## Next steps
 
-Now that you've learned how to manage Azure IoT Central organizations, here's the suggested next step:
-
-<!-- TODO: Review this -->
-
-> [!div class="nextstepaction"]
-> [Administer your application](howto-administer.md)
+Now that you've learned how to manage Azure IoT Central organizations, here's the suggested next step is learn how to [Export IoT data to cloud destinations using data export](howto-export-data.md).
