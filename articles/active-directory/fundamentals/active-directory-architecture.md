@@ -2,7 +2,7 @@
 title: Architecture overview - Azure Active Directory | Microsoft Docs
 description: Learn what an Azure Active Directory tenant is and how to manage Azure using Azure Active Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 
 ms.service: active-directory
@@ -96,16 +96,16 @@ The directory model is one of eventual consistencies. One typical problem with d
 
 Azure AD provides read-write consistency for applications targeting a secondary replica by routing its writes to the primary replica, and synchronously pulling the writes back to the secondary replica.
 
-Application writes using the Graph API of Azure AD are abstracted from maintaining affinity to a directory replica for read-write consistency. The Azure AD Graph service maintains a logical session, which has affinity to a secondary replica used for reads; affinity is captured in a “replica token” that the graph service caches using a distributed cache in the secondary replica datacenter. This token is then used for subsequent operations in the same logical session. To continue using the same logical session, subsequent requests must be routed to the same Azure AD datacenter. It is not possible to continue a logical session if the directory client requests are being routed to multiple Azure AD datacenters; if this happens then the client has multiple logical sessions which have independent read-write consistencies.
+Application writes using the Microsoft Graph API of Azure AD are abstracted from maintaining affinity to a directory replica for read-write consistency. The Microsoft Graph API service maintains a logical session, which has affinity to a secondary replica used for reads; affinity is captured in a “replica token” that the service caches using a distributed cache in the secondary replica datacenter. This token is then used for subsequent operations in the same logical session. To continue using the same logical session, subsequent requests must be routed to the same Azure AD datacenter. It is not possible to continue a logical session if the directory client requests are being routed to multiple Azure AD datacenters; if this happens then the client has multiple logical sessions which have independent read-write consistencies.
 
  >[!NOTE]
  >Writes are immediately replicated to the secondary replica to which the logical session's reads were issued.
 
-#### Backup protection
+#### Service-level backup
 
-The directory implements soft deletes, instead of hard deletes, for users and tenants for easy recovery in case of accidental deletes by a customer. If your tenant administrator accidental deletes users, they can easily undo and restore the deleted users.
-
-Azure AD implements daily backups of all data, and therefore can authoritatively restore data in case of any logical deletions or corruptions. The data tier employs error correcting codes, so that it can check for errors and automatically correct particular types of disk errors.
+Azure AD implements daily backup of directory data and can use these backups to restore data in case of any service-wide issue.
+ 
+The directory also implements soft deletes instead of hard deletes for selected object types. The tenant administrator can undo any accidental deletions of these objects within 30 days. For more information, see the [API to restore deleted objects](/graph/api/directory-deleteditems-restore).
 
 #### Metrics and monitors
 
@@ -119,4 +119,4 @@ Using operational controls such as multi-factor authentication (MFA) for any ope
 
 ## Next steps
 
-[Azure Active Directory developer's guide](https://docs.microsoft.com/azure/active-directory/develop)
+[Azure Active Directory developer's guide](../develop/index.yml)

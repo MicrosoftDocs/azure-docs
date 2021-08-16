@@ -9,8 +9,7 @@ metadata:
   title: Data Science Virtual Machine documentation - Azure
   description: The Azure Data Science Virtual Machine (DSVM) is a virtual machine image pre-loaded 
     with data science & machine learning tools.  
-  ms.service: machine-learning
-  ms.subservice: data-science-vm
+  ms.service: data-science-vm
   ms.topic: landing-page
   ms.collection: collection
   author: gvashishtha
@@ -24,31 +23,25 @@ landingContent:
 # Start card title with a verb
 
   # GET STARTED CARD
-  - title: Get started with your DSVM
+  - title: Get started with your Data Science Virtual Machine
     linkLists:
       - linkListType: overview
         links:
-          - text: What is the DSVM?
+          - text: What is the Data Science Virtual Machine?
             url: overview.md
-          - text: What is the Geo AI DSVM?
-            url: geo-ai-dsvm-overview.md
-          - text: Tools Included on the DSVM
+          - text: Tools Included on the Data Science Virtual Machine
             url: tools-included.md
           - text: Release Notes
             url: release-notes.md
       - linkListType: get-started
         links:
-          - text: Create a Windows DSVM
+          - text: Create a Windows Data Science Virtual Machine
             url: provision-vm.md
-          - text: Create an Ubuntu DSVM
+          - text: Create an Ubuntu Data Science Virtual Machine
             url: dsvm-ubuntu-intro.md
-          - text: Create a CentOS DSVM
-            url: linux-dsvm-intro.md
-          - text: Create a Geo AI DSVM
-            url: provision-geo-ai-dsvm.md                        
 
 # SECURITY
-  - title: Manage your DSVM
+  - title: Manage your Data Science Virtual Machine
     linkLists:
       - linkListType: architecture
         links:
@@ -56,7 +49,7 @@ landingContent:
             url: dsvm-enterprise-overview.md
       - linkListType: how-to-guide
         links:
-          - text: Create auto-scaled DSVM pools
+          - text: Create auto-scaled Data Science Virtual Machine pools
             url: dsvm-pools.md
           - text: Integrate with Active Directory
             url: dsvm-common-identity.md
@@ -68,8 +61,7 @@ landingContent:
     linkLists:
       - linkListType: learn
         links:
-          - text: Azure Machine Learning
-            url: /azure/machine-learning/
+          - text: Azure Machine Learning compute instance
+            url: ../concept-compute-instance.md
           - text: Compare our ML products
-            url: https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context
-            
+            url: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=%2fazure%2fmachine-learning%2fstudio%2fcontext%2fml-context

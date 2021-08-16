@@ -14,9 +14,9 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2019
+ms.date: 07/28/2021
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 
 # Customer intent: As an IT administrator, I want to learn how to route Azure AD logs to an event hub so I can integrate it with my third party SIEM system.
 ms.collection: M365-identity-device-management
@@ -33,7 +33,7 @@ To use this feature, you need:
 * An Azure subscription. If you don't have an Azure subscription, you can [sign up for a free trial](https://azure.microsoft.com/free/).
 * An Azure AD tenant.
 * A user who's a *global administrator* or *security administrator* for the Azure AD tenant.
-* An Event Hubs namespace and an event hub in your Azure subscription. Learn how to [create an event hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+* An Event Hubs namespace and an event hub in your Azure subscription. Learn how to [create an event hub](../../event-hubs/event-hubs-create.md).
 
 ## Stream logs to an event hub
 
@@ -57,13 +57,19 @@ To use this feature, you need:
 
 7. Select **OK** to exit the event hub configuration.
 
-8. Do either or both of the following:
-    * To send audit logs to the storage account, select the **AuditLogs** check box. 
-    * To send sign-in logs to the storage account, select the **SignInLogs** check box.
+8. Do any combination of the following:
+    - To send audit logs to the event hub, select the **AuditLogs** check box. 
+    - To send interactive user sign-in logs to the event hub, select the **SignInLogs** check box.
+    - To send non-interactive user sign-in logs to the event hub, select the **NonInteractiveUserSignInLogs** check box. 
+    - To send service principal sign-in logs to the event hub, select the **ServicePrincipalSignInLogs** check box.
+    - To send managed identity sign-in logs to the event hub, select the **ManagedIdentitySignInLogs** check box.
+    - To send provisioning logs to the event hub, select the **ProvisioningLogs** check box.
+    - To send sign-ins sent to Azure AD by an AD FS Connect Health agent, select the **ADFSSignInLogs** check box.
+
+    >[!Note]
+    >Some sign-in categories contain large amounts of log data depending on your tenant’s configuration. In general, the non-interactive user sign-ins and service principal sign-ins can be 5 to 10 times larger than the interactive user sign-ins.
 
 9. Select **Save** to save the setting.
-
-    ![Diagnostics settings](./media/quickstart-azure-monitor-stream-logs-to-event-hub/DiagnosticSettings.png)
 
 10. After about 15 minutes, verify that events are displayed in your event hub. To do so, go to the event hub from the portal and verify that the **incoming messages** count is greater than zero. 
 
@@ -75,21 +81,22 @@ After data is displayed in the event hub, you can access and read the data in tw
 
 * **Configure a supported SIEM tool**. To read data from the event hub, most tools require the event hub connection string and certain permissions to your Azure subscription. Third-party tools with Azure Monitor integration include, but are not limited to:
     
-    * **ArcSight**: For more information about integrating Azure AD logs with Splunk, see [Integrate Azure Active Directory logs with ArcSight using Azure Monitor](howto-integrate-activity-logs-with-arcsight.md).
+    * **ArcSight**: For more information about integrating Azure AD logs with ArcSight, see [Integrate Azure Active Directory logs with ArcSight using Azure Monitor](howto-integrate-activity-logs-with-arcsight.md).
     
-    * **Splunk**: For more information about integrating Azure AD logs with Splunk, see [Integrate Azure AD logs with Splunk by using Azure Monitor](tutorial-integrate-activity-logs-with-splunk.md).
+    * **Splunk**: For more information about integrating Azure AD logs with Splunk, see [Integrate Azure AD logs with Splunk by using Azure Monitor](./howto-integrate-activity-logs-with-splunk.md).
     
     * **IBM QRadar**: The DSM and Azure Event Hub Protocol are available for download at [IBM support](https://www.ibm.com/support). For more information about integration with Azure, go to the [IBM QRadar Security Intelligence Platform 7.3.0](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0) site.
     
     * **Sumo Logic**: To set up Sumo Logic to consume data from an event hub, see [Install the Azure AD app and view the dashboards](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards). 
 
-* **Set up custom tooling**. If your current SIEM isn't supported in Azure Monitor diagnostics yet, you can set up custom tooling by using the Event Hubs API. To learn more, see the [Getting started receiving messages from an event hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph).
+* **Set up custom tooling**. If your current SIEM isn't supported in Azure Monitor diagnostics yet, you can set up custom tooling by using the Event Hubs API. To learn more, see the [Getting started receiving messages from an event hub](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
 
 
 ## Next steps
 
 * [Integrate Azure Active Directory logs with ArcSight using Azure Monitor](howto-integrate-activity-logs-with-arcsight.md)
-* [Integrate Azure AD logs with Splunk by using Azure Monitor](tutorial-integrate-activity-logs-with-splunk.md)
+* [Integrate Azure AD logs with Splunk by using Azure Monitor](./howto-integrate-activity-logs-with-splunk.md)
 * [Integrate Azure AD logs with SumoLogic by using Azure Monitor](howto-integrate-activity-logs-with-sumologic.md)
-* [Interpret audit logs schema in Azure Monitor](reference-azure-monitor-audit-log-schema.md)
+* [Integrate Azure AD logs with Elastic using an event hub](https://github.com/Microsoft/azure-docs/blob/master/articles/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)
+* [Interpret audit logs schema in Azure Monitor](./overview-reports.md)
 * [Interpret sign-in logs schema in Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)

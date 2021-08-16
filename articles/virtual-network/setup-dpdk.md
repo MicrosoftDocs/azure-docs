@@ -1,6 +1,6 @@
 ---
 title: DPDK in an Azure Linux VM | Microsoft Docs
-description: Learn how to setup DPDK in a Linux virtual machine.
+description: Learn the benefits of the Data Plane Development Kit (DPDK) and how to set up the DPDK on a Linux virtual machine.
 services: virtual-network
 documentationcenter: na
 author: laxmanrb
@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: 
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/27/2018
+ms.date: 05/12/2020
 ms.author: labattul
 
 ---
@@ -32,21 +32,23 @@ DPDK can run on Azure virtual machines that are supporting multiple operating sy
 **Higher packets per second (PPS)**: Bypassing the kernel and taking control of packets in the user space reduces the cycle count by eliminating context switches. It also improves the rate of packets that are processed per second in Azure Linux virtual machines.
 
 
-## Supported operating systems
+## Supported operating systems minimum versions
 
-The following distributions from the Azure Gallery are supported:
+The following distributions from the Azure Marketplace are supported:
 
-| Linux OS     | Kernel version        |
-|--------------|----------------       |
-| Ubuntu 16.04 | 4.15.0-1015-azure     |
-| Ubuntu 18.04 | 4.15.0-1015-azure     |
-| SLES 15      | 4.12.14-5.5-azure     |
-| RHEL 7.5     | 3.10.0-862.9.1.el7    |
-| CentOS 7.5   | 3.10.0-862.3.3.el7    |
+| Linux OS     | Kernel version               | 
+|--------------|---------------------------   |
+| Ubuntu 18.04 | 4.15.0-1014-azure+           |
+| SLES 15 SP1  | 4.12.14-8.19-azure+          | 
+| RHEL 7.5     | 3.10.0-862.11.6.el7.x86_64+  | 
+| CentOS 7.5   | 3.10.0-862.11.6.el7.x86_64+  | 
+| Debian 10    | 4.19.0-1-cloud+              |
+
+The noted versions are the minimum requirements. Newer versions are supported too.
 
 **Custom kernel support**
 
-For any Linux kernel version that's not listed, see [Patches for building an Azure-tuned Linux kernel](https://github.com/microsoft/azure-linux-kernel). For more information, you can also contact [azuredpdk@microsoft.com](mailto:azuredpdk@microsoft.com). 
+For any Linux kernel version that's not listed, see [Patches for building an Azure-tuned Linux kernel](https://github.com/microsoft/azure-linux-kernel). For more information, you can also contact [aznetdpdk@microsoft.com](mailto:aznetdpdk@microsoft.com). 
 
 ## Region support
 
@@ -54,34 +56,63 @@ All Azure regions support DPDK.
 
 ## Prerequisites
 
-Accelerated networking must be enabled on a Linux virtual machine. The virtual machine should have at least two network interfaces, with one interface for management. Learn how to [create a Linux virtual machine with accelerated networking enabled](create-vm-accelerated-networking-cli.md).
+Accelerated networking must be enabled on a Linux virtual machine. The virtual machine should have at least two network interfaces, with one interface for management. Enabling Accelerated networking on management interface is not recommended. Learn how to [create a Linux virtual machine with accelerated networking enabled](create-vm-accelerated-networking-cli.md).
 
-## Install DPDK dependencies
-
-### Ubuntu 16.04
-
-```bash
-sudo add-apt-repository ppa:canonical-server/dpdk-azure -y
-sudo apt-get update
-sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev libmnl-dev
-```
+## Install DPDK via system package (recommended)
 
 ### Ubuntu 18.04
 
 ```bash
+sudo add-apt-repository ppa:canonical-server/server-backports -y
 sudo apt-get update
-sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev libmnl-dev
+sudo apt-get install -y dpdk
 ```
 
-### RHEL7.5/CentOS 7.5
+### Ubuntu 20.04 and newer
+
+```bash
+sudo apt-get install -y dpdk
+```
+
+### Debian 10 and newer
+
+```bash
+sudo apt-get install -y dpdk
+```
+
+## Install DPDK manually (not recommended)
+
+### Install build dependencies
+
+#### Ubuntu 18.04
+
+```bash
+sudo add-apt-repository ppa:canonical-server/server-backports -y
+sudo apt-get update
+sudo apt-get install -y build-essential librdmacm-dev libnuma-dev libmnl-dev meson
+```
+
+#### Ubuntu 20.04 and newer
+
+```bash
+sudo apt-get install -y build-essential librdmacm-dev libnuma-dev libmnl-dev meson
+```
+
+#### Debian 10 and newer
+
+```bash
+sudo apt-get install -y build-essential librdmacm-dev libnuma-dev libmnl-dev meson
+```
+
+#### RHEL7.5/CentOS 7.5
 
 ```bash
 yum -y groupinstall "Infiniband Support"
 sudo dracut --add-drivers "mlx4_en mlx4_ib mlx5_ib" -f
-yum install -y gcc kernel-devel-`uname -r` numactl-devel.x86_64 librdmacm-devel libmnl-devel
+yum install -y gcc kernel-devel-`uname -r` numactl-devel.x86_64 librdmacm-devel libmnl-devel meson
 ```
 
-### SLES 15
+#### SLES 15 SP1
 
 **Azure kernel**
 
@@ -89,7 +120,7 @@ yum install -y gcc kernel-devel-`uname -r` numactl-devel.x86_64 librdmacm-devel 
 zypper  \
   --no-gpg-checks \
   --non-interactive \
-  --gpg-auto-import-keys install kernel-azure kernel-devel-azure gcc make libnuma-devel numactl librdmacm1 rdma-core-devel
+  --gpg-auto-import-keys install kernel-azure kernel-devel-azure gcc make libnuma-devel numactl librdmacm1 rdma-core-devel meson
 ```
 
 **Default kernel**
@@ -98,16 +129,15 @@ zypper  \
 zypper \
   --no-gpg-checks \
   --non-interactive \
-  --gpg-auto-import-keys install kernel-default-devel gcc make libnuma-devel numactl librdmacm1 rdma-core-devel
+  --gpg-auto-import-keys install kernel-default-devel gcc make libnuma-devel numactl librdmacm1 rdma-core-devel meson
 ```
 
-## Set up the virtual machine environment (once)
+### Compile and install DPDK manually
 
-1. [Download the latest DPDK](https://core.dpdk.org/download). Version 18.02 or higher is required for Azure.
-2. Build the default config with `make config T=x86_64-native-linuxapp-gcc`.
-3. Enable Mellanox PMDs in the generated config with `sed -ri 's,(MLX._PMD=)n,\1y,' build/.config`.
-4. Compile with `make`.
-5. Install with `make install DESTDIR=<output folder>`.
+1. [Download the latest DPDK](https://core.dpdk.org/download). Version 19.11 LTS or newer is required for Azure.
+2. Build the default config with `meson builddir`.
+3. Compile with `ninja -C builddir`.
+4. Install with `DESTDIR=<output folder> ninja -C builddir install`.
 
 ## Configure the runtime environment
 
@@ -115,32 +145,31 @@ After restarting, run the following commands once:
 
 1. Hugepages
 
-   * Configure hugepage by running the following command, once for all numanodes:
+   * Configure hugepage by running the following command, once for each numa node:
 
      ```bash
-     echo 1024 | sudo tee
-     /sys/devices/system/node/node*/hugepages/hugepages-2048kB/nr_hugepages
+     echo 1024 | sudo tee /sys/devices/system/node/node*/hugepages/hugepages-2048kB/nr_hugepages
      ```
 
    * Create a directory for mounting with `mkdir /mnt/huge`.
    * Mount hugepages with `mount -t hugetlbfs nodev /mnt/huge`.
    * Check that hugepages are reserved with `grep Huge /proc/meminfo`.
 
-     > [!NOTE]
+     > [NOTE]
      > There is a way to modify the grub file so that hugepages are reserved on boot by following the [instructions](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) for the DPDK. The instructions are at the bottom of the page. When you're using an Azure Linux virtual machine, modify files under **/etc/config/grub.d** instead, to reserve hugepages across reboots.
 
-2. MAC & IP addresses: Use `ifconfig –a` to view the MAC and IP address of the network interfaces. The *VF* network interface and *NETVSC* network interface have the same MAC address, but only the *NETVSC* network interface has an IP address. VF interfaces are running as subordinate interfaces of NETVSC interfaces.
+2. MAC & IP addresses: Use `ifconfig –a` to view the MAC and IP address of the network interfaces. The *VF* network interface and *NETVSC* network interface have the same MAC address, but only the *NETVSC* network interface has an IP address. *VF* interfaces are running as subordinate interfaces of *NETVSC* interfaces.
 
 3. PCI addresses
 
    * Use `ethtool -i <vf interface name>` to find out which PCI address to use for *VF*.
-   * If *eth0* has accelerated networking enabled, make sure that testpmd doesn’t accidentally take over the VF pci device for *eth0*. If the DPDK application accidentally takes over the management network interface and causes you to lose your SSH connection, use the serial console to stop the DPDK application. You can also use the serial console to stop or start the virtual machine.
+   * If *eth0* has accelerated networking enabled, make sure that testpmd doesn’t accidentally take over the *VF* pci device for *eth0*. If the DPDK application accidentally takes over the management network interface and causes you to lose your SSH connection, use the serial console to stop the DPDK application. You can also use the serial console to stop or start the virtual machine.
 
 4. Load *ibuverbs* on each reboot with `modprobe -a ib_uverbs`. For SLES 15 only, also load *mlx4_ib* with `modprobe -a mlx4_ib`.
 
 ## Failsafe PMD
 
-DPDK applications must run over the failsafe PMD that is exposed in Azure. If the application runs directly over the VF PMD, it doesn't receive **all** packets that are destined to the VM, since some packets show up over the synthetic interface. 
+DPDK applications must run over the failsafe PMD that is exposed in Azure. If the application runs directly over the *VF* PMD, it doesn't receive **all** packets that are destined to the VM, since some packets show up over the synthetic interface. 
 
 If you run a DPDK application over the failsafe PMD, it guarantees that the application receives all packets that are destined to it. It also makes sure that the application keeps running in DPDK mode, even if the VF is revoked when the host is being serviced. For more information about failsafe PMD, see [Fail-safe poll mode driver library](https://doc.dpdk.org/guides/nics/fail_safe.html).
 
@@ -252,3 +281,4 @@ When you're running the previous commands on a virtual machine, change *IP_SRC_A
 
 * [EAL options](https://dpdk.org/doc/guides/testpmd_app_ug/run_app.html#eal-command-line-options)
 * [Testpmd commands](https://dpdk.org/doc/guides/testpmd_app_ug/run_app.html#testpmd-command-line-options)
+* [Packet dump commands](https://doc.dpdk.org/guides/tools/pdump.html#pdump-tool)

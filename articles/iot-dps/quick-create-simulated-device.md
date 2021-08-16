@@ -7,8 +7,8 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
-manager: philmea
-ms.custom: mvc
+
+ms.custom:  [mvc, amqp, mqtt]
 #Customer intent: As a new IoT developer, I want simulate a TPM device using the C SDK so that I can learn how secure provisioning works.
 ---
 
@@ -18,7 +18,7 @@ ms.custom: mvc
 
 In this quickstart, you will learn how to create and run a Trusted Platform Module (TPM) device simulator on a Windows development machine. You will connect this simulated device to an IoT hub using a Device Provisioning Service instance. Sample code from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) will be used to help enroll the device with a Device Provisioning Service instance and simulate a boot sequence for the device.
 
-If you're unfamiliar with the process of autoprovisioning, review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also, make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing with this quickstart. 
+If you're unfamiliar with the process of autoprovisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview. Also, make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing with this quickstart. 
 
 The Azure IoT Device Provisioning Service supports two types of enrollments:
 - [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
@@ -30,39 +30,44 @@ This article will demonstrate individual enrollments.
 
 ## Prerequisites
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 or later with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled.
-* Latest version of [Git](https://git-scm.com/download/) installed.
+The following prerequisites are for a Windows development environment. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in the SDK documentation.
 
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 with the ['Desktop development with C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) workload enabled. Visual Studio 2015 and Visual Studio 2017 are also supported.
+
+* Latest version of [Git](https://git-scm.com/download/) installed.
 
 <a id="setupdevbox"></a>
 
 ## Prepare a development environment for the Azure IoT C SDK
 
-In this section, you will prepare a development environment used to build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) and the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) device simulator sample.
+In this section, you will prepare a development environment used to build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) and the [TPM](/windows/device-security/tpm/trusted-platform-module-overview) device simulator sample.
 
 1. Download the [CMake build system](https://cmake.org/download/).
 
     It is important that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system.
 
-2. Open a command prompt or Git Bash shell. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
-    
+2. Find the tag name for the [latest release](https://github.com/Azure/azure-iot-sdk-c/releases/latest) of the SDK.
+
+3. Open a command prompt or Git Bash shell. Run the following commands to clone the latest release of the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository. Use the tag you found in the previous step as the value for the `-b` parameter:
+
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
+
     You should expect this operation to take several minutes to complete.
 
-
-3. Create a `cmake` subdirectory in the root directory of the git repository, and navigate to that folder. 
+4. Create a `cmake` subdirectory in the root directory of the git repository, and navigate to that folder. Run the following commands from the `azure-iot-sdk-c` directory:
 
     ```cmd/sh
-    cd azure-iot-sdk-c
     mkdir cmake
     cd cmake
     ```
 
 ## Build the SDK and run the TPM device simulator
 
-In this section, you will build the Azure IoT C SDK, which includes the TPM device simulator sample code. This sample provides a TPM [attestation mechanism](concepts-security.md#attestation-mechanism) via Shared Access Signature (SAS) Token authentication.
+In this section, you will build the Azure IoT C SDK, which includes the TPM device simulator sample code. This sample provides a TPM [attestation mechanism](concepts-service.md#attestation-mechanism) via Shared Access Signature (SAS) Token authentication.
 
 1. From the `cmake` subdirectory you created in the azure-iot-sdk-c git repository, run the following command to build the sample. A Visual Studio solution for the simulated device will also be generated by this build command.
 
@@ -70,7 +75,7 @@ In this section, you will build the Azure IoT C SDK, which includes the TPM devi
     cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
     ```
 
-    If `cmake` does not find your C++ compiler, you might get build errors while running the above command. If that happens, try running this command in the [Visual Studio command prompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
+    If `cmake` does not find your C++ compiler, you might get build errors while running the above command. If that happens, try running this command in the [Visual Studio command prompt](/dotnet/framework/tools/developer-command-prompt-for-vs). 
 
     Once the build succeeds, the last few output lines will look similar to the following output:
 
@@ -88,7 +93,7 @@ In this section, you will build the Azure IoT C SDK, which includes the TPM devi
     -- Build files have been written to: E:/IoT Testing/azure-iot-sdk-c/cmake
     ```
 
-2. Navigate to the root folder of the git repository you cloned, and run the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simulator using the path shown below. This simulator listens over a socket on ports 2321 and 2322. Do not close this command window; you will need to keep this simulator running until the end of this quickstart. 
+2. Navigate to the root folder of the git repository you cloned, and run the [TPM](/windows/device-security/tpm/trusted-platform-module-overview) simulator using the path shown below. This simulator listens over a socket on ports 2321 and 2322. Do not close this command window; you will need to keep this simulator running until the end of this quickstart. 
 
    If you are in the *cmake* folder, then run the following commands:
 
@@ -213,7 +218,7 @@ If you plan to continue working on and exploring the device client sample, do no
 
 ## Next steps
 
-In this quickstart, you’ve created a TPM simulated device on your machine and provisioned it to your IoT hub using the IoT Hub Device Provisioning Service. To learn how to enroll your TPM device programmatically, continue to the quickstart for programmatic enrollment of a TPM device. 
+In this quickstart, you've created a TPM simulated device on your machine and provisioned it to your IoT hub using the IoT Hub Device Provisioning Service. To learn how to enroll your TPM device programmatically, continue to the quickstart for programmatic enrollment of a TPM device. 
 
 > [!div class="nextstepaction"]
 > [Azure quickstart - Enroll TPM device to Azure IoT Hub Device Provisioning Service](quick-enroll-device-tpm-java.md)

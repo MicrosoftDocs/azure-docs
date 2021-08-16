@@ -1,18 +1,18 @@
 ---
-title: Common scenarios in Azure AD entitlement management - Azure Active Directory
+title: Common scenarios in entitlement management - Azure AD
 description: Learn the high-level steps you should follow for common scenarios in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/28/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -117,24 +117,24 @@ There are several ways that you can configure entitlement management for your or
 1. [Watch video: Day-to-day management: Things have changed](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
 1. Open the access package
 1. [Open the lifecycle settings](entitlement-management-access-package-lifecycle-policy.md#open-lifecycle-settings)
-1. [Update the expiration settings](entitlement-management-access-package-lifecycle-policy.md#lifecycle)
+1. [Update the expiration settings](entitlement-management-access-package-lifecycle-policy.md#lifecycle) 
 
 ### Access package manager: Update how access is approved for a project
 
 1. [Watch video: Day-to-day management: Things have changed](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
-1. [Open an existing policy of request and approval settings](entitlement-management-access-package-request-policy.md#open-an-existing-policy-of-request-and-approval-settings)
-1. [Update the approval settings](entitlement-management-access-package-request-policy.md#approval)
+1. [Open an existing policy of request settings](entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-of-request-settings)
+1. [Update the approval settings](entitlement-management-access-package-approval-policy.md#change-approval-settings-of-an-existing-access-package)
 
 ### Access package manager: Update the people for a project
 
 1. [Watch video: Day-to-day management: Things have changed](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
 1. [Remove users that no longer need access](entitlement-management-access-package-assignments.md)
-1. [Open an existing policy of request and approval settings](entitlement-management-access-package-request-policy.md#open-an-existing-policy-of-request-and-approval-settings)
+1. [Open an existing policy of request settings](entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-of-request-settings)
 1. [Add users that need access](entitlement-management-access-package-request-policy.md#for-users-in-your-directory)
 
 ### Access package manager: Directly assign specific users to an access package
 
-1. [If users need different lifecycle settings, add a new policy to the access package](entitlement-management-access-package-request-policy.md#add-a-new-policy-of-request-and-approval-settings)
+1. [If users need different lifecycle settings, add a new policy to the access package](entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-of-request-settings)
 1. [Directly assign specific users to the access package](entitlement-management-access-package-assignments.md#directly-assign-a-user)
 
 ## Assignments and reports
@@ -143,11 +143,16 @@ There are several ways that you can configure entitlement management for your or
 
 1. Open an access package
 1. [View assignments](entitlement-management-access-package-assignments.md#view-who-has-an-assignment)
+1. [Archive reports and logs](entitlement-management-logs-and-reporting.md)
 
 ### Administrator: View resources assigned to users
 
 1. [View access packages for a user](entitlement-management-reports.md#view-access-packages-for-a-user)
 1. [View resource assignments for a user](entitlement-management-reports.md#view-resource-assignments-for-a-user)
+
+## Programmatic administration
+
+You can also manage access packages, catalogs, policies, requests and assignments using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can call the [entitlement management API](/graph/tutorial-access-package-api).  An application with the those application permissions can also use many of those API functions, with the exception of managing resources in catalogs and access packages.
 
 ## Next steps
 

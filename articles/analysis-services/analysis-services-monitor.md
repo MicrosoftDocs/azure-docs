@@ -4,14 +4,14 @@ description: Learn how Analysis Services use Azure Metrics Explorer, a free tool
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 03/04/2020
 ms.author: owend
 ms.reviewer: minewiskan
 
 ---
 # Monitor server metrics
 
-Analysis Services provides metrics in Azure Metrics Explorer, a free tool in the portal, to help you monitor the performance and health of your servers. For example, monitor memory and CPU usage, number of client connections, and query resource consumption. Analysis Services uses the same monitoring framework as most other Azure services. To learn more, see [Getting started with Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md).
+Analysis Services provides metrics in Azure Metrics Explorer, a free tool in the portal, to help you monitor the performance and health of your servers. For example, monitor memory and CPU usage, number of client connections, and query resource consumption. Analysis Services uses the same monitoring framework as most other Azure services. To learn more, see [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md).
 
 To perform more in-depth diagnostics, track performance, and identify trends across multiple service resources in a resource group or subscription, use [Azure Monitor](../azure-monitor/overview.md). Azure Monitor (service) may result in a billable service.
 
@@ -63,7 +63,7 @@ Use this table to determine which metrics are best for your monitoring scenario.
 |RowsWrittenPerSec|Processing: Rows written per sec|CountPerSecond|Average|Rate of rows written during processing.|
 |qpu_metric|QPU|Count|Average|QPU. Range 0-100 for S1, 0-200 for S2 and 0-400 for S4|
 |QueryPoolBusyThreads|Query Pool Busy Threads|Count|Average|Number of busy threads in the query thread pool.|
-|SuccessfullConnectionsPerSec|Successful Connections Per Sec|CountPerSecond|Average|Rate of successful connection completions.|
+|SuccessfullConnectionsPerSec|Successfull Connections Per Sec|CountPerSecond|Average|Rate of successful connection completions.|
 |CommandPoolBusyThreads|Threads: Command pool busy threads|Count|Average|Number of busy threads in the command thread pool.|
 |CommandPoolIdleThreads|Threads: Command pool idle threads|Count|Average|Number of idle threads in the command thread pool.|
 |LongParsingBusyThreads|Threads: Long parsing busy threads|Count|Average|Number of busy threads in the long parsing thread pool.|
@@ -84,5 +84,5 @@ Use this table to determine which metrics are best for your monitoring scenario.
 
 ## Next steps
 [Azure Monitor overview](../azure-monitor/overview.md)      
-[Getting started with Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md)      
+[Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md)      
 [Metrics in Azure Monitor REST API](/rest/api/monitor/metrics)

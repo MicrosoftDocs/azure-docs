@@ -19,11 +19,11 @@ Azure Blockchain Service resources are isolated in a private virtual network. Ea
 
 ## Encryption
 
-User data is stored in Azure storage. User data is encrypted in motion and at rest for security and confidentiality. For more information, see: [Azure Storage security guide](../../storage/common/storage-security-guide.md).
+User data is stored in Azure storage. User data is encrypted in motion and at rest for security and confidentiality. For more information, see: [Azure Storage security guide](../../storage/blobs/security-recommendations.md).
 
 ## Authentication
 
-Transactions can be sent to blockchain nodes via an RPC endpoint. Clients communicate with a transaction node using a reverse proxy server that handles user authentication and encrypts data over SSL.
+Transactions can be sent to blockchain nodes via an RPC endpoint. Clients communicate with a transaction node using a reverse proxy server that handles user authentication and encrypts data over TLS.
 
 ![Authentication diagram](./media/data-security/authentication.png)
 

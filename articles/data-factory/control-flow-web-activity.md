@@ -1,23 +1,27 @@
 ---
-title: Web Activity in Azure Data Factory 
-description: Learn how you can use Web Activity, one of the control flow activities supported by Data Factory, to invoke a REST endpoint from a pipeline.
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
-ms.reviewer: douglasl
+title: Web Activity
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how you can use Web Activity, one of the control flow activities supported by Azure Data Factory and Azure Synapse Analytics, to invoke a REST endpoint from a pipeline.
+author: nabhishek
+ms.author: abnarain
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 12/19/2018
 ---
 
-# Web activity in Azure Data Factory
-Web Activity can be used to call a custom REST endpoint from a Data Factory pipeline. You can pass datasets and linked services to be consumed and accessed by the activity.
+# Web activity in Azure Data Factory and Azure Synapse Analytics
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+
+Web Activity can be used to call a custom REST endpoint from an Azure Data Factory or Synapse pipeline. You can pass datasets and linked services to be consumed and accessed by the activity.
 
 > [!NOTE]
-> Web Activity can call only publicly exposed URLs. It’s not supported for URLs that are hosted in a private virtual network.
+> Web Activity is supported for invoking URLs that are hosted in a private virtual network as well by leveraging self-hosted integration runtime. The integration runtime should have a line of sight to the URL endpoint. 
+
+> [!NOTE]
+> The maximum supported output response payload size is 4 MB.  
 
 ## Syntax
 
@@ -28,6 +32,10 @@ Web Activity can be used to call a custom REST endpoint from a Data Factory pipe
    "typeProperties":{
       "method":"Post",
       "url":"<URLEndpoint>",
+      "connectVia": {
+          "referenceName": "<integrationRuntimeName>",
+          "type": "IntegrationRuntimeReference"
+      }
       "headers":{
          "Content-Type":"application/json"
       },
@@ -69,6 +77,7 @@ body | Represents the payload that is sent to the endpoint.  | String (or expres
 authentication | Authentication method used for calling the endpoint. Supported Types are "Basic, or ClientCertificate." For more information, see [Authentication](#authentication) section. If authentication is not required, exclude this property. | String (or expression with resultType of string) | No
 datasets | List of datasets passed to the endpoint. | Array of dataset references. Can be an empty array. | Yes
 linkedServices | List of linked services passed to endpoint. | Array of linked service references. Can be an empty array. | Yes
+connectVia | The [integration runtime](./concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. | The integration runtime reference. | No 
 
 > [!NOTE]
 > REST endpoints that the web activity invokes must return a response of type JSON. The activity will timeout at 1 minute with an error if it does not receive a response from the endpoint.
@@ -85,10 +94,14 @@ The following table shows the requirements for JSON content:
 
 ## Authentication
 
+Below are the supported authentication types in the web activity.
+
 ### None
+
 If authentication is not required, do not include the "authentication" property.
 
 ### Basic
+
 Specify user name and password to use with the basic authentication.
 
 ```json
@@ -100,6 +113,7 @@ Specify user name and password to use with the basic authentication.
 ```
 
 ### Client certificate
+
 Specify base64-encoded contents of a PFX file and the password.
 
 ```json
@@ -112,7 +126,7 @@ Specify base64-encoded contents of a PFX file and the password.
 
 ### Managed Identity
 
-Specify the resource uri for which the access token will be requested using the managed identity for the data factory. To call the Azure Resource Management API, use `https://management.azure.com/`. For more information about how managed identities works see the [managed identities for Azure resources overview page](/azure/active-directory/managed-identities-azure-resources/overview).
+Specify the resource uri for which the access token will be requested using the managed identity for the data factory or Synapse workspace instance. To call the Azure Resource Management API, use `https://management.azure.com/`. For more information about how managed identities works see the [managed identities for Azure resources overview page](../active-directory/managed-identities-azure-resources/overview.md).
 
 ```json
 "authentication": {
@@ -120,6 +134,9 @@ Specify the resource uri for which the access token will be requested using the 
 	"resource": "https://management.azure.com/"
 }
 ```
+
+> [!NOTE]
+> If your data factory or Synapse workspace is configured with a git repository, you must store your credentials in Azure Key Vault to use basic or client certificate authentication. The service does not store passwords in git.
 
 ## Request payload schema
 When you use the POST/PUT method, the body property represents the payload that is sent to the endpoint. You can pass linked services and datasets as part of the payload. Here is the schema for the payload:
@@ -145,7 +162,7 @@ When you use the POST/PUT method, the body property represents the payload that 
 ```
 
 ## Example
-In this example, the web activity in the pipeline calls a REST end point. It passes an Azure SQL linked service and an Azure SQL dataset to the endpoint. The REST end point uses the Azure SQL connection string to connect to the Azure SQL server and returns the name of the instance of SQL server.
+In this example, the web activity in the pipeline calls a REST end point. It passes an Azure SQL linked service and an Azure SQL dataset to the endpoint. The REST end point uses the Azure SQL connection string to connect to the logical SQL server and returns the name of the instance of SQL server.
 
 ### Pipeline definition
 
@@ -239,7 +256,7 @@ public HttpResponseMessage Execute(JObject payload)
 ```
 
 ## Next steps
-See other control flow activities supported by Data Factory:
+See other supported control flow activities:
 
 - [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md)
 - [For Each Activity](control-flow-for-each-activity.md)

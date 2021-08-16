@@ -1,0 +1,173 @@
+- name: Bicep documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Bicep?
+    href: overview.md
+    displayName: benefits,faq,playground
+  - name: Compare JSON and Bicep
+    href: compare-template-syntax.md
+- name: Install
+  items:
+  - name: Install Bicep tools
+    href: install.md
+    displayName: nightly
+- name: Quickstarts
+  items:
+  - name: Create Bicep templates - VS Code
+    href: quickstart-create-bicep-use-visual-studio-code.md
+- name: Tutorials
+  items:
+  - name: Microsoft Learn - Bicep
+    href: learn-bicep.md
+- name: How to
+  expanded: true
+  items:
+  - name: Author
+    expanded: true
+    items:
+    - name: Resources
+      expanded: true
+      items:
+      - name: Resource declaration
+        href: resource-declaration.md
+        displayName: existing
+      - name: Conditional deployment
+        href: conditional-resource-deployment.md
+        displayName: runtime
+      - name: Child resource name and type
+        href: child-resource-name-type.md
+        displayName: parent,parent resource
+      - name: Extension resources
+        href: scope-extension-resources.md
+    - name: Parameters
+      href: parameters.md
+      displayName: decorators,secure,objects,constraints
+    - name: Variables
+      href: variables.md
+      displayName: configuration
+    - name: Outputs
+      href: outputs.md
+      displayName: dynamic number of outputs,modules
+    - name: Modules
+      href: modules.md
+      displayName: scopes,consume
+    - name: Loops
+      items:
+      - name: Resources
+        displayName: iteration,copy,multiple,batches,child,condition,filter
+        href: loop-resources.md
+      - name: Properties
+        displayName: iteration,copy,multiple
+        href: loop-properties.md
+      - name: Variables
+        displayName: iteration,copy,multiple
+        href: loop-variables.md
+      - name: Outputs
+        displayName: iteration,copy,multiple
+        href: loop-outputs.md
+    - name: Scopes
+      items:
+      - name: Resource group
+        href: deploy-to-resource-group.md
+        displayName: deployment commands,multiple resource groups
+      - name: Subscription
+        href: deploy-to-subscription.md
+        displayName: Azure policy,policy,access control
+      - name: Management group
+        href: deploy-to-management-group.md
+        displayName: policy,Azure policy
+      - name: Tenant
+        href: deploy-to-tenant.md
+        displayName: assign role
+    - name: Linter
+      href: linter.md
+    - name: Best practices
+      href: best-practices.md
+  - name: Deploy
+    items:
+    - name: Predeployment checks
+      items:
+      - name: What-if deployment
+        href: deploy-what-if.md
+        displayName: whatif, what if
+    - name: Deployment commands
+      items:
+      - name: Deploy - CLI
+        href: deploy-cli.md
+      - name: Deploy - PowerShell
+        href: deploy-powershell.md
+      - name: Deploy - Cloud Shell
+        href: deploy-cloud-shell.md
+    - name: Parameters
+      items:
+      - name: Create parameter file
+        href: parameter-files.md
+      - name: Pass sensitive values
+        displayName: key vault
+        href: key-vault-parameter.md
+    - name: CI/CD
+      items:
+      - name: Bicep with pipelines
+        href: add-template-to-azure-pipelines.md
+      - name: Bicep with GitHub Actions
+        href: deploy-github-actions.md
+  - name: Use Bicep CLI
+    items:
+    - name: Decompile
+      href: decompile.md
+      displayName: conversion issues,export,convert,playground
+- name: Reference
+  items:
+  - name: Bicep file structure
+    displayName: parameters,variables,resources,outputs,condition
+    href: file.md
+  - name: Data types
+    href: data-types.md
+    displayName: supported types,arrays,booleans,integers,objects,strings,secure,
+  - name: Functions
+    items:
+    - name: All functions
+      href: bicep-functions.md
+    - name: Any function
+      href: bicep-functions-any.md
+    - name: Array functions
+      href: bicep-functions-array.md
+    - name: Date functions
+      href: bicep-functions-date.md
+    - name: Deployment functions
+      href: bicep-functions-deployment.md
+    - name: Logical functions
+      href: bicep-functions-logical.md
+    - name: Numeric functions
+      href: bicep-functions-numeric.md
+    - name: Object functions
+      href: bicep-functions-object.md
+    - name: Resource functions
+      href: bicep-functions-resource.md
+    - name: Scope functions
+      href: bicep-functions-scope.md
+    - name: String functions
+      href: bicep-functions-string.md
+  - name: Operators
+    items:
+    - name: All operators
+      href: operators.md
+    - name: Accessor operators
+      href: operators-access.md
+    - name: Comparison operators
+      href: operators-comparison.md
+    - name: Logical operators
+      href: operators-logical.md
+    - name: Numeric operators
+      href: operators-numeric.md
+  - name: Bicep CLI
+    href: bicep-cli.md
+    displayName: build,decompile,install,list-versions,list versions,upgrade,version
+  - name: Template reference
+    href: /azure/templates/
+  - name: Azure PowerShell
+    href: /powershell/module/az.resources
+  - name: Azure CLI
+    href: /cli/azure/resource

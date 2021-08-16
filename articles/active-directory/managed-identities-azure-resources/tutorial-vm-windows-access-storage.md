@@ -3,18 +3,19 @@ title: Access Azure Storage using a Windows VM system-assigned managed identity 
 description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure Storage.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: daveba
 
+ms.custom: subject-rbac-steps
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2018
-ms.author: markvi
+ms.date: 06/24/2021
+ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
 
@@ -36,7 +37,18 @@ This tutorial shows you how to use a system-assigned managed identity for a Wind
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## Create a storage account
+
+
+## Enable
+
+[!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
+
+
+
+## Grant access
+
+
+### Create storage account
 
 In this section, you create a storage account.
 
@@ -49,7 +61,7 @@ In this section, you create a storage account.
 
     ![Create new storage account](./media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
-## Create a blob container and upload a file to the storage account
+### Create a blob container and upload a file to the storage account
 
 Files require blob storage so you need to create a blob container in which to store the file. You then upload a file to the blob container in the new storage account.
 
@@ -65,21 +77,25 @@ Files require blob storage so you need to create a blob container in which to st
 7. In the **Upload blob** pane, under **Files**, click the folder icon and browse to the file **hello_world.txt** on your local machine, select the file, then click **Upload**.
     ![Upload text file](./media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
-## Grant your VM access to an Azure Storage container
+### Grant access
 
-You can use the VM's system-assigned managed identity to retrieve the data in the Azure storage blob.
+This section shows how to grant your VM access to an Azure Storage container. You can use the VM's system-assigned managed identity to retrieve the data in the Azure storage blob.
 
 1. Navigate back to your newly created storage account.
-2. Click the **Access control (IAM)** link in the left panel.
-3. Click **+ Add role assignment** on top of the page to add a new role assignment for your VM.
-4. Under **Role**, from the dropdown, select **Storage Blob Data Reader**.
-5. In the next dropdown, under **Assign access to**, choose **Virtual Machine**.
-6. Next, ensure the proper subscription is listed in **Subscription** dropdown and then set **Resource Group** to **All resource groups**.
-7. Under **Select**, choose your VM and then click **Save**.
+1. Click **Access control (IAM)**.
+1. Click **Add** > **Add role assignment** to open the Add role assignment page.
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | Role | Storage Blob Data Reader |
+    | Assign access to | Managed identity |
+    | System-assigned | Virtual Machine |
+    | Select | &lt;your virtual machine&gt; |
 
-    ![Assign permissions](./media/tutorial-linux-vm-access-storage/access-storage-perms.png)
+    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
-## Get an access token and use it to call Azure Storage 
+## Access data 
 
 Azure Storage natively supports Azure AD authentication, so it can directly accept access tokens obtained using a managed identity. This is part of Azure Storage's integration with Azure AD, and is different from supplying credentials on the connection string.
 
@@ -157,9 +173,16 @@ The response contains the contents of the file:
 
 `Hello world! :)`
 
+
+## Disable
+
+[!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
+
+
+
 ## Next steps
 
 In this tutorial, you learned how enable a Windows VM's system-assigned identity to access Azure Storage.  To learn more about Azure Storage see:
 
 > [!div class="nextstepaction"]
-> [Azure Storage](/azure/storage/common/storage-introduction)
+> [Azure Storage](../../storage/common/storage-introduction.md)

@@ -1,22 +1,14 @@
 ---
-title: Tutorial - Autoscale a scale set with the Azure CLI | Microsoft Docs
+title: Tutorial - Autoscale a scale set with the Azure CLI
 description: Learn how to use the Azure CLI to automatically scale a virtual machine scale set as CPU demands increases and decreases
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ju-shim
+ms.author: jushiman
 ms.topic: tutorial
+ms.service: virtual-machine-scale-sets
+ms.subservice: autoscale
 ms.date: 05/18/2018
-ms.author: cynthn
-ms.custom: mvc
+ms.reviewer: avverma
+ms.custom: avverma, devx-track-azurecli
 
 ---
 # Tutorial: Automatically scale a virtual machine scale set with the Azure CLI
@@ -29,11 +21,11 @@ When you create a scale set, you define the number of VM instances that you wish
 > * Stress-test VM instances and trigger autoscale rules
 > * Autoscale back in as demand is reduced
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.32 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+- This tutorial requires version 2.0.32 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a scale set
 
@@ -58,7 +50,7 @@ az vmss create \
 
 ## Define an autoscale profile
 
-To enable autoscale on a scale set, you first define an autoscale profile. This profile defines the default, minimum, and maximum scale set capacity. These limits let you control cost by not continually creating VM instances, and balance acceptable performance with a minimum number of instances that remain in a scale-in event. Create an autoscale profile with [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create). The following example sets the default, and minimum, capacity of *2* VM instances, and a maximum of *10*:
+To enable autoscale on a scale set, you first define an autoscale profile. This profile defines the default, minimum, and maximum scale set capacity. These limits let you control cost by not continually creating VM instances, and balance acceptable performance with a minimum number of instances that remain in a scale-in event. Create an autoscale profile with [az monitor autoscale create](/cli/azure/monitor/autoscale#az_monitor_autoscale_create). The following example sets the default, and minimum, capacity of *2* VM instances, and a maximum of *10*:
 
 ```azurecli-interactive
 az monitor autoscale create \
@@ -75,7 +67,7 @@ az monitor autoscale create \
 
 If your application demand increases, the load on the VM instances in your scale set increases. If this increased load is consistent, rather than just a brief demand, you can configure autoscale rules to increase the number of VM instances in the scale set. When these VM instances are created and your applications are deployed, the scale set starts to distribute traffic to them through the load balancer. You control what metrics to monitor, such as CPU or disk, how long the application load must meet a given threshold, and how many VM instances to add to the scale set.
 
-Let's create a rule with [az monitor autoscale rule create](/cli/azure/monitor/autoscale/rule#az-monitor-autoscale-rule-create) that increases the number of VM instances in a scale set when the average CPU load is greater than 70% over a 5-minute period. When the rule triggers, the number of VM instances is increased by three.
+Let's create a rule with [az monitor autoscale rule create](/cli/azure/monitor/autoscale/rule#az_monitor_autoscale_rule_create) that increases the number of VM instances in a scale set when the average CPU load is greater than 70% over a 5-minute period. When the rule triggers, the number of VM instances is increased by three.
 
 ```azurecli-interactive
 az monitor autoscale rule create \
@@ -89,7 +81,7 @@ az monitor autoscale rule create \
 
 On an evening or weekend, your application demand may decrease. If this decreased load is consistent over a period of time, you can configure autoscale rules to decrease the number of VM instances in the scale set. This scale-in action reduces the cost to run your scale set as you only run the number of instances required to meet the current demand.
 
-Create another rule with [az monitor autoscale rule create](/cli/azure/monitor/autoscale/rule#az-monitor-autoscale-rule-create) that decreases the number of VM instances in a scale set when the average CPU load then drops below 30% over a 5-minute period. The following example defines the rule to scale in the number of VM instances by one:
+Create another rule with [az monitor autoscale rule create](/cli/azure/monitor/autoscale/rule#az_monitor_autoscale_rule_create) that decreases the number of VM instances in a scale set when the average CPU load then drops below 30% over a 5-minute period. The following example defines the rule to scale in the number of VM instances by one:
 
 ```azurecli-interactive
 az monitor autoscale rule create \
@@ -122,13 +114,14 @@ The following example output shows the instance name, public IP address of the l
 
 SSH to your first VM instance. Specify your own public IP address and port number with the `-p` parameter, as shown from the preceding command:
 
-```azurecli-interactive
+```console
 ssh azureuser@13.92.224.66 -p 50001
 ```
 
 Once logged in, install the **stress** utility. Start *10* **stress** workers that generate CPU load. These workers run for *420* seconds, which is enough to cause the autoscale rules to implement the desired action.
 
-```azurecli-interactive
+```console
+sudo apt-get update
 sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
@@ -137,26 +130,26 @@ When **stress** shows output similar to *stress: info: [2688] dispatching hogs: 
 
 To confirm that **stress** generates CPU load, examine the active system load with the **top** utility:
 
-```azurecli-interactive
+```console
 top
 ```
 
 Exit **top**, then close your connection to the VM instance. **stress** continues to run on the VM instance.
 
-```azurecli-interactive
+```console
 Ctrl-c
 exit
 ```
 
 Connect to second VM instance with the port number listed from the previous [az vmss list-instance-connection-info](/cli/azure/vmss):
 
-```azurecli-interactive
+```console
 ssh azureuser@13.92.224.66 -p 50003
 ```
 
 Install and run **stress**, then start ten workers on this second VM instance.
 
-```azurecli-interactive
+```console
 sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
@@ -165,7 +158,7 @@ Again, when **stress** shows output similar to *stress: info: [2713] dispatching
 
 Close your connection to the second VM instance. **stress** continues to run on the VM instance.
 
-```azurecli-interactive
+```console
 exit
 ```
 
@@ -182,7 +175,7 @@ watch az vmss list-instances \
 
 Once the CPU threshold has been met, the autoscale rules increase the number of VM instances in the scale set. The following output shows three VMs created as the scale set autoscales out:
 
-```bash
+```output
 Every 2.0s: az vmss list-instances --resource-group myResourceGroup --name myScaleSet --output table
 
   InstanceId  LatestModelApplied    Location    Name          ProvisioningState    ResourceGroup    VmId
@@ -196,7 +189,7 @@ Every 2.0s: az vmss list-instances --resource-group myResourceGroup --name mySca
 
 Once **stress** stops on the initial VM instances, the average CPU load returns to normal. After another 5 minutes, the autoscale rules then scale in the number of VM instances. Scale in actions remove VM instances with the highest IDs first. When a scale set uses Availability Sets or Availability Zones, scale in actions are evenly distributed across those VM instances. The following example output shows one VM instance deleted as the scale set autoscales in:
 
-```bash
+```output
            6  True                  eastus      myScaleSet_6  Deleting             myResourceGroup  9e4133dd-2c57-490e-ae45-90513ce3b336
 ```
 
@@ -219,8 +212,3 @@ In this tutorial, you learned how to automatically scale in or out a scale set w
 > * Create and use autoscale rules
 > * Stress-test VM instances and trigger autoscale rules
 > * Autoscale back in as demand is reduced
-
-For more examples of virtual machine scale sets in action, see the following sample Azure CLI sample scripts:
-
-> [!div class="nextstepaction"]
-> [Scale set script samples for Azure CLI](cli-samples.md)

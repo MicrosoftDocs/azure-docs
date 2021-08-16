@@ -1,39 +1,35 @@
 ---
 title: 'Tutorial: Configure SuccessFactors inbound provisioning in Azure Active Directory | Microsoft Docs'
-description: Learn how to configure inbound provisioning from SuccessFactors to Azure AD 
+description: Learn how to configure inbound provisioning from SuccessFactors to Azure AD
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: jodadzie
-ms.assetid: fac4f61e-d942-4429-a298-9ba74db95077
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: tutorial
 ms.workload: identity
-ms.date: 12/06/2019
+ms.date: 01/19/2021
 ms.author: chmutali
 ---
-# Tutorial: Configure SAP SuccessFactors to Azure AD user provisioning (Preview)
-The objective of this tutorial is to show the steps you need to perform to provision worker data from SuccessFactors Employee Central into Azure Active Directory, with optional write-back of email address to SuccessFactors. This integration is in public preview and supports retrieving more than [70+ user attributes](../manage-apps/sap-successfactors-attribute-reference.md) from SuccessFactors Employee Central. 
+# Tutorial: Configure SAP SuccessFactors to Azure AD user provisioning
+The objective of this tutorial is to show the steps you need to perform to provision worker data from SuccessFactors Employee Central into Azure Active Directory, with optional write-back of email address to SuccessFactors. 
 
 >[!NOTE]
 >Use this tutorial if the users you want to provision from SuccessFactors are cloud-only users who don't need an on-premises AD account. If the users require only on-premises AD account or both AD and Azure AD account, then please refer to the tutorial on [configure SAP SuccessFactors to Active Directory](sap-successfactors-inbound-provisioning-tutorial.md#overview) user provisioning. 
 
 ## Overview
 
-The [Azure Active Directory user provisioning service](../manage-apps/user-provisioning.md) integrates with the [SuccessFactors Employee Central](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html) in order to manage the identity life cycle of users. 
+The [Azure Active Directory user provisioning service](../app-provisioning/user-provisioning.md) integrates with the [SuccessFactors Employee Central](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html) in order to manage the identity life cycle of users. 
 
 The SuccessFactors user provisioning workflows supported by the Azure AD user provisioning service enable automation of the following human resources and identity lifecycle management scenarios:
 
-* **Hiring new employees** - When a new employee is added to SuccessFactors, a user account is automatically created in Azure Active Directory and optionally Office 365 and [other SaaS applications supported by Azure AD](../manage-apps/user-provisioning.md), with write-back of the email address to SuccessFactors.
+* **Hiring new employees** - When a new employee is added to SuccessFactors, a user account is automatically created in Azure Active Directory and optionally Microsoft 365 and [other SaaS applications supported by Azure AD](../app-provisioning/user-provisioning.md), with write-back of the email address to SuccessFactors.
 
-* **Employee attribute and profile updates** - When an employee record is updated in SuccessFactors (such as their name, title, or manager), their user account will be automatically updated Azure Active Directory and optionally Office 365 and [other SaaS applications supported by Azure AD](../manage-apps/user-provisioning.md).
+* **Employee attribute and profile updates** - When an employee record is updated in SuccessFactors (such as their name, title, or manager), their user account will be automatically updated Azure Active Directory and optionally Microsoft 365 and [other SaaS applications supported by Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Employee terminations** - When an employee is terminated in SuccessFactors, their user account is automatically disabled in Azure Active Directory and optionally Office 365 and [other SaaS applications supported by Azure AD](../manage-apps/user-provisioning.md).
+* **Employee terminations** - When an employee is terminated in SuccessFactors, their user account is automatically disabled in Azure Active Directory and optionally Microsoft 365 and [other SaaS applications supported by Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Employee rehires** - When an employee is rehired in SuccessFactors, their old account can be automatically reactivated or re-provisioned (depending on your preference) to Azure Active Directory and optionally Office 365 and [other SaaS applications supported by Azure AD](../manage-apps/user-provisioning.md).
+* **Employee rehires** - When an employee is rehired in SuccessFactors, their old account can be automatically reactivated or re-provisioned (depending on your preference) to Azure Active Directory and optionally Microsoft 365 and [other SaaS applications supported by Azure AD](../app-provisioning/user-provisioning.md).
 
 ### Who is this user provisioning solution best suited for?
 
@@ -45,7 +41,7 @@ This SuccessFactors to Azure Active Directory user provisioning solution is idea
 
 * Organizations that require users to be provisioned using data obtained from the [SuccessFactors Employee Central (EC)](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html)
 
-* Organizations using Office 365 for email
+* Organizations using Microsoft 365 for email
 
 ## Solution Architecture
 
@@ -73,7 +69,8 @@ Configuring Cloud HR driven user provisioning from SuccessFactors to Azure AD re
 * Attribute transformation 
 * Scoping filters
 
-Please refer to the [cloud HR deployment plan](../manage-apps/plan-cloud-hr-provision.md) for comprehensive guidelines around these topics. 
+Please refer to the [cloud HR deployment plan](../app-provisioning/plan-cloud-hr-provision.md) for comprehensive guidelines around these topics. 
+Please refer to the [SAP SuccessFactors integration reference](../app-provisioning/sap-successfactors-integration-reference.md) to learn about the supported entities, processing details and how to customize the integration for different HR scenarios. 
 
 ## Configuring SuccessFactors for the integration
 
@@ -89,51 +86,61 @@ Work with your SuccessFactors admin team or implementation partner to create or 
 
 ### Create an API permissions role
 
-* Log in to SAP SuccessFactors with a user account that has access to the Admin Center.
-* Search for *Manage Permission Roles*, then select **Manage Permission Roles** from the search results.
+1. Log in to SAP SuccessFactors with a user account that has access to the Admin Center.
+1. Search for *Manage Permission Roles*, then select **Manage Permission Roles** from the search results.
   ![Manage Permission Roles](./media/sap-successfactors-inbound-provisioning/manage-permission-roles.png)
-* From the Permission Role List, click **Create New**.
-  > [!div class="mx-imgBorder"]
-  > ![Create New Permission Role](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
-* Add a **Role Name** and **Description** for the new permission role. The name and description should indicate that the role is for API usage permissions.
-  > [!div class="mx-imgBorder"]
-  > ![Permission role detail](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
-* Under Permission settings, click **Permission...**, then scroll down the permission list and click **Manage Integration Tools**. Check the box for **Allow Admin to Access to OData API through Basic Authentication**.
-  > [!div class="mx-imgBorder"]
-  > ![Manage integration tools](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
-* Scroll down in the same box and select **Employee Central API**. Add permissions as shown below to read using ODATA API and edit using ODATA API. Select the edit option if you plan to use the same account for the Writeback to SuccessFactors scenario. 
-  > [!div class="mx-imgBorder"]
-  > ![Read write permissions](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
-* Click on **Done**. Click **Save Changes**.
+1. From the Permission Role List, click **Create New**.
+    > [!div class="mx-imgBorder"]
+    > ![Create New Permission Role](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
+1. Add a **Role Name** and **Description** for the new permission role. The name and description should indicate that the role is for API usage permissions.
+    > [!div class="mx-imgBorder"]
+    > ![Permission role detail](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
+1. Under Permission settings, click **Permission...**, then scroll down the permission list and click **Manage Integration Tools**. Check the box for **Allow Admin to Access to OData API through Basic Authentication**.
+    > [!div class="mx-imgBorder"]
+    > ![Manage integration tools](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
+1. Scroll down in the same box and select **Employee Central API**. Add permissions as shown below to read using ODATA API and edit using ODATA API. Select the edit option if you plan to use the same account for the Writeback to SuccessFactors scenario. 
+    > [!div class="mx-imgBorder"]
+    > ![Read write permissions](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
+
+1. In the same permissions box, go to **User Permissions -> Employee Data** and review the attributes that the service account can read from the SuccessFactors tenant. For example, to retrieve the *Username* attribute from SuccessFactors, ensure that "View" permission is granted for this attribute. Similarly review each attribute for view permission. 
+
+    > [!div class="mx-imgBorder"]
+    > ![Employee data permissions](./media/sap-successfactors-inbound-provisioning/review-employee-data-permissions.png)
+   
+
+    >[!NOTE]
+    >For the complete list of attributes retrieved by this provisioning app, please refer to [SuccessFactors Attribute Reference](../app-provisioning/sap-successfactors-attribute-reference.md)
+
+1. Click on **Done**. Click **Save Changes**.
 
 ### Create a Permission Group for the API user
 
-* In the SuccessFactors Admin Center, search for *Manage Permission Groups*, then select **Manage Permission Groups** from the search results.
-  > [!div class="mx-imgBorder"]
-  > ![Manage permission groups](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
-* From the Manage Permission Groups window, click **Create New**.
-  > [!div class="mx-imgBorder"]
-  > ![Add new group](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
-* Add a Group Name for the new group. The group name should indicate that the group is for API users.
-  > [!div class="mx-imgBorder"]
-  > ![Permission group name](./media/sap-successfactors-inbound-provisioning/permission-group-name.png)
-* Add members to the group. For example, you could select **Username** from the People Pool drop-down menu and then enter the username of the API account that will be used for the integration. 
-  > [!div class="mx-imgBorder"]
-  > ![Add group members](./media/sap-successfactors-inbound-provisioning/add-group-members.png)
-* Click **Done** to finish creating the Permission Group.
+1. In the SuccessFactors Admin Center, search for *Manage Permission Groups*, then select **Manage Permission Groups** from the search results.
+    > [!div class="mx-imgBorder"]
+    > ![Manage permission groups](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
+1. From the Manage Permission Groups window, click **Create New**.
+    > [!div class="mx-imgBorder"]
+    > ![Add new group](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
+1. Add a Group Name for the new group. The group name should indicate that the group is for API users.
+    > [!div class="mx-imgBorder"]
+    > ![Permission group name](./media/sap-successfactors-inbound-provisioning/permission-group-name.png)
+1. Add members to the group. For example, you could select **Username** from the People Pool drop-down menu and then enter the username of the API account that will be used for the integration. 
+    > [!div class="mx-imgBorder"]
+    > ![Add group members](./media/sap-successfactors-inbound-provisioning/add-group-members.png)
+1. Click **Done** to finish creating the Permission Group.
 
 ### Grant Permission Role to the Permission Group
 
-* In SuccessFactors Admin Center, search for *Manage Permission Roles*, then select **Manage Permission Roles** from the search results.
-* From the **Permission Role List**, select the role that you created for API usage permissions.
-* Under **Grant this role to...**, click **Add...** button.
-* Select **Permission Group...** from the drop-down menu, then click **Select...** to open the Groups window to search and select the group created above. 
-  > [!div class="mx-imgBorder"]
-  > ![Add permission group](./media/sap-successfactors-inbound-provisioning/add-permission-group.png)
-* Review the Permission Role grant to the Permission Group. 
-  > [!div class="mx-imgBorder"]
-  > ![Permission Role and Group detail](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
-* Click **Save Changes**.
+1. In SuccessFactors Admin Center, search for *Manage Permission Roles*, then select **Manage Permission Roles** from the search results.
+1. From the **Permission Role List**, select the role that you created for API usage permissions.
+1. Under **Grant this role to...**, click **Add...** button.
+1. Select **Permission Group...** from the drop-down menu, then click **Select...** to open the Groups window to search and select the group created above. 
+    > [!div class="mx-imgBorder"]
+    > ![Add permission group](./media/sap-successfactors-inbound-provisioning/add-permission-group.png)
+1. Review the Permission Role grant to the Permission Group. 
+    > [!div class="mx-imgBorder"]
+    > ![Permission Role and Group detail](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
+1. Click **Save Changes**.
 
 ## Configuring user provisioning from SuccessFactors to Azure AD
 
@@ -169,9 +176,9 @@ This section provides steps for user account provisioning from SuccessFactors to
 
    * **Tenant URL –** Enter the name of the SuccessFactors OData API services endpoint. Only enter the host name of server without http or https. This value should look like: **api-server-name.successfactors.com**.
 
-   * **Notification Email –** Enter your email address, and check the “send email if failure occurs” checkbox.
-         > [!NOTE]
-         > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#quarantine) state.
+   * **Notification Email –** Enter your email address, and check the "send email if failure occurs" checkbox.
+    > [!NOTE]
+    > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](../app-provisioning/application-provisioning-quarantine-status.md) state.
 
    * Click the **Test Connection** button. If the connection test succeeds, click the **Save** button at  the top. If it fails, double-check that the SuccessFactors credentials and URL are valid.
     >[!div class="mx-imgBorder"]
@@ -185,7 +192,7 @@ In this section, you will configure how user data flows from SuccessFactors to A
 
 1. On the Provisioning tab under **Mappings**, click **Synchronize SuccessFactors Users to Azure Active Directory**.
 
-1. In the **Source Object Scope** field, you can select which sets of  users in SuccessFactors should be in scope for provisioning to Azure AD, by defining a set of attribute-based filters. The default scope is “all users in SuccessFactors”. Example filters:
+1. In the **Source Object Scope** field, you can select which sets of  users in SuccessFactors should be in scope for provisioning to Azure AD, by defining a set of attribute-based filters. The default scope is "all users in SuccessFactors". Example filters:
 
    * Example: Scope to users with personIdExternal between 1000000 and
         2000000 (excluding 2000000)
@@ -206,15 +213,14 @@ In this section, you will configure how user data flows from SuccessFactors to A
    > When you are configuring the provisioning app for the first time, you will need to test and verify your attribute mappings and expressions to make sure that it is giving you the desired result. Microsoft recommends using the scoping filters under **Source Object Scope** to test your mappings with a few test users from SuccessFactors. Once you have verified that the mappings work, then you can either remove the filter or gradually expand it to include more users.
 
    > [!CAUTION] 
-   > The default behavior of the provisioning engine is to disable/delete users that go out of scope. This may not be desirable in your SuccessFactors to Azure AD integration. To override this default behavior refer to the article [Skip deletion of user accounts that go out of scope](../manage-apps/skip-out-of-scope-deletions.md)
+   > The default behavior of the provisioning engine is to disable/delete users that go out of scope. This may not be desirable in your SuccessFactors to Azure AD integration. To override this default behavior refer to the article [Skip deletion of user accounts that go out of scope](../app-provisioning/skip-out-of-scope-deletions.md)
   
 1. In the **Target Object Actions** field, you can globally filter what actions are performed on Active Directory. **Create** and **Update** are most common.
 
 1. In the **Attribute mappings** section, you can define how individual SuccessFactors attributes map to Active Directory attributes.
 
-  >[!NOTE]
-  >For the complete list of SuccessFactors attribute supported by the application, please refer to [SuccessFactors Attribute Reference](../manage-apps/sap-successfactors-attribute-reference.md)
-
+     >[!NOTE]
+     >For the complete list of SuccessFactors attribute supported by the application, please refer to [SuccessFactors Attribute Reference](../app-provisioning/sap-successfactors-attribute-reference.md)
 
 1. Click on an existing attribute mapping to update it, or click **Add new mapping** at the bottom of the screen to add new
         mappings. An individual attribute mapping supports these properties:
@@ -225,7 +231,7 @@ In this section, you will configure how user data flows from SuccessFactors to A
 
          * **Constant** - Write a static, constant string value to the AD attribute
 
-         * **Expression** – Allows you to write a custom value to the AD attribute, based on one or more SuccessFactors attributes. [For more info, see this article on expressions](../manage-apps/functions-for-customizing-application-data.md).
+         * **Expression** – Allows you to write a custom value to the AD attribute, based on one or more SuccessFactors attributes. [For more info, see this article on expressions](../app-provisioning/functions-for-customizing-application-data.md).
 
       * **Source attribute** - The user attribute from SuccessFactors
 
@@ -272,11 +278,9 @@ Once the SuccessFactors provisioning app configurations have been completed, you
 
 ## Next steps
 
-* [Learn more about supported SuccessFactors Attributes for inbound provisioning](../manage-apps/sap-successfactors-attribute-reference.md)
+* [Learn more about supported SuccessFactors Attributes for inbound provisioning](../app-provisioning/sap-successfactors-attribute-reference.md)
 * [Learn how to configure email writeback to SuccessFactors](sap-successfactors-writeback-tutorial.md)
-* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
+* [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)
 * [Learn how to configure single sign-on between SuccessFactors and Azure Active Directory](successfactors-tutorial.md)
 * [Learn how to integrate other SaaS applications with Azure Active Directory](tutorial-list.md)
-* [Learn how to export and import your provisioning configurations](../manage-apps/export-import-provisioning-configuration.md)
-
-
+* [Learn how to export and import your provisioning configurations](../app-provisioning/export-import-provisioning-configuration.md)

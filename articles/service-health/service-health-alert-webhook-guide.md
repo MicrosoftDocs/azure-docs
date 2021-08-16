@@ -1,12 +1,8 @@
 ---
-title: Configure Azure Service Health notifications for existing problem management systems by using a webhook
+title: Send Azure Service Health notifications via webhooks
 description: Send personalized notifications about service health events to your existing problem management system.
-author: stephbaron
-ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
-ms.workload: Supportability
-
 ms.date: 3/27/2018
 
 ---
@@ -31,7 +27,7 @@ If you want to use a preconfigured integration, see:
 ## Configure a custom notification by using the Service Health webhook payload
 To set up your own custom webhook integration, you need to parse the JSON payload that's sent via Service Health notification.
 
-See [an example](../azure-monitor/platform/activity-log-alerts-webhook.md) `ServiceHealth` webhook payload.
+See [an example](../azure-monitor/alerts/activity-log-alerts-webhook.md) `ServiceHealth` webhook payload.
 
 You can confirm that it's a service health alert by looking at `context.eventSource == "ServiceHealth"`. The following properties are the most relevant:
 - **data.context.activityLog.status**
@@ -98,7 +94,7 @@ This example shows problems for:
 
 Follow these steps:
 
-1. Create the service health payload that you want to send. See an example service health webhook payload at [Webhooks for Azure activity log alerts](../azure-monitor/platform/activity-log-alerts-webhook.md).
+1. Create the service health payload that you want to send. See an example service health webhook payload at [Webhooks for Azure activity log alerts](../azure-monitor/alerts/activity-log-alerts-webhook.md).
 
 1. Create an HTTP POST request as follows:
 
@@ -114,6 +110,6 @@ Follow these steps:
 1. Go to [PagerDuty](https://www.pagerduty.com/) to confirm that your integration was set up successfully.
 
 ## Next steps
-- Review the [activity log alert webhook schema](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Learn about [service health notifications](../azure-monitor/platform/service-notifications.md).
-- Learn more about [action groups](../azure-monitor/platform/action-groups.md).
+- Review the [activity log alert webhook schema](../azure-monitor/alerts/activity-log-alerts-webhook.md). 
+- Learn about [service health notifications](./service-notifications.md).
+- Learn more about [action groups](../azure-monitor/alerts/action-groups.md).

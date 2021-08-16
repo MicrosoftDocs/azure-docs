@@ -1,12 +1,9 @@
 ---
 title: Set up Hyper-V disaster recovery using Azure Site Recovery  
 description: Learn how to set up disaster recovery of on-premises Hyper-V VMs (without VMM) to Azure by using Site Recovery.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.author: raynew
 ms.custom: MVC
 ---
 # Set up disaster recovery of on-premises Hyper-V VMs to Azure
@@ -24,7 +21,7 @@ In this tutorial, you learn how to:
 > * Enable replication for a VM.
 
 > [!NOTE]
-> Tutorials show you the simplest deployment path for a scenario. They use default options where possible, and don't show all possible settings and paths. For detailed instructions, review the articles in the **How-to Guides** section of the [Site Recovery documentation](https://docs.microsoft.com/azure/site-recovery).
+> Tutorials show you the simplest deployment path for a scenario. They use default options where possible, and don't show all possible settings and paths. For detailed instructions, review the articles in the **How-to Guides** section of the [Site Recovery documentation](./index.yml).
 
 
 
@@ -33,7 +30,7 @@ In this tutorial, you learn how to:
 This is the third tutorial in a series. It assumes that you have already completed the tasks in the previous tutorials:
 
 1. [Prepare Azure](tutorial-prepare-azure.md)
-2. [Prepare on-premises Hyper-V](tutorial-prepare-on-premises-hyper-v.md)
+2. [Prepare on-premises Hyper-V](./hyper-v-prepare-on-premises-tutorial.md)
 
 ## Select a replication goal
 
@@ -45,14 +42,14 @@ This is the third tutorial in a series. It assumes that you have already complet
 6. In **Are you using System Center VMM to manage your Hyper-V hosts?**, select **No**.
 7. Select **OK**.
 
-    ![Replication goal](./media/hyper-v-azure-tutorial/replication-goal.png)
+    ![Screenshot of the Protection goal options in Prepare infrastructure.](./media/hyper-v-azure-tutorial/replication-goal.png)
 
 ## Confirm deployment planning
 
 1. In **Deployment planning**, if you're planning a large deployment, download the Deployment Planner for Hyper-V from the link on the page. [Learn more](hyper-v-deployment-planner-overview.md) about Hyper-V deployment planning.
 2. For this tutorial, we don't need the Deployment Planner. In **Have you completed deployment planning?**, select **I will do it later**, and then select **OK**.
 
-    ![Deployment planning](./media/hyper-v-azure-tutorial/deployment-planning.png)
+    ![Screenshot of the Deployment planning options in Prepare infrastructure.](./media/hyper-v-azure-tutorial/deployment-planning.png)
 
 ## Set up the source environment
 
@@ -62,17 +59,17 @@ To set up the source environment, you create a Hyper-V site and add to that site
 2. In **Prepare source**, select **+ Hyper-V Site**.
 3. In **Create Hyper-V site**, specify the site name. We're using **ContosoHyperVSite**.
 
-    ![Hyper-V site](./media/hyper-v-azure-tutorial/hyperv-site.png)
+    ![Screenshot of Hyper-V site selection in Prepare infrastructure.](./media/hyper-v-azure-tutorial/hyperv-site.png)
 
 4. After the site is created, in **Prepare source** > **Step 1: Select Hyper-V site**, select the site you created.
 5. Select **+ Hyper-V Server**.
 
-    ![Hyper-V server](./media/hyper-v-azure-tutorial/hyperv-server.png)
+    ![Screenshot of Hyper-V server selection in Prepare infrastructure.](./media/hyper-v-azure-tutorial/hyperv-server.png)
 
 6. Download the installer for the Microsoft Azure Site Recovery Provider.
 7. Download the vault registration key. You need this key to install the Provider. The key is valid for five days after you generate it.
 
-    ![Download Provider and registration key](./media/hyper-v-azure-tutorial/download.png)
+    ![Screenshot of the options to download the Provider and registration key.](./media/hyper-v-azure-tutorial/download.png)
     
 
 ### Install the Provider
@@ -121,7 +118,7 @@ Site Recovery checks that you have one or more compatible Azure storage accounts
 2. In **Create and associate policy**, specify a policy name. We're using **ContosoReplicationPolicy**.
 3. For this tutorial, we'll leave the default settings:
     - **Copy frequency** indicates how often delta data (after initial replication) will replicate. The default frequency is every five minutes.
-    - **Recovery point retention** indicates that recovery points will be retained for two hours.
+    - **Recovery point retention** indicates that recovery points will be retained for two hours. The maximum allowed value for retention when protecting virtual machines hosted on Hyper-V hosts is 24 hours.
     - **App-consistent snapshot frequency** indicates that recovery points containing app-consistent snapshots will be created every hour.
     - **Initial replication start time** indicates that initial replication will start immediately.
 4. After the policy is created, select **OK**. When you create a new policy, it's automatically associated with the specified Hyper-V site. In our tutorial, that's **ContosoHyperVSite**.

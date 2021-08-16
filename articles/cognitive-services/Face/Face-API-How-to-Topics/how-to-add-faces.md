@@ -1,7 +1,7 @@
 ---
-title: "Example: Add faces to a PersonGroup - Face API"
+title: "Example: Add faces to a PersonGroup - Face"
 titleSuffix: Azure Cognitive Services
-description: This guide demonstrates how to add a large number of persons and faces to a PersonGroup object with the Azure Cognitive Services Face API.
+description: This guide demonstrates how to add a large number of persons and faces to a PersonGroup object with the Azure Cognitive Services Face service.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -11,11 +11,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
+ms.custom: devx-track-csharp
 ---
 
 # Add faces to a PersonGroup
 
-This guide demonstrates how to add a large number of persons and faces to a PersonGroup object. The same strategy also applies to LargePersonGroup, FaceList, and LargeFaceList objects. This sample is written in C# by using the Azure Cognitive Services Face API .NET client library.
+This guide demonstrates how to add a large number of persons and faces to a PersonGroup object. The same strategy also applies to LargePersonGroup, FaceList, and LargeFaceList objects. This sample is written in C# by using the Azure Cognitive Services Face .NET client library.
 
 ## Step 1: Initialization
 
@@ -83,7 +84,7 @@ await faceClient.LargePersonGroup.CreateAsync(personGroupId, personGroupName);
 Persons are created concurrently, and `await WaitCallLimitPerSecondAsync()` is also applied to avoid exceeding the call limit.
 
 ```csharp
-CreatePersonResult[] persons = new CreatePersonResult[PersonCount];
+Person[] persons = new Person[PersonCount];
 Parallel.For(0, PersonCount, async i =>
 {
     await WaitCallLimitPerSecondAsync();
@@ -131,8 +132,8 @@ The following features were explained and demonstrated:
 - Create persons by using the [PersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) API.
 - Add faces to persons by using the [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API.
 
-## Related topics
+## Next steps
 
-- [Identify faces in an image](HowtoIdentifyFacesinImage.md)
-- [Detect faces in an image](HowtoDetectFacesinImage.md)
-- [Use the large-scale feature](how-to-use-large-scale.md)
+In this guide, you learned how to add face data to a **PersonGroup**. Next, learn how to use the enhanced data structure **PersonDirectory** to do more with your face data.
+
+- [Use the PersonDirectory structure](use-persondirectory.md)

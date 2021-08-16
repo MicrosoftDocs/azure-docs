@@ -1,13 +1,13 @@
 ---
 title: 'Generate and export certificates for P2S: PowerShell'
 titleSuffix: Azure VPN Gateway
-description: Create a self-signed root certificate, export the public key, and generate client certificates using PowerShell on Windows 10 or Windows Server 2016.
+description: Learn how to create a self-signed root certificate, export a public key, and generate client certificates for VPN Gateway Point-to-Site connections.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
-ms.topic: conceptual
-ms.date: 10/10/2019
+ms.topic: how-to
+ms.date: 06/03/2021
 ms.author: cherylmc
 
 ---
@@ -15,7 +15,7 @@ ms.author: cherylmc
 
 Point-to-Site connections use certificates to authenticate. This article shows you how to create a self-signed root certificate and generate client certificates using PowerShell on Windows 10 or Windows Server 2016. If you are looking for different certificate instructions, see [Certificates - Linux](vpn-gateway-certificates-point-to-site-linux.md) or [Certificates - MakeCert](vpn-gateway-certificates-point-to-site-makecert.md).
 
-You must perform the steps in this article on a computer running Windows 10 or Windows Server 2016. The PowerShell cmdlets that you use to generate certificates are part of the operating system and do not work on other versions of Windows. The Windows 10 or Windows Server 2016 computer is only needed to generate the certificates. Once the certificates are generated, you can upload them, or install them on any supported client operating system.
+The steps in this article apply to Windows 10 or Windows Server 2016. The PowerShell cmdlets that you use to generate certificates are part of the operating system and do not work on other versions of Windows. The Windows 10 or Windows Server 2016 computer is only needed to generate the certificates. Once the certificates are generated, you can upload them, or install them on any supported client operating system.
 
 If you do not have access to a Windows 10 or Windows Server 2016 computer, you can use [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) to generate certificates. The certificates that you generate using either method can be installed on any [supported](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq) client operating system.
 

@@ -1,23 +1,23 @@
 ---
 title: "Feature Hashing module reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Feature Hashing module in the Azure Machine Learning to featurize text data.
+description: Learn how to use the Feature Hashing module in the Azure Machine Learning designer to featurize text data.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 09/01/2019
+author: likebupt
+ms.author: keli19
+ms.date: 02/22/2020
 ---
 # Feature Hashing module reference
 
-This article describes a module included in Azure Machine Learning designer (preview).
+This article describes a module included in Azure Machine Learning designer.
 
 Use the Feature Hashing module to transform a stream of English text into a set of integer features. You can then pass this hashed feature set to a machine learning algorithm to train a text analytics model.
 
-The feature hashing functionality provided in this module is based on the nimbusml framework. For more information, see [NgramHash class](https://docs.microsoft.com/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest).
+The feature hashing functionality provided in this module is based on the nimbusml framework. For more information, see [NgramHash class](/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest&preserve-view=true).
 
 ## What is feature hashing?
 
@@ -89,7 +89,7 @@ Numeric outputs also make it possible to use common machine learning methods, in
 
     For example, if you enter 3, unigrams, bigrams, and trigrams will be created.
 
-1. Run the pipeline.
+1. Submit the pipeline.
 
 ## Results
 
@@ -106,7 +106,7 @@ After processing is complete, the module outputs a transformed dataset in which 
 
 After you create the transformed dataset, you can use it as the input to the Train Model module.
  
-### Best practices
+## Best practices
 
 The following best practices can help you get the most out of the Feature Hashing module:
 
@@ -126,4 +126,4 @@ The optimal set of preprocessing methods to apply in any solution depends on dom
 
 ## Next steps
 			
-See the [set of modules available](module-reference.md) to Azure Machine Learning 
+See the [set of modules available](module-reference.md) to Azure Machine Learning

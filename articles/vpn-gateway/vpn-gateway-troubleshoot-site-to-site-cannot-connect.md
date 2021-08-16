@@ -1,19 +1,13 @@
 ---
-title: Troubleshoot an Azure site-to-site VPN connection that cannot connect| Microsoft Docs
+title: 'Troubleshoot an Azure site-to-site VPN connection that cannot connect'
+titleSuffix: Azure VPN Gateway
 description: Learn how to troubleshoot a site-to-site VPN connection that suddenly stops working and cannot be reconnected. 
 services: vpn-gateway
-documentationcenter: na
 author: chadmath
-manager: dcscontentpm
-editor: ''
-tags: ''
 
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/16/2019
+ms.date: 03/22/2021
 ms.author: genli
 ---
 
@@ -25,7 +19,7 @@ After you configure a site-to-site VPN connection between an on-premises network
 
 ## Troubleshooting steps
 
-To resolve the problem, first try to [reset the Azure VPN gateway](vpn-gateway-resetgw-classic.md) and reset the tunnel from the on-premises VPN device. If the problem persists, follow these steps to identify the cause of the problem.
+To resolve the problem, first try to [reset the Azure VPN gateway](./reset-gateway.md) and reset the tunnel from the on-premises VPN device. If the problem persists, follow these steps to identify the cause of the problem.
 
 ### Prerequisite step
 
@@ -61,13 +55,17 @@ To view the shared key for the Azure VPN connection, use one of the following me
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-For the Azure Resource Manager deployment model:
+For the Azure [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md):
 
-    Get-AzVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group name>
+```azurepowershell
+Get-AzVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group name>
+```
 
 For the classic deployment model:
 
-    Get-AzureVNetGatewayKey -VNetName -LocalNetworkSiteName
+```azurepowershell
+Get-AzureVNetGatewayKey -VNetName -LocalNetworkSiteName
+```
 
 ### Step 3. Verify the VPN peer IPs
 
@@ -80,9 +78,7 @@ Check for and remove user-defined routing (UDR) or Network Security Groups (NSGs
 
 ### Step 5. Check the on-premises VPN device external interface address
 
-- If the Internet-facing IP address of the VPN device is included in the **Local network** definition in Azure, you might experience sporadic disconnections.
-- The device's external interface must be directly on the Internet. There should be no network address translation or firewall between the Internet and the device.
-- To configure firewall clustering to have a virtual IP, you must break the cluster and expose the VPN appliance directly to a public interface that the gateway can interface with.
+If the Internet-facing IP address of the VPN device is included in the **Local network** definition in Azure, you might experience sporadic disconnections.
 
 ### Step 6. Verify that the subnets match exactly (Azure policy-based gateways)
 
@@ -109,5 +105,5 @@ The perfect forward secrecy feature can cause disconnection problems. If the VPN
 
 ## Next steps
 
--	[Configure a site-to-site connection to a virtual network](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+-	[Configure a site-to-site connection to a virtual network](./tutorial-site-to-site-portal.md)
 -	[Configure an IPsec/IKE policy for site-to-site VPN connections](vpn-gateway-ipsecikepolicy-rm-powershell.md)

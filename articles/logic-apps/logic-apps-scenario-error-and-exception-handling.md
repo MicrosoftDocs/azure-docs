@@ -25,7 +25,7 @@ Here's the story as the use case for this scenario:
 A well-known healthcare organization engaged us to develop an Azure solution 
 that would create a patient portal by using Microsoft Dynamics CRM Online. 
 They needed to send appointment records between the Dynamics CRM Online patient portal and Salesforce. 
-We were asked to use the [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) standard for all patient records.
+We were asked to use the [HL7 FHIR](https://www.hl7.org/implement/standards/fhir/) standard for all patient records.
 
 The project had two major requirements:  
 
@@ -117,15 +117,15 @@ Logic App Designer.
 
    **Insert log entry**
 
-   ![Insert Log Entry](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
+   ![Screenshot from Logic App Designer showing the configuration settings for InsertLogEntry.](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
 
    **Insert error entry**
 
-   ![Insert Log Entry](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
+   ![Screenshot from Logic App Designer showing the configuration settings for CreateErrorRecord.](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
 
    **Check for create record failure**
 
-   ![Condition](media/logic-apps-scenario-error-and-exception-handling/condition.png)
+   ![Screenshot of the CreateErrorRecord screen in the Logic App Designer showing the fields for creating an error entry.](media/logic-apps-scenario-error-and-exception-handling/condition.png)
 
 ## Logic app source code
 
@@ -509,5 +509,5 @@ The source code for the Logic Apps exception management API application is avail
 ## Next steps
 
 * [View more logic app examples and scenarios](../logic-apps/logic-apps-examples-and-scenarios.md)
-* [Learn about monitoring logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)
+* [Monitor logic apps](../logic-apps/monitor-logic-apps.md)
 * [Automate logic app deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)

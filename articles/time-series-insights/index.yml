@@ -11,9 +11,9 @@ metadata:
   ms.subservice: time-series-insights
   ms.topic: landing-page
   ms.collection: collection
-  author: KingdomOfEnds
-  ms.author: v-adgera
-  ms.date: 10/21/2019
+  author: shreyasharmamsft
+  ms.author: shresha
+  ms.date: 07/09/2020
 
 landingContent:
 
@@ -21,61 +21,62 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Time Series Insights Preview?
-            url: time-series-insights-update-overview.md
-          - text: About Azure Time Series Insights GA
-            url: time-series-insights-overview.md
+          - text: What is Azure Time Series Insights Gen2?
+            url: overview-what-is-tsi.md
+          - text: Use Cases
+            url: overview-use-cases.md
           - text: Client SDK sample visualization
             url: https://tsiclientsample.azurewebsites.net/
       - linkListType: concept
         links:
-          - text: Visualize data in Time Series Insights explorer Preview
-            url: time-series-insights-update-explorer.md
+          - text: Visualize data in Time Series Insights Explorer
+            url: concepts-ux-panels.md
           - text: Time Series Model
-            url: time-series-insights-update-tsm.md
+            url: concepts-model-overview.md
       - linkListType: video
         links:
-          - text: Time Series Insight for IoT apps. (13:31)
-            url: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Time-Series-Insights-e2e-solution-for-industrial-IoT-analytics
+          - text: Analyzing Data using Time Series Insights Gen2
+            url: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Deep-Dive-Analyzing-IoT-data-using-Time-Series-Insights
 
-  - title: Get started with Preview
+  - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Explore Azure Time Series Insights Preview
-            url: time-series-insights-update-quickstart.md
+          - text: Explore Azure Time Series Insights Gen2
+            url: quickstart-explore-tsi.md
       - linkListType: tutorial
         links:
-          - text: Azure Time Series Insights Preview tutorial
-            url: time-series-insights-update-create-environment.md
+          - text: Azure Time Series Insights Gen2 tutorial
+            url: tutorial-set-up-environment.md
       - linkListType: deploy
         links:
           - text: Connect to Event Hubs
-            url: time-series-insights-how-to-add-an-event-source-eventhub.md
+            url: how-to-ingest-data-event-hub.md
           - text: Connect to IoT Hub
-            url: time-series-insights-how-to-add-an-event-source-iothub.md
+            url: how-to-ingest-data-iot-hub.md
           - text: Plan your environment
-            url: time-series-insights-update-plan.md
-          - text: Data storage and ingress
-            url: time-series-insights-update-storage-ingress.md
+            url: how-to-plan-your-environment.md
+          - text: Data ingestion overview
+            url: concepts-ingestion-overview.md
       - linkListType: how-to-guide
         links:
           - text: Provision and manage
-            url: time-series-insights-update-how-to-manage.md
+            url: ./how-to-provision-manage.md
+          - text: How to select a TSID
+            url: how-to-select-tsid.md
           - text: Grant data access
-            url: time-series-insights-data-access.md
-          - text: Shape JSON for queries
-            url: time-series-insights-update-how-to-shape-events.md
-
+            url: ./concepts-access-policies.md
+          - text: Create Time Series Model
+            url: how-to-edit-your-model.md
+          - text: Query data
+            url: concepts-query-overview.md
   - title: API Reference
     linkLists:
       - linkListType: reference
         links:
-          - text: Azure Time Series Insights
+          - text: Rest APIs Overview
             url: /rest/api/time-series-insights/
-          - text: Data Access Concepts Preview
-            url: /rest/api/time-series-insights/preview
-          - text: Data Access GA
-            url: /rest/api/time-series-insights/ga
+          - text: Data Access Concepts Gen2
+            url: /rest/api/time-series-insights/reference-data-access-overview
           - text: JavaScript Client SDK
             url: https://github.com/microsoft/tsiclient/blob/master/docs/API.md

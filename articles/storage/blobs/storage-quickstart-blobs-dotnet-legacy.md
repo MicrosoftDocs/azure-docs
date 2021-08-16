@@ -1,18 +1,22 @@
 ---
 title: "Quickstart: Azure Blob storage client library for .NET"
 description: In this quickstart, you learn how to use the Azure Blob storage client library for .NET to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
-author: mhopkins-msft
+author: twooley
 
-ms.author: mhopkins
-ms.date: 07/20/2019
+ms.author: twooley
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
+ms.custom: devx-track-csharp
 ---
 
 # Quickstart: Azure Blob storage client library v11 for .NET
 
 Get started with the Azure Blob Storage client library v11 for .NET. Azure Blob Storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
+
+> [!NOTE]
+> This quickstart uses a legacy version of the Azure Blob storage client library. To get started with the latest version, see [Quickstart: Azure Blob storage client library v12 for .NET](storage-quickstart-blobs-dotnet.md).
 
 Use the Azure Blob Storage client library for .NET to:
 
@@ -23,14 +27,19 @@ Use the Azure Blob Storage client library for .NET to:
 * List all of the blobs in a container
 * Delete a container
 
-[API reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-storage-net/tree/master/Blob) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) | [Samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
+Additional resources:
+
+* [API reference documentation](/dotnet/api/overview/azure/storage)
+* [Library source code](https://github.com/Azure/azure-storage-net/tree/master/Blob)
+* [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
+* [Samples](/samples/browse/?products=azure-blob-storage)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-* Azure Storage account - [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Azure Storage account - [create a storage account](../common/storage-account-create.md)
 * Current [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system. Be sure to get the SDK and not the runtime.
 
 ## Setting up
@@ -105,12 +114,11 @@ namespace blob_quickstart
 {
     class Program
     {
-        public static void Main()
+        public static async Task Main()
         {
             Console.WriteLine("Azure Blob Storage - .NET quickstart sample\n");
 
-            // Run the examples asynchronously, wait for the results before proceeding
-            ProcessAsync().GetAwaiter().GetResult();
+            await ProcessAsync();
 
             Console.WriteLine("Press any key to exit the sample application.");
             Console.ReadLine();
@@ -141,7 +149,7 @@ After you have copied your connection string, write it to a new environment vari
 #### Windows
 
 ```cmd
-setx CONNECT_STR "<yourconnectionstring>"
+setx AZURE_STORAGE_CONNECTION_STRING "<yourconnectionstring>"
 ```
 
 After you add the environment variable in Windows, you must start a new instance of the command window.
@@ -149,13 +157,13 @@ After you add the environment variable in Windows, you must start a new instance
 #### Linux
 
 ```bash
-export CONNECT_STR="<yourconnectionstring>"
+export AZURE_STORAGE_CONNECTION_STRING="<yourconnectionstring>"
 ```
 
 #### MacOS
 
 ```bash
-export CONNECT_STR="<yourconnectionstring>"
+export AZURE_STORAGE_CONNECTION_STRING="<yourconnectionstring>"
 ```
 
 After you add the environment variable, restart any running programs that will need to read the environment variable. For example, restart your development environment or editor before continuing.
@@ -193,18 +201,18 @@ These example code snippets show you how to perform the following with the Azure
 
 ### Authenticate the client
 
-The code below checks that the environment variable contains a connection string that can be parsed to create a [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount?view=azure-dotnet) object pointing to the storage account. To check that the connection string is valid, use the [TryParse](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.tryparse?view=azure-dotnet) method. If `TryParse` is successful, it initializes the `storageAccount` variable and returns `true`.
+The code below checks that the environment variable contains a connection string that can be parsed to create a [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount) object pointing to the storage account. To check that the connection string is valid, use the [TryParse](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.tryparse) method. If `TryParse` is successful, it initializes the `storageAccount` variable and returns `true`.
 
 Add this code inside the `ProcessAsync` method:
 
 ```csharp
 // Retrieve the connection string for use with the application. The storage 
 // connection string is stored in an environment variable on the machine 
-// running the application called CONNECT_STR. If the 
+// running the application called AZURE_STORAGE_CONNECTION_STRING. If the 
 // environment variable is created after the application is launched in a 
 // console or with Visual Studio, the shell or application needs to be closed
 // and reloaded to take the environment variable into account.
-string storageConnectionString = Environment.GetEnvironmentVariable("CONNECT_STR");
+string storageConnectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE_CONNECTION_STRING");
 
 // Check whether the connection string can be parsed.
 CloudStorageAccount storageAccount;
@@ -219,7 +227,7 @@ else
     // Otherwise, let the user know that they need to define the environment variable.
     Console.WriteLine(
         "A connection string has not been defined in the system environment variables. " +
-        "Add an environment variable named 'CONNECT_STR' with your storage " +
+        "Add an environment variable named 'AZURE_STORAGE_CONNECTION_STRING' with your storage " +
         "connection string as a value.");
     Console.WriteLine("Press any key to exit the application.");
     Console.ReadLine();
@@ -236,7 +244,7 @@ To create the container, first create an instance of the [CloudBlobClient](/dotn
 In this case, the code calls the [CreateAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createasync) method to create the container. A GUID value is appended to the container name to ensure that it is unique. In a production environment, it's often preferable to use the [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexistsasync) method to create a container only if it does not already exist.
 
 > [!IMPORTANT]
-> Container names must be lowercase. For more information about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+> Container names must be lowercase. For more information about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 ```csharp
 // Create the CloudBlobClient that represents the 
@@ -389,5 +397,5 @@ To learn how to create a web app that uploads an image to Blob storage, continue
 > [!div class="nextstepaction"]
 > [Upload and process an image](storage-upload-process-images.md)
 
-* To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/).
+* To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).
 * To explore a sample application that you can deploy from Visual Studio for Windows, see the [.NET Photo Gallery Web Application Sample with Azure Blob Storage](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/).

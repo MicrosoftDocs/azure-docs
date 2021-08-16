@@ -1,7 +1,7 @@
 ---
 title: "Train SVD Recommender: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Train SVD Recommender module in the Azure Machine Learning service to train a Bayesian recommender by using the SVD algorithm.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Train SVD Recommender module in Azure Machine Learning to train a Bayesian recommender by using the SVD algorithm.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
+ms.date: 03/17/2021
 ---
 
 # Train SVD Recommender
 
-This article describes how to use the Train SVD Recommender module in Azure Machine Learning designer (preview). Use this module to train a recommendation model based on the Single Value Decomposition (SVD) algorithm.  
+This article describes how to use the Train SVD Recommender module in Azure Machine Learning designer. Use this module to train a recommendation model based on the Single Value Decomposition (SVD) algorithm.  
 
-The Train SVD Recommender module reads a dataset of user-item-rating triples. It returns a trained SVD recommender. You can then use the trained model to predict ratings or generate recommendations, by using the [Score SVD Recommender](score-svd-recommender.md) module.  
+The Train SVD Recommender module reads a dataset of user-item-rating triples. It returns a trained SVD recommender. You can then use the trained model to predict ratings or generate recommendations, by connecting the [Score SVD Recommender](score-svd-recommender.md) module.  
 
 
   
@@ -44,14 +44,11 @@ Before you use the module, your input data must be in the format that the recomm
 + The second column contains item identifiers.
 + The third column contains the rating for the user-item pair. Rating values must be numeric type.  
 
-The **Restaurant ratings** dataset in Azure Machine Learning designer (select **Saved Datasets** and then **Samples**) demonstrates the expected format:
+The **Movie Ratings** dataset in Azure Machine Learning designer (select **Datasets** and then **Samples**) demonstrates the expected format:
 
-|userID|placeID|rating|
-|------------|-------------|------------|
-|U1077|135085|2|
-|U1077|135038|2|
+![Movie Ratings](media/module/movie-ratings-dataset.png)
 
-From this sample, you can see that a single user has rated two separate restaurants. 
+From this sample, you can see that a single user has rated several movies. 
 
 ### Train the model
 
@@ -67,9 +64,12 @@ From this sample, you can see that a single user has rated two separate restaura
 
     The learning rate determines the size of the step at each iteration. If the step size is too large, you might overshoot the optimal solution. If the step size is too small, training takes longer to find the best solution. 
   
-5.  Run the pipeline.  
+5.  Submit the pipeline.  
 
+## Results
+
+After pipeline run is completed, to use the model for scoring, connect the [Train SVD Recommender](train-svd-recommender.md) to [Score SVD Recommender](score-svd-recommender.md), to predict values for new input examples.
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to the Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

@@ -3,8 +3,8 @@ title: Create web APIs & REST APIs for Azure Logic Apps
 description: Create web APIs & REST APIs to call your APIs, services, or systems for system integrations in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, jehollan, logicappspm
-ms.topic: article
+ms.reviewer: jonfan, logicappspm
+ms.topic: conceptual
 ms.date: 05/26/2017
 ---
 
@@ -52,16 +52,15 @@ easy API hosting.
 > APIs -- just deploy your code to an API app. For example, learn how to 
 > build API apps created with these languages: 
 > 
-> * [ASP.NET](../app-service/app-service-web-get-started-dotnet.md). 
-> * [Java](../app-service/app-service-web-get-started-java.md)
-> * [Node.js](../app-service/app-service-web-get-started-nodejs.md)
-> * [PHP](../app-service/app-service-web-get-started-php.md)
-> * [Python](../app-service/containers/quickstart-python.md)
-> * [Ruby](../app-service/containers/quickstart-ruby.md)
+> * [ASP.NET](../app-service/quickstart-dotnetcore.md). 
+> * [Java](../app-service/quickstart-java.md)
+> * [Node.js](../app-service/quickstart-nodejs.md)
+> * [PHP](../app-service/quickstart-php.md)
+> * [Python](../app-service/quickstart-python.md)
+> * [Ruby](../app-service/quickstart-ruby.md)
 >
 > For API App samples built for logic apps, visit the 
-> [Azure Logic Apps GitHub repository](https://github.com/logicappsio) 
-> or [blog](https://aka.ms/logicappsblog).
+> [Azure Logic Apps GitHub repository](https://github.com/logicappsio).
 
 ## How do custom APIs differ from custom connectors?
 
@@ -90,8 +89,8 @@ and makes those connectors available for users in Power Automate and Microsoft P
 For more information about custom connectors, see 
 
 * [Custom connectors overview](../logic-apps/custom-connector-overview.md)
-* [Create custom connectors from Web APIs](../logic-apps/custom-connector-build-web-api-app-tutorial.md)
-* [Register custom connectors in Azure Logic Apps](../logic-apps/logic-apps-custom-connector-register.md)
+* [Create custom connectors from Web APIs](/connectors/custom-connectors/create-web-api-connector)
+* [Register custom connectors in Azure Logic Apps](/connectors/custom-connectors/)
 
 ## Helpful tools
 
@@ -250,25 +249,17 @@ callback from your API when work is complete. Your API then calls back
 with an HTTP POST to the URL and passes any returned content and 
 headers as input to the logic app.
 
-* `unsubscribe` endpoint: If the logic app run is canceled, 
-the Logic Apps engine calls the `unsubscribe` endpoint. 
-Your API can then unregister the callback URL and stop any processes as necessary.
+* `unsubscribe` endpoint: If the logic app run is canceled, the Logic Apps engine calls the `unsubscribe` endpoint. Your API can then unregister the callback URL and stop any processes as necessary.
 
 ![Webhook action pattern](./media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png)
 
-> [!NOTE]
-> Currently, the Logic App Designer doesn't support 
-> discovering webhook endpoints through Swagger. 
-> So for this pattern, you have to add a 
-> [**Webhook** action](../connectors/connectors-native-webhook.md)
-> and specify the URL, headers, and body for your request. 
-> See also [Workflow actions and triggers](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action). 
-> To pass in the callback URL, you can use the `@listCallbackUrl()` 
-> workflow function in any of the previous fields as necessary.
+Currently, the Logic App Designer doesn't support discovering webhook endpoints through Swagger. So for this pattern, you have to add a [**Webhook** action](../connectors/connectors-native-webhook.md) and specify the URL, headers, and body for your request. See also [Workflow actions and triggers](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action). For an example webhook pattern, review this [webhook trigger sample in GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
-> [!TIP]
-> For an example webhook pattern, review this 
-> [webhook trigger sample in GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
+Here are some other tips and notes:
+
+* To pass in the callback URL, you can use the `@listCallbackUrl()` workflow function in any of the previous fields as necessary.
+
+* If you own both the logic app and the subscribed service, you don't have to call the `unsubscribe` endpoint after the callback URL is called. Otherwise, the Logic Apps runtime needs to call the `unsubscribe` endpoint to signal that no more calls are expected and to allow for resource clean up on the server side.
 
 <a name="triggers"></a>
 
@@ -348,35 +339,24 @@ When there's new data or an event that meets the specified condition,
 your API calls back with an HTTP POST to the URL. 
 The content payload and headers pass as input to the logic app.
 
-* `unsubscribe` endpoint: If the webhook trigger or entire logic app is deleted, 
-the Logic Apps engine calls the `unsubscribe` endpoint. 
+* `unsubscribe` endpoint: If the webhook trigger or entire logic app is deleted, the Logic Apps engine calls the `unsubscribe` endpoint. 
 Your API can then unregister the callback URL and stop any processes as necessary.
 
 ![Webhook trigger pattern](./media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png)
 
-> [!NOTE]
-> Currently, the Logic App Designer doesn't support 
-> discovering webhook endpoints through Swagger. 
-> So for this pattern, you have to add a 
-> [**Webhook** trigger](../connectors/connectors-native-webhook.md) 
-> and specify the URL, headers, and body for your request. 
-> See also [HTTPWebhook trigger](logic-apps-workflow-actions-triggers.md#httpwebhook-trigger). 
-> To pass in the callback URL, you can use the `@listCallbackUrl()` workflow 
-> function in any of the previous fields as necessary.
->
-> To prevent processing the same data multiple times, 
-> your trigger should clean up data that was already read and passed to the logic app.
+Currently, the Logic App Designer doesn't support discovering webhook endpoints through Swagger. So for this pattern, you have to add a [**Webhook** trigger](../connectors/connectors-native-webhook.md) and specify the URL, headers, and body for your request. See also [HTTPWebhook trigger](logic-apps-workflow-actions-triggers.md#httpwebhook-trigger). For an example webhook pattern, review this [webhook trigger controller sample in GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
-> [!TIP]
-> For an example webhook pattern, review this 
-> [webhook trigger controller sample in GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
+Here are some other tips and notes:
 
-## Secure calls to your APIs from logic apps
+* To pass in the callback URL, you can use the `@listCallbackUrl()` workflow function in any of the previous fields as necessary.
 
-After creating your custom APIs, 
-set up authentication for your APIs 
-so that you can call them securely from logic apps. Learn 
-[how to secure calls to custom APIs from logic apps](../logic-apps/logic-apps-custom-api-authentication.md).
+* To prevent processing the same data multiple times, your trigger should clean up data that was already read and passed to the logic app.
+
+* If you own both the logic app and the subscribed service, you don't have to call the `unsubscribe` endpoint after the callback URL is called. Otherwise, the Logic Apps runtime needs to call the `unsubscribe` endpoint to signal that no more calls are expected and to allow for resource clean up on the server side.
+
+## Improve security for calls to your APIs from logic apps
+
+After creating your custom APIs, set up authentication for your APIs so that you can call them securely from logic apps. Learn [how to improve security for calls to custom APIs from logic apps](../logic-apps/logic-apps-custom-api-authentication.md).
 
 ## Deploy and call your APIs
 
@@ -400,7 +380,7 @@ register your APIs as Logic App connectors, and nominate your connectors for the
   contact [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com).
 
 * For questions, visit the 
-  [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+  [Microsoft Q&A question page for Azure Logic Apps](/answers/topics/azure-logic-apps.html).
 
 * To help improve Logic Apps, vote on or submit ideas at the 
   [Logic Apps user feedback site](https://aka.ms/logicapps-wish). 

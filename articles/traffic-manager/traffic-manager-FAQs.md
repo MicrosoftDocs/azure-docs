@@ -3,14 +3,15 @@ title: Azure Traffic Manager - FAQs
 description: This article provides answers to frequently asked questions about Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/26/2019
-ms.author: allensu
+ms.date: 03/03/2021
+ms.author: duau 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Traffic Manager Frequently Asked Questions (FAQ)
@@ -24,7 +25,7 @@ As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-h
 Therefore, Traffic Manager does not provide an endpoint or IP address for clients to connect to. If you want static IP address for your service, that must be configured at the service, not in Traffic Manager.
 
 ### What types of traffic can be routed using Traffic Manager?
-As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-how-it-works.md), a Traffic Manager endpoint can be any internet facing service hosted inside or outside of Azure. Hence, Traffic Manager can route traffic that originates from the public internet to a set of endpoints that are also internet facing. If you have endpoints that are inside a private network (for example, an internal version of [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)) or have users making DNS requests from such internal networks, then you cannot use Traffic Manager to route this traffic.
+As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-how-it-works.md), a Traffic Manager endpoint can be any internet facing service hosted inside or outside of Azure. Hence, Traffic Manager can route traffic that originates from the public internet to a set of endpoints that are also internet facing. If you have endpoints that are inside a private network (for example, an internal version of [Azure Load Balancer](../load-balancer/components.md#frontend-ip-configurations)) or have users making DNS requests from such internal networks, then you cannot use Traffic Manager to route this traffic.
 
 ### Does Traffic Manager support "sticky" sessions?
 
@@ -38,7 +39,7 @@ As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-h
 
 Further investigation should therefore focus on the application.
 
-The HTTP host header sent from the client's browser is the most common source of problems. Make sure that the application is configured to accept the correct host header for the domain name you are using. For endpoints using the Azure App Service, see [configuring a custom domain name for a web app in Azure App Service using Traffic Manager](../app-service/web-sites-traffic-manager-custom-domain-name.md).
+The HTTP host header sent from the client's browser is the most common source of problems. Make sure that the application is configured to accept the correct host header for the domain name you are using. For endpoints using the Azure App Service, see [configuring a custom domain name for a web app in Azure App Service using Traffic Manager](../app-service/configure-domain-traffic-manager.md).
 
 ### What is the performance impact of using Traffic Manager?
 
@@ -92,7 +93,7 @@ The key difference between these two popular routing methods is that in Performa
 
 ### What are the regions that are supported by Traffic Manager for geographic routing?
 
-The country/region hierarchy that is used by Traffic Manager can be found [here](traffic-manager-geographic-regions.md). While this page is kept up-to-date with any changes, you can also programmatically retrieve the same information by using the [Azure Traffic Manager REST API](https://docs.microsoft.com/rest/api/trafficmanager/). 
+The country/region hierarchy that is used by Traffic Manager can be found [here](traffic-manager-geographic-regions.md). While this page is kept up-to-date with any changes, you can also programmatically retrieve the same information by using the [Azure Traffic Manager REST API](/rest/api/trafficmanager/). 
 
 ### How does traffic manager determine where a user is querying from?
 
@@ -100,10 +101,10 @@ Traffic Manager looks at the source IP of the query (this most likely is a local
 
 ### Is it guaranteed that Traffic Manager can correctly determine the exact geographic location of the user in every case?
 
-No, Traffic Manager cannot guarantee that the geographic region we infer from the source IP address of a DNS query will always correspond to the user’s location due to the following reasons:
+No, Traffic Manager cannot guarantee that the geographic region we infer from the source IP address of a DNS query will always correspond to the user's location due to the following reasons:
 
 - First, as described in the previous FAQ, the source IP address we see is that of a DNS resolver doing the lookup on behalf of the user. While the geographic location of the DNS resolver is a good proxy for the geographic location of the user, it can also be different depending upon the footprint of the DNS resolver service and the specific DNS resolver service a customer has chosen to use. 
-As an example, a customer located in Malaysia could specify in their device’s settings use a DNS resolver service whose DNS server in Singapore might get picked to handle the query resolutions for that user/device. In that case, Traffic Manager can only see the resolver’s IP address that corresponds to the Singapore location. Also, see the earlier FAQ regarding client subnet address support on this page.
+As an example, a customer located in Malaysia could specify in their device's settings use a DNS resolver service whose DNS server in Singapore might get picked to handle the query resolutions for that user/device. In that case, Traffic Manager can only see the resolver's IP address that corresponds to the Singapore location. Also, see the earlier FAQ regarding client subnet address support on this page.
 
 - Second, Traffic Manager uses an internal map to do the IP address to geographic region translation. While this map is validated and updated on an ongoing basis to increase its accuracy and account for the evolving nature of the internet, there is still the possibility that our information is not an exact representation of the geographic location of all the IP addresses.
 
@@ -113,15 +114,15 @@ No, the location of the endpoint imposes no restrictions on which regions can be
 
 ### Can I assign geographic regions to endpoints in a profile that is not configured to do geographic routing?
 
-Yes, if the routing method of a profile is not geographic, you can use the [Azure Traffic Manager REST API](https://docs.microsoft.com/rest/api/trafficmanager/) to assign geographic regions to endpoints in that profile. In the case of non-geographic routing type profiles, this configuration is ignored. If you change such a profile to geographic routing type at a later time, Traffic Manager can use those mappings.
+Yes, if the routing method of a profile is not geographic, you can use the [Azure Traffic Manager REST API](/rest/api/trafficmanager/) to assign geographic regions to endpoints in that profile. In the case of non-geographic routing type profiles, this configuration is ignored. If you change such a profile to geographic routing type at a later time, Traffic Manager can use those mappings.
 
 ### Why am I getting an error when I try to change the routing method of an existing profile to Geographic?
 
-All the endpoints under a profile with geographic routing need to have at least one region mapped to it. To convert an existing profile to geographic routing type, you first need to associate geographic regions to all its endpoints using the [Azure Traffic Manager REST API](https://docs.microsoft.com/rest/api/trafficmanager/) before changing the routing type to geographic. If using portal, first delete the endpoints, change the routing method of the profile to geographic and then add the endpoints along with their geographic region mapping.
+All the endpoints under a profile with geographic routing need to have at least one region mapped to it. To convert an existing profile to geographic routing type, you first need to associate geographic regions to all its endpoints using the [Azure Traffic Manager REST API](/rest/api/trafficmanager/) before changing the routing type to geographic. If using portal, first delete the endpoints, change the routing method of the profile to geographic and then add the endpoints along with their geographic region mapping.
 
 ### Why is it strongly recommended that customers create nested profiles instead of endpoints under a profile with geographic routing enabled?
 
-A region can be assigned to only one endpoint within a profile if it is using the geographic routing method. If that endpoint is not a nested type with a child profile attached to it, if that endpoint going unhealthy, Traffic Manager continues to send traffic to it since the alternative of not sending any traffic isn’t any better. Traffic Manager does not failover to another endpoint, even when the region assigned is a “parent” of the region assigned to the endpoint that went unhealthy (for example, if an endpoint that has region Spain goes unhealthy, we do not failover to another endpoint that has the region Europe assigned to it). This is done to ensure that Traffic Manager respects the geographic boundaries that a customer has setup in their profile. To get the benefit of failing over to another endpoint when an endpoint goes unhealthy, it is recommended that geographic regions be assigned to nested profiles with multiple endpoints within it instead of individual endpoints. In this way, if an endpoint in the nested child profile fails, traffic can failover to another endpoint inside the same nested child profile.
+A region can be assigned to only one endpoint within a profile if it is using the geographic routing method. If that endpoint is not a nested type with a child profile attached to it, if that endpoint going unhealthy, Traffic Manager continues to send traffic to it since the alternative of not sending any traffic isn't any better. Traffic Manager does not failover to another endpoint, even when the region assigned is a "parent" of the region assigned to the endpoint that went unhealthy (for example, if an endpoint that has region Spain goes unhealthy, we do not failover to another endpoint that has the region Europe assigned to it). This is done to ensure that Traffic Manager respects the geographic boundaries that a customer has setup in their profile. To get the benefit of failing over to another endpoint when an endpoint goes unhealthy, it is recommended that geographic regions be assigned to nested profiles with multiple endpoints within it instead of individual endpoints. In this way, if an endpoint in the nested child profile fails, traffic can failover to another endpoint inside the same nested child profile.
 
 ### Are there any restrictions on the API version that supports this routing type?
 
@@ -142,9 +143,9 @@ End user devices typically use a DNS resolver to do the DNS lookup on their beha
 
 The IP addresses to associate with an endpoint can be specified in two ways. First, you can use the quad dotted decimal octet notation with a start and end addresses to specify the range (for example, 1.2.3.4-5.6.7.8 or 3.4.5.6-3.4.5.6). Second, you can use the CIDR notation to specify the range (for example, 1.2.3.0/24). You can specify multiple ranges and can use both notation types in a range set. A few restrictions apply.
 
--	You cannot have overlap of address ranges since each IP needs to be mapped to only a single endpoint
--	The start address cannot be more than the end address
--	In the case of the CIDR notation, the IP address before the ‘/’ should be the start address of that range (for example, 1.2.3.0/24 is valid but 1.2.3.4.4/24 is NOT valid)
+-    You cannot have overlap of address ranges since each IP needs to be mapped to only a single endpoint
+-    The start address cannot be more than the end address
+-    In the case of the CIDR notation, the IP address before the '/' should be the start address of that range (for example, 1.2.3.0/24 is valid but 1.2.3.4.4/24 is NOT valid)
 
 ### How can I specify a fallback endpoint when using Subnet routing?
 
@@ -152,14 +153,14 @@ In a profile with Subnet routing, if you have an endpoint with no subnets mapped
 
 ### What happens if an endpoint is disabled in a Subnet routing type profile?
 
-In a profile with Subnet routing, if you have an endpoint with that is disabled, Traffic Manager will behave as if that endpoint and the subnet mappings it has does not exist. If a query that would’ve matched with its IP address mapping is received and the endpoint is disabled, Traffic Manager will return a fallback endpoint (one with no mappings) or if such an endpoint is not present, will return a NXDOMAIN response.
+In a profile with Subnet routing, if you have an endpoint with that is disabled, Traffic Manager will behave as if that endpoint and the subnet mappings it has does not exist. If a query that would've matched with its IP address mapping is received and the endpoint is disabled, Traffic Manager will return a fallback endpoint (one with no mappings) or if such an endpoint is not present, will return a NXDOMAIN response.
 
 ## Traffic Manager MultiValue traffic routing method
 
 ### What are some use cases where MultiValue routing is useful?
 
 MultiValue routing returns multiple healthy endpoints in a single query response. The main advantage of this is that, if an endpoint is unhealthy, the client has more options to retry without making another DNS call (which might return the same value from an upstream cache). This is applicable for availability sensitive applications that want to minimize the downtime.
-Another use for MultiValue routing method is if an endpoint is “dual-homed” to both IPv4 and IPv6 addresses and you want to give the caller both options to choose from when it initiates a connection to the endpoint.
+Another use for MultiValue routing method is if an endpoint is "dual-homed" to both IPv4 and IPv6 addresses and you want to give the caller both options to choose from when it initiates a connection to the endpoint.
 
 ### How many endpoints are returned when MultiValue routing is used?
 
@@ -239,11 +240,11 @@ When the provided measurement JavaScript is used, Traffic Manager will have visi
 
 ### Does the webpage measuring Real User Measurements need to be using Traffic Manager for routing?
 
-No, it doesn’t need to use Traffic Manager. The routing side of Traffic Manager operates separately from the Real User Measurement part and although it is a great idea to have them both in the same web property, they don’t need to be.
+No, it doesn't need to use Traffic Manager. The routing side of Traffic Manager operates separately from the Real User Measurement part and although it is a great idea to have them both in the same web property, they don't need to be.
 
 ### Do I need to host any service on Azure regions to use with Real User Measurements?
 
-No, you don’t need to host any server-side component on Azure for Real User Measurements to work. The single pixel image downloaded by the measurement JavaScript and the service running it in different Azure regions is hosted and managed by Azure. 
+No, you don't need to host any server-side component on Azure for Real User Measurements to work. The single pixel image downloaded by the measurement JavaScript and the service running it in different Azure regions is hosted and managed by Azure. 
 
 ### Will my Azure bandwidth usage increase when I use Real User Measurements?
 
@@ -268,7 +269,7 @@ Traffic View gives you the overall view of the traffic your Traffic Manager prof
 
 ### How is Traffic View different from the Traffic Manager metrics available through Azure monitor?
 
-Azure Monitor can be used to understand at an aggregate level the traffic received by your profile and its endpoints. It also enables you to track the health status of the endpoints by exposing the health check results. When you need to go beyond these and understand your end user’s experience connecting to Azure at a regional level, Traffic View can be used to achieve that.
+Azure Monitor can be used to understand at an aggregate level the traffic received by your profile and its endpoints. It also enables you to track the health status of the endpoints by exposing the health check results. When you need to go beyond these and understand your end user's experience connecting to Azure at a regional level, Traffic View can be used to achieve that.
 
 ### Does Traffic View use EDNS Client Subnet information?
 
@@ -280,7 +281,7 @@ Traffic View creates its output by processing the data from the seven days prece
 
 ### How does Traffic View handle external endpoints?
 
-When you use external endpoints hosted outside Azure regions in a Traffic Manager profile you can choose to have it mapped to an Azure region which is a proxy for its latency characteristics (this is in fact needed if you use performance routing method). If it has this Azure region mapping, that Azure region’s latency metrics will be used when creating the Traffic View output. If no Azure region is specified, the latency information will be empty in the data for those external endpoints.
+When you use external endpoints hosted outside Azure regions in a Traffic Manager profile you can choose to have it mapped to an Azure region which is a proxy for its latency characteristics (this is in fact needed if you use performance routing method). If it has this Azure region mapping, that Azure region's latency metrics will be used when creating the Traffic View output. If no Azure region is specified, the latency information will be empty in the data for those external endpoints.
 
 ### Do I need to enable Traffic View for each profile in my subscription?
 
@@ -303,7 +304,7 @@ Traffic View pricing is based on the number of data points used to create the ou
 
 Using endpoints from multiple subscriptions is not possible with Azure Web Apps. Azure Web Apps requires that any custom domain name used with Web Apps is only used within a single subscription. It is not possible to use Web Apps from multiple subscriptions with the same domain name.
 
-For other endpoint types, it is possible to use Traffic Manager with endpoints from more than one subscription. In Resource Manager, endpoints from any subscription can be added to Traffic Manager, as long as the person configuring the Traffic Manager profile has read access to the endpoint. These permissions can be granted using [Azure Resource Manager role-based access control (RBAC)](../role-based-access-control/role-assignments-portal.md).
+For other endpoint types, it is possible to use Traffic Manager with endpoints from more than one subscription. In Resource Manager, endpoints from any subscription can be added to Traffic Manager, as long as the person configuring the Traffic Manager profile has read access to the endpoint. These permissions can be granted using [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). Endpoints from other subscriptions can be added using [Azure PowerShell](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) or the [Azure CLI](/cli/azure/network/traffic-manager/endpoint#az_network_traffic_manager_endpoint_create).
 
 ### Can I use Traffic Manager with Cloud Service 'Staging' slots?
 
@@ -319,7 +320,7 @@ Traffic Manager responds with the DNS name or IP address of the endpoint. To sup
 
 Typically, Traffic Manager is used to direct traffic to applications deployed in different regions. However, it can also be used where an application has more than one deployment in the same region. The Traffic Manager Azure endpoints do not permit more than one Web App endpoint from the same Azure region to be added to the same Traffic Manager profile.
 
-### How do I move my Traffic Manager profile’s Azure endpoints to a different resource group or subscription?
+### How do I move my Traffic Manager profile's Azure endpoints to a different resource group or subscription?
 
 Azure endpoints that are associated with a Traffic Manager profile are tracked using their resource IDs. When an Azure resource that is being used as an endpoint (for example,  Public IP, Classic Cloud Service, WebApp, or another Traffic Manager profile used in a nested manner) is moved to a different resource group or subscription, its resource ID changes. In this scenario, currently, you must update the Traffic Manager profile by first deleting and then adding back the endpoints to the profile.
 
@@ -342,9 +343,9 @@ Azure Resource Manager requires all resource groups to specify a location, which
 
 ### How do I determine the current health of each endpoint?
 
-The current monitoring status of each endpoint, in addition to the overall profile, is displayed in the Azure portal. This information also is available via the Traffic Monitor [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/az.trafficmanager), and [cross-platform Azure CLI](../cli-install-nodejs.md).
+The current monitoring status of each endpoint, in addition to the overall profile, is displayed in the Azure portal. This information also is available via the Traffic Monitor [REST API](/rest/api/trafficmanager/), [PowerShell cmdlets](/powershell/module/az.trafficmanager), and [cross-platform Azure CLI](/cli/azure/install-classic-cli).
 
-You can also use Azure Monitor to track the health of your endpoints and see a visual representation of them. For more about using Azure Monitor, see the [Azure Monitoring documentation](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
+You can also use Azure Monitor to track the health of your endpoints and see a visual representation of them. For more about using Azure Monitor, see the [Azure Monitoring documentation](../azure-monitor/data-platform.md).
 
 ### Can I monitor HTTPS endpoints?
 
@@ -373,31 +374,31 @@ Traffic Manager allows you to use IPv4 or IPv6 addresses to specify endpoints. T
 
 No, Traffic Manager does not allow you to mix endpoint addressing types within a profile, except for the case of a profile with MultiValue routing type where you can mix IPv4 and IPv6 addressing types
 
-### What happens when an incoming query’s record type is different from the record type associated with the addressing type of the endpoints?
+### What happens when an incoming query's record type is different from the record type associated with the addressing type of the endpoints?
 
 When a query is received against a profile, Traffic Manager first finds the endpoint that needs to be returned as per the routing method specified and the health status of the endpoints. It then looks at the record type requested in the incoming query and the record type associated with the endpoint before returning a response based on the table below.
 
 For profiles with any routing method other than MultiValue:
 
-|Incoming query request| 	Endpoint type| 	Response Provided|
+|Incoming query request|     Endpoint type|     Response Provided|
 |--|--|--|
-|ANY |	A / AAAA / CNAME |	Target Endpoint| 
-|A |	A / CNAME |	Target Endpoint|
-|A |	AAAA |	NODATA |
-|AAAA |	AAAA / CNAME |	Target Endpoint|
-|AAAA |	A |	NODATA |
-|CNAME |	CNAME |	Target Endpoint|
-|CNAME 	|A / AAAA |	NODATA |
+|ANY |    A / AAAA / CNAME |    Target Endpoint| 
+|A |    A / CNAME |    Target Endpoint|
+|A |    AAAA |    NODATA |
+|AAAA |    AAAA / CNAME |    Target Endpoint|
+|AAAA |    A |    NODATA |
+|CNAME |    CNAME |    Target Endpoint|
+|CNAME     |A / AAAA |    NODATA |
 |
 
 For profiles with routing method set to MultiValue:
 
-|Incoming query request| 	Endpoint type |	Response Provided|
+|Incoming query request|     Endpoint type |    Response Provided|
 |--|--|--|
-|ANY |	Mix of A and AAAA |	Target Endpoints|
-|A |	Mix of A and AAAA |	Only Target Endpoints of type A|
-|AAAA	|Mix of A and AAAA| 	Only Target Endpoints of type AAAA|
-|CNAME |	Mix of A and AAAA |	NODATA |
+|ANY |    Mix of A and AAAA |    Target Endpoints|
+|A |    Mix of A and AAAA |    Only Target Endpoints of type A|
+|AAAA    |Mix of A and AAAA|     Only Target Endpoints of type AAAA|
+|CNAME |    Mix of A and AAAA |    NODATA |
 
 ### Can I use a profile with IPv4 / IPv6 addressed endpoints in a nested profile?
 
@@ -436,7 +437,7 @@ Traffic Manager monitoring settings are at a per profile level. If you need to u
 ### How can I assign HTTP headers to the Traffic Manager health checks to my endpoints?
 
 Traffic Manager allows you to specify custom headers in the HTTP(S) health checks it initiates to your endpoints. If you want to specify a custom header, you can do that at the profile level (applicable to all endpoints) or specify it at the endpoint level. If a header is defined at both levels, then the one specified at the endpoint level will override the profile level one.
-One common use case for this is specifying host headers so that Traffic Manager requests may get routed correctly to an endpoint hosted in a multi-tenant environment. Another use case of this is to identify Traffic Manager requests from an endpoint’s HTTP(S) request logs
+One common use case for this is specifying host headers so that Traffic Manager requests may get routed correctly to an endpoint hosted in a multi-tenant environment. Another use case of this is to identify Traffic Manager requests from an endpoint's HTTP(S) request logs
 
 ### What host header do endpoint health checks use?
 
@@ -444,7 +445,18 @@ If no custom host header setting is provided, the host header used by Traffic Ma
 
 ### What are the IP addresses from which the health checks originate?
 
-Click [here](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json) to view the JSON file that lists the IP addresses from which Traffic Manager health checks can originate. Review the IPs listed in the JSON file to ensure that incoming connections from these IP addresses are allowed at the endpoints to check its health status.
+Click [here](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) to learn how to retrieve the lists of IP addresses from which Traffic Manager health checks can originate. You can use REST API, Azure CLI, or Azure PowerShell to retrieve the latest list. Review the IPs listed to ensure that incoming connections from these IP addresses are allowed at the endpoints to check its health status.
+
+Example using Azure PowerShell:
+
+```azurepowershell-interactive
+$serviceTags = Get-AzNetworkServiceTag -Location eastus
+$result = $serviceTags.Values | Where-Object { $_.Name -eq "AzureTrafficManager" }
+$result.Properties.AddressPrefixes
+```
+
+> [!NOTE]
+> Public IP addresses may change without notice. Ensure to retrieve the latest information using the Service Tag Discovery API or downloadable JSON file.
 
 ### How many health checks to my endpoint can I expect from Traffic Manager?
 
@@ -455,7 +467,7 @@ The number of Traffic Manager health checks reaching your endpoint depends on th
 
 ### How can I get notified if one of my endpoints goes down?
 
-One of the metrics provided by Traffic Manager is the health status of endpoints in a profile. You can see this as an aggregate of all endpoints inside a profile (for example, 75% of your endpoints are healthy), or, at a per endpoint level. Traffic Manager metrics are exposed through Azure Monitor and you can use its [alerting capabilities](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) to get notifications when there is a change in the health status of your endpoint. For more details, see [Traffic Manager metrics and alerts](traffic-manager-metrics-alerts.md).  
+One of the metrics provided by Traffic Manager is the health status of endpoints in a profile. You can see this as an aggregate of all endpoints inside a profile (for example, 75% of your endpoints are healthy), or, at a per endpoint level. Traffic Manager metrics are exposed through Azure Monitor and you can use its [alerting capabilities](../azure-monitor/alerts/alerts-metric.md) to get notifications when there is a change in the health status of your endpoint. For more details, see [Traffic Manager metrics and alerts](traffic-manager-metrics-alerts.md).  
 
 ## Traffic Manager nested profiles
 

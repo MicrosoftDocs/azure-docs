@@ -1,11 +1,8 @@
 ---
 title: Track custom operations with Azure Application Insights .NET SDK 
 description: Tracking custom operations with Azure Application Insights .NET SDK
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
+ms.custom: devx-track-csharp
 ms.date: 11/26/2019
 
 ms.reviewer: sergkanz
@@ -38,7 +35,7 @@ Let's see how such operations could be tracked.
 On a high level, the task is to create `RequestTelemetry` and set known properties. After the operation is finished, you track the telemetry. The following example demonstrates this task.
 
 ### HTTP request in Owin self-hosted app
-In this example, trace context is propagated according to the [HTTP Protocol for Correlation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). You should expect to receive headers that are described there.
+In this example, trace context is propagated according to the [HTTP Protocol for Correlation](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). You should expect to receive headers that are described there.
 
 ```csharp
 public class ApplicationInsightsMiddleware : OwinMiddleware
@@ -117,7 +114,7 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
 The HTTP Protocol for Correlation also declares the `Correlation-Context` header. However, it's omitted here for simplicity.
 
 ## Queue instrumentation
-While there are [W3C Trace Context](https://www.w3.org/TR/trace-context/) and [HTTP Protocol for Correlation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) to pass correlation details with HTTP request, every queue protocol has to define how the same details are passed along the queue message. Some queue protocols (such as AMQP) allow passing additional metadata and some others (such Azure Storage Queue) require the context to be encoded into the message payload.
+While there are [W3C Trace Context](https://www.w3.org/TR/trace-context/) and [HTTP Protocol for Correlation](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) to pass correlation details with HTTP request, every queue protocol has to define how the same details are passed along the queue message. Some queue protocols (such as AMQP) allow passing additional metadata and some others (such Azure Storage Queue) require the context to be encoded into the message payload.
 
 > [!NOTE]
 > * **Cross-component tracing is not supported for queues yet** With HTTP, if your producer and consumer send telemetry to different Application Insights resources, Transaction Diagnostics Experience and Application Map show transactions and map end-to-end. In case of queues this is not supported yet. 
@@ -207,7 +204,7 @@ public async Task Process(BrokeredMessage message)
 The following example shows how to track the [Azure Storage queue](../../storage/queues/storage-dotnet-how-to-use-queues.md) operations and correlate telemetry between the producer, the consumer, and Azure Storage. 
 
 The Storage queue has an HTTP API. All calls to the queue are tracked by the Application Insights Dependency Collector for HTTP requests.
-It is configured by default on ASP.NET and ASP.NET Core applications, with other kinds of applicaiton, you can refer to [console applications documentation](../../azure-monitor/app/console.md)
+It is configured by default on ASP.NET and ASP.NET Core applications, with other kinds of applicaiton, you can refer to [console applications documentation](./console.md)
 
 You also might want to correlate the Application Insights operation ID with the Storage request ID. For information on how to set and get a Storage request client and a server request ID, see [Monitor, diagnose, and troubleshoot Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
 
@@ -347,7 +344,7 @@ When you instrument message deletion, make sure you set the operation (correlati
 
 ### Dependency Types
 
-Application Insights uses dependency type to cusomize UI experiences. For queues it recognizes following types of `DependencyTelemetry` that improve [Transaction diagnostics experience](/azure/azure-monitor/app/transaction-diagnostics):
+Application Insights uses dependency type to customize UI experiences. For queues it recognizes following types of `DependencyTelemetry` that improve [Transaction diagnostics experience](./transaction-diagnostics.md):
 - `Azure queue` for Azure Storage Queues
 - `Azure Event Hubs` for Azure Event Hubs
 - `Azure Service Bus` for Azure Service Bus
@@ -426,7 +423,7 @@ public async Task RunMyTaskAsync()
 
 Disposing operation causes operation to be stopped, so you may do it instead of calling `StopOperation`.
 
-*Warning*: in some cases unhanded exception may [prevent](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) `finally` to be called so operations may not be tracked.
+*Warning*: in some cases unhanded exception may [prevent](/dotnet/csharp/language-reference/keywords/try-finally) `finally` to be called so operations may not be tracked.
 
 ### Parallel operations processing and tracking
 
@@ -479,8 +476,9 @@ Each Application Insights operation (request or dependency) involves `Activity` 
 ## Next steps
 
 - Learn the basics of [telemetry correlation](correlation.md) in Application Insights.
-- Check out how correlated data powers [Transaction Diagnostics Experience](../../azure-monitor/app/transaction-diagnostics.md) and [Application Map](../../azure-monitor/app/app-map.md).
-- See the [data model](../../azure-monitor/app/data-model.md) for Application Insights types and data model.
-- Report custom [events and metrics](../../azure-monitor/app/api-custom-events-metrics.md) to Application Insights.
+- Check out how correlated data powers [Transaction Diagnostics Experience](./transaction-diagnostics.md) and [Application Map](./app-map.md).
+- See the [data model](./data-model.md) for Application Insights types and data model.
+- Report custom [events and metrics](./api-custom-events-metrics.md) to Application Insights.
 - Check out standard [configuration](configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) for context properties collection.
-- Check the [System.Diagnostics.Activity User Guide](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) to see how we correlate telemetry.
+- Check the [System.Diagnostics.Activity User Guide](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) to see how we correlate telemetry.
+

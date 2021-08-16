@@ -13,6 +13,11 @@
     href: container-instances-quickstart-portal.md
   - name: Deploy a container instance - PowerShell
     href: container-instances-quickstart-powershell.md
+  - name: Deploy a container instance - ARM template
+    displayName: Resource Manager
+    href: container-instances-quickstart-template.md
+  - name: Deploy a container instance - Docker CLI
+    href: quickstart-docker-cli.md
 - name: Tutorials
   items:
   - name: Create and deploy container image
@@ -29,6 +34,8 @@
       href: container-instances-multi-container-yaml.md
     - name: Deploy a container group - Resource Manager
       href: container-instances-multi-container-group.md
+    - name: Deploy a container group - Docker Compose
+      href: tutorial-docker-compose.md
   - name: Integrate with Azure services
     items:
     - name: Trigger with Azure Functions
@@ -36,7 +43,7 @@
 - name: Samples
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/resources/samples/?sort=0&term=aci
+    href: /samples/browse/?products=azure&terms=container%2binstance
   - name: Resource Manager templates
     href: container-instances-samples-rm.md
 - name: Concepts
@@ -49,16 +56,30 @@
     href: container-instances-region-availability.md
   - name: Relationship to orchestrators
     href: container-instances-orchestrator-relationship.md
-  - name: Security considerations
-    href: container-instances-image-security.md
+  - name: Security
+    items:
+     - name: Security baseline
+       href: /security/benchmark/azure/baselines/container-instances-security-baseline?toc=/azure/container-instances/TOC.json
+     - name: Security considerations
+       href: container-instances-image-security.md
+  - name: Virtual networking
+    href: container-instances-virtual-network-concepts.md
 - name: How-to guides
   items:
   - name: Deploy
     items:
-    - name: Deploy in a virtual network (preview)
+    - name: Deploy in a virtual network
       href: container-instances-vnet.md
     - name: Deploy from Azure Container Registry
       href: container-instances-using-azure-container-registry.md
+    - name: Deploy with GitHub Actions
+      href: container-instances-github-action.md
+    - name: Encrypt deployment data
+      href: container-instances-encrypt-data.md
+    - name: Deploy on dedicated hosts
+      href: container-instances-dedicated-hosts.md
+    - name: Use Logic Apps connector
+      href: ../connectors/connectors-create-api-container-instances.md?toc=/azure/container-instances/toc.json&bc=/azure/container-instances/breadcrumb/toc.json
   - name: Container scenarios
     items:
     - name: Set restart policy for run-once tasks
@@ -69,14 +90,18 @@
       href: container-instances-start-command.md
     - name: Execute a command (exec)
       href: container-instances-exec.md
-    - name: Run Jenkins build job
-      href: container-instances-jenkins.md
+    - name: Run a setup container (init)
+      href: container-instances-init-container.md
     - name: Use a managed identity (preview)
       href: container-instances-managed-identity.md
     - name: Use GPU resources (preview)
       href: container-instances-gpu.md
-    - name: Enable SSL endpoint
-      href: container-instances-container-group-ssl.md     
+    - name: Enable SSL endpoint in sidecar
+      href: container-instances-container-group-ssl.md
+    - name: Expose static IP with App Gateway
+      href: container-instances-application-gateway.md  
+    - name: Use Azure Firewall for ingress and egress
+      href: container-instances-egress-ip-address.md
   - name: Mount data volumes
     items:
     - name: Azure file share
@@ -105,6 +130,8 @@
       href: container-instances-get-logs.md
     - name: Logging with Azure Monitor logs
       href: container-instances-log-analytics.md
+    - name: View an instance's state
+      href: container-state.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot common issues
@@ -131,6 +158,9 @@
     href: container-instances-reference-yaml.md
   - name: Connector
     href: /connectors/aci
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
@@ -148,4 +178,6 @@
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest
   - name: FAQ
-    href: container-instances-faq.md
+    href: container-instances-faq.yml
+- name: Support and troubleshooting
+  href: container-instances-support-help.md

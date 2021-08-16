@@ -1,47 +1,40 @@
 - name: Content Moderator Documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: What is Content Moderator?
     href: overview.md
+  - name: Language support
+    href: language-support.md
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator
     expanded: true
+  - name: What's new
+    href: whats-new.md
 - name: Quickstarts
   items:
-  - name: Try Content Moderator on web
+  - name: Using the client library or REST API
+    href: client-libraries.md
+  - name: Using the web-based UI
     href: quick-start.md
-  - name: Using the client SDK
-    items:
-    - name: Using the .NET SDK
-      href: dotnet-sdk-quickstart.md
-    - name: Using the Python SDK
-      href: python-sdk-quickstart.md
-    - name: Using the Java SDK
-      href: java-sdk-quickstart.md
-- name: Tutorials
-  items:
-  - name: Moderate e-commerce images
-    href: ecommerce-retail-catalog-moderation.md
-  - name: Moderate Facebook content
-    href: facebook-post-moderation.md
-  - name: Video and transcript moderation
-    href: video-transcript-moderation-review-tutorial-dotnet.md
-- name: Concepts
-  items:
-  - name: Image moderation
-    href: image-moderation-api.md
-  - name: Text moderation
-    href: text-moderation-api.md
-  - name: Video moderation
-    href: video-moderation-human-review.md
-  - name: Review tool
-    href: Review-Tool-User-Guide/human-in-the-loop.md
-  - name: Reviews, workflows, and jobs
-    href: review-api.md
+- name: Samples 
+  items: 
+  - name: Samples browser
+    href: /samples/browse/?terms=content+moderator
+  - name: .NET SDK samples
+    href: samples-dotnet.md
+  - name: Python SDK samples
+    href: https://github.com/Azure-Samples/cognitive-services-python-sdk-samples 
+  - name: Node.js SDK samples
+    href: https://github.com/Azure-Samples/cognitive-services-node-sdk-samples
+  - name: REST API samples in C#
+    href: samples-rest.md
 - name: How-to guides
   items:
   - name: Moderate content
     items:
-    - name: REST API
+    - name: API console
       items:
       - name: Images - API console
         href: try-image-api.md
@@ -63,7 +56,7 @@
     items:
     - name: Review tool (browser)
       href: Review-Tool-User-Guide/Review-Moderated-Images.md
-    - name: REST API
+    - name: API console
       href: try-review-api-review.md
     - name: Video reviews (.NET)
       href: video-reviews-quickstart-dotnet.md
@@ -73,11 +66,11 @@
     items:
     - name: Review tool (browser)
       href: Review-Tool-User-Guide/Workflows.md
-    - name: REST API
+    - name: API console
       href: try-review-api-workflow.md
   - name: Define and use jobs
     items:
-    - name: REST API
+    - name: API console
       href: try-review-api-job.md
     - name: .NET SDK
       href: moderation-jobs-quickstart-dotnet.md
@@ -85,51 +78,63 @@
     href: Review-Tool-User-Guide/Configure.md
   - name: Export or delete account data
     href: ./export-delete-data.md
+  - name: Customize Content Moderator
+    items:
+    - name: Reviews, workflows, and jobs
+      href: review-api.md
+  - name: Enterprise readiness
+    items:
+      - name: Set up Virtual Networks
+        href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/content-moderator/context/context
+      - name: Use customer-managed keys
+        href: encrypt-data-at-rest.md
+- name: Concepts
+  items:
+  - name: Image moderation
+    href: image-moderation-api.md
+  - name: Text moderation
+    href: text-moderation-api.md
+  - name: Video moderation
+    href: video-moderation-human-review.md
+  - name: Review tool
+    href: Review-Tool-User-Guide/human-in-the-loop.md
+- name: Tutorials
+  items:
+  - name: Moderate e-commerce images
+    href: ecommerce-retail-catalog-moderation.md
+  - name: Moderate Facebook content
+    href: facebook-post-moderation.md
 - name: Reference
   items:
-  - name: Content Moderator API
+  - name: Content Moderator REST API
     href: api-reference.md
-  - name: SDKs
-    items:
-    - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet
-    - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable
-    - name: Node.js
-      href: https://docs.microsoft.com/javascript/api/azure-cognitiveservices-contentmoderator/?view=azure-node-latest
-    - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python
-    - name: Go
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/contentmoderator
+  - name: .NET
+    href: /dotnet/api/overview/azure/cognitiveservices/client/contentmoderator
+  - name: Java
+    href: /java/api/overview/azure/cognitiveservices/client/contentmoderator
+  - name: Node.js
+    href: /javascript/api/@azure/cognitiveservices-contentmoderator/
+  - name: Python
+    href: /python/api/overview/azure/cognitiveservices/contentmoderator
+  - name: Go
+    href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/contentmoderator
 - name: Resources
   items:
-  - name: Samples
+  - name: Enterprise readiness
     items:
-    - name: .NET SDK samples
-      href: samples-dotnet.md
-    - name: Python SDK samples
-      href: https://github.com/Azure-Samples/cognitive-services-python-sdk-samples 
-    - name: Node.js SDK samples
-      href: https://github.com/Azure-Samples/cognitive-services-node-sdk-samples
-    - name: REST API samples in C#
-      href: samples-rest.md
-    - name: Other Azure samples
-      href: https://docs.microsoft.com/samples/browse/?products=azure&term=content-moderator
+      - name: Region support
+        href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+      - name: Compliance and certification
+        href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Support and help options
+    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/content-moderator/context/context
+  - name: Microsoft Learn modules
+    href: /learn/browse/?terms=content+moderator
   - name: Azure webinar series
     href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
-  - name: Pricing and limits
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/559960-content-moderator
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase/topics/132073-content-moderator
-  - name: Language support
-    href: language-support.md
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
-  - name: Regional availability
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+  - name: Azure Government and global Azure
+    href: ../../azure-government/compare-azure-government-global-azure.md
+  - name: Azure updates
+    href: https://azure.microsoft.com/en-us/updates/?product=cognitive-services
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/

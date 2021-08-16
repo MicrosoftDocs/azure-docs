@@ -1,21 +1,11 @@
 ---
-title: Manage state in Azure Service Fabric services| Microsoft Docs
-description: Learn how to define and manage service state in Service Fabric services.
-services: service-fabric
-documentationcenter: .net
+title: Manage state in Azure Service Fabric services
+description: Learn about state in Azure Service Fabric, including how to define and manage service state in Service Fabric services.
 author: masnider
-manager: chackdan
-editor: ''
 
-ms.assetid: f5e618a5-3ea3-4404-94af-122278f91652
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-
 ---
 # Service state
 **Service state** refers to the in-memory or on disk data that a service requires to function. It includes, for example, the data structures and member variables that the service reads and writes to do work. Depending on how the service is architected, it could also include files or other resources that are stored on disk. For example, the files a database would use to store data and transaction logs.

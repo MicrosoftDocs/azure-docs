@@ -6,7 +6,7 @@ author: alkohli
  
 ms.service: storsimple
 ms.topic: include
-ms.date: 06/08/2018
+ms.date: 07/16/2021
 ms.author: alkohli
 ms.custom: include file
 ---
@@ -18,20 +18,19 @@ To delete a volume container, you must
 When the volume container has no associated volumes, backup policies, and cloud snapshots, you can delete it. Perform the following procedure to delete a volume container.
 
 #### To delete a volume container
+
 1. Go to your StorSimple Device Manager service and click **Devices**. Select and click the device and then go to **Settings > Manage > Volume containers**.
 
-    ![Volume containers blade](./media/storsimple-8000-create-volume-container/createvolumecontainer2.png)
+    ![Volume containers blade](./media/storsimple-8000-delete-volume-container/create-volume-container.png)
 
 2. From the tabular list of volume containers, select the volume container you want to delete, right click **...** and then select **Delete**.
 
-    ![Delete volume container](./media/storsimple-8000-delete-volume-container/deletevolumecontainer1.png)
+    ![Delete volume container](./media/storsimple-8000-delete-volume-container/delete-volume-container-01.png)
 
 3. If a volume container has no associated volumes, backup policies, and cloud snapshots, then it can be deleted. When prompted for confirmation, review and select the checkbox stating the impact of deleting the volume container. Click **Delete** to then delete the volume container.
 
-    ![Confirm deletion](./media/storsimple-8000-delete-volume-container/deletevolumecontainer2.png)
+    ![Confirm deletion](./media/storsimple-8000-delete-volume-container/delete-volume-container-02.png)<!--Added missing border.-->
 
 The list of volume containers is updated to reflect the deleted volume container.
 
-![](./media/storsimple-8000-delete-volume-container/deletevolumecontainer5.png)
-
-
+![Screenshot of the Volume container page. The tabular list of volume containers no longer contains the deleted container.](./media/storsimple-8000-delete-volume-container/delete-volume-container-05.png)

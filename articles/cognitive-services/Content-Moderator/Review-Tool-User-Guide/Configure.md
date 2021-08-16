@@ -16,6 +16,9 @@ ms.author: pafarley
 
 # Configure the Review tool
 
+[!INCLUDE [deprecation notice](../includes/tool-deprecation.md)]
+
+
 The [Review tool](https://contentmoderator.cognitive.microsoft.com) has several important features that you can access through the **Settings** menu on the dashboard.
 
 ![Content Moderator Review too settings menu](images/settings-1.png)
@@ -87,14 +90,14 @@ You can delete custom tags by selecting the trash icon next to their entries on 
 
 The **Connectors** tab lets you manage your connectors, which are service-specific plugins that can process content in different ways as part of content [workflows](../review-api.md#workflows).
 
-The default connector when you create a workflow is the Content Moderator connector, which can mark content as **adult** or **racy**, find profanity, and so on. However, you can use other connectors, listed here, as long as you have credentials for their respective services (to use the Face API connector, for example, you will need to get a [Face API](https://docs.microsoft.com/azure/cognitive-services/face/overview) subscription key).
+The default connector when you create a workflow is the Content Moderator connector, which can mark content as **adult** or **racy**, find profanity, and so on. However, you can use other connectors, listed here, as long as you have credentials for their respective services (to use the Face connector, for example, you will need to get a [Face](../../face/overview.md) subscription key).
 
 The [Review tool](./human-in-the-loop.md) includes the following connectors:
 
-- Emotion API
-- Face API
+- Emotion
+- Face
 - PhotoDNA Cloud Service
-- Text Analytics API
+- Text Analytics
 
 ### Add a connector
 

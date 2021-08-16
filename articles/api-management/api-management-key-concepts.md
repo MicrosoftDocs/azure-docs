@@ -98,10 +98,10 @@ For more information, see [How to create or invite developers][How to create or 
 ## <a name="policies"> </a> Policies
 Policies are a powerful capability of API Management that allow the Azure portal to change the behavior of the API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API. Popular statements include format conversion from XML to JSON and call rate limiting to restrict the number of incoming calls from a developer, and many other policies are available.
 
-Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow](/azure/api-management/api-management-advanced-policies#choose) and [Set variable](/azure/api-management/api-management-advanced-policies#set-variable) policies are based on policy expressions. For more information, see [Advanced policies](/azure/api-management/api-management-advanced-policies#AdvancedPolicies) and [Policy expressions](/azure/api-management/api-management-policy-expressions).
+Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow](./api-management-advanced-policies.md#choose) and [Set variable](./api-management-advanced-policies.md#set-variable) policies are based on policy expressions. For more information, see [Advanced policies](./api-management-advanced-policies.md#AdvancedPolicies) and [Policy expressions](./api-management-policy-expressions.md).
 
 
-For a complete list of API Management policies, see [Policy reference][Policy reference]. For more information on using and configuring policies, see [API Management policies][API Management policies]. For a tutorial on creating a product with rate limit and quota policies, see [How create and configure advanced product settings][How create and configure advanced product settings].
+For a complete list of API Management policies, see [Policy reference][Policy reference]. For more information on using and configuring policies, see [API Management policies][API Management policies]. For a tutorial on creating a product with rate limit and quota policies, see [How to create and configure advanced product settings][How to create and configure advanced product settings].
 
 
 ## <a name="developer-portal"> </a> Developer portal
@@ -131,17 +131,13 @@ Complete the following quickstart and start using Azure API Management:
 [Policies]: #policies
 [Developer portal]: #developer-portal
 
-[How to create APIs]: api-management-howto-create-apis.md
-[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create APIs]: ./import-and-publish.md
+[How to add operations to an API]: ./mock-api-responses.md
 [How to create and publish a product]: api-management-howto-add-products.md
 [How to create and use groups]: api-management-howto-create-groups.md
 [How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
-[How create and configure advanced product settings]: transform-api.md
+[How to create and configure advanced product settings]: transform-api.md
 [How to create or invite developers]: api-management-howto-create-or-invite-developers.md
-[Policy reference]: api-management-policy-reference.md
+[Policy reference]: ./api-management-policies.md
 [API Management policies]: api-management-howto-policies.md
 [Create an API Management service instance]: get-started-create-service-instance.md
-
-
-
-

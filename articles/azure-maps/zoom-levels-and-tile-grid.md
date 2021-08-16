@@ -1,71 +1,67 @@
 ---
-title: Zoom levels and tile grid in Azure Maps | Microsoft Docs
-description: Learn about zoom levels and tile grid in Azure Maps
-author: jingjing-z
-ms.author: jinzh
-ms.date: 05/07/2018
+title: Zoom levels and tile grid in Microsoft Azure Maps
+description: Learn how to set zoom levels in Azure Maps. See how to convert geographic coordinates into pixel coordinates, tile coordinates, and quadkeys. View code samples.
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 07/14/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: 
+
 ---
 
 # Zoom levels and tile grid
 
-Azure Maps use the Spherical Mercator projection coordinate system (EPSG: 3857). A projection is the mathematical model used to transform the spherical globe into a flat map. The Spherical Mercator projection stretches the map at the poles in order to create a square map. This significantly distorts the scale and area of the map but has two important properties that outweigh this distortion:
+Azure Maps use the Spherical Mercator projection coordinate system (EPSG: 3857). A projection is the mathematical model used to transform the spherical globe into a flat map. The Spherical Mercator projection stretches the map at the poles to create a square map. This projection significantly distorts the scale and area of the map but has two important properties that outweigh this distortion:
 
-- It's a conformal projection, which means that it preserves the shape of relatively small objects. This is especially important when showing aerial imagery, because we want to avoid distorting the shape of buildings. Square buildings should appear square, not rectangular.
-- It's a cylindrical projection, which means that north and south are always straight up and down, and west and east is always straight left and right. 
+- It's a conformal projection, which means that it preserves the shape of relatively small objects. Preserving the shape of small objects is especially important when showing aerial imagery. For example, we want to avoid distorting the shape of buildings. Square buildings should appear square, not rectangular.
+- It's a cylindrical projection. North and south are always up and down, and west and east are always left and right. 
 
-To optimize the performance of map retrieval and display, the map is divided into square tiles. The Azure Maps SDK's use tiles that have a size of 512 x 512 pixels for road maps, and smaller 256 x 256 pixels for satellite imagery. Azure maps provides raster and vector tiles for 23 zoom levels, numbered 0 through 22. At zoom level 0, the entire world fits on a single tile:
+To optimize the performance of map retrieval and display, the map is divided into square tiles. The Azure Maps SDK's use tiles that have a size of 512 x 512 pixels for road maps, and smaller 256 x 256 pixels for satellite imagery. Azure Maps provides raster and vector tiles for 23 zoom levels, numbered 0 through 22. At zoom level 0, the entire world fits on a single tile:
 
-<center>
-
-![World tile](./media/zoom-levels-and-tile-grid/world0.png)</center>
+:::image type="content" source="./media/zoom-levels-and-tile-grid/world0.png" alt-text="World map tile":::
 
 Zoom level 1 uses four tiles to render the world: a 2 x 2 square
 
-<center>
-
-![2x2 map tile layout](media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png)</center>
+:::image type="content" source="./media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png" alt-text="2x2 map tile layout":::
 
 Each additional zoom level quad-divides the tiles of the previous one, creating a grid of 2<sup>zoom</sup> x 2<sup>zoom</sup>. Zoom level 22 is a grid 2<sup>22</sup> x 2<sup>22</sup>, or 4,194,304 x 4,194,304 tiles (17,592,186,044,416 tiles in total).
 
-The Azure Maps interactive map controls for web and Android support zoom levels 25 zoom levels, numbered 0 through 24. Although road data will only be available at the zoom levels in when the tiles are available.
+The Azure Maps interactive map controls for web and Android support 25 zoom levels, numbered 0 through 24. Although road data will only be available at the zoom levels in when the tiles are available.
 
-The following table provides the full list of values for zoom levels where the tile size is 512 pixels square:
+The following table provides the full list of values for zoom levels where the tile size is 512 pixels square at latitude 0:
 
 |Zoom level|Meters/pixel|Meters/tile side|
 |--- |--- |--- |
-|0|156543|40075008|
-|1|78271.5|20037504|
-|2|39135.8|10018764.8|
-|3|19567.9|5009382.4|
-|4|9783.9|2504678.4|
-|5|4892|1252352|
-|6|2446|626176|
-|7|1223|313088|
-|8|611.5|156544|
-|9|305.7|78259.2|
-|10|152.9|39142.4|
-|11|76.4|19558.4|
-|12|38.2|9779.2|
-|13|19.1|4889.6|
-|14|9.6|2457.6|
-|15|4.8|1228.8|
-|16|2.4|614.4|
-|17|1.2|307.2|
-|18|0.6|152.8|
-|19|0.3|76.4|
-|20|0.15|38.2|
-|21|0.075|19.1|
-|22|0.0375|9.55|
-|23|0.01875|4.775|
-|24|0.009375|2.3875|
+| 0 | 156543 | 40075017 |
+| 1 | 78271.5 | 20037508 |
+| 2 | 39135.8 | 10018754 |
+| 3 | 19567.88 | 5009377.1 |
+| 4 | 9783.94 | 2504688.5 |
+| 5 | 4891.97 | 1252344.3 |
+| 6 | 2445.98 | 626172.1 |
+| 7 | 1222.99 | 313086.1 |
+| 8 | 611.5 | 156543 |
+| 9 | 305.75 | 78271.5 |
+| 10 | 152.87 | 39135.8 |
+| 11 | 76.44 | 19567.9 |
+| 12 | 38.219 | 9783.94 |
+| 13 | 19.109 | 4891.97 |
+| 14 | 9.555 | 2445.98 |
+| 15 | 4.777 | 1222.99 |
+| 16 | 2.3887 | 611.496 |
+| 17 | 1.1943 | 305.748 |
+| 18 | 0.5972 | 152.874 |
+| 19 | 0.14929 | 76.437 |
+| 20 | 0.14929 | 38.2185 |
+| 21 | 0.074646 | 19.10926 |
+| 22 | 0.037323 | 9.55463 |
+| 23 | 0.0186615 | 4.777315 |
+| 24 | 0.00933075 | 2.3886575 |
 
 ## Pixel coordinates
 
-Having chosen the projection and scale to use at each zoom level, we can convert geographic coordinates into pixel coordinates. The full pixel width and height of a map image of the world for a particular zoom level can be calculated as:
+Having chosen the projection and scale to use at each zoom level, we can convert geographic coordinates into pixel coordinates. The full pixel width and height of a map image of the world for a particular zoom level is calculated as:
 
 ```javascript
 var mapWidth = tileSize * Math.pow(2, zoom);
@@ -75,11 +71,9 @@ var mapHeight = mapWidth;
 
 Since the map width and height is different at each zoom level, so are the pixel coordinates. The pixel at the upper-left corner of the map always has pixel coordinates (0, 0). The pixel at the lower-right corner of the map has pixel coordinates *(width-1, height-1)*, or referring to the equations in the previous section, *(tileSize \* 2<sup>zoom</sup>–1, tileSize \* 2<sup>zoom</sup>–1)*. For example, when using 512 square tiles at level 2, the pixel coordinates range from (0, 0) to (2047, 2047), like this:
 
-<center>
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-width-height.png" alt-text="Map showing pixel dimensions":::
 
-![Map showing pixel dimensions](media/zoom-levels-and-tile-grid/map-width-height.png)</center>
-
-Given latitude and longitude in degrees, and the level of detail, the pixel XY coordinates can be calculated as follows:
+Given latitude and longitude in degrees, and the level of detail, the pixel XY coordinates is calculated as follows:
 
 ```javascript
 var sinLatitude = Math.sin(latitude * Math.PI/180);
@@ -89,11 +83,11 @@ var pixelX = ((longitude + 180) / 360) * tileSize * Math.pow(2, zoom);
 var pixelY = (0.5 – Math.log((1 + sinLatitude) / (1 – sinLatitude)) / (4 * Math.PI)) * tileSize * Math.pow(2, zoom);
 ```
 
-The latitude and longitude values are assumed to be on the WGS 84 datum. Even though Azure Maps uses a spherical projection, it's important to convert all geographic coordinates into a common datum, and WGS 84 was chosen to be that datum. The longitude value is assumed to range from -180 to +180 degrees, and the latitude value must be clipped to range from -85.05112878 to 85.05112878. This avoids a singularity at the poles, and it causes the projected map to be square.
+The latitude and longitude values are assumed to be on the WGS 84 datum. Even though Azure Maps uses a spherical projection, it's important to convert all geographic coordinates into a common datum. WGS 84 is the selected datum. The longitude value is assumed to range from -180 degrees to +180 degrees, and the latitude value must be clipped to range from -85.05112878 to 85.05112878. Adhering to these values avoids a singularity at the poles, and it ensures that the projected map is a squared shape.
 
 ## Tile coordinates
 
-To optimize the performance of map retrieval and display, the rendered map is cut into tiles. As the number of pixels differs at each zoom level, so does the number of tiles:
+To optimize the performance of map retrieval and display, the rendered map is cut into tiles. The number of pixels and the number of tiles differ at each zoom level:
 
 ```javascript
 var numberOfTilesWide = Math.pow(2, zoom);
@@ -101,11 +95,9 @@ var numberOfTilesWide = Math.pow(2, zoom);
 var numberOfTilesHigh = numberOfTilesWide;
 ```
 
-Each tile is given XY coordinates ranging from (0, 0) in the upper left to *(2<sup>zoom</sup>–1, 2<sup>zoom</sup>–1)* in the lower right. For example, at zoom level 2, the tile coordinates range from (0, 0) to (7, 7) as follows:
+Each tile is given XY coordinates ranging from (0, 0) in the upper left to *(2<sup>zoom</sup>–1, 2<sup>zoom</sup>–1)* in the lower right. For example, at zoom level 3, the tile coordinates range from (0, 0) to (7, 7) as follows:
 
-<center>
-
-![Map of tile coordinates](media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png)</center>
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png" alt-text="Map of tile coordinates":::
 
 Given a pair of pixel XY coordinates, you can easily determine the tile XY coordinates of the tile containing that pixel:
 
@@ -115,46 +107,40 @@ var tileX = Math.floor(pixelX / tileSize);
 var tileY = Math.floor(pixelY / tileSize);
 ```
 
-Tiles are called by zoom level and the x and y coordinates corresponding to the tile's position on the grid for that zoom level.
+Tiles are called by zoom level. The x and y coordinates correspond to the tile's position on the grid for that zoom level.
 
-When determining which zoom level to use, remember each location is in a fixed position on its tile. This means that the number of tiles needed to display a given expanse of territory is dependent on the specific placement of zoom grid on the world. For instance, if there are two points 900 meters apart, it *may* only take three tiles to display a route between them at zoom level 17. However, if the western point is on the right of its tile, and the eastern point on the left of its tile, it may take four tiles:
+When determining which zoom level to use, remember each location is in a fixed position on its tile. As a result, the number of tiles needed to display a given expanse of territory is dependent on the specific placement of zoom grid on the world map. For instance, if there are two points 900 meters apart, it *may* only take three tiles to display a route between them at zoom level 17. However, if the western point is on the right of its tile, and the eastern point on the left of its tile, it may take four tiles:
 
-<center>
-
-![Zoom demo scale](media/zoom-levels-and-tile-grid/zoomdemo_scaled.png)</center>
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/zoomdemo_scaled.png" alt-text="Zoom demo scale":::
 
 Once the zoom level is determined, the x and y values can be calculated. The top-left tile in each zoom grid is x=0, y=0; the bottom-right tile is at x=2<sup>zoom-1</sup>, y=2<sup>zoom-1</sup>.
 
 Here is the zoom grid for zoom level 1:
 
-<center>
-
-![Zoom grid for zoom level 1](media/zoom-levels-and-tile-grid/api_x_y.png)</center>
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/api_x_y.png" alt-text="Zoom grid for zoom level 1":::
 
 ## Quadkey indices
 
-Some mapping platforms use a quadkey indexing naming convention that combines the tile ZY coordinates into a one-dimension string called quadtree keys or "quadkeys" for short. Each quadkey uniquely identifies a single tile at a particular level of detail, and it can be used as a key in common database B-tree indexes. The Azure Maps SDKs support the overlaying of tile layers that use quadkey naming convention in addition to other naming conventions as documented in the [Add a tile layer](map-add-tile-layer.md) document.
+Some mapping platforms use a `quadkey` indexing naming convention that combines the tile ZY coordinates into a one-dimension string called `quadtree` keys or `quadkeys` for short. Each `quadkey` uniquely identifies a single tile at a particular level of detail, and it can be used as a key in common database B-tree indexes. The Azure Maps SDKs support the overlaying of tile layers that use `quadkey` naming convention in addition to other naming conventions as documented in the [Add a tile layer](map-add-tile-layer.md) document.
 
 > [!NOTE]
-> The quadkeys naming convention only works for zoom levels of one or greater. The Azure Maps SDK's support zoom level 0 which is a single map tile for the whole world. 
+> The `quadkeys` naming convention only works for zoom levels of one or greater. The Azure Maps SDK's support zoom level 0 which is a single map tile for the whole world. 
 
-To convert tile coordinates into a quadkey, the bits of the Y and X coordinates are interleaved, and the result is interpreted as a base-4 number (with leading zeros maintained) and converted into a string. For instance, given tile XY coordinates of (3, 5) at level 3, the quadkey is determined as follows:
+To convert tile coordinates into a `quadkey`, the bits of the Y and X coordinates are interleaved, and the result is interpreted as a base-4 number (with leading zeros maintained) and converted into a string. For instance, given tile XY coordinates of (3, 5) at level 3, the `quadkey` is determined as follows:
 
 ```
 tileX = 3 = 011 (base 2)
 
-tileY = 5 = 1012 (base 2)
+tileY = 5 = 101 (base 2)
 
 quadkey = 100111 (base 2) = 213 (base 4) = "213"
 ```
 
-Quadkeys have several interesting properties. First, the length of a quadkey (the number of digits) equals the zoom level of the corresponding tile. Second, the quadkey of any tile starts with the quadkey of its parent tile (the containing tile at the previous level). As shown in the example below, tile 2 is the parent of tiles 20 through 23:
+`Qquadkeys` have several interesting properties. First, the length of a `quadkey` (the number of digits) equals the zoom level of the corresponding tile. Second, the `quadkey` of any tile starts with the `quadkey` of its parent tile (the containing tile at the previous level). As shown in the example below, tile 2 is the parent of tiles 20 through 23:
 
-<center>
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png" alt-text="Quadkey tile pyramid":::
 
-![Quadkey tile pyramid](media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png)</center>
-
-Finally, quadkeys provide a one-dimensional index key that usually preserves the proximity of tiles in XY space. In other words, two tiles that have nearby XY coordinates usually have quadkeys that are relatively close together. This is important for optimizing database performance, because neighboring tiles are often requested in groups, and it's desirable to keep those tiles on the same disk blocks, in order to minimize the number of disk reads.
+Finally, `quadkeys` provide a one-dimensional index key that usually preserves the proximity of tiles in XY space. In other words, two tiles that have nearby XY coordinates usually have `quadkeys` that are relatively close together. This is important for optimizing database performance, because neighboring tiles are often requested in groups, and it's desirable to keep those tiles on the same disk blocks, in order to minimize the number of disk reads.
 
 ## Tile math source code
 
@@ -417,6 +403,7 @@ namespace AzureMaps
             var sinLatitude = Math.Sin(latitude * Math.PI / 180);
             var y = 0.5 - Math.Log((1 + sinLatitude) / (1 - sinLatitude)) / (4 * Math.PI);
 
+            //tileSize needed in calculations as in rare cases the multiplying/rounding/dividing can make the difference of a pixel which can result in a completely different tile. 
             var mapSize = MapSize(zoom, tileSize);
             tileX = (int)Math.Floor(Clip(x * mapSize + 0.5, 0, mapSize - 1) / tileSize);
             tileY = (int)Math.Floor(Clip(y * mapSize + 0.5, 0, mapSize - 1) / tileSize);
@@ -797,6 +784,7 @@ module AzureMaps {
             var sinLatitude = Math.sin(latitude * Math.PI / 180);
             var y = 0.5 - Math.log((1 + sinLatitude) / (1 - sinLatitude)) / (4 * Math.PI);
 
+            //tileSize needed in calculations as in rare cases the multiplying/rounding/dividing can make the difference of a pixel which can result in a completely different tile. 
             var mapSize = this.MapSize(zoom, tileSize);
 
             return {
@@ -940,20 +928,20 @@ module AzureMaps {
 
 > [!NOTE]
 > The interactive map controls in the Azure Maps SDK's have helper functions for converting between geospatial positions and viewport pixels. 
-> - [Web SDK: Map pixel and position calculations](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
+> - [Web SDK: Map pixel and position calculations](/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
 
 ## Next steps
 
 Directly access map tiles from the Azure Maps REST services:
 
 > [!div class="nextstepaction"]
-> [Get map tiles](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+> [Get map tiles](/rest/api/maps/render/getmaptile)
 
 > [!div class="nextstepaction"]
-> [Get traffic flow tiles](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowtile)
+> [Get traffic flow tiles](/rest/api/maps/traffic/gettrafficflowtile)
 
 > [!div class="nextstepaction"]
-> [Get traffic incident tiles](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidenttile)
+> [Get traffic incident tiles](/rest/api/maps/traffic/gettrafficincidenttile)
 
 Learn more about geospatial concepts:
 

@@ -10,7 +10,7 @@ ms.date: 10/18/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sahandle
 
 ms.collection: M365-identity-device-management
@@ -19,14 +19,14 @@ ms.collection: M365-identity-device-management
 
 With Azure Active Directory Identity Protection, you can:
 
-* Require users to register for Azure Multi-Factor Authentication (MFA)
+* Require users to register for Azure AD Multi-Factor Authentication (MFA)
 * Automate remediation of risky sign-ins and compromised users
 
-All of the Identity Protection policies have an impact on the sign in experience for users. Allowing users to register for and use tools like Azure MFA and self-service password reset can lessen the impact. These tools along with the appropriate policy choices gives users a self-remediation option when they need it.
+All of the Identity Protection policies have an impact on the sign in experience for users. Allowing users to register for and use tools like Azure AD MFA and self-service password reset can lessen the impact. These tools along with the appropriate policy choices gives users a self-remediation option when they need it.
 
 ## Multi-factor authentication registration
 
-Enabling the Identity Protection policy requiring multi-factor authentication registration and targeting all of your users, will make sure that they have the ability to use Azure MFA to self-remediate in the future. Configuring this policy gives your users a 14-day period where they can choose to register and at the end are forced to register. The experience for users is outlined below. More information can be found in the end-user documentation in the article, [Overview for two-factor verification and your work or school account](../user-help/user-help-two-step-verification-overview.md).
+Enabling the Identity Protection policy requiring multi-factor authentication registration and targeting all of your users, will make sure that they have the ability to use Azure AD MFA to self-remediate in the future. Configuring this policy gives your users a 14-day period where they can choose to register and at the end are forced to register. The experience for users is outlined below. More information can be found in the end-user documentation in the article, [Overview for two-factor verification and your work or school account](../user-help/multi-factor-authentication-end-user-first-time.md).
 
 ### Registration interrupt
 
@@ -34,7 +34,7 @@ Enabling the Identity Protection policy requiring multi-factor authentication re
    
     ![More information required](./media/concept-identity-protection-user-experience/identity-protection-experience-more-info-mfa.png)
 
-1. Complete the guided steps to register for Azure Multi-Factor Authentication and complete your sign-in.
+1. Complete the guided steps to register for Azure AD Multi-Factor Authentication and complete your sign-in.
 
 ## Risky sign-in remediation
 
@@ -46,7 +46,7 @@ When an administrator has configured a policy for sign-in risks, the affected us
    
     ![Something unusual prompt](./media/concept-identity-protection-user-experience/120.png)
 
-1. The user is required to prove their identity by completing Azure MFA with one of their previously registered methods. 
+1. The user is required to prove their identity by completing Azure AD MFA with one of their previously registered methods. 
 
 ### Risky sign-in administrator unblock
 
@@ -66,7 +66,7 @@ When a user risk policy has been configured, users who meet the user risk level 
    
     ![Remediation](./media/concept-identity-protection-user-experience/101.png)
 
-1. The user is required to prove their identity by completing Azure MFA with one of their previously registered methods. 
+1. The user is required to prove their identity by completing Azure AD MFA with one of their previously registered methods. 
 1. Finally, the user is forced to change their password using self-service password reset since someone else may have had access to their account.
 
 ## Risky sign-in administrator unblock
@@ -81,4 +81,4 @@ IT staff can follow the instructions in the section [Unblocking users](howto-ide
 
 - [Remediate risks and unblock users](howto-identity-protection-remediate-unblock.md)
 
-- [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) 
+- [Azure Active Directory Identity Protection](./overview-identity-protection.md)

@@ -1,71 +1,101 @@
 ---
 title: Troubleshoot Azure Data Share 
-description: Learn how to troubleshoot issues with invitations and errors when creating or receiving data shares with Azure Data Share.
+description: Learn how to troubleshoot problems with invitations and errors when you create or receive data shares in Azure Data Share.
 services: data-share
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 07/10/2019
+ms.date: 04/22/2021
 ---
 
-# Troubleshoot common issues in Azure Data Share 
+# Troubleshoot common problems in Azure Data Share 
 
-This article shows how to troubleshoot common issues for Azure Data Share. 
+This article explains how to troubleshoot common problems in Azure Data Share. 
 
 ## Azure Data Share invitations 
 
-In some cases, when a new user clicks **Accept Invitation** from the e-mail invitation that was sent, they may be presented with an empty list of invitations. 
+In some cases, when new users select **Accept Invitation** in an email invitation, they might see an empty list of invitations. This problem could have one of the following causes:
 
-![No invitations](media/no-invites.png)
+* **The Azure Data Share service isn't registered as a resource provider of any Azure subscription in the Azure tenant.** This problem happens when your Azure tenant has no Data Share resource. 
 
-The above error is a known issue with the service and is currently being addressed. As a workaround, follow the below steps. 
+    When you create an Azure Data Share resource, it automatically registers the resource provider in your Azure subscription. You can manually register the Data Share service by using the following steps. To complete these steps, you need the [Contributor role](../role-based-access-control/built-in-roles.md#contributor) for the Azure subscription. 
 
-1. In the Azure portal, navigate to **Subscriptions**
-1. Select the subscription that you're using for Azure Data Share
-1. Click on **Resource Providers**
-1. Search for Microsoft.DataShare
-1. Click **Register**
+    1. In the Azure portal, go to **Subscriptions**.
+    1. Select the subscription you want to use to create the Azure Data Share resource.
+    1. Select **Resource Providers**.
+    1. Search for **Microsoft.DataShare**.
+    1. Select **Register**.
 
-You'll need to have the [Azure Contributor RBAC role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) to complete these steps. 
+* **The invitation is sent to your email alias instead of your Azure sign-in email address.** If you already registered the Azure Data Share service or created a Data Share resource in the Azure tenant, but you still can't see the invitation, your email alias might be listed as the recipient. Contact your data provider and ensure that the invitation will be sent to your Azure sign-in email address and not your email alias.
 
-If you still are unable to see a data share invitation, contact your data provider and ensure that they have sent the invitation to your Azure login e-mail address and *not* your e-mail alias. 
+* **The invitation is already accepted.** The link in the email takes you to the **Data Share Invitations** page in the Azure portal. This page lists only pending invitations. Accepted invitations don't appear on the page. To view received shares and configure your target Azure Data Explorer cluster setting, go to the Data Share resource you used to accept the invitation.
 
-> [!IMPORTANT]
-> If you have already accepted an Azure Data Share invitation and exited the service prior to configuring storage, follow the instructions detailed in the [configure a dataset mapping](how-to-configure-mapping.md) how-to guide to learn how to finish configuring your received data share and start receiving data. 
+## Creating and receiving shares
 
-## Error when creating or receiving a new Data Share
+The following errors might appear when you create a new share, add datasets, or map datasets:
 
-"Error: Operation returned an invalid status code 'BadRequest'"
+* Failed to add datasets.
+* Failed to map datasets.
+* Unable to grant Data Share resource x access to y.
+* You do not have proper permissions to x.
+* We could not add write permissions for the Azure Data Share account to one or more of your selected resources.
 
-"Error: AuthorizationFailed"
+You might see one of these errors if you have insufficient permissions to the Azure data store. For more information, see [Roles and requirements](concepts-roles-permissions.md). 
 
-"Error: role assignment to storage account"
+You need the write permission to share or receive data from an Azure data store. This permission is typically part of the Contributor role. 
 
-![Privilege error](media/error-write-privilege.png)
+If you're sharing data or receiving data from the Azure data store for the first time, you also need the *Microsoft.Authorization/role assignments/write* permission. This permission is typically part of the Owner role. Even if you created the Azure data store resource, you're not necessarily the owner of the resource. 
 
-If you receive any of the above errors when creating a new data share or receiving a new data share, it is because there are insufficient permissions to the storage account. The permission required is *Microsoft.Authorization/role assignments/write*, which exists in the storage owner role or can be assigned to a custom role. Even if you created the Storage account, it does NOT automatically make you the owner of the storage account. Follow these steps to grant yourself owner of the storage account. Alternatively, a custom role can be created with this permission that you can add yourself in to.  
+When you have the proper permissions, the Azure Data Share service automatically allows the data share resource's managed identity to access the data store. This process can take a few minutes. If you experience failure because of this delay, try again after a few minutes.
 
-1. Navigate to Storage account in Azure portal
-1. Select **Access control (IAM)**
-1. Click **Add**
-1. Add yourself in as owner.
+SQL-based sharing requires extra permissions. For information about prerequisites, see [Share from SQL sources](how-to-share-from-sql.md).
 
-## Troubleshooting SQL-based sharing
+## Snapshots
+A snapshot can fail for various reasons. Open a detailed error message by selecting the start time of the snapshot and then the status of each dataset. 
 
-"Error: x datasets were not added because you do not have the required permissions to share."
+Snapshots commonly fail for these reasons:
 
-If you receive this error when adding a dataset from a SQL-based source, it may be because you did not create a user for the Azure Data Share MSI on your SQL Server.  To resolve this issue, run the following script:
+* Data Share lacks permission to read from the source data store or to write to the target data store. For more information, see [Roles and requirements](concepts-roles-permissions.md). If you're taking a snapshot for the first time, the Data Share resource might need a few minutes to get access to the Azure data store. After a few minutes, try again.
+* The Data Share connection to the source data store or target data store is blocked by a firewall.
+* A shared dataset, source data store, or target data store was deleted.
 
-```sql
-    create user <share_acct_name> from external provider;     
-    exec sp_addrolemember db_owner, <share_acct_name>; 
-```      
-Note that the *<share_acc_name>* is the name of your Data Share Account. If you have not created a Data Share account as yet, you can come back to this pre-requisite later.         
+For storage accounts, a snapshot can fail because a file is being updated at the source while the snapshot is happening. As a result, a 0-byte file might appear at the target. After the update at the source, snapshots should succeed.
 
-Ensure that you have followed all prerequisites listed in [Share your data](share-your-data.md) tutorial.
+For SQL sources, a snapshot can fail for these other reasons:
+
+* The source SQL script or target SQL script that grants Data Share permission hasn't run. Or for Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL Data Warehouse), the script runs by using SQL authentication rather than Azure Active Directory authentication. You can run the below query to check if the Data Share account has proper permission to the SQL database. For source SQL database, query result should show Data Share account has *db_datareader* role. For target SQL database, query result should show Data Share account has *db_datareader*, *db_datawriter*, and *db_dlladmin* roles.
+
+    ```sql
+        SELECT DP1.name AS DatabaseRoleName,
+        isnull (DP2.name, 'No members') AS DatabaseUserName
+        FROM sys.database_role_members AS DRM
+        RIGHT OUTER JOIN sys.database_principals AS DP1
+        ON DRM.role_principal_id = DP1.principal_id
+        LEFT OUTER JOIN sys.database_principals AS DP2
+        ON DRM.member_principal_id = DP2.principal_id
+        WHERE DP1.type = 'R'
+        ORDER BY DP1.name; 
+     ``` 
+
+* The source data store or target SQL data store is paused.
+* The snapshot process or target data store doesn't support SQL data types. For more information, see [Share from SQL sources](how-to-share-from-sql.md#supported-data-types).
+* The source data store or target SQL data store is locked by other processes. Azure Data Share doesn't lock these data stores. But existing locks on these data stores can make a snapshot fail.
+* The target SQL table is referenced by a foreign key constraint. During a snapshot, if a target table has the same name as a table in the source data, Azure Data Share drops the table and creates a new table. If the target SQL table is referenced by a foreign key constraint, the table can't be dropped.
+* A target CSV file is generated, but the data can't be read in Excel. You might see this problem when the source SQL table contains data that includes non-English characters. In Excel, select the **Get Data** tab and choose the CSV file. Select the file origin **65001: Unicode (UTF-8)**, and then load the data.
+
+## Update snapshot schedule
+After the data provider updates the snapshot schedule for the sent share, the data consumer needs to disable the previous snapshot schedule, then enable the updated snapshot schedule for the received share. Snapshot schedule is stored in UTC, and shown in the UI as the computer local time. It does not automatically adjust for daylight saving time.  
+
+## In-place sharing
+Dataset mapping can fail for Azure Data Explorer clusters due to the following reasons:
+
+* User does not have *write* permission to the Azure Data Explorer cluster. This permission is typically part of the Contributor role. 
+* The source or target Azure Data Explorer cluster is paused.
+* Source Azure Data Explorer cluster is EngineV2 and target is EngineV3, or vice versa. Sharing between Azure Data Explorer clusters of different engine versions is not supported.
 
 ## Next steps
 
-To learn how to start sharing data, continue to the [share your data](share-your-data.md) tutorial.
+To learn how to start sharing data, continue to the [Share data](share-your-data.md) tutorial. 
 
+To learn how to receive data, continue to the [Accept and receive data](subscribe-to-data-share.md) tutorial.

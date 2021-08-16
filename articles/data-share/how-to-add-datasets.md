@@ -1,11 +1,11 @@
 ---
 title: Add datasets to an existing Azure Data Share 
 description: Learn how to add datasets to an existing data share in Azure Data Share and share with the same recipients.
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
-ms.topic: conceptual
-ms.date: 07/10/2019
+ms.topic: how-to
+ms.date: 07/30/2020
 ---
 
 # How to add datasets to an existing share in Azure Data Share
@@ -18,11 +18,11 @@ For information on how to add datasets as you create a share, see the [Share dat
 
 In Azure Data Share, navigate to your sent share and select the **Datasets** tab. Click **+ Add Datasets** button to add more datasets.
 
-![Add Datasets](./media/how-to/how-to-add-datasets/add-datasets.png)
+![Screenshot shows Add Datasets selected.](./media/how-to/how-to-add-datasets/add-datasets.png)
 
 In the panel on the right, select the dataset type you would like to add and then click **Next**. Select the subscription and resource group of the data you would like to add. Using the dropdown arrows, find and then check the box next to the data to add.
 
-![Add Datasets](./media/how-to/how-to-add-datasets/add-datasets-side.png)
+![Screenshot shows the Add Blob Storage pane where you can select data.](./media/how-to/how-to-add-datasets/add-datasets-side.png)
 
 Once you click **Add Datasets**, the datasets will be added to your share. 
 Note: A snapshot must be triggered by your consumers in order for them to see the new datasets. If there are snapshot settings configured, consumers will see the new datasets once the next scheduled snapshot completes. 

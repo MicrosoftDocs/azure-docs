@@ -1,11 +1,8 @@
 ---
 title: Mirror Apache Kafka topics - Azure HDInsight 
 description: Learn how to use Apache Kafka's mirroring feature to maintain a replica of a Kafka on HDInsight cluster by mirroring topics to a secondary cluster.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
 ---
@@ -13,6 +10,9 @@ ms.date: 11/29/2019
 # Use MirrorMaker to replicate Apache Kafka topics with Kafka on HDInsight
 
 Learn how to use Apache Kafka's mirroring feature to replicate topics to a secondary cluster. Mirroring can be ran as a continuous process, or used intermittently as a method of migrating data from one cluster to another.
+
+> [!NOTE]
+> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 In this example, mirroring is used to replicate topics between two HDInsight clusters. Both clusters are in different virtual networks in different datacenters.
 
@@ -29,7 +29,7 @@ The most useful mirroring setup for disaster recovery utilizes Kafka clusters in
 
 The following diagram illustrates the mirroring process and how the communication flows between clusters:
 
-![Diagram of the mirroring process](./media/apache-kafka-mirroring/kafka-mirroring-vnets2.png)
+:::image type="content" source="./media/apache-kafka-mirroring/kafka-mirroring-vnets2.png" alt-text="Diagram of the mirroring process" border="false":::
 
 The primary and secondary clusters can be different in the number of nodes and partitions, and offsets within the topics are different also. Mirroring maintains the key value that is used for partitioning, so record order is preserved on a per-key basis.
 
@@ -79,38 +79,43 @@ This architecture features two clusters in different resource groups and virtual
     1. Select **Add**.
     1. On the **Add peering** screen, enter the details as shown in the screenshot below.
 
-        ![HDInsight Kafka add vnet peering](./media/apache-kafka-mirroring/hdi-add-vnet-peering.png)
+        :::image type="content" source="./media/apache-kafka-mirroring/hdi-add-vnet-peering.png" alt-text="HDInsight Kafka add vnet peering" border="true":::
 
-1. Configure IP advertising:
-    1. Go to the Ambari dashboard for the primary cluster: `https://PRIMARYCLUSTERNAME.azurehdinsight.net`.
-    1. Select **Services** > **Kafka**. CliSelectck the **Configs** tab.
-    1. Add the following config lines to the bottom **kafka-env template** section. Select **Save**.
+### Configure IP advertising
 
-        ```
-        # Configure Kafka to advertise IP addresses instead of FQDN
-        IP_ADDRESS=$(hostname -i)
-        echo advertised.listeners=$IP_ADDRESS
-        sed -i.bak -e '/advertised/{/advertised@/!d;}' /usr/hdp/current/kafka-broker/conf/server.properties
-        echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092" >> /usr/hdp/current/kafka-broker/conf/server.properties
-        ```
+Configure IP advertising to enable a client to connect using broker IP addresses instead of domain names.
 
-    1. Enter a note on the **Save Configuration** screen and click **Save**.
-    1. If you're prompted with configuration warning, click **Proceed Anyway**.
-    1. Select **Ok** on the **Save Configuration Changes**.
-    1. Select **Restart** > **Restart All Affected** in the **Restart Required** notification. Select **Confirm Restart All**.
+1. Go to the Ambari dashboard for the primary cluster: `https://PRIMARYCLUSTERNAME.azurehdinsight.net`.
+1. Select **Services** > **Kafka**. Select the **Configs** tab.
+1. Add the following config lines to the bottom **kafka-env template** section. Select **Save**.
 
-        ![Apache Ambari restart all affected](./media/apache-kafka-mirroring/ambari-restart-notification.png)
+    ```
+    # Configure Kafka to advertise IP addresses instead of FQDN
+    IP_ADDRESS=$(hostname -i)
+    echo advertised.listeners=$IP_ADDRESS
+    sed -i.bak -e '/advertised/{/advertised@/!d;}' /usr/hdp/current/kafka-broker/conf/server.properties
+    echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092" >> /usr/hdp/current/kafka-broker/conf/server.properties
+    ```
 
-1. Configure Kafka to listen on all network interfaces.
-    1. Stay on the **Configs** tab under **Services** > **Kafka**. In the **Kafka Broker** section set the **listeners** property to `PLAINTEXT://0.0.0.0:9092`.
-    1. Select **Save**.
-    1. Select **Restart**, and **Confirm Restart All**.
+1. Enter a note on the **Save Configuration** screen and click **Save**.
+1. If you're prompted with configuration warning, click **Proceed Anyway**.
+1. Select **Ok** on the **Save Configuration Changes**.
+1. Select **Restart** > **Restart All Affected** in the **Restart Required** notification. Select **Confirm Restart All**.
 
-1. Record Broker IP addresses and Zookeeper addresses for primary cluster.
-    1. Select **Hosts** on the Ambari dashboard.
-    1. Make a note of the IP Addresses for the Brokers and Zookeepers. The broker nodes have **wn** as the first two letters of the host name, and the zookeeper nodes have **zk** as the first two letters of the host name.
+    :::image type="content" source="./media/apache-kafka-mirroring/ambari-restart-notification.png" alt-text="Apache Ambari restart all affected" border="true":::
 
-        ![Apache Ambari view node ip addresses](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
+### Configure Kafka to listen on all network interfaces.
+    
+1. Stay on the **Configs** tab under **Services** > **Kafka**. In the **Kafka Broker** section set the **listeners** property to `PLAINTEXT://0.0.0.0:9092`.
+1. Select **Save**.
+1. Select **Restart**, and **Confirm Restart All**.
+
+### Record Broker IP addresses and Zookeeper addresses for primary cluster.
+
+1. Select **Hosts** on the Ambari dashboard.
+1. Make a note of the IP Addresses for the Brokers and Zookeepers. The broker nodes have **wn** as the first two letters of the host name, and the zookeeper nodes have **zk** as the first two letters of the host name.
+
+    :::image type="content" source="./media/apache-kafka-mirroring/view-node-ip-addresses2.png" alt-text="Apache Ambari view node ip addresses" border="true":::
 
 1. Repeat the previous three steps for the second cluster **kafka-secondary-cluster**: configure IP advertising, set listeners and make a note of the Broker and Zookeeper IP addresses.
 
@@ -246,7 +251,7 @@ This architecture features two clusters in different resource groups and virtual
         1. Change the value of `auto.create.topics.enable` to true, and then select __Save__. Add a note, and then select __Save__ again.
         1. Select the __Kafka__ service, select __Restart__, and then select __Restart all affected__. When prompted, select __Confirm restart all__.
 
-        ![kafka enable auto create topics](./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png)
+        :::image type="content" source="./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png" alt-text="kafka enable auto create topics" border="true":::
 
 ## Start MirrorMaker
 
@@ -286,7 +291,7 @@ This architecture features two clusters in different resource groups and virtual
 
 ## Delete the cluster
 
-[!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](../includes/hdinsight-delete-cluster-warning.md)]
 
 The steps in this document created clusters in different Azure resource groups. To delete all of the resources created, you can delete the two resource groups created: **kafka-primary-rg** and **kafka-secondary_rg**. Deleting the resource groups removes all of the resources created by following this document, including clusters, virtual networks, and storage accounts.
 
@@ -295,7 +300,7 @@ The steps in this document created clusters in different Azure resource groups. 
 In this document, you learned how to use [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) to create a replica of an [Apache Kafka](https://kafka.apache.org/) cluster. Use the following links to discover other ways to work with Kafka:
 
 * [Apache Kafka MirrorMaker documentation](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) at cwiki.apache.org.
+* [Kafka Mirror Maker Best Practices](https://community.cloudera.com/t5/Community-Articles/Kafka-Mirror-Maker-Best-Practices/ta-p/249269)
 * [Get started with Apache Kafka on HDInsight](apache-kafka-get-started.md)
 * [Use Apache Spark with Apache Kafka on HDInsight](../hdinsight-apache-spark-with-kafka.md)
-* [Use Apache Storm with Apache Kafka on HDInsight](../hdinsight-apache-storm-with-kafka.md)
 * [Connect to Apache Kafka through an Azure Virtual Network](apache-kafka-connect-vpn-gateway.md)

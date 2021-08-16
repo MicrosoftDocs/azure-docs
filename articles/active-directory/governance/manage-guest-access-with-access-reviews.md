@@ -1,9 +1,9 @@
 ---
-title: Manage guest access with access reviews - Azure Active Directory | Microsoft Docs
+title: Manage guest access with access reviews - Azure AD
 description: Manage guest users as members of a group or assigned to an application with Azure Active Directory access reviews
 services: active-directory
 documentationcenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 12/13/2018
+ms.date: 4/16/2021
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 # Manage guest access with Azure AD access reviews
 
 
-With Azure Active Directory (Azure AD), you can easily enable collaboration across organizational boundaries by using the [Azure AD B2B feature](../b2b/what-is-b2b.md). Guest users from other tenants can be [invited by administrators](../b2b/add-users-administrator.md) or by [other users](../b2b/what-is-b2b.md). This capability also applies to social identities such as Microsoft accounts.
+With Azure Active Directory (Azure AD), you can easily enable collaboration across organizational boundaries by using the [Azure AD B2B feature](../external-identities/what-is-b2b.md). Guest users from other tenants can be [invited by administrators](../external-identities/add-users-administrator.md) or by [other users](../external-identities/what-is-b2b.md). This capability also applies to social identities such as Microsoft accounts.
 
 You also can easily ensure that guest users have appropriate access. You can ask the guests themselves or a decision maker to participate in an access review and recertify (or attest) to the guests' access. The reviewers can give their input on each user's need for continued access, based on suggestions from Azure AD. When an access review is finished, you can then make changes and remove access for guests who no longer need it.
 
@@ -32,11 +32,16 @@ You also can easily ensure that guest users have appropriate access. You can ask
 
 - Azure AD Premium P2
 
-For more information, see [Which users must have licenses?](access-reviews-overview.md#which-users-must-have-licenses).
+For more information, [License requirements](access-reviews-overview.md#license-requirements).
 
 ## Create and perform an access review for guests
 
-First, as a global administrator or user administrator, go to the [Identity Governance page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) to ensure that access reviews is ready for your organization.
+First, you must be assigned one of the following roles:
+- global administrator
+- User administrator
+- (Preview) M365 or AAD Security Group owner of the group to be reviewed
+
+Then, go to the [Identity Governance page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) to ensure that access reviews is ready for your organization.
 
 Azure AD enables several scenarios for reviewing guest users.
 
@@ -44,6 +49,10 @@ You can review either:
 
  - A group in Azure AD that has one or more guests as members.
  - An application connected to Azure AD that has one or more guest users assigned to it. 
+
+When reviewing guest user access to Microsoft 365 groups, you can either create a review for each group individually, or turn on automatic, recurring access reviews of guest users across all Microsoft 365 groups. The following video provides more information on recurring access reviews of guest users: 
+
+> [!VIDEO https://www.youtube.com/embed/3D2_YW2DwQ8]
 
 You can then decide whether to ask each guest to review their own access or to ask one or more users to review every guest's access.
 
@@ -116,10 +125,3 @@ In some organizations, guests might not be aware of their group memberships.
 ## Next steps
 
 [Create an access review of groups or applications](create-access-review.md)
-
-
-
-
-
-
-

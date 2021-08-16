@@ -1,0 +1,160 @@
+---
+title: "Tutorial: Train image classification model: VS Code (preview)"
+titleSuffix: Azure Machine Learning
+description: Learn how to train an image classification model using TensorFlow and the Azure Machine Learning Visual Studio Code Extension
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: tutorial
+author: luisquintanilla
+ms.author: luquinta
+ms.date: 05/25/2021
+ms.custom: contperf-fy20q4 
+
+#Customer intent: As a professional data scientist, I want to learn how to train an image classification model using TensorFlow and the Azure Machine Learning Visual Studio Code Extension.
+---
+
+# Train an image classification TensorFlow model using the Azure Machine Learning Visual Studio Code Extension (preview)
+
+Learn how to train an image classification model to recognize hand-written numbers using TensorFlow and the Azure Machine Learning Visual Studio Code Extension.
+
+In this tutorial, you learn the following tasks:
+
+> [!div class="checklist"]
+> * Understand the code
+> * Create a workspace
+> * Create a GPU cluster for training
+> * Train a model
+
+## Prerequisites
+
+- Azure subscription. If you don't have one, sign up to try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/t.com/free/).
+- Install [Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview), a lightweight, cross-platform code editor.
+- Azure Machine Learning Studio Visual Studio Code extension. For install instructions see the [Setup Azure Machine Learning Visual Studio Code extension guide](./how-to-setup-vs-code.md)
+- 2.0 CLI (preview). For installation instructions, see [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md)
+
+## Understand the code
+
+The code for this tutorial uses TensorFlow to train an image classification machine learning model that categorizes handwritten digits from 0-9. It does so by creating a neural network that takes the pixel values of 28 px x 28 px image as input and outputs a list of 10 probabilities, one for each of the digits being classified. Below is a sample of what the data looks like.  
+
+![MNIST Digits](./media/tutorial-train-deploy-image-classification-model-vscode/digits.png)
+
+Get the code for this tutorial by downloading and unzipping the [Azure ML Examples repository](https://github.com/Azure/azureml-examples/archive/refs/heads/main.zip) anywhere on your computer.
+
+## Create a workspace
+
+The first thing you have to do to build an application in Azure Machine Learning is to create a workspace. A workspace contains the resources to train models as well as the trained models themselves. For more information, see [what is a workspace](./concept-workspace.md).
+
+1. Open the *azureml-examples-main/cli/jobs/train/tensorflow/mnist* directory in Visual Studio Code.
+1. On the Visual Studio Code activity bar, select the **Azure** icon to open the Azure Machine Learning view.
+1. In the Azure Machine Learning view, right-click your subscription node and select **Create Workspace**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Create workspace](./media/tutorial-train-deploy-image-classification-model-vscode/create-workspace.png)
+
+1. A specification file appears. Configure the specification file with the following options. 
+
+    ```yml
+    $schema: https://azuremlschemas.azureedge.net/latest/workspace.schema.json
+    name: TeamWorkspace
+    location: WestUS2
+    friendly_name: team-ml-workspace
+    description: A workspace for training machine learning models
+    tags:
+      purpose: training
+      team: ml-team
+    ```
+
+    The specification file creates a workspace called `TeamWorkspace` in the `WestUS2` region. The rest of the options defined in the specification file provide friendly naming, descriptions, and tags for the workspace.
+
+1. Right-click the specification file and select **Azure ML: Create Resource**. Creating a resource uses the configuration options defined in the YAML specification file and submits a job using the 2.0 CLI. At this point, a request to Azure is made to create a new workspace and dependent resources in your account. After a few minutes, the new workspace appears in your subscription node.
+1. Set `TeamWorkspace` as your default workspace. Doing so places resources and jobs you create in the workspace by default. Select the **Set Azure ML Workspace** button on the Visual Studio Code status bar and follow the prompts to set `TeamWorkspace` as your default workspace.
+
+For more information on workspaces, see [how to manage resources in VS Code](how-to-manage-resources-vscode.md).
+
+## Create a GPU cluster for training
+
+A compute target is the computing resource or environment where you run training jobs. For more information, see the [Azure Machine Learning compute targets documentation](./concept-compute-target.md).
+
+1. In the Azure Machine Learning view, expand your workspace node.
+1. Right-click the **Compute clusters** node inside your workspace's **Compute** node and select **Create Compute**
+
+    > [!div class="mx-imgBorder"]
+    > ![Create training compute cluster](./media/tutorial-train-deploy-image-classification-model-vscode/create-compute.png)
+
+1. A specification file appears. Configure the specification file with the following options.
+
+    ```yml
+    $schema: https://azuremlschemas.azureedge.net/latest/compute.schema.json
+    name: gpu-cluster
+    type: amlcompute
+    size: Standard_NC12
+    
+    min_instances: 0
+    max_instances: 3
+    idle_time_before_scale_down: 120
+    ```
+
+    The specification file creates a GPU cluster called `gpu-cluster` with at most 3 Standard_NC12 VM nodes that automatically scales down to 0 nodes after 120 seconds of inactivity.
+
+    For more information on VM sizes, see [sizes for Linux virtual machines in Azure](../virtual-machines/sizes.md).
+
+1. Right-click the specification file and select **Azure ML: Create Resource**.
+
+After a few minutes, the new compute target appears in the *Compute > Compute clusters* node of your workspace.
+
+## <a name="train-the-model"></a> Train image classification model
+
+During the training process, a TensorFlow model is trained by processing the training data and learning patterns embedded within it for each of the respective digits being classified.
+
+Like workspaces and compute targets, training jobs are defined using resource templates. For this sample, the specification is defined in the *job.yml* file which looks like the following:
+
+```yml
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+code: 
+    local_path: src
+command: >
+    python train.py
+environment: azureml:AzureML-TensorFlow2.4-Cuda11-OpenMpi4.1.0-py36:1
+compute:
+    target: azureml:gpu-cluster
+experiment_name: tensorflow-mnist-example
+description: Train a basic neural network with TensorFlow on the MNIST dataset.
+```
+
+This specification file submits a training job called `tensorflow-mnist-example` to the recently created `gpu-cluster` computer target that runs the code in the *train.py* Python script. The environment used is one of the curated environments provided by Azure Machine Learning which contains TensorFlow and other software dependencies required to run the training script. For more information on curated environments, see [Azure Machine Learning curated environments](resource-curated-environments.md).
+
+To submit the training job:
+
+1. Open the *job.yml* file.
+1. Right-click the file in the text editor and select **Azure ML: Create Resource**.
+
+> [!div class="mx-imgBorder"]
+> ![Run experiment](./media/tutorial-train-deploy-image-classification-model-vscode/run-experiment.png)
+
+At this point, a request is sent to Azure to run your experiment on the selected compute target in your workspace. This process takes several minutes. The amount of time to run the training job is impacted by several factors like the compute type and training data size. To track the progress of your experiment, right-click the current run node and select **View Run in Azure portal**.
+
+When the dialog requesting to open an external website appears, select **Open**.
+
+> [!div class="mx-imgBorder"]
+> ![Track experiment progress](./media/tutorial-train-deploy-image-classification-model-vscode/track-experiment-progress.png)
+
+When the model is done training, the status label next to the run node updates to "Completed".
+
+## Next steps
+
+In this tutorial, you learn the following tasks:
+
+> [!div class="checklist"]
+> * Understand the code
+> * Create a workspace
+> * Create a GPU cluster for training
+> * Train a model
+
+For next steps, see:
+
+* [Create and manage Azure Machine Learning resources using Visual Studio Code](how-to-set-up-vs-code-remote.md).
+* [Connect Visual Studio Code to a compute instance](how-to-set-up-vs-code-remote.md) for a full development experience.
+* For a walkthrough of how to edit, run, and debug code locally, see the [Python hello-world tutorial](https://code.visualstudio.com/docs/Python/Python-tutorial).
+* [Run Jupyter Notebooks in Visual Studio Code](how-to-manage-resources-vscode.md) using a remote Jupyter server.
+* For a walkthrough of how to train with Azure Machine Learning outside of Visual Studio Code, see [Tutorial: Train models with Azure Machine Learning](tutorial-train-models-with-aml.md).

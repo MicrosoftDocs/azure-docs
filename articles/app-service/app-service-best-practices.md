@@ -11,7 +11,7 @@ ms.custom: seodec18
 
 ---
 # Best Practices for Azure App Service
-This article summarizes best practices for using [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). 
+This article summarizes best practices for using [Azure App Service](./overview.md). 
 
 ## <a name="colocation"></a>Colocation
 When Azure resources composing a solution such as a web app and a database are located in different regions, it can have the following effects:
@@ -61,3 +61,13 @@ When backup failures happen, review most recent results to understand which type
 ## <a name="nodejs"></a>When new Node.js apps are deployed to Azure App Service
 Azure App Service default configuration for Node.js apps is intended to best suit the needs of most common apps. If configuration for your Node.js app would benefit from personalized tuning to improve performance or optimize resource usage for CPU/memory/network resources, see [Best practices and troubleshooting guide for Node applications on Azure App Service](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md). This article describes the iisnode settings you may need to configure for your Node.js app, describes the various scenarios or issues that your app may be facing, and shows how to address these issues.
 
+
+## Next Steps
+For more information on best practices, visit [App Service Diagnostics](./overview-diagnostics.md) to find out actionable best practices specific to your resource.
+
+- Navigate to your Web App in the [Azure portal](https://portal.azure.com).
+- Click on **Diagnose and solve problems** in the left navigation, which opens App Service Diagnostics.
+- Choose **Best Practices** homepage tile.
+- Click **Best Practices for Availability & Performance** or **Best Practices for Optimal Configuration** to view the current state of your app in regards to these best practices.
+
+You can also use this link to directly open App Service Diagnostics for your resource: `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`.

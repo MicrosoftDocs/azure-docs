@@ -3,11 +3,10 @@
  description: include file
  services: iot-hub
  ms.service: iot-hub
- author: dominicbetts
- ms.service: iot-hub
+ author: robinsh
  ms.topic: include
  ms.date: 02/17/2019
- ms.author: dobett
+ ms.author: robinsh
  ms.custom: include file
 ---
 

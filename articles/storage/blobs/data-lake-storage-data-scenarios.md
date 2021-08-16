@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 02/14/2020
 ms.author: normesta
 ms.reviewer: stewu
 ---
@@ -19,67 +19,11 @@ There are four key stages in big data processing:
 > * Downloading the data
 > * Visualizing the data
 
-Begin by creating a storage account and a container. Then, grant access to the data. The first few sections of this article help you accomplish those tasks. In the remaining sections, we'll highlight the options and tools for each  processing phase.
+This article highlights the options and tools for each processing phase.
 
-For a complete list of Azure services that you can use with Azure Data Lake Storage Gen2, see [Integrate Azure Data Lake Storage with Azure services](data-lake-storage-integrate-with-azure-services.md)
+For a complete list of Azure services that you can use with Azure Data Lake Storage Gen2, see [Integrate Azure Data Lake Storage with Azure services](./data-lake-storage-supported-azure-services.md)
 
-## Create a Data Lake Storage Gen2 account
-
-A Data Lake Storage Gen2 account is a storage account that has a hierarchical namespace. 
-
-To create one, see [Quickstart: Create an Azure Data Lake Storage Gen2 storage account](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
-
-## Create a container
-
-Here's a list of tools that you can use to create a container for your files.
-
-|Tool | Guidance |
-|---|--|
-|Azure Storage Explorer | [Create a container by using Storage Explorer](data-lake-storage-explorer.md#create-a-container) |
-|AzCopy | [Create a Blob container or File Share by using AzCopyV10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10#transfer-files)|
-|Hadoop container (HDFS) Command Line Interface (CLI) with HDInsight |[Create a container by using HDFS with HDInsight](data-lake-storage-use-hdfs-data-lake-storage.md#create-a-container) |
-|Code in an Azure Databricks Notebook|[Create a storage account container (Scala)](data-lake-storage-quickstart-create-databricks-account.md#create-storage-account-container) <br><br> [Create a container and mount it (Python)](data-lake-storage-use-databricks-spark.md#create-a-container-and-mount-it)|
-
-It's easiest to create file systems by using Storage Explorer or AzCopy. It takes a bit more work to create file systems by using HDInsight and Databricks. However, if you're planning to use HDInsight or Databricks clusters to process your data anyway, then you can create your clusters first, and use the HDFS CLI to your create file systems.  
-
-## Grant access to the data
-
-Set up the appropriate access permissions to your account, and the data in your account, before you begin ingesting data.
-
-There's three ways to grant access:
-
-* Assign one of these roles to a user, group, user-managed identity, or service principal:
-
-  [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader)
-
-  [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
-
-  [Storage Blob Data Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
-
-* Use a Shared Access Signature (SAS) token.
-
-* Use a storage account key.
-
-This table shows how to grant access for each Azure service or tool.
-
-|Tool | To grant access | Guidance |
-|---|--|---|
-|Storage Explorer| Assign a role to users and groups | [Assign administrator and non-administrator roles to users with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal) |
-|AzCopy| Assign a role to users and groups <br>**or**<br> Use a SAS token| [Assign administrator and non-administrator roles to users with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)<br><br>[Easily Create a SAS to Download a File from Azure Storage–Using Azure Storage Explorer](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/)|
-|Apache DistCp | Assign a role to a user-assigned managed identity | [Creating an HDInsight cluster with Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
-|Azure Data Factory| Assign a role to a user-assigned-managed identity<br>**or**<br> Assign a role to a service principal<br>**or**<br> Use a storage account key | [Linked service properties](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#linked-service-properties) |
-|Azure HDInsight| Assign a role to a user-assigned managed identity | [Creating an HDInsight cluster with Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)|
-|Azure Databricks| Assign a role to a service principal | [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)|
-
-To grant access to specific file and folders, see these articles.
-
-* [Set file and directory level permissions using Azure Storage Explorer with Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)
-
-* [Access control lists on files and directories](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories)
-
-To learn about setting up other aspects of security, see [Azure Data Lake Storage Gen2 security guide](https://docs.microsoft.com/azure/storage/common/storage-data-lake-storage-security-guide?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
-
-## Ingest the data
+## Ingest the data into Data Lake Storage Gen2
 
 This section highlights the different sources of data and the different ways in which that data can be ingested into a Data Lake Storage Gen2 account.
 
@@ -93,7 +37,7 @@ Here's a list of tools that you can use to ingest ad hoc data.
 
 | Data Source | Ingest it using |
 | --- | --- |
-| Local computer |[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)<br><br>[AzCopy tool](../common/storage-use-azcopy-v10.md)|
+| Local computer |[Azure PowerShell](data-lake-storage-directory-file-acl-powershell.md)<br><br>[Azure CLI](data-lake-storage-directory-file-acl-cli.md)<br><br>[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)<br><br>[AzCopy tool](../common/storage-use-azcopy-v10.md)|
 | Azure Storage Blob |[Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)<br><br>[AzCopy tool](../common/storage-use-azcopy-v10.md)<br><br>[DistCp running on HDInsight cluster](data-lake-storage-use-distcp.md)|
 
 ### Streamed data
@@ -104,7 +48,8 @@ Here's a list of tools that you can use to ingest streamed data.
 
 |Tool | Guidance |
 |---|--|
-|Azure HDInsight Storm | [Write to Apache Hadoop HDFS from Apache Storm on HDInsight](https://docs.microsoft.com/azure/hdinsight/storm/apache-storm-write-data-lake-store) |
+|Azure Stream Analytics|[Quickstart: Create a Stream Analytics job by using the Azure portal](../../stream-analytics/stream-analytics-quick-create-portal.md) <br> [Egress to Azure Data Lake Gen2](../../stream-analytics/stream-analytics-define-outputs.md)|
+|Azure HDInsight Storm | [Write to Apache Hadoop HDFS from Apache Storm on HDInsight](../../hdinsight/storm/apache-storm-write-data-lake-store.md) |
 
 ### Relational data
 
@@ -114,7 +59,7 @@ Here's a list of tools that you can use to ingest relational data.
 
 |Tool | Guidance |
 |---|--|
-|Azure Data Factory | [Copy Activity in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
+|Azure Data Factory | [Copy Activity in Azure Data Factory](../../data-factory/copy-activity-overview.md) |
 
 ### Web server log data (upload using custom applications)
 
@@ -124,7 +69,9 @@ Here's a list of tools that you can use to ingest Web server log data.
 
 |Tool | Guidance |
 |---|--|
-|Azure Data Factory | [Copy Activity in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview)  |
+|Azure Data Factory | [Copy Activity in Azure Data Factory](../../data-factory/copy-activity-overview.md)  |
+|Azure CLI|[Azure CLI](data-lake-storage-directory-file-acl-cli.md)|
+|Azure PowerShell|[Azure PowerShell](data-lake-storage-directory-file-acl-powershell.md)|
 
 For uploading web server log data, and also for uploading other kinds of data (e.g. social sentiments data), it is a good approach to write your own custom scripts/applications because it gives you the flexibility to include your data uploading component as part of your larger big data application. In some cases this code may take the form of a script or simple command line utility. In other cases, the code may be used to integrate big data processing into a business application or solution.
 
@@ -136,9 +83,9 @@ Here's a list of tools that you can use to ingest data associated with HDInsight
 
 |Tool | Guidance |
 |---|--|
-|Apache DistCp | [Use DistCp to copy data between Azure Storage Blobs and Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |
-|AzCopy tool | [Transfer data with the AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) |
-|Azure Data Factory | [Copy data to or from Azure Data Lake Storage Gen2 by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2) |
+|Apache DistCp | [Use DistCp to copy data between Azure Storage Blobs and Azure Data Lake Storage Gen2](./data-lake-storage-use-distcp.md) |
+|AzCopy tool | [Transfer data with the AzCopy](../common/storage-use-azcopy-v10.md) |
+|Azure Data Factory | [Copy data to or from Azure Data Lake Storage Gen2 by using Azure Data Factory](../../data-factory/load-azure-data-lake-storage-gen2.md) |
 
 ### Data stored in on-premises or IaaS Hadoop clusters
 
@@ -165,23 +112,18 @@ Here's a list of tools that you can use to run data analysis jobs on data that i
 
 |Tool | Guidance |
 |---|--|
-|Azure HDInsight | [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
-|Azure Databricks | [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)<br><br>[Quickstart: Analyze data in Azure Data Lake Storage Gen2 by using Azure Databricks](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br><br>[Tutorial: Extract, transform, and load data by using Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Azure HDInsight | [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) |
+|Azure Databricks | [Azure Data Lake Storage Gen2](/azure/databricks/data/data-sources/azure/azure-datalake-gen2)<br><br>[Quickstart: Analyze data in Azure Data Lake Storage Gen2 by using Azure Databricks](./data-lake-storage-use-databricks-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br><br>[Tutorial: Extract, transform, and load data by using Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
 ## Visualize the data
 
-You can use a mix of services to create visual representations of data stored in Data Lake Storage Gen2.
-
-![Visualize data in Data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/visualize-data.png "Visualize data in Data Lake Storage Gen2")
-
-* You can start by using [Azure Data Factory to move data from Data Lake Storage Gen2 to Azure SQL Data Warehouse](../../data-factory/copy-activity-overview.md)
-* After that, you can [integrate Power BI with Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) to create visual representation of the data.
+Use the Power BI connector to create visual representations of data stored in Data Lake Storage Gen2. See [Analyze data in Azure Data Lake Storage Gen2 by using Power BI](/power-query/connectors/datalakestorage).
 
 ## Download the data
 
 You might also want to download or move data from Azure Data Lake Storage Gen2 for scenarios such as:
 
-* Move data to other repositories to interface with your existing data processing pipelines. For example, you might want to move data from Data Lake Storage Gen2 to Azure SQL Database or on-premises SQL Server.
+* Move data to other repositories to interface with your existing data processing pipelines. For example, you might want to move data from Data Lake Storage Gen2 to Azure SQL Database or a SQL Server instance.
 
 * Download data to your local computer for processing in IDE environments while building application prototypes.
 
@@ -191,5 +133,7 @@ Here's a list of tools that you can use to download data from Data Lake Storage 
 
 |Tool | Guidance |
 |---|--|
-|Azure Data Factory | [Copy Activity in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
-|Apache DistCp | [Use DistCp to copy data between Azure Storage Blobs and Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |
+|Azure Data Factory | [Copy Activity in Azure Data Factory](../../data-factory/copy-activity-overview.md) |
+|Apache DistCp | [Use DistCp to copy data between Azure Storage Blobs and Azure Data Lake Storage Gen2](./data-lake-storage-use-distcp.md) |
+|Azure Storage Explorer|[Use Azure Storage Explorer to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md)|
+|AzCopy tool|[Transfer data with AzCopy and Blob storage](../common/storage-use-azcopy-v10.md#transfer-data)|

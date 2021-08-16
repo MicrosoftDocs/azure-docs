@@ -1,19 +1,17 @@
 ### YamlMime:Landing
 
-title: Azure Digital Twins Preview Documentation
-summary: Learn how to use Azure Digital Twins to connect people, places, and things, and to build IoT solutions with spatial intelligence. Walk through the Quickstart and Tutorials to monitor an imaginary smart building, learn in-depth concepts, and create a next generation IoT solution that models your physical environment.
+title: Azure Digital Twins Documentation
+summary: Learn how to use Azure Digital Twins to create a digital representation of your assets, environments and business systems, to build next generation IoT solutions that model the real world.
 
 metadata:
-  title: Azure Digital Twins Preview Documentation - Tutorials, API Reference | Microsoft Docs
+  title: Azure Digital Twins Documentation - Tutorials, API Reference | Microsoft Docs
   description: Learn how to Use Azure Digital Twins to connect people, places, and things, and to build IoT solutions with spatial intelligence.
-  services: digital-twins
   ms.service: digital-twins
-  ms.subservice: digital-twins
   ms.topic: landing-page
   ms.collection: collection
-  author: KingdomOfEnds
-  ms.author: v-adgera
-  ms.date: 09/03/2019
+  author: philmea
+  ms.author: philmea
+  ms.date: 02/12/2020
 
 landingContent:
   - title: About Azure Digital Twins
@@ -21,55 +19,108 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Digital Twins?
-            url: about-digital-twins.md
+            url: overview.md
       - linkListType: concept
         links:
-          - text: Understand Digital Twins object model and spatial intelligence graph
-            url: concepts-objectmodel-spatialgraph.md
-      - linkListType: video
-        links:
-          - text: Azure Digital Twins introduction
-            url: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Digital-Twins-Introduction
+          - text: Custom models
+            url: concepts-models.md
+          - text: Digital twins and the twin graph
+            url: concepts-twins-graph.md
+          - text: Query language
+            url: concepts-query-language.md
 
-  - title: Get started
+  - title: Get started with Azure Digital Twins Explorer
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Find available rooms
-            url: quickstart-view-occupancy-dotnet.md
+          - text: Get started with Azure Digital Twins Explorer
+            url: quickstart-azure-digital-twins-explorer.md
+      - linkListType: get-started
+        links:
+          - text: Azure Digital Twins Explorer
+            url: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer
+
+  - title: Go deeper with the tutorials
+    linkLists:
       - linkListType: tutorial
         links:
-          - text: Deploy and configure 
-            url: tutorial-facilities-setup.md
-          - text: Provision and monitor conditions
-            url: tutorial-facilities-udf.md
-          - text: Notify with Logic Apps
-            url: tutorial-facilities-events.md
-          - text: Visualize events with Time Series Insights
-            url: tutorial-facilities-analyze.md
+          - text: Code a client app
+            url: tutorial-code.md
+      - linkListType: tutorial
+        links:
+          - text: Explore the basics with a sample client app
+            url: tutorial-command-line-app.md
+      - linkListType: tutorial
+        links:
+          - text: Connect an end-to-end solution
+            url: tutorial-end-to-end.md
 
-  - title: Develop with Azure Digital Twins
+  - title: Develop
     linkLists:
       - linkListType: concept
         links:
-          - text: Device connectivity and telemetry ingress
-            url: concepts-device-ingress.md
-          - text: Data processing and user-defined functions
-            url: concepts-user-defined-functions.md
+          - text: Azure Digital Twins CLI command set
+            url: concepts-cli.md
       - linkListType: how-to-guide
         links:
-          - text: Set up Postman
-            url: how-to-configure-postman.md
-          - text: Create user-defined functions
-            url: how-to-user-defined-functions.md
-
-  - title: API reference
+          - text: Set up an instance and authentication
+            url: how-to-set-up-instance-portal.md
+      - linkListType: how-to-guide
+        links:
+          - text: Write app authentication code
+            url: how-to-authenticate-client.md
+            
+  - title: Discover the APIs
     linkLists:
       - linkListType: reference
         links:
-          - text: User-defined functions client library
-            url: reference-user-defined-functions-client-library.md
+          - text: REST APIs
+            url:  /rest/api/azure-digitaltwins/
+      - linkListType: concept
+        links:
+          - text: Azure Digital Twins APIs and SDKs 
+            url: concepts-apis-sdks.md
       - linkListType: how-to-guide
         links:
-          - text: Use Digital Twins Swagger
-            url: how-to-use-swagger.md
+          - text: Make API requests with Postman 
+            url: how-to-use-postman.md
+
+  - title: Explore code samples
+    linkLists:
+      - linkListType: sample
+        links:
+          - text: End-to-end samples
+            url: /samples/azure-samples/digital-twins-samples/digital-twins-samples/   
+      - linkListType: sample
+        links:
+          - text: DTDL validator (sample)
+            url:  /samples/azure-samples/dtdl-validator/dtdl-validator/
+      - linkListType: sample
+        links:
+          - text: DPS and IoT Hub integration sample
+            url:  /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
+      - linkListType: sample
+        links:
+          - text: SignalR integration sample
+            url:  /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/ 
+      - linkListType: sample
+        links:
+          - text: Custom Swaggers for Logic Apps connector
+            url: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/ 
+
+  - title: Scenario-based learning with Microsoft Learn
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: 'Learning path: Develop with Azure Digital Twins'
+            url: /learn/paths/develop-azure-digital-twins/
+      - linkListType: learn
+        links:
+          - text: 'Learn module: Introduction to Azure Digital Twins'
+            url: /learn/modules/develop-with-azure-digital-twins/introduction-to-azure-digital-twins/
+          - text: 'Learn module: Build an Azure Digital Twins graph for a chocolate factory production line'
+            url: /learn/modules/develop-with-azure-digital-twins/build-azure-digital-twins-graph-for-chocolate-factory/
+          - text: 'Learn module: Ingest data into Azure Digital Twins'
+            url: /learn/modules/develop-with-azure-digital-twins/ingest-data-into-azure-digital-twins/
+          - text: 'Learn module: Output from Azure Digital Twins to downstream services'
+            url: /learn/modules/develop-with-azure-digital-twins/route-output-from-azure-digital-twins-to-downstream-services/

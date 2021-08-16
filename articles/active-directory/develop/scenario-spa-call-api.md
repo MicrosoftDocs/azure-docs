@@ -1,22 +1,19 @@
 ---
-title: Build single-page app calling a web API - Microsoft identity platform | Azure
+title: Build single-page app calling a web API
+titleSuffix: Microsoft identity platform
 description: Learn how to build a single-page application that calls a web API
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/06/2019
 ms.author: ryanwi
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
+#Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform.
 ---
 
 # Single-page application: Call a web API
@@ -25,7 +22,7 @@ We recommend that you call the `acquireTokenSilent` method to acquire or renew a
 
 ## Call a web API
 
-### JavaScript
+# [JavaScript](#tab/javascript)
 
 Use the acquired access token as a bearer in an HTTP request to call any web API, such as Microsoft Graph API. For example:
 
@@ -45,11 +42,12 @@ Use the acquired access token as a bearer in an HTTP request to call any web API
         }
 ```
 
-### Angular
+# [Angular](#tab/angular)
 
 The MSAL Angular wrapper takes advantage of the HTTP interceptor to automatically acquire access tokens silently and attach them to the HTTP requests to APIs. For more information, see [Acquire a token to call an API](scenario-spa-acquire-token.md).
 
+---
+
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Move to production](scenario-spa-production.md)
+Move on to the next article in this scenario, [Move to production](scenario-spa-production.md).

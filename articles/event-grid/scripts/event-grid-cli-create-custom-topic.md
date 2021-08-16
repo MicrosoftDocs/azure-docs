@@ -1,17 +1,10 @@
 ---
 title: Azure CLI script sample - Create custom topic | Microsoft Docs
-description: Azure CLI Script Sample - Create custom topic
-services: event-grid
-documentationcenter: na
-author: tfitzmac
-
-ms.service: event-grid
+description: This article provides a sample Azure CLI script that shows how to create an Azure Event Grid custom topic.
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/02/2018
-ms.author: tomfitz
+ms.date: 07/22/2021 
+ms.custom: devx-track-azurecli
 ---
 
 # Create Event Grid custom topic with Azure CLI
@@ -32,10 +25,10 @@ This script uses the following command to create the custom topic. Each command 
 
 | Command | Notes |
 |---|---|
-| [az eventgrid topic create](https://docs.microsoft.com/cli/azure/eventgrid/topic#az-eventgrid-topic-create) | Create an Event Grid custom topic. |
+| [az eventgrid topic create](/cli/azure/eventgrid/topic#az_eventgrid_topic_create) | Create an Event Grid custom topic. |
 
 
 ## Next steps
 
 * For information about querying subscriptions, see [Query Event Grid subscriptions](../query-event-subscriptions.md).
-* For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+* For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).

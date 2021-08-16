@@ -1,11 +1,11 @@
 ---
 title: Guidelines for effective anchor experiences
 description: Guidelines and considerations to create and locate anchors effectively by using Azure Spatial Anchors.
-author: mattwojo
-manager: jken
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: mattwoj
-ms.date: 02/24/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 #Customer intent: Guidance for creating and locating Azure Spatial Anchors. This guidance targets mixed-reality developers.
@@ -13,11 +13,11 @@ ms.service: azure-spatial-anchors
 
 # Create an effective anchor experience by using Azure Spatial Anchors
 
-This article provides guidelines and considerations to help you effectively create and locate anchors by using Spatial Anchors.
+This article provides guidelines and considerations to help you effectively create and locate anchors by using Azure Spatial Anchors.
 
 ## Good anchors
 
-Spatial Anchors helps you create good anchors. It's important to invest time in either educating or guiding users in your user experience (UX) to create good anchors. By investing in creating good anchors up front, you help end users to reliably find anchors:
+It is important to invest time in either educating or guiding users in your user experience (UX) to create good anchors. By investing in creating good anchors up front, you help end users to reliably find anchors:
 
 - Across different devices.
 - At various times.
@@ -96,7 +96,7 @@ Visual tracking systems rely on the visual features in an environment. The more 
 
 Follow the general guidelines in this section to build a UX that encourages a useful scan of the environment.
 
-First, if the user doesn't locate an anchor within a few seconds, the app should encourage users to move the device to capture more perspectives. The app can also encourage users to move themselves around the environment to scan for the anchor from more perspectives. The more feature perspectives that the device sees, the better.
+First, if the user doesn't locate an anchor within a few seconds, the app should encourage users to move the device to capture more perspectives. The app can also encourage users to move themselves around the environment to scan for the anchor from more perspectives. The more feature perspectives that the device sees, the better, as it will increase the likelihood that an anchor is located.
 
 For target scenarios, ask the user to move around the target to view it from different perspectives. In other words, ask the user to capture the target from new perspectives until the anchor is located.
 

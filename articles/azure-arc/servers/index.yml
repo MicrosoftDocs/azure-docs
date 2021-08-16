@@ -1,0 +1,58 @@
+### YamlMime:Landing
+title: Azure Arc enabled servers
+summary: Azure Arc enabled servers
+
+metadata:
+  title: Azure Arc enabled servers
+  description: Learn about how to manage on-premises machines in Azure
+  author: mgoedtel
+  ms.service: azure-arc
+  ms.topic: landing-page
+  ms.date: 02/26/2020
+  ms.author: magoedte
+
+landingContent:
+ # Card
+  - title: Connect machines to Azure using Azure Arc enabled servers
+    linkLists: 
+      - linkListType: overview
+        links:
+          - text: What is Azure Arc enabled servers?
+            url: overview.md
+      - linkListType: deploy
+        links:
+          - text: Plan for deployment
+            url: plan-at-scale-deployment.md
+      - linkListType: get-started
+        links:
+          - text: Connect machines to Azure Arc from the Azure portal
+            url: onboard-portal.md
+          - text: Connect machines at scale using a service principal
+            url: onboard-service-principal.md
+          - text: Connect machines to Azure with PowerShell DSC
+            url: onboard-dsc.md
+ # Card
+  - title: 10-minute quickstarts
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Deploy Arc enabled servers agent
+            url: ./learn/quick-enable-hybrid-vm.md
+ # Card
+  - title: Proof of concept
+    linkLists:
+     - linkListType: sample
+       links:
+          - text: Jumpstart
+            url: https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_servers/
+     - linkListType: get-started
+       links:
+          - text: Test Arc enabled servers using an Azure VM
+            url: plan-evaluate-on-azure-virtual-machine.md
+ # Card
+  - title: Reference architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Manage configurations for hybrid servers 
+            url: /azure/architecture/hybrid/azure-arc-hybrid-config 

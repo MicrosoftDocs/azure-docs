@@ -3,18 +3,19 @@ title: Generate a thumbnail sprite with Azure Media Services | Microsoft Docs
 description: This topic shows how to generate a thumbnail sprite with Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 03/14/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
 
-# Generate a thumbnail sprite  
+# Generate a thumbnail sprite
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 You can use Media Encoder Standard to generate a thumbnail sprite, which is a JPEG file that contains multiple small resolution thumbnails stitched together into a single (large) image, together with a VTT file. This VTT file specifies the time range in the input video that each thumbnail represents, together with the size and coordinates of that thumbnail within the large JPEG file. Video players use the VTT file and sprite image to show a 'visual' seekbar, providing a viewer with visual feedback when scrubbing back and forward along the video timeline.
 

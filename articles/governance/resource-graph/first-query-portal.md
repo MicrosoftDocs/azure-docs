@@ -1,16 +1,18 @@
 ---
-title: "Quickstart: Your first portal query"
+title: 'Quickstart: Your first portal query'
 description: In this quickstart, you follow the steps to run your first query from Azure portal using Azure Resource Graph Explorer.
-ms.date: 11/21/2019
+ms.date: 05/01/2021
 ms.topic: quickstart
+ms.custom:
+  - mode-portal
 ---
 # Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer
 
-The power of Azure Resource Graph is available directly in Azure portal through Azure Resource Graph
-Explorer. Resource Graph Explorer provides browsable information about the Azure Resource Manager
-resource types and properties that you can query. Resource Graph Explorer also provides a clean
-interface for working with multiple queries, evaluating the results, and even converting the results
-of some queries into a chart that can be pinned to an Azure dashboard.
+The power of Azure Resource Graph is available directly in the Azure portal through Azure Resource
+Graph Explorer. Resource Graph Explorer provides browsable information about the Azure Resource
+Manager resource types and properties that you can query. Resource Graph Explorer also provides a
+clean interface for working with multiple queries, evaluating the results, and even converting the
+results of some queries into a chart that can be pinned to an Azure dashboard.
 
 At the end of this quickstart, you'll have used Azure portal and Resource Graph Explorer to run your
 first Resource Graph query and pinned the results to a dashboard.
@@ -44,16 +46,16 @@ following these steps to run your first Resource Graph query:
    > [!NOTE]
    > Just as with the first query, running this query multiple times is likely to yield a different
    > set of resources per request. The order of the query commands is important. In this example,
-   > the `order by` comes after the `limit`. This will first limit the query results and then order
-   > them.
+   > the `order by` comes after the `limit`. This command order first limits the query results and
+   > then orders them.
 
 1. Update the query to first `order by` the **Name** property and then `limit` to the top five
    results: `Resources | project name, type | order by name asc | limit 5`. Then, select **Run
    query**.
 
 When the final query is run several times, assuming that nothing in your environment is changing,
-the results returned are consistent and as expected -- ordered by the **Name** property, but still
-limited to the top five results.
+the results returned are consistent and ordered by the **Name** property, but still limited to the
+top five results.
 
 ### Schema browser
 
@@ -70,11 +72,11 @@ functions to achieve your intended results.
 
 ## Create a chart from the Resource Graph query
 
-After running the last query above, if you select the **Charts** tab, you get a message that "the
+After running the previous query, if you select the **Charts** tab, you get a message that "the
 result set isn't compatible with a pie chart visualization." Queries that list results can't be made
 into a chart, but queries that provide counts of resources can. Using the
-[Sample query - Count virtual machines by OS type](./samples/starter.md#count-virtual-machines-by-os-type),
-let's create a visualization from the Resource Graph query.
+[Sample query - Count virtual machines by OS type](./samples/starter.md#count-os), let's create a
+visualization from the Resource Graph query.
 
 1. In the **Query 1** portion of the window, enter the following query and select **Run query**.
 
@@ -93,7 +95,7 @@ let's create a visualization from the Resource Graph query.
 ## Pin the query visualization to a dashboard
 
 When you have results from a query that can be visualized, that data visualization can then be
-pinned to one of your dashboards. After running the query above, follow these steps:
+pinned to one of your dashboards. After running the previous query, follow these steps:
 
 1. Select **Save** and provide the name "VMs by OS Type". Then select **Save** at the bottom of the
    right pane.
@@ -121,19 +123,19 @@ your Azure portal workflow, try out these example dashboards.
 
 - [Resource Graph Explorer - Sample Dashboard #1](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-1/resourcegraphexplorer-sample-1.json)
 
-  [![Example image for Sample Dashboard #1](./media/arge-sample1-small.png)](./media/arge-sample1-large.png#lightbox)
+  :::image type="content" source="./media/arge-sample1-small.png" alt-text="Example image for Sample Dashboard #1" lightbox="./media/arge-sample1-large.png":::
 
 - [Resource Graph Explorer - Sample Dashboard #2](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-2/resourcegraphexplorer-sample-2.json)
 
-  [![Example image for Sample Dashboard #2](./media/arge-sample2-small.png)](./media/arge-sample2-large.png#lightbox)
+  :::image type="content" source="./media/arge-sample2-small.png" alt-text="Example image for Sample Dashboard #2" lightbox="./media/arge-sample2-large.png":::
 
 > [!NOTE]
-> Counts and charts in the above example dashboard screenshots will vary depending on your Azure
+> Counts and charts in the above example dashboard screenshots vary depending on your Azure
 > environment.
 
 1. Select and download the sample dashboard you want to evaluate.
 
-1. In Azure portal, select **Dashboard** from the left pane.
+1. In the Azure portal, select **Dashboard** from the left pane.
 
 1. Select **Upload**, then locate and select the downloaded sample dashboard file. Then select
    **Open**.
@@ -150,7 +152,7 @@ can do so with the following steps:
 
 1. Select **Dashboard** from the left pane.
 
-1. From the dashboard drop-down, select the sample Resource Graph dashboard you wish to delete.
+1. From the dashboard dropdown list, select the sample Resource Graph dashboard you wish to delete.
 
 1. Select **Delete** from the dashboard menu at the top of the dashboard and select **Ok** to
    confirm.
@@ -158,7 +160,7 @@ can do so with the following steps:
 ## Next steps
 
 In this quickstart, you've used Azure Resource Graph Explorer to run your first query and looked at
-dashboard examples powered by Resource Graph. To learn more about the Resource graph language,
+dashboard examples powered by Resource Graph. To learn more about the Resource Graph language,
 continue to the query language details page.
 
 > [!div class="nextstepaction"]

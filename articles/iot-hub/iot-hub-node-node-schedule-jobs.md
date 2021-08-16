@@ -2,13 +2,14 @@
 title: Schedule jobs with Azure IoT Hub (Node) | Microsoft Docs
 description: How to schedule an Azure IoT Hub job to invoke a direct method on multiple devices. You use the Azure IoT SDKs for Node.js to implement the simulated device apps and a service app to run the job.
 author: wesmc7777
-manager: philmea
+
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/16/2019
+ms.custom: mqtt, devx-track-js, devx-track-azurecli
 ---
 
 # Schedule and broadcast jobs (Node.js)
@@ -27,7 +28,7 @@ Learn more about each of these capabilities in these articles:
 
 * Device twin and properties: [Get started with device twins](iot-hub-node-node-twin-getstarted.md) and [Tutorial: How to use device twin properties](tutorial-device-twins.md)
 
-* Direct methods: [IoT Hub developer guide - direct methods](iot-hub-devguide-direct-methods.md) and [Tutorial: direct methods](quickstart-control-device-node.md)
+* Direct methods: [IoT Hub developer guide - direct methods](iot-hub-devguide-direct-methods.md) and [Quickstart: direct methods](./quickstart-control-device.md?pivots=programming-language-nodejs)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -48,6 +49,8 @@ At the end of this tutorial, you have two Node.js apps:
 * Node.js version 10.0.x or later. [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) describes how to install Node.js for this tutorial on either Windows or Linux.
 
 * An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
+
+* Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## Create an IoT hub
 
@@ -292,4 +295,4 @@ In this tutorial, you used a job to schedule a direct method to a device and the
 
 To continue getting started with IoT Hub and device management patterns such as remote over the air firmware update, see [Tutorial: How to do a firmware update](tutorial-firmware-update.md).
 
-To continue getting started with IoT Hub, see [Getting started with Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).
+To continue getting started with IoT Hub, see [Getting started with Azure IoT Edge](../iot-edge/quickstart-linux.md).

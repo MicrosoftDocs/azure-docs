@@ -1,8 +1,8 @@
 --- 
 title: Azure VMware Solution by CloudSimple - Use Private Cloud site to host a virtual desktop infrastructure using VMware Horizon
 description: Describes how you can use your CloudSimple Private Cloud site to host a virtual desktop infrastructure using VMware Horizon
-author: sharaths-cs
-ms.author: b-shsury 
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/20/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
@@ -42,7 +42,7 @@ The following sections describe how to deploy a VDI solution using Horizon in yo
 ### Estimate the size of your desktop environment
 
 * Verify that your identified configuration is within VMware operational limits.
-* Estimate the resources that are needed in your DR site to protect your on-premises environment.
+* Estimate the resources that are needed for all your desktops and your Horizon management components.
 
 ### Create a Private Cloud for your environment
 

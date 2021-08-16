@@ -2,9 +2,9 @@
 title: Use repartitioning to optimize Azure Stream Analytics jobs
 description: This article describes how to use repartitioning to optimize Azure Stream Analytics jobs that cannot be parallelized.
 ms.service: stream-analytics
-author: mamccrea
-ms.author: mamccrea
-ms.date: 09/19/2019
+author: sidramadoss
+ms.author: sidram
+ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: mvc
 ---
@@ -16,27 +16,49 @@ This article shows you how to use repartitioning to scale your Azure Stream Anal
 You might not be able to use [parallelization](stream-analytics-parallelization.md) if:
 
 * You don't control the partition key for your input stream.
-* Your source "sprays" input across multiple partitions that later need to be merged. 
+* Your source "sprays" input across multiple partitions that later need to be merged.
+
+Repartitioning, or reshuffling, is required when you process data on a stream that's not sharded according to a natural input scheme, such as **PartitionId** for Event Hubs. When you repartition, each shard can be processed independently, which allows you to linearly scale out your streaming pipeline. 
 
 ## How to repartition
+You can repartition your input in 2 ways:
+1. Use a separate Stream Analytics job that does the repartitioning
+2. Use a single job but do the repartitioning first before your custom analytics logic
 
-Repartitioning, or reshuffling, is required when you process data on a stream that's not sharded according to a natural input scheme, such as **PartitionId** for Event Hubs. When you repartition, each shard can be processed independently, which allows you to linearly scale out your streaming pipeline.
-
-To repartition, use the keyword **INTO** after a **PARTITION BY** statement in your query. The following example partitions the data by **DeviceID** into a partition count of 10. Hashing of **DeviceID** is used to determine which partition shall accept which substream. The data is flushed independently for each partitioned stream, assuming the output supports partitioned writes, and has 10 partitions.
-
+### Creating a separate Stream Analytics job to repartition input
+You can create a job that reads input and writes to an Event Hub output using a partition key. This Event Hub can then serve as input for another Stream Analytics job where you implement your analytics logic. When configuring this Event Hub output in your job, you must specify the partition key by which Stream Analytics will repartition your data. 
 ```sql
+-- For compat level 1.2 or higher
 SELECT * 
 INTO output
 FROM input
-PARTITION BY DeviceID 
-INTO 10
+
+--For compat level 1.1 or lower
+SELECT *
+INTO output
+FROM input PARTITION BY PartitionId
+```
+
+### Repartition input within a single Stream Analytics job
+You can also introduce a step in your query that first repartitions the input and this can then be used by other steps in your query. For example, if you want to repartition input based on **DeviceId**, your query would be:
+```sql
+WITH RepartitionedInput AS 
+( 
+SELECT * 
+FROM input PARTITION BY DeviceID
+)
+
+SELECT DeviceID, AVG(Reading) as AvgNormalReading  
+INTO output
+FROM RepartitionedInput  
+GROUP BY DeviceId, TumblingWindow(minute, 1)  
 ```
 
 The following example query joins two streams of repartitioned data. When joining two streams of repartitioned data, the streams must have the same partition key and count. The outcome is a stream that has the same partition scheme.
 
 ```sql
-WITH step1 AS (SELECT * FROM input1 PARTITION BY DeviceID INTO 10),
-step2 AS (SELECT * FROM input2 PARTITION BY DeviceID INTO 10)
+WITH step1 AS (SELECT * FROM input1 PARTITION BY DeviceID),
+step2 AS (SELECT * FROM input2 PARTITION BY DeviceID)
 
 SELECT * INTO output FROM step1 PARTITION BY DeviceID UNION step2 PARTITION BY DeviceID
 ```

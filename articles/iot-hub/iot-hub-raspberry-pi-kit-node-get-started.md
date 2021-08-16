@@ -2,21 +2,22 @@
 title: Connect Raspberry Pi to Azure IoT Hub in the cloud (Node.js)
 description: Learn how to set up and connect Raspberry Pi to Azure IoT Hub for Raspberry Pi to send data to the Azure cloud platform in this tutorial.
 author: wesmc7777
-manager:  philmea
+manager:  eliotgra
 keywords: azure iot raspberry pi, raspberry pi iot hub, raspberry pi send data to cloud, raspberry pi to cloud
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 06/18/2021
 ms.author: wesmc
+ms.custom: ['Role: Cloud Development', devx-track-js]
 ---
 
 # Connect Raspberry Pi to Azure IoT Hub (Node.js)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-In this tutorial, you begin by learning the basics of working with Raspberry Pi that's running Raspbian. You then learn how to seamlessly connect your devices to the cloud by using [Azure IoT Hub](about-iot-hub.md). For Windows 10 IoT Core samples, go to the [Windows Dev Center](https://www.windowsondevices.com/).
+In this tutorial, you begin by learning the basics of working with Raspberry Pi that's running Raspberry Pi OS. You then learn how to seamlessly connect your devices to the cloud by using [Azure IoT Hub](about-iot-hub.md). For Windows 10 IoT Core samples, go to the [Windows Dev Center](https://www.windowsondevices.com/).
 
 Don't have a kit yet? Try [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md). Or buy a new kit [here](https://azure.microsoft.com/develop/iot/starter-kits).
 
@@ -83,25 +84,25 @@ The following items are optional:
 
 ## Set up Raspberry Pi
 
-### Install the Raspbian operating system for Pi
+### Install the Raspberry Pi OS
 
-Prepare the microSD card for installation of the Raspbian image.
+Prepare the microSD card for installation of the Raspberry Pi OS image.
 
-1. Download Raspbian.
+1. Download Raspberry Pi OS with desktop.
 
-   a. [Raspbian Buster with desktop](https://www.raspberrypi.org/downloads/raspbian/) (the .zip file).
+   a. [Raspberry Pi OS with desktop](https://www.raspberrypi.org/software/) (the .zip file).
 
-   b. Extract the Raspbian image to a folder on your computer.
+   b. Extract the Raspberry Pi OS with desktop image to a folder on your computer.
 
-2. Install Raspbian to the microSD card.
+2. Install Raspberry Pi OS with desktop to the microSD card.
 
    a. [Download and install the Etcher SD card burner utility](https://etcher.io/).
 
-   b. Run Etcher and select the Raspbian image that you extracted in step 1.
+   b. Run Etcher and select the Raspberry Pi OS with desktop image that you extracted in step 1.
 
    c. Select the microSD card drive. Etcher may have already selected the correct drive.
 
-   d. Click Flash to install Raspbian to the microSD card.
+   d. Click Flash to install Raspberry Pi OS with desktop to the microSD card.
 
    e. Remove the microSD card from your computer when installation is complete. It's safe to remove the microSD card directly because Etcher automatically ejects or unmounts the microSD card upon completion.
 
@@ -111,13 +112,20 @@ Prepare the microSD card for installation of the Raspbian image.
 
 1. Connect Pi to the monitor, keyboard, and mouse.
 
-2. Start Pi and then sign into Raspbian by using `pi` as the user name and `raspberry` as the password.
+2. Start Pi and then sign into Raspberry Pi OS by using `pi` as the user name and `raspberry` as the password.
 
 3. Click the Raspberry icon > **Preferences** > **Raspberry Pi Configuration**.
 
-   ![The Raspbian Preferences menu](./media/iot-hub-raspberry-pi-kit-node-get-started/1-raspbian-preferences-menu.png)
+   ![The Raspberry Pi OS with Preferences menu](./media/iot-hub-raspberry-pi-kit-node-get-started/1-raspbian-preferences-menu.png)
 
-4. On the **Interfaces** tab, set **I2C** and **SSH** to **Enable**, and then click **OK**. If you don't have physical sensors and want to use simulated sensor data, this step is optional.
+4. On the **Interfaces** tab, set **SSH** and **I2C** to **Enable**, and then click **OK**. 
+ 
+    | Interface | Description |
+    | --------- | ----------- |
+    | *SSH* | Secure Shell (SSH) is used to remote into the Raspberry Pi with a remote command-line. This is the preferred method for issuing the commands to your Raspberry Pi remotely in this document. |
+    | *I2C* | Inter-integrated Circuit (I2C) is a communications protocol used to interface with hardware such as sensors. This interface is required for interfacing with physical sensors in this topic.|
+
+    If you don't have physical sensors and want to use simulated sensor data from your Raspberry Pi device, you can leave **I2C** disabled.
 
    ![Enable I2C and SSH on Raspberry Pi](./media/iot-hub-raspberry-pi-kit-node-get-started/2-enable-i2c-ssh-on-raspberry-pi.png)
 
@@ -126,7 +134,7 @@ Prepare the microSD card for installation of the Raspbian image.
 
 ### Connect the sensor to Pi
 
-Use the breadboard and jumper wires to connect an LED and a BME280 to Pi as follows. If you don’t have the sensor, [skip this section](#connect-pi-to-the-network).
+Use the breadboard and jumper wires to connect an LED and a BME280 to Pi as follows. If you don't have the sensor, [skip this section](#connect-pi-to-the-network).
 
 ![The Raspberry Pi and sensor connection](./media/iot-hub-raspberry-pi-kit-node-get-started/3-raspberry-pi-sensor-connection.png)
 
@@ -143,7 +151,7 @@ For sensor pins, use the following wiring:
 | LED VDD (Pin 18F)        | GPIO 24 (Pin 18)       | White cable   |
 | LED GND (Pin 17F)        | GND (Pin 20)           | Black cable   |
 
-Click to view [Raspberry Pi 2 & 3 pin mappings](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi) for your reference.
+Click to view [Raspberry Pi 2 & 3 pin mappings](/windows/iot-core/learn-about-hardware/pinmappings/pinmappingsrpi) for your reference.
 
 After you've successfully connected BME280 to your Raspberry Pi, it should be like below image.
 
@@ -151,7 +159,7 @@ After you've successfully connected BME280 to your Raspberry Pi, it should be li
 
 ### Connect Pi to the network
 
-Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet cable to connect Pi to your wired network or follow the [instructions from the Raspberry Pi Foundation](https://www.raspberrypi.org/learning/software-guide/wifi/) to connect Pi to your wireless network. After your Pi has been successfully connected to the network, you need to take a note of the [IP address of your Pi](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address).
+Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet cable to connect Pi to your wired network or follow the [instructions from the Raspberry Pi Foundation](https://www.raspberrypi.org/documentation/configuration/wireless/) to connect Pi to your wireless network. After your Pi has been successfully connected to the network, you need to take a note of the [IP address of your Pi](https://www.raspberrypi.org/documentation/remote-access/ip-address.md).
 
 ![Connected to wired network](./media/iot-hub-raspberry-pi-kit-node-get-started/5-power-on-pi.png)
 
@@ -190,20 +198,20 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
    If the version is lower than 10.x, or if there is no Node.js on your Pi, install the latest version.
 
    ```bash
-   curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash
+   curl -sSL https://deb.nodesource.com/setup_16.x | sudo -E bash
    sudo apt-get -y install nodejs
    ```
 
 3. Clone the sample application.
 
    ```bash
-   git clone https://github.com/Azure-Samples/iot-hub-node-raspberrypi-client-app
+   git clone https://github.com/Azure-Samples/azure-iot-samples-node.git
    ```
 
 4. Install all packages for the sample. The installation includes Azure IoT device SDK, BME280 Sensor library, and Wiring Pi library.
 
    ```bash
-   cd iot-hub-node-raspberrypi-client-app
+   cd azure-iot-samples-node/iot-hub/Tutorials/RaspberryPiApp
    npm install
    ```
 
@@ -249,8 +257,16 @@ One way to monitor messages received by your IoT hub from your device is to use 
 
 For more ways to process data sent by your device, continue on to the next section.
 
+## Clean up resources
+
+You can use the resources created in this topic with other tutorials and quickstarts in this document set. If you plan to continue on to work with other quickstarts or with the tutorials, do not clean up the resources created in this topic. If you do not plan to continue, use the following steps to delete all resources created by this topic in the Azure portal.
+
+1. From the left-hand menu in the Azure portal, select **All resources** and then select the IoT Hub you created. 
+1. At the top of the IoT Hub overview pane, click **Delete**.
+1. Enter your hub name and click **Delete** again to confirm permanently deleting the IoT Hub.
+
 ## Next steps
 
-You’ve run a sample application to collect sensor data and send it to your IoT hub.
+You've run a sample application to collect sensor data and send it to your IoT hub.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

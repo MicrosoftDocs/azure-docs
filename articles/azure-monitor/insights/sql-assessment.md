@@ -1,12 +1,10 @@
 ---
 title: Optimize your SQL Server environment with Azure Monitor | Microsoft Docs
 description: With Azure Monitor, you can use the SQL Health Check solution to assess the risk and health of your environments on a regular interval.
-ms.service:  azure-monitor
-ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
-ms.date: 03/28/2019
+author: bwren
+ms.author: bwren
+ms.date: 05/05/2020
 
 ---
 
@@ -30,9 +28,9 @@ After you've added the solution and an assessment is completed, summary informat
 
 ## Prerequisites
 
-* The SQL Health Check solution requires a supported version of .NET Framework 4 installed on each computer that has the Microsoft Monitoring Agent (MMA) installed.  The MMA agent is used by System Center 2016 - Operations Manager and Operations Manager 2012 R2, and Azure Monitor.  
-* The solution supports SQL Server version 2012, 2014, and 2016.
-* A Log Analytics workspace to add the SQL Health Check solution from the Azure marketplace in the Azure portal.  In order to install the solution, you must be an administrator or contributor in the Azure subscription.
+* The SQL Health Check solution requires a supported version of .NET Framework 4.6.2 installed on each computer that has the Microsoft Monitoring Agent (MMA) installed.  The MMA agent is used by System Center 2016 - Operations Manager and Operations Manager 2012 R2, and Azure Monitor.  
+* The solution supports SQL Server version 2012, 2014, 2016, 2017, and 2019.
+* A Log Analytics workspace to add the SQL Health Check solution from the Azure marketplace in the Azure portal. In order to install the solution, you must be an administrator or contributor in the Azure subscription.
 
   > [!NOTE]
   > After you've added the solution, the AdvisorAssessment.exe file is added to servers with agents. Configuration data is read and then sent to Azure Monitor in the cloud for processing. Logic is applied to the received data and the cloud service records the data.
@@ -41,9 +39,9 @@ After you've added the solution and an assessment is completed, summary informat
 
 To perform the health check against your SQL Server servers, they require an agent and connectivity to Azure Monitor using one of the following supported methods:
 
-1. Install the [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md) if the server is not already monitored by System Center 2016 - Operations Manager or Operations Manager 2012 R2.
+1. Install the [Microsoft Monitoring Agent (MMA)](../agents/agent-windows.md) if the server is not already monitored by System Center 2016 - Operations Manager or Operations Manager 2012 R2.
 2. If it is monitored with System Center 2016 - Operations Manager or Operations Manager 2012 R2 and the management group is not integrated with Azure Monitor, the server can be multi-homed with Log Analytics to collect data and forward to the service and still be monitored by Operations Manager.  
-3. Otherwise, if your Operations Manager management group is integrated with the service, you need to add the domain controllers for data collection by the service following the steps under [add agent-managed computers](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) after you enable the solution in your workspace.  
+3. Otherwise, if your Operations Manager management group is integrated with the service, you need to add the domain controllers for data collection by the service following the steps under [add agent-managed computers](../agents/om-agents.md#connecting-operations-manager-to-azure-monitor) after you enable the solution in your workspace.  
 
 The agent on your SQL Server which reports to an Operations Manager management group, collects data, forwards to its assigned management server, and then is sent directly from a management server to Azure Monitor.  The data is not written to the Operations Manager databases.  
 
@@ -192,6 +190,19 @@ If you have recommendations that you want to ignore, you can create a text file 
 3. If you decide later that you want to see ignored recommendations, remove any IgnoreRecommendations.txt files, or you can remove RecommendationIDs from them.
 
 ## SQL Health Check solution FAQ
+
+*What checks are performed by the SQL Assessment solution?*
+
+* The following query shows a description of all checks currently performed:
+
+```Kusto
+SQLAssessmentRecommendation
+| distinct RecommendationId, FocusArea, ActionArea, Recommendation, Description
+| sort by FocusArea,ActionArea, Recommendation
+```
+The results can then be exported to Excel for further review.
+
+
 *How often does a health check run?*
 
 * The check runs every seven days.
@@ -241,4 +252,5 @@ If you have recommendations that you want to ignore, you can create a text file 
 * Yes, see [Ignore recommendations](#ignore-recommendations) section above.
 
 ## Next steps
-* [Log queries](../log-query/log-query-overview.md) to learn how to analyze detailed SQL Health Check data and recommendations.
+* [Log queries](../logs/log-query-overview.md) to learn how to analyze detailed SQL Health Check data and recommendations.
+

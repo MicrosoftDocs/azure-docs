@@ -1,65 +1,112 @@
 ### YamlMime:Landing
 
-title: Azure API for FHIR Documentation
-summary: Azure API for FHIR is a managed, standards-based, compliant API for clinical health data that enables solutions for actionable analytics and machine learning. 
+title: Azure Healthcare APIs (preview) documentation
+summary: Documentation for all of Azure Healthcare APIs (preview) services, including FHIR, DICOM, and Data Transformation.
 
 metadata:
-  title: Azure API for FHIR Documentation - tutorials, how-to guides
-  description: Azure API for FHIR is a managed, standards-based, compliant API for clinical health data that enables solutions for actionable analytics and machine learning. 
+  title: Azure Healthcare APIs documentation
+  description: documentation for all of Azure Healthcare APIs products and services, including FHIR, DICOM, and Data Transformation
   services: healthcare-apis
   ms.service: healthcare-apis
-  ms.subservice: fhir
   ms.topic: landing-page 
   ms.collection: collection
-  author: hansenms
-  ms.author: mihansen
-  ms.date: 11/06/2019
+  author: ginalee-dotcom
+  ms.author: ginle
+  ms.date: 06/01/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
 
-  - title: Start with Azure API for FHIR
+  - title: What is Healthcare APIs?
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure API for FHIR?
-            url: overview.md
-          - text: What is FHIR Server for Azure?
-            url: overview-open-source-server.md
-      - linkListType: quickstart
+          - text: About Healthcare APIs
+            url: healthcare-apis-overview.md
+          - text: About workspace
+            url: workspace-overview.md
+      - linkListType: deploy
         links:
-          - text: Deploy API Server for FHIR
-            url: fhir-paas-portal-quickstart.md 
-          - text: Deploy open source FHIR Server
-            url: fhir-oss-portal-quickstart.md
-
-  - title: Set-up tutorials
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Active Directory configuration
-            url: tutorial-1-decision-flow.md
-          - text: Set up a dev environment & create a sample app
-            url: tutorial-2-setup-environment.md
-          - text: Connect to an Azure API for FHIR endpoint
-            url: tutorial-2-setup-environment.md
-      - linkListType: tutorial
-        links:
-          - text: Access FHIR API with Postman
-            url: access-fhir-postman-tutorial.md
-          - text: SMART integration for third-party apps & medical records
-            url: use-smart-on-fhir-proxy.md
-
-  - title: Register apps for AD authentication
+          - text: Getting started with Healthcare APIs
+            url: healthcare-apis-quickstart.md
+  
+  - title: Using Healthcare APIs
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Register a resource app
-            url: register-resource-azure-ad-client-app.md
-          - text: Register a confidential client app
-            url: register-confidential-azure-ad-client-app.md
-          - text: Register a public client app
-            url: register-public-azure-ad-client-app.md
-          - text: Register a service client app
-            url: register-service-azure-ad-client-app.md       
+          - text: Authentication & Authorization
+            url: authentication-authorization.md
+          - text: Access using REST Client
+            url: using-rest-client.md
+      - linkListType: reference
+        links:
+          - text: Healthcare APIs FAQs
+            url: healthcare-apis-faqs.md
+
+  
+  - title: Transfer and Transform Data
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Export data
+            url: ./data-transformation/export-data.md
+          - text: Export data to Synapse
+            url: ./data-transformation/move-to-synapse.md
+      - linkListType: concept
+        links:
+          - text: Convert data
+            url: ./data-transformation/convert-data.md
+  
+  - title: FHIR service
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: About FHIR service
+            url: ./fhir/overview.md
+      - linkListType: deploy
+        links:
+          - text: Deploy FHIR service using portal
+            url: ./fhir/fhir-portal-quickstart.md
+      - linkListType: tutorial
+        links:
+          - text: Interoperability and Patient Access
+            url: ./fhir/cms-tutorial-introduction.md
+          - text: FHIR search operation
+            url: ./fhir/overview-of-search.md
+
+  - title: DICOM service
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: About DICOM service 
+            url: ./dicom/dicom-services-overview.md
+      - linkListType: deploy
+        links:
+          - text: Deploy DICOM service using portal
+            url: ./dicom/deploy-dicom-services-in-azure.md
+      - linkListType: tutorial
+        links:
+          - text: DICOMweb Standard APIs
+            url: ./dicom/dicomweb-standard-apis-with-dicom-services.md
+          - text: DICOM change feed
+            url: ./dicom/pull-dicom-changes-from-change-feed.md
+  
+  - title: IoT Connector
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: About IoT Connector
+            url: ./iot/iot-connector-overview.md
+      - linkListType: deploy
+        links:
+          - text: Deploy IoT Connector Using Portal
+            url: ./iot/deploy-iot-connector-in-azure.md
+      - linkListType: tutorial
+        links:
+          - text: Receive device data through IoT Hub
+            url: ./iot/device-data-through-iot-hub.md
+
+
+ 
+            

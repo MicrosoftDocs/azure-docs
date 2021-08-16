@@ -1,13 +1,10 @@
 ---
 title: Common questions about Azure Site Recovery monitoring 
 description: Get answers to common questions about Azure Site Recovery monitoring, using inbuilt monitoring and Azure Monitor (Log Analytics)
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.date: 07/31/2019
 ms.topic: conceptual
-ms.author: raynew
 ---
 # Common questions about Site Recovery monitoring
 
@@ -46,7 +43,7 @@ Only machines for which initial replication has completed are included in the co
 ## Azure Monitor logging
 
 
-### How often does Site Recovery send diagnostic logs to Azure Monitor Log? 
+### How often does Site Recovery send resource logs to Azure Monitor Log? 
 
 - AzureSiteRecoveryReplicationStats and AzureSiteRecoveryRecoveryPoints are sent every 15 minutes.  
 - AzureSiteRecoveryReplicationDataUploadRate and AzureSiteRecoveryProtectedDiskDataChurn are sent every five minutes. 
@@ -58,7 +55,7 @@ Only machines for which initial replication has completed are included in the co
 
 By default, retention is for 31 days. You can increase the period in the **Usage and Estimated Cost** section in the Log Analytics workspace. Click on **Data Retention**, and choose the range.
 
-### What's the size of the diagnostic logs? 
+### What's the size of the resource logs? 
 
 Typically the size of a log is 15-20 KB. 
 

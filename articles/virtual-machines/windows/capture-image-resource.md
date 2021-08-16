@@ -1,69 +1,25 @@
 ---
 title: Create a managed image in Azure 
 description: Create a managed image of a generalized VM or VHD in Azure. Images can be used to create multiple VMs that use managed disks. 
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: imaging
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/27/2018
 ms.author: cynthn
+ms.custom: legacy
 
 ---
 # Create a managed image of a generalized VM in Azure
 
 A managed image resource can be created from a generalized virtual machine (VM) that is stored as either a managed disk or an unmanaged disk in a storage account. The image can then be used to create multiple VMs. For information on how managed images are billed, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
- 
+One managed image supports up to 20 simultaneous deployments. Attempting to create more than 20 VMs concurrently, from the same managed image, may result in provisioning timeouts due to the storage performance limitations of a single VHD. To create more than 20 VMs concurrently, use a [Shared Image Galleries](../shared-image-galleries.md) image configured with 1 replica for every 20 concurrent VM deployments.
 
-## Generalize the Windows VM using Sysprep
+## Prerequisites
 
-Sysprep removes all your personal account and security information, and then prepares the machine to be used as an image. For information about Sysprep, see [Sysprep overview](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
-
-Make sure the server roles running on the machine are supported by Sysprep. For more information, see [Sysprep support for server roles](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) and [Unsupported scenarios](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios).
-
-> [!IMPORTANT]
-> After you have run Sysprep on a VM, that VM is considered *generalized* and cannot be restarted. The process of generalizing a VM is not reversible. If you need to keep the original VM functioning, you should create a [copy of the VM](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) and generalize its copy. 
->
-> If you plan to run Sysprep before uploading your virtual hard disk (VHD) to Azure for the first time, make sure you have [prepared your VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
-> 
-> 
-
-To generalize your Windows VM, follow these steps:
-
-1. Sign in to your Windows VM.
-   
-2. Open a Command Prompt window as an administrator. Change the directory to %windir%\system32\sysprep, and then run `sysprep.exe`.
-   
-3. In the **System Preparation Tool** dialog box, select **Enter System Out-of-Box Experience (OOBE)** and select the **Generalize** check box.
-   
-4. For **Shutdown Options**, select **Shutdown**.
-   
-5. Select **OK**.
-   
-    ![Start Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
-
-6. When Sysprep completes, it shuts down the VM. Do not restart the VM.
-
-> [!TIP]
-> **Optional** Use [DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options) to optimize your image and reduce your VM's first boot time.
->
-> To optimize your image, mount your VHD by double-clicking on it in Windows explorer, and then run DISM with the `/optimize-image` parameter.
->
-> ```cmd
-> DISM /image:D:\ /optimize-image /boot
-> ```
-> Where D: is the mounted VHD's path.
->
-> Running `DISM /optimize-image` should be the last modification you make to your VHD. If you make any changes to your VHD prior to deployment, you'll have to run `DISM /optimize-image` again.
+You need a [generalized](../generalize.md) VM in order to create an image.
 
 ## Create a managed image in the portal 
 
@@ -89,7 +45,7 @@ After the image is created, you can find it as an **Image** resource in the list
 
 
 
-## Create an image of a VM using Powershell
+## Create an image of a VM using PowerShell
 
  
 
@@ -180,7 +136,7 @@ If you want to create an image of only the OS disk, specify the managed disk ID 
     ```	
 
 
-## Create an image from a snapshot using Powershell
+## Create an image from a snapshot using PowerShell
 
 You can create a managed image from a snapshot of a generalized VM by following these steps:
 
@@ -248,5 +204,4 @@ To create a managed image from a VM that doesn't use managed disks, you need the
 
 	
 ## Next steps
-- [Create a VM from a managed image](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).	
-
+- [Create a VM from a managed image](create-vm-generalized-managed.md).	

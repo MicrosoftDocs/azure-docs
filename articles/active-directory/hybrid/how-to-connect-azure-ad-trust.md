@@ -1,7 +1,6 @@
 ---
 title: Azure AD Connect - Manage AD FS trust with Azure AD using Azure AD Connect | Microsoft Docs
 description: Operational details of Azure AD trust handling by Azure AD connect.
-keywords: AD FS, ADFS, AD FS management, AAD Connect, Connect, Azure AD, trust, AAD, claim, claim, claim rules, issuance, transform, rules, backup, restore
 services: active-directory
 documentationcenter: ''
 ms.reviewer: anandyadavmsft
@@ -12,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/28/2018
 ms.author: billmath
 author: billmath
@@ -23,11 +22,12 @@ ms.collection: M365-identity-device-management
 
 ## Overview
 
-Azure AD Connect can manage federation between on-premises Active Directory Federation Service (AD FS) and Azure AD. This article provides an overview of:
+When you federate your on-premises environment with Azure AD, you establish a trust relationship between the on-premises identity provider and Azure AD.  Azure AD Connect can manage federation between on-premises Active Directory Federation Service (AD FS) and Azure AD. This article provides an overview of:
 
 * The various settings configured on the trust by Azure AD Connect
 * The issuance transform rules (claim rules) set by Azure AD Connect
 * How to back-up and restore your claim rules between upgrades and configuration updates. 
+* Best practice for securing and monitoring the AD FS trust with Azure AD
 
 ## Settings controlled by Azure AD Connect
 
@@ -58,7 +58,7 @@ Azure AD connect does not update all settings for Azure AD trust during configur
 | Add WAP server | None |
 | Device options | Issuance transform rules, IWA for device registration |
 | Add federated domain | If the domain is being added for the first time, that is, the setup is changing from single domain federation to multi-domain federation – Azure AD Connect will recreate the trust from scratch. If the trust with Azure AD is already configured for multiple domains, only Issuance transform rules are modified |
-| Update SSL | None |
+| Update TLS | None |
 
 During all operations, in which, any setting is modified, Azure AD Connect makes a backup of the current trust settings at **%ProgramData%\AADConnect\ADFS**
 
@@ -112,6 +112,11 @@ You can restore the issuance transform rules using the suggested steps below
 
 > [!NOTE]
 > Make sure that your additional rules do not conflict with the rules configured by Azure AD Connect.
+
+## Best practice for securing and monitoring the AD FS trust with Azure AD
+When you federate your AD FS with Azure AD, it is critical that the federation configuration (trust relationship configured between AD FS and Azure AD) is monitored closely, and any unusual or suspicious activity is captured. To do so, we recommend setting up alerts and getting notified whenever any changes are made to the federation configuration. To learn how to setup alerts, see [Monitor changes to federation configuration](how-to-connect-monitor-federation-changes.md). 
+
+
 
 ## Next steps
 * [Manage and customize Active Directory Federation Services using Azure AD Connect](how-to-connect-fed-management.md)

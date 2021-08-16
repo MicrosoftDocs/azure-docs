@@ -6,7 +6,8 @@ ms.service: iot-hub
 author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
-ms.author: asrastog
+ms.author: asrastog 
+
 ---
 
 # Order device connection events from Azure IoT Hub using Azure Cosmos DB
@@ -23,7 +24,7 @@ The sequence number is a string representation of a hexadecimal number. You can 
 
 * A collection in your database. See [Add a collection](../cosmos-db/create-sql-api-java.md#add-a-container) for a walkthrough. When you create your collection, use `/id` for the partition key.
 
-* An IoT Hub in Azure. If you haven't created one yet, see [Get started with IoT Hub](iot-hub-csharp-csharp-getstarted.md) for a walkthrough.
+* An IoT Hub in Azure. If you haven't created one yet, see [Get started with IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) for a walkthrough.
 
 ## Create a stored procedure
 
@@ -221,11 +222,11 @@ In your logic app workflow, conditions help run specific actions after passing t
 
 5. Select **Add new parameter**. In the dropdown that appears, check the boxes next to **Partition key** and **Parameters for the stored procedure**, then click anywhere else on the screen; it adds a field for partition key value and a field for parameters for the stored procedure.
 
-   ![populate logic app action](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.png)
+   ![Screenshot shows an Execute stored procedure item with Add new parameter selected.](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.png)
 
 6. Now enter the partition key value and parameters as shown below. Be sure to put in the brackets and double-quotes as shown. You may have to click **Add dynamic content** to get the valid values you can use here.
 
-   ![populate logic app action](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
+   ![Screenshot shows an Execute stored procedure item with parameters entered.](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
 
 7. At the top of the pane where it says **For Each**, under **Select an output from previous steps**, make sure it  **Body** is selected.
 
@@ -329,7 +330,7 @@ You can see results of the executed stored procedure in your Cosmos DB document.
 
 ## Use the Azure CLI
 
-Instead of using the [Azure portal](https://portal.azure.com), you can accomplish the IoT Hub steps using the Azure CLI. For details, see the Azure CLI pages for [creating an event subscription](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) and [creating an IoT device](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create).
+Instead of using the [Azure portal](https://portal.azure.com), you can accomplish the IoT Hub steps using the Azure CLI. For details, see the Azure CLI pages for [creating an event subscription](/cli/azure/eventgrid/event-subscription) and [creating an IoT device](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create).
 
 ## Clean up resources
 
@@ -355,7 +356,7 @@ If you don't want to lose the work on your logic app, disable it instead of dele
 
 7. Select **Delete**.
 
-To remove an Azure Cosmos DB account from the Azure portal, right-click the account name and click **Delete account**. See detailed instructions for [deleting an Azure Cosmos DB account](https://docs.microsoft.com/azure/cosmos-db/manage-account).
+To remove an Azure Cosmos DB account from the Azure portal, right-click the account name and click **Delete account**. See detailed instructions for [deleting an Azure Cosmos DB account](../cosmos-db/how-to-manage-database-account.md).
 
 ## Next steps
 

@@ -7,8 +7,10 @@ ms.author: tamram
 ---
 Every blob in Azure storage must reside in a container. The container forms part of the blob name. For example, `mycontainer` is the name of the container in these sample blob URIs:
 
-    https://storagesample.blob.core.windows.net/mycontainer/blob1.txt
-    https://storagesample.blob.core.windows.net/mycontainer/photos/myphoto.jpg
+```http
+https://storagesample.blob.core.windows.net/mycontainer/blob1.txt
+https://storagesample.blob.core.windows.net/mycontainer/photos/myphoto.jpg
+```
 
 A container name must be a valid DNS name, conforming to the following naming rules:
 

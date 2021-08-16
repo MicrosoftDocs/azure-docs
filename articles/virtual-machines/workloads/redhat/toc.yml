@@ -1,0 +1,32 @@
+- name: Overview
+  href: overview.md
+- name: Red Hat Enterprise Linux Images on Azure
+  items:
+  - name: RHEL in-place upgrade
+    href: redhat-in-place-upgrade.md
+  - name: RHEL BYOS image Offers
+    href: byos.md
+  - name: RHEL extended lifecyle support
+    href: redhat-extended-lifecycle-support.md
+  - name: RHEL image list
+    href: redhat-imagelist.md
+  - name: RHEL image overview
+    href: redhat-images.md  
+  - name: RHUI in Azure
+    href: redhat-rhui.md
+- name: Red Hat Enterprise Java on Azure
+  items: 
+  - name: JBoss EAP on Azure
+    href: /azure/developer/java/ee/jboss-on-azure
+  - name: JBoss EAP + RHEL on VMs
+    href: jboss-eap-on-rhel.md
+  - name: JBoss EAP marketplace image
+    href: jboss-eap-marketplace-image.md
+  - name: JBoss EAP on Azure best practices
+    href: jboss-eap-on-azure-best-practices.md
+  - name: Migrate JBoss EAP to Azure VMs
+    href: jboss-eap-on-azure-migration.md
+  - name: Migrate JBoss EAP to App Service
+    href: ./overview.md
+  - name: WildFly + CentOS on VM
+    href: wildfly-on-centos.md

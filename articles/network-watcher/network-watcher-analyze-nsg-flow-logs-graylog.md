@@ -3,19 +3,19 @@ title: Analyze Azure network security group flow logs - Graylog | Microsoft Docs
 description: Learn how to manage and analyze network security group flow logs in Azure using Network Watcher and Graylog.
 services: network-watcher
 documentationcenter: na
-author: mattreatMSFT
-manager: vitinnan
+author: damendo
+
 editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
-ms.author: mareat
+ms.author: damendo
 ---
 
 # Manage and analyze network security group flow logs in Azure using Network Watcher and Graylog
@@ -53,7 +53,7 @@ Graylog can be installed in many ways, depending on your platform and preference
 [documentation](https://docs.graylog.org/en/2.2/pages/installation.html). The Graylog server application runs on Linux distributions and has the following
 prerequisites:
 
--  Java SE 8 or later – [Azul Azure JDK documentation](https://aka.ms/azure-jdks)
+-  Java SE 8 or later – [JDK installation documentation](/azure/developer/java/fundamentals/java-jdk-install)
 -  Elastic Search 2.x (2.1.0 or later) - [Elasticsearch installation documentation](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/_installation.html)
 -  MongoDB 2.4 or later – [MongoDB installation documentation](https://docs.mongodb.com/manual/administration/install-on-linux/)
 
@@ -187,11 +187,11 @@ Now that you have established a connection to the flow logs using Logstash and s
 
    Make sure to bind the input to the IP you configured your Graylog server on. The IP address should match the **host** field of the UDP output of the Logstash configuration file. The default port should be *12201*. Ensure the port matches the **port** field in the UDP output designated in the Logstash config file.
 
-   ![Inputs](./media/network-watcher-analyze-nsg-flow-logs-graylog/inputs.png)
+   ![Screenshot shows the Graylog Inputs, with options to launch and find inputs.](./media/network-watcher-analyze-nsg-flow-logs-graylog/inputs.png)
 
    Once you launch the input, you should see it appear under the **Local inputs** section, as shown in the following picture:
 
-   ![](./media/network-watcher-analyze-nsg-flow-logs-graylog/local-inputs.png)
+   ![Screenshot that shows the Local inputs section that contains the input you launched.](./media/network-watcher-analyze-nsg-flow-logs-graylog/local-inputs.png)
 
    To learn more about Graylog message inputs, refer to the [documentation](https://docs.graylog.org/en/2.2/pages/sending_data.html#what-are-graylog-message-inputs).
 
@@ -201,11 +201,11 @@ Now that you have established a connection to the flow logs using Logstash and s
 
 After allowing some time for your Graylog server to collect messages, you are able to search through the messages. To check the messages being sent to your Graylog server, from the **Inputs** configuration page click the “**Show received messages**” button of the GELF UDP input you created. You are directed to a screen that looks similar to the following picture: 
 
-![Histogram](./media/network-watcher-analyze-nsg-flow-logs-graylog/histogram.png)
+![Screenshot shows the Graylog server that displays Search result, Histogram, and Messages.](./media/network-watcher-analyze-nsg-flow-logs-graylog/histogram.png)
 
 Clicking on the blue “%{Message}” link expands each message to show the parameters of each flow tuple, as shown in the following picture:
 
-![Messages](./media/network-watcher-analyze-nsg-flow-logs-graylog/messages.png)
+![Screenshot shows message detail from the Graylog server.](./media/network-watcher-analyze-nsg-flow-logs-graylog/messages.png)
 
 By default, all message fields are included in the search if you don’t select a specific message field to search for. If you want to search for specific messages (i.e – flow tuples from a specific source IP) you can use the Graylog search query language as [documented](https://docs.graylog.org/en/2.2/pages/queries.html)
 
@@ -220,7 +220,7 @@ Now that Graylog it set up running, you can use some of its functionality to bet
 2. From there, click the green **Create dashboard** button and fill out the short form with the title and description of your dashboard. Hit the
     **Save** button to create the new dashboard. You see a dashboard similar to the following picture:
 
-    ![Dashboards](./media/network-watcher-analyze-nsg-flow-logs-graylog/dashboards.png)
+    ![Screenshot shows Graylog server Dashboards, with the options to create and edit dashboards.](./media/network-watcher-analyze-nsg-flow-logs-graylog/dashboards.png)
 
 ### Add widgets
 

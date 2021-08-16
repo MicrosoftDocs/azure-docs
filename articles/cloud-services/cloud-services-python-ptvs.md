@@ -1,17 +1,19 @@
 ---
-title: Get started with Python and Azure Cloud Services | Microsoft Docs
+title: Get started with Python and Azure Cloud Services (classic)| Microsoft Docs
 description: Overview of using Python Tools for Visual Studio to create Azure cloud services including web roles and worker roles.
-services: cloud-services
-documentationcenter: python
-author: georgewallace
+ms.topic: article
 ms.service: cloud-services
-ms.devlang: python
-ms.topic: conceptual
-ms.date: 07/18/2017
-ms.author: gwallace
-
+ms.date: 10/14/2020
+author: hirenshah1
+ms.author: hirshah
+ms.reviewer: mimckitt
+ms.custom: 
 ---
+
 # Python web and worker roles with Python Tools for Visual Studio
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
 
 This article provides an overview of using Python web and worker roles using [Python Tools for Visual Studio][Python Tools for Visual Studio]. Learn how to use Visual Studio to create and deploy a basic Cloud Service that uses Python.
 
@@ -21,7 +23,7 @@ This article provides an overview of using Python web and worker roles using [Py
 * [Azure SDK Tools for VS 2013][Azure SDK Tools for VS 2013] or  
 [Azure SDK Tools for VS 2015][Azure SDK Tools for VS 2015] or  
 [Azure SDK Tools for VS 2017][Azure SDK Tools for VS 2017]
-* [Python 2.7 32-bit][Python 2.7 32-bit] or [Python 3.5 32-bit][Python 3.5 32-bit]
+* [Python 2.7 32-bit][Python 2.7 32-bit] or [Python 3.8 32-bit][Python 3.8 32-bit]
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -64,7 +66,7 @@ Your cloud service can contain roles implemented in different languages.  For ex
 
 The main problem with the setup scripts is that they do not install python. First, define two [startup tasks](cloud-services-startup-tasks.md) in the [ServiceDefinition.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) file. The first task (**PrepPython.ps1**) downloads and installs the Python runtime. The second task (**PipInstaller.ps1**) runs pip to install any dependencies you may have.
 
-The following scripts were written targeting Python 3.5. If you want to use the version 2.x of python, set the **PYTHON2** variable file to **on** for the two startup tasks and the runtime task: `<Variable name="PYTHON2" value="<mark>on</mark>" />`.
+The following scripts were written targeting Python 3.8. If you want to use the version 2.x of python, set the **PYTHON2** variable file to **on** for the two startup tasks and the runtime task: `<Variable name="PYTHON2" value="<mark>on</mark>" />`.
 
 ```xml
 <Startup>
@@ -160,7 +162,7 @@ The **PYTHON2** and **PYPATH** variables must be added to the worker startup tas
 Next, create the **PrepPython.ps1** and **PipInstaller.ps1** files in the **./bin** folder of your role.
 
 #### PrepPython.ps1
-This script installs python. If the **PYTHON2** environment variable is set to **on**, then Python 2.7 is installed, otherwise Python 3.5 is installed.
+This script installs python. If the **PYTHON2** environment variable is set to **on**, then Python 2.7 is installed, otherwise Python 3.8 is installed.
 
 ```powershell
 [Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls"
@@ -179,12 +181,12 @@ if (-not $is_emulated){
 
     if (-not $?) {
 
-        $url = "https://www.python.org/ftp/python/3.5.2/python-3.5.2-amd64.exe"
-        $outFile = "${env:TEMP}\python-3.5.2-amd64.exe"
+        $url = "https://www.python.org/ftp/python/3.8.8/python-3.8.8-amd64.exe"
+        $outFile = "${env:TEMP}\python-3.8.8-amd64.exe"
 
         if ($is_python2) {
-            $url = "https://www.python.org/ftp/python/2.7.12/python-2.7.12.amd64.msi"
-            $outFile = "${env:TEMP}\python-2.7.12.amd64.msi"
+            $url = "https://www.python.org/ftp/python/2.7.18/python-2.7.18.amd64.msi"
+            $outFile = "${env:TEMP}\python-2.7.18.amd64.msi"
         }
 
         Write-Output "Not found, downloading $url to $outFile$nl"
@@ -207,7 +209,7 @@ if (-not $is_emulated){
 ```
 
 #### PipInstaller.ps1
-This script calls up pip and installs all of the dependencies in the **requirements.txt** file. If the **PYTHON2** environment variable is set to **on**, then Python 2.7 is used, otherwise Python 3.5 is used.
+This script calls up pip and installs all of the dependencies in the **requirements.txt** file. If the **PYTHON2** environment variable is set to **on**, then Python 2.7 is used, otherwise Python 3.8 is used.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -242,7 +244,7 @@ if (-not $is_emulated){
 
 The **bin\LaunchWorker.ps1** was originally created to do a lot of prep work but it doesn't really work. Replace the contents in that file with the following script.
 
-This script calls the **worker.py** file from your python project. If the **PYTHON2** environment variable is set to **on**, then Python 2.7 is used, otherwise Python 3.5 is used.
+This script calls the **worker.py** file from your python project. If the **PYTHON2** environment variable is set to **on**, then Python 2.7 is used, otherwise Python 3.8 is used.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -282,7 +284,7 @@ else
 #### ps.cmd
 The Visual Studio templates should have created a **ps.cmd** file in the **./bin** folder. This shell script calls out the PowerShell wrapper scripts above and provides logging based on the name of the PowerShell wrapper called. If this file wasn't created, here is what should be in it. 
 
-```bat
+```cmd
 @echo off
 
 cd /D %~dp0
@@ -351,10 +353,10 @@ For more details about using Azure services from your web and worker roles, such
 <!--External Link references-->
 
 [Python Tools for Visual Studio]: https://aka.ms/ptvs
-[Python Tools for Visual Studio Documentation]: https://aka.ms/ptvsdocs
-[Cloud Service Projects]: https://docs.microsoft.com/visualstudio/python/python-azure-cloud-service-project-template
+[Python Tools for Visual Studio Documentation]: /visualstudio/python/
+[Cloud Service Projects]: /visualstudio/python/python-azure-cloud-service-project-template
 [Azure SDK Tools for VS 2013]: https://go.microsoft.com/fwlink/?LinkId=746482
 [Azure SDK Tools for VS 2015]: https://go.microsoft.com/fwlink/?LinkId=746481
 [Azure SDK Tools for VS 2017]: https://go.microsoft.com/fwlink/?LinkId=746483
 [Python 2.7 32-bit]: https://www.python.org/downloads/
-[Python 3.5 32-bit]: https://www.python.org/downloads/
+[Python 3.8 32-bit]: https://www.python.org/downloads/

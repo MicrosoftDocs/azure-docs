@@ -2,20 +2,15 @@
 title: 'Tutorial: Configure Peakon automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Peakon .
 services: active-directory
-documentationcenter: ''
-author: zchia
-writer: zchia
-manager: beatrizd
-
-ms.assetid: na
+author: twimmers
+writer: twimmers
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/28/2019
-ms.author: zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Peakon for automatic user provisioning
@@ -23,7 +18,7 @@ ms.author: zhchia
 The objective of this tutorial is to demonstrate the steps to be performed in Peakon  and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Peakon.
 
 > [!NOTE]
->  This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
+>  This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > This connector is currently in Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 ## Prerequisites
@@ -46,7 +41,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 * It is recommended that a single Azure AD user is assigned to Peakon  to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
 
-* When assigning a user to Peakon , you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
+* When assigning a user to Peakon, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
 ## Set up Peakon for provisioning
 
@@ -56,11 +51,11 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 2. 	Select **Integrations**.
 	
-	![Peakon-employee-provision](media/Peakon-provisioning-tutorial/Peakon-select-integration.png)
+	![Screenshot of the Configuration options with the Integrations option called out.](media/Peakon-provisioning-tutorial/Peakon-select-integration.png)
 
 3.	Enable **Employee Provisioning**.
 
-	![Peakon-employee-provision](media/Peakon-provisioning-tutorial/peakon05.png)
+	![Screenshot of the Employee Provisioning section with the Enable option called out.](media/Peakon-provisioning-tutorial/peakon05.png)
 
 4.	Copy the values for **SCIM 2.0 URL** and **OAuth Bearer Token**. These values will be entered in the **Tenant URL** and **Secret Token** field in the Provisioning tab of your Peakon application in the Azure portal.
 
@@ -105,11 +100,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input the **SCIM 2.0 URL** and **OAuth Bearer Token** values retrieved earlier in **Tenant URL** and **Secret Token** respectively. Click **Test Connection** to ensure Azure AD can connect to Peakon. If the connection fails, ensure your Peakon account has Admin permissions and try again.
 
@@ -129,7 +124,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Peakon User Attributes](media/Peakon-provisioning-tutorial/Peakon-user-attributes.png)
 
-12. To configure scoping filters, refer to the following instructions provided in the 		[Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+12. To configure scoping filters, refer to the following instructions provided in the 		[Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 	
 	![Provisioning Scope](common/provisioning-scope.png)
 
@@ -139,7 +134,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Peakon.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## Connector limitations
 
@@ -147,8 +142,8 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 ## Additional resources
 
-* [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
+* [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)

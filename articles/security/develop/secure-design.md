@@ -9,16 +9,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-develop
 services: azure
-
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
 ---
 
 # Design secure applications on Azure
 In this article we present security activities and controls to consider when you design applications for the cloud. Training resources along with security questions and concepts to consider during the requirements and design phases of the Microsoft [Security Development Lifecycle
-(SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) are covered. The goal is to help you define activities and Azure services that you can use to design a more secure application.
+(SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) are covered. The goal is to help you define activities and Azure services that you can use to design a more secure application.
 
 The following SDL phases are covered in this article:
 
@@ -37,7 +33,7 @@ Use the following resources during the training stage to familiarize
 yourself with the Azure services that are available to developers and
 with security best practices on Azure:
 
-  - [Developer’s guide to
+  - [Developer's guide to
     Azure](https://azure.microsoft.com/campaigns/developer-guide/) shows
     you how to get started with Azure. The guide shows you which
     services you can use to run your applications, store your data,
@@ -50,22 +46,22 @@ with security best practices on Azure:
     started using the Azure platform for their development needs.
 
   - [SDKs and
-    tools](https://docs.microsoft.com/azure/index#pivot=sdkstools)
+    tools](../../index.yml?pivot=sdkstools)
     describes the tools that are available on Azure.
 
   - [Azure DevOps
-    Services](https://docs.microsoft.com/azure/devops/)
+    Services](/azure/devops/)
     provides development collaboration tools. The tools include
     high-performance pipelines, free Git repositories, configurable
     Kanban boards, and extensive automated and cloud-based load testing.
     The [DevOps Resource
-    Center](https://docs.microsoft.com/azure/devops/learn/) combines our
+    Center](/azure/devops/learn/) combines our
     resources for learning DevOps practices, Git version control, agile
     methods, how we work with DevOps at Microsoft, and how you can
     assess your own DevOps progression.
 
   - [Top 5 security items to consider before pushing to
-    production](https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider/index?WT.mc_id=Learn-Blog-tajanca)
+    production](/learn/modules/top-5-security-items-to-consider/index?WT.mc_id=Learn-Blog-tajanca)
     shows you how to help secure your web applications on Azure and
     protect your apps against the most common and dangerous web
     application attacks.
@@ -108,14 +104,14 @@ Ask security questions like:
   - Does my application contain sensitive data?
 
   - Does my application collect or store data that requires me to adhere
-    to industry standards and compliance programs like the [Federal Financial Institution Examination Council (FFIEC)](../blueprints/ffiec-analytics-overview.md) or the [Payment Card Industry Data Security Standards (PCI DSS)](../blueprints/pcidss-analytics-overview.md)?
+    to industry standards and compliance programs like the [Federal Financial Institution Examination Council (FFIEC)](/previous-versions/azure/security/blueprints/ffiec-analytics-overview) or the [Payment Card Industry Data Security Standards (PCI DSS)](/previous-versions/azure/security/blueprints/pcidss-analytics-overview)?
 
   - Does my application collect or contain sensitive personal or
     customer data that can be used, either on its own or with other
     information, to identify, contact, or locate a single person?
 
   - Does my application collect or contain data that can be used to
-    access an individual’s medical, educational, financial, or
+    access an individual's medical, educational, financial, or
     employment information? Identifying the sensitivity of your data
     during the requirements phase helps you classify your data and
     identify the data protection method you will use for your
@@ -160,7 +156,7 @@ Awareness of these security risks can help you make requirement and
 design decisions that minimize these risks in your application.
 
 Thinking about security controls to prevent breaches is important.
-However, you also want to [assume a breach](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/security-in-devops)
+However, you also want to [assume a breach](/devops/operate/security-in-devops)
 will occur. Assuming a breach helps answer some important questions
 about security in advance, so they don't have to be answered in an
 emergency:
@@ -227,11 +223,11 @@ environments (IDEs) and editors that have advanced debugging
 capabilities and built-in Azure support.
 
 Microsoft offers a variety of [languages, frameworks, and
-tools](https://docs.microsoft.com/azure/index#pivot=sdkstools&panel=sdkstools-all)
+tools](../../index.yml?panel=sdkstools-all&pivot=sdkstools)
 that you can use to develop applications on Azure. An example is [Azure
 for .NET and .NET Core
-developers](https://docs.microsoft.com/dotnet/azure/). For each language
-and framework that we offer, you’ll find quickstarts, tutorials, and API
+developers](/dotnet/azure/). For each language
+and framework that we offer, you'll find quickstarts, tutorials, and API
 references to help you get started fast.
 
 Azure offers a variety of services you can use to host websites and web
@@ -298,31 +294,31 @@ threats—Spoofing, Tampering, Repudiation, Information Disclosure, Denial
 of Service, and Elevation of Privilege—across all trust boundaries has
 proven an effective way to catch design errors early on. The following
 table lists the STRIDE threats and gives some example mitigations that
-use features provided by Azure. These mitigations won’t work in every
+use features provided by Azure. These mitigations won't work in every
 situation.
 
 | Threat | Security property | Potential Azure platform mitigation |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Spoofing               | Authentication        | [Require HTTPS connections](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
-| Tampering              | Integrity             | Validate SSL/TLS certificates. Applications that use SSL/TLS must fully verify the X.509 certificates of the entities they connect to. Use Azure Key Vault certificates to [manage your x509 certificates](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-certificates). |
-| Repudiation            | Non-repudiation       | Enable Azure [monitoring and diagnostics](https://docs.microsoft.com/azure/architecture/best-practices/monitoring).|
+| Spoofing               | Authentication        | [Require HTTPS connections](/aspnet/core/security/enforcing-ssl?tabs=visual-studio). |
+| Tampering              | Integrity             | Validate SSL/TLS certificates. Applications that use SSL/TLS must fully verify the X.509 certificates of the entities they connect to. Use Azure Key Vault certificates to [manage your x509 certificates](../../key-vault/general/about-keys-secrets-certificates.md). |
+| Repudiation            | Non-repudiation       | Enable Azure [monitoring and diagnostics](/azure/architecture/best-practices/monitoring).|
 | Information Disclosure | Confidentiality       | Encrypt sensitive data [at rest](../fundamentals/encryption-atrest.md) and [in transit](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
-| Denial of Service      | Availability          | Monitor performance metrics for potential denial of service conditions. Implement connection filters. [Azure DDoS protection](../../virtual-network/ddos-protection-overview.md#next-steps), combined with application design best practices, provides defense against DDoS attacks.|
+| Denial of Service      | Availability          | Monitor performance metrics for potential denial of service conditions. Implement connection filters. [Azure DDoS protection](../../ddos-protection/ddos-protection-overview.md#next-steps), combined with application design best practices, provides defense against DDoS attacks.|
 | Elevation of Privilege | Authorization         | Use Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md).|
 
 ### Reduce your attack surface
 
 An attack surface is the total sum of where potential vulnerabilities
-might occur. In this paper, we focus on an application’s attack surface.
+might occur. In this paper, we focus on an application's attack surface.
 The focus is on protecting an application from attack. A simple and
 quick way to minimize your attack surface is to remove unused resources
 and code from your application. The smaller your application, the
 smaller your attack surface. For example, remove:
 
-- Code for features you haven’t released yet.
+- Code for features you haven't released yet.
 - Debugging support code.
-- Network interfaces and protocols that aren’t used or which have been deprecated.
-- Virtual machines and other resources that you aren’t using.
+- Network interfaces and protocols that aren't used or which have been deprecated.
+- Virtual machines and other resources that you aren't using.
 
 Doing regular cleanup of your resources and ensuring that you remove
 unused code are great ways to ensure that there are fewer opportunities
@@ -361,7 +357,7 @@ Threat modeling is the process of identifying potential security threats to your
 
 ### Adopt a policy of identity as the primary security perimeter
 
-When you design cloud applications, it’s important to expand your
+When you design cloud applications, it's important to expand your
 security perimeter focus from a network-centric approach to an
 identity-centric approach. Historically, the primary on-premises
 security perimeter was an organization's network. Most on-premises
@@ -398,14 +394,14 @@ AD)](../../active-directory/fundamentals/active-directory-whatis.md)
 is the Azure solution for identity and access management. These Azure AD
 tools and services help with secure development:
 
-- [Azure AD identity platform (Azure AD for developers)](../../active-directory/develop/about-microsoft-identity-platform.md)
-is a cloud identity service that developers use to build apps that
-securely sign in users. Azure AD assists developers who are building
+- [Microsoft identity platform](../../active-directory/develop/index.yml)
+is a set of components that developers use to build apps that
+securely sign in users. The platform assists developers who are building
 single-tenant, line-of-business (LOB) apps and developers who are
-looking to develop multi-tenant apps. In addition to basic sign-in,
-apps that are built by using Azure AD can call Microsoft APIs and
-custom APIs that are built on the Azure AD platform. The Azure AD
-identity platform supports industry-standard protocols like OAuth 2.0 and OpenID Connect.
+looking to develop multi-tenant apps. In addition to basic sign-in, apps
+built by using the Microsoft identity platform can call Microsoft APIs
+and custom APIs. The Microsoft identity platform supports industry-standard
+protocols like OAuth 2.0 and OpenID Connect.
 
 - [Azure Active Directory B2C (Azure AD
 B2C)](../../active-directory-b2c/index.yml) is an
@@ -425,26 +421,25 @@ do their jobs and nothing more.
 Would a software developer need domain admin rights? Would an
 administrative assistant need access to administrative controls on their
 personal computer? Evaluating access to software is no different. If you
-use [role-based access control
-(RBAC)](../../role-based-access-control/overview.md)
+use [Azure role-based access control
+(Azure RBAC)](../../role-based-access-control/overview.md)
 to give users different abilities and authority in your application, you
-wouldn’t give everyone access to everything. By limiting access to what
+wouldn't give everyone access to everything. By limiting access to what
 is required for each role, you limit the risk of a security issue
 occurring.
 
 Ensure that your application enforces [least
-privilege](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications)
+privilege](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications)
 throughout its access patterns.
 
 > [!NOTE]
->  The rules of least privilege need to apply to the software and to the people creating the software. Software developers can be a huge risk to IT security if they are given too much access. The consequences can be severe if a developer has malicious intent or is given too much
-access. We recommend that the rules of least privilege be applied to developers throughout the development lifecycle.
+> The rules of least privilege need to apply to the software and to the people creating the software. Software developers can be a huge risk to IT security if they are given too much access. The consequences can be severe if a developer has malicious intent or is given too much access. We recommend that the rules of least privilege be applied to developers throughout the development lifecycle.
 
 #### Implement just-in-time access
 
 Implement *just-in-time* (JIT) access to further lower the exposure time
 of privileges. Use [Azure AD Privileged Identity
-Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#stage-3-build-visibility-and-take-full-control-of-admin-activity)
+Management](../../active-directory/roles/security-planning.md#stage-3-take-control-of-administrator-activity)
 to:
 
 - Give users the permissions they need only JIT.
@@ -453,7 +448,7 @@ to:
 ### Require re-authentication for important transactions
 
 [Cross-site request
-forgery](https://docs.microsoft.com/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1)
+forgery](/aspnet/core/security/anti-request-forgery)
 (also known as *XSRF* or *CSRF*) is an attack against web-hosted apps in
 which a malicious web app influences the interaction between a client
 browser and a web app that trusts that browser. Cross-site request
@@ -484,7 +479,7 @@ Always put your keys, certificates, secrets, and connection strings in a
 key management solution. You can use a centralized solution in which
 keys and secrets are stored in hardware security modules (HSMs). Azure
 provides you with an HSM in the cloud with [Azure Key
-Vault](../../key-vault/key-vault-overview.md).
+Vault](../../key-vault/general/overview.md).
 
 Key Vault is a *secret store*: it's a centralized cloud service for
 storing application secrets. Key Vault keeps your confidential data safe
@@ -550,19 +545,19 @@ public knowledge when it is deployed. Avoid including sensitive data of
 any kind in the project.
 
 Earlier, we discussed [Azure Key
-Vault](../../key-vault/key-vault-overview.md). You
+Vault](../../key-vault/general/overview.md). You
 can use Key Vault to store secrets like keys and passwords instead of
 hard-coding them. When you use Key Vault in combination with managed
 identities for Azure resources, your Azure web app can access secret
 configuration values easily and securely without storing any secrets in
 your source control or configuration. To learn more, see [Manage secrets
 in your server apps with Azure Key
-Vault](https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/).
+Vault](/learn/modules/manage-secrets-with-azure-key-vault/).
 
 ### Implement fail-safe measures
 
 Your application must be able to handle
-[errors](https://docs.microsoft.com/dotnet/standard/exceptions/) that
+[errors](/dotnet/standard/exceptions/) that
 occur during execution in a consistent manner. The application should
 catch all errors and either fail safe or closed.
 
@@ -577,7 +572,7 @@ further attack systems and maintain persistence.
 ### Take advantage of error and exception handling
 
 Implementing correct error and [exception
-handling](https://docs.microsoft.com/dotnet/standard/exceptions/best-practices-for-exceptions)
+handling](/dotnet/standard/exceptions/best-practices-for-exceptions)
 is an important part of defensive coding. Error and exception handling
 are critical to making a system reliable and secure. Mistakes in error
 handling can lead to different kinds of security vulnerabilities, such
@@ -588,7 +583,7 @@ Ensure that:
 
 - You handle exceptions in a centralized manner to avoid duplicated
 [try/catch
-blocks](https://docs.microsoft.com/dotnet/standard/exceptions/how-to-use-the-try-catch-block-to-catch-exceptions)
+blocks](/dotnet/standard/exceptions/how-to-use-the-try-catch-block-to-catch-exceptions)
 in the code.
 
 - All unexpected behaviors are handled inside the application.
@@ -608,7 +603,7 @@ organizations.
 
 ### Use logging and alerting
 
-[Log](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1)
+[Log](/aspnet/core/fundamentals/logging/)
 your security issues for security investigations and trigger alerts
 about issues to ensure that people know about problems in a timely
 manner. Enable auditing and logging on all components. Audit logs should

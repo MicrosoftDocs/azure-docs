@@ -1,7 +1,7 @@
 ---
 title:  "Apply SQL Transformation"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Apply SQL Transformation module in Azure Machine Learning service to run a SQLite query on input datasets to transform the data.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Apply SQL Transformation module in Azure Machine Learning to run a SQLite query on input datasets to transform the data.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2019
+ms.date: 11/12/2020
 ---
 
 # Apply SQL Transformation
 
-This article describes a module of Azure Machine Learning designer (preview).
+This article describes a module of Azure Machine Learning designer.
 
 Using the Apply SQL Transformation module, you can:
   
@@ -25,11 +25,26 @@ Using the Apply SQL Transformation module, you can:
 -   Execute SQL query statements to filter or alter data and return the query results as a data table.  
 
 > [!IMPORTANT]
-> The SQL engine used in this module is **SQLite**. For more information about SQLite syntax, see [SQL as Understood by SQLite](https://www.sqlite.org/index.html) for more information.  
+> The SQL engine used in this module is **SQLite**. For more information about SQLite syntax, see [SQL as Understood by SQLite](https://www.sqlite.org/index.html).
+> This module will bump data to SQLite, which is in the memory DB, hence the module execution requires much more memory and may hit an `Out of memory` error. Make sure your computer has enough RAM.
 
 ## How to configure Apply SQL Transformation  
 
 The module can take up to three datasets as inputs. When you reference the datasets connected to each input port, you must use the names `t1`, `t2`, and `t3`. The table number indicates the index of the input port.  
+
+Following is sample code to show how to join two tables. t1 and t2 are two datasets connected to the left and middle input ports of **Apply SQL Transformation**:
+
+```sql
+SELECT t1.*
+    , t3.Average_Rating
+FROM t1 join
+    (SELECT placeID
+        , AVG(rating) AS Average_Rating
+    FROM t2
+    GROUP BY placeID
+    ) as t3
+on t1.placeID = t3.placeID
+```
   
 The remaining parameter is a SQL query, which uses the SQLite syntax. When typing multiple lines in the **SQL Script** text box, use a semi-colon to terminate each statement. Otherwise, line breaks are converted to spaces.  
 
@@ -60,4 +75,4 @@ In addition to the list of non-supported functions provided on the official SQLi
     
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

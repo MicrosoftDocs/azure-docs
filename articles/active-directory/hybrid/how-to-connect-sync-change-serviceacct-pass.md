@@ -12,8 +12,8 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 05/02/2019
+ms.topic: how-to
+ms.date: 03/17/2021
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -22,9 +22,12 @@ ms.collection: M365-identity-device-management
 # Changing the ADSync service account password
 If you change the ADSync service account password, the Synchronization Service will not be able start correctly until you have abandoned the encryption key and reinitialized the ADSync service account password. 
 
+>[!IMPORTANT]
+> If you use Connect with a build from 2017 March or earlier, then you should not reset the password on the service account since Windows destroys the encryption keys for security reasons. You cannot change the account to any other account without reinstalling Azure AD Connect. If you upgrade to a build from 2017 April or later, then it is supported to change the password on the service account, but you cannot change the account used. 
+
 Azure AD Connect, as part of the Synchronization Services uses an encryption key to store the passwords of the AD DS Connector account and ADSync service account.  These accounts are encrypted before they are stored in the database. 
 
-The encryption key used is secured using [Windows Data Protection (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx). DPAPI protects the encryption key using the **ADSync service account**. 
+The encryption key used is secured using [Windows Data Protection (DPAPI)](/previous-versions/ms995355(v=msdn.10)). DPAPI protects the encryption key using the **ADSync service account**. 
 
 If you need to change the service account password you can use the procedures in [Abandoning the ADSync service account encryption key](#abandoning-the-adsync-service-account-encryption-key) to accomplish this.  These procedures should also be used if you need to abandon the encryption key for any reason.
 
@@ -47,7 +50,7 @@ To ensure that you do not receive these errors, follow the procedures in [Abando
  
 ## Abandoning the ADSync service account encryption key
 >[!IMPORTANT]
->The following procedures only apply to Azure AD Connect build 1.1.443.0 or older.
+>The following procedures only apply to Azure AD Connect build 1.1.443.0 or older. This cannot be used for newer versions of Azure AD Connect because abandoning the encryption key is handled by Azure AD connect itself when you change the AD sync service account password so the following steps are not needed in the newer versions.   
 
 Use the following procedures to abandon the encryption key.
 
@@ -79,11 +82,11 @@ Abandon the existing encryption key so that new encryption key can be created:
 
 2. Start a new PowerShell session.
 
-3. Navigate to folder: `$env:Program Files\Microsoft Azure AD Sync\bin\`
+3. Navigate to folder: `'$env:ProgramFiles\Microsoft Azure AD Sync\bin\'`
 
 4. Run the command: `./miiskmu.exe /a`
 
-![Azure AD Connect Sync Encryption Key Utility](./media/how-to-connect-sync-change-serviceacct-pass/key5.png)
+![Screenshot that shows PowerShell after running the command.](./media/how-to-connect-sync-change-serviceacct-pass/key5.png)
 
 #### Provide the password of the AD DS Connector account
 As the existing passwords stored inside the database can no longer be decrypted, you need to provide the Synchronization Service with the password of the AD DS Connector account. The Synchronization Service encrypts the passwords using the new encryption key:
@@ -96,16 +99,19 @@ As the existing passwords stored inside the database can no longer be decrypted,
 5. In the pop-up dialog, select **Connect to Active Directory Forest**:
 6. Enter the password of the AD DS account in the **Password** textbox. If you do not know its password, you must set it to a known value before performing this step.
 7. Click **OK** to save the new password and close the pop-up dialog.
-![Azure AD Connect Sync Encryption Key Utility](./media/how-to-connect-sync-change-serviceacct-pass/key6.png)
+![Screenshot that shows the "Connect to Active Directory Forest" page in the "Properties" window.](./media/how-to-connect-sync-change-serviceacct-pass/key6.png)
 
 #### Reinitialize the password of the ADSync service account
 You cannot directly provide the password of the Azure AD service account to the Synchronization Service. Instead, you need to use the cmdlet **Add-ADSyncAADServiceAccount** to reinitialize the Azure AD service account. The cmdlet resets the account password and makes it available to the Synchronization Service:
 
-1. Start a new PowerShell session on the Azure AD Connect server.
-2. Run cmdlet `Add-ADSyncAADServiceAccount`.
-3. In the pop-up dialog, provide the Azure AD Global admin credentials for your Azure AD tenant.
-![Azure AD Connect Sync Encryption Key Utility](./media/how-to-connect-sync-change-serviceacct-pass/key7.png)
-4. If it is successful, you will see the PowerShell command prompt.
+1. Sign in to the Azure AD Connect sync server and open PowerShell.
+2. To provide the Azure AD Global admin credentials, run `$credential = Get-Credential`.
+3. Run the cmdlet `Add-ADSyncAADServiceAccount -AADCredential $credential`.
+ 
+   If the cmdlet is successful, the PowerShell command prompt appears. 
+   
+The cmdlet resets the password for the service account and updates it both in Azure AD and the sync engine.
+
 
 #### Start the Synchronization Service
 Now that the Synchronization Service has access to the encryption key and all the passwords it needs, you can restart the service in the Windows Service Control Manager:

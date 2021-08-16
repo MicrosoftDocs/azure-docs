@@ -2,13 +2,14 @@
 title: Get started with Azure IoT Hub device twins (.NET/.NET) | Microsoft Docs
 description: How to use Azure IoT Hub device twins to add tags and then use an IoT Hub query. You use the Azure IoT device SDK for .NET to implement the simulated device app and the Azure IoT service SDK for .NET to implement a service app that adds the tags and runs the IoT Hub query.
 author: robinsh
-manager: philmea
+
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: robinsh
+ms.custom: "mqtt, devx-track-csharp"
 ---
 
 # Get started with device twins (.NET)
@@ -16,8 +17,6 @@ ms.author: robinsh
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
 In this tutorial, you create these .NET console apps:
-
-* **CreateDeviceIdentity**. This app creates a device identity and associated security key to connect your simulated device app.
 
 * **AddTagsAndQuery**. This back-end app adds tags and queries device twins.
 
@@ -32,6 +31,8 @@ In this tutorial, you create these .NET console apps:
 * Visual Studio.
 
 * An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
+
+* Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## Create an IoT hub
 
@@ -244,8 +245,8 @@ In this tutorial, you configured a new IoT hub in the Azure portal, and then cre
 
 You can learn more from the following resources:
 
-* To learn how to send telemetry from devices, see the [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-dotnet.md) tutorial.
+* To learn how to send telemetry from devices, see the [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) tutorial.
 
 * To learn how to configure devices using device twin's desired properties, see the [Use desired properties to configure devices](tutorial-device-twins.md) tutorial.
 
-* To learn how to control devices interactively, such as turning on a fan from a user-controlled app, see the [Use direct methods](quickstart-control-device-dotnet.md) tutorial.
+* To learn how to control devices interactively, such as turning on a fan from a user-controlled app, see the [Use direct methods](./quickstart-control-device.md?pivots=programming-language-csharp) quickstart.

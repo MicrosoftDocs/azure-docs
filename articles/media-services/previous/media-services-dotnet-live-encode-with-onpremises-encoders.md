@@ -3,29 +3,30 @@ title: How to perform live streaming with on-premises encoders using .NET | Micr
 description: This topic shows how to use .NET to perform live encoding with on-premises encoders.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.custom: devx-track-csharp
 ---
 # How to perform live streaming with on-premises encoders using .NET
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
-> * [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
+> * [REST](/rest/api/media/operations/channel)
 > 
 > 
 
-> [!NOTE]
-> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+[!INCLUDE [v2 deprecation notice](../latest/includes/v2-deprecation-notice.md)]
 
 This tutorial walks you through the steps of using the Azure Media Services .NET SDK to create a **Channel** that is configured for a pass-through delivery. 
 
@@ -36,7 +37,7 @@ The following are required to complete the tutorial:
 * A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
 * Make sure the streaming endpoint from which you want to stream content is in the **Running** state. 
 * Set up your dev environment. For more information, see [Set up your environment](media-services-set-up-computer.md).
-* A webcam. For example, [Telestream Wirecast encoder](https://www.telestream.net/wirecast/overview.htm).
+* A webcam. For example, [Telestream Wirecast encoder](media-services-configure-wirecast-live-encoder.md).
 
 Recommended to review the following articles:
 
@@ -402,4 +403,3 @@ Review Media Services learning paths
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

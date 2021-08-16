@@ -2,12 +2,12 @@
 title: Match conditions in the Standard rules engine for Azure CDN | Microsoft Docs
 description: Reference documentation for match conditions in the Standard rules engine for Azure Content Delivery Network (Azure CDN).
 services: cdn
-author: mdgattuso
+author: asudbring
 
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 11/01/2019
-ms.author: magattus
+ms.author: allensu
 
 ---
 

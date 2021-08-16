@@ -1,23 +1,14 @@
 ---
-title: Use new authentication for StorSimple 8000 Device Manager service in Azure | Microsoft Docs
+title: Azure AD authentication for StorSimple 8000 in Device Manager
 description: Explains how to use AAD based authentication for your service, generate new registration key, and perform manual registration of the devices.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 
 ms.service: storsimple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: alkohli
 
 ---
-# Use the new authentication for your StorSimple
+# Use Azure Active Directory (AD) authentication for your StorSimple
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
@@ -58,7 +49,7 @@ If using a StorSimple 8000 series device, use the following table to determine w
 
 | If your device is running| Take the following action                                    |
 |--------------------------|------------------------|
-| Update 5 or later and the device is offline. <br> You see an alert that URL is not whitelisted.|1. Modify the firewall rules to include the authentication URL. See [authentication URLs](#url-changes-for-aad-authentication).<br>2. [Get the AAD registration key from the service](#aad-based-registration-keys).<br>3. [Connect to the Windows PowerShell interface of the StorSimple 8000 series device](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).<br>4. Use `Redo-DeviceRegistration` cmdlet to register the device through the Windows PowerShell. Supply the key you got in the previous step.|
+| Update 5 or later and the device is offline. <br> You see an alert that URL is not approved.|1. Modify the firewall rules to include the authentication URL. See [authentication URLs](#url-changes-for-aad-authentication).<br>2. [Get the AAD registration key from the service](#aad-based-registration-keys).<br>3. [Connect to the Windows PowerShell interface of the StorSimple 8000 series device](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).<br>4. Use `Redo-DeviceRegistration` cmdlet to register the device through the Windows PowerShell. Supply the key you got in the previous step.|
 | Update 5 or later and the device online.| No action is required.                                       |
 | Update 4 or earlier and the device is offline. |1. Modify the firewall rules to include the authentication URL.<br>2. [Download Update 5 through catalog server](storsimple-8000-install-update-5.md#download-updates-for-your-device).<br>3. [Apply Update 5 through the hotfix method](storsimple-8000-install-update-5.md#install-update-5-as-a-hotfix).<br>4. [Get the AAD registration key from the service](#aad-based-registration-keys).<br>5. [Connect to the Windows PowerShell interface of the StorSimple 8000 series device](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). <br>6. Use `Redo-DeviceRegistration` cmdlet to register the device through the Windows PowerShell. Supply the key you got in the previous step.|
 | Update 4 or earlier and the device is online. |Modify the firewall rules to include the authentication URL.<br> Install Update 5 through the Azure portal.              |
@@ -95,4 +86,3 @@ Perform the following steps to generate an AAD service registration key.
 ## Next steps
 
 * Learn more about how to deploy [StorSimple 8000 series device](storsimple-8000-deployment-walkthrough-u2.md).
-

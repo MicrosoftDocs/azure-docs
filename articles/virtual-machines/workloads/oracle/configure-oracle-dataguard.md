@@ -1,28 +1,21 @@
 ---
 title: Implement Oracle Data Guard on an Azure Linux virtual machine | Microsoft Docs
 description: Quickly get Oracle Data Guard up and running in your Azure environment.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
-author: romitgirdhar
-manager: gwallace
-editor: 
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machines-linux
-
+author: dbakevlar
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: rogirdh
+ms.author: kegorman
+
 ---
 
 # Implement Oracle Data Guard on an Azure Linux virtual machine 
 
 Azure CLI is used to create and manage Azure resources from the command line or in scripts. This article describes how to use Azure CLI to deploy an Oracle Database 12c database from the Azure Marketplace image. This article then shows you, step by step, how to install and configure Data Guard on an Azure virtual machine (VM).
 
-Before you start, make sure that Azure CLI is installed. For more information, see the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Before you start, make sure that Azure CLI is installed. For more information, see the [Azure CLI installation guide](/cli/azure/install-azure-cli).
 
 ## Prepare the environment
 ### Assumptions
@@ -54,7 +47,7 @@ az group create --name myResourceGroup --location westus
 
 ### Create an availability set
 
-Creating an availability set is optional, but we recommend it. For more information, see [Azure availability sets guidelines](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines).
+Creating an availability set is optional, but we recommend it. For more information, see [Azure availability sets guidelines](/previous-versions/azure/virtual-machines/windows/infrastructure-example).
 
 ```azurecli
 az vm availability-set create \
@@ -84,7 +77,7 @@ az vm create \
 
 After you create the VM, Azure CLI shows information similar to the following example. Note the value of `publicIpAddress`. You use this address to access the VM.
 
-```azurecli
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -98,6 +91,7 @@ After you create the VM, Azure CLI shows information similar to the following ex
 ```
 
 Create myVM2 (standby):
+
 ```azurecli
 az vm create \
      --resource-group myResourceGroup \
@@ -127,7 +121,7 @@ az network nsg rule create --resource-group myResourceGroup\
 
 The result should look similar to the following response:
 
-```bash
+```output
 {
   "access": "Allow",
   "description": null,
@@ -195,9 +189,10 @@ $ dbca -silent \
    -storageType FS \
    -ignorePreReqs
 ```
+
 Outputs should look similar to the following response:
 
-```bash
+```output
 Copying database files
 1% complete
 2% complete
@@ -260,6 +255,7 @@ SQL> STARTUP MOUNT;
 SQL> ALTER DATABASE ARCHIVELOG;
 SQL> ALTER DATABASE OPEN;
 ```
+
 Enable force logging, and make sure at least one log file is present:
 
 ```bash
@@ -267,13 +263,13 @@ SQL> ALTER DATABASE FORCE LOGGING;
 SQL> ALTER SYSTEM SWITCH LOGFILE;
 ```
 
-Create standby redo logs:
+Create standby redo logs, setting the same size and quantity as the primary database redo logs:
 
 ```bash
-SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo01.log') SIZE 50M;
-SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo02.log') SIZE 50M;
-SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo03.log') SIZE 50M;
-SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo04.log') SIZE 50M;
+SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo01.log') SIZE 200M;
+SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo02.log') SIZE 200M;
+SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo03.log') SIZE 200M;
+SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo04.log') SIZE 200M;
 ```
 
 Turn on Flashback (which makes recovery a lot easier) and set STANDBY\_FILE\_MANAGEMENT to auto. Exit SQL*Plus after that.
@@ -338,11 +334,13 @@ ADR_BASE_LISTENER = /u01/app/oracle
 ```
 
 Enable Data Guard Broker:
+
 ```bash
 $ sqlplus / as sysdba
 SQL> ALTER SYSTEM SET dg_broker_start=true;
 SQL> EXIT;
 ```
+
 Start the listener:
 
 ```bash
@@ -426,6 +424,7 @@ $ lsnrctl start
 ### Restore the database to myVM2 (standby)
 
 Create the parameter file /tmp/initcdb1_stby.ora with the following contents:
+
 ```bash
 *.db_name='cdb1'
 ```
@@ -444,6 +443,7 @@ Create a password file:
 ```bash
 $ orapwd file=/u01/app/oracle/product/12.1.0/dbhome_1/dbs/orapwcdb1 password=OraPasswd1 entries=10
 ```
+
 Start the database on myVM2:
 
 ```bash
@@ -461,6 +461,7 @@ $ rman TARGET sys/OraPasswd1@cdb1 AUXILIARY sys/OraPasswd1@cdb1_stby
 ```
 
 Run the following commands in RMAN:
+
 ```bash
 DUPLICATE TARGET DATABASE
   FOR STANDBY
@@ -472,11 +473,14 @@ DUPLICATE TARGET DATABASE
 ```
 
 You should see messages similar to the following when the command is completed. Exit RMAN.
-```bash
+
+```output
 media recovery complete, elapsed time: 00:00:00
 Finished recover at 29-JUN-17
 Finished Duplicate Db at 29-JUN-17
+```
 
+```bash
 RMAN> EXIT;
 ```
 
@@ -517,6 +521,7 @@ Enabled.
 ```
 
 Review the configuration:
+
 ```bash
 DGMGRL> SHOW CONFIGURATION;
 
@@ -583,6 +588,7 @@ With the Partitioning, OLAP, Advanced Analytics and Real Application Testing opt
 
 SQL>
 ```
+
 ## Test the Data Guard configuration
 
 ### Switch over the database on myVM1 (primary)
@@ -632,6 +638,7 @@ SQL>
 ### Switch over the database on myVM2 (standby)
 
 To switch over, run the following on myVM2:
+
 ```bash
 $ dgmgrl sys/OraPasswd1@cdb1_stby
 DGMGRL for Linux: Version 12.1.0.2.0 - 64bit Production
@@ -686,4 +693,4 @@ az group delete --name myResourceGroup
 
 [Tutorial: Create highly available virtual machines](../../linux/create-cli-complete.md)
 
-[Explore VM deployment Azure CLI samples](../../linux/cli-samples.md)
+[Explore VM deployment Azure CLI samples](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

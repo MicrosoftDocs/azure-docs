@@ -1,25 +1,18 @@
 ---
-title: Create Service Bus Messaging namespace using Azure Resource Manager template | Microsoft Docs
+title: Create an Azure Service Bus namespace using template
 description: Use Azure Resource Manager template to create a Service Bus Messaging namespace
-services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
-manager: timlt
-editor: ''
-
-ms.assetid: dc0d6482-6344-4cef-8644-d4573639f5e4
-ms.service: service-bus-messaging
-ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
-ms.workload: na
-ms.date: 06/21/2019
-ms.author: spelluru
+ms.date: 06/23/2020
+ms.author: spelluru 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create a Service Bus namespace by using an Azure Resource Manager template
 
-Learn how to deploy an Azure Resource Manager template to create a Service Bus namespace. You can use this template for your own deployments, or customize it to meet your requirements. For more information about creating templates, see [Azure Resource Manager documentation](/azure/azure-resource-manager/).
+Learn how to deploy an Azure Resource Manager template to create a Service Bus namespace. You can use this template for your own deployments, or customize it to meet your requirements. For more information about creating templates, see [Azure Resource Manager documentation](../azure-resource-manager/index.yml).
 
 The following templates are also available for creating Service Bus namespaces:
 
@@ -34,9 +27,9 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Create a service bus namespace
 
-In this quickstart, you use an [existing Resource Manager template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/azuredeploy.json) from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/):
+In this quickstart, you use an [existing Resource Manager template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.servicebus/servicebus-create-namespace/azuredeploy.json) from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/):
 
-[!code-json[create-azure-service-bus-namespace](~/quickstart-templates/101-servicebus-create-namespace/azuredeploy.json)]
+[!code-json[create-azure-service-bus-namespace](~/quickstart-templates/quickstarts/microsoft.servicebus/servicebus-create-namespace/azuredeploy.json)]
 
 To find more template samples, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Servicebus&pageNumber=1&sort=Popular).
 
@@ -48,7 +41,7 @@ To create a service bus namespace by deploying a template:
     $serviceBusNamespaceName = Read-Host -Prompt "Enter a name for the service bus namespace to be created"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     $resourceGroupName = "${serviceBusNamespaceName}rg"
-    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json"
+    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.servicebus/servicebus-create-namespace/azuredeploy.json"
 
     New-AzResourceGroup -Name $resourceGroupName -Location $location
     New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -serviceBusNamespaceName $serviceBusNamespaceName
@@ -78,9 +71,9 @@ Write-Host "Press [ENTER] to continue ..."
 
 Azure PowerShell is used to deploy the template in this tutorial. For other template deployment methods, see:
 
-* [By using the Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md).
-* [By using Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).
-* [By using REST API](../azure-resource-manager/resource-group-template-deploy-rest.md).
+* [By using the Azure portal](../azure-resource-manager/templates/deploy-portal.md).
+* [By using Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
+* [By using REST API](../azure-resource-manager/templates/deploy-rest.md).
 
 ## Clean up resources
 

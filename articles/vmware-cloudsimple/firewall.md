@@ -1,8 +1,8 @@
 --- 
 title: Azure VMware Solution by CloudSimple - Set up firewall tables and rules
 description: Describes how to set up Private Cloud firewall tables and rules to restrict traffic on subnets and VLANs.  
-author: sharaths-cs 
-ms.author: b-shsury 
+author: shortpatti 
+ms.author: v-patsho
 ms.date: 08/15/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
@@ -63,7 +63,7 @@ Firewall rules determine how the firewall treats specific types of traffic. The 
 > [!IMPORTANT]
 > Each Firewall table can have up to 10 inbound rules and 20 outbound rules. These limits can be increased by [contacting support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## Attach VLANs/subnets
+## <a name="attach-vlans-subnet"></a>Attach VLANs/subnets
 
 After you define a firewall table, you can specify the subnets that are subject to the rules in the table.
 

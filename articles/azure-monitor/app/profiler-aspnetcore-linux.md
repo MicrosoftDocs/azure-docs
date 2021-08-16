@@ -1,9 +1,8 @@
 ---
 title: Profile ASP.NET Core Azure Linux web apps with Application Insights Profiler | Microsoft Docs
 description: A conceptual overview and step-by-step tutorial on how to use Application Insights Profiler.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 author: cweining
 ms.author: cweining
 ms.date: 02/23/2018
@@ -15,7 +14,7 @@ ms.reviewer: mbullwin
 
 This feature is currently in preview.
 
-Find out how much time is spent in each method of your live web application when using [Application Insights](../../azure-monitor/app/app-insights-overview.md). Application Insights Profiler is now available for ASP.NET Core web apps that are hosted in Linux on Azure App Service. This guide provides step-by-step instructions on how the Profiler traces can be collected for ASP.NET Core Linux web apps.
+Find out how much time is spent in each method of your live web application when using [Application Insights](./app-insights-overview.md). Application Insights Profiler is now available for ASP.NET Core web apps that are hosted in Linux on Azure App Service. This guide provides step-by-step instructions on how the Profiler traces can be collected for ASP.NET Core Linux web apps.
 
 After you complete this walkthrough, your app can collect Profiler traces like the traces that are shown in the image. In this example, the Profiler trace indicates that a particular web request is slow because of time spent waiting. The *hot path* in the code that's slowing the app is marked by a flame icon. The **About** method in the **HomeController** section is slowing the web app because the method is calling the **Thread.Sleep** function.
 
@@ -33,32 +32,24 @@ The following instructions apply to all Windows, Linux, and Mac development envi
 
 1. Create an ASP.NET Core MVC web application:
 
-    ```
-    dotnet new mvc -n LinuxProfilerTest
-    ```
+   ```console
+   dotnet new mvc -n LinuxProfilerTest
+   ```
 
 1. Change the working directory to the root folder for the project.
 
 1. Add the NuGet package to collect the Profiler traces:
 
-    ```shell
-    dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
-    ```
+   ```console
+   dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
+   ```
 
-1. Enable Application Insights in Program.cs:
-
-    ```csharp
-    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-            .UseApplicationInsights() // Add this line of code to Enable Application Insights
-            .UseStartup<Startup>();
-    ```
-    
-1. Enable Profiler in Startup.cs:
+1. Enable Application Insights and Profiler in Startup.cs:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
+        services.AddApplicationInsightsTelemetry(); // Add this line of code to enable Application Insights.
         services.AddServiceProfiler(); // Add this line of code to Enable Profiler
         services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
     }
@@ -67,24 +58,24 @@ The following instructions apply to all Windows, Linux, and Mac development envi
 1. Add a line of code in the **HomeController.cs** section to randomly delay a few seconds:
 
     ```csharp
-        using System.Threading;
-        ...
+    using System.Threading;
+    ...
 
-        public IActionResult About()
-            {
-                Random r = new Random();
-                int delay = r.Next(5000, 10000);
-                Thread.Sleep(delay);
-                return View();
-            }
+    public IActionResult About()
+        {
+            Random r = new Random();
+            int delay = r.Next(5000, 10000);
+            Thread.Sleep(delay);
+            return View();
+        }
     ```
 
 1. Save and commit your changes to the local repository:
 
-    ```
-        git init
-        git add .
-        git commit -m "first commit"
+    ```console
+    git init
+    git add .
+    git commit -m "first commit"
     ```
 
 ## Create the Linux web app to host your project
@@ -104,13 +95,13 @@ The following instructions apply to all Windows, Linux, and Mac development envi
 
     ![Set up the Git repository](./media/profiler-aspnetcore-linux/setup-git-repo.png)
 
-For more deployment options, see [this article](https://docs.microsoft.com/azure/app-service/containers/choose-deployment-type).
+For more deployment options, see [App Service documentation](../../app-service/index.yml).
 
 ## Deploy your project
 
 1. In your Command Prompt window, browse to the root folder for your project. Add a Git remote repository to point to the repository on App Service:
 
-    ```
+    ```console
     git remote add azure https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
     ```
 
@@ -119,19 +110,19 @@ For more deployment options, see [this article](https://docs.microsoft.com/azure
 
 2. Deploy the project by pushing the changes to Azure:
 
-    ```
-    git push azure master
+    ```console
+    git push azure main
     ```
 
-You should see output similar to the following example:
+    You should see output similar to the following example:
 
-    ```
+    ```output
     Counting objects: 9, done.
     Delta compression using up to 8 threads.
     Compressing objects: 100% (8/8), done.
     Writing objects: 100% (9/9), 1.78 KiB | 911.00 KiB/s, done.
     Total 9 (delta 3), reused 0 (delta 0)
-    remote: Updating branch 'master'.
+    remote: Updating branch 'main'.
     remote: Updating submodules.
     remote: Preparing deployment for commit id 'd7369a99d7'.
     remote: Generating deployment script.
@@ -142,19 +133,16 @@ You should see output similar to the following example:
     remote: .
     remote:   Installing Newtonsoft.Json 10.0.3.
     remote:   Installing Microsoft.ApplicationInsights.Profiler.Core 1.1.0-LKG
-    …
-
+    ...
     ```
 
 ## Add Application Insights to monitor your web apps
 
-1. [Create an Application Insights resource](./../../azure-monitor/app/create-new-resource.md ).
+1. [Create an Application Insights resource](./create-new-resource.md).
 
 2. Copy the **iKey** value of the Application Insights resource and set the following settings in your web apps:
 
-    ```
-    APPINSIGHTS_INSTRUMENTATIONKEY: [YOUR_APPINSIGHTS_KEY]
-    ```
+    `APPINSIGHTS_INSTRUMENTATIONKEY: [YOUR_APPINSIGHTS_KEY]`
 
     When the app settings are changed, the site automatically restarts. After the new settings are applied, the Profiler immediately runs for two minutes. The Profiler then runs for two minutes every hour.
 
@@ -166,10 +154,6 @@ You should see output similar to the following example:
 
     ![View Profiler traces](./media/profiler-aspnetcore-linux/view-traces.png)
 
-## Known issues
-
-### Profile Now button doesn't work for Linux Profiler
-The Linux version of the App Insights profiler does not yet support on demand profiling using the profile now button.
 
 
 ## Next steps

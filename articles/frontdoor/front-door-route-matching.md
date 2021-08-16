@@ -1,21 +1,21 @@
 ---
-title: Azure Front Door Service - Routing rule matching monitoring | Microsoft Docs
-description: This article helps you understand how Azure Front Door Service matches which routing rule to use for an incoming request
+title: Azure Front Door - Routing rule matching monitoring | Microsoft Docs
+description: This article helps you understand how Azure Front Door matches which routing rule to use for an incoming request
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
-ms.author: sharadag
+ms.date: 09/28/2020
+ms.author: duau
 ---
 
-# ​​How Front Door matches requests to a routing rule
+# ​​How requests are matched to a routing rule
 
-After establishing a connection and doing an SSL handshake, when a request lands on a Front Door environment one of the first things that Front Door does is determining from all the configurations, which particular routing rule to match the request to and then taking the defined action. The following document explains how Front Door determines which Route configuration to use when processing an HTTP request.
+After establishing a connection and completing a TLS handshake, when a request lands on a Front Door environment one of the first things that Front Door does is determine which particular routing rule to match the request to and then take the defined action in the configuration. The following document explains how Front Door determines which Route configuration to use when processing an HTTP request.
 
 ## Structure of a Front Door route configuration
 A Front Door routing rule configuration is composed of two major parts: a "left-hand side" and a "right-hand side". We match the incoming request to the left-hand side of the route while the right-hand side defines how we process the request.
@@ -36,7 +36,7 @@ The decision of how to process the request, depends on whether caching is enable
 This section will focus on how we match to a given Front Door routing rule. The basic concept is that we always match to the **most-specific match first** looking only at the "left-hand side".  We first match based on HTTP protocol, then Frontend host, then the Path.
 
 ### Frontend host matching
-When matching Frontend hosts, we use the logic as below:
+When matching Frontend hosts, we use the logic defined below:
 
 1. Look for any routing with an exact match on the host.
 2. If no exact frontend hosts match, reject the request and send a 400 Bad Request error.

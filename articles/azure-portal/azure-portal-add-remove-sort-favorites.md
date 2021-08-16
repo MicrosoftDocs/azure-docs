@@ -1,20 +1,14 @@
 ---
-title: Add, remove, and sort favorites in Azure portal | Microsoft Docs 
-description: Learn how to add or remove items from the favorites list and sort the order of items
-services: azure-portal
-keywords: favorites
-author: kfollis
-ms.author: kfollis
-ms.date: 11/01/2019
-ms.topic: conceptual
-
-ms.service: azure-portal
-ms.custom: 
-manager:  mtillman
+title: Add, remove, and arrange favorites in Azure portal
+description: Learn how to add or remove items from the favorites list and rearrange the order of items
+keywords: favorites,portal
+ms.date: 03/16/2021
+ms.topic: how-to
 ---
-# Add, remove, and sort favorites
 
-Add or remove items from your **Favorites** list so that you can quickly go to the services that you use most often. We already added some common services to your **Favorites** list, but you’ll likely want to customize it. You're the only one who sees the changes you make to **Favorites**.
+# Add, remove, and rearrange favorites
+
+Add or remove items from your **Favorites** list so that you can quickly go to the services you use most often. We already added some common services to your **Favorites** list, but you’ll likely want to customize it. You're the only one who sees the changes you make to **Favorites**.
 
 ## Add a favorite
 
@@ -46,7 +40,7 @@ You can now remove an item directly from the **Favorites** list.
 
 2. On the information card, select the star so that it changes from filled to unfilled. The service is removed from the **Favorites** list.
 
-## Sort favorites
+## Rearrange favorites
 
 You can change the order that your favorite services are listed. Just drag and drop the menu item to another location under **Favorites**.
 

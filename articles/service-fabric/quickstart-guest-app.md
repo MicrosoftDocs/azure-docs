@@ -1,20 +1,10 @@
 ---
-title: Quickly deploy an existing app to an Azure Service Fabric cluster 
+title: Quickly deploy an existing app to a cluster 
 description: Use an Azure Service Fabric cluster to host an existing Node.js application with Visual Studio.
-services: service-fabric
-documentationcenter: nodejs
-author: athinanthny
-manager: chackdan
-editor: ''
 
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/06/2017
-ms.author: atsenthi
+ms.custom: devx-track-js
 ---
 
 # Host a Node.js application on Azure Service Fabric
@@ -37,7 +27,7 @@ Create a project with `CTRL`+`SHIFT`+`N`
 
 In the **New Project** dialog, choose **Cloud > Service Fabric Application**.
 
-Name the application **MyGuestApp** and press **OK**.
+Name the application **MyGuestApp** and press **Create**.
 
 >[!IMPORTANT]
 >Node.js can easily break the 260 character limit for paths that windows has. Use a short path for the project itself such as **c:\code\svc1**. Optionally, you can follow **[these instructions](https://stackoverflow.com/a/41687101/1664231)** to enable long file paths in Windows 10.

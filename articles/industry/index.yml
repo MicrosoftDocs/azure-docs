@@ -18,7 +18,7 @@ highlightedContent:
   items:
     - title: Azure FarmBeats
       itemType: overview
-      url: ./agriculture/overview.md
+      url: ./agriculture/overview-azure-farmbeats.md
     - title: Community Forum
       itemType: concept
       url: https://aka.ms/FarmBeatsMSDN
@@ -32,7 +32,7 @@ productDirectory:
     - title: Azure FarmBeats
       imageSrc: ../media/index/industry-agriculture-farmbeats.svg
       summary: Rapidly builds digital agriculture solutions in the cloud.
-      url: ./agriculture/overview.md
+      url: ./agriculture/overview-azure-farmbeats.md
     - title: Financial Services
       imageSrc: ../media/index/industry-financial.png
       summary: Solutions and use cases for the Financial Services industry.

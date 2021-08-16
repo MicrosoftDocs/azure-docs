@@ -15,7 +15,7 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 01/21/2021
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -29,7 +29,7 @@ By using the Microsoft Graph API for Azure AD reports, you can gain programmatic
 
 This article provides you with an overview of the reporting API, including ways to access it.
 
-If you run into issues, see [how to get support for Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto).
+If you run into issues, see [how to get support for Azure Active Directory](../fundamentals/active-directory-troubleshooting-support-howto.md).
 
 ## Prerequisites
 
@@ -44,16 +44,15 @@ For detailed instructions, see the [prerequisites to access the Azure Active Dir
 
 ## API Endpoints 
 
-The Microsoft Graph API endpoint for audit logs is `https://graph.microsoft.com/beta/auditLogs/directoryAudits` and the Microsoft Graph API endpoint for sign-ins is `https://graph.microsoft.com/beta/auditLogs/signIns`. For more information, see the [audit API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) and [sign-in API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signIn).
+The Microsoft Graph API endpoint for audit logs is `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits` and the Microsoft Graph API endpoint for sign-ins is `https://graph.microsoft.com/v1.0/auditLogs/signIns`. For more information, see the [audit API reference](/graph/api/resources/directoryaudit) and [sign-in API reference](/graph/api/resources/signIn).
 
-In addition, you can use the [Identity Protection risk detections API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) to gain programmatic access to security detections using Microsoft Graph. For more information, see [Get started with Azure Active Directory Identity Protection and Microsoft Graph](../identity-protection/graph-get-started.md). 
-
-> [!NOTE]
->  The **https:\/\/graph.windows.net\/\<tenant-name\>\/reports\/** endpoint is deprecated. Use the new API endpoints described above to programmatically access the activity and security reports.
+You can use the [Identity Protection risk detections API](/graph/api/resources/identityriskevent?view=graph-rest-beta&preserve-view=true) to gain programmatic access to security detections using Microsoft Graph. For more information, see [Get started with Azure Active Directory Identity Protection and Microsoft Graph](../identity-protection/howto-identity-protection-graph-api.md). 
   
-## APIs with Graph Explorer
+You can also use the [provisioning logs API](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta&preserve-view=true) to get programmatic access to provisioning events in your tenant. 
 
-You can use the [MSGraph explorer](https://developer.microsoft.com/graph/graph-explorer) to verify your sign-in and audit API data. Make sure to sign in to your account using both of the sign-in buttons in the Graph Explorer UI, and set **AuditLog.Read.All** and **Directory.Read.All** permissions for your tenant as shown.   
+## APIs with Microsoft Graph Explorer
+
+You can use the [Microsoft Graph explorer](https://developer.microsoft.com/graph/graph-explorer) to verify your sign-in and audit API data. Make sure to sign in to your account using both of the sign-in buttons in the Graph Explorer UI, and set **AuditLog.Read.All** and **Directory.Read.All** permissions for your tenant as shown.   
 
 ![Graph Explorer](./media/concept-reporting-api/graph-explorer.png)
 
@@ -70,5 +69,3 @@ For detailed instructions, see [Get data using the Azure AD Reporting API with c
  * [Prerequisites to access reporting API](howto-configure-prerequisites-for-reporting-api.md) 
  * [Get data using the Azure AD Reporting API with certificates](tutorial-access-api-with-certificates.md)
  * [Troubleshoot errors in Azure AD reporting API](troubleshoot-graph-api.md)
-
-

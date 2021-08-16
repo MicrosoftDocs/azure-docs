@@ -3,12 +3,11 @@ title: Shaper cognitive skill
 titleSuffix: Azure Cognitive Search
 description: Extract metadata and structured information from unstructured data and shape it as a complex type in an AI enrichment pipeline in Azure Cognitive Search.
 
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 08/12/2021
 ---
 
 # Shaper cognitive skill
@@ -20,7 +19,7 @@ Additionally, the **Shaper** skill illustrated in [scenario 3](#nested-complex-t
 The output name is always "output". Internally, the pipeline can map a different name, such as "analyzedText" as shown in the examples below, but the **Shaper** skill itself returns "output" in the response. This might be important if you are debugging enriched documents and notice the naming discrepancy, or if you build a custom skill and are structuring the response yourself.
 
 > [!NOTE]
-> The **Shaper** skill is not bound to a Cognitive Services API and you are not charged for using it. You should still [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md), however, to override the **Free** resource option that limits you to a small number of daily enrichments per day.
+> This skill isn't bound to Cognitive Services. It is non-billable and has no Cognitive Services key requirement.
 
 ## @odata.type  
 Microsoft.Skills.Util.ShaperSkill
@@ -247,5 +246,5 @@ In this case, the **Shaper** creates a complex type. This structure exists in-me
 + [Built-in skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [How to use complex types](search-howto-complex-data-types.md)
-+ [Knowledge store (preview)](knowledge-store-concept-intro.md)
-+ [How to get started with knowledge store](knowledge-store-howto.md)
++ [Knowledge store](knowledge-store-concept-intro.md)
++ [Create a knowledge store in REST](knowledge-store-create-rest.md)

@@ -1,7 +1,7 @@
 ---
 title: "One-vs-All Multiclass"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the One-vs-All Multiclass module in the Azure Machine Learning service to create a multiclass classification model from an ensemble of binary classification models.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the One-vs-All Multiclass module in Azure Machine Learning designer to create an ensemble of binary classification models.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,11 +9,11 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 10/16/2019
+ms.date: 11/13/2020
 ---
 # One-vs-All Multiclass
 
-This article describes how to use the One-vs-All Multiclass module in Azure Machine Learning designer (preview). The goal is to create a classification model that can predict multiple classes, by using the *one-versus-all* approach.
+This article describes how to use the One-vs-All Multiclass module in Azure Machine Learning designer. The goal is to create a classification model that can predict multiple classes, by using the *one-versus-all* approach.
 
 This module is useful for creating models that predict three or more possible outcomes, when the outcome depends on continuous or categorical predictor variables. This method also lets you use binary classification methods for issues that require multiple output classes.
 
@@ -21,11 +21,13 @@ This module is useful for creating models that predict three or more possible ou
 
 Some classification algorithms permit the use of more than two classes by design. Others restrict the possible outcomes to one of two values (a binary, or two-class model). But even binary classification algorithms can be adapted for multi-class classification tasks through a variety of strategies. 
 
-This module implements the one-versus-all method, in which a binary model is created for each of the multiple output classes. The module assesses each of these binary models for the individual classes against its complement (all other classes in the model) as though it's a binary classification issue. The module then performs prediction by running these binary classifiers and choosing the prediction with the highest confidence score.  
+This module implements the one-versus-all method, in which a binary model is created for each of the multiple output classes. The module assesses each of these binary models for the individual classes against its complement (all other classes in the model) as though it's a binary classification issue. In addition to its computational efficiency (only `n_classes` classifiers are needed), one advantage of this approach is its interpretability. Since each class is represented by one and one classifier only, it is possible to gain knowledge about the class by inspecting its corresponding classifier. This is the most commonly used strategy for multiclass classification and is a fair default choice. The module then performs prediction by running these binary classifiers and choosing the prediction with the highest confidence score. 
 
 In essence, the module creates an ensemble of individual models and then merges the results, to create a single model that predicts all classes. Any binary classifier can be used as the basis for a one-versus-all model.  
 
 For example, let’s say you configure a [Two-Class Support Vector Machine](two-class-support-vector-machine.md) model and provide that as input to the One-vs-All Multiclass module. The module would create two-class support vector machine models for all members of the output class. It would then apply the one-versus-all method to combine the results for all classes.  
+
+The module uses OneVsRestClassifier of sklearn, and you can learn more details [here](https://scikit-learn.org/stable/modules/generated/sklearn.multiclass.OneVsRestClassifier.html).
 
 ## How to configure the One-vs-All Multiclass classifier  
 
@@ -45,7 +47,7 @@ When you combine the models, One-vs-All Multiclass creates multiple binary class
 
 4. On the other input of [Train Model](train-model.md), connect a labeled training dataset that has multiple class values.
 
-5. Run the pipeline.
+5. Submit the pipeline.
 
 ## Results
 
@@ -56,4 +58,4 @@ Alternatively, you can pass the untrained classifier to [Cross-Validate Model](c
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to the Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

@@ -1,274 +1,217 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Andromeda | Microsoft Docs'
+title: "Tutorial: Azure Active Directory integration with Andromeda | Microsoft Docs"
 description: Learn how to configure single sign-on between Azure Active Directory and Andromeda.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 7a142c86-ca0c-4915-b1d8-124c08c3e3d8
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/16/2019
+ms.date: 12/28/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
+
 # Tutorial: Azure Active Directory integration with Andromeda
 
 In this tutorial, you learn how to integrate Andromeda with Azure Active Directory (Azure AD).
 Integrating Andromeda with Azure AD provides you with the following benefits:
 
-* You can control in Azure AD who has access to Andromeda.
-* You can enable your users to be automatically signed-in to Andromeda (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
-
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+- You can control in Azure AD who has access to Andromeda.
+- You can enable your users to be automatically signed-in to Andromeda (Single Sign-On) with their Azure AD accounts.
+- You can manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
 To configure Azure AD integration with Andromeda, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
-* Andromeda single sign-on enabled subscription
+- An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
+- Andromeda single sign-on enabled subscription
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* Andromeda supports **SP and IDP** initiated SSO
-* Andromeda supports **Just In Time** user provisioning
+- Andromeda supports **SP and IDP** initiated SSO
+- Andromeda supports **Just In Time** user provisioning
 
 ## Adding Andromeda from the gallery
 
 To configure the integration of Andromeda into Azure AD, you need to add Andromeda from the gallery to your list of managed SaaS apps.
 
-**To add Andromeda from the gallery, perform the following steps:**
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **Andromeda** in the search box.
+1. Select **Andromeda** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+## Configure and test Azure AD SSO for Andromeda
 
-	![The Azure Active Directory button](common/select-azuread.png)
+Configure and test Azure AD SSO with Andromeda using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Andromeda.
 
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
+To configure and test Azure AD SSO with Andromeda, perform the following steps:
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+   1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+   1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+2. **[Configure Andromeda SSO](#configure-andromeda-sso)** - to configure the Single Sign-On settings on application side.
+   1. **[Create Andromeda test user](#create-andromeda-test-user)** - to have a counterpart of Britta Simon in Andromeda that is linked to the Azure AD representation of user.
+3. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-3. To add new application, click **New application** button on the top of dialog.
+## Configure Azure AD SSO
 
-	![The New application button](common/add-new-app.png)
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-4. In the search box, type **Andromeda**, select **Andromeda** from result panel then click **Add** button to add the application.
+1. In the Azure portal, on the **Andromeda** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-	![Andromeda in the results list](common/search-new-app.png)
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-## Configure and test Azure AD single sign-on
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-In this section, you configure and test Azure AD single sign-on with Andromeda based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in Andromeda needs to be established.
+   a. In the **Identifier** text box, type a URL using the following pattern:
+   `https://<tenantURL>.ngcxpress.com/`
 
-To configure and test Azure AD single sign-on with Andromeda, you need to complete the following building blocks:
+   b. In the **Reply URL** text box, type a URL using the following pattern:
+   `https://<tenantURL>.ngcxpress.com/SAMLConsumer.aspx`
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure Andromeda Single Sign-On](#configure-andromeda-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create Andromeda test user](#create-andromeda-test-user)** - to have a counterpart of Britta Simon in Andromeda that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-### Configure Azure AD single sign-on
+   ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
-In this section, you enable Azure AD single sign-on in the Azure portal.
+   In the **Sign-on URL** text box, type a URL using the following pattern:
+   `https://<tenantURL>.ngcxpress.com/SAMLLogon.aspx`
 
-To configure Azure AD single sign-on with Andromeda, perform the following steps:
+   > [!NOTE]
+   > These values are not real. You will update the value with the actual Identifier, Reply URL, and Sign-On URL which is explained later in the tutorial.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Andromeda** application integration page, select **Single sign-on**.
+1. Andromeda application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
-    ![Configure single sign-on link](common/select-sso.png)
+   ![Screenshot shows User attributes such as givenname user.givenname and emailaddress user.mail.](common/edit-attribute.png)
 
-2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
+   > [!Important]
+   > Clear out the NameSpace definitions while setting these up.
 
-    ![Single sign-on select mode](common/select-saml-option.png)
+1. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon** or add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps:
 
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+   | Name    | Source Attribute  |
+   | ------- | ----------------- |
+   | role    | App specific role |
+   | type    | App Type          |
+   | company | CompanyName       |
 
-	![Edit Basic SAML Configuration](common/edit-urls.png)
+   > [!NOTE]
+   > Andromeda expects roles for users assigned to the application. Please set up these roles in Azure AD so that users can be assigned the appropriate roles. To understand how to configure roles in Azure AD, see [here](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui).
 
-4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
+   a. Click **Add new claim** to open the **Manage user claims** dialog.
 
-    ![Andromeda Domain and URLs single sign-on information](common/idp-intiated.png)
+   ![Screenshot shows User claims with options to Add new claim and save.](common/new-save-attribute.png)
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://<tenantURL>.ngcxpress.com/`
+   ![Screenshot shows Manage user claims where you can enter values described I this step.](common/new-attribute-details.png)
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<tenantURL>.ngcxpress.com/SAMLConsumer.aspx`
+   b. In the **Name** textbox, type the attribute name shown for that row.
 
-5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+   c. Leave the **Namespace** blank.
 
-    ![Andromeda Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+   d. Select Source as **Attribute**.
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<tenantURL>.ngcxpress.com/SAMLLogon.aspx`
+   e. From the **Source attribute** list, type the attribute value shown for that row.
 
-	> [!NOTE]
-	> These values are not real. You will update the value with the actual Identifier, Reply URL, and Sign-On URL which is explained later in the tutorial.
+   f. Click **Ok**
 
-6. Andromeda application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
+   g. Click **Save**.
 
-	![image](common/edit-attribute.png)
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
-	> [!Important]
-	> Clear out the NameSpace definitions while setting these up.
+   ![The Certificate download link](common/certificatebase64.png)
 
-7. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon** or add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps: 
+1. On the **Set up Andromeda** section, copy the appropriate URL(s) as per your requirement.
 
-	| Name | Source Attribute|
-	| ------ | -----------|
-	| role 		  | App specific role |
-	| type 		  | App Type |
-	| company       | CompanyName |
+   ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	> [!NOTE]
-	> There are not real values. These values are only for demo purpose, please use your organization roles.
+### Create an Azure AD test user
 
-	a. Click **Add new claim** to open the **Manage user claims** dialog.
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-	![image](common/new-save-attribute.png)
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
 
-	![image](common/new-attribute-details.png)
+### Assign the Azure AD test user
 
-	b. In the **Name** textbox, type the attribute name shown for that row.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Andromeda.
 
-	c. Leave the **Namespace** blank.
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **Andromeda**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you have setup the roles as explained in the above, you can select it from the **Select a role** dropdown.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-	d. Select Source as **Attribute**.
-
-	e. From the **Source attribute** list, type the attribute value shown for that row.
-
-	f. Click **Ok**
-
-	g. Click **Save**.
-
-8. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
-
-	![The Certificate download link](common/certificatebase64.png)
-
-9. On the **Set up Andromeda** section, copy the appropriate URL(s) as per your requirement.
-
-	![Copy configuration URLs](common/copy-configuration-urls.png)
-
-	a. Login URL
-
-	b. Azure AD Identifier
-
-	c. Logout URL
-
-### Configure Andromeda Single Sign-On
+### Configure Andromeda SSO
 
 1. Sign-on to your Andromeda company site as administrator.
 
 2. On the top of the menubar click **Admin** and navigate to **Administration**.
 
-	![Andromeda admin](./media/andromedascm-tutorial/tutorial_andromedascm_admin.png)
+   ![Andromeda admin](./media/andromedascm-tutorial/tutorial_andromedascm_admin.png)
 
 3. On the left side of tool bar under **Interfaces** section, click **SAML Configuration**.
 
-	![Andromeda saml](./media/andromedascm-tutorial/tutorial_andromedascm_saml.png)
+   ![Andromeda saml](./media/andromedascm-tutorial/tutorial_andromedascm_saml.png)
 
 4. On the **SAML Configuration** section page, perform the following steps:
 
-	![Andromeda config](./media/andromedascm-tutorial/tutorial_andromedascm_config.png)
+   ![Andromeda config](./media/andromedascm-tutorial/tutorial_andromedascm_config.png)
 
-	a. Check **Enable SSO with SAML**.
+   a. Check **Enable SSO with SAML**.
 
-	b. Under **Andromeda Information** section, copy the **SP Identity** value and paste it into the **Identifier** textbox of **Basic SAML Configuration** section.
+   b. Under **Andromeda Information** section, copy the **SP Identity** value and paste it into the **Identifier** textbox of **Basic SAML Configuration** section.
 
-	c. Copy the **Consumer URL** value and paste it into the **Reply URL** textbox of **Basic SAML Configuration** section.
+   c. Copy the **Consumer URL** value and paste it into the **Reply URL** textbox of **Basic SAML Configuration** section.
 
-	d. Copy the **Logon URL** value and paste it into the **Sign-on URL** textbox of **Basic SAML Configuration** section.
+   d. Copy the **Logon URL** value and paste it into the **Sign-on URL** textbox of **Basic SAML Configuration** section.
 
-	e. Under **SAML Identity Provider** section, type your IDP Name.
+   e. Under **SAML Identity Provider** section, type your IDP Name.
 
-	f. In the **Single Sign On End Point** textbox, paste the value of **Login URL** which, you have copied from the Azure portal.
+   f. In the **Single Sign On End Point** textbox, paste the value of **Login URL** which, you have copied from the Azure portal.
 
-	g. Open the downloaded **Base64 encoded certificate** from Azure portal in notepad, paste it into the **X 509 Certificate** textbox.
-	
-	h. Map the following attributes with the respective value to facilitate SSO login from Azure AD. The **User ID** attribute is required for logging in. For provisioning, **Email**, **Company**, **UserType**, and **Role** are required. In this section, we define attributes mapping (name and values) which correlate to those defined within Azure portal
+   g. Open the downloaded **Base64 encoded certificate** from Azure portal in notepad, paste it into the **X 509 Certificate** textbox.
 
-	![Andromeda attbmap](./media/andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
+   h. Map the following attributes with the respective value to facilitate SSO login from Azure AD. The **User ID** attribute is required for logging in. For provisioning, **Email**, **Company**, **UserType**, and **Role** are required. In this section, we define attributes mapping (name and values) which correlate to those defined within Azure portal
 
-	i. Click **Save**.
+   ![Andromeda attbmap](./media/andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
 
-### Create an Azure AD test user
-
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
-
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
-
-    ![The "Users and groups" and "All users" links](common/users.png)
-
-2. Select **New user** at the top of the screen.
-
-    ![New user Button](common/new-user.png)
-
-3. In the User properties, perform the following steps.
-
-    ![The User dialog box](common/user-properties.png)
-
-    a. In the **Name** field enter **BrittaSimon**.
-  
-    b. In the **User name** field type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com
-
-    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
-
-    d. Click **Create**.
-
-### Assign the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Andromeda.
-
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Andromeda**.
-
-	![Enterprise applications blade](common/enterprise-applications.png)
-
-2. In the applications list, select **Andromeda**.
-
-	![The Andromeda link in the Applications list](common/all-applications.png)
-
-3. In the menu on the left, select **Users and groups**.
-
-    ![The "Users and groups" link](common/users-groups-blade.png)
-
-4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
-
-    ![The Add Assignment pane](common/add-assign-user.png)
-
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
-
-6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
-
-7. In the **Add Assignment** dialog click the **Assign** button.
+   i. Click **Save**.
 
 ### Create Andromeda test user
 
 In this section, a user called Britta Simon is created in Andromeda. Andromeda supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Andromeda, a new one is created after authentication. If you need to create a user manually, contact [Andromeda Client support team](https://www.ngcsoftware.com/support/).
 
-### Test single sign-on 
+## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration with following options.
 
-When you click the Andromeda tile in the Access Panel, you should be automatically signed in to the Andromeda for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+#### SP initiated:
 
-## Additional Resources
+- Click on **Test this application** in Azure portal. This will redirect to Andromeda Sign on URL where you can initiate the login flow.
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- Go to Andromeda Sign-on URL directly and initiate the login flow from there.
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+#### IDP initiated:
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- Click on **Test this application** in Azure portal and you should be automatically signed in to the Andromeda for which you set up the SSO
+
+You can also use Microsoft My Apps to test the application in any mode. When you click the Andromeda tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Andromeda for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+
+## Next steps
+
+Once you configure Andromeda you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

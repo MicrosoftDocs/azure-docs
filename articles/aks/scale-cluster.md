@@ -2,12 +2,8 @@
 title: Scale an Azure Kubernetes Service (AKS) cluster
 description: Learn how to scale the number of nodes in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
-author: iainfoulds
-
-ms.service: container-service
 ms.topic: article
-ms.date: 05/31/2019
-ms.author: iainfou
+ms.date: 09/16/2020
 ---
 
 # Scale the node count in an Azure Kubernetes Service (AKS) cluster
@@ -24,9 +20,7 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --query agentPo
 
 The following example output shows that the *name* is *nodepool1*:
 
-```console
-$ az aks show --resource-group myResourceGroup --name myAKSCluster --query agentPoolProfiles
-
+```output
 [
   {
     "count": 1,
@@ -40,7 +34,7 @@ $ az aks show --resource-group myResourceGroup --name myAKSCluster --query agent
 ]
 ```
 
-Use the [az aks scale][az-aks-scale] command to scale the cluster nodes. The following example scales a cluster named *myAKSCluster* to a single node. Provide your own *--nodepool-name* from the previous command, such as *nodepool1*:
+Use the [az aks scale][az-aks-scale] command to scale the cluster nodes. The following example scales a cluster named *myAKSCluster* to a single node. Provide your own `--nodepool-name` from the previous command, such as *nodepool1*:
 
 ```azurecli-interactive
 az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 1 --nodepool-name <your node pool name>
@@ -68,6 +62,20 @@ The following example output shows the cluster has successfully scaled to one no
 }
 ```
 
+
+## Scale `User` node pools to 0
+
+Unlike `System` node pools that always require running nodes, `User` node pools allow you to scale to 0. To learn more on the differences between system and user node pools, see [System and user node pools](use-system-pools.md).
+
+To scale a user pool to 0, you can use the [az aks nodepool scale][az-aks-nodepool-scale] in alternative to the above `az aks scale` command, and set 0 as your node count.
+
+
+```azurecli-interactive
+az aks nodepool scale --name <your node pool name> --cluster-name myAKSCluster --resource-group myResourceGroup  --node-count 0 
+```
+
+You can also autoscale `User` node pools to 0 nodes, by setting the `--min-count` parameter of the [Cluster Autoscaler](cluster-autoscaler.md) to 0.
+
 ## Next steps
 
 In this article, you manually scaled an AKS cluster to increase or decrease the number of nodes. You can also use the [cluster autoscaler][cluster-autoscaler] to automatically scale your cluster.
@@ -77,6 +85,7 @@ In this article, you manually scaled an AKS cluster to increase or decrease the 
 
 <!-- LINKS - internal -->
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-aks-scale]: /cli/azure/aks#az-aks-scale
+[az-aks-show]: /cli/azure/aks#az_aks_show
+[az-aks-scale]: /cli/azure/aks#az_aks_scale
 [cluster-autoscaler]: cluster-autoscaler.md
+[az-aks-nodepool-scale]: /cli/azure/aks/nodepool#az_aks_nodepool_scale

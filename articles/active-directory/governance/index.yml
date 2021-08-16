@@ -4,7 +4,7 @@ title: Azure Active Directory Identity Governance documentation
 summary: Azure Active Directory (Azure AD) Identity Governance helps you to protect, monitor, and audit access to critical assets while ensuring employee productivity.
 
 metadata: 
-  author: msaburnley
+  author: ajburnle
   description: "Learn how to protect, monitor, and audit access to critical assets while ensuring employee productivity."
   manager: daveba
   ms.author: ajburnle
@@ -39,8 +39,10 @@ landingContent:
             url: entitlement-management-overview.md
       - linkListType: tutorial
         links:
-          - text: Create your first access package that helps users to request access they need
+          - text: Manage access to resources - Azure portal
             url: entitlement-management-access-package-first.md
+          - text: Manage access to resources - Microsoft Graph
+            url: /graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
       - linkListType: concept
         links:
           - text: Delegation and roles

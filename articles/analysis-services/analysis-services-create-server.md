@@ -1,12 +1,14 @@
 ---
 title: Quickstart - Create an Analysis Services server in Azure portal | Microsoft Docs
-description: Learn how to quickly create an Azure Analysis Services server instance by using the Azure portal.
+description: This quickstart describes how to create an Azure Analysis Services server instance by using the Azure portal.
 author: minewiskan
-ms.service: azure-analysis-services
-ms.topic: quickstart
-ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
+ms.date: 08/31/2020
+ms.topic: quickstart
+ms.service: azure-analysis-services
+ms.custom:
+  - mode-portal
 #Customer intent: As a BI developer, I want to create an Azure Analysis Services server by using the Azure portal.
 ---
 # Quickstart: Create a server - Portal
@@ -33,7 +35,7 @@ This quickstart describes how to create an Analysis Services server resource in 
    
    * **Server name**: Type a unique name used to reference the server. The server name must begin with a lowercase character and contain between 3 to 128 lowercase characters and numbers. Whitespaces and special characters are not allowed.
    * **Subscription**: Select the subscription this server will be associated with.
-   * **Resource group**: Create a new resource group or select one you already have. Resource groups are designed to help you manage a collection of Azure resources. To learn more, see [resource groups](../azure-resource-manager/resource-group-overview.md).
+   * **Resource group**: Create a new resource group or select one you already have. Resource groups are designed to help you manage a collection of Azure resources. To learn more, see [resource groups](../azure-resource-manager/management/overview.md).
    * **Location**: This Azure datacenter location hosts the server. Choose a location nearest your largest user base.
    * **Pricing tier**: Select a pricing tier. If you are testing and intend to install the sample model database, select the free **D1** tier. To learn more, see [Azure Analysis Services pricing](https://azure.microsoft.com/pricing/details/analysis-services/). 
    * **Administrator**: By default, this will be the account you are logged in with. You can choose a different account from your Azure Active Directory.
@@ -54,5 +56,3 @@ In this quickstart, you learned how to create a server in your Azure subscriptio
 
 > [!div class="nextstepaction"]
 > [Quickstart: Configure server firewall - Portal](analysis-services-qs-firewall.md)   
-> [!div class="nextstepaction"]
-> [Tutorial: Add a sample model to your server](analysis-services-create-sample-model.md)

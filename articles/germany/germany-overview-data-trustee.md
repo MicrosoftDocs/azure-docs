@@ -1,23 +1,17 @@
 ---
 title: Azure Germany data trustee | Microsoft Docs
 description: This article provides information about the data trustee model. You will also find relevant links.
-services: germany
-cloud: na
-documentationcenter: na
-author: gitralf
-manager: rainerst
-
-ms.assetid: na
-ms.service: germany
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/07/2017
-ms.author: ralfwi
-
+ms.date: 10/16/2020
+author: gitralf
+ms.author: ralfwi 
+ms.service: germany
+ms.custom: bfdocs
 ---
+
 # Data trustee principle
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
 
 Microsoft developed Azure Germany to help meet the needs of customers and prospective customers in the European Union (EU), the European Free Trade Association (EFTA), and the UK. These needs include addressing concerns about security and privacy of online data. Azure Germany comprises industry-leading cloud services *hosted and operated entirely under special security measures in Germany.*
 

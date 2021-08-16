@@ -1,18 +1,18 @@
 ---
-title: View reports and logs in Azure AD entitlement management - Azure Active Directory
+title: View reports & logs in entitlement management - Azure AD
 description: Learn how to view the user assignments report and audit logs in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: jocastel-MSFT
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/28/2019
+ms.date: 12/23/2020
 ms.author: ajburnle
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
@@ -34,7 +34,7 @@ Watch the following video to learn how to view what resources users have access 
 
 This report enables you to list all of the access packages a user can request and the access packages that are currently assigned to the user.
 
-**Prerequisite role:** Global administrator or User administrator
+**Prerequisite role:** Global administrator, Identity Governance administrator or User administrator
 
 1. Click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -58,7 +58,7 @@ This report enables you to list all of the access packages a user can request an
 
 This report enables you to list the resources currently assigned to a user in entitlement management. Note that this report is for resources managed with entitlement management. The user might have access to other resources in your directory outside of entitlement management.
 
-**Prerequisite role:** Global administrator or User administrator
+**Prerequisite role:** Global administrator, Identity Governance administrator or User administrator
 
 1. Click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -108,5 +108,6 @@ When the user's access package assignment expires, is canceled by the user, or r
 
 ## Next steps
 
+- [Archive reports and Logs](entitlement-management-logs-and-reporting.md)
 - [Troubleshoot Azure AD entitlement management](entitlement-management-troubleshoot.md)
 - [Common scenarios](entitlement-management-scenarios.md)

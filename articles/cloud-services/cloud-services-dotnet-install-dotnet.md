@@ -1,33 +1,35 @@
 ---
-title: Install .NET on Azure Cloud Services roles | Microsoft Docs
+title: Install .NET on Azure Cloud Services (classic) roles | Microsoft Docs
 description: This article describes how to manually install the .NET Framework on your cloud service web and worker roles
-services: cloud-services
-documentationcenter: .net
-author: georgewallace
-manager: carmonm
-ms.service: cloud-services
-ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/22/2018
-ms.author: gwallace
+ms.service: cloud-services
+ms.date: 10/14/2020
+author: hirenshah1
+ms.author: hirshah
+ms.reviewer: mimckitt
+ms.custom: 
 ---
 
-# Install .NET on Azure Cloud Services roles
+# Install .NET on Azure Cloud Services (classic) roles
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 This article describes how to install versions of .NET Framework that don't come with the Azure Guest OS. You can use .NET on the Guest OS to configure your cloud service web and worker roles.
 
-For example, you can install .NET 4.6.2 on the Guest OS family 4, which doesn't come with any release of .NET 4.6. (The Guest OS family 5 does come with .NET 4.6.) For the latest information on the Azure Guest OS releases, see the [Azure Guest OS release news](cloud-services-guestos-update-matrix.md). 
+For example, you can install .NET Framework 4.6.2 on the Guest OS family 4, which doesn't come with any release of .NET Framework 4.6. (The Guest OS family 5 does come with .NET Framework 4.6.) For the latest information on the Azure Guest OS releases, see the [Azure Guest OS release news](cloud-services-guestos-update-matrix.md). 
 
 >[!IMPORTANT]
->The Azure SDK 2.9 contains a restriction on deploying .NET 4.6 on the Guest OS family 4 or earlier. A fix for the restriction is available on the [Microsoft Docs](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9) site.
+>The Azure SDK 2.9 contains a restriction on deploying .NET Framework 4.6 on the Guest OS family 4 or earlier. A fix for the restriction is available on the [Microsoft Docs](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9) site.
 
 To install .NET on your web and worker roles, include the .NET web installer as part of your cloud service project. Start the installer as part of the role's startup tasks. 
 
 ## Add the .NET installer to your project
 To download the web installer for the .NET Framework, choose the version that you want to install:
 
-* [.NET 4.8 web installer](https://dotnet.microsoft.com/download/thank-you/net48)
-* [.NET 4.7.2 web installer](https://go.microsoft.com/fwlink/?LinkId=863262)
-* [.NET 4.6.2 web installer](https://www.microsoft.com/download/details.aspx?id=53345)
+* [.NET Framework 4.8 Web installer](https://go.microsoft.com/fwlink/?LinkId=2150985)
+* [.NET Framework 4.7.2 web installer](https://go.microsoft.com/fwlink/?LinkId=863262)
+* [.NET Framework 4.6.2 web installer](https://dotnet.microsoft.com/download/dotnet-framework/net462)
 
 To add the installer for a *web* role:
   1. In **Solution Explorer**, under **Roles** in your cloud service project, right-click your *web* role and select **Add** > **New Folder**. Create a folder named **bin**.
@@ -39,7 +41,7 @@ To add the installer for a *worker* role:
 When files are added in this way to the role content folder, they're automatically added to your cloud service package. The files are then deployed to a consistent location on the virtual machine. Repeat this process for each web and worker role in your cloud service so that all roles have a copy of the installer.
 
 > [!NOTE]
-> You should install .NET 4.6.2 on your cloud service role even if your application targets .NET 4.6. The Guest OS includes the Knowledge Base [update 3098779](https://support.microsoft.com/kb/3098779) and [update 3097997](https://support.microsoft.com/kb/3097997). Issues can occur when you run your .NET applications if .NET 4.6 is installed on top of the Knowledge Base updates. To avoid these issues, install .NET 4.6.2 rather than version 4.6. For more information, see the [Knowledge Base article 3118750](https://support.microsoft.com/kb/3118750) and [4340191](https://support.microsoft.com/kb/4340191).
+> You should install .NET Framework 4.6.2 on your cloud service role even if your application targets .NET Framework 4.6. The Guest OS includes the Knowledge Base [update 3098779](https://support.microsoft.com/kb/3098779) and [update 3097997](https://support.microsoft.com/kb/3097997). Issues can occur when you run your .NET applications if .NET Framework 4.6 is installed on top of the Knowledge Base updates. To avoid these issues, install .NET Framework 4.6.2 rather than version 4.6. For more information, see the [Knowledge Base article 3118750](https://support.microsoft.com/kb/3118750) and [4340191](https://support.microsoft.com/kb/4340191).
 > 
 > 
 
@@ -77,7 +79,7 @@ You can use startup tasks to perform operations before a role starts. Installing
 
 2. Create a file named **install.cmd** and add the following install script to the file.
 
-   The script checks whether the specified version of the .NET Framework is already installed on the machine by querying the registry. If the .NET version is not installed, then the .NET web installer is opened. To help troubleshoot any issues, the script logs all activity to the file startuptasklog-(current date and time).txt that is stored in **InstallLogs** local storage.
+   The script checks whether the specified version of the .NET Framework is already installed on the machine by querying the registry. If the .NET Framework version is not installed, then the .NET Framework web installer is opened. To help troubleshoot any issues, the script logs all activity to the file startuptasklog-(current date and time).txt that is stored in **InstallLogs** local storage.
    
    > [!IMPORTANT]
    > Use a basic text editor like Windows Notepad to create the install.cmd file. If you use Visual Studio to create a text file and change the extension to .cmd, the file might still contain a UTF-8 byte order mark. This mark can cause an error when the first line of the script is run. To avoid this error, make the first line of the script a REM statement that can be skipped by the byte order processing. 
@@ -89,7 +91,7 @@ You can use startup tasks to perform operations before a role starts. Installing
    REM ***** To install .NET 4.5.2 set the variable netfx to "NDP452" *****
    REM ***** To install .NET 4.6 set the variable netfx to "NDP46" *****
    REM ***** To install .NET 4.6.1 set the variable netfx to "NDP461" ***** https://go.microsoft.com/fwlink/?LinkId=671729
-   REM ***** To install .NET 4.6.2 set the variable netfx to "NDP462" ***** https://www.microsoft.com/download/details.aspx?id=53345
+   REM ***** To install .NET 4.6.2 set the variable netfx to "NDP462" ***** https://dotnet.microsoft.com/download/dotnet-framework/net462
    REM ***** To install .NET 4.7 set the variable netfx to "NDP47" ***** 
    REM ***** To install .NET 4.7.1 set the variable netfx to "NDP471" ***** https://go.microsoft.com/fwlink/?LinkId=852095
    REM ***** To install .NET 4.7.2 set the variable netfx to "NDP472" ***** https://go.microsoft.com/fwlink/?LinkId=863262
@@ -229,3 +231,6 @@ When you deploy your cloud service, the startup tasks install the .NET Framework
 <!--Image references-->
 [1]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithinstallerfiles.png
 [2]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithallfiles.png
+
+
+

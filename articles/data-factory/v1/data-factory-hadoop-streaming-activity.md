@@ -1,15 +1,10 @@
 ---
 title: Transform data using Hadoop Streaming Activity - Azure 
 description: Learn how you can use the Hadoop Streaming Activity in an Azure data factory to transform data by running Hadoop Streaming programs on an on-demand/your own HDInsight cluster.
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
-ms.reviewer: maghan
-ms.assetid: 4c3ff8f2-2c00-434e-a416-06dfca2c41ec
+author: dcstwh
+ms.author: weetok
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ---
@@ -21,8 +16,8 @@ ms.date: 01/10/2018
 > * [MapReduce Activity](data-factory-map-reduce.md)
 > * [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)
 > * [Spark Activity](data-factory-spark.md)
-> * [Machine Learning Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md)
-> * [Machine Learning Update Resource Activity](data-factory-azure-ml-update-resource-activity.md)
+> * [Azure Machine Learning Studio (classic) Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md)
+> * [Azure Machine Learning Studio (classic) Update Resource Activity](data-factory-azure-ml-update-resource-activity.md)
 > * [Stored Procedure Activity](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL Activity](data-factory-usql-activity.md)
 > * [.NET Custom Activity](data-factory-use-custom-activities.md)

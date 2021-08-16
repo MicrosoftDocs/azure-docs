@@ -2,18 +2,21 @@
 title: 'Azure ExpressRoute: Configure NPM for circuits'
 description: Configure cloud-based network monitoring (NPM) for Azure ExpressRoute circuits. This covers monitoring over ExpressRoute private peering and Microsoft peering.
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
-ms.topic: article
-ms.date: 01/25/2019
-ms.author: cherylmc
+ms.topic: how-to
+ms.date: 07/28/2019
+ms.author: duau
 
 
 ---
-# Configure Network Performance Monitor for ExpressRoute
+# Configure Network Performance Monitor for ExpressRoute (deprecated)
 
 This article helps you configure a Network Performance Monitor extension to monitor ExpressRoute. Network Performance Monitor (NPM) is a cloud-based network monitoring solution that monitors connectivity between Azure cloud deployments and on-premises locations (Branch offices, etc.). NPM is part of Azure Monitor logs. NPM offers an extension for ExpressRoute that lets you monitor network performance over ExpressRoute circuits that are configured to use private peering or Microsoft peering. When you configure NPM for ExpressRoute, you can detect network issues to identify and eliminate. This service is also available for Azure Government Cloud.
+
+> [!IMPORTANT]
+> Starting 1 July 2021, you will not be able to add new tests in an existing workspace or enable a new workspace in Network Performance Monitor. You will also not be able to add new connection monitors in Connection Monitor (classic). You can continue to use the tests and connection monitors created prior to 1 July 2021. To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor](../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) or  [migrate from Connection Monitor (classic)](../network-watcher/migrate-to-connection-monitor-from-connection-monitor-classic.md) to the new Connection Monitor in Azure Network Watcher before February 29, 2024.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -51,7 +54,7 @@ Create a workspace in the subscription that has the VNets link to the ExpressRou
 1. In the [Azure portal](https://portal.azure.com), select the Subscription that has the VNETs peered to your ExpressRoute circuit. Then, search the list of services in the **Marketplace** for 'Network Performance Monitor'. In the return, click to open the **Network Performance Monitor** page.
 
    >[!NOTE]
-   >You can create a new workspace, or use an existing workspace. If you want to use an existing workspace, you must make sure that the workspace has been migrated to the new query language. [More information...](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-upgrade)
+   >You can create a new workspace, or use an existing workspace. If you want to use an existing workspace, you must make sure that the workspace has been migrated to the new query language. [More information...](../azure-monitor/logs/log-query-overview.md)
    >
 
    ![portal](./media/how-to-npm/3.png)<br><br>
@@ -80,7 +83,7 @@ Create a workspace in the subscription that has the VNets link to the ExpressRou
 
 1. Go to the **Common Settings** tab of the **Network Performance Monitor Configuration** page for your resource. Click the agent that corresponds to your server's processor from the **Install Log Analytics Agents** section, and download the setup file.
 2. Next, copy the **Workspace ID** and **Primary Key** to Notepad.
-3. From the **Configure Log Analytics Agents for monitoring using TCP protocol** section, download the Powershell Script. The PowerShell script helps you open the relevant firewall port for the TCP transactions.
+3. From the **Configure Log Analytics Agents for monitoring using TCP protocol** section, download the PowerShell Script. The PowerShell script helps you open the relevant firewall port for the TCP transactions.
 
    ![PowerShell script](./media/how-to-npm/7.png)
 
@@ -89,7 +92,7 @@ Create a workspace in the subscription that has the VNets link to the ExpressRou
 We recommend that you install at least two agents on each side of the ExpressRoute connection for redundancy (for example, on-premises, Azure VNETs). The agent must be installed on a Windows Server (2008 SP1 or later). Monitoring ExpressRoute circuits using Windows Desktop OS and Linux OS is not supported. Use the following steps to install agents:
    
   >[!NOTE]
-  >Agents pushed by SCOM (includes [MMA](https://technet.microsoft.com/library/dn465154(v=sc.12).aspx)) may not be able to consistently detect their location if they are hosted in Azure. We recommend that you do not use these agents in Azure VNETs to monitor ExpressRoute.
+  >Agents pushed by SCOM (includes [MMA](/previous-versions/system-center/system-center-2012-R2/dn465154(v=sc.12))) may not be able to consistently detect their location if they are hosted in Azure. We recommend that you do not use these agents in Azure VNETs to monitor ExpressRoute.
   >
 
 1. Run **Setup** to install the agent on each server that you want to use for monitoring ExpressRoute. The server you use for monitoring can either be a VM, or on-premises, and must have Internet access. You need to install at least one agent on-premises, and one agent on each network segment that you want to monitor in Azure.
@@ -115,7 +118,7 @@ We recommend that you install at least two agents on each side of the ExpressRou
 
 ### <a name="proxy"></a>2.3: Configure proxy settings (optional)
 
-If you are using a web proxy to access the Internet, use the following steps to configure proxy settings for the Microsoft Monitoring Agent. Perform these steps for each server. If you have many servers that you need to configure, you might find it easier to use a script to automate this process. If so, see [To configure proxy settings for the Microsoft Monitoring Agent using a script](../log-analytics/log-analytics-windows-agent.md).
+If you are using a web proxy to access the Internet, use the following steps to configure proxy settings for the Microsoft Monitoring Agent. Perform these steps for each server. If you have many servers that you need to configure, you might find it easier to use a script to automate this process. If so, see [To configure proxy settings for the Microsoft Monitoring Agent using a script](../azure-monitor/agents/agent-windows.md).
 
 To configure proxy settings for the Microsoft Monitoring Agent using the Control Panel:
 
@@ -158,7 +161,7 @@ On the agent servers, open a PowerShell window with administrative privileges. R
 
 To monitor agent servers that are in Azure, you must configure network security group (NSG) rules to allow TCP traffic on a port used by NPM for synthetic transactions. The default port is 8084. This allows a monitoring agent installed on an Azure VM to communicate with an on-premises monitoring agent.
 
-For more information about NSG, see [Network Security Groups](../virtual-network/virtual-networks-create-nsg-arm-portal.md).
+For more information about NSG, see [Network Security Groups](../virtual-network/tutorial-filter-network-traffic.md).
 
 >[!NOTE]
 >Make sure that you have installed the agents (both the on-premises server agent and the Azure server agent), and have run the PowerShell script before proceeding with this step.
@@ -166,7 +169,7 @@ For more information about NSG, see [Network Security Groups](../virtual-network
 
 ## <a name="setupmonitor"></a>Step 4: Discover peering connections
 
-1. Navigate to the Network Performance Monitor overview tile by going to the **All Resources** page, then click on the whitelisted NPM Workspace.
+1. Navigate to the Network Performance Monitor overview tile by going to the **All Resources** page, then click on the allowlisted NPM Workspace.
 
    ![npm workspace](./media/how-to-npm/npm.png)
 2. Click the **Network Performance Monitor** overview tile to bring up the dashboard. The dashboard contains an ExpressRoute page, which shows that ExpressRoute is in an 'unconfigured state'. Click **Feature Setup** to open the Network Performance Monitor configuration page.
@@ -225,7 +228,7 @@ Once you see the monitoring tiles, your ExpressRoute circuits and connection res
 
 The NPM page contains a page for ExpressRoute that shows an overview of the health of ExpressRoute circuits and peerings.
 
-![Dashboard](./media/how-to-npm/dashboard.png)
+![Screenshot shows a dashboard with an overview of the health of the ExpressRoute circuits and peerings.](./media/how-to-npm/dashboard.png)
 
 ### <a name="circuits"></a>List of circuits
 

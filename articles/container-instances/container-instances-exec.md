@@ -25,8 +25,7 @@ az container exec --resource-group myResourceGroup --name mynginx --exec-command
 
 In the example output below, the Bash shell is launched in a running Linux container, providing a terminal in which `ls` is executed:
 
-```console
-$ az container exec --resource-group myResourceGroup --name mynginx --exec-command "/bin/bash"
+```output
 root@caas-83e6c883014b427f9b277a2bba3b7b5f-708716530-2qv47:/# ls
 bin   dev  home  lib64	mnt  proc  run	 srv  tmp  var
 boot  etc  lib	 media	opt  root  sbin  sys  usr
@@ -37,8 +36,11 @@ Bye.
 
 In this example, Command Prompt is launched in a running Nanoserver container:
 
-```console
-$ az container exec --resource-group myResourceGroup --name myiis --exec-command "cmd.exe"
+```azurecli
+az container exec --resource-group myResourceGroup --name myiis --exec-command "cmd.exe"
+```
+
+```output
 Microsoft Windows [Version 10.0.14393]
 (c) 2016 Microsoft Corporation. All rights reserved.
 
@@ -82,6 +84,6 @@ Azure Container Instances currently supports launching a single process with [az
 Learn about other troubleshooting tools and common deployment issues in [Troubleshoot container and deployment issues in Azure Container Instances](container-instances-troubleshooting.md).
 
 <!-- LINKS - internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-exec]: /cli/azure/container#az-container-exec
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-exec]: /cli/azure/container#az_container_exec
 [azure-cli]: /cli/azure

@@ -12,7 +12,7 @@ ms.author: mayg
 ---
 # Azure ExpressRoute with Azure Site Recovery
 
-Microsoft Azure ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Office 365, and Dynamics 365.
+Microsoft Azure ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Microsoft 365, and Dynamics 365.
 
 This article describes how you can use Azure ExpressRoute with Azure Site Recovery for disaster recovery and migration.
 
@@ -26,13 +26,13 @@ An ExpressRoute circuit has multiple routing domains associated with it. Learn m
 
 Azure Site Recovery enables disaster recovery and migration to Azure for on-premises [Hyper-V virtual machines](hyper-v-azure-architecture.md), [VMware virtual machines](vmware-azure-architecture.md), and [physical servers](physical-azure-architecture.md). For all on-premises to Azure scenarios, replication data is sent to and stored in an Azure Storage account. During replication, you don't pay any virtual machine charges. When you run a failover to Azure, Site Recovery automatically creates Azure IaaS virtual machines.
 
-Site Recovery replicates data to an Azure Storage account or replica Managed Disk on the target Azure region over a public endpoint. To use ExpressRoute for Site Recovery replication traffic, you can utilize [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) or an existing [public peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) (deprecated for new creations). Microsoft peering is the recommended routing domain for replication. Note that replication is not supported over private peering.
+Site Recovery replicates data to an Azure Storage account or replica Managed Disk on the target Azure region over a public endpoint. To use ExpressRoute for Site Recovery replication traffic, you can utilize [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) or an existing [public peering](../expressroute/about-public-peering.md) (deprecated for new creations). Microsoft peering is the recommended routing domain for replication. Note that replication is supported over private peering only when [private ends points are enabled for the vault](hybrid-how-to-enable-replication-private-endpoints.md).
 
 Ensure that the [Networking Requirements](vmware-azure-configuration-server-requirements.md#network-requirements) for Configuration Server are also met. Connectivity to specific URLs is required by Configuration Server for orchestration of Site Recovery replication. ExpressRoute cannot be used for this connectivity. 
 
 In case you use proxy at on-premises and wish to use ExpressRoute for replication traffic, you need to configure the Proxy bypass list on the Configuration Server and Process Servers. Follow the steps below:
 
-- Download PsExec tool from [here](https://aka.ms/PsExec) to access System user context.
+- Download PsExec tool from [here](/sysinternals/downloads/psexec) to access System user context.
 - Open Internet Explorer in system user context by running the following command line
     psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
 - Add proxy settings in IE
@@ -47,7 +47,7 @@ The combined scenario is represented in the following diagram:
 
 ## Azure to Azure replication with ExpressRoute
 
-Azure Site Recovery enables disaster recovery of [Azure virtual machines](azure-to-azure-architecture.md). Depending on whether your Azure virtual machines use [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md), replication data is sent to an Azure Storage account or replica Managed Disk on the target Azure region. Although the replication endpoints are public, replication traffic for Azure VM replication, by default, does not traverse the Internet, regardless of which Azure region the source virtual network exists in. You can override Azure's default system route for the 0.0.0.0/0 address prefix with a [custom route](../virtual-network/virtual-networks-udr-overview.md#custom-routes) and divert VM traffic to an on-premises network virtual appliance (NVA), but this configuration is not recommended for Site Recovery replication. If you're using custom routes, you should [create a virtual network service endpoint](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) in your virtual network for "Storage" so that the replication traffic does not leave the Azure boundary.
+Azure Site Recovery enables disaster recovery of [Azure virtual machines](azure-to-azure-architecture.md). Depending on whether your Azure virtual machines use [Azure Managed Disks](../virtual-machines/managed-disks-overview.md), replication data is sent to an Azure Storage account or replica Managed Disk on the target Azure region. Although the replication endpoints are public, replication traffic for Azure VM replication, by default, does not traverse the Internet, regardless of which Azure region the source virtual network exists in. You can override Azure's default system route for the 0.0.0.0/0 address prefix with a [custom route](../virtual-network/virtual-networks-udr-overview.md#custom-routes) and divert VM traffic to an on-premises network virtual appliance (NVA), but this configuration is not recommended for Site Recovery replication. If you're using custom routes, you should [create a virtual network service endpoint](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) in your virtual network for "Storage" so that the replication traffic does not leave the Azure boundary.
 
 For Azure VM disaster recovery, by default, ExpressRoute is not required for replication. After virtual machines fail over to the target Azure region, you can access them using [private peering](../expressroute/expressroute-circuit-peerings.md#privatepeering). Note that data transfer prices apply irrespective of the mode of data replication across Azure regions.
 

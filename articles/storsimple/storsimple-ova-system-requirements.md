@@ -1,18 +1,10 @@
 ---
-title: Microsoft Azure StorSimple Virtual Array system requirements| Microsoft Docs
+title: Microsoft Azure StorSimple Virtual Array system requirements
 description: Learn about the software and networking requirements for your StorSimple Virtual Array
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-
 ms.assetid: ea1d3bca-e71b-453d-aa82-440d2638f5e3
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
 ---
@@ -31,7 +23,7 @@ The system requirements include:
 
 The StorSimple system requirements information published in this article applies to StorSimple Virtual Arrays only.
 
-* For 8000 series devices, go to [System requirements for your StorSimple 8000 series device](storsimple-system-requirements.md).
+* For 8000 series devices, go to [System requirements for your StorSimple 8000 series device](./storsimple-8000-system-requirements.md).
 * For 7000 series devices, go to [System requirements for your StorSimple 5000-7000 series device](http://onlinehelp.storsimple.com/1_StorSimple_System_Requirements).
 
 ## Software requirements
@@ -86,7 +78,7 @@ The following software requirements are for the SMB clients that access your Sto
 
 
 ### Supported storage format
-Only the Azure block blob storage is supported. Page blobs are not supported. More information [about block blobs and page blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+Only the Azure block blob storage is supported. Page blobs are not supported. More information [about block blobs and page blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
 ## Networking requirements
 The following table lists the ports that need to be opened in your firewall to allow for iSCSI, SMB, cloud, or management traffic. In this table, *in* or *inbound* refers to the direction from which incoming client requests access your device. *Out* or *outbound* refers to the direction in which your StorSimple device sends data externally, beyond the deployment: for example, outbound to the Internet.
@@ -104,7 +96,7 @@ The following table lists the ports that need to be opened in your firewall to a
 <sup>1</sup> No inbound ports need to be opened on the public Internet.
 
 > [!IMPORTANT]
-> Ensure that the firewall does not modify or decrypt any SSL traffic between the StorSimple device and Azure.
+> Ensure that the firewall does not modify or decrypt any TLS traffic between the StorSimple device and Azure.
 > 
 > 
 

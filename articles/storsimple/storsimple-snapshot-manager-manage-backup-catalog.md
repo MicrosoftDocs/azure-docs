@@ -3,18 +3,18 @@ title: StorSimple Snapshot Manager backup catalog | Microsoft Docs
 description: Describes how to use the StorSimple Snapshot Manager MMC snap-in to view and manage the backup catalog.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: alkohli
 manager: timlt
 editor: ''
 
 ms.assetid: 6abdbfd2-22ce-45a5-aa15-38fae4c8f4ec
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: v-sharos
+ms.author: alkohli
 
 ---
 # Use StorSimple Snapshot Manager to manage the backup catalog

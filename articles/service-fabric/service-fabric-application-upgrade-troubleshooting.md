@@ -1,21 +1,9 @@
 ---
-title: Troubleshooting application upgrades | Microsoft Docs
+title: Troubleshooting application upgrades 
 description: This article covers some common issues around upgrading a Service Fabric application and how to resolve them.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
 
-ms.assetid: 19ad152e-ec50-4327-9f19-065c875c003c
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-
 ---
 # Troubleshoot application upgrades
 

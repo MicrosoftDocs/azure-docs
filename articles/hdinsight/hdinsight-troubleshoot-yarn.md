@@ -1,9 +1,6 @@
 ---
 title: Troubleshoot YARN in Azure HDInsight
 description: Get answers to common questions about working with Apache Hadoop YARN and Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
@@ -29,27 +26,27 @@ In this example, two existing queues (**default** and **thriftsvr**) both are ch
 
 1. Select the **Ambari Views** icon, and then select the grid pattern. Next, select **YARN Queue Manager**.
 
-    ![Apache Ambari dashboard YARN Queue Manager](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png" alt-text="Apache Ambari dashboard YARN Queue Manager" border="false":::
 2. Select the **default** queue.
 
-    ![Apache Ambari YARN select default queue](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png" alt-text="Apache Ambari YARN select default queue" border="false":::
 3. For the **default** queue, change the **capacity** from 50% to 25%. For the **thriftsvr** queue, change the **capacity** to 25%.
 
-    ![Change the capacity to 25% for the default and thriftsvr queues](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png" alt-text="Change the capacity to 25% for the default and thriftsvr queues" border="false":::
 4. To create a new queue, select **Add Queue**.
 
-    ![Apache Ambari YARN dashboard Add Queue](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png" alt-text="Apache Ambari YARN dashboard Add Queue" border="false":::
 
 5. Name the new queue.
 
-    ![Apache Ambari YARN dashboard name Queue](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png" alt-text="Apache Ambari YARN dashboard name Queue" border="false":::  
 
 6. Leave the **capacity** values at 50%, and then select the **Actions** button.
 
-    ![Apache Ambari YARN select action](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png" alt-text="Apache Ambari YARN select action" border="false":::  
 7. Select **Save and Refresh Queues**.
 
-    ![Select Save and Refresh Queues](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png)  
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png" alt-text="Select Save and Refresh Queues" border="false":::  
 
 These changes are visible immediately on the YARN Scheduler UI.
 
@@ -126,15 +123,9 @@ These changes are visible immediately on the YARN Scheduler UI.
 
 ### <a name="additional-reading-2"></a>Additional reading
 
-- [Connect to HDInsight (Apache Hadoop) by using SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
+- [Connect to HDInsight (Apache Hadoop) by using SSH](./hdinsight-hadoop-linux-use-ssh-unix.md)
 - [Apache Hadoop YARN concepts and applications](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow)
 
 ## Next steps
 
-If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
-
-- Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
-
-- Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience. Connecting the Azure community to the right resources: answers, support, and experts.
-
-- If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](includes/hdinsight-troubleshooting-next-steps.md)]

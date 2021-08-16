@@ -6,30 +6,37 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: include
-ms.date: 11/05/2019
+ms.date: 08/12/2021
 ms.author: danlep
 ms.custom: include file
 ---
 
 | Resource | Basic | Standard | Premium |
 |---|---|---|---|
-| Storage<sup>1</sup> | 10 GiB | 100 GiB| 500 GiB |
-| Maximum image layer size | 200 GiB | 200 GiB | 200 GiB |
+| Included storage<sup>1</sup> (GiB) | 10 | 100 | 500 |
+| Storage limit (TiB) | 20| 20 | 20 |
+| Maximum image layer size (GiB) | 200 | 200 | 200 |
+| Maximum manifest size (MiB) | 4 | 4 | 4 |
 | ReadOps per minute<sup>2, 3</sup> | 1,000 | 3,000 | 10,000 |
 | WriteOps per minute<sup>2, 4</sup> | 100 | 500 | 2,000 |
-| Download bandwidth MBps<sup>2</sup> | 30 | 60 | 100 |
-| Upload bandwidth MBps<sup>2</sup> | 10 | 20 | 50 |
-| Webhooks | 2 | 10 | 100 |
+| Download bandwidth<sup>2</sup> (Mbps) | 30 | 60 | 100 |
+| Upload bandwidth <sup>2</sup> (Mbps) | 10 | 20 | 50 |
+| Webhooks | 2 | 10 | 500 |
 | Geo-replication | N/A | N/A | [Supported][geo-replication] |
+| Availability zones | N/A | N/A | [Preview][zones] |
 | Content trust | N/A | N/A | [Supported][content-trust] |
-| Virtual network access | N/A | N/A | [Preview][vnet] |
+| Private link with private endpoints | N/A | N/A | [Supported][plink] |
+| &bull; Private endpoints | N/A | N/A | 10 |
+| Public IP network rules | N/A | N/A | 100 |
+| Service endpoint VNet access | N/A | N/A | [Preview][vnet] |
+| Customer-managed keys | N/A | N/A | [Supported][cmk] |
 | Repository-scoped permissions | N/A | N/A | [Preview][token]|
 | &bull; Tokens | N/A | N/A | 20,000 |
 | &bull; Scope maps | N/A | N/A | 20,000 |
 | &bull; Repositories per scope map | N/A | N/A | 500 |
 
 
-<sup>1</sup>The specified storage limits are the amount of *included* storage for each tier. You're charged an additional daily rate per GiB for image storage above these limits. For rate information, see [Azure Container Registry pricing][pricing].
+<sup>1</sup> Storage included in the daily rate for each tier. Additional storage may be used, up to the registry storage limit, at an additional daily rate per GiB. For rate information, see [Azure Container Registry pricing][pricing]. If you need storage beyond the registry storage limit, please contact Azure Support.
 
 <sup>2</sup>*ReadOps*, *WriteOps*, and *Bandwidth* are minimum estimates. Azure Container Registry strives to improve performance as usage requires.
 
@@ -44,4 +51,7 @@ ms.custom: include file
 [geo-replication]: ../articles/container-registry/container-registry-geo-replication.md
 [content-trust]: ../articles/container-registry/container-registry-content-trust.md
 [vnet]: ../articles/container-registry/container-registry-vnet.md
+[plink]: ../articles/container-registry/container-registry-private-link.md
+[cmk]: ../articles/container-registry/container-registry-customer-managed-keys.md
 [token]: ../articles/container-registry/container-registry-repository-scoped-permissions.md
+[zones]: ../articles/container-registry/zone-redundancy.md

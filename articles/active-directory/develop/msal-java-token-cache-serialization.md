@@ -8,15 +8,14 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 11/07/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-java
 #Customer intent: As an application developer using the Microsoft Authentication Library for Java (MSAL4J), I want to learn how to persist the token cache so that it is available to a new instance of my application.
 
-ms.collection: M365-identity-device-management
 ---
 
 # Custom token cache serialization in MSAL for Java

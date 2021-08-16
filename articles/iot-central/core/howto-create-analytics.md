@@ -1,81 +1,93 @@
 ---
-title: Analyze your device data in your Azure IoT Central application | Microsoft Docs
-description: This article describes how to analyze your device data in your Azure IoT Central application using queries and visualizations.
-author: lmasieri
-ms.author: lmasieri
-ms.date: 06/09/2019
-ms.topic: conceptual
+title: Analyze device data in your Azure IoT Central application | Microsoft Docs
+description: Analyze device data in your Azure IoT Central application.
+author: ankitscribbles
+ms.author: ankitgup
+ms.date: 08/16/2021
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-manager: peterpr
+
+# This article applies to operators, builders, and administrators.
 ---
 
-# How to use analytics to analyze your device data
+# How to use analytics to analyze device data
 
-*This article applies to operators, builders, and administrators.*
+Azure IoT Central provides rich analytics capabilities to analyze historical trends and correlate telemetry from your devices. To get started, select **Analytics** on the left pane.
 
-Azure IoT Central provides rich analytics capabilities to make sense of large amounts of data from your devices. To get started, visit **Analytics** on the left pane.
+## Understand the analytics UI
 
-## Querying your data
+The analytics user interface has three main components:
 
-You'll need to choose a **device set**, add a **filter** (optional), and select a **time period** to get started. Once you're done, select **Show results** to start visualizing your data.
+- **Data configuration panel:** On the configuration panel, select the device group for which you want to analyze the data. Next, select the telemetry that you want to analyze and select the aggregation method for each telemetry. The **Split By** control helps to group the data by using device properties as dimensions.
 
-* **Device sets:** A [device set](howto-use-device-sets.md) is a user-defined group of your devices. For example, all Refrigerators in Oakland, or All rev 2.0 wind turbines.
+- **Time control:** Use the time control to select the duration for which you want to analyze the data. You can drag either end of the time slider to select the time span. The time control also has an **Interval size** slider that controls the bucket or the interval size used to aggregate the data.
 
-* **Filters:** You can optionally add filters to your search to hone in on your data. You can add up to 10 filters at a time. For example, within all Refrigerators in Oakland, find those that have had temperature go above 60 degrees.
-* **Time period:** By default we'll retrieve data from the past 10 minutes. You can change this value to one of the predefined time ranges or select a custom time period.
+- **Chart control:** The chart control visualizes the data as a line chart. You can toggle the visibility of specific lines by interacting with the chart legend.
 
-  ![Analytics query](media/howto-create-analytics/analytics-query.png)
+  :::image type="content" source="media/howto-create-analytics/analytics-ui.png" alt-text="Screenshot that shows the three areas of the analytics UI.":::
 
-## Visualizing your data
+## Query your data
 
-Once you've queried your data, you'll be able to start visualizing it. You can show/hide measurements, change the way data is aggregated, and further split the data by different device properties.  
+Choose a **Device group** to get started and then the telemetry you want to analyze. When you're done, select **Analyze** to start visualizing your data:
 
-* **Split by:** Splitting data by device properties enables you to further drill down into your data. For example, you can split your results by device ID or location.
+- **Device group:** A [device group](tutorial-use-device-groups.md) is a user-defined group of your devices. For example, **All Refrigerators in Oakland**, or **All version 2.0 wind turbines**.
 
-* **Measurements:** You can choose to show/hide up to 10 different telemetry items being reported by your devices at a time. Measurements are things such as temperature and humidity.
+- **Telemetry:** Select the telemetry that you want to analyze and explore. You can select multiple telemetry types to analyze together. The default aggregation method is set to **Average** for numerical data types and **Count** for strings. Aggregation methods for numeric data types are **Average**, **Maximum**, **Minimum**, **Count** and, **Sum**. **Count** is the only aggregation method for strings.
 
-* **Aggregation:** By default we aggregate data by its average, but you can choose to change the data aggregation to something else to fit your needs.
+    > [!NOTE]
+    > Historic data points are only shown when the conditions of the query are true. For example, a device was upgraded from **Template1** to **Template2** yesterday. Today, if you query device groups that contain **Template1** devices, you see device data from yesterday and before. If you query device groups that contain **Template2** devices, you see the device and data from when it was upgraded going forward.
 
-   ![Analytics visualization split by](media/howto-create-analytics/analytics-splitby.png)
+- **Split by:** The **Split by** control helps to group the data by using the device properties as dimensions. Device telemetry and properties are combined with cloud properties when the device sends data. If the cloud or device property is updated, then you see the telemetry grouped by different values on the chart.
 
-## Interacting with your data
+    > [!TIP]
+    > To view data for each device separately, select **Device Id** in the **Split by** control.
 
-You have various ways to change your query results to meet your visualization needs. You can alternate between a graph view and a grid view, zoom in and out, refresh your data set, and alter how lines are shown.
+## Interact with your data
 
-* **Show grid:** Your results are available in a table format, enabling you to view the specific value for each data point. This view also meets accessibility standards.
-* **Show chart:** Your results are displayed in a line format to help you identify upward or downward trends and anomalies.
+After you've queried your data, you can visualize it on the line chart. You can show or hide telemetry, change the time duration, or view the data in a grid.
 
-  ![Showing the grid view for your analytics](media/howto-create-analytics/analytics-showgrid.png)
+- **Time editor panel:** By default you see data from the last day. You can drag either end of the slider to change the time duration. You can also use the calendar control to select one of the predefined time buckets or select a custom time range. The time control also has an **Interval size** slider that controls the interval size used to aggregate the data.
 
-Zoom lets you to home in on your data. If you find a time period you'd like to focus on within your result set, use your cursor to grab the area that you'd like to zoom in on and use the available controls to perform one of the following actions:
+  :::image type="content" source="media/howto-create-analytics/time-editor-panel.png" alt-text="Screenshot that shows the time editor panel.":::
 
-* **Zoom in:** Once you've selected a time period, zoom in is enabled and allows you to zoom in to your data.
-* **Zoom out:** This control enables you to zoom out one level from your last zoom. For example, if you've zoom in to your data three times, zoom out takes you back one step at a time.
-* **Zoom reset:** Once you've performed various levels of zooming, you can use the zoom reset control to return to your original result set.
+  - **Inner date range slider tool**: Use the two endpoint controls to highlight the time span you want. The inner date range is constrained by the outer date range slider control.
+  
+  - **Outer date range slider control**: Use the endpoint controls to select the outer date range that's available for your inner date range control.
 
-  ![Perform zooming on your data](media/howto-create-analytics/analytics-zoom.png)
+  - **Increase and decrease date range buttons**: Increase or decrease your time span by selecting either button for the interval you want.
 
-You can change the line style to meet your needs. You have four options:
+  - **Interval-size slider**: Use the slider to zoom in and out of intervals over the same time span. This control gives more precise control of movement between large slices of time. You can use it to see granular, high-resolution views of your data, even down to milliseconds. The default start point of the slider gives you an optimal view of the data from your selection. This view balances resolution, query speed, and granularity.
+  
+  - **Date range picker**: Use this control, to select the date and time ranges you want. You can also use the control to switch between different time zones. After you make the changes to apply to your current workspace, select **Save**.
 
-* **Line:** A flat line between each of the data points.
-* **Smooth:** A curved line between each point.
-* **Step:** Line between each point on the chart is a step.
-* **Scatter:** All points are plotted on the chart without lines connecting them.
+  > [!TIP]
+  > Interval size is determined dynamically based on the selected time span. Smaller time spans let you aggregate the data into very granular intervals of up to a few seconds.
 
-  ![Different line types available in Analytics](media/howto-create-analytics/analytics-linetypes.png)
+- **Chart Legend:** The chart legend shows the selected telemetry on the chart. Hover over an item on the legend to bring it into focus on the chart. When you use **Split by**, the telemetry is grouped by the values of the selected dimension. You can toggle the visibility of each telemetry type or clicking on the group name to toggle the group visibility.  
 
-Lastly, you can arrange your data across the Y-axis by choosing from one of three modes:
+- **Y-axis format control:** The y-axis mode cycles through the available y-axis view options. This control is available only when you're visualizing multiple telemetry types. The three modes are:
 
-* **Stacked:** A graph for every measurement is stacked and each of the graphs have their own Y-axis. Stacked graphs are useful when you have multiple measurements selected and want to have distinct view of these measurements.
-* **Unstacked:** A graph for every measure is plotted against one Y-axis, but the values for the Y-axis are changed based on the highlighted measure. Unstacked graphs are useful when you want to overlay multiple measures and want to see patterns across these measures for the same time range.
-* **Shared Y-axis:** All the graphs share the same Y-axis and the values for the axis do not change. Shared Y-axis graphs are useful when you want to look at a single measure while slicing the data with split-by.
+  - **Stacked:** A graph for each telemetry type is stacked and each graph has its own y-axis. This mode is the default.
+  - **Shared:** A graph for each telemetry type is plotted against the same y-axis.
+  - **Overlap:** Use this mode to stack multiple lines on the same y-axis, with the y-axis data changing based on the selected line.
 
-  ![Arrange data across y-axis with different visualization modes](media/howto-create-analytics/analytics-yaxis.png)
+  :::image type="content" source="media/howto-create-analytics/y-axis-control.png" alt-text="A screenshot that highlights the y-axis control.":::
+
+- **Zoom control:** The zoom control lets you drill further into your data. If you find a time period you'd like to focus on within your result set, use your mouse pointer to highlight the area. Then right-click on the selected area and select **Zoom**.
+
+  :::image type="content" source="media/howto-create-analytics/zoom.png" alt-text="A Screenshot that shows the use of the zoom control.":::
+
+Select the ellipsis, for more chart controls:
+
+- **Display Grid:** Display your results in a table format that lets you view the value for each data point.
+
+- **Download as CSV:** Export your results as a comma-separated values (CSV) file. The CSV file contains data for each device. Results are exported by using the interval and timeframe specified.
+
+- **Drop a Marker:** The **Drop Marker** control lets you anchor certain data points on the chart. It's useful when you're trying to compare data for multiple lines across different time periods.
+
+  :::image type="content" source="media/howto-create-analytics/additional-chart-controls.png" alt-text="A Screenshot that shows how to access the additional chart controls.":::
 
 ## Next steps
 
-Now that you have learned how to create custom analytics for your Azure IoT Central application, here the suggested next step is:
-
-> [!div class="nextstepaction"]
-> [Prepare and connect a Node.js application](howto-connect-nodejs.md)
+Now that you've learned how to visualize your data with the built-in analytics capabilities, a suggested next step is to learn how to [Export IoT data to cloud destinations using data export](howto-export-data.md).

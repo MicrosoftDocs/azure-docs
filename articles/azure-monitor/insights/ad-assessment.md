@@ -1,11 +1,9 @@
 ---
 title: Optimize your Active Directory environment with Azure Monitor | Microsoft Docs
 description: You can use the Active Directory Health Check solution to assess the risk and health of your environments on a regular interval.
-ms.service:  azure-monitor
-ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 09/10/2019
 
 ---
@@ -32,9 +30,9 @@ After you've added the solution and a check is completed, summary information fo
 
 ## Prerequisites
 
-* The Active Directory Health Check solution requires a supported version of .NET Framework 4.5.2 or above installed on each computer that has the Log Analytics agent for Windows (also referred to as the Microsoft Monitoring Agent (MMA)) installed.  The agent is used by System Center 2016 - Operations Manager, Operations Manager 2012 R2, and Azure Monitor.
-* The solution supports domain controllers running Windows Server 2008 and 2008 R2, Windows Server 2012 and 2012 R2, and Windows Server 2016.
-* A Log Analytics workspace to add the Active Directory Health Check solution from the Azure marketplace in the Azure portal. There is no additional configuration required.
+* The Active Directory Health Check solution requires a supported version of .NET Framework 4.6.2 or above installed on each computer that has the Log Analytics agent for Windows (also referred to as the Microsoft Monitoring Agent (MMA)) installed.  The agent is used by System Center 2016 - Operations Manager, Operations Manager 2012 R2, and Azure Monitor.
+* The solution supports domain controllers running Windows Server 2008 and 2008 R2, Windows Server 2012 and 2012 R2, Windows Server 2016, and Windows Server 2019.
+* A Log Analytics workspace to add the Active Directory Health Check solution from the Azure Marketplace in the Azure portal. There is no additional configuration required.
 
   > [!NOTE]
   > After you've added the solution, the AdvisorAssessment.exe file is added to servers with agents. Configuration data is read and then sent to Azure Monitor in the cloud for processing. Logic is applied to the received data and the cloud service records the data.
@@ -43,9 +41,9 @@ After you've added the solution and a check is completed, summary information fo
 
 To perform the health check against your domain controllers that are members of the domain to be evaluated, each domain controller in that domain requires an agent and connectivity to Azure Monitor using one of the following supported methods:
 
-1. Install the [Log Analytics agent for Windows](../../azure-monitor/platform/agent-windows.md) if the domain controller is not already monitored by System Center 2016 - Operations Manager or Operations Manager 2012 R2.
+1. Install the [Log Analytics agent for Windows](../agents/agent-windows.md) if the domain controller is not already monitored by System Center 2016 - Operations Manager or Operations Manager 2012 R2.
 2. If it is monitored with System Center 2016 - Operations Manager or Operations Manager 2012 R2 and the management group is not integrated with Azure Monitor, the domain controller can be multi-homed with Azure Monitor to collect data and forward to the service and still be monitored by Operations Manager.  
-3. Otherwise, if your Operations Manager management group is integrated with the service, you need to add the domain controllers for data collection by the service following the steps under [add agent-managed computers](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) after you enable the solution in your workspace.  
+3. Otherwise, if your Operations Manager management group is integrated with the service, you need to add the domain controllers for data collection by the service following the steps under [add agent-managed computers](../agents/om-agents.md#connecting-operations-manager-to-azure-monitor) after you enable the solution in your workspace.  
 
 The agent on your domain controller which reports to an Operations Manager management group, collects data, forwards to its assigned management server, and then is sent directly from a management server to Azure Monitor.  The data is not written to the Operations Manager databases.  
 
@@ -163,6 +161,17 @@ After the next scheduled health check runs, by default every seven days, the spe
 
 ## AD Health Check solutions FAQ
 
+*What checks are performed by the AD Assessment solution?*
+
+* The following query shows a description of all checks currently performed:
+
+```Kusto
+ADAssessmentRecommendation
+| distinct RecommendationId, FocusArea, ActionArea, Recommendation, Description
+| sort by FocusArea,ActionArea, Recommendation
+```
+The results can then be exported to Excel for further review.
+
 *How often does a health check run?*
 
 * The check runs every seven days.
@@ -201,4 +210,5 @@ After the next scheduled health check runs, by default every seven days, the spe
 
 ## Next steps
 
-Use [Azure Monitor log queries](../log-query/log-query-overview.md) to learn how to analyze detailed AD Health Check data and recommendations.
+Use [Azure Monitor log queries](../logs/log-query-overview.md) to learn how to analyze detailed AD Health Check data and recommendations.
+

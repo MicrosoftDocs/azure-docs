@@ -1,106 +1,268 @@
 ---
-title: Select a page layout - Azure Active Directory B2C
-description: Learn about how to select a page layout in Azure Active Directory B2C.
+title: Page layout versions
+titleSuffix: Azure AD B2C
+description: Page layout version history for UI customization in custom policies.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 07/04/2019
-ms.author: marsma
+ms.topic: reference
+ms.date: 08/03/2021
+ms.author: mimart
 ms.subservice: B2C
 ---
 
-# Select a page layout in Azure Active Directory B2C using custom policies
-
-[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
-
-You can enable JavaScript client-side code in your Azure Active Directory B2C (Azure AD B2C) policies whether you’re using user flows or custom policies. To enable JavaScript for your applications, you must add an element to your [custom policy](active-directory-b2c-overview-custom.md), select a page layout, and use [b2clogin.com](b2clogin.md) in your requests.
-
-A page layout is an association of elements that Azure AD B2C provides and the content that you provide.
-
-This article discusses how to select a page layout in Azure AD B2C by configuring it in a custom policy.
-
-> [!NOTE]
-> If you want to enable JavaScript for user flows, see [JavaScript and page layout versions in Azure Active Directory B2C](user-flow-javascript-overview.md).
-
-## Replace DataUri values
-
-In your custom policies, you may have [ContentDefinitions](contentdefinitions.md) that define the HTML templates used in the user journey. The **ContentDefinition** contains a **DataUri** that refers to the page elements provided by Azure AD B2C. The **LoadUri** is the relative path to the HTML and CSS content that you provide.
-
-```XML
-<ContentDefinition Id="api.idpselections">
-  <LoadUri>~/tenant/default/idpSelector.cshtml</LoadUri>
-  <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
-  <DataUri>urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0</DataUri>
-  <Metadata>
-    <Item Key="DisplayName">Idp selection page</Item>
-    <Item Key="language.intro">Sign in</Item>
-  </Metadata>
-</ContentDefinition>
-```
-
-To select a page layout, you change the **DataUri** values in your [ContentDefinitions](contentdefinitions.md) in your policies. By switching from the old **DataUri** values to the new values, you're selecting an immutable package. The benefit of using this package is that you’ll know it won't change and cause unexpected behavior on your page.
-
-To set up a page layout, use the following table to find **DataUri** values.
-
-| Old DataUri value | New DataUri value |
-| ----------------- | ----------------- |
-| `urn:com:microsoft:aad:b2c:elements:claimsconsent:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:claimsconsent:1.0.0` |
-| `urn:com:microsoft:aad:b2c:elements:globalexception:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.0.0` |
-| `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.1.0` |
-| `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` |
-| `urn:com:microsoft:aad:b2c:elements:multifactor:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.0.0` |
-| `urn:com:microsoft:aad:b2c:elements:multifactor:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.1.0` |
-| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.0.0` |
-| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.1.0` |
-| `urn:com:microsoft:aad:b2c:elements:unifiedssd:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssd:1.0.0` |
-| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.0.0` |
-| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.1.0` |
-
-## Version change log
+# Page layout versions
 
 Page layout packages are periodically updated to include fixes and improvements in their page elements. The following change log specifies the changes introduced in each version.
 
-### 1.2.0 
-- All pages
-  - Accessibility fixes
-  - You can now add the `data-preload="true"` attribute in your HTML tags to control the load order for CSS and JavaScript. Scenarios include:
-      - Use this on your CSS link to load the CSS at the same time as your HTML so that it doesn't 'flicker' between loading the files
-      - This attribute allows you to control the order in which your Script tags are fetched and executed before the page load
-  - Email field is now `type=email` and mobile keyboards will provide the correct suggestions
-  - Support for Chrome translate
-- Unified and self-asserted page
-  - The username/email and password fields now use the form HTML element.  This will now allow Edge and IE to properly save this information
-  
-### 1.1.0
+> [!IMPORTANT]
+> Azure Active Directory B2C releases improvements and fixes with each new page layout version. We highly recommend you keep your page layout versions up-to-date so that all page elements reflect the latest security enhancements, accessibility standards, and your feedback.
+>
 
-- Exception page (globalexception)
-  - Accessibility fix
-  - Removed the default message when there is no contact from the policy
-  - Default CSS removed
-- MFA page (multifactor)
-  - 'Confirm Code' button removed
-  - The input field for the code now only takes input up to six (6) characters
-  - The page will automatically attempt to verify the code entered when a 6-digit code is entered, without any button having to be clicked
-  - If the code is wrong then the input field is automatically cleared
-  - After three (3) attempts with an incorrect code, B2C sends an error back to the relying party
-  - Accessibility fixes
-  - Default CSS removed
-- Self-asserted page (selfasserted)
-  - Removed cancel alert
-  - CSS class for error elements
-  - Show/hide error logic improved
-  - Default CSS removed
-- Unified SSP (unifiedssp)
-  - Added keep me signed in (KMSI) control
+## jQuery and Handlebars versions
 
-### 1.0.0
+Azure AD B2C page layout uses the following versions of the [jQuery library](https://jquery.com/) and the [Handlebars templates](https://handlebarsjs.com/):
+
+|Element |Page layout version range |jQuery version  |Handlebars Runtime version |Handlebars Compliler version |
+|---------|---------|------|--------|----------|
+|multifactor |>= 1.2.4 | 3.5.1 | 4.7.6 |4.7.7 |
+|            |< 1.2.4 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
+|selfasserted |>= 2.1.4 | 3.5.1 |4.7.6 |4.7.7 |
+|            |< 2.1.4 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
+|unifiedssp |>= 2.1.4 | 3.5.1 |4.7.6 |4.7.7 |
+|            |< 2.1.4 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
+|globalexception |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
+|            |< 1.2.1 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
+|providerselection |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
+|            |< 1.2.1 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
+|claimsconsent |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
+|            |< 1.2.1 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
+|unifiedssd |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
+|            |< 1.2.1 | 3.4.1 |4.0.12 |2.0.1 |
+|            |< 1.2.0 | 1.12.4 |
+
+## Self-asserted page (selfasserted)
+
+**2.1.7**
+- Fixed a language encoding issue that is causing the request to fail.
+- Fixed an accessibility bug to show inline error messages only on form submission.
+
+**2.1.6**
+- Fixed password error get cleared when typing too quickly on a different field.
+
+**2.1.5**
+- Fixed cursor jumps issue on iOS when editing in the middle of the text.
+
+**2.1.4**
+- Updated jQuery version to 3.5.1.
+- Updated HandlebarJS version to 4.7.6.
+
+**2.1.3**
+- Security fixes.
+
+**2.1.2**
+- Fixed the localization encoding issue for languages such as Spanish and French.
+
+**2.1.1**
+
+- Added a UXString `heading` in addition to `intro` to display on the page as a title. This is hidden by default.
+- Added support for saving passwords to iCloud Keychain.
+- Added support for using policy or the QueryString parameter `pageFlavor` to select the layout (classic, oceanBlue, or slateGray).
+- Added disclaimers on self-asserted page.
+- Focus is now placed on the first editable field when the page loads.
+- Focus is now placed on the first error field when multiple fields have errors.
+- Focus is now placed on the 'change' button after the email verification code is verified.
+
+**2.1.0**
+
+- Localization and accessibility fixes.
+
+**2.0.0**
+
+- Added support for [display controls](display-controls.md) in custom policies.
+
+**1.2.0**
+
+- The username/email and password fields now use the `form` HTML element to allow Edge and Internet Explorer (IE) to properly save this information.
+- Added a configurable user input validation delay for improved user experience.
+- Accessibility fixes
+- Fixed an accessibility issue so that error messages are now read by Narrator. 
+- Focus is now placed on the password field after the email is verified.
+- Removed `autofocus` from the checkbox control. 
+- Added support for a display control for phone number verification.
+- You can now add the `data-preload="true"` attribute [in your HTML tags](customize-ui-with-html.md#guidelines-for-using-custom-page-content)
+  - Load linked CSS files at the same time as your HTML template so it doesn't 'flicker' between loading the files.
+  - Control the order in which your `script` tags are fetched and executed before the page load.
+- Email field is now `type=email` and mobile keyboards will provide the correct suggestions.
+- Support for Chrome translate.
+- Added support for company branding in user flow pages.
+
+**1.1.0**
+
+- Removed cancel alert
+- CSS class for error elements
+- Show/hide error logic improved
+- Default CSS removed
+
+**1.0.0**
+
+- Initial release
+
+## Unified sign-in sign-up page with password reset link (unifiedssp)
+
+> [!TIP]
+> If you localize your page to support multiple locales, or languages in a user flow. The [localization IDs](localization-string-ids.md) article provides the list of localization IDs that you can use for the page version you select.
+
+**2.1.5**
+- Fixed an issue on tab order when idp selector template is used on sign in page.
+- Fixed an encoding issue on sign-in link text.
+
+**2.1.4**
+- Updated jQuery version to 3.5.1.
+- Updated HandlebarJS version to 4.7.6.
+
+**2.1.3**
+- Security fixes.
+- Minor bug fixes.
+
+**2.1.2**
+- Fixed the localization encoding issue for languages such as Spanish and French.
+- Allowing the "forgot password" link to use as claims exchange. For more information, see [Self-service password reset](add-password-reset-policy.md#self-service-password-reset-recommended).
+
+**2.1.1**
+- Added a UXString `heading` in addition to `intro` to display on the page as a title. This is hidden by default.
+- Added support for using policy or the QueryString parameter `pageFlavor` to select the layout (classic, oceanBlue, or slateGray).
+- Added support for saving passwords to iCloud Keychain.
+- Focus is now placed on the first error field when multiple fields have errors.
+- Focus is now placed on the first editable field when the page loads.
+- Added a new location for the claims provider selection link `bottomUnderFormClaimsProviderSelections`.
+- Removed UXStrings that are no longer used.
+
+**2.1.0**
+
+- Added support for multiple sign-up links.
+- Added support for user input validation according to the predicate rules defined in the policy.
+
+**1.2.0**
+
+- The username/email and password fields now use the `form` HTML element to allow Edge and Internet Explorer (IE) to properly save this information.
+- Accessibility fixes
+- You can now add the `data-preload="true"` attribute [in your HTML tags](customize-ui-with-html.md#guidelines-for-using-custom-page-content) to control the load order for CSS and JavaScript.
+  - Load linked CSS files at the same time as your HTML template so it doesn't 'flicker' between loading the files.
+  - Control the order in which your `script` tags are fetched and executed before the page load.
+- Email field is now `type=email` and mobile keyboards will provide the correct suggestions.
+- Support for Chrome translate.
+- Added support for tenant branding in user flow pages.
+
+**1.1.0**
+
+- Added keep me signed in (KMSI) control
+
+**1.0.0**
+
+- Initial release
+
+## MFA page (multifactor)
+
+**1.2.5**
+- Fixed a language encoding issue that is causing the request to fail.
+
+**1.2.4**
+- Updated jQuery version to 3.5.1.
+- Updated HandlebarJS version to 4.7.6.
+
+**1.2.3**
+- Allowing tooltip string override via language localization.
+- Security fixes.
+- Minor bug fixes.
+
+**1.2.2**
+- Fixed an issue with auto-filling the verification code when using iOS.
+- Fixed an issue with redirecting a token to the relying party from Android Webview. 
+- Added a UXString `heading` in addition to `intro` to display on the page as a title. This is hidden by default.  
+- Added support for using policy or the QueryString parameter `pageFlavor` to select the layout (classic, oceanBlue, or slateGray).
+
+**1.2.1**
+
+- Accessibility fixes on default templates
+
+**1.2.0**
+
+- Accessibility fixes
+- You can now add the `data-preload="true"` attribute [in your HTML tags](customize-ui-with-html.md#guidelines-for-using-custom-page-content) to control the load order for CSS and JavaScript.
+  - Load linked CSS files at the same time as your HTML template so it doesn't 'flicker' between loading the files.
+  - Control the order in which your `script` tags are fetched and executed before the page load.
+- Email field is now `type=email` and mobile keyboards will provide the correct suggestions
+- Support for Chrome translate.
+- Added support for tenant branding in user flow pages.
+
+**1.1.0**
+
+- 'Confirm Code' button removed
+- The input field for the code now only takes input up to six (6) characters
+- The page will automatically attempt to verify the code entered when a 6-digit code is entered, without any button having to be clicked
+- If the code is wrong, the input field is automatically cleared
+- After three (3) attempts with an incorrect code, B2C sends an error back to the relying party
+- Accessibility fixes
+- Default CSS removed
+
+**1.0.0**
+
+- Initial release
+
+## Exception Page (globalexception)
+
+**1.2.1**
+- Updated jQuery version to 3.5.1.
+- Updated HandlebarJS version to 4.7.6.
+
+**1.2.0**
+
+- Accessibility fixes
+- You can now add the `data-preload="true"` attribute [in your HTML tags](customize-ui-with-html.md#guidelines-for-using-custom-page-content) to control the load order for CSS and JavaScript.
+  - Load linked CSS files at the same time as your HTML template so it doesn't 'flicker' between loading the files.
+  - Control the order in which your `script` tags are fetched and executed before the page load.
+- Email field is now `type=email` and mobile keyboards will provide the correct suggestions
+- Support for Chrome translate
+
+**1.1.0**
+
+- Accessibility fix
+- Removed the default message when there is no contact from the policy
+- Default CSS removed
+
+**1.0.0**
+
+- Initial release
+
+## Other pages (ProviderSelection, ClaimsConsent, UnifiedSSD)
+
+**1.2.1**
+- Updated jQuery version to 3.5.1.
+- Updated HandlebarJS version to 4.7.6.
+
+**1.2.0**
+
+- Accessibility fixes
+- You can now add the `data-preload="true"` attribute [in your HTML tags](customize-ui-with-html.md#guidelines-for-using-custom-page-content) to control the load order for CSS and JavaScript.
+  - Load linked CSS files at the same time as your HTML template so it doesn't 'flicker' between loading the files.
+  - Control the order in which your `script` tags are fetched and executed before the page load.
+- Email field is now `type=email` and mobile keyboards will provide the correct suggestions
+- Support for Chrome translate
+
+**1.0.0**
 
 - Initial release
 
 ## Next steps
 
-Find more information about how you can customize the user interface of your applications in [Customize the user interface of your application using a custom policy in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
+For details on how to customize the user interface of your applications in custom policies, see [Customize the user interface of your application using a custom policy](customize-ui-with-html.md).

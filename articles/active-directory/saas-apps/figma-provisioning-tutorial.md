@@ -2,20 +2,15 @@
 title: 'Tutorial: Configure Figma automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Figma.
 services: active-directory
-documentationcenter: ''
-author: zchia
-writer: zchia
-manager: beatrizd
-
-ms.assetid: na
+author: twimmers
+writer: twimmers
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/12/2019
-ms.author: zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Figma for automatic user provisioning
@@ -23,7 +18,7 @@ ms.author: zhchia
 The objective of this tutorial is to demonstrate the steps to be performed in Figma  and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Figma.
 
 > [!NOTE]
-> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
+> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > This connector is currently in Public Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -53,23 +48,23 @@ Before configuring Figma for automatic user provisioning with Azure AD, you will
 
 1. Sign in to your [Figma Admin Console](https://www.Figma.com/). Click on the gear icon next to your tenant.
 
-	![FigmaFigma-employee-provision](media/Figma-provisioning-tutorial/image0.png)
+	:::image type="content" source="media/Figma-provisioning-tutorial/image0.png" alt-text="Screenshot of the Figma admin console. A tenant named A A D Scim Test is visible. Next to the tenant, a gear icon is highlighted." border="false":::
 
 2. Navigate to **General > Update Log in Settings**.
 
-	![FigmaFigma-employee-provision](media/Figma-provisioning-tutorial/figma03.png)
+	:::image type="content" source="media/Figma-provisioning-tutorial/figma03.png" alt-text="Screenshot of the General tab of the Figma admin console. Under Log in and provisioning, Update log in settings is highlighted." border="false":::
 
 3. Copy the **Tenant ID**. This value will be used to construct the SCIM endpoint URL to be entered into the **Tenant URL** field in the Provisioning tab of your Figma application in the Azure portal.
 
-	![Figma Create Token](media/Figma-provisioning-tutorial/figma-tenantid.png)
+	:::image type="content" source="media/Figma-provisioning-tutorial/figma-tenantid.png" alt-text="Screenshot of the S A M L S S O section in the Figma admin console. A Tenant ID label and an adjacent link that says Copy are highlighted." border="false":::
 
 4. Scroll down and click on **Generate API Token**.
 
-	![Figma Create Token](media/Figma-provisioning-tutorial/token.png)
+	:::image type="content" source="media/Figma-provisioning-tutorial/token.png" alt-text="Screenshot of the S C I M provisioning section in the Figma admin console. A link labeled Generate A P I token is highlighted." border="false":::
 
 5. Copy the  **API Token** value. This value will be entered in the **Secret Token** field in the Provisioning tab of your Figma application in the Azure portal. 
 
-	![Figma Create Token](media/Figma-provisioning-tutorial/figma04.png)
+	:::image type="content" source="media/Figma-provisioning-tutorial/figma04.png" alt-text="Screenshot of a page in the Figma admin console. Under Your provisioning A P I token, a placeholder for the token is highlighted." border="false":::
 
 ## Add Figma from the gallery
 
@@ -96,7 +91,7 @@ To configure Figma for automatic user provisioning with Azure AD, you need to ad
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Figma  based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Figma , following the instructions provided in the [Figma Single sign-on tutorial](figma-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
+> You may also choose to enable SAML-based single sign-on for Figma, following the instructions provided in the [Figma Single sign-on tutorial](figma-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
 
 ### To configure automatic user provisioning for Figma  in Azure AD:
 
@@ -110,11 +105,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input `https://www.figma.com/scim/v2/<TenantID>` in **Tenant URL** where **TenantID** is the value that you retrieved from Figma earlier. Input the **API Token** value in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Figma. If the connection fails, ensure your Figma account has Admin permissions and try again.
 
@@ -134,9 +129,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Figma User Attributes](media/Figma-provisioning-tutorial/figma06.png)
 
-12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. To enable the Azure AD provisioning service for Figma , change the **Provisioning Status** to **On** in the **Settings** section.
+13. To enable the Azure AD provisioning service for Figma, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
@@ -150,13 +145,13 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Figma.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## Additional resources
 
-* [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
+* [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)

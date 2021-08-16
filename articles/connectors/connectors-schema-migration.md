@@ -1,6 +1,6 @@
 ---
 title: Migrate apps to latest schema
-description: How to migrate your logic apps to the latest schema version
+description: How to migrate logic app workflow JSON definitions to the most recent Workflow Definition Language schema version
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -51,4 +51,5 @@ everywhere that you use DropBox v1.
 
 ## Next steps
 
-* Learn how to [manually migrate your Logic apps](../logic-apps/logic-apps-schema-2015-08-01.md)
+* Learn how to [manually migrate your Logic apps](../logic-apps/logic-apps-schema-2016-04-01.md)
+

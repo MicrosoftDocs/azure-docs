@@ -5,7 +5,7 @@ services: virtual-network
 documentationcenter: na
 author: KumudD
 manager: carmonm
-editor: tysonn
+
 
 ms.assetid: 1f509bec-bdd1-470d-8aa4-3cf2bb7f6134
 ms.service: virtual-network
@@ -30,8 +30,8 @@ This is a standard perimeter network (also knowns as DMZ) scenario with a DMZ an
 
 |  | Pros | Cons |
 | --- | --- | --- |
-| NSG |No cost. <br/>Integrated into Azure RBAC. <br/>Rules can be created in Azure Resource Manager templates. |Complexity could vary in larger environments. |
-| Firewall |Full control over data plane. <br/>Central management through firewall console. |Cost of firewall appliance. <br/>Not integrated with Azure RBAC. |
+| **NSG** |No cost. <br/>Integrated into Azure RBAC. <br/>Rules can be created in Azure Resource Manager templates. |Complexity could vary in larger environments. |
+| **Firewall** |Full control over data plane. <br/>Central management through firewall console. |Cost of firewall appliance. <br/>Not integrated with Azure RBAC. |
 
 The solution below uses firewall virtual appliances to implement a perimeter network (DMZ)/protected network scenario.
 
@@ -141,8 +141,12 @@ AZF1 represents an Azure virtual appliance containing the following rules:
 ### AZF2
 AZF2 represents an Azure virtual appliance containing the following rules:
 
-* **Route**: All traffic to 10.0.0.0/16 (**onpremvnet**) must be sent to the Azure gateway IP address (i.e. 10.0.0.1) through **port1**.
 * **Policy**: Allow all bidirectional traffic between **port1** and **port2**.
+
+### AZF3
+AZF3 represents an Azure virtual appliance containing the following rules:
+
+* **Route**: All traffic to 192.168.0.0/16 (**onpremvnet**) must be sent to the Azure gateway IP address (i.e., 10.0.0.1) through **port1**.
 
 ## Network Security Groups (NSGs)
 In this scenario, NSGs are not being used. However, you could apply NSGs to each subnet to restrict incoming and outgoing traffic. For instance, you could apply the following NSG rules to the external FW subnet.
@@ -164,4 +168,3 @@ To deploy this scenario, follow the high level steps below.
 3. Provision the resources that are part of **AZURERG**.
 4. Provision the tunnel from **onpremvnet** to **azurevnet**.
 5. Once all resources are provisioned, sign in to **onpremvm2** and ping 10.0.3.101 to test connectivity between **onpremsn2** and **azsn3**.
-

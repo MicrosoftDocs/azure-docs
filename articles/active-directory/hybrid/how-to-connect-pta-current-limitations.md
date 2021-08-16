@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/04/2018
 ms.subservice: hybrid
 ms.author: billmath
@@ -19,9 +19,6 @@ ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory Pass-through Authentication: Current limitations
-
->[!IMPORTANT]
->Azure Active Directory (Azure AD) Pass-through Authentication is a free feature, and you don't need any paid editions of Azure AD to use it. Pass-through Authentication is only available in the world-wide instance of Azure AD, and not on the [Microsoft Azure Germany cloud](https://www.microsoft.de/cloud-deutschland) or the [Microsoft Azure Government cloud](https://azure.microsoft.com/features/gov/).
 
 ## Supported scenarios
 
@@ -38,9 +35,9 @@ The following scenarios are supported:
 
 The following scenarios are _not_ supported:
 
-- Detection of users with [leaked credentials](../reports-monitoring/concept-risk-events.md#leaked-credentials).
+- Detection of users with [leaked credentials](../identity-protection/overview-identity-protection.md).
 - Azure AD Domain Services needs Password Hash Synchronization to be enabled on the tenant. Therefore tenants that use Pass-through Authentication _only_ don't work for scenarios that need Azure AD Domain Services.
-- Pass-through Authentication is not integrated with [Azure AD Connect Health](whatis-hybrid-identity-health.md).
+- Pass-through Authentication is not integrated with [Azure AD Connect Health](./whatis-azure-ad-connect.md).
 
 > [!IMPORTANT]
 > As a workaround for unsupported scenarios _only_ (except Azure AD Connect Health integration), enable Password Hash Synchronization on the [Optional features](how-to-connect-install-custom.md#optional-features) page in the Azure AD Connect wizard.
@@ -53,7 +50,7 @@ The following scenarios are _not_ supported:
 - [Migrate from AD FS to Pass-through Authentication](https://aka.ms/ADFSTOPTADPDownload) - A detailed guide to migrate from AD FS (or other federation technologies) to Pass-through Authentication.
 - [Smart Lockout](../authentication/howto-password-smart-lockout.md): Learn how to configure the Smart Lockout capability on your tenant to protect user accounts.
 - [Technical deep dive](how-to-connect-pta-how-it-works.md): Understand how the Pass-through Authentication feature works.
-- [Frequently asked questions](how-to-connect-pta-faq.md): Find answers to frequently asked questions about the Pass-through Authentication feature.
+- [Frequently asked questions](how-to-connect-pta-faq.yml): Find answers to frequently asked questions about the Pass-through Authentication feature.
 - [Troubleshoot](tshoot-connect-pass-through-authentication.md): Learn how to resolve common problems with the Pass-through Authentication feature.
 - [Security deep dive](how-to-connect-pta-security-deep-dive.md): Get deep technical information on the Pass-through Authentication feature.
 - [Azure AD Seamless SSO](how-to-connect-sso.md): Learn more about this complementary feature.

@@ -1,56 +1,47 @@
 ---
-title: Create and upload a Linux VHD in Azure
+title: Create and upload a Linux VHD 
 description: Learn to create and upload an Azure virtual hard disk (VHD) that contains a Linux operating system.
-services: virtual-machines-linux
-documentationcenter: ''
-author: szarkos
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager,azure-service-management
-
-ms.assetid: d351396c-95a0-4092-b7bf-c6aae0bbd112
-ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-
-ms.topic: article
+author: gbowerman
+ms.service: virtual-machines
+ms.collection: linux
+ms.topic: how-to
 ms.date: 10/08/2018
-ms.author: szark
+ms.author: guybo
 
 ---
 # Information for Non-endorsed Distributions
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-The Azure platform SLA applies to virtual machines running the Linux OS only when one of the [endorsed distributions](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) is used. For these endorsed distributions, pre-configured Linux images are provided in the Azure Marketplace.
+The Azure platform SLA applies to virtual machines running the Linux OS only when one of the [endorsed distributions](endorsed-distros.md) is used. For these endorsed distributions, pre-configured Linux images are provided in the Azure Marketplace.
 
-* [Linux on Azure - Endorsed Distributions](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Linux on Azure - Endorsed Distributions](endorsed-distros.md)
 * [Support for Linux images in Microsoft Azure](https://support.microsoft.com/kb/2941892)
 
 All distributions running on Azure have a number of prerequisites. This article can't be comprehensive, as every distribution is different. Even if you meet all the criteria below, you may need to significantly tweak your Linux system for it to run properly.
 
-We recommend that you start with one of the [Linux on Azure Endorsed Distributions](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). The following articles show you how to prepare the various endorsed Linux distributions that are supported on Azure:
+We recommend that you start with one of the [Linux on Azure Endorsed Distributions](endorsed-distros.md). The following articles show you how to prepare the various endorsed Linux distributions that are supported on Azure:
 
-* **[CentOS-based Distributions](create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
-* **[Debian Linux](debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
-* **[Oracle Linux](oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
-* **[Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
-* **[SLES & openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
-* **[Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+- [CentOS-based Distributions](create-upload-centos.md)
+- [Debian Linux](debian-create-upload-vhd.md)
+- [Flatcar Container Linux](flatcar-create-upload-vhd.md)
+- [Oracle Linux](oracle-create-upload-vhd.md)
+- [Red Hat Enterprise Linux](redhat-create-upload-vhd.md)
+- [SLES & openSUSE](suse-create-upload-vhd.md)
+- [Ubuntu](create-upload-ubuntu.md)
 
 This article focuses on general guidance for running your Linux distribution on Azure.
 
 ## General Linux Installation Notes
-* The Hyper-V virtual hard disk (VHDX) format isn't supported in Azure, only *fixed VHD*.  You can convert the disk to VHD format using Hyper-V Manager or the [Convert-VHD](https://docs.microsoft.com/powershell/module/hyper-v/convert-vhd) cmdlet. If you're using VirtualBox, select **Fixed size** rather than the default (dynamically allocated) when creating the disk.
-* Azure only supports generation 1 virtual machines. You can convert a generation 1 virtual machine from VHDX to the VHD file format, and from dynamically expanding to a fixed sized disk. You can't change a virtual machine's generation. For more information, see [Should I create a generation 1 or 2 virtual machine in Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
+* The Hyper-V virtual hard disk (VHDX) format isn't supported in Azure, only *fixed VHD*.  You can convert the disk to VHD format using Hyper-V Manager or the [Convert-VHD](/powershell/module/hyper-v/convert-vhd) cmdlet. If you're using VirtualBox, select **Fixed size** rather than the default (dynamically allocated) when creating the disk.
+* Azure supports Gen1 (BIOS boot) & Gen2 (UEFI boot) Virtual machines.
 * The maximum size allowed for the VHD is 1,023 GB.
-* When installing the Linux system we recommend that you use standard partitions, rather than Logical Volume Manager (LVM) which is the default for many installations. Using standard partitions will avoid LVM name conflicts with cloned VMs, particularly if an OS disk is ever attached to another identical VM for troubleshooting. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) may be used on data disks.
+* When installing the Linux system we recommend that you use standard partitions, rather than Logical Volume Manager (LVM) which is the default for many installations. Using standard partitions will avoid LVM name conflicts with cloned VMs, particularly if an OS disk is ever attached to another identical VM for troubleshooting. [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) or [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) may be used on data disks.
 * Kernel support for mounting UDF file systems is necessary. At first boot on Azure the provisioning configuration is passed to the Linux VM by using UDF-formatted media that is attached to the guest. The Azure Linux agent must mount the UDF file system to read its configuration and provision the VM.
 * Linux kernel versions earlier than 2.6.37 don't support NUMA on Hyper-V with larger VM sizes. This issue primarily impacts older distributions using the upstream Red Hat 2.6.32 kernel, and was fixed in Red Hat Enterprise Linux (RHEL) 6.6 (kernel-2.6.32-504). Systems running custom kernels older than 2.6.37, or RHEL-based kernels older than 2.6.32-504 must set the boot parameter `numa=off` on the kernel command line in grub.conf. For more information, see [Red Hat KB 436883](https://access.redhat.com/solutions/436883).
 * Don't configure a swap partition on the OS disk. The Linux agent can be configured to create a swap file on the temporary resource disk, as described in the following steps.
 * All VHDs on Azure must have a virtual size aligned to 1 MB. When converting from a raw disk to VHD you must ensure that the raw disk size is a multiple of 1 MB before conversion, as described in the following steps.
 
 ### Installing kernel modules without Hyper-V
-Azure runs on the Hyper-V hypervisor, so Linux requires certain kernel modules to run in Azure. If you have a VM that was created outside of Hyper-V, the Linux installers may not include the drivers for Hyper-V in the initial ramdisk (initrd or initramfs), unless the VM detects that it's running on a Hyper-V environment. When using a different virtualization system (such as Virtualbox, KVM, and so on) to prepare your Linux image, you may need to rebuild the initrd so that at least the hv_vmbus and hv_storvsc kernel modules are available on the initial ramdisk.  This known issue is for systems based on the upstream Red Hat distribution, and possibly others.
+Azure runs on the Hyper-V hypervisor, so Linux requires certain kernel modules to run in Azure. If you have a VM that was created outside of Hyper-V, the Linux installers may not include the drivers for Hyper-V in the initial ramdisk (initrd or initramfs), unless the VM detects that it's running on a Hyper-V environment. When using a different virtualization system (such as VirtualBox, KVM, and so on) to prepare your Linux image, you may need to rebuild the initrd so that at least the hv_vmbus and hv_storvsc kernel modules are available on the initial ramdisk.  This known issue is for systems based on the upstream Red Hat distribution, and possibly others.
 
 The mechanism for rebuilding the initrd or initramfs image may vary depending on the distribution. Consult your distribution's documentation or support for the proper procedure.  Here is one example for rebuilding the initrd by using the `mkinitrd` utility:
 
@@ -72,7 +63,7 @@ VHD images on Azure must have a virtual size aligned to 1 MB.  Typically, VHDs c
 
 * The VHD http:\//\<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd has an unsupported virtual size of 21475270656 bytes. The size must be a whole number (in MBs).
 
-In this case, resize the VM using either the Hyper-V Manager console or the [Resize-VHD](https://technet.microsoft.com/library/hh848535.aspx) PowerShell cmdlet.  If you aren't running in a Windows environment, we recommend using `qemu-img` to convert (if needed) and resize the VHD.
+In this case, resize the VM using either the Hyper-V Manager console or the [Resize-VHD](/powershell/module/hyper-v/resize-vhd) PowerShell cmdlet.  If you aren't running in a Windows environment, we recommend using `qemu-img` to convert (if needed) and resize the VHD.
 
 > [!NOTE]
 > There is a [known bug in qemu-img](https://bugs.launchpad.net/qemu/+bug/1490611) versions >=2.2.1 that results in an improperly formatted VHD. The issue has been fixed in QEMU 2.6. We recommend using either `qemu-img` 2.2.0 or lower, or 2.6 or higher.
@@ -94,7 +85,7 @@ In this case, resize the VM using either the Hyper-V Manager console or the [Res
     size=$(qemu-img info -f raw --output json "$rawdisk" | \
     gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
-    rounded_size=$((($size/$MB + 1)*$MB))
+    rounded_size=$(((($size+$MB-1)/$MB)*$MB))
     
     echo "Rounded Size = $rounded_size"
     ```
@@ -119,7 +110,7 @@ In this case, resize the VM using either the Hyper-V Manager console or the [Res
 
 ## Linux Kernel Requirements
 
-The Linux Integration Services (LIS) drivers for Hyper-V and Azure are contributed directly to the upstream Linux kernel. Many distributions that include a recent Linux kernel version (such as 3.x) have these drivers available already, or otherwise provide backported versions of these drivers with their kernels.  These drivers are constantly being updated in the upstream kernel with new fixes and features, so when possible we recommend running an [endorsed distribution](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) that includes these fixes and updates.
+The Linux Integration Services (LIS) drivers for Hyper-V and Azure are contributed directly to the upstream Linux kernel. Many distributions that include a recent Linux kernel version (such as 3.x) have these drivers available already, or otherwise provide backported versions of these drivers with their kernels.  These drivers are constantly being updated in the upstream kernel with new fixes and features, so when possible we recommend running an [endorsed distribution](endorsed-distros.md) that includes these fixes and updates.
 
 If you're running a variant of Red Hat Enterprise Linux versions 6.0 to 6.3, then you'll need to install the [latest LIS drivers for Hyper-V](https://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). Beginning with RHEL 6.4+ (and derivatives) the LIS drivers are already included with the kernel and so no additional installation packages are needed.
 
@@ -150,10 +141,10 @@ The following patches must be included in the kernel. This list can't be complet
 ## The Azure Linux Agent
 The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Linux virtual machine in Azure. You can get the latest version, file issues, or submit pull requests at the [Linux Agent GitHub repo](https://github.com/Azure/WALinuxAgent).
 
-* The Linux agent is released under the Apache 2.0 license. Many distributions already provide RPM or deb packages for the agent, and these packages can easily be installed and updated.
+* The Linux agent is released under the Apache 2.0 license. Many distributions already provide RPM or .deb packages for the agent, and these packages can easily be installed and updated.
 * The Azure Linux Agent requires Python v2.6+.
 * The agent also requires the python-pyasn1 module. Most distributions provide this module as a separate package to be installed.
-* In some cases, the Azure Linux Agent may not be compatible with NetworkManager. Many of the RPM/Deb packages provided by distributions configure NetworkManager as a conflict to the waagent package. In these cases, it will uninstall NetworkManager when you install the Linux agent package.
+* In some cases, the Azure Linux Agent may not be compatible with NetworkManager. Many of the RPM/deb packages provided by distributions configure NetworkManager as a conflict to the waagent package. In these cases, it will uninstall NetworkManager when you install the Linux agent package.
 * The Azure Linux Agent must be at or above the [minimum supported version](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 ## General Linux System Requirements
@@ -170,7 +161,7 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
 
 1. Install the Azure Linux Agent.
   
-    The Azure Linux Agent is required for provisioning a Linux image on Azure.  Many distributions provide the agent as an RPM or Deb package (the package is typically called WALinuxAgent or walinuxagent).  The agent can also be installed manually by following the steps in the [Linux Agent Guide](../extensions/agent-linux.md).
+    The Azure Linux Agent is required for provisioning a Linux image on Azure.  Many distributions provide the agent as an RPM or .deb package (the package is typically called WALinuxAgent or walinuxagent).  The agent can also be installed manually by following the steps in the [Linux Agent Guide](../extensions/agent-linux.md).
 
 1. Ensure that the SSH server is installed, and configured to start at boot time.  This configuration is usually the default.
 
@@ -195,4 +186,3 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
    > On Virtualbox you may see the following error after running `waagent -force -deprovision` that says `[Errno 5] Input/output error`. This error message is not critical and can be ignored.
 
 * Shut down the virtual machine and upload the VHD to Azure.
-

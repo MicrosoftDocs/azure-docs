@@ -2,9 +2,9 @@
 title: Use IoT Edge device local storage from a module - Azure IoT Edge | Microsoft Docs
 description: Use environment variables and create options to enable module access to IoT Edge device local storage.
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
-ms.date: 10/15/2019
+ms.date: 08/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -12,13 +12,15 @@ services: iot-edge
 
 # Give modules access to a device's local storage
 
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
 In addition to storing data using Azure storage services or in your device's container storage, you can also dedicate storage on the host IoT Edge device itself for improved reliability, especially when operating offline.
 
 ## Link module storage to device storage
 
 To enable a link from module storage to the storage on the host system, create an environment variable for your module that points to a storage folder in the container. Then, use the create options to bind that storage folder to a folder on the host machine.
 
-For example, if you wanted to enable the IoT Edge hub to store messages in your device's local storage and retrieve them later, you can configure the environment variables and the create options in the Azure portal in the **Configure advanced Edge Runtime settings** section.
+For example, if you wanted to enable the IoT Edge hub to store messages in your device's local storage and retrieve them later, you can configure the environment variables and the create options in the Azure portal in the **Runtime Settings** section.
 
 1. For both IoT Edge hub and IoT Edge agent, add an environment variable called **storageFolder** that points to a directory in the module.
 1. For both IoT Edge hub and IoT Edge agent, add binds to connect a local directory on the host machine to a directory in the module. For example:
@@ -31,7 +33,7 @@ Or, you can configure the local storage directly in the deployment manifest. For
 "systemModules": {
     "edgeAgent": {
         "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+            "image": "mcr.microsoft.com/azureiotedge-agent:1.1",
             "createOptions": {
                 "HostConfig": {
                     "Binds":["<HostStoragePath>:<ModuleStoragePath>"]
@@ -47,7 +49,7 @@ Or, you can configure the local storage directly in the deployment manifest. For
     },
     "edgeHub": {
         "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+            "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
             "createOptions": {
                 "HostConfig": {
                     "Binds":["<HostStoragePath>:<ModuleStoragePath>"],
@@ -77,6 +79,12 @@ sudo chmod 700 <HostStoragePath>
 ```
 
 You can find more details about create options from [docker docs](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
+
+## Encrypted data in module storage
+
+When modules invoke the IoT Edge daemon's workload API to encrypt data, the encryption key is derived using the module ID and module's generation ID. A generation ID is used to protect secrets if a module is removed from the deployment and then another module with the same module ID is later deployed to the same device. You can view a module's generation id using the Azure CLI command [az iot hub module-identity show](/cli/azure/iot/hub/module-identity).
+
+If you want to share files between modules across generations, they must not contain any secrets or they will fail to be decrypted.
 
 ## Next steps
 
