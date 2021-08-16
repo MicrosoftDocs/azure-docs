@@ -282,7 +282,7 @@ Set-msoldomainauthentication
 
 After setting the domain to Managed authentication, you've
 successfully de-federated your Office 365 Tenant from Okta, while
-maintaining user access to the Okta homepage.
+maintaining user access to the Okta homepage. 
 
 ## Next steps
 
