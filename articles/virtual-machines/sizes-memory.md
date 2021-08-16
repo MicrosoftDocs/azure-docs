@@ -22,6 +22,9 @@ ms.author: mimckitt
 
 # Memory optimized virtual machine sizes
 
+> [!TIP]
+> Try the **[Virtual Machine selector tool](https://aka.ms/vm-selector)** to find other sizes that best fit your workload.
+
 Memory optimized VM sizes offer a high memory-to-CPU ratio that is great for relational database servers, medium to large caches, and in-memory analytics. This article provides information about the number of vCPUs, data disks and NICs as well as storage throughput and network bandwidth for each size in this grouping.
 
 - [Dv2 and DSv2-series](dv2-dsv2-series-memory.md), a follow-on to the original D-series, features a more powerful CPU. The Dv2-series is about 35% faster than the D-series. It runs on the Intel&reg; Xeon&reg; 8171M 2.1 GHz (Skylake) or the Intel&reg; Xeon&reg; E5-2673 v4 2.3 GHz (Broadwell) or the Intel&reg; Xeon&reg; E5-2673 v3 2.4 GHz (Haswell) processors, and with the Intel Turbo Boost Technology 2.0. The Dv2-series has the same memory and disk configurations as the D-series.
