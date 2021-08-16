@@ -15,19 +15,19 @@ ms.custom: devx-track-csharp
 # Azure Synapse Analytics shared metadata tables
 
 
-Azure Synapse Analytics allows the different workspace computational engines to share databases and Parquet-backed tables between its Apache Spark pools and serverless SQL pool.
+Azure Synapse Analytics allows the different workspace computational engines to share databases and tables between its Apache Spark pools and serverless SQL pool.
 
-Once a database has been created by a Spark job, you can create tables in it with Spark that use Parquet as the storage format. Table names will be converted to lower case and need to be queried using the lower case name. These tables will immediately become available for querying by any of the Azure Synapse workspace Spark pools. They can also be used from any of the Spark jobs subject to permissions.
+Once a database has been created by a Spark job, you can create tables in it with Spark that use Parquet or CSV as the storage format. Table names will be converted to lower case and need to be queried using the lower case name. These tables will immediately become available for querying by any of the Azure Synapse workspace Spark pools. They can also be used from any of the Spark jobs subject to permissions.
 
 The Spark created, managed, and external tables are also made available as external tables with the same name in the corresponding synchronized database in serverless SQL pool. [Exposing a Spark table in SQL](#expose-a-spark-table-in-sql) provides more detail on the table synchronization.
 
-Since the tables are synchronized to serverless SQL pool asynchronously, there will be a delay until they appear.
+Since the tables are synchronized to serverless SQL pool asynchronously, there will be a small delay until they appear.
 
 ## Manage a Spark created table
 
 Use Spark to manage Spark created databases. For example, delete it through a serverless Apache Spark pool job, and create tables in it from Spark.
 
-If you create objects in such a database from serverless SQL pool or try to drop the database, the operation will fail. The original Spark database cannot be changed via serverless SQL pool.
+If you try to create objects in such a database from serverless SQL pool or try to drop the database, the operation will fail. The original Spark database cannot be changed via serverless SQL pool.
 
 ## Expose a Spark table in SQL
 
@@ -59,23 +59,24 @@ Spark tables provide different data types than the Synapse SQL engines. The foll
 
 | Spark data type | SQL data type | Comments |
 |---|---|---|
-| `byte`      | `smallint`       ||
-| `short`     | `smallint`       ||
-| `integer`   |    `int`            ||
-| `long`      |    `bigint`         ||
-| `float`     | `real`           |<!-- need precision and scale-->|
-| `double`    | `float`          |<!-- need precision and scale-->|
-| `decimal`      | `decimal`        |<!-- need precision and scale-->|
-| `timestamp` |    `datetime2`      |<!-- need precision and scale-->|
-| `date`      | `date`           ||
-| `string`    |    `varchar(max)`   | With collation `Latin1_General_100_BIN2_UTF8` |
-| `binary`    |    `varbinary(max)` ||
-| `boolean`   |    `bit`            ||
-| `array`     |    `varchar(max)`   | Serializes into JSON with collation `Latin1_General_100_BIN2_UTF8` |
-| `map`       |    `varchar(max)`   | Serializes into JSON with collation `Latin1_General_100_BIN2_UTF8` |
-| `struct`    |    `varchar(max)`   | Serializes into JSON with collation `Latin1_General_100_BIN2_UTF8` |
+| `LongType`, `long`, `bigint`                | `bigint`              | **Spark**: *LongType* represents 8-byte signed integer numbers. [Reference](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql) |
+| `BooleanType`, `boolean`                    | `bit` (Parquet), `varchar(6)` (CSV)  | |
+| `DecimalType`, `decimal`, `dec`, `numeric`  | `decimal`             | **Spark**: *DecimalType* represents arbitrary-precision signed decimal numbers. Backed internally by java.math.BigDecimal. A BigDecimal consists of an arbitrary precision integer unscaled value and a 32-bit integer scale. <br> **SQL**: Fixed precision and scale numbers. When maximum precision is used, valid values are from - 10^38 +1 through 10^38 - 1. The ISO synonyms for decimal are dec and dec(p, s). numeric is functionally identical to decimal. [Reference](/sql/t-sql/data-types/decimal-and-numeric-transact-sql]) |
+| `IntegerType`, `Integer`, `int`             | `int`                 | **Spark** *IntegerType* represents 4-byte signed integer numbers. [Reference](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql)|
+| `ByteType`, `Byte`, `tinyint`               | `smallint`            | **Spark**: *ByteType* represents 1-byte signed integer numbers [-128 to 127] and ShortType represents 2-byte signed integer numbers [-32768 to 32767]. <br> **SQL**: Tinyint represents 1-byte signed integer numbers [0, 255] and smallint represents 2-byte signed integer numbers [-32768, 32767]. [Reference](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql)|
+| `ShortType`, `Short`, `smallint`            | `smallint`            | Same as above. |
+| `DoubleType`, `Double`                      | `float`               | **Spark**: *DoubleType* represents 8-byte double-precision floating point numbers. For **SQL** [visit this page](/sql/t-sql/data-types/float-and-real-transact-sql).|
+| `FloatType`, `float`, `real`                | `real`                | **Spark**: *FloatType* represents 4-byte double-precision floating point numbers. For **SQL** [visit this page](/sql/t-sql/data-types/float-and-real-transact-sql).|
+| `DateType`, `date`                          | `date`                | **Spark**: *DateType* represents values comprising values of fields year, month and day, without a time-zone.|
+| `TimestampType`, `timestamp`                | `datetime2`           | **Spark**: *TimestampType* represents values comprising values of fields year, month, day, hour, minute, and second, with the session local time-zone. The timestamp value represents an absolute point in time.
+| `char`                                      | `char`                |
+| `StringType`, `String`, `varchar`           | `Varchar(n)`          | **Spark**: *StringType* represents character string values. *VarcharType(n)* is a variant of StringType which has a length limitation. Data writing will fail if the input string exceeds the length limitation. This type can only be used in table schema, not functions/operators.<br> *CharType(n)* is a variant of *VarcharType(n)* which is fixed length. Reading column of type *CharType(n)* always returns string values of length n. Char type column comparison will pad the short one to the longer length. <br> **SQL**: In *Varchar(n)* n can be max 8000, and if it is partitioned column, n can be max 2048. <br> Use it with collation `Latin1_General_100_BIN2_UTF8`. |
+| `BinaryType`, `binary`                      | `varbinary(n)`        | **SQL**: In *Varbinary(n)* n can be max 8000, and if it is partitioned column, n can be max 2048. |
+| `array`, `map`, `struct`                    | `varchar(max)`     | **SQL**: Serializes into JSON with collation `Latin1_General_100_BIN2_UTF8` |
 
-<!-- TODO: Add precision and scale to the types mentioned above -->
+* Collation used is Latin1_General_100_BIN2_UTF8.
+
+** ArrayType, MapType, and StructType are represented as JSONs.
 
 ## Security model
 
@@ -89,7 +90,7 @@ For more information on how to set permissions on the folders and files, see [Az
 
 ## Examples
 
-### Create a managed table backed by Parquet in Spark and query from serverless SQL pool
+### Create a managed table in Spark and query from serverless SQL pool
 
 In this scenario, you have a Spark database named `mytestdb`. See [Create and connect to a Spark database with serverless SQL pool](database.md#create-and-connect-to-spark-database-with-serverless-sql-pool).
 
@@ -109,7 +110,7 @@ This command creates the table `myparquettable` in the database `mytestdb`. Tabl
 Verify that `myparquettable` is included in the results.
 
 >[!NOTE]
->A table that is not using Parquet as its storage format will not be synchronized.
+>A table that is not using Parquet or CSV as its storage format will not be synchronized.
 
 Next, insert some values into the table from Spark, for example with the following C# Spark statements in a C# notebook:
 
@@ -148,19 +149,19 @@ id | name | birthdate
 1 | Alice | 2010-01-01
 ```
 
-### Create an external table backed by Parquet in Spark and query from serverless SQL pool
+### Create an external table in Spark and query from serverless SQL pool
 
-In this example, create an external Spark table over the Parquet data files that got created in the previous example for the managed table.
+In this example, we will create an external Spark table over the Parquet data files that got created in the previous example for the managed table.
 
 For example, with SparkSQL run:
 
 ```sql
 CREATE TABLE mytestdb.myexternalparquettable
     USING Parquet
-    LOCATION "abfss://<fs>@arcadialake.dfs.core.windows.net/synapse/workspaces/<synapse_ws>/warehouse/mytestdb.db/myparquettable/"
+    LOCATION "abfss://<storage-name>@arcadialake.dfs.core.windows.net/<fs>/synapse/workspaces/<synapse_ws>/warehouse/mytestdb.db/myparquettable/"
 ```
 
-Replace the placeholder `<fs>` with the file system name that is the workspace default file system and the placeholder `<synapse_ws>` with the name of the synapse workspace you're using to run this example.
+Replace the placeholder `<storage-name>` with the ADLS gen2 storage account name that you are using, `<fs>` with the file system name you're using and the placeholder `<synapse_ws>` with the name of the synapse workspace you're using to run this example.
 
 The previous example creates the table `myextneralparquettable` in the database `mytestdb`. After a short delay, you can see the table in your serverless SQL pool. For example, run the following statement from your serverless SQL pool.
 
