@@ -84,7 +84,7 @@ sections:
           - **Revision history**: App Configuration stores a history of all changes made to keys. In the free tier, this history is stored for seven days. In the standard tier, this history is stored for 30 days.
           - **Requests quota**: Free tier stores are limited to 1,000 requests per day. When a store reaches 1,000 requests, it returns HTTP status code 429 for all requests until midnight UTC.
           
-              Standard tier stores are limited to 30,000 requests per hour. When the hourly quota is exhausted, requests may return HTTP status code 429 indicating too many requests until end of the hour. As more requests are sent which are above quota, a higher percentage of them will return status code 429. 
+              Standard tier stores are limited to 30,000 requests per hour. When the hourly quota is exhausted, requests may return HTTP status code 429 indicating too many requests until end of the hour. As more requests are sent which are above quota, a higher percentage of them may return status code 429. 
           
           - **Service level agreement**: The standard tier has an SLA of 99.9% availability. The free tier doesn't have an SLA.
           - **Security features**: Both tiers include basic security functionality, including encryption with Microsoft-managed keys, authentication via HMAC or Azure Active Directory, Azure RBAC support, managed identity, and service tags. The Standard tier offers more advanced security functionality, including Private Link support and encryption with customer-managed keys.
