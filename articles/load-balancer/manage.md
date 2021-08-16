@@ -5,7 +5,7 @@ author: asudbring
 ms.service: load-balancer
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 08/12/2021
+ms.date: 08/16/2021
 ms.author: allensu
 ---
 
@@ -32,13 +32,13 @@ In the **Basics** tab of the create load balancer portal page, you'll see the fo
 | SKU  | Select **Standard**. </br> Load balancer has two SKUs: **Basic** and **Standard**. </br> Basic has limited functionality. </br> **Standard** is recommended for production workloads. </br> Learn more about [SKUs](skus.md). |
 | Tier | Load balancer has two tiers: </br> **Regional** </br> **Global** </br> A regional load balancer is constrained to load balancing within a region. Global refers to a cross-region load balancer that load-balances across regions. </br> For more information on the **Global** tier, see [Cross-region load balancer (preview)](cross-region-overview.md)
 
-:::image type="content" source="./media/manage/create-public-load-balancer-basics.png" alt-text="Create load balancer public." border="true":::
+:::image type="content" source="./media/manage/create-public-load-balancer-basics.png" alt-text="Screenshot of create load balancer public." border="true":::
 
 ### Frontend IP configuration
 
 In the **Frontend IP configuration** tab of the create load balancer portal page, select **+ Add frontend IP address** to open the creation page.
 
-:::image type="content" source="./media/manage/create-frontend.png" alt-text="Create frontend IP configuration." border="true":::
+:::image type="content" source="./media/manage/create-frontend.png" alt-text="Screenshot of create frontend IP configuration." border="true":::
 
 #### **+ Add a frontend IP**
 ### Public
@@ -51,7 +51,7 @@ If you select **Public** as your type, you'll see the following information:
 | IP version | **IPv4** </br> **IPv6** </br> Load balancer supports IPv4 and IPv6 frontends. </br> For more information see, [load Balancer and IPv6](load-balancer-ipv6-overview.md). |
 | IP type | **IP address** </br> **IP prefix** </br> Load balancer supports an IP address or an IP prefix for the frontend IP address. For more information, see [Azure Public IP address prefix](./virtual-network/public-ip-address-prefix.md). |
 
-:::image type="content" source="./media/manage/add-frontend-public.png" alt-text="Create frontend IP configuration." border="true":::
+:::image type="content" source="./media/manage/add-frontend-public.png" alt-text="Screenshot of add frontend IP configuration." border="true":::
 
 If you select **IP address** for **IP type**, you'll see the following information:
 
@@ -65,7 +65,7 @@ If you select **IP address** for **IP type**, you'll see the following informati
 | Availability zone | Select **Zone-redundant** to create a resilient load balancer. </br> To create a zonal load balancer, select a specific zone from **1**, **2**, or **3**. </br> Standard load balancer and public IPs support zones. </br> Learn more about [load balancer and availability zones](load-balancer-standard-availability-zones.md). </br> You won't see zone selection for basic. Basic load balancer doesn't support zones. |
 | Routing preference | Select **Microsoft Network**. </br> Microsoft Network means that traffic is routed via the Microsoft global network. </br> Internet means that traffic is routed through the internet service provider network. </br> Learn more about [Routing Preferences](../virtual-network/routing-preference-overview.md)|
 
-:::image type="content" source="./media/manage/create-public-ip.png" alt-text="Create public IP." border="true":::
+:::image type="content" source="./media/manage/create-public-ip.png" alt-text="Screenshot of create public IP." border="true":::
 
 If you select **IP prefix** for **IP type**, you'll see the following information:
 
@@ -78,8 +78,7 @@ If you select **IP prefix** for **IP type**, you'll see the following informatio
 | Prefix size | IPv4 or IPv6 prefixes are displayed depending on the selection above. </br> **IPv4** </br> /24 (256 addresses) </br> /25 (128 addresses) </br> /26 (64 addresses) </br> /27 (32 addresses) </br> /28 (16 addresses) </br> /29 (8 addresses) </br> /30 (4 addresses) </br> /31 (2 addresses) </br> **IPv6** </br> /124 (16 addresses) </br> /125 (8 addresses) </br> 126 (4 addresses) </br> 127 (2 addresses) |
 | Availability zone | Select **Zone-redundant** to create a resilient load balancer. </br> To create a zonal load balancer, select a specific zone from **1**, **2**, or **3**. </br> Standard load balancer and public IP prefixes support zones. </br> Learn more about [load balancer and availability zones](load-balancer-standard-availability-zones.md).
 
-:::image type="content" source="./media/manage/create-public-ip-prefix.png" alt-text="Create public IP prefix." border="true":::
-
+:::image type="content" source="./media/manage/create-public-ip-prefix.png" alt-text="Screenshot of create public IP prefix." border="true":::
 
 ### Internal
 
@@ -92,12 +91,12 @@ If you select **Internal** as your type in the **Basics** tab, you'll see the fo
 | Assignment | Your options are **Static** or **Dynamic**. </br> Static ensures the IP doesn't change. A dynamic IP could change. |
 | Availability zone | Your options are: </br> **Zone redundant** </br> **Zone 1** </br> **Zone 2** </br> **Zone 3** </br> To create a load balancer that is highly available and resilient to availability zone failures, select a **zone-redundant** IP. |
 
-:::image type="content" source="./media/manage/add-frontend-internal.png" alt-text="Add internal frontend." border="true":::
+:::image type="content" source="./media/manage/add-frontend-internal.png" alt-text="Screenshot of add internal frontend." border="true":::
 ### Backend pools
 
 In the **Backend pools** tab of the create load balancer portal page, select **+ Add a backend pool** to open the creation page.
 
-:::image type="content" source="./media/manage/create-backend-pool.png" alt-text="Create backend pool tab." border="true":::
+:::image type="content" source="./media/manage/create-backend-pool.png" alt-text="Screenshot of create backend pool tab." border="true":::
 
 #### **+ Add a backend pool**
 
@@ -112,7 +111,7 @@ The following is displayed in the **+ Add a backend pool** creation page:
 
 You can add virtual machines or virtual machine scale sets to the backend pool of your Azure Load Balancer. Create the virtual machines or virtual machine scale sets first. 
 
-:::image type="content" source="./media/manage/add-backend-pool.png" alt-text="Add backend pool." border="true":::
+:::image type="content" source="./media/manage/add-backend-pool.png" alt-text="Screenshot of add backend pool." border="true":::
 
 ### Inbound rules
 
@@ -120,7 +119,7 @@ There are two sections in the **Inbound rules** tab, **Load balancing rule** and
 
 In the **Inbound rules** tab of the create load balancer portal page, select **+ Add a load balancing rule** to open the creation page.
 
-:::image type="content" source="./media/manage/inbound-rules.png" alt-text="Add inbound rule." border="true":::
+:::image type="content" source="./media/manage/inbound-rules.png" alt-text="Screenshot of add inbound rule." border="true":::
 
 #### **+ Add a load balancing rule**
 
@@ -142,7 +141,7 @@ The following is displayed in the **+ Add a load balancing rule** creation page:
 | Floating IP | Floating IP is Azure's terminology for a portion of what is known as **Direct Server Return (DSR)**. </br> DSR consists of two parts: <br> 1. Flow topology </br> 2. An IP address-mapping scheme at a platform level. </br></br> Azure Load Balancer always operates in a DSR flow topology whether floating IP is enabled or not. </br> This operation means that the outbound part of a flow is always correctly rewritten to flow directly back to the origin. </br> Without floating IP, Azure exposes a traditional load-balancing IP address-mapping scheme, the VM instances' IP. </br> Enabling floating IP changes the IP address mapping to the frontend IP of the load Balancer to allow for additional flexibility. </br> For more information, see [Multiple frontends for Azure Load Balancer](load-balancer-multivip-overview.md).|
 | Outbound source network address translation (SNAT) | Your options are: </br> **(Recommended) Use outbound rules to provide backend pool members access to the internet.** </br> **Use implicit outbound rule. This is not recommended because it can cause SNAT port exhaustion.** </br> Select the **Recommended** option to prevent SNAT port exhaustion. A **NAT gateway** or **Outbound rules** are required to provide SNAT for the backend pool members. For more information on **NAT gateway**, see [What is Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md). </br> For more information on outbound connections in Azure, see [Using Source Network Address Translation (SNAT) for outbound connections](load-balancer-outbound-connections.md). |
 
-:::image type="content" source="./media/manage/add-load-balancing-rule.png" alt-text="Add load balancing rule." border="true":::
+:::image type="content" source="./media/manage/add-load-balancing-rule.png" alt-text="Screenshot of add load balancing rule." border="true":::
 
 #### Create health probe
 
@@ -156,7 +155,7 @@ If you selected **Create new** in the health probe configuration of the load-bal
 | Interval | The number of seconds in between probe attempts. </br> The interval will determine how frequently the health probe will attempt to reach the backend instance. </br> If you select 5, the second probe attempt will be made after 5 seconds and so on. |
 | Unhealthy threshold | The number of consecutive probe failures that must occur before a VM is considered unhealthy.</br> If you select 2, no new flows will be set to this backend instance after two consecutive failures. |
 
-:::image type="content" source="./media/manage/add-health-probe.png" alt-text="Add health probe." border="true":::
+:::image type="content" source="./media/manage/add-health-probe.png" alt-text="Screenshot of add health probe." border="true":::
 
 In the **Inbound rules** tab of the create load balancer portal page, select **+ Add a an inbound nat rule** to open the creation page.
 
@@ -177,8 +176,7 @@ The following is displayed in the **+ Add inbound NAT rule** creation page:
 | Target virtual machine | The virtual machine part of the backend pool you would like this rule to be associated to. |
 | Port mapping | This setting can be default or custom based on your application preference. |
 
-:::image type="content" source="./media/manage/add-inbound-nat-rule.png" alt-text="Add inbound nat rule." border="true":::
-
+:::image type="content" source="./media/manage/add-inbound-nat-rule.png" alt-text="Screenshot of add inbound nat rule." border="true":::
 
 ### Outbound rules
 
@@ -187,7 +185,7 @@ In the **Outbound rules** tab of the create load balancer portal page, select **
 > [!NOTE]
 > The outbound rules tab is only valid for a public standard load balancer. Outbound rules are not supported on an internal or basic load balancer. Azure Virtual Network NAT is the recommended way to provide outbound internet access for the backend pool. For more information on **Azure Virtual Network NAT** and the NAT gateway resource, see **[What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md)**.
 
-:::image type="content" source="./media/manage/create-outbound-rule.png" alt-text="Create outbound rule." border="true":::
+:::image type="content" source="./media/manage/create-outbound-rule.png" alt-text="Screenshot of create outbound rule." border="true":::
 
 #### **+ Add an outbound rule**
 
@@ -205,7 +203,7 @@ The following is displayed in the **+ Add an outbound rule** creation page:
 | Port allocation | Your choices are: </br> **Manually choose number of outbound ports** </br> **Use the default number of outbound ports** </br> It's recommended to select the default of **Manually choose number of outbound ports** to prevent SNAT port exhaustion. If choose **Use the default number of outbound ports**, the **Outbound ports** selection is disabled. |
 | Outbound ports | Your choices are: </br> **Ports per instance** </br> **Maximum number of backend instances**. </br> It's recommend to select **Ports per instance** and enter **10,000**. |
 
-:::image type="content" source="./media/manage/add-outbound-rule.png" alt-text="Add outbound rule." border="true":::
+:::image type="content" source="./media/manage/add-outbound-rule.png" alt-text="Screenshot of add outbound rule." border="true":::
 
 ## Portal settings
 ### Frontend IP configuration
@@ -256,7 +254,7 @@ If you want to add a health probe to your load balancer, go to your load balance
 | Interval | The number of seconds in between probe attempts. </br> The interval will determine how frequently the health probe will attempt to reach the backend instance. </br> If you select 5, the second probe attempt will be made after 5 seconds and so on. |
 | Unhealthy threshold | The number of consecutive probe failures that must occur before a VM is considered unhealthy.</br> If you select 2, no new flows will be set to this backend instance after two consecutive failures. |
 
-:::image type="content" source="./media/manage/health-probe.png" alt-text="Add health probe." border="true":::
+:::image type="content" source="./media/manage/health-probe.png" alt-text="Screenshot of create add health probe." border="true":::
 
 ### Load-balancing rules
 
@@ -280,7 +278,7 @@ If you want to add a load balancer rule to your load balancer, go to your load b
 | Floating IP | Floating IP is Azure's terminology for a portion of what is known as **Direct Server Return (DSR)**. </br> DSR consists of two parts: <br> 1. Flow topology </br> 2. An IP address-mapping scheme at a platform level. </br></br> Azure Load Balancer always operates in a DSR flow topology whether floating IP is enabled or not. </br> This operation means that the outbound part of a flow is always correctly rewritten to flow directly back to the origin. </br> Without floating IP, Azure exposes a traditional load-balancing IP address-mapping scheme, the VM instances' IP. </br> Enabling floating IP changes the IP address mapping to the frontend IP of the load Balancer to allow for additional flexibility. </br> For more information, see [Multiple frontends for Azure Load Balancer](load-balancer-multivip-overview.md).|
 | Outbound source network address translation (SNAT) | Your options are: </br> **(Recommended) Use outbound rules to provide backend pool members access to the internet.** </br> **Use implicit outbound rule. This is not recommended because it can cause SNAT port exhaustion.** </br> Select the **Recommended** option to prevent SNAT port exhaustion. A **NAT gateway** or **Outbound rules** are required to provide SNAT for the backend pool members. For more information on **NAT gateway**, see [What is Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md). </br> For more information on outbound connections in Azure, see [Using Source Network Address Translation (SNAT) for outbound connections](load-balancer-outbound-connections.md). | |
 
-:::image type="content" source="./media/manage/load-balancing-rule.png" alt-text="Add load-balancing rule." border="true":::
+:::image type="content" source="./media/manage/load-balancing-rule.png" alt-text="Screenshot of add load-balancing rule." border="true":::
 
 ### Inbound NAT rules
 
@@ -307,7 +305,7 @@ If you want to add an inbound nat rule to your load balancer, go to your load ba
 | Target virtual machine | The virtual machine part of the backend pool you would like this rule to be associated to. |
 | Port mapping | This setting can be default or custom based on your application preference. |
 
-:::image type="content" source="./media/manage/inbound-nat-rule.png" alt-text="Add inbound NAT rule." border="true":::
+:::image type="content" source="./media/manage/inbound-nat-rule.png" alt-text="Screenshot of add inbound NAT rule." border="true":::
 
 ### Outbound rules
 
@@ -324,7 +322,7 @@ If you want to add an outbound rule to your load balancer, go to your load balan
 | TCP Reset | Load balancer can send **TCP resets** to help create a more predictable application behavior on when the connection is idle. </br> Learn more about [TCP reset](load-balancer-tcp-reset.md) |
 | Backend pool | The backend pool you would like this outbound rule to be applied on. |
 
-:::image type="content" source="./media/manage/outbound-rule.png" alt-text="Add inbound outbound rule." border="true":::
+:::image type="content" source="./media/manage/outbound-rule.png" alt-text="Screehshot of add inbound outbound rule." border="true":::
 
 ## Next Steps
 
