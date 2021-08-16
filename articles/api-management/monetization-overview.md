@@ -3,16 +3,15 @@ title: Monetization with Azure API Management
 description: Learn how to set up your monetization strategy for Azure API Management in six simple stages.
 author: v-hhunter
 ms.author: v-hhunter
-ms.date: 08/13/2021
+ms.date: 08/16/2021
 ms.topic: article
 ms.service: api-management
 ---
 
 # Monetization with Azure API Management
 
-Modern web APIs underpin the digital economy. They generate revenue by:
+Modern web APIs underpin the digital economy. They provide a company's intellectual property (IP) to third parties and generate revenue by:
 
-- Providing a company's intellectual property (IP) to third parties.
 - Packaging IP in the form of data, algorithms, or processes.
 - Allowing other parties to discover and consume useful IP in a consistent, frictionless manner.
 - Offering a mechanism for direct or indirect payment for this usage.
@@ -27,7 +26,7 @@ Organizations publishing their first API face a complex set of decisions. While 
 
 *Monetization* is the process of converting something into money - in this case, the API value. API interactions typically involve three distinct parties in the value chain:
 
-![monetization strategy](./media/monetization-overview/illustration1.png)
+:::image type="content" source="/media/monetization-overview/illustration1.png" alt-text="Monetization features overview":::
 
 Categories of API monetization strategy include:
 
@@ -45,7 +44,7 @@ Since a wide range of factors influence the design, API monetization doesn't com
 
 The following steps explain how to implement a monetization strategy for your API.
 
-![implementing monetization strategy steps](./media/monetization-overview/illustration2.png)
+:::image type="content" source="/media/monetization-overview/illustration2.png" alt-text="implementing monetization strategy steps":::
 
 ### Step 1 - Understand your customer
 
@@ -87,10 +86,12 @@ Calculate the total cost of ownership for your API.
 
 Design a revenue model based on the outcome of the steps above. You can work across two dimensions:
 
-- **Quality of service**, controlled by setting caps and rate limits.
-- **Price**.
+| Dimension | Description |
+| --------- | ----------- |
+| **Quality of service** | Put constraints on the service level you are offering by setting a cap on API usage. Define a quota for the API calls that can be made over a period of time (e.g. 50,000 calls per month) and then block calls once that quota is reached. <br> You can also set a rate limit, throttling the number of calls that can be made in a short period (e.g. 100 calls per second). <br> Caps and rate limits are applied in conjunction, preventing users from consuming their monthly quota in a short intensive burst of API calls. |
+| **Price** | Define the unit price to be paid for each API call. |
 
-Your goal is to maximize the lifetime value (LTV) that you generate from each customer by designing a revenue model that supports your customer at each stage of the customer journey.
+Maximize the lifetime value (LTV) you generate from each customer by designing a revenue model that supports your customer at each stage of the customer journey.
 
 1. Make it as easy as possible for your customers to scale and grow:
     - Suggest customers move up to the next tier in the revenue model. 
@@ -102,7 +103,9 @@ Your goal is to maximize the lifetime value (LTV) that you generate from each cu
     - Provide clear documentation about the different options.
     - Give your customers tools for choosing the revenue model that best suits their needs.
 
-For example, to support the customer stages above, we would need six types of subscription:
+Identify the range of required pricing models. A *pricing model* describes a specific set of rules for the API provider to turn consumption by the the API consumer into revenue.
+
+For example, to support the [customer stages above](#step-1---understand-your-customer), we would need six types of subscription:
 
 | Subscription type | Description |
 | ----- | ----- |
@@ -113,29 +116,35 @@ For example, to support the customer stages above, we would need six types of su
 | `Tier + Overage` | The API consumer pays for a set number of calls per month. If they exceed this limit, they pay a set amount per extra call. |
 | `Unit` | The API consumer pays for a set amount of call per month. If they exceed this limit, they have to pay for another unit of calls. |
 
-These subscription types are modeled in the sample project and are applied to the customer stages as follows:
+Your revenue model will define the set of API products. Each API product implements a specific pricing model to target a specific stage in the API consumer lifecycle.
 
-| Customer Lifecycle Stage | Revenue model (APIM Product) | Subscription type  | Quality of Service (APIM Product Policies)                                                                  |
-|--------------------------|------------------------------|--------------------|-------------------------------------------------------------------------------------------------------------|
-| Investigation            | Free                         | Free               | Quota set to limit the Consumer to 100 calls / month                                                        |
-| Implementation           | Developer                    | Freemium           | No quota set - Consumer can continue to make & pay for calls, rate limit of 100 calls / minute              |
-| Preview                  | PAYG                         | Metered            | No quota set - Consumer can continue to make & pay for calls, rate limit of 200 calls / minute              |
-| Initial production usage | Basic                        | Tier               | Quota set to limit the Consumer to 50,000 calls / month, rate limit of 100 calls / minute                   |
-| Initial growth           | Standard                     | Tier + Overage     | No quota set - Consumer can continue to make & pay for additional calls, rate limit of 100 calls / minute   |
-| Scale                    | Pro                          | Tier + Overage     | No quota set - Consumer can continue to make & pay for additional calls, rate limit of 1,200 calls / minute |
-| Global growth            | Enterprise                   | Unit               | No quota set - Consumer can continue to make & pay for additional calls, rate limit of 3,500 calls / minute |
+While pricing models generally shouldn't change, you may need to adapt the configuration and application of pricing models for your revenue model. For example, you may want to adjust your prices to match a competitor.
 
-**Example scenarios:**
+Bringing this to life, and building on the examples above, the pricing models could be applied to create an overall revenue model as follows:
 
-* `Tier` pricing
-   
-    The Basic product, in which a consumer pays $14.95 / month and can make up to 50,000 calls.
-* `Metered` pricing
-   
-    The PAYG product, in which consumers are charged a flat rate of $0.15 / 100 calls. 
-* `Tier + Overage` pricing 
+| Customer lifecycle stage | Pricing model | Pricing model configuration | Quality of Service |
+| ------------------------ | ------------------------- | ------------------ | ----------------------------------------------------------------------------------------------------------- |
+| Investigation | Free | Not implemented. | Quota set to limit the Consumer to 100 calls/month. |
+| Implementation | Freemium | Graduated tiers: <ul> <li>First tier flat amount is $0.</li> <li>Next tiers per unit amount charge set to charge $0.20/100 calls.</li></ul> | No quota set. Consumer can continue to make and pay for calls with a rate limit of 100 calls/minute. |
+| Preview | Metered | Price set to charge consumer $0.15/100 calls. | No quota set. Consumer can continue to make and pay for calls at a rate limit of 200 calls/minute. |
+| Initial production usage | Tier | Price set to charge consumer $14.95/month. | Quota set to limit the consumer to 50,000 calls/month with a rate limit of 100 calls/minute. |
+| Initial growth | Tier + Overage | Graduated tiers: <ul><li>First tier flat amount is $89.95/month for first 100,000 calls.</li><li>Next tiers per unit amount charge set to charge $0.10/100 calls.</li></ul> | No quota set. Consumer can continue to make and pay for additional calls at a rate limit of 100 calls/minute. |
+| Scale | Tier + Overage | Graduated tiers:<ul><li>First tier flat amount is $449.95/month for first 500,000 calls.</li><li>Next tiers per unit amount charge set to charge $0.06/100 calls.</li></ul> | No quota set. Consumer can continue to make and pay for additional calls at a rate limit of 1,200 calls/minute. |
+| Global growth | Unit | Graduated tiers, where every tier flat amount is $749.95/month for 1,500,000 calls. | No quota set. Consumer can continue to make and pay for additional calls at a rate limit of 3,500 calls/minute. |
 
-    The Standard product, in which consumers are charged $89.95 / month for 100,000 calls and charged an additional $0.10 / 100 additional calls.
+**Two examples of how to interpret the revenue model based on the table above:**
+
+* **Tier pricing model**  
+   Applied to support API consumers during the **Initial production phase** of the lifecycle. With the Tier pricing model configuration, the consumer:  
+    * Pays $14.95/month.  
+    * Can make up to a maximum of 50,000 calls/month. 
+    * Be rate limited to 100 calls/minute.
+
+* **Scale phase of the lifecycle**
+   Implemented by applying the **Tier + Overage** pricing model where consumers:
+    * Pay $449.95/month for first 500,000 calls. 
+    * Are charged an additional $0.06/100 additional calls if they exceed first limit. 
+    * Rate limited to 1,200 calls/minute.
 
 ### Step 5 - Calibrate
 
@@ -144,6 +153,8 @@ Calibrate the pricing across the revenue model to:
 - Set the pricing to prevent overpricing or underpricing your API, based on the market research in step 3 above.
 - Avoid any points in the revenue model that appear unfair or encourage customers to work around the model to achieve more favorable pricing.
 - Ensure the revenue model is geared to generate a total lifetime value (TLV) sufficient to cover the total cost of ownership plus margin.
+- Verify the quality of your service offerings in each revenue model tier can be supported by your solution. 
+    - For example, if you are offering to support 3,500 calls/minute, make sure your end-to-end solution can scale to support that throughput level.
 
 ### Step 6 - Release and monitor
 
@@ -156,7 +167,7 @@ Choose an appropriate solution to collect payment for usage of your APIs.  Provi
 
     Only concerned with the facilitating the payment transaction. You will need to apply your monetization strategy (like, translate API usage metrics into a payment) before calling this service.
 
-Use Azure API Management to accelerate and de-risk the implementation by using built-in capabilities provided in API Management.  For more information about the specific features in API Management, see [how API Management supports monetization](monetization-support.md).
+Use Azure API Management to accelerate and de-risk the implementation by using built-in capabilities provided in API Management. For more information about the specific features in API Management, see [how API Management supports monetization](monetization-support.md).
 
 Use the same approach as the sample project to implement a solution that builds flexibility into how you codify your monetization strategy in the underlying systems. This will enable you to respond dynamically and to minimize the risk and cost of making changes.
 
@@ -178,4 +189,4 @@ Remember that the monetization strategy is only one facet of a successful API im
 
 ## Next Steps
 * [How API Management supports monetization](monetization-support.md).
-* Run the initialization and deployment processes using our [Deploy demo with Stripe] or [Deploy demo with Adyen] tutorials.
+* Run the initialization and deployment processes using our [Deploy with Stripe] or [Deploy with Adyen] tutorials.
