@@ -33,6 +33,8 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * New Relic by Account supports **SP** initiated SSO
+* New Relic supports [**automated user provisioning and deprovisioning**](new-relic-by-organization-provisioning-tutorial.md) (recommended).
+
 
 ## Add New Relic by Account from the gallery
 
