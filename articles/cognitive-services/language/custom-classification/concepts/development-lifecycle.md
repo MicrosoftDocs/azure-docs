@@ -16,16 +16,16 @@ ms.author: aahi
 
 There are several steps for creating and using models for custom classification. 
 
-## Azure resources
+## Creating Azure resources
 
-> [!NOTE]
-> To use custom classification, you'll need a Language Services resource in **West US 2** or **West Europe** with the Standard (S) pricing tier.
-
-To use custom classification, you will need a Language Services resource. We recommend the steps in the [quickstart](../quickstart/using-language-studio.md) for creating one in the Azure portal. Creating a resource in the Azure portal lets you create an Azure blob storage account at the same time, with all of the required permissions pre-configured. 
+Before you start using custom classification, you will need a Language Services resource. We recommend the steps in the [quickstart](../quickstart/using-language-studio.md) for creating one in the Azure portal. Creating a resource in the Azure portal lets you create an Azure blob storage account at the same time, with all of the required permissions pre-configured. 
 
 You can also create a resource in Language Studio by clicking the settings icon in the top right corner, selecting **Resources**, then clicking **Create a new resource**. If you use this process, or have a preexisting storage account you'd like to use, you will have to [create an Azure Blob storage account](/azure/storage/common/storage-account-create). Afterwards you'll need to:
 1. Enable identity management on your Azure resource.
 2. Set contributor roles on the storage account
+
+> [!NOTE]
+> To use custom classification, you'll need a Language Services resource in **West US 2** or **West Europe** with the Standard (S) pricing tier.
 
 ### Identity management for your Language Services resource
 
