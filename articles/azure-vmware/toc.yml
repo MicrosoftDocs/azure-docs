@@ -58,6 +58,8 @@
     href: request-host-quota-azure-vmware-solution.md
   - name: Save costs with a reserved instance
     href: reserved-instance.md
+  - name: Create a placement policy
+    href: create-placement-policy.md
   - name: Configure networking
     items:
     - name: Configure DHCP server or relay
