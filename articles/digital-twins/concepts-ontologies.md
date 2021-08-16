@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about DTDL industry ontologies for modeling in a certain domain
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 2/12/2021
+ms.date: 6/1/2021
 ms.topic: conceptual
 ms.service: digital-twins
 

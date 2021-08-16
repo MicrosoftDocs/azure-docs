@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand the ingress and egress requirements for integrating Azure Digital Twins with other services.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 3/16/2020
+ms.date: 6/1/2021
 ms.topic: conceptual
 ms.service: digital-twins
 
