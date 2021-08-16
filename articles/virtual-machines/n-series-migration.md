@@ -9,7 +9,7 @@ ms.date: 08/15/2020
 ms.author: iafinder
 ---
  
-# **Migration Guide for GPU Compute Workloads in Azure**
+# Migration Guide for GPU Compute Workloads in Azure
 
 As more powerful GPUs become available in the marketplace and in Microsoft Azure datacenters, we recommend re-assessing the performance of your workloads and considering migrating to newer GPUs.
 
@@ -19,7 +19,7 @@ Since then, GPUs have made incredible strides alongside the entire deep learning
 
 In most cases, the dramatic increase in performance offered by newer generations of GPUs lowers overall TCO by decreasing the duration of job, for burstable jobs- or reducing the quantity of overall GPU-enabled VMs required to cover a fixed-size demand for compute resources, even though costs per GPU-hour may vary. In addition to these benefits, customers may improve Time-to-Solution via higher-performing VMs, and improve the health and supportability of their solution by adopting newer software, CUDA runtime, and driver versions.
 
-## **A word on Migration vs. Optimization**
+## Migration vs. Optimization
 
 Azure recognizes that customers have a multitude of requirements that may dictate the selection of a specific GPU VM product, including GPU architectural considerations, interconnects, TCO, Time to Solution, and regional availability based on compliance locality or latency requirements- and some of these even change over time.
 
@@ -35,7 +35,7 @@ However, these sorts of improvements are beyond the scope of this document, whic
 
 Thus, this document assumes that the user may not have any insight or control over workload-specific properties like the number of required VM instances, GPUs, interconnects, and more.
 
-## **Recommended Upgrade Paths**
+## Recommended Upgrade Paths
 
 ### NC-Series VMs featuring NVIDIA K80 GPUs
 
@@ -75,7 +75,7 @@ The NC v2-series virtual machines are a flagship platform originally designed fo
 | Standard_NC24rs_v2 | Standard_NC24rs_v3* | CPU: Intel Broadwell (same)<br>GPU count: 4 (same)<br>GPU generation: NVIDIA Pascal vs. Volta (+1 generations)<br>GPU memory (GiB per GPU): 16 (same)<br>vCPU: 24 (same)<br>Memory GiB: 448 (same)<br>Temp Storage (SSD) GiB: 2948 (same)<br>Max data disks: 32 (same)<br>Accelerated Networking: No (same)<br>Premium Storage: Yes (+)<br>InfiniBand interconnect: Yes (Same)| 
 
 
-## **Migration Steps**
+## Migration Steps
 
 ### General Changes
 
@@ -88,7 +88,7 @@ The NC v2-series virtual machines are a flagship platform originally designed fo
     > [!IMPORTANT]
     > Your VM image may have been produced with an older version of the CUDA runtime, NVIDIA driver, and (if applicable, for RDMA-enabled sizes only) Mellanox OFED drivers than your new GPU VM series requires, which can be updated by [following the instructions in the Azure Documentation.](./sizes-gpu.md)
 
-### **Breaking Changes**
+### Breaking Changes
 
 #### Select target size for migration
 
@@ -109,3 +109,6 @@ Follow the guide to [request an increase in vCPU quota by VM family.](../azure-p
 
 You can [resize the virtual machine through Azure portal or PowerShell](./windows/resize-vm.md). You can also [resize the virtual machine using Azure CLI](./linux/change-vm-size.md).
 
+## Next steps
+
+For a full list of GPU enabled virtual machine sizes, see [GPU - accelerated compute overview](sizes-gpu.md)
