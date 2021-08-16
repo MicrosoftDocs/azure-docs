@@ -23,8 +23,8 @@ These are the currently supported sign-in methods:
 - Windows Desktop client
     - Username and password
     - Smartcard
-    - [Windows Hello for Business certificate trust](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust)
-    - [Windows Hello for Business key trust with certificates](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-rdp-certs)
+    - [Windows Hello for Business certificate trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust)
+    - [Windows Hello for Business key trust with certificates](/windows/security/identity-protection/hello-for-business/hello-deployment-rdp-certs)
 - Windows Store client
     - Username and password
 - Web client
