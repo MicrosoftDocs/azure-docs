@@ -35,6 +35,13 @@ Similar to Syslog, there are two steps to configuring custom log collection:
 
 ## Install the Log Analytics agent
 
+Install the Log Analytics agent on the Linux or Windows machine that will be generating the logs.
+
+> [!NOTE]
+> Some vendors recommend installing the Log Analytics agent on a separate log server instead of directly on the device. Consult your product's section on the [Data connectors reference](data-connectors-reference.md) page, or your product's own documentation.
+
+Select the appropriate tab according to whether your device type is listed in the data connectors gallery.
+
 # [From the Data connectors gallery](#tab/DCG)
 
 1. From the Azure Sentinel navigation menu, select **Data connectors**.
@@ -90,15 +97,9 @@ Similar to Syslog, there are two steps to configuring custom log collection:
     - To install the agent on any other kind of Windows or Linux machine:
         1. From the Log Analytics workspace navigation menu, select **Agents management**.
         1. Select the **Windows servers** or **Linux servers** tab as appropriate.
-    
-    **For an Azure Linux VM:**
-      
-    1. Expand **Install agent on Azure Linux virtual machine**.
-    
-    1. Select the **Download & install agent for Azure Linux Virtual machines >** link. 
-    
-    1. In the **Virtual machines** blade, click a virtual machine to install the agent on, and then click **Connect**. Repeat this step for each VM you wish to connect.
-    
+        1. For Windows, select the **Download Windows Agent** link for either 32-bit or 64-bit systems, as appropriate.  
+            For Linux, copy the command for **Download and onboard agent for Linux** and run it from your command line, or select the **Download Linux Agent** link to download a local copy of the installation file.
+        
 ---
 
 ## Configure the logs to be collected
@@ -107,6 +108,7 @@ Many device types have their own data connectors appearing in the **Data connect
 
 All connectors listed in the gallery will display any specific instructions on their respective connector pages in the portal, as well as in their sections of the [partner data connectors reference](partner-data-connectors-reference.md) page.
 
+(For the most up-to-date and reliable information?), or if your product is not listed in the Data connectors gallery, consult your vendor's documentation for instructions on configuring logging for your device.
 
 ## Configure the Log Analytics agent
 
