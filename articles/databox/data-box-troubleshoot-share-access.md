@@ -52,8 +52,8 @@ The failed connection attempts may include background processes, such as retries
   The following example shows the output from one such connection attempt.
 
   ```
-  C:\Users\Databoxuser>net use \\10.126.167.22\podpmresourcesa_BlockBlob /u:10.126.167.22\podpmresourcesa
-  Enter the password for '10.126.167.22\podpmresourcesa' to connect to '10.126.167.22':
+  C:\Users\Databoxuser>net use \\10.100.100.10\mydbresources_BlockBlob /u:10.100.100.10\mydbresources
+  Enter the password for '10.100.100.10\mydbresources' to connect to '10.100.100.10':
   System error 1909 has occurred.
   
   The referenced account is currently locked out and may not be logged on to.
