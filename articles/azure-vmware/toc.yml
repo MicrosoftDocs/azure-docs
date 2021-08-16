@@ -44,8 +44,6 @@
     href: concepts-api-management.md
   - name: Hub and spoke
     href: concepts-hub-and-spoke.md
-  - name: Monitor and protection
-    href: concepts-monitor-protection.md
   - name: Networking and interconnectivity
     href: concepts-networking.md
   - name: Private clouds and clusters
