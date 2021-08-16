@@ -99,11 +99,11 @@ Next, create a linked service and two datasets.
 
    ```json
    {
-       "type":"AzureStorage",
-           "typeProperties":{
-           "connectionString":{
-           "type": "SecureString",
-           "value":"DefaultEndpointsProtocol=https;AccountName=adfquickstartstorage;AccountKey=K9F4Xk/EhYrMBIR98rtgJ0HRSIDU4eWQILLh2iXo05Xnr145+syIKNczQfORkQ3QIOZAd/eSDsvED19dAwW/tw==;EndpointSuffix=core.windows.net"
+       "type": "AzureStorage",
+       "typeProperties": {
+           "connectionString": {
+               "type": "SecureString",
+               "value": "DefaultEndpointsProtocol=https;AccountName=adfquickstartstorage;AccountKey=K9F4Xk/EhYrMBIR98rtgJ0HRSIDU4eWQILLh2iXo05Xnr145+syIKNczQfORkQ3QIOZAd/eSDsvED19dAwW/tw==;EndpointSuffix=core.windows.net"
            }
        }
    }
@@ -121,20 +121,19 @@ Next, create a linked service and two datasets.
 
    ```json
    {
-       "type": 
-           "AzureBlob",
-           "linkedServiceName": {
-               "type":"LinkedServiceReference",
-               "referenceName":"AzureStorageLinkedService"
-               },
-           "annotations": [],
-           "type": "Binary",
-           "typeProperties": {
-               "location": {
-                   "type": "AzureBlobStorageLocation",
-                   "fileName": "emp.txt",
-                   "folderPath": "input",
-                   "container": "adftutorial"
+       "type": "AzureBlob",
+       "linkedServiceName": {
+           "type": "LinkedServiceReference",
+           "referenceName": "AzureStorageLinkedService"
+       },
+       "annotations": [],
+       "type": "Binary",
+       "typeProperties": {
+           "location": {
+               "type": "AzureBlobStorageLocation",
+               "fileName": "emp.txt",
+               "folderPath": "input",
+               "container": "adftutorial"
            }
        }
    }
@@ -152,20 +151,19 @@ Next, create a linked service and two datasets.
 
    ```json
    {
-       "type": 
-           "AzureBlob",
-           "linkedServiceName": {
-               "type":"LinkedServiceReference",
-               "referenceName":"AzureStorageLinkedService"
-               },
-           "annotations": [],
-           "type": "Binary",
-           "typeProperties": {
-               "location": {
-                   "type": "AzureBlobStorageLocation",
-                   "fileName": "emp.txt",
-                   "folderPath": "output",
-                   "container": "adftutorial"
+       "type": "AzureBlob",
+       "linkedServiceName": {
+           "type": "LinkedServiceReference",
+           "referenceName": "AzureStorageLinkedService"
+       },
+       "annotations": [],
+       "type": "Binary",
+       "typeProperties": {
+           "location": {
+               "type": "AzureBlobStorageLocation",
+               "fileName": "emp.txt",
+               "folderPath": "output",
+               "container": "adftutorial"
            }
        }
    }
@@ -203,7 +201,7 @@ Finally, create and run the pipeline.
                    },
                    "userProperties": [],
                    "typeProperties": {
-                          "source": {
+                       "source": {
                            "type": "BinarySource",
                            "storeSettings": {
                                "type": "AzureBlobStorageReadSettings",
