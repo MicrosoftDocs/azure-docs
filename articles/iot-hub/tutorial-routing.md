@@ -133,13 +133,13 @@ Now set up the routing for the storage account. You go to the Message Routing pa
 
 3. Select **Message Routing**. In the **Message Routing** pane, select +**Add**. On the **Add a Route** pane, select +**Add endpoint** next to the Endpoint field to show the supported endpoints, as displayed in the following picture:
 
-   ![Start adding an endpoint for a route](./media/tutorial-routing/00001-add-a-route-to-storage.png)
+   ![Start adding an endpoint for a route]i (./media/tutorial-routing/01-add-a-route-to-storage.png)
 
 4. Select **Storage**. You see the **Add a storage endpoint** pane.
 
 5. Enter a name for the endpoint. This tutorial uses **ContosoStorageEndpoint**.
 
-   ![Name the endpoint](./media/tutorial-routing/00002-add-a-storage-endpoint.png)
+   ![Name the endpoint](./media/tutorial-routing/02-add-a-storage-endpoint.png)
 
 ** THESE INSTRUCTIONS ARE REALLY MESSED UP. **
 
@@ -169,7 +169,7 @@ Now set up the routing for the storage account. You go to the Message Routing pa
 
    **Routing query**: Enter `level="storage"` as the query string.
 
-   ![Save the routing query information](./media/tutorial-routing/00004-save-storage-route.png)
+   ![Save the routing query information](./media/tutorial-routing/04-save-storage-route.png)
   
    Select **Save**. When it finishes, it returns to the Message Routing pane, where you can see your new routing query for storage. Close the Message Routing pane, which returns you to the Resource group page.
 
@@ -183,7 +183,7 @@ Now set up the routing for the Service Bus queue. You go to the Message Routing 
 
 3. On the **Add a Route** pane, Select +**Add** above the endpoints. Select **Service Bus Queue**. You see the **Add Service Bus Endpoint** pane.
 
-   ![Adding a 1st service bus endpoint](./media/tutorial-routing/00005-setup-sbq-endpoint.png)
+   ![Adding a 1st service bus endpoint](./media/tutorial-routing/05-setup-sbq-endpoint.png)
 
 4. Fill in the rest of the fields:
 
@@ -195,7 +195,7 @@ Now set up the routing for the Service Bus queue. You go to the Message Routing 
 
 5. Select **Create** to add the Service Bus queue endpoint. You return to the **Add a route** pane.
 
-   ![Adding 2nd service bus endpoint](./media/tutorial-routing/00006-save-sbq-endpoint.png)
+   ![Adding 2nd service bus endpoint](./media/tutorial-routing/06-save-sbq-endpoint.png)
 
 6. Now you complete the rest of the routing query information. This query specifies the criteria for sending messages  to the Service Bus queue you just added as an endpoint. Fill in the fields on the screen. 
 
@@ -209,15 +209,15 @@ Now set up the routing for the Service Bus queue. You go to the Message Routing 
 
    **Routing query**: Enter `level="critical"` as the query string. 
 
-   ![Create a routing query for the Service Bus queue](./media/tutorial-routing/00006-save-servicebusqueue-route.png)
+   ![Create a routing query for the Service Bus queue](./media/tutorial-routing/07-save-servicebusqueue-route.png)
 
 7. Select **Save**. When it returns to the Routes pane, you see both of your new routes, as displayed here.
 
-   ![The routes you just set up](./media/tutorial-routing/00007-show-both-routes.png)
+   ![The routes you just set up](./media/tutorial-routing/08-show-both-routes.png)
 
 8. You can see the custom endpoints you set up by selecting the **Custom Endpoints** tab.
 
-   ![The custom endpoint you just set up](./media/tutorial-routing/00008-show-custom-endpoints.png)
+   ![The custom endpoint you just set up](./media/tutorial-routing/09-show-custom-endpoints.png)
 
 9. Close the Message Routing pane, which returns you to the Resource group pane.
 
