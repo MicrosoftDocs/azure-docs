@@ -18,7 +18,7 @@ ms.author: apimpm
 ---
 # How to delegate user registration and product subscription
 
-Delegation enables your website to own the user data and perform custom validation.With delegation, you can handle developer sign-in/sign-up and product subscription using your existing website, instead of the developer portal's built-in functionality. 
+Delegation enables your website to own the user data and perform custom validation. With delegation, you can handle developer sign-in/sign-up and product subscription using your existing website, instead of the developer portal's built-in functionality. 
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -31,15 +31,15 @@ The final workflow will be:
 1. Developer clicks on the sign-in or sign-up link at the API Management developer portal.
 2. Browser redirects to the delegation endpoint.
 3. Delegation endpoint in return redirects user to or presents user with sign-in/sign-up. 
-4. Upon successful sign-in/sign-up, user is redirected back to the starting API Management developer.
+4. Upon successful sign-in/sign-up, user is redirected back to the API Management developer portal at the location they left.
 
 ### Set up API Management to route requests via delegation endpoint
 
-1. In the Azure portal, search for **Security** in your API Management resource.
+1. In the Azure portal, search for **Developer portal** in your API Management resource.
 2. Click the **Delegation** item. 
 3. Click the checkbox to enable **Delegate sign-in & sign-up**.
 
-![Delegation page][api-management-delegation-signin-up]
+:::image type="content" source="media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png" alt-text="Delegation overview":::
 
 4. Decide your special delegation endpoint's URL and enter it in the **Delegation endpoint URL** field. 
 5. Within the **Delegation Validation Key** field, either:
@@ -47,18 +47,19 @@ The final workflow will be:
     * Click the **Generate** button for API Management to generate a random key for you.
 6. Click **Save**.
 
-### Create the delegation endpoint
+### Create your delegation endpoint
 
 >[!NOTE]
-> While the following procedure provide examples of the **SignIn** operation, you can perform account management using any of the available operations with the steps below. 
+> While the following procedure provides examples of the **SignIn** operation, you can perform account management using any of the available operations with the steps below. 
 
-Your new delegation endpoint must:
+Recommended steps for creating a new delegation endpoint to implement on your site:
 
 1. Receive a request in the following form:
    
    > *http:\//www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}*
    
     Query parameters for the sign-in/sign-up case:
+
    | Parameter | Description |
    | --------- | ----------- |
    | **operation** | Identifies the delegation request type. Available operations: **SignIn**, **ChangePassword**, **ChangeProfile**, **CloseAccount**, and **SignOut**. |
@@ -71,7 +72,7 @@ Your new delegation endpoint must:
    * Compute an HMAC-SHA512 hash of a string based on the **returnUrl** and **salt** query parameters. For more details, check our [example code].
      
      ```
-         hmac(salt + '\n' + returnUrl)
+         HMAC(salt + '\n' + returnUrl)
      ```
    * Compare the above-computed hash to the value of the **sig** query parameter. If the two hashes match, move on to the next step. Otherwise, deny the request.
 4. Verify you receive a request for sign-in/sign-up.
@@ -91,12 +92,13 @@ Your new delegation endpoint must:
 
 >[!NOTE]
 > For account management operations (**ChangePassword**, **ChangeProfile**, and **CloseAccount**), pass the following query parameters:
+> 
 >    | Parameter | Description |
->   | --------- | ----------- |
->   | **operation** | Identifies the delegation request type. |
->   | **userId** | The user ID of the account you wish to manage. |
->   | **salt** | A special salt string used for computing a security hash. |
->   | **sig** | A computed security hash used for comparison to your own computed hash. |
+>    | --------- | ----------- |
+>    | **operation** | Identifies the delegation request type. |
+>    | **userId** | The user ID of the account you wish to manage. |
+>    | **salt** | A special salt string used for computing a security hash. |
+>    | **sig** | A computed security hash used for comparison to your own computed hash. |
 
 ## <a name="delegate-product-subscription"> </a>Delegating product subscription
 
@@ -111,11 +113,11 @@ Delegating product subscriptions works similarly to delegating user sign-in/sign
 
 ### Enable the API Management functionality
 
-1. On the **Delegation** page, click **Delegate product subscription**.
+On the **Delegation** page, click **Delegate product subscription**.
 
-### Create the delegation endpoint
+### Create your delegation endpoint
 
-Your new delegation endpoint must:
+Recommended steps for creating a new delegation endpoint to implement on your site:
 
 1. Receive a request in the following form.
    
@@ -123,6 +125,7 @@ Your new delegation endpoint must:
    >
    
     Query parameters for the product subscription case:
+
    | Parameter | Description |
    | --------- | ----------- |
    | **operation** | Identifies the delegation request type. Valid product subscription requests options are: <ul><li>**Subscribe**: a request to subscribe the user to a given product with provided ID (see below).</li><li>**Unsubscribe**: a request to unsubscribe a user from a product.</li><li>**Renew**: a request to renew a subscription (for example, that may be expiring)</li></ul> |
@@ -142,7 +145,7 @@ Your new delegation endpoint must:
 3. Process the product subscription based on the operation type requested in **operation** (for example: billing, further questions, etc.).
 4. Upon successful user subscription to the product on your side, subscribe the user to the API Management product by [calling the REST API for subscriptions].
 
-## <a name="delegate-example-code"> </a> Example Code
+## <a name="delegate-example-code"> </a> Example code
 
 These code samples show how to:
 
