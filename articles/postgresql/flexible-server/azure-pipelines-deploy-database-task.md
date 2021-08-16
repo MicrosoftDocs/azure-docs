@@ -16,7 +16,7 @@ You can automatically deploy your database updates to Azure Database for Postgre
 ## Prerequisites
 
 - An Azure account. If you don't have one, [get a free trial](https://azure.microsoft.com/free/).
-- [Azure Resource Manager service connection](https://docs.microsoft.com/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) to your Azure account
+- [Azure Resource Manager service connection](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) to your Azure account
 - Microsoft hosted agents have Azure CLI pre-installed. However if you are using private agents, [install Azure CLI](/cli/azure/install-azure-cli) on the computer(s) that run the build and release agent. If an agent is already running on the machine on which the Azure CLI is installed, restart the agent to ensure all the relevant stage variables are updated.
 - Create an Azure Database for PostgreSQL Flexible Server using [Azure portal](./quickstart-create-server-portal.md) or  [Azure CLI](./quickstart-create-server-cli.md)
 
@@ -137,11 +137,11 @@ You can see the full list of all the task inputs when using Azure CLI task with 
 </table>
 
 
-Having issues with CLI Task , checkout how to [troubleshoot Build and Release](https://docs.microsoft.com/azure/devops/pipelines/troubleshooting/troubleshooting?view=azure-devops).
+Having issues with CLI Task , checkout how to [troubleshoot Build and Release](/azure/devops/pipelines/troubleshooting/troubleshooting?view=azure-devops).
 
 ## Next Steps 
 Here are some related tasks if you wish to deploy an azure resource group or an Azure Web App.
 
-- [Azure Resource Group Deployment](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment?view=azure-devops)
-- [Azure Web App Deployment](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment?view=azure-devops)
+- [Azure Resource Group Deployment](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment?view=azure-devops)
+- [Azure Web App Deployment](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment?view=azure-devops)
 
