@@ -42,7 +42,6 @@ Private endpoint  |Private endpoint associated to  |DNS Zone  |A Record )(exampl
 
    :::image type="content" source="media/catalog-private-link/purview-name-resolution-diagram.png" alt-text="Diagram that shows Azure Purview name resolution"lightbox="media/catalog-private-link/purview-name-resolution-diagram.png":::
 
-
 When you resolve the Azure Purview endpoint URL from outside the virtual network with the private endpoint, it resolves to the public endpoint of Azure Purview. When resolved from the virtual network hosting the private endpoint, the Azure Purview endpoint URL resolves to the private endpoint's IP address.
 
 As an example, if an Azure Purview account name is 'PurviewA', when it is resolved from outside the virtual network that hosts the private endpoint, it will be:
