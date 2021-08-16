@@ -62,7 +62,7 @@ This article explains how you can access your SAP resources from Azure Logic App
 
   * Set up your SAP gateway security logging to help find Access Control List (ACL) issues. For more information, review the [SAP help topic for setting up gateway logging](https://help.sap.com/erp_hcm_ias2_2015_02/helpdata/en/48/b2a710ca1c3079e10000000a42189b/frameset.htm).
 
-  * Create a **TCP/IP** type RFC Connection in **Configuration of RFC Connections** dialog (T-Code SM59). The **Activation Type** must be **Registered Server Program**. The RFC Connection **Communication Type with Target System** must be set to **Unicode**.
+  * In the **Configuration of RFC Connections** (T-Code SM59) dialog box, create an RFC connection with the **TCP/IP** type. The **Activation Type** must be **Registered Server Program**. Set the RFC connection's **Communication Type with Target System** value to **Unicode**.
 
   * If you use this SAP trigger with the **IDOC Format** parameter set to **FlatFile** along with the [Flat File Decode action](logic-apps-enterprise-integration-flatfile.md), you have to use the `early_terminate_optional_fields` property in your flat file schema by setting the value to `true`.
 
