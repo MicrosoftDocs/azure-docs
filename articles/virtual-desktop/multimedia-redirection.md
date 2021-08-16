@@ -1,13 +1,13 @@
 ---
 title: Multimedia redirection on Azure Virtual Desktop - Azure
-description: How to manage Azure Virtual Desktop app groups with the Azure portal.
+description: How to use multimedia redirection for Azure Virtual Desktop (preview).
 author: Heidilohr
 ms.topic: how-to
 ms.date: 08/17/2021
 ms.author: helohr
 manager: femila
 ---
-# Multimedia Redirection on Azure Virtual Desktop (preview)
+# Multimedia redirection for Azure Virtual Desktop (preview)
 
 > [!IMPORTANT]
 > Multimedia redirection for Azure Virtual Desktop is currently in preview.
@@ -27,7 +27,7 @@ to do these things:
 
 1. [Install the Windows Desktop client](./user-documentation/connect-windows-7-10.md#install-the-windows-desktop-client) on a Windows 10 or Windows 10 IoT Enterprise device that meets the [hardware requirements for Teams on a Windows PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/). Installing version 1.2.2222 or later of the client will also install the multimedia redirection plugin (MsMmrDVCPlugin.dll) on the client device. To learn more about updates and new versions, see [What's new in the Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew).
 
-2. [Configure the client machine for the insider group](create-host-pools-azure-marketplace).
+2. [Configure the client machine for the insider group](create-host-pools-azure-marketplace.md).
 
 3. Install [the Multimedia Redirector service](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWIzIk) and any required browser extensions on the virtual machine (VM).
 
@@ -68,7 +68,7 @@ To learn more about group policy configuration, see [Microsoft Edge group policy
 
 To configure the Google Chrome group policies, you'll need to edit the Google Chrome Administrative Template. You should see the extension configuration options under **Administrative Templates** > **Google** > **Google Chrome Extensions** > **Extension management settings**.
 
-The following example is much like the code example in [Configure Microsoft Edge group policies for multimedia redirection](#configure-microsoft-edge-group-policies-for-mmr). This policy will force the multimedia redirection extension to install with the icon pinned in the top-right menu, and will only allow multimedia redirection to load on YouTube.
+The following example is much like the code example in [Configure Microsoft Edge group policies for multimedia redirection](#configure-microsoft-edge-group-policies-for-multimedia-redirection). This policy will force the multimedia redirection extension to install with the icon pinned in the top-right menu, and will only allow multimedia redirection to load on YouTube.
 
 ```cmd
 { "lfmemoeeciijgkjkgbgikoonlkabmlno": { "installation_mode": "force_installed", "runtime_allowed_hosts": [ "*://*.youtube.com" ], "runtime_blocked_hosts": [ "*://*" ], "toolbar_pin": "force_pinned", "update_url": "https://clients2.google.com/service/update2/crx" } }
@@ -169,10 +169,10 @@ The following issues are ones we're already aware of, so you won't need to repor
     - [MMR browser extension (Microsoft Edge)](https://microsoftedge.microsoft.com/addons/detail/wvd-multimedia-redirectio/joeclbldhdmoijbaagobkhlpfjglcihd)
     - [MMR browser extension (Google Chrome)](https://chrome.google.com/webstore/detail/wvd-multimedia-redirectio/lfmemoeeciijgkjkgbgikoonlkabmlno)
 
-- Installing the multimedia redirection extensions on host machines with the MSI installer will either prompt users to accept the extension on first run or display a warning or error message. If users deny this prompt, it can cause the extensions not to load. To avoid this, install the extensions by [editing the group policy](#managing-group-policies-for-the-mmr-browser-extension).
+- Installing the multimedia redirection extensions on host machines with the MSI installer will either prompt users to accept the extension on first run or display a warning or error message. If users deny this prompt, it can cause the extensions not to load. To avoid this, install the extensions by [editing the group policy](#managing-group-policies-for-the-multimedia-redirection-browser-extension).
 
 - When you resize the video window, the window's size will adjust faster than the video itself. You'll also see this issue when miniizing and maximizing the window. 
 
 ## Next steps
 
-If you're interested in video streaming on other parts of Azure Virtual Desktop, check out [Teams for Azure Virtual Desktop](teams.md).
+If you're interested in video streaming on other parts of Azure Virtual Desktop, check out [Teams for Azure Virtual Desktop](teams-on-avd.md).
