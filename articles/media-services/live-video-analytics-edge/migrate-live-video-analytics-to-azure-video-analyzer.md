@@ -1,7 +1,7 @@
 ---
 title: Migrate from Live Video Analytics to Azure Video Analyzer
 description: Learn how to migrate from Live Video Analytics to Azure Video Analyzer.
-ms.topic: overview
+ms.topic: how-to
 ms.date: 08/16/2021
 
 ---
@@ -11,7 +11,7 @@ This article should be used if you have deployed Live Video Analytics Edge Modul
 
 If you are not using RTSP cameras and are using one of the [quickstarts or tutorials on Live Video Analytics](../live-video-analytics-edge/overview.md), you should simply switch to the corresponding [quickstart or tutorial with Azure Video Analyzer](../../azure-video-analyzer/video-analyzer-docs/overview.md).
 
-The instructions below apply to migrating Live Video Analytics to Azure Video Analyzer for a single IoT Edge device.  The steps would need to be repeated for each separate IoT Edge device.
+The following instructions apply to migrating Live Video Analytics to Azure Video Analyzer for a single IoT Edge device. You'll need to repeat the steps for each separate IoT Edge device.
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ Before beginning any migration efforts, it is strongly recommended to save your 
 
 1. Go to the **IoT Hub** and select **IoT Edge** under **Automatic Device Management**.
 
-1. Under IoT Edge, select the IoT Edge device that you want to migrate to Azure Video Analyzer.
+1. Under **IoT Edge**, select the IoT Edge device that you want to migrate to Azure Video Analyzer.
 
    :::image type="content" source="./media/migrate-live-video-analytics-to-azure-video-analyzer/iot-edge.png" alt-text="Screenshot that shows IoT Edge devices.":::
 
@@ -45,7 +45,7 @@ Before beginning any migration efforts, it is strongly recommended to save your 
 
 1. Copy the **Deployment** section in the window and save in a safe location.
 
-1. Select the **X** in the top-right hand of the portal.  
+1. Select the **X** in the top-right corner of the portal.  
 
     > [!NOTE]
     > *Do not* select **Create**.  Review the deployment manifest and locate the *lvaEdge* node under modules.  If you have an env node under the *lvaEdge* node note the values of LOCAL_EDGE_USER and lOCAL_GROUP_ID, you will need these later in the document.
@@ -54,7 +54,7 @@ Before beginning any migration efforts, it is strongly recommended to save your 
 
 ### Save the Live Video Analytics topologies
 
-1. To save your Live Video Analytics media graph, select the Live Video Analytics module under the IoT Edge device.  In the example below the container name is *lvaEdge*.
+1. To save your Live Video Analytics media graph, select the Live Video Analytics module under the IoT Edge device.  In the following example, the container name is *lvaEdge*.
 
    :::image type="content" source="./media/migrate-live-video-analytics-to-azure-video-analyzer/live-video-analytics-edge.png" alt-text="Screenshot that shows the Live Video Analytics IoT Edge module container name.":::
 
@@ -105,7 +105,7 @@ To start the migration, the IoT Edge device needs to be configured to run the Az
 
     If the IoT Edge device has been configured with a local user and group ID for Live Video Analytics (found in the deployment manifest) you can skip step 1, but note the user and group name and value it will be used later in this document.  If you are also using a unique folder structure for your Live Video Analytics deployment (found in the deployment manifest), replace *videoanalyzer* with those values and omit the first two lines in step 2.  
 
-    The following example shows a unique folder structure for a Live Video Analytics deployment.  Note that the 'applicationDataDirectory' is /var/lib/videofiles. For this example, Live Video Analytics has *localedgeuser* and *localedgegroup* created on the IoT Edge device.
+    The following example shows a unique folder structure for a Live Video Analytics deployment.  Note that the *applicationDataDirectory* is /var/lib/videofiles. For this example, Live Video Analytics has *localedgeuser* and *localedgegroup* created on the IoT Edge device.
 
     ```
     "lvaEdge": {
@@ -159,7 +159,7 @@ To start the migration, the IoT Edge device needs to be configured to run the Az
 
 ## Create Azure resources
 
-The next step is to create the required Azure resources. Following instructions are documented in the [Create Azure resources section](../../azure-video-analyzer/video-analyzer-docs/get-started-detect-motion-emit-events-portal.md) and repeated here for convenience. 
+The next step is to create the required Azure resources. The following instructions are documented in the [Create Azure resources section](../../azure-video-analyzer/video-analyzer-docs/get-started-detect-motion-emit-events-portal.md) and repeated here for convenience. 
 
 You will now create the required Azure resources (Video Analyzer account, storage account, and user-assigned managed identity). 
 
@@ -169,7 +169,7 @@ When you create an Azure Video Analyzer account, you have to associate an Azure 
 
 1. Sign in to the [Azure portal](https://portal.azure.com/). 
 
-1. On the search bar at the top, enter **Video Analyzer**. 
+1. In the search box, enter **Video Analyzer**. 
 
 1. Select **Video Analyzers** under **Services**. 
 
