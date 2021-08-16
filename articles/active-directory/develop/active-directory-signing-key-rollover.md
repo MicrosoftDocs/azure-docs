@@ -45,7 +45,7 @@ How your application handles key rollover depends on variables such as the type 
 
 This guidance is **not** applicable for:
 
-* Applications added from Azure AD Application Gallery (including Custom) have separate guidance with regards to signing keys. [More information.](../manage-apps/manage-certificates-for-federated-single-sign-on.md)
+* Applications added from Azure AD Application Gallery (including Custom) have separate guidance with regard to signing keys. [More information.](../manage-apps/manage-certificates-for-federated-single-sign-on.md)
 * On-premises applications published via application proxy don't have to worry about signing keys.
 
 ### <a name="nativeclient"></a>Native client applications accessing resources
