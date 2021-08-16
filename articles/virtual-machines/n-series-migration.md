@@ -31,11 +31,9 @@ These sorts of considerations- when made the context of already dramatic per-gen
 
 Combining migration with application re-architecture can yield immense value and improvement in cost and time-to-solution.
 
-However, <u>these sorts of improvements are beyond the scope of this document, which aims to focus on direct equivalency classes for generalized workloads that may be run by customers today, to identify the most similar VM options in both price *and* performance per GPU to existing VM families undergoing retirement.</u>
+However, these sorts of improvements are beyond the scope of this document, which aims to focus on direct equivalency classes for generalized workloads that may be run by customers today, to identify the most similar VM options in both price *and* performance per GPU to existing VM families undergoing retirement.
 
 Thus, this document assumes that the user may not have any insight or control over workload-specific properties like the number of required VM instances, GPUs, interconnects, and more.
-
-We encourage customers considering more dramatic changes in pursuit of greater performance and cost efficiency to get in touch via our [HPC VM retirement hotline](mailto:azhpcretirement@service.microsoft.com) or our [GPU feedback hotline](mailto:azuregpufeedback@service.microsoft.com), as well as through support and account teams for further assistance.
 
 ## **Recommended Upgrade Paths**
 
@@ -71,7 +69,8 @@ The NC v2-series virtual machines are a flagship platform originally designed fo
 
 3.  Resize the current N\* series VM size to the target size
 
-    1.  IMPORTANT: Your VM image may have been produced with an older version of the CUDA runtime, NVIDIA driver, and (if applicable, for RDMA-enabled sizes only) Mellanox OFED drivers than your new GPU VM series requires, which can be updated by [following the instructions in the Azure Documentation.](./sizes-gpu.md)
+    > [!IMPORTANT]
+    > Your VM image may have been produced with an older version of the CUDA runtime, NVIDIA driver, and (if applicable, for RDMA-enabled sizes only) Mellanox OFED drivers than your new GPU VM series requires, which can be updated by [following the instructions in the Azure Documentation.](./sizes-gpu.md)
 
         1.  This may also be a good time to update the operating system used by your Virtual Machine image, or adopt one of the HPC images with drivers pre-installed as your starting point.
 
@@ -81,7 +80,8 @@ The NC v2-series virtual machines are a flagship platform originally designed fo
 
 After assessing your current usage, decide what type of GPU VM you need. Depending on the workload requirements you have few different choices.
 
-**NOTE:** A best practice is to select a VM size based on both cost and performance. The recommendations in this guide are based on a general-purpose, one-to-one comparison of performance metrics and the nearest match in another VM series. Before deciding on the right size, get a cost comparison using the Azure Pricing Calculator.
+> [!NOTE]
+> A best practice is to select a VM size based on both cost and performance. The recommendations in this guide are based on a general-purpose, one-to-one comparison of performance metrics and the nearest match in another VM series. Before deciding on the right size, get a cost comparison using the Azure Pricing Calculator.
 
 > [!IMPORTANT]
 > All legacy NC, NC v2 and ND-Series sizes are available in multi-GPU sizes, including 4-GPU sizes with and without InfiniBand interconnect for scale-out, tightly-coupled workloads that demand more compute power than a single 4-GPU VM, or a single K80, P40, or P100 GPU can supply respectively. Although the recommendations above offer a straightforward path forward, users of these sizes should consider achieving their performance goals with more powerful NVIDIA V100 GPU-based VM series like the [NC v3-Series](./ncv3-series.md) and [ND v2-series](./ndv2-series.md), which typically enable the same level of workload performance at lower costs and with improved manageability by providing considerably greater performance per GPU and per VM before multi-GPU and multi-node configurations are required, respectively.
