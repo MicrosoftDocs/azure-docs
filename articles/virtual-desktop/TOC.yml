@@ -242,6 +242,8 @@
     href: /cli/azure/
   - name: Azure Virtual Desktop for the Enterprise
     href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop
+  - name: FsLogix for the Enterprise
+    href: /architecture-center/docs/example-scenario/wvd/windows-virtual-desktop-fslogix-content.md
   - name: Email discovery
     href: /windows-server/remote/remote-desktop-services/rds-email-discovery
   - name: Protect AVD with Azure Firewall
