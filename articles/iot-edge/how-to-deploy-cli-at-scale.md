@@ -115,7 +115,7 @@ Here's a basic deployment manifest with one module as an example:
 
 Layered deployments are a type of automatic deployment that can be stacked on top of each other. For more information about layered deployments, see [Understand IoT Edge automatic deployments for single devices or at scale](module-deployment-monitoring.md).
 
-Layered deployments can be created and managed with the Azure CLI like any automatic deployment, with just a few differences. Once a layered deployment is created, same Azure CLI work for layered deployments the same as any deployment. To create a layered deployment, add the `--layered` flag to the create command.
+Layered deployments can be created and managed with the Azure CLI like any automatic deployment, with just a few differences. Once a layered deployment is created, same Azure CLI work for layered deployments the same as any deployment.
 
 The second difference is in the construction of the deployment manifest. While standard automatic deployment must contain the system runtime modules in addition to any user modules, layered deployments can only contain user modules. Instead, layered deployments need a standard automatic deployment be on a device as well, to supply the required components of every IoT Edge device, like the system runtime modules.
 
@@ -161,6 +161,12 @@ The previous example showed a layered deployment setting the `properties.desired
   }
 }
 ```
+
+In summary, to create a layered deployment:
+
+- Must add the `--layered` flag to the Azyre CLI create command
+- Must not contain any system modules, cam only user modules
+- Must use the 'dotnotation' under `$edgeAgent` and `$edgeHub`
 
 For more information about configuring module twins in layered deployments, see [Layered deployment](module-deployment-monitoring.md#layered-deployment)
 
