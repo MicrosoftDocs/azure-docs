@@ -13,18 +13,22 @@ manager:
 ## Overview
 
 
-## Create a VM
+## Creating the image VM
 
 When creating a new VM for your golden image you need to choose the OS that is compatible for Azure Virtual Desktop.  Windows 10 Multi-Session(m365 optional) and Windows Server for Pooled hostpools and Windows 10 Enterprise for Personal hostpools. 
 
+### Take your first snapshot
 Once the VM is created, create a Snapshot of the disk of your image VM and give it a name so you know which snapshot it is since you will be taking more snapshots in the future. By taking a snapshot of your disk, you will be able to rebuild your VM incase of issues while adding your applications to the image. 
 
+### Add your applications to your image
 Start adding your applications to the image. If you join your Image to the domain, make sure you remove it from the domain before you sysprep at the end. If you have a lot of applications that you are adding to this image, its not a bad idea to take more snapshots as you add some applications.  
 
 *NOTE*: Some Ant-Virus will not sysprep correctly. You will need to stop 
 
+### Take another snapshot
 When you are done adding applications take another snapshot of the disk. If your sysprep or capture fails, you will be able to create a new VM from the latest snapshot you have taken. 
 
+### Sysprep
 Go to Sysprep the machine, Generalize, Out-of-Box, Shutdown
 
 ## Capturing the VM
@@ -48,4 +52,3 @@ Once the capture process is completed, go to the HostPool blade, choose Gallery 
 - Delete the VM once you capture an image, the VM is no good once it is captured. There is an option in the Capture blade. 
 - Create new Image VM from latest snapshot after Capture, having a Image VM spun up and turned on at times to acquire updates and patches. 
 - Do not create a new Image VM from a current image. Sysprep has limits on how many times you can sysprep. 
-
