@@ -38,8 +38,6 @@ The Trend Micro Deep Security connector lets you easily connect your Deep Securi
 
 ## Next steps
 In this document, you learned how to connect Trend Micro Deep Security to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
-
-
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).
+- [Use workbooks](/azure/sentinel/articles/sentinel/monitor-your-data.md) to monitor your data.

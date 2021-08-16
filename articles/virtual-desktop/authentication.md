@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/11/2021
+ms.date: 08/16/2021
 ms.author: helohr
 manager: femila
 ---
@@ -54,9 +54,9 @@ If you haven't already enabled [single sign-on](#single-sign-on-sso) or saved yo
 
 - Windows Desktop client
     - Username and password
-    - Smart card
-    - [Windows Hello for Business certificate trust](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust)
-    - [Windows Hello for Business key trust with certificates](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-rdp-certs)
+    - Smartcard
+    - [Windows Hello for Business certificate trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust)
+    - [Windows Hello for Business key trust with certificates](/windows/security/identity-protection/hello-for-business/hello-deployment-rdp-certs)
 - Windows Store client
     - Username and password
 - Web client

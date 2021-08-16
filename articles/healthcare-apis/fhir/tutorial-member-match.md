@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
-ms.date: 08/03/2021
+ms.date: 08/06/2021
 ---
 
 # $member-match operation in FHIR service
@@ -41,7 +41,7 @@ You'll need to include a parameters resource in the body that includes the patie
 
 If a single match is found, you'll receive a 200 response with another identifier added:
 
-:::image type="content" source="media/cms-tutorials/two-hundred-response.png" alt-text="200 hundred response code.":::
+:::image type="content" source="media/centers-medicare-services-tutorials/two-hundred-response.png" alt-text="200 hundred response code.":::
 
 If the $member-match can't find a unique match, you'll receive a 422 response with an error code.
 

@@ -163,7 +163,7 @@ items:
   - name: Lineage
     items:
     - name: Push Data Factory lineage data to Azure Purview
-      href: turorial-push-lineage-to-purview.md
+      href: tutorial-push-lineage-to-purview.md
   - name: End-to-end labs
     items:
     - name: Data integration using data factory and data share
@@ -914,6 +914,8 @@ items:
     href: policy-reference.md
   - name: Azure CLI
     href: /cli/azure/datafactory
+  - name: Compute optimized data flows retired
+    href: compute-optimized-data-flow-retire.md
 - name: Resources
   items:
   - name: Whitepapers

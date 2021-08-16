@@ -55,7 +55,7 @@ Agari solutions can integrate and export logs directly to Azure Sentinel using a
 
 1. **(Optional) Enable the Security Graph API:** 
 
-    The Agari Function App allows you to share threat intelligence with Azure Sentinel via the Security Graph API. To use this feature, you'll need to enable the [Sentinel Threat Intelligence Platforms connector](connect-threat-intelligence.md) and also [register an application](/graph/auth-register-app-v2) in Azure Active Directory.
+    The Agari Function App allows you to share threat intelligence with Azure Sentinel via the Security Graph API. To use this feature, you'll need to enable the [Sentinel Threat Intelligence Platforms connector](./connect-threat-intelligence-tip.md) and also [register an application](/graph/auth-register-app-v2) in Azure Active Directory.
 
     This process will give you three pieces of information for use when deploying the Function App below: the **Graph tenant ID**, the **Graph client ID**, and the **Graph client secret**.
 
@@ -115,6 +115,6 @@ It may take up to 20 minutes until your logs start to appear in Log Analytics.
 
 In this document, you learned how to connect Agari Phishing Defense and Brand Protection solutions to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 
-- Learn how to [get visibility into your data and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
+- Learn how to [get visibility into your data and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).
+- [Use workbooks](/azure/sentinel/articles/sentinel/monitor-your-data.md) to monitor your data.
