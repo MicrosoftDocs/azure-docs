@@ -13,6 +13,9 @@
   - name: Deploy firewall with policy - ARM template
     displayName: Resource Manager
     href: quick-firewall-policy.md
+  - name: Create and update policy
+    displayname: PowerShell
+    href: create-policy-powershell
 - name: Tutorials
   items:
   - name: Secure your virtual hub - portal
