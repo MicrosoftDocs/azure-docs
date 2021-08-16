@@ -12720,7 +12720,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/azure/azure-sql/managed-instance/migrate-to-instance-from-sql-server.md",
+      "source_path_from_root": "/articles/azure-sql/managed-instance/migrate-to-instance-from-sql-server.md",
       "redirect_url": "/azure/azure-sql/migration-guides/managed-instance/sql-server-to-managed-instance-guide",
       "redirect_document_id": true
     },
@@ -13559,6 +13559,11 @@
       "redirect_url": "/azure/azure-toolkit-for-intelliJ",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/azure-vmware/concepts-monitor-protection.md",
+      "redirect_url": "/azure/azure-vmware/integrate-azure-native-services",
+      "redirect_document_id": false
+    },   
     {
       "source_path_from_root": "/articles/azure-vmware/tutorial-deploy-vmware-hcx.md",
       "redirect_url": "/azure/azure-vmware/configure-vmware-hcx",

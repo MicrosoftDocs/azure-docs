@@ -36,7 +36,7 @@ sections:
         answer: With the new Azure VMware Solution, Microsoft and VMware have a direct cloud provider partnership. The new solution is designed, built, and supported by Microsoft and endorsed by VMware. Architecturally, the solutions are consistent, with the VMware technology stack running on a dedicated Azure infrastructure.
 
 
-  - name: Billing and support
+  - name: Billing 
     questions:
 
       - question: How will I be billed during Preview?
@@ -48,27 +48,43 @@ sections:
       - question: How will pricing be structured for Azure VMware Solution?
         answer: For general questions on pricing, see the Azure VMware Solution [pricing](https://azure.microsoft.com/pricing/details/azure-vmware) page. 
           
+      - question: Is VMware HCX Enterprise available, and if so, how much does it cost?
+        answer: VMware HCX Enterprise is available with Azure VMware Solution as a *Preview* function/service. While VMware HCX Enterprise for Azure VMware Solution is in Preview, it's a free function/service subject to Preview service terms and conditions. Once the VMware HCX Enterprise service goes GA, you'll get a 30-day notice that billing switches over. After that, you can switch it off or opt out of the service.
+      
+      - question: Will traffic between on-premises and Azure VMware Solution over ExpressRoute incur any outbound data transfer charge in the metered data plan?
+        answer: |
+          Traffic in the Azure VMware Solution ExpressRoute circuit isn't metered in any way. Traffic from your ExpressRoute circuit connecting to your on-premises to Azure is charged according to ExpressRoute pricing plans.
+
+          - **Azure VMware Solution to vNet** is through an internal ExpressRoute circuit and is free of cost within the same region as Azure VMware Solution. However, if the internal ExpressRoute circuit is connected cross-region, data transfer charges apply.
+
+          - **Azure VMware Solution to on-premises** is done through vNet or ExpressRoute Global Reach (between the internal ExpressRoute and external ExpressRoute). It's still free provided the connection to vNet (mentioned above) or using ExpressRoute Global Reach is within the region where Azure VMware Solution is deployed. 
+
+      - question: When does metering begin and end for trial Azure VMware Solution clusters?
+        answer: Trial clusters are limited to three hosts used for 30-day evaluations of Azure VMware Solution private clouds. After 30 days, clusters are automatically metered per their respective rates. If the trial clusters are deleted before the 30-day end date, the Azure VMware Solution trial will end at the time of deletion.
+
+      - question:  Is it necessary to procure licenses and resources other than the AV36 instance when migrating from the on-premise VM environment with L2 extension?  
+        answer: | 
+          No.    
+
+
+  - name: Support
+    questions:
+
+      - question: How do I request a host quota increase for Azure VMware Solution?
+        answer: Whether you want more hosts for an existing private cloud or you're creating a new private cloud, you'll need to submit a support ticket to have your hosts allocated.  For more information, see [Request host quota for Azure VMware Solution](request-host-quota-azure-vmware-solution.md).
+
       - question: What accounts do I need to create an Azure VMware Solution private cloud?
         answer: You'll need an Azure account in an Azure subscription.
 
       - question: Are Red Hat solutions supported on Azure VMware Solution?
         answer: Microsoft and Red Hat share an integrated, co-located support team that provides a unified contact point for Red Hat ecosystems running on the Azure platform.  Like other Azure platform services that work with Red Hat Enterprise Linux, Azure VMware Solution falls under the Cloud Access and intergrated support umbrella. Red Hat Enterprise Linux supports running on top of Azure VMware Solution within Azure.
 
-      - question: Is VMware HCX Enterprise available, and if so, how much does it cost?
-        answer: VMware HCX Enterprise is available with Azure VMware Solution as a *Preview* function/service. While VMware HCX Enterprise for Azure VMware Solution is in Preview, it's a free function/service subject to Preview service terms and conditions. Once the VMware HCX Enterprise service goes GA, you'll get a 30-day notice that billing switches over. After that, you can switch it off or opt out of the service.
 
-      - question: How do I request a host quota increase for Azure VMware Solution?
-        answer: Whether you want more hosts for an existing private cloud or you're creating a new private cloud, you'll need to submit a support ticket to have your hosts allocated.  For more information, see [Request host quota for Azure VMware Solution](request-host-quota-azure-vmware-solution.md).
-          
-      - question: Will traffic between on-premises and Azure VMware Solution over ExpressRoute incur any outbound data transfer charge in the metered data plan?
-        answer: Traffic in the Azure VMware Solution ExpressRoute circuit isn't metered in any way. Traffic from your ExpressRoute circuit connecting to your on-premises to Azure is charged according to ExpressRoute pricing plans.
 
-      - question:  Is it necessary to procure licenses and resources other than the AV36 instance when migrating from the on-premise VM environment with L2 extension?  
-        answer: | 
-          No.        
+ 
 
-      - question: When does metering begin and end for trial Azure VMware Solution clusters?
-        answer: Trial clusters are limited to three hosts used for 30-day evaluations of Azure VMware Solution private clouds. After 30 days, clusters are automatically metered per their respective rates. If the trial clusters are deleted before the 30-day end date, the Azure VMware Solution trial will end at the time of deletion.
+
+
 
 
   - name: Customer communication
@@ -77,11 +93,17 @@ sections:
         answer: |
           [!INCLUDE [customer-communications](includes/customer-communications.md)]
 
+ 
+
 
   - name: Configuration and setup
     questions:
       - question: How long does it take to provision the initial three hosts in a cluster?
         answer: At the moment, the provisioning can take roughly 3-4 hours.  Adding a single node in existing/same cluster takes between 30 - 45 minutes. 
+
+
+
+
 
   - name: VMware software
     questions:
@@ -138,6 +160,9 @@ sections:
         answer: No. However, if the VM is migrated as thick, you can change policies on the individual VMs and individual vmdks through a combination of UI and PowerCLI.  
 
 
+
+
+
   - name: Compute
     questions:
 
@@ -151,18 +176,22 @@ sections:
         answer: No. VMware does not officially support nested virtualization. 
 
 
-  - name: Third-party backup and recovery
-    questions:         
 
-      - question: Are the cloudadmin extension privileges supported by Azure VMware Solution?
-        answer: No. We currently don't support cloudadmin extension privileges, and we don't plan to support it in the foreseeable future.       
-        
+
+
+  - name: Backup 
+    questions:         
+    
       - question:  What independent software vendors (ISVs) backup solutions work with Azure VMware Solution?
         answer: Commvault, Veritas, and Veeam have extended their backup solutions to work with Azure VMware Solution.  However, any backup solution that uses VMware vStorage API for Data Protection (VADP) with the HotAdd transport mode works out of the box on Azure VMware Solution. For more information, see [Backup solutions for Azure VMware Solution VMs](ecosystem-back-up-vms.md).
 
       - question: What about support for ISV backup solutions?
         answer: As these backup solutions are installed and managed by customers, they can reach out to the respective ISV for support. 
    
+
+
+
+
 
   - name: Networking and interconnectivity
     questions:        
@@ -230,6 +259,10 @@ sections:
       - question: Is Windows 2008 supported as an Active Directory (AD) server or Remote Desktop Session Host (RDSH) OS in NSX-T?
         answer: No.
 
+
+
+
+
   - name: Storage
     questions:
 
@@ -269,6 +302,11 @@ sections:
       - question: What is the RAID configuration of the disk groups?
         answer: The disk groups are not RAID configured. Instead, they are just a bunch of disks (JBOD) and are [directly controlled by vSAN](https://core.vmware.com/vsan-learn-and-evaluate).
 
+
+
+
+
+
   - name: Hosts, clusters, and private clouds
     questions:
 
@@ -297,6 +335,10 @@ sections:
         answer: Trial clusters are limited to three hosts used for one-month evaluations of Azure VMware Solution private clouds.
 
 
+
+
+
+
   - name: Identity management
     questions:
       - question: What accounts and privileges will I get with my new Azure VMware Solution private cloud?
@@ -320,6 +362,9 @@ sections:
 
       - question: Are the cloudadmin extension privileges supported by Azure VMware Solution?
         answer: No. We currently don't support cloudadmin extension privileges and have no plans to support it.   
+
+
+
 
   - name: CSP and multi-tenancy
     questions:
