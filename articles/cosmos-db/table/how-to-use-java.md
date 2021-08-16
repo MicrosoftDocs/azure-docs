@@ -18,10 +18,10 @@ ms.custom: devx-track-java
 [!INCLUDE [storage-selector-table-include](../../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-This article shows you how to create tables, store your data, and perform CRUD operations on the data. Choose either the Azure Data Tables API. The samples are written in Java and use the [Azure Data Tables SDK v12 for Java][Azure Data Tables SDK for Java]. The scenarios covered include **creating**, **listing**, and **deleting** tables, as well as **inserting**, **querying**, **modifying**, and **deleting** entities in a table. For more information on tables, see the [Next steps](#next-steps) section.
+This article shows you how to create tables, store your data, and perform CRUD operations on the data. The samples are written in Java and use the [Azure Data Tables SDK v12 for Java][Azure Data Tables SDK for Java]. The scenarios covered include **creating**, **listing**, and **deleting** tables, as well as **inserting**, **querying**, **modifying**, and **deleting** entities in a table. For more information on tables, see the [Next steps](#next-steps) section.
 
 > [!IMPORTANT]
-> The last version of the Azure Data Tables SDK supporting Table Storage is [v12][Azure Data Tables SDK for Java]. A new version of the Table Storage SDK for Java will be coming soon.
+> The last version of the Azure Data Tables SDK supporting Table Storage is [v12][Azure Data Tables SDK for Java].
 
 > [!NOTE]
 > An SDK is available for developers who are using Azure Storage on Android devices. For more information, see the [Azure Storage SDK for Android][Azure Storage SDK for Android].
