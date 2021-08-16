@@ -164,6 +164,7 @@ If you've just finished using the steps above to import via the Azure portal, sk
 If you want to use the [Device Update for IoT Hub Update APIs](/rest/api/deviceupdate/updates) to import an update instead of importing via the Azure portal, note the following:
   - You will need to upload your update file(s) to an Azure Blob Storage location before you call the Update APIs.
   - You can reference this [sample API call](import-schema.md#example-import-request-body) which uses the import manifest you created above.
+  - If you re-use the same SAS URL while testing, you may encounter errors when the token expires. This is the case when submitting the import manifest as well as the update content itself.
 
 
 ## Next Steps
