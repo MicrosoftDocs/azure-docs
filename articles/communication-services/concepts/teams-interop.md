@@ -46,7 +46,7 @@ There are two ways that users can access the Teams calling experience:
 2. Via your application's web experience as **Teams anonymous users**. 
 
 Teams anonymous users don't have to be Teams users. Azure Communication Services allows you to build and customize new Teams calling endpoints for both Teams users and Teams anonymous users. You can use the Communication Services calling SDK and user interface library for customization and integration into any existing application or product. The following diagram demonstrates how a Teams meeting can be joined from multiple endpoints:
-![Overview of interoperability scenarios within Azure Communication Services](./media/teams-identities/teams_interop_overview.png)
+![Overview of multiple interoperability scenarios within Azure Communication Services](./media/teams-identities/teams_interop_overview.png)
 
 Endpoint based on Azure Communication Services client libraries with Teams identity acts as Teams user with Teams client. Teams user can besides joining Teams meetings also start a call to another Teams user, receive a phone call from a phone number or transfer an ongoing call to Teams call queue. The connectivity of the Communication Services endpoint with Teams identity is shown on the diagram below.
 
