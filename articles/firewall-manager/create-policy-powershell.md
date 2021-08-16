@@ -61,10 +61,6 @@ $firewallpolicy = Get-AzFirewallPolicy -Name EUS-Policy -ResourceGroupName Test-
 $newnetworkrulecollectiongroup = New-AzFirewallPolicyRuleCollectionGroup  -Name "NetworkRuleCollectionGroup" -Priority 200 -ResourceGroupName Test-FWPolicy-RG -FirewallPolicyName EUS-Policy
 $networkrulecollectiongroup = Get-AzFirewallPolicyRuleCollectionGroup -Name "NetworkRuleCollectionGroup" -ResourceGroupName Test-FWPolicy-RG -AzureFirewallPolicyName EUS-Policy
 ```
-### Create a network rule collection with new rules
-
-Before creating the rule collection, create network rules and store them in variables.
-
 ### Create network rules
 
 ```azurepowershell
