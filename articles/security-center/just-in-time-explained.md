@@ -70,7 +70,7 @@ JIT requires [Azure Defender for servers](defender-for-servers-introduction.md) 
 If you want to create custom roles that can work with JIT, you'll need the details from the table below.
 
 > [!TIP]
-> To create a least-privileged role for users that need to request JIT access to a VM, and perform no other JIT operations, use the [Set-JitLeastPrivilegedRole script](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) from the Security Center GitHub community pages.
+> To create a least-privileged role for users that need to request JIT access to a VM, and perform no other JIT operations, use the [Set-JitLeastPrivilegedRole script](https://github.com/Azure/Azure-Security-Center/tree/main/Powershell%20scripts/JIT%20Scripts/JIT%20Custom%20Role) from the Security Center GitHub community pages.
 
 | To enable a user to: | Permissions to set|
 | --- | --- |

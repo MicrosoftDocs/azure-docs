@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 02/17/2021
+ms.date: 08/16/2021
 tags: azure-synapse
 ---
 # Data Discovery & Classification
@@ -19,7 +19,7 @@ tags: azure-synapse
 
 Data Discovery & Classification is built into Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics. It provides basic capabilities for discovering, classifying, labeling, and reporting the sensitive data in your databases.
 
-Your most sensitive data might include business, financial, healthcare, or personal information. Discovering and classifying this data can play a pivotal role in your organization's information-protection approach. It can serve as infrastructure for:
+Your most sensitive data might include business, financial, healthcare, or personal information. It can serve as infrastructure for:
 
 - Helping to meet standards for data privacy and requirements for regulatory compliance.
 - Various security scenarios, such as monitoring (auditing) access to sensitive data.
@@ -30,11 +30,11 @@ Your most sensitive data might include business, financial, healthcare, or perso
 
 ## <a id="what-is-dc"></a>What is Data Discovery & Classification?
 
-Data Discovery & Classification forms a new information-protection paradigm for SQL Database, SQL Managed Instance, and Azure Synapse, aimed at protecting the data and not just the database. Currently it supports the following capabilities:
+Data Discovery & Classification currently supports the following capabilities:
 
 - **Discovery and recommendations:** The classification engine scans your database and identifies columns that contain potentially sensitive data. It then provides you with an easy way to review and apply recommended classification via the Azure portal.
 
-- **Labeling:** You can apply sensitivity-classification labels persistently to columns by using new metadata attributes that have been added to the SQL Server database engine. This metadata can then be used for sensitivity-based auditing and protection scenarios.
+- **Labeling:** You can apply sensitivity-classification labels persistently to columns by using new metadata attributes that have been added to the SQL Server database engine. This metadata can then be used for sensitivity-based auditing scenarios.
 
 - **Query result-set sensitivity:** The sensitivity of a query result set is calculated in real time for auditing purposes.
 
@@ -58,7 +58,7 @@ Data Discovery & Classification comes with a built-in set of sensitivity labels 
 
 You define and customize of your classification taxonomy in one central place for your entire Azure organization. That location is in [Azure Security Center](../../security-center/security-center-introduction.md), as part of your security policy. Only someone with administrative rights on the organization's root management group can do this task.
 
-As part of policy management for information protection, you can define custom labels, rank them, and associate them with a selected set of information types. You can also add your own custom information types and configure them with string patterns. The patterns are added to the discovery logic for identifying this type of data in your databases.
+As part of policy management, you can define custom labels, rank them, and associate them with a selected set of information types. You can also add your own custom information types and configure them with string patterns. The patterns are added to the discovery logic for identifying this type of data in your databases.
 
 For more information, see [Customize the SQL information protection policy in Azure Security Center (Preview)](../../security-center/security-center-info-protection-policy.md).
 
@@ -106,7 +106,7 @@ After the organization-wide policy has been defined, you can continue classifyin
 
 ## <a id="audit-sensitive-data"></a>Audit access to sensitive data
 
-An important aspect of the information-protection paradigm is the ability to monitor access to sensitive data. [Azure SQL Auditing](../../azure-sql/database/auditing-overview.md) has been enhanced to include a new field in the audit log called `data_sensitivity_information`. This field logs the sensitivity classifications (labels) of the data that was returned by a query. Here's an example:
+An important aspect of the classification is the ability to monitor access to sensitive data. [Azure SQL Auditing](../../azure-sql/database/auditing-overview.md) has been enhanced to include a new field in the audit log called `data_sensitivity_information`. This field logs the sensitivity classifications (labels) of the data that was returned by a query. Here's an example:
 
 ![Audit log](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)
 
