@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 08/12/2021
+ms.date: 08/16/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # How it works: Device registration
 
-Device Registration is a prerequisite to managing devices in Azure Active Directory (Azure AD). For cloud and hybrid deployments, devices register with Azure AD. For on-premises deployments, devices are registered with the enterprise device registration service hosted by Active Directory Federation Services (AD FS) or Azure AD Connect.
+Device Registration is a prerequisite to cloud-based authentication. Commonly, devices are Azure AD or hybrid Azure AD joined to complete device registration. This article provides details of how Azure AD join and hybrid Azure Ad join work in managed and federated environments. Device Registration is a prerequisite to cloud-based authentication. For more information about how Azure AD authentication works on these devices, see the article [Primary refresh tokens](concept-primary-refresh-token#detailed-flows)
 
 ## Azure AD joined in Managed environments
 
@@ -77,10 +77,12 @@ Device Registration is a prerequisite to managing devices in Azure Active Direct
 | D | The application creates TPM bound (preferred) RSA 2048 bit key-pair known as the device key (dkpub/dkpriv). The application creates a certificate request using dkpub and the public key and signs the certificate request with using dkpriv. Next, the application derives second key pair from the TPM's storage root key. This key is the transport key (tkpub/tkpriv). |
 | E | To provide SSO for on-premises federated application, the task requests an enterprise PRT from the on-premises STS. Windows Server 2016 running the Active Directory Federation Services role validate the request and return it the running task. |
 | F | The task sends a device registration request to Azure DRS that includes the ID token, certificate request, tkpub, and attestation data. Azure DRS validates the ID token, creates a device ID, and creates a certificate based on the included certificate request. Azure DRS then writes a device object in Azure AD and sends the device ID and the device certificate to the client. Device registration completes by receiving the device ID and the device certificate from Azure DRS. The device ID is saved for future reference (viewable from `dsregcmd.exe /status`), and the device certificate is installed in the Personal store of the computer. With device registration complete, the task exits. |
-| G | If Azure AD Connect device write-back is enabled, Azure AD Connect requests updates from Azure AD at its next synchronization cycle (device write-back is required for hybrid deployment using certificate trust). Azure AD correlates the device object with a matching synchronized computer object. Azure AD Connect receives the device object that includes the object GUID and computer SID and writes the device object to Active Directory. |
+| G | If Azure AD Connect device writeback is enabled, Azure AD Connect requests updates from Azure AD at its next synchronization cycle (device writeback is required for hybrid deployment using certificate trust). Azure AD correlates the device object with a matching synchronized computer object. Azure AD Connect receives the device object that includes the object GUID and computer SID and writes the device object to Active Directory. |
 
 ## Next steps
 
 - [Azure AD joined devices](concept-azure-ad-join.md)
 - [Azure AD registered devices](concept-azure-ad-register.md)
 - [Hybrid Azure AD joined devices](concept-azure-ad-join-hybrid.md)
+- [What is a Primary Refresh Token?](concept-primary-refresh-token.md)
+- [Azure AD Connect: Device options](../hybrid/how-to-connect-device-options.md)
