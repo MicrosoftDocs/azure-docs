@@ -13,7 +13,7 @@ ms.subservice: B2C
 ms.custom: "b2c-support"
 ---
 
-# Configure authentication in a sample web app by using Azure Active Directory B2C
+# Configure authentication in a sample web app by using Azure AD B2C
 
 This article uses a sample ASP.NET web application to illustrate how to add Azure Active Directory B2C (Azure AD B2C) authentication to your web applications.
 
