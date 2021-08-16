@@ -62,6 +62,7 @@ Every new Azure AD B2C tenant comes with an initial domain name, &lt;domainname&
 Follow these steps to add a custom domain to your Azure AD B2C tenant:
 
 1. [Add your custom domain name to Azure AD](../active-directory/fundamentals/add-custom-domain.md#add-your-custom-domain-name-to-azure-ad).
+
     > [!IMPORTANT]
     > For these steps, be sure to sign in to your **Azure AD B2C** tenant and select the **Azure Active Directory** service.
 
@@ -74,7 +75,7 @@ Follow these steps to add a custom domain to your Azure AD B2C tenant:
     |login   | TXT  | MS=ms12345678  |
     |account | TXT  | MS=ms87654321  |
     
-    The TXT record must be associated with the subdomain, or hostname of the domain. For example, the *login* part of the *contoso.com* domain. If the hostname is empty or `@`, Azure AD will not be able to verify the custom domain you added. In the following examples, both records are wrongly configured.
+    The TXT record must be associated with the subdomain, or hostname of the domain. For example, the *login* part of the *contoso.com* domain. If the hostname is empty or `@`, Azure AD will not be able to verify the custom domain you added. In the following examples, both records are configured incorrectly.
     
     |Name (hostname)  |Type  |Data  |
     |---------|---------|---------|
@@ -84,7 +85,7 @@ Follow these steps to add a custom domain to your Azure AD B2C tenant:
     > [!TIP]
     > You can manage your custom domain with any publicly available DNS service, such as GoDaddy. If you don't have a DNS server, you can use  [Azure DNS zone](../dns/dns-getstarted-portal.md), or [App Service domains](../app-service/manage-custom-dns-buy-domain.md).
 
-1. [Verify your custom domain name](../active-directory/fundamentals/add-custom-domain.md#verify-your-custom-domain-name). Verify each subdomain, or hostname you plan to use. Verifying just the top-level domain isn't sufficient. For example, to be able to sign-in with *login.contoso.com* and *account.contoso.com*, you need to verify both subdomains and not just the top-level domain *contoso.com*. 
+1. [Verify your custom domain name](../active-directory/fundamentals/add-custom-domain.md#verify-your-custom-domain-name). Verify each subdomain, or hostname you plan to use. For example, to be able to sign-in with *login.contoso.com* and *account.contoso.com*, you need to verify both subdomains and not the top-level domain *contoso.com*. 
 
     After the domain is verified, **delete** the DNS TXT record you created.
 
@@ -253,11 +254,12 @@ Configure Azure Blob storage for Cross-Origin Resource Sharing with the followin
 1. Under **Policies**, select **User flows (policies)**.
 1. Select a user flow, and then select **Run user flow**.
 1. For **Application**, select the web application named *webapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
-1. Click **Copy to clipboard**.
+1. Copy the URL under **Run user flow endpoint**.
 
     ![Screenshot demonstrates how to copy the authorization request URI.](./media/custom-domain/user-flow-run-now.png)
 
-1. In the **Run user flow endpoint** URL, replace the Azure AD B2C domain (_&lt;tenant-name&gt;_.b2clogin.com) with your custom domain.  
+1. To simulate a sign-in with your custom domain, open a web browser and use the URL you copied. Replace the Azure AD B2C domain (_&lt;tenant-name&gt;_.b2clogin.com) with your custom domain.   
+
     For example, instead of:
 
     ```http
@@ -269,8 +271,8 @@ Configure Azure Blob storage for Cross-Origin Resource Sharing with the followin
     ```http
     https://login.contoso.com/contoso.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_susi&client_id=63ba0d17-c4ba-47fd-89e9-31b3c2734339&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login    
     ```
-1. Select **Run user flow**. Your Azure AD B2C policy should load.
-1. Sign-in with Azure AD B2C local account.
+
+1. Verify that the Azure AD B2C is loaded correctly. Then, sign-in with a local account.
 1. Repeat the test with the rest of your policies.
 
 ## Configure your identity provider
