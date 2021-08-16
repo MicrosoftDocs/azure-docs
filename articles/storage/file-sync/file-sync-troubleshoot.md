@@ -1334,6 +1334,18 @@ Unintended recalls also might occur in other scenarios, like when you are browsi
 > [!NOTE]
 >Use Event ID 9059 in the Telemetry event log to determine which application(s) is causing recalls. This event provides application recall distribution for a server endpoint and is logged once an hour.
 
+### Process exclusions for Azure File Sync
+
+If you want to configure your antivirus or other applications to skip scanning for files accessed by Azure File Sync, configure the following process exclusions:
+
+- C:\Program Files\Azure\StorageSyncAgent\AfsAutoUpdater.exe
+- C:\Program Files\Azure\StorageSyncAgent\FileSyncSvc.exe
+- C:\Program Files\Azure\StorageSyncAgent\MAAgent\MonAgentLauncher.exe
+- C:\Program Files\Azure\StorageSyncAgent\MAAgent\MonAgentHost.exe
+- C:\Program Files\Azure\StorageSyncAgent\MAAgent\MonAgentManager.exe
+- C:\Program Files\Azure\StorageSyncAgent\MAAgent\MonAgentCore.exe
+- C:\Program Files\Azure\StorageSyncAgent\MAAgent\Extensions\XSyncMonitoringExtension\AzureStorageSyncMonitor.exe
+
 ### TLS 1.2 required for Azure File Sync
 
 You can view the TLS settings at your server by looking at the [registry settings](/windows-server/security/tls/tls-registry-settings). 
