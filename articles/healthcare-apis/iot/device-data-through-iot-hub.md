@@ -31,7 +31,7 @@ Azure IoT Connector for FHIR uses an Azure Event Hub instance under the hood to 
 
 ## Connect Azure IoT Hub with the Azure IoT Connector for FHIR (preview)
 
-Azure IoT Hub supports a feature called [message routing](../../iot-hub/iot-hub-devguide-messages-d2c.md) that provides capability to send device data to various Azure services like Event Hub, Storage Account, and Service Bus. Azure IoT Connector for FHIR leverages this feature to connect and send device data from Azure IoT Hub to its Event Hub endpoint.
+Azure IoT Hub supports a feature called [message routing](../../iot-hub/iot-hub-devguide-messages-d2c.md) that provides capability to send device data to various Azure services like Event Hub, Storage Account, and Service Bus. Azure IoT Connector for FHIR uses this feature to connect and send device data from Azure IoT Hub to its Event Hub endpoint.
 
 > [!NOTE] 
 > At this time you can only use PowerShell or CLI command to [create message routing](../../iot-hub/tutorial-routing.md) because Azure IoT Connector for FHIR's Event Hub is not hosted on the customer subscription, hence it won't be visible to you through the Azure portal. Though, once the message route objects are added using PowerShell or CLI, they are visible on the Azure portal and can be managed from there.
@@ -39,7 +39,7 @@ Azure IoT Hub supports a feature called [message routing](../../iot-hub/iot-hub-
 Setting up a message routing consists of two steps.
 
 ### Add an endpoint
-This step defines an endpoint to which the IoT Hub would route the data. Create this endpoint using either [Add-AzIotHubRoutingEndpoint](https://docs.microsoft.com/powershell/module/az.iothub/Add-AzIotHubRoutingEndpoint?) PowerShell command or [az iot hub routing-endpoint create](https://docs.microsoft.com/en-us/cli/azure/iot/hub/routing-endpoint) CLI command, based on your preference.
+This step defines an endpoint to which the IoT Hub would route the data. Create this endpoint using either [Add-AzIotHubRoutingEndpoint](https://docs.microsoft.com/powershell/module/az.iothub/Add-AzIotHubRoutingEndpoint?) PowerShell command or [az iot hub routing-endpoint create](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint) CLI command, based on your preference.
 
 Here is the list of parameters to use with the command to create an endpoint:
 
