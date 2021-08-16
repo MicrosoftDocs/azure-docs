@@ -270,7 +270,7 @@ fi
 Install()
 {
     echo "Perform Installation." >> /tmp/MobSvc/sccm.log
-    ./install -q -d ${INSTALL_DIR} -r MS -v VmWare
+    ./install -q -d ${INSTALL_DIR} -r Agent -v VmWare
     RET_VAL=$?
     echo "Installation Returncode: $RET_VAL" >> /tmp/MobSvc/sccm.log
     if [ $RET_VAL -eq 0 ]; then
