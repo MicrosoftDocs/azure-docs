@@ -15,6 +15,13 @@ ms.author: mimckitt
 
 General purpose VM sizes provide balanced CPU-to-memory ratio. Ideal for testing and development, small to medium databases, and low to medium traffic web servers. This article provides information about the offerings for general purpose computing.
 
+> [!div class="nextstepaction"]
+> [Try the Virtual Machine selector tool to find other sizes that best fit your workload](https://aka.ms/vm-selector)
+
+> [!TIP]
+> Try the **[Virtual Machine selector tool](https://aka.ms/vm-selector)** to find other sizes that best fit your workload.
+
+
 - The [Av2-series](av2-series.md) VMs can be deployed on a variety of hardware types and processors. A-series VMs have CPU performance and memory configurations best suited for entry level workloads like development and test. The size is throttled, based upon the hardware, to offer consistent processor performance for the running instance, regardless of the hardware it is deployed on. To determine the physical hardware on which this size is deployed, query the virtual hardware from within the Virtual Machine. Example use cases include development and test servers, low traffic web servers, small to medium databases, proof-of-concepts, and code repositories.
 
   > [!NOTE]
