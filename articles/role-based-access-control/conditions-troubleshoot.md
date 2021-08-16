@@ -69,17 +69,19 @@ When you try to add a role assignment with a condition, **Principal** does not a
 
 **Cause**
 
-You don't meet one or more of the requirements to use principal attributes.
+You don't meet one or more of the requirements. To use principal attributes, you must have **all** of the following:
+
+- Azure AD Premium P1 or P2 license for your tenant
+- Azure AD permissions for signed-in user, such as the Attribute Assignment Administrator role
+- Custom security attributes defined in Azure AD
 
 **Solution**
 
-To use principal attributes, you must have **all** of the following:
+1. Open **Azure Active Directory** > **Overview** and check the license for your tenant.
 
-- Azure AD Premium P1 or P2 license
-- Azure AD permissions, such as the Attribute Assignment Administrator role
-- Custom security attributes defined in Azure AD
+1. Open **Azure Active Directory** > **Users** > *user name* > **Assigned roles** and check if the Attribute Assignment Administrator role is assigned to you. If not, ask your Azure AD administrator to you assign you this role. For more information, see [List Azure AD role assignments for a user](../active-directory/roles/list-role-assignments-users.md).
 
-For more information about custom security attributes, see [Add or deactivate custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-add.md).
+1. Open **Azure Active Directory** > **Custom security attributes** to see if custom security attributes have been defined and which ones you have access to. If you don't see any custom security attributes, ask your Azure AD administrator to create a custom security attribute set that you can manage. For more information, see [Add or deactivate custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-add.md).
 
 ## Symptom - Resource attribute is not valid error when adding a condition using Azure PowerShell
 
@@ -176,4 +178,4 @@ If you are certain that your condition is correct, delete all spaces and returns
 
 - [Azure role assignment condition format and syntax (preview)](conditions-format.md)
 - [FAQ for Azure role assignment conditions (preview)](conditions-faq.md)
-- [Example Azure role assignment conditions (preview)](../storage/common/storage-auth-abac-examples.md)
+- [Troubleshoot custom security attributes in Azure AD (Preview)](../active-directory/fundamentals/custom-security-attributes-troubleshoot.md)
