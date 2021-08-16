@@ -36,14 +36,12 @@ In the **Basics** tab of the create load balancer portal page, you'll see the fo
 
 ### Frontend IP configuration
 
-In the **Frontend IP configuration** tab of the create load balancer portal page, you'll see the following information:
+In the **Frontend IP configuration** tab of the create load balancer portal page, select **+ Add frontend IP address** to open the creation page:
 
+#### **+ Add a frontend IP**
 ### Public
 
 If you select **Public** as your type, you'll see the following information:
-#### **+ Add a frontend IP**
-
-Select to open the **Add frontend IP address** creation page:
 
 | Setting | Details |
 | ------- | ------- |
@@ -74,33 +72,38 @@ If you select **IP prefix** for **IP type**, you'll see the following informatio
 | Prefix size | IPv4 or IPv6 prefixes are displayed depending on the selection above. </br> **IPv4** </br> /24 (256 addresses) </br> /25 (128 addresses) </br> /26 (64 addresses) </br> /27 (32 addresses) </br> /28 (16 addresses) </br> /29 (8 addresses) </br> /30 (4 addresses) </br> /31 (2 addresses) </br> **IPv6** </br> /124 (16 addresses) </br> /125 (8 addresses) </br> 126 (4 addresses) </br> 127 (2 addresses) |
 | Availability zone | Select **Zone-redundant** to create a resilient load balancer. </br> To create a zonal load balancer, select a specific zone from **1**, **2**, or **3**. </br> Standard load balancer and public IP prefixes support zones. </br> Learn more about [load balancer and availability zones](load-balancer-standard-availability-zones.md).
 
+### Internal
+
 If you select **Internal** as your type in the **Basics** tab, you'll see the following information:
 
 | Setting |  Details |
 | ---------- | ---------- |
 | Virtual network | The virtual network you want your internal load balancer to be part of. </br> The private frontend IP address you select for your internal load balancer will be from this virtual network. |
-| IP address assignment | Your options are **Static** or **Dynamic**. </br> Static ensures the IP doesn't change. A dynamic IP could change. |
+| Subnet | The subnets available for the IP address of the frontend IP are displayed here. |
+| Assignment | Your options are **Static** or **Dynamic**. </br> Static ensures the IP doesn't change. A dynamic IP could change. |
 | Availability zone | Your options are: </br> **Zone redundant** </br> **Zone 1** </br> **Zone 2** </br> **Zone 3** </br> To create a load balancer that is highly available and resilient to availability zone failures, select a **zone-redundant** IP. |
+### Backend pools
 
-### Internal
+In the **Backend pools** tab of the create load balancer portal page, select **+ Add a backend pool** to open the creation page:
 
-If you select **Internal** as your type, you'll see the following information:
+#### **+ Add a backend pool**
 
-#### **+ Add a frontend IP**
-
-Select to open the **Add frontend IP address** creation page:
+The following is displayed in the **+ Add a backend pool** creation page:
 
 | Setting | Details |
-| ------- | ------- |
-| Name | The name of the frontend that will be added to the load balancer. |
-| Virtual network | The virtual network where the frontend IP address will be created. |
-| IP type | **IP address** </br> **IP prefix** </br> Load balancer supports an IP address or an IP prefix for the frontend IP address. For more information, see [Azure Public IP address prefix](./virtual-network/public-ip-address-prefix.md). |
+| ---------- |  ---------- |
+| Name | The name of your backend pool. |
+| Virtual network | The virtual network your backend instances are. |
+| Backend pool configuration | Your options are: </br> NIC </br> IP address
+| IP version | Your options are **IPv4** or **IPv6**. |
+
+You can add virtual machines or virtual machine scale sets to the backend pool of your Azure Load Balancer. Create the virtual machines or virtual machine scale sets first. 
 
 ## Frontend IP configuration
 
 The IP address of your Azure Load Balancer. It's the point of contact for clients. 
 
-You can have one or many frontend IP configurations. If you went through the basics section above, you would have already created a frontend for your load balancer. 
+You can have one or many frontend IP configurations. If you went through the create section above, you would have already created a frontend for your load balancer. 
 
 If you want to add a frontend IP configuration to your load balancer, go to your load balancer in the Azure portal, select **Frontend IP configuration**, and then select **+Add**.
 
