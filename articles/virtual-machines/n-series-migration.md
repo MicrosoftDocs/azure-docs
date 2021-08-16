@@ -65,7 +65,7 @@ The NC v2-series virtual machines are a flagship platform originally designed fo
 
 ### General Changes
 
-1.  Choose a series and size for migration. Leverage the [pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/) for further insights.
+1.  Choose a series and size for migration. Leverage the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) for further insights.
 
 2.  Get quota for the target VM series
 
@@ -89,7 +89,7 @@ After assessing your current usage, decide what type of GPU VM you need. Dependi
 
 #### Get quota for the target VM family
 
-Follow the guide to [request an increase in vCPU quota by VM family.](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) Select the target VM size you have selected for migration.
+Follow the guide to [request an increase in vCPU quota by VM family.](../azure-portal/supportability/per-vm-quota-requests.md) Select the target VM size you have selected for migration.
 
 #### Resize the current virtual machine
 
