@@ -12720,7 +12720,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure/azure-sql/managed-instance/migrate-to-instance-from-sql-server.md",
+      "source_path_from_root": "/articles/azure-sql/managed-instance/migrate-to-instance-from-sql-server.md",
       "redirect_url": "/azure/azure-sql/migration-guides/managed-instance/sql-server-to-managed-instance-guide",
       "redirect_document_id": true
     },
