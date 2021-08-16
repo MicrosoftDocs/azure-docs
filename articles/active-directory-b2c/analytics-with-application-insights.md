@@ -54,7 +54,8 @@ When you use Application Insights, consider the following:
 When you use Application Insights with Azure AD B2C, all you need to do is create a resource and get the instrumentation key. For information, see [Create an Application Insights resource](../azure-monitor/app/create-new-resource.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Make sure you're using the directory that has your Azure subscription. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your Azure subscription. This tenant isn't your Azure AD B2C tenant.
+1. Make sure you're using the directory that has your Azure subscription. Select the **Directory + subscription** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**. This tenant isn't your Azure AD B2C tenant.
 1. Choose **Create a resource** in the upper-left corner of the Azure portal, and then search for and select **Application Insights**.
 1. Select **Create**.
 1. For **Name**, enter a name for the resource.

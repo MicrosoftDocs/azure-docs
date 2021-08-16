@@ -22,7 +22,8 @@ To register an application in your Azure AD B2C tenant, you can use our new unif
 #### [App registrations](#tab/app-reg-ga/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
+1. Select the **Directory + subscription** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **New registration**.
 1. Enter a **Name** for the application. For example, *webapi1*.
@@ -39,15 +40,16 @@ If you have an application that implements the implicit grant flow, for example 
 #### [Applications (Legacy)](#tab/applications-legacy/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your tenant.
-3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-4. Select **Applications (Legacy)**, and then select **Add**.
-5. Enter a name for the application. For example, *webapi1*.
-6. For **Include web app/ web API** and **Allow implicit flow**, select **Yes**.
-7. For **Reply URL**, enter an endpoint where Azure AD B2C should return any tokens that your application requests. In your production application, you might set the reply URL to a value such as `https://localhost:44332`. For testing purposes, set the reply URL to `https://jwt.ms`.
-8. For **App ID URI**, enter the identifier used for your web API. The full identifier URI including the domain is generated for you. For example, `https://contosotenant.onmicrosoft.com/api`.
-9. Click **Create**.
-10. On the properties page, record the application ID that you'll use when you configure the web application.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+1. Select **Applications (Legacy)**, and then select **Add**.
+1. Enter a name for the application. For example, *webapi1*.
+1. For **Include web app/ web API** and **Allow implicit flow**, select **Yes**.
+1. For **Reply URL**, enter an endpoint where Azure AD B2C should return any tokens that your application requests. In your production application, you might set the reply URL to a value such as `https://localhost:44332`. For testing purposes, set the reply URL to `https://jwt.ms`.
+1. For **App ID URI**, enter the identifier used for your web API. The full identifier URI including the domain is generated for you. For example, `https://contosotenant.onmicrosoft.com/api`.
+1. Click **Create**.
+1. On the properties page, record the application ID that you'll use when you configure the web application.
 
 * * *
 
