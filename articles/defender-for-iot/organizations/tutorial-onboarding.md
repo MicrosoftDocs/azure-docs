@@ -62,14 +62,15 @@ To get started with Azure Defender for IoT, you must have a Microsoft Azure subs
 To onboard a subscription:
 
 1. Navigate to the Azure portal.
+
 1. Search for, and select **Azure Defender for IoT**.
 
 1. Select **Onboard subscription**.
 
-    :::image type="content" source="media/tutorial-onboarding/onboard-subscription.png" alt-text="Select the Onboard subsctiption button from the Getting started page.":::
+    :::image type="content" source="media/tutorial-onboarding/onboard-subscription.png" alt-text="Select the Onboard subscription button from the Getting started page.":::
 
-1. In the **Onboard subscription** window select your subscription, and the number of committed devices from the drop-down menus.
+1. On the Pricing page select **Start with a trial**. **IS THIS THE STEP? WHAT IS THE DIFFERENCE BETWEEN START WITH A TRIAL AND SUBSCRIBE????????????????????????????**
 
-   :::image type="content" source="media/how-to-manage-subscriptions/onboard-subscription.png" alt-text="select your  subscription and the number of committed devices.":::
+   :::image type="content" source="media/tutorial-onboarding/start-with-trial.png" alt-text="Select the Start with a trial button to open the trial window.":::
 
 1. Select **Onboard**.
