@@ -74,11 +74,11 @@ Publishers who want to change the usage fees associated with an offer, should fi
 
 ### Determine offer type and pricing plan
 
-Use this flowchart to determine the appropriate *transactable* offer type and pricing plan for selling software through the commercial marketplace. This chart assumes you the publisher have a clear understanding of your software deployment and license/billing model.
+Use this flowchart to determine the appropriate *transactable* offer type and pricing plan to sell your software in the commercial marketplace. This chart assumes you, the publisher, have a clear understanding of your software delivery and licensing/billing models.
 
-Generally, SaaS offers are a good fit if you want customers/users to just subscribe and use your service, with the publisher (you) taking the responsibility of deploying, managing, and running the software in your cloud infrastructure.
+Generally, SaaS offers are a good fit if your customers just want to subscribe to your service and use it online. With SaaS, the publisher (you) host the software in your cloud infrastructure, managing technical infrastructure, app software, and data management responsibilities.
 
-Virtual Machine or Azure App offers are a good fit if you want customer/users to deploy, manage, and run your packaged app or service (as a VM Image and/or other Azure services in the ARM template) in their own cloud infrastructure.
+Virtual Machine and Azure Application offers are a good fit if you want customers to deploy, manage, and run your packaged app or service (as a VM Image and/or other Azure services in the ARM template) in their own cloud infrastructure.
 
 [![Shows a flowchart for determining offer type and pricing plan.](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png)](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png#lightbox)
 &nbsp;&nbsp;&nbsp;<sup>(1)</sup> Contact [Microsoft Office Hours](https://microsoftcloudpartner.eventbuilder.com/MarketplaceDeveloperOfficeHours) or [support](/azure/marketplace/support).<br>
