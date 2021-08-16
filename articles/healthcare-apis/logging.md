@@ -6,7 +6,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: tutorial
 ms.date: 08/16/2021
-ms.author: bxue
+ms.author: ginle
 ---
 
 # Logging for Azure Healthcare APIs (preview)
