@@ -407,6 +407,9 @@ Sync sessions may fail for various reasons including the server being restarted 
 
 [!INCLUDE [storage-sync-files-bad-connection](../../../includes/storage-sync-files-bad-connection.md)]
 
+> [!Note]  
+> Once network connectivity to the Azure File Sync service is restored, sync may not resume immediately. By default, Azure File Sync will initiate a sync session every 30 minutes if no changes are detected within the server endpoint location. To force a sync session, restart the Storage Sync Agent (FileSyncSvc) service or make a change to a file or directory within the server endpoint location.
+
 <a id="-2134376372"></a>**The user request was throttled by the service.**  
 
 | Error | Code |
@@ -668,6 +671,9 @@ By setting this registry value, the Azure File Sync agent will accept any locall
 
 [!INCLUDE [storage-sync-files-bad-connection](../../../includes/storage-sync-files-bad-connection.md)]
 
+> [!Note]  
+> Once network connectivity to the Azure File Sync service is restored, sync may not resume immediately. By default, Azure File Sync will initiate a sync session every 30 minutes if no changes are detected within the server endpoint location. To force a sync session, restart the Storage Sync Agent (FileSyncSvc) service or make a change to a file or directory within the server endpoint location.
+
 <a id="-2147012721"></a>**Sync failed because the server was unable to decode the response from the Azure File Sync service**  
 
 | Error | Code |
@@ -834,6 +840,9 @@ This error occurs because the Cloud Tiering filter driver (StorageSync.sys) vers
 | **Remediation required** | No |
 
 This error occurs because the Azure File Sync service is unavailable. This error will auto-resolve when the Azure File Sync service is available again.
+
+> [!Note]  
+> Once network connectivity to the Azure File Sync service is restored, sync may not resume immediately. By default, Azure File Sync will initiate a sync session every 30 minutes if no changes are detected within the server endpoint location. To force a sync session, restart the Storage Sync Agent (FileSyncSvc) service or make a change to a file or directory within the server endpoint location.
 
 <a id="-2146233088"></a>**Sync failed due to an exception.**  
 
