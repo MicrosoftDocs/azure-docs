@@ -11,7 +11,7 @@ ms.date: 06/01/2021
 
 In this tutorial, you learn how to use a player widget within your application. This code is an easy-to-embed widget that allows your users to play video and browse through the portions of a segmented video file. To do this, you'll be generating a static HTML page with the widget embedded, and all the pieces to make it work.
 
-In this tutorial you will:
+In this tutorial, you will:
 
 > [!div class="checklist"]
 > * Create a token
@@ -87,21 +87,21 @@ Access policies define the permissions and duration of access to a particular vi
    
 1. Select **New**, and enter the following information:
 
-   - Access policy name: You can choose any name.
+   - **Access policy name**: You can choose any name.
 
-   - Issuer: This value must match the JWT issuer. 
+   - **Issuer**: This value must match the JWT issuer. 
 
-   - Audience: The audience for the JWT. `${System.Runtime.BaseResourceUrlPattern}` is the default. To learn more about audience and `${System.Runtime.BaseResourceUrlPattern}`, see [Access policies](./access-policies.md).
+   - **Audience**: The audience for the JWT. `${System.Runtime.BaseResourceUrlPattern}` is the default. To learn more about audience and `${System.Runtime.BaseResourceUrlPattern}`, see [Access policies](./access-policies.md).
 
-   - Key Type: RSA 
+   - **Key type**: RSA 
 
-   - Algorithm: The supported values are RS256, RS384, and RS512.
+   - **Algorithm**: The supported values are RS256, RS384, and RS512.
 
-   - Key ID: This ID is generated from your certificate. For more information, see [Create a token](#create-a-token).
+   - **Key ID**: This ID is generated from your certificate. For more information, see [Create a token](#create-a-token).
 
-   - RSA Key Modulus: This value is generated from your certificate. For more information, see [Create a token](#create-a-token).
+   - **RSA Key Modulus**: This value is generated from your certificate. For more information, see [Create a token](#create-a-token).
 
-   - RSA Key Exponent: This value is generated from your certificate. For more information, see [Create a token](#create-a-token).
+   - **RSA Key Exponent**: This value is generated from your certificate. For more information, see [Create a token](#create-a-token).
 
    :::image type="content" source="./media/player-widget/access-policies-portal.png" alt-text="Screenshot that shows the access policies portal."::: 
    
@@ -205,7 +205,7 @@ Video name: <input type="text" id="videoName" /><br><br>
 
 You can test this page locally, but you might want to test a hosted version. In case you don't have a quick way to host a page, here are instructions on how to do so by using [static websites](../../storage/blobs/storage-blob-static-website.md) with Azure Storage. The following steps are a condensed version of [these more complete instructions](../../storage/blobs/storage-blob-static-website-how-to.md). The steps are updated for the files you're using in this tutorial.
 
-1. Create a Storage account.
+1. Create a storage account.
 1. Under **Data management**, select **Static website**.
 1. Enable the static website on the storage account.
 1. For **Index document name**, enter **index.html**.
@@ -219,10 +219,10 @@ You can test this page locally, but you might want to test a hosted version. In 
 
 Now that you have the page hosted, go there and go through the steps to play a video.
 
-1. Enter the **Client API endpoint URL** and **Token**.
-1. Press **Get videos**.
+1. Enter the **Client API endpoint URL** and **Token** values.
+1. Select **Get videos**.
 1. From the video list, select a video name, and enter it into the **Video name** field.
-1. Press **Play video**.
+1. Select **Play video**.
 
 ## Additional details
 
@@ -230,7 +230,7 @@ The following sections contain some important additional details to be aware of.
 
 ### Refresh the access token
 
-The player uses the access token that you generated earlier to get a playback authorization token. Tokens expire periodically, and need to be refreshed. There are two ways of refreshing the access token for the player after you've generated a new one.
+The player uses the access token that you generated earlier to get a playback authorization token. Tokens expire periodically and need to be refreshed. There are two ways to refresh the access token for the player after you've generated a new one:
 
 * Actively calling the widget method `setAccessToken`.
     ```typescript
@@ -243,7 +243,7 @@ The player uses the access token that you generated earlier to get a playback au
     });
     ```
 
-The `TOKEN_EXPIRED` event will occur 5 seconds before the token is going to expire. If you are setting an event listener, you should do so before calling the `load` function on the player widget.
+The `TOKEN_EXPIRED` event will occur 5 seconds before the token is going to expire. If you're setting an event listener, you should do so before calling the `load` function on the player widget.
 
 ### Configuration details
 
