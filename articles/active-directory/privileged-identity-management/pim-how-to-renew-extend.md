@@ -71,7 +71,7 @@ When a user or group submits a request to extend a role assignment, administrato
 
 In addition to using following the link from email, administrators can approve or deny requests by going to the Privileged Identity Management administration portal and selecting **Approve requests** in the left pane.
 
-![Azure resources - Approve requests page listing requests and links to approve or deny](./media/pim-how-to-renew-extend/extend-admin-approve-list.png)
+![Azure AD roles - Approve requests page listing requests and links to approve or deny](./media/pim-how-to-renew-extend/extend-admin-approve-list.png)
 
 When an Administrator selects **Approve** or **Deny**, the details of the request are shown, along with a field to provide a business justification for the audit logs.
 
@@ -85,7 +85,7 @@ If a user assigned to a role doesn't request an extension for the role assignmen
 
 To extend a role assignment, browse to the role or assignment view in Privileged Identity Management. Find the assignment that requires an extension. Then select **Extend** in the action column.
 
-![Azure resources - assignments page listing eligible roles with links to extend](./media/pim-how-to-renew-extend/aadpim-rbac-extend-admin-extend.png)
+![Azure AD Roles - Assignments page listing eligible roles with links to extend](./media/pim-how-to-renew-extend/extend-admin-extend.png)
 
 ## Renew role assignments
 
@@ -109,11 +109,12 @@ After the request has been submitted, administrators are notified of a pending r
 
 Azure AD administrators can access the renewal request from the link in the email notification, or by accessing Privileged Identity Management from the Azure portal and selecting **Approve requests** in PIM.
 
-![Azure resources - Approve requests page listing requests and links to approve or deny](./media/pim-how-to-renew-extend/aadpim-rbac-extend-admin-approve-grid.png)
+![Azure AD roles - Approve requests page listing requests and links to approve or deny](./media/pim-how-to-renew-extend/extend-admin-approve-list.png)
 
 When an administrator selects **Approve** or **Deny**, the details of the request are shown along with a field to provide a business justification for the audit logs.
 
-![Approve role assignment request with requestor reason, assignment type, start time, end time, and reason](./media/pim-how-to-renew-extend/aadpim-rbac-extend-admin-approve-blade.png)
+![Approve role assignment request with requestor reason, assignment type, start time, end time, and reason](./media/pim-how-to-renew-extend/![Approve role assignment request with requestor reason, assignment type, start time, end time, and reason](./media/pim-how-to-renew-extend/extend-admin-approve-form.png)
+.png)
 
 When approving a request to renew role assignment, administrators must enter a new start date, end date, and assignment type.
 
@@ -123,7 +124,7 @@ Administrators can renew expired role assignments from the **Members** tab in th
 
 To view a list of all expired role assignments, on the **Members** screen, select **Expired roles**.
 
-![Azure resources - Members page listing expired roles with links to renew](./media/pim-how-to-renew-extend/aadpim-rbac-renew-from-member-blade.png)
+![Azure AD roles - Members page listing expired roles with links to renew](./media/pim-how-to-renew-extend/aadpim-rbac-renew-from-member-blade.png)
 
 ## Next steps
 
