@@ -41,7 +41,7 @@ In the **Frontend IP configuration** tab of the create load balancer portal page
 :::image type="content" source="./media/manage/create-frontend.png" alt-text="Screenshot of create frontend IP configuration." border="true":::
 
 #### **+ Add a frontend IP**
-### Public
+##### Public
 
 If you select **Public** as your type, you'll see the following information:
 
@@ -80,7 +80,7 @@ If you select **IP prefix** for **IP type**, you'll see the following informatio
 
 :::image type="content" source="./media/manage/create-public-ip-prefix.png" alt-text="Screenshot of create public IP prefix." border="true":::
 
-### Internal
+##### Internal
 
 If you select **Internal** as your type in the **Basics** tab, you'll see the following information:
 
