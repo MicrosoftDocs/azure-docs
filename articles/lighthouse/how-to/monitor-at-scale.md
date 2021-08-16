@@ -26,7 +26,7 @@ We recommend creating these workspaces directly in the customer tenants. This wa
 You can create a Log Analytics workspace by using the [Azure portal](../../azure-monitor/logs/quick-create-workspace.md), by using [Azure CLI](../../azure-monitor/logs/quick-create-workspace-cli.md), or by using [Azure PowerShell](../../azure-monitor/logs/powershell-workspace-configuration.md).
 
 > [!IMPORTANT]
-> If all workspaces are created in customer tenants, the Microsoft.Insights resource provider must also be [registered](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) on a subscription in the managing tenant. If your managing tenant doesn't have an existing Azure subscription, you can register the resource provider manually by using the following PowerShell commands:
+> If all workspaces are created in customer tenants, the Microsoft.Insights resource providers must also be [registered](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) on a subscription in the managing tenant. If your managing tenant doesn't have an existing Azure subscription, you can register the resource provider manually by using the following PowerShell commands:
 >
 > ```powershell
 > $ManagingTenantId = "your-managing-Azure-AD-tenant-id"
