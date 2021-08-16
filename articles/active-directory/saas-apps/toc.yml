@@ -1238,6 +1238,8 @@
         href: meta4-global-hr-tutorial.md
       - name: Meta Networks Connector
         href: metanetworksconnector-tutorial.md
+      - name: Metatask
+        href: metatask-tutorial.md  
       - name: Mevisio
         href: mevisio-tutorial.md
       - name: Michigan Data Hub Single Sign-On
