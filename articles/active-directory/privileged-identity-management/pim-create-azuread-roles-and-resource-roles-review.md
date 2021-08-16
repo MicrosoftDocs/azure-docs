@@ -152,7 +152,7 @@ After one or more access reviews have been started, you may want to modify or up
 
     <kbd> ![Screenshot of the reminder option under Access Reviews settings](./media/pim-create-azuread-roles-and-resource-roles-review/reminder-setting.png) </kbd>
 
-- **Updating the settings** - If an access review is recurring, there are separate settings under "Current" versus under "Series". Updating the settings under "Current" will only apply changes to the current access review while updating the settings under "Series" will apply changes to all the remaining series (The settings for "Current" will not be updated under "Series" and vice versa).
+- **Updating the settings** - If an access review is recurring, there are separate settings under "Current" versus under "Series". Updating the settings under "Current" will only apply changes to the current access review while updating the settings under "Series" will update the setting for all future recurrences.
 
     <kbd> ![Screenshot of the settings page under Access Reviews](./media/pim-create-azuread-roles-and-resource-roles-review/current-v-series-setting.png) </kbd>
 
