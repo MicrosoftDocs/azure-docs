@@ -807,7 +807,7 @@ When you set up the array filter, the trigger only receives messages from the sp
 
 Any SAP action filtering happens at the level of the SAP adapter for your on-premises data gateway. For more information, review [how to send test IDocs to Azure Logic Apps from SAP](#test-sending-idocs-from-sap).
 
-If you can't send IDoc packets from SAP to your logic app workflow's trigger, review the Transactional RFC (tRFC) call rejection message in the SAP tRFC dialog box (T-Code SM58). In the SAP interface, you might get the following error messages, which are clipped due to the substring limits on the **Status Text** field.
+If you can't send IDoc packets from SAP to your logic app workflow's trigger, review the Transactional RFC (tRFC) call rejection message in the SAP tRFC (T-Code SM58) dialog box. In the SAP interface, you might get the following error messages, which are clipped due to the substring limits on the **Status Text** field.
 
 ##### The RequestContext on the IReplyChannel was closed without a reply being sent
 
