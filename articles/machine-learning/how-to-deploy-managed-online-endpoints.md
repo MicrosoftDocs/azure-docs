@@ -259,19 +259,9 @@ Alternatively you can use curl (or any REST client). The below should work in Un
 
 ::: code language="azurecli" source="~/azureml-examples-puprefresh/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint_using_curl" :::
 
+Notice we use `show` and `get-credentials` commands to get the scoring uri and authentication credentials. Also notice that we're using the `--query` flag to filter attributes to only what we need. To learn more about `--query`, see [Query Azure CLI command output](/cli/azure/query-azure-cli).
+
 To see the invocation logs, run `get-logs` again.
-
-To use a REST client, you must have the value for `scoring_uri` and the authentication key or token. The `scoring_uri` value is available in the output of the `show` command:
- 
-::: code language="azurecli" source="~/azureml-examples-puprefresh/cli/deploy-managed-online-endpoint.sh" ID="get_scoring_uri" :::
-
-We're using the `--query` flag to filter attributes to only what we need. To learn more about `--query`, see [Query Azure CLI command output](/cli/azure/query-azure-cli).
-
-Retrieve the required credentials by using the `get-credentials` command:
-
-```azurecli
-az ml online-endpoint get-credentials -n $ENDPOINT_NAME
-```
 
 ### (Optional) Update the deployment
 
