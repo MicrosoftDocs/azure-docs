@@ -102,7 +102,7 @@ Before cutting over to Azure AD Connect, it's critical to validate that the Immu
 
 The example will grab **all** on-premises AD users, and export a list of their objectGUID's and ImmutableID's already calculated to a CSV file.
 
-1. Run these commands in PowerShell on a domain controller on-premises.
+1. Run these commands in PowerShell on a domain controller on-premises. 
 
 ```PowerShell
 Get-ADUser -Filter \* -Properties objectGUID \| Select-Object
