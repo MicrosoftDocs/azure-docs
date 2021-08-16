@@ -14,46 +14,75 @@ This article helps you troubleshoot issues with ongoing server discovery, softwa
 
 ## Discovered servers not showing in portal
 
-If discovery state is "Discovery in progress", but don't yet see the servers in the portal, wait a few minutes:
+**Error**
 
-- It takes around 15 minutes for discovery of servers running on a vCenter Server.
-- It takes around two minutes for each Hyper-V host, added on appliance for discovery of servers running on the host.
-- It takes around a minute for discovery of each server, added on the physical appliance.
+You get this error when you don’t yet see the servers in the portal, and the discovery state is **Discovery in progress.**
+ 
+**Remediation**
 
-If you wait and the state doesn't change, select **Refresh** on the **Servers** tab. This should show the count of the discovered servers in Azure Migrate: Discovery and assessment and Azure Migrate: Server Migration.
+If the servers don’t appear in the portal, wait for few minutes as it takes around 15 minutes for discovery of servers running on a vCenter Server, 2 minutes for each Hyper-V host, added on appliance for discovery of servers running on the host and a minute for discovery of each server added on the physical appliance.
 
-If this doesn't work and you're discovering VMware servers:
+If the state still doesn’t change, do as follows:
 
-- Verify that the vCenter account you specified has permissions set correctly, with access to at least one server.
-- Azure Migrate can't discover servers on VMware if the vCenter account has access granted at vCenter VM folder level. [Learn more](set-discovery-scope.md) about scoping discovery.
+1. Select **Refresh** on the **Servers** tab to see the count of the discovered servers in Azure Migrate: Discovery and assessment and Azure Migrate: Server Migration.
+
+If the above step doesn’t work and you are discovering VMware servers:
+
+1. Verify that the vCenter account you specified has the permissions set correctly with access to at least one server.
+1. Check on VMware if the if the vCenter account has access granted at vCenter VM folder level. Azure Migrate can’t discover servers on VMware [Learn more](set-discovery-scope.md) about scoping discovery.
 
 ## Server data not updating in portal
 
-If discovered servers don't appear in the portal or if the server data is outdated, wait a few minutes. It takes up to 30 minutes for changes in discovered server configuration data to appear in the portal. It may take a few hours for changes in software inventory data to appear. If there's no data after this time, try refreshing, as follows
+**Error**
 
-1. In **Windows, Linux and SQL Servers** > **Azure Migrate: Discovery and assessment**, select **Overview**.
-2. Under **Manage**, select **Appliances**.
-3. Select **Refresh services**.
-4. Wait for the refresh operation to complete. You should now see up-to-date information.
+You get this error if the discovered servers don't appear in the portal or if the server data is outdated. 
+
+**Remediation**
+
+Wait for few minutes as it takes up to 30 minutes for changes in discovered server configuration data to appear in the portal and few hours for changes in software inventory data to appear. If there's no data after this time, refresh and do as follows:
+
+1. In **Windows, Linux and SQL Servers**, **Azure Migrate: Discovery and assessment**, select **Overview**.
+1. Under **Manage**, select **Appliances**.
+1. Select **Refresh services**.
+Wait for the refresh operation to complete. You should now see up-to-date information.
 
 ## Deleted servers appear in portal
 
-If you delete servers and they still appear in the portal, wait 30 minutes. If they still appear, refresh as described above.
+**Error**
+You get this error when the deleted servers continue to appear in the portal.
+
+**Remediation**
+If the data continues to appear, wait for 30 minutes and do as follows:
+
+In **Windows, Linux and SQL Servers**, **Azure Migrate: Discovery and assessment**, select **Overview**.
+1. Under **Manage**, select **Appliances**.
+1. Select **Refresh services**.
+Wait for the refresh operation to complete. You should now see up-to-date information.
 
 ## I imported a CSV but I see "Discovery is in progress"
 
-This status appears if your CSV upload failed due to a validation failure. Try to import the CSV again. You can download the error report of the previous upload and follow the remediation guidance in the file to fix the errors. The error report can be downloaded from the 'Import Details' section on 'Discover servers' page.
+This status appears if your CSV upload failed due to a validation failure. 
+
+**Remediation**
+
+Import the CSV again. You can download the previous upload error report and follow the file's remediation guidance to fix the errors. Download the error report from the **Import Details** section on **Discover servers** page.
 
 ## Do not see software inventory details even after updating guest credentials
 
-The software inventory discovery runs once every 24 hours. If you would like to see the details immediately, refresh as follows. This may take a few minutes depending on the no. of servers discovered.
+**Remediation**
+The software inventory discovery runs once every 24 hours. This may take a few minutes depending on the number of servers discovered. If you would like to see the details immediately, refresh as follows.
 
-1. In **Windows, Linux and SQL Servers** > **Azure Migrate: Discovery and assessment**, select **Overview**.
-2. Under **Manage**, select **Appliances**.
-3. Select **Refresh services**.
-4. Wait for the refresh operation to complete. You should now see up-to-date information.
+1. In **Windows, Linux and SQL Servers**, **Azure Migrate: Discovery and assessment**, select **Overview**.
+1. Under **Manage**, select **Appliances**.
+1. Select **Refresh services**.
+Wait for the refresh operation to complete. You should now see up-to-date information.
 
 ## Unable to export software inventory
+
+**Error**
+You get this error when you don't have Contributor privileges
+
+**Remediation**
 
 Ensure the user downloading the inventory from the portal has Contributor privileges on the subscription.
 
@@ -113,7 +142,7 @@ The list of software inventory errors is summarized in the table below.
 | **10004:** Credentials not provided on the appliance for the server OS type. | The credentials for the server OS type were not added on the appliance. | 1. Ensure that you add the credentials for the OS type of the impacted server on the appliance.<br/> 2. You can now add multiple server credentials on the appliance. |
 | **10005:** Credentials provided on the appliance for the server are invalid. | The credentials provided on the appliance are not valid. The issue was encountered when trying the following credentials on the server: \<FriendlyNameOfCredentials>. | 1. Ensure that the credentials provided on the appliance are valid and the server is accessible using the credentials.<br/> 2. You can now add multiple server credentials on the appliance.<br/> 3. Go back to the appliance configuration manager to either provide another set of credentials or edit an existing one. (find the friendly name of the credentials tried by Azure Migrate in the possible causes). <br/><br/> [Learn more](troubleshoot-discovery.md#error-10005-guestcredentialnotvalid) on how to remediate the issue.|
 | **10006:** Operation system type running on the server is not supported. | Operating system running on the server is neither Windows nor Linux. | Only Windows and Linux OS types are supported. \<GuestOSName> operating system is not supported currently. |
-| **10007:** Unable to process the discovered metadata from the server. | An error ocuured when parsing the contents of the file containing the discovered metadata. | Please submit a Microsoft support case to help troubleshoot this issue. |
+| **10007:** Unable to process the discovered metadata from the server. | An error occurred when parsing the contents of the file containing the discovered metadata. | Please submit a Microsoft support case to help troubleshoot this issue. |
 | **10008:** Unable to create the file required to contain the discovered metadata on the server. | The role associated to the credentials provided on the appliance or a group policy on-premises is restricting the creation of file in the required folder. The issue was encountered when trying the following credentials on the server: <FriendlyNameOfCredentials>. | 1. Check if the credentials provided on the appliance has create file permission on the folder \<folder path/folder name> in the server.<br/> 2. If the credentials provided on the appliance do not have the required permissions, either provide another set of credentials or edit an existing one. (find the friendly name of the credentials tried by Azure Migrate in the possible causes) |
 | **10009:** Unable to write the discovered metadata in the file on the server. | The role associated to the credentials provided on the appliance or a group policy on-premises is restricting writing in the file on the server. The issue was encountered when trying the following credentials on the server: \<FriendlyNameOfCredentials>. | 1. Check if the credentials provided on the appliance has write file permission on the folder <folder path/folder name> in the server.<br/> 2. If the credentials provided on the appliance do not have the required permissions, either provide another set of credentials or edit an existing one. (find the friendly name of the credentials tried by Azure Migrate in the possible causes) |
 | **10010:** Unable to discover as the command- %CommandName; required to collect some metadata is missing on the server. | The package containing the command  %CommandName; is not installed on the server. | Ensure that the package containing the command  %CommandName; is installed on the server. |
@@ -147,16 +176,16 @@ After installing the required PowerShell version, you can verify if the error wa
 ### Remediation
 Make sure that the user account provided in the appliance has access to WMI Namespace and subnamespaces. You can set the access by following these steps:
 1.	Go to the server that is reporting this error.
-2.	Search and select ‘Run’ from the Start menu. In the ‘Run’ dialog box, type wmimgmt.msc in the ‘Open:’ text field and press enter.
-3.	The wmimgmt console will open where you can find “WMI Control (Local)” in the left panel. Right-click on it and select ‘Properties’ from the menu.
-4.	In the ‘WMI Control (Local) Properties’ dialog box, select ‘Securities’ tab.
-5.	On the Securities tab, select 'Security' button, which will open ‘Security for ROOT’ dialog box.
-7.	Select 'Advanced' button to open 'Advanced Security Settings for Root' dialog box. 
-8.	Select 'Add' button, which opens the 'Permission Entry for Root' dialog box.
-9.	Click ‘Select a principal’ to open ‘Select Users, Computers, Service Accounts or Groups’ dialog box.
-10.	Select the user name(s) or group(s) you want to grant access to the WMI and click 'OK'.
-11. Ensure you grant execute permissions and select "This namespace and subnamespaces" in the 'Applies to:' drop-down.
-12. Select 'Apply' button to save the settings and close all dialog boxes.
+1. Search and select **Run** from the Start menu. In the **Run** dialog box, type *wmimgmt.msc* in the **Open:** text field and press enter.
+1. The wmimgmt console will open where you can find **WMI Control (Local)** in the left panel. Right-click on it and select **Properties** from the menu.
+1. In the WMI Control (Local) Properties dialog box, select **Securities** tab.
+1. Select **Security** button, and **Security for ROOT** dialog box appears.
+1. Select **Advanced** button to open **Advanced Security Settings for Root** dialog box. 
+1. Select **Add** button, to open the **Permission Entry for Root** dialog box.
+1. Click **Select a principal** to open **Select Users, Computers, Service Accounts or Groups** dialog box.
+1. Select the user name(s) or group(s) you want to grant access to the WMI and click OK.
+1. Ensure you grant execute permissions and select *This namespace and subnamespaces* in the **Applies to:** drop-down.
+1. Select **Apply** button to save the settings and close all dialog boxes.
 
 After getting the required access, you can verify if the error was resolved by following steps [here](troubleshoot-discovery.md#mitigation-verification-using-vmware-powercli).
 
@@ -186,8 +215,8 @@ There can be multiple reasons for this issue, one of the reason is when the user
    Get-WmiObject Win32_Process;
    netstat -ano -p tcp | select -Skip 4;
    ````
-3. If commands output the result in few seconds, then you can go to the Azure Migrate project> Discovery and assessment>Overview>Manage>Appliances, select the appliance name and select **Refresh services** to restart the discovery service.
-4. If the commands are timing out without giving any output, then 
+1. If commands output the result in few seconds, then you can go to the Azure Migrate project, Discovery and assessment, Overview, Manage, Appliances, select the appliance name and select **Refresh services** to restart the discovery service.
+1. If the commands are timing out without giving any output, then 
 - You need to figure out which process is consuming high CPU or memory on the server.
 - You can try to provide more cores/memory to that server and execute the commands again.
 
@@ -266,7 +295,7 @@ Once connected, appliance gathers configuration and performance data of SQL Serv
 
 ## SQL Server instance is showing up in "Not connected" state on portal
 
-To view the issues encountered during discovery of SQL Server instances and databases please click on "Not connected" status in connection status column on 'Discovered servers' page in your project.
+To view the issues encountered during discovery of SQL Server instances and databases please click on "Not connected" status in connection status column on **Discovered servers** page in your project.
 
 Creating assessment on top of servers containing SQL instances that were not discovered completely or are in not connected state, may lead to readiness being marked as "unknown".
 
