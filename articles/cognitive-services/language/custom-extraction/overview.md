@@ -22,9 +22,9 @@ Building custom models can be a complex process that requires AI expertise; Cust
 
 
 This documentation contains the following article types:
-* [Quickstarts](../README.md#Quickstarts) are getting-started instructions to guide you through making requests to the service.
 
-* [Concepts](../README.md#Concepts) provide explanations of the service functionality and features.
+* [Quickstarts](quickstart.md) are getting-started instructions to guide you through making requests to the service.
+* [Concepts](concepts/recommended-practices.md) provide explanations of the service functionality and features.
 
 <!--
 * How-to guides contain instructions for using the service in more specific or customized ways.

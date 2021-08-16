@@ -35,7 +35,7 @@ Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.Cognitive
 
 ## Create a custom extraction project
 
-1. Login through the [Language Studio portal](https://language.azure.com). A window will appear to let you select your subscription and Language Services resource. Select the resource you created in the above step. 
+1. Sign into the [Language Studio portal](https://language.azure.com). A window will appear to let you select your subscription and Language Services resource. Select the resource you created in the above step. 
 
 2. Scroll down until you see **Custom extraction** from the available services, and select it.
 
@@ -49,11 +49,9 @@ Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.Cognitive
     > * You can only connect your resource to one storage account.
     > * If you've already connected a storage account, you will see a **Select project type** screen instead. See the next step.
 
-5. Select your project type. For this quickstart we will create a multi label classification project. Then click **Next**.
+5. Enter the project information, including a name, description, and the language of the files in your project. You will not be able to change the name of your project later. 
 
-6. Enter the project information, including a name, description and the language of the files in your project. You will not be able to change the name of your project later. 
-
-7. Review the data you entered and select **Create Project**.
+6. Review the data you entered and select **Create Project**.
 
 
 ## Train your model
@@ -75,7 +73,7 @@ To start training your model:
 
 ## Deploy model
 
-Generally after training a model you would review it's evaluation details and made adjustments if necessary. in this quickstart, you will just deploy your model, and make it available for you to try. 
+Generally after training a model you would review its evaluation details and made adjustments if necessary. in this quickstart, you will just deploy your model, and make it available for you to try. 
 
 >[!NOTE]
 >You can only have one deployed model per project. Deploying a new model replaces any existing deployed model.
