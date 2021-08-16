@@ -69,6 +69,7 @@ The following are known scenarios that will impact Gmail users:
 
 This change does not affect:
 - Web apps
+- Microsoft365 services accessed through a website (e.g. SharePoint Online, Office web apps, and Teams web app)
 - Mobile apps using system web-views for authentication ([SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) on iOS, [Custom Tabs](https://developer.chrome.com/docs/android/custom-tabs/overview/) on Android).  
 - Google Workspace identities, for example when you’re using [SAML-based federation](direct-federation.md) with Google Workspace
 
