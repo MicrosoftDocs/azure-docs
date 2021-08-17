@@ -201,7 +201,7 @@ The intent filter uses the same pattern, as shown in the following XML snippet:
 
 --- 
 
-## Step 5: Code the building blocks
+## Step 5: Customize your code building blocks
 
 This section describes the code building blocks that enable authentication for your Android app. The following table lists the B2CModeFragment methods and how to customize your code. 
 
