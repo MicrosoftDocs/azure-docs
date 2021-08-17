@@ -67,7 +67,7 @@ Usage information helps you make decisions about [changing the service tier](#ch
 > [!NOTE]
 > The registry's storage usage should only be used as a guide and may not reflect recent registry operations. Monitor the registry's [StorageUsed metric](monitor-service-reference.md#container-registry-metrics) for up-to-date data. 
 
-Registry usage information includes the following:
+Depending on your registry's service tier, usage information includes some or all of the following, along with the limit in that tier:
 
 * Storage consumed in bytes<sup>1</sup>
 * Number of [webhooks](container-registry-webhook.md)
