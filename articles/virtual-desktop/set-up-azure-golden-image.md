@@ -1,9 +1,9 @@
 ---
-title: 
-description: 
-author: 
-ms.topic: 
-ms.date: 
+title: Set up a golden image in Azure
+description: Walk through the steps to set up a golden image from scratch in Azure.
+author: cshea15
+ms.topic: how-to
+ms.date: 8/17/2021
 ms.author: 
 manager: 
 ---
@@ -18,15 +18,15 @@ manager:
 When creating a new VM for your golden image choose an OS that is [compatible with Azure Virtual Desktop](https://docs.microsoft.com/en-us/azure/virtual-desktop/overview#requirements).  Windows 10 Multi-Session (m365 optional) or Windows Server are recommended for Pooled hostpools. Windows 10 Enterprise is recommended for Personal hostpools. 
 
 ### Take your first snapshot
-[Create the VM](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal) from your choosen image.  Once it has completed deploying, create a Snapshot of the disk of your image VM.  Give the snapshot an identifying name, since you will be taking further snapshots during the image build process. Snapshots will allow you to roll back if there are issues at any stage of the image build. 
+[Create the VM](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal) from your chosen image.  Once it has completed deploying, create a Snapshot of the disk of your image VM.  Give the snapshot an identifying name, since you will be taking further snapshots during the image build process. Snapshots will allow you to roll back if there are issues at any stage of the image build. 
 
 ### Add applications to VM
-Login to the VM and start installing the required applications. If the VM needs to be domain-joined during customisation, remove it from the domain before sysprep. If there are a large number of applications to be installed, it is recommended to take periodic snapshots to allow for rollback if a problem occurs.  
+Login to the VM and start installing the required applications. If the VM needs to be domain-joined during customization, remove it from the domain before sysprep. If there are a large number of applications to be installed, it is recommended to take periodic snapshots to allow for rollback if a problem occurs.  
 
-*NOTE*: Some Anti-Virus will cause issues during Sysprep. You will need to stop these services before initiaitng Sysprep.
+*NOTE*: Some Anti-Virus will cause issues during Sysprep. You will need to stop these services before initiating Sysprep.
 
 ### Take another snapshot
-When you are done with customising the VM take a final snapshot of the disk. If sysprep or capture fails, you will be able to create a new VM from this snapshot. 
+When you are done installing your applications to the image VM, take a final snapshot of the disk. If sysprep or capture fails, you will be able to create a new VM from this snapshot. 
 
 ### Sysprep
 Generalize the VM by running [sysprep](https://docs.microsoft.com/en-us/azure/virtual-machines/generalize#windows). 
@@ -43,7 +43,7 @@ When configuring the capture, choose the option to delete the VM, as it is no lo
 
 When you are ready to capture, click Capture. If you are capturing an image into a SIG, it may take longer to capture as the image is replicated.  
 
-Once the capture process is completed, your image will be available to build your session hosts.  To find the image, go to the HostPool blade, choose Gallery and select My Items or Shared Items and choose your image. 
+Once the capture process is completed, your image will be available to create your session hosts.  To find the image, go to the HostPool blade, choose Gallery and select all images. Click on My Items, your Managed Image will be under "My Images" and your image definition will show under Shared Items. 
 
 ## Best Practices
 
