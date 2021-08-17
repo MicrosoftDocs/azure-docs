@@ -44,16 +44,28 @@ items:
       href: custom-classification/concepts/evaluation.md
     - name: Data limits
       href: custom-classification/concepts/data-limits.md
-  - name: Custom text extraction
+- name: Custom text extraction
+  items:
+  - name: Overview
+    href: custom-extraction/overview.md
+  - name: Quickstart
+    href: custom-extraction/quickstart.md
+  - name: How-to guides
     items:
-    - name: Overview
-      href: custom-extraction/overview.md
-    - name: Quickstart
-      href: custom-extraction/quickstart.md
-    - name: Concepts
-      items:
-        - name: Recommended practices
-          href: custom-extraction/concepts/recommended-practices.md
+    - name: Improve a model
+      href: custom-extraction/how-to/improve-model.md
+    - name: Create a text extraction job
+      href: custom-extraction/how-to/create-job.md
+    - name: Tag data
+      href: custom-extraction/how-to/tag-data.md
+    - name: Train a model
+      href: custom-extraction/how-to/train-model.md 
+    - name: View model evaluation
+      href: custom-extraction/how-to/view-model-evaluation.md
+  - name: Concepts
+    items:
+      - name: Recommended practices
+        href: custom-extraction/concepts/recommended-practices.md
 - name: Entity linking
   items:
   - name: Overview
