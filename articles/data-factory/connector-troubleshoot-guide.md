@@ -1151,15 +1151,15 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 - **Recommendation**: Apply the following options to use the correct authentication type:
     - If your server requires a password, use "Basic".
     - If your server requires a private key, use "SSH public key authentication".
-    - If your server requires both a password and a private key, use "Multiple factor authentication".
+    - If your server requires both "password" and "private key", use "Multiple factor authentication".
 
-- **Cause**: Your SFTP server requires keyboard-interactive for authentication, but you provided password.
+- **Cause**: Your SFTP server requires "keyboard-interactive" for authentication, but you provided "password".
 
 - **Recommendation**: 
 
-    Keyboard-interactive is a special authentication method, which is different from the password. It means that when logging into a server, you must enter the password manually, and you cannot use the previously saved password. But Azure Data Factory (ADF) is a scheduled data transfer service, and there is no pop-up input box allowing you to provide the password at the runtime. <br/> 
+    "keyboard-interactive" is a special authentication method, which is different from "password". It means that when logging into a server, you must enter the password manually, and you cannot use the previously saved password. But Azure Data Factory (ADF) is a scheduled data transfer service, and there is no pop-up input box allowing you to provide the password at the runtime. <br/> 
     
-    As a compromise, an option is provided to simulate the input in the background instead of your real manual input, which is equivalent to changing the keyboard-interactive to a password. If you can accept this security concern, follow the steps below to enable it:<br/> 
+    As a compromise, an option is provided to simulate the input in the background instead of your real manual input, which is equivalent to changing the "keyboard-interactive" to "password". If you can accept this security concern, follow the steps below to enable it:<br/> 
     1. On the ADF portal, hover on the SFTP linked service, and open its payload by selecting the code button.
     1. Add `"allowKeyboardInteractiveAuth": true` in the "typeProperties" section.
  
