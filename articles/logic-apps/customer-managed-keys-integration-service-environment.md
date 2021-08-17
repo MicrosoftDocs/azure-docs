@@ -18,7 +18,7 @@ This topic shows how to set up and specify your own encryption key to use when y
 
 ## Considerations
 
-* At this time, customer-managed key support for an ISE is available only in these Azure regions: West US 2, East US, and South Central US
+* At this time, customer-managed key support for an ISE is available only in these Azure commercial regions: West US 2, East US, and South Central US. It's also available in these Azure government regions: Arizona, Virginia, and Texas.
 
 * You can specify a customer-managed key *only when you create your ISE*, not afterwards. You can't disable this key after your ISE is created. Currently, no support exists for rotating a customer-managed key for an ISE.
 
