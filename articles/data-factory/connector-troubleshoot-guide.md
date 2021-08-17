@@ -1138,7 +1138,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Recommendation**:  Grant the user with permission to read or write to the folder or files on SFTP server.
  
-### Error code:  SftpAuthenticationFailure
+### Error code: SftpAuthenticationFailure
 
 - **Message**: `Meet authentication failure when connect to Sftp server '%server;' using '%type;' authentication type. Please make sure you are using the correct authentication type and the credential is valid. For more details, see our troubleshooting docs.`
 
