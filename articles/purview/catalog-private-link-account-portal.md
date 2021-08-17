@@ -22,9 +22,9 @@ The Azure Purview _portal_ private endpoint is required to enable connectivity t
 For more information about Azure Private Link service, see [private links and private endpoints](../../private-link/index.yml) to learn more.
 
 ## Deployment checklist
-Using the one of the deployment options from this guide, you can deploy a new Azure Purview account with _account_ and _portal_ private endpoints or you can choose to deploy these private endpoints for an existing Azure Purview account:
+Using one of the deployment options from this guide, you can deploy a new Azure Purview account with _account_ and _portal_ private endpoints or you can choose to deploy these private endpoints for an existing Azure Purview account:
 
-1. Before you start this guide, choose an appropriate Azure virtual network and a subnet to deploy Azure Purview private endpoints:
+1. Choose an appropriate Azure virtual network and a subnet to deploy Azure Purview private endpoints. Select one of the following options:
    - Deploy a [new virtual network](../virtual-network/quick-create-portal.md) in your Azure subscription.
    - Locate an existing Azure virtual network and a subnet in your Azure subscription.
   
@@ -161,6 +161,6 @@ These instructions are provided for accessing Azure Purview securely from an Azu
 
 ## Next steps
 
--  [Review name resolution for private endpoints](./catalog-private-link-name-resolution.md)
+-  [Verify resolution for private endpoints](./catalog-private-link-name-resolution.md)
 -  [Manage data sources in Azure Purview](./manage-data-sources.md)
 -  [Troubleshooting private endpoint configuration for your Azure Purview account](./catalog-private-link-troubleshooting.md)

@@ -23,9 +23,9 @@ Azure Purview can scan data sources in Azure or an on-premises environment by us
 :::image type="content" source="media/catalog-private-link/purview-private-link-architecture-ingestion.png" alt-text="Diagram that shows Azure Purview and Private Link architecture." "lightbox="media/catalog-private-link/purview-private-link-architecture-ingestion.png":::
 
 ## Deployment checklist
-Using the one of the deployment options from this guide, enable ingestion private endpoints for your Azure Purview account:
+Using one of the deployment options from this guide, enable ingestion private endpoints for your Azure Purview account:
 
-1. Before you start this guide, choose an appropriate Azure virtual network and a subnet to deploy Azure Purview ingestion private endpoints:
+1. Choose an appropriate Azure virtual network and a subnet to deploy Azure Purview ingestion private endpoints. Select one of the following options:
    - Deploy a [new virtual network](../virtual-network/quick-create-portal.md) in your Azure subscription.
    - Locate an existing Azure virtual network and a subnet in your Azure subscription.
   
@@ -92,6 +92,6 @@ Follow the steps in [Create and manage a self-hosted integration runtime](manage
 > 
 ## Next steps
 
--  [Review name resolution for private endpoints](./catalog-private-link-name-resolution.md)
+-  [Verify resolution for private endpoints](./catalog-private-link-name-resolution.md)
 -  [Manage data sources in Azure Purview](./manage-data-sources.md)
 -  [Troubleshooting private endpoint configuration for your Azure Purview account](./catalog-private-link-troubleshooting.md)

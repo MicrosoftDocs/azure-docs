@@ -10,7 +10,7 @@ ms.date: 08/16/2021
 # Customer intent: As a Purview admin, I want to set up private endpoints for my Purview account, for secure access.
 ---
 
-# Configure DNS Name Resolution for Azure Purview private endpoints
+# Configure and verify DNS Name Resolution for Azure Purview private endpoints
 
 ## Conceptual overview
 Correct name resolution is a critical requirement when setting up private endpoints for your Azure Purview accounts. 

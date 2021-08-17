@@ -35,7 +35,9 @@ ms.date: 08/16/2021
     |Ingestion     |Managed Storage Account (Queue)         |mypurview-ingestion-queue  |
     |Ingestion     |Managed Event Hubs Namespace         |mypurview-ingestion-namespace  |
 
-2. If portal private endpoint is deployed, and public network access is set to deny in your Azure Purview account, make sure you launch Azure Purview Studio from internal network. 
+2. If portal private endpoint is deployed, make sure you also deploy account private endpoint.
+
+3. If portal private endpoint is deployed, and public network access is set to deny in your Azure Purview account, make sure you launch Azure Purview Studio from internal network. 
   <br>
     - To verify the correct name resolution, you can use a **NSlookup.exe** command line tool to query `web.purview.azure.com`. The result must return a private IP address that belongs to portal private endpoint. 
     - To verify network connectivity you can use any network test tools to test outbound connectivity to `web.purview.azure.com` endpoint to port **443**. The connection must be successful.    
