@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 02/29/2020
 ms.author: davidmu
-ms.reviewer: baselden
+ms.reviewer: alamaral
 ---
 
 # Resources for migrating applications to Azure Active Directory

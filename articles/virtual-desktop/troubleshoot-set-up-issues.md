@@ -17,7 +17,7 @@ This article covers issues during the initial setup of the Azure Virtual Desktop
 
 ## Provide feedback
 
-Visit the [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to discuss the Azure Virtual Desktop service with the product team and active community members.
+Visit the [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/bd-p/AzureVirtualDesktopForum) to discuss the Azure Virtual Desktop service with the product team and active community members.
 
 ## Acquiring the Windows 10 Enterprise multi-session image
 

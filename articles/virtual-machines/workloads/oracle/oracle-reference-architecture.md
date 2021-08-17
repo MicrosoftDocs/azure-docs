@@ -207,7 +207,7 @@ Patching your virtual machine operating system can be automated using [Azure Aut
 ## Architecture and design considerations
 
 - Consider using hyperthreaded [memory optimized virtual machine](../../sizes-memory.md) with [constrained core vCPUs](../../../virtual-machines/constrained-vcpu.md) for your Oracle Database VM to save on licensing costs and maximize performance. Use multiple premium or ultra disks (managed disks) for performance and availability.
-- When using managed disks, the disk/device name may change on reboots. It's recommended that you use the device UUID instead of the name to ensure your mounts persist across reboots. More information can be found [here](/previous-versions/azure/virtual-machines/linux/configure-raid#add-the-new-file-system-to-etcfstab).
+- When using managed disks, the disk/device name may change on reboots. It's recommended that you use the device UUID instead of the name to ensure your mounts persist across reboots. For more information, see [Configure software RAID on a Linux VM](/previous-versions/azure/virtual-machines/linux/configure-raid#add-the-new-file-system-to-etcfstab).
 - Use availability zones to achieve high availability in-region.
 - Consider using ultra disks (when available) or premium disks for your Oracle database.
 - Consider setting up a standby Oracle database in another Azure region using Oracle Data Guard.

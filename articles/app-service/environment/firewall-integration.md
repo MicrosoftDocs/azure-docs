@@ -4,7 +4,7 @@ description: Learn how to integrate with Azure Firewall to secure outbound traff
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 03/25/2021
+ms.date: 07/07/2021
 ms.author: ccompy
 ms.custom: seodec18, references_regions
 
@@ -240,6 +240,7 @@ With an Azure Firewall, you automatically get everything below configured with t
 | \*.identity.azure.net:443 |
 | \*.ctldl.windowsupdate.com:80 |
 | \*.ctldl.windowsupdate.com:443 |
+| \*.prod.microsoftmetrics.com:443 |
 
 #### Linux dependencies 
 
@@ -373,6 +374,7 @@ Linux is not available in US Gov regions and is thus not listed as an optional c
 |\*ctldl.windowsupdate.com:443 |
 |\*.management.usgovcloudapi.net:443 |
 |\*.update.microsoft.com:443 |
+|\*.prod.microsoftmetrics.com:443 |
 |admin.core.usgovcloudapi.net:443 |
 |azperfmerges.blob.core.windows.net:443 |
 |azperfmerges.blob.core.windows.net:443 |
@@ -403,6 +405,7 @@ Linux is not available in US Gov regions and is thus not listed as an optional c
 |gcwsprodgmdm2billing.queue.core.usgovcloudapi.net:443 |
 |gcwsprodgmdm2billing.table.core.usgovcloudapi.net:443 |
 |global.metrics.nsatc.net:443 |
+|prod.microsoftmetrics.com:443 |
 |go.microsoft.com:443 |
 |gr-gcws-prod-bd3.usgovcloudapp.net:443 |
 |gr-gcws-prod-bn1.usgovcloudapp.net:443 |

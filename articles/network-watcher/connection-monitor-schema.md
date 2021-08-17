@@ -37,9 +37,14 @@ Here are some benefits of Connection Monitor:
 * Support for connectivity checks that are based on HTTP, TCP, and ICMP 
 * Metrics and Log Analytics support for both Azure and non-Azure test setups
 
+There are two types of logs / data ingested into Log Analytics.
+The Test data(NWConnectionMonitorTestResult query) is updated based on monitoring frequency of a particular test group.
+The Path data(NWConnectionMonitorPathResult query) is updated when there is significant change in loss percentage or round trip time.
+Hence for some time duration test data may keep getting updated while path data is not frequently updated, as both are independent.
+
 ## Connection Monitor Tests schema
 
-Listed below are the fields in the Connection Monitor Tests schema and what they signify 
+Listed below are the fields in the Connection Monitor Tests data schema and what they signify 
 
 | Field  |    Description   |
 |---|---|
@@ -79,7 +84,7 @@ Listed below are the fields in the Connection Monitor Tests schema and what they
 
 ## Connection Monitor Path schema
 
-Listed below are the fields in the Connection Monitor Path schema and what they signify 
+Listed below are the fields in the Connection Monitor Path data schema and what they signify 
 
 | Field  |    Description   |
 |---|---|

@@ -3,7 +3,7 @@ title: Azure Automation Update Management Supported Clients
 description: This article describes the supported Windows and Linux operating systems with Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 07/08/2021
+ms.date: 07/14/2021
 ms.topic: conceptual
 ---
 
@@ -15,6 +15,8 @@ This article details the Windows and Linux operating systems supported and syste
 
 The following table lists the supported operating systems for update assessments and patching. Patching requires a system Hybrid Runbook Worker, which is automatically installed when you enable the virtual machine or server for management by Update Management. For information on Hybrid Runbook Worker system requirements, see [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md#prerequisites) and [Deploy a Linux Hybrid Runbook Worker](../automation-linux-hrw-install.md#prerequisites).
 
+All operating systems are assumed to be x64. x86 is not supported for any operating system.
+
 > [!NOTE]
 > Update assessment of Linux machines is only supported in certain regions as listed in the Automation account and Log Analytics workspace [mappings table](../how-to/region-mappings.md#supported-mappings).
 
@@ -22,11 +24,11 @@ The following table lists the supported operating systems for update assessments
 |---------|---------|
 |Windows Server 2019 (Datacenter/Standard including Server Core)<br><br>Windows Server 2016 (Datacenter/Standard excluding Server Core)<br><br>Windows Server 2012 R2(Datacenter/Standard)<br><br>Windows Server 2012 | |
 |Windows Server 2008 R2 (RTM and SP1 Standard)| Update Management supports assessments and patching for this operating system. The [Hybrid Runbook Worker](../automation-windows-hrw-install.md) is supported for Windows Server 2008 R2. |
-|CentOS 6, 7, and 8 (x64)      | Linux agents require access to an update repository. Classification-based patching requires `yum` to return security data that CentOS doesn't have in its RTM releases. For more information on classification-based patching on CentOS, see [Update classifications on Linux](view-update-assessments.md#linux).          |
-|Oracle Linux 6.x and 7.x (x64) | Linux agents require access to an update repository.        |
-|Red Hat Enterprise 6, 7, and 8 (x64)     | Linux agents require access to an update repository.        |
-|SUSE Linux Enterprise Server 12, 15, 15.1, and 15.2 (x64)     | Linux agents require access to an update repository.     |
-|Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS, and 20.04 LTS (x64)      |Linux agents require access to an update repository.         |
+|CentOS 6, 7, and 8       | Linux agents require access to an update repository. Classification-based patching requires `yum` to return security data that CentOS doesn't have in its RTM releases. For more information on classification-based patching on CentOS, see [Update classifications on Linux](view-update-assessments.md#linux).          |
+|Oracle Linux 6.x, 7.x, 8x | Linux agents require access to an update repository.        |
+|Red Hat Enterprise 6, 7, and 8      | Linux agents require access to an update repository.        |
+|SUSE Linux Enterprise Server 12, 15, 15.1, and 15.2      | Linux agents require access to an update repository.     |
+|Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS, and 20.04 LTS       |Linux agents require access to an update repository.         |
 
 > [!NOTE]
 > Update Management does not support safely automating update management across all instances in an Azure virtual machine scale set. [Automatic OS image upgrades](../../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) is the recommended method for managing OS image upgrades on your scale set.
@@ -43,7 +45,7 @@ The following table lists operating systems not supported by Update Management:
 
 ## System requirements
 
-The following information describes operating system-specific requirements. For additional guidance, see [Network planning](plan-deployment.md#ports). To understand requirements for TLS 1.2, see [TLS 1.2 enforcement for Azure Automation](../automation-managing-data.md#tls-12-enforcement-for-azure-automation).
+The following information describes operating system-specific requirements. For additional guidance, see [Network planning](plan-deployment.md#ports). To understand requirements for TLS 1.2, see [TLS 1.2 for Azure Automation](../automation-managing-data.md#tls-12-for-azure-automation).
 
 ### Windows
 

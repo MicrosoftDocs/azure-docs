@@ -16,12 +16,6 @@ Use the **Log Analytics workspaces** menu to create a Log Analytics workspace us
 * Device collections from Configuration Manager 
 * Diagnostics or log data from Azure storage
 
-For other sources, such as Azure VMs and Windows or Linux VMs in your environment, see the following topics:
-
-*  [Collect data from Azure virtual machines](../vm/quick-collect-azurevm.md) 
-*  [Collect data from hybrid Linux computer](../vm/quick-collect-linux-computer.md)
-*  [Collect data from hybrid Windows computer](../vm/quick-collect-windows-computer.md)
-
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Sign in to Azure portal
@@ -50,7 +44,7 @@ Click **Review + create** to review the settings and then **Create** to create t
 ## Troubleshooting
 When you create a workspace that was deleted in the last 14 days and in [soft-delete state](../logs/delete-workspace.md#soft-delete-behavior), the operation could have different outcome depending on your workspace configuration:
 1. If you provide the same workspace name, resource group, subscription and region as in the deleted workspace, your workspace will be recovered including its data, configuration and connected agents.
-2. If you use the same workspace name, but different resource group, subscription or region, you will get an error *This workspace name is already in use. Please try another one*. To override the soft-delete and permanently delete your workspace and create a new workspace with the same name, follow these steps to recover the workspace first and perform permanent delete:
+2. Workspace name must be unique per resource group. If you use a workspace name that is already exists, also in soft-delete in your resource group, you will get an error The workspace name 'workspace-name' is not unique, or conflict. To override the soft-delete and permanently delete your workspace and create a new workspace with the same name, follow these steps to recover the workspace first and perform permanent delete:
    - [Recover](../logs/delete-workspace.md#recover-workspace) your workspace
    - [Permanently delete](../logs/delete-workspace.md#permanent-workspace-delete) your workspace
    - Create a new workspace using the same workspace name

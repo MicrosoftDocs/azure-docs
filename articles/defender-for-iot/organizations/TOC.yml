@@ -1,4 +1,5 @@
-- name: Azure Defender for IoT for organizations
+- name: Azure Defender for IoT for end-user organizations
+  href: index.yml
   items:
 - name: Overview
   displayName: IoT, OT, getting started
@@ -11,7 +12,7 @@
     displayName: deployment, where to deploy
     href: architecture.md
 - name: Quickstarts
-  expanded: false
+  expanded: true
   items:
   - name: System prerequisites
     displayName: firewall, proxy, open ports
@@ -19,6 +20,13 @@
   - name: Get started with Azure Defender for IoT
     displayName: getting started, registration, onboarding, activation, threat intelligence 
     href: getting-started.md
+- name: Tutorial
+  expanded: false
+  items:
+  - name: Integrate Splunk
+    href: tutorial-splunk.md
+  - name: Integrate ServiceNow
+    href: tutorial-servicenow.md
 - name: Concepts
   items:  
     - name: Key concepts
@@ -39,11 +47,13 @@
       - name: Connect sensors with a proxy
         displayName: Squid, proxy, connect, direct internet access, access, internet
         href: how-to-connect-sensor-by-proxy.md
-  - name: Prepare your on-premises management console
+  - name: Manage subscriptions
     items:
     - name: Manage subscriptions
-      displayName: onboard, offboard, subscription, billing, pricing, payment
+      displayName: onboard, offboard, subscription, billing, pricing, payment, trial, evaluate, committed devices
       href: how-to-manage-subscriptions.md 
+  - name: Prepare your on-premises management console
+    items:
     - name: Activate and set up your on-premises management console
       displayName: deployment, activate, certificate, sign in, SSL, TLS, login, setup, initial, committed activation file
       href: how-to-activate-and-set-up-your-on-premises-management-console.md
@@ -61,7 +71,7 @@
   - name: Manage users and user access
     items:
     - name: Create and manage users
-      displayName: Active Directory, roles, permissions
+      displayName: Active Directory, roles, permissions, password
       href: how-to-create-and-manage-users.md
     - name: Define global user access control
       href: how-to-define-global-user-access-control.md
@@ -154,11 +164,11 @@
   - name: Track sensor activity
     displayName: timeline, time line, time-line, event
     href: how-to-track-sensor-activity.md
-  - name: Configure Azure Sentinel with Defender for IoT for organizations
+  - name: Configure Azure Sentinel with Defender for IoT for end-user organizations
     displayName: Sentinel
     href: how-to-configure-with-sentinel.md  
   - name: Troubleshoot the sensor and on-premises management console
-    displayName: widget, password, traffic, broadcast, unicast, NTP, quality of service
+    displayName: widget, password, traffic, broadcast, unicast, NTP, quality of service, export, logs
     href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
   - name: Set up SNMP MIB monitoring
     href: how-to-set-up-snmp-mib-monitoring.md
@@ -173,10 +183,8 @@
       href: integration-fortinet.md
     - name: Palo Alto integration
       href: integration-palo-alto.md
-    - name: ServiceNow integration
-      href: integration-servicenow.md
-    - name: Splunk integration
-      href: integration-splunk.md
+    - name: Qradar integration
+      href: integration-qradar.md
 - name: Reference
   items:
   - name: Work with Defender for IoT APIs
@@ -194,19 +202,27 @@
     href: resources-frequently-asked-questions.md
   - name: Defender for IoT glossary
     href: references-defender-for-iot-glossary.md
-- name: Resource
+- name: Resources
   items:
-  - name: Build your security skills with Microsoft Learn
-    href: /learn/browse/?term=securityS&terms=securityS
-  - name: Azure Security Center documentation
-    href: ../../security-center/
-  - name: Azure security documentation 
-    href: ../../security/index.yml
-  - name: Azure IoT Security, Privacy, & Compliance blog
-    href: https://techcommunity.microsoft.com/t5/iot-security/bd-p/IoTSecurity
+  - name: Pre-deployment checklist
+    displayNAme: pre-deployment
+    href: resources-sensor-deployment-checklist.md
+  - name: Tech Community Training sessions
+    displayName: training, videos 
+    href: resources-training-sessions.md
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-defender/
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest
+  - name: Security Resources 
+    items:
+    - name: Build your security skills with Microsoft Learn
+      href: /learn/browse/?term=securityS&terms=securityS
+    - name: Azure Security Center documentation
+      href: ../../security-center/
+    - name: Azure security documentation 
+      href: ../../security/index.yml
+    - name: Azure IoT Security, Privacy, & Compliance blog
+      href: https://techcommunity.microsoft.com/t5/iot-security/bd-p/IoTSecurity

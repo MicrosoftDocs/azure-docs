@@ -107,7 +107,7 @@ For more information, see [Compare groups](/office365/admin/create-groups/compar
 
 ## Add an application resource role
 
-You can have Azure AD automatically assign users access to an Azure AD enterprise application, including both SaaS applications and your organization's applications federated to Azure AD, when a user is assigned an access package. For applications that integrate with Azure AD through federated single sign-on, Azure AD will issue federation tokens for users assigned to the application.
+You can have Azure AD automatically assign users access to an Azure AD enterprise application, including both SaaS applications and your organization's applications integrated with Azure AD, when a user is assigned an access package. For applications that integrate with Azure AD through federated single sign-on, Azure AD will issue federation tokens for users assigned to the application.
 
 Applications can have multiple roles. When adding an application to an access package, if that application has more than one role, you will need to specify the appropriate role for those users. If you are developing applications, you can read more about how those roles are added to your applications in [How to: Configure the role claim issued in the SAML token for enterprise applications](../develop/active-directory-enterprise-app-role-management.md).
 

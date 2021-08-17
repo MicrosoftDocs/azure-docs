@@ -52,6 +52,10 @@ landingContent:
             url: bastion-connect-vm-ssh.md
           - text: Connect to a virtual machine (Windows)
             url: bastion-connect-vm-rdp.md
+      - linkListType: learn
+        links:
+          - text: Connect to a VM using Azure Bastion
+            url: /learn/modules/connect-vm-with-azure-bastion/
       - linkListType: video
         links:
           - text: Working with Azure Bastion

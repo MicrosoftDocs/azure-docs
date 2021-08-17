@@ -21,6 +21,8 @@
     href: work-remotely-support.md
   - name: Bastion FAQ
     href: bastion-faq.md
+  - name: Configuration settings
+    href: configuration-settings.md
   - name: Bastion and VNet peering
     href: vnet-peering.md
   - name: Security
@@ -43,6 +45,10 @@
       href: bastion-connect-vm-ssh.md
     - name: RDP (Windows)
       href: bastion-connect-vm-rdp.md
+  - name: Upgrade a SKU
+    href: upgrade-sku.md
+  - name: Configure host scaling
+    href: configure-host-scaling.md
   - name: Connect to a virtual machine scale set
     href: bastion-connect-vm-scale-set.md
   - name: Connect to DevTest Labs virtual machines
@@ -79,6 +85,8 @@
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Blog
     href: https://azure.microsoft.com/blog/topics/networking
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/azure-bastion
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-virtual-network.html
   - name: Preview SLA

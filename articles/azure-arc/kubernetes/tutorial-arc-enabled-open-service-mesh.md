@@ -3,7 +3,7 @@ title: Azure Arc-enabled Open Service Mesh (Preview)
 description: Open Service Mesh (OSM) extension on Arc enabled Kubernetes cluster
 services: azure-arc
 ms.service: azure-arc
-ms.date: 05/24/2021
+ms.date: 07/23/2021
 ms.topic: article
 author: mayurigupta13
 ms.author: mayg
@@ -237,8 +237,70 @@ You should see a JSON output similar to the output below:
   "version": "0.8.4"
 }
 ```
-
 ## OSM controller configuration
+OSM deploys a MeshConfig resource `osm-mesh-config` as a part of its control plane in arc-osm-system namespace. The purpose of this MeshConfig is to provide the mesh owner/operator the ability to update some of the mesh configurations based on their needs. to view the default values, use the following command.
+
+```azurecli-interactive
+kubectl describe meshconfig osm-mesh-config -n arc-osm-system
+```
+The output would show the default values:
+
+```azurecli-interactive
+Certificate:
+    Service Cert Validity Duration:  24h
+  Feature Flags:
+    Enable Egress Policy:      true
+    Enable Multicluster Mode:  false
+    Enable WASM Stats:         true
+  Observability:
+    Enable Debug Server:  false
+    Osm Log Level:        info
+    Tracing:
+      Address:   jaeger.osm-system.svc.cluster.local
+      Enable:    false
+      Endpoint:  /api/v2/spans
+      Port:      9411
+  Sidecar:
+    Config Resync Interval:            0s
+    Enable Privileged Init Container:  false
+    Envoy Image:                       mcr.microsoft.com/oss/envoyproxy/envoy:v1.18.3
+    Init Container Image:              mcr.microsoft.com/oss/openservicemesh/init:v0.9.1
+    Log Level:                         error
+    Max Data Plane Connections:        0
+    Resources:
+  Traffic:
+    Enable Egress:                          false
+    Enable Permissive Traffic Policy Mode:  true
+    Inbound External Authorization:
+      Enable:              false
+      Failure Mode Allow:  false
+      Stat Prefix:         inboundExtAuthz
+      Timeout:             1s
+    Use HTTPS Ingress:     false
+```
+Refer to the [Config API reference](https://docs.openservicemesh.io/docs/api_reference/config/v1alpha1/) for more information. Notice that **spec.traffic.enablePermissiveTrafficPolicyMode** is set to **true**. Permissive traffic policy mode in OSM is a mode where the [SMI](https://smi-spec.io/) traffic policy enforcement is bypassed. In this mode, OSM automatically discovers services that are a part of the service mesh and programs traffic policy rules on each Envoy proxy sidecar to be able to communicate with these services.
+
+### Making changes to OSM controller configuration
+
+> [!NOTE]
+> Values in the MeshConfig `osm-mesh-config` are persisted across upgrades.
+
+Changes to `osm-mesh-config` can be made using the kubectl patch command. In the following example, the permissive traffic policy mode is changed to false.
+
+```azurecli-interactive
+kubectl patch meshconfig osm-mesh-config -n arc-osm-system -p '{"spec":{"traffic":{"enablePermissiveTrafficPolicyMode":false}}}' --type=merge
+```
+
+If an incorrect value is used, validations on the MeshConfig CRD will prevent the change with an error message explaining why the value is invalid. For example, the below command shows what happens if we patch enableEgress to a non-boolean value.
+
+```azurecli-interactive
+kubectl patch meshconfig osm-mesh-config -n arc-osm-system -p '{"spec":{"traffic":{"enableEgress":"no"}}}'  --type=merge
+
+# Validations on the CRD will deny this change
+The MeshConfig "osm-mesh-config" is invalid: spec.traffic.enableEgress: Invalid value: "string": spec.traffic.enableEgress in body must be of type boolean: "string"
+```
+
+## OSM controller configuration (version v0.8.4)
 
 Currently you can access and configure the OSM controller configuration via the ConfigMap. To view the OSM controller configuration settings, query the `osm-config` ConfigMap via `kubectl` to view its configuration settings.
 
@@ -262,11 +324,9 @@ Output:
 }
 ```
 
-Read [OSM ConfigMap documentation](https://release-v0-8.docs.openservicemesh.io/docs/osm_config_map/) to understand each of the available configurations. Notice the **permissive_traffic_policy_mode** is configured to **true**. Permissive traffic policy mode in OSM is a mode where the [SMI](https://smi-spec.io/) traffic policy enforcement is bypassed. In this mode, OSM automatically discovers services that are a part of the service mesh and programs traffic policy rules on each Envoy proxy sidecar to be able to communicate with these services.
+Read [OSM ConfigMap documentation](https://release-v0-8.docs.openservicemesh.io/docs/osm_config_map/) to understand each of the available configurations. 
 
-### Making changes to OSM ConfigMap
-
-To make changes to the OSM ConfigMap, use the following guidance:
+To make changes to the OSM ConfigMap for version v0.8.4, use the following guidance:
 
 1. Copy and save the changes you wish to make in a JSON file. In this example, we are going to change the permissive_traffic_policy_mode from true to false. Each time you make a change to `osm-config`, you will have to provide the full list of changes (compared to the default `osm-config`) in a JSON file.
     ```json
@@ -301,32 +361,25 @@ Add namespaces to the mesh by running the following command:
 osm namespace add <namespace_name>
 ```
 
-More information about onboarding services can be found [here](https://docs.openservicemesh.io/docs/tasks/onboard_services/).
+More information about onboarding services can be found [here](https://docs.openservicemesh.io/docs/guides/app_onboarding/#onboard-services).
 
 ### Configure OSM with Service Mesh Interface (SMI) policies
 
-You can start with a [demo application](https://release-v0-8.docs.openservicemesh.io/docs/install/manual_demo/) or use your test environment to try out SMI policies.
+You can start with a [demo application](https://docs.openservicemesh.io/docs/getting_started/quickstart/manual_demo/#deploy-applications) or use your test environment to try out SMI policies.
 
 > [!NOTE] 
 > Ensure that the version of the bookstore application you run matches the version of the OSM extension installed on your cluster. Ex: if you are using v0.8.4 of the OSM extension, use the bookstore demo from release-v0.8 branch of OSM upstream repository.
 
 ### Configuring your own Jaeger, Prometheus and Grafana instances
 
-The OSM extension has [Jaeger](https://www.jaegertracing.io/docs/getting-started/), [Prometheus](https://prometheus.io/docs/prometheus/latest/installation/) and [Grafana](https://grafana.com/docs/grafana/latest/installation/) installation disabled by default so that users can integrate OSM with their own running instances of those tools instead. To integrate with your own instances, check the following documentation:
+The OSM extension does not install add-ons like [Jaeger](https://www.jaegertracing.io/docs/getting-started/), [Prometheus](https://prometheus.io/docs/prometheus/latest/installation/) and [Grafana](https://grafana.com/docs/grafana/latest/installation/) so that users can integrate OSM with their own running instances of those tools instead. To integrate with your own instances, check the following documentation:
 
-- [BYO-Jaeger instance](https://github.com/openservicemesh/osm-docs/blob/main/content/docs/tasks/observability/tracing.md#byo-bring-your-own)
-    - To set the values described in this documentation, you will need to update the `osm-config` ConfigMap with the following settings:
-        ```json
-        {
-          "osm.OpenServiceMesh.tracing.enable": "true",
-          "osm.OpenServiceMesh.tracing.address": "<tracing server hostname>",
-          "osm.OpenServiceMesh.tracing.port": "<tracing server port>",
-          "osm.OpenServiceMesh.tracing.endpoint": "<tracing server endpoint>",
-        }
-        ```
-        Use the guidance available in [this section](#making-changes-to-osm-configmap) to push these settings to  osm-config.
-- [BYO-Prometheus instance](https://github.com/openservicemesh/osm/blob/release-v0.8/docs/content/docs/tasks_usage/metrics.md#byo-bring-your-own)
-- [BYO-Grafana dashboard](https://github.com/openservicemesh/osm/blob/release-v0.8/docs/content/docs/tasks_usage/metrics.md#importing-dashboards-on-a-byo-grafana-instance)
+> [!NOTE]
+> Use the commands provided in the OSM GitHub documentation with caution. Ensure that you use the correct namespace name 'arc-osm-system' when making changes to `osm-mesh-config`.
+
+- [BYO-Jaeger instance](https://docs.openservicemesh.io/docs/guides/observability/tracing/#byo-bring-your-own)
+- [BYO-Prometheus instance](https://docs.openservicemesh.io/docs/guides/observability/metrics/#byo-prometheus)
+- [BYO-Grafana dashboard](https://docs.openservicemesh.io/docs/guides/observability/metrics/#importing-dashboards-on-a-byo-grafana-instance)
 
 
 ## Monitoring application using Azure Monitor and Applications Insights
@@ -335,7 +388,7 @@ Both Azure Monitor and Azure Application Insights helps you maximize the availab
 
 Arc enabled Open Service Mesh will have deep integrations into both of these Azure services, and provide a seemless Azure experience for viewing and responding to critical KPIs provided by OSM metrics. Follow the steps below to allow Azure Monitor to scrape prometheus endpoints for collecting application metrics. 
 
-1. Ensure that prometheus_scraping is set to true in the OSM ConfigMap.
+1. Ensure that prometheus_scraping is set to true in the `osm-mesh-config`.
 
 2. Ensure that the application namespaces that you wish to be monitored are onboarded to the mesh. Follow the guidance [available here](#onboard-namespaces-to-the-service-mesh).
 
@@ -357,7 +410,7 @@ Arc enabled Open Service Mesh will have deep integrations into both of these Azu
     kubectl apply -f container-azm-ms-osmconfig.yaml
     ```
 
-It may take upto 15 minutes for the metrics to show up in Log Analytics. You can try querying the InsightsMetrics table.
+It may take up to 15 minutes for the metrics to show up in Log Analytics. You can try querying the InsightsMetrics table.
 
 ```azurecli-interactive
 InsightsMetrics
@@ -391,11 +444,6 @@ Read more about integration with Azure Monitor [here](https://github.com/microso
 
 ## Upgrade the OSM extension instance to a specific version
 
-> [!NOTE]
-> Upgrading the OSM add-on could potentially overwrite user-configured values in the OSM ConfigMap.
-
-To prevent any previous ConfigMap changes from being overwritten, pass in the same configuration settings file used to make those edits.
-
 There may be some downtime of the control plane during upgrades. The data plane will only be affected during CRD upgrades.
 
 ### Supported Upgrades
@@ -406,28 +454,33 @@ The OSM extension can be upgraded up to the next minor version. Downgrades and m
 
 The OSM extension cannot be upgraded to a new version if that version contains CRD version updates without deleting the existing CRDs first. You can check if an OSM upgrade also includes CRD version updates by checking the CRD Updates section of the [OSM release notes](https://github.com/openservicemesh/osm/releases).
 
-Check the [OSM CRD Upgrades documentation](https://github.com/openservicemesh/osm/blob/release-v0.8/docs/content/docs/upgrade_guide.md#crd-upgrades) to prepare your cluster for such an upgrade. Make sure to back up your Custom Resources prior to deleting the CRDs so that they can be easily recreated after upgrading. Afterwards, follow the upgrade instructions using az k8s-extension in this guide instead of using Helm or the OSM CLI.
+Make sure to back up your Custom Resources prior to deleting the CRDs so that they can be easily recreated after upgrading. Afterwards, follow the upgrade instructions captured below.
 
 > [!NOTE] 
 > Upgrading the CRDs will affect the data plane as the SMI policies won't exist between the time they're deleted and the time they're created again.
 
 ### Upgrade instructions
 
-1. [Delete outdated CRDs and install updated CRDs](https://github.com/openservicemesh/osm/blob/release-v0.8/docs/content/docs/upgrade_guide.md#crd-upgrades) if necessary
-    - Back up existing Custom Resources as a reference for when you create new ones.
-    - Install the updated CRDs and Custom Resources prior to installing the new extension version.
+1. Delete the old CRDs and custom resources (Run from the root of the [OSM repo](https://github.com/openservicemesh/osm)). Ensure that the tag of the [OSM CRDs](https://github.com/openservicemesh/osm/tree/main/charts/osm/crds) corresponds to the new version of the chart.
+    ```azurecli-interactive
+    kubectl delete --ignore-not-found --recursive -f ./charts/osm/crds/
 
-2. Set the new chart version as an environment variable:
+2. Install the updated CRDs.
+    ```azurecli-interactive
+    kubectl apply -f charts/osm/crds/
+    ```
+
+3. Set the new chart version as an environment variable:
     ```azurecli-interactive
     export VERSION=<chart version>
     ```
     
-3. Run az k8s-extension create with the new chart version
+4. Run az k8s-extension create with the new chart version
     ```azurecli-interactive
     az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --release-train pilot --name osm --version $VERSION --configuration-settings-file $SETTINGS_FILE
     ```
 
-4. Recreate Custom Resources using new CRDs if necessary
+5. Recreate Custom Resources using new CRDs
 
 ## Uninstall Arc enabled Open Service Mesh
 

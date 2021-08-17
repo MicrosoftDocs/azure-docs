@@ -112,11 +112,13 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 18.04 LTS | [9.39](https://support.microsoft.com/help/4597409/) | 4.15.0-20-generic to 4.15.0-123-generic </br> 4.18.0-13-generic to 4.18.0-25-generic </br> 5.0.0-15-generic to 5.0.0-63-generic </br> 5.3.0-19-generic to 5.3.0-69-generic </br> 5.4.0-37-generic to 5.4.0-53-generic</br> 4.15.0-1009-azure to 4.15.0-1099-azure </br> 4.18.0-1006-azure to 4.18.0-1025-azure </br> 5.0.0-1012-azure to 5.0.0-1036-azure </br> 5.3.0-1007-azure to 5.3.0-1035-azure </br> 5.4.0-1020-azure to 5.4.0-1031-azure|
 18.04 LTS | [9.38](https://support.microsoft.com/help/4590304/) | 4.15.0-20-generic to 4.15.0-118-generic </br> 4.18.0-13-generic to 4.18.0-25-generic </br> 5.0.0-15-generic to 5.0.0-61-generic </br> 5.3.0-19-generic to 5.3.0-67-generic </br> 5.4.0-37-generic to 5.4.0-48-generic</br> 4.15.0-1009-azure to 4.15.0-1096-azure </br> 4.18.0-1006-azure to 4.18.0-1025-azure </br> 5.0.0-1012-azure to 5.0.0-1036-azure </br> 5.3.0-1007-azure to 5.3.0-1035-azure </br> 5.4.0-1020-azure to 5.4.0-1026-azure|
 |||
-20.04 LTS |[9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8)| 5.4.0-26-generic to 5.4.0-60-generic </br> -generic 5.4.0-1010-azure to 5.4.0-1043-azure </br> 5.8.0-29-generic to 5.8.0-48-generic </br> 5.4.0-1047-azure </br> 5.4.0-73-generic </br> 5.8.0-53-generic </br> 5.4.0-1048-azure </br> 5.4.0-74-generic </br> 5.8.0-1033-azure </br> 5.8.0-55-generic |
-20.04 LTS |[9.41](https://support.microsoft.com/en-us/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533)| 5.4.0-26-generic to 5.4.0-65 </br> -generic 5.4.0-1010-azure to 5.4.0-1039-azure </br> 5.8.0-29-generic to 5.8.0-43-generic </br>
-20.04 LTS |[9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)| 5.4.0-26-generic to 5.4.0-59 </br> -generic 5.4.0-1010-azure to 5.4.0-1035-azure </br> 5.8.0-29-generic to 5.8.0-34-generic|
+20.04 LTS |[9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8)| 5.4.0-26-generic to 5.4.0-60-generic </br> -generic 5.4.0-1010-azure to 5.4.0-1043-azure </br> 5.4.0-1047-azure </br> 5.4.0-73-generic </br> 5.4.0-1048-azure </br> 5.4.0-74-generic |
+20.04 LTS |[9.41](https://support.microsoft.com/en-us/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533)| 5.4.0-26-generic to 5.4.0-65 </br> -generic 5.4.0-1010-azure to 5.4.0-1039-azure |
+20.04 LTS |[9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)| 5.4.0-26-generic to 5.4.0-59 </br> -generic 5.4.0-1010-azure to 5.4.0-1035-azure |
 20.04 LTS |[9.39](https://support.microsoft.com/help/4597409/) | 5.4.0-26-generic to 5.4.0-53 </br> -generic 5.4.0-1010-azure to 5.4.0-1031-azure
 20.04 LTS |[9.38](https://support.microsoft.com/help/4590304/) | 5.4.0-26-generic to 5.4.0-48 </br> -generic 5.4.0-1010-azure to 5.4.0-1026-azure
+
+**Note: For Ubuntu 20.04, we had initially rolled out support for kernels 5.8.* but we have since found issues with support for this kernel and hence have redacted these kernels from our support statement for the time being. 
 
 ### Debian kernel versions
 
@@ -235,7 +237,7 @@ Guest/server NFS | No
 Guest/server iSCSI | For Migration - Yes<br/>For Disaster Recovery - No, iSCSI will failback as an attached disk to the VM
 Guest/server SMB 3.0 | No
 Guest/server RDM | Yes<br/><br/> N/A for physical servers
-Guest/server disk > 1 TB | Yes, disk must be larger than 1024 MB<br/><br/>Up to 8,192 GB when replicating to managed disks (9.26 version onwards)<br></br> Up to 4,095 GB when replicating to storage accounts
+Guest/server disk > 1 TB | Yes, disk must be larger than 1024 MB<br/><br/>Up to 32,767 GB when replicating to managed disks (9.41 version onwards)<br></br> Up to 4,095 GB when replicating to storage accounts
 Guest/server disk with 4K logical and 4k physical sector size | No
 Guest/server disk with 4K logical and 512-bytes physical sector size | No
 Guest/server volume with striped disk >4 TB | Yes

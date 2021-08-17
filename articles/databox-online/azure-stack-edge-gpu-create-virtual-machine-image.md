@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/08/2021
+ms.date: 07/16/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create Azure VM images that I can use to deploy virtual machines on my Azure Stack Edge Pro GPU device.
 ---
@@ -24,7 +24,7 @@ There's a required workflow for preparing a custom VM image. For the image sourc
 
 Complete the following prerequisite before you create your VM image:
 
-- [Download AzCopy](/azure/storage/common/storage-use-azcopy-v10#download-azcopy). AzCopy gives you a fast way to copy an OS disk to an Azure Storage account.
+- [Download AzCopy](../storage/common/storage-use-azcopy-v10.md#download-azcopy). AzCopy gives you a fast way to copy an OS disk to an Azure Storage account.
 
 ---
 
@@ -37,11 +37,11 @@ The steps for preparing a custom VM image vary for a Windows or Linux VM.
 
 Do the following steps to create a Windows VM image:
 
-1. Create a Windows virtual machine in Azure. For portal instructions, see [Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal). For PowerShell instructions, see [Tutorial: Create and manage Windows VMs with Azure PowerShell](../virtual-machines/windows/tutorial-manage-vm.md).  
+1. Create a Windows virtual machine in Azure. For portal instructions, see [Create a Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md). For PowerShell instructions, see [Tutorial: Create and manage Windows VMs with Azure PowerShell](../virtual-machines/windows/tutorial-manage-vm.md).  
 
    The virtual machine must be a Generation 1 VM. The OS disk that you use to create your VM image must be a fixed-size VHD of any size that Azure supports. For VM size options, see [Supported VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes).
 
-   You can use any Windows Gen1 VM with a fixed-size VHD in Azure Marketplace. For a list of commonly used Azure Marketplace images that could work, see [Azure Marketplace items available for Azure Stack Hub](azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md#commonly-used-marketplace-images).
+   You can use any Windows Gen1 VM with a fixed-size VHD in Azure Marketplace. For a list Azure Marketplace images that could work, see [Commonly used Azure Marketplace images for Azure Stack Edge](azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md#commonly-used-marketplace-images).
 
 2. Generalize the virtual machine. To generalize the VM, [connect to the virtual machine](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-windows-vm), open a command prompt, and run the following `sysprep` command:
 
@@ -59,7 +59,7 @@ Do the following steps to create a Linux VM image:
 
 1. Create a Linux virtual machine in Azure. For portal instructions, see [Quickstart: Create a Linux VM in the Azure portal](../virtual-machines/linux/quick-create-portal.md).  For PowerShell instructions, see [Quickstart: Create a Linux VM in Azure with PowerShell](../virtual-machines/linux/quick-create-powershell.md).
 
-   You can use any Gen1 VM with a fixed-size VHD in Azure Marketplace to create Linux custom images, with the exception of Red Hat Enterprise Linux (RHEL) images, which require extra steps. For a list of Azure Marketplace images that could work, see [Azure Marketplace items available for Azure Stack Hub](azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md#commonly-used-marketplace-images). For guidance on RHEL images, see [Using RHEL BYOS images](#using-rhel-byos-images), below. 
+   You can use any Gen1 VM with a fixed-size VHD in Azure Marketplace to create Linux custom images, with the exception of Red Hat Enterprise Linux (RHEL) images, which require extra steps. For a list of Azure Marketplace images that could work, see [Commonly used Azure Marketplace images for Azure Stack Edge](azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md#commonly-used-marketplace-images). For guidance on RHEL images, see [Using RHEL BYOS images](#using-rhel-byos-images), below.
 
 1. Deprovision the VM. Use the Azure VM agent to delete machine-specific files and data. Use the `waagent` command with the `-deprovision+user` parameter on your source Linux VM. For more information, see [Understanding and using Azure Linux Agent](../virtual-machines/extensions/agent-linux.md).
 
@@ -97,9 +97,9 @@ To use your custom VM image to deploy VMs on your device, you must download the 
 
 To download the OS disk for the VM to an Azure storage account, do the following steps:
 
-1. [Stop the VM in the portal](/azure/virtual-machines/windows/download-vhd#stop-the-vm). You need to do this to deallocate the OS disk even if your Windows VM was shut down after you ran `sysprep` to generalize it.
+1. [Stop the VM in the portal](../virtual-machines/windows/download-vhd.md#stop-the-vm). You need to do this to deallocate the OS disk even if your Windows VM was shut down after you ran `sysprep` to generalize it.
 
-1. [Generate a download URL for the OS disk](/azure/virtual-machines/windows/download-vhd#generate-download-url), and make a note of the URL. By default, the URL expires after 3600 seconds (1 hour). You can increase that time if needed.
+1. [Generate a download URL for the OS disk](../virtual-machines/windows/download-vhd.md#generate-download-url), and make a note of the URL. By default, the URL expires after 3600 seconds (1 hour). You can increase that time if needed.
       
 1. Download the VHD to your Azure Storage account using one of these methods:
    
@@ -111,7 +111,7 @@ You can now use this VHD to create and deploy VMs on your Azure Stack Edge Pro G
 
 ## Copy VHD to storage account using AzCopy
 
-The following procedures describe how to use AzCopy to copy a custom VM image to an Azure Storage account so you can use the image to deploy VMs on your Azure Stack Edge Pro GPU device. We recommend that you store your custom VM images in the same storage account that you're using for your Azure Stack Edge Pro GPU device. 
+The following procedures describe how to use AzCopy to copy a custom VM image to an Azure Storage account so you can use the image to deploy VMs on your Azure Stack Edge Pro GPU device. We recommend that you store your custom VM images in any existing storage account that you're using which is in the same region/subscription as Azure Stack Edge.
 
 
 ### Create target URI for a container
@@ -151,7 +151,7 @@ To create the target URI for your prepared VHD, do the following steps:
 
 To copy your VHD to a blob container using AzCopy, do the following steps:
 
- 1. [Download AZCopy](/azure/storage/common/storage-use-azcopy-v10#download-azcopy) if you haven't done that already.
+ 1. [Download AZCopy](../storage/common/storage-use-azcopy-v10.md#download-azcopy) if you haven't done that already.
  
  1. In PowerShell, navigate to the directory where you stored azcopy.exe, and run the following command:
 

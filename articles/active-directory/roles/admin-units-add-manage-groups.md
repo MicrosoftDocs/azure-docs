@@ -40,21 +40,29 @@ You can assign only individual groups to an administrative unit. There is no opt
 
 * From the **Groups** pane:
 
-  1. In the Azure portal, go to **Azure AD**.
-  1. Select **Groups**, and then select the group that you want to assign to the administrative unit. 
+  1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+
+  1. Select **Azure Active Directory** > **Groups**.
+
+  1. Select the group that you want to assign to an administrative unit.
+
   1. On the left pane, select **Administrative units** to display a list of the administrative units that the group is assigned to. 
 
      ![Screenshot of the "Assign to administrative unit" link on the "Administrative units" pane.](./media/admin-units-add-manage-groups/assign-to-group-1.png)
 
   1. Select **Assign to administrative unit**.
+
   1. On the right pane, select the administrative unit.
 
-* From the **Administrative units** > **All Groups** pane:
+* From the **Administrative units** > **Groups** pane:
 
-  1. In the Azure portal, go to **Azure AD**.
+  1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
+
+  1. Select **Azure Active Directory** > **Administrative units**.
   
-  1. On the left pane, select **Administrative units**, and then select **All Groups**. 
-     Any groups that are already assigned to the administrative unit are displayed on the right pane. 
+  1. Select an administrative unit that you want to add a group to.
+  
+  1. Select **Groups**. Any groups that are already assigned to the administrative unit are displayed on the right pane. 
 
   1. On the **Groups** pane, select **Add**.
     The right pane lists all available groups in your Azure AD organization. 

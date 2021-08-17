@@ -19,7 +19,7 @@ ms.author: lajanuar
 
 ## What is managed identity?
 
- Azure managed identity is a service principal that creates an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources. You can use a managed identity to grant access to any resource that supports Azure AD authentication. To grant access, assign a role to a managed identity using [Azure role-based access control](/azure/role-based-access-control/overview) (Azure RBAC).  There is no added cost to use managed identity in Azure.
+ Azure managed identity is a service principal that creates an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources. You can use a managed identity to grant access to any resource that supports Azure AD authentication. To grant access, assign a role to a managed identity using [Azure role-based access control](../../../role-based-access-control/overview.md) (Azure RBAC).  There is no added cost to use managed identity in Azure.
 
 Managed identity supports both privately and publicly accessible Azure blob storage accounts.  For storage accounts with public access, you can opt to use a shared access signature (SAS) to grant limited access.  In this article, we will examine how to manage access to translation documents in your Azure blob storage account using system-assigned managed identity.
 
@@ -38,13 +38,13 @@ To get started, you'll need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/)—if you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* A [**single-service Translator**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (not a multi-service Cognitive Services) resource assigned to a **non-global** region. For detailed steps, _see_ [Create a Cognitive Services resource using the Azure portal](/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows).
+* A [**single-service Translator**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (not a multi-service Cognitive Services) resource assigned to a **non-global** region. For detailed steps, _see_ [Create a Cognitive Services resource using the Azure portal](../../cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows).
 
-* An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the same region as your Translator resource. You'll create containers to store and organize your blob data within your storage account. If the account has a firewall, you must have the [exception for trusted Azure services](/azure/storage/common/storage-network-security?tabs=azure-portal#manage-exceptions) checkbox enabled.
+* An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the same region as your Translator resource. You'll create containers to store and organize your blob data within your storage account. If the account has a firewall, you must have the [exception for trusted Azure services](../../../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions) checkbox enabled.
 
     :::image type="content" source="../media/managed-identities/allow-trusted-services-checkbox-portal-view.png" alt-text="Screenshot: allow trusted services checkbox, portal view":::
 
-* A brief understanding of [**Azure role-based access control (Azure RBAC)**](/azure/role-based-access-control/role-assignments-portal) using the Azure portal.
+* A brief understanding of [**Azure role-based access control (Azure RBAC)**](../../../role-based-access-control/role-assignments-portal.md) using the Azure portal.
 
 ## Managed Identity assignments
 
@@ -56,7 +56,7 @@ In the following steps, we'll enable a system-assigned managed identity and gran
 
 >[!IMPORTANT]
 >
-> To enable a system-assigned managed identity, you need **Microsoft.Authorization/roleAssignments/write** permissions, such as [**Owner**](/azure/role-based-access-control/built-in-roles#owner) or [**User Access Administrator**](/azure/role-based-access-control/built-in-roles#user-access-administrator). You can specify a scope at four levels: management group, subscription, resource group, or resource.
+> To enable a system-assigned managed identity, you need **Microsoft.Authorization/roleAssignments/write** permissions, such as [**Owner**](../../../role-based-access-control/built-in-roles.md#owner) or [**User Access Administrator**](../../../role-based-access-control/built-in-roles.md#user-access-administrator). You can specify a scope at four levels: management group, subscription, resource group, or resource.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with your Azure subscription.
 
@@ -78,7 +78,7 @@ In the following steps, we'll enable a system-assigned managed identity and gran
 
 >[!NOTE]
 >
-> If you are unable to assign a role in the Azure portal because the Add > Add role assignment option is disabled or get the permissions error, "you do not have permissions to add role assignment at this scope", check that you are currently signed in as a user with an assigned a role that has Microsoft.Authorization/roleAssignments/write permissions such as [**Owner**](/azure/role-based-access-control/built-in-roles#owner) or[**User Access Administrator**](/azure/role-based-access-control/built-in-roles#user-access-administrator) at the storage scope for the storage resource.
+> If you are unable to assign a role in the Azure portal because the Add > Add role assignment option is disabled or get the permissions error, "you do not have permissions to add role assignment at this scope", check that you are currently signed in as a user with an assigned a role that has Microsoft.Authorization/roleAssignments/write permissions such as [**Owner**](../../../role-based-access-control/built-in-roles.md#owner) or[**User Access Administrator**](../../../role-based-access-control/built-in-roles.md#user-access-administrator) at the storage scope for the storage resource.
 
 7. Next, you're going to assign a **Storage Blob Data Contributor** role to your Translator service resource. In the **Add role assignment** pop-up window, complete the fields as follows and select **Save**:
 
@@ -104,7 +104,7 @@ In the following steps, we'll enable a system-assigned managed identity and gran
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Managed identities for Azure resources: frequently asked questions](/azure/active-directory/managed-identities-azure-resources/managed-identities-faq)
+> [Managed identities for Azure resources: frequently asked questions](../../../active-directory/managed-identities-azure-resources/managed-identities-faq.md)
 
 > [!div class="nextstepaction"]
->[Use managed identities to acquire an access token](/azure/app-service/overview-managed-identity?tabs=dotnet#obtain-tokens-for-azure-resources)
+>[Use managed identities to acquire an access token](../../../app-service/overview-managed-identity.md?tabs=dotnet#obtain-tokens-for-azure-resources)

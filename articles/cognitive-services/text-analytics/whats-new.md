@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/07/2021
+ms.date: 08/09/2021
 ms.author: aahi
 ms.custom: references_regions 
 ---
@@ -17,15 +17,24 @@ ms.custom: references_regions
 
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
+## August 2021
+
+* Version `3.2-preview.1` which includes a public preview for [extractive summarization](how-tos/extractive-summarization.md).
+* [Asynchronous operation](how-tos/text-analytics-how-to-call-api.md?tabs=asynchronous) is now available in the Azure Government and Azure China regions.
+* New preview versions of the client library, with support for extractive summarization. See the following samples:
+    * [.NET](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample8_ExtractSummary.md)
+    * [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro/AnalyzeExtractiveSummarization.java)
+    * [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_extract_summary.py)
+
 ## July 2021
 
 ### GA release updates
 
-* General availability for Text Analytics for health for both containers and hosted API (/health).
-* General availability for Opinion Mining.
-* General availability for PII extraction and redaction.
-* General availability for Asynchronous (`/analyze`) endpoint.
-* Updated [quickstart](quickstarts/client-libraries-rest-api.md) examples. 
+* General availability for [Text Analytics for health](how-tos/text-analytics-for-health.md?tabs=ner) for both containers and hosted API (/health).
+* General availability for [Opinion Mining](how-tos/text-analytics-how-to-sentiment-analysis.md?tabs=version-3-1#opinion-mining).
+* General availability for [PII extraction and redaction](how-tos/text-analytics-how-to-entity-linking.md?tabs=version-3-1#personally-identifiable-information-pii).
+* General availability for [Asynchronous (`/analyze`) endpoint](how-tos/text-analytics-how-to-call-api.md?tabs=synchronous#using-the-api-asynchronously).
+* Updated [quickstart](quickstarts/client-libraries-rest-api.md) examples with new SDK. 
 
 ## June 2021
 

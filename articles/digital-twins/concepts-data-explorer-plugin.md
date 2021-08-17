@@ -40,7 +40,7 @@ The plugin works by calling the [Azure Digital Twins query API](/rest/api/digita
     For example, consider the below Azure Digital Twins query that is executed using the API:
     
     ```SQL
-    SELECT * FROM DIGITAL TWINS
+    SELECT * FROM DIGITALTWINS
     ```
     
     To execute that query when using the plugin, it should be rewritten like this:
@@ -64,7 +64,7 @@ The plugin works by calling the [Azure Digital Twins query API](/rest/api/digita
 
 
 >[!IMPORTANT]
->The user of the plugin must be granted the **Azure Digital Twins Data Reader** role or the **Azure Digital Twins Data Owner** role, as the user's Azure AD token is used to authenticate. Information on how to assign this role can be found in [Concepts: Security for Azure Digital Twins solutions](concepts-security.md#authorization-azure-roles-for-azure-digital-twins).
+>The user of the plugin must be granted the **Azure Digital Twins Data Reader** role or the **Azure Digital Twins Data Owner** role, as the user's Azure AD token is used to authenticate. Information on how to assign this role can be found in [Security for Azure Digital Twins solutions](concepts-security.md#authorization-azure-roles-for-azure-digital-twins).
 
 For more information on using the plugin, see the [Kusto documentation for the azure_digital_twins_query_request plugin](/azure/data-explorer/kusto/query/azure-digital-twins-query-request-plugin).
 
@@ -73,7 +73,7 @@ To see example queries and complete a walkthrough with sample data, see [Azure D
 ## Using Azure Data Explorer IoT data with Azure Digital Twins
 
 There are various ways to ingest IoT data into Azure Data Explorer. Here are two that you might use when using Azure Data Explorer with Azure Digital Twins:
-* Historize digital twin property values to Azure Data Explorer with an Azure function that handles twin change events and writes the twin data to Azure Data Explorer, similar to the process used in [How-to: Integrate with Azure Time Series Insights](how-to-integrate-time-series-insights.md). This path will be suitable for customers who use telemetry data to bring their digital twins to life.
+* Historize digital twin property values to Azure Data Explorer with an Azure function that handles twin change events and writes the twin data to Azure Data Explorer, similar to the process used in [Integrate with Azure Time Series Insights](how-to-integrate-time-series-insights.md). This path will be suitable for customers who use telemetry data to bring their digital twins to life.
 * [Ingest IoT data directly into your Azure Data Explorer cluster from IoT Hub](/azure/data-explorer/ingest-data-iot-hub) or from other sources. Then, the Azure Digital Twins graph will be used to contextualize the time series data using joint Azure Digital Twins/Azure Data Explorer queries. This path may be suitable for direct-ingestion workloads. 
 
 ### Mapping data across Azure Data Explorer and Azure Digital Twins
@@ -146,4 +146,4 @@ For instance, if you want to represent a property with three fields for roll, pi
 
 * View sample queries using the plugin, including a walkthrough that runs the queries in an example scenario: [Azure Digital Twins query plugin for Azure Data Explorer: Sample queries and walkthrough](https://github.com/Azure-Samples/azure-digital-twins-getting-started/tree/main/adt-adx-queries) 
 
-* Read about another strategy for analyzing historical data in Azure Digital Twins: [How-to: Integrate with Azure Time Series Insights](how-to-integrate-time-series-insights.md)
+* Read about another strategy for analyzing historical data in Azure Digital Twins: [Integrate with Azure Time Series Insights](how-to-integrate-time-series-insights.md)

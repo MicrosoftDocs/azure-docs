@@ -69,7 +69,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create a dashboard
-            url: core/howto-create-personal-dashboards.md
+            url: core/howto-manage-dashboards.md
           - text: Analyze your device data
             url: core/howto-create-analytics.md
           - text: Export data to cloud destinations

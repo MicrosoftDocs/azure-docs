@@ -4,6 +4,7 @@ description: Learn how to use a solution template to copy data in bulk from Azur
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.date: 12/09/2020
 ---

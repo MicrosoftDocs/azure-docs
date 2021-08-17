@@ -1,8 +1,11 @@
 ---
 title: Troubleshoot security and access control issues
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot security and access control issues in Azure Data Factory. 
 author: lrtoyou1223
 ms.service: data-factory
+ms.subservice: integration-runtime
+ms.custom: synapse
 ms.topic: troubleshooting
 ms.date: 07/28/2021
 ms.author: lle
@@ -198,12 +201,12 @@ If you  are doing any operation related to CMK, you should do all ADF related op
 There are three possible ways to solve the issue. They are as follows:
 
 * You revoked ADF's access to Key vault where the CMK key was stored. 
-You  can reassign access to data factory following permissions: **Get, Unwrap Key, and Wrap Key**. These permissions are required to enable customer-managed keys in Data Factory. Please refer to [Grant access to ADF](https://docs.microsoft.com/azure/data-factory/enable-customer-managed-key#grant-data-factory-access-to-azure-key-vault)
+You  can reassign access to data factory following permissions: **Get, Unwrap Key, and Wrap Key**. These permissions are required to enable customer-managed keys in Data Factory. Please refer to [Grant access to ADF](enable-customer-managed-key.md#grant-data-factory-access-to-azure-key-vault)
  Once the permission is provided, you  should be able to delete ADF
  
 * Customer deleted Key Vault / CMK before deleting ADF. 
  CMK in ADF should have "Soft Delete" enabled and "Purge Protect" enabled which has default retention policy of 90 days. You can restore the deleted key.  
-Please review [Recover deleted Key](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-portal#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates ) and [Deleted Key Value](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault)
+Please review [Recover deleted Key](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates) and [Deleted Key Value](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault)
 
 * User Assigned Managed Identity (UA-MI) was deleted before ADF. 
 You can recover from this by using REST API calls, you can do this in an http client of your choice in any programming language. If you have not anything already set up for REST API calls with Azure authentication, the easiest way to do this would be by using POSTMAN/Fiddler. Please follow following steps.

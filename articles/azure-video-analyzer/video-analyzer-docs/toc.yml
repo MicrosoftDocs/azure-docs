@@ -77,6 +77,8 @@
     href: pipeline-extension.md
   - name: Video recording
     href: video-recording.md
+  - name: AI composition overview
+    href: ai-composition-overview.md    
   - name: Scenarios 
     items:
     - name: Event-based video recording
@@ -121,6 +123,8 @@
     items:      
     - name: Develop and deploy gRPC inference server
       href: develop-deploy-grpc-inference-srv.md
+    - name: Analyze using AI composition
+      href: analyze-ai-composition.md
   - name: Portal
     items:      
     - name: Invoke direct methods with the portal
@@ -129,6 +133,10 @@
     items:
     - name: Monitor and logging
       href: monitor-log-edge.md 
+  - name: Visualize
+    items:
+    - name: Embed player widget in Power BI
+      href: embed-player-in-power-bi.md
   - name: Troubleshoot
     href: troubleshoot.md
 - name: Reference 
@@ -162,6 +170,6 @@
   - name: Available regions
     href: https://azure.microsoft.com/global-infrastructure/services/?products=video-analyzer&regions=all
   - name: FAQs
-    href: faq-edge.md 
+    href: faq-edge.yml 
   - name: Quotas and limitations
     href: quotas-limitations.md

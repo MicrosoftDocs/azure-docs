@@ -4,6 +4,7 @@ description: Use different methods to troubleshoot pipeline trigger issues in Az
 author: ssabat
 ms.service: data-factory
 ms.date: 08/17/2021
+ms.subservice: troubleshooting
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
@@ -228,6 +229,7 @@ The expression builder can fail to load due to network or cache problems with th
 
 **Resolution**
 
+
 Upgrade the web browser to the latest version of a supported browser, clear cookies for the site, and refresh the page.
 
 ### "Code":"BadRequest","message":"ErrorCode=FlowRunSizeLimitExceeded
@@ -253,7 +255,7 @@ You have not optimized mapping data flow.
 * Scale up your databases and warehouses to match the performance of your ADF. 
 * Use a separate IR(integration runtime) for activities running in parallel.
 * Adjust the partitions at the source and sink accordingly. 
-* Review  [Data Flow Optimizations](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-performance)
+* Review  [Data Flow Optimizations](concepts-data-flow-performance.md)
 
 ## Next steps
 

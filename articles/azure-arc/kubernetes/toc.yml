@@ -1,10 +1,10 @@
-- name: Azure Arc enabled Kubernetes
+- name: Azure Arc-enabled Kubernetes
   href: index.yml
 - name: Overview
   items:
-  - name: About Azure Arc enabled Kubernetes
+  - name: About Azure Arc-enabled Kubernetes
     href: overview.md
-  - name: Azure Arc validation program
+  - name: Azure Arc validated partners
     href: validation-program.md
 - name: Quickstarts
   items:
@@ -16,6 +16,10 @@
     href: tutorial-use-gitops-connected-cluster.md
   - name: Implement CI/CD with GitOps
     href: tutorial-gitops-ci-cd.md
+- name: Samples
+  items:
+  - name: Azure Resource Graph queries
+    href: ./resource-graph-samples.md
 - name: Concepts
   items:
   - name: Agent architecture
@@ -34,6 +38,8 @@
     href: faq.md
   - name: CI/CD workflow using GitOps
     href: conceptual-gitops-ci-cd.md
+  - name: Inner loop developer experience
+    href: conceptual-inner-loop-gitops.md  
 - name: How-to guides
   items:
   - name: Connect cluster using service principal

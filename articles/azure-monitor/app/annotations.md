@@ -2,7 +2,7 @@
 title: Release annotations for Application Insights | Microsoft Docs
 description: Learn how to create annotations to track deployment or other significant events with Application Insights.
 ms.topic: conceptual
-ms.date: 07/02/2021
+ms.date: 07/20/2021
 
 ---
 
@@ -149,11 +149,11 @@ Now, whenever you use the release template to deploy a new release, an annotatio
 
 Select any annotation marker to open details about the release, including requestor, source control branch, release pipeline, and environment.
 
-## Classic annotations
+## Release annotations using API keys
 
 Release annotations are a feature of the cloud-based Azure Pipelines service of Azure DevOps.
 
-### Install the Annotations extension (one time)
+### Install the annotations extension (one time)
 
 To be able to create release annotations, you'll need to install one of the many Azure DevOps extensions available in the Visual Studio Marketplace.
 
@@ -165,7 +165,7 @@ To be able to create release annotations, you'll need to install one of the many
    
 You only need to install the extension once for your Azure DevOps organization. You can now configure release annotations for any project in your organization.
 
-### Configure classic release annotations
+### Configure release annotations using API keys
 
 Create a separate API key for each of your Azure Pipelines release templates.
 
@@ -207,6 +207,13 @@ Create a separate API key for each of your Azure Pipelines release templates.
 
    > [!NOTE]
    > Limits for API keys are described in the [REST API rate limits documentation](https://dev.applicationinsights.io/documentation/Authorization/Rate-limits).
+
+### Transition to the new release annotation
+
+To use the new release annotations: 
+1. [Remove the Release Annotations extension](/azure/devops/marketplace/uninstall-disable-extensions).
+1. Remove the Application Insights Release Annotation task in your Azure Pipelines deployment. 
+1. Create new release annotations with [Azure Pipelines](#release-annotations-with-azure-pipelines-build) or [Azure CLI](#create-release-annotations-with-azure-cli).
 
 ## Next steps
 

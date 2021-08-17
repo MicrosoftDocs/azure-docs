@@ -1394,7 +1394,7 @@ Both Azure and Google maps support overlaying georeferenced images on the map. G
 
 #### Before: Google Maps
 
-Specify the URL to the image you want to overlay and a bounding box to bind the image on the map. This example overlays a map image of [Newark New Jersey from 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) on the map.
+Specify the URL to the image you want to overlay and a bounding box to bind the image on the map. This example overlays a map image of Newark New Jersey from 1922 on the map.
 
 ```html
 <!DOCTYPE html>

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/08/2020
+ms.date: 07/13/2021
 ms.author: martinco
 ms.collection: M365-identity-device-management
 ---
@@ -66,7 +66,7 @@ Incorporate the following access controls in your existing Conditional Access po
 5. If you are protecting VPN access using Azure AD MFA NPS extension, consider federating your VPN solution as a [SAML app](../manage-apps/view-applications-portal.md) and determine the app category as recommended below. 
 
 >[!NOTE]
-> Risk-based policies require [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) licenses.
+> Risk-based policies require [Azure AD Premium P2](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) licenses.
 
 The following example describes policies you must create to provide a resilient access control for user to access their apps and resources. In this example, you will require a security group **AppUsers** with the target users you want to give access to, a group named **CoreAdmins** with the core administrators, and a group named **EmergencyAccess** with the emergency access accounts.
 This example policy set will grant selected users in **AppUsers**, access to selected apps if they are connecting from a trusted device OR provide strong authentication, for example MFA. It excludes emergency accounts and core administrators.

@@ -165,7 +165,7 @@ To install the Dell PowerEdge R340XL appliance, you need:
 
 Dell BIOS configuration is required to adjust the Dell appliance to work with the software.
 
-The BIOS configuration is performed through a predefined configuration. The file is accessible from the [Help Center](https://help.cyberx-labs.com/).
+The BIOS configuration is performed through a predefined configuration. The file is accessible from the [Help Center](https://cyberx-labs.zendesk.com/hc/).
 
 Import the configuration file to the Dell appliance. Before using the configuration file, you need to establish the communication between the Dell appliance and the management computer.
 
@@ -1035,7 +1035,7 @@ To install the software:
 
 ## Legacy appliances
 
-This section describes installation procedures for appliances supported by Azure Defender for IoT, but that are **outdated**. It is **not recommended** to purchase these appliances.
+This section describes installation procedures for *legacy* appliances only. See [Identify required appliances](how-to-identify-required-appliances.md#identify-required-appliances), if you are buying a new appliance.
 
 ### Nuvo 5006LP installation
 
