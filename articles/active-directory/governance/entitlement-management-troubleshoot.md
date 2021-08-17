@@ -37,6 +37,8 @@ This article describes some items you should check to help you troubleshoot Azur
 
     Note that the Azure portal may also show service principals for services that cannot be selected as applications.  In particular, **Exchange Online** and **SharePoint Online** are services, not applications that have resource roles in the directory, so they cannot be included in an access package.  Instead, use group-based licensing to establish an appropriate license for a user who needs access to those services.
 
+* Applications which only support Personal Microsoft Account users for authentication, and do not support organizational accounts in your directory, do not have application roles and cannot be added to access package catalogs.
+
 * For a group to be a resource in an access package, it must be able to be modifiable in Azure AD.  Groups that originate in an on-premises Active Directory cannot be assigned as resources because their owner or member attributes cannot be changed in Azure AD.   Groups that originate in Exchange Online as Distribution groups cannot be modified in Azure AD either. 
 
 * SharePoint Online document libraries and individual documents cannot be added as resources.  Instead, create an [Azure AD security group](../fundamentals/active-directory-groups-create-azure-portal.md), include that group and a site role in the access package, and in SharePoint Online use that group to control access to the document library or document.
