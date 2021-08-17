@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: New policy assignment with REST API"
 description: In this quickstart, you use REST API to create an Azure Policy assignment to identify non-compliant resources.
-ms.date: 05/01/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
 ---
 # Quickstart: Create a policy assignment to identify non-compliant resources with REST API
@@ -40,7 +40,7 @@ Run the following command to create a policy assignment:
    - REST API URI
 
      ```http
-     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/audit-vm-manageddisks?api-version=2019-09-01
+     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/audit-vm-manageddisks?api-version=2021-09-01
      ```
 
    - Request Body
@@ -126,7 +126,7 @@ the Azure portal view.
 To remove the assignment created, use the following command:
 
 ```http
-DELETE https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/audit-vm-manageddisks?api-version=2019-09-01
+DELETE https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/audit-vm-manageddisks?api-version=2021-09-01
 ```
 
 Replace `{scope}` with the scope you used when you first created the policy assignment.
