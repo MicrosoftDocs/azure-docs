@@ -162,6 +162,7 @@ You need to store the client secret that you previously recorded in your Azure A
 > - Sign in with Apple requires the Admin to renew their client secret every 6 months.
 > - You'll need to manually renew the Apple client secret if it expires and store the new value in the policy key.
 > - We recommend you set your own reminder within 6 months to generate a new client secret. 
+> - Follow the guidelines how to [offer Sign in with Apple button](#customize-your-user-interface).
 
 ## Configure Apple as an identity provider
 
