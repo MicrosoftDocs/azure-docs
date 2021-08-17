@@ -1,8 +1,8 @@
 ---
 title: Catalog Permissions (preview)
 description: This article gives an overview of how to configure Role-Based Access Control (RBAC) in the Azure Purview
-author: yarong
-ms.author: yarong
+author: viseshag
+ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
@@ -11,23 +11,23 @@ ms.date: 08/18/2020
 
 # Access control in Azure Purview
 
-Azure Purview uses **Collections** to organize and manage access across its sources, assets, and other objects in Purview. This article describes collections and access management in your Azure Purview instance.
+Azure Purview uses **Collections** to organize and manage access across its sources, assets, and other artifacts. This article describes collections and access management in your Azure Purview instance.
 
 > [!NOTE]
-> At this time, this information only applies for Purview instances created **on or after August 18th**. Instances created before August 18th are able to create collections, but do not manage permissions through those collections. For information on access control for a Purview instance created before August 18th, see our [**legacy collection guide**](#legacy-collection-guide) at the bottom of the page.
+> At this time, this information only applies for Purview instances created **on or after August 18th**. Instances created before August 18th are able to create collections, but do not manage permissions through those collections. For information on access control for a Purview instance created before August 18th, see our [**legacy permission guide**](#legacy-permission-guide) at the bottom of the page.
 
 ## Collections
 
-A collection is a tool Azure Purview uses to group assets, sources, and other objects into a hierarchy for discoverability and to manage access control. All accesses to Purview's resources are managed from collections in the Purview instance itself.
+A collection is a tool Azure Purview uses to group assets, sources, and other artifacts into a hierarchy for discoverability and to manage access control. All access to Purview's resources are managed from collections in the Purview instance itself.
 
 ## Roles
 
-Azure Purview uses a set of predefined roles to control who can access what in Azure Purview. These roles are currently:
+Azure Purview uses a set of predefined roles to control who can access what within the account. These roles are currently:
 
 - **Collection admins** - can edit Purview collections, their details, and add subcollections. They can also add users into other Purview roles on collections where they're admins.
 - **Data source admins** - can manage data sources and data scans.
-- **Data curators** - can create, read, modify, and delete catalog data objects and establish relationships between objects.
-- **Data readers** - can access but not modify catalog data objects.
+- **Data curators** - can create, read, modify, and delete catalog data assets and establish relationships between assets.
+- **Data readers** - can access but not modify catalog data assets.
 
 ## Who should be assigned to what role?
 
@@ -43,15 +43,15 @@ Azure Purview uses a set of predefined roles to control who can access what in A
 
 ## Understanding how to use Azure Purview's roles and collections
 
-All access control is managed in Purview's collections. Purview's collections can be found in the [Purview Studio](use-purview-studio.md) by opening your Purview account in the Azure portal and selecting the Purview Studio tile on the Overview page. From there, navigate to the management center on the left menu, and then select the 'Collections' tab.
+All access control is managed in Purview's collections. Purview's collections can be found in the [Purview Studio](use-purview-studio.md). Open your Purview account in the Azure portal and select the Purview Studio tile on the Overview page. From there, navigate to the data map on the left menu, and then select the 'Collections' tab.
 
-When an Azure Purview instance is created, it starts with a root collection that has the same name as the Purview account itself. The creator of the Purview account is automatically added as the Collection Admin of this root collection, and can edit and manage this collection.
+When an Azure Purview instance is created, it starts with a root collection that has the same name as the Purview account itself. The creator of the Purview account is automatically added as a Collection Admin, Data Source Admin, Data Curator, and Data Reader on this root collection, and can edit and manage this collection.
 
 Sources, assets, and objects can be added directly to this root collection, but so can other collections. Adding collections will give you more control over who has access to data across your Purview instance.
 
-All other users can only access information within the Azure Purview instance if they, or a group they are in, are given one of the above roles. This means, when an Azure Purview instance is created, no one but the creator can access or use its APIs until they are [added to one or more of above roles in a collection](how-to-create-and-manage-collections.md#add-role-assignments).
+All other users can only access information within the Azure Purview instance if they, or a group they're in, are given one of the above roles. This means, when you create an Azure Purview account, no one but the creator can access or use its APIs until they are [added to one or more of the above roles in a collection](how-to-create-and-manage-collections.md#add-role-assignments).
 
-Users can only be added to a collection by a collection admin, or through permissions inheritance. The permissions of a parent collection are automatically inherited by subcollections. However, you can choose to [restrict permission inheritance](how-to-create-and-manage-collections.md#restrict-inheritance) on any collection. If you do this, the subcollections will no longer inherit permissions from the parent, though collection admins that are automatically inherited from a parent collection can't be removed.
+Users can only be added to a collection by a collection admin, or through permissions inheritance. The permissions of a parent collection are automatically inherited by its subcollections. However, you can choose to [restrict permission inheritance](how-to-create-and-manage-collections.md#restrict-inheritance) on any collection. If you do this, its subcollections will no longer inherit permissions from the parent, though collection admins that are automatically inherited from a parent collection can't be removed.
 
 ## Assigning permissions to your users
 
@@ -59,12 +59,11 @@ After creating an Azure Purview instance, the first thing to do is create collec
 
 ### Creating collections
 
-Collections can be customized for structure of the sources in your Purview instance, and can act like organized storage bins for these resources.
-Large collections can flow into subcollections to manage smaller and smaller aspects of your data map. When you're thinking about the collections you might need, consider how your users will access or discover information. Are your sources broken up by departments? Are there specialized groups within those departments that will only need to discover some assets? Are there some sources that should be discoverable by all your users?
+Collections can be customized for structure of the sources in your Purview instance, and can act like organized storage bins for these resources. When you're thinking about the collections you might need, consider how your users will access or discover information. Are your sources broken up by departments? Are there specialized groups within those departments that will only need to discover some assets? Are there some sources that should be discoverable by all your users?
 
 This will inform the collections and subcollections you may need to most effectively organize your data map.
 
-New collections can be added directly to the data map, where you can choose their parent collection from a drop-down, or they can be added from the parent as a sub collection. In the data map view you can see all your sources and assets ordered by the collections, and in the list, the source's collection is listed.
+New collections can be added directly to the data map where you can choose their parent collection from a drop-down, or they can be added from the parent as a sub collection. In the data map view, you can see all your sources and assets ordered by the collections, and in the list, the source's collection is listed.
 
 For more instructions and information, you can follow our [guide for creating and managing collections](how-to-create-and-manage-collections.md).
 
@@ -74,20 +73,20 @@ Now that we have a base understanding of collections, permissions, and how they 
 
 :::image type="content" source="./media/catalog-permissions/collection-example.png" alt-text="Chart showing a sample collections hierarchy broken up by region and department." border="true":::
 
-This is one way an organization might structure their data: Starting with their root collection (Contoso, in this example) collections are organized into regions, and then into departments and subdepartments. Data sources and assets can be added to any one these collections to organize data resources by these regions and department, and manage access control along those lines. There is one subdepartment, revenue, that has strict access guidelines, so permissions will need to be tightly managed.
+This is one way an organization might structure their data: Starting with their root collection (Contoso, in this example) collections are organized into regions, and then into departments and subdepartments. Data sources and assets can be added to any one these collections to organize data resources by these regions and department, and manage access control along those lines. There's one subdepartment, Revenue, that has strict access guidelines, so permissions will need to be tightly managed.
 
-So for our example above, the [data reader role](#roles) can access information within the catalog, but not manage or edit it. Adding the Data Reader permission to a group on the root collection and allowing inheritance will give all users in that group reader permissions on Purview sources and assets. [Restricting inheritance](how-to-create-and-manage-collections.md#restrict-inheritance) on the Revenue group will control access to those assets. Users who need access to revenue information can be added separately to the revenue collection.
-Similarly with the Data Curator and Data Source Admin roles, permissions for those groups will start at the collection where they are assigned, and trickle down to subcollections that have not restricted inheritance. Below we have assigned permissions for several groups at collections levels in the Americas sub collection.
+The [data reader role](#roles) can access information within the catalog, but not manage or edit it. So for our example above, adding the Data Reader permission to a group on the root collection and allowing inheritance will give all users in that group reader permissions on Purview sources and assets. This makes these resources discoverable, but not editable, by everyone in that group. [Restricting inheritance](how-to-create-and-manage-collections.md#restrict-inheritance) on the Revenue group will control access to those assets. Users who need access to revenue information can be added separately to the Revenue collection.
+Similarly with the Data Curator and Data Source Admin roles, permissions for those groups will start at the collection where they're assigned and trickle down to subcollections that haven't restricted inheritance. Below we have assigned permissions for several groups at collections levels in the Americas sub collection.
 
 :::image type="content" source="./media/catalog-permissions/collection-permissions-example.png" alt-text="Chart showing a sample collections hierarchy broken up by region and department showing permissions distribution." border="true":::
 
 ### Adding users to roles
 
-Role assignment is managed through the collections. Only a user with the [collection admin role](#roles) can grant permissions to other users on that collection. When new permissions need to be added, a collection admin will access the Purview Studio, navigate to management, then the collections tab, and select the collection where a user needs to be added. From the Role Assignments tab they will be able to add and manage users who need permissions.
+Role assignment is managed through the collections. Only a user with the [collection admin role](#roles) can grant permissions to other users on that collection. When new permissions need to be added, a collection admin will access the Purview Studio, navigate to data map, then the collections tab, and select the collection where a user needs to be added. From the Role Assignments tab they will be able to add and manage users who need permissions.
 
 For full instructions, see our [how-to guide for adding role assignments](how-to-create-and-manage-collections.md#add-role-assignments).
 
-## Legacy collection guide
+## Legacy permission guide
 
 > [!NOTE]
 > This legacy collection guide is only for Purview instances created before August 18th. Instances created after that time should follow the guide above.

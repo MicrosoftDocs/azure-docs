@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 08/16/2021
+ms.date: 08/18/2021
 ms.custom: template-how-to
 ---
 
@@ -31,7 +31,7 @@ In order to create and manage collections in Purview, you will need to be a **Co
 
 1. Select Data Map > Collections from the left pane to open collection management page.
 :::image type="content" source="./media/quickstart-create-collection/find-collections.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the Collections tab selected." border="true":::
-1. Select your root collection. This is the top collection in your collection list and will have the same name as your Purview resource. In our example below, it is called Contoso Purview. Alternatively-- if collections already exist you can select any collection you would like to create a collection under.
+1. Select your root collection. This is the top collection in your collection list and will have the same name as your Purview resource. In our example below, it is called Contoso Purview. Alternatively-- if collections already exist you can select any collection where you want to create a subcollection.
 :::image type="content" source="./media/quickstart-create-collection/select-root-collection.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the root collection highlighted." border="true":::
 1. Select role assignments in the collection window.
 :::image type="content" source="./media/quickstart-create-collection/role-assignments.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the role assignments tab highlighted." border="true":::
@@ -70,7 +70,9 @@ You will need to be a collection admin in order to create a collection. If you a
 
 ## Adding roles and restricting access through collections
 
-In Purview since permissions are managed through collections it is important to understand the roles and what permissions they will give your users. Users will have access on the collection levels they are assigned to, and can be assigned different permissions on different collections. Below the guide will discuss the roles, how to manage them, and permissions inheritance.
+Since permissions are managed through collections in Purview, it is important to understand the roles and what permissions they will give your users. A user granted permissions on a collection will have access to sources and assets associated with that collection, as well as inherit permissions to subcollections. Inheritance [can be restricted](#restrict-inheritance), but is allowed by default.
+
+The guide below will discuss the roles, how to manage them, and permissions inheritance.
 
 ### Roles
 
@@ -83,7 +85,7 @@ All assigned roles apply to sources, assets, and other objects within the collec
 
 ### Add role assignments
 
-1. Select “Role assignments” tab to see all the roles in a collection. Only a collection admin can manage role assignments.
+1. Select the “Role assignments” tab to see all the roles in a collection. Only a collection admin can manage role assignments.
 :::image type="content" source="./media/how-to-create-and-manage-collections/select-role-assignments.png" alt-text="Screenshot of Purview studio collection window, with the role assignments tab highlighted." border="true":::
 1. Select “Edit role assignments” or the person icon to edit each role member.
 :::image type="content" source="./media/how-to-create-and-manage-collections/edit-role-assignments.png" alt-text="Screenshot of Purview studio collection window, with the edit role assignments dropdown list selected." border="true":::
@@ -100,15 +102,18 @@ All assigned roles apply to sources, assets, and other objects within the collec
 
 ### Restrict inheritance
 
-Collections permissions are inherited automatically from the parent collection. For example, any permissions on the root collection (the collection at the top of the list that has the same name as your Purview resource), will be inherited by all collections below it. You can restrict inheritance from a parent collection at any time, using the restrict inherited permissions option.
+Collection permissions are inherited automatically from the parent collection. For example, any permissions on the root collection (the collection at the top of the list that has the same name as your Purview resource), will be inherited by all collections below it. You can restrict inheritance from a parent collection at any time, using the restrict inherited permissions option.
 
+1. Navigate to the collection where you want to restrict inheritance and select the 'Role assignments' tab.
 1. Select “Restrict inherited permissions” and click “Restrict access” in the popup dialog to remove inherited permissions from this collection and any subcollections. Note that collection admin permissions won’t be affected.
 :::image type="content" source="./media/how-to-create-and-manage-collections/restrict-access-inheritance.png" alt-text="Screenshot of Purview studio collection window, with the role assignments tab selected, and the restrict inherited permissions slide button highlighted." border="true":::
 1. After restriction, inherited members are removed from the roles expect for collection admin.
-1. Click the “Restrict inherited permissions” toggle button to revert.
+1. Click the “Restrict inherited permissions” toggle button again to revert.
 :::image type="content" source="./media/how-to-create-and-manage-collections/remove-restriction.png" alt-text="Screenshot of Purview studio collection window, with the role assignments tab selected, and the unrestrict inherited permissions slide button highlighted." border="true":::
 
 ## Adding assets to collections
+
+Assets and sources are also associated with collections. During a scan, if the scan was associated with a collection the assets will be automatically added to that collection, but can also be manually added.
 
 1. Check the collection information in asset details. You can find collection information in the “Collection path” section on right-top corner of the asset details page.
 :::image type="content" source="./media/how-to-create-and-manage-collections/collection-path.png" alt-text="Screenshot of Purview studio asset window, with the collection path highlighted." border="true":::
@@ -171,7 +176,7 @@ The search results page shows a list of assets that match the keywords provided 
 :::image type="content" source="./media/how-to-create-and-manage-collections/browse-by-collection.png" alt-text="Screenshot of the catalog Purview studio window with the browse assets button highlighted." border="true":::
 1. On the Browse asset page, select `By collection` pivot. Collections are listed with hierarchical table view. To further explore assets in each collection, click on the corresponding collection name.
 :::image type="content" source="./media/how-to-create-and-manage-collections/by-collection-view.png" alt-text="Screenshot of the asset Purview studio window with the by collection tab selected."border="true":::
-1. On the next page, the search results of the assets under selected collection will be show up. You can narrow the results by selecting the facet filters. Or you can see the assets under other collections by clicking on the sub/related collection names  
+1. On the next page, the search results of the assets under selected collection will be show up. You can narrow the results by selecting the facet filters. Or you can see the assets under other collections by clicking on the sub/related collection names
 :::image type="content" source="./media/how-to-create-and-manage-collections/search-results-by-collection.png" alt-text="Screenshot of the catalog Purview studio window with the by collection tab selected."border="true":::
 1. To view the details of an asset, click the asset name in the search result. Or you can check the assets and bulk edit them.
 :::image type="content" source="./media/how-to-create-and-manage-collections/view-asset-details.png" alt-text="Screenshot of the catalog Purview studio window with the by collection tab selected and asset check boxes highlighted."border="true":::
