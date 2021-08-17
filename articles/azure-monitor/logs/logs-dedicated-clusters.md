@@ -59,7 +59,7 @@ Some of the configuration steps run asynchronously because they can't be complet
 
 You can check the status of the asynchronous operation by sending a GET request to the Azure-AsyncOperation header value:
 
-```rst
+```rest
 GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2021-06-01
 Authorization: Bearer <token>
 ```
@@ -97,7 +97,7 @@ Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
 # [REST](#tab/rest1)
 
 *Call* 
-```rst
+```rest
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
 Authorization: Bearer <token>
 Content-type: application/json
@@ -228,7 +228,7 @@ Use the following REST call to link to a cluster:
 
 *Send*
 
-```rst
+```rest
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2021-06-01 
 Authorization: Bearer <token>
 Content-type: application/json
@@ -404,7 +404,7 @@ Get-AzOperationalInsightsCluster
 
 *Call*
 
-```rst
+```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2021-06-01
 Authorization: Bearer <token>
 ```
@@ -464,7 +464,7 @@ The *billingType* property determines the billing attribution for the cluster an
 
 *Call*
 
-```rst
+```rest
 PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2021-06-01
 Authorization: Bearer <token>
 Content-type: application/json
@@ -484,13 +484,13 @@ Old data of the unlinked workspace might be left on the cluster. If this data is
 > [!WARNING] 
 > There is a limit of two linking operations for a specific workspace within a month. Take time to consider and plan unlinking actions accordingly.
 
-# [CLI](#tab/cli2)
+# [CLI](#tab/cli3)
 
 ```azurecli
 az monitor log-analytics workspace linked-service delete --resource-group "resource-group-name" --workspace-name "workspace-name" --name cluster
 ```
 
-# [PowerShell](#tab/powershell2)
+# [PowerShell](#tab/powershell3)
 
 Use the following PowerShell command to unlink a workspace from cluster:
 
