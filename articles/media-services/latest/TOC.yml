@@ -450,6 +450,9 @@
     - name: Copy videos without re-encoding with REST
       href: transform-create-copy-video-audio-how-to.md
       displayName: copy videos, copy, copy codec, copy video codec, copy audio codec, fast encoding, fast remux, remuxing, re-package, packaging, re-encoding
+    - name: Use the content aware encoding preset
+      href: encode-content-aware-how-to.md
+      displayName: encode, encoder, transcode, custom preset, content aware, transform 
   - name: Create jobs
     items:
     - name: Create jobs with CLI
