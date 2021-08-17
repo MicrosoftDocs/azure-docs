@@ -13,7 +13,7 @@ Uptime SLA is a tier to enable a financially backed, higher SLA for an AKS clust
 
 AKS recommends use of Uptime SLA in production workloads to ensure availability of control plane components. Clusters on free tier by contrast come with fewer replicas and limited resources for the control plane and are not suitable for production workloads.
 
-Customers can still create unlimited number of free clusters with a service level objective (SLO) of 99.5% and opt for the preferred SLO. Read about the Kubernetes API Server limits for free tier [here](quotas-skus-regions.md).
+Customers can still create unlimited number of free clusters with a service level objective (SLO) of 99.5% and opt for the preferred SLO. 
 
 > [!IMPORTANT]
 > For clusters with egress lockdown, see [limit egress traffic](limit-egress-traffic.md) to open appropriate ports.

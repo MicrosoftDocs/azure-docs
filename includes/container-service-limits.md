@@ -19,14 +19,12 @@ ms.custom: include file
 | Maximum node pools per cluster                                                                                     | 100                                                                                  |
 | Maximum pods per node: [Basic networking][basic-networking] with Kubenet                                           | Maximum: 250 <br /> Azure CLI default: 110 <br /> Azure Resource Manager template default: 110 <br /> Azure portal deployment default: 30          |
 | Maximum pods per node: [Advanced networking][advanced-networking] with Azure Container Networking Interface        | Maximum: 250 <br /> Default: 30                                                      |
-| Kubernetes API server in-flight requests on free tier                                                              | Mutating: 25<br /> Read-only: 50        
-| Kubernetes API server in-flight requests on Uptime SLA tier                                                        | Automatically scales                                                |
 | Open Service Mesh (OSM) AKS addon preview                                                                          | Kubernetes Cluster Version: 1.19+<sup>1</sup><br />OSM controllers per cluster: 1<sup>1</sup><br />Pods per OSM controller: 500<sup>1</sup><br />Kubernetes service accounts managed by OSM: 50<sup>1</sup> |
 
 <sup>1</sup>The OSM add-on for AKS is in a preview state and will undergo additional enhancements before general availability (GA). During the preview phase, it's recommended to not surpass the limits shown.<br />
 
 > [!IMPORTANT]
-> We recommend customers to enable Uptime SLA tier for production workloads. Uptime SLA tier enables autoscaling of the Kubernetes control plane and is required to support clusters with large number of nodes.
+> We recommend customers to enable Uptime SLA tier for production and performance/load testing workloads. Uptime SLA tier enables autoscaling of the Kubernetes control plane and is required to support clusters with production workloads within [the Uptime SLA](../articles/aks/uptime-sla).
 
 <!-- LINKS - Internal -->
 
