@@ -87,9 +87,9 @@ This document shows you how to create data collection rules.
 >   
 >   This includes:
 >   
->       - Windows servers installed on physical machines
->       - Windows servers installed on on-premises virtual machines
->       - Windows servers installed on virtual machines in non-Azure clouds
+>    - Windows servers installed on physical machines
+>    - Windows servers installed on on-premises virtual machines
+>    - Windows servers installed on virtual machines in non-Azure clouds
 
 ---
 
